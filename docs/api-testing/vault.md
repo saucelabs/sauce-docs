@@ -128,9 +128,7 @@ Now you can choose to insert or invoke this snippet in future tests that require
 
 ## Files
 
-In the **Drive** section of a project-specific **Vault**, you can upload files to use in your tests.
-
- The file size limit for an indivudal file is 16 MB. The total limit for the **Company Vault** is 100 MB. This means if one project-specific **Vault** is using 100 MB of storage, other projects cannot upload addtional files.
+In the **Drive** section of a project-specific **Vault**, you can upload files to use in your tests.The file size limit for an indivudal file is 16 MB. The total limit for the **Company Vault** is 100 MB. This means if one project-specific **Vault** is using 100 MB of storage, other projects cannot upload addtional files.
 
 ### Uploading a file
 
@@ -138,10 +136,12 @@ In the **Drive** section of a project-specific **Vault**, you can upload files t
 1. In the left panel, click **Vault**, then click **Drive**.
 1. Click **Upload file**. 
 1. Upload the file using drag and drop or **Choose file**, or enter the URL, then click **Upload**.
+ 
+You can work with your files in **Vault Drive** as follows:
 
-If you upload a file via a URL, you can hover over **source url** to view it.  <br/><img src={useBaseUrl('img/api-fortress/2022/09/vaultuploadfileURL.png')} alt="View Source URL" /> 
+If you upload a file via a URL, you can hover over **source url** to view the full address.  <br/><img src={useBaseUrl('img/api-fortress/2022/09/vaultuploadfileURL.png')} alt="View Source URL" /> 
 
-You can also rename, download, or delete individual files.<br/><img src={useBaseUrl('img/api-fortress/2022/09/vaultfileoptions.png')} alt="Rename, delete or download files" />
+You can rename, download, or delete individual files.<br/><img src={useBaseUrl('img/api-fortress/2022/09/vaultfileoptions.png')} alt="Rename, delete or download files" />
 
 To delete multiple files, select the checkbox next to the files, then click **Delete Selected**.<br/><img src={useBaseUrl('img/api-fortress/2022/09/vaultdeletefileoptions.png')} alt="Delete multiple files" /> 
 
