@@ -45,13 +45,13 @@ See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstar
   <TabItem value="Mac/Linux">
 
   ```bash
-  cd sc-4.8.0-osx/bin
+  cd sc-4.8.1-osx/bin
   ```
   </TabItem>
   <TabItem value="Windows">
 
   ```bash
-  cd sc-4.8.0-win32/bin
+  cd sc-4.8.1-win32/bin
   ```
   </TabItem>
   </Tabs>
@@ -85,63 +85,63 @@ See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstar
    * Create a new test using an example from [Sauce Labs Demonstration Scripts](https://github.com/saucelabs-training). Follow those instructions to configure the test before proceeding to the next step.
 4. If you are using a name for your tunnel, add the [`TUNNEL_NAME`](/dev/test-configuration-options/#tunnelName) to the capabilities section of your test script. Use the same name you used in Step 1.
 
-<Tabs
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'Node.js', value: 'Node.js'},
-    {label: 'C#', value: 'C#'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-  ]}>
+  <Tabs
+    defaultValue="Java"
+    values={[
+      {label: 'Java', value: 'Java'},
+      {label: 'Node.js', value: 'Node.js'},
+      {label: 'C#', value: 'C#'},
+      {label: 'Python', value: 'Python'},
+      {label: 'Ruby', value: 'Ruby'},
+    ]}>
 
-<TabItem value="Java">
+  <TabItem value="Java">
 
-```java
-caps.SetCapability("tunnelName", "TUNNEL_NAME");
-```
+  ```java
+  caps.SetCapability("tunnelName", "TUNNEL_NAME");
+  ```
 
-</TabItem>
+  </TabItem>
 
-<TabItem value="Node.js">
+  <TabItem value="Node.js">
 
-```javascript
-'tunnelName': 'TUNNEL_NAME'
-```
+  ```javascript
+  'tunnelName': 'TUNNEL_NAME'
+  ```
 
-</TabItem>
+  </TabItem>
 
-<TabItem value="C#">
+  <TabItem value="C#">
 
-```csharp
-caps.SetCapability("tunnelName", "TUNNEL_NAME");
-```
+  ```csharp
+  caps.SetCapability("tunnelName", "TUNNEL_NAME");
+  ```
 
-</TabItem>
+  </TabItem>
 
-<TabItem value="Python">
+  <TabItem value="Python">
 
-```py
-'tunnelName': 'TUNNEL_NAME'
-```
+  ```py
+  'tunnelName': 'TUNNEL_NAME'
+  ```
 
-</TabItem>
+  </TabItem>
 
-<TabItem value="Ruby">
+  <TabItem value="Ruby">
 
-```rb
-'tunnelName': 'TUNNEL_NAME'
-```
+  ```rb
+  'tunnelName': 'TUNNEL_NAME'
+  ```
 
-</TabItem>
-</Tabs>
+  </TabItem>
+  </Tabs>
 
 5. When you see `connected`, [verify that your tunnel is active](/secure-connections/sauce-connect/quickstart/#verifying-a-tunnel).
 
 Once you've confirmed that your network is configured for Sauce Connect Proxy, you can start new tunnels as needed. As a best practice, we recommend creating a new tunnel for each test suite or build and tearing it down at the end of your test.
 
 You can continue using this basic setup or try a more advanced configuration, which is ideal for large scale, enterprise-level testing:
-  * [Sauce Connect Proxy with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies))
+  * [Sauce Connect Proxy with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies)
   * [Sauce Connect Proxy High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability)
 
 

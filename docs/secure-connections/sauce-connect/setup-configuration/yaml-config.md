@@ -35,7 +35,7 @@ For the reference, below is the complete config file that contains the latest Sa
 To view the description for a YAML file property, look up the corresponding [CLI flag](/dev/cli/sauce-connect-proxy/).
 
 ```bash
-$ cat /sc-4.8.0-osx/config_examples/config.yml
+$ cat /sc-4.8.1-osx/config_examples/config.yml
 ---
 api-key: ""
 auth: []

@@ -63,7 +63,7 @@ With Sauce Labs API Testing, you'll test the API consumer (client) side in a pro
 
 2. From a command-line terminal, start [Piestry](/api-testing/mocking/), our API mocking server, by issuing the launch command below. The `--logger` value will be the webhook URL you generated in the previous step, appended with `/insights/events/_contract`.  
   ```bash
-  docker run --pull -v "$(pwd)/myspec:/specs" \
+  docker run --pull always -v "$(pwd)/myspec:/specs" \
   -p 5000:5000 quay.io/saucelabs/piestry \
   -u /specs/myspec.yaml \
   --logger https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/insights/events/_contract
@@ -73,7 +73,7 @@ With Sauce Labs API Testing, you'll test the API consumer (client) side in a pro
 
   Alternatively, you can run the command as a [build](/api-testing/project-dashboard/#test-build-reports) by issuing the following launch command instead of the above:
   ```bash
-  docker run --pull -v "$(pwd)/myspec:/specs" \
+  docker run --pull always -v "$(pwd)/myspec:/specs" \
   -p 5000:5000 quay.io/saucelabs/piestry \
   -u /specs/myspec.yaml \
   --logger "https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/insights/events/_contract?buildId=build123"
