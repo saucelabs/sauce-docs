@@ -33,3 +33,7 @@ When running Cypress test along with Cucumber, you can use tags to select which 
 ```
 saucectl run --env CYPRESS_TAGS="(@smoke or @ui) and (not @slow)"
 ```
+
+## Component Testing
+
+Component Testing is in beta and due to an issue from Cypress, `saucectl` doesn't currently support Component Testing.
