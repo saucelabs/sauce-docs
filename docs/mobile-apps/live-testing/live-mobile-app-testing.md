@@ -109,7 +109,7 @@ There is a distinction between **Public Devices** and **Private Devices**.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-busy.png')} alt="Busy public device" width="280"/>
 
-* Private devices are associated with your account and are an **enterprise only** feature. Private devices are indicated by a person icon.
+* Private devices are associated with your account and are an **enterprise only** feature. Private devices are indicated by a green device icon.
 
 ### Launching a Test
 You can launch a test from the following screens:
