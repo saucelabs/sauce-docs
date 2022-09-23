@@ -1,6 +1,6 @@
 ---
 id: slack
-title: Slack
+title: Slack Integration with Backtrace
 sidebar_label: Slack
 description: Integrate Backtrace with Slack.
 ---
@@ -8,7 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Slack Integration
 This guide will go through the steps necessary to integrate Backtrace with Slack.
 
 There are two main steps for setting up Slack:

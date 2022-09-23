@@ -18,6 +18,7 @@ The configuration file is flexible enough to allow for any customizations and de
 * [Configure Puppeteer](/web-apps/automated-testing/puppeteer/yaml)
 * [Configure Espresso](/mobile-apps/automated-testing/espresso-xcuitest/espresso)
 * [Configure XCUITest](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest)
+* [Configure Replay](/web-apps/automated-testing/replay/yaml)
 
 
 ## Setting an Alternative Configuration File
@@ -170,7 +171,7 @@ You can incorporate your `saucectl` tests as part of your CI pipeline workflow. 
 * Understand the current automation framework in the stack
 * Understand your organization's preferred CI tool
 * Ensure you have appropriate administrator permissions
-* Successfully [run tests with `saucectl`](/dev/cli/saucectl/#running-tests) on their own before launching from your CI pipeline.
+* Successfully [run tests with `saucectl`](/dev/cli/saucectl/#run-your-tests) on their own before launching from your CI pipeline
 
 `saucectl` provides instructions for integrating with the following CI tools:
 
@@ -288,3 +289,15 @@ npm:
     "@babel/preset-typescript": "7.12"
     "@cypress/react": "^5.0.1"
 ```
+
+Alternatively, you can let `saucectl` selectively include already installed dependencies from the `node_modules` folder.
+
+```jsx title= "config.yml npm dependencies"
+npm:
+  dependencies:
+    - lodash
+```
+
+:::caution
+This feature is highly experimental.
+:::

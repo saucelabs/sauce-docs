@@ -19,7 +19,7 @@ The Sauce Labs Slack app allows you to easily share your test results in Slack. 
 * Configure `saucectl` to automatically post test result notifications to selected channels in Slack
 
 :::note
-Slack integration is supported for single workspace. If your organisation has other workspaces the slack integration will not integrate.
+The Slack integration is supported for a single workspace. If your organization has other workspaces, the Slack integration will not work.
 :::
 
 ## What You'll Need

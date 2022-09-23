@@ -1,6 +1,6 @@
 ---
 id: pagerduty
-title: PagerDuty
+title: PagerDuty Integration with Backtrace
 sidebar_label: PagerDuty
 description: Integrate Backtrace with PagerDuty.
 ---
@@ -8,7 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## PagerDuty Integration
 This guide goes through the steps necessary to integrate Backtrace with PagerDuty. Setting up integration with the PagerDuty incident management system requires a valid PagerDuty API Service Key.
 
 Main steps for setting up PagerDuty:

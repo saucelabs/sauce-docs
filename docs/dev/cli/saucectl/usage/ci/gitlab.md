@@ -49,7 +49,7 @@ Credentials are now set!
 
 1. In the root of your project directory, create the `.gitlab-ci.yml` file. Below are some job snippets of how to configure `saucectl` with GitLab-CI:
   ```yaml reference
-  https://github.com/saucelabs/saucectl-cypress-example/blob/master/.gitlab-ci.yml#L1-L34
+  https://github.com/saucelabs/saucectl-cypress-example/blob/main/v1/.gitlab-ci.yml#L1-L34
   ```
 
 2. Commit the updated `.gitlab-ci.yml` to your git repository.

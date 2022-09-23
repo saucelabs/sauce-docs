@@ -42,30 +42,46 @@ From your terminal, navigate to your Storybook project directory (e.g., `cd my-s
 
 ### Link Your Sauce Labs Account
 
-In your terminal, set your Visual Testing Screener API key as an [environment variable](/basics/environment-variables) to avoid having to enter them with each command and to protect them from exposure in your tests:
+In your terminal, set your Sauce Labs username, Sauce Labs access key, and Visual Testing Screener API key as [environment variables](/basics/environment-variables) to avoid having to enter them with each command and to protect them from exposure in your tests:
 
-<Tabs
-    defaultValue="Mac/Linux"
-    values={[
-      {label: 'Mac/Linux', value: 'Mac/Linux'},
-      {label: 'Windows Powershell', value: 'Windows Powershell'},
-    ]}>
+  <Tabs
+      defaultValue="Mac/Linux"
+      values={[
+         {label: 'Mac/Linux', value: 'Mac/Linux'},
+         {label: 'Windows Powershell', value: 'Windows Powershell'},
+      ]}>
 
-<TabItem value="Mac/Linux">
+  <TabItem value="Mac/Linux">
 
-```bash
-export SCREENER_API_KEY="<your Screener API key>"
-```
+  ```bash
+  export SAUCE_USERNAME="Replace with your Sauce Labs username"
+  ```
 
-</TabItem>
-<TabItem value="Windows Powershell">
+  ```bash
+  export SAUCE_ACCESS_KEY="Replace with your Sauce Labs access key"
+  ```
 
-```bash
-$Env:SCREENER_API_KEY = "<your Screener API key>"
-```
+  ```bash
+  export SCREENER_API_KEY="Replace with your Screener API key"
+  ```
 
-</TabItem>
-</Tabs>
+  </TabItem>
+  <TabItem value="Windows Powershell">
+
+  ```bash
+  $Env:SAUCE_USERNAME = "Replace with your Sauce Labs username"
+  ```
+
+  ```bash
+  $Env:SAUCE_ACCESS_KEY = "Replace with your Sauce Labs access key"
+  ```
+
+ ```bash
+  $Env:SCREENER_API_KEY = "Replace with your Screener API key"
+  ```
+
+  </TabItem>
+  </Tabs>
 
 ### Add Screener Script
 
@@ -84,11 +100,33 @@ module.exports = {
   storybookConfigDir: '<directory>',
   storybookStaticDir: '<directory>',
   apiKey: process.env.SCREENER_API_KEY,
-  resolution: '<resolution>'
+  resolution: '<resolution>',
 };
 ```
 
 Be sure to replace the placeholder values with your own.
+
+If you want to use sauce VMs on your screener tests, you'll need to add the sauce object to your screener config file, and all browsers that you want to run on Sauce must have a version with a "." (for example, "11.0", not "11"). For example:
+
+```js
+module.exports = {
+  projectRepo: '<your-repo>',
+  storybookConfigDir: '<directory>',
+  storybookStaticDir: '<directory>',
+  apiKey: process.env.SCREENER_API_KEY,
+  resolution: '<resolution>',
+  browsers: [
+    {
+      browserName: 'chrome',
+      version: '74.0'
+    },
+  ],
+  sauce: {
+    username: process.env.SAUCE_USERNAME,
+    accessKey: process.env.SAUCE_ACCESS_KEY
+  }
+};
+```
 
 <table id="table-api">
 <tbody>

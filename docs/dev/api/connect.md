@@ -273,11 +273,13 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "shared_tunnel": false,
     "metadata": {...},
     "status": "running",
-    "shutdown_time": null,
+    "is_ready": true,
+    "shutdown_reason" : null,
+    "shutdown_time" : null,
+    "user_shutdown": null,
     "host": "maki3429.miso.saucelabs.com",
     "ip_address": null,
     "last_connected": 1618346660,
-    "user_shutdown": null,
     "launch_time": 1618345940,
     "tunnel_identifier": "jim.smith_tunnel_id"
 }

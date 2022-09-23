@@ -330,7 +330,7 @@ Get a list of jobs that are actively running on real devices in the data center.
 <table id="table-api">
   <tbody>
     <tr>
-     <td><code>device_id</code></td>
+     <td><code>limit</code></td>
      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>The maximum number of jobs to return.</p></td>
     </tr>
   </tbody>

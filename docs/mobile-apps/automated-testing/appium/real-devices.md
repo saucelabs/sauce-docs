@@ -166,7 +166,7 @@ For native app tests on real devices, you must provide a location from which you
 "appium:app","https://github.com/test-apps/ios-app.ipa"
 ```
 
-You can also install a dependent app or an app upgrade during a test by using `driver.install('path-to-app')`command. 
+You can also install a dependent app or an app upgrade during a test by using the `driver.installApp('path-to-app')` command. 
 
 ```js title=Driver App Example
 driver.installApp("https://github.com/saucelabs/my-demo-app-rn/releases/download/v1.3.0/Android-MyDemoAppRN.apk");
@@ -175,11 +175,11 @@ driver.installApp("https://github.com/saucelabs/my-demo-app-rn/releases/download
 
 :::note Limitations
 * The provided app path needs to be publicly available as this method does not have access to your local path/storage.
-* This method does not have access to apps in our Sauce Storage. Only apps that are publicly available can be installed with this command. Therefore, we also can't re-sign and instrument the app. The Instrumentation will not work for apps installed using `driver.install('path-to-app')` command (check [App Settings](/mobile-apps/live-testing/live-mobile-app-testing/#app-settings) options to learn more).
-* This method will not work for iOS due to signing. To make it work, you must use a private device and add UDID of the private device to the provisioning profile for iOS.
+* This method does not have access to apps in Sauce Storage. Only apps that are publicly available can be installed with this command. Therefore, we also can't re-sign and instrument the app. The Instrumentation will not work for apps installed using the `driver.installApp('path-to-app')` command (see [App Settings](/mobile-apps/live-testing/live-mobile-app-testing/#app-settings) to learn more).
+* This method will not work for iOS due to signing. Each iOS app needs to be resigned so it is allowed to be installed on our devices. To make this work you must use a private device and add the UDID of the private device to the provisioning profile for iOS (see our [resigning process](/mobile-apps/automated-testing/ipa-files/) to learn more).
 :::
 
-For Appium commands please check the official [Appium website](http://appium.io/docs/en/commands/device/app/install-app/).
+For more information about this command, see the [Appium documentation](http://appium.io/docs/en/commands/device/app/install-app/).
 
 ### Excluding the `browserName`
 
@@ -215,9 +215,18 @@ Alternatively, you can find a device's ID in the Sauce Labs app:
 
 _Dynamic Allocation_ allows you to specify the device attributes that are important to you and then run your test against the first available device from the pool that matches your specifications, giving you greater flexibility and, likely, a faster test execution time, particularly if you are running tests in parallel.
 
+:::note
+If you have both private **AND** public devices, dynamic device allocation will search for available matching private devices first, and if not found it will then search for available matching public devices.
+:::
+
 Dynamic allocation is advised, in particular, for all automated mobile app testing in CI environments.
 
-To enable dynamic device allocation, you should specify the `deviceName` and `platformName`, and `platformVersion` capabilities at a minimum. The following table provides information about accepted values.
+To enable dynamic device allocation, you will have three options:
+- **Only** provide `platformName` to find the first available Android or iOS device. This could be a phone or a tablet.
+- Provide `platformName` **AND** `deviceName` to narrow the search to a specific device based on the provided value.
+- Provide `platformName` **AND** `platformVersion` to narrow the search to a specific platform version based on the provided value.
+
+The following table provides information about accepted values.
 
 :::note
 The following sample values are presented using case for readability, but capabilities values are not case-sensitive, so there is no distinction between `iPhone` and `iphone`, for example.
@@ -227,12 +236,14 @@ The following sample values are presented using case for readability, but capabi
   <thead>
     <tr>
       <th width="20%">Capability</th>
+      <th>Required</th> 
       <th>Description and Sample Values</th>
     </tr>
   </thead>
   <tbody>
   <tr>
     <td><a href="/dev/test-configuration-options#deviceName"><code>deviceName</code></a></td>
+    <td>No</td>
     <td><p>Provide a device display name, or use regular expressions to provide a partial name, thus increasing the potential pool of matches. Some examples include:</p>
     <p>Any iPhone: <code>"appium:deviceName", "iPhone.*", "iPhone .*"</code></p>
     <p>Any device with the word "nexus" in its display name: <code>"appium:deviceName", ".*nexus.*"</code></p>
@@ -241,10 +252,12 @@ The following sample values are presented using case for readability, but capabi
   </tr>
   <tr>
    <td><a href="/dev/test-configuration-options#platformname"><code>platformName</code></a></td>
+   <td>Yes</td>
    <td>Specify the mobile operating system to use in your tests (i.e., <code>android</code> or <code>ios</code>.</td>
   </tr>
   <tr>
    <td><a href="/dev/test-configuration-options#platformVersion"><code>platformVersion</code></a></td>
+   <td>No</td>
    <td>Specify the OS version to use in your tests (i.e., <code>4</code> or <code>4.1</code>.
      <p>This property uses a substring match, so you can specify major and/or incremental versions. For example, if you set only a major version <code>4</code>, any devices running incremental versions (e.g., <code>4.1</code>, <code>4.2</code>, <code>4.2.1</code>, <code>4.4.4</code>) will also match. This behavior extends to minor and point versions as well, so <code>11.4</code> matches <code>11.4.0</code> and <code>11.4.1</code>.</p></td>
   </tr>
