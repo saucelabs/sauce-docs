@@ -76,7 +76,7 @@ Our public cloud, available to all users regardless of pricing plan, contains a 
 
 <p> <Highlight color="#013a70">Enterprise Plans Only</Highlight> </p>
 
-This is dedicated pool of devices just for your organization. On the mobile device selection screen, your private devices are [marked with a person silhouette icon](/mobile-apps/live-testing/live-mobile-app-testing#selecting-a-real-device). Here are some use cases:
+This is dedicated pool of devices just for your organization. On the mobile device selection screen, your private devices are [marked with a green device icon](/mobile-apps/live-testing/live-mobile-app-testing#selecting-a-real-device). Here are some use cases:
 
 * You need to use a very specific set of devices that aren't supported on the public cloud.
 * Your security team insists on dedicated devices.
