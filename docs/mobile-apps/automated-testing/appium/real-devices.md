@@ -298,7 +298,7 @@ To skip the uninstallation and reinstallation of your app from the device, you c
 }
 ```
 
-When using `cacheId` the value must match for all tests slated to run on the cached device. In addition, the app and project ID must be the same for all tests, as must the values for the following capabilities:
+When using `cacheId` the value must match for all tests slated to run on the cached device. In addition, the app must be the same for all tests, as must the values for the following capabilities:
 
 * `deviceName`
 * `platformName`
