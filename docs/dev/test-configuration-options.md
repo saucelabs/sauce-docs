@@ -1035,6 +1035,38 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
+### `audioCapture`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> |</p>
+
+Enables audio recording in your iOS and Android native mobile app tests. The audio will be part of the **Test Results** page video file, which you can play back and download in our built-in media player. The default value is `false`.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("audioCapture", true);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `sauceLabsNetworkCaptureEnabled`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> |</p>
+
+Enables mobile app instrumentation (Android or iOS) and recording of HTTP/HTTPS network traffic for debugging purposes. API calls are collected into a HAR file, which you can view and download from your **Test Results** > **Network** tab console. The default value is `false`.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("sauceLabsNetworkCaptureEnabled", true);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
 ### `groupFolderRedirectEnabled`
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
@@ -1046,6 +1078,22 @@ MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.setCapability("groupFolderRedirectEnabled", true);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `enableAnimations`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">Android Only</span> | </small></p>
+
+Use this capability to enable animations for Android real devices by setting it to `true`. By default, animations are disabled.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("enableAnimations", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
