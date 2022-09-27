@@ -16,14 +16,12 @@ Below is a screenshot of the type of data you will see in the Debugger tool.
 
 <img src={useBaseUrl('img/error-reporting/console-views/debug-view.png')} alt="Shows the Debug view." />
 
-Depending on the type of information in the crash report, the Debugger will show different data. For example, with minidump files, we can list a set of threads in the crash report, the callstack of the selected thread, attributes, environment information, modules loaded, and missing symbol details.
-
-For Backtrace core dump files (BTT), we add automated security and bug analysis, variable information and more.
+Depending on the type of information in the crash report, the Debugger will show different data. For example, the crash report for minidump files shows a set of callstacks from all the threads, and other details such as attributes, environment information, modules loaded, and missing symbols. The crash report for Backtrace core dump files (BTT) shows automated security and bug analysis, variables, and more.
 
 The Debug tool is organized into several sections as described below.
 
 ### General Information
-This pane is present for the Backtrace snapshot format used on UNIX and UNIX-like systems. This includes memory map information, system information, register state and more. The Process tab includes deep introspection into the global state of the faulting process, including things like memory allocator metadata such as recently reclaimed items and more (depends on the allocator).
+This pane is present for the Backtrace snapshot format used on UNIX and UNIX-like systems. This includes memory map information, system information, register state, and more. The Process tab allows you to analyze the global state of the faulting process, which includes memory allocator metadata, such as recently reclaimed items, and more (depending on the allocator).
 
 ### Threads
 This pane contains a list of all threads in the dump. Threads that have crashed have a red icon next to them. Threads that have an arrow symbol next to them can be expanded to more threads with an identical callstack. In other words, threads are grouped into a tree if they have identical callstacks in order to ease navigating lots of threads.
@@ -37,7 +35,7 @@ This pane is present for dump formats such as minidump. It contains the register
 ### Attributes
 This pane is present for dump formats such as minidump. It contains a list of all attributes extracted from the dump and supplied during dump submission. Some of these attributes may already be indexed.
 
-### Global annotations
+### Global Annotations
 This pane is present for dump formats such as minidump. This contains a tree list of other interesting data derived from the dump. This can include clues to the root cause of the crash, the list of loaded libraries, missing debug symbols and more.
 
 ### Breadcrumbs
@@ -51,10 +49,10 @@ The breadcrumbs that are added depend on the SDK that you're using. For more inf
 This pane is present for the Backtrace snapshot format used on UNIX and UNIX-like systems. It contains the values of any global variables that have been serialized.
 
 ### Variable Context
-This pane is present for the Backtrace snapshot format used on UNIX and UNIX-like systems. It contains auxiliary information about a variable including type information, memory allocator state (size of allocation a variable points to, whether it is active or freed and much more).
+This pane is present for the Backtrace snapshot format used on UNIX and UNIX-like systems. It contains auxiliary information about a variable such as the type and memory allocator state (size of allocation the variable points to and whether it is active or freed).
 
 ### Variables
-This pane is present for the Backtrace snapshot format used on UNIX and UNIX-like systems. Variables with a red box are currently freed. Variables with a green box are currently allocated. Variables with a red circle have warnings attached to them, click on the variable to expand it and see any potential warnings.
+This pane is present for the Backtrace snapshot format used on UNIX and UNIX-like systems. Variables with a red box are currently freed. Variables with a green box are currently allocated. Variables with a red circle have warnings attached to them. Click on the variable to expand it and see any potential warnings.
 
 ### Warnings
-This pane is present for the Backtrace snapshot format used on UNIX and UNIX-like systems. Use the prev and next button to browse warnings. Press the Select button to jump to a warning. Alternatively, check the Autoselect variable button to automatically jump to a variable that has a warning attached to it. Warnings include things like invalid memory allocator state, automated detection of variables accessed when the crash occurred and more.
+This pane is present for the Backtrace snapshot format used on UNIX and UNIX-like systems. Warnings may include invalid memory allocator state, automated detection of variables accessed when the crash occurred, and more.

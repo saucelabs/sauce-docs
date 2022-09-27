@@ -429,8 +429,8 @@ To add breadcrumbs from your NDK/C++ code, you must first register your `Backtra
 
 ## Error-Free Metrics
 Error-free metrics allow you to determine:
-- How many of your unique users (i.e: unique device IDs) using your app are experiencing errors/crashes.
-- How many application sessions (i.e: individual application sessions from startup till shutdown/exit) of your app are experiencing errors/crashes.
+- How many of your unique users (i.e., unique device IDs) using your app are experiencing errors/crashes.
+- How many application sessions (i.e., individual application sessions from startup till shutdown/exit) of your app are experiencing errors/crashes.
 
 You can track those metrics at-a-glance, as well as in detail to find out what kinds of errors/crashes are most common. For more information, see [Stability Metrics Widgets](/error-reporting/web-console/overview/#stability-metrics-widgets).
 
