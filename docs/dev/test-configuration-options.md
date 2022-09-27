@@ -1051,7 +1051,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
-### `sauceLabsNetworkCaptureEnabled`
+### `networkCapture`
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> |</p>
 
@@ -1061,7 +1061,7 @@ Enables mobile app instrumentation (Android or iOS) and recording of HTTP/HTTPS 
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("sauceLabsNetworkCaptureEnabled", true);
+sauceOptions.setCapability("networkCapture", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
