@@ -10,75 +10,19 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Minimal Usage
+## Usage
 <Tabs groupId="languages">
 <TabItem value="swift" label="Swift">
 
-```swift
-import UIKit
-import Backtrace
-
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        let backtraceCredentials = BacktraceCredentials(endpoint: URL(string: "https://backtrace.io")!,
-                                                        token: "submission-token")
-        BacktraceClient.shared = try? BacktraceClient(credentials: backtraceCredentials)
-
-        do {
-            try throwingFunc()
-        } catch {
-            BacktraceClient.shared?.send { (result) in
-                print(result)
-            }
-        }
-
-        return true
-    }
-}
+```swift reference title="Usage Example"
+https://github.com/backtrace-labs/backtrace-cocoa/blob/master/Examples/Example-iOS/AppDelegate.swift#L19-L37
 ```
 
 </TabItem>
 <TabItem value="objc" label="Objective-C">
 
-```objc
-#import "AppDelegate.h"
-@import Backtrace;
-
-@interface AppDelegate ()
-
-@end
-
-@implementation AppDelegate
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    BacktraceCredentials *credentials = [[BacktraceCredentials alloc]
-                                         initWithEndpoint: [NSURL URLWithString: @"https://backtrace.io"]
-                                         token: @"submission-token"];
-    BacktraceClient.shared = [[BacktraceClient alloc] initWithCredentials: credentials error: nil];
-
-    // sending NSException
-    @try {
-        NSArray *array = @[];
-        NSObject *object = array[1]; // will throw exception
-    } @catch (NSException *exception) {
-        [[BacktraceClient shared] sendWithException: exception completion:^(BacktraceResult * _Nonnull result) {
-            NSLog(@"%@", result);
-        }];
-    } @finally {
-
-    }
-
-    return YES;
-}
-
-@end
+```objc reference title="Usage Example"
+https://github.com/backtrace-labs/backtrace-cocoa/blob/master/Examples/Example-iOS-ObjC/AppDelegate.m#L13-L32
 ```
 
 </TabItem>
@@ -312,7 +256,7 @@ BacktraceClient.shared?.attributes = ["foo": "bar", "testing": true]
 <TabItem value="objc" label="Objective-C">
 
 ```objc
-BacktraceClient.shared.attributes = @{@"foo": @"bar", @"testing": YES};
+BacktraceClient.shared.attributes = @{@"foo": @"bar", @"testing": @YES};
 ```
 
 </TabItem>
@@ -348,7 +292,7 @@ BacktraceClient.shared?.attachments = crashAttachments
 NSString *fileName = @"myCustomFile.txt";
 NSURL *libraryUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSLibraryDirectory
          inDomains:NSUserDomainMask] lastObject];
-NSURL *fileUrl = [libraryUrl URLByAppendingPathComponent:fileName)];
+NSURL *fileUrl = [libraryUrl URLByAppendingPathComponent:fileName];
 
 BacktraceClient.shared.attachments = [NSArray arrayWithObjects:fileUrl, nil];
 ```
@@ -384,7 +328,14 @@ NSArray *paths = @[[[NSBundle mainBundle] pathForResource: @"test" ofType: @"txt
 
 You can also specify a unique set of files for specific reports with the `willSend(_:)` method of [`BacktraceClientDelegate`](#handling-events).
 
-## Error-Free Metrics
+## Error-Free Metrics 
+<p><span className="sauceDBlue">Beta</span></p>
+
+You can use error-free metrics to track:
+- How many unique users (i.e., unique device IDs) of your app are experiencing errors/crashes.
+- How many individual application sessions (i.e., from startup till shutdown/exit) are experiencing errors/crashes.
+- What kinds of errors/crashes are most common.
+
 After the `BacktraceClient` is initialized, you can enable error-free metrics as follows:
 
 <Tabs groupId="languages">
@@ -400,6 +351,30 @@ BacktraceClient.shared?.metrics.enable(settings: BacktraceMetricsSettings())
 ```objc
 BacktraceMetricsSettings *metricsSettings = [[BacktraceMetricsSettings alloc] init];
 [[[BacktraceClient shared] metrics] enableWithSettings: metricsSettings];
+```
+
+</TabItem>
+</Tabs>
+
+## Breadcrumbs
+<p><span className="sauceDBlue">Beta</span></p>
+
+Breadcrumbs allow you track events leading up to your crash, error, or other submitted object. When breadcrumbs are enabled, any captured breadcrumbs will automatically be attached as a file to your crash, error, or other submitted object (including native crashes).
+
+You can enable breadcrumbs as follows:
+
+<Tabs groupId="languages">
+<TabItem value="swift" label="Swift">
+
+```swift reference title="Code Sample"
+https://github.com/backtrace-labs/backtrace-cocoa/blob/a817605c07eb83af412533ac8e185ebcbdf79562/Examples/Example-iOS/AppDelegate.swift#L47
+```
+
+</TabItem>
+<TabItem value="objc" label="Objective-C">
+
+```objc reference title="Code Sample"
+https://github.com/backtrace-labs/backtrace-cocoa/blob/a817605c07eb83af412533ac8e185ebcbdf79562/Examples/Example-iOS-ObjC/AppDelegate.m#L53
 ```
 
 </TabItem>

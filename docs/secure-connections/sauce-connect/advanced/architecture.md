@@ -54,3 +54,11 @@ The Sauce Labs REST API allows the Sauce Connect Proxy Client (or any authentica
 ### Tunnels Web UI
 
 If you're executing tests through Sauce Connect Proxy, you'll be able to see all information about the tunnels you're running through the web UI (log in to Sauce Labs and go the **Tunnels** page).
+
+## Start Sequence Diagram
+
+<img src={useBaseUrl('img/sauce-connect/start-sequence.png')} alt="Sauce Connect Proxy start sequence" width="800"/>
+
+## Shutdown Sequence Diagram
+
+<img src={useBaseUrl('img/sauce-connect/shutdown-sequence.png')} alt="Sauce Connect Proxy shutdown sequence" width="800"/>

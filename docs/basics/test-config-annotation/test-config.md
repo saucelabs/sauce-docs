@@ -17,15 +17,14 @@ export const Highlight = ({children, color}) => ( <span style={{
 
 Before running a browser or device test with Sauce Labs, you need to write your test script to launch the platform/operating system/browser combination you want, and specify the location of the app for testing. You'll also want to configure other options, such as the path to your app.
 
-Once your test is finished, you can annotate the job with a name, tags, and pass/fail status using the Sauce Labs REST API, or Selenium's JavaScript executor.
-
 See [Test Configuration Options](/dev/test-configuration-options) for a list of valid test configuration options for tests run on Sauce Labs.
+
+You can also [annotate](/basics/test-config-annotation/test-annotation/) your tests with attributes (such as build ID, name, tags, and pass/fail status) using the Sauce Labs REST API or Selenium's JavaScript executor. 
 
 ## Getting Ready to Test
 Test configuration refers to setting the capabilities of your test within the test script itself. There are required capabilities for both Selenium and Appium tests, as well as an extensive set of optional capabilities (some of which are exclusive to Sauce Labs). You can use our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to create the required capabilities for your test scripts, or use one of our [sample test frameworks](https://github.com/saucelabs-training) to set up the capabilities for parallel testing across multiple platform/operating systems.
 
 ## Capabilities for Selenium and Appium Tests
-
 You can configure the environment for your Appium and Selenium tests by specifying a set of capabilities. Our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) can set test capabilities for testing in the scripting language of your choice. [Test Configuration Options](/dev/test-configuration-options) provides a complete list of all Selenium, Appium, and Sauce Labs testing capabilities.
 
 ## Examples of Test Configuration Options for Website Tests

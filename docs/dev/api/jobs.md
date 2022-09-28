@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 The Jobs API methods allow you to review and edit the metadata associated with the tests you are running on Sauce Labs. You can also stop tests, delete jobs, and filter lists of jobs by a variety of attributes, such as owner, time period, build, or environment.
 
-:::note
+:::note RDC Jobs
 These calls are specific to jobs running in simulation. For methods related to Real Device testing, see [Real Device API Methods](/dev/api/rdc).
 :::
 
@@ -272,7 +272,11 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api put">PUT</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;</code></summary>
 <p/>
 
-Edit job attributes based on parameters passed in the request, including setting the status of the job. Any parameter for which a new value is provided in the request will replace the existing value. For example, if you provide a set of tags, they will not be added to the current tags; they will replace them, so make sure you pass the entire set you wish to assign.
+Edit job attributes based on parameters passed in the request, including setting the status and name of the job. Any parameter for which a new value is provided in the request will replace the existing value. For example, if you provide a set of tags, they will not be added to the current tags; they will replace them, so make sure you pass the entire set you wish to assign.
+
+:::note RDC Jobs
+This call is specific to jobs running in simulation. To update a job for real devices, use the [Selenium JavaScript Executor](/basics/test-config-annotation/test-annotation/#selenium-javascript-executor).
+:::
 
 #### Parameters
 
@@ -563,7 +567,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Delete a Job
 
-<details><summary><span className="api delete">DELETE</span> <code>/rest/v1.1/jobs/&#123;job_id&#125;</code></summary>
+<details><summary><span className="api delete">DELETE</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;</code></summary>
 <p/>
 
 Delete a job and all of its assets from the Sauce Labs test history.
@@ -624,74 +628,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </table>
 
 No payload is returned with the successful deletion.
-
-</details>
-
----
-
-### Delete All of a User's Jobs
-
-<details><summary><span className="api delete">DELETE</span> <code>/rest/v1.1/&#123;username&#125;/jobs</code></summary>
-<p/>
-
-Delete the entire test history and all assets for the specified user.
-
-#### Parameters
-
-<table id="table-api">
-  <tbody>
-    <tr>
-     <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the Sauce Labs user whose jobs you are deleting. You can look up Sauce Labs users in your organization using the <a href="/dev/api/accounts/#lookup-users">Lookup Users</a> endpoint.</p></td>
-    </tr>
-  </tbody>
-</table>
-
-<Tabs
-groupId="dc-url"
-defaultValue="us"
-values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
-]}>
-
-<TabItem value="us">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/nancy.sweeney/jobs' | json_pp
-```
-
-</TabItem>
-
-<TabItem value="eu">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/nancy.sweeney/jobs' | json_pp
-```
-
-</TabItem>
-</Tabs>
-
-#### Responses
-
-<table id="table-api">
-<tbody>
-  <tr>
-    <td><code>204</code></td>
-    <td colSpan='2'>No Content.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>404</code></td>
-    <td colSpan='2'>Not found.</td>
-  </tr>
-</tbody>
-</table>
-
-A successful call returns no payload.
 
 </details>
 
@@ -826,7 +762,7 @@ values={[
 <TabItem value="us">
 
 ```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location --compressed \
 --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets/performance.json' | json_pp
 ```
 
@@ -835,7 +771,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <TabItem value="eu">
 
 ```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location --compressed \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/nancy.sweeney/jobs/bc3d1dbd96fd4479925f2afa8efbc090/assets/performance.json' | json_pp
 ```
 

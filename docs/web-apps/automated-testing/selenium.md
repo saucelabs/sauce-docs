@@ -27,13 +27,13 @@ Selenium is built on a **client-server architecture**, which includes both clien
 
 The current API used by Selenium servers and browser drivers is defined in the
 [W3C WebDriver specification](https://w3c.github.io/webdriver/) and communicated
-between the components using http commands.
+between the components using HTTP commands.
 * The client code, specifically the Remote WebDriver class contains the methods that implement the API for automating the browser.
-  Selenium translates this code into the https commands defined by the W3C, and sends
+  Selenium translates this code into the HTTPS commands defined by the W3C, and sends
   this information to a server.
-* The Selenium Server receives the http commands that were sent by the Selenium client.
+* The Selenium Server receives the HTTP commands that were sent by the Selenium client.
   This server can be in standalone mode, or in a grid mode with different servers set as hubs and nodes.
-  The server forwards the commands to the browser driver, which ultimately controls how the browser is automated.
+  The server forwards the commands to the browser driver, which ultimately controls how the browser is automated. For more information about Selenium Grid, see [Selenium Grid and Sauce Labs](/web-apps/automated-testing/selenium/selenium-grid/).
 
 #### For Sauce Labs, it looks like this:
 <img src={useBaseUrl('img/selenium/selenium-diagram.png')} alt="Diagram of Selenium and Sauce Labs"/>
@@ -52,7 +52,7 @@ There are seven basic elements of a Selenium test script, which apply to any tes
 
 The following sections walk through each of these steps using a basic test case example &#8212; logging into a website. This example ensures that a specific user can successfully log into our demo site, [Swag Labs](https://www.saucedemo.com).
 
-### Step 1: Create a Remote Session.
+### Step 1: Create a Remote Session
 
 Create an instance of Selenium's Remote WebDriver class so you can invoke methods of the Selenium WebDriver API on Sauce Labs infrastructure.
 
@@ -633,6 +633,5 @@ The [Sauce Labs Training Repo](https://github.com/saucelabs-training) contains a
 
 
 ## Selenium Resources
-
-* [Selenium HQ](http://www.seleniumhq.org): official Selenium website and documentation
-* [How to Run a Selenium Test on Sauce Labs](https://www.youtube.com/watch?v=qq1WCsAMZsk): Automated testing guru Joe Colantonio demonstrates how to run a Selenium Test with Sauce Labs
+* [Selenium HQ](https://www.selenium.dev): Official Selenium website and documentation.
+* [How to Run a Selenium Test on Sauce Labs](https://www.youtube.com/watch?v=qq1WCsAMZsk): Automated testing guru Joe Colantonio demonstrates how to run a Selenium Test with Sauce Labs.
