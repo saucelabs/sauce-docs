@@ -9,8 +9,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 With Sauce Labs, you can run automated Appium tests for your native and hybrid mobile apps against many virtual
-OS and platform combinations with [Android emulators](https://developer.android.com/studio/run/emulator) and
-[iOS simulators](https://developer.apple.com/documentation/xcode/running_your_app_in_the_simulator_or_on_a_device).
+OS and platform combinations with [Android Emulators](https://developer.android.com/studio/run/emulator) and
+[iOS Simulators](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device/).
 
 
 ## What You'll Need
