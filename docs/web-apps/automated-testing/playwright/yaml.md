@@ -611,7 +611,7 @@ The version of Playwright that is compatible with the tests defined in this file
 ```
 
 :::tip
-You can also define a path to your `package.json`. This will make saucectl use the same playwright version that's defined in your projects `devDependencies` or `dependencies` map.
+You can also define a path to your `package.json`. This will make `saucectl` use the same Playwright version that's defined in your projects `devDependencies` or `dependencies` map.
 
 The path to your `package.json` file will be relative to the `rootDir` of your configuration.
 :::
