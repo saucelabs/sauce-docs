@@ -1,12 +1,22 @@
-### Predefined Environment Variables
+## Environment Variable Expansion
 
-If you're running a test script where you need to communicate a Sauce Labs Job ID to a third-party tool, use the `SAUCE_JOB_ID` environment variable to reference it.
+All values in your `saucectl` configuration support environment variable expansion. `$var` in `config.yml` will be replaced according to your shell's environment variables. References to undefined variables will be replaced with an empty string.
 
-### Tailoring Your Test File Bundle
+## Predefined Environment Variables
+
+The following environment variables are available during test execution.
+
+| Environment Variable      | Description                              |
+| ------------------------- | ---------------------------------------- |
+| SAUCE_JOB_ID              | Job ID                                   |
+| SAUCE_SUITE_NAME          | Suite Name                               |
+| SAUCE_ARTIFACTS_DIRECTORY | Absolute path to the artifacts directory. Files placed in this folder are persisted with the Job. |
+
+## Tailoring Your Test File Bundle
 
 The `saucectl` command line bundles your root directory (`rootDir` parameter of `config.yml`) and transmits it to the Sauce Labs cloud or your own infrastructure via Docker, then unpacks the bundle and runs the tests. This functionality is partly what allows Sauce Control to operate in a framework-agnostic capacity. However, you can and should manage the inclusion and exclusion of files that get bundled to optimize performance and ensure security.
 
-#### Excluding Files from the Bundle
+### Excluding Files from the Bundle
 
 The `.sauceignore` file allows you to designate certain files to be excluded from bundling.
 
@@ -42,14 +52,14 @@ node_modules/
 credentials.yml
 ```
 
-#### Including Node Dependencies
+### Including Node Dependencies
 
 The default `.sauceignore` file lists `node_modules/` so locally installed node dependencies are excluded from the bundle. If your tests require node dependencies to run, you can either:
 
 * [Include `node_modules` with your bundle](#remove-node_modules-from-sauceignore) or
 * [Set NPM packages in config.yml](#set-npm-packages-in-configyml)
 
-#### Remove "node_modules" from `.sauceignore`
+### Remove "node_modules" from `.sauceignore`
 
 Delete or comment out `node_modules/` in your `.sauceignore` file to bundle your node dependencies. For example,
 
@@ -60,7 +70,7 @@ Delete or comment out `node_modules/` in your `.sauceignore` file to bundle your
 
 Node dependencies can increase your bundle by potentially hundreds of megabytes, so consider including only the required dependencies rather than the entire `node_modules` directory. The following sections provide some methods for limiting the scope of dependencies you must include.
 
-##### Install "devDependencies" Only
+#### Install "devDependencies" Only
 
 Consider only installing NPM `devDependencies` if your tests do not require all prod `dependencies`.
 
@@ -71,7 +81,7 @@ npm install --only=dev
 saucectl run
 ```
 
-##### Uninstall Nonessential Dependencies
+#### Uninstall Nonessential Dependencies
 
 If your standard install includes dependencies that aren't needed to run your tests, uninstall them prior to bundling.
 
@@ -86,7 +96,7 @@ npm uninstall express
 saucectl run
 ```
 
-##### Install Essential Dependencies Individually
+#### Install Essential Dependencies Individually
 
 If you know that your tests require only specific dependencies, install them individually instead of running `npm install` or `npm ci`.
 
@@ -98,7 +108,7 @@ npm install @playwright/react
 saucectl run
 ```
 
-#### Set NPM Packages in `config.yml`
+### Set NPM Packages in `config.yml`
 
 You can avoid installing or uninstalling dependencies prior to each bundling operation by defining a default set of NPM packages to install in your sauce configuration file using the `npm` parameter, as shown in the following example:
 
@@ -123,7 +133,7 @@ npm:
 This feature is highly experimental.
 :::
 
-### Attaching Test Assets
+## Attaching Test Assets
 
 Any test assets created by your tests at runtime (such as logs, screenshots or reports) you wish to retain along with your test results must be placed in the `__assets__` directory of your project root folder. On Sauce Labs VMs, this path is relative to the current working directory.
 
@@ -144,7 +154,7 @@ If you need to go through a proxy server, you can set it through the following v
 * `HTTPS_PROXY`: Proxy to use to access HTTPS websites
 
 
-#### Docker Proxy Considerations
+### Docker Proxy Considerations
 
 When running in docker-mode, `saucectl` still must reach the Sauce Labs platform get the latest docker image available or upload the test package to Sauce Cloud, and the docker container needs to access the tested website and Sauce Labs to upload results.
 
