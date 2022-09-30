@@ -15,9 +15,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Getting the most out of your live and automated testing means including a healthy mix of emulators, simulators, and real devices as your mobile testing platforms. Why? Most  aspects of the mobile experience you can test on emulators or simulators, while some scenarios require testing on physical real devices (e.g., memory consumption, CPU usage, location-based apps that use manufacturer-specific device sensors).
+Getting the most out of your live and automated testing means including a healthy mix of Emulators, Simulators, and real devices as your mobile testing platforms. Why? Most  aspects of the mobile experience you can test on Emulators or Simulators, while some scenarios require testing on physical real devices (e.g., memory consumption, CPU usage, location-based apps that use manufacturer-specific device sensors).
 
-There are a variety of use cases to consider when you're deciding on the mix of emulators, simulators, and real devices to use in your testing.
+There are a variety of use cases to consider when you're deciding on the mix of Emulators, Simulators, and real devices to use in your testing.
 
 We support thousands of device/OS combinations and test automation frameworks such as Appium, Espresso, XCUITest, and Robotium. For a full list, [click here](https://saucelabs.com/platform/supported-browsers-devices).
 
