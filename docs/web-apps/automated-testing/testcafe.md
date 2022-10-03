@@ -64,15 +64,47 @@ Sauce Labs supports the following test configurations for TestCafe:
       <th>End of Life</th>
     </tr>
     <tbody>
+      <tr>
+        <td rowspan='3'>2.0.0</td>
+        <td><b>macOS:</b> 11.00, 12</td>
+        <td>Safari, Chrome, Firefox, Microsoft Edge</td>
+        <td rowspan='3'>Sep 7, 2023</td>
+      </tr>
+      <tr>
+        <td><b>Windows:</b> 10, 11</td>
+        <td>Chrome, Firefox, Microsoft Edge</td>
+      </tr>
+      <tr>
+        <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+        <td>Safari</td>
+      </tr>
+    </tbody>
+    <tbody>
+    <tr>
+      <td rowspan='3'>1.20.0</td>
+      <td><b>macOS:</b> 11.00, 12</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
+      <td rowspan='3'>Jul 29, 2023</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+      <td>Safari</td>
+    </tr>
+    </tbody>
+    <tbody>
     <tr>
       <td rowspan='3'>1.19.0</td>
       <td><b>macOS:</b> 11.00, 12</td>
-      <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='3'>Jun 6, 2023</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>
-      <td>Chrome, Firefox, MicrosoftEdge</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
     </tr>
     <tr>
       <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
@@ -83,12 +115,12 @@ Sauce Labs supports the following test configurations for TestCafe:
     <tr>
       <td rowspan='3'>1.18.5</td>
       <td><b>macOS:</b> 11.00, 12</td>
-      <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='3'>Apr 16, 2023</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>
-      <td>Chrome, Firefox, MicrosoftEdge</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
     </tr>
     <tr>
       <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
@@ -99,12 +131,12 @@ Sauce Labs supports the following test configurations for TestCafe:
     <tr>
       <td rowspan='3'>1.18.3</td>
       <td><b>macOS:</b> 11.00</td>
-      <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='3'>Feb 2, 2023</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10</td>
-      <td>Chrome, Firefox, MicrosoftEdge</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
     </tr>
     <tr>
       <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
@@ -115,12 +147,12 @@ Sauce Labs supports the following test configurations for TestCafe:
     <tr>
       <td rowspan='3'>1.17.1</td>
       <td><b>macOS:</b> 11.00</td>
-      <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='3'>Nov 29, 2022</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10</td>
-      <td>Chrome, Firefox, MicrosoftEdge</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
     </tr>
     <tr>
       <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
@@ -131,12 +163,12 @@ Sauce Labs supports the following test configurations for TestCafe:
     <tr>
       <td rowspan='3'>1.16.1</td>
       <td><b>macOS:</b> 11.00</td>
-      <td>Safari, Chrome, Firefox, MicrosoftEdge</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='3'>Oct 13, 2022</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10</td>
-      <td>Chrome, Firefox, MicrosoftEdge</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
     </tr>
     <tr>
       <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
@@ -148,7 +180,7 @@ Sauce Labs supports the following test configurations for TestCafe:
 </TabItem>
 <TabItem value="docker">
 
- Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases).
+Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases).
 
 </TabItem>
 </Tabs>

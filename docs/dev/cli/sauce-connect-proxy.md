@@ -72,11 +72,6 @@ __Shorthand__: `-r`
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region apac-southeast
 ```
 
-:::note
-Effective with version 4.7.0, this flag was deprecated and replaced by [`--rest-url`](#--rest-url).
-:::
-
-
 ---
 ### `--shared-tunnel`
 <p><small>| OPTIONAL | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
@@ -91,7 +86,7 @@ __Shorthand__: `-s`
 
 __Description__: Assigns a name to a Sauce Connect Proxy tunnel. It can also assign a name to a group of tunnels in the same [High Availability pool](/secure-connections/sauce-connect/setup-configuration/high-availability), when used with [`--tunnel-pool`](#--tunnel-pool). Must be in ASCII format.
 
-You can run tests using this tunnel by specifying the [`tunnelIdentifier`](/dev/test-configuration-options/#tunnelidentifier) or `tunnelName` in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
+You can run tests using this tunnel by specifying the [`tunnelName`](/dev/test-configuration-options/#tunnelname) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
 __Enviroment variable__: `SAUCE_TUNNEL_IDENTIFIER`<br/>
 __Shorthand__: `-i`
 
@@ -105,9 +100,9 @@ This value populates the **Tunnel Name** field on the Sauce Labs Tunnels page, _
 
 __Description__: Assigns a name to a Sauce Connect Proxy tunnel. It can also assign a name to a group of tunnels in the same [High Availability pool](/secure-connections/sauce-connect/setup-configuration/high-availability), when used with [`--tunnel-pool`](#--tunnel-pool). Must be in ASCII format.
 
-You can run tests using this tunnel by specifying the [`tunnelIdentifier`](/dev/test-configuration-options/#tunnelidentifier) or `tunnelName` in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
+You can run tests using this tunnel by specifying the [`tunnelName`](/dev/test-configuration-options/#tunnelname) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
 __Enviroment variable__: `SAUCE_TUNNEL_NAME`<br/>
-__Shorthand__: n/a
+__Shorthand__: `-i`
 
 ---
 ### `--tunnel-pool`
@@ -180,7 +175,7 @@ __Shorthand__: `-x`
 ```
 
 :::note
-Effective with version 4.7.0, this flag was deprecated and replaced [`--region`](/dev/cli/sauce-connect-proxy/#--region).
+Effective with version 4.7.0, this flag was deprecated and replaced by [`--region`](/dev/cli/sauce-connect-proxy/#--region).
 :::
 
 ---
@@ -201,6 +196,7 @@ Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunne
 ---
 ### `--autodetect`
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceRed">4.8.x</span>| </small></p>
+
 __Description__: Enables the auto-detection of system proxy settings. Inverse of [`--no-autodetect`](#--no-autodetect). Default: `true`. See also [Automatic Proxy Auto-Configuration](/secure-connections/sauce-connect/setup-configuration/additional-proxies#proxy-auto-configuration-automatic).<br/>
 __Enviroment variable__: `SAUCE_AUTODETECT`<br/>
 __Shorthand__: n/a

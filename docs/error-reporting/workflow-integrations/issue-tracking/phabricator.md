@@ -1,6 +1,6 @@
 ---
 id: phabricator
-title: Phabricator
+title: Phabricator Integration with Backtrace
 sidebar_label: Phabricator
 description: Integrate Backtrace with Phabricator.
 ---
@@ -8,7 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Phabricator Integration
 This guide goes through the steps necessary to integrate Backtrace with Phabricator.
 
 The steps in this process are:

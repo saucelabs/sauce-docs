@@ -3,13 +3,13 @@ id: getting-started
 title: Error and Crash Reporting
 sidebar_label: Getting Started
 description: Capture error and crash reports from your games and mobile apps with Backtrace.
+hide_table_of_contents: true
 ---
 Capture error and crash reports from your games and mobile apps with Backtrace.
 
-## Set Up Your Project
 <div className="box box1 card">
   <div className="container">
-  <h3>Platform Integrations</h3>
+  <h2>Platform Integrations</h2>
   <p>Integrate Backtrace in your games and apps across languages and platforms with our error and crash reporting libraries.</p>
   <ul>
     <li><a href="/error-reporting/platform-integrations/android/setup/">Android</a></li>
@@ -43,10 +43,9 @@ Capture error and crash reports from your games and mobile apps with Backtrace.
   </div>
 </div>
 
-## View and Analyze Error and Crash Data
-<div className="box box1 card">
+<div className="box box2 card">
   <div className="container">
-  <h3>Web Console Views</h3>
+  <h2>Web Console Views</h2>
   <p>View and analyze error and crash data in the web console so you can triage, prioritize, and resolve each error.</p>
   <ul>
     <li><a href="/error-reporting/web-console/getting-started/">Getting Started</a></li>
