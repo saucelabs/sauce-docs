@@ -8,6 +8,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::note VDC Only
+The ability to share test results is currently only supported for virtual devices (VDC).
+:::
+
 Once your test has run and generated a **Test Details** page, you have several options for sharing a link to that page with others.
 
 1. On Sauce Labs, in the left panel, click **LIVE** or **AUTOMATED**, and then click **Test Results**.
@@ -154,6 +158,59 @@ console.log('usUrl = ', usUrl);
 console.log('euUrl = ', euUrl);
 
 ```
+
+#### Example - C#
+```cs
+using System;
+using System.Security.Cryptography;
+using System.Text;
+
+namespace SauceLabsShareableLink
+{
+    class Program
+    {
+        private static string SAUCE_USERNAME = Environment.GetEnvironmentVariable("SAUCE_USERNAME");
+        private static string SAUCE_ACCESS_KEY = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY");
+        private static string KEY = string.Format("{0}:{1}", SAUCE_USERNAME, SAUCE_ACCESS_KEY);
+        private static string SAUCE_TESTS_URL = "https://app.eu-central-1.saucelabs.com/tests";
+
+        static void Main(string[] args)
+        {
+            string sauceJobId = "c5eb67f00e124ba0a46f2b7869bd418c";
+            string shareableLink = GetShareableLink(sauceJobId);
+
+            Console.WriteLine(shareableLink);
+            Console.ReadKey();
+        }
+
+        public static string GetShareableLink(string sauceJobId)
+        {
+            var data = Encoding.ASCII.GetBytes(sauceJobId);
+            var key = Encoding.ASCII.GetBytes(KEY);
+            var hmac = new HMACMD5(key);
+            var hashBytes = hmac.ComputeHash(data);
+
+            string digest = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+            string link = string.Format("{0}/{1}?auth={2}", SAUCE_TESTS_URL, sauceJobId, digest);
+
+            return link;
+        }
+    }
+}
+```
+
+#### Example - Ruby
+
+```rb
+require 'openssl'
+
+key = "#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}"
+job_id = '1409ca8f0c2a4461a3d2c91f671f7bef'
+auth = OpenSSL::HMAC.hexdigest("md5", key, job_id)
+url = "https://app.saucelabs.com/tests/#{job_id}?auth=#{auth}"
+```
+
+
 
 ## Support for Secondary Accounts
 If you want to authenticate as another user, just prefix the auth token with your user name, followed by a colon.

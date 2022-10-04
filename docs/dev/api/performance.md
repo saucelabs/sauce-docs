@@ -290,7 +290,7 @@ Returns information about any outliers values in the test for the specified metr
   <tbody>
     <tr>
      <td><code>metric_names</code></td>
-     <td><p><small>| QUERY | REQUIRED | ARRAY of STRINGS |</small></p><p>Provide a list of specific metric values to return. If omitted, the result includes all metrics. See <a href="/performance/one-page#metric-values">Performance Metric Values</a> for a list of supported metrics.</p></td>
+     <td><p><small>| QUERY | REQUIRED | ARRAY of STRINGS |</small></p><p>Provide a list of specific metric values to return. See <a href="/performance/one-page#metric-values">Performance Metric Values</a> for a list of supported metrics.</p></td>
     </tr>
   </tbody>
   <tbody>

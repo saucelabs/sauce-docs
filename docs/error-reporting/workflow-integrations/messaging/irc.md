@@ -1,6 +1,6 @@
 ---
 id: irc
-title: IRC
+title: IRC Integration with Backtrace
 sidebar_label: IRC
 description: Integrate Backtrace with IRC.
 ---
@@ -8,7 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## IRC Integration
 This guide goes through the steps necessary to integrate Backtrace with IRC. With IRC integration, Backtrace can send an alert message for new crashes or crash groups to a specified channel on an IRC server. This message will contain a URL to view more detailed information about the crash in the Web Console.
 
 ## Set Up the Integration

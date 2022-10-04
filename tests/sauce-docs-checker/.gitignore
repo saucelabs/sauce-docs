@@ -1,0 +1,4 @@
+node_modules
+*.txt
+.idea/
+.DS_Store
