@@ -167,3 +167,8 @@ We recommend that you avoid the use of special characters when naming your tests
 :::caution Firefox 101 + Windows
 Cypress does not currently work with Firefox 101 on Windows.
 :::
+
+:::caution Firefox 105
+Cypress does not currently work with Firefox 105.
+See https://github.com/cypress-io/cypress/issues/23897 for more information.
+:::
