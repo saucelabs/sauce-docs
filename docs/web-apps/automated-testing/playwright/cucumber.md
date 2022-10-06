@@ -793,7 +793,7 @@ Shows the full backtrace for errors.
 #### `require`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Paths to where your support code is, for CommonJS. See more details [here](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md#finding-your-code).
+Paths to your support code for CommonJS. See the [Cucumber-js Configuration documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md#finding-your-code) for more information.
 
 ```yaml
   options:
