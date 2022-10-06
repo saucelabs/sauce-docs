@@ -748,7 +748,7 @@ suites:
 #### `name`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Regular expressions of which Cucumber scenario names should match one of to be run. See more details [here](https://github.com/cucumber/cucumber-js/blob/main/docs/filtering.md#names).
+Specifies with regular expression matching which Cucumber scenarios to run. See the [Cucumber-js Filtering documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/filtering.md#names) for more information.
 
 ```yaml
   options:
