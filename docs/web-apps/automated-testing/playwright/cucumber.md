@@ -830,7 +830,7 @@ Tag expression to filter which Cucumber scenarios should be run. See more detail
 #### `format`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Name/path and (optionally) output file path of each formatter to use. See more details [here](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md).
+Name/path and (optionally) output file path of each formatter to use. See the [Cucumber-js Formatters documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md) for more information.
 
 ```yaml
   options:
