@@ -15,9 +15,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Getting the most out of your live and automated testing means including a healthy mix of emulators, simulators, and real devices as your mobile testing platforms. Why? Most  aspects of the mobile experience you can test on emulators or simulators, while some scenarios require testing on physical real devices (e.g., memory consumption, CPU usage, location-based apps that use manufacturer-specific device sensors).
+Getting the most out of your live and automated testing means including a healthy mix of Emulators, Simulators, and real devices as your mobile testing platforms. Why? Most  aspects of the mobile experience you can test on Emulators or Simulators, while some scenarios require testing on physical real devices (e.g., memory consumption, CPU usage, location-based apps that use manufacturer-specific device sensors).
 
-There are a variety of use cases to consider when you're deciding on the mix of emulators, simulators, and real devices to use in your testing.
+There are a variety of use cases to consider when you're deciding on the mix of Emulators, Simulators, and real devices to use in your testing.
 
 We support thousands of device/OS combinations and test automation frameworks such as Appium, Espresso, XCUITest, and Robotium. For a full list, [click here](https://saucelabs.com/platform/supported-browsers-devices).
 
@@ -76,7 +76,7 @@ Our public cloud, available to all users regardless of pricing plan, contains a 
 
 <p> <Highlight color="#013a70">Enterprise Plans Only</Highlight> </p>
 
-This is dedicated pool of devices just for your organization. On the mobile device selection screen, your private devices are [marked with a person silhouette icon](/mobile-apps/live-testing/live-mobile-app-testing#selecting-a-real-device). Here are some use cases:
+This is dedicated pool of devices just for your organization. On the mobile device selection screen, your private devices are [marked with a green device icon](/mobile-apps/live-testing/live-mobile-app-testing#selecting-a-real-device). Here are some use cases:
 
 * You need to use a very specific set of devices that aren't supported on the public cloud.
 * Your security team insists on dedicated devices.

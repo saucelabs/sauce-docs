@@ -364,13 +364,13 @@ backtraceClient.addBreadcrumb("About to send Backtrace report", BacktraceBreadcr
 ```
 
 :::caution
-Don't make calls to `addBreadcrumb` from performance-critical code paths.
+We recommend that you do **not** make calls to `addBreadcrumb` from performance-critical code paths.
 :::
 
 ### Automatic Breadcrumbs
 By default, if you enable breadcrumbs, Backtrace registers handlers to capture Android Broadcasts and other common system events, such as low memory warnings, battery warnings, screen orientation changes, ActivityLifecycleCallbacks, and more.
 
-You can limit the types of automatic events we capture for you by specifying which automatic breadcrumb types you want to enable, such as:
+You can limit the types of automatic events that are captured by specifying which automatic breadcrumb types you want to enable. For example:
 
 ```java
 EnumSet<BacktraceBreadcrumbType> breadcrumbTypesToEnable = EnumSet.of(BacktraceBreadcrumbType.USER);
@@ -428,12 +428,13 @@ To add breadcrumbs from your NDK/C++ code, you must first register your `Backtra
     ```
 
 ## Error-Free Metrics
-Error free metrics allow you to determine:
-- How many of your unique users (i.e: unique device IDs) using your app are experiencing errors/crashes?
-- How many application sessions (i.e: individual application sessions from startup till shutdown/exit) of your app are experiencing errors/crashes?
+Error-free metrics allow you to determine:
+- How many of your unique users (i.e., unique device IDs) using your app are experiencing errors/crashes.
+- How many application sessions (i.e., individual application sessions from startup till shutdown/exit) of your app are experiencing errors/crashes.
 
-You can track those metrics at-a-glance, as well as in detail to find out what kinds of errors/crashes are most common.
+You can track those metrics at-a-glance, as well as in detail to find out what kinds of errors/crashes are most common. For more information, see [Stability Metrics Widgets](/error-reporting/web-console/overview/#stability-metrics-widgets).
 
+### Enabling Error-Free Metrics
 You can enable error-free metrics as follows:
 :::note Important
 Make sure to enable error-free metrics before you [enable the native integration](#enabling-native-integration).
