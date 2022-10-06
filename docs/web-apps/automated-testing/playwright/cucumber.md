@@ -78,7 +78,7 @@ defaults:
 ### `mode`
 <p><small>| OPTIONAL | STRING/ENUM |</small></p>
 
-Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally on `docker`. You can override this setting for individual suites using the `mode` setting within the [`suites`](#suites) object. If not set, the default value is `sauce`.
+Instructs `saucectl` to run tests remotely through Sauce Labs (`sauce`) or locally on `docker`. You can override this setting for individual suites using the `mode` setting within the [`suites`](#suites) object. If not set, the default value is `sauce`.
 
 ```yaml
   mode: sauce
