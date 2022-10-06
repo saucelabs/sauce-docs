@@ -168,4 +168,4 @@ As with iOS, when testing on Android Emulators, you can first perform a check to
     * Test script to validate successful biometric login
     * Test script to validate failed biometric login
     * Test script to exit out of biometric auth modal
-* [Appium Documentation for iOS Simulator Face ID](https://github.com/appium/appium-xcuitest-driver/blob/master/docs/touch-id.md)
+* [Appium Documentation for iOS Simulator Touch ID](https://github.com/appium/appium-xcuitest-driver/blob/master/docs/touch-id.md)
