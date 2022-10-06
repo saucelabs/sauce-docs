@@ -782,7 +782,7 @@ Excludes test files to skip the tests. You can use glob pattern to indicate all 
 #### `backtrace`
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Shows the full backtrace for errors.
+Specifies whether to show the full backtrace for errors.
 
 ```yaml
   options:
