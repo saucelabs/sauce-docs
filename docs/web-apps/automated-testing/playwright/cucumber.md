@@ -817,7 +817,7 @@ Paths to where your support code is, for ESM. See more details [here](https://gi
 #### `tags`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Tag expression to filter which Cucumber scenarios should be run. See more details [here](https://github.com/cucumber/cucumber-js/blob/main/docs/filtering.md#tags).
+Tag expression to filter which Cucumber scenarios run. See the [Cucumber-js Filtering documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/filtering.md#tags) for more information.
 
 ```yaml
   options:
