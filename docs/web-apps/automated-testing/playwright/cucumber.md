@@ -366,7 +366,7 @@ npm:
 To use this feature, make sure that `node_modules` is not ignored via `.sauceignore`.
 
 :::note
-`saucectl` doesn't support the way to run Cucumber-Playwright test via installing Cucumber-js related packages on the fly.
+`saucectl` doesn't support running Playwright-Cucumber tests via installing Cucumber related packages on the fly.
 :::
 
 ---
