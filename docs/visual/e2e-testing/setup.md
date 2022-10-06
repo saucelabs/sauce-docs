@@ -62,7 +62,7 @@ From your terminal or IDE, navigate to your WebDriver test location, then set yo
 
   ```bash
   $Env:SAUCE_USERNAME = "Replace with your Sauce Labs username"
-    ```
+  ```
 
   ```bash
   $Env:SAUCE_ACCESS_KEY = "Replace with your Sauce Labs access key"

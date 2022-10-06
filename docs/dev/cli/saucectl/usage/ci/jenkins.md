@@ -63,42 +63,42 @@ Add the `Jenkinsfile` at the root of your project directory so that Jenkins can 
 <TabItem value="cypress">
 
 ```bash reference
-https://github.com/saucelabs/saucectl-cypress-example/blob/master/Jenkinsfile
+https://github.com/saucelabs/saucectl-cypress-example/blob/main/v1/Jenkinsfile
 ```
 
 </TabItem>
 <TabItem value="playwright">
 
 ```sh reference
-https://github.com/saucelabs/saucectl-playwright-example/blob/master/Jenkinsfile
+https://github.com/saucelabs/saucectl-playwright-example/blob/main/Jenkinsfile
 ```
 
 </TabItem>
 <TabItem value="testcafe">
 
 ```bash reference
-https://github.com/saucelabs/saucectl-testcafe-example/blob/master/Jenkinsfile
+https://github.com/saucelabs/saucectl-testcafe-example/blob/main/Jenkinsfile
 ```
 
 </TabItem>
 <TabItem value="puppeteer">
 
 ```bash reference
-https://github.com/saucelabs/saucectl-puppeteer-example/blob/master/Jenkinsfile
+https://github.com/saucelabs/saucectl-puppeteer-example/blob/main/Jenkinsfile
 ```
 
 </TabItem>
 <TabItem value="espresso">
 
 ```bash reference
-https://github.com/saucelabs/saucectl-espresso-example/blob/master/Jenkinsfile
+https://github.com/saucelabs/saucectl-espresso-example/blob/main/Jenkinsfile
 ```
 
 </TabItem>
 <TabItem value="xcuitest">
 
 ```bash reference
-https://github.com/saucelabs/saucectl-xcuitest-example/blob/master/Jenkinsfile
+https://github.com/saucelabs/saucectl-xcuitest-example/blob/main/Jenkinsfile
 ```
 </TabItem>
 </Tabs>

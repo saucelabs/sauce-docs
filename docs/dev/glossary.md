@@ -500,7 +500,7 @@ A portable framework for testing web apps.
 
 ### Selenium Grid
 
-A part of the Selenium suite that specializes in running multiple tests across different browsers, operating systems, and machines in parallel. Selenium Grid has two versions: Grid 1 (older) and Grid 2 (newer).
+A part of the Selenium suite that specializes in running multiple tests across different browsers, operating systems, and machines in parallel. Selenium Grid has two versions: Grid 1 (older) and Grid 2 (newer). More information: [Selenium Grid and Sauce Labs](/web-apps/automated-testing/selenium/selenium-grid/).
 
 
 ### Selenium IDE
@@ -517,7 +517,7 @@ A listener for Selenium commands built into Sauce Connect Proxy that enables inb
 
 A server required to run older Selenium RC tests or WebDriver tests in remote machines through the Selenium Grid.
 
-See also: _[webdriver](#webdriver)_.
+See also: _[webdriver](#webdriver), [selenium grid](#selenium-grid)_.
 
 
 ### Self-Service
@@ -619,13 +619,14 @@ See also: _[sauce connect proxy](#sauce-connect-proxy)._
 
 ### Tunnel Identifier
 
-The Sauce Connect Proxy test configuration option that allows you to assign a name to your tunnel(s), giving you more control and monitoring capability over the tunnel. If you launch a tunnel without naming it, your test traffic will default to running through that unnamed tunnel. More information: [Using Sauce Connect Tunnel Identifiers](/secure-connections/sauce-connect/setup-configuration/basic-setup#using-tunnel-identifiers).
+See: [Tunnel Name](#tunnel-name)
 
-See also: _[colliding tunnels](#colliding-tunnels)_.
 
 ### Tunnel Name
 
-See: [Tunnel Identifier](#tunnel-identifier)
+The Sauce Connect Proxy test configuration option that allows you to assign a name to your tunnel(s), giving you more control and monitoring capability over the tunnel. If you launch a tunnel without naming it, your test traffic will default to running through that unnamed tunnel. More information: [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names).
+
+See also: _[colliding tunnels](#colliding-tunnels)_.
 
 
 ### Tunnel Pool
