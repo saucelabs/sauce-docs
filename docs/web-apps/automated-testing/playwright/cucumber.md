@@ -759,7 +759,7 @@ Regular expressions of which Cucumber scenario names should match one of to be r
 #### `paths`
 <p><small>| REQUIRED | ARRAY |</small></p>
 
-Paths to where the feature files are, using glob pattern. See more details [here](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md#finding-your-features).
+Paths to feature files. See the [Cucumber-js Configuration documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md#finding-your-features) for more information. You can use glob pattern to indicate all files that match a specific value, such as a file name, type, or directory.
 
 ```yaml
   options:
