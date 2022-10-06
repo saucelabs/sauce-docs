@@ -842,7 +842,7 @@ Name/path and (optionally) output file path of each formatter to use. See more d
 #### `formatOptions`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Options to be provided to formatters. You can check more details [here](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md).
+Options to provide to formatters. See the [Cucumber-js Formatters documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md) for more information. 
 
 ```yaml
   options:
