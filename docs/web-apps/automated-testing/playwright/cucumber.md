@@ -1,6 +1,6 @@
 ---
 id: cucumber
-title: Configuring Your Playwright with Cucumber Tests
+title: Configuring Your Cucumber-js Tests with Playwright 
 sidebar_label: Cucumber YAML Configuration
 ---
 
@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-`saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your Playwright with Cucumber tests, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running Playwright with Cucumber tests.
+`saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your Cucumber-js tests with Playwright, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running Cucumber-js with Playwright tests.
 
 ## Setting an Alternative Configuration File
 
@@ -31,7 +31,7 @@ While you can use multiple files of different names or locations to specify your
 https://github.com/saucelabs/saucectl-playwright-example/blob/main/examples/cucumber/.sauce/config.yml
 ```
 
-Each of the properties supported for running Playwright-Cucumber tests through `saucectl` is defined below.
+Each of the properties supported for running Cucumber-js with Playwright tests through `saucectl` is defined below.
 
 ## `apiVersion`
 <p><small>| REQUIRED | STRING |</small></p>
@@ -131,7 +131,7 @@ The set of properties that allows you to provide additional information about yo
 
 ```yaml
 metadata:
-  name: Testing Cucumber Support
+  name: Testing Cucumber-js Support
   build: RC 10.4.a
   tags:
     - e2e
@@ -350,13 +350,9 @@ Specifies the location of the npm registry source. If the registry source is a p
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
 Specifies any npm packages that are required to run tests and should, therefore, be included in the bundle.
-Unlike `packages`, which installs dependencies on the VM, the dependencies specified here have to be already installed in the local `node_modules` folder. These dependencies, along with any related transitive dependencies, are then included in the bundle that is uploaded to Sauce Labs.
+The dependencies specified here have to be already installed in the local `node_modules` folder. These dependencies, along with any related transitive dependencies, are then included in the bundle that is uploaded to Sauce Labs.
 
-If you have already been including `node_modules` in your bundle, then this feature will help you speed up your tests by reducing the amount of files in the bundle. A smaller bundle will upload and extract faster, which speeds up the setup on the VM, facilitating a faster test feedback cycle.
-
-Take note that the syntax is different from `packages`. It's a simple **list** of dependencies, without the need to specify the version.
-
-In order to run Playwright with Cucumber test, you need to install the following required packages locally and then add dependencies to the config.
+In order to run Cucumber-js with Playwright test, you need to install the following required packages locally and then add dependencies to the config.
 
 ```yaml
 npm:
@@ -370,7 +366,7 @@ npm:
 To use this feature, make sure that `node_modules` is not ignored via `.sauceignore`.
 
 :::note
-`saucectl` doesn't support the way to run Playwright-Cucumber test via installing Cucumber related packages on the fly.
+`saucectl` doesn't support the way to run Cucumber-Playwright test via installing Cucumber-js related packages on the fly.
 :::
 
 ---
@@ -589,7 +585,6 @@ The parent property containing the details specific to the Playwright project.
 ```yaml
 playwright:
   version: 1.11.1
-  configFile: config.ts
 ```
 ---
 
@@ -627,20 +622,12 @@ The name of the test suite, which will be reflected in the results and related a
 ### `browserName`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Sets the browser name for the test suite. `saucectl` passes `browserName` as an environment variable `BROWSER_NAME`. Launching the browser for Playwright-Cucumber test should be done on customer's side. Hence `saucectl` cannot guarantee the displayed browser name is matched by the actual browser name.
+Sets the browser name for the test suite. `saucectl` passes `browserName` as an environment variable `$BROWSER_NAME`.
+
+Launching the browser for Cucumber-Playwright test should be done on customer's side. Hence `saucectl` cannot guarantee the displayed browser name is matched with the actual browser name.
 
 ```yaml
   browserName: "chromium"
-```
----
-
-### `browserVersion`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Sets the browser version for the test suite.
-
-```yaml
-  browserVersion: "101"
 ```
 ---
 
@@ -689,8 +676,8 @@ Specifies whether the individual suite will run on `docker` or `sauce`, potentia
 ### `shard`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-When sharding is configured, saucectl automatically splits the tests (e.g., by spec or concurrency) so that they can easily run in parallel.
-For sharding by concurrency, saucectl splits test files into several groups (the number of groups is determined by the concurrency setting). Each group will then run as an individual job.
+When sharding is configured, `saucectl` automatically splits the tests (e.g., by spec or concurrency) so that they can easily run in parallel.
+For sharding by concurrency, `saucectl` splits test files into several groups (the number of groups is determined by the concurrency setting). Each group will then run as an individual job.
 
 Selectable values: `spec` to shard by spec file, `concurrency` to shard by concurrency. Remove this field or leave it empty `""` for no sharding.
 
@@ -706,12 +693,7 @@ To split tests in the most efficient way possible, use:
 - `concurrency` when the number of specs is larger than the configured concurrency.
 :::
 
-:::caution Shard Property Exclusivity
-The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
-:::
-
 ---
-
 
 ### `timeout`
 <p><small>| OPTIONAL | DURATION |</small></p>
@@ -766,7 +748,7 @@ suites:
 #### `name`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Regular expressions of which Cucumber scenario names should match one of to be run.
+Regular expressions of which Cucumber scenario names should match one of to be run. See more details [here](https://github.com/cucumber/cucumber-js/blob/main/docs/filtering.md#names).
 
 ```yaml
   options:
@@ -777,12 +759,12 @@ Regular expressions of which Cucumber scenario names should match one of to be r
 #### `paths`
 <p><small>| REQUIRED | ARRAY |</small></p>
 
-Paths to where the feature files are, using glob pattern.
+Paths to where the feature files are, using glob pattern. See more details [here](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md#finding-your-features).
 
 ```yaml
   options:
-	 	paths:
-			- "features/**/*.feature"
+     paths:
+      - "features/**/*.feature"
 ```
 ---
 
@@ -800,60 +782,60 @@ Excludes test files to skip the tests. You can use glob pattern to indicate all 
 #### `backtrace`
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Show the full backtrace for errors
+Shows the full backtrace for errors.
 
 ```yaml
   options:
-		backtrace: true
+    backtrace: true
 ```
 ---
 
 #### `require`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Paths to where your support code is, for CommonJS.
+Paths to where your support code is, for CommonJS. See more details [here](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md#finding-your-code).
 
 ```yaml
   options:
-		require:
-			- "features/support/*.js"
+    require:
+      - "features/support/*.js"
 ```
 ---
 
 #### `import`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Paths to where your support code is, for ESM.
+Paths to where your support code is, for ESM. See more details [here](https://github.com/cucumber/cucumber-js/blob/main/docs/esm.md).
 
 ```yaml
   options:
-		import:
-			- "features/support/*.js"
+    import:
+      - "features/support/*.js"
 ```
 ---
 
 #### `tags`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Tag expression to filter which Cucumber scenarios should be run.
+Tag expression to filter which Cucumber scenarios should be run. See more details [here](https://github.com/cucumber/cucumber-js/blob/main/docs/filtering.md#tags).
 
 ```yaml
   options:
-		tags:
-			- "@smoke"
-			- "@e2e"
+    tags:
+      - "@smoke"
+      - "@e2e"
 ```
 ---
 
 #### `format`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Name/path and (optionally) output file path of each formatter to use.
+Name/path and (optionally) output file path of each formatter to use. See more details [here](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md).
 
 ```yaml
   options:
-		format:
-			- "json:my-cucumber.json"
+    format:
+      - "json:my-cucumber.json"
 ```
 ---
 
@@ -864,7 +846,7 @@ Options to be provided to formatters. You can check more details [here](https://
 
 ```yaml
   options:
-		formatOptions:
-			someOption: true
+    formatOptions:
+      someOption: true
 ```
 ---
