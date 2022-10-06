@@ -805,7 +805,7 @@ Paths to where your support code is, for CommonJS. See more details [here](https
 #### `import`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Paths to where your support code is, for ESM. See more details [here](https://github.com/cucumber/cucumber-js/blob/main/docs/esm.md).
+Paths to your support code for ESM. See the [Cucumber-js ES Modules (experimental) documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/esm.md) for more information. 
 
 ```yaml
   options:
