@@ -32,8 +32,8 @@ Camera Image Injection is available for testing on all Sauce Labs Android and iO
 |   **Device Type **        |  |  |   
 | Android real devices |     &checkmark;     |              |   
 | iOS real devices     |    &checkmark;      |             |   
-| Android emulators    |          |      &#x2715;      |
-| iOS simulators       |         |     &#x2715;  |
+| Android Emulators    |          |      &#x2715;      |
+| iOS Simulators       |         |     &#x2715;  |
 |       |         |      |
 |  **Framework Type**<sup>1</sup> |  |  |
 | Appium         | &checkmark; |      |
