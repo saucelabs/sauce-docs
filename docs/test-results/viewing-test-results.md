@@ -84,7 +84,7 @@ Your test assets, including videos, screenshots, and logs, are retained for 30 d
 1. In Sauce Labs, in the left panel, click **Automated** or **Live** and then click **Test Results**.
 2. Click the test whose results you want to view.
 3. On the **Test Details** page, you can do the following:
-  * Click the **COMMANDS** tab to see the API commands that were issued during the test. The **COMMANDS** tab also includes controls for filtering the commands displayed and playing back the commands.
+  * Click the **Commands** tab to see the API commands that were issued during the test. The **Commands** tab also includes controls for filtering the commands displayed and playing back the commands.
   * Click the **METADATA** tab to see the metadata attached to your test. Some of the test metadata, such as Passed, can be updated via the [Sauce REST API](/dev/api). 
   * Click the **Video** tab to view video of the test. You can download the video from this tab. Audio is available for real devices only. Additional configurations are required to record audio with your tests. For more information, see [Audio Capture](/mobile-apps/features/audio-capture/).
   * Click the **Screenshots** tab to view screenshots. You can download the screenshots from this tab, and view them in full screen.
