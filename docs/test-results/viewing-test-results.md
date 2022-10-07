@@ -23,10 +23,15 @@ Sauce Labs provides live test results for both real and virtual devices.
 
 To view live test results:
 1. In Sauce Labs, in the left panel, click **Live** and then click **Test Results.**
+
 <img src={useBaseUrl('img/test-results/test-results-live-nav.png')} alt="Live test results navigation" width="650"/>
+
 2. On the **Test Results** page, click the **Virtual Cloud** or **Real Devices** radio button to view the relevant device results.
+
 <img src={useBaseUrl('img/test-results/test-results-live-devices.png')} alt="Live test results - Virtual or real devices" width="650"/>
+
 3. In the **Test Results** results list, click a test to view its details. For more information, see [Screenshots, Commands, Logs, and Metadata](#screenshots-commands-logs-and-metadata).
+
 <img src={useBaseUrl('img/test-results/test-results-details-live.png')} alt="Live test results details" width="650"/>
 
 ### Filtering Test Results
