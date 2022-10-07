@@ -352,7 +352,7 @@ Specifies the location of the npm registry source. If the registry source is a p
 Specifies any npm packages that are required to run tests and should, therefore, be included in the bundle.
 The dependencies specified here have to be already installed in the local `node_modules` folder. These dependencies, along with any related transitive dependencies, are then included in the bundle that is uploaded to Sauce Labs.
 
-In order to run Cucumber-js tests Playwright, you must to install the following required packages locally, and then add the dependencies to the configuration file.
+In order to run Cucumber-js tests with Playwright, you must to install the following required packages locally, and then add the dependencies to the configuration file.
 
 ```yaml
 npm:
