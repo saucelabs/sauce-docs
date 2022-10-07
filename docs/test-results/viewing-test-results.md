@@ -81,7 +81,7 @@ You can review a variety of data about the tests you have run.
 Your test assets, including videos, screenshots, and logs, are retained for 30 days. Test parameters and metadata are available indefinitely.
 :::
 
-1. In Sauce Labs, in the left panel, click **AUTOMATED** or **LIVE** and then click **Test Results**.
+1. In Sauce Labs, in the left panel, click **Automated** or **Live** and then click **Test Results**.
 2. Click the test whose results you want to view.
 3. On the **Test Details** page, you can do the following:
   * Click the **COMMANDS** tab to see the API commands that were issued during the test. The **COMMANDS** tab also includes controls for filtering the commands displayed and playing back the commands.
