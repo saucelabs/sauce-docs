@@ -624,7 +624,7 @@ The name of the test suite, which will be reflected in the results and related a
 
 Sets the browser name for the test suite. `saucectl` passes `browserName` as an environment variable `$BROWSER_NAME`.
 
-Launching the browser for Cucumber-Playwright test should be done on customer's side. Hence `saucectl` cannot guarantee the displayed browser name is matched with the actual browser name.
+Launching the browser for Cucumber.js Playwright tests should be done on customer's side. Hence `saucectl` cannot guarantee the displayed browser name is matched with the actual browser name.
 
 ```yaml
   browserName: "chromium"
