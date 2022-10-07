@@ -22,7 +22,7 @@ The following actions are supported:
 This action will reject and never store the error. This is useful for customers who want to throw away crashes for specific noisy users, old versions, unsupported platforms, hacked games, etc.
 
 ### Drop Object and Index Only
-This action will drop the minidump or other object from the error submission so it is not counted towards storage quota. This is useful if the user has no need to retain the object for storage and external analysis.
+This action will process (index) the minidump and any other error object (including file attachments) and then delete (drop) it so it is not counted towards storage quota. This is useful if the user has no need to retain the object for storage and external analysis.
 
 <img src={useBaseUrl('img/error-reporting/project-settings/submission-actions-drop-object-and-index-only.png')} alt="" />
 
