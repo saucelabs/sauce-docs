@@ -905,6 +905,7 @@ module.exports = {
               'web-apps/automated-testing/playwright',
               'web-apps/automated-testing/playwright/quickstart',
               'web-apps/automated-testing/playwright/yaml',
+              'web-apps/automated-testing/playwright/cucumber',
               'web-apps/automated-testing/playwright/advanced',
             ],
           },
