@@ -130,7 +130,7 @@ To configure the crash reporter for a packaged build:
 
 Integrate the [backtrace-android](https://github.com/backtrace-labs/backtrace-android) error reporting library with your Unreal Engine game for Android written in Java or Kotlin.
 
-1. Download [BacktraceAndroid_UPL.xml](https://support.backtrace.io/hc/article_attachments/360092643371/BacktraceAndroid_UPL.xml).
+1. Download [BacktraceAndroid_UPL.xml](https://gist.github.com/lysannep/6c09a572baffede96cd250dbdf01279a#file-backtraceandroid_upl-xml).
 1. In the `BacktraceAndroid_UPL.xml` file, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need) for `BacktraceCredentials`.
     - Java:
       ```java
@@ -150,7 +150,7 @@ Integrate the [backtrace-android](https://github.com/backtrace-labs/backtrace-an
   	AdditionalPropertiesForReceipt.Add("AndroidPlugin", System.IO.Path.Combine(PluginPath, "BacktraceAndroid_UPL.xml"));
   }
   ```
-1. Download the [BacktraceWrapper.h](https://support.backtrace.io/hc/article_attachments/360090055151/BacktraceWrapper.h) header file and add it to your GameInstance.
+1. Download the [BacktraceWrapper.h](https://gist.github.com/lysannep/6c09a572baffede96cd250dbdf01279a#file-backtracewrapper-h) header file and add it to your GameInstance.
 1. To initialize the Backtrace client, use `BacktraceIO::FInitializeBacktraceClient`.
 :::note
 It's recommended to initialize the client from the `GameInstance::OnStart()` method. However, if the method is not available, you can initialize the client with any method you use to start your app or game process.
@@ -168,7 +168,7 @@ Optionally, you can specify custom attributes and file attachment paths to submi
 For more details on how to convert your Unreal Engine paths to Android paths, see the conversion functions for `FAndroidPlatformFile::PathToAndroidPaths` in the `AndroidPlatformFile.cpp` file.
 :::
 
-To change the default configuration settings for the Backtrace client, you can change the settings in the `BacktraceAndroid_UPL.xml` file. For more information, see the [README](https://github.com/backtrace-labs/backtrace-android#readme) for the backtrace-android library.
+To change the default configuration settings for the Backtrace client, you can change the settings in the `BacktraceAndroid_UPL.xml` file. For more information, see [Configuring Backtrace for Android](/error-reporting/platform-integrations/android/configuration/) for the backtrace-android library.
 
 </TabItem>
 <TabItem value="ios">
@@ -220,7 +220,7 @@ Integrate the [backtrace-cocoa](https://github.com/backtrace-labs/backtrace-coco
   ```
 1. For the `initWithSubmissionUrl`, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need).
 
-For information on how to change the default configuration settings for the Backtrace client, see the [README](https://github.com/backtrace-labs/backtrace-cocoa#readme) for the backtrace-cocoa library.
+For information on how to change the default configuration settings for the Backtrace client, see [Configuring Backtrace for iOS](/error-reporting/platform-integrations/ios/configuration/).
 
 </TabItem>
 <TabItem value="macos">

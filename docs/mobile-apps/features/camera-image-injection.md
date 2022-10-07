@@ -44,6 +44,8 @@ Camera Image Injection is available for testing on all Sauce Labs Android and iO
 :::note Not Supported
 * <small>Ephemeral apps (apps with temporary, disappearing messages and photos).</small>
 * <small>Mobile browsers and pre-installed system apps.</small>
+* <small>Apache Cordova(Phonegap) libraries and frameworks are not supported. https://cordova.apache.org/docs/en/latest/index.html#develop-for-platforms </small>
+
 
 :::
 
