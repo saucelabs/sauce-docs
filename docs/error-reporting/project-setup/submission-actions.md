@@ -37,6 +37,6 @@ This action can be used for automated assignment or to set specific attribute va
 <img src={useBaseUrl('img/error-reporting/project-settings/submission-action-set-value.png')} alt="" />
 
 ### Union Values
-This action is like Set Values, but for ‘label’ types, like Tags or Classifiers, where instead of ‘setting’ a value, the system is ‘adding’ a value to the field, so it can contain multiple values.
+This action is like Set Values, but for label types, like Tags or Classifiers, where instead of setting a value, the system is adding a value to the field, so it can contain multiple values.
 
 <img src={useBaseUrl('img/error-reporting/project-settings/submission-action-union-values.png')} alt="" />
