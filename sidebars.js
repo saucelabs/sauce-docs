@@ -323,6 +323,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Low Code',
+      link: { type: 'doc', id:  'dev/low-code' },
       collapsed: true,
       items: [
         'dev/low-code',
@@ -330,12 +331,14 @@ module.exports = {
         {
           type: 'category',
           label: 'Plan',
+          link: { type: 'doc', id:  'dev/low-code/plan/plan-step' },
           collapsed: true,
           items: [
             'dev/low-code/plan/plan-step',
             {
               type: 'category',
               label: 'Projects',
+              link: { type: 'doc', id:  'dev/low-code/plan/projects/projects' },
               collapsed: true,
               items: ['dev/low-code/plan/projects/projects', 'dev/low-code/plan/projects/project-details-page'],
             },
@@ -346,6 +349,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Execute',
+          link: { type: 'doc', id:  'dev/low-code/execute/execute-step' },
           collapsed: true,
           items: [
             'dev/low-code/execute/execute-step',
@@ -366,6 +370,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Error and Crash Reporting',
+      link: { type: 'doc', id:  'error-reporting/getting-started' },
       collapsed: true,
       items: [
         'error-reporting/getting-started',
@@ -373,19 +378,13 @@ module.exports = {
         {
           type: 'category',
           label: 'Platform Integrations',
+          link: { type: 'doc', id:  'error-reporting/platform-integrations/android/setup' },
           collapsed: true,
           items: [
         {
                 type: 'category',
-                label: 'Real Devices',
-                collapsed: true,
-                items: [
-                    'error-reporting/platform-integrations/real-devices/setup',
-                ],
-            },
-        {
-                type: 'category',
                 label: 'Android',
+                link: { type: 'doc', id:  'error-reporting/platform-integrations/android/setup' },
                 collapsed: true,
                 items: [
                     'error-reporting/platform-integrations/android/setup',
@@ -396,6 +395,7 @@ module.exports = {
         {
                 type: 'category',
                 label: 'iOS',
+                link: { type: 'doc', id:  'error-reporting/platform-integrations/ios/setup' },
                 collapsed: true,
                 items: [
                     'error-reporting/platform-integrations/ios/setup',
@@ -405,6 +405,7 @@ module.exports = {
             {
               type: 'category',
               label: 'Unity',
+              link: { type: 'doc', id:  'error-reporting/platform-integrations/unity/setup' },
               collapsed: true,
               items: [
                 'error-reporting/platform-integrations/unity/setup',
@@ -415,6 +416,7 @@ module.exports = {
             {
               type: 'category',
               label: 'Unreal Engine',
+              link: { type: 'doc', id:  'error-reporting/platform-integrations/unreal/setup' },
               collapsed: true,
               items: [
                 'error-reporting/platform-integrations/unreal/setup',
@@ -422,11 +424,21 @@ module.exports = {
                 'error-reporting/platform-integrations/unreal/troubleshooting',
               ],
             },
+            {
+              type: 'category',
+              label: 'Real Devices',
+              link: { type: 'doc', id:  'error-reporting/platform-integrations/real-devices/setup' },
+              collapsed: true,
+              items: [
+                  'error-reporting/platform-integrations/real-devices/setup',
+              ],
+          },
           ],
         },
         {
           type: 'category',
           label: 'Web Console Views',
+          link: { type: 'doc', id:  'error-reporting/web-console/getting-started' },
           collapsed: true,
           items: [
             'error-reporting/web-console/getting-started',
@@ -441,6 +453,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Project Setup',
+          link: { type: 'doc', id:  'error-reporting/project-setup/attributes' },
           collapsed: true,
           items: [
             'error-reporting/project-setup/attributes',
@@ -464,6 +477,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Workflow Integrations',
+          link: { type: 'doc', id:  'error-reporting/workflow-integrations/overview' },
           collapsed: true,
           items: [
             'error-reporting/workflow-integrations/overview',
@@ -471,6 +485,7 @@ module.exports = {
             {
               type: 'category',
               label: 'Messaging',
+              link: { type: 'doc', id:  'error-reporting/workflow-integrations/messaging/slack' },
               collapsed: true,
               items: [
                 'error-reporting/workflow-integrations/messaging/slack',
@@ -484,10 +499,11 @@ module.exports = {
             {
               type: 'category',
               label: 'Issue Tracking',
+              link: { type: 'doc', id:  'error-reporting/workflow-integrations/issue-tracking/jira' },
               collapsed: true,
               items: [
-                'error-reporting/workflow-integrations/issue-tracking/github',
                 'error-reporting/workflow-integrations/issue-tracking/jira',
+                'error-reporting/workflow-integrations/issue-tracking/github',
                 'error-reporting/workflow-integrations/issue-tracking/phabricator',
                 'error-reporting/workflow-integrations/issue-tracking/asana',
                 'error-reporting/workflow-integrations/issue-tracking/fogbugz',
@@ -496,6 +512,7 @@ module.exports = {
             {
               type: 'category',
               label: 'Alerting and Operations',
+              link: { type: 'doc', id:  'error-reporting/workflow-integrations/alerting-ops/pagerduty' },
               collapsed: true,
               items: [
                 'error-reporting/workflow-integrations/alerting-ops/pagerduty',
@@ -506,6 +523,7 @@ module.exports = {
             {
               type: 'category',
               label: 'Monitoring',
+              link: { type: 'doc', id:  'error-reporting/workflow-integrations/monitoring/datadog' },
               collapsed: true,
               items: [
                 'error-reporting/workflow-integrations/monitoring/datadog',
@@ -518,6 +536,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Privacy and Compliance',
+          link: { type: 'doc', id:  'error-reporting/security-compliance/common-questions' },
           collapsed: true,
           items: [
             'error-reporting/security-compliance/common-questions',
@@ -533,6 +552,7 @@ module.exports = {
     {
       type: 'category',
       label: 'API Reference',
+      link: { type: 'doc', id: 'dev/api' },
       collapsed: true,
       items: [
         'dev/api',
@@ -551,6 +571,7 @@ module.exports = {
     {
       type: 'category',
       label: 'CLI Reference',
+      link: { type: 'doc', id: 'dev/cli' },
       collapsed: true,
       items: [
         'dev/cli',
@@ -558,12 +579,14 @@ module.exports = {
         {
           type: 'category',
           label: 'saucectl CLI',
+          link: { type: 'doc', id: 'dev/cli/saucectl' },
           collapsed: true,
           items: [
             'dev/cli/saucectl',
             {
               type: 'category',
               label: 'Command Ref',
+              link: { type: 'doc', id: 'dev/cli/saucectl/init' },
               collapsed: true,
               items: [
                 'dev/cli/saucectl/init',
@@ -579,6 +602,7 @@ module.exports = {
             {
               type: 'category',
               label: 'CI Integrations',
+              link: { type: 'doc', id: 'dev/cli/saucectl/usage/ci/circleci', },
               collapsed: true,
               items: [
                 'dev/cli/saucectl/usage/ci/circleci',
@@ -590,6 +614,7 @@ module.exports = {
             {
               type: 'category',
               label: 'IDE Integrations',
+              link: { type: 'doc', id: 'dev/cli/saucectl/usage/ide/intellij', },
               collapsed: true,
               items: ['dev/cli/saucectl/usage/ide/intellij', 'dev/cli/saucectl/usage/ide/vscode'],
             },
@@ -598,6 +623,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Virtual USB CLI',
+          link: { type: 'doc', id: 'dev/cli/virtual-usb', },
           collapsed: true,
           items: [
             'dev/cli/virtual-usb',
@@ -637,6 +663,7 @@ module.exports = {
               {
                 type: 'category',
                 label: 'Managing Users and Accounts',
+                link: { type: 'doc', id: 'basics/acct-team-mgmt/concurrency-limits', },
                 collapsed: true,
                 items: [
                   'basics/acct-team-mgmt/concurrency-limits',
@@ -746,7 +773,7 @@ module.exports = {
           {
             type: 'category',
             label: 'Advanced',
-            link: { type: 'doc', id: 'secure-connections/sauce-connect/faq' },
+            link: { type: 'doc', id: 'secure-connections/sauce-connect/advanced/architecture' },
             collapsed: true,
             items: [
               'secure-connections/sauce-connect/advanced/architecture',
@@ -859,6 +886,7 @@ module.exports = {
       {
         type: 'category',
         label: 'Automated Testing',
+        link: { type: 'doc', id: 'web-apps/automated-testing/selenium' },
         collapsed: true,
         items: [
           {
@@ -1067,12 +1095,12 @@ module.exports = {
             link: { type: 'doc', id: 'visual/component-testing/integrations/sauce-labs' },
             collapsed: true,
             items: [
+              'visual/component-testing/integrations/sauce-labs',
               'visual/component-testing/integrations/continuous-integration',
               'visual/component-testing/integrations/slack',
               'visual/component-testing/integrations/webhooks',
               'visual/component-testing/integrations/github',
               'visual/component-testing/integrations/visual-studio-team-services',
-              'visual/component-testing/integrations/sauce-labs',
             ],
           },
           {
