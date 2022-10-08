@@ -27,7 +27,7 @@ This action will process (index) the minidump and any other error object (includ
 <img src={useBaseUrl('img/error-reporting/project-settings/submission-actions-drop-object-and-index-only.png')} alt="" />
 
 ### Probability Sampling
-Both "Reject Submission" and "Drop Object and Index Only" offer functionality to apply a created rule with some probability. In the example below, the rule would filter out 20% of error reports where the error message equals "Test Error".  
+Both **Reject Submission** and **Drop Object and Index Only** offer functionality to apply a created rule with some probability. In the example below, the rule would filter out 20% of error reports where the error message equals **Test Error**.  
 
 <img src={useBaseUrl('img/error-reporting/project-settings/sampling-example.png')} alt="" />
 
