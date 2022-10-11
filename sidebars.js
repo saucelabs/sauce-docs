@@ -325,6 +325,7 @@ module.exports = {
       label: 'Low Code',
       link: { type: 'doc', id:  'dev/low-code' },
       collapsed: true,
+      collapsible: false,
       items: [
         'dev/low-code',
         'dev/low-code/dashboard',
@@ -372,6 +373,7 @@ module.exports = {
       label: 'Error and Crash Reporting',
       link: { type: 'doc', id:  'error-reporting/getting-started' },
       collapsed: true,
+      collapsible: false,
       items: [
         'error-reporting/getting-started',
         'error-reporting/whats-new',
@@ -1128,9 +1130,8 @@ module.exports = {
       'visual/faq',
     ],
     Reference: [
-      'dev/glossary',
-      'dev/error-messages',
       'dev/test-configuration-options',
+      'dev/error-messages',
       'dev/w3c-webdriver-capabilities',
       {
         type: 'link',
@@ -1138,6 +1139,7 @@ module.exports = {
         href: '/visual/e2e-testing/commands-options', // The target URL (string).
       },
       'dev/data-center-maint',
+      'dev/glossary',
     ],
     Contributing: ['contributing', 'contributing/style-guide', 'contributing/code-of-conduct'],
   },
