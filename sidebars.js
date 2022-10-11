@@ -640,8 +640,13 @@ module.exports = {
       ],
     },
   ],
-  docs: {
-    Home: [
+  docs: [
+    {
+      type: 'category',
+      label: 'Home',
+      link: { type: 'doc', id: 'overview' },
+      collapsed: true,
+      items: [
       'overview',
       {
         type: 'category',
@@ -653,7 +658,6 @@ module.exports = {
           'basics/quickstarts',
           'basics/platform-configurator',
           'basics/environment-variables',
-
           {
             type: 'category',
             label: 'Account and Team Management',
@@ -741,7 +745,13 @@ module.exports = {
         ],
       },
     ],
-    'Sauce Trusted Connection': [
+    },
+    {
+      type: 'category',
+      label: 'Sauce Trusted Connection',
+      link: { type: 'doc', id: 'secure-connections' },
+      collapsed: true,
+      items: [
       'secure-connections',
       {
         type: 'category',
@@ -790,8 +800,13 @@ module.exports = {
       },
       'secure-connections/ipsec-vpn',
     ],
-
-    'Mobile Apps': [
+    },
+    {
+      type: 'category',
+      label: 'Mobile Apps',
+      link: { type: 'doc', id: 'mobile-apps' },
+      collapsed: true,
+      items: [
       'mobile-apps',
       'mobile-apps/supported-devices',
       'mobile-apps/app-storage',
@@ -876,7 +891,13 @@ module.exports = {
       'mobile-apps/ms-app-center',
       'mobile-apps/faq',
     ],
-    'Web Apps': [
+    },
+    {
+      type: 'category',
+      label: 'Web Apps',
+      link: { type: 'doc', id: 'web-apps' },
+      collapsed: true,
+      items: [
       'web-apps',
       {
         type: 'category',
@@ -975,7 +996,13 @@ module.exports = {
         ],
       },
     ],
-    'API Testing': [
+    },
+    {
+      type: 'category',
+      label: 'API Testing',
+      link: { type: 'doc', id: 'api-testing' },
+      collapsed: true,
+      items: [
       'api-testing',
       'api-testing/quickstart',
       'api-testing/sauce-connect',
@@ -1018,8 +1045,27 @@ module.exports = {
       'api-testing/project-access',
       'api-testing/legacy',
     ],
-    CI: ['ci', 'ci/azure', 'ci/bamboo', 'ci/bitbucket', 'ci/jenkins', 'ci/teamcity'],
-    'Test Results': [
+    },
+    {
+      type: 'category',
+      label: 'CI',
+      link: { type: 'doc', id: 'ci' },
+      collapsed: true,
+      items: [
+      'ci',
+      'ci/azure',
+      'ci/bamboo',
+      'ci/bitbucket',
+      'ci/jenkins',
+      'ci/teamcity',
+    ],
+    },
+    {
+      type: 'category',
+      label: 'Test Results',
+      link: { type: 'doc', id: 'test-results' },
+      collapsed: true,
+      items: [
       'test-results',
       'test-results/viewing-test-results',
       'test-results/sharing-test-results',
@@ -1027,7 +1073,13 @@ module.exports = {
       'test-results/test-status',
       'test-results/badges-browser-matrix',
     ],
-    Insights: [
+    },
+    {
+      type: 'category',
+      label: 'Test Results',
+      link: { type: 'doc', id: 'insights' },
+      collapsed: true,
+      items: [
       'insights',
       'insights/scope',
       'insights/history',
@@ -1036,7 +1088,13 @@ module.exports = {
       'insights/failure-analysis',
       'insights/debug',
     ],
-    Performance: [
+    },
+    {
+      type: 'category',
+      label: 'Performance',
+      link: { type: 'doc', id: 'performance' },
+      collapsed: true,
+      items: [
       'performance',
       'performance/about',
       'performance/one-page',
@@ -1044,8 +1102,20 @@ module.exports = {
       'performance/motion',
       'performance/analyze',
     ],
-    Headless: ['headless'],
-    Visual: [
+    },
+    {
+      type: 'category',
+      label: 'Headless',
+      link: { type: 'doc', id: 'headless' },
+      collapsed: true,
+      items: ['headless'],
+    },
+    {
+      type: 'category',
+      label: 'Visual',
+      link: { type: 'doc', id: 'visual' },
+      collapsed: true,
+      items: [
       'visual',
       {
         type: 'category',
@@ -1129,7 +1199,13 @@ module.exports = {
       'visual/notifications',
       'visual/faq',
     ],
-    Reference: [
+    },
+    {
+      type: 'category',
+      label: 'Reference',
+      link: { type: 'doc', id: 'dev/test-configuration-options' },
+      collapsed: true,
+      items: [
       'dev/test-configuration-options',
       'dev/error-messages',
       'dev/w3c-webdriver-capabilities',
@@ -1141,6 +1217,17 @@ module.exports = {
       'dev/data-center-maint',
       'dev/glossary',
     ],
-    Contributing: ['contributing', 'contributing/style-guide', 'contributing/code-of-conduct'],
-  },
+    },
+    {
+      type: 'category',
+      label: 'Contributing',
+      link: { type: 'doc', id: 'contributing' },
+      collapsed: true,
+      items: [ 
+      'contributing', 
+      'contributing/style-guide', 
+      'contributing/code-of-conduct'
+    ],
+    },
+  ],
 };
