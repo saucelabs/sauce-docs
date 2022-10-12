@@ -85,7 +85,7 @@ This is dedicated pool of devices just for your organization. On the mobile devi
 * You need to establish a secure [IPSec VPN connection](/secure-connections/ipsec-vpn) between your network and the Sauce Labs cloud.
 
 #### Allowlisting Apps and Accounts
-* Apps installed on the private device can be selected, by name, to be preserved between sessions. These apps and their data will not be cleaned.
+* Apps installed on the private device can be selected, by Android `packageName` or iOS `bundleId`, to be preserved between sessions. These apps and their data will not be cleaned.
 * Google accounts signed into the Play Store can be preserved between sessions.
 * Apple IDs signed in to the device and App Store can be preserved between sessions.
 
