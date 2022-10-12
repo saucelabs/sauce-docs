@@ -88,7 +88,7 @@ https://github.com/saucelabs-training/demo-js/blob/docs-1.1/webdriverio/appium-a
 
 ### iOS Simulators
 
-Testing biometric interception on Sauce Labs iOS simulators or on your local machine involves writing your script to ensure biometrics is enabled for both the device and the app, and then simulating either a successful or failed authentication to ensure that the expected behavior results.
+Testing biometric interception on Sauce Labs iOS Simulators or on your local machine involves writing your script to ensure biometrics is enabled for both the device and the app, and then simulating either a successful or failed authentication to ensure that the expected behavior results.
 
 1. In your test script, check the device setting for biometrics, as shown in the `prepareBiometrics` function in our demo script:
 
@@ -127,7 +127,7 @@ Testing biometric interception on Sauce Labs iOS simulators or on your local mac
 
 ### Android Emulators
 
-As with iOS, when testing on Android emulators, you can first perform a check to see whether the device is enabled for biometric authentication. The test script in this samples is actually the same script for both iOS and Android -- the only difference is in setting the device enrollment.
+As with iOS, when testing on Android Emulators, you can first perform a check to see whether the device is enabled for biometric authentication. The test script in this samples is actually the same script for both iOS and Android -- the only difference is in setting the device enrollment.
 
 1. In your test script, check the device setting for biometrics, as shown in the `prepareBiometrics` function in our demo script:
 
@@ -168,4 +168,4 @@ As with iOS, when testing on Android emulators, you can first perform a check to
     * Test script to validate successful biometric login
     * Test script to validate failed biometric login
     * Test script to exit out of biometric auth modal
-* [Appium Documentation for iOS simulator Face ID](https://github.com/appium/appium-xcuitest-driver/blob/master/docs/touch-id.md)
+* [Appium Documentation for iOS Simulator Touch ID](https://github.com/appium/appium-xcuitest-driver/blob/master/docs/touch-id.md)

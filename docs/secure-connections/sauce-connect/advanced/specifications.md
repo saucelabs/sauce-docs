@@ -12,7 +12,7 @@ If you're a security or network administrator, you may find it useful to review 
 If you use Sauce Connect Proxy as part of your CI/CD pipeline, you may find it useful to review timeout values to better configure CI/CD success/failure parameters.
 
 ## What You'll Need
-* Review the [Using Sauce Connect Proxy Tunnels](/secure-connections/sauce-connect/proxy-tunnels).
+* Review [Using Sauce Connect Proxy Tunnels](/secure-connections/sauce-connect/proxy-tunnels).
 
 
 ## Security Specifications
@@ -95,11 +95,19 @@ Sauce Connect Proxy Tunnel connection TLS specifications
    </td>
   </tr>
   <tr>
-   <td>"REST API GET request" timeout
+   <td>"REST API GET `/USER/tunnels/ID`" timeout
+   </td>
+   <td>5 seconds
+   </td>
+   <td>Sauce Connect Proxy "HTTP long polling" (each 5 seconds) requests to get the backend status.
+   </td>
+  </tr>
+  <tr>
+   <td>"REST API POST `/USER/tunnels/ID`" timeout
    </td>
    <td>10 seconds
    </td>
-   <td>Sauce Connect Proxy periodically sends a GET request to get the tunnel status.
+   <td>Sauce Connect Proxy "HTTP long polling" (each 30 seconds) requests to update the client status.
    </td>
   </tr>
   <tr>

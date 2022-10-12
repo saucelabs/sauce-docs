@@ -139,7 +139,7 @@ if (!process.env.SAUCE_DOCS_DEV) {
   docusaurusConfig.themeConfig.algolia = {
     appId: 'RO95H65NEO',
     apiKey: '3a5924ec9fa1457b4999d8dcfc382c2d',
-    indexName: 'sauce-docs',
+    indexName: 'Sauce Docs Crawler',
     contextualSearch: false,
   };
 }

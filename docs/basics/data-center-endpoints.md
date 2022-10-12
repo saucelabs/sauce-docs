@@ -79,6 +79,9 @@ URLs vary based on the services you're using, your data center, and the types of
 <td colSpan='2'><strong>IP Ranges</strong></td>
 </tr>
 <tr>
+<td>Available November 1, 2022: us-west-4</td><td><code>34.125.90.96/27</code></td>
+</tr>
+<tr>
 <td>*.tunnels.us-west-4-i3er.saucelabs.com</td><td><code>34.125.246.157/32</code></td>
 </tr>
 <tr>
@@ -132,6 +135,9 @@ Depending on the framework or driver you use, you might need to make additional 
 </tr>
 <tr>
 <td colSpan='2'><strong>IP Ranges</strong></td>
+</tr>
+<tr>
+<td>Available November 1, 2022: eu-west-3</td><td><code>34.107.82.96/27</code></td>
 </tr>
 <tr>
 <td>*.tunnels.eu-west-3-lnbf.saucelabs.com</td><td><code>34.141.28.96/32</code></td>

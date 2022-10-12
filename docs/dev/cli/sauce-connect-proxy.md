@@ -72,11 +72,6 @@ __Shorthand__: `-r`
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region apac-southeast
 ```
 
-:::note
-Effective with version 4.7.0, this flag was deprecated and replaced by [`--rest-url`](#--rest-url).
-:::
-
-
 ---
 ### `--shared-tunnel`
 <p><small>| OPTIONAL | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
@@ -107,7 +102,7 @@ __Description__: Assigns a name to a Sauce Connect Proxy tunnel. It can also ass
 
 You can run tests using this tunnel by specifying the [`tunnelName`](/dev/test-configuration-options/#tunnelname) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
 __Enviroment variable__: `SAUCE_TUNNEL_NAME`<br/>
-__Shorthand__: n/a
+__Shorthand__: `-i`
 
 ---
 ### `--tunnel-pool`
@@ -180,7 +175,7 @@ __Shorthand__: `-x`
 ```
 
 :::note
-Effective with version 4.7.0, this flag was deprecated and replaced [`--region`](/dev/cli/sauce-connect-proxy/#--region).
+Effective with version 4.7.0, this flag was deprecated and replaced by [`--region`](/dev/cli/sauce-connect-proxy/#--region).
 :::
 
 ---

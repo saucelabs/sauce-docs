@@ -32,14 +32,14 @@ Using older Sauce Connect versions may impact your ability to launch a tunnel or
   <TabItem value="Mac/Linux">
 
   ```bash
-  cd sc-4.8.0-osx/bin
+  cd sc-4.8.1-osx/bin
   ```
 
   </TabItem>
   <TabItem value="Windows">
 
   ```bash
-  cd C:\sc-4.8.0-win32\bin
+  cd C:\sc-4.8.1-win32\bin
   ```
 
   </TabItem>

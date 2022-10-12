@@ -1,14 +1,14 @@
 ---
-id: yaml
-title: Configuring Your Playwright Tests
-sidebar_label: YAML Configuration
+id: cucumber
+title: Configuring Your Cucumber-js Tests with Playwright 
+sidebar_label: Cucumber YAML Configuration
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-`saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your Playwright tests, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running Playwright tests.
+`saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your Cucumber-js tests with Playwright, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running Cucumber-js with Playwright tests.
 
 ## Setting an Alternative Configuration File
 
@@ -28,10 +28,10 @@ While you can use multiple files of different names or locations to specify your
 ## Example Configuration
 
 ```yaml reference
-https://github.com/saucelabs/saucectl-playwright-example/blob/master/.sauce/config.yml
+https://github.com/saucelabs/saucectl-playwright-example/blob/main/examples/cucumber/.sauce/config.yml
 ```
 
-Each of the properties supported for running Playwright tests through `saucectl` is defined below.
+Each of the properties supported for running Cucumber-js with Playwright tests through `saucectl` is defined below.
 
 ## `apiVersion`
 <p><small>| REQUIRED | STRING |</small></p>
@@ -49,7 +49,7 @@ apiVersion: v1alpha
 Specifies which framework is associated with the automation tests configured in this specification.
 
 ```yaml
-kind: playwright
+kind: playwright-cucumberjs
 ```
 ---
 
@@ -78,7 +78,7 @@ defaults:
 ### `mode`
 <p><small>| OPTIONAL | STRING/ENUM |</small></p>
 
-Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally on `docker`. You can override this setting for individual suites using the `mode` setting within the [`suites`](#suites) object. If not set, the default value is `sauce`.
+Instructs `saucectl` to run tests remotely through Sauce Labs (`sauce`) or locally on `docker`. You can override this setting for individual suites using the `mode` setting within the [`suites`](#suites) object. If not set, the default value is `sauce`.
 
 ```yaml
   mode: sauce
@@ -104,7 +104,7 @@ The parent property containing all settings related to how tests are run and ide
 sauce:
   region: eu-central-1
   metadata:
-    name: Testing Playwright Support
+    name: Testing Cucumber Support
     tags:
       - e2e
       - release team
@@ -131,7 +131,7 @@ The set of properties that allows you to provide additional information about yo
 
 ```yaml
 metadata:
-  name: Testing Playwright Support
+  name: Testing Cucumber-js Support
   build: RC 10.4.a
   tags:
     - e2e
@@ -328,11 +328,11 @@ A parent property specifying the configuration details for any `npm` dependencie
 
 ```yaml
 npm:
-  registry: https://registry.npmjs.org
-  packages:
-    lodash: "4.17.20"
-    "@babel/preset-typescript": "7.12"
-    "@playwright/react": "^5.0.1"
+  dependencies:
+    - "@cucumber/cucumber"
+    - "@saucelabs/cucumber-reporter"
+    - "typescript"
+    - "ts-node"
 ```
 ---
 
@@ -346,39 +346,27 @@ Specifies the location of the npm registry source. If the registry source is a p
 ```
 ---
 
-### `packages`
-<p><small>| OPTIONAL | OBJECT |</small></p>
-
-Specifies any npm packages that are required to run tests and should, therefore, be installed on the Sauce Labs VM. See [Including Node Dependencies](#including-node-dependencies).
-
-```yaml
-  packages:
-    lodash: "4.17.20"
-    "@babel/preset-typescript": "7.12"
-    "@playwright/react": "^5.0.1"
-```
----
-
 ### `dependencies`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
 Specifies any npm packages that are required to run tests and should, therefore, be included in the bundle.
-Unlike `packages`, which installs dependencies on the VM, the dependencies specified here have to be already installed in the local `node_modules` folder. These dependencies, along with any related transitive dependencies, are then included in the bundle that is uploaded to Sauce Labs.
+The dependencies specified here have to be already installed in the local `node_modules` folder. These dependencies, along with any related transitive dependencies, are then included in the bundle that is uploaded to Sauce Labs.
 
-If you have already been including `node_modules` in your bundle, then this feature will help you speed up your tests by reducing the amount of files in the bundle. A smaller bundle will upload and extract faster, which speeds up the setup on the VM, facilitating a faster test feedback cycle.
-
-Take note that the syntax is different from `packages`. It's a simple **list** of dependencies, without the need to specify the version.
+In order to run Cucumber-js tests with Playwright, you must to install the following required packages locally, and then add the dependencies to the configuration file.
 
 ```yaml
 npm:
   dependencies:
-    - lodash
+    - "@cucumber/cucumber"
+    - "@saucelabs/cucumber-reporter"
+    - "typescript"
+    - "ts-node"
 ```
 
 To use this feature, make sure that `node_modules` is not ignored via `.sauceignore`.
 
-:::caution
-This feature is highly experimental.
+:::note
+`saucectl` doesn't support running Cucumber-js tests with Playwright via installing Cucumber related packages on the fly.
 :::
 
 ---
@@ -597,7 +585,6 @@ The parent property containing the details specific to the Playwright project.
 ```yaml
 playwright:
   version: 1.11.1
-  configFile: config.ts
 ```
 ---
 
@@ -617,17 +604,6 @@ The path to your `package.json` file will be relative to the `rootDir` of your c
 :::
 ---
 
-### `configFile`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-The path (relative to `rootDir`) to your Playwright configuration file. `saucectl` determines related files based on the location of this config file. Supports both TypeScript and JavaScript files.
-If it's not set, `saucectl` defaults to `playwright.config.ts` or `playwright.config.js`.
-
-```yaml
-  configFile: config.ts
-```
----
-
 ## `suites`
 <p><small>| REQUIRED | OBJECT |</small></p>
 
@@ -642,6 +618,16 @@ The name of the test suite, which will be reflected in the results and related a
 
 ```yaml
   - name: "saucy test"
+```
+### `browserName`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Sets the browser name for the test suite. `saucectl` passes `browserName` as an environment variable `$BROWSER_NAME`.
+
+Launching the browser for Cucumber.js Playwright tests should be done on customer's side. Hence `saucectl` cannot guarantee the displayed browser name is matched with the actual browser name.
+
+```yaml
+  browserName: "chromium"
 ```
 ---
 
@@ -663,7 +649,7 @@ A property containing one or more environment variables that may be referenced i
 A specific operating system and version on which to run the specified browser and test suite. Defaults to a platform that is supported by `saucectl` for the chosen browser.
 
 ```yaml
-    platformName: "Windows 10"
+    platformName: "Windows 11"
 ```
 ---
 
@@ -687,47 +673,11 @@ Specifies whether the individual suite will run on `docker` or `sauce`, potentia
 ```
 ---
 
-### `testMatch`
-<p><small>| REQUIRED | STRING/ARRAY |</small></p>
-
-One or more paths to the Playwright test files to run for this suite. Regex values are supported to indicate all files of a certain type or in a certain directory, etc.
-
-```yaml
-    testMatch: ["**/*.js"]
-```
----
-
-### `excludedTestFiles`
-<p><small>| OPTIONAL | ARRAY |</small></p>
-
-Excludes test files to skip the tests. You can use regex values to indicate all files that match a specific value, such as a file name, type, or directory.
-
-```yaml
-    excludedTestFiles: ["**/*.js"]
-```
----
-
-### `numShards`
-<p><small>| OPTIONAL | INTEGER | <span class="highlight playwright">Playwright version >= 1.12</span> |</small></p>
-
-Sets the number of separate shards to create for the test suite. Read more about shard tests on the [Playwright developer site](https://playwright.dev/docs/test-parallel#shards).
-
-When sharding is configured, `saucectl` automatically creates the sharded jobs based on the number of shards you specify. For example, for a suite that specifies 2 shards, `saucectl` clones the suite and runs shard `1/2` on the first suite, and the other shard `2/2` on the identical clone suite.
-
-:::caution Shard Property Exclusivity
-The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
-:::
-
-```yaml
-  numShards: 2
-```
----
-
 ### `shard`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-When sharding is configured, saucectl automatically splits the tests (e.g., by spec or concurrency) so that they can easily run in parallel.
-For sharding by concurrency, saucectl splits test files into several groups (the number of groups is determined by the concurrency setting). Each group will then run as an individual job.
+When sharding is configured, `saucectl` automatically splits the tests (e.g., by spec or concurrency) so that they can easily run in parallel.
+For sharding by concurrency, `saucectl` splits test files into several groups (the number of groups is determined by the concurrency setting). Each group will then run as an individual job.
 
 Selectable values: `spec` to shard by spec file, `concurrency` to shard by concurrency. Remove this field or leave it empty `""` for no sharding.
 
@@ -743,127 +693,7 @@ To split tests in the most efficient way possible, use:
 - `concurrency` when the number of specs is larger than the configured concurrency.
 :::
 
-:::caution Shard Property Exclusivity
-The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
-:::
-
 ---
-
-### `params`
-<p><small>| OPTIONAL | OBJECT |</small></p>
-
-A parent property that details any additional parameters you wish to set for the test suite.
-
-```yaml
-    params:
-      browserName: "firefox"
-      headless: true
-      slowMo: 1000
-      project: "project name"
-      grep: "should include"
-      grepInvert: "should exclude"
-```
-
-#### `browserName`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-The name of the browser in which to run this test suite.
-Available browser names: `chromium`, `firefox` and `webkit`.
-
-```yaml
-    browserName: "firefox"
-```
----
-
-#### `headless`
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
-
-Determines whether to run the test suite in [headless](/headless) mode.
-
-```yaml
-    headless: true
-```
----
-
-#### `sloMo`
-<p><small>| OPTIONAL | INTEGER |</small></p>
-
-Allows you to alter the test execution speed for the test suite in milliseconds, to simulate different network connectivity or other conditions that may impact load times.
-
-```yaml
-    sloMo: 1000
-```
----
-
-#### `project`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Allows you to apply the configurations from your [Playwright project](https://playwright.dev/docs/test-advanced/#projects) to the suite.
-
-:::note
-`saucectl` browserName overrides the Playwright project browserName in the event of a conflict.
-:::
-
-```yaml
-    project: "project name"
-```
----
-
-#### `grep`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Patterns to run tests based on their title.
-
-```yaml
-    grep: "should include"
-```
----
-
-#### `grepInvert`
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Patterns to skip tests based on their title.
-
-```yaml
-    grepInvert: "should exclude"
-```
----
-
-#### `updateSnapshots`
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
-
-Determines whether to update snapshots with the actual results produced by the test run. Playwright tests support [visual comparisons](https://playwright.dev/docs/test-snapshots).
-
-```yaml
-    updateSnapshots: true
-```
-
-To run a test with `saucectl`:
-1. Use the following config to download the baseline screenshots generated in the first run. The baseline screenshots can be found in the **artifacts** folder and are named `example-test-1-actual.png`.
-```yaml
-artifacts:
-  download:
-    when: always
-    match:
-      - console.log
-      - "*.png" // this will download the new baseline screenshots
-```
-
-2. Create a snapshot folder for the test file (e.g., `tests/example.test.js`).
-```bash
-$ mkdir tests/example.test.js-snapshots
-```
-
-3. Move the downloaded baseline screenshots to the snapshots folder. These screenshots will be accessible to Playwright in the next test run.
-```bash
-$ mv artifacts/{your-suite-name}/example-test-1-actual.png tests/example.test.js-snapshots/
-```
-
-4. Set `updateSnapshots` to `true`. Playwright will continue to update the baseline screenshots.
-```yaml
-    updateSnapshots: true
-```
-----
 
 ### `timeout`
 <p><small>| OPTIONAL | DURATION |</small></p>
@@ -896,11 +726,127 @@ There is a 300-second limit for all `preExec` commands to complete.
 ```
 ---
 
-### `timeZone`
-<p><small>| OPTIONAL | STRING |</small></p>
+### `options`
+<p><small>| REQUIRED | OBJECT |</small></p>
 
-Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
+Provides details related to the Cucumber configuration that are relevant for this test suite.
 
 ```yaml
-  timeZone: New_York
+suites:
+  - name: My Cucumber Test
+    browserName: chromium
+    options:
+      paths:
+        - "features/**/*.feature"
+      require:
+        - "features/support/*.js"
+      format:
+        - "json:my-cucumber.json"
 ```
+---
+
+#### `name`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies with regular expression matching which Cucumber scenarios to run. See the [Cucumber-js Filtering documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/filtering.md#names) for more information.
+
+```yaml
+  options:
+    name: ".*My Cucumber Scenario"
+```
+---
+
+#### `paths`
+<p><small>| REQUIRED | ARRAY |</small></p>
+
+Paths to feature files. See the [Cucumber-js Configuration documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md#finding-your-features) for more information. You can use glob pattern to indicate all files that match a specific value, such as a file name, type, or directory.
+
+```yaml
+  options:
+     paths:
+      - "features/**/*.feature"
+```
+---
+
+#### `excludedTestFiles`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Excludes test files to skip the tests. You can use glob pattern to indicate all files that match a specific value, such as a file name, type, or directory.
+
+```yaml
+  options:
+    excludedTestFiles: ["features/failed/**/*.feature"]
+```
+---
+
+#### `backtrace`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Specifies whether to show the full backtrace for errors.
+
+```yaml
+  options:
+    backtrace: true
+```
+---
+
+#### `require`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Paths to your support code for CommonJS. See the [Cucumber-js Configuration documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md#finding-your-code) for more information.
+
+```yaml
+  options:
+    require:
+      - "features/support/*.js"
+```
+---
+
+#### `import`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Paths to your support code for ESM. See the [Cucumber-js ES Modules (experimental) documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/esm.md) for more information. 
+
+```yaml
+  options:
+    import:
+      - "features/support/*.js"
+```
+---
+
+#### `tags`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Tag expression to filter which Cucumber scenarios run. See the [Cucumber-js Filtering documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/filtering.md#tags) for more information.
+
+```yaml
+  options:
+    tags:
+      - "@smoke"
+      - "@e2e"
+```
+---
+
+#### `format`
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Name/path and (optionally) output file path of each formatter to use. See the [Cucumber-js Formatters documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md) for more information.
+
+```yaml
+  options:
+    format:
+      - "json:my-cucumber.json"
+```
+---
+
+#### `formatOptions`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Options to provide to formatters. See the [Cucumber-js Formatters documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md) for more information. 
+
+```yaml
+  options:
+    formatOptions:
+      someOption: true
+```
+---

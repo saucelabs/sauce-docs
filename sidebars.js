@@ -323,19 +323,23 @@ module.exports = {
     {
       type: 'category',
       label: 'Low Code',
+      link: { type: 'doc', id:  'dev/low-code' },
       collapsed: true,
+      collapsible: false,
       items: [
         'dev/low-code',
         'dev/low-code/dashboard',
         {
           type: 'category',
           label: 'Plan',
+          link: { type: 'doc', id:  'dev/low-code/plan/plan-step' },
           collapsed: true,
           items: [
             'dev/low-code/plan/plan-step',
             {
               type: 'category',
               label: 'Projects',
+              link: { type: 'doc', id:  'dev/low-code/plan/projects/projects' },
               collapsed: true,
               items: ['dev/low-code/plan/projects/projects', 'dev/low-code/plan/projects/project-details-page'],
             },
@@ -346,6 +350,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Execute',
+          link: { type: 'doc', id:  'dev/low-code/execute/execute-step' },
           collapsed: true,
           items: [
             'dev/low-code/execute/execute-step',
@@ -366,26 +371,22 @@ module.exports = {
     {
       type: 'category',
       label: 'Error and Crash Reporting',
+      link: { type: 'doc', id:  'error-reporting/getting-started' },
       collapsed: true,
+      collapsible: false,
       items: [
         'error-reporting/getting-started',
         'error-reporting/whats-new',
         {
           type: 'category',
           label: 'Platform Integrations',
+          link: { type: 'doc', id:  'error-reporting/platform-integrations/android/setup' },
           collapsed: true,
           items: [
         {
                 type: 'category',
-                label: 'Real Devices',
-                collapsed: true,
-                items: [
-                    'error-reporting/platform-integrations/real-devices/setup',
-                ],
-            },
-        {
-                type: 'category',
                 label: 'Android',
+                link: { type: 'doc', id:  'error-reporting/platform-integrations/android/setup' },
                 collapsed: true,
                 items: [
                     'error-reporting/platform-integrations/android/setup',
@@ -396,6 +397,7 @@ module.exports = {
         {
                 type: 'category',
                 label: 'iOS',
+                link: { type: 'doc', id:  'error-reporting/platform-integrations/ios/setup' },
                 collapsed: true,
                 items: [
                     'error-reporting/platform-integrations/ios/setup',
@@ -405,6 +407,7 @@ module.exports = {
             {
               type: 'category',
               label: 'Unity',
+              link: { type: 'doc', id:  'error-reporting/platform-integrations/unity/setup' },
               collapsed: true,
               items: [
                 'error-reporting/platform-integrations/unity/setup',
@@ -415,6 +418,7 @@ module.exports = {
             {
               type: 'category',
               label: 'Unreal Engine',
+              link: { type: 'doc', id:  'error-reporting/platform-integrations/unreal/setup' },
               collapsed: true,
               items: [
                 'error-reporting/platform-integrations/unreal/setup',
@@ -422,11 +426,21 @@ module.exports = {
                 'error-reporting/platform-integrations/unreal/troubleshooting',
               ],
             },
+            {
+              type: 'category',
+              label: 'Real Devices',
+              link: { type: 'doc', id:  'error-reporting/platform-integrations/real-devices/setup' },
+              collapsed: true,
+              items: [
+                  'error-reporting/platform-integrations/real-devices/setup',
+              ],
+          },
           ],
         },
         {
           type: 'category',
           label: 'Web Console Views',
+          link: { type: 'doc', id:  'error-reporting/web-console/getting-started' },
           collapsed: true,
           items: [
             'error-reporting/web-console/getting-started',
@@ -441,6 +455,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Project Setup',
+          link: { type: 'doc', id:  'error-reporting/project-setup/attributes' },
           collapsed: true,
           items: [
             'error-reporting/project-setup/attributes',
@@ -464,6 +479,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Workflow Integrations',
+          link: { type: 'doc', id:  'error-reporting/workflow-integrations/overview' },
           collapsed: true,
           items: [
             'error-reporting/workflow-integrations/overview',
@@ -471,6 +487,7 @@ module.exports = {
             {
               type: 'category',
               label: 'Messaging',
+              link: { type: 'doc', id:  'error-reporting/workflow-integrations/messaging/slack' },
               collapsed: true,
               items: [
                 'error-reporting/workflow-integrations/messaging/slack',
@@ -484,10 +501,11 @@ module.exports = {
             {
               type: 'category',
               label: 'Issue Tracking',
+              link: { type: 'doc', id:  'error-reporting/workflow-integrations/issue-tracking/jira' },
               collapsed: true,
               items: [
-                'error-reporting/workflow-integrations/issue-tracking/github',
                 'error-reporting/workflow-integrations/issue-tracking/jira',
+                'error-reporting/workflow-integrations/issue-tracking/github',
                 'error-reporting/workflow-integrations/issue-tracking/phabricator',
                 'error-reporting/workflow-integrations/issue-tracking/asana',
                 'error-reporting/workflow-integrations/issue-tracking/fogbugz',
@@ -496,6 +514,7 @@ module.exports = {
             {
               type: 'category',
               label: 'Alerting and Operations',
+              link: { type: 'doc', id:  'error-reporting/workflow-integrations/alerting-ops/pagerduty' },
               collapsed: true,
               items: [
                 'error-reporting/workflow-integrations/alerting-ops/pagerduty',
@@ -506,6 +525,7 @@ module.exports = {
             {
               type: 'category',
               label: 'Monitoring',
+              link: { type: 'doc', id:  'error-reporting/workflow-integrations/monitoring/datadog' },
               collapsed: true,
               items: [
                 'error-reporting/workflow-integrations/monitoring/datadog',
@@ -518,6 +538,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Privacy and Compliance',
+          link: { type: 'doc', id:  'error-reporting/security-compliance/common-questions' },
           collapsed: true,
           items: [
             'error-reporting/security-compliance/common-questions',
@@ -533,6 +554,7 @@ module.exports = {
     {
       type: 'category',
       label: 'API Reference',
+      link: { type: 'doc', id: 'dev/api' },
       collapsed: true,
       items: [
         'dev/api',
@@ -551,6 +573,7 @@ module.exports = {
     {
       type: 'category',
       label: 'CLI Reference',
+      link: { type: 'doc', id: 'dev/cli' },
       collapsed: true,
       items: [
         'dev/cli',
@@ -558,24 +581,30 @@ module.exports = {
         {
           type: 'category',
           label: 'saucectl CLI',
+          link: { type: 'doc', id: 'dev/cli/saucectl' },
           collapsed: true,
           items: [
             'dev/cli/saucectl',
             {
               type: 'category',
               label: 'Command Ref',
+              link: { type: 'doc', id: 'dev/cli/saucectl/init' },
               collapsed: true,
               items: [
                 'dev/cli/saucectl/init',
                 'dev/cli/saucectl/configure',
                 'dev/cli/saucectl/run',
                 'dev/cli/saucectl/completion',
+                'dev/cli/saucectl/storage/download',
+                'dev/cli/saucectl/storage/list',
+                'dev/cli/saucectl/storage/upload'
               ],
             },
             'dev/cli/saucectl/usage/use-cases',
             {
               type: 'category',
               label: 'CI Integrations',
+              link: { type: 'doc', id: 'dev/cli/saucectl/usage/ci/circleci', },
               collapsed: true,
               items: [
                 'dev/cli/saucectl/usage/ci/circleci',
@@ -587,6 +616,7 @@ module.exports = {
             {
               type: 'category',
               label: 'IDE Integrations',
+              link: { type: 'doc', id: 'dev/cli/saucectl/usage/ide/intellij', },
               collapsed: true,
               items: ['dev/cli/saucectl/usage/ide/intellij', 'dev/cli/saucectl/usage/ide/vscode'],
             },
@@ -595,6 +625,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Virtual USB CLI',
+          link: { type: 'doc', id: 'dev/cli/virtual-usb', },
           collapsed: true,
           items: [
             'dev/cli/virtual-usb',
@@ -609,8 +640,13 @@ module.exports = {
       ],
     },
   ],
-  docs: {
-    Home: [
+  docs: [
+    {
+      type: 'category',
+      label: 'Home',
+      link: { type: 'doc', id: 'overview' },
+      collapsed: true,
+      items: [
       'overview',
       {
         type: 'category',
@@ -622,7 +658,6 @@ module.exports = {
           'basics/quickstarts',
           'basics/platform-configurator',
           'basics/environment-variables',
-
           {
             type: 'category',
             label: 'Account and Team Management',
@@ -634,6 +669,7 @@ module.exports = {
               {
                 type: 'category',
                 label: 'Managing Users and Accounts',
+                link: { type: 'doc', id: 'basics/acct-team-mgmt/concurrency-limits', },
                 collapsed: true,
                 items: [
                   'basics/acct-team-mgmt/concurrency-limits',
@@ -709,7 +745,13 @@ module.exports = {
         ],
       },
     ],
-    'Sauce Trusted Connection': [
+    },
+    {
+      type: 'category',
+      label: 'Sauce Trusted Connection',
+      link: { type: 'doc', id: 'secure-connections' },
+      collapsed: true,
+      items: [
       'secure-connections',
       {
         type: 'category',
@@ -743,7 +785,7 @@ module.exports = {
           {
             type: 'category',
             label: 'Advanced',
-            link: { type: 'doc', id: 'secure-connections/sauce-connect/faq' },
+            link: { type: 'doc', id: 'secure-connections/sauce-connect/advanced/architecture' },
             collapsed: true,
             items: [
               'secure-connections/sauce-connect/advanced/architecture',
@@ -758,8 +800,13 @@ module.exports = {
       },
       'secure-connections/ipsec-vpn',
     ],
-
-    'Mobile Apps': [
+    },
+    {
+      type: 'category',
+      label: 'Mobile Apps',
+      link: { type: 'doc', id: 'mobile-apps' },
+      collapsed: true,
+      items: [
       'mobile-apps',
       'mobile-apps/supported-devices',
       'mobile-apps/app-storage',
@@ -825,6 +872,17 @@ module.exports = {
               'mobile-apps/automated-testing/espresso-xcuitest',
               'mobile-apps/automated-testing/espresso-xcuitest/espresso',
               'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
+          
+              {
+                type: 'category',
+                label: 'Espresso Features',
+                link: { type: 'doc', id: 'mobile-apps/automated-testing/espresso-xcuitest/espresso-capture' },
+                collapsed: true,
+                items: [
+              'mobile-apps/automated-testing/espresso-xcuitest/espresso-capture',
+                ]
+              }
+    
             ],
           },
           'mobile-apps/automated-testing/ipa-files',
@@ -833,7 +891,13 @@ module.exports = {
       'mobile-apps/ms-app-center',
       'mobile-apps/faq',
     ],
-    'Web Apps': [
+    },
+    {
+      type: 'category',
+      label: 'Web Apps',
+      link: { type: 'doc', id: 'web-apps' },
+      collapsed: true,
+      items: [
       'web-apps',
       {
         type: 'category',
@@ -845,6 +909,7 @@ module.exports = {
       {
         type: 'category',
         label: 'Automated Testing',
+        link: { type: 'doc', id: 'web-apps/automated-testing/selenium' },
         collapsed: true,
         items: [
           {
@@ -858,6 +923,7 @@ module.exports = {
               'web-apps/automated-testing/selenium/selenium4',
               'web-apps/automated-testing/selenium/pre-run-executables',
               'web-apps/automated-testing/selenium/sample-scripts',
+              'web-apps/automated-testing/selenium/selenium-grid',
             ],
           },
           {
@@ -890,6 +956,7 @@ module.exports = {
               'web-apps/automated-testing/playwright',
               'web-apps/automated-testing/playwright/quickstart',
               'web-apps/automated-testing/playwright/yaml',
+              'web-apps/automated-testing/playwright/cucumber',
               'web-apps/automated-testing/playwright/advanced',
             ],
           },
@@ -930,7 +997,13 @@ module.exports = {
         ],
       },
     ],
-    'API Testing': [
+    },
+    {
+      type: 'category',
+      label: 'API Testing',
+      link: { type: 'doc', id: 'api-testing' },
+      collapsed: true,
+      items: [
       'api-testing',
       'api-testing/quickstart',
       'api-testing/sauce-connect',
@@ -973,8 +1046,27 @@ module.exports = {
       'api-testing/project-access',
       'api-testing/legacy',
     ],
-    CI: ['ci', 'ci/azure', 'ci/bamboo', 'ci/bitbucket', 'ci/jenkins', 'ci/teamcity'],
-    'Test Results': [
+    },
+    {
+      type: 'category',
+      label: 'CI',
+      link: { type: 'doc', id: 'ci' },
+      collapsed: true,
+      items: [
+      'ci',
+      'ci/azure',
+      'ci/bamboo',
+      'ci/bitbucket',
+      'ci/jenkins',
+      'ci/teamcity',
+    ],
+    },
+    {
+      type: 'category',
+      label: 'Test Results',
+      link: { type: 'doc', id: 'test-results' },
+      collapsed: true,
+      items: [
       'test-results',
       'test-results/viewing-test-results',
       'test-results/sharing-test-results',
@@ -982,7 +1074,13 @@ module.exports = {
       'test-results/test-status',
       'test-results/badges-browser-matrix',
     ],
-    Insights: [
+    },
+    {
+      type: 'category',
+      label: 'Test Results',
+      link: { type: 'doc', id: 'insights' },
+      collapsed: true,
+      items: [
       'insights',
       'insights/scope',
       'insights/history',
@@ -991,7 +1089,13 @@ module.exports = {
       'insights/failure-analysis',
       'insights/debug',
     ],
-    Performance: [
+    },
+    {
+      type: 'category',
+      label: 'Performance',
+      link: { type: 'doc', id: 'performance' },
+      collapsed: true,
+      items: [
       'performance',
       'performance/about',
       'performance/one-page',
@@ -999,8 +1103,20 @@ module.exports = {
       'performance/motion',
       'performance/analyze',
     ],
-    Headless: ['headless'],
-    Visual: [
+    },
+    {
+      type: 'category',
+      label: 'Headless',
+      link: { type: 'doc', id: 'headless' },
+      collapsed: true,
+      items: ['headless'],
+    },
+    {
+      type: 'category',
+      label: 'Visual',
+      link: { type: 'doc', id: 'visual' },
+      collapsed: true,
+      items: [
       'visual',
       {
         type: 'category',
@@ -1052,12 +1168,12 @@ module.exports = {
             link: { type: 'doc', id: 'visual/component-testing/integrations/sauce-labs' },
             collapsed: true,
             items: [
+              'visual/component-testing/integrations/sauce-labs',
               'visual/component-testing/integrations/continuous-integration',
               'visual/component-testing/integrations/slack',
               'visual/component-testing/integrations/webhooks',
               'visual/component-testing/integrations/github',
               'visual/component-testing/integrations/visual-studio-team-services',
-              'visual/component-testing/integrations/sauce-labs',
             ],
           },
           {
@@ -1084,10 +1200,15 @@ module.exports = {
       'visual/notifications',
       'visual/faq',
     ],
-    Reference: [
-      'dev/glossary',
-      'dev/error-messages',
+    },
+    {
+      type: 'category',
+      label: 'Reference',
+      link: { type: 'doc', id: 'dev/test-configuration-options' },
+      collapsed: true,
+      items: [
       'dev/test-configuration-options',
+      'dev/error-messages',
       'dev/w3c-webdriver-capabilities',
       {
         type: 'link',
@@ -1095,7 +1216,19 @@ module.exports = {
         href: '/visual/e2e-testing/commands-options', // The target URL (string).
       },
       'dev/data-center-maint',
+      'dev/glossary',
     ],
-    Contributing: ['contributing', 'contributing/style-guide', 'contributing/code-of-conduct'],
-  },
+    },
+    {
+      type: 'category',
+      label: 'Contributing',
+      link: { type: 'doc', id: 'contributing' },
+      collapsed: true,
+      items: [ 
+      'contributing', 
+      'contributing/style-guide', 
+      'contributing/code-of-conduct'
+    ],
+    },
+  ],
 };
