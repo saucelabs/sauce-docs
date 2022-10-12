@@ -1,6 +1,6 @@
 ---
 id: cucumber
-title: Configuring Your Cucumber-js Tests with Playwright 
+title: Configuring Your Cucumber.js Tests with Playwright 
 sidebar_label: Cucumber YAML Configuration
 ---
 
@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-`saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your Cucumber-js tests with Playwright, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running Cucumber-js with Playwright tests.
+`saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your Cucumber.js tests with Playwright, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running Cucumber.js with Playwright tests.
 
 ## Setting an Alternative Configuration File
 
@@ -31,7 +31,7 @@ While you can use multiple files of different names or locations to specify your
 https://github.com/saucelabs/saucectl-playwright-example/blob/main/examples/cucumber/.sauce/config.yml
 ```
 
-Each of the properties supported for running Cucumber-js with Playwright tests through `saucectl` is defined below.
+Each of the properties supported for running Cucumber.js with Playwright tests through `saucectl` is defined below.
 
 ## `apiVersion`
 <p><small>| REQUIRED | STRING |</small></p>
@@ -352,7 +352,7 @@ Specifies the location of the npm registry source. If the registry source is a p
 Specifies any npm packages that are required to run tests and should, therefore, be included in the bundle.
 The dependencies specified here have to be already installed in the local `node_modules` folder. These dependencies, along with any related transitive dependencies, are then included in the bundle that is uploaded to Sauce Labs.
 
-In order to run Cucumber-js tests with Playwright, you must to install the following required packages locally, and then add the dependencies to the configuration file.
+In order to run Cucumber.js tests with Playwright, you must to install the following required packages locally, and then add the dependencies to the configuration file.
 
 ```yaml
 npm:
@@ -366,7 +366,7 @@ npm:
 To use this feature, make sure that `node_modules` is not ignored via `.sauceignore`.
 
 :::note
-`saucectl` doesn't support running Cucumber-js tests with Playwright via installing Cucumber related packages on the fly.
+`saucectl` doesn't support running Cucumber.js tests with Playwright via installing Cucumber related packages on the fly.
 :::
 
 ---
@@ -748,7 +748,7 @@ suites:
 #### `name`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies with regular expression matching which Cucumber scenarios to run. See the [Cucumber-js Filtering documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/filtering.md#names) for more information.
+Specifies with regular expression matching which Cucumber scenarios to run. See the [Cucumber.js Filtering documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/filtering.md#names) for more information.
 
 ```yaml
   options:
@@ -759,7 +759,7 @@ Specifies with regular expression matching which Cucumber scenarios to run. See 
 #### `paths`
 <p><small>| REQUIRED | ARRAY |</small></p>
 
-Paths to feature files. See the [Cucumber-js Configuration documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md#finding-your-features) for more information. You can use glob pattern to indicate all files that match a specific value, such as a file name, type, or directory.
+Paths to feature files. See the [Cucumber.js Configuration documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md#finding-your-features) for more information. You can use glob pattern to indicate all files that match a specific value, such as a file name, type, or directory.
 
 ```yaml
   options:
@@ -793,7 +793,7 @@ Specifies whether to show the full backtrace for errors.
 #### `require`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Paths to your support code for CommonJS. See the [Cucumber-js Configuration documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md#finding-your-code) for more information.
+Paths to your support code for CommonJS. See the [Cucumber.js Configuration documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md#finding-your-code) for more information.
 
 ```yaml
   options:
@@ -805,7 +805,7 @@ Paths to your support code for CommonJS. See the [Cucumber-js Configuration docu
 #### `import`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Paths to your support code for ESM. See the [Cucumber-js ES Modules (experimental) documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/esm.md) for more information. 
+Paths to your support code for ESM. See the [Cucumber.js ES Modules (experimental) documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/esm.md) for more information. 
 
 ```yaml
   options:
@@ -817,7 +817,7 @@ Paths to your support code for ESM. See the [Cucumber-js ES Modules (experimenta
 #### `tags`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Tag expression to filter which Cucumber scenarios run. See the [Cucumber-js Filtering documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/filtering.md#tags) for more information.
+Tag expression to filter which Cucumber scenarios run. See the [Cucumber.js Filtering documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/filtering.md#tags) for more information.
 
 ```yaml
   options:
@@ -830,7 +830,7 @@ Tag expression to filter which Cucumber scenarios run. See the [Cucumber-js Filt
 #### `format`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Name/path and (optionally) output file path of each formatter to use. See the [Cucumber-js Formatters documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md) for more information.
+Name/path and (optionally) output file path of each formatter to use. See the [Cucumber.js Formatters documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md) for more information.
 
 ```yaml
   options:
@@ -842,7 +842,7 @@ Name/path and (optionally) output file path of each formatter to use. See the [C
 #### `formatOptions`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Options to provide to formatters. See the [Cucumber-js Formatters documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md) for more information. 
+Options to provide to formatters. See the [Cucumber.js Formatters documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md) for more information. 
 
 ```yaml
   options:
