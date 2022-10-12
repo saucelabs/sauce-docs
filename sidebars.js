@@ -1077,7 +1077,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Test Results',
+      label: 'Insights',
       link: { type: 'doc', id: 'insights' },
       collapsed: true,
       items: [
