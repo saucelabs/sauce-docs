@@ -175,7 +175,7 @@ If you attempt to terminate a Sauce Connect Proxy tunnel that is running a test 
 #### To Stop a Single Tunnel: `KILL` signal
 Another way to stop an individual tunnel via command line is to send a `KILL` command to the running `Process ID` (pid). The kill command sends various signals:
 * `kill -9` sends a kill signal (SIGKILL), which forces the program to shut down.
-* `kill -2` sends a SIGINT signal, which interrupts the program for a graceful shutdown. This is what we'll use in the below example.
+* `kill` sends a SIGTERM signal, which interrupts the program for a graceful shutdown. This is what we'll use in the below example.
 
 1. Start a Sauce Connect Proxy tunnel [per standard procedure](/secure-connections/sauce-connect/quickstart).
 2. Fetch and save the process IDs for later use.
@@ -190,7 +190,7 @@ Another way to stop an individual tunnel via command line is to send a `KILL` co
 
 3. Send a `KILL` signal to each `Process ID` (pid):
   ```bash
-  $ kill -2 38312
+  $ kill 38312
   ```
 
 :::note Windows Users
@@ -212,7 +212,7 @@ Here is an example using Linux commands:
 * `| xargs kill -9`: Passes it to `kill -9`.
 
 :::warning
-`xargs kill -9` will immediately disrupt all jobs currently running through that tunnel. If you wish to interrupt the program in order to gracefully shutdown the tunnels use the `xargs kill -2` signal instead.
+`xargs kill -9` will immediately disrupt all jobs currently running through that tunnel. If you wish to interrupt the program in order to gracefully shutdown the tunnels use the `xargs kill` signal instead.
 
 **We recommend first trying this command without `xargs kill -9` to ensure you don't unnecessarily delete adjacent running processes.**
 
