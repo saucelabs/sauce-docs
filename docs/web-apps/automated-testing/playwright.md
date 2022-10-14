@@ -13,7 +13,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 ## Supported Languages
 
 Javascript and Typescript are supported out of the box.
-Cucumber.js is not directly supported by playwright. However, playwright can be used as the backing automation framework. Please consult [this setup guide](playwright/cucumber.md) for more information on this topic.
+Cucumber.js is not directly supported by Playwright. However, Playwright can be used as the backing automation framework. See [this setup guide](playwright/cucumber.md) for more information.
 
 ## System Requirements
 
