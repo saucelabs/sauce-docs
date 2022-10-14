@@ -44,7 +44,7 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 
 ## Supported Languages
 
-Javascript and Typescript are supported out of the box.
+JavaScript and TypeScript are supported out of the box.
 
 ## Supported Testing Platforms
 
