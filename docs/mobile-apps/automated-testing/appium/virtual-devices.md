@@ -18,11 +18,11 @@ OS and platform combinations with [Android Emulators](https://developer.android.
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 * The native or hybrid mobile app you want to test. If you don't have one on hand and would like to test this functionality, consider using our [Sauce Labs demo mobile app](https://github.com/saucelabs/sample-app-mobile).
-* Ensure that your system fulfills the project support and requirements prior to uploading your apps or leveraging device emulators and simulators. Review the [Automated Mobile App Testing Admin Guide](/mobile-apps/supported-devices) for further details.
+* Ensure that your system fulfills the project support and requirements prior to uploading your apps or leveraging device Emulators and Simulators. Review the [Automated Mobile App Testing Admin Guide](/mobile-apps/supported-devices) for further details.
 
 ## Upload Your App to Emulators and Simulators
 
-To begin, upload your app to a publicly available source. Accepted file types are \*.zip iOS package files for simulators and \*.apk or \*.aab Android package files for emulators. There are two ways you can upload your app for automated testing:
+To begin, upload your app to a publicly available source. Accepted file types are \*.zip iOS package files for Simulators and \*.apk or \*.aab Android package files for Emulators. There are two ways you can upload your app for automated testing:
 
 * Upload a local file using the [App Storage REST API](/dev/api/storage/#upload-file-to-app-storage)
 * Provide a URL to install from a [Remote Location](/mobile-apps/automated-testing/appium/real-devices/#uploading-mobile-apps-from-a-remote-location)
@@ -329,7 +329,7 @@ DesiredCapabilities caps = DesiredCapabilities.android();
 
 ## Example Appium Test Scripts
 
-These Appium scripts for iOS and Android mobile app tests on emulators and simulators can help streamline your testing
+These Appium scripts for iOS and Android mobile app tests on Emulators and Simulators can help streamline your testing
 process. Below are links to the [Sauce Labs Training on GitHub](https://github.com/saucelabs-training) repository,
 where you'll find demo scripts for a variety of use cases to get you started with automated Appium testing:
 
