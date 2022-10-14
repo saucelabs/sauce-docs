@@ -1,9 +1,8 @@
 const docusaurusConfig = {
   title: 'Sauce Labs Documentation',
-  tagline:
-    'Test all the things.',
+  tagline: 'Test all the things.',
   url: 'https://docs.saucelabs.com',
-  noIndex: false,
+  noIndex: process.env.NO_INDEX,
   trailingSlash: true,
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -28,7 +27,11 @@ const docusaurusConfig = {
     },
   ],
   themeConfig: {
-    hideableSidebar: true,
+    beamer: {
+      product_id: `'WyhkZHOU27797'`,
+      display: `'popup'`,
+      // selector: `'.beamerContainer'`,
+    },
     prism: {
       additionalLanguages: ['java', 'ruby', 'csharp', 'bash', 'powershell', 'python'],
     },
@@ -38,28 +41,14 @@ const docusaurusConfig = {
       // Hides the switch in the navbar
       disableSwitch: false,
       respectPrefersColorScheme: false,
-      switchConfig: {
-        // Icon for the switch while in dark mode
-        darkIcon: '💡',
-        // CSS to apply to dark icon,
-        // React inline style object
-        // see https://reactjs.org/docs/dom-elements.html#style
-        darkIconStyle: {
-          marginLeft: '2px',
-        },
-        lightIcon: '🌙',
-        lightIconStyle: {
-          marginLeft: '1px',
-        },
-      },
     },
     navbar: {
       title: null,
       hideOnScroll: false,
       logo: {
         alt: 'Sauce Labs logo',
-        src: 'img/logo-saucelabs.svg',
-        srcDark: 'img/logo-saucelabs-white.svg',
+        src: '/img/logo-saucelabs.svg',
+        srcDark: '/img/logo-saucelabs-white.svg',
       },
       items: [
         {
@@ -87,23 +76,19 @@ const docusaurusConfig = {
           position: 'left',
           to: '/error-reporting/getting-started',
         },
-        // {
-        //   label: 'Try it Free',
-        //   position: 'right',
-        //   href: 'https://saucelabs.com/sign-up',
-        // },
-        // {
-        //   label: 'Sign In',
-        //   position: 'right',
-        //   href: 'https://accounts.saucelabs.com/',
-        // },
+        {
+          type: 'html',
+          position: 'right',
+          className: 'beamerTrigger',
+          value: '<img src="/img/beamer.svg" width="22" height="22" class="beamer-navbar-bell" alt="Product Updates">',
+        },
       ],
     },
     /* this is a swizzled component, see inside theme folder */
     footer: {
       logo: {
         alt: 'Sauce Logo',
-        src: 'img/logo-saucelabs-inverted.png',
+        src: '/img/logo-saucelabs-inverted.png',
         href: 'https://saucelabs.com',
       },
       style: 'light',
@@ -147,14 +132,15 @@ const docusaurusConfig = {
     ],
   ],
   themes: ['@saucelabs/theme-github-codeblock'],
-  plugins: [],
+  plugins: ['./src/plugins/beamer'],
 };
 
 if (!process.env.SAUCE_DOCS_DEV) {
   docusaurusConfig.themeConfig.algolia = {
-    appId: process.env.ALGOLIA_APP_ID || 'RO95H65NEO',
-    apiKey: process.env.ALGOLIA_KEY || 'demo-key' || 'bad6042c91ae4419a94229edf20bc8ea',
-    indexName: "Sauce Docs Crawler",
+    appId: 'RO95H65NEO',
+    apiKey: '3a5924ec9fa1457b4999d8dcfc382c2d',
+    indexName: 'Sauce Docs Crawler',
+    contextualSearch: false,
   };
 }
 

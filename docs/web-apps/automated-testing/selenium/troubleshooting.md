@@ -22,7 +22,7 @@ Because of the client/server architecture that Selenium employs, there's no info
 
 Your test:
 
-`assertEquals(sel.getTitle(), "My Shiny WebApp's Title");``
+`assertEquals(sel.getTitle(), "My Shiny WebApp's Title");`
 
 Sauce Labs:
 

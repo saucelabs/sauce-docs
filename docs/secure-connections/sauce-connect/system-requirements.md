@@ -16,14 +16,12 @@ Keep in mind that these are guidelines. Most environments have their own workloa
 
 * Minimum 2 core x 8 GB Machine.
 * We recommend using the [cURL command line](https://curl.haxx.se/download.html) or an equivalent tool to ensure that any error messages you receive are precise and actionable. If you're not familiar with the tool, [review their docs here](https://curl.se/docs) and then install cURL on your local machine.
-* For Unix-based systems, you may need to increase your open file limit if you plan to run a high number of parallel tests (i.e., `ulimit -n 8192`).
+* For Unix-based systems, you may need to increase your open file limit if you plan to run a high number of parallel tests (i.e., `ulimit -n 64000`).
 
 
 ## Supported Operating Systems
 
 ### Sauce Connect v4.8.x
-
-<p><small><span className="sauceGold">Beta</span></small></p>
 
 <table>
   <tr>
@@ -793,7 +791,7 @@ Tips for optimizing your tests running through Sauce Connect tunnels:
 
 *  If you're running **100 or more parallel tests**, we recommend a minimum network bandwidth of 750 Mbps to support the high volume of network traffic.
 *  If you're running **200 or more parallel tests**, we recommend launching more than one tunnel and using the [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
-*  When running a high volume of parallel tests on Unix-based operating systems, you may need to increase your [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) (for example, `ulimit -n 8192`).
+*  When running a high volume of parallel tests on Unix-based operating systems, you may need to increase your [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) (for example, `ulimit -n 64000`).
 *  For best performance, stability, and security, we recommend using a dedicated server (see [Sauce Connect Proxy Network Security](/secure-connections/sauce-connect/security-authentication)).
 
 

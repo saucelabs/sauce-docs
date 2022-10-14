@@ -12,7 +12,7 @@ If you're a security or network administrator, you may find it useful to review 
 If you use Sauce Connect Proxy as part of your CI/CD pipeline, you may find it useful to review timeout values to better configure CI/CD success/failure parameters.
 
 ## What You'll Need
-* Review the [Using Sauce Connect Proxy Tunnels](/secure-connections/sauce-connect/proxy-tunnels).
+* Review [Using Sauce Connect Proxy Tunnels](/secure-connections/sauce-connect/proxy-tunnels).
 
 
 ## Security Specifications
@@ -79,11 +79,7 @@ Sauce Connect Proxy Tunnel connection TLS specifications
 
 ## Timeout Values
 
-### Start Sequence
-1. Sauce Connect Proxy client sends a request to Sauce Labs REST API to get the latest configuration defaults.
-1. Sauce Connect Proxy client requests Sauce Labs REST API to provision a Sauce Connect Proxy server.
-1. Sauce Connect Proxy client establishes a secure connection to the server.
-1. Sauce Connect Proxy is ready, the console log would read "Sauce Connect is up, you may start your tests."
+### Start Timeouts
 
 <img src={useBaseUrl('img/sauce-connect/timeout-values.png')} alt="Sauce Connect download file contents" width="550" />
 
@@ -99,11 +95,19 @@ Sauce Connect Proxy Tunnel connection TLS specifications
    </td>
   </tr>
   <tr>
-   <td>"REST API GET request" timeout
+   <td>"REST API GET `/USER/tunnels/ID`" timeout
+   </td>
+   <td>5 seconds
+   </td>
+   <td>Sauce Connect Proxy "HTTP long polling" (each 5 seconds) requests to get the backend status.
+   </td>
+  </tr>
+  <tr>
+   <td>"REST API POST `/USER/tunnels/ID`" timeout
    </td>
    <td>10 seconds
    </td>
-   <td>Sauce Connect Proxy periodically sends a GET request to get the tunnel status.
+   <td>Sauce Connect Proxy "HTTP long polling" (each 30 seconds) requests to update the client status.
    </td>
   </tr>
   <tr>
@@ -139,3 +143,28 @@ Sauce Connect Proxy Tunnel connection TLS specifications
    </td>
   </tr>
 </table>
+
+## Supported Browsers and Ports
+
+The following commonly used browsers and ports are subject to change as new versions are released.
+
+Microsoft Edge, Chrome 71+, and the Safari browser on OS X 10.10+ and mobile iOS 8+ proxy these common ports:
+
+    443, 888,
+    2000, 2001, 2020, 2109, 2222, 2310,
+    3000, 3001, 3010, 3030, 3210, 3333,
+    4000, 4001, 4201, 4040, 4321, 4502, 4503, 4567,
+    5000, 5001, 5002, 5050, 5555, 5432,
+    6000, 6001, 6060, 6666, 6543,
+    7000, 7070, 7774, 7777,
+    8000, 8001, 8003, 8031, 8080, 8081, 8443, 8765, 8777, 8888,
+    9000, 9001, 9031, 9080, 9081, 9090, 9191, 9876, 9877, 9999,
+    49221, 55001
+
+:::note
+On Android devices, ports 5555 and 8080 cannot be used with Sauce Connect Proxy.
+:::
+
+:::note Using `.local` domains
+Using [Bonjour / ZeroConf](https://developer.apple.com/bonjour) for hostnames on a local network does not work on Safari 15 and above.
+:::
