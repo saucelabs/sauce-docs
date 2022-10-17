@@ -10,6 +10,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 [Playwright](https://github.com/microsoft/playwright) is a testing framework that you can use to test your web apps &#8212; either locally in Docker or remotely on Sauce Labs Cloud &#8212; using the [`saucectl` CLI](/dev/cli/saucectl). This gives you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
 
+## Supported Languages
+
+JavaScript and TypeScript are supported out of the box.
+Cucumber.js is not directly supported by Playwright. However, Playwright can be used as the backing automation framework. See [this setup guide](playwright/cucumber.md) for more information.
 
 ## System Requirements
 

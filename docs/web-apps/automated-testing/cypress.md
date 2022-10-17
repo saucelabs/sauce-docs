@@ -42,6 +42,9 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 </TabItem>
 </Tabs>
 
+## Supported Languages
+
+JavaScript is supported out of the box. TypeScript and Cucumber are also supported, but require additional dependencies at runtime.  See our [example repo](https://github.com/saucelabs/saucectl-cypress-example/tree/main/v1/examples) for working end-to-end examples.
 
 ## Supported Testing Platforms
 
