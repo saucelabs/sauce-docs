@@ -34,7 +34,18 @@ Now you can start your live or automated testing session. Your audio recording w
 
 
 
-### Streaming Audio during a Live Session (coming soon)
+### Audio Streaming
+
+<p><small><span className="sauceDBlue">Real Devices Only</span></small></p>
+
+You will be able to stream audio during a Live Testing session in our BETA program! Please contact your account team at Sauce Labs, and we will get you enrolled! 
+
+It ensures a better digital experience by validating audio playback and testing user flows that require audio testing in the early stages of the development lifecycle.
+
+With the Audio Streaming feature, you are able to hear the sound your application is making during a Live Testing session. It allows you to validate audio streams, notification sounds, and animations. 
+You will be able to mute and unmute the sound during your session by clicking on the mute/unmute button on the toolbar.
+After you have been enrolled in the BETA program, you just need to launch a Live Testing session on a real device, and the audio will be streamed automatically. 
+You can find the limitations at the bottom of this page. 
 
 ## Using Audio Capture on Android
 
@@ -53,7 +64,7 @@ If your apps's manifest.xml file defines `android:allowAudioPlaybackCapture="fal
 
 ## Using Audio Capture on iOS/iPadOS
 
-You will be able to capture audio from iOS 10+ up to iOS 15.3. 
+You will be able to capture audio from iOS 10+ up. 
 
 :::note
 The status bar clock will display a static 9:41 time during the recording of live testing session. This is a visual limitation for audio capture, and the system clock will not be affected.
@@ -72,11 +83,13 @@ curl --compressed \ -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}
 
 ## Limitations
 
-:::note Not Supported
-* Real time audio capture is not yet supported. 
+:::note Limitations
+* Audio streaming is supported on iOS/iPadOS 13.1 and above.
+* Audio streaming is supported on Android 10 and above.
+* When Audio streaming is enabled, we are not attaching the audio to the test results after the session ends. 
 * Accessibility and TalkBack on Android are not supported.
 * Emulators and simulators are not supported. 
-* Website testing is not yet available. 
+* Website testing is not yet available on Android. 
 :::
 
 ## More Information
