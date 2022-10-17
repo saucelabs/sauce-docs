@@ -36,16 +36,19 @@ Now you can start your live or automated testing session. Your audio recording w
 
 ### Audio Streaming
 
-<p><small><span className="sauceDBlue">Real Devices Only</span></small></p>
+<p><small><span className="sauceDBlue">BETA</span></small></p> <p><small><span className="sauceDBlue">Real Devices Only</span></small></p> 
 
-You will be able to stream audio during a Live Testing session in our BETA program! Please contact your account team at Sauce Labs, and we will get you enrolled! 
+You will be able to stream audio during a Live Testing session in our BETA program! Please contact your account team at Sauce Labs for the enrollment information.
 
-It ensures a better digital experience by validating audio playback and testing user flows that require audio testing in the early stages of the development lifecycle.
+The Audio Streaming feature ensures a better digital experience by validating audio playback and testing user flows that require audio testing in the early stages of the development lifecycle. With the Audio Streaming feature, you are able to hear the sound your application is making during a Live Testing session. It allows you to validate audio streams, notification sounds, and animations. 
 
-With the Audio Streaming feature, you are able to hear the sound your application is making during a Live Testing session. It allows you to validate audio streams, notification sounds, and animations. 
-You will be able to mute and unmute the sound during your session by clicking on the mute/unmute button on the toolbar.
+:::note
+You will be able to mute and unmute the sound during your session by clicking on the mute/unmute button on the toolbar:
+<br/><img src={useBaseUrl('img/audio.png')} alt="Mobile app settings navigation" width="300"/>
+:::
+
 After you have been enrolled in the BETA program, you just need to launch a Live Testing session on a real device, and the audio will be streamed automatically. 
-You can find the limitations at the bottom of this page. 
+
 
 ## Using Audio Capture on Android
 
