@@ -83,7 +83,7 @@ curl --compressed \ -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}
 
 ## Limitations
 
-:::note Not Supported
+:::note Limitations
 * Audio streaming is supported on iOS/iPadOS 13.1 and above.
 * Audio streaming is supported on Android 10 and above.
 * When Audio streaming is enabled, we are not attaching the audio to the test results after the session ends. 
