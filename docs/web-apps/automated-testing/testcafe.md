@@ -42,6 +42,10 @@ You can run `saucectl` locally via Docker ([Installation Requirements](https://d
 </TabItem>
 </Tabs>
 
+## Supported Languages
+
+JavaScript and TypeScript are supported out of the box.
+
 ## Supported Testing Platforms
 
 Sauce Labs supports the following test configurations for TestCafe:
