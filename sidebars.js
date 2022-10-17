@@ -740,6 +740,7 @@ module.exports = {
               'basics/integrations/slack',
               'basics/integrations/webhooks',
               'basics/integrations/sumo',
+              'basics/integrations/evinced',
             ],
           },
         ],
