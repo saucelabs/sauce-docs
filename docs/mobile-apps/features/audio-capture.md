@@ -42,7 +42,7 @@ You will be able to stream audio during a Live Testing session in our BETA progr
 
 This helps you to ensure better digital experiences by validating audio playback and testing user flows that require audio testing earlier in the development lifecycle.
 
-With audio streaming you are able to hear the sound of your application is making during a Live Testing session, and it enables you to validate audio streams, notification sounds, animations. 
+With the Audio Streaming feature, you are able to hear the sound your application is making during a Live Testing session. It allows you to validate audio streams, notification sounds, and animations. 
 You will be able to mute and unmute the sound during your session by clicking on the mute/unmute button on the toolbar.
 After you have been enrolled to the experiment you just need to launch a Live Testing session on a real device, and the audio will be streamed automatically. 
 You can find the limitations at the bottom of this page. 
