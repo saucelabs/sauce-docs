@@ -34,8 +34,8 @@ setup instructions, a variety of sample scripts, and many other resources relate
 <Tabs
   defaultValue="junit5"
   values={[
-    {label: 'JUnit', value: 'junit5'},
-    {label: 'JUnit', value: 'junit4'},
+    {label: 'JUnit 5', value: 'junit5'},
+    {label: 'JUnit 4', value: 'junit4'},
     {label: 'TestNG', value: 'testng'},
   ]}>
 
