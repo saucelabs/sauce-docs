@@ -457,7 +457,9 @@ The parent property containing the details specific to the Espresso project.
 ```yaml
 espresso:
   app: ./apps/calc.apk
+  appDescription: My demo app
   testApp: ./apps/calc-success.apk
+  testAppDescription: My test app
   otherApps:
     - ./apps/pre-installed-app1.apk
     - ./apps/pre-installed-app2.apk
@@ -499,6 +501,16 @@ To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must 
 
 ---
 
+### `appDescription`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies description for the uploaded app.
+
+```yaml
+  appDescription: My demo app
+```
+---
+
 ### `testApp`
 <p><small>| REQUIRED | STRING |</small></p>
 
@@ -532,6 +544,16 @@ To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must 
   testApp: storage:filename=calc-success.apk
 ```
 
+---
+
+### `testAppDescription`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies description for the uploaded testApp.
+
+```yaml
+  testAppDescription: My test app
+```
 ---
 
 ### `otherApps`
@@ -581,6 +603,18 @@ Sets the test application on the suite level. See the full [usage](#testapp). If
 ```yaml
 suites:
   - testApp: ./apps/calc-success.apk
+```
+---
+
+### `testAppDescription`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies description for the uploaded testApp on the suite level. If `testApp` is not set on suite level, `saucectl` will use the default `testAppDescription` from the [`espresso`](#espresso) level.
+
+```yaml
+suites:
+  - testApp: ./apps/calc-success.apk
+    testAppDescription: My test app
 ```
 ---
 
