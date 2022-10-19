@@ -81,12 +81,12 @@ When you save a snippet from the [**Composer**](/api-testing/composer/), it will
 ### Create a Snippet
 
 1. Open a project.
-1. Open a test.
-1. Hold down the Ctrl key and click on the first component you want to include in your snippet.
-1. Click on all the components you want to include in your snippet
-1. Click **Save Snippet** to save your snippet
-1. Give the snippet a name.
-1. Select **Save Snippet**.
+2. Open a test.
+3. Hold down the Ctrl key and click on the first component you want to include in your snippet.
+4. Click on all the components you want to include in your snippet
+5. Click **Save Snippet** to save your snippet
+6. Give the snippet a name.
+7. Select **Save Snippet**.
 
 <img src={useBaseUrl('img/api-testing/authSnippet.png')} alt="Creating a Snippet"/>
 
