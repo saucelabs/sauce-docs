@@ -59,7 +59,7 @@ To view your recent configurations, click **Recents**.
 
 | Setting | Description |
 | :--- | :--- |
-| Device Language | Use the dropdown to select the device language. The language selector will tell your application that the locale of the device and region is set to the selected parameter. You wont need to change the language of the OS manually during a session inside iOS/Android settings. ([Read more about Locale here.](https://developer.apple.com/documentation/foundation/locale)).  |
+| Device Language | Use the dropdown to select the device language. The language selector will tell your application that the locale of the device and region is set to the selected parameter. You wont need to change the language of the OS manually during a session inside iOS/Android settings. ([Read more about Locale here](https://developer.apple.com/documentation/foundation/locale)).  |
 | Device Orientation | Use the dropdown to set the device orientation (Landscape or Portrait). |
 | Proxy | Enable/disable the use of a proxy. Enter the **Hostname** and **Port** and then click **Update**. |
 | Device Passcode <br/><p><span className="sauceDBlue">Android Only</span></p> | Enable/disable the device passcode for Android apps. If your app requires a device passcode to launch, you can enable this setting to run your tests on a passcode-protected device. |
