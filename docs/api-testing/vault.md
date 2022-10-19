@@ -58,7 +58,7 @@ Then in your tests, you'd reference the variable by the `Key` using the followin
 
 Consider a scenario where an `/product` endpoint requires a specific `id` query parameter.
 
-<img src={useBaseUrl('img/api-fortress/2021/04/productID0.png')} alt="Product ID 0"/>
+<img src={useBaseUrl('img/api-testing/vault_productID0.png')} alt="Product ID 0"/>
 
 While this is a perfectly valid request parameter, it can be hard to manage and update if you scale out your tests. Therefore, rather than continuously hard-coding this value into the **Query Params** field, a safer and more efficient approach is to export this value into to a variable.
 
@@ -66,13 +66,9 @@ The following is an example of how it might look in the project-specific Vault:
 
 <img src={useBaseUrl('img/api-fortress/2021/04/productID1.png')} alt="Product ID 1"/>
 
-Now you can switch the **Query Params** field from **String value** to **Variable** and enter the variable name: `product_id` (see the screenshot below). This allows you to have multiple tests in your project using the same password.
+Now you can switch the **Query Params** field from a String value to a Variable and enter the variable name: `product_id` (see the screenshot below). This allows you to have multiple tests in your project using the same product_id.
 
-<img src={useBaseUrl('img/api-fortress/2021/04/productID2.png')} alt="Product ID 2"/>
-
-:::tip code view example
-You can also reference this parameter in Code view with the following syntax: `params="['id':product_id]"`.
-:::
+<img src={useBaseUrl('img/api-testing/vault_productID2.png')} alt="Product ID 2"/>
 
 ## Snippets
 
@@ -80,25 +76,25 @@ In the **Snippets** section of the **Vault**, you can create or import test comp
 
 Much like with variable scope, snippets saved in a project **Vault** are only available in that project, and snippets saved in the **Company Vault** are available across all projects.
 
-When you save a snippet from the [**Composer**](/api-testing/composer/), it will be saved in the project **Vault**. While you cannot save a snippet from the **Composer** to the **Company Vault**, you can export there using the import/export feature (see screenshot below).<br/><img src={useBaseUrl('img/api-fortress/2021/04/exportSnippet.png')} alt="Snippet"/>
+When you save a snippet from the [**Composer**](/api-testing/composer/), it will be saved in the project **Vault**. While you cannot save a snippet from the **Composer** to the **Company Vault**, you can export there using the import/export feature (see screenshot below).<br/><img src={useBaseUrl('img/api-testing/vault_exportSnippet.png')} alt="Snippet"/>
 
 ### Create a Snippet
 
 1. Open a project.
 1. Open a test.
-1. Click the first component you want to include in your snippet.
-1. Hold down the **`[SHIFT]`** key and click on the last component you want to include. This will highlight your snippet selection.
-1. Click **Export snippet from selection**.
+1. Hold down the Ctrl key and click on the first component you want to include in your snippet.
+1. Click on all the components you want to include in your snippet
+1. Click **Save Snippet** to save your snippet
 1. Give the snippet a name.
 1. Select **Save Snippet**.
 
-<img src={useBaseUrl('img/api-fortress/2021/04/createSnippet.png')} alt="Creating a Snippet"/>
+<img src={useBaseUrl('img/api-testing/authSnippet.png')} alt="Creating a Snippet"/>
 
-<img src={useBaseUrl('img/api-fortress/2021/04/snippetDetails.png')} alt="Snippet Details"/>
+<img src={useBaseUrl('img/api-testing/snippetDetails.png')} alt="Snippet Details"/>
 
 That's it! Now that your snippet has been created, you can use it in every test within the Project.
 
-#### Updating Snippet
+### Updating Snippet
 
 1. Open a project.
 1. In the left panel, click **Vault**, then click **Code Snippets**.
@@ -108,23 +104,27 @@ Your changes are saved automatically.
 ### Using Snippets
 
 For each snippet, two actions are available:
-* **Paste Snippet**: Allows you to paste the entire component inside the test, which you can then edit as needed. The pasted components will lose any reference to the original snippet.
-* **Invoke Snippet**: Creates a **Call** component that will invoke the snippet. If the snippet changes, all the tests containing the Call component to that snippet will inherit the changes.
+* **Paste Snippet**: This allows you to paste the entire component inside the test, which you can then edit as needed. The pasted components will lose any reference to the original snippet.
+* **Call Snippet**: Creates a **Call** component that will invoke the snippet. If the snippet changes, all the tests containing the Call component to that snippet will inherit the changes.
+
 
 ### Use Case: Authentication Snippet
 
 A good use case for the snippets feature is building an authentication flow; you don't need to rewrite all authentication steps for every single test. Instead, call the snippet that contains these authentication details. Another good example is integration testing, where you can reuse various tests to create one larger flow.
 
 Below is an example of how to create an Authentication Snippet.
-1. First, create a new test with a request component that requires basic authentication. For examples, check the [Sauce Labs REST API endpoints](/dev/api/) for ideas.<br/><img src={useBaseUrl('img/api-fortress/2021/04/exampleSnippetRequest.png')} alt="Example Snippet Request"/>
-1. Select to the **+ Add Request Headers** section below the request component.<br/><img src={useBaseUrl('img/api-fortress/2021/04/addRequestHeader.png')} alt="Add Request Header"/>
-1. Select **Basic Authentication** from the list.<br/><img src={useBaseUrl('img/api-fortress/2021/04/basicAuth.png')} alt="Basic Auth Component"/>
-1. Enter the details for `username` and `password`, then select **Save**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/basicAuthDetails.png')} alt="Basic Auth Details Component"/>
-1. Once the **Authorization Header** appears, highlight it in the UI, then select the **Export snippet from selection** icon in the toolbar.<br/><img src={useBaseUrl('img/api-fortress/2021/04/authSnippet.png')} alt="Auth Snippet screenshot"/>
+1. First, create a new test with a request component that requires basic authentication. For examples, check the [Sauce Labs REST API endpoints](/dev/api/) for ideas.<br/><img src={useBaseUrl('img/api-testing/vault_exampleSnippetRequest.png')} alt="Example Snippet Request"/>
+1. Select **+ Add Child Component** below the request component.<br/><img src={useBaseUrl('img/api-testing/vault_addRequestHeader.png')} alt="Add Request Header"/>
+1. Select **Basic Authentication** from the list.<br/><img src={useBaseUrl('img/api-testing/vault_basicAuth.png')} alt="Basic Auth Component"/>
+1. Enter the details for `username` and `password`, then select **Confirm**.<br/><img src={useBaseUrl('img/api-testing/vault_basicAuthDetails.png')} alt="Basic Auth Details" width="600"/>
+1. Once the **Authorization Header** appears, click **Save Changes**.<br/>
+1. Hold down the Ctrl key and highlight the code in the UI and **Save Snippet**.<br/><img src={useBaseUrl('img/api-testing/vault_savesnippet.png')} alt="Save snippet"/>
+1. Give the snippet a name and **Save Snippet**.<br/><img src={useBaseUrl('img/api-testing/vault_snippetname.png')} alt="Snippet name" width="600"/>
 
 Consider a scenario where this login will be required for all the endpoints we have to test. It makes sense for this call to be stored in the **Vault**.
 
-Now you can choose to insert or invoke this snippet in future tests that require a Basic Authentication header.
+Now you can choose to **Call Snippet** or **Paste Snippet** in future tests that require the Login.
+<img src={useBaseUrl('img/api-testing/call_paste_snippet.png')} alt="Snippet options"/>
 
 ## Files
 
