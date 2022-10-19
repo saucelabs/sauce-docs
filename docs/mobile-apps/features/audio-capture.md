@@ -49,6 +49,16 @@ You will be able to mute and unmute the sound during your session by clicking on
 
 After you have been enrolled in the BETA program, you just need to launch a Live Testing session on a real device, and the audio will be streamed automatically. 
 
+## Streaming Limitations
+
+:::note Limitations
+* Audio streaming is supported on iOS/iPadOS 13.1 and above.
+* Audio streaming is supported on Android 10 and above.
+* When Audio streaming is enabled, we are not attaching the audio to the test results after the session ends. 
+* Accessibility and TalkBack on Android are not supported.
+* Emulators and simulators are not supported. 
+* Website testing is not yet available on Android. 
+:::
 
 ## Using Audio Capture on Android
 
@@ -84,11 +94,11 @@ curl --compressed \ -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}
 ```
 
 
-## Limitations
+## Capture Limitations
 
 :::note Limitations
-* Audio streaming is supported on iOS/iPadOS 13.1 and above.
-* Audio streaming is supported on Android 10 and above.
+* Android Audio capture for test results is supported on iOS/iPadOS 10.1 and above.
+* iOS Audio capture for test results is supported on Android 10 and above.
 * When Audio streaming is enabled, we are not attaching the audio to the test results after the session ends. 
 * Accessibility and TalkBack on Android are not supported.
 * Emulators and simulators are not supported. 
