@@ -52,8 +52,8 @@ After you have been enrolled in the BETA program, you just need to launch a Live
 ## Streaming Limitations
 
 :::note Limitations
-* Audio streaming is supported on iOS/iPadOS 13.1 and above.
-* Audio streaming is supported on Android 10 and above.
+* Audio Streaming is supported on iOS/iPadOS 13.1 and above.
+* Audio Streaming is supported on Android 10 and above.
 * When Audio streaming is enabled, we are not attaching the audio to the test results after the session ends. 
 * Accessibility and TalkBack on Android are not supported.
 * Emulators and Simulators are not supported. 
