@@ -9,9 +9,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Assertions are a type of component that you can add to a test using the Composer. To access them, go to a **Project** > **Test** > **Compose** (aka Composer) > click **Add component** (**+** icon) in the Composer toolbar.
+Assertions are a type of component that you can add to a test using the Composer. To access them, go to a **Project** > **Tests** > **Edit Test** > click **Add Child Component**.
 
-<img src={useBaseUrl('img/api-fortress/2020/09/assertionComponents.png')} alt="Assertion Components" width="600" />
+<img src={useBaseUrl('img/api-testing/assertionComponents.png')} alt="Assertion Components" width='650'/>
 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
@@ -43,7 +43,7 @@ Allows you to compare two payloads in terms of text, structure or values.
 A **warning** will not trigger alerts, such as email or text messages.
 :::
 
-<img src={useBaseUrl('img/api-fortress/2020/09/compares.jpg')} alt="Assertion Compares Pic"/>
+<img src={useBaseUrl('img/api-testing/compares.png')} alt="Assertion Compares Pic"/>
 
 </details>
 
