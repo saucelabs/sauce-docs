@@ -1,7 +1,7 @@
 ---
 id: uipath
 title: UiPath Integration
-sidebar_label: UiPath 
+sidebar_label: UiPath
 description: Use UiPath with Sauce Labs to scale your RPA/app testing
 keywords:
 - uipath
@@ -61,7 +61,7 @@ Before introducing Sauce Labs devices, it might be helpful to show an example of
 1. Your device is added to the Devices list. For more information on how to test your device, see [Device Interaction](https://docs.uipath.com/test-suite/docs/device-interaction)
 
 ### Adding a Sauce Labs Device
-A few small alterations are needed to access a Sauce Labs device. For more information on capabilities and options, see [Sauce Labs Platform Configurator](https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/)
+A few small alterations are needed to access a Sauce Labs device. For more information on capabilities and options, see [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator)
 
 * **Appium URL** - Enter the Appium server where your device is hosted. You can get the Appium URL from Sauce Labs by navigating to [Account > User Settings](https://app.saucelabs.com/user-settings) and copying the string from the Driver Creation. It will likely look something like this:
 
