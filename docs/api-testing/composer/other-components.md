@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Here are some other components that you can add to a test using the Composer. To access them, go to a **Project** > **Test** > **Compose** (aka Composer) > Click **Add component** (**+** icon) in the Composer toolbar.
 
-<img src={useBaseUrl('img/api-fortress/2020/09/otherComponents.png')} alt="Other Components" width="600" />
+<img src={useBaseUrl('img/api-testing/otherComponents.png')} alt="Other Components" width="600" />
 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
@@ -40,15 +40,15 @@ This is different from the tags applied when you first [create the test](/api-te
 
 #### Examples
 
-Here's an example of how you could use a tag in the **Compose** tab.
+Here's an example of how you could use a tag in the Composer tab.
 
-<img src={useBaseUrl('img/api-fortress/2020/12/tagComposer.png')} alt="tagComposer.jpg"/>
+<img src={useBaseUrl('img/api-testing/tagComposer.png')} alt="tagComposer.jpg"/>
 
-You can also add tags to the test details screen when you create or edit a test.<br/><img src={useBaseUrl('img/api-fortress/2020/12/tagNewtest.png')} alt="Tag Component - create new test"/>
+You can also add tags to the test details screen when you create or edit a test.<br/><img src={useBaseUrl('img/api-testing/tagNewtest.png')} alt="Tag Component - create new test"/>
 
-Static tags will be displayed in your **Tests** list.<br/><img src={useBaseUrl('img/api-fortress/2020/12/testsTag.png')} alt="Tests tag.jpg"/>
+Static tags will be displayed in your **Tests** list.<br/><img src={useBaseUrl('img/api-testing/testsTag.png')} alt="Tests tag.jpg"/>
 
-All tags, dynamic and static will mark the test execution documents. On your project **Dashboard**, you can filter events by tags.<br/><img src={useBaseUrl('img/api-fortress/2020/12/projDashTag.png')} alt="projDashTag.png"/>
+All tags, dynamic and static will mark the test execution documents. On your project **Dashboard**, you can filter events by tags.<br/><img src={useBaseUrl('img/api-testing/projDashTag.png')} alt="projDashTag.png"/>
 
 
 </details>
