@@ -270,7 +270,7 @@ This is the most advanced way to create your variables. There are two different 
 
 #### Lang: Javascript
 
-In this mode you can create your variable by writing a Javascript script in the `Content` field. It can be a complete script with variable declarations or loops.
+In this mode you can create your variable by writing a Javascript script in the `Body` field. It can be a complete script with variable declarations or loops.
 
 For example, you have a JWT token stored in the `token` variable and we need to decode it and return the JSON payload it was generated from:
 
@@ -278,7 +278,7 @@ For example, you have a JWT token stored in the `token` variable and we need to 
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTgyMzY1NjgsImV4cCI6MTY4OTc3MjU2OCwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoiam9obi5kb2VAZXhhbXBsZS5jb20iLCJOYW1lIjoiSm9obiIsIlN1cm5hbWUiOiJEb2UiLCJFbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwiUm9sZSI6WyJNYW5hZ2VyIiwiUHJvamVjdCBBZG1pbmlzdHJhdG9yIl19.DN7vKPlHkAy1hwYOYpUKDwkV0yD-KS2pdoc76aKPhm8
 ```
 
-To achieve this, you need to write the following script inside the `Content` field:
+To achieve this, you need to write the following script inside the `Body` field:
 
 ```javascript
 var pieces = token.split('.')
@@ -311,7 +311,7 @@ Then, you can retrieve all the keys as `jsonData.iat` where `jsonData` is the va
 
 In this mode you can create your own template in the same way as it is done for Request Body, the advantage here is that you can print the variable in order to check if all is correct (Body cannot be printed).
 
-For example, if you need to add a new product in your database, you can create the body for the (PUT) request and paste the Body in the `Content` field and print it in a `Comment`.
+For example, if you need to add a new product in your database, you can create the body for the (PUT) request and paste the Body in the `Body` field and print it in a `Comment`.
 
 ```json
 {
@@ -327,7 +327,7 @@ For example, if you need to add a new product in your database, you can create t
     "updatedAt": "${D.format (D.nowMillis(), 'yyyy-MM-DD')}T${D.format(D.nowMillis(), 'HH:mm:ssz')}"
 }
 ```
-<img src={useBaseUrl('img/api-testing/set-template.png')} alt="Set template" width="500"/>
+<img src={useBaseUrl('img/api-testing/set-template.png')} alt="Set template"/>
 
 </details>
 
@@ -354,21 +354,21 @@ This component allows you to parse a string into structured data, using one of t
   </tbody>
 </table>
 
-<img src={useBaseUrl('img/api-fortress/2020/12/parseComponentUI.jpeg')} alt="Parse component UI" width="500"/>
+<img src={useBaseUrl('img/api-testing/parseComponentUI.png')} alt="Parse component UI" />
 
 #### Examples
 
 I have set a variable (which will be a plain string), in this case I have a list of colors.
 
-<img src={useBaseUrl('img/api-fortress/2020/12/parseComponentUI_variable.png')} alt="Parse component variable"/>
+<img src={useBaseUrl('img/api-testing/parseComponentUI_variable.png')} alt="Parse component variable"/>
 
 Next, we can use the comment component to see what happens if I print “colors[1]” before and after parsing it into JSON.
 
-<img src={useBaseUrl('img/api-fortress/2020/12/parseComponentUI_test.png')} alt="Parse component test"/>
+<img src={useBaseUrl('img/api-testing/parseComponentUI_test.png')} alt="Parse component test"/>
 
 Here are the results of the above test:
 
-<img src={useBaseUrl('img/api-fortress/2020/12/parseComponentUI_results.png')} alt="Parse component test" width="200"/>
+<img src={useBaseUrl('img/api-testing/parseComponentUI_results.png')} alt="Parse component test"/>
 
 As you can see before parsing the string, the test will consider the variable `colors` as one big string so `colors[1]` will print “ as that is the second character in the string. After parsing the string into JSON we can traverse through the variable as a JSON, so `colors[1]` will print the second element in the JSON array blue.
 
@@ -426,11 +426,11 @@ This component allows you to pause or stop a test entirely.
 
 This component is especially useful when combined with the [`If` component](#if). See the examples below:
 
-<img src={useBaseUrl('img/api-fortress/2020/12/flow_stop.jpg')} alt="flow_stop.jpg"/>
+<img src={useBaseUrl('img/api-testing/flow_stop.png')} alt="flow_stop.png"/>
 
-If the statusCode is not `200`, the test will be halt; none of the remaining assertions will be checked.
+If the statusCode is not `200`, the test will be halted; none of the remaining assertions will be checked.
 
-<img src={useBaseUrl('img/api-fortress/2020/12/flow_wait.jpg')} alt="flow_wait.jpg"/>
+<img src={useBaseUrl('img/api-testing/flow_wait.png')} alt="flow_wait.png"/>
 
 In this example, the test will wait 1000 milliseconds before performing the `GET` request.
 
@@ -488,7 +488,7 @@ label: The current environment
 value: ${env}
 ```
 
-<img src={useBaseUrl('img/api-fortress/2019/11/Screen-Shot-2019-11-11-at-11.21.50-AM.png')} alt="screenshot.png" width="400"/>
+<img src={useBaseUrl('img/api-testing/fact.png')} alt="fact.png" />
 
 From this moment on, the signature of the incident will be `id_of_the_test` + `value_of_environment`.
 
@@ -507,25 +507,25 @@ label: whatever you want here
 value: true
 ```
 
-<img src={useBaseUrl('img/api-fortress/2019/11/Screen-Shot-2019-11-11-at-11.22.02-AM.png')} alt="screenshot.png" width="400"/>
+<img src={useBaseUrl('img/api-testing/factDisableAlert.png')} alt="factDisableAlert.png" />
 
 You can use logic within the test to set the Fact component and use that to alter the email notification.
 
 As an example, you could say "IF the env is development, then disable emails for this test":
 
-<img src={useBaseUrl('img/api-fortress/2019/11/Screen-Shot-2019-11-11-at-11.33.57-AM.png')} alt="screenshot.png" width="400"/>
+<img src={useBaseUrl('img/api-testing/factAlertDisabled.png')} alt="factAlertDisabled.png" />
 
 #### Setting Email Notification Thresholds
 
 Another use-case of the fact component is set an email alert threshold. If you want a test to fail more than once before an email is sent, a Fact called `mail_threshold` can be set in the test:  
 
-<img src={useBaseUrl('img/api-fortress/2020/07/Screen-Shot-2020-07-07-at-12.56.25-PM.png')} alt="screenshot.png" width="400"/>
+<img src={useBaseUrl('img/api-testing/factMultiFailure.png')} alt="factMultiFailure.png" />
 
 This means the test will need to fail twice in a row before an email alert is sent.  
 
 Given that this can be configured within the test, it offers all the flexibility provided by conditional statements, such as an IF condition on the environment the test is running upon:  
 
-<img src={useBaseUrl('img/api-fortress/2020/07/Screen-Shot-2020-07-07-at-12.59.24-PM.png')} alt="screenshot.png" width="400"/>
+<img src={useBaseUrl('img/api-testing/factMultiFailure2.png')} alt="factMultiFailure2.png" />
 
 </details>
 

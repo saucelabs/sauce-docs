@@ -227,7 +227,7 @@ Will count the number of instances of `HotelSummary`.
 
 Expressions are automatically evaluated in the **expression** fields, but can also be introduced in other fields, such as "value", with a specific notation.
 
-In this example, we compare the actual size of the collection with the "size attribute", by enclosing the expression within `${ .. }`. The "type" attribute ensures the comparison will happen with a numeric comparator, rather than string.<br/><img src={useBaseUrl('img/api-fortress/2020/13/assertEquals.png')} alt="assertEquals" width="400"/>
+In this example, we compare the actual size of the collection with the "size attribute", by enclosing the expression within `${ .. }`. The "type" attribute ensures the comparison will happen with a numeric comparator, rather than string.<br/><img src={useBaseUrl('img/api-testing/assertEquals.png')} alt="assertEquals" />
 
 
 
