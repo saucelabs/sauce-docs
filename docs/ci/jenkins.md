@@ -203,7 +203,7 @@ When options can be set at both levels, project settings override global setting
       </tr>
       <tr>
         <td><b>Launch Sauce Connect On Node</b></td>
-        <td>Launch Sauce Connect on a Node instead of the Master Server.</td>
+        <td>Launch Sauce Connect on a Node instead of the Server.</td>
       </tr>
       <tr>
         <td><b>Sauce Host</b></td>
