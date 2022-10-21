@@ -742,7 +742,6 @@ module.exports = {
               'basics/integrations/slack',
               'basics/integrations/uipath',
               'basics/integrations/sumo',
-              'basics/integrations/webhooks',
             ],
           },
         ],
