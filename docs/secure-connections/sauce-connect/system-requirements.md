@@ -23,8 +23,6 @@ Keep in mind that these are guidelines. Most environments have their own workloa
 
 ### Sauce Connect v4.8.x
 
-<p><span className="sauceDBlue">Beta</span></p>
-
 <table>
   <tr>
    <td><strong>Name</strong>
