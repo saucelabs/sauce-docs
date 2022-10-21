@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Logical components are a type of component that you can add to a test using the **Compose** tab (aka Composer). To learn how to access components, see [Adding Components to Tests](/api-testing/composer/#add-components).
 
-<img src={useBaseUrl('img/api-testing/logicalComponents.png')} alt="Logical Components" width="600" />
+<img src={useBaseUrl('img/api-testing/logicalComponents.png')} alt="Logical Components" />
 
 
 ## What You'll Need

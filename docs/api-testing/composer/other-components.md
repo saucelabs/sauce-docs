@@ -11,12 +11,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Here are some other components that you can add to a test using the Composer. To access them, go to a **Project** > **Test** > **Compose** (aka Composer) > Click **Add component** (**+** icon) in the Composer toolbar.
 
-<img src={useBaseUrl('img/api-testing/otherComponents.png')} alt="Other Components" width="600" />
+<img src={useBaseUrl('img/api-testing/otherComponents.png')} alt="Other Components" />
 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * An existing API Testing Project and Test. For details on how to create them, see [API Testing Quickstart](/api-testing/quickstart/).
-
 
 ## Tag
 
@@ -50,10 +49,7 @@ Static tags will be displayed in your **Tests** list.<br/><img src={useBaseUrl('
 
 All tags, dynamic and static will mark the test execution documents. On your project **Dashboard**, you can filter events by tags.<br/><img src={useBaseUrl('img/api-testing/projDashTag.png')} alt="projDashTag.png"/>
 
-
 </details>
-
-
 
 ## Set (Variable)
 
@@ -344,7 +340,7 @@ This component allows you to parse a string into structured data, using one of t
   <td colSpan='2'>Fields</td>
   </tr>
     <tr>
-     <td><strong>parseVar</strong></td>
+     <td><strong>Variable</strong></td>
      <td><p><small>| REQUIRED | STRING |</small></p><p>The name of the variable you want to parse.</p></td>
     </tr>
     <tr>
@@ -452,7 +448,7 @@ Test activity is tracked using test ID number. This may not work if you're testi
   <td colSpan='2'>Fields</td>
   </tr>
     <tr>
-     <td><strong>ID</strong></td>
+     <td><strong>Identifier</strong></td>
      <td><p><small>| REQUIRED | STRING |</small></p><p>Should be unique within the test.</p></td>
     </tr>
     <tr>
@@ -529,6 +525,52 @@ Given that this can be configured within the test, it offers all the flexibility
 
 </details>
 
+## Snippets
+
+When you save a snippet from the **Composer**, it will be saved in the project [Vault](/api-testing/vault/). While you cannot save a snippet from the **Composer** to the **Company Vault**, you can export there using the import/export feature (see screenshot below).<br/><img src={useBaseUrl('img/api-fortress/2021/04/exportSnippet.png')} alt="Snippet"/>
+
+### Create a Snippet
+
+1. Open a project.
+1. Open a test.
+1. Click the first component you want to include. 
+1. Hold down the **`Ctrl + Shift`** keys and click the last component you want to include. This will highlight your snippet selection.
+1. Click **Save Snippet**.
+1. Give the snippet a name.
+
+<img src={useBaseUrl('img/api-testing/createSnippet.png')} alt="Creating a Snippet"/>
+
+<img src={useBaseUrl('img/api-testing/snippetDetails.png')} alt="Snippet Details"/>
+That's it! Now that your snippet has been created, you can use it in every test within the Project.
+
+#### Updating Snippet
+
+1. Open a project.
+1. In the left panel, click **Vault**, then click **Code Snippets**.
+1. Click any of the fields and begin typing to edit the details.
+Your changes are saved automatically.
+
+### Call Snippet
+
+Creates a Call component that will invoke the snippet. If the snippet changes, all the tests containing the Call component to that snippet will inherit the changes.
+
+### Paste Snippet
+
+This allows you to paste the entire component inside the test, which you can then edit as needed. The pasted components will lose any reference to the original snippet.
+
+### Use Case: Authentication Snippet
+
+A good use case for the snippets feature is building an authentication flow; you don't need to rewrite all authentication steps for every single test. Instead, call the snippet that contains these authentication details. Another good example is integration testing, where you can reuse various tests to create one larger flow.
+
+Below is an example of how to create an Authentication Snippet.
+1. First, create a new test with a request component that requires basic authentication. For examples, check the [Sauce Labs REST API endpoints](/dev/api/) for ideas.<br/><img src={useBaseUrl('img/api-testing/exampleSnippetRequest.png')} alt="Example Snippet Request"/>
+1. Select **Basic Authentication** from the list.<br/><img src={useBaseUrl('img/api-testing/basicAuth.png')} alt="Basic Auth Component"/>
+1. Enter the details for `username` and `password`, then select **Save Changes**.<br/><img src={useBaseUrl('img/api-testing/basicAuthDetails.png')} alt="Basic Auth Details Component"/>
+1. Once the **Authentication header** appears, hold down the **`Ctrl`** key and select it, and then click **Save Snippet**.<br/><img src={useBaseUrl('img/api-testing/authSnippet.png')} alt="Auth Snippet screenshot"/>
+
+Consider a scenario where this login will be required for all the endpoints we have to test. It makes sense for this call to be stored in the **Vault**.
+
+Now you can choose to call or paste this snippet in future tests that require a Basic Authentication header.
 
 
 ## K/V Store
@@ -542,21 +584,21 @@ These Key/Value pairs are temporary. They expire after 24 hours has elapsed sinc
 ### Methods
 
 The Key/Value Store component has four methods available for use:
-* [**Set**](#basic-workflow): creates a new key/value pair in the Key/Value store. The value is entered in the __Object__ field.<br/><img src={useBaseUrl('img/api-fortress/2018/05/Screen-Shot-2018-05-24-at-10.50.19-AM.png')} alt="screenshot" />
-* [**Load**](#basic-workflow): recalls a value from the Key/Value store when provided with a key.<br/><img src={useBaseUrl('img/api-fortress/2018/05/Screen-Shot-2018-05-24-at-10.50.36-AM.png')} alt="screenshot" />
-* [**Push**](#pushpop-workflow): adds a value to the end of an existent value **of the datatype "Array"** in the Key/Value store. If no such key exists, it will create a new array containing the passed in value.  The passed in value is entered in the __Object__ field.<br/><img src={useBaseUrl('img/api-fortress/2018/05/Screen-Shot-2018-05-24-at-10.51.09-AM.png')} alt="screenshot" />
-* [**Pop**](#pushpop-workflow): removes a value from the end of an existent value **of the datatype "Array"** in the Key/Value store.<br/><img src={useBaseUrl('img/api-fortress/2018/05/Screen-Shot-2018-05-24-at-10.50.52-AM.png')} alt="screenshot" />
+* [**Set**](#basic-workflow): creates a new key/value pair in the Key/Value store. The value is entered in the __Data__ field.<br/><img src={useBaseUrl('img/api-testing/KeyValueSet.png')} alt="KeyValueSet.png" />
+* [**Load**](#basic-workflow): recalls a value from the Key/Value store when provided with a key.<br/><img src={useBaseUrl('img/api-testing/KeyValueLoad.png')} alt="KeyValueLoad.png" />
+* [**Push**](#pushpop-workflow): adds a value to the end of an existent value **of the datatype "Array"** in the Key/Value store. If no such key exists, it will create a new array containing the passed in value.  The passed in value is entered in the __Data__ field.<br/><img src={useBaseUrl('img/api-testing/KeyValuePush.png')} alt="KeyValuePush.png" />
+* [**Pop**](#pushpop-workflow): removes a value from the end of an existent value **of the datatype "Array"** in the Key/Value store.<br/><img src={useBaseUrl('/img/api-testing/KeyValuePop.png')} alt="KeyValuePop.png" />
 
 
 ### Basic Workflow
 
 Let's take a look at how this workflow works in a practical setting. The first example will be a simple set and retrieve of a value in the Key/Value Store.
 
-1. First, we'll make a `GET` request to an endpoint.<br/><img src={useBaseUrl('img/api-fortress/2018/05/Screen-Shot-2018-05-24-at-1.21.40-PM.png')} alt="screenshot" />
-2. Next, we'll add a K/V Store component.<br/><img src={useBaseUrl('img/api-fortress/2018/05/component.png')} alt="component.png" width="400"/>
-3. This first K/V Store component (we're going to incorporate several) is going to set the Key/Value pair in the Store, so we're going to use **Set.**<br/><img src={useBaseUrl('img/api-fortress/2018/05/Screen-Shot-2018-05-24-at-1.46.41-PM.png')} alt="screenshot.png" width="500"/>
+1. First, we'll make a `GET` request to an endpoint.<br/><img src={useBaseUrl('img/api-testing/KVBasicWorkflow1.png')} alt="KVBasicWorkflow1.png" />
+2. Next, we'll add a K/V Store component.<br/><img src={useBaseUrl('img/api-testing/KVBasicWorkflow2.png')} alt="KVBasicWorkflow2.png" />
+3. This first K/V Store component (we're going to incorporate several) is going to set the Key/Value pair in the Store, so we're going to use **Set**<br/><img src={useBaseUrl('img/api-testing/KVBasicWorkflow3.png')} alt="KVBasicWorkflow3.png"/>
 4. In this case, we're setting the Key "prods" equal to `products[0].name`, which in this case evaluates to "Baseball Cap."
-5. Next, we're going to retrieve this Key/Value pair from the store with the **Load** method. In the K/V Store **Load** component, we're going to assign the retrieved value to the variable `kvprods.`<br/><img src={useBaseUrl('img/api-fortress/2018/05/Screen-Shot-2018-05-24-at-1.47.22-PM.png')} alt="screenshot.png" width="400"/>
+5. Next, we're going to retrieve this Key/Value pair from the store with the **Load** method. In the K/V Store **Load** component, we're going to assign the retrieved value to the variable `kvprods.`<br/><img src={useBaseUrl('img/api-testing/KVBasicWorkflow4.png')} alt="KVBasicWorkflow4.png"/>
 6. Finally, we'll add in a **Comment** component to ensure that the data was recovered successfully.<br/><img src={useBaseUrl('img/api-fortress/2018/05/Screen-Shot-2018-05-24-at-1.48.01-PM.png')} alt="screenshot.png" width="400"/>
 7. When we run the test, we're presented with the following result:<br/><img src={useBaseUrl('img/api-fortress/2018/05/Screen-Shot-2018-05-24-at-1.48.28-PM.png')} alt="screenshot.png" />
 

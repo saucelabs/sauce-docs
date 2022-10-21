@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Assertions are a type of component that you can add to a test using the Composer. To access them, go to a **Project** > **Tests** > **Edit Test** > click **Add Child Component**.
 
-<img src={useBaseUrl('img/api-testing/assertionComponents.png')} alt="Assertion Components" width='650'/>
+<img src={useBaseUrl('img/api-testing/assertionComponents.png')} alt="Assertion Components" />
 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).

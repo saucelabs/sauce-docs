@@ -19,7 +19,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 I/O request components, enable you to perform the I/O operations `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`. To access them, go to a **Project** > **Tests** > **Edit Test** > click **Add Child Component**. This guide describes each component and shows you how to add them to tests.
 
-<img src={useBaseUrl('img/api-testing/ioComponents.png')} alt="Assertion Components" width="600" />
+<img src={useBaseUrl('img/api-testing/ioComponents.png')} alt="I/O Components"/>
+<img src={useBaseUrl('img/api-testing/ioComponents1.png')} alt="I/O Components"/>
 
 
 ## What You'll Need
@@ -38,8 +39,8 @@ Performs a `GET` method request. See [Adding I/O Components to a Test](/api-test
 Performs a `POST` method request.
 
 #### Param
-1. Click **Query Param**.<br/><img src={useBaseUrl('img/api-testing/postParam.png')} alt="Post"/>
-1. Fill in the **Name** and **Value** fields.<br/><img src={useBaseUrl('img/api-testing/postParam1.png')} alt="Post"/>
+1. Click **Query Param**.<br/><img src={useBaseUrl('img/api-testing/postParam.png')} alt="Post" />
+1. Fill in the **Name** and **Value** fields.<br/><img src={useBaseUrl('img/api-testing/postParam1.png')} alt="Post" />
 
 <table id="table-api">
   <tbody>
@@ -59,9 +60,9 @@ Performs a `POST` method request.
 
 <br/>
 
-#### Request Body
-1. Click **Request Body**.<br/><img src={useBaseUrl('img/api-testing/postBody1.png')} alt="Post"/>
-1. Fill in the **Content Type** and **Content** fields.<br/><img src={useBaseUrl('img/api-testing/postBody.png')} alt="Post"/>
+#### Body
+1. Click **Request Body**.<br/><img src={useBaseUrl('img/api-testing/postBody1.png')} alt="Post" />
+1. Fill in the **Content Type** and **Body** fields.<br/><img src={useBaseUrl('img/api-testing/postBody.png')} alt="Post" />
 
 <table id="table-api">
   <tbody>
@@ -73,26 +74,69 @@ Performs a `POST` method request.
      <td><p><small>| REQUIRED | STRING |</small></p></td>
     </tr>
     <tr>
-     <td><strong>Content</strong></td>
+     <td><strong>Body</strong></td>
      <td><p><small>| OPTIONAL | STRING |</small></p></td>
     </tr>
   </tbody>
 </table>
 
+#### Encoded
+1. Click **URL Encoded Param**.<br/><img src={useBaseUrl('img/api-testing/UrlParam.png')} alt="Post" />
+1. Fill in the **Name** and **Value** fields.<br/><img src={useBaseUrl('img/api-testing/URlParam1.png')} alt="Post" />
+
+<table id="table-api">
+  <tbody>
+  <tr>
+  <td colSpan='2'>Fields</td>
+  </tr>
+    <tr>
+     <td><strong>Name</strong></td>
+     <td><p><small>| REQUIRED | STRING |</small></p></td>
+    </tr>
+    <tr>
+     <td><strong>Value</strong></td>
+     <td><p><small>| REQUIRED | STRING |</small></p></td>
+    </tr>
+  </tbody>
+</table>
+
+#### File
+1. Click **File (Multi-part)**.<br/><img src={useBaseUrl('img/api-testing/FileMulti.png')} alt="Post" />
+1. Fill in the **Name** and **Value** fields.<br/><img src={useBaseUrl('img/api-testing/FileMulti1.png')} alt="Post" />
+
+<table id="table-api">
+  <tbody>
+  <tr>
+  <td colSpan='2'>Fields</td>
+  </tr>
+    <tr>
+     <td><strong>Name</strong></td>
+     <td><p><small>| REQUIRED | STRING |</small></p></td>
+    </tr>
+    <tr>
+     <td><strong>File</strong></td>
+     <td><p><small>| REQUIRED | STRING |</small></p></td>
+    </tr>
+    <tr>
+     <td><strong>Filename</strong></td>
+     <td><p><small>| REQUIRED | STRING |</small></p></td>
+    </tr>
+  </tbody>
+</table>
 
 ### PUT
-See [Parameters](#param) and [Body](#body).
+See [Param](#param), [Body](#body), [Encoded](#encoded), and [File](#file).
 
 ### PATCH
-See [Parameters](#param) and [Body](#body).
+See [Param](#param), [Body](#body), [Encoded](#encoded), and [File](#file).
 
 ### DELETE
-See [Parameters](#param) and [Body](#body).
+See [Param](#param), [Body](#body), [Encoded](#encoded), and [File](#file).
 
 ### GitHub
-This GitHub component is meant to simplify the process of retrieving a file from GitHub and use it as a data source. Some examples of files to use would be CSV or JSON files. [Here is a tutorial](/api-testing/on-prem/how-to/github-for-datasets) on how to use it as part of a test.
+The GitHub component is meant to simplify the process of retrieving a file from GitHub and use it as a data source. Some examples of files to use would be CSV or JSON files. [Here is a tutorial](/api-testing/on-prem/how-to/github-for-datasets) on how to use it as part of a test.
 
-<img src={useBaseUrl('img/api-testing/githubComponent.png')} alt="GitHub Component" width="600"/>
+<img src={useBaseUrl('img/api-testing/githubComponent.png')} alt="GitHub Component" />
 
 The **Base URL**, **Branch**, and **Ref** fields will auto-populate, but you can still edit them. You'll need to fill in the following fields:
 
@@ -133,13 +177,67 @@ The **Base URL**, **Branch**, and **Ref** fields will auto-populate, but you can
 </table>
 
 
+### Contract Test
+The **Contract Test** component allows you to test an open API specification file stored in the [Vault](/api-testing/vault/).
+<img src={useBaseUrl('img/api-testing/contracttest.png')} alt="Contract Test"/>
+
+<table id="table-api">
+  <tbody>
+  <tr>
+  <td colSpan='2'>Fields</td>
+  </tr>
+    <tr>
+     <td><strong>openAPI</strong></td>
+     <td><p>The open API file from the Vault.</p></td>
+    </tr>
+    <tr>
+     <td><strong>operationId </strong></td>
+     <td><p>The operationId you want to use in your test.</p></td>
+    </tr>
+    <tr>
+     <td><strong>Status </strong></td>
+     <td><p>The status code you want to test.</p></td>
+    </tr>
+    <tr>
+     <td><strong>Inclusion Strategy </strong></td>
+     <td><p>Required will consider only the required fields. All will consider all the fields.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+
+### File Data Source
+The **File Data Source** component allows you to use a file from the [Vault](/api-testing/vault/) as a data source.
+
+<img src={useBaseUrl('img/api-testing/filedatasource.png')} alt="File Data Source"/>
+
+<table id="table-api">
+  <tbody>
+  <tr>
+  <td colSpan='2'>Fields</td>
+  </tr>
+    <tr>
+     <td><strong>Variable</strong></td>
+     <td><p>The variable name you want to assign.</p></td>
+    </tr>
+    <tr>
+     <td><strong>Mode</strong></td>
+     <td><p>Defaults to Data</p></td>
+    </tr>
+    <tr>
+     <td><strong>Data</strong></td>
+     <td><p>The file you selected as the data source.</p></td>
+    </tr>
+    </tbody>
+</table>
+
 ## I/O Component Fields
 The fields apply to all I/O request components except **GitHub**.
 
 ### Url
 <p><small>| REQUIRED |</small></p>
 
-In this field, enter the url of the resource you want to test. It could be the full url of the resource (i.e., `https://domain/endpoint`) or a string with variables (i.e., `https://${domain}${endpoint}`).<br/><img src={useBaseUrl('img/api-testing/Request-1024x281.png')} alt="Request-1024x281.jpg"/>
+In this field, enter the url of the resource you want to test. It could be the full url of the resource (i.e., `https://domain/endpoint`) or a string with variables (i.e., `https://${domain}${endpoint}`).<br/><img src={useBaseUrl('img/api-testing/Request-1024x281.png')} alt="Request-1024x281.jpg" />
 
 ### Variable
 <p><small>| REQUIRED |</small></p>
@@ -162,16 +260,16 @@ Multiple status codes can be expected by adding them all (i.e., `200|302|400|500
 
 Enter the type of the response you want to test (must be 'json','xml', 'html',or 'text').
 
-### Query Params
+### Query Param
 <p><small>| OPTIONAL |</small></p>
 
-This refers to the **Query Params** section. Enter any params you want to add to the query string.
+This refers to the **Query Param** section. Enter any params you want to add to the query string.
 
-1. To add, click **Query Params**.<br/><img src={useBaseUrl('img/api-testing/ioConfig.png')} alt="I/O Config" width="600"/>
-2. Fill in the fields.<br/><img src={useBaseUrl('img/api-testing/ioConfig2.png')} alt="I/O Config" width="600"/>
+1. To add, click **Query Param**.<br/><img src={useBaseUrl('img/api-testing/ioConfig.png')} alt="I/O Config" />
+2. Fill in the fields.<br/><img src={useBaseUrl('img/api-testing/ioConfig2.png')} alt="I/O Config" />
 
    * **String value**: the value will always be the same for all of the requests. To do so, enter the value in the related field, then choose **String value** from the dropdown menu.
-   * **Variable**: the value will be taken dynamically and could changed from time to time. To do so, enter the name of the variable in the field, then choose **Variable** from the dropdown menu.<br/><img src={useBaseUrl('img/api-testing/Request-1024x281.png')} alt="Request With Params"/>
+   * **Variable**: the value will be taken dynamically and could changed from time to time. To do so, enter the name of the variable in the field, then choose **Variable** from the dropdown menu.<br/><img src={useBaseUrl('img/api-testing/Request-1024x281.png')} alt="Request With Params" />
 
    Using the above example, let's say that you define _varName_ as a boolean value (possible values are 'true' or 'false'). In this case, there will be two requests:
    * The first one will be a `GET` request to `https://mydomain/endpoint?firstParam=paramValue&secondParam=true`, parsing it as `json` and saving it in the `payload` variable.
@@ -196,8 +294,8 @@ This refers to the **Query Params** section. Enter any params you want to add to
 
 ### Request Header
 
-1. Click **Request Header**.<br/><img src={useBaseUrl('img/api-testing/ioHeader.png')} alt="I/O Header" width="600"/>
-1. Fill in the **Name** and **Value** fields.<br/><img src={useBaseUrl('img/api-testing/ioHeader2.png')} alt="I/O Header" width="600"/>
+1. Click **Request Header**.<br/><img src={useBaseUrl('img/api-testing/ioHeader.png')} alt="I/O Header" />
+1. Fill in the **Name** and **Value** fields.<br/><img src={useBaseUrl('img/api-testing/ioHeader2.png')} alt="I/O Header" />
 
 <table id="table-api">
   <tbody>
@@ -220,8 +318,8 @@ This refers to the **Query Params** section. Enter any params you want to add to
 
 This refers to the **Basic Authentication** configuration, included in each of the I/O request components. If required for your API tests, enter your authentication credentials here.
 
-1. Click **Basic Authentication**.<br/><img src={useBaseUrl('img/api-testing/ioAuth.png')} alt="I/O Authentication" width="600"/>
-2. Fill in the Username and Password fields<br/><img src={useBaseUrl('img/api-testing/authBasic.png')} alt="I/O Authentication" width="300"/>
+1. Click **Basic Authentication**.<br/><img src={useBaseUrl('img/api-testing/ioAuth.png')} alt="I/O Authentication" />
+2. Fill in the Username and Password fields<br/><img src={useBaseUrl('img/api-testing/authBasic.png')} alt="I/O Authentication" />
 
 <table id="table-api">
   <tbody>
@@ -242,7 +340,7 @@ This refers to the **Basic Authentication** configuration, included in each of t
 
 ## Editing Components
 
-Once you've created a component and wish to edit (i.e., need to add headers, params or a body):
+Once you've created a component and wish to edit (i.e., need to add request headers, params or a request body):
 
-1. Click **Add Child Component**.<br/><img src={useBaseUrl('img/api-testing/editComponent2.png')} alt="subComps.jpg" width="500"/>
-3. Now you'll see the components available sub-components for that operation.<br/><img src={useBaseUrl('img/api-testing/editComponent3.png')} alt="subComps.jpg" width="500"/>
+1. Click **Add Child Component**.<br/><img src={useBaseUrl('img/api-testing/editComponent2.png')} alt="subComps.jpg" />
+3. Now you'll see the component's available sub-components for that operation.<br/><img src={useBaseUrl('img/api-testing/editComponent3.png')} alt="subComps.jpg" />
