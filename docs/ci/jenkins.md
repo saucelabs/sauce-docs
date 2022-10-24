@@ -202,8 +202,8 @@ When options can be set at both levels, project settings override global setting
         <td>Include Sauce Connect output in the Jenkins console output for each job.</td>
       </tr>
       <tr>
-        <td><b>Launch Sauce Connect On Slave</b></td>
-        <td>Launch Sauce Connect on the Jenkins slave node instead of the master node.</td>
+        <td><b>Launch Sauce Connect On Node</b></td>
+        <td>Launch Sauce Connect on a Node instead of the Server.</td>
       </tr>
       <tr>
         <td><b>Sauce Host</b></td>
@@ -345,19 +345,19 @@ private void printSessionId() {
 
 One of the most helpful features of Jenkins CI is automatic job queuing. If there are more build jobs requested than there are resources to execute those jobs, Jenkins can queue your tests, executing them in the order they were requested as resources become available. Or you can use labels to specify the resources you want to use for specific jobs, and set up graceful queuing for your tests.
 
-On the Jenkins dashboard, The **Build Queue** and **Build Executor Status** panels show the nodes' capacity for running jobs.
-By default, a node with two executors can run up to two jobs at once and any additional jobs are added to the Job Queue and will run on the next executor that becomes free.
+On the Jenkins dashboard, The **Build Queue** and **Build Executor Status** panels show the Nodes' capacity for running jobs.
+By default, a Node with two executors can run up to two jobs at once and any additional jobs are added to the Job Queue and will run on the next executor that becomes free.
 
-Assigned nodes let you define nodes for specific purposes, such as dedicated platforms, as well as for load balancing and other functions. To assign projects to a specific node, the node must have a label.
+Assigned Nodes let you define Nodes for specific purposes, such as dedicated platforms, as well as for load balancing and other functions. To assign projects to a specific Node, the Node must have a label.
 
-To label a node and assign a project to it:
+To label a Node and assign a project to it:
 
 1. From the Jenkins Dashboard, select **Manage Jenkins**, then click **Manage Nodes & Clouds** and choose **Add New Node**.
-1. Provide a name for the node and the number of executors it can use.
+1. Provide a name for the Node and the number of executors it can use.
 1. Add a descriptive **Label**, such as `sauceJobs`.
-1. From the **Configure** page of any project you wish to run on this node, check **Restrict where this project can be run** to enable the **Label Expression** field, then enter the label of the applicable node for the project.
+1. From the **Configure** page of any project you wish to run on this Node, check **Restrict where this project can be run** to enable the **Label Expression** field, then enter the label of the applicable Node for the project.
 
-Projects configured to run on specific nodes queue to run on their assigned nodes according to availability.
+Projects configured to run on specific Nodes queue to run on their assigned Nodes according to availability.
 
 ## Using the OnDemand Plugin with the Jenkins Pipeline
 
