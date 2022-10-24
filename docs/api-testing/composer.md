@@ -49,10 +49,12 @@ To edit a test at any time, on the **Projects** page, on the **Tests** tab, hove
 <img src={useBaseUrl('/img/api-testing/edit-test-nav.png')} alt="Navigating to the test editor" width="300"/>
 
 ### Add Test Components
-When test components are combined, they act as our test logic. There are three component types available in API Testing:
+When test components are combined, they act as our test logic. See the following pages ofr more information about the components types available in API Testing:
   * [I/O Request Test Components](/api-testing/composer/io-components)
   * [Assertion Test Components](/api-testing/composer/assertion-components/)
   * [Logical Test Components](/api-testing/composer/logical-components/)
+  * [Other Components](/api-testing/composer/other-components/)
+
 
 #### Add an I/O Request Test Component
 To create a simple `GET` request and validate that response is correct:
@@ -208,7 +210,7 @@ In this method, you copy an existing body and paste it into the call.
     <img src={useBaseUrl('/img/api-testing/response-token.png')} alt="An example response"/>
 
 6. Save the token as a variable using a `SET` component.
-    * Var (the variable name) - `token`
+    * Variable (the variable name) - `token`
     * Mode (the variable type) - `String`
     * Value (retrieves the value from the previous payload- `${payload.access_token}`
 
@@ -292,9 +294,9 @@ This method can be used when you need to create a new structure to add as a body
   ```  
 
 3. Create the new data structure by adding a `SET` component.
-    * Var (the variable name) - `itemsAvailable`
+    * Variable (the variable name) - `itemsAvailable`
     * Mode (the variable type) - `Language`
-    * Lang - `Javascript`
+    * Language - `Javascript`
     * Body - `payload.items.forEach(function (item) {  item.currency = "$"; }); return payload;`
 
       <img src={useBaseUrl('/img/api-testing/set-variable-window-2.png')} alt="The SET Variable window"/>
@@ -314,8 +316,8 @@ Instead of entering dates as static values, which may need to be updated periodi
 1. Open the Composer and add a **Set** component.
 
 2. Enter/select the following:
-    * Var (the variable name) - `futureDate`
-    * Variable mode (the variable type) - `String`
+    * Variable (the variable name) - `futureDate`
+    * Mode (the variable type) - `String`
     * Value - `${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD')}`
 
       <img src={useBaseUrl('/img/api-testing/create-future-date-variable.png')} alt="The SET Variable window"/>
@@ -380,26 +382,26 @@ Set (variable) allows you to create variables or more structured data.
 
 To create a single variable:
 
-* **Var:** The name to assign the variable.
-* **Variable Mode:** String
+* **Variable:** The name to assign the variable.
+* **Mode:** String
 * **Value:** The method to use to generate data. For example, `${F.fullName()}` will generate a random full name.
 
 <img src={useBaseUrl('/img/api-testing/test-data-full-name.png')} alt="Full name generation" width="600"/>
 
 To create an array of data:
 
-* **Var:** The name to assign the variable.
-* **Variable Mode:** Data
+* **Variable:** The name to assign the variable.
+* **Mode:** Data
 * **Data:** The JS function for creating an array. For example, `new Array(5).fill(0).map(_ => F.streetAddress())` generates an array with five random addresses.
 
 <img src={useBaseUrl('/img/api-testing/test-data-array.png')} alt="Data array generation" width="600"/>
 
 To create an object of data:
 
-* **Var:** The name to assign the variable.
-* **Variable Mode:** Language
-* **Lang:** Template
-* **Content:** The object to generate with the required methods.
+* **Variable:** The name to assign the variable.
+* **Mode:** Language
+* **Language:** Template
+* **Body:** The object to generate with the required methods.
 
 ```
 {
@@ -417,8 +419,8 @@ To create an object of data:
 
 Any of the following methods can be used in a request body.
 
-* **Content-Type:** The content-type of the body (application/json in this example).
-* **Content:** The body of the request.
+* **Content Type:** The content-type of the body (application/json in this example).
+* **Body:** The body of the request.
 
 ```
 {
@@ -522,8 +524,8 @@ Company A has an authentication server. This server, when given the proper user 
   Use this token to make further calls to the application.
 
 2. Add a `Set (variable)` component by entering/selecting the following in the Composer:
-    * Var (the variable name) - `access_token`
-    * Variable mode (the variable type) - `String`
+    * Variable (the variable name) - `access_token`
+    * Mode (the variable type) - `String`
     * Value - `${authPayload.access_token}`
 
     <img src={useBaseUrl('/img/api-testing/int-assign-token.png')} alt="Setting the variable"/>

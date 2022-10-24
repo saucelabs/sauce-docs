@@ -65,11 +65,11 @@ In Sauce Labs API Testing you can create variables in several different ways by 
   <td colSpan='2'>Fields</td>
   </tr>
     <tr>
-     <td><strong>Var</strong></td>
+     <td><strong>Variable</strong></td>
      <td><p><small>| REQUIRED | STRING |</small></p></td>
     </tr>
     <tr>
-     <td><strong>Variable mode</strong></td>
+     <td><strong>Mode</strong></td>
      <td><p><small>| REQUIRED | STRING, DATA, or LANGUAGE |</small></p></td>
     </tr>
     <tr>
@@ -81,11 +81,11 @@ In Sauce Labs API Testing you can create variables in several different ways by 
      <td><p><small>| REQUIRED | DATA |</small></p></td>
     </tr>
     <tr>
-     <td><strong>Lang (depends on ‘Variable mode = Language’)</strong></td>
+     <td><strong>Language (depends on ‘Variable mode = Language’)</strong></td>
      <td><p><small>| REQUIRED | JAVASCRIPT or TEMPLATE |</small></p></td>
     </tr>
     <tr>
-     <td><strong>Content (depends on ‘Variable mode = Language’)</strong></td>
+     <td><strong>Body (depends on ‘Variable mode = Language’)</strong></td>
      <td><p><small>| REQUIRED | DATA |</small></p></td>
     </tr>
   </tbody>
