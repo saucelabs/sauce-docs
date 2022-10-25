@@ -39,8 +39,9 @@ Performs a `GET` method request. See [Adding I/O Components to a Test](/api-test
 Performs a `POST` method request.
 
 #### Param
-1. Click **Query Param**.<br/><img src={useBaseUrl('img/api-testing/postParam.png')} alt="Post" />
-1. Fill in the **Name** and **Value** fields.<br/><img src={useBaseUrl('img/api-testing/postParam1.png')} alt="Post" />
+
+1. Click **URL Encoded Param**.<br/><img src={useBaseUrl('img/api-testing/UrlParam.png')} alt="Post" />
+1. Fill in the **Name** and **Value** fields.<br/><img src={useBaseUrl('img/api-testing/URlParam1.png')} alt="Post" />
 
 <table id="table-api">
   <tbody>
@@ -53,12 +54,11 @@ Performs a `POST` method request.
     </tr>
     <tr>
      <td><strong>Value</strong></td>
-     <td><p><small>| REQUIRED | STRING or VARIABLE |</small></p></td>
+     <td><p><small>| REQUIRED | STRING |</small></p></td>
     </tr>
   </tbody>
 </table>
 
-<br/>
 
 #### Body
 1. Click **Request Body**.<br/><img src={useBaseUrl('img/api-testing/postBody1.png')} alt="Post" />
@@ -80,25 +80,6 @@ Performs a `POST` method request.
   </tbody>
 </table>
 
-#### Encoded
-1. Click **URL Encoded Param**.<br/><img src={useBaseUrl('img/api-testing/UrlParam.png')} alt="Post" />
-1. Fill in the **Name** and **Value** fields.<br/><img src={useBaseUrl('img/api-testing/URlParam1.png')} alt="Post" />
-
-<table id="table-api">
-  <tbody>
-  <tr>
-  <td colSpan='2'>Fields</td>
-  </tr>
-    <tr>
-     <td><strong>Name</strong></td>
-     <td><p><small>| REQUIRED | STRING |</small></p></td>
-    </tr>
-    <tr>
-     <td><strong>Value</strong></td>
-     <td><p><small>| REQUIRED | STRING |</small></p></td>
-    </tr>
-  </tbody>
-</table>
 
 #### File
 1. Click **File (Multi-part)**.<br/><img src={useBaseUrl('img/api-testing/FileMulti.png')} alt="Post" />
@@ -125,13 +106,13 @@ Performs a `POST` method request.
 </table>
 
 ### PUT
-See [Param](#param), [Body](#body), [Encoded](#encoded), and [File](#file).
+See [Param](#param), [Body](#body), and [File](#file).
 
 ### PATCH
-See [Param](#param), [Body](#body), [Encoded](#encoded), and [File](#file).
+See [Param](#param), [Body](#body), and [File](#file).
 
 ### DELETE
-See [Param](#param), [Body](#body), [Encoded](#encoded), and [File](#file).
+See [Param](#param), [Body](#body), and [File](#file).
 
 ### GitHub
 The GitHub component is meant to simplify the process of retrieving a file from GitHub and use it as a data source. Some examples of files to use would be CSV or JSON files. [Here is a tutorial](/api-testing/on-prem/how-to/github-for-datasets) on how to use it as part of a test.
