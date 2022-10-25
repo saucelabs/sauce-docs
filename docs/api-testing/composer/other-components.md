@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Here are some other components that you can add to a test using the Composer. To access them, go to a **Project** > **Test** > **Compose** (aka Composer) > Click **Add component** (**+** icon) in the Composer toolbar.
+Here are some other components that you can add to a test using the Composer. This guide describes each component and shows you how to add them to tests. To learn how to access the components and create a test using the Composer see [Writing API Tests with the Composer](/api-testing/composer/).
 
 <img src={useBaseUrl('img/api-testing/otherComponents.png')} alt="Other Components" />
 
@@ -31,7 +31,7 @@ This is different from the tags applied when you first [create the test](/api-te
   <td colSpan='2'>Fields</td>
   </tr>
     <tr>
-     <td><strong>Value</strong></td>
+     <td><strong>Tag</strong></td>
      <td><p><small>| REQUIRED | STRING |</small></p></td>
     </tr>
   </tbody>
@@ -73,25 +73,25 @@ In Sauce Labs API Testing you can create variables in several different ways by 
      <td><p><small>| REQUIRED | STRING, DATA, or LANGUAGE |</small></p></td>
     </tr>
     <tr>
-     <td><strong>Value (depends on ‘Variable mode = String’)</strong></td>
+     <td><strong>Value (depends on ‘Mode = String’)</strong></td>
      <td><p><small>| REQUIRED | DATA |</small></p></td>
     </tr>
     <tr>
-     <td><strong>Data (depends on ‘Variable mode = Data’)</strong></td>
+     <td><strong>Data (depends on ‘Mode = Data’)</strong></td>
      <td><p><small>| REQUIRED | DATA |</small></p></td>
     </tr>
     <tr>
-     <td><strong>Language (depends on ‘Variable mode = Language’)</strong></td>
+     <td><strong>Lang (depends on ‘Mode = Language’)</strong></td>
      <td><p><small>| REQUIRED | JAVASCRIPT or TEMPLATE |</small></p></td>
     </tr>
     <tr>
-     <td><strong>Body (depends on ‘Variable mode = Language’)</strong></td>
+     <td><strong>Body (depends on ‘Mode = Language’)</strong></td>
      <td><p><small>| REQUIRED | DATA |</small></p></td>
     </tr>
   </tbody>
 </table>
 
-### Variable Mode: String
+### Mode: String
 
 This mode generates a String variable, which can be a static value or a variable taken from the response payload. If it is a static value you just have to write it and the engine will take it as is.
 
@@ -100,8 +100,8 @@ Consider the following example:
 <img src={useBaseUrl('img/api-testing/set-string.png')} alt="Set static string" />
 
 ```
-Var: product
-Variable mode: String
+Variable: product
+Mode: String
 Value: t-shirt
 ```
 
@@ -133,8 +133,8 @@ If you write the following:
 <img src={useBaseUrl('img/api-testing/set-var-dynamic.png')} alt="Set dynamic value"/>
 
 ```
-Var: product
-Variable mode: String
+Variable: product
+Mode: String
 Value:${payload.name}
 ```
 
@@ -161,7 +161,7 @@ The engine will evaluate the variable value every time the test will be executed
 
 The value will be `Long Sleeve Shirt`, without changing your test.
 
-### Variable mode: Data
+### Mode: Data
 
 Using this mode, the variable will be evaluated (like the Expression field), therefore the variable type can be everything. The variable type will depend on the object being evaluated.
 In the Data field, you need to enter a single line expression that returns a value.
@@ -171,8 +171,8 @@ For example, you can create a new array in this way:
 <img src={useBaseUrl('img/api-testing/set-data-array.png')} alt="Set array"/>  
 
 ```
-Var: products
-Variable mode: Data
+Variable: products
+Mode: Data
 Data: ["Bluetooth Headphones","Long Sleeve Shirt","Baseball Cap"]
 ```
 Then, you can iterate over it using the `each` component or you can invoke a specific item using `${products[1]}` where the number inside the square brackets identifies the position of the item you want to reach out, starting from 0.
@@ -235,8 +235,8 @@ If you write the following:
 <img src={useBaseUrl('img/api-testing/set-data.png')} alt="Set data"/>
 
 ```
-Var: product
-Variable mode: Data
+Variable: product
+Mode: Data
 Data: payload.filter(it=>it.name=='Bluetooth Headphones')
 ```
 
@@ -260,7 +260,7 @@ It will return the following object:
 }
 ```
 
-### Variable mode: Language
+### Mode: Language
 
 This is the most advanced way to create your variables. There are two different options available: `Javascript` and `Template`.
 
@@ -301,7 +301,7 @@ That’s producing the following JSON:
 }
 ```
 
-Then, you can retrieve all the keys as `jsonData.iat` where `jsonData` is the variable name you entered in the `Var` field.
+Then, you can retrieve all the keys as `jsonData.iat` where `jsonData` is the variable name you entered in the `Variable` field.
 
 #### Lang: Template
 
@@ -479,7 +479,7 @@ Assume that in the variable scope of your test, you have a variable called _env_
 By configuring a Fact in the following way, you can add the environment value to the incident signature:
 
 ```yaml
-Fact id: environment  
+Identifier: environment  
 label: The current environment  
 value: ${env}
 ```
@@ -537,6 +537,7 @@ When you save a snippet from the **Composer**, it will be saved in the project [
 1. Hold down the **`Ctrl + Shift`** keys and click the last component you want to include. This will highlight your snippet selection.
 1. Click **Save Snippet**.
 1. Give the snippet a name.
+1. Click **Save Snippet**.
 
 <img src={useBaseUrl('img/api-testing/createSnippet.png')} alt="Creating a Snippet"/>
 
@@ -548,7 +549,7 @@ That's it! Now that your snippet has been created, you can use it in every test 
 1. Open a project.
 1. In the left panel, click **Vault**, then click **Code Snippets**.
 1. Click any of the fields and begin typing to edit the details.
-Your changes are saved automatically.
+1. Click **Save**.
 
 ### Call Snippet
 
@@ -556,7 +557,7 @@ Creates a Call component that will invoke the snippet. If the snippet changes, a
 
 ### Paste Snippet
 
-This allows you to paste the entire component inside the test, which you can then edit as needed. The pasted components will lose any reference to the original snippet.
+This allows you to paste the entire snippet inside the test, which you can then edit as needed. The pasted components will lose any reference to the original snippet.
 
 ### Use Case: Authentication Snippet
 
