@@ -17,7 +17,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-I/O request components, enable you to perform the I/O operations `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`. To access them, go to a **Project** > **Tests** > **Edit Test** > click **Add Child Component**. This guide describes each component and shows you how to add them to tests.
+I/O request components enable you to perform the I/O operations `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `Github`, `Contract Test`, and `File DataSource`. This guide describes each component and shows you how to add them to tests. To learn how to access the components and create a test using the Composer see [Writing API Tests with the Composer](/api-testing/composer/).
 
 <img src={useBaseUrl('img/api-testing/ioComponents.png')} alt="I/O Components"/>
 <img src={useBaseUrl('img/api-testing/ioComponents1.png')} alt="I/O Components"/>
