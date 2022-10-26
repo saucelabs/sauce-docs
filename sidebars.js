@@ -585,6 +585,7 @@ module.exports = {
           collapsed: true,
           items: [
             'dev/cli/saucectl',
+            'dev/cli/saucectl/architecture',
             {
               type: 'category',
               label: 'Command Ref',
