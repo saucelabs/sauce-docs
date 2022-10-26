@@ -669,16 +669,13 @@ Sometimes it's easier to do the inverse: Including files for the bundle.
 
 # Re-include files we selectively want as part of the payload by prefixing the lines with '!'.
 !/node_modules
-!/cypress
-!cypress.config.js
+!/tests
 
-# Since the whole '/cypress' folder is now included, this would also include any
+# Since the whole '/tests' folder is now included, this would also include any
 # subdirectories that potentially contain auto generated test artifacts from
 # the local dev environment.
 # It'd be wasteful to include them in the payload, so let's ignore those subfolders.
-/cypress/videos/
-/cypress/results/
-/cypress/screenshots/
+/tests/results/
 ```
 
 #### Including Node Dependencies
