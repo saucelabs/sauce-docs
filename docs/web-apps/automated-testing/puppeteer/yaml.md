@@ -672,7 +672,7 @@ Sometimes it's easier to do the inverse: Including files for the bundle.
 !/tests
 
 # Since the whole '/tests' folder is now included, this would also include any
-# subdirectories that potentially contain auto generated test artifacts from
+# subdirectories that potentially contain auto-generated test artifacts from
 # the local dev environment.
 # It'd be wasteful to include them in the payload, so let's ignore those subfolders.
 /tests/results/
