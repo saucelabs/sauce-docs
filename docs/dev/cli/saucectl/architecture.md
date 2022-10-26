@@ -15,7 +15,7 @@ If you're new to `saucectl`, we recommend reviewing the [Using the saucectl CLI]
 The following provides a high-level overview of the `saucectl` CLI architecture.
 
 1. `saucectl` sends the test payload (mobile app, test app, or project files) to the app storage.
-2. Depending on the capabilities of the underlying test framework (say, Playwright or Espresso), `saucectl` will call the appropriate device cloud that is capable of running your tests.
+2. Depending on the capabilities of the underlying test framework (e.g., Playwright or Espresso), `saucectl` will call the appropriate device cloud that is capable of running your tests.
 3. The device cloud allocates a device for your request, retrieves the payload from app storage, and runs the tests.
 
 This diagram illustrates at high level how `saucectl` interacts with the Sauce Labs environment.
