@@ -10,7 +10,7 @@ This document provides an overview of the `saucectl` CLI architecture to help yo
 
 If you're new to `saucectl`, we recommend reviewing the [Using the saucectl CLI](/dev/cli/saucectl) documentation.
 
-## Architecture
+## Architecture Components
 
 The following provides a high-level overview of the `saucectl` CLI architecture.
 
