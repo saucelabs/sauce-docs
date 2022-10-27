@@ -559,21 +559,6 @@ Creates a Call component that will invoke the snippet. If the snippet changes, a
 
 This allows you to paste the entire snippet inside the test, which you can then edit as needed. The pasted components will lose any reference to the original snippet.
 
-### Use Case: Authentication Snippet
-
-A good use case for the snippets feature is building an authentication flow; you don't need to rewrite all authentication steps for every single test. Instead, call the snippet that contains these authentication details. Another good example is integration testing, where you can reuse various tests to create one larger flow.
-
-Below is an example of how to create an Authentication Snippet.
-1. First, create a new test with a request component that requires basic authentication. For examples, check the [Sauce Labs REST API endpoints](/dev/api/) for ideas.<br/><img src={useBaseUrl('img/api-testing/exampleSnippetRequest.png')} alt="Example Snippet Request"/>
-1. Select **Basic Authentication** from the list.<br/><img src={useBaseUrl('img/api-testing/basicAuth.png')} alt="Basic Auth Component"/>
-1. Enter the details for `username` and `password`, then select **Save Changes**.<br/><img src={useBaseUrl('img/api-testing/basicAuthDetails.png')} alt="Basic Auth Details Component"/>
-1. Once the **Authentication header** appears, hold down the **`Ctrl`** key and select it, and then click **Save Snippet**.<br/><img src={useBaseUrl('img/api-testing/authSnippet.png')} alt="Auth Snippet screenshot"/>
-
-Consider a scenario where this login will be required for all the endpoints we have to test. It makes sense for this call to be stored in the **Vault**.
-
-Now you can choose to call or paste this snippet in future tests that require a Basic Authentication header.
-
-
 ## K/V Store
 
 The Key/Value store allows you to create temporary key/value pairs that can be accessed across different tests. The Key/Value store is accessed via the Key/Value Store Component.
