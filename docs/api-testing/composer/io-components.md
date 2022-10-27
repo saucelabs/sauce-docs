@@ -38,7 +38,7 @@ Performs a `GET` method request. See [Adding I/O Components to a Test](/api-test
 ### POST
 Performs a `POST` method request.
 
-#### Param
+#### URL Encoded Param
 
 1. Click **URL Encoded Param**.<br/><img src={useBaseUrl('img/api-testing/UrlParam.png')} alt="Post" />
 1. Fill in the **Name** and **Value** fields.<br/><img src={useBaseUrl('img/api-testing/URlParam1.png')} alt="Post" />
@@ -54,15 +54,15 @@ Performs a `POST` method request.
     </tr>
     <tr>
      <td><strong>Value</strong></td>
-     <td><p><small>| REQUIRED | STRING |</small></p></td>
+     <td><p><small>| REQUIRED | STRING or VARIABLE |</small></p></td>
     </tr>
   </tbody>
 </table>
 
 
-#### Body
+#### Request Body
 1. Click **Request Body**.<br/><img src={useBaseUrl('img/api-testing/postBody1.png')} alt="Post" />
-1. Fill in the **Content Type** and **Body** fields.<br/><img src={useBaseUrl('img/api-testing/postBody.png')} alt="Post" />
+1. Fill in the **Content-Type** and **Body** fields.<br/><img src={useBaseUrl('img/api-testing/postBody.png')} alt="Post" />
 
 <table id="table-api">
   <tbody>
@@ -81,9 +81,10 @@ Performs a `POST` method request.
 </table>
 
 
-#### File
+#### File (Multi-part)
 1. Click **File (Multi-part)**.<br/><img src={useBaseUrl('img/api-testing/FileMulti.png')} alt="Post" />
-1. Fill in the **Name** and **Value** fields.<br/><img src={useBaseUrl('img/api-testing/FileMulti1.png')} alt="Post" />
+1. Click **Select** for the file you want to use.
+1. Fill in the **Name** field.<br/><img src={useBaseUrl('img/api-testing/FileMulti1.png')} alt="Post" />
 
 <table id="table-api">
   <tbody>
@@ -106,13 +107,13 @@ Performs a `POST` method request.
 </table>
 
 ### PUT
-See [Param](#param), [Body](#body), and [File](#file).
+See [URL Encoded Param](#url-encoded-param), [Request Body](#request-body), and [File (Multi-part)](#file-multi-part).
 
 ### PATCH
-See [Param](#param), [Body](#body), and [File](#file).
+See [URL Encoded Param](#url-encoded-param), [Request Body](#request-body), and [File (Multi-part)](#file-multi-part).
 
 ### DELETE
-See [Param](#param), [Body](#body), and [File](#file).
+See [URL Encoded Param](#url-encoded-param), [Request Body](#request-body), and [File (Multi-part)](#file-multi-part).
 
 ### GitHub
 The GitHub component is meant to simplify the process of retrieving a file from GitHub and use it as a data source. Some examples of files to use would be CSV or JSON files. [Here is a tutorial](/api-testing/on-prem/how-to/github-for-datasets) on how to use it as part of a test.
@@ -169,7 +170,7 @@ The **Contract Test** component allows you to test an open API specification fil
   </tr>
     <tr>
      <td><strong>openAPI</strong></td>
-     <td><p>The open API file from the Vault.</p></td>
+     <td><p>The open API file from the Vault Drive.</p></td>
     </tr>
     <tr>
      <td><strong>operationId </strong></td>
