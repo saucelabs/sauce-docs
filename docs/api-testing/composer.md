@@ -49,7 +49,7 @@ To edit a test at any time, on the **Projects** page, on the **Tests** tab, hove
 <img src={useBaseUrl('/img/api-testing/edit-test-nav.png')} alt="Navigating to the test editor" width="300"/>
 
 ### Add Test Components
-When test components are combined, they act as our test logic. See the following pages ofr more information about the components types available in API Testing:
+When test components are combined, they act as our test logic. See the following pages for more information about the components types available in API Testing:
   * [I/O Request Test Components](/api-testing/composer/io-components)
   * [Assertion Test Components](/api-testing/composer/assertion-components/)
   * [Logical Test Components](/api-testing/composer/logical-components/)
@@ -92,7 +92,7 @@ For more information, see [I/O Request Test Components](/api-testing/composer/io
 
 3. In the **Assert exists** window, in the **Expression** field, enter `payload.downloads`. This expression checks for the **downloads** field in the json response body.
 
-4. Leave the rest of the fields blank and click click **Save Changes**.
+4. Leave the rest of the fields blank and click **Save Changes**.
 
   <img src={useBaseUrl('/img/api-testing/assert-exists-window.png')} alt="Confirm changes"  width="600"/>
 
@@ -419,7 +419,7 @@ To create an object of data:
 
 Any of the following methods can be used in a request body.
 
-* **Content Type:** The content-type of the body (application/json in this example).
+* **Content-Type:** The content-type of the body (application/json in this example).
 * **Body:** The body of the request.
 
 ```
@@ -743,7 +743,7 @@ Guides you through creating API tests using automated real-time suggestions via 
 #### Code View
 Enables you to write tests here from scratch, if you feel more comfortable working in code.<br/><img src={useBaseUrl('img/api-testing/codeView.png')} alt="Test Composer Code view"/>
 
-### Add Component
+### Add Chile Component
 This button displays all available [assertion components](/api-testing/composer/assertion-components/), [I/O components](/api-testing/composer/io-components/), and [logical components](/api-testing/composer/logical-components/).<br/>
 <img src={useBaseUrl('img/api-testing/add-component-nav.png')} alt="Add Component"/>
 
@@ -754,18 +754,18 @@ Sauce Labs free trials may not give you access to all available components.
 :::
 
 
-### Delete Component
-Deletes a selected component from the test while using Visual view.<br/>
+### Removes Component
+Removes a selected component from the test while using Visual view.<br/>
 <img src={useBaseUrl('img/api-testing/deleteComponent.png')} alt="Delete Component"/>
 
 
-### Save Test
+### Save
 Saves your progress.<br/>
-<img src={useBaseUrl('img/api-testing/saveTest.png')} alt="Save Test"/>
+<img src={useBaseUrl('img/api-testing/saveTest.png')} alt="Save"/>
 
-### Run Test
+### Run
 Executes a test.<br/>
-<img src={useBaseUrl('img/api-testing/runTest.png')} alt="Run Test"/>
+<img src={useBaseUrl('img/api-testing/runTest.png')} alt="Run"/>
 
 ### Input Sets
 Displays the Input Set view where you can store input data sets to reuse within the specific test you're working on.<br/><img src={useBaseUrl('img/api-testing/inputSets.png')} alt="Input Sets" width="500"/>
