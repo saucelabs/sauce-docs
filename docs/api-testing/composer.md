@@ -111,7 +111,7 @@ In the following example, the expression checks if the `download_url` value insi
 
 3. In the **Assert is** window, in the **Expression** field, enter `payload.downloads`. This expression checks for the **downloads** field in the json response body.
 
-4. Leave the rest of the fields blank and click click **Save Changes**.
+4. Leave the rest of the fields blank and click **Save Changes**.
 
   <img src={useBaseUrl('/img/api-testing/assert-exists-window-2.png')} alt="Confirm changes" width="600"/>
 
