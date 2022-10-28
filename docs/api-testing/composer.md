@@ -743,7 +743,7 @@ Guides you through creating API tests using automated real-time suggestions via 
 #### Code View
 Enables you to write tests here from scratch, if you feel more comfortable working in code.<br/><img src={useBaseUrl('img/api-testing/codeView.png')} alt="Test Composer Code view"/>
 
-### Add Chile Component
+### Add Child Component
 This button displays all available [assertion components](/api-testing/composer/assertion-components/), [I/O components](/api-testing/composer/io-components/), and [logical components](/api-testing/composer/logical-components/).<br/>
 <img src={useBaseUrl('img/api-testing/add-component-nav.png')} alt="Add Component"/>
 
