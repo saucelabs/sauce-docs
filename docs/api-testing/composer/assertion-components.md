@@ -85,12 +85,16 @@ A **warning** will not trigger alerts (such as email or text messages).
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
 
-```html
-<assert-contains expression=”data.url” value=”domain.com”/>
+```yaml
+id: assert-contains
+expression: data.url
+value: domain.com
 ```
 
-```html
-<assert-contains expression=”data.id” value=”${id}”/>
+```yaml
+id: assert-contains
+expression: data.id
+value: ${id}
 ```
 
 </details>
@@ -131,12 +135,16 @@ A **warning** will not trigger alerts (such as email or text messages).
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
 
-```html
-<assert-equals expression=”data.code” value=”500″/>
+```yaml
+id: assert-equals
+expression: data.code
+value: "500"
 ```
 
-```html
-<assert-equals expression=”data.code” value=”500″ type=”integer”/>
+```yaml
+id: assert-equals
+expression: data.code
+value: 500
 ```
 
 </details>
@@ -171,8 +179,9 @@ A **warning** will not trigger alerts (such as email or text messages).
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
 
-```html
-<assert-exists expression=”data.id”/>
+```yaml
+id: assert-exists
+expression: data.id
 ```
 
 </details>
@@ -214,13 +223,12 @@ A **warning** will not trigger alerts (such as email or text messages).
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
 
-```html
-<assert-greater expression=”data.code” value=”4503″/>
+```yaml
+id: assert-greater
+expression: data.code
+value: 4503
 ```
 
-```html
-<assert-greater expression=”data.code” value=”4503″ type=”integer”/>
-```
 
 </details>
 
@@ -259,12 +267,22 @@ A **warning** will not trigger alerts (such as email or text messages).
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
 
-```html
-<assert-in expression=”data.type” value=”[‘paperbook’,’ebook’]”/>
+
+```yaml
+id: assert-in
+expression: data.type
+value:
+    - ebook
+    - paperbook
 ```
 
-```html
-<assert-in expression=”data.price” value=”[5.50,7,9.79]” type=”float”/>
+```yaml
+id: assert-in
+expression: data.price
+value:
+    - "5.50"
+    - "7"
+    - "9.79"
 ```
 
 </details>
@@ -311,8 +329,10 @@ A **warning** will not trigger alerts (such as email or text messages).
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
 
-```html
-<assert-is expression=”data.id” type=”integer”/>
+```yaml
+id: assert-is
+expression: data.id
+type: integer
 ```
 
 </details>
@@ -353,12 +373,10 @@ A **warning** will not trigger alerts (such as email or text messages).
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
 
-```html
-<assert-less expression=”data.code” value=”4503″/>
-```
-
-```html
-<assert-less expression=”data.code” value=”4503″ type=”integer”/>
+```yaml
+id: assert-less
+expression: data.code
+value: 4503
 ```
 
 </details>
@@ -400,63 +418,14 @@ This assertion is used to check if the element value described by the expression
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
 
-<Tabs
-  defaultValue="Zip Code"
-  values={[
-    {label: 'Zip Code', value: 'Zip Code'},
-    {label: 'U.S. State', value: 'U.S. State'},
-    {label: 'Name', value: 'Name'},
-    {label: 'Credit Card', value: 'Credit Card'},
-    {label: 'Country Codes', value: 'Country Codes'},
-    {label: 'Currency Codes', value: 'Currency Codes'},
-  ]}>
 
-<TabItem value="Zip Code">
-
-```html
-<assert-matches expression=”data.zipcode” type=”us_zipcodes”/>
+```yaml
+id: assert-matches
+expression: data.zipcode
+type: us_zipcodes
 ```
-
-</TabItem>
-<TabItem value="U.S. State">
-
-```html
-<assert-matches expression=”data.state” type=”us_states”/>
-```
-
-</TabItem>
-<TabItem value="Name">
-
-```html
-<assert-matches expression=”data.name” type=”regex” value=”[hc]?at”/>
-```
-
-</TabItem>
-<TabItem value="Credit Card">
-
-```html
-<assert-matches expression=”data.credit” type=”creditCard”/>
-```
-
-</TabItem>
-<TabItem value="Country Codes">
-
-```html
-<assert-matches expression=”data.country” type=country_codes”/>
-```
-
-</TabItem>
-<TabItem value="Currency Codes">
-
-```html
-<assert-matches expression=”data.code” type=”currency_codes”/>
-```
-
-</TabItem>
-</Tabs>
 
 </details>
-
 
 ## Assert Valid JSON Schema
 
@@ -515,8 +484,18 @@ This assertion is used to validate a JSON schema, based on the provided schema d
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
 
-```html
-<set var="json_success" lang="template"> <![CDATA[{ "rectangle" : { "a" : 15, "b" : 5 } }]]> </set> <assert-valid-jsonschema expression="json_success"> <![CDATA[{ "type" : "object", "properties" : { "rectangle" : {"$ref" : "#/definitions/Rectangle" } }, "definitions" : { "size" : { "type" : "number", "minimum" : 0 }, "Rectangle" : { "type" : "object", "properties" : { "a" : {"$ref" : "#/definitions/size"}, "b" : {"$ref" : "#/definitions/size"} } } } }]]> </assert-valid-jsonschema>
+```yaml
+id: set
+var: json_success
+mode: lang
+lang: template
+body: '{ "rectangle" : { "a" : 15, "b" : 5 } }'
+```
+
+```yaml
+id: assert-valid-jsonschema
+expression: json_success
+body: '{ "type" : "object", "properties" : { "rectangle" : {"$ref" :"#/definitions/Rectangle" } }, "definitions" : { "size" : { "type" :"number", "minimum" : 0 }, "Rectangle" : { "type" : "object", "properties" : { "a" : {"$ref" : "#/definitions/size"}, "b" : {"$ref" : "#/definitions/size"} } } } }'
 ```
 
 </details>
