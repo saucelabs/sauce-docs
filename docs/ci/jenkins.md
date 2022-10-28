@@ -262,8 +262,7 @@ The following environment variables are relevant for Sauce Labs tests running in
 |`SAUCE_ACCESS_KEY`|The access key of the Sauce Labs account on which tests in this project are run.|Populated by the `Access Key` value of the authentication credential associated with the project.|
 |`SELENIUM_STARTING_URL`|The value of the Starting URL field.|This value is not populated by any configuration setting.|
 |`SAUCE_ONDEMAND_BROWSERS`|A JSON-formatted string containing a set of attributes for multiple operating system and browser combinations.|Populated when you select more than one **WebDriver** or **Appium** value during project configuration.|
-|`TUNNEL_IDENTIFIER`|The unique tunnel identifier used when Sauce Connect is launched.| Populated when the **Create a new unique Sauce Connect tunnel per build** option is selected during project configuration.|
-|`TUNNEL_NAME`|The unique tunnel identifier used when Sauce Connect is launched.| Populated when the **Create a new unique Sauce Connect tunnel per build** option is selected during project configuration. This is in use as of v1.207.|
+|`TUNNEL_IDENTIFIER or TUNNEL_NAME (as of v1.207)`|The unique tunnel identifier used when Sauce Connect is launched.| Populated when the **Create a new unique Sauce Connect tunnel per build** option is selected during project configuration.|
 |`JENKINS_BUILD_NUMBER`|The ID of the build the Sauce OnDemand plugin will use when showing results that are not in the logs.|Populated when the `buildName` capability is set for the test.|
 |`SAUCE_BUILD_NAME`|The name of the build the Sauce OnDemand plugin will use when showing test results.|The plugin automatically populates this this value at run-time with `${JOB_NAME}_${BUILD_NUMBER}`.|
 
