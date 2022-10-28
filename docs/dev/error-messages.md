@@ -129,7 +129,7 @@ Check our [Systems Status page](http://status.saucelabs.com/) to see if we have 
 If you experience this issue repeatedly while there is no listed issue, reach out to [support.saucelabs.com](https://support.saucelabs.com/) for assistance.
 
 
-### Invalid Parent Tunnel
+### Invalid Tunnel Owner
 
 **Description**
 
@@ -137,7 +137,7 @@ Your tests are requesting a Sauce Connect tunnel opened by one of the accounts a
 
 **Cause**
 
-When requesting a new Sauce Labs job, you provided the `parentTunnel` capability. Sauce Labs attempted to find an account above you in your account hierarchy, running a Sauce Connect tunnel, configured to be shared with subaccounts. We did not find a matching account, for one of the following reasons:
+When requesting a new Sauce Labs job, you provided the `tunnelOwner` (or `parentTunnel`) capability. Sauce Labs attempted to find an account above you in your account hierarchy, running a Sauce Connect tunnel, configured to be shared with sub-accounts. We did not find a matching account, for one of the following reasons:
 
 *   You are requesting an account that does not exist.
 *   You are requesting an account that is not on your team or an admin account.
@@ -147,15 +147,15 @@ When requesting a new Sauce Labs job, you provided the `parentTunnel` capability
 
 **How to Resolve**
 
-Reach out to the person who administers the account that you set as the `parentTunnel` capability; this person sets the tunnel sharing permissions. Ask them to confirm the following:
+Reach out to the person who administers the account that you set as the `tunnelOwner` (or `parentTunnel`) capability; this person sets the tunnel sharing permissions. Ask them to confirm the following:
 
 *   They have an open Sauce Connect tunnel (they can check on the **Tunnels** page).
-*   They opened a tunnel with the `--shared-tunnel` option (see [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy) for more information).
+*   They opened a tunnel with the [`--shared-tunnel`](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/#--shared-tunnel) option.
 *   They are an Admin and/or a member of your team.
 
 Restarting the Sauce Connect tunnel may be required.
 
-Alternatively, you can remove the `parentTunnel` capability from your tests. If you need Sauce Connect to run your tests, you will need to set up an alternative tunnel.
+Alternatively, you can remove the capability from your tests. If you need Sauce Connect to run your tests, you will need to set up an alternative tunnel.
 
 
 ### The New Session Request was Cancelled before a Sauce Labs Virtual Machine was Found

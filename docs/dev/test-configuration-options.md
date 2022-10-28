@@ -1318,6 +1318,8 @@ Appium tests for the Real Device Cloud using the W3C protocol MUST use `tunnelNa
 ### `tunnelOwner`  
 <p><small>| OPTIONAL | STRING |</small></p>
 
+If the [tunnelName](#tunnelname) you've specified to establish connectivity with a Sauce Labs test platform is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test.
+
 :::note Choose the Correct Tunnel Identifier
 The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.
 :::
