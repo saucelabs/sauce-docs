@@ -28,7 +28,9 @@ Allows you to compare two payloads in terms of text, structure or values.
 | **Expression 2** | Expression | Yes |
 | **Mode** | Text, values, structure | Yes |
 | **Level** | error, warning | No |
-| **Stop test if fails** | True, false | No |
+| **Strict:** | Yes, No | No |
+| **Comment** | String | No |
+| **Stop test if fails** | Yes, No | No |
 
 * __Expression 1__: the first payload you want to compare. See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Expression 2__: the second payload you want to compare.
@@ -37,6 +39,8 @@ Allows you to compare two payloads in terms of text, structure or values.
     * **values** compares the two payloads regardless the text layout
     * **structure** compares only the structure of the two payloads.
 * __Level__: Specifies, when the assertion fails, whether it should be considered an **error** or just a **warning**.
+* __Strict__: Comparison includes data types. 
+* __Comment__: Add comment messages in the form of a string data type.
 * __Stop test if fails__: The test will be immediately stopped if the assertion fails.
 
 :::note
