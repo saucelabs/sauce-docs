@@ -95,9 +95,7 @@ Our API Testing interface has a unique working copy/published copy workflow that
 
 1. Once you've finish reviewing and/or editing your test, navigate to the **Unpublished changes** section, where it states that your test is currently unpublished.<br/><img src={useBaseUrl('img/api-testing/unpublished.png')} alt="Unpublished Test" />
 
-2. Hover your mouse over the section to reveal the **Clear** and **Publish** buttons.<br/><img src={useBaseUrl('img/api-fortress/2021/02/publishButton.png')} alt="Publish Test Button" width="400"/>
-
-3. Click the **Publish** button to publish your working copy.<br/><img src={useBaseUrl('img/api-testing/published.png')} alt="Published Test" />
+2. Click the **Publish** button to publish your working copy.<br/><img src={useBaseUrl('img/api-testing/published.png')} alt="Published Test" />
 
 
 ## Optional Next Steps
@@ -105,7 +103,7 @@ Our API Testing interface has a unique working copy/published copy workflow that
 Sauce Labs API Testing has a full suite of tools that enables comprehensive continuous integration testing.
 
 * Set up a [recurring test schedule](/api-testing/schedule-test) so that you can monitor the health of your APIs.
-* Go back to your test's **Compose** tab and [add logic/components](/api-testing/composer/).
+* [Add logic/components](/api-testing/composer/) using the Composer.
 * Create a new test from a [spec file](/api-testing/build-from-spec) or [Postman collection](/api-testing/import-postman-collection).
    * When you [generate a test](#generate-test) this way, the test components will be based on your imported request-and-response data.
 * Create a new test [from scratch](/api-testing/composer/).
