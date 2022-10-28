@@ -79,7 +79,7 @@ If you're using Protractor to run your tests with TeamCity, ensure `disableEnvir
 |SAUCE_TC_BUILDNUMBER|	The build name to use with Sauce Labs jobs|
 |TUNNEL_IDENTIFIER|The unique tunnel identifier used by Sauce Connect, if enabled|
 
-## Outputting the Bamboo Session ID to `stdout`
+## Outputting the TeamCity Session ID to `stdout`
 
 As part of the post-build activities, the Sauce plugin parses the test result files to detect lines in the `stdout` or `stderr` containing the format:
 
