@@ -52,5 +52,5 @@ The endpoint will return a .zip file of all screenshots captured during the sess
 ## Limitations
 
 :::note 
-* The screenshots cannot exceed more than 200 MB in size.
+The screenshots cannot exceed more than 200 MB in size.
 :::
