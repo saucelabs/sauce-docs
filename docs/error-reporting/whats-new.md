@@ -5,6 +5,9 @@ sidebar_label: What's New
 description: See what's new with the Backtrace Console, including new features and improvements.
 ---
 
+## Improved Navigation in Project Settings (2022-10-17)
+We've made it easier for you to navigate in the Project settings menu. The improvements include a breadcrumb trail at the top of the screen, and new groupings in the side navigation menu for better readability.
+
 ## Help and Support Access (2022-08-19)
 For easier access, the Help and support button is now located in the navigation bar.
 <img src="/img/error-reporting/whats-new/help-button.png" width="300"/>
