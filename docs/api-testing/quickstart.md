@@ -77,7 +77,7 @@ The JSON response &#8212; in this case, a list of dog breeds &#8212; will popula
 
 ## Run Test
 
-1. Click the **Run** button to run your test.<br/><img src={useBaseUrl('img/api-testing/runTest.png')} alt="Run Test" width="550"/>
+1. Click **Run** to run your test.<br/>
 
 1. In the right-hand nav, under **Test Runs**, you'll see that a new line item has populated with the name of your test. If successful, you'll see a green checkmark indicator and **Completed with success** message.<br/><img src={useBaseUrl('img/api-testing/testRuns.png')} alt="Test Runs Section" width="300" />
 
