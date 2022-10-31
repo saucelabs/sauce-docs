@@ -66,7 +66,7 @@ To create a simple `GET` request and validate that response is correct:
 
   <img src={useBaseUrl('/img/api-testing/get-request-nav.png')} alt="Navigating to the GET request window"/>
 
-  3. In the **GET request** window, in the **Url** field, enter **ht<span>tps://</span>api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions**.
+  3. In the **GET request** window, in the **Url** field, enter `https://</span>api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions`.
 
   This endpoint will return a JSON response body.
   4. In the **Variable** field, enter **payload**. This variable stores the response, so it can now be referred to as **payload**.
