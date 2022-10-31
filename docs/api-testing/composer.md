@@ -755,7 +755,7 @@ Sauce Labs free trials may not give you access to all available components.
 
 
 ### Removes Component
-Removes a selected component from the test while using Visual view.<br/>
+Removes a selected component from the test while using the Visual view.<br/>
 <img src={useBaseUrl('img/api-testing/deleteComponent.png')} alt="Delete Component"/>
 
 
