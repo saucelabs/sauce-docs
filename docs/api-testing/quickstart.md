@@ -27,7 +27,7 @@ If your APIs are behind a firewall, you'll need to set up a [Sauce Connect Proxy
 
 1. Log in to Sauce Labs, then click **API Testing**.
 
-2. From the list of test creation methods, click **Use HTTP Client**.<br/><img src={useBaseUrl('img/api-fortress/2021/01/newtestHTTP.png')} alt="Enter API URL" width="550" />
+2. From the list of test creation methods, click **Use HTTP Client**.<br/><img src={useBaseUrl('img/api-testing/newtestHTTP.png')} alt="Enter API URL" width="550" />
 
 :::note Returning Users
 If you're seeing an existing list of Projects instead of the landing page shown above, click **Create Project** instead.<br/><img src={useBaseUrl('img/api-fortress/2021/01/createProject.png')} alt="Create Project" width="450" />
@@ -69,35 +69,33 @@ The JSON response &#8212; in this case, a list of dog breeds &#8212; will popula
   :::tip
   <details><summary>Viewing your test data</summary>
 
-  **Visual** view shows your test as components:<br/><img src={useBaseUrl('img/api-fortress/2021/02/testVisual.png')} alt="Sample Test Visual View"/>
+  **Visual** view shows your test as components:<br/><img src={useBaseUrl('img/api-testing/testVisual.png')} alt="Sample Test Visual View"/>
 
-  **Code** view displays it as code:<br/><img src={useBaseUrl('img/api-fortress/2021/02/testCode.png')} alt="Sample Test Code View"/>
+  **Code** view displays it as code:<br/><img src={useBaseUrl('img/api-testing/testCode.png')} alt="Sample Test Code View"/>
   </details>
   :::
 
 ## Run Test
 
-1. Click the **Run** button to run your test.<br/><img src={useBaseUrl('img/api-fortress/2021/01/runTest.png')} alt="Run Test" width="550"/>
+1. Click the **Run** button to run your test.<br/><img src={useBaseUrl('img/api-testing/runTest-qs.png')} alt="Run Test" width="550"/>
 
-1. In the right-hand nav, under **Test Runs**, you'll see that a new line item has populated with the name of your test. If successful, you'll see a green checkmark indicator and **Completed with success** message.<br/><img src={useBaseUrl('img/api-fortress/2021/01/testRuns.png')} alt="Test Runs Section" width="300" />
+1. In the right-hand nav, under **Test Runs**, you'll see that a new line item has populated with the name of your test. If successful, you'll see a green checkmark indicator and **Completed with success** message.<br/><img src={useBaseUrl('img/api-testing/testRuns.png')} alt="Test Runs Section" width="300" />
 
 
 ## View Test Results
 
 1. To view your test results, hover your mouse over your test line item and click **Open report document**.<br/><img src={useBaseUrl('img/api-fortress/2021/01/testResultsOpen.png')} alt="Open Test Results" width="200" />
 
-1. Your test report will open in a new browser tab. The report displays granular test information that's helpful for debugging any failures ([more info](/api-testing/project-dashboard/#test-outcome-reports)).<br/><img src={useBaseUrl('img/api-fortress/2021/01/testResultsPage.png')} alt="Test Results Page" width="600" />
+1. Your test report will open in a new browser tab. The report displays granular test information that's helpful for debugging any failures ([more info](/api-testing/project-dashboard/#test-outcome-reports)).<br/><img src={useBaseUrl('img/api-testing/testResultsPage.png')} alt="Test Results Page" width="600" />
 
 
 ## Publish Your Test
 
 Our API Testing interface has a unique working copy/published copy workflow that allows you to edit a test without affecting the active (already published) version. Here's how to publish the working copy of your test.
 
-1. Once you've finish reviewing and/or editing your test, navigate to the **Unpublished changes** section, where it states that your test is currently unpublished.<br/><img src={useBaseUrl('img/api-fortress/2021/02/unpublished.png')} alt="Unpublished Test" width="200" />
+1. Once you've finish reviewing and/or editing your test, navigate to the **Unpublished changes** section, where it states that your test is currently unpublished.<br/><img src={useBaseUrl('img/api-testing/unpublished.png')} alt="Unpublished Test" />
 
-2. Hover your mouse over the section to reveal the **Clear** and **Publish** buttons.<br/><img src={useBaseUrl('img/api-fortress/2021/02/publishButton.png')} alt="Publish Test Button" width="200"/>
-
-3. Click the **Publish** button to publish your working copy.<br/><img src={useBaseUrl('img/api-fortress/2021/02/published.png')} alt="Published Test" width="200"/>
+2. Click the **Publish** button to publish your working copy.<br/><img src={useBaseUrl('img/api-testing/published.png')} alt="Published Test" />
 
 
 ## Optional Next Steps
@@ -105,7 +103,7 @@ Our API Testing interface has a unique working copy/published copy workflow that
 Sauce Labs API Testing has a full suite of tools that enables comprehensive continuous integration testing.
 
 * Set up a [recurring test schedule](/api-testing/schedule-test) so that you can monitor the health of your APIs.
-* Go back to your test's **Compose** tab and [add logic/components](/api-testing/composer/).
+* [Add logic/components](/api-testing/composer/) using the Composer.
 * Create a new test from a [spec file](/api-testing/build-from-spec) or [Postman collection](/api-testing/import-postman-collection).
    * When you [generate a test](#generate-test) this way, the test components will be based on your imported request-and-response data.
 * Create a new test [from scratch](/api-testing/composer/).
