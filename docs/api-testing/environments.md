@@ -26,7 +26,7 @@ Once you have a variable, you can override it if needed.
 There are multiple ways to create and access Test environments:
 
 ### From the Environments
-1. From within a Project, go to the **Environments** section.<br/><img src={useBaseUrl('img/api-fortress/2021/04/accessEnvironment.png')} alt="access environment"/>
+1. From within a Project, go to the **Environments** section.<br/><img src={useBaseUrl('img/api-testing/accessEnvironment.png')} alt="access environment"/>
 2. Click **Create Environment**.
 3. Enter a name for your environment, then click **Save** when finished.<br/><img src={useBaseUrl('img/api-fortress/2021/04/createEnvironment.png')} alt="create environment" width="300"/>
 4. From here, you can:
