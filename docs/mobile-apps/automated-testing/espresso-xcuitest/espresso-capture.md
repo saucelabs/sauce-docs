@@ -52,6 +52,5 @@ The endpoint will return a .zip file of all screenshots captured during the sess
 ## Limitations
 
 :::note 
-* The screenshots cannot exceed more than 200 MB in size.
-* You cannot change the filename of the screenshot. The code we provide allows you to supply the capture method with a string, but currently the string is ignored. We use a counter for the screenshot name. This is a known bug.
+The screenshots cannot exceed more than 200 MB in size.
 :::
