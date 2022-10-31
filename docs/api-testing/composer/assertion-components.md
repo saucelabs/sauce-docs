@@ -27,7 +27,7 @@ Allows you to compare two payloads in terms of text, structure or values.
 | **Expression 1** | Expression | Yes |
 | **Expression 2** | Expression | Yes |
 | **Mode** | Text, values, structure | Yes |
-| **Strict:** | Yes, No | No |
+| **Strict** | Yes, No | No |
 | **Comment** | String | No |
 | **Level** | error, warning | No |
 | **Stop test if fails** | Yes, No | No |
