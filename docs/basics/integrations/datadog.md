@@ -1,7 +1,7 @@
 ---
 id: datadog
 title: DataDog Integration
-sidebar_label: DataDog
+sidebar_label: DataDog Integration
 description: Get the most out of your test logging & analytics with Sauce Labs and DataDog
 keywords:
 - APM

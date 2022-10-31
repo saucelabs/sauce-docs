@@ -1,7 +1,7 @@
 ---
 id: deque
 title: Deque axe™ Integration
-sidebar_label: Deque axe
+sidebar_label: Deque axe Integration
 description: Link your Sauce Labs account with axe to add accessibility testing to your existing tests.
 keywords:
     - accessibility-testing

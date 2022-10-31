@@ -1061,6 +1061,7 @@ module.exports = {
       'ci/azure',
       'ci/bamboo',
       'ci/bitbucket',
+      'ci/gitlab',
       'ci/jenkins',
       'ci/teamcity',
     ],

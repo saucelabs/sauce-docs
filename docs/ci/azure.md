@@ -1,7 +1,7 @@
 ---
 id: azure
 title: Sauce Labs with Azure DevOps
-sidebar_label: Azure
+sidebar_label: Azure Integration
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

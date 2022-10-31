@@ -1,7 +1,7 @@
 ---
 id: webhooks
 title: Webhooks Integration
-sidebar_label: Webhooks
+sidebar_label: Webhooks Integration
 description: Setup a webhook to which Sauce Labs test results are automatically pushed.
 keywords:
 - get-test-results

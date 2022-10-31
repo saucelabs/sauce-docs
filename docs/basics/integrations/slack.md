@@ -1,7 +1,7 @@
 ---
 id: slack
 title: Slack Integration
-sidebar_label: Slack
+sidebar_label: Slack Integration
 description: Link your Sauce Labs account with your Slack workspace set up auto-notification of your test results.
 keywords:
 - share-test-results

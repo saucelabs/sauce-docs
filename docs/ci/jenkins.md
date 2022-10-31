@@ -1,7 +1,7 @@
 ---
 id: jenkins
 title: Sauce Labs with Jenkins
-sidebar_label: Jenkins
+sidebar_label: Jenkins Integration
 description: Use our plugin to run your Sauce Labs tests within your Jenkins pipeline.
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';

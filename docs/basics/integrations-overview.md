@@ -119,7 +119,7 @@ We partner with the top companies in the industry to bring you a complete soluti
   <div className="box box2 card">
     <div className="container">
         <a href="https://docs.testmo.com/integrations/automation/saucelabs"> <img src={useBaseUrl('img/integrations/testmo.png')} alt="TestMo logo" width="45" />
-        <h3>TestMo</h3></a>
+        <h3>Testmo</h3></a>
     </div>
   </div>
   <div className="box box3 card">
@@ -167,7 +167,7 @@ We partner with the top companies in the industry to bring you a complete soluti
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
-        <a href="https://www.eggplantsoftware.com/"> <img src={useBaseUrl('img/integrations/eggplant.png')} alt="Keysight logo" width="50" />
+        <a href="https://docs.eggplantsoftware.com/gateway/sauce-overview/"> <img src={useBaseUrl('img/integrations/eggplant.png')} alt="Keysight logo" width="50" />
         <h3>Keysight Eggplant</h3></a>
     </div>
   </div>

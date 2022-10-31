@@ -1,7 +1,7 @@
 ---
 id: evinced
 title: Evinced Integration
-sidebar_label: Evinced
+sidebar_label: Evinced Integration
 description: Test your mobile apps for accessibility challenges with Evinced and the Sauce Labs cloud
 keywords:
 - accessibility

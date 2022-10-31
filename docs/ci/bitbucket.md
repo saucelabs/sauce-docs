@@ -1,7 +1,7 @@
 ---
 id: bitbucket
 title: Sauce Labs with Bitbucket
-sidebar_label: Bitbucket
+sidebar_label: Bitbucket Integration
 description: Use our plugin to run your Sauce Labs tests within your Bitbucket pipeline.
 ---
 

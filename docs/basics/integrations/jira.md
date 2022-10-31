@@ -1,7 +1,7 @@
 ---
 id: jira
 title: Jira Cloud Integration
-sidebar_label: Jira
+sidebar_label: Jira Integration
 description: Link your Sauce Labs account with your Jira account to create an issue directly from Sauce Labs.
 keywords:
 - create-jira-issue

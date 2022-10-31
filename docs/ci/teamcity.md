@@ -1,7 +1,7 @@
 ---
 id: teamcity
 title: Sauce Labs with TeamCity
-sidebar_label: TeamCity
+sidebar_label: TeamCity Integration
 description: Use our plugin to run your Sauce Labs tests within your TeamCity pipeline.
 ---
 

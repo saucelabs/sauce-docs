@@ -1,7 +1,7 @@
 ---
 id: uipath
 title: UiPath Integration
-sidebar_label: UiPath
+sidebar_label: UiPath Integration
 description: Use UiPath with Sauce Labs to scale your RPA/app testing
 keywords:
 - uipath
@@ -15,7 +15,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## GitLab Setup and Configuration - Sauce Labs
+## UiPath Setup and Configuration - Sauce Labs
 
 Revolutionize automated testing for your software, automations, and QA teams with [Test Suite](https://www.uipath.com/solutions/department/enterprise-test-suite): the resilient testing product portfolio powered by the UiPath Automation Platform. Leverage production-grade, low-code automation and AI power tools to automate testing for any technology while still managing testing your way.
 

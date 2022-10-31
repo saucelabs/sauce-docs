@@ -1,7 +1,7 @@
 ---
 id: bamboo
 title: Sauce Labs with Bamboo
-sidebar_label: Bamboo
+sidebar_label: Bamboo Integration
 description: Use our plugin to run your Sauce Labs tests within your Atlassian Bamboo pipeline.
 ---
 
