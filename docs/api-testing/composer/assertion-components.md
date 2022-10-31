@@ -27,9 +27,9 @@ Allows you to compare two payloads in terms of text, structure or values.
 | **Expression 1** | Expression | Yes |
 | **Expression 2** | Expression | Yes |
 | **Mode** | Text, values, structure | Yes |
-| **Level** | error, warning | No |
 | **Strict:** | Yes, No | No |
 | **Comment** | String | No |
+| **Level** | error, warning | No |
 | **Stop test if fails** | Yes, No | No |
 
 * __Expression 1__: the first payload you want to compare. See [Expression](/api-testing/on-prem/reference/expression/) for more details.
@@ -38,9 +38,9 @@ Allows you to compare two payloads in terms of text, structure or values.
     * **Text** compares the text of the two payloads as plain text
     * **values** compares the two payloads regardless the text layout
     * **structure** compares only the structure of the two payloads.
-* __Level__: Specifies, when the assertion fails, whether it should be considered an **error** or just a **warning**.
 * __Strict__: Comparison includes data types. 
 * __Comment__: Add comment messages in the form of a string data type.
+* __Level__: Specifies, when the assertion fails, whether it should be considered an **error** or just a **warning**.
 * __Stop test if fails__: The test will be immediately stopped if the assertion fails.
 
 :::note
@@ -62,21 +62,21 @@ This assertion is used to check if the element described by the expression conta
 | :--- | :--- | :--- |
 | Expression | Expression | Yes |
 | Value | String | Yes |
-| Mode | 'all' or 'one' | No |
+| Comment | String | No |
 | Level | 'error' or 'warning' | No |
 | Modifier | 'not' | No |
-| Execute if item exists | 'true' or 'false' | No |
-| Stop test if fails | 'true' or 'false' | No |
-| Comment | String | No |
+| Execute if item exists | Yes, No | No |
+| Stop test if fails | Yes, No | No |
+
 
 * __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Value__: The value we want to compare the expression to.
-* __Mode__: Specify if all the same elements in the payload should match the assertion (‘all’) or if only one element (‘one’) is enough.
+* __Comment__: Add comment messages in the form of a string data type.
 * __Level__: Specifies, when the assertion fails, whether it should be considered an **error** or just a **warning**.
 * __Modifier__: The assertion is considered verified if it does not pass.
 * __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
 * __Stop test if fails__: The test will be immediately stopped if the assertion fails.
-* __Comment__: Add comment messages in the form of a string data type.
+
 
 :::note
 A **warning** will not trigger alerts (such as email or text messages).
@@ -110,23 +110,21 @@ This assertion is used to check if the element value described by the expression
 | :--- | :--- | :--- |
 | Expression | Expression | Yes |
 | Value | String | Yes |
-| Type | 'integer' or 'float' | No |
-| Mode | 'all' or 'one' | No |
+| Comment | String | No |
 | Level | 'error' or 'warning' | No |
 | Modifier | 'not' | No |
-| Execute if item exists | 'true' or 'false' | No |
-| Stop test if fails | 'true' or 'false' | No |
-| Comment | String | No |
+| Execute if item exists | Yes, No | No |
+| Stop test if fails | Yes, No | No |
+
 
 * __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Value__: The value we want to compare the expression to.
-* __Type__: The data type of the value. This attribute is optional. If no type is defined the values will be compared as strings. If the type is set the values will evaluated with the chosen comparator (ex: ‘integer’ as a whole number, ‘float’ as a decimal number).
-* __Mode__: Specify if all the same elements in the payload should match the assertion (‘all’) or if only one element (‘one’) is enough.
+* __Comment__: Add comment messages in the form of a string data type.
 * __Level__: Specify if the assertion fails whether it should be considered an ‘error’ or just a ‘warning’.
 * __Modifier__: The assertion is considered verified if it does not pass.
 * __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
 * __Stop test if fails__: The test will be immediately stopped if the assertion fails.
-* __Comment__: Add comment messages in the form of a string data type.
+
 
 :::note
 A **warning** will not trigger alerts (such as email or text messages).
@@ -159,18 +157,18 @@ This assertion is used to check if the element described by the expression exist
 | Field | Type/Value | Required |
 | :--- | :--- | :--- |
 | Expression | Expression | Yes |
-| Mode | 'all' or 'one' | No |
+| Comment | String | No |
 | Level | 'error' or 'warning' | No |
 | Modifier | 'not' | No |
-| Stop test if fails | 'true' or 'false' | No |
-| Comment | String | No |
+| Stop test if fails | Yes, No | No |
+
 
 * __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
-* __Mode__: Specify if all the same elements in the payload should match the assertion (‘all’) or if only one element (‘one’) is enough.
+* __Comment__: Add comment messages in the form of a string data type.
 * __Level__: Specify if the assertion fails whether it should be considered an ‘error’ or just a ‘warning’.
 * __Modifier__: The assertion is considered verified if it does not pass.
 * __Stop test if fails__: The test will be immediately stopped if the assertion fails.
-* __Comment__: Add comment messages in the form of a string data type.
+
 
 :::note
 A **warning** will not trigger alerts (such as email or text messages).
@@ -198,23 +196,20 @@ This assertion is used to check if the element value described by the expression
 | :--- | :--- | :--- |
 | Expression | Expression | Yes |
 | Value | String | Yes |
-| Type | 'integer' or 'float' | No |
-| Mode | 'all' or 'one' | No |
+| Comment | String | No |
 | Level | 'error' or 'warning' | No |
 | Modifier | 'not' | No |
-| Execute if item exists | 'true' or 'false' | No |
-| Stop test if fails | 'true' or 'false' | No |
-| Comment | String | No |
+| Execute if item exists | Yes, No | No |
+| Stop test if fails | Yes, No | No |
 
 * __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Value__: The value we want to compare the expression to.
-* __Type__: The data type of the value. This attribute is optional. If no type is defined the values will be compared as strings. If the type is set the values will evaluated with the chosen comparator (ex: ‘integer’ as a whole number, ‘float’ as a decimal number).
-* __Mode__: Specify if all the same elements in the payload should match the assertion (‘all’) or if only one element (‘one’) is enough.
+* __Comment__: Add comment messages in the form of a string data type.
 * __Level__: Specify if the assertion fails whether it should be considered an ‘error’ or just a ‘warning’.
 * __Modifier__: The assertion is considered verified if it does not pass.
 * __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
 * __Stop test if fails__: The test will be immediately stopped if the assertion fails.
-* __Comment__: Add comment messages in the form of a string data type.
+
 
 :::note
 A **warning** will not trigger alerts (such as email or text messages).
@@ -242,23 +237,21 @@ This assertion is used to check if the element described by the expression match
 | :--- | :--- | :--- |
 | Expression | Expression | Yes |
 | Value | String | Yes |
-| Type | 'integer' of 'float' | No |
-| Mode | 'all' or 'one' | No |
+| Comment | String | No |
 | Level | 'error' or 'warning' | No |
 | Modifier | 'not' | No |
-| Execute if item exists | 'true' or 'false' | No |
-| Stop test if fails | 'true' or 'false' | No |
-| Comment | String | No |
+| Execute if item exists | Yes, No | No |
+| Stop test if fails | Yes, No | No |
+
 
 * __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Value__: The value we want to compare the expression to.
-* __Type__: The data type of the value. This attribute is optional. If no type is defined the values will be compared as strings. If the type is set the values will evaluated with the chosen comparator (ex: ‘integer’ as a whole number, ‘float’ as a decimal number).
-* __Mode__: Specify if all the same elements in the payload should match the assertion (‘all’) or if only one element (‘one’) is enough.
+* __Comment__: Add comment messages in the form of a string data type.
 * __Level__: Specify if the assertion fails whether it should be considered an ‘error’ or just a ‘warning’.
 * __Modifier__: The assertion is considered verified if it does not pass.
 * __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
 * __Stop test if fails__: The test will be immediately stopped if the assertion fails.
-* __Comment__: Add comment messages in the form of a string data type.
+
 
 :::note
 A **warning** will not trigger alerts (such as email or text messages).
@@ -298,12 +291,12 @@ This assertion is used to check if the value of the element defined by the expre
 | :--- | :--- | :--- |
 | Expression | Expression | Yes |
 | Type | 'integer', 'float', 'url', 'boolean', 'phone', 'email', 'map', 'array' | Yes |
-| Mode | 'all' or 'one' | No |
+| Comment | String | No |
 | Level | 'error' or 'warning' | No |
 | Modifier | 'not' | No |
-| Execute if item exists | 'true' or 'false' | No |
-| Stop test if fails | 'true' or 'false' | No |
-| Comment | String | No |
+| Execute if item exists | Yes, No | No |
+| Stop test if fails | Yes, No | No |
+
 
 * __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Type__: The data type of the value. The possible values are:
@@ -315,12 +308,12 @@ This assertion is used to check if the value of the element defined by the expre
     * _email_: checks if field is a valid email format;
     * _map_: checks if field is a map type;
     * _array_: checks if the field is an array.
-* __Mode__: Specify if all the same elements in the payload should match the assertion (‘all’) or if only one element (‘one’) is enough.
+* __Comment__: Add comment messages in the form of a string data type.
 * __Level__: Specify if the assertion fails whether it should be considered an ‘error’ or just a ‘warning’.
 * __Modifier__: The assertion is considered verified if it does not pass.
 * __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
 * __Stop test if fails__: The test will be immediately stopped if the assertion fails.
-* __Comment__: Add comment messages in the form of a string data type.
+
 
 :::note
 A **warning** will not trigger alerts (such as email or text messages).
@@ -347,24 +340,22 @@ This assertion is used to check if the element value described by the expression
 | :--- | :--- | :--- |
 | Expression | Expression | Yes |
 | Value | String | Yes |
-| Type | 'integer' or 'float' | No |
-| Mode | 'all' or 'one' | No |
+| Comment | String | No |
 | Level | 'error' or 'warning' | No |
 | Modifier | 'not' | No |
-| Execute if item exists | 'true' or 'false' | No |
-| Stop test if fails | 'true' or 'false' | No |
-| Comment | String | No |
+| Execute if item exists | Yes, No | No |
+| Stop test if fails | Yes, No | No |
+
 
 
 * __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Value__: The value we want to compare the expression to.
-* __Type__: The data type of the value. This attribute is optional. If no type is defined the values will be compared as strings. If the type is set the values will evaluated with the chosen comparator (ex: ‘integer’ as a whole number, ‘float’ as a decimal number).
-* __Mode__: Specify if all the same elements in the payload should match the assertion (‘all’) or if only one element (‘one’) is enough.
+* __Comment__: Add comment messages in the form of a string data type.
 * __Level__: Specify if the assertion fails whether it should be considered an ‘error’ or just a ‘warning’.
 * __Modifier__: The assertion is considered verified if it does not pass.
 * __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
 * __Stop test if fails__: The test will be immediately stopped if the assertion fails.
-* __Comment__: Add comment messages in the form of a string data type.
+
 
 :::note
 A **warning** will not trigger alerts (such as email or text messages).
@@ -392,12 +383,12 @@ This assertion is used to check if the element value described by the expression
 | Expression | Expression | Yes |
 | Type | 'regex' or 'US Zipcode' or 'USState' or 'credit card' or 'country codes' or 'currency codes' | Yes |
 | Regex value | String | Yes, if type is 'regex' |
-| Mode | 'all' or 'one' | No |
+| Comment | String | No |
 | Level | 'error' or 'warning' | No |
 | Modifier | 'not' | No |
-| Execute if item exists | 'true' or 'false' | No |
-| Stop test if fails | 'true' or 'false' | No |
-| Comment | String | No |
+| Execute if item exists | Yes, No | No |
+| Stop test if fails | Yes, No | No |
+
 
 * __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Type__: The data type of the value. The possible values are:
@@ -408,12 +399,12 @@ This assertion is used to check if the element value described by the expression
     * _country codes_: checks if the field contains a valid country code (i.e., 'US', 'FR', 'DK');
     * _currency codes_: checks if the fields is a valid currency (i.e., 'USD', 'EUR');
 * __Regex value__: Specify the regular expression you want to use for checking the expression.
-* __Mode__: Specify if all the same elements in the payload should match the assertion (‘all’) or if only one element (‘one’) is enough.
+* __Comment__: Add comment messages in the form of a string data type.
 * __Level__: Specify if the assertion fails whether it should be considered an ‘error’ or just a ‘warning’.
 * __Modifier__: The assertion is considered verified if it does not pass.
 * __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
 * __Stop test if fails__: The test will be immediately stopped if the assertion fails.
-* __Comment__: Add comment messages in the form of a string data type.
+
 
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
