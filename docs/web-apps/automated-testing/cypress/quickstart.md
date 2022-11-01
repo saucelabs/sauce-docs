@@ -82,7 +82,7 @@ git clone git@github.com:saucelabs/saucectl-cypress-example.git
  Navigate to the root of the Cypress project you just cloned, then use the `run` command to execute the sample test included with the `saucectl` example.
 
  ```
- cd saucectl-cypress-example
+ cd saucectl-cypress-example/v1
  saucectl run
  ```
 
