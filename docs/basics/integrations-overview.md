@@ -92,11 +92,65 @@ We partner with the top companies in the industry to bring you a complete soluti
   </div>
   <div className="box box2 card">
     <div className="container">
-        <a href="https://get-evinced.com/blog/evinced-flow-analyzer-for-mobile-sauce-labs/"> <img src={useBaseUrl('img/integrations/evinced.png')} alt="Evinced logo" width="50"/>
+        <a href="/basics/integrations/evinced"> <img src={useBaseUrl('img/integrations/evinced.png')} alt="Evinced logo" width="50"/>
         <h3>Evinced</h3></a>
     </div>
   </div>
 </div>
+
+## Automation Tools
+
+<div className="box-wrapper" markdown="1">
+  <div className="box box1 card">
+    <div className="container">
+        <a href="/web-apps/automated-testing/selenium/quickstart/"> <img src={useBaseUrl('img/integrations/logo-selenium.webp')} alt=" logo" width="40" />
+        <h3>Selenium</h3></a>
+    </div>
+  </div>
+  <div className="box box2 card">
+    <div className="container">
+        <a href="/mobile-apps/automated-testing/espresso-xcuitest/espresso/"> <img src={useBaseUrl('img/integrations/logo-espresso.webp')} alt=" logo" width="40" />
+        <h3>Espresso</h3></a>
+    </div>
+  </div>
+  <div className="box box3 card">
+    <div className="container">
+        <a href="/mobile-apps/automated-testing/appium/quickstart/"> <img src={useBaseUrl('img/integrations/logo-appium.webp')} alt=" logo" width="40" />
+        <h3>Appium</h3></a>
+    </div>
+  </div>
+  <div className="box box4 card">
+    <div className="container">
+        <a href="/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/"> <img src={useBaseUrl('img/integrations/logo-xctest-x2.webp')} alt=" logo" width="40" />
+        <h3>XCUITest</h3></a>
+    </div>
+  </div>
+  <div className="box box5 card">
+    <div className="container">
+        <a href="/web-apps/automated-testing/cypress/quickstart/"> <img src={useBaseUrl('img/integrations/cypress-1024x553.webp')} alt=" logo" width="40" />
+        <h3>Cypress</h3></a>
+    </div>
+  </div>
+  <div className="box box6 card">
+    <div className="container">
+        <a href="/web-apps/automated-testing/testcafe/quickstart/"> <img src={useBaseUrl('img/integrations/testcafe-twitter-card-icon.webp')} alt=" logo" width="40" />
+        <h3>TestCafe</h3></a>
+    </div>
+  </div>
+  <div className="box box7 card">
+    <div className="container">
+        <a href="/web-apps/automated-testing/playwright/quickstart/"> <img src={useBaseUrl('img/integrations/logo-playwright.webp')} alt=" logo" width="40" />
+        <h3>Playwright</h3></a>
+    </div>
+  </div>
+  <div className="box box8 card">
+    <div className="container">
+        <a href="/web-apps/automated-testing/puppeteer/quickstart/"> <img src={useBaseUrl('img/integrations/puppeteer.webp')} alt=" logo" width="40" />
+        <h3>Puppeteer</h3></a>
+    </div>
+  </div>
+</div>
+
 
 ## Defect Reporting and Management
 <div className="box-wrapper" markdown="1">
