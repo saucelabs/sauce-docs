@@ -29,7 +29,7 @@ The API Testing Composer enables you to quickly generate API functional tests (n
 
    * If you have a project but no tests, on the **Projects** page, click **Write your own test**.
 
-    * If your project has tests, click **Create Test** and then click **From Scratch**.
+   * If your project has tests, click **Create Test** and then click **From Scratch**.
 
       <img src={useBaseUrl('/img/api-testing/test-create-from-scratch-nav.png')} alt="Navigating to the New Test window" width="350"/>
 
@@ -628,6 +628,7 @@ The following is an example in **Code** view.
 The following is the same example, but in **Visual** view:
 
 <img src={useBaseUrl('/img/api-testing/metrics-assert-less-visual.png')} alt="An Assert-Less component in Visual view" width="600"/>
+
 
 ### Improving Metrics
 
