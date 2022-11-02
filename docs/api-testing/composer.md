@@ -548,6 +548,179 @@ Company A has an authentication server. This server, when given the proper user 
 
   <img src={useBaseUrl('/img/api-testing/int-reuse-tokens.png')} alt="Reusing tokens" width="600"/>
 
+
+```yaml
+- id: get
+  children:
+    - id: header
+      name: key
+      value: ABC123
+  url: http://demoapi.apifortress.com/api/retail/product
+  var: productsPayload
+  mode: json
+- id: if
+  children:
+    - id: comment
+      text: endpoint is not working fine, test will be stopped
+    - id: flow
+      command: stop
+  expression: productsPayload_response.statusCode!='200'
+- id: assert-is
+  expression: productsPayload
+  comment: payload must be an array
+  type: array
+- id: each
+  children:
+    - id: comment
+      text: "product id is: ${_1.id} and product name is: ${_1.name}"
+    - id: assert-is
+      expression: _1.id
+      comment: id must be an integer value
+      type: integer
+    - id: set
+      var: id
+      mode: string
+      value: ${_1.id}
+    - id: assert-exists
+      expression: _1.name
+      comment: name must exists
+    - id: assert-is
+      expression: _1.price
+      comment: price must be a float number
+      type: float
+    - id: assert-exists
+      expression: _1.category
+      comment: category must exists
+    - id: assert-exists
+      expression: _1.description
+      comment: description must exists
+    - id: assert-is
+      expression: _1.quantity
+      comment: quantity must be an integer value
+      type: integer
+    - id: assert-greater
+      expression: _1.quantity
+      comment: quantity must be greater than 0
+      value: 0
+    - id: assert-is
+      expression: _1.imageURL
+      comment: imageURL must be a valid url value
+      type: url
+    - id: assert-is
+      expression: _1.color
+      comment: color must be an array
+      type: array
+    - id: each
+      children:
+        - id: assert-exists
+          expression: _2
+          comment: color array should contain some values
+        - id: assert-in
+          expression: _2
+          comment: colors must be the expected one
+          value:
+            - yellow
+            - blue
+            - red
+            - green
+            - brown
+            - orange
+            - gray
+            - pink
+            - black
+            - white
+      expression: _1.color
+    - id: assert-exists
+      expression: _1.createdAt
+      comment: createdAt must exists
+    - id: assert-exists
+      expression: _1.updatedAt
+      comment: updateAt must exists
+    - id: comment
+      text: get product details
+    - id: get
+      children:
+        - id: header
+          name: key
+          value: ABC123
+      url: http://demoapi.apifortress.com/api/retail/product/${id}
+      var: productPayload
+      mode: json
+    - id: if
+      children:
+        - id: comment
+          text: endpoint is not working fine, test will be stopped
+        - id: flow
+          command: stop
+      expression: productPayload_response.statusCode!='200'
+    - id: assert-exists
+      expression: productPayload
+      comment: payload must exist, if not, test does not need to be executed
+    - id: comment
+      text: "product id is: ${productPayload.id} and product name is:
+        ${productPayload.name}"
+    - id: assert-is
+      expression: productPayload.id
+      comment: id must be an integer value
+      type: integer
+    - id: assert-exists
+      expression: productPayload.name
+      comment: name must exists
+    - id: assert-is
+      expression: productPayload.price
+      comment: price must be a float number
+      type: float
+    - id: assert-exists
+      expression: productPayload.category
+      comment: category must exists
+    - id: assert-exists
+      expression: productPayload.description
+      comment: description must exists
+    - id: assert-is
+      expression: productPayload.quantity
+      comment: quantity must be an integer value
+      type: integer
+    - id: assert-greater
+      expression: productPayload.quantity
+      comment: quantity must be greater than 0
+      value: 0
+    - id: assert-is
+      expression: productPayload.imageURL
+      comment: imageURL must be a valid url value
+      type: url
+    - id: assert-is
+      expression: productPayload.color
+      comment: color must be an array
+      type: array
+    - id: each
+      children:
+        - id: assert-exists
+          expression: _2
+          comment: color array should contain some values
+        - id: assert-in
+          expression: _2
+          comment: colors must be the expected one
+          value:
+            - yellow
+            - blue
+            - red
+            - green
+            - brown
+            - orange
+            - gray
+            - pink
+            - black
+            - white
+      expression: productPayload.color
+    - id: assert-exists
+      expression: productPayload.createdAt
+      comment: createdAt must exists
+    - id: assert-exists
+      expression: productPayload.updatedAt
+      comment: updateAt must exists
+      expression: productsPayload.pick(5)  
+```
+
 ###  Test Interactions between Endpoints
 
 In the following example, there is an API endpoint that produces an array of all the available products and another endpoint that shows the details of a specific product based on its ID.
@@ -578,6 +751,10 @@ To create an integration test to test the interaction between the endpoints:
   6. Test the response payload for the endpoint.
 
     <img src={useBaseUrl('/img/api-testing/int-test-response-payload.png')} alt="Testing the response payload"/>
+
+
+
+    
 
 ## Testing Metrics
 An HTTP response is made of a payload, but also contains contextual information. You can use Sauce Labs API Testing to test the entire response envelope.
@@ -611,14 +788,14 @@ The following is an example in **Code** view.
 
   ```yaml
   - id: assert-less
-  expression: payload_response.metrics.latency
-  value: 350
-- id: assert-less
-  expression: payload_response.metrics.fetch
-  value: 350
-- id: assert-less
-  expression: payload_response.metrics.overall
-  value: 450
+    expression: payload_response.metrics.latency
+    value: 350
+  - id: assert-less
+    expression: payload_response.metrics.fetch
+    value: 350
+  - id: assert-less
+    expression: payload_response.metrics.overall
+    value: 450
   ```
 
 * `latency` is the time to first byte.
