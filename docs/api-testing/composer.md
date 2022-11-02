@@ -548,6 +548,37 @@ Company A has an authentication server. This server, when given the proper user 
 
   <img src={useBaseUrl('/img/api-testing/int-reuse-tokens.png')} alt="Reusing tokens" width="600"/>
 
+###  Test Interactions between Endpoints
+
+In the following example, there is an API endpoint that produces an array of all the available products and another endpoint that shows the details of a specific product based on its ID.
+
+  ```http request
+  http://demoapi.apifortress.com/api/retail/product
+  http://demoapi.apifortress.com/api/retail/product/${id}
+  ```
+
+To create an integration test to test the interaction between the endpoints:
+
+  1. Call the product listing endpoint and assign the response to the `productsPayload` variable.
+
+  2. Add an `each` assertion and reference the `productsPayload.products` object.
+
+  :::note
+  In a scenario in which the response contains many products, it may be useful to pick a few at random by using `pick(n)`.
+  :::
+
+  3. Test the response payload for the endpoint.
+
+  4. Add a new `Set (variable)` assertion to set the `id` variable as every single `productsPayload.product` that is returned. In the following example, the string is `${_1.id}`. The system uses `_1` automatically when recognizing a subroutine, which makes it easier when there are multiple sub-levels.
+
+    <img src={useBaseUrl('/img/api-testing/int-test-endpoints.png')} alt="Testing interactions between endpoints" width="600"/>
+
+  5. Create a **`GET` request** to the product details endpoint, using the new `id` variable as the **id** parameter. Variables last through the entire test unless overwritten.
+
+  6. Test the response payload for the endpoint.
+
+    <img src={useBaseUrl('/img/api-testing/int-test-response-payload.png')} alt="Testing the response payload"/>
+
 
 ```yaml
 - id: get
@@ -720,41 +751,6 @@ Company A has an authentication server. This server, when given the proper user 
       comment: updateAt must exists
       expression: productsPayload.pick(5)  
 ```
-
-###  Test Interactions between Endpoints
-
-In the following example, there is an API endpoint that produces an array of all the available products and another endpoint that shows the details of a specific product based on its ID.
-
-  ```http request
-  http://demoapi.apifortress.com/api/retail/product
-  http://demoapi.apifortress.com/api/retail/product/${id}
-  ```
-
-To create an integration test to test the interaction between the endpoints:
-
-  1. Call the product listing endpoint and assign the response to the `productsPayload` variable.
-
-  2. Add an `each` assertion and reference the `productsPayload.products` object.
-
-  :::note
-  In a scenario in which the response contains many products, it may be useful to pick a few at random by using `pick(n)`.
-  :::
-
-  3. Test the response payload for the endpoint.
-
-  4. Add a new `Set (variable)` assertion to set the `id` variable as every single `productsPayload.product` that is returned. In the following example, the string is `${_1.id}`. The system uses `_1` automatically when recognizing a subroutine, which makes it easier when there are multiple sub-levels.
-
-    <img src={useBaseUrl('/img/api-testing/int-test-endpoints.png')} alt="Testing interactions between endpoints" width="600"/>
-
-  5. Create a **`GET` request** to the product details endpoint, using the new `id` variable as the **id** parameter. Variables last through the entire test unless overwritten.
-
-  6. Test the response payload for the endpoint.
-
-    <img src={useBaseUrl('/img/api-testing/int-test-response-payload.png')} alt="Testing the response payload"/>
-
-
-
-    
 
 ## Testing Metrics
 An HTTP response is made of a payload, but also contains contextual information. You can use Sauce Labs API Testing to test the entire response envelope.
