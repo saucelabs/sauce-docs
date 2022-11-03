@@ -25,7 +25,7 @@ When testing mobile apps, you have the option to upload your app to our app stor
 
 ## Rate Limiting
 
-To prevent service overload and outbursts of incoming traffic, Sauce Labs introduced the Rate Limiting feature. It helps maximize the stability of incoming traffic.
+To increase service stability and prevent overload by a high volume of incoming traffic, we have set the following rate limits for uploading your mobile apps: 
 
 
 | |Trial Users (per organization)|Non Trial Users (per organization)|
