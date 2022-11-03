@@ -23,19 +23,19 @@ The API Testing Composer enables you to quickly generate API functional tests (n
   <img src={useBaseUrl('/img/api-testing/api-testing-nav.png')} alt="Navigating to API Testing"/>
 
 2. On the **Projects** page:
-  * If you have no tests or projects yet, in the **Write your own test** box, click **Use Composer**.
+    * If you have no tests or projects yet, in the **Write your own test** box, click **Use Composer**.
 
-  <img src={useBaseUrl('/img/api-testing/composer-nav.png')} alt="Navigating to the Composer" width="700"/>
+     <img src={useBaseUrl('/img/api-testing/composer-nav.png')} alt="Navigating to the Composer" width="700"/>
 
-  * If you have a project but no tests, on the **Projects** page, click **Write your own test**.
+   * If you have a project but no tests, on the **Projects** page, click **Write your own test**.
 
-  * If your project has tests, click **Create Test** and then click **From Scratch**.
+   * If your project has tests, click **Create Test** and then click **From Scratch**.
 
-  <img src={useBaseUrl('/img/api-testing/test-create-from-scratch-nav.png')} alt="Navigating to the New Test window" width="350"/>
+      <img src={useBaseUrl('/img/api-testing/test-create-from-scratch-nav.png')} alt="Navigating to the New Test window" width="350"/>
 
 4. In the **New Test** box, enter a test name, test description (optional), and tags (optional), and then click **Create Test**.
 
-<img src={useBaseUrl('/img/api-testing/test-create-new-test.png')} alt="New Test window" width="350"/>
+  <img src={useBaseUrl('/img/api-testing/test-create-new-test.png')} alt="New Test window" width="350"/>
 
 :::note
 You can use either the **Visual** composer (guides you through building components, with no coding required) or the **Code** composer (requires you to write code from scratch). For this guide, we're using **Visual**.
@@ -579,58 +579,178 @@ To create an integration test to test the interaction between the endpoints:
 
     <img src={useBaseUrl('/img/api-testing/int-test-response-payload.png')} alt="Testing the response payload"/>
 
-  ```xml
-  <get url="http://demoapi.apifortress.com/api/retail/product" params="[:]" var="productsPayload" mode="json">
-    <header name="key" value="ABC123"/>
-  </get>
-  <assert-is expression="productsPayload" type="array" mode="all" comment="payload must be an array"/>
-  <comment>
-    <![CDATA[pick randomly 5 items from the payload response]]>
-  </comment>
-  <each expression="productsPayload.pick(5)">
-      <comment>
-          <![CDATA[product id is: ${_1.id} and product name is: ${_1.name}]]>
-      </comment>
-      <assert-is expression="_1.id" type="integer" mode="all" comment="id must be an integer value"/>
-      <set var="id" value="${_1.id}" lang="java"/>
-      <assert-exists expression="_1.name"  mode="all" comment="name must exists"/>
-      <assert-is expression="_1.price" type="float" mode="all" comment="price must be a float number"/>
-      <assert-exists expression="_1.category"  mode="all" comment="category must exists"/>
-      <assert-exists expression="_1.description"  mode="all" comment="description must exists"/>
-      <assert-is expression="_1.quantity" type="integer" mode="all" comment="quantity must be an integer value"/>
-      <assert-greater expression="_1.quantity" value="0" type="integer" mode="all" comment="quantity must be greater than 0"/>
-      <assert-is expression="_1.imageURL" type="url" mode="all" comment="imageURL must be a valid url value"/>
-      <assert-is expression="_1.color" type="array" mode="all" comment="color must be an array"/>
-      <assert-exists expression="_1.createdAt"  mode="all" comment="createdAt must exists"/>
-      <assert-exists expression="_1.updatedAt"  comment="updateAt must exists"/>
-      <comment>
-          <![CDATA[get product details]]>
-      </comment>
-      <get url="http://demoapi.apifortress.com/api/retail/product/${id}" params="[:]" var="productPayload" mode="json">
-          <header name="key" value="ABC123"/>
-      </get>
-      <assert-exists expression="productPayload"  mode="all" comment="payload must exist, if not, test does not need to be executed" stoponfail="true"/>
-      <comment>
-          <![CDATA[product id is: ${productPayload.id} and product name is: ${productPayload.name}]]>
-      </comment>
-      <assert-equals expression="productPayload.id" value="${id}" type="integer" mode="all" comment="id is the same as the one from the previous call"/>
-      <assert-is expression="productPayload.id" type="integer" mode="all" comment="id must be an integer value"/>
-      <assert-exists expression="productPayload.name"  mode="all" comment="name must exists"/>
-      <assert-is expression="productPayload.price" type="float" mode="all" comment="price must be a float number"/>
-      <assert-exists expression="productPayload.category"  mode="all" comment="category must exists"/>
-      <assert-exists expression="productPayload.description"  mode="all" comment="description must exists"/>
-      <assert-is expression="productPayload.quantity" type="integer" mode="all" comment="quantity must be an integer value"/>
-      <assert-greater expression="productPayload.quantity" value="0" type="integer" mode="all" comment="quantity must be greater than 0"/>
-      <assert-is expression="productPayload.imageURL" type="url" mode="all" comment="imageURL must be a valid url value"/>
-      <assert-is expression="productPayload.color" type="array" mode="all" comment="color must be an array"/>
-      <each expression="productPayload.color">
-          <assert-exists expression="_2"  mode="all" comment="color array should contain some values"/>
-          <assert-in expression="_2" value="['yellow','blue','red','green','brown','orange','gray','pink','black','white']" mode="all" comment="colors must be the expected one"/>
-      </each>
-      <assert-exists expression="productPayload.createdAt"  mode="all" comment="createdAt must exists"/>
-      <assert-exists expression="productPayload.updatedAt"  comment="updateAt must exists"/>
-  </each>
-  ```
+
+```yaml
+- id: get
+  children:
+    - id: header
+      name: key
+      value: ABC123
+  url: http://demoapi.apifortress.com/api/retail/product
+  var: productsPayload
+  mode: json
+- id: if
+  children:
+    - id: comment
+      text: endpoint is not working fine, test will be stopped
+    - id: flow
+      command: stop
+  expression: productsPayload_response.statusCode!='200'
+- id: assert-is
+  expression: productsPayload
+  comment: payload must be an array
+  type: array
+- id: each
+  children:
+    - id: comment
+      text: "product id is: ${_1.id} and product name is: ${_1.name}"
+    - id: assert-is
+      expression: _1.id
+      comment: id must be an integer value
+      type: integer
+    - id: set
+      var: id
+      mode: string
+      value: ${_1.id}
+    - id: assert-exists
+      expression: _1.name
+      comment: name must exists
+    - id: assert-is
+      expression: _1.price
+      comment: price must be a float number
+      type: float
+    - id: assert-exists
+      expression: _1.category
+      comment: category must exists
+    - id: assert-exists
+      expression: _1.description
+      comment: description must exists
+    - id: assert-is
+      expression: _1.quantity
+      comment: quantity must be an integer value
+      type: integer
+    - id: assert-greater
+      expression: _1.quantity
+      comment: quantity must be greater than 0
+      value: 0
+    - id: assert-is
+      expression: _1.imageURL
+      comment: imageURL must be a valid url value
+      type: url
+    - id: assert-is
+      expression: _1.color
+      comment: color must be an array
+      type: array
+    - id: each
+      children:
+        - id: assert-exists
+          expression: _2
+          comment: color array should contain some values
+        - id: assert-in
+          expression: _2
+          comment: colors must be the expected one
+          value:
+            - yellow
+            - blue
+            - red
+            - green
+            - brown
+            - orange
+            - gray
+            - pink
+            - black
+            - white
+      expression: _1.color
+    - id: assert-exists
+      expression: _1.createdAt
+      comment: createdAt must exists
+    - id: assert-exists
+      expression: _1.updatedAt
+      comment: updateAt must exists
+    - id: comment
+      text: get product details
+    - id: get
+      children:
+        - id: header
+          name: key
+          value: ABC123
+      url: http://demoapi.apifortress.com/api/retail/product/${id}
+      var: productPayload
+      mode: json
+    - id: if
+      children:
+        - id: comment
+          text: endpoint is not working fine, test will be stopped
+        - id: flow
+          command: stop
+      expression: productPayload_response.statusCode!='200'
+    - id: assert-exists
+      expression: productPayload
+      comment: payload must exist, if not, test does not need to be executed
+    - id: comment
+      text: "product id is: ${productPayload.id} and product name is:
+        ${productPayload.name}"
+    - id: assert-is
+      expression: productPayload.id
+      comment: id must be an integer value
+      type: integer
+    - id: assert-exists
+      expression: productPayload.name
+      comment: name must exists
+    - id: assert-is
+      expression: productPayload.price
+      comment: price must be a float number
+      type: float
+    - id: assert-exists
+      expression: productPayload.category
+      comment: category must exists
+    - id: assert-exists
+      expression: productPayload.description
+      comment: description must exists
+    - id: assert-is
+      expression: productPayload.quantity
+      comment: quantity must be an integer value
+      type: integer
+    - id: assert-greater
+      expression: productPayload.quantity
+      comment: quantity must be greater than 0
+      value: 0
+    - id: assert-is
+      expression: productPayload.imageURL
+      comment: imageURL must be a valid url value
+      type: url
+    - id: assert-is
+      expression: productPayload.color
+      comment: color must be an array
+      type: array
+    - id: each
+      children:
+        - id: assert-exists
+          expression: _2
+          comment: color array should contain some values
+        - id: assert-in
+          expression: _2
+          comment: colors must be the expected one
+          value:
+            - yellow
+            - blue
+            - red
+            - green
+            - brown
+            - orange
+            - gray
+            - pink
+            - black
+            - white
+      expression: productPayload.color
+    - id: assert-exists
+      expression: productPayload.createdAt
+      comment: createdAt must exists
+    - id: assert-exists
+      expression: productPayload.updatedAt
+      comment: updateAt must exists
+      expression: productsPayload.pick(5)  
+```
 
 ## Testing Metrics
 An HTTP response is made of a payload, but also contains contextual information. You can use Sauce Labs API Testing to test the entire response envelope.
@@ -662,12 +782,16 @@ You can create specific assertions to verify performance metrics.
 #### Example
 The following is an example in **Code** view.
 
-  ```html
-  <assert-less expression="payload_response.metrics.latency" value="350" type="integer"/>
-
-  <assert-less expression="payload_response.metrics.fetch" value="350" type="integer"/>
-
-  <assert-less expression="payload_response.metrics.overall" value="550" type="integer"/>
+  ```yaml
+  - id: assert-less
+    expression: payload_response.metrics.latency
+    value: 350
+  - id: assert-less
+    expression: payload_response.metrics.fetch
+    value: 350
+  - id: assert-less
+    expression: payload_response.metrics.overall
+    value: 450
   ```
 
 * `latency` is the time to first byte.
@@ -677,6 +801,7 @@ The following is an example in **Code** view.
 The following is the same example, but in **Visual** view:
 
 <img src={useBaseUrl('/img/api-testing/metrics-assert-less-visual.png')} alt="An Assert-Less component in Visual view" width="600"/>
+
 
 ### Improving Metrics
 
@@ -754,14 +879,23 @@ Sauce Labs free trials may not give you access to all available components.
 :::
 
 
-### Removes Component
-Removes a selected component from the test while using the Visual view.<br/>
-<img src={useBaseUrl('img/api-testing/deleteComponent.png')} alt="Delete Component"/>
+### Component Options
+Click **Edit** to modify an existing component, or use the dropdown menu next to **Edit** to perform the actions shown below.  
+
+<img src={useBaseUrl('img/api-testing/deleteComponent.png')} alt="Component Options"/>
 
 
 ### Save
 Saves your progress.<br/>
 <img src={useBaseUrl('img/api-testing/saveTest.png')} alt="Save"/>
+
+### Publish
+[Publishes your test](/api-testing/quickstart#publish-your-test/).<br/>
+<img src={useBaseUrl('img/api-testing/publishtest.png')} alt="Publish"/>
+
+### Clear
+[Clears the most recent unpublished changes made to your test](/api-testing/quickstart#publish-your-test/).<br/>
+<img src={useBaseUrl('img/api-testing/cleartest.png')} alt="Clear"/>
 
 ### Run
 Executes a test.<br/>
