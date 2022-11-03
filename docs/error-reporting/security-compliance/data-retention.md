@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Overview
-Backtrace offers two different types of data retention policies:
+Backtrace offers three different types of data retention policies:
 - Dump compression
 - Dump retention
 - Metadata retention
@@ -27,11 +27,3 @@ Enterprise customers have flexible retention policies. Administrators can also c
 
 <img src={useBaseUrl('img/error-reporting/project-settings/retention-policies.png')} alt="" />
 <img src={useBaseUrl('img/error-reporting/project-settings/add-new-retention-rule.png')} alt="" />
-
-Self-Service customers have the following policies:
-- 90-day dump retention
-- 365-day metadata retention
-
-Free customers have the following policies:
-- 90-day dump retention
-- 90-day metadata retention
