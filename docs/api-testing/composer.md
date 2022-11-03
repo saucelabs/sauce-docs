@@ -20,7 +20,7 @@ The API Testing Composer enables you to quickly generate API functional tests (n
 
 1. In Sauce Labs, click **API Testing**.
 
-  <img src={useBaseUrl('/img/api-testing/api-testing-nav.png')} alt="Navigating to API Testing" width="400"/>
+  <img src={useBaseUrl('/img/api-testing/api-testing-nav.png')} alt="Navigating to API Testing"/>
 
 2. On the **Projects** page:
   * If you have no tests or projects yet, in the **Write your own test** box, click **Use Composer**.
@@ -49,31 +49,31 @@ To edit a test at any time, on the **Projects** page, on the **Tests** tab, hove
 <img src={useBaseUrl('/img/api-testing/edit-test-nav.png')} alt="Navigating to the test editor" width="300"/>
 
 ### Add Test Components
-When test components are combined, they act as our test logic. There are three component types available in API Testing:
+When test components are combined, they act as our test logic. See the following pages for more information about the components types available in API Testing:
   * [I/O Request Test Components](/api-testing/composer/io-components)
   * [Assertion Test Components](/api-testing/composer/assertion-components/)
   * [Logical Test Components](/api-testing/composer/logical-components/)
+  * [Other Components](/api-testing/composer/other-components/)
+
 
 #### Add an I/O Request Test Component
 To create a simple `GET` request and validate that response is correct:
-  1. In API Testing, on the **Compose** page, click the **Add component** button.
+  1. In API Testing, on the **Compose** page, click **Add child component**.
 
-  <img src={useBaseUrl('/img/api-testing/add-component-nav.png')} alt="Navigating to the Add component screen" width="600"/>
+  <img src={useBaseUrl('/img/api-testing/add-component-nav.png')} alt="Navigating to the Add component screen"/>
 
   2. In the list of component options, click the **GET** component.
 
-  <img src={useBaseUrl('/img/api-testing/get-request-nav.png')} alt="Navigating to the GET request window" width="400"/>
+  <img src={useBaseUrl('/img/api-testing/get-request-nav.png')} alt="Navigating to the GET request window"/>
 
-  3. In the **GET request** window, in the **Url** field, enter **ht<span>tps://</span>api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions**.
+  3. In the **GET request** window, in the **Url** field, enter `https://</span>api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions`.
 
   This endpoint will return a JSON response body.
   4. In the **Variable** field, enter **payload**. This variable stores the response, so it can now be referred to as **payload**.
 
   <img src={useBaseUrl('/img/api-testing/get-request-window.png')} alt="Editing in the GET request window"/>
 
-  5. Leave the rest of the fields blank and then click the **Confirm changes** icon.
-
-  <img src={useBaseUrl('/img/api-testing/get-request-confirm-changes.png')} alt="Confirm changes icon" width="200"/>
+  5. Leave the rest of the fields blank and then click **Save Changes**.
 
   The result should look like the following:
 
@@ -82,7 +82,7 @@ To create a simple `GET` request and validate that response is correct:
 For more information, see [I/O Request Test Components](/api-testing/composer/io-components/).
 
 #### Add an Assertion Component
-1. In API Testing, on the **Compose** page, click the **Add component** button.
+1. In API Testing, on the **Compose** page, click **Add child component**.
 
   <img src={useBaseUrl('/img/api-testing/add-component-nav.png')} alt="Navigating to the Add component screen" width="600"/>
 
@@ -92,26 +92,26 @@ For more information, see [I/O Request Test Components](/api-testing/composer/io
 
 3. In the **Assert exists** window, in the **Expression** field, enter `payload.downloads`. This expression checks for the **downloads** field in the json response body.
 
-4. Leave the rest of the fields blank and click the checkmark to confirm the changes.
+4. Leave the rest of the fields blank and click **Save Changes**.
 
   <img src={useBaseUrl('/img/api-testing/assert-exists-window.png')} alt="Confirm changes"  width="600"/>
 
 5. The result should look like the following:
 
-  <img src={useBaseUrl('/img/api-testing/assert-exists-final.png')} alt="What the Assert request should look like" width="500"/>
+  <img src={useBaseUrl('/img/api-testing/assert-exists-final.png')} alt="What the Assert request should look like" />
 
 For more information, see [Assertion Test Components](/api-testing/composer/assertion-components/).
 
 #### Additional Example
 In the following example, the expression checks if the `download_url` value inside the Linux object is a valid URL.
 
-1. In API Testing, on the **Compose** page, click the **Add component** button.
+1. In API Testing, on the **Compose** page, click **Add child component**.
 
 2. In the list of component options, click the **Assert Is** component.
 
 3. In the **Assert is** window, in the **Expression** field, enter `payload.downloads`. This expression checks for the **downloads** field in the json response body.
 
-4. Leave the rest of the fields blank and click the checkmark to confirm the changes.
+4. Leave the rest of the fields blank and click **Save Changes**.
 
   <img src={useBaseUrl('/img/api-testing/assert-exists-window-2.png')} alt="Confirm changes" width="600"/>
 
@@ -146,19 +146,18 @@ In this method, you copy an existing body and paste it into the call.
     * Variable (the name of the variable that contains the response) - `payload`
     * Mode (the response type) - `json`
 
-      <img src={useBaseUrl('/img/api-testing/post-request-window.png')} alt="The POST request window"/>
-
-2. At the bottom of the **POST request** window, click **Add Body**.
+      
+2. Below the **POST request**, click **Add Child Component** and then click **Request Body**.
 
     <img src={useBaseUrl('/img/api-testing/post-request-add-body-nav.png')} alt="Navigating to the Post body window"/>
 
 3. Use the following in the Post body fields:
     * Content-Type - `application/json`
-    * Content (the body required in your call) - `{"method":"post","url":"http://www.testme.com/api/run/test"}`
+    * Body (the body required in your call) - `{"method":"post","url":"http://www.testme.com/api/run/test"}`
 
       <img src={useBaseUrl('/img/api-testing/post-body-window.png')} alt="The Post body window"/>
 
-4. Click the **Confirm changes** icon and proceed with the test.
+4. Click **Save Changes** and proceed with the test.
 
 ### Use Variables in the Request Body
 
@@ -166,14 +165,12 @@ In this method, you copy an existing body and paste it into the call.
     * Url (the url of the resource you want to test) - `https://domain/endpoint`
     * Variable (the name of the variable that contains the response) - `payload`
     * Mode (the response type) - `json`
-
-      <img src={useBaseUrl('/img/api-testing/post-request-window.png')} alt="The POST request window"/>
-
-2. At the bottom of the **POST request** window, click **Add Body**.
+      
+2. Below the **POST request**, click **Add Child Component** and then click **Request Body**.
 
     <img src={useBaseUrl('/img/api-testing/post-request-add-body-nav.png')} alt="Navigating to the Post body window"/>
 
-3. Select the relevant **Content-Type** and enter the following in the **Content** field:
+3. Select the relevant **Content-Type** and enter the following in the **Body** field:
 
     ```json   
     {
@@ -187,7 +184,7 @@ In this method, you copy an existing body and paste it into the call.
 
     `user` and `password` are not directly passed in the body, but they are variables defined in a data set or stored in the vault (or environments).
 
-4. Click the **Confirm changes** icon and proceed with the test.
+4. Click **Save Changes** and proceed with the test.
 
 ### Use a Variable from Another Call
 
@@ -195,10 +192,8 @@ In this method, you copy an existing body and paste it into the call.
     * Url (the url of the resource you want to test) - `https://domain/login`
     * Variable (the name of the variable that contains the response) - `payload`
     * Mode (the response type) - `json`
-
-      <img src={useBaseUrl('/img/api-testing/get-request-window-2.png')} alt="GET request window"/>
-
-2. At the bottom of the request window, click **Add Header**.
+      
+2. Below the request, click **Add Child Component** and then click **Request Header**.
 
       <img src={useBaseUrl('/img/api-testing/get-request-add-header-nav.png')} alt="Navigating to the Header window"/>
 
@@ -208,22 +203,22 @@ In this method, you copy an existing body and paste it into the call.
 
       <img src={useBaseUrl('/img/api-testing/get-request-header-window.png')} alt="The Header window"/>
 
-4. Click the **Confirm changes** icon.
+4. Click **Save Changes**.
 
 5. The response payload from the login call will contain the desired token. Let's use the following as an example response.
 
     <img src={useBaseUrl('/img/api-testing/response-token.png')} alt="An example response"/>
 
 6. Save the token as a variable using a `SET` component.
-    * Var (the variable name) - `token`
-    * Variable mode (the variable type) - `String`
+    * Variable (the variable name) - `token`
+    * Mode (the variable type) - `String`
     * Value (retrieves the value from the previous payload- `${payload.access_token}`
 
       <img src={useBaseUrl('/img/api-testing/set-variable-window.png')} alt="The SET Variable window"/>
 
 7. Once the token has been saved as a variable, add the second call and use that token in the request body.
     * Content-Type - `application/json`
-    * Content - `{"token":"${token}"}`
+    * Body - `{"token":"${token}"}`
 
       <img src={useBaseUrl('/img/api-testing/post-request-body-token.png')} alt="POST request body"/>
 
@@ -273,8 +268,6 @@ This method can be used when you need to create a new structure to add as a body
 
 1. Perform the call that retrieves the data you are using. In the following example, using a `GET` returns an array of items.
 
-    <img src={useBaseUrl('/img/api-testing/get-request-window-4.png')} alt="The GET request window"/>
-
 2. The response payload:
 
   ```json
@@ -301,10 +294,10 @@ This method can be used when you need to create a new structure to add as a body
   ```  
 
 3. Create the new data structure by adding a `SET` component.
-    * Var (the variable name) - `itemsAvailable`
-    * Variable mode (the variable type) - `Language`
-    * Lang - `Javascript`
-    * Content - `payload.items.forEach(function (item) {  item.currency = "$"; }); return payload;`
+    * Variable (the variable name) - `itemsAvailable`
+    * Mode (the variable type) - `Language`
+    * Language - `Javascript`
+    * Body - `payload.items.forEach(function (item) {  item.currency = "$"; }); return payload;`
 
       <img src={useBaseUrl('/img/api-testing/set-variable-window-2.png')} alt="The SET Variable window"/>
 
@@ -314,7 +307,6 @@ This method can be used when you need to create a new structure to add as a body
 
 5. Continue with the test.
 
-    <img src={useBaseUrl('/img/api-testing/new-structure-body.png')} alt="A new structure added as a body" width="600"/>
 
 ## Dynamic Dates
 Instead of entering dates as static values, which may need to be updated periodically, you can create dynamic dates.
@@ -324,8 +316,8 @@ Instead of entering dates as static values, which may need to be updated periodi
 1. Open the Composer and add a **Set** component.
 
 2. Enter/select the following:
-    * Var (the variable name) - `futureDate`
-    * Variable mode (the variable type) - `String`
+    * Variable (the variable name) - `futureDate`
+    * Mode (the variable type) - `String`
     * Value - `${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD')}`
 
       <img src={useBaseUrl('/img/api-testing/create-future-date-variable.png')} alt="The SET Variable window"/>
@@ -390,26 +382,26 @@ Set (variable) allows you to create variables or more structured data.
 
 To create a single variable:
 
-* **Var:** The name to assign the variable.
-* **Variable Mode:** String
+* **Variable:** The name to assign the variable.
+* **Mode:** String
 * **Value:** The method to use to generate data. For example, `${F.fullName()}` will generate a random full name.
 
 <img src={useBaseUrl('/img/api-testing/test-data-full-name.png')} alt="Full name generation" width="600"/>
 
 To create an array of data:
 
-* **Var:** The name to assign the variable.
-* **Variable Mode:** Data
+* **Variable:** The name to assign the variable.
+* **Mode:** Data
 * **Data:** The JS function for creating an array. For example, `new Array(5).fill(0).map(_ => F.streetAddress())` generates an array with five random addresses.
 
 <img src={useBaseUrl('/img/api-testing/test-data-array.png')} alt="Data array generation" width="600"/>
 
 To create an object of data:
 
-* **Var:** The name to assign the variable.
-* **Variable Mode:** Language
-* **Lang:** Template
-* **Content:** The object to generate with the required methods.
+* **Variable:** The name to assign the variable.
+* **Mode:** Language
+* **Language:** Template
+* **Body:** The object to generate with the required methods.
 
 ```
 {
@@ -428,7 +420,7 @@ To create an object of data:
 Any of the following methods can be used in a request body.
 
 * **Content-Type:** The content-type of the body (application/json in this example).
-* **Content:** The body of the request.
+* **Body:** The body of the request.
 
 ```
 {
@@ -532,8 +524,8 @@ Company A has an authentication server. This server, when given the proper user 
   Use this token to make further calls to the application.
 
 2. Add a `Set (variable)` component by entering/selecting the following in the Composer:
-    * Var (the variable name) - `access_token`
-    * Variable mode (the variable type) - `String`
+    * Variable (the variable name) - `access_token`
+    * Mode (the variable type) - `String`
     * Value - `${authPayload.access_token}`
 
     <img src={useBaseUrl('/img/api-testing/int-assign-token.png')} alt="Setting the variable"/>
@@ -746,14 +738,14 @@ When you write the value of the config, for the static part of the endpoint, you
 This toggle switches between the Visual and Code views in the Composer. You can make calls and add assertions for testing your APIs, and insert variables wherever needed. You can use either, depending on which you're more comfortable with.
 
 #### Visual View
-Guides you through creating API tests using automated real-time suggestions via predictive text. No coding experience is required.<br/><img src={useBaseUrl('img/api-fortress/2021/01/visualView.png')} alt="Test Composer Visual view"/>
+Guides you through creating API tests using automated real-time suggestions via predictive text. No coding experience is required.<br/><img src={useBaseUrl('img/api-testing/visualView.png')} alt="Test Composer Visual view"/>
 
 #### Code View
-Enables you to write tests here from scratch, if you feel more comfortable working in code.<br/><img src={useBaseUrl('img/api-fortress/2021/01/codeView.png')} alt="Test Composer Code view"/>
+Enables you to write tests here from scratch, if you feel more comfortable working in code.<br/><img src={useBaseUrl('img/api-testing/codeView.png')} alt="Test Composer Code view"/>
 
-### Add Component
+### Add Child Component
 This button displays all available [assertion components](/api-testing/composer/assertion-components/), [I/O components](/api-testing/composer/io-components/), and [logical components](/api-testing/composer/logical-components/).<br/>
-<img src={useBaseUrl('img/api-fortress/2021/01/addComponent.png')} alt="Add Component"/>
+<img src={useBaseUrl('img/api-testing/add-component-nav.png')} alt="Add Component"/>
 
 If a component is not valid for the operation you are conducting, it will not be made available to help avoid mistakes. For instance, if you don’t add a `POST` first, you cannot add a `POST` Body or `POST` Param.
 
@@ -761,32 +753,22 @@ If a component is not valid for the operation you are conducting, it will not be
 Sauce Labs free trials may not give you access to all available components.
 :::
 
-### Transform Component
-Transforms an existing component into another component of the same type.<br/>
-<img src={useBaseUrl('img/api-fortress/2021/01/transformComponent.png')} alt="Add Component"/>
 
-### Delete Component
-Deletes a selected component from the test while using Visual view.<br/>
-<img src={useBaseUrl('img/api-fortress/2021/01/deleteComponent.png')} alt="Delete Component"/>
+### Removes Component
+Removes a selected component from the test while using the Visual view.<br/>
+<img src={useBaseUrl('img/api-testing/deleteComponent.png')} alt="Delete Component"/>
 
-### Invoke Snippet
-Allows you to use a previously created code snippet stored in [The Vault](/api-testing/vault).<br/>
-<img src={useBaseUrl('img/api-fortress/2021/01/invokeSnippet.png')} alt="Invoke Snippet"/>
 
-### Export Snippet
-Allows you to export a selected code snippet to the vault in order to be re-used later, or in another test.<br/>
-<img src={useBaseUrl('img/api-fortress/2021/01/exportSnippet.png')} alt="Export Snippet"/>
-
-### Save Test
+### Save
 Saves your progress.<br/>
-<img src={useBaseUrl('img/api-fortress/2021/01/saveTest.png')} alt="Save Test"/>
+<img src={useBaseUrl('img/api-testing/saveTest.png')} alt="Save"/>
 
-### Run Test
+### Run
 Executes a test.<br/>
-<img src={useBaseUrl('img/api-fortress/2021/01/runTest.png')} alt="Run Test"/>
+<img src={useBaseUrl('img/api-testing/runTest.png')} alt="Run"/>
 
 ### Input Sets
-Displays the Input Set view where you can store input data sets to reuse within the specific test you're working on.<br/><img src={useBaseUrl('img/api-fortress/2021/01/inputSets.png')} alt="Input Sets" width="500"/>
+Displays the Input Set view where you can store input data sets to reuse within the specific test you're working on.<br/><img src={useBaseUrl('img/api-testing/inputSets.png')} alt="Input Sets" width="500"/>
 
 There are two types of input data sets you can use:
 * Global Parameters - Variables that are available within a test, valid for that specific test only.
@@ -795,11 +777,11 @@ There are two types of input data sets you can use:
 <table>
 <tr>
 <td><strong>Input Set with Visual View</strong></td>
-<td> <img src={useBaseUrl('img/api-fortress/2021/01/inputVisual.png')} alt="Input Set Visual View"/> </td>
+<td> <img src={useBaseUrl('img/api-testing/inputVisual.png')} alt="Input Set Visual View"/> </td>
 </tr>
 <tr>
 <td><strong>Input Set with Code View</strong></td>
-<td><img src={useBaseUrl('img/api-fortress/2021/01/inputCode.png')} alt="Input Set Code View"/> </td>
+<td><img src={useBaseUrl('img/api-testing/inputCode.png')} alt="Input Set Code View"/> </td>
 </tr>
 </table>
 
@@ -807,7 +789,7 @@ There are two types of input data sets you can use:
 These buttons switch between the Input Set and Unit views.
 
 <br/>
-<img src={useBaseUrl('img/api-fortress/2021/01/unitView.png')} alt="Unit View"/>
+<img src={useBaseUrl('img/api-testing/unitView.png')} alt="Unit View"/>
 
 ## More Information
 * [Sauce School | API Testing Course and Best Practices](https://training.saucelabs.com/apiTesting/index.html)
