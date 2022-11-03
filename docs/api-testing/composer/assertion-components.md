@@ -61,7 +61,8 @@ This assertion is used to check if the element described by the expression conta
 | Field | Type/Value | Required |
 | :--- | :--- | :--- |
 | Expression | Expression | Yes |
-| Value | String | Yes |
+| Value | String, Number, Boolean | Yes |
+| Type | Auto, String, Number, Boolean | No |
 | Comment | String | No |
 | Level | 'error' or 'warning' | No |
 | Modifier | 'not' | No |
@@ -71,6 +72,7 @@ This assertion is used to check if the element described by the expression conta
 
 * __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Value__: The value we want to compare the expression to.
+* __Type__: The type of the value. **Auto** means the engine will try to identify the type of the value.
 * __Comment__: Add comment messages in the form of a string data type.
 * __Level__: Specifies, when the assertion fails, whether it should be considered an **error** or just a **warning**.
 * __Modifier__: The assertion is considered verified if it does not pass.
@@ -86,15 +88,15 @@ A **warning** will not trigger alerts (such as email or text messages).
 <details><summary><strong>Code View Examples</strong></summary>
 
 ```yaml
-id: assert-contains
-expression: data.url
-value: domain.com
+- id: assert-contains
+  expression: data.url
+  value: domain.com
 ```
 
 ```yaml
-id: assert-contains
-expression: data.id
-value: ${id}
+- id: assert-contains
+  expression: data.id
+  value: ${id}
 ```
 
 </details>
@@ -109,7 +111,8 @@ This assertion is used to check if the element value described by the expression
 | Field | Type/Value | Required |
 | :--- | :--- | :--- |
 | Expression | Expression | Yes |
-| Value | String | Yes |
+| Value | String, Number, Boolean | Yes |
+| Type | Auto, String, Number, Boolean | No |
 | Comment | String | No |
 | Level | 'error' or 'warning' | No |
 | Modifier | 'not' | No |
@@ -119,6 +122,7 @@ This assertion is used to check if the element value described by the expression
 
 * __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Value__: The value we want to compare the expression to.
+* __Type__: The type of the value. **Auto** means the engine will try to identify the type of the value.
 * __Comment__: Add comment messages in the form of a string data type.
 * __Level__: Specify if the assertion fails whether it should be considered an ‘error’ or just a ‘warning’.
 * __Modifier__: The assertion is considered verified if it does not pass.
@@ -134,15 +138,15 @@ A **warning** will not trigger alerts (such as email or text messages).
 <details><summary><strong>Code View Examples</strong></summary>
 
 ```yaml
-id: assert-equals
-expression: data.code
-value: "500"
+- id: assert-equals
+  expression: data.code
+  value: "500"
 ```
 
 ```yaml
-id: assert-equals
-expression: data.code
-value: 500
+- id: assert-equals
+  expression: data.code
+  value: 500
 ```
 
 </details>
@@ -178,8 +182,8 @@ A **warning** will not trigger alerts (such as email or text messages).
 <details><summary><strong>Code View Examples</strong></summary>
 
 ```yaml
-id: assert-exists
-expression: data.id
+- id: assert-exists
+  expression: data.id
 ```
 
 </details>
@@ -219,9 +223,9 @@ A **warning** will not trigger alerts (such as email or text messages).
 <details><summary><strong>Code View Examples</strong></summary>
 
 ```yaml
-id: assert-greater
-expression: data.code
-value: 4503
+- id: assert-greater
+  expression: data.code
+  value: 4503
 ```
 
 
@@ -262,17 +266,17 @@ A **warning** will not trigger alerts (such as email or text messages).
 
 
 ```yaml
-id: assert-in
-expression: data.type
-value:
+- id: assert-in
+  expression: data.type
+  value:
     - ebook
     - paperbook
 ```
 
 ```yaml
-id: assert-in
-expression: data.price
-value:
+- id: assert-in
+  expression: data.price
+  value:
     - "5.50"
     - "7"
     - "9.79"
@@ -323,9 +327,9 @@ A **warning** will not trigger alerts (such as email or text messages).
 <details><summary><strong>Code View Examples</strong></summary>
 
 ```yaml
-id: assert-is
-expression: data.id
-type: integer
+- id: assert-is
+  expression: data.id
+  type: integer
 ```
 
 </details>
@@ -365,9 +369,9 @@ A **warning** will not trigger alerts (such as email or text messages).
 <details><summary><strong>Code View Examples</strong></summary>
 
 ```yaml
-id: assert-less
-expression: data.code
-value: 4503
+- id: assert-less
+  expression: data.code
+  value: 4503
 ```
 
 </details>
@@ -411,9 +415,9 @@ This assertion is used to check if the element value described by the expression
 
 
 ```yaml
-id: assert-matches
-expression: data.zipcode
-type: us_zipcodes
+- id: assert-matches
+  expression: data.zipcode
+  type: us_zipcodes
 ```
 
 </details>
@@ -476,17 +480,21 @@ This assertion is used to validate a JSON schema, based on the provided schema d
 <details><summary><strong>Code View Examples</strong></summary>
 
 ```yaml
-id: set
-var: json_success
-mode: lang
-lang: template
-body: '{ "rectangle" : { "a" : 15, "b" : 5 } }'
+- id: set
+  var: json_success
+  mode: lang
+  lang: template
+  body: '{ "rectangle" : { "a" : 15, "b" : 5 } }'
 ```
 
 ```yaml
-id: assert-valid-jsonschema
-expression: json_success
-body: '{ "type" : "object", "properties" : { "rectangle" : {"$ref" :"#/definitions/Rectangle" } }, "definitions" : { "size" : { "type" :"number", "minimum" : 0 }, "Rectangle" : { "type" : "object", "properties" : { "a" : {"$ref" : "#/definitions/size"}, "b" : {"$ref" : "#/definitions/size"} } } } }'
+- id: assert-valid-jsonschema
+  expression: json_success
+  body: '{ "type" : "object", "properties" : { "rectangle" : {"$ref"
+    :"#/definitions/Rectangle" } }, "definitions" : { "size" : { "type"
+    :"number", "minimum" : 0 }, "Rectangle" : { "type" : "object", "properties"
+    : { "a" : {"$ref" : "#/definitions/size"}, "b" : {"$ref" :
+    "#/definitions/size"} } } } }'
 ```
 
 </details>
