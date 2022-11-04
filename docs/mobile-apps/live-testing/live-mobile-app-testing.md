@@ -200,7 +200,7 @@ There are three ways to test Apple Pay with Sauce Labs:
 
 ### Requirements
 - You need to use [Private devices](#apple-pay-on-real-private-devices)
-- [Resigning](#disable-re-signing) needs to be disabled
+- [Instrumentation](#disable-instrumentation) needs to be disabled
 - You need to add your Sauce Labs hosted Private device [UDID](#apple-pay-on-real-private-devices) into your own provisioning profile.
 - Devices need to have a physical home button, meaning iPhone SE(2020/2022)/6 series/7 series/8 series. A physical button will ask for confirming the payment with a passcode. 
 
@@ -214,7 +214,7 @@ Apple certificates are used to ensure security in their systems, and they are mu
 To give you an example, Android apps can be installed without any specific signing on whatever real device you want. With Apple you have two options, or you need to add a remote device to your developer certificate and the provisioning profile, so you are allowed to install the app on that specific device. Or you need to use an enterprise certificate where the Apple device that has that certificate installed allows you to install the app. Similarly, when you install an iOS app on a device, we re-sign the app with a Sauce Labs enterprise certificate so you can install your app on all Sauce Labs public/private devices.
 
 :::note
-Apple Pay has a limitation that it cannot work with an enterprise certificate. You need to use the developer certificate where the device has been added to the provisioning profile in order to make this work. This can only be done for Sauce Labs private devices on which you have disabled the resigning.
+Apple Pay has a limitation that it cannot work with an enterprise certificate. You need to use the developer certificate where the device has been added to the provisioning profile in order to make this work. This can only be done for Sauce Labs private devices on which you have disabled the instrumentation.
 :::
 
 ### Apple Pay on Real Private Devices
@@ -285,7 +285,7 @@ Apple test cards can be found on Apple’s [Sandbox Testing](https://developer.a
 
 3. **Prepare Sauce Labs**. As mentioned before, Sauce Labs uses an enterprise certificate to install an app on public and private devices. But Apple Pay can’t work with the enterprise certificate, so the app needs to be signed with the developer certificate. You need to instruct Sauce Labs to not re-sign the app when it is installed.
 
-### Disable Re-Signing
+### Disable Instrumentation
 1. On Sauce Labs, in the left navigation, click **Live** and then click **Mobile-App**.
 
 <img src={useBaseUrl('img/live-testing/apple-pay-8.png')} alt="Apple Pay setup - Sauce login" width="250"/>
