@@ -585,7 +585,7 @@ Let's take a look at how this workflow works in a practical setting. The first e
 3. This first K/V Store component (we're going to incorporate several) is going to set the Key/Value pair in the Store, so we're going to use **Set**<br/><img src={useBaseUrl('img/api-testing/KVBasicWorkflow3.png')} alt="KVBasicWorkflow3.png"/>
 4. In this case, we're setting the Key "prods" equal to `products[0].name`, which in this case evaluates to "Baseball Cap."
 5. Next, we're going to retrieve this Key/Value pair from the store with the **Load** method. In the K/V Store **Load** component, we're going to assign the retrieved value to the variable `kvprods.`<br/><img src={useBaseUrl('img/api-testing/KVBasicWorkflow4.png')} alt="KVBasicWorkflow4.png"/>
-6. Finally, we'll add in a **Comment** component to ensure that the data was recovered successfully.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-1.48.01-PM.png')} alt="Add Comment component" />
+6. Finally, we'll add in a **Comment** component to ensure that the data was recovered successfully.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-1.48.01-PM1.png')} alt="Add Comment component" />
 7. When we run the test, we're presented with the following result:<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-1.48.28-PM.png')} alt="Test Results.png" />
 
 Success!
