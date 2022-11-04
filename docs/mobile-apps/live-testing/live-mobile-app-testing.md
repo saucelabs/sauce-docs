@@ -201,8 +201,12 @@ There are three ways to test Apple Pay with Sauce Labs:
 ### Requirements
 - You need to use [Private devices](#apple-pay-on-real-private-devices)
 - [Resigning](#disable-re-signing) needs to be disabled
-- The [UDID](#apple-pay-on-real-private-devices) needs to be used to sign the app
-- Devices need to have a physical home button, meaning iPhone SE(2020/2022)/6 series/7 series/8 series. A physical button will ask for confirming the payment with a passcode. Devices with a notch (like the iPhone X(S)/11/12/..) will ask for FaceId confirmation. Because this is not enabled the payment will fall back to a different confirmation method. It will use a double press on the power button for the payment approval, but this is not supported.
+- You need to add your Sauce Labs hosted Private device [UDID](#apple-pay-on-real-private-devices) into your own provisioning profile.
+- Devices need to have a physical home button, meaning iPhone SE(2020/2022)/6 series/7 series/8 series. A physical button will ask for confirming the payment with a passcode. 
+
+:::note
+Devices with a notch (like the iPhone X(S)/11/12/..) will ask for FaceId confirmation. Because this is not enabled the payment will fall back to a different confirmation method. It will use a double press on the power button for the payment approval, but this is not supported.
+:::
 
 ### Apple Certificates
 Apple certificates are used to ensure security in their systems, and they are much more strict about them than Android. This level of security makes certificates a very complex part of making Apple Pay work with devices in a cloud.
