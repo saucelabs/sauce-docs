@@ -472,7 +472,6 @@ module.exports = {
             'error-reporting/project-setup/alerts',
             'error-reporting/project-setup/scheduled-reports',
             'error-reporting/project-setup/access-control',
-            'error-reporting/project-setup/data-retention',
             'error-reporting/project-setup/user-mgmnt',
             'error-reporting/project-setup/team-mgmnt',
           ],
