@@ -1093,62 +1093,6 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Integrations',
-      link: { type: 'doc', id: 'integrations-overview' },
-      collapsed: true,
-      items: [
-      'integrations-overview',
-      {
-        type: 'category',
-        label: 'CI/CD Tools',
-        link: { type: 'doc', id: 'integrations/gitlab' },
-        collapsed: true,
-        items: [
-          'integrations/gitlab',
-          'integrations/azure',
-          'integrations/jenkins',
-          'integrations/bamboo',
-          'integrations/teamcity',
-        ],
-      },
-      {
-        type: 'category',
-        label: 'Accessibility',
-        link: { type: 'doc', id: 'integrations/deque' },
-        collapsed: true,
-        items: [
-          'integrations/deque',
-          'integrations/evinced',
-        ],
-      },
-      {
-        type: 'category',
-        label: 'Defect Reporting and Management',
-        link: { type: 'doc', id: 'integrations/jira' },
-        collapsed: true,
-        items: [
-          'integrations/jira',
-        ],
-      },
-      {
-        type: 'category',
-        label: 'Low-Code/No-Code/Model-Based Test Case Generation',
-        link: { type: 'doc', id: 'integrations/eggplant' },
-        collapsed: true,
-        items: [
-          'integrations/eggplant',
-          'integrations/tosca',
-          'integrations/uipath',
-        ],
-      },
-      'integrations/slack',
-      'integrations/sumo',
-      'integrations/bitbucket',
-      'integrations/webhooks',
-      ],
-    },
-    {
-      type: 'category',
       label: 'Test Results',
       link: { type: 'doc', id: 'test-results' },
       collapsed: true,
