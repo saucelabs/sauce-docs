@@ -730,25 +730,64 @@ module.exports = {
             collapsed: true,
             items: ['basics/data-center-endpoints', 'basics/data-center-endpoints/aust-early-access'],
           },
-          {
-            type: 'category',
-            label: 'Integrations',
-            link: { type: 'doc', id: 'basics/integrations-overview' },
-            collapsed: true,
-            items: [
-              'basics/integrations-overview',
-              'basics/integrations/deque',
-              'basics/integrations/evinced',
-              'basics/integrations/jira',
-              'basics/integrations/slack',
-              'basics/integrations/uipath',
-              'basics/integrations/sumo',
-            ],
-          },
+
+    {
+      type: 'category',
+      label: 'Integrations',
+      link: { type: 'doc', id: 'integrations-overview' },
+      collapsed: true,
+      items: [
+      'integrations-overview',
+      {
+        type: 'category',
+        label: 'CI/CD Tools',
+        link: { type: 'doc', id: 'integrations/gitlab' },
+        collapsed: true,
+        items: [
+          'integrations/gitlab',
+          'integrations/azure',
+          'integrations/jenkins',
+          'integrations/bamboo',
+          'integrations/teamcity',
         ],
       },
-    ],
+      {
+        type: 'category',
+        label: 'Accessibility',
+        link: { type: 'doc', id: 'integrations/deque' },
+        collapsed: true,
+        items: [
+          'integrations/deque',
+          'integrations/evinced',
+        ],
+      },
+      {
+        type: 'category',
+        label: 'Defect Reporting and Management',
+        link: { type: 'doc', id: 'integrations/jira' },
+        collapsed: true,
+        items: [
+          'integrations/jira',
+        ],
+      },
+      {
+        type: 'category',
+        label: 'Low-Code/No-Code/Model-Based Test Case Generation',
+        link: { type: 'doc', id: 'integrations/eggplant' },
+        collapsed: true,
+        items: [
+          'integrations/eggplant',
+          'integrations/tosca',
+          'integrations/uipath',
+        ],
+      },
+      'integrations/slack',
+      'integrations/sumo',
+      'integrations/bitbucket',
+      'integrations/webhooks',
+      ],
     },
+
     {
       type: 'category',
       label: 'Sauce Trusted Connection',
