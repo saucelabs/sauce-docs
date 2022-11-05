@@ -50,7 +50,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
     <ul>
         <li><a href="/integrations/jenkins">Jenkins</a></li>
         <li><a href="/integrations/bamboo">Bamboo</a></li>
-        <li>and <a href="/integrations">More</a></li>
+        <li>and <a href="/integrations-overview/">More</a></li>
     </ul>
     </div>
   </div>
