@@ -1,6 +1,6 @@
 ---
 id: cucumber
-title: Configuring Your Cucumber.js Tests with Playwright 
+title: Configuring Your Cucumber.js Tests with Playwright
 sidebar_label: Cucumber YAML Configuration
 ---
 
@@ -536,7 +536,7 @@ notifications:
 ### `slack`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/basics/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
+Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
 
 ```yaml
   slack:
@@ -805,7 +805,7 @@ Paths to your support code for CommonJS. See the [Cucumber.js Configuration docu
 #### `import`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Paths to your support code for ESM. See the [Cucumber.js ES Modules (experimental) documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/esm.md) for more information. 
+Paths to your support code for ESM. See the [Cucumber.js ES Modules (experimental) documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/esm.md) for more information.
 
 ```yaml
   options:
@@ -842,7 +842,7 @@ Name/path and (optionally) output file path of each formatter to use. See the [C
 #### `formatOptions`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Options to provide to formatters. See the [Cucumber.js Formatters documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md) for more information. 
+Options to provide to formatters. See the [Cucumber.js Formatters documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md) for more information.
 
 ```yaml
   options:

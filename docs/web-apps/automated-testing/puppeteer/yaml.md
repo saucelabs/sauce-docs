@@ -427,7 +427,7 @@ notifications:
 ### `slack`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/basics/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
+Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
 
 ```yaml
   slack:

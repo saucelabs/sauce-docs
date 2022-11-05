@@ -242,7 +242,7 @@ Sets the visibility level of test results for suites run on Sauce Labs. If unspe
 * `public`: Accessible to everyone.
 * `public restricted`: Share your job's results page and video, but keeps the logs only for you.
 * `share`: Only accessible to people with a valid link.
-* `team`: (Default) Only accessible to people under the same root account as you. 
+* `team`: (Default) Only accessible to people under the same root account as you.
 * `private`: Only you (the owner) will be able to view assets and test results page.
 
 ```yaml
@@ -564,7 +564,7 @@ notifications:
 ### `slack`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/basics/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
+Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
 
 ```yaml
   slack:

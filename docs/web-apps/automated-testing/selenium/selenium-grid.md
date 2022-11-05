@@ -17,7 +17,7 @@ By executing your tests on Sauce Labs, in addition to having a solid testing inf
 - Sharing test results securely between team members by configuring [users and teams](/basics/acct-team-mgmt-hub/).
 - Understanding how your application renders on every device and operating system by analyzing results from [Front-End Performance Testing](/performance/).
 - Interpreting test results over time and identifying failure patterns across different platforms with [Insights](/insights/).
-- Integrating your Sauce Labs test suite with [CI/CD platforms](/ci/).
+- Integrating your Sauce Labs test suite with [CI/CD platforms](/integrations/).
 
 
 ## What You'll Learn
@@ -118,8 +118,8 @@ A configuration file in [`toml`](https://toml.io/en/) format is needed to setup 
     "2", '{"browserName": "chrome", "platformName": "android", "appium:platformVersion": "12.0", "appium:deviceName": "Google Pixel 6 Pro GoogleAPI Emulator"}'
   ]
   ```
-:::note Sauce Labs endpoint URL 
-The example file shows the US West data center. See the different [endpoints](/basics/data-center-endpoints/) if you want to use another region. 
+:::note Sauce Labs endpoint URL
+The example file shows the US West data center. See the different [endpoints](/basics/data-center-endpoints/) if you want to use another region.
 :::
 
 </details>
@@ -132,7 +132,7 @@ Finally, adding a new Node to your local Selenium Grid is possible through the f
 java -jar selenium-server-<version>.jar node --config config.toml
 ```
 
-With that, you will be able to send test requests to your local Grid and when the capabilities match, they will be redirected to Sauce Labs. Extra capabilities in `sauce:options` are also supported to have better readability on the test reports page at Sauce Labs. 
+With that, you will be able to send test requests to your local Grid and when the capabilities match, they will be redirected to Sauce Labs. Extra capabilities in `sauce:options` are also supported to have better readability on the test reports page at Sauce Labs.
 
 ### 3. Create a Remote Session Request
 
@@ -163,7 +163,7 @@ driver.quit();
 ## Moving from Selenium Grid to Sauce
 Supporting a new browser version in a local Selenium Grid requires a complete verification of its functionality before running your actual tests with it. In addition, providing features like video recording, logs, and screenshots, comes with the burden of building a custom test results dashboard, which needs provisioning storage for those files plus an automated archiving strategy.
 
-With Sauce Labs, using new browser versions, platforms, or mobile devices, is as easy as setting the desired configuration options in your test. 
+With Sauce Labs, using new browser versions, platforms, or mobile devices, is as easy as setting the desired configuration options in your test.
 
 A single line of code needs to be changed to execute the same test code directly on Sauce Labs. Instead of using `http://localhost:4444` as a URL, a Sauce Labs [endpoint](/basics/data-center-endpoints/) URL should be used in the `RemoteWebDriver`. See the code sample below.
 
