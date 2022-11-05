@@ -4,6 +4,11 @@ title: Tosca Integration
 sidebar_label: Tosca
 description: Create, execute, and maintain test easily with the industry's leading model-based test platform
 ---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Tricentis Tosca is an industry-leading test creation tool, allowing for rich test case automation against web, mobile, and client-server applications. When you need to execute a lot of Tosca tests in parallel, look to Sauce Labs to help you scale.
 
 ## Overview
@@ -20,11 +25,15 @@ Tosca scans your app to gather data about the various pages and elements. From t
 
 1. In the **Tosca Commander**, on the **Modules** tab, click **Scan** and then click **Mobile**.
 
-<img src={useBaseUrl('img/integrations/tosca-modules.png')} alt="Diagram of Selenium and Sauce Labs"/>
+<img src={useBaseUrl('img/integrations/tosca-modules.png')} alt="Tosca Commander Modules tab"/>
 
 2. In the **Add connection** box, enter your Sauce Labs credentials.
 
+<img src={useBaseUrl('img/integrations/tosca-add-connection.png')} alt="Tosca Commander Add connection tab"/>
+
 3. In the **Add device** box, enter the information for the Sauce Labs device you will be using.
+
+<img src={useBaseUrl('img/integrations/tosca-add-device.png')} alt="Tosca Commander Add device tab"/>
 
 4. Upload your application file (.ipa, .aab, or .apk) to the Sauce Labs cloud (for details, see [Mobile App Storage](/mobile-apps/app-storage/)).
 
@@ -36,20 +45,31 @@ or:
 
 `storage:file_id=<file_id>`
 
+<img src={useBaseUrl('img/integrations/tosca-edit-native-hybrid-app.png')} alt="Tosca Edit native/hybrid application box"/>
+
 6. In the **Establishing connection...** box, click **Scan**.
 
 :::note
 This step sometimes takes a considerable amount of time, due to the large volume of data flowing back and forth between Tosca and the Sauce Labs cloud. Running such a scan locally (on an emulator) may speed up the process, and is the recommended practice.
 :::
 
+<img src={useBaseUrl('img/integrations/tosca-est-connection.png')} alt="Tosca Establishing connection box"/>
 
 ## Executing a Test
 Once you have some basic tests created, it’ll be time to execute them. For parallel execution of multiple tests on Sauce Labs devices, you’ll need to fill out the test configuration fields as indicated below.
 
 1. In the **Tosca Commander**, on the **Execution** tab, enter your Sauce Labs credentials.
 
+<img src={useBaseUrl('img/integrations/tosca-execution-tab.png')} alt="Tosca Commander Execution tab"/>
+
 2. On the **Test Cases** tab, in the **Application** field under **Open Mobile App**, enter the `storage:filename`.
+
+<img src={useBaseUrl('img/integrations/tosca-test-cases-tab.png')} alt="Tosca Commander Test Cases tab"/>
 
 3. For a real device, execute the script by adding the following configuration:
 
+<img src={useBaseUrl('img/integrations/tosca-execute-real-device.png')} alt="Tosca real device configuration"/>
+
 4. For a virtual device, execute the script by adding the following configuration:
+
+<img src={useBaseUrl('img/integrations/tosca-execute-virtual-device.png')} alt="Tosca virtual device configuration"/>
