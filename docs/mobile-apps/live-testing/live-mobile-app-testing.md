@@ -199,13 +199,13 @@ There are three ways to test Apple Pay with Sauce Labs:
 * Using real private devices with a real production account and real credit cards
 
 ### Requirements
-- You need to use [Private devices](#apple-pay-on-real-private-devices)
-- [Instrumentation](#disable-instrumentation) needs to be disabled
-- You need to add your Sauce Labs hosted Private device [UDID](#apple-pay-on-real-private-devices) to your own provisioning profile.
-- Devices need to have a physical home button, meaning iPhone SE(2020/2022)/6 series/7 series/8 series. A physical button will ask for confirming the payment with a passcode. 
+* You need to use [Private devices](#apple-pay-on-real-private-devices).
+* [Instrumentation](#disable-instrumentation) needs to be disabled.
+* You need to add your Sauce Labs hosted Private device [UDID](#apple-pay-on-real-private-devices) to your own provisioning profile.
+* Devices need to have a physical home button (for instance, iPhone SE(2020/2022)/6 series/7 series/8 series). A physical button will require the passcode for payment confirmation. 
 
 :::note
-Devices with a notch (like the iPhone X(S)/11/12/..) will ask for FaceId confirmation. Because this is not enabled the payment will fall back to a different confirmation method. It will use a double press on the power button for the payment approval, but this is not supported.
+Devices with a notch (like the iPhone X(S)/11/12/..) will ask for FaceId confirmation. As this feature is disabled, the payment will fall back to a different confirmation method. It will use a double press on the power button for the payment approval. However, this method is not supported.
 :::
 
 ### Apple Certificates
