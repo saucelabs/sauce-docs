@@ -23,6 +23,19 @@ When testing mobile apps, you have the option to upload your app to our app stor
      * [iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
      * [Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases)
 
+## Rate Limiting
+
+To increase service stability and prevent overload by a high volume of incoming traffic, we have set the following rate limits for uploading your mobile apps (effective from 14.11.2022): 
+
+
+| |Trial Users (per organization)|Non Trial Users (per organization)|
+|:---|:---|:---|
+|**Uploads**| <ul><li>5 Uploads per 15 minute window </li><li>100 uploads per 24 hour window </li><li>2 uploads in parallel </li></ul>|<ul><li> 50 uploads per 15 minute window</li><li>1000 uploads per 24 hour window </li><li> 15 uploads in parallel </li></ul>|
+|**List Groups (`list_groups`)**|Limited to 3 `list_groups` in parallel if the request comes from the External API Gateway. Otherwise unlimited.|Limited to 3 `list_groups` in parallel if the request comes from the External API Gateway. Otherwise unlimited.|
+|**List Files (`list_files`)**|Limited to 3 `list_files` in parallel if the request comes from the External API Gateway. Otherwise unlimited.| Limited to 3 `list_files` in parallel if the request comes from the External API Gateway. Otherwise unlimited.|
+|**Downloads**|Limited to 50 downloads per day if the request comes from the External API Gateway. This limitation is applied per organization and not per `file_id`.| Limited to 1,000 downloads a day if the request comes from the External API Gateway. This limitation is applied per organization and not per `file_id`.|
+
+
 ## Uploading Apps via UI
 
 For information about using the Sauce Labs UI to upload your mobile file to app storage, see [Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app).
