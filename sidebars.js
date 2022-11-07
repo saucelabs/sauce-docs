@@ -472,6 +472,7 @@ module.exports = {
             'error-reporting/project-setup/alerts',
             'error-reporting/project-setup/scheduled-reports',
             'error-reporting/project-setup/access-control',
+            'error-reporting/project-setup/data-retention',
             'error-reporting/project-setup/user-mgmnt',
             'error-reporting/project-setup/team-mgmnt',
           ],
@@ -543,7 +544,6 @@ module.exports = {
           items: [
             'error-reporting/security-compliance/common-questions',
             'error-reporting/security-compliance/privacy-control',
-            'error-reporting/security-compliance/data-retention',
           ],
         },
       ],
