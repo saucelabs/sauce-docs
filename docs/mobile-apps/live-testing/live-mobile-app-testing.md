@@ -219,7 +219,7 @@ Apple Pay has a limitation that it cannot work with an enterprise certificate. Y
 
 ### Apple Pay on Real Private Devices
 :::note
-Our real devices are cleaned after every session. This means that you need to configure your Apple Pay Sandbox Testing account, including a passcode and sandbox cards, every time you want to test Apple Pay on an iOS real device.
+Our real devices are cleaned after every test session. Therefore, you need to configure your Apple Pay Sandbox Testing account, including a passcode and sandbox cards, every time you want to test Apple Pay on an iOS real device.
 :::
 
 To make Apple Pay work on Sauce Labs real private devices:
