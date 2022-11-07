@@ -201,7 +201,7 @@ There are three ways to test Apple Pay with Sauce Labs:
 ### Requirements
 - You need to use [Private devices](#apple-pay-on-real-private-devices)
 - [Instrumentation](#disable-instrumentation) needs to be disabled
-- You need to add your Sauce Labs hosted Private device [UDID](#apple-pay-on-real-private-devices) into your own provisioning profile.
+- You need to add your Sauce Labs hosted Private device [UDID](#apple-pay-on-real-private-devices) to your own provisioning profile.
 - Devices need to have a physical home button, meaning iPhone SE(2020/2022)/6 series/7 series/8 series. A physical button will ask for confirming the payment with a passcode. 
 
 :::note
