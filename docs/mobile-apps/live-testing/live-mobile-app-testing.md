@@ -260,7 +260,7 @@ To make Apple Pay work on Sauce Labs real private devices:
 
 ### Passcode
 
-Apple Pay requires that you have set a passcode on your phone, and you can’t add cards to your wallet without it. Setting a passcode will be part of [Add the Testing Account](#add-the-testing-account) in the next section.
+One of the Apple Pay requirements is having a set passcode on your phone. Without it, you won't be able to add cards to your wallet. To learn more about setting a passcode, see [Adding the Testing Account](#add-the-testing-account) section.
 
 ### Add the Testing Account
 1. On the device, go to **Settings** and then click **Sign in to your iPhone**. Sign in using your Apple sandbox tester account.
