@@ -168,6 +168,11 @@ A property containing one or more environment variables that are global for all 
     hello: world
     my_var: $MY_VAR
 ```
+
+:::caution
+Currently, `env` only supports lowercase keys on `macOS` platform. We'll add enhancement later.
+:::
+
 ---
 
 ## `docker`

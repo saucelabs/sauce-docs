@@ -277,6 +277,10 @@ A property containing one or more environment variables that are global for all 
 Since environment variables are provided to Cypress directly, avoid using `CYPRESS_` as a prefix.
 :::
 
+:::caution
+Currently, `env` only supports lowercase keys on `macOS` platform. We'll add enhancement later.
+:::
+
 ---
 
 ## `docker`
