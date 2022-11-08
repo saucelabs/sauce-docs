@@ -278,7 +278,7 @@ Since environment variables are provided to Cypress directly, avoid using `CYPRE
 :::
 
 :::caution
-Currently, `env` only supports lowercase keys on `macOS` platform. We'll add enhancement later.
+Currently, `env` only supports lowercase keys on `macOS` platform. The workaround is either passing the env through cli `saucectl run --env FOO=BAR` or setting `env` on suite level. 
 :::
 
 ---
