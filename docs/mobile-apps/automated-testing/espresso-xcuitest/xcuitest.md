@@ -446,7 +446,9 @@ The parent property containing the details specific to the XCUITest project.
 ```yaml
 xcuitest:
   app: ./apps/SauceLabs.Mobile.Sample.XCUITest.App.ipa
+  appDescription: My demo app
   testApp: ./apps/SwagLabsMobileAppUITests-Runner.app
+  testAppDescription: My test app
   otherApps:
     - ./apps/pre-installed-app1.ipa
     - ./apps/pre-installed-app2.ipa
@@ -478,7 +480,16 @@ Specifies a local path, url, or storage identifier to the app under test. This p
 ```yaml
   app: storage:filename=SauceLabs.Mobile.Sample.XCUITest.App.ipa
 ```
+---
 
+### `appDescription`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies description for the uploaded app.
+
+```yaml
+  appDescription: My demo app
+```
 ---
 
 ### `testApp`
@@ -506,7 +517,16 @@ Either a local path, url, or storage identifier to the testing app. This propert
 ```yaml
   testApp: storage:filename=./apps/SwagLabsMobileAppUITests-Runner.app.ipa
 ```
+---
 
+### `testAppDescription`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies description for the uploaded testApp.
+
+```yaml
+  testAppDescription: My test app
+```
 ---
 
 ### `otherApps`
@@ -555,7 +575,19 @@ Sets the test application on the suite level. See the full [usage](#testapp). If
 
 ```yaml
 suites:
-  - testApp: ./apps/calc-success.apk
+  - testApp: ./apps/SwagLabsMobileAppUITests-Runner.app
+```
+---
+
+### `testAppDescription`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies description for the uploaded testApp on the suite level. If `testApp` is not set on suite level, `saucectl` will use the default `testAppDescription` from the [`xcuitest`](#xcuitest) level.
+
+```yaml
+suites:
+  - testApp: ./apps/SwagLabsMobileAppUITests-Runner.app
+    testAppDescription: My test app
 ```
 ---
 

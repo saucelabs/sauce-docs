@@ -99,7 +99,7 @@ There is a limit of 64 characters in Common Names in certificates according to R
 ## Errors Running Tests on CORS-Enabled Sites
 Cross-Origin Resource Sharing (CORS) errors could be caused by a variety of reasons. We recommend the following solutions:
 
-* Make sure that the ulimit/open file limit of your machine is at least 64000, which is the recommend value for Sauce Connect Proxy use.
+* Make sure that the [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) of your machine is at least 64000, which is the recommend value for Sauce Connect Proxy use.
 * Start a Sauce Connect Proxy instance using the `-B` all and `-N` flags. For more information about what these flags do for your tunnel, see the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy).
 
 
