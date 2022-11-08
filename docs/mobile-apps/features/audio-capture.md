@@ -97,8 +97,8 @@ curl --compressed \ -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}
 ## Capture Limitations
 
 :::note Limitations
-* Android Audio capture for test results is supported on iOS/iPadOS 10.1 and above.
-* iOS Audio capture for test results is supported on Android 10 and above.
+* iOS Audio capture for test results is supported on iOS/iPadOS 10.1 and above.
+* Android Audio capture for test results is supported on Android 10 and above.
 * When Audio streaming is enabled, we are not attaching the audio to the test results after the session ends. 
 * Accessibility and TalkBack on Android are not supported.
 * Emulators and simulators are not supported. 
