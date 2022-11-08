@@ -163,8 +163,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 * [Quickstart](/web-apps/automated-testing/cypress/quickstart): Use our demo repo to quickly set up and run a sample Cypress project and test to see the results.
 * [Run your own tests](/web-apps/automated-testing/cypress/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
-* [Try Cypress with Cucumber](https://github.com/saucelabs/saucectl-cypress-example/tree/master/examples/cucumber):
-`saucectl` supports Cypress using Cucumber, and the Cypress demo repo includes an example!
+* Try Cypress with Cucumber: `saucectl` supports Cypress using Cucumber, and the demo repo includes examples for [Cypress 9](https://github.com/saucelabs/saucectl-cypress-example/tree/main/v1alpha/examples/cucumber) and [Cypress 10](https://github.com/saucelabs/saucectl-cypress-example/tree/main/v1/examples/cucumber).
 * [Incorporate saucectl in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): Cypress on Sauce supports CI integrations with Circle CI, GitLab, Jenkins, and GitHub Actions.
 
 
