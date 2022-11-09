@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Assertions are a type of component that you can add to a test using the Composer. To access them, go to a **Project** > **Tests** > **Edit Test** > click **Add Child Component**.
+Assertions are a type of component that you can add to a test using the Composer. To learn how to access the components and create a test using the Composer see [Writing API Tests with the Composer](/api-testing/composer/).
 
 <img src={useBaseUrl('img/api-testing/assertionComponents.png')} alt="Assertion Components" />
 

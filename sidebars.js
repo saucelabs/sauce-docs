@@ -1025,6 +1025,7 @@ module.exports = {
           'api-testing/composer/assertion-components',
           'api-testing/composer/logical-components',
           'api-testing/composer/other-components',
+          'api-testing/composer/expressions',
         ],
       },
       {
