@@ -594,35 +594,37 @@ html[data-theme='dark'] .card:hover {
 /* Download Button below */
 
 .download {
-  position: relative;
-  font-size: 11pt;
-  background: linear-gradient(180deg, rgba(226, 35, 26, 1) 0%, rgba(183, 29, 21, 1) 100%);
-  color: #ededef;
-  width: 10rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 10px;
+  height: 40px;
+  background: #0E75DD;
+  border-radius: 4px;
+  border: 0px;
+  color: #FFFFFF;
+  box-shadow: none;
+  transition: all .3s ease-out;
   font-weight: 600;
-  text-align: center;
-  line-height: 25px;
-  border-radius: 250px;
-  box-shadow: 0px 5px 0px #b71d15, 0px 3px 6px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3),
-    inset 0px 0px 3px rgba(255, 255, 255, 0.5);
-  transition: all 0.2s ease-in-out;
+  font-size: 16px;
 }
 
 .download:hover {
-  box-shadow: 0px 5px 0px #b71d15, 0px 3px 6px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3),
-    inset 0px 0px 3px rgba(255, 255, 255, 0.5);
-  background: linear-gradient(180deg, rgba(242, 32, 22, 1) 0%, rgba(217, 32, 22, 1) 100%);
-  color: white;
-  cursor: pointer;
-}
+  background: #0D65BE;
+  box-shadow: none;
+  transition: .3s ease-in-out;
+  border: 0px;
+  font-weight: 600;
+  font-size: 16px;
+  }
 
 .download:active {
-  background: linear-gradient(to bottom, rgba(183, 29, 21, 1) 0%, rgba(226, 35, 26, 1) 100%);
-  color: #ededef;
-  box-shadow: 0px 2px 0px #b71d15, 0px 1px 3px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3),
-    inset 0px 0px 3px rgba(255, 255, 255, 0.5);
-  transform: translate(0, 4px);
-}
+  box-shadow: none;
+  background: #004A90;
+  }
+
 
 /* Get Started button styles */
 #__docusaurus > div.main-wrapper > header > div > div > a {
@@ -961,6 +963,7 @@ ul.dropdown__menu li a:hover {
 .landpage-buttons-container a {
   margin: 16px 16px 16px 0;
 }
+
 
 /* mobile overrides */
 @media only screen and (max-width: 740px) {

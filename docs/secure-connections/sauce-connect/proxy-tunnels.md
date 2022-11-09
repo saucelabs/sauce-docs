@@ -495,6 +495,14 @@ It can also be used to simulate non-loading of scripts, styles, or other resourc
   - ".*.example.com"
   ```
 
+### Sauce Connect Proxy Host Performance Optimization
+
+Insufficient Sauce Connect Proxy host resources may cause performance degradation that may be difficult to diagnose. Please see the [Configuring Your System to Use Sauce Connect](/secure-connections/sauce-connect/system-requirements/#configuring-your-system-to-use-sauce-connect) guidelines to ensure that your system has enough resources such as:
+
+* Memory
+* CPU
+* Open File Limit
+
 ## Service Management Tools
 
 ### Running systemd for Linux
