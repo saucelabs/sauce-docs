@@ -9,16 +9,15 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Expressions are fields that reference an item in the test scope. The item can be a variable or an inner value in a data structure, such as a JSON. Most expressions will start with the name of the variable the data is stored in. 
+Expressions are fields that reference an item in the test scope. The item can be a variable or an inner value in a data structure, such as a JSON.
 
 ## What You'll Need
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
-* Familiarity with the [API Testing Composer].
+* Familiarity with the [API Testing Composer](/api-testing/composer/).
 
 ## Using Expressions
 
-When working with structured data, expression is the path for reaching out a specific element. Most of the time, it's just object dot notation. In this example, we will assume the data has been assigned to a variable named `payload`:
+When working with structured data, expression is the path for reaching out a specific element. Most of the time, it's just object dot notation.  Most expressions will start with the name of the variable the data is stored in. In this example, we will assume the data has been assigned to a variable named `payload`:
 
 ```json
 "data":{
