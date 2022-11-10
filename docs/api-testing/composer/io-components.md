@@ -27,7 +27,6 @@ I/O request components enable you to perform the I/O operations `GET`, `POST`, `
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 * Familiarity with the [API Testing Composer](/api-testing/composer/).
 
-
 ## I/O Components
 
 ### GET
