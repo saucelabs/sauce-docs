@@ -47,7 +47,7 @@ payload.data.images.thumbnail.width
 
 ### Special Characters
 
-The `"Total-items"` element is a bit tricky, because the minus sign ( - ) would be misunderstood and treated as a subtraction operation. For this reason, the dot notation would require square brackets:
+The `Total-items` element is a bit tricky, because the minus sign ( - ) would be misunderstood and treated as a subtraction operation. For this reason, the dot notation would require square brackets:
 
 ```js
 data['Total-Items']
