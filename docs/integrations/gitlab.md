@@ -18,7 +18,7 @@ CI/CD systems rely heavily on repeatable steps and phases. This high level of ab
 ## .yml Files
 GitLab uses .yml for configuration. GitLab allows you to configure your environment the same way you would to run a shell script. For ultimate flexibility, GitLab allows you to launch docker images as “services”. This gives you ephemeral and/or shared APIs or other services to be available at any time in the build process, which can be created or torn down at a moment’s notice.
 
-In the example below (adapted from the [GitLab CI/CD pipeline configuration reference](https://gitlab.com/gitlab-org/gitlab/-/blob/e042b023f461be91c62d95dfd1de4547e1a8c572/doc/ci/yaml/README.md)), step 3 runs our end-to-end suite. Job names are meant to be descriptive, so we’ve named it `e2e-Sauce`.
+In the example below (adapted from the [GitLab CI/CD pipeline configuration reference](https://gitlab.com/gitlab-org/gitlab/-/blob/e042b023f461be91c62d95dfd1de4547e1a8c572/doc/ci/yaml/README.md)), job 3 runs our end-to-end suite. Job names are meant to be descriptive, so we’ve named it `e2e-Sauce`.
 
 ```yaml title="gitlab.yml"
 stages:
