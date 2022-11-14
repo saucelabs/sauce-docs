@@ -808,8 +808,17 @@ module.exports = {
       collapsed: true,
       items: [
       'mobile-apps',
-      'mobile-apps/supported-devices',
       'mobile-apps/app-storage',
+      { 
+        type: 'category',
+        label: 'Supported Devices',
+        link: { type: 'doc', id: 'mobile-apps/supported-devices' },
+        collapsed: true,
+        items: [
+          'mobile-apps/supported-devices',
+          'mobile-apps/real-device-cleaning'
+        ],
+        },
       {
         type: 'category',
         label: 'Features',
