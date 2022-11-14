@@ -17,7 +17,7 @@ Expressions are fields that reference an item in the test scope. The item can be
 
 ## Using Expressions
 
-When working with structured data, expression is the path for reaching out a specific element. Most of the time, it's just object dot notation.  Most expressions will start with the name of the variable the data is stored in. In this example, we will assume the data has been assigned to a variable named `payload`:
+When working with structured data, expression is the path for reaching out a specific element. Most of the time, it's just object dot notation. Most expressions will start with the name of the variable the data is stored in. In this example, we will assume the data has been assigned to a variable named `payload`:
 
 ```json
 "data":{
