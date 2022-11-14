@@ -127,7 +127,6 @@ When options can be set at both levels, project settings override global setting
     </table>
   1. Click **Save**.
 
-
 ### Configure Sauce Settings for a Project
 
 1. From your Jenkins dashboard, select the project you wish to configure.
