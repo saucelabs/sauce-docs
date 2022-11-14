@@ -78,4 +78,4 @@ There are three user roles available:
 
 In addition to the main user roles, there is also a superuser role that can be granted to users (go to the user page and modify the Access Control dropdown). The superuser role may only be granted by other users with the superuser role. 
 
-A superuser is required to modify organization-wide settings, create new tenants, delete tenants, modify SSL settings, modify server-wide SMTP settings, and modify listener configuration (the network ports for receiving crashes and receiving user requests).
+The superuser role is required to modify organization-wide settings, create new tenants, delete tenants, modify SSL settings, modify server-wide SMTP settings, and modify listener configuration (the network ports for receiving crashes and receiving user requests).
