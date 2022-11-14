@@ -8,37 +8,75 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Overview
-In order to manage users, go to the Organization Settings menu item in the top-right corner of the screen. From here, click on Users in the left pane. You'll be presented with three sections, Configure Self Signup, Manage Invitations and Users.
+To manage user accounts, go to the **Organization settings** menu and select **Users**.
 
-The Configure Self Signup  section contains self sign-up settings (see the Sign-up section for details). The Manage Invitations section contains pending invitations (invitations for a user that are still pending acknowledgement). The Users section contains a list of all users on the system.
+On the Users page, the following sections are available:
+- **Configure self signup**: allows you to add a domain for team members to sign up without an invitation.
+- **Manage invitations**: allows you to send invitations to users and see pending invitations.
+- **Users**: Shows the list of users accounts in the system and their roles.
 
-You are required to specify an SMTP server in order to send account-related e-mail messages (See Server Settings).
+<img src={useBaseUrl('img/error-reporting/project-settings/user-mgmt.png')} alt="Shows the Users page in Organization settings." />
 
-<img src={useBaseUrl('img/error-reporting/project-settings/user-mgmnt.png')} alt="" />
 
-## Configure Self Signup
-You may want to allow anyone on your team to sign-up to your Backtrace instance themselves. In order to do this, enable a whitelisted domain to your instance. Click on the Allow signup from whitelisted domain and provide a domain name, a default role and an authentication method (use the default of Password unless you're doing advanced configuration with PAM or SAML. You can configure SAML in the Single Sign On section.
+## Configure Self Sign Up
+You can allow your team members to sign up to your Backtrace instance without an invitation by adding a permitted domain. 
 
-For example, if you supply a domain of backtrace.io, then anyone with a backtrace.io will be able to sign up from the login page.
+For example, if you supply a domain of backtrace.io, then anyone with a backtrace.io email address will be able to sign up from the login page.
 
-## Invite a user
-Additional users may be added through invitations. Click on Send an invitation, then supply a username, e-mail address, authentication method and role. The user will be sent an e-mail with a private invitation link. If the authentication method is Password, they will be required to set a password. If their authentication method is PAM, they will use the system-configured password for their username. If SAML
-make sure you configure Single Sign On.
+To add a permitted domain:
+1. Under **Configure self signup**, select **Allow signups from whitelisted domains**.
+1. Click **+ Add domain**.
+1. In the Add whitelisted domain dialog:
+    - Enter the name of the domain.
+    - Select a default authentication method. Options are:
+        - **password** (recommended): The user is required to set a password.
+        - **pam**: The system-configured password will be used for the username.
+        - **saml**: For more advanced authentication, you can configure SAML in the Single-sign on settings. The Single-sign on settings are available to admin user roles. 
+    - Select a default [user role](#user-roles). Options are member or guest.
 
-If an e-mail fails to send for some reason, the Resend Email button can be used to resend an e-mail. It is also possible to Copy Invite Link if you would like to provide a link directly to the user. Once a user has accepted an invitation, they will up under the Users tab and the invitation will be removed.
 
-In order to revoke an invitation, simply click on the Delete button.
+## Invite a User
+You can send an invitation to a user to create an account in your Backtrace instance. The user will be sent an e-mail with a private invitation link. It is also possible to Copy Invite Link if you would like to provide a link directly to the user.
 
-## Remove a user
-In order to remove a user, click on the Users section and then click on the user you would like to remove. You will be presented with a new window. At the right of the screen, a Delete user button is present that allows for the user to be deleted. .
+Once a user has accepted an invitation, they will appear in the **Users** list and the invitation will be removed.
 
-Any configuration objects created by the user are presented before deletion. If a user owns any configuration objects (such as projects or tokens), deletion will fail. You are required to migrate ownership of all their projects and tokens in order for the deletion to succeed.
+:::note
+To send account-related e-mail messages, you must specify an SMTP server in the Server settings. The Server settings are available for admin user roles.
+:::
 
-## Roles
-There are three roles in Backtrace.
-- admin: Able to manage users, domain sign-up and projects within the tenant.
-- member: Able to create and manage their own projects within the tenant. Able to send invitations.
-- guest: Only able to view and manage their own user and settings. Unable to send invitations, modify existing configurations or create new projects.
+To invite a new user:
+1. Under **Manage invitations**, click **Send an invitation**.
+1. On the **Invite a new user** page:
+    - Enter the user's email address.
+    - Enter a username. 
+    - Select a default authentication method. Options are:
+        - **password** (recommended): The user is required to set a password.
+        - **pam**: The system-configured password will be used for the username.
+        - **saml**: For more advanced authentication, you can configure SAML in the Single-sign on settings. The Single-sign on settings are available to admin user roles. 
+    - Select a default [user role](#user-roles). Options are member or guest.
+1. Click **Send invite**.
 
-In addition to this, there is a superuser bit that can be set on users (go to the user page and modify the Access Control dropdown). The superuser bit may only be granted by other users with superuser set. A superuser is required to modify organization-wide settings, create new tenants, delete tenants, modify SSL settings, modify server-wide SMTP settings and modify listener configuration (the network ports for receiving crashes and receiving user requests).
+### Pending Invitations
+If an e-mail invitation fails to send, or if a user hasn't yet accepted an invitation, it will appear as a pending invitation. You can either resend the invitation or delete it.
+
+<img src={useBaseUrl('img/error-reporting/project-settings/pending-invites.png')} alt="Shows pending invitations to new users." />
+
+1. Under **Manage invitations**, click **Pending Invitations**.
+1. Click **⋮**, then select either **Resend** or **Delete**.
+
+
+## Remove a User
+1. Under **Users**, select the user you want to remove.
+1. Click **⋮**, then select **Delete user**.
+
+Any configuration objects created by the user are presented before deletion. If a user owns any configuration objects (such as projects or tokens), deletion will fail. You are required to migrate ownership of all the user's projects and tokens in order for the deletion to succeed.
+
+## User Roles
+There are three user roles available:
+- **admin**: Able to manage users, domain sign-up and projects within the tenant.
+- **member**: Able to create and manage their own projects within the tenant. Able to send invitations.
+- **guest**: Only able to view and manage their own user and settings. Unable to send invitations, modify existing configurations or create new projects.
+
+In addition to the main user roles, there is also a superuser role that can be granted to users (go to the user page and modify the Access Control dropdown). The superuser role may only be granted by other users with the superuser role. 
+
+A superuser is required to modify organization-wide settings, create new tenants, delete tenants, modify SSL settings, modify server-wide SMTP settings, and modify listener configuration (the network ports for receiving crashes and receiving user requests).
