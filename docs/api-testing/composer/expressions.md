@@ -66,7 +66,7 @@ Example:
         <name>Hotel One</name>
 ```
 
-If we want to check the `size` attribute, you have to write:
+If you want to check the `size` attribute, you have to write:
 
 ```js
 payload['@size']
