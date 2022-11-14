@@ -72,4 +72,4 @@ Once you have some basic tests created, it’ll be time to execute them. For par
 
 4. For a virtual device, execute the script by adding the following configuration:
 
-<img src={useBaseUrl('img/integrations/tosca-execute-virtual-device.png')} alt="Tosca virtual device configuration"/>
+<img src={useBaseUrl('img/integrations/tosca-execution-virtual-device.png')} alt="Tosca virtual device configuration"/>
