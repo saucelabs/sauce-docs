@@ -62,7 +62,7 @@ If an e-mail invitation fails to send, or if a user hasn't yet accepted an invit
 
 1. Under **Manage invitations**, click **Pending Invitations**.
 1. Click **⋮**, then select either **Resend** or **Delete**.
-
+<img src={useBaseUrl('img/error-reporting/project-settings/pending-invites.png')} alt="Shows pending invitations to new users." />
 
 ## Remove a User
 1. Under **Users**, select the user you want to remove.
