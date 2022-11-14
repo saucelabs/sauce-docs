@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 To manage user accounts, go to the **Organization settings** menu and select **Users**.
 
 On the Users page, the following sections are available:
-- **Configure self signup**: allows you to add a domain for team members to sign up without an invitation.
+- **Configure self signup**: Allows you to add a domain for team members to sign up without an invitation.
 - **Manage invitations**: Allows you to send invitations to users and see pending invitations.
 - **Users**: Shows the list of users accounts in the system and their roles.
 
