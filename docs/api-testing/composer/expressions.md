@@ -1,6 +1,6 @@
 ---
 id: expressions
-title: Using expressions in Test Components
+title: Using Expressions in Test Components
 sidebar_label: Using Expressions
 description: Learn to use expressions in components.
 ---
@@ -146,7 +146,7 @@ This is the main extension. It supports many useful functions.
 - **isInteger(string: String) , isFloat(string: String), isUrl(string: String), isEmail(string: String), isPhoneNumber(string: String), isBoolean(string: String), isArray(object: Object), isMap(object: Object), isCreditCard(string: String) : Boolean :** evaluate the nature of a data item
 
 
-#### `anyArrray.pick(n)`
+#### `anyArray.pick(n)`
 
 Given any array, you can ask the system to create a random subset of it. One typical usage is when an iterator would turn out to be huge, and you prefer to cherry-pick a few items. The code will return an array of five random elements off the _artists_ array.
 
@@ -160,7 +160,7 @@ A hands on example:
 <each expression="payload.artists.pick(5)"> <assert-exists expression="_1.href" /> <assert-exists expression="_1.id" /> ... </each>
 ```
 
-#### `anyArrray.pick()`
+#### `anyArray.pick()`
 
 Similar to the `pick(n)`, this method will pick one random item off an array, and return it.
 
