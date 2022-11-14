@@ -36,7 +36,7 @@ To add a permitted domain:
 
 
 ## Invite a User
-You can send an invitation to a user to create an account in your Backtrace instance. The user will be sent an e-mail with a private invitation link. It is also possible to Copy Invite Link if you would like to provide a link directly to the user.
+You can invite  a user to create an account in your Backtrace instance. The user will be sent an e-mail with a private invitation link. It is also possible to Copy Invite Link if you would like to provide a link directly to the user.
 
 Once a user has accepted an invitation, they will appear in the **Users** list and the invitation will be removed.
 
