@@ -44,7 +44,7 @@ Refers to the Sauce Labs API Testing functionality accessible from your Project 
 
 ### Appium
 
-An open source mobile UI automation framework that uses the Selenium WebDriver protocol to control interaction with native apps, mobile web apps, and hybrid apps in your tests. Appium acts as a wrapper that translates Selenium WebDriver commands into iOS and Android commands. With Sauce Labs, you can use Appium to test mobile apps on emulators, simulators, and real devices.
+An open source mobile UI automation framework that uses the Selenium WebDriver protocol to control interaction with native apps, mobile web apps, and hybrid apps in your tests. Appium acts as a wrapper that translates Selenium WebDriver commands into iOS and Android commands. With Sauce Labs, you can use Appium to test mobile apps on Emulators, Simulators, and real devices.
 
 See also: _[selenium](#selenium)_, _[webdriver](#webdriver)_.
 
@@ -174,7 +174,7 @@ A network that houses the set of Sauce Labs services relevant to your license ty
 
 A virtual machine used to mimic the software, operating system, and certain device features (e.g., camera, touch ID, GPS) of the Android mobile app that you're testing in Sauce Labs. Can be used to test multiple browser/device combinations and use cases.
 
-See also: _[simulator](#simulator), [real device testing](#real-device-testing)_.
+See also: _[Simulator](#simulator), [real device testing](#real-device-testing)_.
 
 
 ### Enterprise
@@ -535,7 +535,7 @@ See also: _[webdriver](#webdriver), [selenium grid](#selenium-grid)_.
 
 A virtual machine environment used to mimic the overall behavior (i.e., software variables, configurations) of the iOS mobile app you're testing in Sauce Labs.
 
-See also: _[emulator](#emulator), [real device testing](#real-device-test)_.
+See also: _[Emulator](#emulator), [real device testing](#real-device-test)_.
 
 
 ### Site Under Test (SUT)
