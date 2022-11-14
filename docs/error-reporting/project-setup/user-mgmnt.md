@@ -59,7 +59,6 @@ To invite a new user:
 ### Pending Invitations
 If an e-mail invitation fails to send, or if a user hasn't yet accepted an invitation, it will appear as a pending invitation. You can either resend the invitation or delete it.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/pending-invites.png')} alt="Shows pending invitations to new users." />
 
 1. Under **Manage invitations**, click **Pending Invitations**.
 1. Click **⋮**, then select either **Resend** or **Delete**.
