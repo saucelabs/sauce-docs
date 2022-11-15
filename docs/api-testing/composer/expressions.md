@@ -50,7 +50,7 @@ payload.data.images.thumbnail.width
 The `Total-items` element is a bit tricky, because the minus sign ( - ) would be misunderstood and treated as a subtraction operation. For this reason, the dot notation would require square brackets:
 
 ```js
-data['Total-Items']
+`payload.data['Total-Items']
 ```
 
 ### XML
@@ -113,7 +113,7 @@ Expressions can also contain directives to transform the data you are willing to
 ```
 
 ```js
-payload.HotelSummary.size()
+`payload.HotelSummary.length'
 ```
 
 Will count the number of instances of `HotelSummary`.
@@ -156,8 +156,14 @@ payload.artists.pick(5)
 
 A hands on example:
 
-```xml
-<each expression="payload.artists.pick(5)"> <assert-exists expression="_1.href" /> <assert-exists expression="_1.id" /> ... </each>
+```yaml
+- id: each
+  children:
+    - id: assert-exists
+      expression: _1.href
+    - id: assert-exists
+      expression: _1.id
+  expression: payload.artists.pick(5)
 ```
 
 #### `anyArray.pick()`
