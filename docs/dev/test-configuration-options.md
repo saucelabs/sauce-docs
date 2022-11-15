@@ -15,17 +15,17 @@ Try our [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platfo
 
 ## Terminology
 
+## Terminology
+
 When setting up your test, you'll need to configure your script with settings called _capabilities_ that align with your test environment (e.g., desktop browser, mobile web browser, mobile app). While each environment has its own set of capabilities, they can also be combined. Some are required for a test to run in a given environment, while some are optional.
 
 You'll need to add these configurations to the [capabilities](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_Capabilities.html) or [options](https://www.selenium.dev/documentation/en/driver_idiosyncrasies/driver_specific_capabilities/) classes.
 
-**[W3C WebDriver Capabilities](#browser-w3c-capabilities--optional)**: Required for any test using Selenium or Appium to communicate with the browser. W3C WebDriver capabilities are universal capabilities for any test, and are usually combined with additional capabilities. [Learn more](/dev/w3c-webdriver-capabilities).
-**[Sauce Labs Capabilities](#desktop-and-mobile-capabilities-sauce-specific--optional)**: Needed for running a test on the Sauce Labs Cloud, with different possible sets for different environments. Though there aren't any capabilities required, you will need to [configure the endpoint URL](/basics/data-center-endpoints) and should pass the test name and status as capabilities to the remote webdriver.
-**Appium Capabilities**: Required for tests using Appium on mobile apps and Appium on mobile web browsers.
-  **[Mobile App Capabilities](#mobile-app-appium-capabilities-required)**: Required if you're running a test on a mobile app.
-  **Mobile Web Capabilities**: Required if you're using Appium to test a web app. You'll need to set the `deviceName`, `platformName` `platformVersion`, and `automationName` the same way you would for a mobile app test, along with settings for the browser.
-**[Browser-Specific Capabilities](#desktop-browser-capabilities-sauce-specific--optional)**: Optional, browser-specific Sauce Labs capabilities.
-**Browser Vendor Capabilities**: Each browser also has its own set of pre-defined options you can set to help you test. You can add these in regular capabilities or options, or use the browser-defined capabilities (browser options classes) to configure your browser tests:
+* **W3C WebDriver Capabilities**: Required for any test using Selenium or Appium to communicate with the browser. W3C WebDriver capabilities are universal capabilities for any test, and are usually combined with additional capabilities. [Learn more](/dev/w3c-webdriver-capabilities).
+* **[Sauce Labs Capabilities]**: Needed for running a test on the Sauce Labs Cloud, with different possible sets for different environments. Though there aren't any capabilities required, you will need to [configure the endpoint URL](/basics/data-center-endpoints) and should pass the test name and status as capabilities to the remote webdriver.
+* **Appium Capabilities**: Required for tests using Appium on mobile apps and Appium on mobile web browsers.
+* **Browser-Specific Capabilities**: Optional, browser-specific Sauce Labs capabilities.
+* **Browser Vendor Capabilities**: Each browser also has its own set of pre-defined options you can set to help you test. You can add these in regular capabilities or options, or use the browser-defined capabilities (browser options classes) to configure your browser tests:
   * [Chrome Capabilities](https://chromedriver.chromium.org/capabilities)
   * [Microsoft Edge Capabilities](https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/capabilities-edge-options)
   * [Firefox Capabilities](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions)
