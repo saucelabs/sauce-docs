@@ -45,7 +45,7 @@ We use a proprietary process that wipes every real device clean at the end of th
  * US Devices: Lat 37.768, Lon -121.959, Alt 5m (San Francisco, US) and Lat 33.771 Lon -84.397, Alt 225m (Atlanta, US)
  * EU devices: Lat 52.500, Lon 13.447, Alt 40m (Berlin, DE)
 * Media files (Photos, Videos, Files) on the device are removed.
-* PIN code/Passcode is removed.
+* PIN code/Password is removed.
 
 ## Private Devices
 
