@@ -125,7 +125,7 @@ When options can be set at both levels, project settings override global setting
         <td>A value that will be automatically added to the front of any Jenkins environment variable set by the Sauce OnDemand plugin.</td>
       </tr>
     </table>
-  1. Click **Save**.
+1. Click **Save**.
 
 ### Configure Sauce Settings for a Project
 
