@@ -40,11 +40,11 @@ Sauce Labs API Testing will validate the API producer (server) side by creating 
 5. Click **Generate Test**.
 
   <p>After you generate your test, you'll be taken to the <strong>Compose</strong> tool. This component, <small><strong>ASSERT VALID JSON SCHEMA</strong></small>, is what we use to store the contract test.</p>
-  <img src={useBaseUrl('img/api-fortress/2022/03/assertJSON.png')} alt="API Conversation and Contract" width="600"/>
+  <img src={useBaseUrl('img/api-testing/assertJSON.png')} alt="API Conversation and Contract" width="600"/>
 
 6. <p>Double-click on the <small><strong>ASSERT VALID JSON SCHEMA</strong></small> component to expand and see the contract validation details.</p>
 
-  <img src={useBaseUrl('img/api-fortress/2022/03/assertJSON_expanded.png')} alt="API Conversation and Contract" width="600"/>
+  <img src={useBaseUrl('img/api-testing/assertJSON_expanded.png')} alt="API Conversation and Contract" width="600"/>
 
 Optionally, you can add further [assertions](/api-testing/composer/) here to your test, which will perform functional testing on top of your contract tests and fully validate the APIs are working as intended.
 

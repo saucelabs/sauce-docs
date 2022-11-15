@@ -25,9 +25,8 @@ When testing mobile apps, you have the option to upload your app to our app stor
 
 ## Rate Limiting
 
-To prevent service overload and outbursts of incoming traffic, Sauce Labs introduced the Rate Limiting feature. It helps maximize the stability of incoming traffic.
+To increase service stability and prevent overload by a high volume of incoming traffic, we have set the following rate limits for uploading your mobile apps (effective from 14.11.2022): 
 
-See the table below to learn more about applied rate limits:
 
 | |Trial Users (per organization)|Non Trial Users (per organization)|
 |:---|:---|:---|
@@ -55,7 +54,6 @@ groupId="dc-url"
 defaultValue="usw"
 values={[
 {label: 'US West', value: 'usw'},
-{label: 'US East', value: 'use'},
 {label: 'Europe', value: 'eu'},
 ]}>
 
@@ -64,16 +62,6 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/v1/storage/upload' \
---form 'payload=@"<path/to/your/file>"' \
---form 'name="<filename.ext>"'
-```
-
-</TabItem>
-<TabItem value="use">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-east-1.saucelabs.com/v1/storage/upload' \
 --form 'payload=@"<path/to/your/file>"' \
 --form 'name="<filename.ext>"'
 ```
