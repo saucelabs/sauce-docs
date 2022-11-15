@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The cleaning process runs at the end of each test session for Sauce Labs Real Devices. It resets the device back to a default state, ready for the next test. The cleaning process also removes any private data which may have been part of the prior test. If we encounter any issue during the cleaning process, or we fail to clean the device, we put those devices aside for manual inspection to prevent data and security leaks. 
 
-The cleaning process differs slightly between the Public Devices which are shared among all our customers, and the Private Devices, where the owner has more control over the configuration of their device. It also differs between Android and iOS, due to the different features of these operating systems.
+The cleaning process differs slightly between the Public Devices, which are shared among all our customers, and the Private Devices, where the owner has more control over the configuration of their device. It also differs between Android and iOS, due to the different features of these operating systems.
 
 ## Public Devices
 
