@@ -32,7 +32,7 @@ Saucelabs.com and the Sauce Labs testing service in the US and EU will be down f
 | EU  | September 24, 2022  | 7pm - 9pm CEST  |
 | US  | October 15, 2022  | 10am - 12pm PDT  |
 | EU  | October 22, 2022  | 7pm - 9pm CEST  |
-| US  | November 12, 2022  | 10am - 12pm PDT  |
+| US  | November 12, 2022  | 10am - 12pm PST  |
 | EU  | November 19, 2022  | 7pm - 9pm CET  |
 | US  | December 3, 2022  | 10am - 12pm PST  |
 | EU  | December 10, 2022  | 7pm - 9pm CET  |

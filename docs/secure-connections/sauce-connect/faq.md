@@ -24,11 +24,9 @@ See also [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections
 
 ## How can I share a Sauce Connect Proxy tunnel between multiple accounts?
 
-To share a tunnel, start a tunnel with the [`--shared-tunnel`](/dev/cli/sauce-connect-proxy) flag. For most Sauce Labs customers, your access to shared tunnels is determined by the permissions of the user who creates them. Organization admins can create tunnels that any user on any team can use. Team admins can create tunnels that any member of their team can use. Team members cannot share tunnels they create with any other team member.
+To share a tunnel, start a tunnel with the [`--shared-tunnel`](/dev/cli/sauce-connect-proxy/#--shared-tunnel) flag. For most Sauce Labs customers, your access to shared tunnels is determined by the permissions of the user who creates them. Organization admins can create tunnels that any user on any team can use. Team admins can create tunnels that any member of their team can use. Team members cannot share tunnels they create with any other team member.
 
-In order to use a tunnel that an admin or team member shares with you, you'll need to add `parentTunnel` to your test capabilities and specify that person's username.
-
-More information: [Shared Tunnels](/dev/test-configuration-options).
+In order to use a tunnel that an admin or team member shares with you, you'll need to add [`tunnelOwner`](https://docs.saucelabs.com/dev/test-configuration-options/#tunnelowner) to your test capabilities and specify that person's username.
 
 
 ## How can I use Sauce Connect Proxy to test graceful degradation?
@@ -51,6 +49,11 @@ When using Sauce Connect Proxy, local web apps running on commonly used ports ar
 However, because proxy requests to a localhost address are not supported by all platforms, tests may perform better when using a locally defined domain name (which can be set in your [`hosts file`](http://en.wikipedia.org/wiki/Hosts_file)) rather than localhost. Using a locally defined domain name also allows access to apps on any port.
 
 See also [Supported Browsers and Ports Specification](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports).
+
+
+## How Can I Improve Tunnel Performance?
+
+See [Improving Sauce Connect Proxy Performance](/secure-connections/sauce-connect/proxy-tunnels/#improving-sauce-connect-proxy-performance).
 
 
 ### Supported Browsers and Ports

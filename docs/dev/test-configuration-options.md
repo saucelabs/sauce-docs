@@ -426,7 +426,8 @@ Possible values are:
  **Emulators / Simulators:**
  * **Android:** `UiAutomator2`, `Espresso`, `Flutter`
  * **iOS:** `XCUITest`, `Flutter`
-**Real Devices**
+
+**Real Devices:**
   * **Android:** `UiAutomator2`
   * **iOS:** `XCUITest`
 
@@ -803,7 +804,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `setupDeviceLock`
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Android only</span> |</small></p>
 
 Sets up the device pin code for the automated test session. Valid values are `true` and `false`.
 This capability sets your device in the state required for your application to launch successfully.
@@ -1317,6 +1318,8 @@ Appium tests for the Real Device Cloud using the W3C protocol MUST use `tunnelNa
 
 ### `tunnelOwner`  
 <p><small>| OPTIONAL | STRING |</small></p>
+
+If the [tunnelName](#tunnelname) you've specified to establish connectivity with a Sauce Labs test platform is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test.
 
 :::note Choose the Correct Tunnel Identifier
 The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.

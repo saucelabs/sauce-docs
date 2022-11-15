@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Logical components are a type of component that you can add to a test using the **Compose** tab (aka Composer). To learn how to access components, see [Adding Components to Tests](/api-testing/composer/#add-components).
 
-<img src={useBaseUrl('img/api-fortress/2020/09/logicalComponents.png')} alt="Logical Components" width="600" />
+<img src={useBaseUrl('img/api-testing/logicalComponents.png')} alt="Logical Components" />
 
 
 ## What You'll Need
@@ -44,13 +44,13 @@ Allows you to iterate over a collection of elements and execute the piece of cod
 
 <strong>Examples</strong>
 
-<img src={useBaseUrl('img/api-fortress/2020/12/1each.jpg')} alt="1each.jpg"/>
+<img src={useBaseUrl('img/api-testing/1each.png')} alt="1each.png"/>
 
 The `for each 'legs' collection` checks if `vector` item is an integer value.
 
 If a collection is nested in another one, you need to refer to them as `_1`, `_2`, and so on.
 
-<img src={useBaseUrl('img/api-fortress/2020/12/nestedEach.jpg')} alt="nestedEach.jpg"/>
+<img src={useBaseUrl('img/api-testing/nestedEach.png')} alt="nestedEach.png"/>
 
 The `for each payload.content.flights` collection checks if `price.amount` is an integer. Then, the `for each legs` array, a nested collection within the flights collection, checks if vector item is an integer value.
 
@@ -80,13 +80,12 @@ Allows you to run a specific piece of code only if a specific condition is met.
 
 <strong>Examples</strong>
 
-<img src={useBaseUrl('img/api-fortress/2020/12/if.jpg')} alt="if.jpg" width="450"/>
 
 If `payload.success` is equal to true then the code within the element is executed, otherwise is skipped.
-
-<img src={useBaseUrl('img/api-fortress/2020/12/ifexists.jpg')} alt="ifexists.jpg" width="450"/>
+<img src={useBaseUrl('img/api-testing/if.png')} alt="if.png"/>
 
 If `_1.intermediate` exists then the code within the element is executed, otherwise is skipped. This is useful when the element is not always present.
+<img src={useBaseUrl('img/api-testing/ifexists.png')} alt="ifexists.png" />
 
 </details>
 
@@ -113,7 +112,7 @@ Allows you to run a block of assertions as long as a condition is valid.
 
 <strong>Examples</strong><br/>
 
-<img src={useBaseUrl('img/api-fortress/2020/12/while.jpg')} alt="while.jpg" width="400"/>
+<img src={useBaseUrl('img/api-testing/while.png')} alt="while.png" />
 
 </details>
 
@@ -228,7 +227,7 @@ Will count the number of instances of `HotelSummary`.
 
 Expressions are automatically evaluated in the **expression** fields, but can also be introduced in other fields, such as "value", with a specific notation.
 
-In this example, we compare the actual size of the collection with the "size attribute", by enclosing the expression within `${ .. }`. The "type" attribute ensures the comparison will happen with a numeric comparator, rather than string.<br/><img src={useBaseUrl('img/api-fortress/2020/13/assertEquals.png')} alt="assertEquals" width="400"/>
+In this example, we compare the actual size of the collection with the "size attribute", by enclosing the expression within `${ .. }`. The "type" attribute ensures the comparison will happen with a numeric comparator, rather than string.<br/><img src={useBaseUrl('img/api-testing/assertEquals.png')} alt="assertEquals" />
 
 
 

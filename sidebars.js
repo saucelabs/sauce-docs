@@ -472,6 +472,7 @@ module.exports = {
             'error-reporting/project-setup/alerts',
             'error-reporting/project-setup/scheduled-reports',
             'error-reporting/project-setup/access-control',
+            'error-reporting/project-setup/data-retention',
             'error-reporting/project-setup/user-mgmnt',
             'error-reporting/project-setup/team-mgmnt',
           ],
@@ -543,7 +544,6 @@ module.exports = {
           items: [
             'error-reporting/security-compliance/common-questions',
             'error-reporting/security-compliance/privacy-control',
-            'error-reporting/security-compliance/data-retention',
           ],
         },
       ],
@@ -585,6 +585,7 @@ module.exports = {
           collapsed: true,
           items: [
             'dev/cli/saucectl',
+            'dev/cli/saucectl/architecture',
             {
               type: 'category',
               label: 'Command Ref',
@@ -732,13 +733,15 @@ module.exports = {
           {
             type: 'category',
             label: 'Integrations',
-            link: { type: 'doc', id: 'basics/integrations/deque' },
+            link: { type: 'doc', id: 'basics/integrations-overview' },
             collapsed: true,
             items: [
+              'basics/integrations-overview',
               'basics/integrations/deque',
+              'basics/integrations/evinced',
               'basics/integrations/jira',
               'basics/integrations/slack',
-              'basics/integrations/webhooks',
+              'basics/integrations/uipath',
               'basics/integrations/sumo',
             ],
           },
@@ -881,7 +884,7 @@ module.exports = {
               'mobile-apps/automated-testing/espresso-xcuitest',
               'mobile-apps/automated-testing/espresso-xcuitest/espresso',
               'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
-          
+
               {
                 type: 'category',
                 label: 'Espresso Features',
@@ -891,7 +894,7 @@ module.exports = {
               'mobile-apps/automated-testing/espresso-xcuitest/espresso-capture',
                 ]
               }
-    
+
             ],
           },
           'mobile-apps/automated-testing/ipa-files',
@@ -1233,9 +1236,9 @@ module.exports = {
       label: 'Contributing',
       link: { type: 'doc', id: 'contributing' },
       collapsed: true,
-      items: [ 
-      'contributing', 
-      'contributing/style-guide', 
+      items: [
+      'contributing',
+      'contributing/style-guide',
       'contributing/code-of-conduct'
     ],
     },
