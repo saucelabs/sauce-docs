@@ -26,53 +26,8 @@ To ensure W3C WebDriver compatibility:
 - Switch from using the legacy JSON Wire Protocol (JWP) to the newer W3C WebDriver Protocol. Mixing JWP with W3C will result in an [error](/dev/w3c-webdriver-capabilities/#common-errors).
 - Learn the differences between legacy JWP and W3C WebDriver-compliant capability syntax. For example, W3C uses `platformName` and `browserVersion`, while JWP uses `platform` and `version`, respectively. We recommend reviewing our [Test Configuration Options](/dev/test-configuration-options)
   and the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/#capabilities).
-- Include our custom `sauce:options` W3C WebDriver-compliant capabilities in your Sauce Labs test scripts.
-  <details>
-  <summary><strong>Click here</strong> to see the full list of <code>sauce:options</code> capabilities.
-  See <a href="/dev/test-configuration-options">Test Configuration Options</a> for guidance on which are required and optional.
-  </summary>
-
-  - `accessKey`
-  - `appiumVersion`
-  - `avoidProxy`
-  - `build`
-  - `captureHtml`
-  - `chromedriverVersion`
-  - `commandTimeout`
-  - `crmuxdriverVersion`
-  - `customData`
-  - `disablePopupHandler`
-  - `extendedDebugging`
-  - `firefoxAdapterVersion`
-  - `firefoxProfileUrl`
-  - `idleTimeout`
-  - `iedriverVersion`
-  - `maxDuration`
-  - `name`
-  - `parentTunnel`
-  - `passed`
-  - `prerun`
-  - `preventRequeue`
-  - `priority`
-  - `proxyHost`
-  - `public`
-  - `recordLogs`
-  - `recordScreenshots`
-  - `recordVideo`
-  - `restrictedPublicInfo`
-  - `screenResolution`
-  - `seleniumVersion`
-  - `source`
-  - `tags`
-  - `timeZone`
-  - `tunnelIdentifier`
-  - `tunnelName`
-  - `tunnelOwner`
-  - `username`
-  - `videoUploadOnPass`
-
-  </details>
-
+- Include our custom `sauce:options` W3C WebDriver-compliant capabilities in your Sauce Labs test scripts. See <a href="/dev/test-configuration-options">Test Configuration Options</a> for a complete list of the options and guidance on which are required and optional.
+ 
 ### Browser Compatibility
 
 <table>
