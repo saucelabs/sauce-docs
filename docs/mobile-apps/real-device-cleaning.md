@@ -46,7 +46,7 @@ App allowlist:
   
 Account allowlist: 
 * Google accounts signed into the Play Store can be preserved between sessions.
-* Apple IDs signed in to the device and App Store can be preserved between sessions.
+* Apple IDs signed into the device and App Store can be preserved between sessions.
   
 ## Goals of the Cleaning Process
 
