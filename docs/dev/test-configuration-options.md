@@ -426,7 +426,8 @@ Possible values are:
  **Emulators / Simulators:**
  * **Android:** `UiAutomator2`, `Espresso`, `Flutter`
  * **iOS:** `XCUITest`, `Flutter`
-**Real Devices**
+
+**Real Devices:**
   * **Android:** `UiAutomator2`
   * **iOS:** `XCUITest`
 
