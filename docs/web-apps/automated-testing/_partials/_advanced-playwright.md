@@ -7,7 +7,7 @@ Playwright supports filtering tests using the [`grep`](/web-apps/automated-testi
 By default, playwright on Sauce Labs runs with these preconfigured reporters:
 - [list](https://playwright.dev/docs/test-reporters#list-reporter): Prints results to standard output.
 - [junit](https://playwright.dev/docs/test-reporters#junit-reporter): Creates junit.xml files.
-- [@saucelabs/playwright-reporter](https://github.com/saucelabs/sauce-playwright-reporter): Sauce Lab's own reporter that feeds test cases to the UI.
+- [@saucelabs/playwright-reporter](https://github.com/saucelabs/sauce-playwright-reporter): Sauce Lab's own reporter that routes test results to the [Test Results](/test-results/viewing-test-results/) page.
 
 If you have a custom reporter, simply set it in your _playwright.config.js/ts_ file:
 ```typescript
