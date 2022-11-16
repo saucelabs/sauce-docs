@@ -21,7 +21,7 @@ const config: PlaywrightTestConfig = {
 Your reporter runs automatically alongside our reporters.
 We do not filter out duplicate reporters, which also means that if you already have a `list` reporter set, you'd see twice the output.
 
-If you'd like a different set of reporters when running on Sauce vs local, check the env variable `SAUCE_VM`. In the following example, if `SAUCE_VM` is set (which it will be when running on a Sauce Labs VM), then _fancy.reporter.ts_ is used, otherwise just the built-in `list` reporter.
+If you'd like a different set of reporters when running on Sauce versus local, check the env variable `SAUCE_VM`. In the following example, if `SAUCE_VM` is set (which it will be when running on a Sauce Labs VM), then _fancy.reporter.ts_ is used, otherwise just the built-in `list` reporter.
 
 ```typescript
 const config: PlaywrightTestConfig = {
