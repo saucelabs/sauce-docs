@@ -5,9 +5,9 @@ sidebar_label: Real Device Cleaning Process
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The cleaning process runs at the end of each test session for Sauce Labs Real Device. It resets the device back to a default state, ready for the next test. The cleaning process also removes any private data which may have been part of the prior test. If we encounter any issue during the cleaning process, or we fail to clean the device, we put those devices aside for manual inspection to prevent data and security leaks. 
+The cleaning process runs at the end of each test session for Sauce Labs Real Devices. It resets the device back to a default state, ready for the next test. The cleaning process also removes any private data which may have been part of the prior test. If we encounter any issue during the cleaning process, or we fail to clean the device, we put those devices aside for manual inspection to prevent data and security leaks. 
 
-The cleaning process differs slightly between the Public Devices which are shared among all our customers, and the Private Devices, where the owner has more control over the configuration of their device. It also differs between Android and iOS, due to the different features of these operating systems.
+The cleaning process differs slightly between the Public Devices, which are shared among all our customers, and the Private Devices, where the owner has more control over the configuration of their device. It also differs between Android and iOS, due to the different features of these operating systems.
 
 ## Public Devices
 
@@ -17,6 +17,16 @@ performant, and any stray processes are stopped.
 :::note
 A factory reset is not performed between test sessions, as this requires manual intervention and would slow down the time required between test runs.
 :::
+
+## Goals of the Cleaning Process
+
+Our goal is to provide you access to a device that will behave in a predictable, and reliable way, and is not affected in any way by prior test sessions.
+
+A clean device:
+* Has only those apps which are provided by the manufacturer and by Sauce Labs, or which you have specifically requested to be installed.
+* Has the default system settings, which are typical for a newly configured device.
+* Provides some convenient locale and system account defaults.
+* Has an empty file system, containing no additional media or documents.
 
 ### Cleaning Process Steps
 
@@ -35,7 +45,7 @@ We use a proprietary process that wipes every real device clean at the end of th
  * US Devices: Lat 37.768, Lon -121.959, Alt 5m (San Francisco, US) and Lat 33.771 Lon -84.397, Alt 225m (Atlanta, US)
  * EU devices: Lat 52.500, Lon 13.447, Alt 40m (Berlin, DE)
 * Media files (Photos, Videos, Files) on the device are removed.
-* PIN code/Passcode is removed.
+* PIN code/Password is removed.
 
 ## Private Devices
 
@@ -46,14 +56,4 @@ App allowlist:
   
 Account allowlist: 
 * Google accounts signed into the Play Store can be preserved between sessions.
-* Apple IDs signed in to the device and App Store can be preserved between sessions.
-  
-## Goals of the Cleaning Process
-
-Our goal is to provide you access to a device that will behave in a predictable, and reliable way, and is not affected in any way by prior test sessions.
-
-A clean device:
-* Has only those apps which are provided by the manufacturer and by Sauce Labs, or which you have specifically requested to be installed.
-* Has the default system settings, which are typical for a newly configured device.
-* Provides some convenient locale and system account defaults.
-* Has an empty file system, containing no additional media or documents.
+* Apple IDs signed into the device and App Store can be preserved between sessions.

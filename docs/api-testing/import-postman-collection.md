@@ -1,7 +1,7 @@
 ---
 id: import-postman-collection
 title: Importing Postman Collections, Variables, and Environments
-sidebar_label: Import Test from Postman
+sidebar_label: Importing from Postman
 description: "Automatically generate tests from an existing Postman Collection."
 ---
 

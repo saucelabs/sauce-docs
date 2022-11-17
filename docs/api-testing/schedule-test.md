@@ -21,7 +21,7 @@ The **Schedule** tool, accessible from within each test, allows you to schedule 
 The **Schedule** functionality is available only for published tests. For more information, see [Publish Your Test](/api-testing/quickstart/#publish-your-test).
 :::
 
-1. In the **Composer**, click the **Schedule** tab.<br/><img src={useBaseUrl('img/api-fortress/2021/02/scheduleTab.png')} alt="Schedule Tab"/>
+1. In the **Composer**, click the **Schedule** tab.<br/><img src={useBaseUrl('img/api-testing/scheduleTab.png')} alt="Schedule Tab"/>
 2. Click **Create Schedule**.<br/><img src={useBaseUrl('img/api-fortress/2021/02/createScheduleButton.png')} alt="Create Schedule" width="450"/>
 
 3. In the **New Schedule** window, enter a **Schedule Name** (**Description** is optional).

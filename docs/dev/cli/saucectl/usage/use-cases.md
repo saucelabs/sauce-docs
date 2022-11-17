@@ -221,6 +221,26 @@ node_modules/
 credentials.yml
 ```
 
+Sometimes it's easier to do the inverse: Including files for the bundle.
+
+```bash
+# Ignore all files by default.
+/*
+
+# Re-include files we selectively want as part of the payload by prefixing the lines with '!'.
+!/node_modules
+!/cypress
+!cypress.config.js
+
+# Since the whole '/cypress' folder is now included, this would also include any
+# subdirectories that potentially contain auto-generated test artifacts from
+# the local dev environment.
+# It'd be wasteful to include them in the payload, so let's ignore those subfolders.
+/cypress/videos/
+/cypress/results/
+/cypress/screenshots/
+```
+
 ### Including Node Dependencies
 
 The default `.sauceignore` file lists `node_modules/` so locally installed node dependencies are excluded from the bundle. If your tests require node dependencies to run, you can either:

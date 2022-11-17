@@ -168,6 +168,11 @@ A property containing one or more environment variables that are global for all 
     hello: world
     my_var: $MY_VAR
 ```
+
+:::caution
+Currently, `env` only supports lowercase keys on `macOS` platform. The workaround is either passing the env through cli `saucectl run --env FOO=BAR` or setting `env` on suite level. 
+:::
+
 ---
 
 ## `docker`
@@ -659,6 +664,23 @@ node_modules/
 
 # Ignore sensitive data
 credentials.yml
+```
+
+Sometimes it's easier to do the inverse: Including files for the bundle.
+
+```bash
+# Ignore all files by default.
+/*
+
+# Re-include files we selectively want as part of the payload by prefixing the lines with '!'.
+!/node_modules
+!/tests
+
+# Since the whole '/tests' folder is now included, this would also include any
+# subdirectories that potentially contain auto-generated test artifacts from
+# the local dev environment.
+# It'd be wasteful to include them in the payload, so let's ignore those subfolders.
+/tests/results/
 ```
 
 #### Including Node Dependencies

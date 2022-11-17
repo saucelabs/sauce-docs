@@ -26,19 +26,19 @@ Most of the parametrization you will likely do relates to the HTTP request itsel
 
 Go into your [Company Vault or Project-specific Vault](/api-testing/vault).
 
-Consider this variable:<br/><img src={useBaseUrl('img/api-fortress/2017/09/harcoded.png')} alt="Hardcoded Variables"/>
+Consider this variable:<br/><img src={useBaseUrl('img/api-testing/harcoded.png')} alt="Hardcoded Variables"/>
 
 While the following variable is perfectly valid, it may become painful to update tens or hundreds of tests if the domain changes.
 
-Alternatively, you can use the API Testing Vault to store domain names to solve this problem. Simply add a “domain” variable in your vault:<br/><img src={useBaseUrl('img/api-fortress/2021/04/variableEntry.png')} alt="Domain Variables"/>
+Alternatively, you can use the API Testing Vault to store domain names to solve this problem. Simply add a “domain” variable in your vault:<br/><img src={useBaseUrl('img/api-testing/variableEntry.png')} alt="Domain Variables"/>
 
 And then edit the `GET` request with `${domain}` like this:
 
-<img src={useBaseUrl('img/api-fortress/2017/09/parametrized.png')} alt="Parametrized Variables"/>
+<img src={useBaseUrl('img/api-testing/parametrized.png')} alt="Parametrized Variables"/>
 
 You can also set URL endpoints as variables, for example:
 
-<img src={useBaseUrl('img/api-fortress/2021/04/urlVariable.png')} alt="URL Variables"/>
+<img src={useBaseUrl('img/api-testing/urlVariable.png')} alt="URL Variables"/>
 
 In this way, you can eliminate duplicate tasks by editing the **Vault** variable to instantly update all tests based on domains and url changes.
 
@@ -47,13 +47,13 @@ In this way, you can eliminate duplicate tasks by editing the **Vault** variable
 
 Variables are not only bound to URLs. Request bodies can also be handled like "templates" when needed, incorporating variables as in:
 
-<img src={useBaseUrl('img/api-fortress/2017/09/body.png')} alt="BODY"/>
+<img src={useBaseUrl('img/api-testing/body.png')} alt="BODY"/>
 
-And Basically Anywhere
+And basically anywhere.
 
 Reference variables almost anywhere that you need. Consider the following example assertion:
 
-<img src={useBaseUrl('img/api-fortress/2017/09/exp.png')} alt="EXP"/>
+<img src={useBaseUrl('img/api-testing/exp.png')} alt="EXP"/>
 
 Yes, we're using variables as expected values.
 
