@@ -28,9 +28,9 @@ When testing mobile apps, you have the option to upload your app to our app stor
 To increase service stability and prevent overload by a high volume of incoming traffic, we have set the following rate limits for uploading your mobile apps (effective from 14.11.2022): 
 
 
-| |Trial Users (per organization)|Non Trial Users (per organization)|
+| |Trial Users |Non Trial Users|
 |:---|:---|:---|
-|**Uploads**| <ul><li>5 Uploads per 15 minute window </li><li>100 uploads per 24 hour window </li></ul>|<ul><li> 50 uploads per 15 minute window</li><li> 15 uploads in parallel </li></ul>|
+|**Uploads**| <ul><li>5 Uploads per 15 minute window </li><li>2 uploads in parallel  </li></ul>|<ul><li> 100 uploads per 15 minute window</li><li> 15 uploads in parallel </li></ul>|
 
 
 ## Uploading Apps via UI
