@@ -1,7 +1,7 @@
 ---
 id: appium-2-migration
 title: Migrating to Appium 2.0 on Sauce Labs
-sidebar_label: Appium 2 Migration
+sidebar_label: Appium 2.0 Migration
 description: Learn how to migrate you Appium 1 tests to Appium 2 on Sauce Labs.
 ---
 
