@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 :::warning Appium 1 End-of-life
 The Appium core team does not maintain Appium 1.x anymore since the 1st of January 2022. All recent versions of officially supported platform drivers are not compatible to Appium 1.x anymore, and require Appium 2 to run.
 
-For more information on migrating to Appium 2, see [Migrating to Appium 2](/mobile-apps/automated-testing/appium/appium-migration). For more information on installing Appium 2, see [Installing Appium 2](https://appium.github.io/appium/docs/en/2.0/quickstart/install/).
+For more information on migrating to Appium 2, see [Migrating to Appium 2](/mobile-apps/automated-testing/appium/appium-2-migration). For more information on installing Appium 2, see [Installing Appium 2](https://appium.github.io/appium/docs/en/2.0/quickstart/install/).
 :::
 
 Looking to incorporate Appium in your mobile testing strategy? This page can help you understand the system architecture and installation requirements.
