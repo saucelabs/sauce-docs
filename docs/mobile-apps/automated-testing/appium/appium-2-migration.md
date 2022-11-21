@@ -87,7 +87,7 @@ As mentioned above, the following breaking changes lead to using the following c
 
 ### Capabilities
 
-Below you can find an example of a capabilities object for running a test on Sauce Labs with Appium 2.0. The examples are created for Real Devices, for Virtual device we advice you to check out our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/).
+Below you can find an example of a capabilities object for running a test on Sauce Labs with Appium 2.0. The examples are created for Real Devices, for Virtual Devices we advise you to use our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/).
 
 <Tabs
 groupId="capability-ex"
