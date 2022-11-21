@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 The Appium core team does not maintain Appium 1.x anymore since the 1st of January 2022. Recent versions of all officially supported platform drivers are no longer compatible with  Appium 1.x, and require Appium 2 to run.
 :::
 
-Appium 2.0 is the most major new release of Appium in the last years. The changes in Appium 2.0 are not primarily related to changes in automation behaviors for specific platforms. Instead, Appium 2.0 re-envisions Appium as a platform where "drivers" (code projects that introduce support for automation of a given platform) and "plugins" (code projects that allow for overriding, altering, extending, or adding behaviors to Appium) can be easily created and shared.
+The changes in Appium 2.0 are not primarily related to changes in automation behaviors for specific platforms. Instead, Appium 2.0 re-envisions Appium as a platform where "drivers" (code projects that introduce support for automation of a given platform) and "plugins" (code projects that allow for overriding, altering, extending, or adding behaviors to Appium) can be easily created and shared.
 
 At the same time, the Appium project is taking the opportunity to remove many old and deprecated bits of functionality. More information about this can be found in the [Appium 2.0 release notes](https://github.com/appium/appium/releases).
 
