@@ -10,7 +10,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::warning Appium 1 End-of-life
-The Appium core team does not maintain Appium 1.x anymore since the 1st of January 2022. All recent versions of officially supported platform drivers are not compatible to Appium 1.x anymore, and require Appium 2 to run.
+The Appium core team does not maintain Appium 1.x anymore since the 1st of January 2022. Recent versions of all officially supported platform drivers are no longer compatible with  Appium 1.x, and require Appium 2 to run.
 :::
 
 Appium 2.0 is the most major new release of Appium in the last years. The changes in Appium 2.0 are not primarily related to changes in automation behaviors for specific platforms. Instead, Appium 2.0 re-envisions Appium as a platform where "drivers" (code projects that introduce support for automation of a given platform) and "plugins" (code projects that allow for overriding, altering, extending, or adding behaviors to Appium) can be easily created and shared.
