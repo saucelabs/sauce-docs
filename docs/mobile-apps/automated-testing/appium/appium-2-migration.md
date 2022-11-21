@@ -89,47 +89,6 @@ As mentioned above, the following breaking changes lead to using the following c
 
 Below you can find an example of a capabilities object for running a test on Sauce Labs with Appium 2.0. The examples are created for Real Devices, for Virtual device we advice you to check out our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/).
 
-```json title="Android"
-{
-  "sauce:options": {
-    "appiumVersion": "2.0.0",
-    "deviceName": "Google Pixel 3 GoogleAPI Emulator",
-    "deviceOrientation": "portrait",
-    "platformVersion": "10.0",
-    "platformName": "Android",
-    "app": "sauce-storage:myapp.apk",
-    "automationName": "UiAutomator2"
-  }
-}
-```
-
-```json title="iOS"
-{
-  "sauce:options": {
-    "appiumVersion": "2.0.0",
-    "deviceName": "iPhone 11 Simulator",
-    "deviceOrientation": "portrait",
-    "platformVersion": "13.3",
-    "platformName": "iOS",
-    "app": "sauce-storage:myapp.ipa",
-    "automationName": "XCUITest"
-  }
-}
-```
-
-```json title="Capabilities for Appium 2.0"
-{
-  "sauce:options": {
-    "appiumVersion": "2.0.0",
-    "deviceName": "iPhone 11 Simulator",
-    "deviceOrientation": "portrait",
-    "platformVersion": "14.0",
-    "platformName": "iOS",
-    "app": "sauce-storage:myapp.zip"
-  }
-}
-```
-
 <Tabs
 groupId="capability-ex"
 defaultValue="java"
