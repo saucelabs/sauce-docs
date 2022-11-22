@@ -90,10 +90,9 @@ When options can be set at both levels, project settings override global setting
 
 ### Configure Global Sauce Settings
 
-<ol>
-  <li>From your Jenkins dashboard, choose <b>Manage Jenkins</b> and then <b>Configure System</b>.</li>
-  <li>Scroll down to the <b>Sauce Support</b> section.</li>
-  <li>Configure the optional settings as needed, based on the descriptions in the following table.
+1. From your Jenkins dashboard, select **Manage Jenkins** then **Configure System**.
+1. Scroll down to the **Sauce Support** section.
+1. Configure the optional settings as needed, based on the descriptions in the following table.
     <table>
       <tr>
         <th>Setting</th>
@@ -126,18 +125,17 @@ When options can be set at both levels, project settings override global setting
         <td>A value that will be automatically added to the front of any Jenkins environment variable set by the Sauce OnDemand plugin.</td>
       </tr>
     </table>
-  </li>
-  <li>Click <b>Save</b></li>
-</ol>
+1. Click **Save**.
 
 ### Configure Sauce Settings for a Project
 
-<ol>
-  <li>From your Jenkins dashboard, select the project you wish to configure.</li>
-  <li>Choose <b>Configure</b> from the project menu.</li>
-  <li>Choose the <b>Sauce Labs Options</b> tab to jump to the relevant settings.</li>
-  <li>Configure the optional settings as needed, based on the descriptions in the following table.<br/>
-    <b>NOTE:</b> Project specific settings will always override the global value for the same setting.<br/>
+1. From your Jenkins dashboard, select the project you wish to configure.
+1. Select **Configure** from the project menu.
+1. Select the **Sauce Labs Options** tab to jump to the relevant settings.
+1. Configure the optional settings as needed, based on the descriptions in the following table.
+  :::note
+  Project specific settings will always override the global value for the same setting.
+  :::
     <table>
       <tr>
         <th>Setting</th>
@@ -149,7 +147,7 @@ When options can be set at both levels, project settings override global setting
       </tr>
       <tr>
         <td><b>Credentials</b></td>
-        <td>If you have already created a crendentials variable for your Sauce Labs account, use the drop-down menu to choose it as the authentication account for this project. If you have not created a credentials variable yet, click the <b>Add</b> button to do that now. See <a href="#creating-your-sauce-labs-credentials">Creating Your Sauce Labs Credentials</a> for details.</td>
+        <td>If you have already created a credentials variable for your Sauce Labs account, use the drop-down menu to choose it as the authentication account for this project. If you have not created a credentials variable yet, click the <b>Add</b> button to do that now. See <a href="#creating-your-sauce-labs-credentials">Creating Your Sauce Labs Credentials</a> for details.</td>
       </tr>
       <tr>
         <td><b>WebDriver</b></td>
@@ -186,8 +184,7 @@ When options can be set at both levels, project settings override global setting
         <td>If <b>Create a new unique Sauce Connect tunnel per build</b> in enabled in the Advanced Options section, checking this option ensures that aborted builds do not tie up tunnels unnecessarily.</td>
       </tr>
     </table>
-  </li>
-  <li> Scroll to the <b>Sauce Connect Advanced Options</b> section and click <b>Advanced</b> to display additional options described in the following table as needed.
+ 1. Scroll to the **Sauce Connect Advanced Options** section, and click **Advanced** to display additional options described in the following table as needed.
     <table>
       <tr>
         <th>Setting</th>
@@ -236,8 +233,6 @@ When options can be set at both levels, project settings override global setting
         <td>An option to run the Sauce Labs tests in this project using Apache Ant.</td>
       </tr>
     </table>
-  </li>
-</ol>
 
 ## Populating your Capabilities with Environment Variables
 
@@ -401,7 +396,7 @@ The `{saucePublisher}` function lets you send test result data to Sauce Labs. Se
 1. Add the returned snippet to your Groovy script.
 
 :::note
-You need not wrap the `{saucePublisher}` in the `{sauce}` snippet, but do include the `{saucePublisher}` in some part of the Pipeline file in order to report the results.
+It's not required to wrap the `{saucePublisher}` in the `{sauce}` snippet, but do include the `{saucePublisher}` in some part of the Pipeline file in order to report the results.
 :::
 
 <p className="deis">We recognize that there are times we use words that are part of a troublesome history. We're working toward replacing these as part of the move to inclusive language within the tech community as a whole.</p>
