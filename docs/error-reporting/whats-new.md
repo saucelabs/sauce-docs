@@ -5,8 +5,14 @@ sidebar_label: What's New
 description: See what's new with the Backtrace Console, including new features and improvements.
 ---
 
+## Unity Sample Project (2022-11-16)
+You can now generate a sample project to see errors and crashes for a Unity application that has been integrated and pre-configured with Backtrace. 
+
+To generate a sample project, go to **Project settings > Integration guides (under Error Submission) > Unity**, then click **Generate sample project**.
+<img src="/img/error-reporting/whats-new/unity-sample-project.png" width="500"/>
+
 ## Improved Navigation in Organization Settings (2022-11-01)
-We've made it easier for you to navigate in the Organization settings menu. The improvements include a breadcrumb trail at the top of the screen, and an new side navigation menu.
+We've made it easier for you to navigate in the Organization settings menu. The improvements include a breadcrumb trail at the top of the screen, and a new side navigation menu.
 
 ## Improved Navigation in Project Settings (2022-10-17)
 We've made it easier for you to navigate in the Project settings menu. The improvements include a breadcrumb trail at the top of the screen, and new groupings in the side navigation menu for better readability.
