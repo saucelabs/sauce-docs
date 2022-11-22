@@ -751,7 +751,7 @@ Optional, Sauce-specific capabilities that you can use in your Appium tests. The
 Specifies the Appium driver version you want to use. For most use cases, setting the `appiumVersion` is unnecessary because Sauce Labs defaults to the version that supports the broadest number of device combinations. Sauce Labs advises against setting this property unless you need to test a particular Appium feature or patch.
 
 :::note
-Sauce Labs waits a week following new Appium releases before setting them as the default version to provide time to verify compatibility with your tests. You can find version details in the [Appium release notes](https://github.com/appium/appium/releases).
+If you want to use Appium 2.0, see the [Migration Guide](/mobile-apps/automated-testing/appium/appium-2-migration/).
 :::
 
 ```java
