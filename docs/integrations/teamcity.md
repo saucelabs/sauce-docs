@@ -77,7 +77,7 @@ If you're using Protractor to run your tests with TeamCity, ensure `disableEnvir
 |Variable|Description|
 |---|----------------|
 |SAUCE_TC_BUILDNUMBER|	The build name to use with Sauce Labs jobs|
-|TUNNEL_IDENTIFIER|The unique tunnel identifier used by Sauce Connect, if enabled|
+|TUNNEL_IDENTIFIER|The unique tunnel identifier used by Sauce Connect Proxy, if enabled|
 
 ## Outputting the TeamCity Session ID to `stdout`
 
