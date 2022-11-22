@@ -23,7 +23,7 @@ import TabItem from '@theme/TabItem';
 
 ## Setting a Different Data Center
 
-You can set a different data center either Globally, for all of your projects, or just for specific projects.
+You can set a different data center either globally, for all of your projects, or just for specific projects.
 :::note
 This configuration is supported in Bamboo OnDemand Plugin versions 1.6.87 or above.
 :::
@@ -108,10 +108,10 @@ Sauce Labs supports a variety of project languages. Choose the set of instructio
 ###  Enable the Sauce Plugin
 
 1. Select **Enable Sauce OnDemand**.
-1. In **General Settings**, select the Selenium Version you want to use for your tests.
+1. In **General Settings**, select the Selenium version you want to use for your tests.
 1. Select the **Browser** you want to run your tests against.
 1. Enter the **Max Duration**, **Idle Timeout**, and **Starting Browser URL** settings for your test.
-1. Deselect the default **Enable Sauce Connect** setting if you do not need to launch a secure Sauce Connect instance in order to run your Job (the instance will automatically close when the Job completes).
+1. Deselect the default **Enable Sauce Connect** setting if you do not need to launch a secure Sauce Connect Proxy instance in order to run your job (the instance will automatically close when the job completes).
 1. Click **Save**.
 
 ### Run the Example Tests
