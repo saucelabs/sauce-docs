@@ -51,6 +51,11 @@ However, because proxy requests to a localhost address are not supported by all 
 See also [Supported Browsers and Ports Specification](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports).
 
 
+## How Can I Improve Tunnel Performance?
+
+See [Improving Sauce Connect Proxy Performance](/secure-connections/sauce-connect/proxy-tunnels/#improving-sauce-connect-proxy-performance).
+
+
 ### Supported Browsers and Ports
 
 See [Supported Browsers and Ports Specification](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports).
