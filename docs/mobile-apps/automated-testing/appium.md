@@ -9,6 +9,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::warning Appium 1 End of Life
+The Appium core team does not maintain Appium 1.x anymore since the 1st of January 2022. Recent versions of all officially supported platform drivers are no longer compatible with  Appium 1.x, and require Appium 2 to run.
+
+For more information on migrating to Appium 2, see [Migrating to Appium 2](/mobile-apps/automated-testing/appium/appium-2-migration). For more information on installing Appium 2, see [Installing Appium 2](https://appium.github.io/appium/docs/en/2.0/quickstart/install/).
+:::
+
 Looking to incorporate Appium in your mobile testing strategy? This page can help you understand the system architecture and installation requirements.
 
 [Appium](http://appium.io/) is an automation testing framework that allows you to write tests using the [Selenium](https://www.selenium.dev) syntax that are for use in testing native, mobile web, and hybrid apps on iOS and Android devices. Run your Appium tests on Sauce Labs to benefit from speed, parallelization, clear test result history, failure analysis, issue tracking, and more.
