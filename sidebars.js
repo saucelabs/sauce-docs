@@ -1181,11 +1181,11 @@ module.exports = {
       collapsed: true,
       items: [
         'ci',
-        'ci/azure',
-        'ci/bamboo',
-        'ci/bitbucket',
-        'ci/jenkins',
-        'ci/teamcity',
+        'basics/integrations/azure',
+        'basics/integrations/bamboo',
+        'basics/integrations/bitbucket',
+        'basics/integrations/jenkins',
+        'basics/integrations/teamcity',
       ],
     },
     {
