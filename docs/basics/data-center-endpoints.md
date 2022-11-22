@@ -95,7 +95,7 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com, which resolve
 | --- |
 | 34.107.82.96/27 (from Jan 31 2023) |
 | 34.141.28.96/32 |
-| 162.222.79.0/24 |
+| 162.222.79.0/27 |
 | 185.94.24.0/22 |
 
 ### APAC Southeast Data Center
