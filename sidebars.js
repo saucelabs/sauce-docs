@@ -35,7 +35,10 @@ module.exports = {
           type: 'category',
           label: 'APIs and Webhooks (Legacy)',
           collapsed: true,
-          items: ['api-testing/on-prem/api/v3', 'api-testing/on-prem/api/using-the-api'],
+          items: [
+            'api-testing/on-prem/api/v3',
+            'api-testing/on-prem/api/using-the-api',
+          ],
         },
         {
           type: 'category',
@@ -275,7 +278,9 @@ module.exports = {
           type: 'category',
           label: 'Security Testing (Legacy)',
           collapsed: true,
-          items: ['api-testing/on-prem/security-testing/example-security-tests'],
+          items: [
+            'api-testing/on-prem/security-testing/example-security-tests',
+          ],
         },
         {
           type: 'category',
@@ -323,7 +328,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Low Code',
-      link: { type: 'doc', id:  'dev/low-code' },
+      link: { type: 'doc', id: 'dev/low-code' },
       collapsed: true,
       collapsible: false,
       items: [
@@ -332,16 +337,19 @@ module.exports = {
         {
           type: 'category',
           label: 'Plan',
-          link: { type: 'doc', id:  'dev/low-code/plan/plan-step' },
+          link: { type: 'doc', id: 'dev/low-code/plan/plan-step' },
           collapsed: true,
           items: [
             'dev/low-code/plan/plan-step',
             {
               type: 'category',
               label: 'Projects',
-              link: { type: 'doc', id:  'dev/low-code/plan/projects/projects' },
+              link: { type: 'doc', id: 'dev/low-code/plan/projects/projects' },
               collapsed: true,
-              items: ['dev/low-code/plan/projects/projects', 'dev/low-code/plan/projects/project-details-page'],
+              items: [
+                'dev/low-code/plan/projects/projects',
+                'dev/low-code/plan/projects/project-details-page',
+              ],
             },
             'dev/low-code/plan/test-suites',
             'dev/low-code/plan/test-cases',
@@ -350,7 +358,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Execute',
-          link: { type: 'doc', id:  'dev/low-code/execute/execute-step' },
+          link: { type: 'doc', id: 'dev/low-code/execute/execute-step' },
           collapsed: true,
           items: [
             'dev/low-code/execute/execute-step',
@@ -371,7 +379,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Error and Crash Reporting',
-      link: { type: 'doc', id:  'error-reporting/getting-started' },
+      link: { type: 'doc', id: 'error-reporting/getting-started' },
       collapsed: true,
       collapsible: false,
       items: [
@@ -380,34 +388,46 @@ module.exports = {
         {
           type: 'category',
           label: 'Platform Integrations',
-          link: { type: 'doc', id:  'error-reporting/platform-integrations/android/setup' },
+          link: {
+            type: 'doc',
+            id: 'error-reporting/platform-integrations/android/setup',
+          },
           collapsed: true,
           items: [
-        {
-                type: 'category',
-                label: 'Android',
-                link: { type: 'doc', id:  'error-reporting/platform-integrations/android/setup' },
-                collapsed: true,
-                items: [
-                    'error-reporting/platform-integrations/android/setup',
-                    'error-reporting/platform-integrations/android/configuration',
-                    'error-reporting/platform-integrations/android/proguard-deobfuscation',
-                ],
+            {
+              type: 'category',
+              label: 'Android',
+              link: {
+                type: 'doc',
+                id: 'error-reporting/platform-integrations/android/setup',
+              },
+              collapsed: true,
+              items: [
+                'error-reporting/platform-integrations/android/setup',
+                'error-reporting/platform-integrations/android/configuration',
+                'error-reporting/platform-integrations/android/proguard-deobfuscation',
+              ],
             },
-        {
-                type: 'category',
-                label: 'iOS',
-                link: { type: 'doc', id:  'error-reporting/platform-integrations/ios/setup' },
-                collapsed: true,
-                items: [
-                    'error-reporting/platform-integrations/ios/setup',
-                    'error-reporting/platform-integrations/ios/configuration',
-                ],
+            {
+              type: 'category',
+              label: 'iOS',
+              link: {
+                type: 'doc',
+                id: 'error-reporting/platform-integrations/ios/setup',
+              },
+              collapsed: true,
+              items: [
+                'error-reporting/platform-integrations/ios/setup',
+                'error-reporting/platform-integrations/ios/configuration',
+              ],
             },
             {
               type: 'category',
               label: 'Unity',
-              link: { type: 'doc', id:  'error-reporting/platform-integrations/unity/setup' },
+              link: {
+                type: 'doc',
+                id: 'error-reporting/platform-integrations/unity/setup',
+              },
               collapsed: true,
               items: [
                 'error-reporting/platform-integrations/unity/setup',
@@ -418,7 +438,10 @@ module.exports = {
             {
               type: 'category',
               label: 'Unreal Engine',
-              link: { type: 'doc', id:  'error-reporting/platform-integrations/unreal/setup' },
+              link: {
+                type: 'doc',
+                id: 'error-reporting/platform-integrations/unreal/setup',
+              },
               collapsed: true,
               items: [
                 'error-reporting/platform-integrations/unreal/setup',
@@ -429,18 +452,24 @@ module.exports = {
             {
               type: 'category',
               label: 'Real Devices',
-              link: { type: 'doc', id:  'error-reporting/platform-integrations/real-devices/setup' },
+              link: {
+                type: 'doc',
+                id: 'error-reporting/platform-integrations/real-devices/setup',
+              },
               collapsed: true,
               items: [
-                  'error-reporting/platform-integrations/real-devices/setup',
+                'error-reporting/platform-integrations/real-devices/setup',
               ],
-          },
+            },
           ],
         },
         {
           type: 'category',
           label: 'Web Console Views',
-          link: { type: 'doc', id:  'error-reporting/web-console/getting-started' },
+          link: {
+            type: 'doc',
+            id: 'error-reporting/web-console/getting-started',
+          },
           collapsed: true,
           items: [
             'error-reporting/web-console/getting-started',
@@ -455,7 +484,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Project Setup',
-          link: { type: 'doc', id:  'error-reporting/project-setup/attributes' },
+          link: { type: 'doc', id: 'error-reporting/project-setup/attributes' },
           collapsed: true,
           items: [
             'error-reporting/project-setup/attributes',
@@ -480,7 +509,10 @@ module.exports = {
         {
           type: 'category',
           label: 'Workflow Integrations',
-          link: { type: 'doc', id:  'error-reporting/workflow-integrations/overview' },
+          link: {
+            type: 'doc',
+            id: 'error-reporting/workflow-integrations/overview',
+          },
           collapsed: true,
           items: [
             'error-reporting/workflow-integrations/overview',
@@ -488,7 +520,10 @@ module.exports = {
             {
               type: 'category',
               label: 'Messaging',
-              link: { type: 'doc', id:  'error-reporting/workflow-integrations/messaging/slack' },
+              link: {
+                type: 'doc',
+                id: 'error-reporting/workflow-integrations/messaging/slack',
+              },
               collapsed: true,
               items: [
                 'error-reporting/workflow-integrations/messaging/slack',
@@ -502,7 +537,10 @@ module.exports = {
             {
               type: 'category',
               label: 'Issue Tracking',
-              link: { type: 'doc', id:  'error-reporting/workflow-integrations/issue-tracking/jira' },
+              link: {
+                type: 'doc',
+                id: 'error-reporting/workflow-integrations/issue-tracking/jira',
+              },
               collapsed: true,
               items: [
                 'error-reporting/workflow-integrations/issue-tracking/jira',
@@ -515,7 +553,10 @@ module.exports = {
             {
               type: 'category',
               label: 'Alerting and Operations',
-              link: { type: 'doc', id:  'error-reporting/workflow-integrations/alerting-ops/pagerduty' },
+              link: {
+                type: 'doc',
+                id: 'error-reporting/workflow-integrations/alerting-ops/pagerduty',
+              },
               collapsed: true,
               items: [
                 'error-reporting/workflow-integrations/alerting-ops/pagerduty',
@@ -526,7 +567,10 @@ module.exports = {
             {
               type: 'category',
               label: 'Monitoring',
-              link: { type: 'doc', id:  'error-reporting/workflow-integrations/monitoring/datadog' },
+              link: {
+                type: 'doc',
+                id: 'error-reporting/workflow-integrations/monitoring/datadog',
+              },
               collapsed: true,
               items: [
                 'error-reporting/workflow-integrations/monitoring/datadog',
@@ -539,7 +583,10 @@ module.exports = {
         {
           type: 'category',
           label: 'Privacy and Compliance',
-          link: { type: 'doc', id:  'error-reporting/security-compliance/common-questions' },
+          link: {
+            type: 'doc',
+            id: 'error-reporting/security-compliance/common-questions',
+          },
           collapsed: true,
           items: [
             'error-reporting/security-compliance/common-questions',
@@ -598,14 +645,14 @@ module.exports = {
                 'dev/cli/saucectl/completion',
                 'dev/cli/saucectl/storage/download',
                 'dev/cli/saucectl/storage/list',
-                'dev/cli/saucectl/storage/upload'
+                'dev/cli/saucectl/storage/upload',
               ],
             },
             'dev/cli/saucectl/usage/use-cases',
             {
               type: 'category',
               label: 'CI Integrations',
-              link: { type: 'doc', id: 'dev/cli/saucectl/usage/ci/circleci', },
+              link: { type: 'doc', id: 'dev/cli/saucectl/usage/ci/circleci' },
               collapsed: true,
               items: [
                 'dev/cli/saucectl/usage/ci/circleci',
@@ -617,16 +664,19 @@ module.exports = {
             {
               type: 'category',
               label: 'IDE Integrations',
-              link: { type: 'doc', id: 'dev/cli/saucectl/usage/ide/intellij', },
+              link: { type: 'doc', id: 'dev/cli/saucectl/usage/ide/intellij' },
               collapsed: true,
-              items: ['dev/cli/saucectl/usage/ide/intellij', 'dev/cli/saucectl/usage/ide/vscode'],
+              items: [
+                'dev/cli/saucectl/usage/ide/intellij',
+                'dev/cli/saucectl/usage/ide/vscode',
+              ],
             },
           ],
         },
         {
           type: 'category',
           label: 'Virtual USB CLI',
-          link: { type: 'doc', id: 'dev/cli/virtual-usb', },
+          link: { type: 'doc', id: 'dev/cli/virtual-usb' },
           collapsed: true,
           items: [
             'dev/cli/virtual-usb',
@@ -648,106 +698,124 @@ module.exports = {
       link: { type: 'doc', id: 'overview' },
       collapsed: true,
       items: [
-      'overview',
-      {
-        type: 'category',
-        label: 'Sauce Labs Basics',
-        link: { type: 'doc', id: 'sauce-basics' },
-        collapsed: true,
-        items: [
-          'sauce-basics',
-          'basics/quickstarts',
-          'basics/platform-configurator',
-          'basics/environment-variables',
-          {
-            type: 'category',
-            label: 'Account and Team Management',
-            link: { type: 'doc', id: 'basics/acct-team-mgmt-hub' },
-            collapsed: true,
-            items: [
-              'basics/acct-team-mgmt-hub',
-              'basics/acct-team-mgmt/org-settings',
-              {
-                type: 'category',
-                label: 'Managing Users and Accounts',
-                link: { type: 'doc', id: 'basics/acct-team-mgmt/concurrency-limits', },
-                collapsed: true,
-                items: [
-                  'basics/acct-team-mgmt/concurrency-limits',
-                  'basics/acct-team-mgmt/adding-deactivating-users',
-                  'basics/acct-team-mgmt/managing-user-info',
-                  'basics/acct-team-mgmt/viewing-exporting-usage-data',
-                ],
+        'overview',
+        {
+          type: 'category',
+          label: 'Sauce Labs Basics',
+          link: { type: 'doc', id: 'sauce-basics' },
+          collapsed: true,
+          items: [
+            'sauce-basics',
+            'basics/quickstarts',
+            'basics/platform-configurator',
+            'basics/environment-variables',
+            {
+              type: 'category',
+              label: 'Account and Team Management',
+              link: { type: 'doc', id: 'basics/acct-team-mgmt-hub' },
+              collapsed: true,
+              items: [
+                'basics/acct-team-mgmt-hub',
+                'basics/acct-team-mgmt/org-settings',
+                {
+                  type: 'category',
+                  label: 'Managing Users and Accounts',
+                  link: {
+                    type: 'doc',
+                    id: 'basics/acct-team-mgmt/concurrency-limits',
+                  },
+                  collapsed: true,
+                  items: [
+                    'basics/acct-team-mgmt/concurrency-limits',
+                    'basics/acct-team-mgmt/adding-deactivating-users',
+                    'basics/acct-team-mgmt/managing-user-info',
+                    'basics/acct-team-mgmt/viewing-exporting-usage-data',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Managing Teams',
+                  link: {
+                    type: 'doc',
+                    id: 'basics/acct-team-mgmt/adding-deleting-teams',
+                  },
+                  collapsed: true,
+                  items: [
+                    'basics/acct-team-mgmt/adding-deleting-teams',
+                    'basics/acct-team-mgmt/assigning-removing-users-teams',
+                    'basics/acct-team-mgmt/private-device-mgmt',
+                    'basics/acct-team-mgmt/sauce-connect-proxy-tunnels',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Billing and Subscriptions',
+                  link: {
+                    type: 'doc',
+                    id: 'basics/acct-team-mgmt/managing-subscription',
+                  },
+                  collapsed: true,
+                  items: [
+                    'basics/acct-team-mgmt/managing-subscription',
+                    'basics/acct-team-mgmt/updating-billing',
+                    'basics/acct-team-mgmt/plan-details',
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Single Sign-On',
+              link: { type: 'doc', id: 'basics/sso-hub' },
+              collapsed: true,
+              items: [
+                'basics/sso-hub',
+                'basics/sso/setting-up-single-sign-on',
+                'basics/sso/config-adfs',
+                'basics/sso/config-okta',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Test Configuration and Annotation',
+              link: {
+                type: 'doc',
+                id: 'basics/test-config-annotation/test-config',
               },
-              {
-                type: 'category',
-                label: 'Managing Teams',
-                link: { type: 'doc', id: 'basics/acct-team-mgmt/adding-deleting-teams' },
-                collapsed: true,
-                items: [
-                  'basics/acct-team-mgmt/adding-deleting-teams',
-                  'basics/acct-team-mgmt/assigning-removing-users-teams',
-                  'basics/acct-team-mgmt/private-device-mgmt',
-                  'basics/acct-team-mgmt/sauce-connect-proxy-tunnels',
-                ],
-              },
-              {
-                type: 'category',
-                label: 'Billing and Subscriptions',
-                link: { type: 'doc', id: 'basics/acct-team-mgmt/managing-subscription' },
-                collapsed: true,
-                items: [
-                  'basics/acct-team-mgmt/managing-subscription',
-                  'basics/acct-team-mgmt/updating-billing',
-                  'basics/acct-team-mgmt/plan-details',
-                ],
-              },
-            ],
-          },
-          {
-            type: 'category',
-            label: 'Single Sign-On',
-            link: { type: 'doc', id: 'basics/sso-hub' },
-            collapsed: true,
-            items: [
-              'basics/sso-hub',
-              'basics/sso/setting-up-single-sign-on',
-              'basics/sso/config-adfs',
-              'basics/sso/config-okta',
-            ],
-          },
-          {
-            type: 'category',
-            label: 'Test Configuration and Annotation',
-            link: { type: 'doc', id: 'basics/test-config-annotation/test-config' },
-            collapsed: true,
-            items: ['basics/test-config-annotation/test-config', 'basics/test-config-annotation/test-annotation'],
-          },
-          {
-            type: 'category',
-            label: 'Data Center Endpoints',
-            link: { type: 'doc', id: 'basics/data-center-endpoints' },
-            collapsed: true,
-            items: ['basics/data-center-endpoints', 'basics/data-center-endpoints/aust-early-access'],
-          },
-          {
-            type: 'category',
-            label: 'Integrations',
-            link: { type: 'doc', id: 'basics/integrations-overview' },
-            collapsed: true,
-            items: [
-              'basics/integrations-overview',
-              'basics/integrations/deque',
-              'basics/integrations/evinced',
-              'basics/integrations/jira',
-              'basics/integrations/slack',
-              'basics/integrations/uipath',
-              'basics/integrations/sumo',
-            ],
-          },
-        ],
-      },
-    ],
+              collapsed: true,
+              items: [
+                'basics/test-config-annotation/test-config',
+                'basics/test-config-annotation/test-annotation',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Data Center Endpoints',
+              link: { type: 'doc', id: 'basics/data-center-endpoints' },
+              collapsed: true,
+              items: [
+                'basics/data-center-endpoints',
+                'basics/data-center-endpoints/aust-early-access',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Integrations',
+              link: { type: 'doc', id: 'basics/integrations-overview' },
+              collapsed: true,
+              items: [
+                'basics/integrations-overview',
+                'basics/integrations/deque',
+                'basics/integrations/evinced',
+                'basics/integrations/jira',
+                'basics/integrations/slack',
+                'basics/integrations/uipath',
+                'basics/integrations/sumo',
+              ],
+            },
+          ],
+        },
+      ],
     },
     {
       type: 'category',
@@ -755,54 +823,60 @@ module.exports = {
       link: { type: 'doc', id: 'secure-connections' },
       collapsed: true,
       items: [
-      'secure-connections',
-      {
-        type: 'category',
-        label: 'Sauce Connect Proxy',
-        link: { type: 'doc', id: 'secure-connections/sauce-connect' },
-        collapsed: true,
-        items: [
-          'secure-connections/sauce-connect',
-          'secure-connections/sauce-connect/installation',
-          'secure-connections/sauce-connect/quickstart',
-          'secure-connections/sauce-connect/system-requirements',
+        'secure-connections',
+        {
+          type: 'category',
+          label: 'Sauce Connect Proxy',
+          link: { type: 'doc', id: 'secure-connections/sauce-connect' },
+          collapsed: true,
+          items: [
+            'secure-connections/sauce-connect',
+            'secure-connections/sauce-connect/installation',
+            'secure-connections/sauce-connect/quickstart',
+            'secure-connections/sauce-connect/system-requirements',
 
-          {
-            type: 'category',
-            label: 'Setup and Configuration',
-            link: { type: 'doc', id: 'secure-connections/sauce-connect/setup-configuration/basic-setup' },
-            collapsed: true,
-            items: [
-              'secure-connections/sauce-connect/setup-configuration/basic-setup',
-              'secure-connections/sauce-connect/setup-configuration/yaml-config',
-              'secure-connections/sauce-connect/setup-configuration/environment-variables',
-              'secure-connections/sauce-connect/setup-configuration/high-availability',
-              'secure-connections/sauce-connect/setup-configuration/additional-proxies',
-              'secure-connections/sauce-connect/setup-configuration/specialized-environments',
-              'secure-connections/sauce-connect/setup-configuration/docker',
-              'secure-connections/sauce-connect/setup-configuration/ci-cd-integration',
-            ],
-          },
-          'secure-connections/sauce-connect/proxy-tunnels',
-          'secure-connections/sauce-connect/security-authentication',
-          {
-            type: 'category',
-            label: 'Advanced',
-            link: { type: 'doc', id: 'secure-connections/sauce-connect/advanced/architecture' },
-            collapsed: true,
-            items: [
-              'secure-connections/sauce-connect/advanced/architecture',
-              'secure-connections/sauce-connect/advanced/kgp',
-              'secure-connections/sauce-connect/advanced/specifications',
-            ],
-          },
-          'secure-connections/sauce-connect/troubleshooting',
-          'secure-connections/sauce-connect/faq',
-          'secure-connections/sauce-connect/changelog',
-        ],
-      },
-      'secure-connections/ipsec-vpn',
-    ],
+            {
+              type: 'category',
+              label: 'Setup and Configuration',
+              link: {
+                type: 'doc',
+                id: 'secure-connections/sauce-connect/setup-configuration/basic-setup',
+              },
+              collapsed: true,
+              items: [
+                'secure-connections/sauce-connect/setup-configuration/basic-setup',
+                'secure-connections/sauce-connect/setup-configuration/yaml-config',
+                'secure-connections/sauce-connect/setup-configuration/environment-variables',
+                'secure-connections/sauce-connect/setup-configuration/high-availability',
+                'secure-connections/sauce-connect/setup-configuration/additional-proxies',
+                'secure-connections/sauce-connect/setup-configuration/specialized-environments',
+                'secure-connections/sauce-connect/setup-configuration/docker',
+                'secure-connections/sauce-connect/setup-configuration/ci-cd-integration',
+              ],
+            },
+            'secure-connections/sauce-connect/proxy-tunnels',
+            'secure-connections/sauce-connect/security-authentication',
+            {
+              type: 'category',
+              label: 'Advanced',
+              link: {
+                type: 'doc',
+                id: 'secure-connections/sauce-connect/advanced/architecture',
+              },
+              collapsed: true,
+              items: [
+                'secure-connections/sauce-connect/advanced/architecture',
+                'secure-connections/sauce-connect/advanced/kgp',
+                'secure-connections/sauce-connect/advanced/specifications',
+              ],
+            },
+            'secure-connections/sauce-connect/troubleshooting',
+            'secure-connections/sauce-connect/faq',
+            'secure-connections/sauce-connect/changelog',
+          ],
+        },
+        'secure-connections/ipsec-vpn',
+      ],
     },
     {
       type: 'category',
@@ -810,90 +884,111 @@ module.exports = {
       link: { type: 'doc', id: 'mobile-apps' },
       collapsed: true,
       items: [
-      'mobile-apps',
-      'mobile-apps/supported-devices',
-      'mobile-apps/app-storage',
-      {
-        type: 'category',
-        label: 'Features',
-        link: { type: 'doc', id: 'mobile-apps/features/bypass-screenshot' },
-        collapsed: true,
-        items: [
-          'mobile-apps/features/bypass-screenshot',
-          'mobile-apps/features/virtual-usb',
-          'mobile-apps/features/biometric-authentication',
-          'mobile-apps/features/camera-image-injection',
-          'mobile-apps/features/gestures',
-          'mobile-apps/features/network-capture',
-          'mobile-apps/features/audio-capture',
-          {
-            type: 'category',
-            label: 'Mobile App Diagnostics',
-            link: { type: 'doc', id: 'mobile-apps/features/mobile-app-diagnostics/device-vitals' },
-            collapsed: true,
-            items: [
-              'mobile-apps/features/mobile-app-diagnostics/device-vitals',
-              'mobile-apps/features/mobile-app-diagnostics/interactions',
-              'mobile-apps/features/mobile-app-diagnostics/view-tree',
-            ],
+        'mobile-apps',
+        'mobile-apps/app-storage',
+        {
+          type: 'category',
+          label: 'Supported Devices',
+          link: { type: 'doc', id: 'mobile-apps/supported-devices' },
+          collapsed: true,
+          items: [
+            'mobile-apps/supported-devices',
+            'mobile-apps/real-device-cleaning',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Features',
+          link: { type: 'doc', id: 'mobile-apps/features/bypass-screenshot' },
+          collapsed: true,
+          items: [
+            'mobile-apps/features/bypass-screenshot',
+            'mobile-apps/features/virtual-usb',
+            'mobile-apps/features/biometric-authentication',
+            'mobile-apps/features/camera-image-injection',
+            'mobile-apps/features/gestures',
+            'mobile-apps/features/network-capture',
+            'mobile-apps/features/audio-capture',
+            {
+              type: 'category',
+              label: 'Mobile App Diagnostics',
+              link: {
+                type: 'doc',
+                id: 'mobile-apps/features/mobile-app-diagnostics/device-vitals',
+              },
+              collapsed: true,
+              items: [
+                'mobile-apps/features/mobile-app-diagnostics/device-vitals',
+                'mobile-apps/features/mobile-app-diagnostics/interactions',
+                'mobile-apps/features/mobile-app-diagnostics/view-tree',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Live Testing',
+          link: {
+            type: 'doc',
+            id: 'mobile-apps/live-testing/live-mobile-app-testing',
           },
-        ],
-      },
-      {
-        type: 'category',
-        label: 'Live Testing',
-        link: { type: 'doc', id: 'mobile-apps/live-testing/live-mobile-app-testing' },
-        collapsed: true,
-        items: ['mobile-apps/live-testing/live-mobile-app-testing'],
-      },
+          collapsed: true,
+          items: ['mobile-apps/live-testing/live-mobile-app-testing'],
+        },
 
-      {
-        type: 'category',
-        label: 'Automated Testing',
-        link: { type: 'doc', id: 'mobile-apps/automated-testing' },
-        collapsed: true,
-        items: [
-          'mobile-apps/automated-testing',
-          {
-            type: 'category',
-            label: 'Appium',
-            link: { type: 'doc', id: 'mobile-apps/automated-testing/appium' },
-            collapsed: true,
-            items: [
-              'mobile-apps/automated-testing/appium',
-              'mobile-apps/automated-testing/appium/quickstart',
-              'mobile-apps/automated-testing/appium/real-devices',
-              'mobile-apps/automated-testing/appium/virtual-devices',
-            ],
-          },
-          {
-            type: 'category',
-            label: 'Espresso and XCUITest',
-            link: { type: 'doc', id: 'mobile-apps/automated-testing/espresso-xcuitest' },
-            collapsed: true,
-            items: [
-              'mobile-apps/automated-testing/espresso-xcuitest',
-              'mobile-apps/automated-testing/espresso-xcuitest/espresso',
-              'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
+        {
+          type: 'category',
+          label: 'Automated Testing',
+          link: { type: 'doc', id: 'mobile-apps/automated-testing' },
+          collapsed: true,
+          items: [
+            'mobile-apps/automated-testing',
+            {
+              type: 'category',
+              label: 'Appium',
+              link: { type: 'doc', id: 'mobile-apps/automated-testing/appium' },
+              collapsed: true,
+              items: [
+                'mobile-apps/automated-testing/appium',
+                'mobile-apps/automated-testing/appium/appium-2-migration',
+                'mobile-apps/automated-testing/appium/quickstart',
+                'mobile-apps/automated-testing/appium/real-devices',
+                'mobile-apps/automated-testing/appium/virtual-devices',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Espresso and XCUITest',
+              link: {
+                type: 'doc',
+                id: 'mobile-apps/automated-testing/espresso-xcuitest',
+              },
+              collapsed: true,
+              items: [
+                'mobile-apps/automated-testing/espresso-xcuitest',
+                'mobile-apps/automated-testing/espresso-xcuitest/espresso',
+                'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
 
-              {
-                type: 'category',
-                label: 'Espresso Features',
-                link: { type: 'doc', id: 'mobile-apps/automated-testing/espresso-xcuitest/espresso-capture' },
-                collapsed: true,
-                items: [
-              'mobile-apps/automated-testing/espresso-xcuitest/espresso-capture',
-                ]
-              }
-
-            ],
-          },
-          'mobile-apps/automated-testing/ipa-files',
-        ],
-      },
-      'mobile-apps/ms-app-center',
-      'mobile-apps/faq',
-    ],
+                {
+                  type: 'category',
+                  label: 'Espresso Features',
+                  link: {
+                    type: 'doc',
+                    id: 'mobile-apps/automated-testing/espresso-xcuitest/espresso-capture',
+                  },
+                  collapsed: true,
+                  items: [
+                    'mobile-apps/automated-testing/espresso-xcuitest/espresso-capture',
+                  ],
+                },
+              ],
+            },
+            'mobile-apps/automated-testing/ipa-files',
+          ],
+        },
+        'mobile-apps/ms-app-center',
+        'mobile-apps/faq',
+      ],
     },
     {
       type: 'category',
@@ -901,105 +996,114 @@ module.exports = {
       link: { type: 'doc', id: 'web-apps' },
       collapsed: true,
       items: [
-      'web-apps',
-      {
-        type: 'category',
-        label: 'Live Testing',
-        link: { type: 'doc', id: 'web-apps/live-testing/live-cross-browser-testing' },
-        collapsed: true,
-        items: ['web-apps/live-testing/live-cross-browser-testing'],
-      },
-      {
-        type: 'category',
-        label: 'Automated Testing',
-        link: { type: 'doc', id: 'web-apps/automated-testing/selenium' },
-        collapsed: true,
-        items: [
-          {
-            type: 'category',
-            label: 'Selenium',
-            link: { type: 'doc', id: 'web-apps/automated-testing/selenium' },
-            collapsed: true,
-            items: [
-              'web-apps/automated-testing/selenium',
-              'web-apps/automated-testing/selenium/quickstart',
-              'web-apps/automated-testing/selenium/selenium4',
-              'web-apps/automated-testing/selenium/pre-run-executables',
-              'web-apps/automated-testing/selenium/sample-scripts',
-              'web-apps/automated-testing/selenium/selenium-grid',
-            ],
+        'web-apps',
+        {
+          type: 'category',
+          label: 'Live Testing',
+          link: {
+            type: 'doc',
+            id: 'web-apps/live-testing/live-cross-browser-testing',
           },
-          {
-            type: 'category',
-            label: 'Cypress',
-            link: { type: 'doc', id: 'web-apps/automated-testing/cypress' },
-            collapsed: true,
-            items: [
-              'web-apps/automated-testing/cypress',
-              'web-apps/automated-testing/cypress/quickstart',
-              {
-                type: 'category',
-                label: 'YAML Configuration',
-                link: { type: 'doc', id: 'web-apps/automated-testing/cypress/yaml' },
-                collapsed: true,
-                items: [
-                  'web-apps/automated-testing/cypress/yaml/v1',
-                  'web-apps/automated-testing/cypress/yaml/v1alpha',
-                ],
+          collapsed: true,
+          items: ['web-apps/live-testing/live-cross-browser-testing'],
+        },
+        {
+          type: 'category',
+          label: 'Automated Testing',
+          link: { type: 'doc', id: 'web-apps/automated-testing/selenium' },
+          collapsed: true,
+          items: [
+            {
+              type: 'category',
+              label: 'Selenium',
+              link: { type: 'doc', id: 'web-apps/automated-testing/selenium' },
+              collapsed: true,
+              items: [
+                'web-apps/automated-testing/selenium',
+                'web-apps/automated-testing/selenium/quickstart',
+                'web-apps/automated-testing/selenium/selenium4',
+                'web-apps/automated-testing/selenium/pre-run-executables',
+                'web-apps/automated-testing/selenium/sample-scripts',
+                'web-apps/automated-testing/selenium/selenium-grid',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Cypress',
+              link: { type: 'doc', id: 'web-apps/automated-testing/cypress' },
+              collapsed: true,
+              items: [
+                'web-apps/automated-testing/cypress',
+                'web-apps/automated-testing/cypress/quickstart',
+                {
+                  type: 'category',
+                  label: 'YAML Configuration',
+                  link: {
+                    type: 'doc',
+                    id: 'web-apps/automated-testing/cypress/yaml',
+                  },
+                  collapsed: true,
+                  items: [
+                    'web-apps/automated-testing/cypress/yaml/v1',
+                    'web-apps/automated-testing/cypress/yaml/v1alpha',
+                  ],
+                },
+                'web-apps/automated-testing/cypress/advanced',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Playwright',
+              link: {
+                type: 'doc',
+                id: 'web-apps/automated-testing/playwright',
               },
-              'web-apps/automated-testing/cypress/advanced',
-            ],
-          },
-          {
-            type: 'category',
-            label: 'Playwright',
-            link: { type: 'doc', id: 'web-apps/automated-testing/playwright' },
-            collapsed: true,
-            items: [
-              'web-apps/automated-testing/playwright',
-              'web-apps/automated-testing/playwright/quickstart',
-              'web-apps/automated-testing/playwright/yaml',
-              'web-apps/automated-testing/playwright/cucumber',
-              'web-apps/automated-testing/playwright/advanced',
-            ],
-          },
-          {
-            type: 'category',
-            label: 'TestCafe',
-            link: { type: 'doc', id: 'web-apps/automated-testing/testcafe' },
-            collapsed: true,
-            items: [
-              'web-apps/automated-testing/testcafe',
-              'web-apps/automated-testing/testcafe/quickstart',
-              'web-apps/automated-testing/testcafe/yaml',
-              'web-apps/automated-testing/testcafe/advanced',
-            ],
-          },
-          {
-            type: 'category',
-            label: 'Puppeteer',
-            link: { type: 'doc', id: 'web-apps/automated-testing/puppeteer' },
-            collapsed: true,
-            items: [
-              'web-apps/automated-testing/puppeteer',
-              'web-apps/automated-testing/puppeteer/quickstart',
-              'web-apps/automated-testing/puppeteer/yaml',
-            ],
-          },
-          {
-            type: 'category',
-            label: 'Replay',
-            link: { type: 'doc', id: 'web-apps/automated-testing/replay' },
-            collapsed: true,
-            items: [
-              'web-apps/automated-testing/replay',
-              'web-apps/automated-testing/replay/quickstart',
-              'web-apps/automated-testing/replay/yaml',
-            ],
-          },
-        ],
-      },
-    ],
+              collapsed: true,
+              items: [
+                'web-apps/automated-testing/playwright',
+                'web-apps/automated-testing/playwright/quickstart',
+                'web-apps/automated-testing/playwright/yaml',
+                'web-apps/automated-testing/playwright/cucumber',
+                'web-apps/automated-testing/playwright/advanced',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'TestCafe',
+              link: { type: 'doc', id: 'web-apps/automated-testing/testcafe' },
+              collapsed: true,
+              items: [
+                'web-apps/automated-testing/testcafe',
+                'web-apps/automated-testing/testcafe/quickstart',
+                'web-apps/automated-testing/testcafe/yaml',
+                'web-apps/automated-testing/testcafe/advanced',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Puppeteer',
+              link: { type: 'doc', id: 'web-apps/automated-testing/puppeteer' },
+              collapsed: true,
+              items: [
+                'web-apps/automated-testing/puppeteer',
+                'web-apps/automated-testing/puppeteer/quickstart',
+                'web-apps/automated-testing/puppeteer/yaml',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Replay',
+              link: { type: 'doc', id: 'web-apps/automated-testing/replay' },
+              collapsed: true,
+              items: [
+                'web-apps/automated-testing/replay',
+                'web-apps/automated-testing/replay/quickstart',
+                'web-apps/automated-testing/replay/yaml',
+              ],
+            },
+          ],
+        },
+      ],
     },
     {
       type: 'category',
@@ -1007,48 +1111,59 @@ module.exports = {
       link: { type: 'doc', id: 'api-testing' },
       collapsed: true,
       items: [
-      'api-testing',
-      'api-testing/quickstart',
-      'api-testing/sauce-connect',
-      'api-testing/build-from-spec',
-      'api-testing/import-postman-collection',
-      'api-testing/import-export-tests',
-      'api-testing/schedule-test',
-      {
-        type: 'category',
-        label: 'Test Composer',
-        link: { type: 'doc', id: 'api-testing/composer' },
-        collapsed: true,
-        items: [
-          'api-testing/composer',
-          'api-testing/composer/io-components',
-          'api-testing/composer/assertion-components',
-          'api-testing/composer/logical-components',
-          'api-testing/composer/other-components',
-        ],
-      },
-      {
-        type: 'category',
-        label: 'Vaults, Variables, Environments',
-        link: { type: 'doc', id: 'api-testing/vault' },
-        collapsed: true,
-        items: ['api-testing/vault', 'api-testing/environments', 'api-testing/variables-environment-overrides'],
-      },
-      {
-        type: 'category',
-        label: 'Integrations',
-        link: { type: 'doc', id: 'api-testing/integrations/apifctl-cicd-integration' },
-        collapsed: true,
-        items: ['api-testing/integrations/apifctl-cicd-integration', 'api-testing/integrations/pagerduty-webhooks'],
-      },
-      'api-testing/project-dashboard',
-      'api-testing/mocking',
-      'api-testing/load-testing',
-      'api-testing/contract-testing',
-      'api-testing/logger',
-      'api-testing/project-access',
-      'api-testing/legacy',
-    ],
+        'api-testing',
+        'api-testing/quickstart',
+        'api-testing/sauce-connect',
+        'api-testing/build-from-spec',
+        'api-testing/import-postman-collection',
+        'api-testing/import-export-tests',
+        'api-testing/schedule-test',
+        {
+          type: 'category',
+          label: 'Test Composer',
+          link: { type: 'doc', id: 'api-testing/composer' },
+          collapsed: true,
+          items: [
+            'api-testing/composer',
+            'api-testing/composer/io-components',
+            'api-testing/composer/assertion-components',
+            'api-testing/composer/logical-components',
+            'api-testing/composer/other-components',
+            'api-testing/composer/expressions',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Vaults, Variables, Environments',
+          link: { type: 'doc', id: 'api-testing/vault' },
+          collapsed: true,
+          items: [
+            'api-testing/vault',
+            'api-testing/environments',
+            'api-testing/variables-environment-overrides',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Integrations',
+          link: {
+            type: 'doc',
+            id: 'api-testing/integrations/apifctl-cicd-integration',
+          },
+          collapsed: true,
+          items: [
+            'api-testing/integrations/apifctl-cicd-integration',
+            'api-testing/integrations/pagerduty-webhooks',
+          ],
+        },
+        'api-testing/project-dashboard',
+        'api-testing/mocking',
+        'api-testing/load-testing',
+        'api-testing/contract-testing',
+        'api-testing/logger',
+        'api-testing/project-access',
+        'api-testing/legacy',
+      ],
     },
     {
       type: 'category',
@@ -1056,13 +1171,13 @@ module.exports = {
       link: { type: 'doc', id: 'ci' },
       collapsed: true,
       items: [
-      'ci',
-      'ci/azure',
-      'ci/bamboo',
-      'ci/bitbucket',
-      'ci/jenkins',
-      'ci/teamcity',
-    ],
+        'ci',
+        'ci/azure',
+        'ci/bamboo',
+        'ci/bitbucket',
+        'ci/jenkins',
+        'ci/teamcity',
+      ],
     },
     {
       type: 'category',
@@ -1070,13 +1185,13 @@ module.exports = {
       link: { type: 'doc', id: 'test-results' },
       collapsed: true,
       items: [
-      'test-results',
-      'test-results/viewing-test-results',
-      'test-results/sharing-test-results',
-      'test-results/archived-test-results',
-      'test-results/test-status',
-      'test-results/badges-browser-matrix',
-    ],
+        'test-results',
+        'test-results/viewing-test-results',
+        'test-results/sharing-test-results',
+        'test-results/archived-test-results',
+        'test-results/test-status',
+        'test-results/badges-browser-matrix',
+      ],
     },
     {
       type: 'category',
@@ -1084,14 +1199,14 @@ module.exports = {
       link: { type: 'doc', id: 'insights' },
       collapsed: true,
       items: [
-      'insights',
-      'insights/scope',
-      'insights/history',
-      'insights/trends',
-      'insights/coverage',
-      'insights/failure-analysis',
-      'insights/debug',
-    ],
+        'insights',
+        'insights/scope',
+        'insights/history',
+        'insights/trends',
+        'insights/coverage',
+        'insights/failure-analysis',
+        'insights/debug',
+      ],
     },
     {
       type: 'category',
@@ -1099,13 +1214,13 @@ module.exports = {
       link: { type: 'doc', id: 'performance' },
       collapsed: true,
       items: [
-      'performance',
-      'performance/about',
-      'performance/one-page',
-      'performance/transitions',
-      'performance/motion',
-      'performance/analyze',
-    ],
+        'performance',
+        'performance/about',
+        'performance/one-page',
+        'performance/transitions',
+        'performance/motion',
+        'performance/analyze',
+      ],
     },
     {
       type: 'category',
@@ -1120,89 +1235,101 @@ module.exports = {
       link: { type: 'doc', id: 'visual' },
       collapsed: true,
       items: [
-      'visual',
-      {
-        type: 'category',
-        label: 'E2E Testing',
-        link: { type: 'doc', id: 'visual/e2e-testing/setup' },
-        collapsed: true,
-        items: [
-          'visual/e2e-testing/setup',
-          {
-            type: 'category',
-            label: 'Integrations',
-            link: { type: 'doc', id: 'visual/e2e-testing/integrations/continuous-integration' },
-            collapsed: true,
-            items: [
-              'visual/e2e-testing/integrations/continuous-integration',
-              'visual/e2e-testing/integrations/slack',
-              'visual/e2e-testing/integrations/webhooks',
-            ],
-          },
-          {
-            type: 'category',
-            label: 'Workflow',
-            link: { type: 'doc', id: 'visual/e2e-testing/workflow/review-workflow' },
-            collapsed: true,
-            items: [
-              'visual/e2e-testing/workflow/review-workflow',
-              'visual/e2e-testing/workflow/baseline-branch',
-              'visual/e2e-testing/workflow/change-details',
-              'visual/e2e-testing/workflow/visual-history',
-              'visual/e2e-testing/workflow/ignoring-changes',
-            ],
-          },
-          'visual/e2e-testing/commands-options',
-          'visual/e2e-testing/code-examples',
-          'visual/e2e-testing/supported-browsers',
-          'visual/e2e-testing/troubleshooting',
-        ],
-      },
-      {
-        type: 'category',
-        label: 'Component Testing',
-        link: { type: 'doc', id: 'visual/component-testing/setup' },
-        collapsed: true,
-        items: [
-          'visual/component-testing/setup',
-          {
-            type: 'category',
-            label: 'Integrations',
-            link: { type: 'doc', id: 'visual/component-testing/integrations/sauce-labs' },
-            collapsed: true,
-            items: [
-              'visual/component-testing/integrations/sauce-labs',
-              'visual/component-testing/integrations/continuous-integration',
-              'visual/component-testing/integrations/slack',
-              'visual/component-testing/integrations/webhooks',
-              'visual/component-testing/integrations/github',
-              'visual/component-testing/integrations/visual-studio-team-services',
-            ],
-          },
-          {
-            type: 'category',
-            label: 'Workflow',
-            link: { type: 'doc', id: 'visual/component-testing/workflow/review-workflow' },
-            collapsed: true,
-            items: [
-              'visual/component-testing/workflow/review-workflow',
-              'visual/component-testing/workflow/baseline-branch',
-              'visual/component-testing/workflow/change-details',
-              'visual/component-testing/workflow/visual-history',
-              'visual/component-testing/workflow/ignoring-changes',
-              'visual/component-testing/workflow/include-exclude-settings',
-            ],
-          },
-          'visual/component-testing/supported-browsers',
-          'visual/component-testing/storybook-interactions-testing',
-          'visual/component-testing/storybook-static',
-        ],
-      },
-      'visual/css-animations',
-      'visual/acct-team-mgmt',
-      'visual/notifications',
-      'visual/faq',
-    ],
+        'visual',
+        {
+          type: 'category',
+          label: 'E2E Testing',
+          link: { type: 'doc', id: 'visual/e2e-testing/setup' },
+          collapsed: true,
+          items: [
+            'visual/e2e-testing/setup',
+            {
+              type: 'category',
+              label: 'Integrations',
+              link: {
+                type: 'doc',
+                id: 'visual/e2e-testing/integrations/continuous-integration',
+              },
+              collapsed: true,
+              items: [
+                'visual/e2e-testing/integrations/continuous-integration',
+                'visual/e2e-testing/integrations/slack',
+                'visual/e2e-testing/integrations/webhooks',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Workflow',
+              link: {
+                type: 'doc',
+                id: 'visual/e2e-testing/workflow/review-workflow',
+              },
+              collapsed: true,
+              items: [
+                'visual/e2e-testing/workflow/review-workflow',
+                'visual/e2e-testing/workflow/baseline-branch',
+                'visual/e2e-testing/workflow/change-details',
+                'visual/e2e-testing/workflow/visual-history',
+                'visual/e2e-testing/workflow/ignoring-changes',
+              ],
+            },
+            'visual/e2e-testing/commands-options',
+            'visual/e2e-testing/code-examples',
+            'visual/e2e-testing/supported-browsers',
+            'visual/e2e-testing/troubleshooting',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Component Testing',
+          link: { type: 'doc', id: 'visual/component-testing/setup' },
+          collapsed: true,
+          items: [
+            'visual/component-testing/setup',
+            {
+              type: 'category',
+              label: 'Integrations',
+              link: {
+                type: 'doc',
+                id: 'visual/component-testing/integrations/sauce-labs',
+              },
+              collapsed: true,
+              items: [
+                'visual/component-testing/integrations/sauce-labs',
+                'visual/component-testing/integrations/continuous-integration',
+                'visual/component-testing/integrations/slack',
+                'visual/component-testing/integrations/webhooks',
+                'visual/component-testing/integrations/github',
+                'visual/component-testing/integrations/visual-studio-team-services',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Workflow',
+              link: {
+                type: 'doc',
+                id: 'visual/component-testing/workflow/review-workflow',
+              },
+              collapsed: true,
+              items: [
+                'visual/component-testing/workflow/review-workflow',
+                'visual/component-testing/workflow/baseline-branch',
+                'visual/component-testing/workflow/change-details',
+                'visual/component-testing/workflow/visual-history',
+                'visual/component-testing/workflow/ignoring-changes',
+                'visual/component-testing/workflow/include-exclude-settings',
+              ],
+            },
+            'visual/component-testing/supported-browsers',
+            'visual/component-testing/storybook-interactions-testing',
+            'visual/component-testing/storybook-static',
+          ],
+        },
+        'visual/css-animations',
+        'visual/acct-team-mgmt',
+        'visual/notifications',
+        'visual/faq',
+      ],
     },
     {
       type: 'category',
@@ -1210,17 +1337,17 @@ module.exports = {
       link: { type: 'doc', id: 'dev/test-configuration-options' },
       collapsed: true,
       items: [
-      'dev/test-configuration-options',
-      'dev/error-messages',
-      'dev/w3c-webdriver-capabilities',
-      {
-        type: 'link',
-        label: 'Visual E2E Testing', // The label that should be displayed (string).
-        href: '/visual/e2e-testing/commands-options', // The target URL (string).
-      },
-      'dev/data-center-maint',
-      'dev/glossary',
-    ],
+        'dev/test-configuration-options',
+        'dev/error-messages',
+        'dev/w3c-webdriver-capabilities',
+        {
+          type: 'link',
+          label: 'Visual E2E Testing', // The label that should be displayed (string).
+          href: '/visual/e2e-testing/commands-options', // The target URL (string).
+        },
+        'dev/data-center-maint',
+        'dev/glossary',
+      ],
     },
     {
       type: 'category',
@@ -1228,10 +1355,10 @@ module.exports = {
       link: { type: 'doc', id: 'contributing' },
       collapsed: true,
       items: [
-      'contributing',
-      'contributing/style-guide',
-      'contributing/code-of-conduct'
-    ],
+        'contributing',
+        'contributing/style-guide',
+        'contributing/code-of-conduct',
+      ],
     },
   ],
 };
