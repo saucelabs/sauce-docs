@@ -9,316 +9,201 @@ import TabItem from '@theme/TabItem';
 
 The data center you use with Sauce Labs determines:
 
-* The location of the servers where your tests are run
-* Where related artifacts are stored
-* Your ability to run headless tests, meaning tests run on a browser that does not have a user interface
+The location of the servers where your tests are run
+Where related artifacts are stored
+Your ability to run headless tests, meaning tests run on a browser that does not have a user interface
+What You’ll Need
+A Sauce Labs account (Log in or sign up for a free trial license)
+Your Sauce Labs Username and Access Key
 
-
-## What You’ll Need
-
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
-
-
-## Access to Data Centers
+Access to Data Centers
 Your data center is determined based on your license type and your company's needs:
 
-* Free-trial users and self-service users select their data center when they sign up for Sauce Labs.
-* Enterprise plan users select one or more data centers as part of their contract with Sauce Labs.
+Free-trial users and self-service users select their data center when they sign up for Sauce Labs.
+Enterprise plan users select one or more data centers as part of their contract with Sauce Labs.
 
 To see your data center, check the upper-right corner of the Sauce Labs user interface. Options include:
+US West
+EU Central
+APAC Southeast
+Headless US East
 
-* [US West](#us-west-data-center)
-* [EU Central](#eu-central-data-center)
-* [Headless US-East](#headless-us-east-data-center)
-* [APAC Southeast](#apac-southeast-data-center) <small><span className="sauceDBlue">BETA</span></small>
-
-
-## Data Center Endpoints
-
-URLs vary based on the services you're using, your data center, and the types of tests you need to run.
-
-### US West Data Center
-
-<table>
-<tr>
-<td><strong>Name</strong></td>
-<td><strong>Details</strong></td>
-</tr>
-<tr>
-<td colSpan='2'><strong>US West OnDemand Endpoints</strong></td>
-</tr>
-<tr>
-<td>Desktop Browser, Real and Virtual Device Cloud</td><td><code>https://ondemand.us-west-1.saucelabs.com/wd/hub</code></td>
-</tr>
-<tr>
-<td colSpan='2'><strong>US West REST API</strong></td>
-</tr>
-<tr>
-<td>Virtual Devices and Desktops</td><td><code>https://api.us-west-1.saucelabs.com/rest/v1</code></td>
-</tr>
-<tr>
-<td>RDC on Sauce</td><td><code>https://api.us-west-1.saucelabs.com/v1/rdc</code></td>
-</tr>
-<tr>
-<td>Team Management</td><td><code>https://api.us-west-1.saucelabs.com/team-management/v1/</code></td>
-</tr>
-<tr>
-<td>Sauce Connect REST</td><td><code>https://api.us-west-1.saucelabs.com/rest/v1/*/tunnels</code></td>
-</tr>
-<tr>
-<td colSpan='2'><strong>Sauce Connect Proxy Server</strong></td>
-</tr>
-<tr>
-<td>Tunnel Server</td><td><code>maki*.miso.saucelabs.com:443</code></td>
-</tr>
-<tr>
-<td>Tunnel Server v2alpha</td><td><code>tunnel-*.tunnels.us-west-4-i3er.saucelabs.com:443</code></td>
-</tr>
-<tr>
-<td colSpan='2'><strong>IP Ranges</strong></td>
-</tr>
-<tr>
-<td>Available November 1, 2022: us-west-4</td><td><code>34.125.90.96/27</code></td>
-</tr>
-<tr>
-<td>*.tunnels.us-west-4-i3er.saucelabs.com</td><td><code>34.125.246.157/32</code></td>
-</tr>
-<tr>
-<td>*.miso.saucelabs.com</td><td><code>66.85.48.0/21</code></td>
-</tr>
-<tr>
-<td>Other endpoints</td><td><code>162.222.72.0/21</code><br/><code>66.85.48.0/21</code></td>
-</tr>
-</table>
+Data Center Endpoints
+Sauce Connect
+Initial connection
+https://saucelabs.com/rest/v1
 
 
-### EU Central Data Center
-:::note
-Depending on the framework or driver you use, you might need to make additional changes to your tests to run them in the EU-Central data center. See [Running Tests on EU Central](#running-tests-on-eu-central) for details.
-:::
-
-<table>
-<tr>
-<td><strong>Name</strong></td>
-<td><strong>Details</strong></td>
-</tr>
-<tr>
-<td colSpan='2'><strong>EU Central OnDemand Endpoints</strong></td>
-</tr>
-<tr>
-<td>Desktop Browser, Real and Virtual Device Cloud</td><td><code>https://ondemand.eu-central-1.saucelabs.com/wd/hub</code></td>
-</tr>
-<tr>
-<td colSpan='2'><strong>EU Central REST API</strong></td>
-</tr>
-<tr>
-<td>Virtual Devices and Desktops</td><td><code>https://api.eu-central-1.saucelabs.com/rest/v1</code></td>
-</tr>
-<tr>
-<td>RDC on Sauce</td><td><code>https://api.eu-central-1.saucelabs.com/v1/rdc</code></td>
-</tr>
-<tr>
-<td>Team Management</td><td><code>https://api.eu-central-1.saucelabs.com/team-management/v1/</code></td>
-</tr>
-<tr>
-<td>Sauce Connect REST</td><td><code>https://api.eu-central-1.saucelabs.com/rest/v1/*/tunnels</code></td>
-</tr>
-<tr>
-<td colSpan='2'><strong>Sauce Connect Proxy Server</strong></td>
-</tr>
-<tr>
-<td>Tunnel Server</td><td><code>maki*.eu-central-1.miso.saucelabs.com:443</code></td>
-</tr>
-<tr>
-<td>Tunnel Server v2alpha</td><td><code>tunnel-*.tunnels.eu-west-3-lnbf.saucelabs.com:443</code></td>
-</tr>
-<tr>
-<td colSpan='2'><strong>IP Ranges</strong></td>
-</tr>
-<tr>
-<td>Available November 1, 2022: eu-west-3</td><td><code>34.107.82.96/27</code></td>
-</tr>
-<tr>
-<td>*.tunnels.eu-west-3-lnbf.saucelabs.com</td><td><code>34.141.28.96/32</code></td>
-</tr>
-<tr>
-<td>Other endpoints</td><td><code>185.94.24.0/22</code></td>
-</tr>
-</table>
+Sauce Connect makes its initial connection to saucelabs.com. After that, it uses the Data Center specific endpoints listed below.
+US West Data Center
+OnDemand Endpoint
+https://ondemand.us-west-1.saucelabs.com/wd/hub
+REST API
+api.us-west-1.saucelabs.com
+Sauce Connect Tunnel Servers
+maki*.miso.saucelabs.com:443
 
 
-### APAC Southeast Data Center
-
-<table>
-<tr>
-<td><strong>Name</strong></td>
-<td><strong>Details</strong></td>
-</tr>
-<tr>
-<td colSpan='2'><strong>APAC Southeast OnDemand Endpoints</strong></td>
-</tr>
-<tr>
-<td>Desktop Browser and Virtual Device Cloud</td><td><code>https://ondemand.apac-southeast-1.saucelabs.com/wd/hub</code></td>
-</tr>
-<tr>
-<td>RDC on Sauce</td><td>N/A</td>
-</tr>
-<tr>
-<td colSpan='2'><strong>APAC Southeast REST API</strong></td>
-</tr>
-<tr>
-<td>Virtual Devices and Desktops</td><td><code>https://api.apac-southeast-1.saucelabs.com/rest/v1/</code></td>
-</tr>
-<tr>
-<td>Team Management</td><td><code>https://api.apac-southeast-1.saucelabs.com/team-management/v1/</code></td>
-</tr>
-<tr>
-<td>Sauce Connect REST</td><td><code>https://api.apac-southeast-1.saucelabs.com/rest/v1/*/tunnels</code></td>
-</tr>
-<tr>
-<td colSpan='2'><strong>Sauce Connect Proxy Server</strong></td>
-</tr>
-<tr>
-<td>Tunnel Server</td><td><code>tunnel-*.tunnels.apac-southeast-1.saucelabs.com:443</code></td>
-</tr>
-<tr>
-<td colSpan='2'><strong>IP Ranges</strong></td>
-</tr>
-<tr>
-<td>*.tunnels.apac-southeast-1.saucelabs.com</td><td><code>34.87.212.99/32</code></td>
-</tr>
-<tr>
-<td>Other endpoints</td><td><code>34.87.251.80/28</code></td>
-</tr>
-</table>
 
 
-### Headless US-East Data Center
-For more information on Sauce Headless, including full test walkthroughs, see [Sauce Headless Testing in the Cross-Browser Cloud](/headless).
+EU Central Data Center
+NOTE
+Depending on the framework or driver you use, you might need to make additional changes to your tests to run them in the EU Central data center. See Running Tests on EU Central for details.
 
-<table>
-<tr>
-<td><strong>Name</strong></td>
-<td><strong>Details</strong></td>
-</tr>
-<tr>
-<td colSpan='2'><strong>Headless US-East OnDemand Endpoints</strong></td>
-</tr>
-<tr>
-<td>Desktop Browser and Virtual Device Cloud</td><td><code>https://ondemand.us-east-1.saucelabs.com/wd/hub</code></td>
-</tr>
-<tr>
-<td>RDC on Sauce</td><td>N/A</td>
-</tr>
-<tr>
-<td colSpan='2'><strong>Headless US-East REST API</strong></td>
-</tr>
-<tr>
-<td>Virtual Devices and Desktops</td><td><code>https://api.us-east-1.saucelabs.com/rest/v1</code></td>
-</tr>
-<tr>
-<td>Team Management</td><td><code>https://api.us-east-1.saucelabs.com/team-management/v1/</code></td>
-</tr>
-<tr>
-<td>Sauce Connect REST</td><td><code>https://api.us-east-1.saucelabs.com/rest/v1/*/tunnels</code></td>
-</tr>
-<tr>
-<td colSpan='2'><strong>Sauce Connect Proxy Server</strong></td>
-</tr>
-<tr>
-<td>Tunnel Server</td><td><code>tunnel-*.tunnels.us-east-1.saucelabs.com:443</code></td>
-</tr>
-<tr>
-<td colSpan='2'><strong>IP Ranges</strong></td>
-</tr>
-<tr>
-<td>*.tunnels.us-east-1.saucelabs.com</td><td><code>34.73.48.119/32</code></td>
-</tr>
-<tr>
-<td>Other endpoints</td><td>N/A</td>
-</tr>
-</table>
+OnDemand Endpoint
+https://ondemand.eu-central-1.saucelabs.com/wd/hub
+REST API
+api-eu-central-1.saucelabs.com
+Sauce Connect Tunnel Servers
+maki*.eu-central-1.miso.saucelabs.com:443
 
 
-## Data Center Location - Real Device Cloud
+
+APAC Southeast Data Center
+OnDemand Endpoint
+https://ondemand.apac-southeast-1.saucelabs.com/wd/hub
+REST API
+api-apac-southeast-1.saucelabs.com
+Sauce Connect Tunnel Servers
+tunnel-*.tunnels.apac-southeast-1.saucelabs.com:443
+
+
+
+Headless US East Data Center
+OnDemand Endpoint
+https://ondemand.us-east-1.saucelabs.com/wd/hub
+REST API
+api-us-east-1.saucelabs.com
+Sauce Connect Tunnel Servers
+tunnel-*.tunnels.us-east-1.saucelabs.com:443
+
+
+
+IP Address Ranges - Outgoing
+To set up an IP-address-based allowlist for outgoing connections, rather than using hostnames, see the following table for the relevant IP ranges.
+Sauce Connect
+Initial connection
+34.96.70.78
+
+
+Sauce Connect makes its initial connection to saucelabs.com, which resolves to the IP address above. After that, it uses the Data Center specific endpoints listed below.
+US West Data Center
+34.125.90.96/27 (from Jan 31 2023)
+34.125.246.157/32
+66.85.48.0/21
+162.222.72.0/21
+
+EU Central Data Center
+34.107.82.96/27 (from Jan 31 2023)
+34.141.28.96/32
+162.222.79.0/24
+185.94.24.0/22
+
+APAC Southeast Data Center
+34.87.212.99/32
+34.87.251.80/28
+
+Headless US East Data Center
+34.73.48.119/32
+
+
+IP Address Ranges - Incoming
+To set up an IP-address-based allowlist for incoming connections from Sauce Labs into your network (if you can’t or don’t want to use Sauce Connect Proxy or IPSec VPN), see the following table for the relevant IP ranges.
+US West Data Center
+
+
+
+
+
+
+EU Central Data Center
+
+
+
+
+
+
+APAC Southeast Data Center
+
+
+
+
+
+
+Real Devices
 For real device testing, the location of your data center determines the format of some of the information you will see. Devices in US data centers default to EN-US, and will display information like date, currency, and temperature using US standard terms (i.e., MM/dd/yyyy, $, and F°), while devices in EU data centers default to EN-UK, and will display information like date, currency, and temperature using UK standard terms (i.e., dd/MM/yyyy, £, and C°).
 
-:::note
+NOTE
 This information only applies to real device testing. For all others, the default location will be EN-US, regardless of location.
-:::
 
-### Restricted Access
+Restricted Access
 If you attempt to use a data center that you don't have access to:
 
-* In the UI:
-  * If you have a free-trial or self-service license, you can see the full list of data centers but can only select the one you have access to.
-  * If you have an enterprise plan, you can select any data center but you won't have any concurrent sessions available for data centers you don't have access to.
-* When running an automated test, you'll see an error message indicating that you don't have access.
+In the UI:
+If you have a free-trial or self-service license, you can see the full list of data centers but can only select the one you have access to.
+If you have an enterprise plan, you can select any data center but you won't have any concurrent sessions available for data centers you don't have access to.
+When running an automated test, you'll see an error message indicating that you don't have access.
 
-### Access to Real Devices
+Access to Real Devices
 Real devices are kept in our data center, behind locked racks and doors. Other security measures include:
 
-* WiFi APIs are password protected with WPA2 security protocol, so only our devices can connect to the subnet.
-* Devices must have proper proxy information in order to have network connectivity.
-* Access management is handled by Sauce Labs, and only specific individuals are allowed access to our devices, with logs that track all access attempts.
+WiFi APIs are password protected with WPA2 security protocol, so only our devices can connect to the subnet.
+Devices must have proper proxy information in order to have network connectivity.
+Access management is handled by Sauce Labs, and only specific individuals are allowed access to our devices, with logs that track all access attempts.
 
-### Automated Tests and APIs
-When you run automated tests or make API calls, your data center by default is US West. If you want to use a different data center, you'll need to specify it in the test code or API call.
+Automated Tests and APIs
+Authorization Credentials
+The URL hostname and authorization credentials for APIs are different for each data center, and can be found in Sauce Labs on the User Settings page.
 
-In addition, if you want to run automated tests on real devices, you need to specify the correct real device endpoint based on your data center. For details, see [Endpoints](#endpoints).
-
-See the [Sauce Labs REST API](/dev/api/rdc) documentation for information about accessing real device endpoints.
-
-
-#### Authorization Credentials
-The URL hostname and authorization credentials for APIs are different for each data center:
-
-| Sauce Data Center | Authorization Credentials |
-|:---|:---|
-| US West virtual devices and desktops cloud  | Username and access key can be found in Sauce Labs under **Account** > **User settings**. |
-| EU Central virtual devices and desktops cloud  | Username and access key can be found in Sauce Labs under **Account** > **User settings**. |
-| APAC Southeast virtual devices and desktops cloud  | Username and access key can be found in Sauce Labs under **Account** > **User settings**. |
-| US West real devices cloud  | Username and access key can be found in Sauce Labs under **Account** > **User settings**. |
-| EU Central real devices cloud  | Username and access key can be found in Sauce Labs under **Account** > **User settings**. |
-| APAC Southeast real devices cloud | N/A |
-
-#### Running Tests on EU Central
+Running Tests on EU Central
 If you use any of the following and your data center is EU Central, you need to make changes to your tests and/or framework to run those tests in the EU data center.
 
-| Framework | Change |
-|:---|:---|
-| Java with JUnit or TestNG  | Set `SAUCE_REST_ENDPOINT=https://eu-central-1.saucelabs.com/` as a system/environment variable, otherwise test status will not be set. |
-| Protractor | Update to version 5.4.2 or later of Protractor and set `sauceRegion: 'eu'` in your `config` file. |
-| WebDriverIO | Update to version 4.14.1 or later, or 5.0.0 or later, of WebDriverIO and set `region: 'eu'` in your `wdio.conf` file. |
 
-### Single Sign-On (SSO) Configuration
+Framework
+Change
+Java with JUnit or TestNG
+Set SAUCE_REST_ENDPOINT=https://eu-central-1.saucelabs.com/ as a system/environment variable, otherwise test status will not be set.
+Protractor
+Update to version 5.4.2 or later of Protractor and set sauceRegion: 'eu' in your config file.
+WebDriverIO
+Update to version 4.14.1 or later, or 5.0.0 or later, of WebDriverIO and set region: 'eu' in your wdio.conf file.
+
+
+Single Sign-On (SSO) Configuration
 If you're using SSO with Sauce Labs, your data center determines the appropriate URLs for:
 
-* Signing/Encryption Certificate - This URL shows the certificate metadata you need to provide to your service provider to authenticate with Sauce Labs.
-* Entity AssertionConsumeURL - This URL is the endpoint where your service provider gets SAML assertions from Sauce Labs.
+Signing/Encryption Certificate - This URL shows the certificate metadata you need to provide to your service provider to authenticate with Sauce Labs.
+Entity AssertionConsumeURL - This URL is the endpoint where your service provider gets SAML assertions from Sauce Labs.
 
-For details about setting up SSO for Sauce Labs, see [Setting Up Single Sign-On](/basics/sso/setting-up-single-sign-on).
+For details about setting up SSO for Sauce Labs, see Setting Up Single Sign-On.
 
-| Data Center | Signing/Encryption Certificate/Entity ID | Entity AssertionConsumeURL |
-|:---|:---|:---|
-| US West | `https://saucelabs.com/sso/metadata` | `https://saucelabs.com/sso/acs` |
-| EU Central | `https://eu-central-1.saucelabs.com/sso/metadata` | `https://eu-central-1.saucelabs.com/sso/acs` |
-| Headless US-East | `https://us-east-1.saucelabs.com/sso/metadata` | `https://us-east-1.saucelabs.com/sso/acs` |
+US West Data Center
+Signing/Encryption Certificate/Entity ID
+Entity AssertionConsumeURL
+https://saucelabs.com/sso/metadata
+https://saucelabs.com/sso/acs
 
-## Changing Your Data Center
+
+EU Central Data Center
+Signing/Encryption Certificate/Entity ID
+Entity AssertionConsumeURL
+https://eu-central-1.saucelabs.com/sso/metadata
+https://eu-central-1.saucelabs.com/sso/acs
+
+
+Changing Your Data Center
 If you have access to more than one data center, you can switch data centers by clicking the data center name in the upper-right corner. This drops down a list of options available to you.
 
 Changing your data center changes what you can see and do in the Sauce Labs UI:
 
-* Live tests you run in the UI.
-* Results for live tests and automated tests you run on the data center.
-* Organization-wide concurrency settings specific to the data center.
-* Teams associated with the data center.
-* Sauce Connect Proxy tunnels connected to the data center.
+Live tests you run in the UI.
+Results for live tests and automated tests you run on the data center.
+Organization-wide concurrency settings specific to the data center.
+Teams associated with the data center.
+Sauce Connect Proxy tunnels connected to the data center.
 
-## Data Center Status
-To check on the status of your data center, see the [Sauce Labs Systems Status](https://status.saucelabs.com/) page.
+Data Center Status
+To check on the status of your data center, see the Sauce Labs Systems Status page.
 
-### Maintenance Windows
-To view planned maintenance windows for your data center, see [Maintenance Windows](/dev/data-center-maint).
+Maintenance Windows
+To view planned maintenance windows for your data center, see Maintenance Windows.
