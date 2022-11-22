@@ -795,7 +795,6 @@ module.exports = {
               collapsed: true,
               items: [
                 'basics/data-center-endpoints',
-                'basics/data-center-endpoints/dce-allowing-connections',
                 'basics/data-center-endpoints/aust-early-access',
               ],
             },
