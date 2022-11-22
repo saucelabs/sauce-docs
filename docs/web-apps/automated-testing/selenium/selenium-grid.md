@@ -17,7 +17,7 @@ By executing your tests on Sauce Labs, in addition to having a solid testing inf
 - Sharing test results securely between team members by configuring [users and teams](/basics/acct-team-mgmt-hub/).
 - Understanding how your application renders on every device and operating system by analyzing results from [Front-End Performance Testing](/performance/).
 - Interpreting test results over time and identifying failure patterns across different platforms with [Insights](/insights/).
-- Integrating your Sauce Labs test suite with [CI/CD platforms](/integrations-overview/).
+- Integrating your Sauce Labs test suite with [CI/CD platforms](/basics/integrations-overview/).
 
 
 ## What You'll Learn

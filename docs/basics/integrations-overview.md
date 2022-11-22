@@ -20,7 +20,7 @@ We partner with the top companies in the industry to bring you a complete soluti
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
-        <a href="/integrations/gitlab">
+        <a href="/basics/integrations/gitlab">
         <img src={useBaseUrl('img/integrations/gitlab.png')} alt="GitLab logo" width="50" /><h3>GitLab</h3></a>
     </div>
   </div>
@@ -32,13 +32,13 @@ We partner with the top companies in the industry to bring you a complete soluti
   </div>
   <div className="box box3 card">
     <div className="container">
-        <a href="/integrations/azure"> <img src={useBaseUrl('img/integrations/azure-devops.png')} alt="Azure DevOps logo" width="50" />
+        <a href="/basics/integrations/azure"> <img src={useBaseUrl('img/integrations/azure-devops.png')} alt="Azure DevOps logo" width="50" />
         <h3>Azure DevOps</h3></a>
    </div>
   </div>
   <div className="box box4 card">
     <div className="container">
-        <a href="/integrations/jenkins/"><img src={useBaseUrl('img/integrations/jenkins.png')} alt="Jenkins logo" width="50" />
+        <a href="/basics/integrations/jenkins/"><img src={useBaseUrl('img/integrations/jenkins.png')} alt="Jenkins logo" width="50" />
         <h3>Jenkins</h3></a>
     </div>
   </div>
@@ -63,7 +63,7 @@ We partner with the top companies in the industry to bring you a complete soluti
   </div>
   <div className="box box8 card">
     <div className="container">
-        <a href="/integrations/bamboo/"><img src={useBaseUrl('img/integrations/bamboo.png')} alt="Bamboo logo" width="50"/>
+        <a href="/basics/integrations/bamboo/"><img src={useBaseUrl('img/integrations/bamboo.png')} alt="Bamboo logo" width="50"/>
         <h3>Bamboo</h3></a>
    </div>
   </div>
@@ -75,7 +75,7 @@ We partner with the top companies in the industry to bring you a complete soluti
   </div>
   <div className="box box10 card">
     <div className="container">
-        <a href="/integrations/teamcity/"><img src={useBaseUrl('img/integrations/teamcity.png')} alt="TeamCity logo" width="50" />
+        <a href="/basics/integrations/teamcity/"><img src={useBaseUrl('img/integrations/teamcity.png')} alt="TeamCity logo" width="50" />
         <h3>TeamCity</h3></a>
     </div>
   </div>
@@ -86,13 +86,13 @@ We partner with the top companies in the industry to bring you a complete soluti
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
-        <a href="/integrations/deque/"><img src={useBaseUrl('img/integrations/axe-core.png')} alt="Deque logo" width="50"/>
+        <a href="/basics/integrations/deque/"><img src={useBaseUrl('img/integrations/axe-core.png')} alt="Deque logo" width="50"/>
         <h3>axe-core (by Deque)</h3></a>
     </div>
   </div>
   <div className="box box2 card">
     <div className="container">
-        <a href="/integrations/evinced"> <img src={useBaseUrl('img/integrations/evinced.png')} alt="Evinced logo" width="50"/>
+        <a href="/basics/integrations/evinced"> <img src={useBaseUrl('img/integrations/evinced.png')} alt="Evinced logo" width="50"/>
         <h3>Evinced</h3></a>
     </div>
   </div>
@@ -156,7 +156,7 @@ We partner with the top companies in the industry to bring you a complete soluti
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
-        <a href="/integrations/jira/"> <img src={useBaseUrl('img/integrations/jira.png')} alt="Jira logo" width="40" />
+        <a href="/basics/integrations/jira/"> <img src={useBaseUrl('img/integrations/jira.png')} alt="Jira logo" width="40" />
         <h3>Jira</h3></a>
     </div>
   </div>
@@ -221,7 +221,7 @@ We partner with the top companies in the industry to bring you a complete soluti
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
-        <a href="/integrations/eggplant/"> <img src={useBaseUrl('img/integrations/eggplant.png')} alt="Keysight logo" width="50" />
+        <a href="/basics/integrations/eggplant/"> <img src={useBaseUrl('img/integrations/eggplant.png')} alt="Keysight logo" width="50" />
         <h3>Keysight Eggplant</h3></a>
     </div>
   </div>
@@ -233,7 +233,7 @@ We partner with the top companies in the industry to bring you a complete soluti
   </div>
   <div className="box box3 card">
     <div className="container">
-        <a href="/integrations/uipath"> <img src={useBaseUrl('img/integrations/uipath.png')} alt="UiPath logo" width="50" />
+        <a href="/basics/integrations/uipath"> <img src={useBaseUrl('img/integrations/uipath.png')} alt="UiPath logo" width="50" />
         <h3>UiPath Test Suite</h3></a>
     </div>
   </div>
