@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 :::caution Warning
 Testing Flutter Apps with the appium-flutter-driver assumes you are familiar with:
 - creating, signing and building [Flutter apps](https://docs.flutter.dev/)
-- writing and running [Appium tests](mobile-apps/automated-testing/appium/)
+- writing and running [Appium tests](/mobile-apps/automated-testing/appium/)
 :::
 
 Sauce Labs supports testing Flutter apps on Android and iOS virtual and real devices with Appium by supporting the [`appium-flutter-driver`](https://github.com/appium-userland/appium-flutter-driver/). The process to test Flutter apps with Appium involves an extra and important step, which is [preprocessing your app](#preprocessing-your-flutter-app). After that you can [build](#building-your-flutter-app) it, [upload](#uploading-your-flutter-app-to-sauce-labs) it to Sauce Labs, [configure your Appium capabilities](#configuring-your-appium-capabilities) and run your tests.
