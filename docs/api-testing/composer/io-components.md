@@ -451,13 +451,13 @@ This component allows you to add specific configurations in your I/O Component. 
 
 #### Footprint
 
-Consider a scenario where you are calling an API that shows the product details. The endpoint will look like:
+Consider a scenario where you are calling an API that shows the product details. The endpoint will look like this:
 
   ```http request
   http://www.whereever.com/${id}/details
   ```
 
-Running your test will produce something like:
+Running your test will produce something like this:
 
   ```http request
   http://www.whereever.com/1/details  
