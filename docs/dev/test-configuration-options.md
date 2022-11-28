@@ -483,6 +483,30 @@ If your app has been uploaded to [Sauce storage](https://app.saucelabs.com/live/
 
 ---
 
+### `appium:otherApps`
+
+<p><small>| OPTIONAL | STRING or LIST | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+
+A dependent app that has already been uploaded to [App Storage](/mobile-apps/app-storage) will be pre-installed on the device during the testing of the main app. You can specify the app using its `storage:<fileId>` or `storage:filename=<filename>` reference.
+
+Dependent apps inherit the configuration of the main app under test for [`Device Language`](https://app.saucelabs.com/live/app-testing#group-details), [`Device Orientation`](https://app.saucelabs.com/live/app-testing#group-details), and [`Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of what settings may have been applied to the app at the time of upload, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
+
+Android-dependent apps will not be instrumented or modified. iOS-dependent apps will always be resigned/modified (even when resigning is disabled for the main app) because apps can't be installed on iOS devices without resigning them. If a dependent app cannot be resigned (such as a third party app), the test will not work as intended.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+// Or for a single app by name
+capabilities.setCapability("appium:otherApps", "storage:filename=app0.apk");
+// Or for a single app by fileId
+capabilities.setCapability("appium:otherApps",  "storage:7435ab52-1eaa-4387-a67b-4d8e265f85");
+// Or for multiple apps by name
+capabilities.setCapability("appium:otherApps", ["storage:filename=app0.apk", "storage:filename=app1.apk"]);
+// Or for multiple apps by fileId
+capabilities.setCapability("appium:otherApps",  ["storage:7435ab52-1eaa-4387-a67b-4d8e265f8509","storage:9035342-f8ea-7687-a67b-4dd4365f8588"]);
+```
+
+---
+
 ### `appium:orientation`
 
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
@@ -818,33 +842,6 @@ MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.setCapability("setupDeviceLock", true);
-capabilities.setCapability("sauce:options", sauceOptions);
-```
-
----
-
-### `otherApps`
-
-<p><small>| OPTIONAL | STRING or LIST | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
-
-A dependent app that has already been uploaded to [App Storage](/mobile-apps/app-storage) will be pre-installed on the device during the testing of the main app. You can specify the app using its `storage:<fileId>` or `storage:filename=<filename>` reference.
-
-Dependent apps inherit the configuration of the main app under test for [`Device Language`](https://app.saucelabs.com/live/app-testing#group-details), [`Device Orientation`](https://app.saucelabs.com/live/app-testing#group-details), and [`Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of what settings may have been applied to the app at the time of upload, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
-
-Android-dependent apps will not be instrumented or modified. iOS-dependent apps will always be resigned/modified (even when resigning is disabled for the main app) because apps can't be installed on iOS devices without resigning them. If a dependent app cannot be resigned (such as a third party app), the test will not work as intended.
-
-```java
-MutableCapabilities capabilities = new MutableCapabilities();
-//...
-MutableCapabilities sauceOptions = new MutableCapabilities();
-// Or for a single app by name
-sauceOptions.setCapability("otherApps", "storage:filename=app0.apk");
-// Or for a single app by fileId
-sauceOptions.setCapability("otherApps",  "storage:7435ab52-1eaa-4387-a67b-4d8e265f85");
-// Or for multiple apps by name
-sauceOptions.setCapability("otherApps", ["storage:filename=app0.apk", "storage:filename=app1.apk"]);
-// Or for multiple apps by fileId
-sauceOptions.setCapability("otherApps",  ["storage:7435ab52-1eaa-4387-a67b-4d8e265f8509","storage:9035342-f8ea-7687-a67b-4dd4365f8588"]);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
