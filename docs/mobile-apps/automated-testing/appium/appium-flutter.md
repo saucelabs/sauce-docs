@@ -9,7 +9,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::caution Warning
 Testing Flutter Apps with the appium-flutter-driver assumes you are familiar with:
 - creating, signing, and building [Flutter apps](https://docs.flutter.dev/)
 - writing and running [Appium tests](/mobile-apps/automated-testing/appium/)
