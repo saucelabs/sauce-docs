@@ -19,7 +19,7 @@ Sauce Labs supports testing Flutter apps on Android and iOS virtual and real dev
 
 ## Preprocessing your Flutter App
 
-Under the hood, Appium Flutter Driver uses the [Dart VM Service Protocol](https://github.com/dart-lang/sdk/blob/master/runtime/vm/service/service.md) with extension `ext.flutter.driver`, similar to Flutter Driver, to control the Flutter app-under-test (AUT). This needs to be enabled in the AUT before the app can be tested with Appium Flutter Driver and can be done by following the steps below:
+The Appium Flutter Driver uses the [Dart VM Service Protocol](https://github.com/dart-lang/sdk/blob/master/runtime/vm/service/service.md) with extension `ext.flutter.driver`, similar to Flutter Driver, to control the Flutter app-under-test (AUT). This needs to be enabled in the AUT before the app can be tested with Appium Flutter Driver and can be done by following the steps below:
 
 1. Open your Flutter project in your favorite IDE.
 2. In your `pubspec.yaml` file, add the following dependency:
