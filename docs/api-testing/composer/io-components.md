@@ -206,6 +206,7 @@ The `Contract Test` component has two child: the `Include (Contract T.)` and the
 `Include (Contract T.)` is useful when used together with `Inclusion Strategy` set to `Required` because in this way you can test both the required fields and any other fields that are not required. `Exclude (Contract T.)` is useful to be used together with `Inclusion Strategy` set to `All` because in this way you can exclude some of the fields whether they are required or not.
 
 <details><summary><strong>Code View Example</strong></summary>
+
 ```yaml
 - id: contract
   children:
