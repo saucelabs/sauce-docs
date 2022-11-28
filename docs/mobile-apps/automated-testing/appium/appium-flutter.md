@@ -9,7 +9,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-- creating, signing, and building [Flutter apps](https://docs.flutter.dev/)
 - writing and running [Appium tests](/mobile-apps/automated-testing/appium/)
 :::
 
