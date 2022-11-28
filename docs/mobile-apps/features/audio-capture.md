@@ -55,7 +55,7 @@ After you have been enrolled in the BETA program, you just need to launch a Live
 * Audio Streaming is supported on iOS/iPadOS 13.2 and above.
 * Audio Streaming is supported on Android 10 and above.
 * When Audio Streaming is enabled, we are not attaching the audio to the test results after the session ends. 
-* Accessibility and TalkBack on Android are not supported.
+* TalkBack Audio verification on Android is not supported.
 * Emulators and Simulators are not supported. 
 * Website testing is not yet available on Android. 
 :::
@@ -77,11 +77,8 @@ If your apps's manifest.xml file defines `android:allowAudioPlaybackCapture="fal
 
 ## Using Audio Capture on iOS/iPadOS
 
-You will be able to capture audio from iOS 10+ up. 
-
-:::note
-The status bar clock will display a static 9:41 time during the recording of live testing session. This is a visual limitation for audio capture, and the system clock will not be affected.
-:::
+You will be able to capture audio from iOS 10+ up.
+You will be able to validate the sound your application is making, and able to enable Voiceover and validate the output of it. 
 
 ## Accessing the Audio in Your Test Tesults
 
