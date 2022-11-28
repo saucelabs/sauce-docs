@@ -33,27 +33,75 @@ I/O request components enable you to perform the I/O operations `GET`, `POST`, `
 ### GET
 Performs a `GET` method request. See [Request Header](#request-header), [Query Params](#query-params), [Config](#config), and [Basic Authentication](#basic-authentication).
 
+```yaml
+- id: get
+  children: []
+  url: 
+  var: 
+  mode: 
+```
 
 ### POST
 Performs a `POST` method request. See [Request Body](#request-body), [Request Header](#request-header), [URL Encoded Params](#url-encoded-param), [Query Params](#query-params), [Config](#config), [File (Multi-part)](#file-multi-part), and [Basic Authentication](#basic-authentication).
 
+```yaml
+- id: post
+  children: []
+  url: 
+  var: 
+  mode: 
+```
 
 ### PUT
 Performs a `PUT` method request. See [Request Body](#request-body), [Request Header](#request-header), [URL Encoded Params](#url-encoded-param), [Query Params](#query-params), [Config](#config), [File (Multi-part)](#file-multi-part), and [Basic Authentication](#basic-authentication).
 
+```yaml
+- id: put
+  children: []
+  url: 
+  var: 
+  mode: 
+```
 
 ### PATCH
 Performs a `PATCH` method request. See [Request Body](#request-body), [Request Header](#request-header), [URL Encoded Params](#url-encoded-param), [Query Params](#query-params), [Config](#config), [File (Multi-part)](#file-multi-part), and [Basic Authentication](#basic-authentication).
 
+```yaml
+- id: patch
+  children: []
+  url: 
+  var: 
+  mode: 
+```
 
 ### DELETE
 Performs a `DELETE` method request. See [Request Body](#request-body), [Request Header](#request-header), [URL Encoded Params](#url-encoded-param), [Query Params](#query-params), [Config](#config), [File (Multi-part)](#file-multi-part), and [Basic Authentication](#basic-authentication).
 
+```yaml
+- id: delete
+  children: []
+  url: 
+  var: 
+  mode: 
+```
 
 ### GitHub
 The GitHub component is meant to simplify the process of retrieving a file from GitHub and use it as a data source. Some examples of files to use would be CSV or JSON files. [Here is a tutorial](/api-testing/on-prem/how-to/github-for-datasets) on how to use it as part of a test.
 
 <img src={useBaseUrl('img/api-testing/githubComponent.png')} alt="GitHub Component" />
+
+```yaml
+- id: github
+  baseURL: https://api.github.com
+  account: 
+  repository: 
+  branch: master
+  ref: HEAD
+  token: 
+  path: 
+  var: 
+  mode: json
+```
 
 The **Base URL**, **Branch**, and **Ref** fields will auto-populate, but you can still edit them. You'll need to fill in the following fields:
 
@@ -98,6 +146,15 @@ The **Base URL**, **Branch**, and **Ref** fields will auto-populate, but you can
 The **Contract Test** component allows you to test an open API specification file stored in the [Vault](/api-testing/vault/).
 <img src={useBaseUrl('img/api-testing/contracttest.png')} alt="Contract Test"/>
 
+```yaml
+- id: contract
+  children: []
+  openAPI: 
+  operationId: 
+  status: 
+  inclusionStrategy: required
+```
+
 <table id="table-api">
   <tbody>
   <tr>
@@ -131,6 +188,21 @@ The `Contract Test` component has two child: the `Include (Contract T.)` and the
 
 `Include (Contract T.)` is useful to be used together with `Inclusion Strategy` set to `Required` because in this way you can test both the required fields and any other not required field. On the opposite, `Exclude (Contract T.)` is useful to be used together with `Inclusion Strategy` set to `All` because in this way you can exclude some of the fields (no matter if required or not).
 
+```yaml
+- id: contract
+  children:
+    - id: include
+      name: 
+      in: 
+    - id: exclude
+      name: 
+      in: 
+  openAPI:
+  operationId: 
+  status: 
+  inclusionStrategy: required
+```
+
 <table id="table-api">
   <tbody>
   <tr>
@@ -142,7 +214,7 @@ The `Contract Test` component has two child: the `Include (Contract T.)` and the
     </tr>
     <tr>
      <td><strong>In</strong></td>
-     <td><p><small>| REQUIRED | STRING |</small></p><p>The place where the variable should be present.</p></td>
+     <td><p><small>| REQUIRED | STRING |</small></p><p>The place where the variable should be present (i.e. header|query).</p></td>
     </tr>
   </tbody>
 </table>
@@ -152,6 +224,13 @@ The `Contract Test` component has two child: the `Include (Contract T.)` and the
 The **File Data Source** component allows you to use a file from the [Vault](/api-testing/vault/) as a data source.
 
 <img src={useBaseUrl('img/api-testing/filedatasource.png')} alt="File Data Source"/>
+
+```yaml
+- id: set
+  var: 
+  mode: object
+  object: DS.loadTextFile('GlobexTest.yml')
+```
 
 <table id="table-api">
   <tbody>
@@ -187,6 +266,17 @@ For all the Child Components the value can be:
 1. Click **Request Body**.<br/><img src={useBaseUrl('img/api-testing/postBody1.png')} alt="Post" />
 1. Fill in the **Content-Type** and **Body** fields.<br/><img src={useBaseUrl('img/api-testing/postBody.png')} alt="Post" />
 
+```yaml
+- id: post
+  children:
+    - id: body
+      contentType: application/json
+      content: 
+  url: 
+  var: 
+  mode: json
+```
+
 <table id="table-api">
   <tbody>
   <tr>
@@ -209,6 +299,17 @@ For all the Child Components the value can be:
 1. Click **Request Header**.<br/><img src={useBaseUrl('img/api-testing/ioHeader.png')} alt="I/O Header" />
 1. Fill in the **Name** and **Value** fields.<br/><img src={useBaseUrl('img/api-testing/ioHeader2.png')} alt="I/O Header" />
 
+```yaml
+- id: post
+  children:
+    - id: header
+      name: 
+      value: 
+  url: 
+  var: 
+  mode: json
+```
+
 <table id="table-api">
   <tbody>
   <tr>
@@ -230,6 +331,17 @@ For all the Child Components the value can be:
 
 1. Click **URL Encoded Param**.<br/><img src={useBaseUrl('img/api-testing/UrlParam.png')} alt="Post" />
 1. Fill in the **Name** and **Value** fields.<br/><img src={useBaseUrl('img/api-testing/URlParam1.png')} alt="Post" />
+
+```yaml
+- id: post
+  children:
+    - id: param
+      name: 
+      value: 
+  url: 
+  var: 
+  mode: json
+```
 
 <table id="table-api">
   <tbody>
@@ -257,6 +369,17 @@ This refers to the **Query Param** section. Enter any params you want to add to 
 1. To add, click **Query Param**.<br/><img src={useBaseUrl('img/api-testing/ioConfig.png')} alt="I/O Config" />
 2. Fill in the fields.<br/><img src={useBaseUrl('img/api-testing/ioConfig2.png')} alt="I/O Config" />
 
+```yaml
+- id: post
+  children:
+    - id: queryParam
+      name: 
+      value: 
+  url: 
+  var: 
+  mode: json
+```
+
 <table id="table-api">
   <tbody>
   <tr>
@@ -277,6 +400,17 @@ This refers to the **Query Param** section. Enter any params you want to add to 
 ### Config
 
 This component allows you to add specific configurations in your I/O Component. Using the **config** component you can set up the footprints shown in the project dashboard, you can allow a call to (not) follow a redirect or you can set the timeout.
+
+```yaml
+- id: post
+  children:
+    - id: config
+      name: 
+      value: 
+  url: 
+  var: 
+  mode: json
+```
 
 #### Footprint
 
@@ -360,7 +494,7 @@ Using the config component you can also change the timeout setup. In order to do
 </table>
 
 
-#### Follow-redirect
+#### Follow-redirects
 
 When the GET request contains a redirect the system automatically follows that redirect and returns the response accordingly. If, for any reason, you need to not follow the redirect, you can use a specific configuration to block it. 
 To do so, you can add the config component in the GET request as follow:
@@ -390,6 +524,17 @@ To do so, you can add the config component in the GET request as follow:
 1. Click **Select** for the file you want to use.
 1. Fill in the **Name** field.<br/><img src={useBaseUrl('img/api-testing/FileMulti1.png')} alt="Post" />
 
+```yaml
+- id: post
+  children:
+    - id: param
+      name: file
+      value: "@file[Globex.txt]:Globex.txt"
+  url: 
+  var: 
+  mode: json
+```
+
 <table id="table-api">
   <tbody>
   <tr>
@@ -418,6 +563,17 @@ This refers to the **Basic Authentication** configuration, included in each of t
 1. Click **Basic Authentication**.<br/><img src={useBaseUrl('img/api-testing/ioAuth.png')} alt="I/O Authentication" />
 2. Fill in the Username and Password fields<br/><img src={useBaseUrl('img/api-testing/authBasic.png')} alt="I/O Authentication" />
 
+```yaml
+- id: post
+  children:
+    - id: header
+      name: Authentication
+      value: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+  url: 
+  var: 
+  mode: json
+```
+
 <table id="table-api">
   <tbody>
   <tr>
@@ -443,10 +599,26 @@ The fields apply to all I/O request components except **GitHub**, **Contract Tes
 
 In this field, enter the url of the resource you want to test. It could be the full url of the resource (i.e., `https://domain/endpoint`) or a string with variables (i.e., `https://${domain}${endpoint}`).<br/><img src={useBaseUrl('img/api-testing/Request-1024x281.png')} alt="Request-1024x281.jpg" />
 
+```yaml
+- id: get
+  children: []
+  url: https://domain/search
+  var: searchPayload
+  mode: json
+```
+
 ### Variable
 <p><small>| REQUIRED |</small></p>
 
 In this field, enter the name of the variable that contains the response (value must be a string). It will be the name you will refer during the test.
+
+```yaml
+- id: get
+  children: []
+  url: https://domain/search
+  var: searchPayload
+  mode: json
+```
 
 ### Expect
 <p><small>| OPTIONAL |</small></p>
@@ -458,13 +630,34 @@ Fill out this field only if the expected behavior differs from a positive respon
 
 Multiple status codes can be expected by adding them all (i.e., `200|302|400|500|VALID`)
 
+```yaml
+- id: get
+  children: []
+  url: https://domain.com/search
+  var: searchPayload
+  mode: json
+  expect:
+    codes:
+      - 200
+      - 302
+      - 400
+      - 500
+    validity: VALID
+```
+
 
 ### Mode
 <p><small>| REQUIRED |</small></p>
 
 Enter the type of the response you want to test (must be 'json','xml', 'html',or 'text').
 
-
+```yaml
+- id: get
+  children: []
+  url: https://domain.com/search
+  var: searchPayload
+  mode: json
+```
 
 
 
