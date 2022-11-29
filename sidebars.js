@@ -1,4 +1,3 @@
-
 module.exports = {
   apif: [
     {
@@ -954,6 +953,7 @@ module.exports = {
                 'mobile-apps/automated-testing/appium/quickstart',
                 'mobile-apps/automated-testing/appium/real-devices',
                 'mobile-apps/automated-testing/appium/virtual-devices',
+                'mobile-apps/automated-testing/appium/appium-flutter',
               ],
             },
             {
