@@ -78,7 +78,7 @@ If your apps's manifest.xml file defines `android:allowAudioPlaybackCapture="fal
 ## Using Audio Capture on iOS/iPadOS
 
 You will be able to capture audio from iOS 10+ up.
-You will be able to validate the sound your application is making, and able to enable Voiceover and validate the output of it. 
+You will be able to validate the sound your application is making, enable the Voiceover, and validate its output. 
 
 ## Accessing the Audio in Your Test Tesults
 
