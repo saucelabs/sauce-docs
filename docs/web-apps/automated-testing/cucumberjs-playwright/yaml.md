@@ -1,7 +1,7 @@
 ---
-id: cucumber
+id: yaml
 title: Configuring Your Cucumber.js Tests with Playwright 
-sidebar_label: Cucumber YAML Configuration
+sidebar_label: YAML Configuration
 ---
 
 import Tabs from '@theme/Tabs';
@@ -361,10 +361,10 @@ In order to run Cucumber.js tests with Playwright, you must to install the follo
 ```yaml
 npm:
   dependencies:
-    - "@cucumber/cucumber"
-    - "@saucelabs/cucumber-reporter"
-    - "typescript"
-    - "ts-node"
+    - "@cucumber/cucumber" # Cucumber official suggested package
+    - "@saucelabs/cucumber-reporter" # Sauce Labs report plugin. Generates a test cases report for display on the Sauce Labs UI.
+    - "typescript" # TypeScript support
+    - "ts-node" # TypeScript support
 ```
 
 To use this feature, make sure that `node_modules` is not ignored via `.sauceignore`.
