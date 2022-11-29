@@ -14,6 +14,7 @@ The configuration file is flexible enough to allow for any customizations and de
 
 * [Configure Cypress](/web-apps/automated-testing/cypress/yaml)
 * [Configure Playwright](/web-apps/automated-testing/playwright/yaml)
+* [Configure Cucumber.js with Playwright](/web-apps/automated-testing/cucumberjs-playwright/yaml)
 * [Configure TestCafe](/web-apps/automated-testing/testcafe/yaml)
 * [Configure Puppeteer](/web-apps/automated-testing/puppeteer/yaml)
 * [Configure Espresso](/mobile-apps/automated-testing/espresso-xcuitest/espresso)

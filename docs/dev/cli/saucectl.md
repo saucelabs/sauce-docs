@@ -66,6 +66,7 @@ Below are the frameworks supported on the Sauce Labs Cloud.
     values={[
       {"label":"Cypress","value":"cypress"},
       {"label":"Playwright","value":"playwright"},
+      {"label":"Cucumber.js-Playwright","value":"cucumberjs-playwright"},
       {"label":"TestCafe","value":"testcafe"},
       {"label":"Replay","value":"replay"},
       {"label":"Espresso","value":"espresso"},
@@ -80,6 +81,12 @@ Below are the frameworks supported on the Sauce Labs Cloud.
 <TabItem value="playwright">
 
 [Playwright on Sauce Docs](/web-apps/automated-testing/playwright/)
+
+</TabItem>
+
+<TabItem value="cucumberjs-playwright">
+
+[Cucumber.js with Playwright on Sauce Docs](/web-apps/automated-testing/cucumberjs-playwright/quickstart)
 
 </TabItem>
 
@@ -269,6 +276,7 @@ If you set your credentials using more than one of the methods above, `saucectl`
 
 * [Cypress Demo](https://github.com/saucelabs/saucectl-cypress-example)
 * [Playwright Demo](https://github.com/saucelabs/saucectl-playwright-example)
+* [Cucumber.js with Playwright Demo](https://github.com/saucelabs/saucectl-playwright-example/tree/main/examples/cucumber)
 * [TestCafe Demo](https://github.com/saucelabs/saucectl-testcafe-example)
 * [Replay Demo](https://github.com/saucelabs/saucectl-replay-example)
 * [Puppeteer Demo](https://github.com/saucelabs/saucectl-puppeteer-example)
@@ -282,6 +290,7 @@ If you already have tests in the framework of your choice, you can use the [`sau
 
 * [Cypress YAML](/web-apps/automated-testing/cypress/yaml)
 * [Playwright YAML](/web-apps/automated-testing/playwright/yaml)
+* [Cucumber.js with Playwright YAML](/web-apps/automated-testing/cucumberjs-playwright/yaml)
 * [TestCafe YAML](/web-apps/automated-testing/testcafe/yaml)
 * [Replay YAML](/web-apps/automated-testing/replay/yaml)
 * [Puppeteer YAML](/web-apps/automated-testing/puppeteer/yaml)
