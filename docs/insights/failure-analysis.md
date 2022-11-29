@@ -6,16 +6,16 @@ description: Use the machine learning power of Sauce Failure Analytics to uncove
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Failure Analysis is designed to help you optimize test efficiency and efficacy. The proprietary machine learning algorithms  review pass/fail data along with Selenium and Appium command logs to unearth common failures and their impact on the test suite as a whole. It then presents a report with tabs that aggregate patterns that are predictive of failure, helping you avoid similar or duplicate failures in future tests. Using Failure Analysis:
+Failure Analysis is designed to help you optimize test efficiency and efficacy. The proprietary machine learning algorithms review the test pass/fail data to unearth common failures and their impact on the test suite as a whole. It then presents a report with tabs that aggregate patterns that are predictive of failure, helping you avoid similar or duplicate failures in future tests. Using Failure Analysis:
 
 * Improves developer efficiency, streamlining detection and triage of the most pervasive errors
 * Validates investment in test automation by showing larger patterns as a source of failure, allowing for global mitigation and faster time-to-market with better quality
 
-## How it Works
-
 :::note
-Failure Analysis can only be effective if your automation tests are configured to [report a pass/fail outcome](/basics/test-config-annotation/test-annotation#setting-passfail).
+Failure Analysis supports Cypress, Playwright, Selenium and Appium. Additionally, in case of Selenium and Appium, it can only be effective if your tests are configured to [report a pass/fail outcome](/basics/test-config-annotation/test-annotation#setting-passfail).
 :::
+
+## How it Works
 
 Failure Analysis leverages your test data and identifies potential failure patterns based on aggregate test errors. More specifically, the tool:
 
