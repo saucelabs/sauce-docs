@@ -363,7 +363,7 @@ npm:
   dependencies:
     - "@cucumber/cucumber" # cucumber official suggested package
     - "@saucelabs/cucumber-reporter" # Sauce Labs report plugin. Generates a test cases report for display on the Sauce Labs UI.
-    - "typescript" # typescript support
+    - "typescript" # TypeScript support
     - "ts-node" # typescript support
 ```
 
