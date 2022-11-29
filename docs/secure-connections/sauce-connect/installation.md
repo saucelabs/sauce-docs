@@ -34,36 +34,36 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
  <td>Linux
    </td>
     <td>
-  <a href="https://saucelabs.com/downloads/sc-4.8.1-linux.tar.gz">https://saucelabs.com/downloads/sc-4.8.1-linux.tar.gz</a>
+  <a href="https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz">https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz</a>
    </td>
-   <td><small>9c16682e4c9716734432789884f868212f95f563</small>
+   <td><small>e65e77e849a80d1eb1de03ba56abf5a4d51cf1c5</small>
    </td>
   </tr>
     <tr>
  <td>Linux ARM64
    </td>
     <td>
-  <a href="https://saucelabs.com/downloads/sc-4.8.1-linux-arm64.tar.gz">https://saucelabs.com/downloads/sc-4.8.1-linux-arm64.tar.gz</a>
+  <a href="https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz">https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz</a>
    </td>
-   <td><small>2a6a5fd0ad90c1d776048e4f9fd60a1a8a26c3a2</small>
+   <td><small>fd782a658f4d28b9792edaf9df730a87ae797cba</small>
    </td>
   </tr>
   <tr>
    <td>macOS
    </td>
    <td>
-  <a href="https://saucelabs.com/downloads/sc-4.8.1-osx.zip">https://saucelabs.com/downloads/sc-4.8.1-osx.zip</a>
+  <a href="https://saucelabs.com/downloads/sc-4.8.2-osx.zip">https://saucelabs.com/downloads/sc-4.8.2-osx.zip</a>
    </td>
-   <td><small>4c5b8b570994a76396c75858455032bfdbb83589</small>
+   <td><small>5c2f81f6b0f246a641384d33df5c091ca0174730</small>
    </td>
    </tr>
   <tr>
  <td>Windows
      </td>
    <td>
-    <a href="https://saucelabs.com/downloads/sc-4.8.1-win32.zip">https://saucelabs.com/downloads/sc-4.8.1-win32.zip</a>
+    <a href="https://saucelabs.com/downloads/sc-4.8.2-win32.zip">https://saucelabs.com/downloads/sc-4.8.2-win32.zip</a>
    </td>
-   <td><small>f3df33f01bf8d9585cfcda084b54300089266159</small>
+   <td><small>1c81cbe9d1b25b8f8483cc1163d54d94191f7665</small>
    </td>
   </tr>
   </table>
@@ -75,8 +75,8 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
   #### Sauce Connect folder contents
 
   ```bash
-  $ tree sc-4.8.1-osx/
-    sc-4.8.1-osx/
+  $ tree sc-4.8.2-osx/
+    sc-4.8.2-osx/
     ├── COPYRIGHT.md
     ├── bin
     │   └── sc
@@ -101,11 +101,11 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
    <tr>
     <td><strong>config.yml</strong></td>
    <td>Sample <a href="/secure-connections/sauce-connect/setup-configuration/yaml-config">YAML configuration file</a>.</td>
-   </tr>  
+   </tr>
    <tr>
    <td><strong>sc.service</strong>, <strong>sc@.service</strong></td>
    <td>Sample files intended for use with the <a href="/secure-connections/sauce-connect/proxy-tunnels/#service-management-tools">systemd service manager</a>, an alternative way to start and stop Sauce Connect Proxy tunnels. Consult the <strong>README.md</strong> for more information.</td>
-   </tr>  
+   </tr>
   </table>
 
   </details>
@@ -113,15 +113,15 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
 3. If you're using Linux, you'll need to add Sauce Connect to your system PATH:
   ```bash
   cd $HOME
-  curl -LO https://saucelabs.com/downloads/sc-4.8.1-linux.tar.gz
-  tar xvf ./sc-4.8.1-linux.tar.gz
-  export PATH="$HOME/sc-4.8.1-linux/bin:$PATH"
+  curl -LO https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz
+  tar xvf ./sc-4.8.2-linux.tar.gz
+  export PATH="$HOME/sc-4.8.2-linux/bin:$PATH"
   ```
 
 
 ### Version Lifecycle Information
 
-The launch of Sauce Connect 4.8.1 makes it the officially supported version of the Sauce Connect client. All previous versions are in maintenance mode, with the oldest versions nearing the end of their support life.
+The launch of Sauce Connect 4.8.2 makes it the officially supported version of the Sauce Connect client. All previous versions are in maintenance mode, with the oldest versions nearing the end of their support life.
 
 <table>
   <tr>
@@ -141,7 +141,7 @@ The launch of Sauce Connect 4.8.1 makes it the officially supported version of t
     <tr>
    <td rowspan="2" >4.8
    </td>
-   <td>4.8.1
+   <td>4.8.2
    </td>
    <td>
     <a href="#downloading-sauce-connect-proxy">See latest version</a>
@@ -158,12 +158,19 @@ The launch of Sauce Connect 4.8.1 makes it the officially supported version of t
     <tr>
    <td rowspan="2" >4.8
    </td>
+   <td>4.8.1
+   </td>
+   <td>
+    <a href="https://saucelabs.com/downloads/sc-4.8.1-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.8.1-linux-arm64.tar.gz">Linux ARM64</a>, <a href="https://saucelabs.com/downloads/sc-4.8.1-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.8.1-win32.zip">Windows</a>
+   </td>
+   <td rowspan="2" >Nov. 30, 2023
+   </td>
+  </tr>
+  <tr>
    <td>4.8.0
    </td>
    <td>
     <a href="https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.8.0-linux-arm64.tar.gz">Linux ARM64</a>, <a href="https://saucelabs.com/downloads/sc-4.8.0-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.8.0-win32.zip">Windows</a>
-   </td>
-   <td rowspan="2" >Nov. 30, 2023
    </td>
   </tr>
   <tr>
