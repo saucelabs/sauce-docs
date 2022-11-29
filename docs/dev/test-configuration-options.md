@@ -15,7 +15,6 @@ Try our [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platfo
 
 ## Terminology
 
-## Terminology
 
 When setting up your test, you'll need to configure your script with settings called _capabilities_ that align with your test environment (e.g., desktop browser, mobile web browser, mobile app). While each environment has its own set of capabilities, they can also be combined. Some are required for a test to run in a given environment, while some are optional.
 
