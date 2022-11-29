@@ -906,7 +906,6 @@ module.exports = {
             'mobile-apps/features/biometric-authentication',
             'mobile-apps/features/camera-image-injection',
             'mobile-apps/features/gestures',
-            'mobile-apps/features/network-capture',
             'mobile-apps/features/audio-capture',
             {
               type: 'category',
@@ -920,6 +919,7 @@ module.exports = {
                 'mobile-apps/features/mobile-app-diagnostics/device-vitals',
                 'mobile-apps/features/mobile-app-diagnostics/interactions',
                 'mobile-apps/features/mobile-app-diagnostics/view-tree',
+                'mobile-apps/features/network-capture',
               ],
             },
           ],
