@@ -236,7 +236,7 @@ __Shorthand__: n/a
 ### `--proxy`
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
-__Description__: Defines external proxy host:port where you want to route Sauce Labs test traffic. For example, the traffic from a Firefox Desktop test.<br/>
+__Description__: Defines external proxy host:port where you want to route Sauce Labs test traffic. For example, the traffic from a Firefox desktop test.<br/>
 __Enviroment variable__: `SAUCE_PROXY`<br/>
 __Shorthand__: `-p`
 
