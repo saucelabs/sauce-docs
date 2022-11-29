@@ -827,35 +827,7 @@ Each individual `REST` run for this route will produce a new line in the metrics
   http://www.whereever.com/4/details
   ...  
   ```
-To produce a single endpoint for reporting from each one of these calls, you can use a **footprint**.
-
-To reconfigure the footprint, in the test, add a `config` component to the I/O component:  
-
-<img src={useBaseUrl('/img/api-testing/metrics-improve-config.png')} alt="Reconfiguring a footprint" width="600"/>
-
-The `config` component has two fields:  
-  * Name - The name you want to assign. In this case, you **MUST** enter `footprint`.
-  * Value - The value for the configuration component.
-
-To set up a footprint, enter the URL that's in the I/O component. Any parameterized portion of the URL must be wrapped in square brackets.
-
-The value in this example would be:
-
-  ```http request
-  http://www.wherever.com/whatever/[id]/details  
-  ```
-
-For each endpoint, you can use more square brackets, one for each variable that could assume multiple values:
-
-  ```http request
-  http://www.whereever.com/[whatever]/[id]/details/[colors]/whatever
-  ```
-
-When you write the value of the config, for the static part of the endpoint, you can also call a variable as in any I/O operation:
-
-  ```js
-  ${protocol}/${domain}/[whatever]/[id]/details/[colors]/whatever
-  ```
+To produce a single endpoint for reporting from each one of these calls, you can use a [footprint](/api-testing/composer/io-components/#config).
 
 ## Terminology
 
