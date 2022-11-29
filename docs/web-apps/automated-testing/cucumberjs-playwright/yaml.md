@@ -361,7 +361,7 @@ In order to run Cucumber.js tests with Playwright, you must to install the follo
 ```yaml
 npm:
   dependencies:
-    - "@cucumber/cucumber" # cucumber official suggested package
+    - "@cucumber/cucumber" # Cucumber official suggested package
     - "@saucelabs/cucumber-reporter" # Sauce Labs report plugin. Generates a test cases report for display on the Sauce Labs UI.
     - "typescript" # TypeScript support
     - "ts-node" # typescript support
