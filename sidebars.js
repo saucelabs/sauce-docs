@@ -1063,8 +1063,21 @@ module.exports = {
                 'web-apps/automated-testing/playwright',
                 'web-apps/automated-testing/playwright/quickstart',
                 'web-apps/automated-testing/playwright/yaml',
-                'web-apps/automated-testing/playwright/cucumber',
                 'web-apps/automated-testing/playwright/advanced',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Cucumber.js with Playwright',
+              link: {
+                type: 'doc',
+                id: 'web-apps/automated-testing/cucumberjs-playwright/quickstart',
+              },
+              collapsed: true,
+              items: [
+                'web-apps/automated-testing/cucumberjs-playwright/quickstart',
+                'web-apps/automated-testing/cucumberjs-playwright/yaml',
+                'web-apps/automated-testing/cucumberjs-playwright/advanced',
               ],
             },
             {
