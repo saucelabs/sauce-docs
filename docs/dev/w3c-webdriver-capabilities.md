@@ -26,7 +26,7 @@ To ensure W3C WebDriver compatibility:
 - Switch from using the legacy JSON Wire Protocol (JWP) to the newer W3C WebDriver Protocol. Mixing JWP with W3C will result in an [error](/dev/w3c-webdriver-capabilities/#common-errors).
 - Learn the differences between legacy JWP and W3C WebDriver-compliant capability syntax. For example, W3C uses `platformName` and `browserVersion`, while JWP uses `platform` and `version`, respectively. We recommend reviewing our [Test Configuration Options](/dev/test-configuration-options)
   and the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/#capabilities).
-- Include our custom `sauce:options` W3C WebDriver-compliant capabilities in your Sauce Labs test scripts. See <a href="/dev/test-configuration-options">Test Configuration Options</a> for a complete list and guidance on which are required and optional.
+- Include our custom `sauce:options` W3C WebDriver-compliant capabilities in your Sauce Labs test scripts. See [Test Configuration Options](/dev/test-configuration-options) for a complete list and guidance on which are required and optional.
  
 ### Browser Compatibility
 
