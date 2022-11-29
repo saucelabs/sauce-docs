@@ -360,7 +360,3 @@ The following drivers are supported by Sauce Labs
 Currently, we do not provide pre-installed and do not support passing custom plugins. We will keep monitoring the Appium community for the progress of the plugins and will update this page accordingly.
 
 If you have specific needs for a plugin, please reach out to our [support team](https://support.saucelabs.com/hc/en-us/requests/new) and provide all relevant information about this plugin.
-
-```
-
-```
