@@ -364,7 +364,7 @@ npm:
     - "@cucumber/cucumber" # Cucumber official suggested package
     - "@saucelabs/cucumber-reporter" # Sauce Labs report plugin. Generates a test cases report for display on the Sauce Labs UI.
     - "typescript" # TypeScript support
-    - "ts-node" # typescript support
+    - "ts-node" # TypeScript support
 ```
 
 To use this feature, make sure that `node_modules` is not ignored via `.sauceignore`.
