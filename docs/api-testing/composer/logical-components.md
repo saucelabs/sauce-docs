@@ -55,7 +55,18 @@ If a collection is nested in another one, you need to refer to them as `_1`, `_2
 The `for each payload.content.flights` collection checks if `price.amount` is an integer. Then, the `for each legs` array, a nested collection within the flights collection, checks if vector item is an integer value.
 
 </details>
+<details><summary><strong>Code View Examples</strong></summary>
 
+```yaml
+- id: each
+  children:
+    - id: assert-is
+      expression: vector
+      type: integer
+  expression: payload.legs
+```
+
+</details>
 
 
 ### If
@@ -87,7 +98,22 @@ If `_1.intermediate` exists then the code within the element is executed, otherw
 <img src={useBaseUrl('img/api-testing/ifexists.png')} alt="ifexists.png" />
 
 </details>
+<details><summary><strong>Code View Examples</strong></summary>
 
+```yaml
+- id: if
+  children:
+    - id: assert-equals
+      expression: payload.message
+      value: Seats Available
+    - id: assert-equals
+      expression: payload.content.flightid
+      value: ${id}
+      type: string
+  expression: payload.success == true
+```
+
+</details>
 
 ### While
 
@@ -113,4 +139,14 @@ Allows you to run a block of assertions as long as a condition is valid.
 
 <img src={useBaseUrl('img/api-testing/while.png')} alt="while.png" />
 
+</details>
+<details><summary><strong>Code View Examples</strong></summary>
+
+```yaml
+- id: while
+  children:
+    - id: comment
+      text: Executes assertion until items are less than 5
+  expression: items<5
+```
 </details>
