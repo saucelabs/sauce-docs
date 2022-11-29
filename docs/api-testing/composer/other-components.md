@@ -50,6 +50,13 @@ Static tags will be displayed in your **Tests** list.<br/><img src={useBaseUrl('
 All tags, dynamic and static will mark the test execution documents. On your project **Dashboard**, you can filter events by tags.<br/><img src={useBaseUrl('img/api-testing/projDashTag.png')} alt="projDashTag.png"/>
 
 </details>
+<details><summary><strong>Code View Example</strong></summary>
+
+```yaml
+- id: tag
+  value: Production
+```
+</details>
 
 ## Set (Variable)
 
@@ -171,7 +178,7 @@ For example, you can create a new array in this way:
 <img src={useBaseUrl('img/api-testing/set-data-array.png')} alt="Set array"/>  
 
 ```
-Variable: products
+Variable: product
 Mode: Data
 Data: ["Bluetooth Headphones","Long Sleeve Shirt","Baseball Cap"]
 ```
@@ -327,6 +334,70 @@ For example, if you need to add a new product in your database, you can create t
 
 </details>
 
+<details><summary><strong>Code View Examples</strong></summary>
+
+```yaml
+- id: set
+  var: product
+  mode: string
+  value: t-shirt
+```
+
+```yaml
+- id: set
+  var: product
+  mode: string
+  value: ${payload.name}
+```
+
+```yaml
+- id: set
+  var: product
+  mode: object
+  object: '["Bluetooth Headphones","Long Sleeve Shirt","Baseball Cap"]'
+```
+
+```yaml
+- id: set
+  var: product
+  mode: object
+  object: payload.filter(it=>it.name=='Bluetooth Headphones')
+```
+
+```yaml
+- id: set
+  var: jsonData
+  mode: lang
+  lang: javascript
+  body: |-
+    var pieces = token.split('.')
+    var b64payload = pieces[1]
+    var decoded = Buffer.from(b64payload,'base64').toString()
+    var json = JSON.parse(decoded)
+    return json
+```
+
+```yaml
+- id: set
+  var: new_product
+  mode: lang
+  lang: template
+  body: >-
+    {
+        "id": 4,
+        "name": "T-Shirt",
+        "price": ${price},
+        "category": "1",
+        "description": "This is product ${id}!",
+        "quantity": 5,
+        "imageURL": "http://image.com",
+        "color": ["red", "green"],
+        "createdAt": "${D.format (D.nowMillis(), 'yyyy-MM-DD')}",
+        "updatedAt": "${D.format (D.nowMillis(), 'yyyy-MM-DD')}T${D.format(D.nowMillis(), 'HH:mm:ssz')}"
+    }
+```
+</details>
+
 
 ## Parse
 
@@ -369,7 +440,20 @@ Here are the results of the above test:
 As you can see before parsing the string, the test will consider the variable `colors` as one big string so `colors[1]` will print “ as that is the second character in the string. After parsing the string into JSON we can traverse through the variable as a JSON, so `colors[1]` will print the second element in the JSON array blue.
 
 </details>
+<details><summary><strong>Code View Examples</strong></summary>
 
+```yaml
+- id: parse
+  var: varName
+  adapter: json
+```
+
+```yaml
+- id: parse
+  var: fileName
+  adapter: csv
+```
+</details>
 
 ## Comment
 
@@ -395,6 +479,13 @@ The value of the ID is ${payload.id}
 
 </details>
 
+<details><summary><strong>Code View Example</strong></summary>
+
+```yaml
+- id: comment
+  text: This is a comment
+```
+</details>
 
 ## Flow
 
@@ -432,7 +523,19 @@ In this example, the test will wait 1000 milliseconds before performing the `GET
 
 </details>
 
+<details><summary><strong>Code View Examples</strong></summary>
 
+```yaml
+- id: flow
+  command: stop
+```
+
+```yaml
+- id: flow
+  command: wait
+  value: 1000
+```
+</details>
 
 ## Fact
 
@@ -525,6 +628,30 @@ Given that this can be configured within the test, it offers all the flexibility
 
 </details>
 
+<details><summary><strong>Code View Examples</strong></summary>
+
+```yaml
+- id: fact
+  identifier: environment
+  label: environment
+  value: ${env}
+```
+
+```yaml
+- id: fact
+  identifier: disable_alerts
+  label: alerts disabled
+  value: "true"
+```
+
+```yaml
+- id: fact
+  identifier: mail_threshold
+  label: multi failure
+  value: "2"
+```
+</details>
+
 ## Snippets
 
 When you save a snippet from the **Composer**, it will be saved in the project [Vault](/api-testing/vault/). While you cannot save a snippet from the **Composer** to the **Company Vault**, you can export there using the import/export feature (see screenshot below).<br/><img src={useBaseUrl('img/api-fortress/2021/04/exportSnippet.png')} alt="Snippet"/>
@@ -574,6 +701,58 @@ The Key/Value Store component has four methods available for use:
 * [**Load**](#basic-workflow): recalls a value from the Key/Value store when provided with a key.<br/><img src={useBaseUrl('img/api-testing/KeyValueLoad.png')} alt="KeyValueLoad.png" />
 * [**Push**](#pushpop-workflow): adds a value to the end of an existent value **of the datatype "Array"** in the Key/Value store. If no such key exists, it will create a new array containing the passed in value.  The passed in value is entered in the __Data__ field.<br/><img src={useBaseUrl('img/api-testing/KeyValuePush.png')} alt="KeyValuePush.png" />
 * [**Pop**](#pushpop-workflow): removes a value from the end of an existent value **of the datatype "Array"** in the Key/Value store.<br/><img src={useBaseUrl('/img/api-testing/KeyValuePop.png')} alt="KeyValuePop.png" />
+
+<details><summary><strong>Code View Examples</strong></summary>
+
+```yaml
+- id: kv
+  key: 
+  action: load
+  var: 
+```
+
+```yaml
+- id: kv
+  key: prods
+  action: load
+  var: kvprods
+```
+
+```yaml
+- id: kv
+  key: 
+  action: pop
+  var: 
+```
+
+```yaml
+- id: kv
+  key: 
+  action: set
+  object: 
+```
+
+```yaml
+- id: kv
+  key: adasd
+  action: set
+  object: products[0].name
+```
+
+```yaml
+- id: kv
+  key: prods
+  action: set
+  object: "[products[0].color]"
+```
+
+```yaml
+- id: kv
+  key: 
+  action: push
+  object: 
+```
+</details>
 
 
 ### Basic Workflow
