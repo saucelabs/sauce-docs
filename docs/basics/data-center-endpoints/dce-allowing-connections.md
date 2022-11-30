@@ -1,5 +1,5 @@
 ---
-id: data-center-endpoints
+id: dce-allowing-connections
 title: Allowing Connections Between Your Network And Sauce Labs
 sidebar_label: Allowing Connections
 ---
