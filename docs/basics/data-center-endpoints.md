@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 The data center you use with Sauce Labs determines:
   * The location of the servers where your tests are run
   * Where related artifacts are stored
-  * Your ability to run headless tests, meaning tests run on a browser that does not have a user interface
+  * Your ability to run headless tests, which are tests run on a browser that do not have a user interface
 
 ## What You'll Need
 
