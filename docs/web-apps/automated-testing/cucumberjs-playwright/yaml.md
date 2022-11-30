@@ -752,7 +752,7 @@ suites:
 #### `config`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the path to Cucumber configuration file. See the [Cucumber.js Configuration documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md) for more information.
+Specifies the path to the Cucumber configuration file. See the [Cucumber.js Configuration documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md) for more information.
 
 ```yaml
   options:
