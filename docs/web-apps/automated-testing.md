@@ -11,6 +11,7 @@ Achieving digital confidence for your website app involves knowing that every us
     * Selenium
     * Cypress
     * Playwright
+    * Cucumber.js with Playwright
     * TestCafe
     * Puppeteer
     * Replay
