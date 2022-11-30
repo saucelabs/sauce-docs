@@ -50,6 +50,13 @@ Static tags will be displayed in your **Tests** list.<br/><img src={useBaseUrl('
 All tags, dynamic and static will mark the test execution documents. On your project **Dashboard**, you can filter events by tags.<br/><img src={useBaseUrl('img/api-testing/projDashTag.png')} alt="projDashTag.png"/>
 
 </details>
+<details><summary><strong>Code View Example</strong></summary>
+
+```yaml
+- id: tag
+  value: Production
+```
+</details>
 
 ## Set (Variable)
 
@@ -171,7 +178,7 @@ For example, you can create a new array in this way:
 <img src={useBaseUrl('img/api-testing/set-data-array.png')} alt="Set array"/>  
 
 ```
-Variable: products
+Variable: product
 Mode: Data
 Data: ["Bluetooth Headphones","Long Sleeve Shirt","Baseball Cap"]
 ```
@@ -327,6 +334,70 @@ For example, if you need to add a new product in your database, you can create t
 
 </details>
 
+<details><summary><strong>Code View Examples</strong></summary>
+
+```yaml
+- id: set
+  var: product
+  mode: string
+  value: t-shirt
+```
+
+```yaml
+- id: set
+  var: product
+  mode: string
+  value: ${payload.name}
+```
+
+```yaml
+- id: set
+  var: product
+  mode: object
+  object: '["Bluetooth Headphones","Long Sleeve Shirt","Baseball Cap"]'
+```
+
+```yaml
+- id: set
+  var: product
+  mode: object
+  object: payload.filter(it=>it.name=='Bluetooth Headphones')
+```
+
+```yaml
+- id: set
+  var: jsonData
+  mode: lang
+  lang: javascript
+  body: |-
+    var pieces = token.split('.')
+    var b64payload = pieces[1]
+    var decoded = Buffer.from(b64payload,'base64').toString()
+    var json = JSON.parse(decoded)
+    return json
+```
+
+```yaml
+- id: set
+  var: new_product
+  mode: lang
+  lang: template
+  body: >-
+    {
+        "id": 4,
+        "name": "T-Shirt",
+        "price": ${price},
+        "category": "1",
+        "description": "This is product ${id}!",
+        "quantity": 5,
+        "imageURL": "http://image.com",
+        "color": ["red", "green"],
+        "createdAt": "${D.format (D.nowMillis(), 'yyyy-MM-DD')}",
+        "updatedAt": "${D.format (D.nowMillis(), 'yyyy-MM-DD')}T${D.format(D.nowMillis(), 'HH:mm:ssz')}"
+    }
+```
+</details>
+
 
 ## Parse
 
@@ -369,7 +440,20 @@ Here are the results of the above test:
 As you can see before parsing the string, the test will consider the variable `colors` as one big string so `colors[1]` will print “ as that is the second character in the string. After parsing the string into JSON we can traverse through the variable as a JSON, so `colors[1]` will print the second element in the JSON array blue.
 
 </details>
+<details><summary><strong>Code View Examples</strong></summary>
 
+```yaml
+- id: parse
+  var: varName
+  adapter: json
+```
+
+```yaml
+- id: parse
+  var: fileName
+  adapter: csv
+```
+</details>
 
 ## Comment
 
@@ -395,6 +479,13 @@ The value of the ID is ${payload.id}
 
 </details>
 
+<details><summary><strong>Code View Example</strong></summary>
+
+```yaml
+- id: comment
+  text: This is a comment
+```
+</details>
 
 ## Flow
 
@@ -432,7 +523,19 @@ In this example, the test will wait 1000 milliseconds before performing the `GET
 
 </details>
 
+<details><summary><strong>Code View Examples</strong></summary>
 
+```yaml
+- id: flow
+  command: stop
+```
+
+```yaml
+- id: flow
+  command: wait
+  value: 1000
+```
+</details>
 
 ## Fact
 
@@ -525,6 +628,30 @@ Given that this can be configured within the test, it offers all the flexibility
 
 </details>
 
+<details><summary><strong>Code View Examples</strong></summary>
+
+```yaml
+- id: fact
+  identifier: environment
+  label: environment
+  value: ${env}
+```
+
+```yaml
+- id: fact
+  identifier: disable_alerts
+  label: alerts disabled
+  value: "true"
+```
+
+```yaml
+- id: fact
+  identifier: mail_threshold
+  label: multi failure
+  value: "2"
+```
+</details>
+
 ## Snippets
 
 When you save a snippet from the **Composer**, it will be saved in the project [Vault](/api-testing/vault/). While you cannot save a snippet from the **Composer** to the **Company Vault**, you can export there using the import/export feature (see screenshot below).<br/><img src={useBaseUrl('img/api-fortress/2021/04/exportSnippet.png')} alt="Snippet"/>
@@ -575,6 +702,58 @@ The Key/Value Store component has four methods available for use:
 * [**Push**](#pushpop-workflow): adds a value to the end of an existent value **of the datatype "Array"** in the Key/Value store. If no such key exists, it will create a new array containing the passed in value.  The passed in value is entered in the __Data__ field.<br/><img src={useBaseUrl('img/api-testing/KeyValuePush.png')} alt="KeyValuePush.png" />
 * [**Pop**](#pushpop-workflow): removes a value from the end of an existent value **of the datatype "Array"** in the Key/Value store.<br/><img src={useBaseUrl('/img/api-testing/KeyValuePop.png')} alt="KeyValuePop.png" />
 
+<details><summary><strong>Code View Examples</strong></summary>
+
+```yaml
+- id: kv
+  key: 
+  action: load
+  var: 
+```
+
+```yaml
+- id: kv
+  key: prods
+  action: load
+  var: kvprods
+```
+
+```yaml
+- id: kv
+  key: 
+  action: pop
+  var: 
+```
+
+```yaml
+- id: kv
+  key: 
+  action: set
+  object: 
+```
+
+```yaml
+- id: kv
+  key: adasd
+  action: set
+  object: products[0].name
+```
+
+```yaml
+- id: kv
+  key: prods
+  action: set
+  object: "[products[0].color]"
+```
+
+```yaml
+- id: kv
+  key: 
+  action: push
+  object: 
+```
+</details>
+
 
 ### Basic Workflow
 
@@ -583,7 +762,7 @@ Let's take a look at how this workflow works in a practical setting. The first e
 1. First, we'll make a `GET` request to an endpoint.<br/><img src={useBaseUrl('img/api-testing/KVBasicWorkflow1.png')} alt="KVBasicWorkflow1.png" />
 2. Next, we'll add a K/V Store component.<br/><img src={useBaseUrl('img/api-testing/KVBasicWorkflow2.png')} alt="KVBasicWorkflow2.png" />
 3. This first K/V Store component (we're going to incorporate several) is going to set the Key/Value pair in the Store, so we're going to use **Set**<br/><img src={useBaseUrl('img/api-testing/KVBasicWorkflow3.png')} alt="KVBasicWorkflow3.png"/>
-4. In this case, we're setting the Key "prods" equal to `products[0].name`, which in this case evaluates to "Baseball Cap."
+4. In this case, we're setting the Key prods equal to `products[0].name`, which in this case evaluates to Baseball Cap.
 5. Next, we're going to retrieve this Key/Value pair from the store with the **Load** method. In the K/V Store **Load** component, we're going to assign the retrieved value to the variable `kvprods.`<br/><img src={useBaseUrl('img/api-testing/KVBasicWorkflow4.png')} alt="KVBasicWorkflow4.png"/>
 6. Finally, we'll add in a **Comment** component to ensure that the data was recovered successfully.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-1.48.01-PM1.png')} alt="Add Comment component" />
 7. When we run the test, we're presented with the following result:<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-1.48.28-PM.png')} alt="Test Results.png" />
@@ -596,7 +775,7 @@ Next, we're going to take a look at how **Push** and **Pop** work. **Push** and 
 
 First, we're going to use **Push**. It should be noted that **Pop** works similarly but with the opposite result. **Pop** _also_ assigns the removed value to a variable which can be used in the context of the test, but can no longer be accessed from the Key/Value Store. We'll discuss this further when we take a look at **Pop**.
 
-1. First, we're going to send a `GET` request and assign a key in the Key/Value Store to a value from the response body. In this case, we're going to use "Color," which is an array.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-1.49.16-PM.png')} alt="Assign a key"/>
+1. First, we're going to send a `GET` request and assign a key in the Key/Value Store to a value from the response body. In this case, we're going to use Color, which is an array.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-1.49.16-PM.png')} alt="Assign a key"/>
 2. Next, we're going to **Load** and **Comment** this key. We're doing that so we can actually see the change on the test report at the end of this workflow.
 3. The next step is to **Push** the new data on to the end of the existing array. In this case, we're pushing the integer _999_ onto the _prods_ array.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-2.43.53-PM.png')} alt="Push data"  />
 4. Finally, we're going to **Load** the modified data into the test from the K/V Store.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-1.51.48-PM.png')} alt="Load data" />
@@ -608,12 +787,12 @@ Now, we've added something to the array. Let's remove it with **Pop**!
 
 1. The first step is to introduce a **Pop** K/V Store component.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-2.31.17-PM.png')} alt="screenshot.png" />
 
-  We provide the **Pop** component with the name of the key from the Key/Value Store, and the name of the variable we'd like to assign the popped value to. Remember, **Pop** removes the last value in an array and returns the value itself. In this case, we're going to assign it to a variable called "Popped."
+  We provide the **Pop** component with the name of the key from the Key/Value Store, and the name of the variable we'd like to assign the popped value to. Remember, **Pop** removes the last value in an array and returns the value itself. In this case, we're going to assign it to a variable called Popped.
 2. Next, we're going to recall the modified key from the Key/Value Store. Then, we're going to Comment both the recalled Key/Value Store value AND the previously popped value.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-2.28.58-PM.png')} alt="screenshot.png" />
 3. Review the Test Report, where you can see the full workflow, showing that we first assigned an array to the Key/Value Store with **Set**, then added to that array with **Push**, and then removed the added value with **Pop**. Each time we made a change, we used **Load** to retrieve an updated value from the Key/Value Store.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-2.29.09-PM.png')} alt="screenshot.png" />
 
 The last two comments show the final state of the array in the Key/Value Store and the popped value itself. The popped value will only be available within the scope of this test run. The array in the Key/Value Store will remain retrievable and until 24 hours after it's most recent modification.
 
 :::note
-Use "Set," "Push," and "Pop" to reset the timer. "Load" does not reset the timer.
+Use Set, Push, and Pop to reset the timer. Load does not reset the timer.
 :::
