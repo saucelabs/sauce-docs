@@ -23,33 +23,60 @@ Allows you to compare two payloads in terms of text, structure or values.
 
 <details><summary><strong>Parameters</strong></summary>
 
-| Field | Type/Value | Required |
-| :--- | :--- | :--- |
-| **Expression 1** | Expression | Yes |
-| **Expression 2** | Expression | Yes |
-| **Mode** | Text, values, structure | Yes |
-| **Strict** | Yes, No | No |
-| **Comment** | String | No |
-| **Level** | error, warning | No |
-| **Stop test if fails** | Yes, No | No |
+<table id="table-api">
+  <tbody>
+  <tr>
+  <td colSpan='2'>Fields</td>
+  </tr>
+    <tr>
+     <td><strong>Expression 1</strong></td>
+     <td><p><small>| REQUIRED | STRING |</small></p><p>The first payload you want to compare.</p></td>
+    </tr>
+    <tr>
+     <td><strong>Expression 2</strong></td>
+     <td><p><small>| REQUIRED | STRING |</small></p><p>The second payload you want to compare.</p></td>
+    </tr>
+    <tr>
+     <td><strong>Mode</strong></td>
+     <td><p><small>| REQUIRED | Text, values, structure |</small></p><p>The comparator you wish to use. <code>text</code> compares the text of the two payloads as plain text, <code>values</code> compares the two payloads regardless the text layout, <code>structure</code> compares only the structure of the two payloads.</p></td>
+    </tr>
+    <tr>
+     <td><strong>Strict</strong></td>
+     <td><p><small>| OPTIONAL | Yes, No |</small></p><p>Comparison includes data types. </p></td>
+    </tr>
+  </tbody>
+</table>
 
-* __Expression 1__: the first payload you want to compare. See [Expression](/api-testing/on-prem/reference/expression/) for more details.
-* __Expression 2__: the second payload you want to compare.
-* __Mode__: the comparator you wish to use.
-    * **Text** compares the text of the two payloads as plain text
-    * **values** compares the two payloads regardless the text layout
-    * **structure** compares only the structure of the two payloads.
-* __Strict__: Comparison includes data types. 
-* __Comment__: Add comment messages in the form of a string data type.
-* __Level__: Specifies, when the assertion fails, whether it should be considered an **error** or just a **warning**.
-* __Stop test if fails__: The test will be immediately stopped if the assertion fails.
-
-:::note
-A **warning** will not trigger alerts, such as email or text messages.
-:::
+See also [Common Fields](#assertion-common-fields)
 
 <img src={useBaseUrl('img/api-testing/compares.png')} alt="Assertion Compares Pic"/>
 
+</details>
+<details><summary><strong>Code View Examples</strong></summary>
+
+```yaml
+- id: assert-compares
+  expression1: payload1
+  expression2: payload2
+  mode: text
+  strict: "false"
+```
+
+```yaml
+- id: assert-compares
+  expression1: payload1
+  expression2: payload2
+  mode: values
+  strict: "false"
+```
+
+```yaml
+- id: assert-compares
+  expression1: payload1
+  expression2: payload2
+  mode: structure
+  strict: "false"
+```
 </details>
 
 
@@ -71,11 +98,11 @@ This assertion is used to check if the element described by the expression conta
 | Stop test if fails | Yes, No | No |
 
 
-* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
+* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/composer/expressions/) for more details.
 * __Value__: The value we want to compare the expression to.
 * __Type__: The type of the value. **Auto** means the engine will try to identify the type of the value.
-* __Comment__: Add comment messages in the form of a string data type.
-* __Level__: Specifies, when the assertion fails, whether it should be considered an **error** or just a **warning**.
+* __Comment__: See [Comment](#comment).
+* __Level__: See [Level](#level).
 * __Modifier__: The assertion is considered verified if it does not pass.
 * __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
 * __Stop test if fails__: The test will be immediately stopped if the assertion fails.
@@ -121,11 +148,11 @@ This assertion is used to check if the element value described by the expression
 | Stop test if fails | Yes, No | No |
 
 
-* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
+* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/composer/expressions/) for more details.
 * __Value__: The value we want to compare the expression to.
 * __Type__: The type of the value. **Auto** means the engine will try to identify the type of the value.
-* __Comment__: Add comment messages in the form of a string data type.
-* __Level__: Specify if the assertion fails whether it should be considered an ‘error’ or just a ‘warning’.
+* __Comment__: See [Comment](#comment).
+* __Level__: See [Level](#level).
 * __Modifier__: The assertion is considered verified if it does not pass.
 * __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
 * __Stop test if fails__: The test will be immediately stopped if the assertion fails.
@@ -168,9 +195,9 @@ This assertion is used to check if the element described by the expression exist
 | Stop test if fails | Yes, No | No |
 
 
-* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
-* __Comment__: Add comment messages in the form of a string data type.
-* __Level__: Specify if the assertion fails whether it should be considered an ‘error’ or just a ‘warning’.
+* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/composer/expressions/) for more details.
+* __Comment__: See [Comment](#comment).
+* __Level__: See [Level](#level).
 * __Modifier__: The assertion is considered verified if it does not pass.
 * __Stop test if fails__: The test will be immediately stopped if the assertion fails.
 
@@ -209,8 +236,8 @@ This assertion is used to check if the element value described by the expression
 
 * __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
 * __Value__: The value we want to compare the expression to.
-* __Comment__: Add comment messages in the form of a string data type.
-* __Level__: Specify if the assertion fails whether it should be considered an ‘error’ or just a ‘warning’.
+* __Comment__: See [Comment](#comment).
+* __Level__: See [Level](#level).
 * __Modifier__: The assertion is considered verified if it does not pass.
 * __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
 * __Stop test if fails__: The test will be immediately stopped if the assertion fails.
@@ -249,10 +276,10 @@ This assertion is used to check if the element described by the expression match
 | Stop test if fails | Yes, No | No |
 
 
-* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
+* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/composer/expressions/) for more details.
 * __Value__: The value we want to compare the expression to.
-* __Comment__: Add comment messages in the form of a string data type.
-* __Level__: Specify if the assertion fails whether it should be considered an ‘error’ or just a ‘warning’.
+* __Comment__: See [Comment](#comment).
+* __Level__: See [Level](#level).
 * __Modifier__: The assertion is considered verified if it does not pass.
 * __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
 * __Stop test if fails__: The test will be immediately stopped if the assertion fails.
@@ -303,7 +330,7 @@ This assertion is used to check if the value of the element defined by the expre
 | Stop test if fails | Yes, No | No |
 
 
-* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
+* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/composer/expressions/) for more details.
 * __Type__: The data type of the value. The possible values are:
     * _integer_: checks if field is an integer value;
     * _float_: checks if field is a decimal value;
@@ -313,8 +340,8 @@ This assertion is used to check if the value of the element defined by the expre
     * _email_: checks if field is a valid email format;
     * _map_: checks if field is a map type;
     * _array_: checks if the field is an array.
-* __Comment__: Add comment messages in the form of a string data type.
-* __Level__: Specify if the assertion fails whether it should be considered an ‘error’ or just a ‘warning’.
+* __Comment__: See [Comment](#comment).
+* __Level__: See [Level](#level).
 * __Modifier__: The assertion is considered verified if it does not pass.
 * __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
 * __Stop test if fails__: The test will be immediately stopped if the assertion fails.
@@ -353,10 +380,10 @@ This assertion is used to check if the element value described by the expression
 
 
 
-* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
+* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/composer/expressions/) for more details.
 * __Value__: The value we want to compare the expression to.
-* __Comment__: Add comment messages in the form of a string data type.
-* __Level__: Specify if the assertion fails whether it should be considered an ‘error’ or just a ‘warning’.
+* __Comment__: See [Comment](#comment).
+* __Level__: See [Level](#level).
 * __Modifier__: The assertion is considered verified if it does not pass.
 * __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
 * __Stop test if fails__: The test will be immediately stopped if the assertion fails.
@@ -395,7 +422,7 @@ This assertion is used to check if the element value described by the expression
 | Stop test if fails | Yes, No | No |
 
 
-* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
+* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/composer/expressions/) for more details.
 * __Type__: The data type of the value. The possible values are:
     * _regex_: if you want to evaluate the field as a regular expression (specified in regex value);
     * _US Zipcode_: checks if the field is a valid US zip code;
@@ -404,8 +431,8 @@ This assertion is used to check if the element value described by the expression
     * _country codes_: checks if the field contains a valid country code (i.e., 'US', 'FR', 'DK');
     * _currency codes_: checks if the fields is a valid currency (i.e., 'USD', 'EUR');
 * __Regex value__: Specify the regular expression you want to use for checking the expression.
-* __Comment__: Add comment messages in the form of a string data type.
-* __Level__: Specify if the assertion fails whether it should be considered an ‘error’ or just a ‘warning’.
+* __Comment__: See [Comment](#comment).
+* __Level__: See [Level](#level).
 * __Modifier__: The assertion is considered verified if it does not pass.
 * __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
 * __Stop test if fails__: The test will be immediately stopped if the assertion fails.
@@ -435,7 +462,7 @@ This assertion is used to validate a JSON schema, based on the provided schema d
 | JsonSchema | JSON schema definition | Yes |
 | Comment | String | No |
 
-* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](https://apifortress.com/doc/expression/) for more details.
+* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/composer/expressions/) for more details.
 * __JsonSchema__: The JSON schema definition. This will be used to validate the JSON passed in the expression field. Here are some examples:
 
   ```json title="Example JSON"
@@ -499,3 +526,23 @@ This assertion is used to validate a JSON schema, based on the provided schema d
 ```
 
 </details>
+
+
+
+## Assertion Common Fields
+
+### Comment
+<p><small>| OPTIONAL | String |</small></p>
+Add comment messages in the form of a string data type.
+
+### Level
+<p><small>| OPTIONAL | error, warning |</small></p>
+Specify if the assertion fails whether it should be considered an <code>error</code> or just a <code>warning</code>.
+
+:::note
+A **warning** will not trigger alerts, such as email.
+:::
+
+### Stop test if fails
+<p><small>| OPTIONAL | Yes, No |</small></p>
+The test will be immediately stopped if the assertion fails.
