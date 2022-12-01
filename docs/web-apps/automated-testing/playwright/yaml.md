@@ -773,11 +773,15 @@ A parent property that details any additional parameters you wish to set for the
 <p><small>| OPTIONAL | STRING |</small></p>
 
 The name of the browser in which to run this test suite.
-Available browser names: `chromium`, `firefox` and `webkit`.
+Available browser names: `chromium`, `firefox`, `webkit` and `chrome`.
 
 ```yaml
     browserName: "firefox"
 ```
+
+:::note
+`chromium`, `firefox` and `webkit` are bundled with Playwright. `chrome` is provided by the sauce VM(or docker image). See more details in [Playwright Browsers](https://playwright.dev/docs/browsers).
+:::
 ---
 
 #### `headless`
