@@ -23,7 +23,7 @@ Appium is in the final stages of a major revision (to version 2.0). As such, the
 
 ## Breaking Changes
 
-Before you get started with migrating your Appium 1 tests to Appium 2, read the [Appium 2.0 release notes](https://github.com/appium/appium/releases). The breaking changes that are listed below have an impact on running your tests on Sauce Labs, but they are only a subset of the changes that are listed in the Appium 2.0 release notes. 
+Before you get started with migrating your Appium 1 tests to Appium 2, read the [Appium 2.0 release notes](https://github.com/appium/appium/releases). The breaking changes that are listed below have an impact on running your tests on Sauce Labs, but they are only a subset of the changes that are listed in the Appium 2.0 release notes.
 
 ### Protocol changes
 

@@ -1,7 +1,7 @@
 ---
 id: evinced
 title: Evinced Integration
-sidebar_label: Evinced Integration
+sidebar_label: Evinced
 description: Test your mobile apps for accessibility challenges with Evinced and the Sauce Labs cloud
 keywords:
 - accessibility
@@ -40,11 +40,11 @@ The Evinced [Mobile Flow Analyzer](https://www.evinced.com/products/flow-analyze
 
 Evinced uses advanced algorithms to create a single actionable report that is easy to digest. Best of all, access to the source code isn’t required! There is no need to rebuild the app or modify it in any way to test it for accessibility issues.
 
-For Android, breadth of coverage is extremely important due to the large segmentation in the Android market (Samsung, Google, LG, HTC, OnePlus, Huawei, etc). All these manufacturers take the default Android OS image from Google and make it their own. This requires additional testing to make sure we give the best experience possible to all users. 
+For Android, breadth of coverage is extremely important due to the large segmentation in the Android market (Samsung, Google, LG, HTC, OnePlus, Huawei, etc). All these manufacturers take the default Android OS image from Google and make it their own. This requires additional testing to make sure we give the best experience possible to all users.
 
 For iOS, once a device's OS is upgraded, it is impossible to roll it back to a previous version. Proper testing requires a library of iOS devices on all the supported versions, in order to ensure a great experience.
 
-Sauce Labs lets you run accessibility scans on nearly [any device and operating system](https://saucelabs.com/platform/platform-configurator#/) combination. 
+Sauce Labs lets you run accessibility scans on nearly [any device and operating system](https://saucelabs.com/platform/platform-configurator#/) combination.
 
 ## How to Run Evinced Scans on Sauce Labs Devices
 
@@ -59,7 +59,7 @@ To get started, we will need to [download the vUSB client](https://docs.saucelab
 ```java -jar virtual-usb-client.jar server --datacenter US```
 
 :::tip
-Double-check [the data center](https://docs.saucelabs.com/basics/data-center-endpoints/) closest to you for the best performance. 
+Double-check [the data center](https://docs.saucelabs.com/basics/data-center-endpoints/) closest to you for the best performance.
 :::
 
 Once the server is running, grab the device ID from our private iOS device. This ID is located in the **Details** section when choosing a device:

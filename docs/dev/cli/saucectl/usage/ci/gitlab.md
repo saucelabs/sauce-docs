@@ -28,16 +28,18 @@ The easiest way to add credentials to GitLab is with the UI:
 1. Log in to GitLab.
 1. Go to your repository.
 1. In the left column, select __Settings__, then __CI/CD__.
-    <img src={useBaseUrl('img/stt/gitlab-settings-cicd.png')} alt="GitLab Secrets" width="450" />
+
+    <img src={useBaseUrl('img/stt/gitlab-settings-cicd.png')} alt="GitLab Secrets" width="300" />
 1. Look for __Variables__ and click on __Expand__.
-    <img src={useBaseUrl('img/stt/gitlab-settings-variables.png')} alt="GitLab Variables" width="600" />
+    <img src={useBaseUrl('img/stt/gitlab-settings-variables.png')} alt="GitLab Variables" width="700" />
 1. Click on __Add Variable__ to create a new secret.
 1. Enter the following information:
     * Key: `SAUCE_USERNAME`
     * Value: 'your-sauce-username'
     * Type: 'Variable'
     * Environment Scope: All
-    <img src={useBaseUrl('img/stt/gitlab-variables-username.png')} alt="Add GitLab SAUCE_USERNAME" width="500" />
+
+      <img src={useBaseUrl('img/stt/gitlab-variables-username.png')} alt="Add GitLab SAUCE_USERNAME" width="500" />
 1. Repeat the process for your Sauce Labs Access Key.
 
 Credentials are now set!

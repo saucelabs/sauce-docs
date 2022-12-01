@@ -91,7 +91,7 @@ See also: _[CI/CD platform](#cicd-platform), [software development lifecycle](#s
 
 ### CI/CD Platform
 
-A pipeline-driven software platform that automates the CI/CD pipeline process at scale. You can configure your CI/CD platform to run tests on Sauce Labs using one of our platform-specific proprietary plug-ins. More information: [Using Sauce Labs with Continuous Integration Platforms](/ci).
+A pipeline-driven software platform that automates the CI/CD pipeline process at scale. You can configure your CI/CD platform to run tests on Sauce Labs using one of our platform-specific proprietary plug-ins. More information: [Sauce Labs Integrations](/basics/integrations-overview/).
 
 See also: _[CI/CD pipeline](#cicd-pipeline), [continuous integration](#continuous-integration-ci), [continuous deployment](#continuous-deployment-cd)_.
 
