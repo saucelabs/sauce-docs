@@ -22,6 +22,7 @@ Achieving digital confidence for your website app involves knowing that every us
       <li><a href="/web-apps/automated-testing/selenium">Selenium</a></li>
       <li><a href="/web-apps/automated-testing/cypress">Cypress</a></li>
       <li><a href="/web-apps/automated-testing/playwright">Playwright</a></li>
+      <li><a href="/web-apps/automated-testing/cucumberjs-playwright/quickstart">Cucumber.js with Playwright</a></li>
       <li><a href="/web-apps/automated-testing/testcafe">TestCafe</a></li>
       <li><a href="/web-apps/automated-testing/puppeteer">Puppeteer</a></li>
   </ul>

@@ -1,7 +1,7 @@
 ---
-id: cucumber
+id: yaml
 title: Configuring Your Cucumber.js Tests with Playwright
-sidebar_label: Cucumber YAML Configuration
+sidebar_label: YAML Configuration
 ---
 
 import Tabs from '@theme/Tabs';
@@ -262,7 +262,7 @@ A property containing one or more environment variables that are global for all 
     my_var: $MY_VAR  # You can also pass through existing environment variables through parameter expansion
 ```
 :::caution
-Currently, `env` only supports lowercase keys on `macOS` platform. The workaround is either passing the env through cli `saucectl run --env FOO=BAR` or setting `env` on suite level. 
+Currently, `env` only supports lowercase keys on `macOS` platform. The workaround is either passing the env through cli `saucectl run --env FOO=BAR` or setting `env` on suite level.
 :::
 
 ---
@@ -361,10 +361,10 @@ In order to run Cucumber.js tests with Playwright, you must to install the follo
 ```yaml
 npm:
   dependencies:
-    - "@cucumber/cucumber"
-    - "@saucelabs/cucumber-reporter"
-    - "typescript"
-    - "ts-node"
+    - "@cucumber/cucumber" # Cucumber official suggested package
+    - "@saucelabs/cucumber-reporter" # Sauce Labs report plugin. Generates a test cases report for display on the Sauce Labs UI.
+    - "typescript" # TypeScript support
+    - "ts-node" # TypeScript support
 ```
 
 To use this feature, make sure that `node_modules` is not ignored via `.sauceignore`.
@@ -746,6 +746,17 @@ suites:
         - "features/support/*.js"
       format:
         - "json:my-cucumber.json"
+```
+---
+
+#### `config`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the path to the Cucumber configuration file. See the [Cucumber.js Configuration documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md) for more information.
+
+```yaml
+  options:
+    config: "my_cucumber_config.js"
 ```
 ---
 

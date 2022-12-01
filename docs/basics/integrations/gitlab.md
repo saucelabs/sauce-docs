@@ -88,9 +88,9 @@ This script assumes that the environment variables SAUCE_USERNAME and SAUCE_ACCE
 
 ```yaml title="gitlab-sc.yml"
 script:
- - curl https://saucelabs.com/downloads/sc-4.8.1-linux.tar.gz | tar -xz
- - chmod 777 -R ./sc-4.8.1-linux
- - PATH=./sc-4.8.1-linux/bin:$PATH
+ - curl https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz | tar -xz
+ - chmod 777 -R ./sc-4.8.2-linux
+ - PATH=./sc-4.8.2-linux/bin:$PATH
  - sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -i “gitlabTunnel” -v -s &
  - sleep 50
 ```

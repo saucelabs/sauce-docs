@@ -383,7 +383,13 @@ p {
 .box1 img,
 .box2 img,
 .box3 img,
-.box4 img {
+.box4 img,
+.box5 img, 
+.box6 img, 
+.box7 img, 
+.box8 img, 
+.box9 img,
+.box10 img {
   margin-top: 16px;
 }
 
@@ -407,6 +413,42 @@ p {
 
 .boxwidetop {
   margin-bottom: 30px;
+  padding: 8px;
+}
+
+.box5 {
+  grid-column: 1;
+  grid-row: 3;
+  padding: 8px;
+}
+
+.box6 {
+  grid-column: 2;
+  grid-row: 3;
+  padding: 8px;
+}
+
+.box7 {
+  grid-column: 1;
+  grid-row: 4;
+  padding: 8px;
+}
+
+.box8 {
+  grid-column: 2;
+  grid-row: 4;
+  padding: 8px;
+}
+
+.box9 {
+  grid-column: 1;
+  grid-row: 5;
+  padding: 8px;
+}
+
+.box10 {
+  grid-column: 2;
+  grid-row: 5;
   padding: 8px;
 }
 

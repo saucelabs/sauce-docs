@@ -1,4 +1,3 @@
-
 module.exports = {
   apif: [
     {
@@ -960,7 +959,6 @@ module.exports = {
             'mobile-apps/features/biometric-authentication',
             'mobile-apps/features/camera-image-injection',
             'mobile-apps/features/gestures',
-            'mobile-apps/features/network-capture',
             'mobile-apps/features/audio-capture',
             {
               type: 'category',
@@ -974,6 +972,7 @@ module.exports = {
                 'mobile-apps/features/mobile-app-diagnostics/device-vitals',
                 'mobile-apps/features/mobile-app-diagnostics/interactions',
                 'mobile-apps/features/mobile-app-diagnostics/view-tree',
+                'mobile-apps/features/network-capture',
               ],
             },
           ],
@@ -1007,6 +1006,7 @@ module.exports = {
                 'mobile-apps/automated-testing/appium/quickstart',
                 'mobile-apps/automated-testing/appium/real-devices',
                 'mobile-apps/automated-testing/appium/virtual-devices',
+                'mobile-apps/automated-testing/appium/appium-flutter',
               ],
             },
             {
@@ -1116,8 +1116,21 @@ module.exports = {
                 'web-apps/automated-testing/playwright',
                 'web-apps/automated-testing/playwright/quickstart',
                 'web-apps/automated-testing/playwright/yaml',
-                'web-apps/automated-testing/playwright/cucumber',
                 'web-apps/automated-testing/playwright/advanced',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Cucumber.js with Playwright',
+              link: {
+                type: 'doc',
+                id: 'web-apps/automated-testing/cucumberjs-playwright/quickstart',
+              },
+              collapsed: true,
+              items: [
+                'web-apps/automated-testing/cucumberjs-playwright/quickstart',
+                'web-apps/automated-testing/cucumberjs-playwright/yaml',
+                'web-apps/automated-testing/cucumberjs-playwright/advanced',
               ],
             },
             {
