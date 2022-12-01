@@ -9,15 +9,6 @@ The cleaning process runs at the end of each test session for Sauce Labs Real De
 
 The cleaning process differs slightly between the Public Devices, which are shared among all our customers, and the Private Devices, where the owner has more control over the configuration of their device. It also differs between Android and iOS, due to the different features of these operating systems.
 
-## Public Devices
-
-Every 5th cleaning session includes a device reboot. This ensures that the system remains
-performant, and any stray processes are stopped.
-
-:::note
-A factory reset is not performed between test sessions, as this requires manual intervention and would slow down the time required between test runs.
-:::
-
 ## Goals of the Cleaning Process
 
 Our goal is to provide you access to a device that will behave in a predictable, and reliable way, and is not affected in any way by prior test sessions.
@@ -27,6 +18,17 @@ A clean device:
 * Has the default system settings, which are typical for a newly configured device.
 * Provides some convenient locale and system account defaults.
 * Has an empty file system, containing no additional media or documents.
+
+## Public Devices
+
+Every 5th cleaning session includes a device reboot. This ensures that the system remains
+performant, and any stray processes are stopped.
+
+:::note
+A factory reset is not performed between test sessions, as this requires manual intervention and would slow down the time required between test runs.
+:::
+
+
 
 ### Cleaning Process Steps
 
