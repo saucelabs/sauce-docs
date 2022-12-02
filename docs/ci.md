@@ -13,10 +13,10 @@ Incorporating continuous testing into your CI pipeline means designing your test
     <h2>Sauce OnDemand Plugin</h2>
     <p>Use the Sauce Labs OnDemand plugin in conjunction with your existing CI pipeline to integrate your tests.<br/>
       <ul>
-        <li><a href="/ci/bamboo">Bamboo</a></li>
-        <li><a href="/ci/bitbucket">Bitbucket</a></li>
-        <li><a href="/ci/jenkins">Jenkins</a></li>
-        <li><a href="/ci/teamcity">TeamCity</a></li>
+        <li><a href="/basics/integrations/bamboo">Bamboo</a></li>
+        <li><a href="/basics/integrations/bitbucket">Bitbucket</a></li>
+        <li><a href="/basics/integrations/jenkins">Jenkins</a></li>
+        <li><a href="/basics/integrations/teamcity">TeamCity</a></li>
       </ul></p>
     </div>
   </div>

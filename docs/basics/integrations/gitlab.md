@@ -99,5 +99,5 @@ script:
 
 * [Sauce Labs Data Center Endpoints](/basics/data-center-endpoints/)
 * [Sauce Connect Proxy Overview](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview)
-* [Sauce Labs CI Integrations](/ci/)
-* [saucectl -> GitLab Integration](/dev/cli/saucectl/usage/ci/gitlab/)
+* [Sauce Labs Integrations](/basics/integrations-overview/)
+* [saucectl and GitLab Integration](/dev/cli/saucectl/usage/ci/gitlab/)
