@@ -86,31 +86,28 @@ This assertion is used to check if the element described by the expression conta
 
 <details><summary><strong>Parameters</strong></summary>
 
-| Field | Type/Value | Required |
-| :--- | :--- | :--- |
-| Expression | Expression | Yes |
-| Value | String, Number, Boolean | Yes |
-| Type | Auto, String, Number, Boolean | No |
-| Comment | String | No |
-| Level | 'error' or 'warning' | No |
-| Modifier | 'not' | No |
-| Execute if item exists | Yes, No | No |
-| Stop test if fails | Yes, No | No |
 
+<table id="table-api">
+  <tbody>
+  <tr>
+  <td colSpan='2'>Fields</td>
+  </tr>
+    <tr>
+     <td><strong>Expression</strong></td>
+     <td><p><small>| REQUIRED | Expression |</small></p><p>The path to the element we want to operate on (e.g., <code>payload.ProductID</code>). See <a href="/api-testing/composer/expressions/">Using Expressions</a> for more details.</p></td>
+    </tr>
+    <tr>
+     <td><strong>Value</strong></td>
+     <td><p><small>| REQUIRED | String, Number, Boolean |</small></p><p>The value we want to compare the expression to.</p></td>
+    </tr>
+    <tr>
+     <td><strong>Type</strong></td>
+     <td><p><small>| OPTIONAL | Auto, String, Number, Boolean |</small></p><p>The type of the value. <code>Auto</code> means the engine will try to identify the type of the value.</p></td>
+    </tr>
+  </tbody>
+</table>
 
-* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/composer/expressions/) for more details.
-* __Value__: The value we want to compare the expression to.
-* __Type__: The type of the value. **Auto** means the engine will try to identify the type of the value.
-* __Comment__: See [Comment](#comment).
-* __Level__: See [Level](#level).
-* __Modifier__: The assertion is considered verified if it does not pass.
-* __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
-* __Stop test if fails__: The test will be immediately stopped if the assertion fails.
-
-
-:::note
-A **warning** will not trigger alerts (such as email or text messages).
-:::
+See also [Common Fields](#assertion-common-fields)
 
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
@@ -136,31 +133,27 @@ This assertion is used to check if the element value described by the expression
 
 <details><summary><strong>Parameters</strong></summary>
 
-| Field | Type/Value | Required |
-| :--- | :--- | :--- |
-| Expression | Expression | Yes |
-| Value | String, Number, Boolean | Yes |
-| Type | Auto, String, Number, Boolean | No |
-| Comment | String | No |
-| Level | 'error' or 'warning' | No |
-| Modifier | 'not' | No |
-| Execute if item exists | Yes, No | No |
-| Stop test if fails | Yes, No | No |
+<table id="table-api">
+  <tbody>
+  <tr>
+  <td colSpan='2'>Fields</td>
+  </tr>
+   <tr>
+     <td><strong>Expression</strong></td>
+     <td><p><small>| REQUIRED | Expression |</small></p><p>The path to the element we want to operate on (e.g., <code>payload.ProductID</code>). See <a href="/api-testing/composer/expressions/">Using Expressions</a> for more details.</p></td>
+    </tr>
+    <tr>
+     <td><strong>Value</strong></td>
+     <td><p><small>| REQUIRED | String, Number, Boolean |</small></p><p>The value we want to compare the expression to.</p></td>
+    </tr>
+    <tr>
+     <td><strong>Type</strong></td>
+     <td><p><small>| OPTIONAL | Auto, String, Number, Boolean |</small></p><p>The type of the value. <code>Auto</code> means the engine will try to identify the type of the value.</p></td>
+    </tr>
+  </tbody>
+</table>
 
-
-* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/composer/expressions/) for more details.
-* __Value__: The value we want to compare the expression to.
-* __Type__: The type of the value. **Auto** means the engine will try to identify the type of the value.
-* __Comment__: See [Comment](#comment).
-* __Level__: See [Level](#level).
-* __Modifier__: The assertion is considered verified if it does not pass.
-* __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
-* __Stop test if fails__: The test will be immediately stopped if the assertion fails.
-
-
-:::note
-A **warning** will not trigger alerts (such as email or text messages).
-:::
+See also [Common Fields](#assertion-common-fields)
 
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
@@ -186,25 +179,20 @@ This assertion is used to check if the element described by the expression exist
 
 <details><summary><strong>Parameters</strong></summary>
 
-| Field | Type/Value | Required |
-| :--- | :--- | :--- |
-| Expression | Expression | Yes |
-| Comment | String | No |
-| Level | 'error' or 'warning' | No |
-| Modifier | 'not' | No |
-| Stop test if fails | Yes, No | No |
+<table id="table-api">
+  <tbody>
+  <tr>
+  <td colSpan='2'>Fields</td>
+  </tr>
+    <tr>
+     <td><strong>Expression</strong></td>
+     <td><p><small>| REQUIRED | Expression |</small></p><p>The path to the element we want to operate on (e.g., <code>payload.ProductID</code>). See <a href="/api-testing/composer/expressions/">Using Expressions</a> for more details.</p></td>
+    </tr>
+  </tbody>
+</table>
 
+See also [Common Fields](#assertion-common-fields)
 
-* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/composer/expressions/) for more details.
-* __Comment__: See [Comment](#comment).
-* __Level__: See [Level](#level).
-* __Modifier__: The assertion is considered verified if it does not pass.
-* __Stop test if fails__: The test will be immediately stopped if the assertion fails.
-
-
-:::note
-A **warning** will not trigger alerts (such as email or text messages).
-:::
 
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
@@ -224,28 +212,23 @@ This assertion is used to check if the element value described by the expression
 
 <details><summary><strong>Parameters</strong></summary>
 
-| Field | Type/Value | Required |
-| :--- | :--- | :--- |
-| Expression | Expression | Yes |
-| Value | String | Yes |
-| Comment | String | No |
-| Level | 'error' or 'warning' | No |
-| Modifier | 'not' | No |
-| Execute if item exists | Yes, No | No |
-| Stop test if fails | Yes, No | No |
+<table id="table-api">
+  <tbody>
+  <tr>
+  <td colSpan='2'>Fields</td>
+  </tr>
+    <tr>
+     <td><strong>Expression</strong></td>
+     <td><p><small>| REQUIRED | Expression |</small></p><p>The path to the element we want to operate on (e.g., <code>payload.ProductID</code>). See <a href="/api-testing/composer/expressions/">Using Expressions</a> for more details.</p></td>
+    </tr>
+    <tr>
+     <td><strong>Value</strong></td>
+     <td><p><small>| REQUIRED | String, Number |</small></p><p>The value we want to compare the expression to.</p></td>
+    </tr>
+  </tbody>
+</table>
 
-* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/on-prem/reference/expression/) for more details.
-* __Value__: The value we want to compare the expression to.
-* __Comment__: See [Comment](#comment).
-* __Level__: See [Level](#level).
-* __Modifier__: The assertion is considered verified if it does not pass.
-* __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
-* __Stop test if fails__: The test will be immediately stopped if the assertion fails.
-
-
-:::note
-A **warning** will not trigger alerts (such as email or text messages).
-:::
+See also [Common Fields](#assertion-common-fields)
 
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
@@ -265,29 +248,23 @@ This assertion is used to check if the element described by the expression match
 
 <details><summary><strong>Parameters</strong></summary>
 
-| Field | Type/Value | Required |
-| :--- | :--- | :--- |
-| Expression | Expression | Yes |
-| Value | String | Yes |
-| Comment | String | No |
-| Level | 'error' or 'warning' | No |
-| Modifier | 'not' | No |
-| Execute if item exists | Yes, No | No |
-| Stop test if fails | Yes, No | No |
+<table id="table-api">
+  <tbody>
+  <tr>
+  <td colSpan='2'>Fields</td>
+  </tr>
+    <tr>
+     <td><strong>Expression</strong></td>
+     <td><p><small>| REQUIRED | Expression |</small></p><p>The path to the element we want to operate on (e.g., <code>payload.ProductID</code>). See <a href="/api-testing/composer/expressions/">Using Expressions</a> for more details.</p></td>
+    </tr>
+    <tr>
+     <td><strong>Value</strong></td>
+     <td><p><small>| REQUIRED | String, Number |</small></p><p>The value we want to compare the expression to.</p></td>
+    </tr>
+  </tbody>
+</table>
 
-
-* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/composer/expressions/) for more details.
-* __Value__: The value we want to compare the expression to.
-* __Comment__: See [Comment](#comment).
-* __Level__: See [Level](#level).
-* __Modifier__: The assertion is considered verified if it does not pass.
-* __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
-* __Stop test if fails__: The test will be immediately stopped if the assertion fails.
-
-
-:::note
-A **warning** will not trigger alerts (such as email or text messages).
-:::
+See also [Common Fields](#assertion-common-fields).
 
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
@@ -319,37 +296,23 @@ This assertion is used to check if the value of the element defined by the expre
 
 <details><summary><strong>Parameters</strong></summary>
 
-| Field | Type/Value | Required |
-| :--- | :--- | :--- |
-| Expression | Expression | Yes |
-| Type | 'integer', 'float', 'url', 'boolean', 'phone', 'email', 'map', 'array' | Yes |
-| Comment | String | No |
-| Level | 'error' or 'warning' | No |
-| Modifier | 'not' | No |
-| Execute if item exists | Yes, No | No |
-| Stop test if fails | Yes, No | No |
+<table id="table-api">
+  <tbody>
+  <tr>
+  <td colSpan='2'>Fields</td>
+  </tr>
+    <tr>
+     <td><strong>Expression</strong></td>
+     <td><p><small>| REQUIRED | Expression |</small></p><p>The path to the element we want to operate on (e.g., <code>payload.ProductID</code>). See <a href="/api-testing/composer/expressions/">Using Expressions</a> for more details.</p></td>
+    </tr>
+    <tr>
+     <td><strong>Type</strong></td>
+    <td><p><small>| REQUIRED | Integer, float, url, boolean, phone, email, map, array |</small></p><p>The data type of the value. <code>integer</code> checks if field is an integer value, <code>float</code> checks if field is a decimal value, <code>url</code> checks if the field is a well formatted url, <code>boolean</code> checks if field is a boolean value, <code>phone</code> checks if field contains a valid phone number format, <code>email</code> checks if field is a valid email format, <code>map</code> checks if field is a map type, <code>array</code> checks if the field is an array.</p></td>
+    </tr>
+  </tbody>
+</table>
 
-
-* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/composer/expressions/) for more details.
-* __Type__: The data type of the value. The possible values are:
-    * _integer_: checks if field is an integer value;
-    * _float_: checks if field is a decimal value;
-    * _url_: checks if the field is a well formatted url;
-    * _boolean_: checks if field is a boolean value;
-    * _phone_: checks if field contains a valid phone number format;
-    * _email_: checks if field is a valid email format;
-    * _map_: checks if field is a map type;
-    * _array_: checks if the field is an array.
-* __Comment__: See [Comment](#comment).
-* __Level__: See [Level](#level).
-* __Modifier__: The assertion is considered verified if it does not pass.
-* __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
-* __Stop test if fails__: The test will be immediately stopped if the assertion fails.
-
-
-:::note
-A **warning** will not trigger alerts (such as email or text messages).
-:::
+See also [Common Fields](#assertion-common-fields)
 
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
@@ -368,30 +331,23 @@ This assertion is used to check if the element value described by the expression
 
 <details><summary><strong>Parameters</strong></summary>
 
-| Field | Type/Value | Required |
-| :--- | :--- | :--- |
-| Expression | Expression | Yes |
-| Value | String | Yes |
-| Comment | String | No |
-| Level | 'error' or 'warning' | No |
-| Modifier | 'not' | No |
-| Execute if item exists | Yes, No | No |
-| Stop test if fails | Yes, No | No |
+<table id="table-api">
+  <tbody>
+  <tr>
+  <td colSpan='2'>Fields</td>
+  </tr>
+    <tr>
+     <td><strong>Expression</strong></td>
+     <td><p><small>| REQUIRED | Expression |</small></p><p>The path to the element we want to operate on (e.g., <code>payload.ProductID</code>). See <a href="/api-testing/composer/expressions/">Using Expressions</a> for more details.</p></td>
+    </tr>
+    <tr>
+     <td><strong>Value</strong></td>
+     <td><p><small>| REQUIRED | String, Number |</small></p><p>The value we want to compare the expression to.</p></td>
+    </tr>
+  </tbody>
+</table>
 
-
-
-* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/composer/expressions/) for more details.
-* __Value__: The value we want to compare the expression to.
-* __Comment__: See [Comment](#comment).
-* __Level__: See [Level](#level).
-* __Modifier__: The assertion is considered verified if it does not pass.
-* __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
-* __Stop test if fails__: The test will be immediately stopped if the assertion fails.
-
-
-:::note
-A **warning** will not trigger alerts (such as email or text messages).
-:::
+See also [Common Fields](#assertion-common-fields)
 
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
@@ -410,33 +366,27 @@ This assertion is used to check if the element value described by the expression
 
 <details><summary><strong>Parameters</strong></summary>
 
-| Field | Type/Value | Required |
-| :--- | :--- | :--- |
-| Expression | Expression | Yes |
-| Type | 'regex' or 'US Zipcode' or 'USState' or 'credit card' or 'country codes' or 'currency codes' | Yes |
-| Regex value | String | Yes, if type is 'regex' |
-| Comment | String | No |
-| Level | 'error' or 'warning' | No |
-| Modifier | 'not' | No |
-| Execute if item exists | Yes, No | No |
-| Stop test if fails | Yes, No | No |
+<table id="table-api">
+  <tbody>
+  <tr>
+  <td colSpan='2'>Fields</td>
+  </tr>
+    <tr>
+     <td><strong>Expression</strong></td>
+     <td><p><small>| REQUIRED | Expression |</small></p><p>The path to the element we want to operate on (e.g., <code>payload.ProductID</code>). See <a href="/api-testing/composer/expressions/">Using Expressions</a> for more details.</p></td>
+    </tr>
+    <tr>
+     <td><strong>Type</strong></td>
+     <td><p><small>| REQUIRED | 'regex', 'US Zipcode', 'USState', 'credit card', 'country codes', 'currency codes' |</small></p><p>The data type of the value. <code>regex</code> if you want to evaluate the field as a regular expression (specified in regex value), <code>US Zipcode</code> checks if the field is a valid US zip code, <code>US State</code> checks if the field is a valid US State (i.e., 'NY'), <code>credit card</code> checks if the field contains a valid credit card number from the most popular credit cards (i.e. VISA, Mastercard, AMEX), <code>country code</code> checks if the field contains a valid country code (i.e., 'US', 'FR', 'DK'), <code> currency code</code> checks if the fields is a valid currency (i.e., 'USD', 'EUR').</p></td>
+    </tr>
+    <tr>
+     <td><strong>Regex value</strong></td>
+     <td><p><small>| REQUIRED, if type is 'regex' | String |</small></p><p>Specify the regular expression you want to use for checking the expression. </p></td>
+    </tr>
+  </tbody>
+</table>
 
-
-* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/composer/expressions/) for more details.
-* __Type__: The data type of the value. The possible values are:
-    * _regex_: if you want to evaluate the field as a regular expression (specified in regex value);
-    * _US Zipcode_: checks if the field is a valid US zip code;
-    * _US State_: checks if the field is a valid US State (i.e., 'NY');
-    * _credit card_: checks if the field contains a valid credit card number from the most popular credit cards (i.e. VISA, Mastercard, AMEX);
-    * _country codes_: checks if the field contains a valid country code (i.e., 'US', 'FR', 'DK');
-    * _currency codes_: checks if the fields is a valid currency (i.e., 'USD', 'EUR');
-* __Regex value__: Specify the regular expression you want to use for checking the expression.
-* __Comment__: See [Comment](#comment).
-* __Level__: See [Level](#level).
-* __Modifier__: The assertion is considered verified if it does not pass.
-* __Execute if item exists__: The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
-* __Stop test if fails__: The test will be immediately stopped if the assertion fails.
-
+See also [Common Fields](#assertion-common-fields)
 
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
@@ -456,53 +406,23 @@ This assertion is used to validate a JSON schema, based on the provided schema d
 
 <details><summary><strong>Parameters</strong></summary>
 
-| Field | Type/Value | Required |
-| :--- | :--- | :--- |
-| Expression | Expression | Yes |
-| JsonSchema | JSON schema definition | Yes |
-| Comment | String | No |
+<table id="table-api">
+  <tbody>
+  <tr>
+  <td colSpan='2'>Fields</td>
+  </tr>
+    <tr>
+     <td><strong>Expression</strong></td>
+     <td><p><small>| REQUIRED | Expression |</small></p><p>The path to the element we want to operate on (e.g., <code>payload.ProductID</code>). See <a href="/api-testing/composer/expressions/">Using Expressions</a> for more details.</p></td>
+    </tr>
+    <tr>
+     <td><strong>JSON Schema</strong></td>
+     <td><p><small>| REQUIRED | JSON schema definition |</small></p><p>The JSON schema definition. This will be used to validate the JSON passed in the expression field.</p></td>
+    </tr>
+  </tbody>
+</table>
 
-* __Expression__: The path to the element we want to operate on (e.g., `payload.ProductID`). See [Expression](/api-testing/composer/expressions/) for more details.
-* __JsonSchema__: The JSON schema definition. This will be used to validate the JSON passed in the expression field. Here are some examples:
-
-  ```json title="Example JSON"
-  {
-     "rectangle":{
-        "a":15,
-        "b":5
-     }
-  }
-  ```
-
-  ```json title="Example JSON Schema"
-  {
-     "type":"object",
-     "properties":{
-        "rectangle":{
-           "$ref":"#/definitions/Rectangle"
-        }
-     },
-     "definitions":{
-      "size":{
-           "type":"number",
-           "minimum":0
-        },
-        "Rectangle":{
-           "type":"object",
-           "properties":{
-              "a":{
-                 "$ref":"#/definitions/size"
-              },
-              "b":{
-                 "$ref":"#/definitions/size"
-              }
-          }
-        }
-     }
-  }
-  ```
-
-* __Comment__: Add comment messages in the form of a string data type.
+See also [Comment](#comment)
 
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
@@ -535,6 +455,22 @@ This assertion is used to validate a JSON schema, based on the provided schema d
 <p><small>| OPTIONAL | String |</small></p>
 Add comment messages in the form of a string data type.
 
+### Modifier
+<p><small>| OPTIONAL | 'not' |</small></p>
+The assertion is considered verified if it does not pass.
+
+:::note
+Not available in **Assert Compares** and **Assert Valid JSON Schema**
+:::
+
+### Execute if item exists
+<p><small>| OPTIONAL | yes, no |</small></p>
+The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
+
+:::note
+Not available in  **Assert Compares**, **Assert Exists** and **Assert Valid JSON Schema**.
+:::
+
 ### Level
 <p><small>| OPTIONAL | error, warning |</small></p>
 Specify if the assertion fails whether it should be considered an <code>error</code> or just a <code>warning</code>.
@@ -546,3 +482,7 @@ A **warning** will not trigger alerts, such as email.
 ### Stop test if fails
 <p><small>| OPTIONAL | Yes, No |</small></p>
 The test will be immediately stopped if the assertion fails.
+
+:::note
+Not available in  **Assert Valid JSON Schema**.
+:::
