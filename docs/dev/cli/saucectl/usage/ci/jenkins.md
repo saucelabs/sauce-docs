@@ -16,8 +16,8 @@ These examples can apply to virtually any Jenkins deployment, provided that you 
 * Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 * [Jenkins Server](https://www.jenkins.io/doc/book/installing/)
 * The following permissions in Jenkins:
-    * ability to create and manage credentials
-    * ability to create and manage new pipelines
+    * Ability to create and manage credentials
+    * Ability to create and manage new pipelines
 
 ### Configure Jenkins Credentials
 
@@ -26,23 +26,23 @@ The first step of the integration is to ensure you've added your `SAUCE_USERNAME
 The easiest way to add credentials to Jenkins is with the UI:
 
 1. Log in to Jenkins.
-2. Go to __Manage Jenkins > Manage Credentials__.
-3. Next to (Global), select __Add credentials__.
+2. Under **Manage Jenkins**, click **Manage Credentials**.
+3. Next to **(global)**, click **Add credentials**.
 
     <img src={useBaseUrl('img/stt/add_credentials.png')} alt="Add Jenkins Credentials" width="500" />
 
-4. For __Kind__, select __Secret Text__.
+4. For **Kind**, select **Secret Text**.
 5. Enter the following information:
     * Scope: Global
-    * Secret: 'your-sauce-username'
-    * ID: 'sauce-username'
+    * Secret: `your-sauce-username`
+    * ID: `sauce-username`
     * Description: Sauce Labs Username
 6. Repeat the above steps for your Sauce Labs Access Key.
 
     <img src={useBaseUrl('img/stt/secrets.png')} alt="Jenkins Secrets" width="500" />
 
     :::note
-    For further information on how to store your Sauce Labs credentials in Jenkins, visit [the Jenkinsfile documentation](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials).
+    For further information on how to store your Sauce Labs credentials in Jenkins, see [Handling credentials](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials).
     :::
 
 ### Configure the Jenkins Pipeline
