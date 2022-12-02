@@ -804,12 +804,65 @@ module.exports = {
               collapsed: true,
               items: [
                 'basics/integrations-overview',
-                'basics/integrations/deque',
-                'basics/integrations/evinced',
-                'basics/integrations/jira',
+                {
+                  type: 'category',
+                  label: 'CI/CD Tools',
+                  link: {
+                    type: 'doc',
+                    id: 'basics/integrations/gitlab',
+                  },
+                  collapsed: true,
+                  items: [
+                    'basics/integrations/gitlab',
+                    'basics/integrations/azure',
+                    'basics/integrations/jenkins',
+                    'basics/integrations/bamboo',
+                    'basics/integrations/teamcity',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Accessibility',
+                  link: {
+                    type: 'doc',
+                    id: 'basics/integrations/deque',
+                  },
+                  collapsed: true,
+                  items: [
+                    'basics/integrations/deque',
+                    'basics/integrations/evinced',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Defect Reporting and Management',
+                  link: {
+                    type: 'doc',
+                    id: 'basics/integrations/jira',
+                  },
+                  collapsed: true,
+                  items: [
+                    'basics/integrations/jira',
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Low-Code/No-Code/Model-Based Test Case Generation',
+                  link: {
+                    type: 'doc',
+                    id: 'basics/integrations/eggplant',
+                  },
+                  collapsed: true,
+                  items: [
+                    'basics/integrations/eggplant',
+                    'basics/integrations/tosca',
+                    'basics/integrations/uipath',
+                  ],
+                },
                 'basics/integrations/slack',
-                'basics/integrations/uipath',
                 'basics/integrations/sumo',
+                'basics/integrations/bitbucket',
+                'basics/integrations/webhooks',
               ],
             },
           ],
@@ -1185,11 +1238,11 @@ module.exports = {
       collapsed: true,
       items: [
         'ci',
-        'ci/azure',
-        'ci/bamboo',
-        'ci/bitbucket',
-        'ci/jenkins',
-        'ci/teamcity',
+        'basics/integrations/azure',
+        'basics/integrations/bamboo',
+        'basics/integrations/bitbucket',
+        'basics/integrations/jenkins',
+        'basics/integrations/teamcity',
       ],
     },
     {

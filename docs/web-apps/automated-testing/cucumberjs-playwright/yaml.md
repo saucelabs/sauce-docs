@@ -1,6 +1,6 @@
 ---
 id: yaml
-title: Configuring Your Cucumber.js Tests with Playwright 
+title: Configuring Your Cucumber.js Tests with Playwright
 sidebar_label: YAML Configuration
 ---
 
@@ -262,7 +262,7 @@ A property containing one or more environment variables that are global for all 
     my_var: $MY_VAR  # You can also pass through existing environment variables through parameter expansion
 ```
 :::caution
-Currently, `env` only supports lowercase keys on `macOS` platform. The workaround is either passing the env through cli `saucectl run --env FOO=BAR` or setting `env` on suite level. 
+Currently, `env` only supports lowercase keys on `macOS` platform. The workaround is either passing the env through cli `saucectl run --env FOO=BAR` or setting `env` on suite level.
 :::
 
 ---
@@ -749,6 +749,17 @@ suites:
 ```
 ---
 
+#### `config`
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the path to the Cucumber configuration file. See the [Cucumber.js Configuration documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md) for more information.
+
+```yaml
+  options:
+    config: "my_cucumber_config.js"
+```
+---
+
 #### `name`
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -809,7 +820,7 @@ Paths to your support code for CommonJS. See the [Cucumber.js Configuration docu
 #### `import`
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Paths to your support code for ESM. See the [Cucumber.js ES Modules (experimental) documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/esm.md) for more information. 
+Paths to your support code for ESM. See the [Cucumber.js ES Modules (experimental) documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/esm.md) for more information.
 
 ```yaml
   options:
@@ -846,7 +857,7 @@ Name/path and (optionally) output file path of each formatter to use. See the [C
 #### `formatOptions`
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Options to provide to formatters. See the [Cucumber.js Formatters documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md) for more information. 
+Options to provide to formatters. See the [Cucumber.js Formatters documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md) for more information.
 
 ```yaml
   options:
