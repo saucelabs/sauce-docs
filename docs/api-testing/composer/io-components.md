@@ -34,6 +34,7 @@ I/O request components enable you to perform the I/O operations `GET`, `POST`, `
 Performs a `GET` method request. See [Request Header](#request-header), [Query Params](#query-params), [Config](#config), and [Basic Authentication](#basic-authentication).
 
 <details><summary><strong>Code View Example</strong></summary>
+
 ```yaml
 - id: get
   children: []
@@ -61,6 +62,7 @@ Performs a `POST` method request. See [Request Body](#request-body), [Request He
 Performs a `PUT` method request. See [Request Body](#request-body), [Request Header](#request-header), [URL Encoded Params](#url-encoded-param), [Query Params](#query-params), [Config](#config), [File (Multi-part)](#file-multi-part), and [Basic Authentication](#basic-authentication).
 
 <details><summary><strong>Code View Example</strong></summary>
+
 ```yaml
 - id: put
   children: []
@@ -74,6 +76,7 @@ Performs a `PUT` method request. See [Request Body](#request-body), [Request Hea
 Performs a `PATCH` method request. See [Request Body](#request-body), [Request Header](#request-header), [URL Encoded Params](#url-encoded-param), [Query Params](#query-params), [Config](#config), [File (Multi-part)](#file-multi-part), and [Basic Authentication](#basic-authentication).
 
 <details><summary><strong>Code View Example</strong></summary>
+
 ```yaml
 - id: patch
   children: []
@@ -87,6 +90,7 @@ Performs a `PATCH` method request. See [Request Body](#request-body), [Request H
 Performs a `DELETE` method request. See [Request Body](#request-body), [Request Header](#request-header), [URL Encoded Params](#url-encoded-param), [Query Params](#query-params), [Config](#config), [File (Multi-part)](#file-multi-part), and [Basic Authentication](#basic-authentication).
 
 <details><summary><strong>Code View Example</strong></summary>
+
 ```yaml
 - id: delete
   children: []
