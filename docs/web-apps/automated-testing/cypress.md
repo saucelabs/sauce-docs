@@ -68,6 +68,17 @@ JavaScript is supported out of the box. TypeScript and Cucumber are also support
     </tr>
     <tbody>
       <tr>
+        <td rowspan='2'>11.2.0</td>
+        <td><b>macOS:</b> 11.00, 12</td>
+        <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
+        <td rowspan='2'>Nov 30, 2023</td>
+      </tr>
+      <tr>
+        <td><b>Windows:</b> 10, 11</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
         <td rowspan='2'>10.10.0</td>
         <td><b>macOS:</b> 11.00, 12</td>
         <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
