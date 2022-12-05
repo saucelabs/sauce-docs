@@ -5,18 +5,9 @@ sidebar_label: Real Device Cleaning Process
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The cleaning process runs at the end of each test session for Sauce Labs Real Devices. It resets the device back to a default state, ready for the next test. The cleaning process also removes any private data which may have been part of the prior test. If we encounter any issue during the cleaning process, or we fail to clean the device, we put those devices aside for manual inspection to prevent data and security leaks. 
+The cleaning process runs at the end of each test session for Sauce Labs Real Devices. It resets the device back to a default state, ready for the next test. The cleaning process also removes any private data which may have been part of the prior test. If we encounter any issue during the cleaning process, or we fail to clean the device, we put those devices aside for manual inspection to prevent data and security leaks.
 
 The cleaning process differs slightly between the Public Devices, which are shared among all our customers, and the Private Devices, where the owner has more control over the configuration of their device. It also differs between Android and iOS, due to the different features of these operating systems.
-
-## Public Devices
-
-Every 5th cleaning session includes a device reboot. This ensures that the system remains 
-performant, and any stray processes are stopped.
-
-:::note
-A factory reset is not performed between test sessions, as this requires manual intervention and would slow down the time required between test runs.
-:::
 
 ## Goals of the Cleaning Process
 
@@ -27,6 +18,17 @@ A clean device:
 * Has the default system settings, which are typical for a newly configured device.
 * Provides some convenient locale and system account defaults.
 * Has an empty file system, containing no additional media or documents.
+
+## Public Devices
+
+Every 5th cleaning session includes a device reboot. This ensures that the system remains
+performant, and any stray processes are stopped.
+
+:::note
+A factory reset is not performed between test sessions, as this requires manual intervention and would slow down the time required between test runs.
+:::
+
+
 
 ### Cleaning Process Steps
 
@@ -53,7 +55,7 @@ Private Devices follow the same process as Public Devices. However, the customer
 
 App allowlist:
 * Apps installed on the device can be selected, by name/bundleID/package name, to be preserved between sessions. These apps and their data will not be cleaned. They can be uploaded by the customer from Sauce Storage, or installed from the App Store/Play Store.
-  
-Account allowlist: 
+
+Account allowlist:
 * Google accounts signed into the Play Store can be preserved between sessions.
 * Apple IDs signed into the device and App Store can be preserved between sessions.

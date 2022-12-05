@@ -36,8 +36,8 @@ The Jenkins plugin for Sauce Labs will automatically install Sauce Connect Proxy
 
 For information on installing and configuring the Sauce Labs plug-in for Bamboo, see the following sections:
 
-* [Installing and Configuring the Sauce Labs Plugin for Bamboo](/ci/bamboo)
+* [Installing and Configuring the Sauce Labs Plugin for Bamboo](/basics/integrations/bamboo)
 * [Sauce OnDemand for Bamboo](https://marketplace.atlassian.com/apps/30134/sauce-ondemand-for-bamboo)
 * [Introducing Bamboo Sauce](https://saucelabs.com/blog/introducing-bamboo-sauce-)
 
-For instructions on running your Jenkins build with Sauce Connect Proxy enabled, see [Sauce Labs with Jenkins](/ci/jenkins).
+For instructions on running your Jenkins build with Sauce Connect Proxy enabled, see [Sauce Labs with Jenkins](/basics/integrations/jenkins).
