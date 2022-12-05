@@ -780,7 +780,7 @@ Available browser names: `chromium`, `firefox`, `webkit`, and `chrome`.
 ```
 
 :::note
-`chromium`, `firefox` and `webkit` are bundled with Playwright. `chrome` is provided by the sauce VM (or docker image). For more information, see [Playwright Browsers](https://playwright.dev/docs/browsers).
+`chromium`, `firefox`, and `webkit` are bundled with Playwright. `chrome` is provided by the sauce VM (or docker image). For more information, see [Playwright Browsers](https://playwright.dev/docs/browsers).
 :::
 ---
 
