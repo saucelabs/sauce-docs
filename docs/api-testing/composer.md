@@ -359,7 +359,7 @@ To convert a timestamp from a payload response to milliseconds:
   ${D.parse(1649094357)}
   ```
 
-For more information, see [Expression Language Extensions](/api-testing/composer/logical-components/#expression-language-extensions).
+For more information, see [Expression Language Extensions](/api-testing/composer/expressions/#expression-language-extensions).
 
 ## Generating Test Data
 If your API or test requires random names, emails, or different types of input data, you can generate those directly in Sauce Labs API Testing. You can directly reference the method in your variable, API call, or anywhere in the test where you can enter the `${F.<methodName()>}` syntax.
