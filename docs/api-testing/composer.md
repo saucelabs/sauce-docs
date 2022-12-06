@@ -907,5 +907,4 @@ Once you've generated your tests in the Composer, you can manage them from the *
 * Trash icon: Delete the test
 
 ## More Information
-* [Sauce School | API Testing Course and Best Practices](https://training.saucelabs.com/apiTesting/index.html)
 * [API Testing Quickstart](/api-testing/quickstart)
