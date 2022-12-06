@@ -63,7 +63,7 @@ The limits for public cloud devices ensure that there are enough devices availab
 
 #### **Is there a difference in devices I can use as a free trial and with a subscription when live testing?**
 
-For free trial accounts, the only available devices you will see are denoted with a green corner flag that states trial and they will be available to you. If you are subscribed, you will have access to a vast pool of devices which exceeds 300 models and behind those models will be different versions of OS available to you. 
+For free trial accounts, the available devices are denoted with a green Trial flag. If you are subscribed, you have access to a pool of over 300 device models with additional supported OS/version configurations. 
 
 Example: iPhone 12
 * **iPhone 12 running iOS 16**
