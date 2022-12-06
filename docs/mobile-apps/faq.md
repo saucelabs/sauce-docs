@@ -61,7 +61,7 @@ Yes. See [Camera Image Injection](/mobile-apps/features/camera-image-injection).
 For real devices on the public cloud, the limit is 6 hours for Appium tests and 1 hour for Espresso and XCUITest; the same applies to private cloud devices.
 The limits for public cloud devices ensure that there are enough devices available for you, whereas the limits for private cloud devices ensure the longevity of your devices.
 
-#### **Is there a difference in devices I can use as a free trial and with a subscription when live testing?**
+#### **What is the difference between the devices available with a free trial and a subscription?**
 
 For free trial accounts, the available devices are denoted with a green Trial flag. If you are subscribed, you have access to a pool of over 300 device models with additional supported OS/version configurations. 
 
