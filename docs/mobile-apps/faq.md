@@ -65,10 +65,10 @@ The limits for public cloud devices ensure that there are enough devices availab
 
 For free trial accounts, the available devices are denoted with a green Trial flag. If you are subscribed, you have access to a pool of over 300 device models with additional supported OS/version configurations. 
 
-Example: iPhone 12
-* **iPhone 12 running iOS 16**
-* **iPhone 12 running iOS 16.1**
-* **iPhone 12 running iOS 16.2**
+For example, with a subscription, you can test iPhone 12 devices with any of these iOS configurations:
+iPhone 12 - iOS 15
+iPhone 12 - iOS 16
+iPhone 12 - iOS 16.1
 
 
 #### **Can I upload files to or download files from a real device?**
