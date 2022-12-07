@@ -192,56 +192,9 @@ The launch of Sauce Connect 4.8.2 makes it the officially supported version of t
     <a href="https://saucelabs.com/downloads/sc-4.7.0-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.7.0-osx.zip">Mac</a>
    </td>
   </tr>
-  <tr>
-   <td rowspan="6" >4.6
-   </td>
-   <td>4.6.5
-   </td>
-   <td>
-    <a href="https://saucelabs.com/downloads/sc-4.6.5-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.6.5-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.6.5-win32.zip">Windows</a>
-   </td>
-   <td rowspan="6" >Nov. 30, 2022
-   </td>
-  </tr>
-  <tr>
-   <td>4.6.4
-   </td>
-   <td>
-    <a href="https://saucelabs.com/downloads/sc-4.6.4-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.6.4-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.6.4-win32.zip">Windows</a>
-   </td>
-  </tr>
-  <tr>
-   <td>4.6.3
-   </td>
-   <td>
-    <a href="https://saucelabs.com/downloads/sc-4.6.3-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.6.3-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.6.3-win32.zip">Windows</a>
-   </td>
-  </tr>
-  <tr>
-   <td>4.6.2
-   </td>
-   <td>
-    <a href="https://saucelabs.com/downloads/sc-4.6.2-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.6.2-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.6.2-win32.zip">Windows</a>
-   </td>
-  </tr>
-  <tr>
-   <td>4.6.1
-   </td>
-   <td>
-   <a href="https://saucelabs.com/downloads/sc-4.6.1-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.6.1-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.6.1-win32.zip">Windows</a>
-   </td>
-  </tr>
-  <tr>
-   <td>4.6.0<sup><a href="#sauce-connect-proxy-versions-below-461-which-were-supporting-private-certificates-reached-end-of-life-and-are-no-longer-available-for-download">**</a></sup>
-   </td>
-   <td>
-   &#8212;
-   </td>
-  </tr>
 </table>
 
 ##### <sup>*</sup>Windows version no longer available for download.
-##### <sup>**</sup>Sauce Connect Proxy versions below 4.6.1, which were supporting Private Certificates, reached end of life and are no longer available for download.
 
 ## Using Sauce Connect in Docker
 
