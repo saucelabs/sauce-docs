@@ -359,7 +359,7 @@ To convert a timestamp from a payload response to milliseconds:
   ${D.parse(1649094357)}
   ```
 
-For more information, see [Expression Language Extensions](/api-testing/composer/logical-components/#expression-language-extensions).
+For more information, see [Expression Language Extensions](/api-testing/composer/expressions/#expression-language-extensions).
 
 ## Generating Test Data
 If your API or test requires random names, emails, or different types of input data, you can generate those directly in Sauce Labs API Testing. You can directly reference the method in your variable, API call, or anywhere in the test where you can enter the `${F.<methodName()>}` syntax.
@@ -874,7 +874,8 @@ Executes a test.<br/>
 <img src={useBaseUrl('img/api-testing/runTest.png')} alt="Run"/>
 
 ### Input Sets
-Displays the Input Set view where you can store input data sets to reuse within the specific test you're working on.<br/><img src={useBaseUrl('img/api-testing/inputSets.png')} alt="Input Sets" width="500"/>
+Displays the Input Set view where you can store input data sets to reuse within the specific test you're working on.<br/>
+<img src={useBaseUrl('img/api-testing/inputSets.png')} alt="Input Sets" width="500"/>
 
 There are two types of input data sets you can use:
 * Global Parameters - Variables that are available within a test, valid for that specific test only.
@@ -892,11 +893,18 @@ There are two types of input data sets you can use:
 </table>
 
 ### Unit View
-These buttons switch between the Input Set and Unit views.
-
-<br/>
+These buttons switch between the Input Set and Unit views.<br/>
 <img src={useBaseUrl('img/api-testing/unitView.png')} alt="Unit View"/>
 
+## Test Options
+
+Once you've generated your tests in the Composer, you can manage them from the **Tests** tab. In your project, on the **Tests** tab, hover your mouse over the test line item. You'll see icons that allow you to edit, run, schedule, or delete a test.<br/>
+<img src={useBaseUrl('img/api-fortress/2021/02/scheduleIcons.png')} alt="Schedules Icons"/>
+
+* Pencil icon: Edit the test (opens the **Compose** tab)
+* Play icon: Run the test manually
+* Calendar icon: Open the [test scheduler](/api-testing/schedule-test)
+* Trash icon: Delete the test
+
 ## More Information
-* [Sauce School | API Testing Course and Best Practices](https://training.saucelabs.com/apiTesting/index.html)
 * [API Testing Quickstart](/api-testing/quickstart)

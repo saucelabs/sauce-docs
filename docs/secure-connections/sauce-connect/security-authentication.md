@@ -92,7 +92,7 @@ You can use this option multiple times in a row:
 --auth mythirdsite.com:80:awesometester:supersekrit
 ```
 
-For more information, see [Best Practice: Handling Authentication](https://community.saucelabs.com/general-delivery-discussion-6/best-practice-handling-authentication-164) and [Using Environment Variables for Authentication Credentials](/basics/environment-variables).
+For more information, see [Using Environment Variables for Authentication Credentials](/basics/environment-variables).
 
 ## Certificate Handling
 The security of Sauce Connect Proxy communication to both the Sauce Labs API and the virtual machine hosting your tests in the Sauce Labs cloud is managed through [public key certificates](https://en.wikipedia.org/wiki/Public_key_certificate).

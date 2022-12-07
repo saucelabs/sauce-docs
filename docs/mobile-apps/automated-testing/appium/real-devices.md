@@ -508,8 +508,6 @@ options.AddAdditionalCapability("sauce:options", sauceOptions);
 
 ## Additional Test Configuration Options
 
-Once you're up and running with your real device tests, check out our [Best Practices](https://community.saucelabs.com/search?q=best+practice&search_type=tag;) for making the most of your testing. Some possible configurations include:
-
 * [Implement timeouts to control text execution times](/dev/test-configuration-options#timeouts)
 * [Add test annotations](/basics/test-config-annotation/test-annotation)
 * [Setting test status to pass or fail](/test-results/test-status)
