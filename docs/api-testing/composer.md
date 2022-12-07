@@ -368,7 +368,7 @@ If your API or test requires random names, emails, or different types of input d
 * `F.firstName()` - Generates a first name
 * `F.lastName()` - Generates a last name
 * `F.emailAddress()` - Generates an email address
-* `F.password(<minimumLength,maximumLength,includeUppercase,includeSpecial,includeDigit>)` - Generates a password
+* `F.password(<minimumLength,maximumLength,includeUppercase,includeSpecial,includeDigit>)` - Generates a password. By default the values are F.password(8,16,false,false,false). Minimum length is 3 chars.
 * `F.creditCardNumber()` - Generates a credit card number
 * `F.creditCardExpiry()` - Generates a credit card expiration date
 * `F.integer(<min,max>)` - Generates an integer
