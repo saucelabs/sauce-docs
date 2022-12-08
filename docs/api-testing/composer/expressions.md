@@ -137,10 +137,10 @@ These _extensions_ can be used in any field that can be evaluated, which means i
 This is the main extension. It supports many useful functions.
 
 - **exists(object : Object) : Boolean :** an XML and JSON existence state is different by definition. Use this in an "if statement" if a test should work both with JSON and XML
-- **contains(substring : String, object : Object) : Boolean :** returns true whether the string version of "object" contains the "substring" sub-string.
+- **contains(object : Object, substring : String) : Boolean :** returns true whether the string version of "object" contains the "substring" sub-string.
 
   ```groovy
-  WSUtil.contains('banana', payload.fruit.name)
+  WSUtil.contains(payload.fruit.name, 'banana')
   ```  
 
 - **isInteger(string: String) , isFloat(string: String), isUrl(string: String), isEmail(string: String), isPhoneNumber(string: String), isBoolean(string: String), isArray(object: Object), isMap(object: Object), isCreditCard(string: String) : Boolean :** evaluate the nature of a data item

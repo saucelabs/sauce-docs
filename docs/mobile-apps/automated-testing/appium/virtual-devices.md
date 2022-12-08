@@ -340,18 +340,15 @@ where you'll find demo scripts for a variety of use cases to get you started wit
 * [C#](https://github.com/saucelabs-training/demo-csharp)
 
 
-## Additional Resources
+## Additional Test Configuration Options
 
-Once you've been able to get a test running on Sauce, check out our best practices and available modifications you can make to your tests:
-
-* [Best Practices for Running Tests](https://community.saucelabs.com/search?q=best+practice&search_type=tag).
-* [Implement timeouts to control text execution times](/dev/test-configuration-options/#virtual-device-capabilities-sauce-specific--optional).
-* [Annotating Tests with the Sauce Labs REST API](/basics/test-config-annotation/test-annotation/#sauce-labs-rest-api).
-* [Annotating Tests with Selenium's JavaScript Executor](/basics/test-config-annotation/test-annotation/#selenium-javascript-executor).
-* [Setting Test Status to Pass or Fail](/test-results/test-status).
-* [Using Build IDs and tags to differentiate and identify test runs](/basics/test-config-annotation/test-annotation).
-* [Create your own test script examples using our Platform Configurator](https://saucelabs.com/platform/platform-configurator#/).
-* [Browse our full suite of test configuration options and advanced configurations](/dev/test-configuration-options).
+* [Implement timeouts to control text execution times](/dev/test-configuration-options/#virtual-device-capabilities-sauce-specific--optional)
+* [Annotating Tests with the Sauce Labs REST API](/basics/test-config-annotation/test-annotation/#sauce-labs-rest-api)
+* [Annotating Tests with Selenium's JavaScript Executor](/basics/test-config-annotation/test-annotation/#selenium-javascript-executor)
+* [Setting Test Status to Pass or Fail](/test-results/test-status)
+* [Using Build IDs and tags to differentiate and identify test runs](/basics/test-config-annotation/test-annotation)
+* [Create your own test script examples using our Platform Configurator](https://saucelabs.com/platform/platform-configurator#/)
+* [Browse our full suite of test configuration options and advanced configurations](/dev/test-configuration-options)
 
 ## Training
 Lean how to run Appium Android tests on an Emulator in the [Automation Quickstart Course](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#0).
