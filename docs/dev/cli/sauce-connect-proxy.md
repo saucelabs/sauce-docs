@@ -29,7 +29,7 @@ You can view the entire list of CLI options by running the `--help` flag.
 <p><small>| REQUIRED | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Sets your Sauce Labs username. For additional security, you can set this as an [environment variable](/secure-connections/sauce-connect/setup-configuration/environment-variables/).<br/>
-__Enviroment variable__: `SAUCE_USERNAME` or `SAUCE_USER`<br/>
+__Environment variable__: `SAUCE_USERNAME` or `SAUCE_USER`<br/>
 __Shorthand__: `-u`
 
 ---
@@ -37,7 +37,7 @@ __Shorthand__: `-u`
 <p><small>| REQUIRED | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Sets your Sauce Labs API key. This will be the same as your [Access Key](https://app.saucelabs.com/user-settings). For additional security, you can set this as an [environment variable](/secure-connections/sauce-connect/setup-configuration/environment-variables/).<br/>
-__Enviroment variable__: `SAUCE_ACCESS_KEY` or `SAUCE_API_KEY`<br/>
+__Environment variable__: `SAUCE_ACCESS_KEY` or `SAUCE_API_KEY`<br/>
 __Shorthand__: `-k`
 
 ---
@@ -45,7 +45,7 @@ __Shorthand__: `-k`
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Defines the local path to a YAML file containing a Sauce Connect Proxy configuration. For instructions, [Configuring Tunnels with a YAML File](/secure-connections/sauce-connect/setup-configuration/yaml-config/).<br/>
-__Enviroment variable__: n/a<br/>
+__Environment variable__: n/a<br/>
 __Shorthand__: `-c`
 
 :::caution
@@ -58,7 +58,7 @@ __Shorthand__: `-c`
 
 __Description__: Sets your Sauce Labs [data center endpoint](/basics/data-center-endpoints/#data-center-endpoints) (e.g., `us-west`, `eu-central`, `apac-southeast`).<br/>
 __Default__: If you don't specify a data center, Sauce Connect will default to `us-west`. <br/>
-__Enviroment variable__: `SAUCE_REGION`<br/>
+__Environment variable__: `SAUCE_REGION`<br/>
 __Shorthand__: `-r`
 
 ```bash
@@ -77,7 +77,7 @@ __Shorthand__: `-r`
 <p><small>| OPTIONAL | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Changes tunnel sharing permissions so that all users in an organization can use Sauce Connect Proxy tunnels, rather than just the tunnel owner (admin). For more information, see [Sharing Sauce Connect Proxy Tunnels](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels).<br/>
-__Enviroment variable__: `SAUCE_SHARED_TUNNEL`<br/>
+__Environment variable__: `SAUCE_SHARED_TUNNEL`<br/>
 __Shorthand__: `-s`
 
 ---
@@ -87,7 +87,7 @@ __Shorthand__: `-s`
 __Description__: Assigns a name to a Sauce Connect Proxy tunnel. It can also assign a name to a group of tunnels in the same [High Availability pool](/secure-connections/sauce-connect/setup-configuration/high-availability), when used with [`--tunnel-pool`](#--tunnel-pool). Must be in ASCII format.
 
 You can run tests using this tunnel by specifying the [`tunnelName`](/dev/test-configuration-options/#tunnelname) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
-__Enviroment variable__: `SAUCE_TUNNEL_IDENTIFIER`<br/>
+__Environment variable__: `SAUCE_TUNNEL_IDENTIFIER`<br/>
 __Shorthand__: `-i`
 
 :::info Tunnel Identifier = Tunnel Name
@@ -101,7 +101,7 @@ This value populates the **Tunnel Name** field on the Sauce Labs Tunnels page, _
 __Description__: Assigns a name to a Sauce Connect Proxy tunnel. It can also assign a name to a group of tunnels in the same [High Availability pool](/secure-connections/sauce-connect/setup-configuration/high-availability), when used with [`--tunnel-pool`](#--tunnel-pool). Must be in ASCII format.
 
 You can run tests using this tunnel by specifying the [`tunnelName`](/dev/test-configuration-options/#tunnelname) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
-__Enviroment variable__: `SAUCE_TUNNEL_NAME`<br/>
+__Environment variable__: `SAUCE_TUNNEL_NAME`<br/>
 __Shorthand__: `-i`
 
 ---
@@ -109,7 +109,7 @@ __Shorthand__: `-i`
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Launches a high availability tunnel pool along with the [`--tunnel-name`](#--tunnel-name) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
-__Enviroment variable__: n/a<br/>
+__Environment variable__: n/a<br/>
 __Shorthand__: n/a
 
 
@@ -120,7 +120,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Sets domain(s) that are requested through the public internet instead of the Sauce Connect Proxy tunnel. This is the inverse of [`--tunnel-domains`](#--tunnel-domains). When adding multiple domains, [format as a comma-separated list](#formatting-domains). See [Tuning Sauce Connect Proxy Traffic](/secure-connections/sauce-connect/proxy-tunnels/#direct-domains) for more information.<br/>
-__Enviroment variable__: `SAUCE_DIRECT_DOMAINS`<br/>
+__Environment variable__: `SAUCE_DIRECT_DOMAINS`<br/>
 __Shorthand__: `-D`
 
 
@@ -129,7 +129,7 @@ __Shorthand__: `-D`
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Sets domain(s) that do not require SSL resigning. Requests that include hosts matching one of these domains will not be SSL re-encrypted. When adding multiple domains, [format as a comma-separated list](#formatting-domains). See [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) for more information about scenarios in which might want to use this command.<br/>
-__Enviroment variable__: `SAUCE_NO_SSL_BUMP_DOMAINS`<br/>
+__Environment variable__: `SAUCE_NO_SSL_BUMP_DOMAINS`<br/>
 __Shorthand__: `-B`
 
 :::note
@@ -142,7 +142,7 @@ HTTP Header Injection is disabled for all HTTPS domains passed to the `--no-ssl-
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Allows you to set a deny-list of URL patterns. Requests with URLs matching one of these will get dropped instantly and will not go through the tunnel. Tests for app and site degradation based on missing assets or resources. Can be used to simulate non-loading of scripts, styles, or other resources. Use this option followed by a comma-separated list of regular expressions. See the [Sauce Connect Proxy FAQ](/secure-connections/sauce-connect/faq) for an example.<br/>
-__Enviroment variable__: `SAUCE_FAST_FAIL_REGEXPS`<br/>
+__Environment variable__: `SAUCE_FAST_FAIL_REGEXPS`<br/>
 __Shorthand__: `-F`
 
 
@@ -151,7 +151,7 @@ __Shorthand__: `-F`
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Sets domain(s) that are requested through the Sauce Connect Proxy tunnel. This is the inverse of [`--direct-domains`](#--direct-domains). When adding multiple domains, [format them as a comma-separated list](#formatting-domains). See [Tuning Sauce Connect Proxy Traffic](/secure-connections/sauce-connect/proxy-tunnels/#tunnel-domains) for more information.<br/>
-__Enviroment variable__: `SAUCE_TUNNEL_DOMAINS`<br/>
+__Environment variable__: `SAUCE_TUNNEL_DOMAINS`<br/>
 __Shorthand__: `-t`
 
 
@@ -160,7 +160,7 @@ __Shorthand__: `-t`
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Sets the URL for the [data center endpoint](/basics/data-center-endpoints) of the location where the device you're testing on is hosted.<br/>
-__Enviroment variable__: `SAUCE_REST_URL`<br/>
+__Environment variable__: `SAUCE_REST_URL`<br/>
 __Shorthand__: `-x`
 
 ```bash
@@ -183,7 +183,7 @@ Effective with version 4.7.0, this flag was deprecated and replaced by [`--regio
 <p><small>| OPTIONAL | <span className="sauceRed">4.6.x</span>| </small></p>
 
 __Description__: Prevents the removal of colliding tunnels (i.e., tunnels with the same name). <br/>
-__Enviroment variable__: n/a
+__Environment variable__: n/a
 
 :::note
 Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-pool`](#--tunnel-pool).
@@ -198,7 +198,7 @@ Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunne
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Enables the auto-detection of system proxy settings. Inverse of [`--no-autodetect`](#--no-autodetect). Default: `true`. See also [Automatic Proxy Auto-Configuration](/secure-connections/sauce-connect/setup-configuration/additional-proxies#proxy-auto-configuration-automatic).<br/>
-__Enviroment variable__: `SAUCE_AUTODETECT`<br/>
+__Environment variable__: `SAUCE_AUTODETECT`<br/>
 __Shorthand__: n/a
 
 
@@ -207,7 +207,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Disables the auto-detection of system proxy settings. See [Automatic Proxy Auto-Configuration](/secure-connections/sauce-connect/setup-configuration/additional-proxies#proxy-auto-configuration-automatic) for more information.<br/>
-__Enviroment variable__: `SAUCE_NO_AUTODETECT`<br/>
+__Environment variable__: `SAUCE_NO_AUTODETECT`<br/>
 __Shorthand__: n/a
 
 
@@ -216,7 +216,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Defines external proxy auto-configuration (PAC) URI. You can input `http(s)` or `local file://URL`. Absolute paths are required when specifying a local PAC file. For more information, see [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).<br/>
-__Enviroment variable__: `SAUCE_PAC`<br/>
+__Environment variable__: `SAUCE_PAC`<br/>
 __Shorthand__: n/a
 
 ```bash
@@ -228,7 +228,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Supplies PAC authentication in the format `username:password@host:port`. This option can be used multiple times for each authenticated host in the PAC file.<br/>
-__Enviroment variable__: `SAUCE_PAC_AUTH`<br/>
+__Environment variable__: `SAUCE_PAC_AUTH`<br/>
 __Shorthand__: n/a
 
 
@@ -237,7 +237,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Defines external proxy host:port where you want to route Sauce Labs test traffic. For example, the traffic from a Firefox desktop test.<br/>
-__Enviroment variable__: `SAUCE_PROXY`<br/>
+__Environment variable__: `SAUCE_PROXY`<br/>
 __Shorthand__: `-p`
 
 
@@ -246,7 +246,7 @@ __Shorthand__: `-p`
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Setting this to `true` supports proxying upstream requests to localhost. This includes scenarios where an [upstream proxy is hosted on localhost](/secure-connections/sauce-connect/setup-configuration/additional-proxies). By default, it is `false`. <br/>
-__Enviroment variable__: `SAUCE_PROXY_LOCALHOST`<br/>
+__Environment variable__: `SAUCE_PROXY_LOCALHOST`<br/>
 __Shorthand__: n/a
 
 
@@ -255,7 +255,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Routes all tunnel traffic through the external proxy specified by [`--proxy`](#--proxy). Uses the proxy configured with `--proxy` or `--pac` for the tunnel connection. For more information about the `-T` option and configuring Sauce Connect Proxy with other proxies, see [Set Up with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies). You'll need to use this option if you have a PAC file that contains Sauce Labs DNS names.<br/>
-__Enviroment variable__: `SAUCE_PROXY_TUNNEL`<br/>
+__Environment variable__: `SAUCE_PROXY_TUNNEL`<br/>
 __Shorthand__: `-T`
 
 
@@ -264,7 +264,7 @@ __Shorthand__: `-T`
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Sets username and password (sent via basic authentication) to access the proxy configured with [`--proxy`](#--proxy). For more information, see [Set Up with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).<br/>
-__Enviroment variable__: `SAUCE_PROXY_USERPWD`<br/>
+__Environment variable__: `SAUCE_PROXY_USERPWD`<br/>
 __Shorthand__: `-w`
 
 
@@ -276,7 +276,7 @@ __Shorthand__: `-w`
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Captures the Sauce Connect Proxy logs in a file. If a path is not specified, the file location will default to the location where the Sauce Connect Proxy executable can be found on your machine.<br/>
-__Enviroment variable__: `SAUCE_LOGFILE`<br/>
+__Environment variable__: `SAUCE_LOGFILE`<br/>
 __Shorthand__: `-l`
 
 :::note
@@ -289,7 +289,7 @@ Use `--logfile -` to print your log to the console window (stdout) instead of th
 <p><small>| OPTIONAL | NUMBER | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Rotates logfile after reaching the max bytes size. It creates a new log and appends an order number to the previous log. Disabled by default.<br/>
-__Enviroment variable__: `SAUCE_MAX_LOGSIZE`<br/>
+__Environment variable__: `SAUCE_MAX_LOGSIZE`<br/>
 __Shorthand__: n/a
 
 
@@ -298,7 +298,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Specifies console output format. You can configure either `pretty` output, which will display various fonts and graphics, or `text` (text only). Default: `pretty`.<br/>
-__Enviroment variable__: `SAUCE_OUTPUT_FORMAT`<br/>
+__Environment variable__: `SAUCE_OUTPUT_FORMAT`<br/>
 __Shorthand__: n/a
 
 
@@ -307,7 +307,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Specifies the file where you want the Sauce Connect Proxy process ID (pid) to be written. This is useful for programmatically stopping Sauce Connect Proxy. Although Sauce Connect Proxy makes a best effort, we cannot guarantee that the pidfile will be removed when shutting down Sauce Connect Proxy. With that in mind, relying on the pidfile as a means to monitor Sauce Connect Proxy is not supported.<br/>
-__Enviroment variable__: `SAUCE_PIDFILE`<br/>
+__Environment variable__: `SAUCE_PIDFILE`<br/>
 __Shorthand__: `-d`
 
 
@@ -316,7 +316,7 @@ __Shorthand__: `-d`
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Sets file that is updated when the tunnel is ready. See also [Using ready file with Docker](/secure-connections/sauce-connect/setup-configuration/docker#ready-file).<br/>
-__Enviroment variable__: `SAUCE_READYFILE`<br/>
+__Environment variable__: `SAUCE_READYFILE`<br/>
 __Shorthand__: `-f`
 
 
@@ -325,7 +325,7 @@ __Shorthand__: `-f`
 <p><small>| OPTIONAL | NUMBER | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Sets port to use for the built-in HTTP proxy.<br/>
-__Enviroment variable__: `SAUCE_SCPROXY_PORT`<br/>
+__Environment variable__: `SAUCE_SCPROXY_PORT`<br/>
 __Shorthand__: `-X`
 
 
@@ -334,7 +334,7 @@ __Shorthand__: `-X`
 <p><small>| OPTIONAL | NUMBER | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Sets the port on which Sauce Connect Proxy's Selenium relay will listen for requests. Selenium commands reaching Sauce Connect Proxy on this port will be relayed to Sauce Labs securely and reliably through Sauce Connect Proxy's tunnel. This feature is disabled unless specified. For more information, see [Using the Selenium Relay](/secure-connections/sauce-connect/proxy-tunnels).<br/>
-__Enviroment variable__: `SAUCE_SE_PORT`<br/>
+__Environment variable__: `SAUCE_SE_PORT`<br/>
 __Shorthand__: `-P`
 
 
@@ -347,7 +347,7 @@ __Shorthand__: `-P`
 __Description__: Performs basic authentication when a URL on `host:port` asks for a username and password (`host:port:username:password` format). This option can be used multiple times. For examples, see [Authentication Using `--auth`](/secure-connections/sauce-connect/security-authentication).
 
 This flag will only send the header Authorization with a type of "Basic." If a resource responds with the header WWW-Authenticate of a type any other than "Basic," your authentication will fail and return a non-200 HTTP response. HTTP Header Injection is disabled for SSL domains that are not re-encrypted by Sauce Connect Proxy, which means performing basic authentication in this way is disabled for all HTTPS domains passed to `--no-ssl-bump-domains` argument.<br/>
-__Enviroment variable__: `SAUCE_AUTH`<br/>
+__Environment variable__: `SAUCE_AUTH`<br/>
 __Shorthand__: `-a`
 
 ```bash
@@ -359,7 +359,7 @@ __Shorthand__: `-a`
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: CA certificate bundle in PEM format to use for verifying connections to Sauce Labs REST API. Default: `/private/etc/ssl/cert.pem`. This is normally used when a proxy is needed to access the REST API, and the proxy's certificate isn't available in the system certificate store. This does <b>not</b> affect test traffic through Sauce Connect.<br/>
-__Enviroment variable__: `SAUCE_CAINFO`<br/>
+__Environment variable__: `SAUCE_CAINFO`<br/>
 __Shorthand__: n/a
 
 ---
@@ -367,7 +367,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Uses specified name server. To specify multiple servers, separate them with a comma. Use IP addresses, optionally with a port number, the two separated by a colon.<br/>
-__Enviroment variable__: `SAUCE_DNS`<br/>
+__Environment variable__: `SAUCE_DNS`<br/>
 __Shorthand__: n/a
 
 ```bash
@@ -379,7 +379,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: CA certificate bundle in PEM format to use for verifying tunnel connections. This is normally used when a proxy is needed to access the tunnel endpoint, and the proxy's certificate isn't available in the system certificate store. This does <b>not</b> affect test traffic through Sauce Connect.<br/>
-__Enviroment variable__: `SAUCE_TUNNEL_CAINFO`<br/>
+__Environment variable__: `SAUCE_TUNNEL_CAINFO`<br/>
 __Shorthand__: n/a
 
 
@@ -388,7 +388,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: OCSP verification mode. Options are: strict, log-only, and disable. The default is log-only.<br/>
-__Enviroment variable__: `SAUCE_OCSP`<br/>
+__Environment variable__: `SAUCE_OCSP`<br/>
 __Shorthand__: n/a
 
 :::note
@@ -400,7 +400,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | <span className="sauceRed">4.6.x</span>| </small></p>
 
 __Description__: Directory of CA certificates to use for verifying tunnel connections.<br/>
-__Enviroment variable__: n/a <br/>
+__Environment variable__: n/a <br/>
 __Shorthand__: n/a
 
 ---
@@ -408,7 +408,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | <span className="sauceRed">4.6.x</span>| </small></p>
 
 __Description__: Defines a directory of CA certs to use for verifying connections to Sauce Labs REST API.<br/>
-__Enviroment variable__: n/a <br/>
+__Environment variable__: n/a <br/>
 __Shorthand__: n/a
 
 
@@ -419,7 +419,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span>| </small></p>
 
 __Description__: Logs statistics about HTTP traffic every &#60;seconds&#62;. Information includes bytes transmitted, requests made, and responses received.<br/>
-__Enviroment variable__: `SAUCE_LOG_STATS`<br/>
+__Environment variable__: `SAUCE_LOG_STATS`<br/>
 __Shorthand__: `-z`
 
 
@@ -428,7 +428,7 @@ __Shorthand__: `-z`
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span>| </small></p>
 
 __Description__: Use this option to define the host:port for the internal web server used to expose client-side metrics. Disabled by default.<br/>
-__Enviroment variable__: `SAUCE_METRICS_ADDRESS`<br/>
+__Environment variable__: `SAUCE_METRICS_ADDRESS`<br/>
 __Shorthand__: n/a
 
 :::note
@@ -441,7 +441,7 @@ Effective with version 4.8.0, this flag was deprecated and replaced by [`--statu
 <p><small>| OPTIONAL | STRING | <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Use this option to define the host:port for the internal web server used to expose the Sauce Connect Proxy runtime info. See the [Sauce Connect Proxy Monitoring](/secure-connections/sauce-connect/proxy-tunnels/#sauce-connect-proxy-monitoring) for more info. Disabled by default.<br/>
-__Enviroment variable__: `SAUCE_STATUS_ADDRESS`<br/>
+__Environment variable__: `SAUCE_STATUS_ADDRESS`<br/>
 __Shorthand__: n/a
 
 
@@ -450,7 +450,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Enables verbose debugging. Use this to log HTTP headers or debug Sauce Connect connection. You can also use `-vv` (very verbose), which outputs HTTP headers and KGP logs, although it's recommended for troubleshooting purposes only because it's system-resource demanding and can adversely affect Sauce Connect Proxy performance.<br/>
-__Enviroment variable__: `SAUCE_VERBOSE`<br/>
+__Environment variable__: `SAUCE_VERBOSE`<br/>
 __Shorthand__: `-v`
 
 
@@ -461,7 +461,7 @@ __Shorthand__: `-v`
 <p><small>| OPTIONAL | NUMBER | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Rates limit reads in scproxy to the number of bytes per second that you specify. This option can be used to adjust local network transfer rate to prevent overloading the tunnel connection.<br/>
-__Enviroment variable__: `SAUCE_SCPROXY_READ_LIMIT`<br/>
+__Environment variable__: `SAUCE_SCPROXY_READ_LIMIT`<br/>
 __Shorthand__: n/a
 
 
@@ -470,7 +470,7 @@ __Shorthand__: n/a
 <p><small>| OPTIONAL | NUMBER | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 __Description__: Rates limit writes in scproxy to the number of bytes per second that you specify. This option can be used to adjust local network transfer rate to prevent overloading the tunnel connection.<br/>
-__Enviroment variable__: `SAUCE_SCPROXY_WRITE_LIMIT`<br/>
+__Environment variable__: `SAUCE_SCPROXY_WRITE_LIMIT`<br/>
 __Shorthand__: n/a
 
 
@@ -485,7 +485,7 @@ __Description__: Enable or disable experimental features. This flag allows contr
 | `proxy`    | Use the new scproxy implementation (default). | ```--experimental proxy```    |
 | `no-proxy` | Use the previous generation scproxy.          | ```--experimental no-proxy``` |
 
-__Enviroment variable__: `SAUCE_EXPERIMENTAL`<br/>
+__Environment variable__: `SAUCE_EXPERIMENTAL`<br/>
 __Shorthand__: n/a
 
 
@@ -505,7 +505,7 @@ You can specify a combination of several options. For example:
 ```bash
 --extra-info '{"inject-forwarded-for": true, "reply_body_max_size": "300 MB"}'
 ```
-__Enviroment variable__: `SAUCE_EXTRA_INFO`<br/>
+__Environment variable__: `SAUCE_EXTRA_INFO`<br/>
 __Shorthand__: n/a
 
 
