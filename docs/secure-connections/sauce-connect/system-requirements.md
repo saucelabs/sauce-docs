@@ -125,6 +125,56 @@ Enable your Mac to allow apps from the App Store and identified developers.
 </table>
 
 
+
+### Sauce Connect v4.6.x
+
+<table>
+  <tr>
+   <td><strong>Name</strong>
+   </td>
+   <td><strong>Value</strong>
+   </td>
+   <td><strong>CPU Arch</strong>
+   </td>
+   <td><strong>Notes</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Linux
+   </td>
+   <td>Ubuntu 14.04 or higher
+        <p>Debian 7 or higher</p>
+        <p>RedHat EL-6 and higher</p>
+   </td>
+   <td>x86_64
+       <p>x86</p>
+   </td>
+   <td>Unsupported OSes may still be able to run Sauce Connect, but they've not been tested for versions 4.6.x and higher.
+   </td>
+  </tr>
+  <tr>
+   <td>macOS
+   </td>
+   <td>OS X 10.6 (Snow Leopard) or higher
+   </td>
+   <td>x86_64
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>Windows
+   </td>
+   <td>Windows 7 and higher
+   </td>
+   <td>x86
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
+
+
 ## Verifying Sauce Connect Network Routes on Your Host Machine
 
 As an important step prior to downloading Sauce Connect Proxy, you or your systems administrator will need to verify that Sauce Connect Proxy can make the required network requests.

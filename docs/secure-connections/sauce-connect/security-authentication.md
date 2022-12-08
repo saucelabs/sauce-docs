@@ -134,7 +134,7 @@ On macOS machines, certificates are pre-installed as part of the [Trust Store](h
 ### Tunnel Connection to the Sauce Labs Virtual Machine over SSL/TLS
 Sauce Connect Proxy reverses tunnel VM-to-test target traffic through the TLS connection from Sauce Connect-to-tunnel endpoints. Your Selenium and Appium webdriver traffic is sent over `http(80)` or `https(443)` to `ondemand.saucelabs.com`, which has its own TLS certificate that's then passed to the test VM.
 
-Sauce Connect Proxy versions 4.7.x and above will default to the public certificate.
+Sauce Connect Proxy versions 4.6.0+ will default to the public certificate.
 
 ## SSL Certificate Bumping
 Self-signed and invalid SSL certificates, commonly used in test environments, are not trusted by stock browsers, such as those installed on the Sauce Labs infrastructure. This causes tests to be interrupted with security warnings that can't be dismissed by Selenium. As a workaround, we've created a fix called SSL Bumping, whereby Sauce Connect automatically re-signs these certificates. This is enabled by default when you download Sauce Connect.
