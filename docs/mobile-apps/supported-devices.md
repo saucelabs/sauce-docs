@@ -134,29 +134,47 @@ When using this, there's no need to specify the `platformName` and `platformVers
   defaultValue="Espresso"
   values={[
     {label: 'Espresso', value: 'Espresso'},
-    {label: 'Appium', value: 'Appium'},
+    {label: 'XCUITest', value: 'XCUITest'},
+    {label: 'Appium (Android)', value: 'Appium-android'},
+    {label: 'Appium (iOS)', value: 'Appium-ios'},
   ]}>
 
 <TabItem value="Espresso">
 
 Static allocation example — exact device names are provided.
 
-```java
---devices iPhone_11_13_5_real_us,iPhone_5
---device Samsung_Galaxy_S20_real
+```yml
+devices:
+  - id: Google_Pixel_2_real_us
 ```
 
 </TabItem>
-<TabItem value="Appium">
+
+<TabItem value="XCUITest">
+
+Static allocation example — exact device names are provided.
+
+```yml
+devices:
+  - id: iPhone_11_13_5_real_us
+```
+
+</TabItem>
+<TabItem value="Appium-android">
 
 Static allocation examples — exact device name are provided.
 
 ```java
-capabilities.setCapability("deviceName", "Google_Pixel_4");
+capabilities.setCapability("appium:deviceName", "Google_Pixel_4");
 ```
 
+</TabItem>
+<TabItem value="Appium-ios">
+
+Static allocation examples — exact device name are provided.
+
 ```java
-capabilities.setCapability("deviceName", "iPhone_11_13_5_real_us");
+capabilities.setCapability("appium:deviceName", "iPhone_11_13_5_real_us");
 ```
 
 </TabItem>
@@ -165,7 +183,13 @@ capabilities.setCapability("deviceName", "iPhone_11_13_5_real_us");
 
 #### Dynamic Device Allocation
 
-This is specifying basic parameters for the platform, operating system, and/or type of device you want to use in your tests using [regular expressions (regex)](https://en.wikipedia.org/wiki/Regular_expression) to dynamically allocate a device. A device(s) with your specifications will be selected from the real device pool.
+This is specifying basic parameters for the device name or platform version of the device you want to use in your tests using [regular expressions (regex)](https://en.wikipedia.org/wiki/Regular_expression) to dynamically allocate a device. A device(s) with your specifications will be selected from the real device pool.
+
+:::note NOTE
+The more strict you set the capabilities, the smaller the pool of available devices will be and the longer you might need to wait for an available device.
+:::
+
+##### Based on device name
 
 | Regex Input | Dynamic Allocation Action
 | :--- | :---
@@ -179,44 +203,145 @@ This is specifying basic parameters for the platform, operating system, and/or t
 
 
 <Tabs
-  defaultValue="Appium (Android)"
+  defaultValue="Espresso"
   values={[
+    {label: 'Espresso', value: 'Espresso'},
+    {label: 'XCUITest', value: 'XCUITest'},
     {label: 'Appium (Android)', value: 'Appium (Android)'},
     {label: 'Appium (iOS)', value: 'Appium (iOS)'},
   ]}>
 
+<TabItem value="Espresso">
+
+Dynamic allocation example - finds any device that starts with the display name "Google".
+
+```yml
+devices:
+  - name: "^Google.*"
+```
+
+Dynamic allocation example - finds all Android devices except the Oppo ones.
+
+```yml
+devices:
+  - name: "^(?!Oppo).*"
+```
+
+</TabItem>
+
+<TabItem value="XCUITest">
+
+Dynamic allocation example - finds any device that starts with the display name "iPhone".
+
+```yml
+devices:
+  - name: "^iPhone.*"
+```
+
+Dynamic allocation example - finds all iPhone devices except 5 and 5S.
+
+```yml
+devices:
+  - name: "^iPhone\s+(?!(5|5S)).*"
+```
+
+</TabItem>
 <TabItem value="Appium (Android)">
 
 Dynamic allocation example - finds any device that starts with the display name "Google".
 
 ```java
-capabilities.setCapability("deviceName", "Google.*");
+capabilities.setCapability("appium:deviceName", "^Google.*");
 ```
 
-Excludes a specific device.
+Dynamic allocation example - finds all Android devices except the Oppo ones.
 
 ```java
-capabilities.setCapability("deviceName", "^((?!.Google_Pixel_XL_real_us.).)*$");
+capabilities.setCapability("appium:deviceName", "^(?!Oppo).*");
 ```
 
 </TabItem>
 <TabItem value="Appium (iOS)">
 
-Dynamic allocation examples - finds all iPhone devices except 5 and 5S, and find all Google Pixel devices, respectively.
+Dynamic allocation example - finds any device that starts with the display name "iPhone".
 
 ```java
-capabilities.setCapability("deviceName", "^(iPhone.*)(?!5|5S)$");
+capabilities.setCapability("appium:deviceName", "^iPhone.*");
 ```
 
+Dynamic allocation example - finds all iPhone devices except 5 and 5S.
+
 ```java
-capabilities.setCapability("deviceName", "Google Pixel.*");
+capabilities.setCapability("appium:deviceName", "^iPhone\s+(?!(5|5S)).*");
+```
+
+</TabItem>
+</Tabs>
+
+##### Based on platform version
+
+| Regex Input | Dynamic Allocation Action
+| :--- | :---
+| <code>"^1[3-4&vert;6].*"</code> | Will match `13`, `14` and `16`, but not 15, see [example](https://regex101.com/r/ExICgZ/1).
+| `"^(?!15).*"` | Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1).
+
+<Tabs
+  defaultValue="Espresso"
+  values={[
+    {label: 'Espresso', value: 'Espresso'},
+    {label: 'XCUITest', value: 'XCUITest'},
+    {label: 'Appium (Android)', value: 'Appium (Android)'},
+    {label: 'Appium (iOS)', value: 'Appium (iOS)'},
+  ]}>
+
+<TabItem value="Espresso">
+
+Dynamic allocation example - finds any device that starts with the display name "Google" and uses Android 11, 12 or 13.
+
+```yml
+devices:
+  - name: "^Google.*"
+    platformVersion: "^1[1-3].*"
+```
+
+</TabItem>
+
+<TabItem value="XCUITest">
+
+Dynamic allocation example - finds any device that starts with the display name "iPhone" and does not have iOS 15.
+
+```yml
+devices:
+  - name: "^iPhone.*"
+    platformVersion: "^(?!15).*"
+```
+
+</TabItem>
+<TabItem value="Appium (Android)">
+
+Dynamic allocation example - finds any device that starts with the display name "Google" and uses Android 11, 12 or 13.
+
+```java
+capabilities.setCapability("appium:deviceName", "^Google.*");
+capabilities.setCapability("appium:platformVersion", "^1[1-3].*");
+```
+
+</TabItem>
+<TabItem value="Appium (iOS)">
+
+Dynamic allocation example - finds any device that starts with the display name "iPhone" and does not have iOS 15.
+
+```java
+capabilities.setCapability("appium:deviceName", "^iPhone.*");
+capabilities.setCapability("appium:platformVersion", "^(?!15).*");
 ```
 
 </TabItem>
 </Tabs>
 
 :::note
-A matching device must be present in your account in order for the test to run. Regex values are not case-sensitive (i.e., `"iphone .*S"` and `"IPHONe .*s"` are the same).
+- A matching device must be present in your account in order for the test to run. 
+- Regex values are not case-sensitive (i.e., `"iphone .*S"` and `"IPHONe .*s"` are the same).
 :::
 
 ## Additional Resources
