@@ -305,6 +305,8 @@ When you are ready to run your tests, you can do so using the [`saucectl run`](/
 If you set conflicting configuration values in the `config.yml` file and as `saucectl run` command options, the values in set in the `run` command are applied.
 :::
 
+The CLI output includes a Results table. The Attempts column in the table refers to the number of times a test suite was run, [which can be configured](web-apps/automated-testing/playwright/yaml/#retries). 
+
 ### View your Test Results in Sauce Labs
 
 After tests complete, `saucectl` uploads test assets such as logs, test results, screenshots, and videos to your [Sauce Labs account](https://app.saucelabs.com), as long as they are in the `__Assets__` directory of your project root. Some frameworks automatically place assets in the correct directory, but other frameworks may require you to manually set the location.
