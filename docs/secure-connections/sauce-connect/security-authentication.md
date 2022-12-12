@@ -92,7 +92,7 @@ You can use this option multiple times in a row:
 --auth mythirdsite.com:80:awesometester:supersekrit
 ```
 
-For more information, see [Best Practice: Handling Authentication](https://community.saucelabs.com/general-delivery-discussion-6/best-practice-handling-authentication-164) and [Using Environment Variables for Authentication Credentials](/basics/environment-variables).
+For more information, see [Using Environment Variables for Authentication Credentials](/basics/environment-variables).
 
 ## Certificate Handling
 The security of Sauce Connect Proxy communication to both the Sauce Labs API and the virtual machine hosting your tests in the Sauce Labs cloud is managed through [public key certificates](https://en.wikipedia.org/wiki/Public_key_certificate).
@@ -134,7 +134,7 @@ On macOS machines, certificates are pre-installed as part of the [Trust Store](h
 ### Tunnel Connection to the Sauce Labs Virtual Machine over SSL/TLS
 Sauce Connect Proxy reverses tunnel VM-to-test target traffic through the TLS connection from Sauce Connect-to-tunnel endpoints. Your Selenium and Appium webdriver traffic is sent over `http(80)` or `https(443)` to `ondemand.saucelabs.com`, which has its own TLS certificate that's then passed to the test VM.
 
-Sauce Connect Proxy versions 4.6.0+ will default to the public certificate.
+Sauce Connect Proxy versions 4.6.x and above will default to the public certificate.
 
 ## SSL Certificate Bumping
 Self-signed and invalid SSL certificates, commonly used in test environments, are not trusted by stock browsers, such as those installed on the Sauce Labs infrastructure. This causes tests to be interrupted with security warnings that can't be dismissed by Selenium. As a workaround, we've created a fix called SSL Bumping, whereby Sauce Connect automatically re-signs these certificates. This is enabled by default when you download Sauce Connect.

@@ -262,10 +262,6 @@ A property containing one or more environment variables that are global for all 
     my_var: $MY_VAR  # You can also pass through existing environment variables through parameter expansion
 ```
 
-:::caution
-Currently, `env` only supports lowercase keys on `macOS` platform. The workaround is either passing the env through cli `saucectl run --env FOO=BAR` or setting `env` on suite level. 
-:::
-
 ---
 
 ## `docker`
@@ -773,11 +769,15 @@ A parent property that details any additional parameters you wish to set for the
 <p><small>| OPTIONAL | STRING |</small></p>
 
 The name of the browser in which to run this test suite.
-Available browser names: `chromium`, `firefox` and `webkit`.
+Available browser names: `chromium`, `firefox`, `webkit`, and `chrome`.
 
 ```yaml
     browserName: "firefox"
 ```
+
+:::note
+`chromium`, `firefox`, and `webkit` are bundled with Playwright. `chrome` is provided by the sauce VM (or docker image). For more information, see [Playwright Browsers](https://playwright.dev/docs/browsers).
+:::
 ---
 
 #### `headless`

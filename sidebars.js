@@ -924,7 +924,6 @@ module.exports = {
             },
             'secure-connections/sauce-connect/troubleshooting',
             'secure-connections/sauce-connect/faq',
-            'secure-connections/sauce-connect/changelog',
           ],
         },
         'secure-connections/ipsec-vpn',

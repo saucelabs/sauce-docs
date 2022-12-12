@@ -126,8 +126,7 @@ module.exports = {
 ```
 
 ### Important Notes
-* Using Sauce Connect version `4.6.2`.
-* Sauce Connect integration requires all browsers to be Sauce Labs browsers. An error will thrown if you use a non-Sauce browser.
+* Sauce Connect integration requires all browsers to be Sauce Labs browsers. An error will be thrown if you use a non-Sauce browser.
 * Logs for Sauce Connect will be saved in the root of your project under `sauce-connect.log` for debugging purposes.
 * Sauce Connect tunnel cannot be used together with the tunnel: option.
 * A unique `tunnelIdentifier` will be automatically generated for you when using the Sauce Connect integration. An error will be thrown if you try to  set `tunnelIdentifier` manually.
