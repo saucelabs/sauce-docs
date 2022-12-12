@@ -79,6 +79,12 @@ We partner with the top companies in the industry to bring you a complete soluti
         <h3>TeamCity</h3></a>
     </div>
   </div>
+  <div className="box box11 card">
+    <div className="container">
+        <a href="https://developer.harness.io/tutorials/build-code/ci-saucelabs-background-step/"><img src={useBaseUrl('img/integrations/harness-logo.png')} alt="Harness logo" width="50" />
+        <h3>Harness</h3></a>
+    </div>
+  </div>
 </div>
 
 ## Accessibility
@@ -151,8 +157,8 @@ We partner with the top companies in the industry to bring you a complete soluti
   </div>
 </div>
 
-
 ## Defect Reporting and Management
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -163,6 +169,7 @@ We partner with the top companies in the industry to bring you a complete soluti
 </div>
 
 ## Test Reporting and Management
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -185,6 +192,7 @@ We partner with the top companies in the industry to bring you a complete soluti
 </div>
 
 ## Test Enhancements
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -201,6 +209,7 @@ We partner with the top companies in the industry to bring you a complete soluti
 </div>
 
 ## Test Data Management
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -216,8 +225,8 @@ We partner with the top companies in the industry to bring you a complete soluti
   </div>
 </div>
 
-
 ## Low-code/No-code/Model-based Test Case Generation
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -276,6 +285,7 @@ We partner with the top companies in the industry to bring you a complete soluti
 </div>
 
 ## API Management and Testing
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
