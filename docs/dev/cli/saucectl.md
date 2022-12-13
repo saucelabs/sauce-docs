@@ -305,7 +305,7 @@ When you are ready to run your tests, you can do so using the [`saucectl run`](/
 If you set conflicting configuration values in the `config.yml` file and as `saucectl run` command options, the values in set in the `run` command are applied.
 :::
 
-The CLI output includes a Results table. The Attempts column in the table refers to the number of times a test suite was run, [which can be configured](web-apps/automated-testing/playwright/yaml/#retries). 
+The CLI output includes a Results table. The Attempts column in the table refers to the number of times a test suite was run, which can be configured with the `Retries` property [in your YAML specification file](/dev/cli/saucectl/#configure-saucectl-for-your-tests). 
 
 ### View your Test Results in Sauce Labs
 
