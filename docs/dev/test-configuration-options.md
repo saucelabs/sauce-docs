@@ -374,7 +374,7 @@ This is mandatory for Android Emulators and iOS Simulators. You can find the ava
 
 **Real Devices**
 
-This is optional for Real Devices. There are 3 options you can use to determine which version you want to use for you automated Appium, Espresso or XCUITest tests:
+This is optional for Real Devices. There are three options you can use to determine which version you want to use for your automated Appium, Espresso, or XCUITest tests:
 1. Don't provide a `platformVersion`, this will result in any available Android or iOS device, no matter the version
 1. Provide a `platformVersion` that **starts with** your provided `platformVersion` string:
     - **`12`:** matches all minors and patches for `platformVersion: "12"`. For example `12.1.0|12.1.1|12.2.0|...`
