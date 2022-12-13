@@ -38,7 +38,7 @@ To delete an app, on the Mobile App test page, hover over the test and then clic
 <img src={useBaseUrl('img/live-testing/live-mobile-app-delete.png')} alt="Delete an app" width="650"/>
 
 ### App Settings
-To view or change the app settings, on the Mobile App test page, hover over the test and then click **Settings**.
+To view or change the app settings, on the Mobile App test page, hover over the app and then click **Settings**.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-settings.png')} alt="App settings" width="650"/>
 
