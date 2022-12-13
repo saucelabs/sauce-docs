@@ -385,7 +385,7 @@ This is optional for Real Devices. There are three options you can use to determ
     - **`^(?!15).*`:** Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1).
 
 :::note NOTE
-The more strict you determine the `platformVersions` the smaller the pool of available devices will be and the longer you might need to wait for an available device. We recommend using, or only the major version, or using the regex option to get the best results and an available device in the fastest way. 
+The stricter the  `platformVersions` is,  the smaller the pool of available devices will be and the longer you might need to wait for the available device. We recommend using only the major version or using the regex option to get the best results and an available device in the fastest way. 
 :::
 
 
