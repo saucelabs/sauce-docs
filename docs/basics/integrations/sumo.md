@@ -1,6 +1,6 @@
 ---
 id: sumo
-title: Sumo Logic Partner Integration
+title: Sumo Logic Integration
 sidebar_label: Sumo Logic
 description: Automatically view your Sauce Labs test results in a custom Sumo Logic dashboard.
 keywords:
