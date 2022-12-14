@@ -170,6 +170,10 @@ A hands on example:
 
 Similar to the `pick(n)`, this method will pick one random item off an array, and return it.
 
+:::note
+If you are testing XML, the pick() function must be `WSUtil.pick(array,n)`. Considering the previous example, `payload.artists.pick(5)` becomes `WSUtil.pick(payload.artists,5)`.
+:::
+
 
 #### `N`
 
