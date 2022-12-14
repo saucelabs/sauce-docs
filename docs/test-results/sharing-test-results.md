@@ -19,19 +19,19 @@ Once your test has run and generated a **Test Details** page, you have several o
 3. In the **Visibility** dropdown, select a sharing option for the test results.
 
 | Option            | Explanation                                                                                                                                                                                                                               |
-|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Public            | Everyone will be able to view the test results, and they may be listed on public web pages and indexed by search engines.                                                                                                                 |
 | Public Restricted | Everyone will be able to view the test results, but only you will have log access. By restricting access to the raw Selenium log and the job log, you can prevent sensitive information, such as passwords, from being visible to others. |
 | Private           | Only you will be able to view the test results.                                                                                                                                                                                           |
 | Team              | All members of your team will be able to view the test results.                                                                                                                                                                           |
 | Share             | Only people who have the link to the test will be able to view the test results.                                                                                                                                                          |
 
-
 :::tip Manually Share a Link
 You can also manually build links to Test Results pages and set authentication for accessing them using the methods described in Building Sharable Links to Test Results. To manually share the test results, copy and send the URL of the Test Results page.
 :::
 
 ## Building Sharable Links
+
 You can generate a sharable link to your test results that limits who can view the results by requiring a login or authentication (auth) token. These links will allow recipients to view the results of that test, but the they will not appear on their dashboard.
 
 You can also change the visibility of a test (e.g., Public, Private, or Team) directly on the **Test Results** page.
@@ -41,6 +41,7 @@ When generating a shareable link, you'll need to know your specific data center.
 ```
 https://app.eu-central-1.saucelabs.com/tests/YOUR_TEST_ID).
 ```
+
 :::note
 This solution is not supported for RDC.
 :::
@@ -48,6 +49,7 @@ This solution is not supported for RDC.
 See [Data Center Endpoints](/basics/data-center-endpoints) for more info.
 
 ### Linking to Tests that Require a Login to View
+
 You can create links to your tests that will only work if you're logged in with the account that ran the test.
 
 In Selenium, when a client requests a new browser session, the server returns a session ID, which is used to identify that session throughout the test. The session ID is stored as a member variable of the instantiated Selenium object and named sessionId or session_id, depending on the client library. Sauce uses that session ID as the test ID for accessing test results.
@@ -74,10 +76,11 @@ Auth tokens are generated on a per-test basis and grant viewers access using an 
 
 The digest algorithm to use is MD5. The message and key used to generate the token should be the following:
 
-* Key: `SAUCE_USERNAME`:`SAUCE_ACCESS_KEY`
-* Message: `YOUR_TEST_ID`
+- Key: `SAUCE_USERNAME`:`SAUCE_ACCESS_KEY`
+- Message: `YOUR_TEST_ID`
 
 #### Example - Python
+
 The example below demonstrates how to generate the token in a Python interpreter for a test with the `id`: `5f9fef27854ca50a3c132ce331cb6034`:
 
 ```python
@@ -85,10 +88,11 @@ The example below demonstrates how to generate the token in a Python interpreter
 >>> from hashlib import md5
 >>> hmac.new(b"SAUCE_USERNAME:SAUCE_ACCESS_KEY", b"5f9fef27854ca50a3c132ce331cb6034", md5).hexdigest()
 ```
+
 Once the auth token has been obtained, you can use it to build a link in this format: https://app.saucelabs.com/tests/YOUR_TEST_ID?auth=AUTH_TOKEN.
 
-
 #### Example - Java
+
 ```java
 package com.saucelabs.demo;
 
@@ -140,26 +144,23 @@ public class SauceShareableLink {
 #### Example - Node.js
 
 ```js
-const crypto = require('crypto');
-const sessionId = 'f65a1ee87a77410189aba40f48ac1223';
-const addDate = process.argv.includes('addDate');
-const date = new Date();
-const addedDays = date.setDate(date.getDate());
-const newDate = (new Date(addedDays)).toISOString().slice(0,10);
-const dateSecret = addDate ? `:${newDate}` : '';
-const secret = `${process.env.SAUCE_USERNAME}:${process.env.SAUCE_ACCESS_KEY}${dateSecret}`;
-const token = crypto
-.createHmac('md5', secret)
-.update(sessionId)
-.digest('hex');
-const usUrl = `https://app.saucelabs.com/tests/${sessionId}?auth=${token}`;
-const euUrl = `https://app.eu-central-1.saucelabs.com/tests/${sessionId}?auth=${token}`;
-console.log('usUrl = ', usUrl);
-console.log('euUrl = ', euUrl);
-
+const crypto = require('crypto')
+const sessionId = 'f65a1ee87a77410189aba40f48ac1223'
+const addDate = process.argv.includes('addDate')
+const date = new Date()
+const addedDays = date.setDate(date.getDate())
+const newDate = new Date(addedDays).toISOString().slice(0, 10)
+const dateSecret = addDate ? `:${newDate}` : ''
+const secret = `${process.env.SAUCE_USERNAME}:${process.env.SAUCE_ACCESS_KEY}${dateSecret}`
+const token = crypto.createHmac('md5', secret).update(sessionId).digest('hex')
+const usUrl = `https://app.saucelabs.com/tests/${sessionId}?auth=${token}`
+const euUrl = `https://app.eu-central-1.saucelabs.com/tests/${sessionId}?auth=${token}`
+console.log('usUrl = ', usUrl)
+console.log('euUrl = ', euUrl)
 ```
 
 #### Example - C#
+
 ```cs
 using System;
 using System.Security.Cryptography;
@@ -210,9 +211,8 @@ auth = OpenSSL::HMAC.hexdigest("md5", key, job_id)
 url = "https://app.saucelabs.com/tests/#{job_id}?auth=#{auth}"
 ```
 
-
-
 ## Support for Secondary Accounts
+
 If you want to authenticate as another user, just prefix the auth token with your user name, followed by a colon.
 
 For example:
@@ -262,6 +262,7 @@ https://app.[eu-central-1|us-east-1].saucelabs.com/video-embed/YOUR_JOB_ID.js?au
 ```
 
 ### Embedding Full Test Pages
+
 You can embed test pages in CI test results or other test reports. Using the following format, add the HTML to any page where you need to embed test results, replacing YOUR_JOB_ID with the ID of the job you want:
 
 ```js
@@ -269,6 +270,7 @@ https://app.saucelabs.com/job-embed/YOUR_JOB_ID.js
 ```
 
 ### Embedding the Video Player
+
 You can also embed videos in CI test results or other test reports. Using the format below, add the HTML to any page where you want to embed job videos, replacing YOUR_JOB_ID with the ID of the job you want:
 
 ```js
@@ -276,6 +278,7 @@ https://app.saucelabs.com/video-embed/YOUR_JOB_ID.js
 ```
 
 ### Optional Parameters
+
 By default, an embedded test iframe has a width of 1024px and a height of 768px. If you want to change the iframe size, use the "width" and "height" query parameters.
 
 For example:

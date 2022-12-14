@@ -18,10 +18,9 @@ Test your iOS and Android native mobile apps and hybrid apps on emulators, simul
   </div>
 </div>
 
-## Live Testing  
+## Live Testing
 
 Debug faster, facilitate collaboration, increase mobile device coverage, and combine with automated testing to improve your speed-to-market with our Live (manual) testing solution.
-
 
 <div className="box-wrapper" markdown="1">
 

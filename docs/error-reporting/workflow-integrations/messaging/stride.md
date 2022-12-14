@@ -4,6 +4,7 @@ title: Stride Integration with Backtrace
 sidebar_label: Stride
 description: Integrate Backtrace with Stride.
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -11,10 +12,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 This guide goes through all the steps necessary to integrate Backtrace with Stride.
 
 The steps in this process are:
+
 - Generate a conversation token
 - Set up the integration
 
 ## Generate a Conversation Token
+
 To set up integration with Stride an app token must be generated for each conversation that messages are going to be sent to.
 
 - Click on the Apps Icon located on the right hand section of the conversation window, this will open up the Apps window.
@@ -37,8 +40,8 @@ To set up integration with Stride an app token must be generated for each conver
 
   <img src={useBaseUrl('img/error-reporting/workflow-integrations/stride-copy-token.png')} alt="" />
 
-
 ## Set Up the Integration
+
 To set up the integration, first go to the **Project Settings** page for the project you want to add a integration for:
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />
@@ -48,6 +51,7 @@ Then click **Integrations** in the left-hand menu, and the plus sign to create a
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/add-wf-integration.png')} alt="" />
 
 Select **Stride** and fill in the required settings:
+
 - The API endpoint: This is the part before /sites in the URL from the Generate Conversation Token section
 - One or more sites
 - One or more conversation per site

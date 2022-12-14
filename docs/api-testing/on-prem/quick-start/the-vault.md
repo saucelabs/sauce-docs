@@ -1,15 +1,15 @@
 ---
 id: the-vault
-title: "Use the Vault (Resuable Variables / Code Snippets)"
+title: 'Use the Vault (Resuable Variables / Code Snippets)'
 sidebar_label: Using the Vault
-description: "The vault allows you to store variables and code snippets that can be used across an entire project."
+description: 'The vault allows you to store variables and code snippets that can be used across an entire project.'
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -21,7 +21,7 @@ The vault allows you to store variables and code snippets that can be used acros
 
 The link to access the Vault is at the top of the window, as shown below:
 
- <img src={useBaseUrl('img/api-fortress/2020/01/vault_header.jpg')} alt="Vault Header"/>
+<img src={useBaseUrl('img/api-fortress/2020/01/vault_header.jpg')} alt="Vault Header"/>
 
 ### Project Column
 
@@ -29,10 +29,9 @@ The first column shows all of the projects of a company and the Global Vault. Co
 
 The Global Vault has been built to make variables and code snippets available across all of the projects in a company.
 
- <img src={useBaseUrl('img/api-fortress/2020/01/prj_global.jpg')} alt="Global Projects"/>
+<img src={useBaseUrl('img/api-fortress/2020/01/prj_global.jpg')} alt="Global Projects"/>
 
-
- <img src={useBaseUrl('img/api-fortress/2020/01/snippet_var.jpg')} alt="Snippet Variable"/>
+<img src={useBaseUrl('img/api-fortress/2020/01/snippet_var.jpg')} alt="Snippet Variable"/>
 
 ### Snippet Section
 
@@ -50,7 +49,6 @@ In the variable section, you can define variables that will be part of the scope
 
 <img src={useBaseUrl('img/api-fortress/2020/01/variable.jpg')} alt="Variable"/>
 
-
 If a variable with the same name is defined within the test, it will override the one defined in the Vault. For identical variable names in the global vault and in the project vault, the latter will have higher priority.
 
 Defining a variable in the Vault is helpful when you need to use the same variable across multiple tests. This way, you don't need to rewrite it every time.
@@ -65,7 +63,7 @@ Additionally, you can import variables from Postman. See [here](/api-testing/on-
 
 When you open the Vault tab in the Composer, global snippets and variables will be highlighted for ease of identification.
 
- <img src={useBaseUrl('img/api-fortress/2020/01/globalVsCompany.jpg')} alt="Global vs. Company"/>
+<img src={useBaseUrl('img/api-fortress/2020/01/globalVsCompany.jpg')} alt="Global vs. Company"/>
 
 Here is a quick example on how the Vault can be used in a test.
 

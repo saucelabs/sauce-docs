@@ -15,21 +15,20 @@ Try our [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platfo
 
 ## Terminology
 
-
 When setting up your test, you'll need to configure your script with settings called _capabilities_ that align with your test environment (e.g., desktop browser, mobile web browser, mobile app). While each environment has its own set of capabilities, they can also be combined. Some are required for a test to run in a given environment, while some are optional.
 
 You'll need to add these configurations to the [capabilities](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_Capabilities.html) or [options](https://www.selenium.dev/documentation/en/driver_idiosyncrasies/driver_specific_capabilities/) classes.
 
-* **W3C WebDriver Capabilities**: Required for any test using Selenium or Appium to communicate with the browser. W3C WebDriver capabilities are universal capabilities for any test, and are usually combined with additional capabilities. See [W3C WebDriver Capabilities Support](/dev/w3c-webdriver-capabilities) for more information.
-* **Sauce Labs Capabilities**: Needed for running a test on the Sauce Labs Cloud, with different possible sets for different environments. Though there aren't any capabilities required, you will need to [configure the endpoint URL](/basics/data-center-endpoints) and should pass the test name and status as capabilities to the remote webdriver.
-* **Appium Capabilities**: Required for tests using Appium on mobile apps and Appium on mobile web browsers.
-* **Browser-Specific Capabilities**: Optional, browser-specific Sauce Labs capabilities.
-* **Browser Vendor Capabilities**: Each browser also has its own set of pre-defined options you can set to help you test. You can add these in regular capabilities or options, or use the browser-defined capabilities (browser options classes) to configure your browser tests:
-  * [Chrome Capabilities](https://chromedriver.chromium.org/capabilities)
-  * [Microsoft Edge Capabilities](https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/capabilities-edge-options)
-  * [Firefox Capabilities](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions)
-  * [Internet Explorer Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/ie/InternetExplorerDriver.html)
-  * [Safari Capabilities](https://developer.apple.com/documentation/webkit/about_webdriver_for_safari)
+- **W3C WebDriver Capabilities**: Required for any test using Selenium or Appium to communicate with the browser. W3C WebDriver capabilities are universal capabilities for any test, and are usually combined with additional capabilities. See [W3C WebDriver Capabilities Support](/dev/w3c-webdriver-capabilities) for more information.
+- **Sauce Labs Capabilities**: Needed for running a test on the Sauce Labs Cloud, with different possible sets for different environments. Though there aren't any capabilities required, you will need to [configure the endpoint URL](/basics/data-center-endpoints) and should pass the test name and status as capabilities to the remote webdriver.
+- **Appium Capabilities**: Required for tests using Appium on mobile apps and Appium on mobile web browsers.
+- **Browser-Specific Capabilities**: Optional, browser-specific Sauce Labs capabilities.
+- **Browser Vendor Capabilities**: Each browser also has its own set of pre-defined options you can set to help you test. You can add these in regular capabilities or options, or use the browser-defined capabilities (browser options classes) to configure your browser tests:
+  - [Chrome Capabilities](https://chromedriver.chromium.org/capabilities)
+  - [Microsoft Edge Capabilities](https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/capabilities-edge-options)
+  - [Firefox Capabilities](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions)
+  - [Internet Explorer Capabilities](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/ie/InternetExplorerDriver.html)
+  - [Safari Capabilities](https://developer.apple.com/documentation/webkit/about_webdriver_for_safari)
 
 ## W3C WebDriver Capabilities – Required
 
@@ -50,9 +49,9 @@ Use the latest version of the Selenium library in your code for the most up-to-d
 
 Identifies the user agent. See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-browser-name) for more information. This setting also applies to emulators, simulators and real devices when automating with a mobile browser. It must be set when [App Name](#app) is not set.
 
-* For Android v5 and below, the value needs to be `"Browser"`, v6 and above, it is `"Chrome"`.
-* For iOS, the value needs to be `"Safari"`.
-* For mobile native or hybrid apps, the value needs to be an empty String.
+- For Android v5 and below, the value needs to be `"Browser"`, v6 and above, it is `"Chrome"`.
+- For iOS, the value needs to be `"Safari"`.
+- For mobile native or hybrid apps, the value needs to be an empty String.
 
 ```java
 "browserName": "firefox"
@@ -216,6 +215,7 @@ Edge Driver is based on Chrome Driver, so the same caveats from [chromedriverVer
 ---
 
 ### `geckodriverVersion`
+
 <p><small>| STRING |</small></p>
 
 Specifies the Firefox GeckoDriver version. The default geckodriver version varies based on the version of Firefox specified. For a list of geckodriver versions and the Firefox versions they support, see [geckodriver Supported Platforms](https://firefox-source-docs.mozilla.org/testing/geckodriver/Support.html).
@@ -422,13 +422,15 @@ capabilities.setCapability("appium:deviceName", "iPhone XS Simulator");
 Allows you to set the automation engine that will be used.
 Possible values are:
 
- **Emulators / Simulators:**
- * **Android:** `UiAutomator2`, `Espresso`, `Flutter`
- * **iOS:** `XCUITest`, `Flutter`
+**Emulators / Simulators:**
+
+- **Android:** `UiAutomator2`, `Espresso`, `Flutter`
+- **iOS:** `XCUITest`, `Flutter`
 
 **Real Devices:**
-  * **Android:** `UiAutomator2`
-  * **iOS:** `XCUITest`
+
+- **Android:** `UiAutomator2`
+- **iOS:** `XCUITest`
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -447,10 +449,11 @@ Identifies the browser to be used when automating with a mobile browser. See the
 - For iOS, the value needs to be `"Safari"`.
 
 :::note
+
 - If this capability is not provided for a virtual device, the ['app'](#app) capability needs to be set. If none is set the test will throw an error.
 - This capability can be omitted for virtual devices if the ['app'](#app) capability is set.
 - If this capability is not provided for a real device session and also the ['app'](#app) capability is not provided then a real device session will automatically default back to the default browser. This will be Chrome for Android and Safari for iOS
-:::
+  :::
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -466,10 +469,11 @@ capabilities.setCapability("browserName", "chrome");
 Allows you to set a path to an `.ipa`, `.apk`, `.aab` or `.zip` file containing the mobile app you want to test. This could be the location of your app in [App Storage](/mobile-apps/app-storage) (e.g., `storage:filename=myapp.zip`) or the URL to a remote location where your app is located (e.g., `http://myappurl.zip`). The remote location needs to be accessible from the web, Sauce Connect can not access your internal file system where apps are hosted.
 
 :::note
-* If this capability is not provided for a virtual device, the ['browserName'](#browserName) capability needs to be set. If none is set the test will throw an error.
-* This capability can be omitted for virtual devices if the ['browserName'](#browserName) capability is set.
-* If this capability is not provided for a real device session and also the ['browserName'](#browserName) capability is not provided then a real device session will automatically default back to the default browser. This will be Chrome for Android and Safari for iOS.
-:::
+
+- If this capability is not provided for a virtual device, the ['browserName'](#browserName) capability needs to be set. If none is set the test will throw an error.
+- This capability can be omitted for virtual devices if the ['browserName'](#browserName) capability is set.
+- If this capability is not provided for a real device session and also the ['browserName'](#browserName) capability is not provided then a real device session will automatically default back to the default browser. This will be Chrome for Android and Safari for iOS.
+  :::
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -540,9 +544,10 @@ This capability will have no effect on Sauce Labs virtual devices, it will only 
 **Specifics for Android Real Devices:**
 
 If `noReset` is set to `true`:
-* The app does not stop after a test/session.
-* The app data will not be cleared between tests/sessions.
-* Apk will not be uninstalled after a test/session.
+
+- The app does not stop after a test/session.
+- The app data will not be cleared between tests/sessions.
+- Apk will not be uninstalled after a test/session.
 
 **Specifics for iOS Real Devices:**
 
@@ -627,7 +632,9 @@ capabilities.setCapability("appium:autoGrantPermissions", true);
 ```
 
 ## Mobile Appium Timeout Capabilities
+
 As with Selenium Tests, Appium also supports different types of timeouts like:
+
 - [Implicit Wait Timeout](https://appium.io/docs/en/commands/session/timeouts/implicit-wait/#set-implicit-wait-timeout): Set the amount of time the driver should wait when searching for elements
 - [Script Timeouts](https://appium.io/docs/en/commands/session/timeouts/async-script/index.html): Sets the amount of time, in milliseconds, that asynchronous scripts executed by [execute async](https://appium.io/docs/en/commands/web/execute-async/index.html) are permitted to run before they are aborted (Web context only)
 
@@ -750,16 +757,18 @@ capabilities.setCapability("appium:commandTimeouts", "120000");
 ```
 
 ## More Appium specific capabilities
+
 Not all specific Appium Driver capabilities are explained here in preventing duplications. There are more capabilities which are specific for each Appium Driver. They can be found here
 
 **Android**
-* [UIAutomator2-Driver](https://github.com/appium/appium-uiautomator2-driver#capabilities)
-* [Espresso-Driver](https://github.com/appium/appium-espresso-driver#capabilities)
+
+- [UIAutomator2-Driver](https://github.com/appium/appium-uiautomator2-driver#capabilities)
+- [Espresso-Driver](https://github.com/appium/appium-espresso-driver#capabilities)
 
 **iOS**
-* [XCUITest-Driver](https://github.com/appium/appium-xcuitest-driver#capabilities)
-* [Flutter-Driver (Android and iOS)](https://github.com/appium-userland/appium-flutter-driver#desired-capabilities-for-flutter-driver-only)
 
+- [XCUITest-Driver](https://github.com/appium/appium-xcuitest-driver#capabilities)
+- [Flutter-Driver (Android and iOS)](https://github.com/appium-userland/appium-flutter-driver#desired-capabilities-for-flutter-driver-only)
 
 ## Mobile App Appium Capabilities: Sauce-Specific – Optional
 
@@ -796,6 +805,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `deviceOrientation`
+
 <p><small>|OPTIONAL | STRING| <span className="sauceDBlue">Virtual Devices Only</span> |</small></p>
 
 Specifies the orientation of the virtual skin and screen during the test. Valid values are `PORTRAIT` and `LANDSCAPE`.
@@ -827,6 +837,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `setupDeviceLock`
+
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Android only</span> |</small></p>
 
 Sets up the device pin code for the automated test session. Valid values are `true` and `false`.
@@ -879,9 +890,10 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `privateDevicesOnly`
+
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-If your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).
+If your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -894,9 +906,10 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `publicDevicesOnly`
+
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-If your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For [***Dynamic Allocation***](/mobile-apps/automated-testing/appium/real-devices).
+If your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -909,6 +922,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `carrierConnectivityOnly`
+
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Private Devices Only</span> |</small></p>
 
 Use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
@@ -966,6 +980,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `resigningEnabled`
+
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Private Devices Only</span> |</small></p>
 
 Controls Sauce Labs default resigning (iOS) or instrumentation (Android) of mobile apps installed on our devices. By default, this property is always `true`, but it can be set to `false` for private devices to allow testing of specific behaviors that are not permitted under the Sauce Labs provisioning. See [Resigning Enablements](/mobile-apps/automated-testing/ipa-files/#sauce-resigning-enablements) for more information.
@@ -1240,23 +1255,23 @@ We support several test/job result visibility levels, which control who can view
 
 Available visibility modes are:
 
-* **public**:
-  * Accessible to everyone.
-  * May be listed on public web pages and indexed by search engines.
-* **public restricted**:
-  * Share your job's results page and video, but keeps the logs only for you.
-  * Hides the fancy job log.
-  * Prohibits access to the raw Selenium log so that anonymous users with the link will be able to watch the video and screenshots, but won't be able to see what's being typed and done to get there.
-* **share**:
-  * Only accessible to people with a valid link.
-  * Not listed on publicly available pages on Sauce Labs.
-  * Not indexed by search engines.
-* **team**:
-  * Best option if you want to share your jobs with other team members that were created as a sub-accounts of one parent account.
-  * Only accessible to people under the same root account as you.
-* **private**:
-  * Best option if you don't want to share your test results page and video with anyone.
-  * Only you (the owner) will be able to view assets and test results page.
+- **public**:
+  - Accessible to everyone.
+  - May be listed on public web pages and indexed by search engines.
+- **public restricted**:
+  - Share your job's results page and video, but keeps the logs only for you.
+  - Hides the fancy job log.
+  - Prohibits access to the raw Selenium log so that anonymous users with the link will be able to watch the video and screenshots, but won't be able to see what's being typed and done to get there.
+- **share**:
+  - Only accessible to people with a valid link.
+  - Not listed on publicly available pages on Sauce Labs.
+  - Not indexed by search engines.
+- **team**:
+  - Best option if you want to share your jobs with other team members that were created as a sub-accounts of one parent account.
+  - Only accessible to people under the same root account as you.
+- **private**:
+  - Best option if you don't want to share your test results page and video with anyone.
+  - Only you (the owner) will be able to view assets and test results page.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -1269,6 +1284,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `tunnelName`
+
 <p><small>| OPTIONAL | STRING | </small></p>
 
 Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with Sauce Labs for your test. Tunnels allow you to test an app that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
@@ -1286,6 +1302,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `tunnelIdentifier`
+
 <p><small>| OPTIONAL | STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
 
 Specify a [Sauce Connect tunnel name](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) to establish connectivity with a Sauce Labs test platform. This is an alias for [tunnelName](#tunnelname).
@@ -1312,7 +1329,8 @@ capabilities.setCapability("sauce:options", sauceOptions);
 Appium tests for the Real Device Cloud using the W3C protocol MUST use `tunnelName` instead of `tunnelIdentifier`.
 :::
 
-### `tunnelOwner`  
+### `tunnelOwner`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 If the [tunnelName](#tunnelname) you've specified to establish connectivity with a Sauce Labs test platform is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test.
@@ -1335,6 +1353,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `parentTunnel`
+
 <p><small>| OPTIONAL | STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
 
 If the [tunnelName](#tunnelname) (or [tunnelIdentifier](#tunnelidentifier)) you've specified to establish connectivity with a Sauce Labs test platform is a shared tunnel, and you are _not_ the user who created the tunnel, you must identify the Sauce Labs user who did create the tunnel in order to use it for your test. This is an alias for [tunnelOwner](#tunnelowner).
@@ -1359,6 +1378,7 @@ Appium tests for the Real Device Cloud using the W3C protocol MUST use `tunnelNa
 ---
 
 ### `recordVideo`
+
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Use this to disable video recording. By default, Sauce Labs records a video of every test you run. Disabling video recording can be useful for debugging failing tests as well as having a visual confirmation that a certain feature works (or still works). However, there is an added wait time for screen recording during a test run.
@@ -1374,6 +1394,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `videoUploadOnPass`
+
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Disables video upload for passing tests. `videoUploadOnPass` is an alternative to `recordVideo`; it lets you discard videos for tests you've marked as passing. It disables video post-processing and uploading that may otherwise consume some extra time after your test is complete.
@@ -1389,6 +1410,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `recordScreenshots`
+
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Disables step-by-step screenshots. In addition to capturing video, Sauce Labs captures step-by-step screenshots of every test you run. Most users find it very useful to get a quick overview of what happened without having to watch the complete video. However, this feature may add some extra time to your tests.
@@ -1404,6 +1426,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `recordLogs`
+
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Disables log recording. By default, Sauce creates a log of all the actions that you execute to create a report for the test run that lets you troubleshoot test failures more easily. This option disables only the recording of the log.json file; the selenium-server.log will still be recorded.
@@ -1448,9 +1471,8 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `commandTimeout`
+
 <p><small>| INTEGER | <span className="sauceDBlue">Desktop Only</span> |</small></p>
-
-
 
 ### `priority`
 
@@ -1523,6 +1545,7 @@ Read the descriptions of each key below the example.
 ```
 
 #### `prerun` (primary key)
+
 status
 Use this to define pre-run executables. You can provide a URL to an executable file, which will be downloaded and executed to configure the VM before the test starts. For faster performance, you may want to upload the executable to your [Sauce Apps Storage](/mobile-apps/app-storage) space. This capability takes a JSON object with four main keys. See [Using Pre-Run Executables to Configure Browsers and VMs](/web-apps/automated-testing/selenium/pre-run-executables) for more information.
 

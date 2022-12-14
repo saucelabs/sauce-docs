@@ -8,11 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Visual E2E Commands
 
 Visual E2E commands can be integrated into existing WebDriver test code simply and safely. Each command is simply a JavaScript comment placed in a WebDriver execute command &#8212; no need to install anything.
-
 
 ### Init command
 
@@ -51,32 +49,31 @@ The Init command (`/*@visual.init*/`) is used to initialize and name a Visual te
    <td>Init command options. <p>Options available:</p>
 <ul><li><code>ignore</code>: comma-delimited list of css-selectors to ignore in all snapshots in test.</li></ul>
 
-  ```java title="Example"
-  { ignore: '.selector' }
-  ```
+```java title="Example"
+{ ignore: '.selector' }
+```
 
    </td>
   </tr>
 </table>
 
-
 #### Code Snippets
 
 <Tabs
-  defaultValue="JS/WebdriverIO"
-  values={[
-    {label: 'JS/WebdriverIO', value: 'JS/WebdriverIO'},
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+defaultValue="JS/WebdriverIO"
+values={[
+{label: 'JS/WebdriverIO', value: 'JS/WebdriverIO'},
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
 
 <TabItem value="JS/WebdriverIO">
 
 ```javascript
-browser.execute('/*@visual.init*/', 'My Visual Test');
-browser.execute('/*@visual.init*/', 'My Visual Test', {ignore: '.selector'});
+browser.execute('/*@visual.init*/', 'My Visual Test')
+browser.execute('/*@visual.init*/', 'My Visual Test', { ignore: '.selector' })
 ```
 
 </TabItem>
@@ -110,13 +107,11 @@ driver.execute_script('/*@visual.init*/', 'My Visual Test')
 </TabItem>
 </Tabs>
 
-
 ### Snapshot command
 
 The Snapshot command (`/*@visual.snapshot*/`) is used to capture a visual snapshot. This JS comment can be added into your code wherever you want a snapshot to be taken, and can be used multiple times.
 
 The above Init command must be called first before any snapshots are taken, or an error will occur.
-
 
 #### Arguments
 
@@ -158,38 +153,47 @@ The above Init command must be called first before any snapshots are taken, or a
   </tr>
 </table>
 
-
 #### Code Snippets
 
 <Tabs
-  defaultValue="JS/WebdriverIO"
-  values={[
-    {label: 'JS/WebdriverIO', value: 'JS/WebdriverIO'},
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+defaultValue="JS/WebdriverIO"
+values={[
+{label: 'JS/WebdriverIO', value: 'JS/WebdriverIO'},
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
 
 <TabItem value="JS/WebdriverIO">
 
 ```javascript
-browser.execute('/*@visual.snapshot*/', 'State Name');
+browser.execute('/*@visual.snapshot*/', 'State Name')
 ```
 
 Example with <code>ignore</code> option:
+
 ```javascript
-browser.execute('/*@visual.snapshot*/', 'State Name', {ignore: '.selector'});
+browser.execute('/*@visual.snapshot*/', 'State Name', { ignore: '.selector' })
 ```
 
 Example with <code>cropTo</code> option:
+
 ```javascript
-browser.execute('/*@visual.snapshot*/', 'State Name', {ignore: '.selector', cropTo: '#header'});
+browser.execute('/*@visual.snapshot*/', 'State Name', {
+ignore: '.selector',
+cropTo: '#header'
+})
 ```
 
 Example with <code>scrollAndStitchScreenshot</code> option:
+
 ```javascript
-browser.execute('/*@visual.snapshot*/', 'State Name', {ignore: '.selector', cropTo: '#header', scrollAndStitchScreenshot: true});
+browser.execute('/*@visual.snapshot*/', 'State Name', {
+ignore: '.selector',
+cropTo: '#header',
+scrollAndStitchScreenshot: true
+})
 ```
 
 </TabItem>
@@ -200,6 +204,7 @@ browser.execute('/*@visual.snapshot*/', 'State Name', {ignore: '.selector', crop
 ```
 
 Example with ignore option:
+
 ```java
 HashMap options = new HashMap();
 options.put("ignore", ".selector");
@@ -228,6 +233,7 @@ driver.execute_script('/*@visual.snapshot*/', 'State Name')
 ```
 
 Example with ignore option:
+
 ```csharp
 var ignoredElement = new Dictionary<string, object>();
 ignoredElement.Add("ignore", "#login_button_container");
@@ -235,6 +241,7 @@ JsExecutor.ExecuteScript("/*@visual.snapshot*/", "Ignore on Snapshot", ignoredEl
 ```
 
 Example with <code>cropTo</code> option:
+
 ```csharp
 var croppedElement = new Dictionary<string, object>();
 croppedElement.Add("cropTo", ".bot_column");
@@ -298,20 +305,20 @@ The response will contain the following properties:
 #### Code Snippets
 
 <Tabs
-  defaultValue="JS/WebdriverIO"
-  values={[
-    {label: 'JS/WebdriverIO', value: 'JS/WebdriverIO'},
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+defaultValue="JS/WebdriverIO"
+values={[
+{label: 'JS/WebdriverIO', value: 'JS/WebdriverIO'},
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
 
 <TabItem value="JS/WebdriverIO">
 
 ```javascript
-const result = browser.execute('/*@visual.end*/');
-assert.ok(result.passed, result.message);
+const result = browser.execute('/*@visual.end*/')
+assert.ok(result.passed, result.message)
 ```
 
 </TabItem>
@@ -354,11 +361,11 @@ Assert.IsTrue((Boolean)response["passed"], (String)response["message"]);
 #### Example Responses
 
 <Tabs
-  defaultValue="Success"
-  values={[
-    {label: 'Success', value: 'Success'},
-    {label: 'Failure', value: 'Failure'},
-  ]}>
+defaultValue="Success"
+values={[
+{label: 'Success', value: 'Success'},
+{label: 'Failure', value: 'Failure'},
+]}>
 
 <TabItem value="Success">
 
@@ -393,8 +400,6 @@ Assert.IsTrue((Boolean)response["passed"], (String)response["message"]);
 
 </TabItem>
 </Tabs>
-
-
 
 ## `sauce:visual` Capability Options
 
@@ -538,7 +543,8 @@ Below are the available options that you can define with the [`sauce:visual`](/v
 }
 ```
 
-  </code></td>
+</code></td>
+
   </tr>
   <tr>
    <td>
@@ -675,11 +681,12 @@ Below are the available options that you can define with the [`sauce:visual`](/v
    </td>
    <td><code>
 
-   ```java
-   {
-     maxFrames: Infinity
-   }
-   ```
+```java
+{
+  maxFrames: Infinity
+}
+```
+
 </code>
    </td>
   </tr>

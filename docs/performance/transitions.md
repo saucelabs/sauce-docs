@@ -17,31 +17,31 @@ Using automation to test performance after targeted interaction with your app in
 
 ## What You'll Learn
 
-* How to enable performance in your automation script
-* How to measure performance as the automation runs
-* How to detect regressions
-* How to write the performance results to a log
-* How to view your results
+- How to enable performance in your automation script
+- How to measure performance as the automation runs
+- How to detect regressions
+- How to write the performance results to a log
+- How to view your results
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-  * Have your SAUCE_USERNAME and SAUCE_ACCESS_KEY defined for your environment.
-* Google Chrome (no older than 3 versions from latest) as the test browser.
-* An automation script that performs the interaction with your app during which you want to measure performance.
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+  - Have your SAUCE_USERNAME and SAUCE_ACCESS_KEY defined for your environment.
+- Google Chrome (no older than 3 versions from latest) as the test browser.
+- An automation script that performs the interaction with your app during which you want to measure performance.
 
 ## Setting Performance Capabilities
 
 Before you configure your script to capture performance metrics as it executes, you must update your capabilities configuration file to enable performance actions. To do this, set the `extendedDebugging` and `capturePerformance` sauce:options attributes to `True`. The following excerpts show you the Webdriver.io `sauce:options` code samples for a variety of supported languages.
 
 <Tabs
-  defaultValue="python"
-  values={[
-    {label: 'Python', value: 'python'},
-    {label: 'JavaScript', value: 'js'},
-    {label: 'Ruby', value: 'ruby'},
-  ]}>
+defaultValue="python"
+values={[
+{label: 'Python', value: 'python'},
+{label: 'JavaScript', value: 'js'},
+{label: 'Ruby', value: 'ruby'},
+]}>
 
 <TabItem value="python">
 
@@ -69,14 +69,15 @@ def driver(request):
 <TabItem value="js">
 
 ```js {5,6}
-const {config} = require('./wdio.shared.conf');
+const { config } = require('./wdio.shared.conf')
 const defaultBrowserSauceOptions = {
-    build: `WebdriverIO-V6 Front-End Performance-${new Date().getTime()}`,
-    name: `WebdriverIO-V6 Front-End Performance-${new Date().getTime()}`,
-    extendedDebugging: true,
-    capturePerformance: true,
-};
+build: `WebdriverIO-V6 Front-End Performance-${new Date().getTime()}`,
+name: `WebdriverIO-V6 Front-End Performance-${new Date().getTime()}`,
+extendedDebugging: true,
+capturePerformance: true
+}
 ```
+
 </TabItem>
 <TabItem value="ruby">
 
@@ -93,6 +94,7 @@ options = {browser_name: browser_name,
                              extended_debugging: true,
                              capture_performance: true }}
 ```
+
 </TabItem>
 </Tabs>
 
@@ -110,21 +112,21 @@ Enabling performance capturing can add up to 60 seconds per URL change in a test
 
 ### Arguments
 
-|Argument|Description|
-|---|------|
-|`name`<br/><font size="2">Required</font>|A name of the test as it would appear on Sauce Labs.|
-|`metrics`<br/><font size="2">Optional</font>|Specifies one or more specific metrics you want to assert. If not specified, the test defaults to score, which automatically tests all metrics that currently make up a Lighthouse Performance Score.<br/>See [Metric Values](/performance/one-page.md#metric-values) for the list of supported metric values.|
+| Argument                                     | Description                                                                                                                                                                                                                                                                                                    |
+| -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`<br/><font size="2">Required</font>    | A name of the test as it would appear on Sauce Labs.                                                                                                                                                                                                                                                           |
+| `metrics`<br/><font size="2">Optional</font> | Specifies one or more specific metrics you want to assert. If not specified, the test defaults to score, which automatically tests all metrics that currently make up a Lighthouse Performance Score.<br/>See [Metric Values](/performance/one-page.md#metric-values) for the list of supported metric values. |
 
 ### Script Examples
 
 The following samples are excerpts that show the `sauce:performance` assertion used in a Selenium test script.
 
 <Tabs
-  defaultValue="python"
-  values={[
-    {label: 'Python', value: 'python'},
-    {label: 'JavaScript', value: 'js'},
-  ]}>
+defaultValue="python"
+values={[
+{label: 'Python', value: 'python'},
+{label: 'JavaScript', value: 'js'},
+]}>
 
 <TabItem value="python">
 
@@ -133,6 +135,7 @@ See the complete [Python performance demo](https://github.com/saucelabs/performa
 ```py reference
 https://github.com/saucelabs/performance-python-examples/blob/main/tests/test_performance.py
 ```
+
 </TabItem>
 <TabItem value="js">
 
@@ -140,67 +143,73 @@ See the complete [JavaScript performance demo](https://github.com/saucelabs/perf
 
 ```js
 describe('Sauce Labs Front-End Performance', () => {
-  beforeEach(() => {
-    //
-    // Adding extra logs to the Sauce Commands Dashboard
-    browser.execute('sauce:context=########## Start beforeEach ##########');
-    //
-    // Now load the url and wait for it to be displayed
-    browser.url('');
+beforeEach(() => {
+//
+// Adding extra logs to the Sauce Commands Dashboard
+browser.execute('sauce:context=########## Start beforeEach ##########')
+//
+// Now load the url and wait for it to be displayed
+browser.url('')
 
-    //
-    // Adding extra logs to the Sauce Commands Dashboard
-    browser.execute('sauce:context=########## End beforeEach ##########');
-  });
+//
+// Adding extra logs to the Sauce Commands Dashboard
+browser.execute('sauce:context=########## End beforeEach ##########')
+})
 
-  afterEach(() => {
-    //
-    // Adding extra logs to the Sauce Commands Dashboard
-    browser.execute('sauce:context=########## Enf of test ##########');
-  });
+afterEach(() => {
+//
+// Adding extra logs to the Sauce Commands Dashboard
+browser.execute('sauce:context=########## Enf of test ##########')
+})
 
-  it('logs (sauce:performance) should check if all metrics were captured', () => {
-    //
-    // The expected metrics
-    const metrics = [
-      'load',
-      'speedIndex',
-      'firstInteractive',
-      'firstVisualChange',
-      'lastVisualChange',
-      'firstMeaningfulPaint',
-      'firstCPUIdle',
-      'timeToFirstByte',
-      'firstPaint',
-      'estimatedInputLatency',
-      'firstContentfulPaint',
-      'totalBlockingTime',
-      'score',
-      'domContentLoaded',
-      'cumulativeLayoutShift',
-      'serverResponseTime',
-      'largestContentfulPaint',
-    ];
-    //
-    // Get the performance logs
-    const performance = browser.execute('sauce:log', {type: 'sauce:performance'});
+it('logs (sauce:performance) should check if all metrics were captured', () => {
+//
+// The expected metrics
+const metrics = [
+'load',
+'speedIndex',
+'firstInteractive',
+'firstVisualChange',
+'lastVisualChange',
+'firstMeaningfulPaint',
+'firstCPUIdle',
+'timeToFirstByte',
+'firstPaint',
+'estimatedInputLatency',
+'firstContentfulPaint',
+'totalBlockingTime',
+'score',
+'domContentLoaded',
+'cumulativeLayoutShift',
+'serverResponseTime',
+'largestContentfulPaint'
+]
+//
+// Get the performance logs
+const performance = browser.execute('sauce:log', { type: 'sauce:performance' })
 
-    //
-    // Verify that all logs have been captured
-    metrics.forEach(metric => expect(metric in performance, `${metric} metric is missing`));
-  });
+//
+// Verify that all logs have been captured
+metrics.forEach((metric) =>
+expect(metric in performance, `${metric} metric is missing`)
+)
+})
 
-  it('(sauce:performance) should validate speedIndex', () => {
-    //
-    // Get the performance logs
-    const performance = browser.execute('sauce:log', {type: 'sauce:performance'});
+it('(sauce:performance) should validate speedIndex', () => {
+//
+// Get the performance logs
+const performance = browser.execute('sauce:log', { type: 'sauce:performance' })
 
-    //
-    // Verify that all logs have been captured
-    expect(performance.speedIndex < 1000, `${performance.speedIndex} is equal or bigger than 100`);
-  });
-});
+//
+// Verify that all logs have been captured
+expect(
+performance.speedIndex < 1000,
+`${performance.speedIndex} is equal or bigger than 100`
+)
+})
+})
 ```
+
 </TabItem>
 </Tabs>
 
@@ -211,12 +220,12 @@ You can use the `sauce:performanceDisable` and `sauce:performanceEnable` command
 ### Example
 
 ```js title="JS Performance Pause Sample"
-
 browser.execute('sauce:performanceDisable')
 browser.url('https://www.json.org/json-en.html')
 browser.execute('sauce:performanceEnable')
 browser.url('https://example.com')
 ```
+
 In the preceding example, performance metrics will only be collected for `https://example.com`.
 
 ## Defining a Performance Budget
@@ -227,32 +236,33 @@ First, create a separate file in which you define your target metric limits, as 
 
 ```json title="budget.json"
 {
-  "https://saucelabs.com/": {
-    "speedIndex": 2300,
-    "lastVisualChange": 2200,
-    "load": 4200
-  },
-  "https://saucelabs.com/platform/analytics-performance/sauce-performance": {
-    "score": 0.78
-  }
+"https://saucelabs.com/": {
+"speedIndex": 2300,
+"lastVisualChange": 2200,
+"load": 4200
+},
+"https://saucelabs.com/platform/analytics-performance/sauce-performance": {
+"score": 0.78
+}
 }
 ```
-Then, import your budget file in your test script and assert your performance call against the values in your budget, as shown in the following sample.
 
+Then, import your budget file in your test script and assert your performance call against the values in your budget, as shown in the following sample.
 
 ```js {1,9,19,11}
 const budgets = require('./budget.json')
 
 for (const [url, budget] of Object.entries(budgets)) {
-    await browser.url(url)
-    const performanceLogs = await browser.execute(
-        'sauce:log',
-        { type: 'sauce:performance' })
+await browser.url(url)
+const performanceLogs = await browser.execute('sauce:log', {
+type: 'sauce:performance'
+})
 
-    for (const [metric, value] of Object.keys(budget)) {
-        assert.ok(performanceLogs[metric] < value
-            `metric ${metric} is over the performance budget`)
-    }
+for (const [metric, value] of Object.keys(budget)) {
+assert.ok(
+performanceLogs[metric] < value`metric ${metric} is over the performance budget`
+)
+}
 }
 ```
 
@@ -309,18 +319,18 @@ The following response is returned when the Page Load metric is above the expect
 
 You can also send your performance results to the log that is viewable from the Sauce Labs test result page.
 
-<img src={useBaseUrl('img/performance/full-rpt-log.png')}  alt="View Logs"  width="900"/>
+<img src={useBaseUrl('img/performance/full-rpt-log.png')} alt="View Logs" width="900"/>
 
 <p/>
 
 To enable this, configure `sauce:performance` within the `sauce:log` command. Set the `fullReport` option to `true` in the configuration to capture extended details about the performance configuration, aside from just the metrics output.
 
 <Tabs
-  defaultValue="python"
-  values={[
-    {label: 'Python', value: 'python'},
-    {label: 'JavaScript', value: 'js'},
-  ]}>
+defaultValue="python"
+values={[
+{label: 'Python', value: 'python'},
+{label: 'JavaScript', value: 'js'},
+]}>
 
 <TabItem value="python">
 
@@ -335,6 +345,7 @@ def test_speed_index(self, driver):
     for metric in metrics:
         assert performance["speedIndex"] < 1000
 ```
+
 </TabItem>
 <TabItem value="js">
 
@@ -342,8 +353,12 @@ See the complete [JavaScript performance demo](https://github.com/saucelabs/perf
 
 ```js {2}
 // Get the performance logs
-const performance = browser.execute('sauce:log', {type: 'sauce:performance', options: {fullReport: true}});
+const performance = browser.execute('sauce:log', {
+type: 'sauce:performance',
+options: { fullReport: true }
+})
 ```
+
 </TabItem>
 </Tabs>
 

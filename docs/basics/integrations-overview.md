@@ -151,8 +151,8 @@ We partner with the top companies in the industry to bring you a complete soluti
   </div>
 </div>
 
-
 ## Defect Reporting and Management
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -163,6 +163,7 @@ We partner with the top companies in the industry to bring you a complete soluti
 </div>
 
 ## Test Reporting and Management
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -185,6 +186,7 @@ We partner with the top companies in the industry to bring you a complete soluti
 </div>
 
 ## Test Enhancements
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -201,6 +203,7 @@ We partner with the top companies in the industry to bring you a complete soluti
 </div>
 
 ## Test Data Management
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -216,8 +219,8 @@ We partner with the top companies in the industry to bring you a complete soluti
   </div>
 </div>
 
-
 ## Low-code/No-code/Model-based Test Case Generation
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -276,6 +279,7 @@ We partner with the top companies in the industry to bring you a complete soluti
 </div>
 
 ## API Management and Testing
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">

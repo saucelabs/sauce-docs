@@ -11,83 +11,82 @@ This topic describes where and how to download Sauce Connect Proxy to your local
 
 ## What You’ll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 
 :::caution Always use the latest version
 If applicable, delete any previous Sauce Connect versions you have. Using older versions may impact your ability to launch a tunnel or cause other technical issues.
 :::
 
-
 ## Downloading Sauce Connect Proxy
 
 1. Download the latest Sauce Connect Proxy client to your local machine by clicking the link below corresponding to your OS.
-  <table>
-    <tr>
-      <td><strong>Platform</strong>
-      </td>
-      <td><strong>Download URL</strong>
-      </td>
- <td><strong>SHA1 Checksum</strong>
- </td>
-   </tr>
+ <table>
    <tr>
- <td>Linux
-   </td>
-    <td>
-  <a href="https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz">https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz</a>
-   </td>
-   <td><small>e65e77e849a80d1eb1de03ba56abf5a4d51cf1c5</small>
-   </td>
-  </tr>
-    <tr>
- <td>Linux ARM64
-   </td>
-    <td>
-  <a href="https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz">https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz</a>
-   </td>
-   <td><small>fd782a658f4d28b9792edaf9df730a87ae797cba</small>
-   </td>
-  </tr>
-  <tr>
-   <td>macOS
-   </td>
-   <td>
-  <a href="https://saucelabs.com/downloads/sc-4.8.2-osx.zip">https://saucelabs.com/downloads/sc-4.8.2-osx.zip</a>
-   </td>
-   <td><small>5c2f81f6b0f246a641384d33df5c091ca0174730</small>
-   </td>
-   </tr>
-  <tr>
- <td>Windows
+     <td><strong>Platform</strong>
      </td>
-   <td>
-    <a href="https://saucelabs.com/downloads/sc-4.8.2-win32.zip">https://saucelabs.com/downloads/sc-4.8.2-win32.zip</a>
-   </td>
-   <td><small>1c81cbe9d1b25b8f8483cc1163d54d94191f7665</small>
-   </td>
+     <td><strong>Download URL</strong>
+     </td>
+<td><strong>SHA1 Checksum</strong>
+</td>
   </tr>
-  </table>
+  <tr>
+<td>Linux
+  </td>
+   <td>
+ <a href="https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz">https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz</a>
+  </td>
+  <td><small>e65e77e849a80d1eb1de03ba56abf5a4d51cf1c5</small>
+  </td>
+ </tr>
+   <tr>
+<td>Linux ARM64
+  </td>
+   <td>
+ <a href="https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz">https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz</a>
+  </td>
+  <td><small>fd782a658f4d28b9792edaf9df730a87ae797cba</small>
+  </td>
+ </tr>
+ <tr>
+  <td>macOS
+  </td>
+  <td>
+ <a href="https://saucelabs.com/downloads/sc-4.8.2-osx.zip">https://saucelabs.com/downloads/sc-4.8.2-osx.zip</a>
+  </td>
+  <td><small>5c2f81f6b0f246a641384d33df5c091ca0174730</small>
+  </td>
+  </tr>
+ <tr>
+<td>Windows
+    </td>
+  <td>
+   <a href="https://saucelabs.com/downloads/sc-4.8.2-win32.zip">https://saucelabs.com/downloads/sc-4.8.2-win32.zip</a>
+  </td>
+  <td><small>1c81cbe9d1b25b8f8483cc1163d54d94191f7665</small>
+  </td>
+ </tr>
+ </table>
 
-2. Extract the contents of the *.zip download to your local machine. We recommend saving the Sauce Connect Proxy folder to your home directory.
+2. Extract the contents of the \*.zip download to your local machine. We recommend saving the Sauce Connect Proxy folder to your home directory.
 
-  <details><summary>What's in the folder?</summary>
+<details><summary>What's in the folder?</summary>
 
-  #### Sauce Connect folder contents
+#### Sauce Connect folder contents
 
-  ```bash
-  $ tree sc-4.8.2-osx/
-    sc-4.8.2-osx/
-    ├── COPYRIGHT.md
-    ├── bin
-    │   └── sc
-    ├── config_examples
-    │   ├── config.yml
-    │   └── systemd
-    │       ├── README.md
-    │       ├── sc.service
-    │       └── sc@.service
-    └── license.html
-  ```
+```bash
+$ tree sc-4.8.2-osx/
+  sc-4.8.2-osx/
+  ├── COPYRIGHT.md
+  ├── bin
+  │   └── sc
+  ├── config_examples
+  │   ├── config.yml
+  │   └── systemd
+  │       ├── README.md
+  │       ├── sc.service
+  │       └── sc@.service
+  └── license.html
+```
 
   <table>
   <tr>
@@ -108,16 +107,16 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
    </tr>
   </table>
 
-  </details>
+</details>
 
 3. If you're using Linux, you'll need to add Sauce Connect to your system PATH:
-  ```bash
-  cd $HOME
-  curl -LO https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz
-  tar xvf ./sc-4.8.2-linux.tar.gz
-  export PATH="$HOME/sc-4.8.2-linux/bin:$PATH"
-  ```
 
+```bash
+cd $HOME
+curl -LO https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz
+tar xvf ./sc-4.8.2-linux.tar.gz
+export PATH="$HOME/sc-4.8.2-linux/bin:$PATH"
+```
 
 ### Version Lifecycle Information
 
@@ -194,18 +193,16 @@ The launch of Sauce Connect 4.8.2 makes it the officially supported version of t
   </tr>
 </table>
 
-##### <sup>*</sup>Windows version no longer available for download.
+##### <sup>\*</sup>Windows version no longer available for download.
 
 ## Using Sauce Connect in Docker
 
 As an alternative to downloading the client, you can use the Sauce Connect Proxy Docker image to run it in a Docker container. To learn more, see [Sauce Connect Docker Container Setup](/secure-connections/sauce-connect/setup-configuration/docker/).
 
-
-
 ## More Information
 
-* [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart)
-* [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements/)
-* [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy/)
-* [Sauce Connect Proxy Architecture](/secure-connections/sauce-connect/advanced/architecture/)
-* [Sauce Connect Proxy Changelog](https://changelog.saucelabs.com/en?category=sauce%20connect)
+- [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart)
+- [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements/)
+- [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy/)
+- [Sauce Connect Proxy Architecture](/secure-connections/sauce-connect/advanced/architecture/)
+- [Sauce Connect Proxy Changelog](https://changelog.saucelabs.com/en?category=sauce%20connect)

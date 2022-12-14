@@ -20,7 +20,6 @@ import TabItem from '@theme/TabItem';
 1. Under **Communication**, click **Sauce OnDemand**.
 1. Under **Credentials**, provide your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`.
 
-
 ## Setting a Different Data Center
 
 You can set a different data center either globally, for all of your projects, or just for specific projects.
@@ -51,14 +50,14 @@ Sauce Labs supports a variety of project languages. Choose the set of instructio
 
 1. In Bamboo, choose **Create Plan** and then **Create New Plan**.
 1. In the **Plan Details** section, for **Project**, select **New Project** and provide the following values in the fields:
-    * **Project Name**: enter `Sauce Demo`.
-    * **Project Key**: enter `SAUCE`.
-    * **Plan Name**: enter `Java` or `pytest`, as applicable.
-    * **Plan Key**: enter `Demo`.
+   - **Project Name**: enter `Sauce Demo`.
+   - **Project Key**: enter `SAUCE`.
+   - **Plan Name**: enter `Java` or `pytest`, as applicable.
+   - **Plan Key**: enter `Demo`.
 1. Under **Source Repositories**, choose `Git`.
 1. For Repository URL, enter the value that matches your plan:
-    - `Java`: `https://github.com/rossrowe/sauce-ci-java-demo`
-    - `pytest`: `https://github.com/saucelabs-sample-test-frameworks/Python-Pytest-Selenium`
+   - `Java`: `https://github.com/rossrowe/sauce-ci-java-demo`
+   - `pytest`: `https://github.com/saucelabs-sample-test-frameworks/Python-Pytest-Selenium`
 1. For **Branch**, enter `master`.
 1. For **Authentication Type**, select `None`.
 1. Check `Use shallow clones`.
@@ -66,11 +65,11 @@ Sauce Labs supports a variety of project languages. Choose the set of instructio
 ### Configure Tasks
 
 <Tabs
-  defaultValue="java"
-  values={[
-    {label: 'Java', value: 'java'},
-    {label: 'pytest', value: 'pytest'},
-  ]}>
+defaultValue="java"
+values={[
+{label: 'Java', value: 'java'},
+{label: 'pytest', value: 'pytest'},
+]}>
 
 <TabItem value="java">
 
@@ -86,8 +85,8 @@ Sauce Labs supports a variety of project languages. Choose the set of instructio
 1. Choose **Configure Tasks**, then **Add Task**.
 1. Click **Command** and enter `Run Task` as the **Task Description**.
 1. Click **Add Executable** and enter the following values:
-    * **Executable Label**: `pytest`
-    * **Path**: enter the path to your nose library
+   - **Executable Label**: `pytest`
+   - **Path**: enter the path to your nose library
 1. Click **Save**.
 1. Back in the **Command Configuration** form, enter `--junitxml=results.xml` in the **Argument** field.
 1. Click **Save**.
@@ -105,7 +104,7 @@ Sauce Labs supports a variety of project languages. Choose the set of instructio
 1. Select **Job Enabled**.
 1. Click **Save**.
 
-###  Enable the Sauce Plugin
+### Enable the Sauce Plugin
 
 1. Select **Enable Sauce OnDemand**.
 1. In **General Settings**, select the Selenium version you want to use for your tests.
@@ -131,28 +130,28 @@ If you're using Protractor to run your tests with Bamboo, ensure `disableEnviron
 
 ### Sauce OnDemand Environment Variables
 
-|Variable|Description|
-|---|----------------|
-|SELENIUM_HOST|	The hostname of the Selenium server|
-|SELENIUM_PORT|	The port of the Selenium server|
-|SELENIUM_PLATFORM|	The operating system of the selected browser|
-|SELENIUM_VERSION|	The version number of the selected browser|
-|SELENIUM_BROWSER|	The name of the selected browser|
-|SELENIUM_DRIVER|	Contains the operating system, version and browser name of the selected browser|
-|SELENIUM_URL|	The initial URL to load when the test begins|
-|SAUCE_USERNAME|	The user name used to invoke Sauce OnDemand|
-|SAUCE_ACCESS_KEY|	The access key for the user used to invoke Sauce OnDemand|
-|SELENIUM_STARTING_URL|	The value of the Starting URL field|
-|SAUCE_ONDEMAND_BROWSERS|	A JSON-formatted string representing browsers you selected for the job configuration|
+| Variable                | Description                                                                          |
+| ----------------------- | ------------------------------------------------------------------------------------ |
+| SELENIUM_HOST           | The hostname of the Selenium server                                                  |
+| SELENIUM_PORT           | The port of the Selenium server                                                      |
+| SELENIUM_PLATFORM       | The operating system of the selected browser                                         |
+| SELENIUM_VERSION        | The version number of the selected browser                                           |
+| SELENIUM_BROWSER        | The name of the selected browser                                                     |
+| SELENIUM_DRIVER         | Contains the operating system, version and browser name of the selected browser      |
+| SELENIUM_URL            | The initial URL to load when the test begins                                         |
+| SAUCE_USERNAME          | The user name used to invoke Sauce OnDemand                                          |
+| SAUCE_ACCESS_KEY        | The access key for the user used to invoke Sauce OnDemand                            |
+| SELENIUM_STARTING_URL   | The value of the Starting URL field                                                  |
+| SAUCE_ONDEMAND_BROWSERS | A JSON-formatted string representing browsers you selected for the job configuration |
 
 ### Bamboo Environment Variables
 
 Access Bamboo variables using `${bamboo.<variablename>}` in configuration, or `${BAMBOO_<variablename>}` in scripts.
 
-|Variable|Description|
-|---|----------------|
-|SAUCE_BAMBOO_BUILDNUMBER|	The build name to use with Sauce Labs jobs|
-|TUNNEL_IDENTIFIER|The unique tunnel identifier used when **Create a new unique Sauce Connect tunnel per build option** is enabled|
+| Variable                 | Description                                                                                                     |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| SAUCE_BAMBOO_BUILDNUMBER | The build name to use with Sauce Labs jobs                                                                      |
+| TUNNEL_IDENTIFIER        | The unique tunnel identifier used when **Create a new unique Sauce Connect tunnel per build option** is enabled |
 
 ## Outputting the Bamboo Session ID to `stdout`
 

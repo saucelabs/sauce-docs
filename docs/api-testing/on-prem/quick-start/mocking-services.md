@@ -2,14 +2,14 @@
 id: mocking-services
 title: Creating a Mocked API
 sidebar_label: Creating a Mocked API
-description: "The Mocking tool is a great way to test and define new endpoints."
+description: 'The Mocking tool is a great way to test and define new endpoints.'
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -49,7 +49,7 @@ Finally, define the response payload in the provided space.
 
 <img src={useBaseUrl('img/api-fortress/2018/06/5-1024x640.png')} alt="Define the Payload"/>
 
-> __NOTE__: To learn more about the Expressions field [click here](https://apifortress.com/doc/expressions-in-mocked-apis/).  
+> **NOTE**: To learn more about the Expressions field [click here](https://apifortress.com/doc/expressions-in-mocked-apis/).
 
 ## Step 5 - Test the Endpoint
 

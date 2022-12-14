@@ -1,22 +1,22 @@
 ---
 id: authorization-simple-oauth-etc
-title: "Dealing with Authentication (Simple, OAuth, etc.)"
+title: 'Dealing with Authentication (Simple, OAuth, etc.)'
 sidebar_label: Dealing with Authentication
 keywords:
-    - api-testing
-    - how-to
-    - oauth
-    - simple
-    - authentication
-    - 2 legged
-    - 2-leg
+- api-testing
+- how-to
+- oauth
+- simple
+- authentication
+- 2 legged
+- 2-leg
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -29,9 +29,9 @@ API Fortress can handle nearly any authorization scheme. Below, we provide some 
 1. Enter the visual composer
 2. Click Add Component
 3. Click `POST` (or whatever REST method the authentication server is expecting)
-4. Enter details and then click __Add Authentication__
-5. Choose __Basic__
-6. Enter the __Username__ and __Password__
+4. Enter details and then click **Add Authentication**
+5. Choose **Basic**
+6. Enter the **Username** and **Password**
 
 <img src={useBaseUrl('img/api-fortress/2017/01/basic_auth.gif')} alt="Basic Auth Gif"/>
 
@@ -44,7 +44,7 @@ Next, we parameterize the token that we receive in the response.
 1. First, select the Set (variable) component
 2. Next, enter the name that you would like to use for the variable as _Var_
 3. Enter the value of the token itself as _Value_
-4. Add a_Comment_ component with the previously set variable as the _Value_ to see the token logged!
+4. Add a*Comment* component with the previously set variable as the _Value_ to see the token logged!
 
 From here, we can use the token in follow-on prompts by referencing its variable name.
 
@@ -76,10 +76,9 @@ That's it! The call should work now. If not feel free to send us a message at su
 2. Click Add Component
 3. Click POST (or whatever REST method the authentication server is expecting)
 4. Enter details and add parameters or POST body
-5. In our example its a POST body with username and password  
+5. In our example its a POST body with username and password
 
-    <img src={useBaseUrl('img/api-fortress/2020/02/post.gif')} alt="post.gif"/>
-
+   <img src={useBaseUrl('img/api-fortress/2020/02/post.gif')} alt="post.gif"/>
 
 Next, we parameterize the token that we receive in the response.
 

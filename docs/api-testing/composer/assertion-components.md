@@ -14,8 +14,9 @@ Assertions are a type of component that you can add to a test using the Composer
 <img src={useBaseUrl('img/api-testing/assertionComponents.png')} alt="Assertion Components" />
 
 ## What You'll Need
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Familiarity with the [API Testing Composer](/api-testing/composer/).
+
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- Familiarity with the [API Testing Composer](/api-testing/composer/).
 
 ## Assert Compares
 
@@ -59,7 +60,7 @@ See also [Common Fields](#assertion-common-fields)
   expression1: payload1
   expression2: payload2
   mode: text
-  strict: "false"
+  strict: 'false'
 ```
 
 ```yaml
@@ -67,7 +68,7 @@ See also [Common Fields](#assertion-common-fields)
   expression1: payload1
   expression2: payload2
   mode: values
-  strict: "false"
+  strict: 'false'
 ```
 
 ```yaml
@@ -75,17 +76,16 @@ See also [Common Fields](#assertion-common-fields)
   expression1: payload1
   expression2: payload2
   mode: structure
-  strict: "false"
+  strict: 'false'
 ```
-</details>
 
+</details>
 
 ## Assert Contains
 
 This assertion is used to check if the element described by the expression contains a specific substring. For example, to test the word _Uber_ is in Uber's product names (_UberX, UberBlack, UberPool_).
 
 <details><summary><strong>Parameters</strong></summary>
-
 
 <table id="table-api">
   <tbody>
@@ -126,7 +126,6 @@ See also [Common Fields](#assertion-common-fields)
 
 </details>
 
-
 ## Assert Equals
 
 This assertion is used to check if the element value described by the expression is equal to a specific value. A direct one-to-one comparison.
@@ -161,7 +160,7 @@ See also [Common Fields](#assertion-common-fields)
 ```yaml
 - id: assert-equals
   expression: data.code
-  value: "500"
+  value: '500'
 ```
 
 ```yaml
@@ -171,7 +170,6 @@ See also [Common Fields](#assertion-common-fields)
 ```
 
 </details>
-
 
 ## Assert Exists
 
@@ -193,7 +191,6 @@ This assertion is used to check if the element described by the expression exist
 
 See also [Common Fields](#assertion-common-fields)
 
-
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
 
@@ -203,8 +200,6 @@ See also [Common Fields](#assertion-common-fields)
 ```
 
 </details>
-
-
 
 ## Assert Greater
 
@@ -239,7 +234,6 @@ See also [Common Fields](#assertion-common-fields)
   value: 4503
 ```
 
-
 </details>
 
 ## Assert In
@@ -269,26 +263,24 @@ See also [Common Fields](#assertion-common-fields).
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
 
-
 ```yaml
 - id: assert-in
   expression: data.type
   value:
-    - ebook
-    - paperbook
+  - ebook
+  - paperbook
 ```
 
 ```yaml
 - id: assert-in
   expression: data.price
   value:
-    - "5.50"
-    - "7"
-    - "9.79"
+  - '5.50'
+  - '7'
+  - '9.79'
 ```
 
 </details>
-
 
 ## Assert Is
 
@@ -391,7 +383,6 @@ See also [Common Fields](#assertion-common-fields)
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
 
-
 ```yaml
 - id: assert-matches
   expression: data.zipcode
@@ -439,23 +430,23 @@ See also [Comment](#comment)
 - id: assert-valid-jsonschema
   expression: json_success
   body: '{ "type" : "object", "properties" : { "rectangle" : {"$ref"
-    :"#/definitions/Rectangle" } }, "definitions" : { "size" : { "type"
-    :"number", "minimum" : 0 }, "Rectangle" : { "type" : "object", "properties"
-    : { "a" : {"$ref" : "#/definitions/size"}, "b" : {"$ref" :
-    "#/definitions/size"} } } } }'
+  :"#/definitions/Rectangle" } }, "definitions" : { "size" : { "type"
+  :"number", "minimum" : 0 }, "Rectangle" : { "type" : "object", "properties"
+  : { "a" : {"$ref" : "#/definitions/size"}, "b" : {"$ref" :
+  "#/definitions/size"} } } } }'
 ```
 
 </details>
 
-
-
 ## Assertion Common Fields
 
 ### Comment
+
 <p><small>| OPTIONAL | String |</small></p>
 Add comment messages in the form of a string data type.
 
 ### Modifier
+
 <p><small>| OPTIONAL | 'not' |</small></p>
 The assertion is considered verified if it does not pass.
 
@@ -464,14 +455,16 @@ Not available in **Assert Compares** and **Assert Valid JSON Schema**
 :::
 
 ### Execute if item exists
+
 <p><small>| OPTIONAL | yes, no |</small></p>
 The assertion is evaluated only if the element exists. This is useful when the element does not always exist.
 
 :::note
-Not available in  **Assert Compares**, **Assert Exists** and **Assert Valid JSON Schema**.
+Not available in **Assert Compares**, **Assert Exists** and **Assert Valid JSON Schema**.
 :::
 
 ### Level
+
 <p><small>| OPTIONAL | error, warning |</small></p>
 Specify if the assertion fails whether it should be considered an <code>error</code> or just a <code>warning</code>.
 
@@ -480,9 +473,10 @@ A **warning** will not trigger alerts, such as email.
 :::
 
 ### Stop test if fails
+
 <p><small>| OPTIONAL | Yes, No |</small></p>
 The test will be immediately stopped if the assertion fails.
 
 :::note
-Not available in  **Assert Valid JSON Schema**.
+Not available in **Assert Valid JSON Schema**.
 :::

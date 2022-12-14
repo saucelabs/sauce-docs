@@ -145,10 +145,10 @@ Execute tests according to the environment, framework, and test suite specificat
   </tbody>
 </table>
 
-
 ## Options Details
 
 ### <span className="cli">--artifacts.cleanup</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
@@ -157,6 +157,7 @@ When set to `true`, all contents of the specified download directory are cleared
 ```bash
 saucectl run --artifacts.cleanup true
 ```
+
 </div>
 
 ### <span className="cli">--artifacts.download.directory</span>
@@ -169,8 +170,8 @@ Specifies the path to the folder location in which to download artifacts. A sepa
 ```bash
 saucectl run --artifacts.download.directory ./artifacts
 ```
-</div>
 
+</div>
 
 ### <span className="cli">--artifacts.download.match</span>
 
@@ -182,24 +183,27 @@ Specifies which artifacts to download based on whether they match the name or fi
 ```bash
 saucectl run --artifacts.download.match console.log,another.log
 ```
+
 </div>
 
 ### <span className="cli">--artifacts.download.when</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | ENUM |</small></p>
 
 Specifies when and under what circumstances to download artifacts. Valid values are:
 
-* `always`: Always download artifacts.
-* `never`: Never download artifacts.
-* `pass`: Download artifacts for passing suites only.
-* `fail`: Download artifacts for failed suites only.
+- `always`: Always download artifacts.
+- `never`: Never download artifacts.
+- `pass`: Download artifacts for passing suites only.
+- `fail`: Download artifacts for failed suites only.
 
 Must be set in conjunction with `--artifacts.download.directory` and `--artifacts.download.match`.
 
 ```bash
 saucectl run --artifacts.download.when always
 ```
+
 </div>
 
 ### <span className="cli">--async</span>
@@ -221,9 +225,11 @@ Associates the tests with a build to support easy filtering of related test resu
 ```bash
 saucectl run --build myBuildID
 ```
+
 </div>
 
 ### <span className="cli">--ccy</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
@@ -236,9 +242,11 @@ For tests running on Sauce, set this value to equal or less than your Sauce conc
 ```bash
 saucectl run --ccy 2
 ```
+
 </div>
 
 ### <span className="cli">--config</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | FILEPATH |</small></p>
 
@@ -253,9 +261,11 @@ saucectl run -c ./path/to/{config-file}.yml
 :::note YAML Required
 While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. If you are less comfortable with YAML, any of a wide variety of free online YAML/JSON validator tools may be helpful.
 :::
+
 </div>
 
 ### <span className="cli">--dry-run</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Sauce Cloud Only</span> |</small></p>
 
@@ -264,10 +274,11 @@ Simulate a test run without actually running any tests. This option does not req
 ```bash
 saucectl run --dry-run
 ```
+
 </div>
 
-
 ### <span className="cli">--env</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | KEY=VALUE |</small></p>
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Sauce Cloud Only</span> |</small></p>
@@ -276,9 +287,11 @@ An environment variable key value pair that may be referenced in the tests execu
 ```bash
 saucectl run --env <key1>=<value1> --env <key2>=<value2> ...
 ```
+
 </div>
 
 ### <span className="cli">--fail-fast</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Sauce Cloud Only</span></small></p>
 
@@ -287,6 +300,7 @@ Stops suites after the first failure. This will not interrupt suites that have b
 ```bash
 saucectl run --fail-fast
 ```
+
 </div>
 
 ### <span className="cli">--help</span>
@@ -300,6 +314,7 @@ Usage information for the `run` command.
 </div>
 
 ### <span className="cli">--no-color</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
@@ -323,6 +338,7 @@ Specifies the Sauce Labs data center through which tests will run. Valid values 
 ```bash
 saucectl run --region use-west-1
 ```
+
 </div>
 
 ### <span className="cli">--retries</span>
@@ -335,10 +351,11 @@ Instructs `saucectl` to rerun failed tests this many times.
 ```bash
 saucectl run --retries 2
 ```
+
 </div>
 
-
 ### <span className="cli">--select-suite</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -349,12 +366,13 @@ saucectl run --select-suite <suite_name>
 ```
 
 :::note Formerly `--suite`
-Versions of saucectl before v0.52.4 use the option  `--suite` instead.
+Versions of saucectl before v0.52.4 use the option `--suite` instead.
 :::
 
 </div>
 
 ### <span className="cli">--show-console-log</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
@@ -367,6 +385,7 @@ saucectl run --show-console-log
 </div>
 
 ### <span className="cli">--tags</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | LIST | <span className="sauceDBlue">VDC Only</span> |</small></p>
 
@@ -375,9 +394,11 @@ A keyword that may help you distinguish the test in Sauce Labs, and also helps y
 ```bash
 saucectl run --tags e2e,team2
 ```
+
 </div>
 
 ### <span className="cli">--timeout</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | DURATION |</small></p>
 
@@ -391,9 +412,11 @@ When setting the timeout values for your suites, consider that native framework 
 saucectl run --timeout 10s
 saucectl run --timeout 30m
 ```
+
 </div>
 
 ### <span className="cli">--uploadTimeout</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | DURATION |</small></p>
 
@@ -403,9 +426,11 @@ Upload timeout that limits how long saucectl will wait for an upload to finish. 
 saucectl run --uploadTimeout 10s
 saucectl run --uploadTimeout 30m
 ```
+
 </div>
 
 ### <span className="cli">--tunnel-name</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Sauce Cloud Only</span> |</small></p>
 
@@ -418,9 +443,11 @@ Replaces the former `--tunnel_id` option, which is deprecated.
 ```bash
 saucectl run --tunnel-name my-tunnel
 ```
+
 </div>
 
 ### <span className="cli">--tunnel-owner</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Sauce Cloud Only</span> |</small></p>
 
@@ -433,9 +460,11 @@ Replaces the former `--tunnel-parent` option, which is deprecated.
 ```bash
 saucectl run --tunnel-name not-my-tunnel --tunnel-owner another.sauce.username
 ```
+
 </div>
 
 ### <span className="cli">--verbose</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
@@ -444,4 +473,5 @@ Enables detailed output during the test run in order to facilitate troubleshooti
 ```bash
 saucectl run --verbose
 ```
+
 </div>

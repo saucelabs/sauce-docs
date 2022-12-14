@@ -1,19 +1,19 @@
 ---
 id: mock-recording-with-kong
-title: "Mock Recording with Kong (Deprecated)"
-sidebar_label: "Mock Recording with Kong (Deprecated)"
+title: 'Mock Recording with Kong (Deprecated)'
+sidebar_label: 'Mock Recording with Kong (Deprecated)'
 keywords:
-    - api-testing
-    - mocking
-    - servicevirtualization
-    - kong
+- api-testing
+- mocking
+- servicevirtualization
+- kong
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -41,24 +41,24 @@ Let's make sure we have everything we need:
 
 ```yaml
 #APIFORTRESS KONG
-  apifortress-kong:
-    image: apifortress/kong
-    hostname: kong.apifortress
-  networks:
-    apifortress:
-      aliases:
-      - kong.apifortress
-  environment:
-    KONG\_DATABASE: postgres
-    KONG\_PG\_HOST: postgres.apifortress
-    KONG\_PG\_USER: \*\*\*\*\*\*\*\*
-    KONG\_PG\_PASSWORD: \*\*\*\*\*\*\*\*
-    KONG\_ADMIN\_LISTEN: 0.0.0.0:8001
-    KONG\_PLUGINS: fortress-http-log,file-log-extended,request-transformer,upstream-replace
-    KONG\_PROXY\_ERROR\_LOG: /dev/stdout
-  ports:
-    - 8000:8000
-    - 8001:8001
+apifortress-kong:
+image: apifortress/kong
+hostname: kong.apifortress
+networks:
+apifortress:
+aliases:
+- kong.apifortress
+environment:
+KONG\_DATABASE: postgres
+KONG\_PG\_HOST: postgres.apifortress
+KONG\_PG\_USER: \*\*\*\*\*\*\*\*
+KONG\_PG\_PASSWORD: \*\*\*\*\*\*\*\*
+KONG\_ADMIN\_LISTEN: 0.0.0.0:8001
+KONG\_PLUGINS: fortress-http-log,file-log-extended,request-transformer,upstream-replace
+KONG\_PROXY\_ERROR\_LOG: /dev/stdout
+ports:
+- 8000:8000
+- 8001:8001
 ```
 
 2. The initialization script, `init_kong.sh`
@@ -86,6 +86,7 @@ Issue the following command from the command line:
 ```
 sudo ./init_kong.sh
 ```
+
 Once Kong has finished initializing, we can proceed.
 
 Next, we need to start the Kong container itself. We do so by issuing the following command:
@@ -93,6 +94,7 @@ Next, we need to start the Kong container itself. We do so by issuing the follow
 ```
 sudo docker-compose up -d apifortress-kong
 ```
+
 Once the container has finished starting, we can do a
 
 ```
@@ -138,15 +140,15 @@ curl -v -XPOST -d "name=apif" -d "upstream_url=http://demoapi.apifortress.com" -
 
 ### Route Details
 
-* `name`: the name of the API profile
-* `upstream_url`: the origin URL (the destination that we're passing through the proxy on our way to)
-* `hosts`: A list of hosts that will trigger this API profile (the URL(s) that will trigger this proxied response)
+- `name`: the name of the API profile
+- `upstream_url`: the origin URL (the destination that we're passing through the proxy on our way to)
+- `hosts`: A list of hosts that will trigger this API profile (the URL(s) that will trigger this proxied response)
 
 So, we're sending a post to `apif.example.com:8001/apis` with headers defining a `name`, an `upstream_url` and `hosts`. The result is a profile of a proxied API.
 
-* The `name` of the profile is `"apif"`.
-* The `upstream_url` is `"http://demoapi.apifortress.com"`
-* The `host` for the profile is `"proxy-demoapi.apif.example.com"`
+- The `name` of the profile is `"apif"`.
+- The `upstream_url` is `"http://demoapi.apifortress.com"`
+- The `host` for the profile is `"proxy-demoapi.apif.example.com"`
 
 Naturally, when you do this yourself, you'll be replacing `"apif.example.com"` with the URL of your API Fortress instance.
 

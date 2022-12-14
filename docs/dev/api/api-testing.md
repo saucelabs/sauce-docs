@@ -13,9 +13,9 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
-* An existing API test. To learn how to create one, see the [Quickstart](/api-testing/quickstart/).
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- An existing API test. To learn how to create one, see the [Quickstart](/api-testing/quickstart/).
 
 ## Project Methods
 
@@ -36,7 +36,6 @@ Returns the details of a project.
   </tr>
 </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -114,8 +113,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 </details>
 
-
-
 ## Test Methods
 
 ### List All Tests in a Project
@@ -135,7 +132,6 @@ Returns a list of all tests within a project.
   </tr>
 </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -182,45 +178,48 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </table>
 
 ```jsx title="Sample Response"
-[{
-    "id": "621ad2cefd18a5416b299e98",
-    "name": "List all dog breeds",
-    "description": "Returns a list of all dog breeds",
-    "lastModified": "2022-02-27T07:02:35Z",
-    "tags": ["dogs", "doggos"],
-    "user": {
-        "id": "21b27f2d2aaa4a5c88c8c19df25857d6",
-        "name": "$SAUCE_USERNAME"
-    },
-    "complete": true,
-    "status": {
-        "success": true,
-        "lastUpdate": "2022-02-27T08:58:01Z"
-    },
-    "schedules": {
-        "total": 1,
-        "active": 1
-    }
-}, {
-    "id": "621b20e8fd17a5416b299e9f",
-    "name": "Get all retriever sub-breeds: retrievers",
-    "description": "Returns an array of all the sub-breeds from a breed",
-    "lastModified": "2022-02-27T07:05:25Z",
-    "tags": ["dogs", "retrievers"],
-    "user": {
-        "id": "21b27f2d2aaa4a5c88c8c19df25857d6",
-        "name": "$SAUCE_USERNAME"
-    },
-    "complete": true,
-    "status": {
-        "success": true,
-        "lastUpdate": "2022-02-27T09:47:33Z"
-    },
-    "schedules": {
-        "total": 1,
-        "active": 1
-    }
-}]
+;[
+{
+id: '621ad2cefd18a5416b299e98',
+name: 'List all dog breeds',
+description: 'Returns a list of all dog breeds',
+lastModified: '2022-02-27T07:02:35Z',
+tags: ['dogs', 'doggos'],
+user: {
+id: '21b27f2d2aaa4a5c88c8c19df25857d6',
+name: '$SAUCE_USERNAME'
+},
+complete: true,
+status: {
+success: true,
+lastUpdate: '2022-02-27T08:58:01Z'
+},
+schedules: {
+total: 1,
+active: 1
+}
+},
+{
+id: '621b20e8fd17a5416b299e9f',
+name: 'Get all retriever sub-breeds: retrievers',
+description: 'Returns an array of all the sub-breeds from a breed',
+lastModified: '2022-02-27T07:05:25Z',
+tags: ['dogs', 'retrievers'],
+user: {
+id: '21b27f2d2aaa4a5c88c8c19df25857d6',
+name: '$SAUCE_USERNAME'
+},
+complete: true,
+status: {
+success: true,
+lastUpdate: '2022-02-27T09:47:33Z'
+},
+schedules: {
+total: 1,
+active: 1
+}
+}
+]
 ```
 
 </details>
@@ -274,7 +273,6 @@ Uploads a new test, which you need to provide in the Request Body, to the Sauce 
   </tr>
 </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -357,7 +355,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 </details>
 
-
 ---
 
 ### Get Test Details
@@ -383,7 +380,6 @@ Returns the details of a test.
   </tr>
 </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -460,12 +456,9 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 </details>
 
-
-
 ## Test Execution
 
 When you run an API test using one of these methods, you'll receive a response immediately that contains general test details.
-
 
 ### Run a Test
 
@@ -508,7 +501,6 @@ Runs a single test on Sauce Labs API Testing, creates a Log in your Dashboard, a
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -617,7 +609,6 @@ Runs all tests in a project.
   </tbody>
 </table>
 
-
 <Tabs
 groupId="dc-url"
 defaultValue="us"
@@ -689,7 +680,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-
 ### Run Tests by Tag
 
 <details><summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_tag/&#123;tag&#125;/_run</code></summary>
@@ -731,7 +721,6 @@ Runs all tests in a project matching a tag.
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -804,7 +793,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-
 ### Execute a Test
 
 <details><summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_exec</code></summary>
@@ -864,7 +852,6 @@ Executes the test you send in the request body and saves the results into the cl
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -937,12 +924,9 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 </details>
 
-
-
 ## Test Execution (synchronous)
 
-When you run an API test synchronously, you'll receive a response containing granular test details. These API methods will wait until all results are available before showing them. 
-
+When you run an API test synchronously, you'll receive a response containing granular test details. These API methods will wait until all results are available before showing them.
 
 ### Run a Test Synchronously
 
@@ -991,7 +975,6 @@ Runs a single test synchronously.
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -1052,105 +1035,124 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </table>
 
 ```jsx title="Sample Response"
-[{
-    "id": "621b320afd17a5416b299ea3",
-    "events": [{
-        "date": 1645949450067,
-        "events": [{
-            "date": 1645949450068,
-            "events": [{
-                "date": 1645949450068,
-                "events": [{
-                    "action": "get",
-                    "expression": "https://dog.ceo/api/breed/retriever/list",
-                    "footprint": "dog.ceo/api/breed/retriever/list",
-                    "metrics": {
-                        "fetch": 1,
-                        "latency": 322,
-                        "overall": 338
-                    },
-                    "requestDetails": "GET https://dog.ceo/api/breed/retriever/list\n\nGET /api/breed/retriever/list HTTP/1.1\nhost: dog.ceo\nUser-Agent: SauceLabs/API-Fortress - WSTestJS\naccept-encoding: gzip, deflate\n\n",
-                    "status": 200,
-                    "success": true
-                }, {
-                    "action": "assert-equals",
-                    "expression": "payload_response.headers['Content-Type']==application/json",
-                    "success": true
-                }, {
-                    "action": "assert-exists",
-                    "expression": "payload",
-                    "success": true
-                }, {
-                    "action": "assert-is",
-                    "expression": "payload.message is array",
-                    "success": true
-                }, {
-                    "action": "assert-exists",
-                    "expression": "_1",
-                    "root": "payload.message",
-                    "success": true
-                }, {
-                    "action": "assert-exists",
-                    "expression": "_1",
-                    "root": "payload.message",
-                    "success": true
-                }, {
-                    "action": "assert-exists",
-                    "expression": "_1",
-                    "root": "payload.message",
-                    "success": true
-                }, {
-                    "action": "assert-exists",
-                    "expression": "_1",
-                    "root": "payload.message",
-                    "success": true
-                }, {
-                    "action": "assert-exists",
-                    "expression": "payload.status",
-                    "success": true
-                }],
-                "kind": "sequence"
-            }],
-            "kind": "inputSet",
-            "name": "default"
-        }],
-        "inputBatteryName": "default",
-        "kind": "inputBattery"
-    }],
-    "tags": ["dogs", "retrievers"],
-    "criticalFailures": [],
-    "httpFailures": [],
-    "facts": {},
-    "date": 1645949450067,
-    "test": {
-        "name": "Get all retriever sub-breeds",
-        "id": "621b20e8fd17v5416b299e9f"
-    },
-    "failuresCount": 0,
-    "warningsCount": 0,
-    "compressed": false,
-    "run": {
-        "name": "",
-        "id": ""
-    },
-    "company": {
-        "name": "",
-        "id": "7fb25570b4064716b9v6daae1a846790"
-    },
-    "project": {
-        "name": "Dog CEO",
-        "id": "621ad1466b1fa36aa4b8b044"
-    },
-    "contextId": "856c431c-4e1a-46c2-9644-c084e7c36b61",
-    "temp": false,
-    "expireAt": null,
-    "executionTimeSeconds": 1,
-    "taskId": "693ddvb2-9482-4c51-95bf-52b3d70f5236",
-    "agent": "wstestjs",
-    "mode": "ondemand",
-    "buildId": "",
-    "exception": ""
-}]
+;[
+{
+id: '621b320afd17a5416b299ea3',
+events: [
+{
+date: 1645949450067,
+events: [
+{
+date: 1645949450068,
+events: [
+{
+date: 1645949450068,
+events: [
+{
+action: 'get',
+expression: 'https://dog.ceo/api/breed/retriever/list',
+footprint: 'dog.ceo/api/breed/retriever/list',
+metrics: {
+fetch: 1,
+latency: 322,
+overall: 338
+},
+requestDetails:
+'GET https://dog.ceo/api/breed/retriever/list\n\nGET /api/breed/retriever/list HTTP/1.1\nhost: dog.ceo\nUser-Agent: SauceLabs/API-Fortress - WSTestJS\naccept-encoding: gzip, deflate\n\n',
+status: 200,
+success: true
+},
+{
+action: 'assert-equals',
+expression: "payload_response.headers['Content-Type']==application/json",
+success: true
+},
+{
+action: 'assert-exists',
+expression: 'payload',
+success: true
+},
+{
+action: 'assert-is',
+expression: 'payload.message is array',
+success: true
+},
+{
+action: 'assert-exists',
+expression: '_1',
+root: 'payload.message',
+success: true
+},
+{
+action: 'assert-exists',
+expression: '_1',
+root: 'payload.message',
+success: true
+},
+{
+action: 'assert-exists',
+expression: '_1',
+root: 'payload.message',
+success: true
+},
+{
+action: 'assert-exists',
+expression: '_1',
+root: 'payload.message',
+success: true
+},
+{
+action: 'assert-exists',
+expression: 'payload.status',
+success: true
+}
+],
+kind: 'sequence'
+}
+],
+kind: 'inputSet',
+name: 'default'
+}
+],
+inputBatteryName: 'default',
+kind: 'inputBattery'
+}
+],
+tags: ['dogs', 'retrievers'],
+criticalFailures: [],
+httpFailures: [],
+facts: {},
+date: 1645949450067,
+test: {
+name: 'Get all retriever sub-breeds',
+id: '621b20e8fd17v5416b299e9f'
+},
+failuresCount: 0,
+warningsCount: 0,
+compressed: false,
+run: {
+name: '',
+id: ''
+},
+company: {
+name: '',
+id: '7fb25570b4064716b9v6daae1a846790'
+},
+project: {
+name: 'Dog CEO',
+id: '621ad1466b1fa36aa4b8b044'
+},
+contextId: '856c431c-4e1a-46c2-9644-c084e7c36b61',
+temp: false,
+expireAt: null,
+executionTimeSeconds: 1,
+taskId: '693ddvb2-9482-4c51-95bf-52b3d70f5236',
+agent: 'wstestjs',
+mode: 'ondemand',
+buildId: '',
+exception: ''
+}
+]
 ```
 
 </details>
@@ -1198,7 +1200,6 @@ Runs all tests in a project synchronously.
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -1483,7 +1484,6 @@ Run all tests in a project synchronously.
   </tbody>
 </table>
 
-
 <Tabs
 groupId="dc-url"
 defaultValue="us"
@@ -1543,109 +1543,127 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </table>
 
 ```jsx title="Sample Response"
-[{
-    "id": "621b3d60a9f2b22a5a896344",
-    "events": [{
-        "date": 1545952352117,
-        "events": [{
-            "date": 1545952352117,
-            "events": [{
-                "date": 1545952352117,
-                "events": [{
-                    "action": "get",
-                    "expression": "https://dog.ceo/api/breed/retriever/list",
-                    "footprint": "dog.ceo/api/breed/retriever/list",
-                    "metrics": {
-                        "fetch": 1,
-                        "latency": 330,
-                        "overall": 343
-                    },
-                    "requestDetails": "GET https://dog.ceo/api/breed/retriever/list\n\nGET /api/breed/retriever/list HTTP/1.1\nhost: dog.ceo\nUser-Agent: SauceLabs/API-Fortress - WSTestJS\naccept-encoding: gzip, deflate\n\n",
-                    "status": 200,
-                    "success": true
-                }, {
-                    "action": "assert-equals",
-                    "expression": "payload_response.headers['Content-Type']==application/json",
-                    "success": true
-                }, {
-                    "action": "assert-exists",
-                    "expression": "payload",
-                    "success": true
-                }, {
-                    "action": "assert-is",
-                    "expression": "payload.message is array",
-                    "success": true
-                }, {
-                    "action": "assert-exists",
-                    "expression": "_1",
-                    "root": "payload.message",
-                    "success": true
-                }, {
-                    "action": "assert-exists",
-                    "expression": "_1",
-                    "root": "payload.message",
-                    "success": true
-                }, {
-                    "action": "assert-exists",
-                    "expression": "_1",
-                    "root": "payload.message",
-                    "success": true
-                }, {
-                    "action": "assert-exists",
-                    "expression": "_1",
-                    "root": "payload.message",
-                    "success": true
-                }, {
-                    "action": "assert-exists",
-                    "expression": "payload.status",
-                    "success": true
-                }],
-                "kind": "sequence"
-            }],
-            "kind": "inputSet",
-            "name": "default"
-        }],
-        "inputBatteryName": "default",
-        "kind": "inputBattery"
-    }],
-    "tags": ["dogs", "retrievers"],
-    "criticalFailures": [],
-    "httpFailures": [],
-    "facts": {},
-    "date": 1645952352117,
-    "test": {
-        "name": "Get all retriever sub-breeds",
-        "id": "621b20e8fd17a5416b299e9f"
-    },
-    "failuresCount": 0,
-    "warningsCount": 0,
-    "compressed": false,
-    "run": {
-        "name": "",
-        "id": ""
-    },
-    "company": {
-        "name": "",
-        "id": "7fb25570b4064716b9b6daae2a846890"
-    },
-    "project": {
-        "name": "Dog CEO",
-        "id": "621ad1466b1fa36aa4b8b044"
-    },
-    "contextId": "6cb1d39a-0964-3dfb-b595-7eabb3db1840",
-    "temp": false,
-    "expireAt": null,
-    "executionTimeSeconds": 1,
-    "taskId": "35bc67c7-c8ec-4686-b30d-47cc48e094hf",
-    "agent": "wstestjs",
-    "mode": "ondemand",
-    "buildId": "",
-    "exception": ""
-}]
+;[
+{
+id: '621b3d60a9f2b22a5a896344',
+events: [
+{
+date: 1545952352117,
+events: [
+{
+date: 1545952352117,
+events: [
+{
+date: 1545952352117,
+events: [
+{
+action: 'get',
+expression: 'https://dog.ceo/api/breed/retriever/list',
+footprint: 'dog.ceo/api/breed/retriever/list',
+metrics: {
+fetch: 1,
+latency: 330,
+overall: 343
+},
+requestDetails:
+'GET https://dog.ceo/api/breed/retriever/list\n\nGET /api/breed/retriever/list HTTP/1.1\nhost: dog.ceo\nUser-Agent: SauceLabs/API-Fortress - WSTestJS\naccept-encoding: gzip, deflate\n\n',
+status: 200,
+success: true
+},
+{
+action: 'assert-equals',
+expression: "payload_response.headers['Content-Type']==application/json",
+success: true
+},
+{
+action: 'assert-exists',
+expression: 'payload',
+success: true
+},
+{
+action: 'assert-is',
+expression: 'payload.message is array',
+success: true
+},
+{
+action: 'assert-exists',
+expression: '_1',
+root: 'payload.message',
+success: true
+},
+{
+action: 'assert-exists',
+expression: '_1',
+root: 'payload.message',
+success: true
+},
+{
+action: 'assert-exists',
+expression: '_1',
+root: 'payload.message',
+success: true
+},
+{
+action: 'assert-exists',
+expression: '_1',
+root: 'payload.message',
+success: true
+},
+{
+action: 'assert-exists',
+expression: 'payload.status',
+success: true
+}
+],
+kind: 'sequence'
+}
+],
+kind: 'inputSet',
+name: 'default'
+}
+],
+inputBatteryName: 'default',
+kind: 'inputBattery'
+}
+],
+tags: ['dogs', 'retrievers'],
+criticalFailures: [],
+httpFailures: [],
+facts: {},
+date: 1645952352117,
+test: {
+name: 'Get all retriever sub-breeds',
+id: '621b20e8fd17a5416b299e9f'
+},
+failuresCount: 0,
+warningsCount: 0,
+compressed: false,
+run: {
+name: '',
+id: ''
+},
+company: {
+name: '',
+id: '7fb25570b4064716b9b6daae2a846890'
+},
+project: {
+name: 'Dog CEO',
+id: '621ad1466b1fa36aa4b8b044'
+},
+contextId: '6cb1d39a-0964-3dfb-b595-7eabb3db1840',
+temp: false,
+expireAt: null,
+executionTimeSeconds: 1,
+taskId: '35bc67c7-c8ec-4686-b30d-47cc48e094hf',
+agent: 'wstestjs',
+mode: 'ondemand',
+buildId: '',
+exception: ''
+}
+]
 ```
 
 </details>
-
 
 ---
 
@@ -1709,7 +1727,6 @@ Executes synchronously the test you send in the request body and saves the resul
   </tbody>
 </table>
 
-
 <Tabs
 groupId="dc-url"
 defaultValue="us"
@@ -1771,343 +1788,434 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </table>
 
 ```jsx title="Sample Response"
-[{
-    "id": "621dd85d6b1fa36aa4b8b1d1",
-    "events": [{
-        "date": 1646122845550,
-        "events": [{
-            "date": 1646122845550,
-            "events": [{
-                "date": 1646122845550,
-                "events": [{
-                    "action": "get",
-                    "expression": "https://saucelabs.com/rest/v1/public/tunnels/info/versions",
-                    "footprint": "saucelabs.com/rest/v1/public/tunnels/info/versions",
-                    "metrics": {
-                        "fetch": 1,
-                        "latency": 137,
-                        "overall": 162
-                    },
-                    "requestDetails": "GET https://saucelabs.com/rest/v1/public/tunnels/info/versions\n\nGET /rest/v1/public/tunnels/info/versions HTTP/1.1\nhost: saucelabs.com\nUser-Agent: SauceLabs/API-Fortress - WSTestJS\naccept-encoding: gzip, deflate\n\n",
-                    "status": 200,
-                    "success": true
-                }, {
-                    "action": "assert-equals",
-                    "expression": "payload_response.headers['Content-Type']==application/json",
-                    "foundValue": "application/json; charset=utf-8",
-                    "level": 0,
-                    "snapshot": {
-                        "domain": "dog.ceo",
-                        "endpoint": "/api/breed/retriever/list",
-                        "payload_response": {
-                            "headers": [{
-                                "name": "server",
-                                "value": "nginx"
-                            }, {
-                                "name": "date",
-                                "value": "Tue, 01 Mar 2022 08:20:45 GMT"
-                            }, {
-                                "name": "content-type",
-                                "value": "application/json; charset=utf-8"
-                            }, {
-                                "name": "content-length",
-                                "value": "617"
-                            }, {
-                                "name": "connection",
-                                "value": "close"
-                            }, {
-                                "name": "x-ratelimit-limit",
-                                "value": "10"
-                            }, {
-                                "name": "x-ratelimit-remaining",
-                                "value": "9"
-                            }, {
-                                "name": "x-ratelimit-reset",
-                                "value": "60"
-                            }, {
-                                "name": "vary",
-                                "value": "*"
-                            }, {
-                                "name": "cache-control",
-                                "value": "no-cache"
-                            }, {
-                                "name": "x-sl-request-id",
-                                "value": "adc111d8b5cc4dde89f64ebca253e1aa"
-                            }, {
-                                "name": "x-envoy-upstream-service-time",
-                                "value": "90"
-                            }, {
-                                "name": "x-backend",
-                                "value": "tunnel-resto"
-                            }, {
-                                "name": "x-frame-options",
-                                "value": "SAMEORIGIN"
-                            }, {
-                                "name": "x-content-type-options",
-                                "value": "nosniff"
-                            }, {
-                                "name": "x-xss-protection",
-                                "value": "1; mode=block"
-                            }, {
-                                "name": "strict-transport-security",
-                                "value": "max-age=63072000; includeSubDomains"
-                            }],
-                            "statusCode": "200"
-                        },
-                        "payload_source": "a2c6057726bf89ba6bbfccbb64ac0e4754535b9b2774cb393c16070bed947966",
-                        "protocol": "https://"
-                    },
-                    "success": false
-                }, {
-                    "action": "assert-exists",
-                    "expression": "payload",
-                    "success": true
-                }, {
-                    "action": "assert-is",
-                    "expression": "payload.message is array",
-                    "level": 0,
-                    "snapshot": {
-                        "domain": "dog.ceo",
-                        "endpoint": "/api/breed/retriever/list",
-                        "payload_response": {
-                            "headers": [{
-                                "name": "server",
-                                "value": "nginx"
-                            }, {
-                                "name": "date",
-                                "value": "Tue, 01 Mar 2022 08:20:45 GMT"
-                            }, {
-                                "name": "content-type",
-                                "value": "application/json; charset=utf-8"
-                            }, {
-                                "name": "content-length",
-                                "value": "617"
-                            }, {
-                                "name": "connection",
-                                "value": "close"
-                            }, {
-                                "name": "x-ratelimit-limit",
-                                "value": "10"
-                            }, {
-                                "name": "x-ratelimit-remaining",
-                                "value": "9"
-                            }, {
-                                "name": "x-ratelimit-reset",
-                                "value": "60"
-                            }, {
-                                "name": "vary",
-                                "value": "*"
-                            }, {
-                                "name": "cache-control",
-                                "value": "no-cache"
-                            }, {
-                                "name": "x-sl-request-id",
-                                "value": "adc111d8a5cc4dde89f64ebca253e1aa"
-                            }, {
-                                "name": "x-envoy-upstream-service-time",
-                                "value": "90"
-                            }, {
-                                "name": "x-backend",
-                                "value": "tunnel-resto"
-                            }, {
-                                "name": "x-frame-options",
-                                "value": "SAMEORIGIN"
-                            }, {
-                                "name": "x-content-type-options",
-                                "value": "nosniff"
-                            }, {
-                                "name": "x-xss-protection",
-                                "value": "1; mode=block"
-                            }, {
-                                "name": "strict-transport-security",
-                                "value": "max-age=63072000; includeSubDomains"
-                            }],
-                            "statusCode": "200"
-                        },
-                        "payload_source": "a2c6057726bf89ba6bbfccbb64ac0e4854535b9b2774cb393c16070bed947966",
-                        "protocol": "https://"
-                    },
-                    "success": false
-                }, {
-                    "action": "assert-exists",
-                    "expression": "_1",
-                    "level": 0,
-                    "root": "payload.message",
-                    "snapshot": {
-                        "domain": "dog.ceo",
-                        "endpoint": "/api/breed/retriever/list",
-                        "payload_response": {
-                            "headers": [{
-                                "name": "server",
-                                "value": "nginx"
-                            }, {
-                                "name": "date",
-                                "value": "Tue, 01 Mar 2022 08:20:45 GMT"
-                            }, {
-                                "name": "content-type",
-                                "value": "application/json; charset=utf-8"
-                            }, {
-                                "name": "content-length",
-                                "value": "617"
-                            }, {
-                                "name": "connection",
-                                "value": "close"
-                            }, {
-                                "name": "x-ratelimit-limit",
-                                "value": "10"
-                            }, {
-                                "name": "x-ratelimit-remaining",
-                                "value": "9"
-                            }, {
-                                "name": "x-ratelimit-reset",
-                                "value": "60"
-                            }, {
-                                "name": "vary",
-                                "value": "*"
-                            }, {
-                                "name": "cache-control",
-                                "value": "no-cache"
-                            }, {
-                                "name": "x-sl-request-id",
-                                "value": "adc211d8a5cc4dde89f64ebca253e1aa"
-                            }, {
-                                "name": "x-envoy-upstream-service-time",
-                                "value": "90"
-                            }, {
-                                "name": "x-backend",
-                                "value": "tunnel-resto"
-                            }, {
-                                "name": "x-frame-options",
-                                "value": "SAMEORIGIN"
-                            }, {
-                                "name": "x-content-type-options",
-                                "value": "nosniff"
-                            }, {
-                                "name": "x-xss-protection",
-                                "value": "1; mode=block"
-                            }, {
-                                "name": "strict-transport-security",
-                                "value": "max-age=63072000; includeSubDomains"
-                            }],
-                            "statusCode": "200"
-                        },
-                        "payload_source": "a2c6057722bf89ba6bbfccbb64ac0e4754535b9b2774cb393c16070bed947966",
-                        "protocol": "https://"
-                    },
-                    "success": false
-                }, {
-                    "action": "assert-exists",
-                    "expression": "payload.status",
-                    "level": 0,
-                    "snapshot": {
-                        "domain": "dog.ceo",
-                        "endpoint": "/api/breed/retriever/list",
-                        "payload_response": {
-                            "headers": [{
-                                "name": "server",
-                                "value": "nginx"
-                            }, {
-                                "name": "date",
-                                "value": "Tue, 01 Mar 2022 08:20:45 GMT"
-                            }, {
-                                "name": "content-type",
-                                "value": "application/json; charset=utf-8"
-                            }, {
-                                "name": "content-length",
-                                "value": "617"
-                            }, {
-                                "name": "connection",
-                                "value": "close"
-                            }, {
-                                "name": "x-ratelimit-limit",
-                                "value": "10"
-                            }, {
-                                "name": "x-ratelimit-remaining",
-                                "value": "9"
-                            }, {
-                                "name": "x-ratelimit-reset",
-                                "value": "60"
-                            }, {
-                                "name": "vary",
-                                "value": "*"
-                            }, {
-                                "name": "cache-control",
-                                "value": "no-cache"
-                            }, {
-                                "name": "x-sl-request-id",
-                                "value": "adc111d8a5cc4dde89f64ebca253e1aa"
-                            }, {
-                                "name": "x-envoy-upstream-service-time",
-                                "value": "90"
-                            }, {
-                                "name": "x-backend",
-                                "value": "tunnel-resto"
-                            }, {
-                                "name": "x-frame-options",
-                                "value": "SAMEORIGIN"
-                            }, {
-                                "name": "x-content-type-options",
-                                "value": "nosniff"
-                            }, {
-                                "name": "x-xss-protection",
-                                "value": "1; mode=block"
-                            }, {
-                                "name": "strict-transport-security",
-                                "value": "max-age=63072000; includeSubDomains"
-                            }],
-                            "statusCode": "200"
-                        },
-                        "payload_source": "a226057726bf89ba6bbfccbb64ac0e4754535b9b2774cb393c16070bed947966",
-                        "protocol": "https://"
-                    },
-                    "success": false
-                }],
-                "kind": "sequence"
-            }],
-            "kind": "inputSet",
-            "name": "default"
-        }],
-        "inputBatteryName": "default",
-        "kind": "inputBattery"
-    }],
-    "tags": ["dogs", "retrievers"],
-    "criticalFailures": [],
-    "httpFailures": [],
-    "facts": {},
-    "date": 1646122845539,
-    "test": {
-        "name": "Get all retriever sub-breeds",
-        "id": "e42b06a6-bb34-49a8-81a7-35c8b58b6457"
-    },
-    "failuresCount": 4,
-    "warningsCount": 0,
-    "compressed": false,
-    "run": {
-        "name": "",
-        "id": ""
-    },
-    "company": {
-        "name": "",
-        "id": "7fb25570b4064716b4b6daae2a846790"
-    },
-    "project": {
-        "name": "Dog CEO",
-        "id": "621ad1466b1fa36aa4b8b044"
-    },
-    "contextId": "e4cb06a6-bb34-44a8-81a7-35c8b58b6457",
-    "temp": false,
-    "expireAt": null,
-    "executionTimeSeconds": 1,
-    "taskId": "3dd9dd20-4586-4b6b-8eb5-b319b249823b",
-    "agent": "wstestjs",
-    "mode": "ondemand",
-    "buildId": "",
-    "exception": ""
-}]
+;[
+{
+id: '621dd85d6b1fa36aa4b8b1d1',
+events: [
+{
+date: 1646122845550,
+events: [
+{
+date: 1646122845550,
+events: [
+{
+date: 1646122845550,
+events: [
+{
+action: 'get',
+expression: 'https://saucelabs.com/rest/v1/public/tunnels/info/versions',
+footprint: 'saucelabs.com/rest/v1/public/tunnels/info/versions',
+metrics: {
+fetch: 1,
+latency: 137,
+overall: 162
+},
+requestDetails:
+'GET https://saucelabs.com/rest/v1/public/tunnels/info/versions\n\nGET /rest/v1/public/tunnels/info/versions HTTP/1.1\nhost: saucelabs.com\nUser-Agent: SauceLabs/API-Fortress - WSTestJS\naccept-encoding: gzip, deflate\n\n',
+status: 200,
+success: true
+},
+{
+action: 'assert-equals',
+expression: "payload_response.headers['Content-Type']==application/json",
+foundValue: 'application/json; charset=utf-8',
+level: 0,
+snapshot: {
+domain: 'dog.ceo',
+endpoint: '/api/breed/retriever/list',
+payload_response: {
+headers: [
+{
+name: 'server',
+value: 'nginx'
+},
+{
+name: 'date',
+value: 'Tue, 01 Mar 2022 08:20:45 GMT'
+},
+{
+name: 'content-type',
+value: 'application/json; charset=utf-8'
+},
+{
+name: 'content-length',
+value: '617'
+},
+{
+name: 'connection',
+value: 'close'
+},
+{
+name: 'x-ratelimit-limit',
+value: '10'
+},
+{
+name: 'x-ratelimit-remaining',
+value: '9'
+},
+{
+name: 'x-ratelimit-reset',
+value: '60'
+},
+{
+name: 'vary',
+value: '*'
+},
+{
+name: 'cache-control',
+value: 'no-cache'
+},
+{
+name: 'x-sl-request-id',
+value: 'adc111d8b5cc4dde89f64ebca253e1aa'
+},
+{
+name: 'x-envoy-upstream-service-time',
+value: '90'
+},
+{
+name: 'x-backend',
+value: 'tunnel-resto'
+},
+{
+name: 'x-frame-options',
+value: 'SAMEORIGIN'
+},
+{
+name: 'x-content-type-options',
+value: 'nosniff'
+},
+{
+name: 'x-xss-protection',
+value: '1; mode=block'
+},
+{
+name: 'strict-transport-security',
+value: 'max-age=63072000; includeSubDomains'
+}
+],
+statusCode: '200'
+},
+payload_source:
+'a2c6057726bf89ba6bbfccbb64ac0e4754535b9b2774cb393c16070bed947966',
+protocol: 'https://'
+},
+success: false
+},
+{
+action: 'assert-exists',
+expression: 'payload',
+success: true
+},
+{
+action: 'assert-is',
+expression: 'payload.message is array',
+level: 0,
+snapshot: {
+domain: 'dog.ceo',
+endpoint: '/api/breed/retriever/list',
+payload_response: {
+headers: [
+{
+name: 'server',
+value: 'nginx'
+},
+{
+name: 'date',
+value: 'Tue, 01 Mar 2022 08:20:45 GMT'
+},
+{
+name: 'content-type',
+value: 'application/json; charset=utf-8'
+},
+{
+name: 'content-length',
+value: '617'
+},
+{
+name: 'connection',
+value: 'close'
+},
+{
+name: 'x-ratelimit-limit',
+value: '10'
+},
+{
+name: 'x-ratelimit-remaining',
+value: '9'
+},
+{
+name: 'x-ratelimit-reset',
+value: '60'
+},
+{
+name: 'vary',
+value: '*'
+},
+{
+name: 'cache-control',
+value: 'no-cache'
+},
+{
+name: 'x-sl-request-id',
+value: 'adc111d8a5cc4dde89f64ebca253e1aa'
+},
+{
+name: 'x-envoy-upstream-service-time',
+value: '90'
+},
+{
+name: 'x-backend',
+value: 'tunnel-resto'
+},
+{
+name: 'x-frame-options',
+value: 'SAMEORIGIN'
+},
+{
+name: 'x-content-type-options',
+value: 'nosniff'
+},
+{
+name: 'x-xss-protection',
+value: '1; mode=block'
+},
+{
+name: 'strict-transport-security',
+value: 'max-age=63072000; includeSubDomains'
+}
+],
+statusCode: '200'
+},
+payload_source:
+'a2c6057726bf89ba6bbfccbb64ac0e4854535b9b2774cb393c16070bed947966',
+protocol: 'https://'
+},
+success: false
+},
+{
+action: 'assert-exists',
+expression: '_1',
+level: 0,
+root: 'payload.message',
+snapshot: {
+domain: 'dog.ceo',
+endpoint: '/api/breed/retriever/list',
+payload_response: {
+headers: [
+{
+name: 'server',
+value: 'nginx'
+},
+{
+name: 'date',
+value: 'Tue, 01 Mar 2022 08:20:45 GMT'
+},
+{
+name: 'content-type',
+value: 'application/json; charset=utf-8'
+},
+{
+name: 'content-length',
+value: '617'
+},
+{
+name: 'connection',
+value: 'close'
+},
+{
+name: 'x-ratelimit-limit',
+value: '10'
+},
+{
+name: 'x-ratelimit-remaining',
+value: '9'
+},
+{
+name: 'x-ratelimit-reset',
+value: '60'
+},
+{
+name: 'vary',
+value: '*'
+},
+{
+name: 'cache-control',
+value: 'no-cache'
+},
+{
+name: 'x-sl-request-id',
+value: 'adc211d8a5cc4dde89f64ebca253e1aa'
+},
+{
+name: 'x-envoy-upstream-service-time',
+value: '90'
+},
+{
+name: 'x-backend',
+value: 'tunnel-resto'
+},
+{
+name: 'x-frame-options',
+value: 'SAMEORIGIN'
+},
+{
+name: 'x-content-type-options',
+value: 'nosniff'
+},
+{
+name: 'x-xss-protection',
+value: '1; mode=block'
+},
+{
+name: 'strict-transport-security',
+value: 'max-age=63072000; includeSubDomains'
+}
+],
+statusCode: '200'
+},
+payload_source:
+'a2c6057722bf89ba6bbfccbb64ac0e4754535b9b2774cb393c16070bed947966',
+protocol: 'https://'
+},
+success: false
+},
+{
+action: 'assert-exists',
+expression: 'payload.status',
+level: 0,
+snapshot: {
+domain: 'dog.ceo',
+endpoint: '/api/breed/retriever/list',
+payload_response: {
+headers: [
+{
+name: 'server',
+value: 'nginx'
+},
+{
+name: 'date',
+value: 'Tue, 01 Mar 2022 08:20:45 GMT'
+},
+{
+name: 'content-type',
+value: 'application/json; charset=utf-8'
+},
+{
+name: 'content-length',
+value: '617'
+},
+{
+name: 'connection',
+value: 'close'
+},
+{
+name: 'x-ratelimit-limit',
+value: '10'
+},
+{
+name: 'x-ratelimit-remaining',
+value: '9'
+},
+{
+name: 'x-ratelimit-reset',
+value: '60'
+},
+{
+name: 'vary',
+value: '*'
+},
+{
+name: 'cache-control',
+value: 'no-cache'
+},
+{
+name: 'x-sl-request-id',
+value: 'adc111d8a5cc4dde89f64ebca253e1aa'
+},
+{
+name: 'x-envoy-upstream-service-time',
+value: '90'
+},
+{
+name: 'x-backend',
+value: 'tunnel-resto'
+},
+{
+name: 'x-frame-options',
+value: 'SAMEORIGIN'
+},
+{
+name: 'x-content-type-options',
+value: 'nosniff'
+},
+{
+name: 'x-xss-protection',
+value: '1; mode=block'
+},
+{
+name: 'strict-transport-security',
+value: 'max-age=63072000; includeSubDomains'
+}
+],
+statusCode: '200'
+},
+payload_source:
+'a226057726bf89ba6bbfccbb64ac0e4754535b9b2774cb393c16070bed947966',
+protocol: 'https://'
+},
+success: false
+}
+],
+kind: 'sequence'
+}
+],
+kind: 'inputSet',
+name: 'default'
+}
+],
+inputBatteryName: 'default',
+kind: 'inputBattery'
+}
+],
+tags: ['dogs', 'retrievers'],
+criticalFailures: [],
+httpFailures: [],
+facts: {},
+date: 1646122845539,
+test: {
+name: 'Get all retriever sub-breeds',
+id: 'e42b06a6-bb34-49a8-81a7-35c8b58b6457'
+},
+failuresCount: 4,
+warningsCount: 0,
+compressed: false,
+run: {
+name: '',
+id: ''
+},
+company: {
+name: '',
+id: '7fb25570b4064716b4b6daae2a846790'
+},
+project: {
+name: 'Dog CEO',
+id: '621ad1466b1fa36aa4b8b044'
+},
+contextId: 'e4cb06a6-bb34-44a8-81a7-35c8b58b6457',
+temp: false,
+expireAt: null,
+executionTimeSeconds: 1,
+taskId: '3dd9dd20-4586-4b6b-8eb5-b319b249823b',
+agent: 'wstestjs',
+mode: 'ondemand',
+buildId: '',
+exception: ''
+}
+]
 ```
 
 </details>
-
 
 ## Events
 
@@ -2152,7 +2260,6 @@ Lists all events in a project.
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -2399,7 +2506,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 </details>
 
-
 ## Metrics
 
 ### Get Metrics
@@ -2419,7 +2525,6 @@ Returns metrics for all tests in a project.
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"

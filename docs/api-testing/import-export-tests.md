@@ -8,16 +8,16 @@ description: How to import, export, and clone Sauce Labs API Tests.
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Importing, exporting, and cloning tests from within Sauce Labs API Testing can be useful for:
-* Moving tests from one Project to another
-* Sharing tests with Sauce Labs Support team for help
+
+- Moving tests from one Project to another
+- Sharing tests with Sauce Labs Support team for help
 
 For information on moving tests from API Fortress (our legacy platform) to Sauce Labs API Testing, see [API Fortress Legacy Migration Guide](/api-testing/legacy).
 
-
 ## What You'll Need
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* An existing API Testing Project and Test. For details on how to create them, see [API Testing Quickstart](/api-testing/quickstart/).
 
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- An existing API Testing Project and Test. For details on how to create them, see [API Testing Quickstart](/api-testing/quickstart/).
 
 ## Importing API Tests to Sauce Labs
 
@@ -43,7 +43,6 @@ To export a Sauce Labs API test,
 2. Click on any Project.
 3. On the **Tests** tab, select one or more tests you'd like to export by clicking the checkboxes next to each test name.
 4. From the nav, click the **Export** button. This will generate a zip file containing the tests and automatically download it to your local machine.
-
 
 ## Cloning Tests
 

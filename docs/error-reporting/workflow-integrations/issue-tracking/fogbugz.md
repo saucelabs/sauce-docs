@@ -4,6 +4,7 @@ title: FogBugz Integration with Backtrace
 sidebar_label: FogBugz
 description: Integrate Backtrace with FogBugz.
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -11,6 +12,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 This guide goes through the steps necessary to integrate Backtrace with FogBugz. Setting up integration with the Fogbugz ticketing system requires a valid FogBugz server name and an API token (See: [Fogbugz documentation](https://support.fogbugz.com/hc/en-us/articles/360011351813-Access-Tokens-and-Integration-Servers) for instructions on how to get a token).
 
 ## Set Up the Integration
+
 To set up the integration, first go to the **Project Settings** page for the project you want to add a integration for:
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />

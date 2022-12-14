@@ -3,16 +3,16 @@ id: load-agent-deployment
 title: Load Agent Deployment
 sidebar_label: Load Agent Deployment
 keywords:
-    - api-testing
-    - how-to
-    - load-agent
+- api-testing
+- how-to
+- load-agent
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -35,15 +35,15 @@ Open the `docker-compose.yml` in the main API Fortress directory. It can be loca
    ```yaml
    #NODE
    apifortress-node:
-     image: theirish81/uitools
-     hostname: node.apifortress
-     networks:
-       - apifortress
-     domainname: node.apifortress
-     labels:
-       io.rancher.container.pull_image: always
-
+   image: theirish81/uitools
+   hostname: node.apifortress
+   networks:
+   - apifortress
+   domainname: node.apifortress
+   labels:
+   io.rancher.container.pull_image: always
    ```
+
 2. In the _links_ section of the #APIFORTRESS DASHBOARD configuration, add the following line:
 
    ```yaml
@@ -94,13 +94,13 @@ Large numbers of simulated users will require large amounts of hardware resource
 
 1. Locate and open `config.yaml`. It is located at `core-server/etc`.
 2. First, we have to configure the `baseURL`
-    - `baseURL` is located on line 3.
-    - If the Load Agent and the API Fortress Dashboard are located on the same server, then you can replace the baseURL with the internal address and port of the Dashboard on the server.
-    - If the Load Agent and the API Fortress Dashboard are located on different servers, you can replace the baseURL with the actual URL of the Dashboard. That is to say, the URL you would use to access it via web browser.
+   - `baseURL` is located on line 3.
+   - If the Load Agent and the API Fortress Dashboard are located on the same server, then you can replace the baseURL with the internal address and port of the Dashboard on the server.
+   - If the Load Agent and the API Fortress Dashboard are located on different servers, you can replace the baseURL with the actual URL of the Dashboard. That is to say, the URL you would use to access it via web browser.
 3. Next, we need to provide the API Key and Secret.
-    - Open the main API Fortress dashboard and click the gear icon in the upper right corner to access the settings menu
-    - Click the "_API Keys_" option in the left sidebar.
-    - Click "_+API Key"_
+   - Open the main API Fortress dashboard and click the gear icon in the upper right corner to access the settings menu
+   - Click the "_API Keys_" option in the left sidebar.
+   - Click "_+API Key"_
 
 <img src={useBaseUrl('img/api-fortress/2018/06/CreateAPIKey-1024x640.gif')} alt="CreateAPI.gif" />
 
@@ -112,6 +112,7 @@ Large numbers of simulated users will require large amounts of hardware resource
 ## Step 4 - Adding the Engine
 
 The next step is to add the new Engine to API Fortress itself.
+
 1. Log into API Fortress as an administrator.
 2. Click the user icon in the upper right corner, and then click _"Admin Panel"_
 3. Click _"Engines"_ on the left side of the screen.
@@ -120,7 +121,7 @@ The next step is to add the new Engine to API Fortress itself.
 6. The CRN value defaults to a random string. You _must_ change it to something human-readable. This is the internal name of the engine.
 7. After modifying the CRN, copy the value to line 11 of `config.yml`
 8. Copy the secret to line 12 of `config.yml`
-9. Select the Owning Company of the Engine. An Engine must be owned by a single company. The default value (Public Engine) should _not_ be chosen.
+9. Select the Owning Company of the Engine. An Engine must be owned by a single company. The default value (Public Engine) should *not* be chosen.
 10. Select _"Yes"_ for "_Dedicated to Load Testing_"
 11. Click the green check to save the Engine settings.
 

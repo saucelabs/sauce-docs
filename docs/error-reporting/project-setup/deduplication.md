@@ -4,11 +4,13 @@ title: Deduplication
 sidebar_label: Deduplication
 description: This guide provides a brief overview of the advantages and internals of the deduplication feature.
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Overview
+
 Backtrace automatically groups errors and crashes together according to similarity. This grouping allows you to effectively determine which bugs have the highest impact on users, revenue and other important factors. This guide provides a brief overview of the advantages and internals of the deduplication feature.
 
 Depending on your application, crash reports may come in from a few to many thousands a day. Triage and prioritization relies on determining which users are affected by a crash as well as the potential ramifications. Backtrace solves both of these problems through deduplication and classification.
@@ -26,7 +28,9 @@ Other systems rely on simplistic callstack-based grouping algorithms for determi
 Core to the Backtrace deduplication algorithm is a state machine that is driven by a domain-specific language that allows for transformations of an input callstack for the purposes of both pretty-printing and signature generation. These callstacks are different, one is optimized for human-readability while the other is optimized for grouping purposes. Enterprise customers are able to modify these rule sets for their applications. Otherwise, both cloud and enterprise customers benefit from frequent updates of these rules to better improve out-of-the-box grouping capabilities.
 
 ## Capabilities
+
 Backtrace uses a dynamic system that intelligently determines which portions of the callstack should be used, ignored and the level of information to be used for any given frame (line numbers, shared library, etc.).
+
 - Library, platform, error handling functions and other boiler-plate are ignored or short-circuit signature generation. This ensures the same bugs are grouped together according to root-cause without being affected by run-time non-determinism unrelated to the crash.
 - Compiler-generated names are normalized. This ensures that the same bugs are grouped together across compilation.
 - Functions subject to dynamic dispatch on platform features are normalized. This ensures bugs are grouped accurately even in the presence of different processor features.
@@ -36,7 +40,9 @@ Backtrace uses a dynamic system that intelligently determines which portions of 
 - The mechanism is extremely configurable and expressive enough that a few simple rules are sufficient for new application frameworks.
 
 ## Backtrace Versus Conventional Deduplication
+
 ### Group By First Application Frame
+
 Some systems will group according to the first application frame. This quickly starts to fall apart for many reasons including internal application error handling, faults in external libraries and more. More likely than not, such a system is too coarse-grained to be useful. Users are unable to distinguish
 
 Take the following example for a program called `program.exe`. The callstack of the crashing thread is `abort → application_abort → a → b` where `application_abort` is the first application frame. Competing systems will group by `application_abort`. This function is invoked in almost all cases where the application is explicitly aborting, leading to grossly ineffective deduplication.
@@ -48,6 +54,7 @@ Last but not least, these mechanisms disable the ability of doing callstack-anal
 Backtrace intelligently determines which frames to use to avoid situations like this.
 
 ### Group By Callstack
+
 On the other end of the spectrum is pure callstack-based grouping. This mechanism tends to be too fine-grained, leading to inaccurate aggregation of faults. Modern applications have a high degree of non-determinism both in their surrounding platform libraries as well as application code. In an event-based system, the same function could be invoked by an event loop processor in many different ways. If there is a hang condition, there are many different locations the hang may manifest.
 
 Some systems attempt to improve on this through restrictions such as only considering application frames. This also starts to break down as crucial application libraries end up being completely ignored for the purposes of fault aggregation.
@@ -55,10 +62,13 @@ Some systems attempt to improve on this through restrictions such as only consid
 Backtrace intelligently determines which frames to use to avoid situations like this.
 
 ### Group By Error Type or Exception Message
+
 Some systems will group simply by the type of error condition or an exception message. It goes without saying that this is insufficient for a vast majority of real-world faults. An exception message may be as generic as "failed to complete user action". Since the grouping is too coarse-grained, triage and prioritization is ineffective on these systems.
 
 ### Signature Lists
+
 Other systems approach this problem by using callstack-based grouping with giant lists of functions to include or exclude for the purposes of deduplication. Unfortunately, these systems are not flexible enough to handle compiler-generated names, non-deterministic callback interfaces and more. Backtrace has flexibility built in that allows a few simple rules that will fit a majority of use-cases without resorting to giant lists that require frequent maintenance.
 
 ### How Are Rules Improved?
+
 The system has generic rules that have been extrapolated from hundreds of thousands of crashes from complex real-world applications such as highly-multithreaded servers with event dispatch (50000+ threads) and complex desktop applications such as Firefox and Chrome. Whenever a new customer is on-boarded, our engineers will perform anonymized statistical analysis on faults so we constantly improve the core deduplication algorithm and surrounding rulesets.

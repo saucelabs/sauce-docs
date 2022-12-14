@@ -1,23 +1,23 @@
 ---
 id: certificate-based-mutual-ssl-tls-authentication
-title: "Certificate-based (mutual) SSL/TLS Authentication"
-sidebar_label: "Certificate-based (mutual) SSL/TLS Authentication"
+title: 'Certificate-based (mutual) SSL/TLS Authentication'
+sidebar_label: 'Certificate-based (mutual) SSL/TLS Authentication'
 keywords:
-    - api
-    - api-fortress
-    - self-hosted
-    - SSL/TLS
+- api
+- api-fortress
+- self-hosted
+- SSL/TLS
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 **Definition:** Mutual SSL authentication or certificate\-based mutual authentication, or client-side SSL authentication refers to two parties authenticating each other through verifying the provided digital certificate so that both parties are assured of the others' identity
 
-In API Fortress, the component in charge of registering thecertificateis the downloader. If your deployment has mixed auth/unauth endpoints, we suggest you create a specific downloader for each one scenario.  
+In API Fortress, the component in charge of registering thecertificateis the downloader. If your deployment has mixed auth/unauth endpoints, we suggest you create a specific downloader for each one scenario.
 
 :::note
 This feature is experimental and only available on a self-hosted instance.  
@@ -25,18 +25,17 @@ This feature is experimental and only available on a self-hosted instance.
 
 ## Install the servers certificates on the downloader's trust store
 
-This step may be not necessary based on the nature of the certificate and implementation. If the certificate is signed by an internal CA, this step is certainly mandatory.  
-
+This step may be not necessary based on the nature of the certificate and implementation. If the certificate is signed by an internal CA, this step is certainly mandatory.
 
 To trust the server certificate, you will need to create a derivative image of the downloader.
 
 Dockerfile example:
 
 ```
-FROM apifortress/remotedownloadagent:latest  
-COPY ca.crt /ca.crt  
-COPY cert.crt /cert.crt  
-RUN /usr/java/latest/bin/keytool -import -trustcacerts -keystore /usr/java/latest/jre/lib/security/cacerts -storepass changeit -alias localca -import -file /ca.crt -noprompt  
+FROM apifortress/remotedownloadagent:latest
+COPY ca.crt /ca.crt
+COPY cert.crt /cert.crt
+RUN /usr/java/latest/bin/keytool -import -trustcacerts -keystore /usr/java/latest/jre/lib/security/cacerts -storepass changeit -alias localca -import -file /ca.crt -noprompt
 RUN /usr/java/latest/bin/keytool -import -trustcacerts -keystore /usr/java/latest/jre/lib/security/cacerts -storepass changeit -alias localcrt -import -file /cert.crt -noprompt
 ```
 
@@ -97,10 +96,10 @@ If you had to go through step 1, you will need to:
 
 - add a volume to mount the client.jks file, as in:
 
-    ```
-    volumes:  
-        - ./client.jks:/client.jks
-    ```
+  ```
+  volumes:
+      - ./client.jks:/client.jks
+  ```
 
 - add an environment variable to configure the client certificate as in:
 
@@ -108,12 +107,12 @@ If you had to go through step 1, you will need to:
   client_cert_configuration: '{"keystorePath":"/client.jks","keystorePassword":"foobar"}'
   ```
 
-- the `disable_ssl_validation` must be set to false. Certificate validation needs to be active.  
+- the `disable_ssl_validation` must be set to false. Certificate validation needs to be active.
 
-You can now restart the downloader.  
+You can now restart the downloader.
 
 :::note
-If you are using .pfx files you can follow this [digicert guide](https://www.digicert.com/kb/ssl-support/jks-import-export-java.htm) to convert them to .jks files.  
+If you are using .pfx files you can follow this [digicert guide](https://www.digicert.com/kb/ssl-support/jks-import-export-java.htm) to convert them to .jks files.
 
 You can also bind multiple certificates to a single downloader, [click here to learn how](https://apifortress.com/doc/multiple-client-cert-downloader/).
 :::

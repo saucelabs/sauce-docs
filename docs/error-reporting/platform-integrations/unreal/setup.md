@@ -4,126 +4,140 @@ title: Setting Up Backtrace for Unreal Engine
 sidebar_label: Setup
 description: Add Backtrace to your Unreal Engine project.
 ---
+
 Add Backtrace to your Unreal Engine project to automatically detect and report native crashes that occur in your game.
 
 Backtrace supports Unreal Engine's Crash Reporter, therefore installation of a Backtrace SDK is not required to capture crashes.
-
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Features
+
 The Backtrace Unreal plugin reports on the following types of errors:
 
-* Crashes - An end to the game play experience, where the game crashes or restarts.
-* Hangs (mobile only) - Errors that occur when a game or an app is non-responsive.
-* Out of memory crashes (mobile only) - Terminations of your game or app due to low memory conditions.
+- Crashes - An end to the game play experience, where the game crashes or restarts.
+- Hangs (mobile only) - Errors that occur when a game or an app is non-responsive.
+- Out of memory crashes (mobile only) - Terminations of your game or app due to low memory conditions.
 
 ## Supported Platforms
-|Supported Platforms|Supported Systems|
-|---------|---------|
-|Mobile|Android, iOS|
-|PC|Windows, MacOS, Linux|
-|Game Consoles|PlayStation 4, PlayStation 5, Xbox One, Xbox Series X, Xbox Series S, Nintendo Switch|
+
+| Supported Platforms | Supported Systems                                                                     |
+| ------------------- | ------------------------------------------------------------------------------------- |
+| Mobile              | Android, iOS                                                                          |
+| PC                  | Windows, MacOS, Linux                                                                 |
+| Game Consoles       | PlayStation 4, PlayStation 5, Xbox One, Xbox Series X, Xbox Series S, Nintendo Switch |
 
 :::note
 For on-premise (self-hosted) users, the integration for Unreal Engine requires specific packages. For more information, contact support.
 :::
 
 ## What You'll Need
-* A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
-* Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
-* A Backtrace project and a submission token.
+
+- A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
+- Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
+- A Backtrace project and a submission token.
 
 :::tip Generate a Submission Token
-   1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
-   1. Select **+**.
-:::
+
+1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
+1. Select **+**.
+   :::
 
 ### System Requirements
-* Unreal Engine version 4.16 to 5.0
 
+- Unreal Engine version 4.16 to 5.0
 
 ## Enable the Crash Reporter
+
 1. In the Unreal Editor, go to **Edit > Project Settings**.
 1. In the Project Settings, search for "crash reporter".
 1. Under **Packaging**, enable **Include Crash Reporter**.
-  <img src={useBaseUrl('img/error-reporting/unreal-enable-crashreporter.png')} alt="Enable the Crash Reporter in the Unreal Editor." />
+   <img src={useBaseUrl('img/error-reporting/unreal-enable-crashreporter.png')} alt="Enable the Crash Reporter in the Unreal Editor." />
 
 :::note
 If you're building from the command line, add the `-crashreporter` flag.
 :::
 
-
 ## Initialize the Backtrace Client
+
 <Tabs
-  groupId="platforms"
-  defaultValue="windows"
-  values={[
-    {label: 'Windows', value: 'windows'},
-    {label: 'Android', value: 'android'},
-    {label: 'iOS', value: 'ios'},
-    {label: 'macOS', value: 'macos'},
-    {label: 'Linux', value: 'linux'},
-    {label: 'Game Consoles', value: 'GameConsoles'},
-  ]}>
+groupId="platforms"
+defaultValue="windows"
+values={[
+{label: 'Windows', value: 'windows'},
+{label: 'Android', value: 'android'},
+{label: 'iOS', value: 'ios'},
+{label: 'macOS', value: 'macos'},
+{label: 'Linux', value: 'linux'},
+{label: 'Game Consoles', value: 'GameConsoles'},
+]}>
 
 <TabItem value="windows">
 
 #### For Crashes in the Editor
+
 1. In the root directory for your Unreal Engine project, open the Config folder.
 1. Copy the `DefaultEngine.ini` file and paste it into the Engine > Config folder.
-:::note
-If the Engine folder doesn't exist at the root directory for your Unreal Engine project, create a new folder and name it Engine. Then in the Engine folder, create another folder and name it Config.
-:::
+   :::note
+   If the Engine folder doesn't exist at the root directory for your Unreal Engine project, create a new folder and name it Engine. Then in the Engine folder, create another folder and name it Config.
+   :::
 1. Rename the file to `UserEngine.ini`.
 1. Open the `UserEngine.ini` file and add the following lines:
-  ```
-  [CrashReportClient]
-  CrashReportClientVersion=1.0
-  DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
-  ```
+
+```
+[CrashReportClient]
+CrashReportClientVersion=1.0
+DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
+```
+
 1. For the `DataRouterUrl`, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need).
 
 When your app or game crashes in the Unreal Editor, the Unreal Engine Crash Reporter dialog will appear and allow you to send the crash report to your Backtrace instance.
 
-
 #### For Crashes in Packaged Builds
+
 You can configure the crash reporter to be the default for all packaged builds or for a single packaged build.
 
 To configure the crash reporter as the default for all packaged builds:
-  1. In the root directory for your Unreal Engine project, open the Config folder.
-  1. Copy the `DefaultEngine.ini` file and paste it into the following directory:
-    `[UNREAL_ENGINE]/UnrealEngine/Engine/Programs/CrashReportClient/Config`
-  :::note
-  The directory could also be under `C:/Program Files/Epic Games/UE_[version]`. You can also search your system for 'CrashReportClient' to find it.
-  :::
-  1. Open the `DefaultEngine.ini` file and add the following lines:
-    ```
-    [CrashReportClient]
-    CrashReportClientVersion=1.0
-    DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
-    ```
-  1. For the `DataRouterUrl`, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need).
+
+1. In the root directory for your Unreal Engine project, open the Config folder.
+1. Copy the `DefaultEngine.ini` file and paste it into the following directory:
+   `[UNREAL_ENGINE]/UnrealEngine/Engine/Programs/CrashReportClient/Config`
+   :::note
+   The directory could also be under `C:/Program Files/Epic Games/UE_[version]`. You can also search your system for 'CrashReportClient' to find it.
+   :::
+1. Open the `DefaultEngine.ini` file and add the following lines:
+
+   ```
+   [CrashReportClient]
+   CrashReportClientVersion=1.0
+   DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
+   ```
+
+1. For the `DataRouterUrl`, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need).
 
 To configure the crash reporter for a packaged build:
-  1. In the root directory for your Unreal Engine project, open the Config folder.
-  1. Copy the `DefaultEngine.ini` file and paste it into the following directory:
-      - For Unreal Engine 4.25 and earlier:
-    `[BUILD_DIRECTORY]/WindowsNoEditor/Engine/Programs/CrashReportClient/Config/NoRedist`
-      - For Unreal Engine 4.26 and higher:
-    `[BUILD_DIRECTORY]/WindowsNoEditor/Engine/Restricted/NoRedist/Programs/CrashReportClient/Config`
-    :::note
-    Create the subdirectories if they do not exist.
-    :::
-  1. Open the `DefaultEngine.ini` file and add the following lines:
-    ```
-    [CrashReportClient]
-    CrashReportClientVersion=1.0
-    DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
-    ```
-  1. For the `DataRouterUrl`, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need).
+
+1. In the root directory for your Unreal Engine project, open the Config folder.
+1. Copy the `DefaultEngine.ini` file and paste it into the following directory:
+   - For Unreal Engine 4.25 and earlier:
+     `[BUILD_DIRECTORY]/WindowsNoEditor/Engine/Programs/CrashReportClient/Config/NoRedist`
+   - For Unreal Engine 4.26 and higher:
+     `[BUILD_DIRECTORY]/WindowsNoEditor/Engine/Restricted/NoRedist/Programs/CrashReportClient/Config`
+     :::note
+     Create the subdirectories if they do not exist.
+     :::
+1. Open the `DefaultEngine.ini` file and add the following lines:
+
+   ```
+   [CrashReportClient]
+   CrashReportClientVersion=1.0
+   DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
+   ```
+
+1. For the `DataRouterUrl`, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need).
 
 </TabItem>
 <TabItem value="android">
@@ -132,39 +146,43 @@ Integrate the [backtrace-android](https://github.com/backtrace-labs/backtrace-an
 
 1. Download [BacktraceAndroid_UPL.xml](https://gist.github.com/lysannep/6c09a572baffede96cd250dbdf01279a#file-backtraceandroid_upl-xml).
 1. In the `BacktraceAndroid_UPL.xml` file, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need) for `BacktraceCredentials`.
-    - Java:
-      ```java
-      BacktraceCredentials credentials = new BacktraceCredentials("https://submit.backtrace.io/{subdomain}/{submission-token}/json");  
-      ```
-    - Kotlin:
-      ```java
-      val backtraceCredentials = BacktraceCredentials("https://submit.backtrace.io/{subdomain}/{submission-token}/json")
-      ```
+   - Java:
+     ```java
+     BacktraceCredentials credentials = new BacktraceCredentials("https://submit.backtrace.io/{subdomain}/{submission-token}/json");
+     ```
+   - Kotlin:
+     ```java
+     val backtraceCredentials = BacktraceCredentials("https://submit.backtrace.io/{subdomain}/{submission-token}/json")
+     ```
 1. In the directory for your Unreal Engine project, locate your app or game's `Build.cs` file.
 1. Place the `BacktraceAndroid_UPL.xml` file in the same directory with the `Build.cs` file.
 1. In the `Build.cs` file, add the following lines at the end of the `ModuleRules` class constructor:
-  ```
-  if (Target.Platform == UnrealTargetPlatform.Android)
-  {
-  	string PluginPath = Utils.MakePathRelativeTo(ModuleDirectory, Target.RelativeEnginePath);
-  	AdditionalPropertiesForReceipt.Add("AndroidPlugin", System.IO.Path.Combine(PluginPath, "BacktraceAndroid_UPL.xml"));
-  }
-  ```
+
+```
+if (Target.Platform == UnrealTargetPlatform.Android)
+{
+	string PluginPath = Utils.MakePathRelativeTo(ModuleDirectory, Target.RelativeEnginePath);
+	AdditionalPropertiesForReceipt.Add("AndroidPlugin", System.IO.Path.Combine(PluginPath, "BacktraceAndroid_UPL.xml"));
+}
+```
+
 1. Download the [BacktraceWrapper.h](https://gist.github.com/lysannep/6c09a572baffede96cd250dbdf01279a#file-backtracewrapper-h) header file and add it to your GameInstance.
 1. To initialize the Backtrace client, use `BacktraceIO::FInitializeBacktraceClient`.
-:::note
-It's recommended to initialize the client from the `GameInstance::OnStart()` method. However, if the method is not available, you can initialize the client with any method you use to start your app or game process.
-:::
-:::note
-Optionally, you can specify custom attributes and file attachment paths to submit with your error reports. If you choose to specify file attachment paths, they must be specified as Android paths. For example, to specify a file attachment path for your `ProjectSavedDir()`, use:
-  ```
-  if (Target.Platform == UnrealTargetPlatform.Android)
-  #include "Misc/App.h"
-  #if PLATFORM_ANDROID
-  extern FString GFilePathBase;
-  FString FileAttachmentPath = GFilePathBase + FString("/UE4Game/") + FApp::GetName() + TEXT("/") + FApp::GetName() + TEXT("/Saved") + TEXT("MyFileName.txt");
-  #endif
-  ```
+   :::note
+   It's recommended to initialize the client from the `GameInstance::OnStart()` method. However, if the method is not available, you can initialize the client with any method you use to start your app or game process.
+   :::
+   :::note
+   Optionally, you can specify custom attributes and file attachment paths to submit with your error reports. If you choose to specify file attachment paths, they must be specified as Android paths. For example, to specify a file attachment path for your `ProjectSavedDir()`, use:
+
+```
+if (Target.Platform == UnrealTargetPlatform.Android)
+#include "Misc/App.h"
+#if PLATFORM_ANDROID
+extern FString GFilePathBase;
+FString FileAttachmentPath = GFilePathBase + FString("/UE4Game/") + FApp::GetName() + TEXT("/") + FApp::GetName() + TEXT("/Saved") + TEXT("MyFileName.txt");
+#endif
+```
+
 For more details on how to convert your Unreal Engine paths to Android paths, see the conversion functions for `FAndroidPlatformFile::PathToAndroidPaths` in the `AndroidPlatformFile.cpp` file.
 :::
 
@@ -180,44 +198,47 @@ Integrate the [backtrace-cocoa](https://github.com/backtrace-labs/backtrace-coco
 1. Locate your app or game's `Build.cs` file.
 1. In the `Build.cs` file, add the following lines at the end of the `ModuleRules` class constructor:
 
-  ```
-  if (Target.Platform == UnrealTargetPlatform.IOS)
+```
+if (Target.Platform == UnrealTargetPlatform.IOS)
+{
+  PublicAdditionalFrameworks.AddRange(
+    new Framework[]
   {
-    PublicAdditionalFrameworks.AddRange(
-      new Framework[]
-    {
-      new Framework("Backtrace", "/Library/Frameworks/Backtrace.framework", "", true),
-      new Framework("Backtrace_PLCrashReporter", "/Library/Frameworks/Backtrace_PLCrashReporter.framework", "", true)
-    }
-      );
+    new Framework("Backtrace", "/Library/Frameworks/Backtrace.framework", "", true),
+    new Framework("Backtrace_PLCrashReporter", "/Library/Frameworks/Backtrace_PLCrashReporter.framework", "", true)
   }
-  ```
-  :::note
-  Make sure to reflect the path to where you've placed both frameworks within your game project.
-  :::
+    );
+}
+```
+
+:::note
+Make sure to reflect the path to where you've placed both frameworks within your game project.
+:::
+
 1. To initialize the Backtrace client, use the following to import `Backtrace-Swift.h` from `Backtrace.framework/Headers`:
 
-  ```
-  #if PLATFORM_IOS
-  #import <Backtrace/Backtrace-Swift.h>
-  #endif
+```
+#if PLATFORM_IOS
+#import <Backtrace/Backtrace-Swift.h>
+#endif
 
-  void UYourGameInstanceBase::OnStart()
-  {
-  #if PLATFORM_IOS
+void UYourGameInstanceBase::OnStart()
+{
+#if PLATFORM_IOS
 
-  BacktraceCredentials *credentials = [[BacktraceCredentials alloc]
-          initWithSubmissionUrl: [NSURL URLWithString: @"https://submit.backtrace.io/{subdomain}/{submission-token}/plcrash"]];
-  BacktraceClientConfiguration *configuration = [[BacktraceClientConfiguration alloc]
-                                                    initWithCredentials: credentials
-                                                    dbSettings: [[BacktraceDatabaseSettings alloc] init]
-                                                    reportsPerMin: 3
-                                                    allowsAttachingDebugger: NO
-                                                    detectOOM: TRUE];
-  BacktraceClient.shared = [[BacktraceClient alloc] initWithConfiguration: configuration error: nil];
-  #endif
-  }
-  ```
+BacktraceCredentials *credentials = [[BacktraceCredentials alloc]
+        initWithSubmissionUrl: [NSURL URLWithString: @"https://submit.backtrace.io/{subdomain}/{submission-token}/plcrash"]];
+BacktraceClientConfiguration *configuration = [[BacktraceClientConfiguration alloc]
+                                                  initWithCredentials: credentials
+                                                  dbSettings: [[BacktraceDatabaseSettings alloc] init]
+                                                  reportsPerMin: 3
+                                                  allowsAttachingDebugger: NO
+                                                  detectOOM: TRUE];
+BacktraceClient.shared = [[BacktraceClient alloc] initWithConfiguration: configuration error: nil];
+#endif
+}
+```
+
 1. For the `initWithSubmissionUrl`, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need).
 
 For information on how to change the default configuration settings for the Backtrace client, see [Configuring Backtrace for iOS](/error-reporting/platform-integrations/ios/configuration/).
@@ -241,106 +262,111 @@ To integrate error reporting in your Unreal Engine game for game consoles, see t
 </Tabs>
 
 ## Upload Debug Symbols
+
 You must now ensure your build environment has been configured to generate debug symbols, which can then be uploaded to your Backtrace instance, a connected Symbol Server, an Amazon S3 bucket, or a Google Cloud storage bucket.
 
 For information on how to generate symbols, see [Symbolication](/error-reporting/project-setup/symbolication/).
 
 ## Verify the Setup
+
 At this point, you've installed and setup the Backtrace client to automatically capture crashes in your Unreal Engine game or app.
 
 To test the integration, send a crash report to your Backtrace instance.
 
 <Tabs
-  groupId="platforms"
-  defaultValue="windows"
-  values={[
-    {label: 'Windows', value: 'windows'},
-    {label: 'Android', value: 'android'},
-    {label: 'iOS', value: 'ios'},
-    {label: 'macOS', value: 'macos'},
-    {label: 'Linux', value: 'linux'},
-    {label: 'Game Consoles', value: 'GameConsoles'},
-  ]}>
+groupId="platforms"
+defaultValue="windows"
+values={[
+{label: 'Windows', value: 'windows'},
+{label: 'Android', value: 'android'},
+{label: 'iOS', value: 'ios'},
+{label: 'macOS', value: 'macos'},
+{label: 'Linux', value: 'linux'},
+{label: 'Game Consoles', value: 'GameConsoles'},
+]}>
 
 <TabItem value="windows">
 
 To crash your game when it starts, create a class called MyActor and reference a blueprint. The blueprint can be attached to the BeginPlay event.
 
 The header file (which has the .h extension) contains the class definitions and functions, while the implementation of the class is defined by the .cpp file. For example:
-- `MyActor.h`:
-    ```cpp
-    // Fill out your copyright notice in the Description page of Project Settings.
-    ​
-    #pragma once
-    ​
-    #include "CoreMinimal.h"
-    #include "GameFramework/Actor.h"
-    #include "GenericPlatform/GenericPlatformCrashContext.h"
-    #include "MyActor.generated.h"
-    ​
-    UCLASS()
-    class BACKTRACE_API AMyActor : public AActor
-    {
-    	GENERATED_BODY()
 
-    public:
-    	// Sets default values for this actor's properties
-    	AMyActor();
-    ​
-    protected:
-    	// Called when the game starts or when spawned
-    	virtual void BeginPlay() override;
-    ​
-    public:
-    	// Called every frame
-    	virtual void Tick(float DeltaTime) override;
-    ​
-    	UFUNCTION(BlueprintCallable, Category = "Backtrace Tools")
-    		void DoCrashMe();
-    ​
-    };
-    ```
+- `MyActor.h`:
+
+  ```cpp
+  // Fill out your copyright notice in the Description page of Project Settings.
+  ​
+  #pragma once
+  ​
+  #include "CoreMinimal.h"
+  #include "GameFramework/Actor.h"
+  #include "GenericPlatform/GenericPlatformCrashContext.h"
+  #include "MyActor.generated.h"
+  ​
+  UCLASS()
+  class BACKTRACE_API AMyActor : public AActor
+  {
+  	GENERATED_BODY()
+
+  public:
+  	// Sets default values for this actor's properties
+  	AMyActor();
+  ​
+  protected:
+  	// Called when the game starts or when spawned
+  	virtual void BeginPlay() override;
+  ​
+  public:
+  	// Called every frame
+  	virtual void Tick(float DeltaTime) override;
+  ​
+  	UFUNCTION(BlueprintCallable, Category = "Backtrace Tools")
+  		void DoCrashMe();
+  ​
+  };
+  ```
 
 - `MyActor.cpp`:
-    ```cpp
-    // Fill out your copyright notice in the Description page of Project Settings.
-    ​
-    ​
-    #include "MyActor.h"
-    ​
-    // Sets default values
-    AMyActor::AMyActor()
-    {
-     	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-    	PrimaryActorTick.bCanEverTick = true;
-    ​
-    }
-    ​
-    // Called when the game starts or when spawned
-    void AMyActor::BeginPlay()
-    {
-    	Super::BeginPlay();
-    	{
-    ​
-    			FGenericCrashContext::SetGameData(TEXT("BluePrintCallStack"), TEXT("BluePrintCallStackValue"));
-    	}
 
-    }
-    ​
-    // Called every frame
-    void AMyActor::Tick(float DeltaTime)
-    {
-    	Super::Tick(DeltaTime);
-    ​
-    }
-    ​
-    void AMyActor::DoCrashMe()
-    {
-    ​
-    	UE_LOG(LogTemp, Fatal, TEXT("I crash and burn. Bye bye now"));
-    ​
-    }
-  ```  
+  ```cpp
+  // Fill out your copyright notice in the Description page of Project Settings.
+  ​
+  ​
+  #include "MyActor.h"
+  ​
+  // Sets default values
+  AMyActor::AMyActor()
+  {
+   	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+  	PrimaryActorTick.bCanEverTick = true;
+  ​
+  }
+  ​
+  // Called when the game starts or when spawned
+  void AMyActor::BeginPlay()
+  {
+  	Super::BeginPlay();
+  	{
+  ​
+  			FGenericCrashContext::SetGameData(TEXT("BluePrintCallStack"), TEXT("BluePrintCallStackValue"));
+  	}
+
+  }
+  ​
+  // Called every frame
+  void AMyActor::Tick(float DeltaTime)
+  {
+  	Super::Tick(DeltaTime);
+  ​
+  }
+  ​
+  void AMyActor::DoCrashMe()
+  {
+  ​
+  	UE_LOG(LogTemp, Fatal, TEXT("I crash and burn. Bye bye now"));
+  ​
+  }
+  ```
 
 </TabItem>
 <TabItem value="android">
@@ -352,7 +378,7 @@ The header file (which has the .h extension) contains the class definitions and 
   }
   catch (Exception exception) {
     backtraceClient.send(new BacktraceReport(e));
-  }  
+  }
   ```
 - Kotlin:
   ```java
@@ -368,6 +394,7 @@ The header file (which has the .h extension) contains the class definitions and 
 <TabItem value="ios">
 
 - Swift:
+
   ```objc
   import UIKit
   import Backtrace
@@ -396,7 +423,9 @@ The header file (which has the .h extension) contains the class definitions and 
     }
   }
   ```
+
 - Objective-C:
+
   ```objc
   #import "AppDelegate.h"
   @import Backtrace;

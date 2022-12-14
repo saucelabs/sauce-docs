@@ -9,7 +9,7 @@ description: Learn how to create and manage tests using some of the tempalte exa
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -19,7 +19,7 @@ API Fortress offers a vast repository of API Testing examples that you can eithe
 
 To insert a snippet into an empty test:
 
-1. Select __Examples__ on the left-hand menu in the UI:
+1. Select **Examples** on the left-hand menu in the UI:
 
    <p align="center"><img src={useBaseUrl('img/api-fortress/2019/06/examples.png')} alt="Example Snippet Tab"/> </p>
 
@@ -35,12 +35,11 @@ To insert a snippet into an empty test:
 
    <p align="center"><img src={useBaseUrl('img/api-fortress/2019/06/snippetResult.png')} alt="Snippet Result"/> </p>
 
-
 ## Insert a Snippet in an Existing Test
 
 To insert a snippet into an existing test:
 
-1. Select __Examples__ on the left-hand menu in the UI:
+1. Select **Examples** on the left-hand menu in the UI:
 
    <p align="center"><img src={useBaseUrl('img/api-fortress/2019/06/examples.png')} alt="Example Snippet Tab"/> </p>
 
@@ -54,7 +53,7 @@ To insert a snippet into an existing test:
 
    <p align="center"><img src={useBaseUrl('img/api-fortress/2019/06/snippetInsertion.png')} alt="Example Snippet Tab"/> </p>
 
-1. Finally, select __Run__ to execute the test and ensure it runs properly.
+1. Finally, select **Run** to execute the test and ensure it runs properly.
 
 :::warning Example is for Demonstration Purposes Only!
 In the example directly above, our snippet placement is invalid. Make sure you review each object relationship before you continue.

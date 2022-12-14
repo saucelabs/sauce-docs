@@ -1,19 +1,19 @@
 ---
 id: integration-testing
-title: "Build an Integration Test (Multistep Test)"
-sidebar_label: "Build an Integration Test (Multistep Test)"
+title: 'Build an Integration Test (Multistep Test)'
+sidebar_label: 'Build an Integration Test (Multistep Test)'
 keywords:
-    - integration-testing
-    - automation
-    - api-testing
-    - how-to
+- integration-testing
+- automation
+- api-testing
+- how-to
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -31,10 +31,11 @@ First, get the token by making your POST call. Name the payload variable `loginP
 
 <img src={useBaseUrl('img/api-fortress/2017/03/login.jpg')} alt="Login Pic"/>
 
-## Step 2 - Add an Assertion  
+## Step 2 - Add an Assertion
+
 Under the login procedure add an assertion named "Set (variable)." Set _Var_ as `access_token`, keep _Variable Mode_ as `String`, and set `Value` to `${loginPayload.access_token}`.
 
-You'll notice that what we are doing here is specifically taking the `access_token` variable in the `loginPayload` response, and setting it as `access_token`  
+You'll notice that what we are doing here is specifically taking the `access_token` variable in the `loginPayload` response, and setting it as `access_token`
 
 The dollar sign and brackets are necessary when referencing variables.
 
@@ -49,7 +50,6 @@ Next, make a GET call to your search endpoint. Name this payload `resultsPayload
 Again, notice the dollar sign and bracket. That is how you reference variables.
 
 <img src={useBaseUrl('img/api-fortress/2017/03/search.jpg')} alt="Search"/>
-
 
 ## Step 4 - Examine the Results
 

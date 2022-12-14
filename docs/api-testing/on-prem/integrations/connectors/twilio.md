@@ -1,31 +1,31 @@
 ---
 id: twilio
-title: "Connectors: Twilio"
+title: 'Connectors: Twilio'
 sidebar_label: Twilio
 keywords:
-    - api-testing
-    - integrations
-    - twilio
-    - connectors
+- api-testing
+- integrations
+- twilio
+- connectors
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-With the connection to Twilio you can send text and call alerts to your team. Send critical information on the test failure as well as a link to the test report from the failed test.  
+With the connection to Twilio you can send text and call alerts to your team. Send critical information on the test failure as well as a link to the test report from the failed test.
 
 ## Connector Setup
 
-Below is a quick guide to setting up and using the Twilio connector.  
+Below is a quick guide to setting up and using the Twilio connector.
 
 :::note
 This connector does not come pre-loaded out of the box for self-hosted/on-premises, and will need to be loaded separately. To learn how to load the connector into your API Fortress instance [click here.](/api-testing/on-prem/integrations/add-new-connector)  
-:::  
+:::
 
 ### Step 1: Create an Alert Group
 
@@ -46,7 +46,7 @@ This connector does not come pre-loaded out of the box for self-hosted/on-premis
    <img src={useBaseUrl('img/api-fortress/2020/02/twilio_configconnector.png')} alt="twilio_configconnector.png"/>
    Configure the connector with the following params:
 
-   1. `credential`s: the api credentials for Twilio. Please use the format:  `AccountSID:AuthToken`.  
+   1. `credential`s: the api credentials for Twilio. Please use the format: `AccountSID:AuthToken`.
    2. `from`: this is the number you own in Twilio where the messages and calls will originate from. Please use the format: `"+(country_code)#######" i.e. +15555555555`
       <img src={useBaseUrl('img/api-fortress/2020/02/twilio_creds.png')} alt="twilio_creds.png"/>
    3. `to`: this the number you would like to receive the messages and calls. Please use the format: `"+(country_code)#######" i.e. +15555555555`
