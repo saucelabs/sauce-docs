@@ -1,0 +1,43 @@
+{
+  "overrides": [
+    {
+      "files": "./docs/**/*.md",
+      "options": {
+        "parser": "markdown",
+        "tabWidth": 0,
+        "useTabs": false,
+        "trailingComma": "none",
+        "jsxSingleQuote": false,
+        "semi": false
+      }
+    },
+    {
+      "files": "./static/*.html",
+      "options": {
+        "parser": "html",
+        "tabWidth": 4,
+        "useTabs": false,
+        "semi": false,
+        "singleQuote": false,
+        "trailingComma": "none"
+      }
+    },
+    {
+      "files": "./**/css/*.css",
+      "options": {
+        "parser": "css",
+        "tabWidth": 4,
+        "useTabs": false,
+        "singleQuote": false,
+        "trailingComma": "none"
+      }
+    }
+  ],
+  "tabWidth": 4,
+  "useTabs": false,
+  "printWidth": 80,
+  "semi": true,
+  "trailingComma": "es5",
+  "jsxSingleQuote": true,
+  "singleQuote": true
+}
