@@ -836,20 +836,20 @@ capabilities.setCapability("sauce:options", sauceOptions);
 <p><small>| OPTIONAL | LIST | <span className="sauceDBlue">Virtual Devices Only</span> |</small></p>
 
 A list of search filters to enumerate after an app test to locate text files to upload as logs. Files are uploaded with the `.log` extension appended. The search paths are rooted at the application under test:
- - Android (path on the emulated device): `/data/data/*PACKAGE_ID*/...`
- - iOS: `*SIMULATED_DEVICE_PATH*/data/Containers/Data/Application/*APPLICATION_ID*/...`. On a macOS filesystem, an example of SIMULATED_DEVICE_PATH would be `~/Library/Developer/CoreSimulator/Devices/*DEVICE_ID*`
+ * Android (path on the emulated device): `/data/data/*PACKAGE_ID*/...`
+ * iOS: `*SIMULATED_DEVICE_PATH*/data/Containers/Data/Application/*APPLICATION_ID*/...`. On a macOS filesystem, an example of SIMULATED_DEVICE_PATH would be `~/Library/Developer/CoreSimulator/Devices/*DEVICE_ID*`
 
 The following examples outline how this is handled for the different device types.
 
 Supplying the list `["files/*_log", "*crash*"]` to an Android app test of the package `com.saucelabs.exampleapp` will upload all the files found after the test, that match either of the glob expressions:
-  - `/data/data/com.saucelabs.exampleapp/files/*.log`
-  - `/data/data/com.saucelabs.exampleapp/*crash*`
+  * `/data/data/com.saucelabs.exampleapp/files/*.log`
+  * `/data/data/com.saucelabs.exampleapp/*crash*`
 
 Supplying the list `["files/*_log", "*crash*"]` to an iOS app test will upload all the files found after the test, that match either of the glob expressions (SIMULATED_DEVICE_PATH and APPLICATION_ID filled in with example values):
-  - `~/Library/Developer/CoreSimulator/Devices/8BF8C5E3-E992-424F-A491-5C673761737C/data/Containers/Data/Application/DBF4A728-9414-4431-9A56-41EC1CBFFA0B/files/*.log`
-  - `~/Library/Developer/CoreSimulator/Devices/8BF8C5E3-E992-424F-A491-5C673761737C/data/Containers/Data/Application/DBF4A728-9414-4431-9A56-41EC1CBFFA0B/*crash*`
+  * `~/Library/Developer/CoreSimulator/Devices/8BF8C5E3-E992-424F-A491-5C673761737C/data/Containers/Data/Application/DBF4A728-9414-4431-9A56-41EC1CBFFA0B/files/*.log`
+  * `~/Library/Developer/CoreSimulator/Devices/8BF8C5E3-E992-424F-A491-5C673761737C/data/Containers/Data/Application/DBF4A728-9414-4431-9A56-41EC1CBFFA0B/*crash*`
 
-In both sets of examples, it is worth nothing that an asterisk can match directory elements as well as characters, so `files/*log` will match both `files/debug.log` and `files/subdir/other.log`
+In both sets of examples, it is worth noting that an asterisk can match directory elements as well as characters, so `files/*log` will match both `files/debug.log` and `files/subdir/other.log`
 
 
 
