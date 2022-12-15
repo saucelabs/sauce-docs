@@ -364,22 +364,44 @@ capabilities.setCapability("platformName", "Android");
 
 Allows you to set the mobile OS platform version that you want to use in your test.
 
+:::info NOTE
+Android and iOS platform versions are based on [Semantic Versioning](https://semver.org/), also known as SEMVER. This means that the versions will have the format `MAJOR.MINOR.PATCH`.
+:::
+
 **Virtual Devices**
 
 This is mandatory for Android Emulators and iOS Simulators. You can find the available versions in our [Platform Configurator](https://saucelabs.com/platform/platform-configurator).
 
 **Real Devices**
 
-This is optional for Real Devices and you can use this for [dynamic device allocation](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation) to specify incremental versions (e.g., `"15.1"`) or major versions (e.g., `"15"`). By setting a major version, you'd have access to all devices running incremental versions (`"15.1"`, `"15.2"`, `"15.2.1"`, "`15.4.4"`). This also extends to minor and point versions (e.g., specifying `"15.4"` will match `"15.4.0"`, `"15.4.1"`).
+This is optional for Real Devices. There are three options you can use to determine which version you want to use for your automated Appium, Espresso, or XCUITest tests:
+1. Don't provide a `platformVersion`, this will result in any available Android or iOS device, no matter the version.
+2. Provide a `platformVersion` that starts with your provided `platformVersion` string:
+    * **`12`:** matches all minors and patches for `platformVersion: "12"`. For example `12.1.0|12.1.1|12.2.0|...`
+    * **`12.1`:** matches all patches for `platformVersion: "12.1"`. For example `12.1.0|12.1.1`, it will **not** match `12.2.x|12.3.x` and higher
+    * **`12.1.1`:** matches all devices that have **this exact** platform version
+3. In/exclude a specific version and or a range of versions by using a regular expression (regex). You don't need to provide the forward slashes (`/{your-regex}/`) as you would normally do with regex. Keep in mind that the regex needs to match the format `MAJOR.MINOR.PATCH`. The possibilities are endless, but here are just a few examples:
+    * **`^1[3-4|6].*`:** Will match `13`, `14` and `16`, but not 15, see [example](https://regex101.com/r/ExICgZ/1).
+    * **`^(?!15).*`:** Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1).
+
+:::note NOTE
+The stricter the  `platformVersions` is,  the smaller the pool of available devices will be and the longer you might need to wait for the available device. We recommend using only the major version or using the regex option to get the best results and an available device in the fastest way. 
+:::
+
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 // For Android Emulators or iOS Simulators
+// the platformVersion needs to match exactly
 capabilities.setCapability("appium:platformVersion", "12.0");
-// For Real Devices, dynamically finding and available device with at least major version 12
+// For Real Devices, dynamically finding an available device 
+// with at least major version 12
 capabilities.setCapability("appium:platformVersion", "12");
-// For Real Devices when you exactly know the version of the device you want to use
+// For Real Devices when you exactly know the version of 
+// the device you want to use
 capabilities.setCapability("appium:platformVersion", "12.4.1");
+// For Real Devices when you want to exclude version 15
+capabilities.setCapability("appium:platformVersion", "^(?!15).*");
 ```
 
 ---
@@ -1446,11 +1468,6 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
-
-### `commandTimeout`
-<p><small>| INTEGER | <span className="sauceDBlue">Desktop Only</span> |</small></p>
-
-
 
 ### `priority`
 
