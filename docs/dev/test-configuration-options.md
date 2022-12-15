@@ -5,6 +5,8 @@ sidebar_label: Test Configuration Options
 description: An index of automation test configuration settings compatible with Sauce Labs test protocols.
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 This page provides a reference for the valid test configuration options (capabilities) you can set to specify the variable settings for your automated tests running on Sauce Labs.
 
 Try our [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/)! It provides a graphical user interface where you can specify your settings using option buttons and drop-down menus, then automatically generates the corresponding capabilities code based on your selections. For examples, see [Examples of Test Configuration Options for Website Tests](/basics/test-config-annotation/test-config/#examples-of-test-configuration-options-for-website-tests).
@@ -838,6 +840,16 @@ capabilities.setCapability("sauce:options", sauceOptions);
 A list of search filters to enumerate after an app test to locate text files to upload as logs. Files are uploaded with the `.log` extension appended. The search paths are rooted at the application under test:
  * Android (path on the emulated device): `/data/data/*PACKAGE_ID*/...`
  * iOS: `*SIMULATED_DEVICE_PATH*/data/Containers/Data/Application/*APPLICATION_ID*/...`. On a macOS filesystem, an example of SIMULATED_DEVICE_PATH would be `~/Library/Developer/CoreSimulator/Devices/*DEVICE_ID*`
+
+
+To view and download the extra log files, go to the executed session in the Sauce Labs dashboard, and switch to the "Logs" tab:
+
+1. "Automated > Test Results"
+2. Search for your session and click on it
+3. Go to the "Logs" tab above the video
+
+<img src={useBaseUrl('/img/dev/customLogFiles.png')} alt="customLogFiles"/>
+
 
 The following examples outline how this is handled for the different device types.
 
