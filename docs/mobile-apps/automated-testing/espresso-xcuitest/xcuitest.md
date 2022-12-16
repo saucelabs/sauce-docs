@@ -681,7 +681,7 @@ Request a specific device for this test suite by its ID. You can look up device 
 #### `name`
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Find a device for this test suite that matches the device name or portion of the name ([Dynamic Device Allocation](../supported-devices/#dynamic-device-allocation)), which may provide a larger pool of available devices of the type you want.
+Find a device for this test suite that matches the device name or portion of the name ([Dynamic Device Allocation](/mobile-apps/supported-devices/#dynamic-device-allocation)), which may provide a larger pool of available devices of the type you want.
 
 ```yaml title="Use Complete Name"
       - name: iPhone 11
