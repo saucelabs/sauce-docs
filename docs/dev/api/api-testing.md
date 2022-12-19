@@ -996,7 +996,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests' \
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_exec
 -H 'Content-Type: application/json' \
 -d '{
     "name": "Get all retriever sub-breeds",
