@@ -280,10 +280,10 @@ Uploads a new test, which you need to provide in the Request Body, to the Sauce 
 groupId="dc-url"
 defaultValue="usYaml"
 values={[
-{label: 'United States - yaml', value: 'usYaml'},
-{label: 'United States - xml', value: 'usXml'},
-{label: 'Europe - yaml', value: 'euYaml'},
-{label: 'Europe - xml', value: 'euXml'}
+{label: 'United States - YAML', value: 'usYaml'},
+{label: 'United States - XML', value: 'usXml'},
+{label: 'Europe - YAML', value: 'euYaml'},
+{label: 'Europe - XML', value: 'euXml'}
 ]}>
 
 <TabItem value="usYaml">
@@ -376,8 +376,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 groupId="type"
 defaultValue="yaml"
 values={[
-{label: 'Sample Response - yaml', value: 'yaml'},
-{label: 'Sample Response - xml', value: 'xml'}
+{label: 'Sample Response - YAML', value: 'yaml'},
+{label: 'Sample Response - XML', value: 'xml'}
 ]}>
 
 <TabItem value="yaml">
@@ -504,8 +504,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 groupId="type"
 defaultValue="yaml"
 values={[
-{label: 'Sample Response - yaml', value: 'yaml'},
-{label: 'Sample Response - xml', value: 'xml'}
+{label: 'Sample Response - YAML', value: 'yaml'},
+{label: 'Sample Response - XML', value: 'xml'}
 ]}>
 
 <TabItem value="yaml">
