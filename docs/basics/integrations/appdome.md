@@ -55,7 +55,7 @@ You can see live device logs by clicking the **LOG** button on the menu on the r
 
 When Done click **STOP** on the right menu
 
-If you want to test using Appium, check out the [SauceLabs Appium Wiki](https://wiki.saucelabs.com/display/DOCS/Getting+Started+with+Appium+for+Mobile+Application+Testing)
+If you want to test using Appium, see [Appium on Sauce Labs](/mobile-apps/automated-testing/appium/).
 
 ## Testing Appdome-secured iOS Apps using SauceLabs
 
