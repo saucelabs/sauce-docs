@@ -278,13 +278,32 @@ Uploads a new test, which you need to provide in the Request Body, to the Sauce 
 
 <Tabs
 groupId="dc-url"
-defaultValue="us"
+defaultValue="us-yaml"
 values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
+{label: 'United States - yaml version', value: 'us-yaml'},
+{label: 'United States - xml version', value: 'us-xml'},
+{label: 'Europe - yaml version', value: 'eu-yaml'},
+{label: 'Europe - xml version', value: 'eu-xml'},
 ]}>
 
-<TabItem value="us">
+<TabItem value="us-yaml">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests' \
+-H 'Content-Type: application/json' \
+-d '{
+    "name": "Get all retriever sub-breeds",
+    "description": "Returns an array of all the sub-breeds from a breed",
+    "tags": ["dogs", "retrievers"],
+    "unit": "assertions:\n  - id: get\n    children:\n      - id: header\n        name: key\n        value: ABC123\n    url: ${protocol}${domain}${endpoint}\n    var: payload\n    mode: json\n  - id: assert-equals\n    expression: payload_response.headers['Content-Type']\n    value: application/json; charset=utf-8\nconfigs: []",
+    "input": "- id: global\n  children:\n    - id: variable\n      name: protocol\n      value: http://\n    - id: variable\n      name: domain\n      value: demoapi.apifortress.com\n    - id: variable\n      name: endpoint\n      value: /api/retail/product\n- id: sets\n  children:\n    - id: set\n      children: []\n      name: default\n"
+    }}'
+```
+
+</TabItem>
+  
+<TabItem value="us-xml">
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
@@ -301,7 +320,25 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 </TabItem>
 
-<TabItem value="eu">
+
+<TabItem value="eu-yaml">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests' \
+-H 'Content-Type: application/json' \
+-d '{
+    "name": "Get all retriever sub-breeds",
+    "description": "Returns an array of all the sub-breeds from a breed",
+    "tags": ["dogs", "retrievers"],
+    "unit": "assertions:\n  - id: get\n    children:\n      - id: header\n        name: key\n        value: ABC123\n    url: ${protocol}${domain}${endpoint}\n    var: payload\n    mode: json\n  - id: assert-equals\n    expression: payload_response.headers['Content-Type']\n    value: application/json; charset=utf-8\nconfigs: []",
+    "input": "- id: global\n  children:\n    - id: variable\n      name: protocol\n      value: http://\n    - id: variable\n      name: domain\n      value: demoapi.apifortress.com\n    - id: variable\n      name: endpoint\n      value: /api/retail/product\n- id: sets\n  children:\n    - id: set\n      children: []\n      name: default\n"
+    }'
+```
+
+</TabItem>
+
+<TabItem value="eu-xml">
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
@@ -336,6 +373,40 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </tbody>
 </table>
 
+
+<Tabs
+groupId="type"
+defaultValue="yaml"
+values={[
+{label: 'yaml response', value: 'yaml'},
+{label: 'xml response', value: 'xml'},
+]}>
+
+<TabItem value="yaml">
+
+```jsx title="Sample Response"
+{
+    "published": {
+        "id": "621db955a9f2b22a5a89638f",
+        "name": "Get all retriever sub-breeds",
+        "description": "Returns an array of all the sub-breeds from a breed",
+        "lastModified": "2022-03-01T06:12:37Z",
+        "tags": ["dogs", "retrievers"],
+        "user": {
+            "id": "21b27f2d2aaa4a5c88c8c19df25857d6",
+            "name": "$SAUCE_USERNAME"
+        },
+        "unit": "assertions:\n  - id: get\n    children:\n      - id: header\n        name: key\n        value: ABC123\n    url: ${protocol}${domain}${endpoint}\n    var: payload\n    mode: json\n  - id: assert-equals\n    expression: payload_response.headers['Content-Type']\n    value: application/json; charset=utf-8\nconfigs: []",
+        "input": "- id: global\n  children:\n    - id: variable\n      name: protocol\n      value: http://\n    - id: variable\n      name: domain\n      value: demoapi.apifortress.com\n    - id: variable\n      name: endpoint\n      value: /api/retail/product\n- id: sets\n  children:\n    - id: set\n      children: []\n      name: default",
+        "complete": true
+    }
+}
+```
+
+</TabItem>
+
+<TabItem value="xml">
+  
 ```jsx title="Sample Response"
 {
     "published": {
@@ -354,7 +425,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     }
 }
 ```
-
+</TabItem>
 </details>
 
 
@@ -429,6 +500,49 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </tbody>
 </table>
 
+<Tabs
+groupId="type"
+defaultValue="yaml"
+values={[
+{label: 'yaml response', value: 'yaml'},
+{label: 'xml response', value: 'xml'},
+]}>
+
+<TabItem value="yaml">
+  
+```jsx title="Sample Response"
+{
+    "published": {
+        "id": "621b20e8fd17a5416b299e9f",
+        "name": "Get all retriever sub-breeds",
+        "description": "Returns an array of all the sub-breeds from a breed",
+        "lastModified": "2022-02-27T07:05:25Z",
+        "tags": ["dogs", "retrievers"],
+        "user": {
+            "id": "21b27f2d2aaa4a5c88c8c19df25857d6",
+            "name": "$SAUCE_USERNAME"
+        },
+        "unit": "assertions:\n  - id: get\n    children:\n      - id: header\n        name: key\n        value: ABC123\n    url: ${protocol}${domain}${endpoint}\n    var: payload\n    mode: json\n  - id: assert-equals\n    expression: payload_response.headers['Content-Type']\n    value: application/json; charset=utf-8\nconfigs: []",
+        "input": "- id: global\n  children:\n    - id: variable\n      name: protocol\n      value: http://\n    - id: variable\n      name: domain\n      value: demoapi.apifortress.com\n    - id: variable\n      name: endpoint\n      value: /api/retail/product\n- id: sets\n  children:\n    - id: set\n      children: []\n      name: default",
+        "complete": true
+    },
+    "workingCopy": {
+        "id": "621b216ca9f2b22a5a89633f",
+        "user": {
+            "id": "21b27f2d2aaa4a5c88c8c19df25857d7",
+            "name": "$SAUCE_USERNAME"
+        },
+        "unit": "assertions:\n  - id: get\n    children:\n      - id: header\n        name: key\n        value: ABC123\n    url: ${protocol}${domain}${endpoint}\n    var: payload\n    mode: json\n  - id: assert-equals\n    expression: payload_response.headers['Content-Type']\n    value: application/json; charset=utf-8\nconfigs: []",
+        "input": "- id: global\n  children:\n    - id: variable\n      name: protocol\n      value: http://\n    - id: variable\n      name: domain\n      value: demoapi.apifortress.com\n    - id: variable\n      name: endpoint\n      value: /api/retail/product\n- id: sets\n  children:\n    - id: set\n      children: []\n      name: default",
+        "lastModified": "2022-02-27T06:59:56Z"
+    }
+}
+```
+
+</TabItem>
+
+<TabItem value="xml">
+  
 ```jsx title="Sample Response"
 {
     "published": {
@@ -457,6 +571,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     }
 }
 ```
+
+</TabItem>
 
 </details>
 
@@ -868,13 +984,33 @@ Executes the test you send in the request body and saves the results into the cl
 
 <Tabs
 groupId="dc-url"
-defaultValue="us"
+defaultValue="us-yaml"
 values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
+{label: 'United States - yaml version', value: 'us-yaml'},
+{label: 'United States - xml version', value: 'us-xml'},
+{label: 'Europe - yaml version', value: 'eu-yaml'},
+{label: 'Europe - xml version', value: 'eu-xml'},
 ]}>
 
-<TabItem value="us">
+<TabItem value="us-yaml">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests' \
+-H 'Content-Type: application/json' \
+-d '{
+    "name": "Get all retriever sub-breeds",
+    "description": "Returns an array of all the sub-breeds from a breed",
+    "tags": ["dogs", "retrievers"],
+    "unit": "assertions:\n  - id: get\n    children:\n      - id: header\n        name: key\n        value: ABC123\n    url: ${protocol}${domain}${endpoint}\n    var: payload\n    mode: json\n  - id: assert-equals\n    expression: payload_response.headers['Content-Type']\n    value: application/json; charset=utf-8\nconfigs: []",
+    "input": "- id: global\n  children:\n    - id: variable\n      name: protocol\n      value: http://\n    - id: variable\n      name: domain\n      value: demoapi.apifortress.com\n    - id: variable\n      name: endpoint\n      value: /api/retail/product\n- id: sets\n  children:\n    - id: set\n      children: []\n      name: default\n",
+    "params": {}
+    }'
+```
+
+</TabItem>
+  
+<TabItem value="us-xml">
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
@@ -891,7 +1027,24 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 </TabItem>
 
-<TabItem value="eu">
+<TabItem value="eu-yaml">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_exec'
+-H 'Content-Type: application/json' \
+-d '{
+    "name": "Get all retriever sub-breeds",
+    "tags": ["dogs", "retrievers"],
+    "unit": "assertions:\n  - id: get\n    children:\n      - id: header\n        name: key\n        value: ABC123\n    url: ${protocol}${domain}${endpoint}\n    var: payload\n    mode: json\n  - id: assert-equals\n    expression: payload_response.headers['Content-Type']\n    value: application/json; charset=utf-8\nconfigs: []",
+    "input": "- id: global\n  children:\n    - id: variable\n      name: protocol\n      value: http://\n    - id: variable\n      name: domain\n      value: demoapi.apifortress.com\n    - id: variable\n      name: endpoint\n      value: /api/retail/product\n- id: sets\n  children:\n    - id: set\n      children: []\n      name: default\n",
+    "params": {}
+    }'
+```
+
+</TabItem>
+
+<TabItem value="eu-xml">
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
@@ -1712,13 +1865,31 @@ Executes synchronously the test you send in the request body and saves the resul
 
 <Tabs
 groupId="dc-url"
-defaultValue="us"
+defaultValue="us-yaml"
 values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
+{label: 'United States - yaml version', value: 'us-yaml'},
+{label: 'United States - xml version', value: 'us-xml'},
+{label: 'Europe - yaml version', value: 'eu-yaml'},
+{label: 'Europe - xml version', value: 'eu-xml'},
 ]}>
+  
+<TabItem value="us-yaml">
 
-<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_exec-sync'
+-H 'Content-Type: application/json' \
+-d '{
+    "name": "Get all retriever sub-breeds",
+    "tags": ["dogs", "retrievers"],
+    "unit": "assertions:\n  - id: get\n    children:\n      - id: header\n        name: key\n        value: ABC123\n    url: ${protocol}${domain}${endpoint}\n    var: payload\n    mode: json\n  - id: assert-equals\n    expression: payload_response.headers['Content-Type']\n    value: application/json; charset=utf-8\nconfigs: []",
+    "input": "- id: global\n  children:\n    - id: variable\n      name: protocol\n      value: http://\n    - id: variable\n      name: domain\n      value: demoapi.apifortress.com\n    - id: variable\n      name: endpoint\n      value: /api/retail/product\n- id: sets\n  children:\n    - id: set\n      children: []\n      name: default\n"
+    "params" : {}
+    }'
+```
+
+<TabItem value="us-xml">
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
@@ -1735,7 +1906,24 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 </TabItem>
 
-<TabItem value="eu">
+<TabItem value="eu-yaml">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/3e540e3f-50bd-4088-8c1b-97f1d1530f15/tests/_exec-sync'
+-H 'Content-Type: application/json' \
+-d '{
+    "name": "Get all retriever sub-breeds",
+    "tags": ["dogs", "retrievers"],
+    "unit": "assertions:\n  - id: get\n    children:\n      - id: header\n        name: key\n        value: ABC123\n    url: ${protocol}${domain}${endpoint}\n    var: payload\n    mode: json\n  - id: assert-equals\n    expression: payload_response.headers['Content-Type']\n    value: application/json; charset=utf-8\nconfigs: []",
+    "input": "- id: global\n  children:\n    - id: variable\n      name: protocol\n      value: http://\n    - id: variable\n      name: domain\n      value: demoapi.apifortress.com\n    - id: variable\n      name: endpoint\n      value: /api/retail/product\n- id: sets\n  children:\n    - id: set\n      children: []\n      name: default\n",
+    "params": {}
+    }'
+```
+
+</TabItem>
+
+<TabItem value="eu-xml">
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
@@ -1769,6 +1957,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   </tr>
 </tbody>
 </table>
+
 
 ```jsx title="Sample Response"
 [{
