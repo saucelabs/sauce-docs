@@ -5,6 +5,8 @@ sidebar_label: Test Configuration Options
 description: An index of automation test configuration settings compatible with Sauce Labs test protocols.
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 This page provides a reference for the valid test configuration options (capabilities) you can set to specify the variable settings for your automated tests running on Sauce Labs.
 
 Try our [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/)! It provides a graphical user interface where you can specify your settings using option buttons and drop-down menus, then automatically generates the corresponding capabilities code based on your selections. For examples, see [Examples of Test Configuration Options for Website Tests](/basics/test-config-annotation/test-config/#examples-of-test-configuration-options-for-website-tests).
@@ -360,7 +362,7 @@ capabilities.setCapability("platformName", "Android");
 
 ### `appium:platformVersion`
 
-<p><small>| MANDATORY <span className="sauceDBlue">for Virtual Devices</span> | OPTIONAL <span className="sauceDBlue">for Virtual and Real Devices</span> | STRING |</small></p>
+<p><small>| MANDATORY <span className="sauceDBlue">for Virtual Devices</span> | OPTIONAL <span className="sauceDBlue">for Real Devices</span> | STRING |</small></p>
 
 Allows you to set the mobile OS platform version that you want to use in your test.
 
@@ -827,6 +829,47 @@ MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.setCapability("deviceOrientation", "PORTRAIT");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `customLogFiles`
+<p><small>| OPTIONAL | LIST | <span className="sauceDBlue">Virtual Devices Only</span> |</small></p>
+
+If your app creates an extra log then you can use the `customLogFiles` to store those additional logs in the "Logs" tab of the executed automated session. It is created in the form of a list of search filters that enumerate after an app test to locate text files to upload as logs. Files are uploaded with the `.log` extension appended. The search paths are rooted at the application under test:
+ * Android (path on the emulated device): `/data/data/*PACKAGE_ID*/...`
+ * iOS: `*SIMULATED_DEVICE_PATH*/data/Containers/Data/Application/*APPLICATION_ID*/...`. On a macOS filesystem, an example of SIMULATED_DEVICE_PATH would be `~/Library/Developer/CoreSimulator/Devices/*DEVICE_ID*`
+
+
+To view and download the extra log files, go to the executed session in the Sauce Labs dashboard, and switch to the "Logs" tab:
+
+1. "Automated > Test Results"
+2. Search for your session and click on it
+3. Go to the "Logs" tab above the video
+
+<img src={useBaseUrl('/img/dev/customLogFiles.png')} alt="customLogFiles"/>
+
+
+The following examples outline how this is handled for the different device types.
+
+Supplying the list `["files/*_log", "*crash*"]` to an Android app test of the package `com.saucelabs.exampleapp` will upload all the files found after the test, that match either of the glob expressions:
+  * `/data/data/com.saucelabs.exampleapp/files/*.log`
+  * `/data/data/com.saucelabs.exampleapp/*crash*`
+
+Supplying the list `["files/*_log", "*crash*"]` to an iOS app test will upload all the files found after the test, that match either of the glob expressions (SIMULATED_DEVICE_PATH and APPLICATION_ID filled in with example values):
+  * `~/Library/Developer/CoreSimulator/Devices/8BF8C5E3-E992-424F-A491-5C673761737C/data/Containers/Data/Application/DBF4A728-9414-4431-9A56-41EC1CBFFA0B/files/*.log`
+  * `~/Library/Developer/CoreSimulator/Devices/8BF8C5E3-E992-424F-A491-5C673761737C/data/Containers/Data/Application/DBF4A728-9414-4431-9A56-41EC1CBFFA0B/*crash*`
+
+In both sets of examples, it is worth noting that an asterisk can match directory elements as well as characters, so `files/*log` will match both `files/debug.log` and `files/subdir/other.log`
+
+
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("customLogFiles", ["Library/Caches/Logs/*_log", "files/*crash.log"]);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
