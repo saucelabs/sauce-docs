@@ -837,7 +837,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ### `customLogFiles`
 <p><small>| OPTIONAL | LIST | <span className="sauceDBlue">Virtual Devices Only</span> |</small></p>
 
-If your app creates extra log then you can use the `customLogFiles` to store those extra logs in the "Logs"-tab of the executed automated session. It needs to be list of search filters that will enumerate after an app test to locate text files to upload as logs. Files are uploaded with the `.log` extension appended. The search paths are rooted at the application under test:
+If your app creates an extra log then you can use the `customLogFiles` to store those additional logs in the "Logs" tab of the executed automated session. It is created in the form of a list of search filters that enumerate after an app test to locate text files to upload as logs. Files are uploaded with the `.log` extension appended. The search paths are rooted at the application under test:
  * Android (path on the emulated device): `/data/data/*PACKAGE_ID*/...`
  * iOS: `*SIMULATED_DEVICE_PATH*/data/Containers/Data/Application/*APPLICATION_ID*/...`. On a macOS filesystem, an example of SIMULATED_DEVICE_PATH would be `~/Library/Developer/CoreSimulator/Devices/*DEVICE_ID*`
 
