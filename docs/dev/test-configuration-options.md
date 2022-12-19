@@ -362,7 +362,7 @@ capabilities.setCapability("platformName", "Android");
 
 ### `appium:platformVersion`
 
-<p><small>| MANDATORY <span className="sauceDBlue">for Virtual Devices</span> | OPTIONAL <span className="sauceDBlue">for Virtual and Real Devices</span> | STRING |</small></p>
+<p><small>| MANDATORY <span className="sauceDBlue">for Virtual Devices</span> | OPTIONAL <span className="sauceDBlue">for Real Devices</span> | STRING |</small></p>
 
 Allows you to set the mobile OS platform version that you want to use in your test.
 
@@ -892,7 +892,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `setupDeviceLock`
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Android only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | </small></p>
 
 Sets up the device pin code for the automated test session. Valid values are `true` and `false`.
 This capability sets your device in the state required for your application to launch successfully.
