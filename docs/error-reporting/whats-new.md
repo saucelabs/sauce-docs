@@ -15,7 +15,7 @@ If a new user hasn't logged in to their account for the first time or hasn't log
 <img src="/img/error-reporting/whats-new/org-settings-last-login.png" width="400"/>
 
 ## Quickly Filter Crash and Error Data (2022-12-02)
-To make it easier to find critical errors, we've added quick search filters. From the Overview and Releases views, you can now search for critical  by error type, platform, and version attributes (if available).
+To make it easier to find critical errors, we've added quick search filters. From the Overview and Releases views, you can now search by error type, platform, and version attributes (if available).
 
 <img src="/img/error-reporting/whats-new/overview-new-filters.png" width="700"/>
 
