@@ -19,14 +19,14 @@ Getting the most out of your live and automated testing means including a health
 
 There are a variety of use cases to consider when you're deciding on the mix of Emulators, Simulators, and real devices to use in your testing.
 
-We support thousands of device/OS combinations and test automation frameworks such as Appium, Espresso, XCUITest, and Robotium. For a full list, [click here](https://saucelabs.com/platform/supported-browsers-devices).
+We support thousands of device/OS combinations and test automation frameworks such as Appium, Espresso, XCUITest, and Robotium. For a full list, see [Supported Browsers & Devices](https://saucelabs.com/platform/supported-browsers-devices).
 
 
 ## When to Test on Emulators and Simulators
 
 ### Use Cases
 
-If you need...
+If you need:
 
 * Massive concurrency.
 * To reduce build times.
@@ -50,7 +50,7 @@ The Sauce Labs Real Device Cloud (RDC) provides you with the ability to run live
 
 ### Use Cases
 
-If you need...
+If you need:
 
 * A breadth of device types for panel/compatibility testing.
 * Manual, interactive testing on actual physical devices.
@@ -64,7 +64,7 @@ If you need...
 
 ### Public Device Cloud
 
-Our public cloud, available to all users regardless of pricing plan, contains a wide selection of thoroughly cleaned devices. They are subject to availability. On the mobile device selection screen, if a device is in use, it'll be [marked with a **Busy** flag](/mobile-apps/live-testing/live-mobile-app-testing#selecting-a-real-device). Here are some use cases:
+Our public cloud, available to all users regardless of pricing plan, contains a wide selection of thoroughly cleaned devices. They are subject to availability. On the mobile device selection screen, if a device is in use, it'll be marked with a [**Busy** flag](/mobile-apps/live-testing/live-mobile-app-testing/#public-vs-private-devices). Here are some use cases:
 
 * The devices available on the public cloud are sufficient for your testing coverage.
 * You need to reproduce bugs on a selection of hundreds of iOS and Android devices.
@@ -74,9 +74,9 @@ Our public cloud, available to all users regardless of pricing plan, contains a 
 
 ### Private Device Cloud
 
-<p> <Highlight color="#013a70">Enterprise Plans Only</Highlight> </p>
+<p><span className="sauceDBlue">Enterprise Only</span></p>
 
-This is dedicated pool of devices just for your organization. On the mobile device selection screen, your private devices are [marked with a green device icon](/mobile-apps/live-testing/live-mobile-app-testing#selecting-a-real-device). Here are some use cases:
+This is dedicated pool of devices just for your organization. On the mobile device selection screen, your private devices are marked with a [green device icon](/mobile-apps/live-testing/live-mobile-app-testing/#public-vs-private-devices). Here are some use cases:
 
 * You need to use a very specific set of devices that aren't supported on the public cloud.
 * Your security team insists on dedicated devices.
