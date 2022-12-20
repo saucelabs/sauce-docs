@@ -5,6 +5,22 @@ sidebar_label: What's New
 description: See what's new with the Backtrace Console, including new features and improvements.
 ---
 
+## View Users' Last Login (2022-12-02)
+As an admin, you can now check when a user last logged in to their account.
+
+From the **Organization Settings**, click **Users**. In the list of users, under **Last login**, you'll see the date and time of the user's last login.
+
+If a new user hasn't logged in to their account for the first time or hasn't logged in since August 1st 2022, the column will not be populated.
+
+<img src="/img/error-reporting/whats-new/org-settings-last-login.png" width="400"/>
+
+## Quickly Filter Crash and Error Data (2022-12-02)
+To make it easier to find critical errors, we've added quick search filters. From the Overview and Releases views, you can now search for critical  by error type, platform, and version attributes (if available).
+
+<img src="/img/error-reporting/whats-new/overview-new-filters.png" width="700"/>
+
+<img src="/img/error-reporting/whats-new/releases-new-filters.png" width="700"/>
+
 ## Unity Sample Project (2022-11-16)
 You can now generate a sample project to see errors and crashes for a Unity application that has been integrated and pre-configured with Backtrace. 
 
