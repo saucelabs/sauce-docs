@@ -13,9 +13,7 @@ We partner with the top companies in the industry to bring you a complete soluti
 
 ## CI/CD Tools
 
-<div className="box boxwidetop card">
-  Your CI/CD process needs automated testing in order to be successful. Sauce Labs integrates with every tool in the ecosystem.
-</div>
+Your CI/CD process needs automated testing in order to be successful. Sauce Labs integrates with every tool in the ecosystem.
 
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
@@ -27,7 +25,7 @@ We partner with the top companies in the industry to bring you a complete soluti
   <div className="box box2 card">
     <div className="container">
         <a href="/dev/cli/saucectl/usage/ci/github-actions/"><img src={useBaseUrl('img/integrations/github-actions.png')} alt="Github logo" width="50" /><h3>
-        Github Actions</h3></a>
+        GitHub Actions</h3></a>
     </div>
   </div>
   <div className="box box3 card">
@@ -70,7 +68,7 @@ We partner with the top companies in the industry to bring you a complete soluti
   <div className="box box9 card">
     <div className="container">
         <a href="https://docs.cloudbees.com/docs/cloudbees-codeship/latest/basic-continuous-integration/browser-testing#_sauce_labs"><img src={useBaseUrl('img/integrations/cloudbees.png')} alt="Cloudbees logo" width="50" />
-        <h3>Cloudbees (hosted Jenkins)</h3></a>
+        <h3>CloudBees (hosted Jenkins)</h3></a>
    </div>
   </div>
   <div className="box box10 card">
@@ -230,7 +228,7 @@ We partner with the top companies in the industry to bring you a complete soluti
   </div>
   <div className="box box2 card">
     <div className="container">
-        <a href="https://www.tricentis.com/"> <img src={useBaseUrl('img/integrations/tosca.png')} alt="Tricentis logo" width="50" />
+        <a href="/basics/integrations/tosca/"> <img src={useBaseUrl('img/integrations/tosca.png')} alt="Tricentis logo" width="50" />
         <h3>Tricentis Tosca</h3></a>
     </div>
   </div>
