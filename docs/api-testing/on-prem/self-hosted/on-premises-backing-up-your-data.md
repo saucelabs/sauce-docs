@@ -1,20 +1,20 @@
 ---
 id: on-premises-backing-up-your-data
-title: "Backing Up your Data (Self-Hosted)"
+title: 'Backing Up your Data (Self-Hosted)'
 sidebar_label: Backing Up your Data
 keywords:
-    - api
-    - api-fortress
-    - backup
-    - selfhosted
-    - onpremises
+- api
+- api-fortress
+- backup
+- selfhosted
+- onpremises
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 When running a self-hosted/on-premises installation, you will certainly want to run periodic backups of all your data.
 
@@ -62,6 +62,7 @@ sudo docker-compose up -d apifortress-mongo
 ```
 
 4. We will assume your backup is located in `/var/local/backups`. Run the following commands:
+
 ```
 sudo docker run --rm --net apifortress --link core_apifortress-mongo_1:mongo.apifortress -v /var/local/backups:/backup mongo:3.0.14 bash -c 'mongorestore /backup --host mongo.apifortress'
 

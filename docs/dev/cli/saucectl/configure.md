@@ -12,7 +12,6 @@ Generate a credentials file with your Sauce Labs Username and Access Key.
 
 <span className="cli">$ saucectl configure [OPTIONS]</span>
 
-
 ## Extended Description
 
 Your Sauce Labs `username` and `accessKey` are required to post your test results to the Sauce Labs platform. These values are available on your [User Settings](https://app.saucelabs.com/user-settings) page.
@@ -29,10 +28,10 @@ If you have set your credentials as [environment variables](/basics/environment-
 Whether you are using environment variables or a credentials file, make sure your authentication data is protected. Use secrets or context variables to mask your environment variables, or add `credentials.yml` to your `gitignore` file to ensure your credentials are not exposed in your commits.
 :::
 
-
 ## Options Details
 
 ### <span className="cli">--accessKey</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -42,8 +41,8 @@ The authentication access key associated with the Sauce Labs user account making
 
 </div>
 
-
 ### <span className="cli">--username</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 

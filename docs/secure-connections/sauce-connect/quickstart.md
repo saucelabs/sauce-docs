@@ -10,46 +10,51 @@ import TabItem from '@theme/TabItem';
 
 Sauce Connect is required to run a local test on an app or website located behind a firewall. Get up and running with a basic Sauce Connect Proxy tunnel in minutes using the steps below.
 
-
 ## What You'll Need
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* The localhost URL for your site or app under test.
+
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- The localhost URL for your site or app under test.
 
 ## Start Tunnel
 
 1. [Download the Sauce Connect Proxy client](/secure-connections/sauce-connect/installation/#downloading-sauce-connect-proxy) on your machine.
-:::caution Always use the latest version
-Using older Sauce Connect versions may impact your ability to launch a tunnel or cause other technical issues.
-:::
+   :::caution Always use the latest version
+   Using older Sauce Connect versions may impact your ability to launch a tunnel or cause other technical issues.
+   :::
 2. Extract the .zip file and move the folder to your machine's [home directory](https://en.wikipedia.org/wiki/Home_directory).
 3. Open your terminal and navigate to the Sauce Connect Proxy client bin directory.
-  <Tabs
-    defaultValue="Mac/Linux"
-    values={[
-      {label: 'Mac/Linux', value: 'Mac/Linux'},
-      {label: 'Windows', value: 'Windows'},
-    ]}>
-  <TabItem value="Mac/Linux">
 
-  ```bash
-  cd sc-4.8.2-osx/bin
-  ```
+<Tabs
+  defaultValue="Mac/Linux"
+  values={[
+    {label: 'Mac/Linux', value: 'Mac/Linux'},
+    {label: 'Windows', value: 'Windows'},
+  ]}>
 
-  </TabItem>
-  <TabItem value="Windows">
+<TabItem value="Mac/Linux">
 
-  ```bash
-  cd C:\sc-4.8.2-win32\bin
-  ```
+```bash
+cd sc-4.8.2-osx/bin
+```
 
-  </TabItem>
-  </Tabs>
+</TabItem>
+<TabItem value="Windows">
+
+```bash
+cd C:\sc-4.8.2-win32\bin
+```
+
+</TabItem>
+</Tabs>
+
 4. Log in to Sauce Labs.
 5. Go to the **Tunnel Proxies** page.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsPage.png')} alt="Sauce Connect Proxy Tunnels page" width="400"/>
 6. Under step 2, **Authenticate & connect**, copy the code snippet.<br/><img src={useBaseUrl('img/sauce-connect/configureAuth.png')} alt="Sauce Connect Proxy Tunnels page snippet" width="300"/>
+
 <details><summary>What is this?</summary>
 This snippet contains your authentication credentials (username and access key), selects a Sauce Labs Data Center, and applies a name to your tunnel. Optionally, you can rename your tunnel by replacing the value after the <code>--tunnel-name</code> flag.
 </details>
+
 7. Paste the snippet into your terminal and run it. This will launch the tunnel.
 
 ## Verify Connection
@@ -58,18 +63,17 @@ To confirm your tunnel is up, look for the confirmation message in your terminal
 
 Alternatively, you can check your list of active tunnels on the **Tunnel Proxies** page:<br/><img src={useBaseUrl('img/sauce-connect/tunnelsuccess-ui.png')} alt="Sauce Connect Tunnel Success" width="500"/>
 
-
 ## Run Test
 
 With your tunnel up and running, try doing a Live <!--or Automated--> local test.
 
 <Tabs
-    defaultValue="Cross-Browser"
-    values={[
-      {label: 'Cross-Browser', value: 'Cross-Browser'},
-      {label: 'Mobile Browser', value: 'Mobile Browser'},
-      {label: 'Mobile App', value: 'Mobile App'},
-    ]}>
+  defaultValue="Cross-Browser"
+  values={[
+    {label: 'Cross-Browser', value: 'Cross-Browser'},
+    {label: 'Mobile Browser', value: 'Mobile Browser'},
+    {label: 'Mobile App', value: 'Mobile App'},
+  ]}>
 
 <TabItem value="Cross-Browser">
 
@@ -103,86 +107,16 @@ With your tunnel up and running, try doing a Live <!--or Automated--> local test
 </TabItem>
 </Tabs>
 
-
-<!--
-
-### Automated
-
-<Tabs
-    defaultValue="Cross-Browser (Web)"
-    values={[
-      {label: 'Cross-Browser (Web)', value: 'Cross-Browser (Web)'},
-      {label: 'Mobile Browser', value: 'Mobile Browser'},
-      {label: 'Mobile App', value: 'Mobile App'},
-    ]}>
-
-<TabItem value="Cross-Browser (Web)">
-
-1. Open your automated test script. If you don't have one, try using one of our [sample scripts](https://github.com/saucelabs-training).
-2. In your `sauce:options` capabilities section, add the `tunnelName` capability. The value needs to match what you named your tunnel in the CLI terminal (`--tunnel-name`) at launch. Here's an example:
-  ```js
-  capabilities: {
-    browserName: 'chrome',
-    browserVersion: '87.0',
-    'sauce:options': {
-      username: <your username>,
-      accessKey: <your access key>,
-      tunnelName: <your tunnel name>,
-    },
-  },
-  ```
-
-</TabItem>
-<TabItem value="Mobile Browser">
-
-1. Open your automated test script. If you don't have one, try using one of our [sample scripts](https://github.com/saucelabs-training).
-2. In your `sauce:options` capabilities section, add the `tunnelName` capability. The value needs to match what you named your tunnel in the CLI terminal (`--tunnel-name`) at launch. Here's an example:
-  ```js
-  capabilities: {
-    browserName: 'chrome',
-    browserVersion: '87.0',
-    'sauce:options': {
-      username: <your username>,
-      accessKey: <your access key>,
-      tunnelName: <your tunnel name>,
-    },
-  },
-  ```
-
-</TabItem>
-<TabItem value="Mobile App">
-
-1. First, you'll need to upload your iOS or Android mobile app file to Sauce Storage. You can either [upload it through the UI](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app) - or - [upload it programmatically via our REST API](/dev/api/storage/#upload-file-to-app-storage) so that Sauce Labs emulators, simulators, and real devices can connect to it.
-2. Open your automated test script. If you don't have one, try using one of our [sample scripts](https://github.com/saucelabs-training).
-3. In your `sauce:options` capabilities section, add the `tunnelName` capability. The value needs to match what you named your tunnel in the CLI terminal (`--tunnel-name`) at launch. Here's an example:
-  ```js
-  capabilities: {
-    browserName: 'chrome',
-    browserVersion: '87.0',
-    'sauce:options': {
-      username: <your username>,
-      accessKey: <your access key>,
-      tunnelName: <your tunnel name>,
-    },
-  },
-  ```
-
-</TabItem>
-</Tabs>
-
--->
-
 ## Stop Tunnel
 
 When you've finished testing, you can stop your tunnel from the terminal where Sauce Connect is running by entering Ctrl+C.<br/><img src={useBaseUrl('img/sauce-connect/cli-tunnel-stop.png')} alt="Sauce Connect Proxy Tunnels page snippet" width="500"/>
 
 Alternatively, you can go to the **Tunnel Proxies** page and click one of the **Stop Tunnels** buttons.<br/><img src={useBaseUrl('img/sauce-connect/tunnelstop-ui.png')} alt="Sauce Connect Tunnel Stop" width="800"/>
 
-
 ## More Information
 
-* [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy/)
-* [Setting Sauce Labs Environment Variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/)
-* [Uploading and Managing Mobile Apps in Sauce Labs](/mobile-apps/app-storage)
-* [Live Testing Web Apps](/web-apps/live-testing/live-cross-browser-testing/)
-* [Live Testing Mobile Apps](/mobile-apps/live-testing/live-mobile-app-testing/)
+- [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy/)
+- [Setting Sauce Labs Environment Variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/)
+- [Uploading and Managing Mobile Apps in Sauce Labs](/mobile-apps/app-storage)
+- [Live Testing Web Apps](/web-apps/live-testing/live-cross-browser-testing/)
+- [Live Testing Mobile Apps](/mobile-apps/live-testing/live-mobile-app-testing/)

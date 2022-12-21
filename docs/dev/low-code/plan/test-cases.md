@@ -82,7 +82,9 @@ On the **Plan -> Test Cases** page you can view, update, move, or disable a test
 </table>
 
 ## Tagging a Test Case
+
 To tag a test case:
+
 1. On the dashboard, in the left navigation, click **Plan** and then click **Test Cases**.
 
 <img src={useBaseUrl('/img/dev/low-code/tag-test-case-nav.png')} alt="Navigating to the test case tagging page" width="300"/>

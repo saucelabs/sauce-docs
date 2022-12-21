@@ -3,16 +3,16 @@ id: following-redirects
 title: Following Redirects
 sidebar_label: Following Redirects
 keywords:
-    - api-testing
-    - how-to
-    - redirects
+- api-testing
+- how-to
+- redirects
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -30,7 +30,7 @@ This specific scenario can be handled applying the following steps:
 
 Make the I/O operation (let's consider a `POST` as an example)
 
-1. The response header contains the __Location__ field.
+1. The response header contains the **Location** field.
 
    <img src={useBaseUrl('img/api-fortress/2018/04/step1.jpg')} alt="step1.jpg" />
 

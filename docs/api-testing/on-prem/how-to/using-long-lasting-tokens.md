@@ -3,21 +3,20 @@ id: using-long-lasting-tokens
 title: Using Long Lasting Tokens
 sidebar_label: Using Long Lasting Tokens
 keywords:
-    - api-testing
-    - how-to
-    - long-lasting-tokens
+- api-testing
+- how-to
+- long-lasting-tokens
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 It is common for an authentication system to generate long lasting tokens to perform multiple requests. In API Fortress there are many paths of authenticating that can be taken, but sometimes users prefer the token reuse strategy.
-
 
 ## Goal
 
@@ -27,7 +26,6 @@ Here’s the complete test. Have a quick look at it before proceeding to the ste
 
 <img src={useBaseUrl('img/api-fortress/2017/01/Screenshot-from-2017-01-12-112555.png')} alt="screenshot.png" />
 
-
 1. Prepare the input set by adding the _basePath_, _loginPath_, and _dataPath_. Most importantly, add an empty variable for _token_ and _expires_. These items will be updated by the test.
 
    <img src={useBaseUrl('img/api-fortress/2017/01/1.png')} alt="1.png" />
@@ -35,7 +33,7 @@ Here’s the complete test. Have a quick look at it before proceeding to the ste
 2. Add an IF component with this logic:
 
    ```js
-   !expires || D.nowMillis()>expires.toLong()
+   !expires || D.nowMillis() > expires.toLong()
    ```
 
    <img src={useBaseUrl('img/api-fortress/2017/01/3.png')} alt="3.png" />
@@ -47,7 +45,7 @@ Here’s the complete test. Have a quick look at it before proceeding to the ste
 4. Within the IF branch, set the value to _token_ and _expires._ Note that in the value we’re saying: take the current time and add one hour
 
    ```js
-   D.plusHours( D.nowMillis(), 1 )
+   D.plusHours(D.nowMillis(), 1)
    ```
 
    <img src={useBaseUrl('img/api-fortress/2017/01/5-1.png')} alt="5-1.png" />
@@ -64,7 +62,6 @@ Here’s the complete test. Have a quick look at it before proceeding to the ste
 
    <img src={useBaseUrl('img/api-fortress/2017/01/call-1.png')} alt="call-1.png" />
 
-
 ## Effects
 
 When running outside the workbench, two subsequent test executions will look like this:
@@ -72,7 +69,6 @@ When running outside the workbench, two subsequent test executions will look lik
 <img src={useBaseUrl('img/api-fortress/2017/01/9.png')} alt="9.png" />
 
 <img src={useBaseUrl('img/api-fortress/2017/01/10.png')} alt="10.png" />
-
 
 ## Code View
 
@@ -96,14 +92,13 @@ The following is the code version of the IF branch containing the authentication
 </if>
 ```
 
-
 :::note Additional Notes
 Updating input variables won't work when launching a test from within the composer, so the login call will run every time when developing a test. Run the test from outside the composer or schedule the test to see it in action.
 :::
 
 ## Language Appendix
 
-* **Negation:** the exclamation mark (`!`) prior to an expression is used as a negation and it means: _when it’s false_, _when it’s empty_, _when it does not exist_. In our example: _!expires_ means when expires is empty.
-* **Logic Or:** the classic double pipe sign ( `||` ). Rarely used in API Fortress except in IF conditions.
-* **`toLong()`:** converts a string to a long number.
-* **`D.<action>()`** an API Fortress language extension that provides date and time manipulation functionalities. Please refer to the [expression language extensions page](/api-testing/on-prem/reference/expression-language-extensions) for further details.
+- **Negation:** the exclamation mark (`!`) prior to an expression is used as a negation and it means: _when it’s false_, _when it’s empty_, _when it does not exist_. In our example: _!expires_ means when expires is empty.
+- **Logic Or:** the classic double pipe sign ( `||` ). Rarely used in API Fortress except in IF conditions.
+- **`toLong()`:** converts a string to a long number.
+- **`D.<action>()`** an API Fortress language extension that provides date and time manipulation functionalities. Please refer to the [expression language extensions page](/api-testing/on-prem/reference/expression-language-extensions) for further details.

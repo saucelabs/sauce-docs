@@ -1,36 +1,37 @@
 ---
 id: multipart-upload
-title: "POST: Multipart Upload"
-sidebar_label: "POST: Multipart Upload"
+title: 'POST: Multipart Upload'
+sidebar_label: 'POST: Multipart Upload'
 keywords:
-    - api-testing
-    - io-components
-    - multipart-upload
-    - upload
-    - post
+- api-testing
+- io-components
+- multipart-upload
+- upload
+- post
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The following instructions are to show how to make a `POST` call with an entire file included in the data.
 
 :::warning On-Premises Only!
-* This feature is **only available on-premises** as of API Fortress version 20.2.0.
-* This feature also requires that you update the `remotedownloadagent` to the latest version as well.
-:::
+
+- This feature is **only available on-premises** as of API Fortress version 20.2.0.
+- This feature also requires that you update the `remotedownloadagent` to the latest version as well.
+  :::
 
 ## Mounting a Volume
 
 For multipart, API Fortress will look for files in the `/data` directory, so you'll have to mount a volume to the `/data` directory. For example, if you're using `docker-compose`, it's done like this:
 
 - Navigate to the `/core/` directory.
-- Stop `apifortress` by issuing the following command:  
+- Stop `apifortress` by issuing the following command:
 
   ```bash
   sudo docker-compose stop apifortress
@@ -41,14 +42,14 @@ For multipart, API Fortress will look for files in the `/data` directory, so you
 - Here you will see `# - ./data:/data` you can uncomment this line by getting rid of the `#`
 - This will create a folder called `data` in the `/core/` directory.
 
- ```yaml
+```yaml
 volumes:
-  - ./tomcat_conf/conf:/usr/local/tomcat/conf
-  # - ./bin:/usr/local/tomcat/bin
-  - ./data:/data
- ```
+- ./tomcat_conf/conf:/usr/local/tomcat/conf
+# - ./bin:/usr/local/tomcat/bin
+- ./data:/data
+```
 
-- Now start the `apifortress` service again by issuing the following command:  
+- Now start the `apifortress` service again by issuing the following command:
 
   ```bash
   sudo docker-compose up -d apifortress

@@ -3,16 +3,16 @@ id: dynamic-dates
 title: Dynamic Dates
 sidebar_label: Dynamic Dates
 keywords:
-    - api-testing
-    - how-to
-    - dynamic-dates
+- api-testing
+- how-to
+- dynamic-dates
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -25,19 +25,20 @@ Here's the procedure:
 1. First, open the Composer and add a **Set (variable)**:<br/>
    <img src={useBaseUrl('img/api-fortress/2018/04/setVar.jpg')} alt="setVar.jpg"/>
 2. In the Variable component editor, enter the following:
-    * **Var** field: enter your variable name.
-    * **Variable mode** field: leave it as `_String`.
-    * **Value** field: enter the following string: `${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD')}`.
-    <img src={useBaseUrl('img/api-fortress/2018/04/valueField.jpg')} alt="valueField.jpg"/>
-
+   - **Var** field: enter your variable name.
+   - **Variable mode** field: leave it as `_String`.
+   - **Value** field: enter the following string: `${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD')}`.
+     <img src={useBaseUrl('img/api-fortress/2018/04/valueField.jpg')} alt="valueField.jpg"/>
 
 Let's analyze the string mentioned above:
+
 ```js
 ${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD')}
 ```
-* `D.nowMillis()`: returns the current Unix epoch in milliseconds
-* `D.plusDays()`: returns the provided milliseconds, plus the provided number of days (in our example, we have added 35 days to today's date)
-* `D.format()`: creates a timestamp with the given format, using the current timezone (in our example `yyyy-MM-DD`)
+
+- `D.nowMillis()`: returns the current Unix epoch in milliseconds
+- `D.plusDays()`: returns the provided milliseconds, plus the provided number of days (in our example, we have added 35 days to today's date)
+- `D.format()`: creates a timestamp with the given format, using the current timezone (in our example `yyyy-MM-DD`)
 
 As result, you will have something like `2018-05-15`.
 

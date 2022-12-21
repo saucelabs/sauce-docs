@@ -15,6 +15,7 @@ You can view the number of concurrent VMs, concurrent devices, and minutes allow
 2. Your plan type (for example, Enterprise or Subscription) is displayed at the bottom of the **Select Plan** tab.
 
 ## Viewing Plan Usage
+
 You can view usage information for your account on the **Team Management** page.
 
 1. On Sauce Labs, click **ACCOUNT** and then click **Billing**.

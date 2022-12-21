@@ -3,16 +3,16 @@ id: writing-tests-in-code
 title: Writing Tests in Code
 sidebar_label: Writing Tests in Code
 keywords:
-    - api-testing
-    - how-to
-    - writing-tests
+- api-testing
+- how-to
+- writing-tests
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -45,7 +45,7 @@ For example, let's take this assertion that verifies whether the "items" element
 Or in code view:
 
 ```js
-<assert-is expression="payload.whatever.items" type="array"/>
+<assert-is expression="payload.whatever.items" type="array" />
 ```
 
 Now let's say you know something more about this array, such as it should always contain more than 3 elements:
@@ -55,8 +55,13 @@ Now let's say you know something more about this array, such as it should always
 Or in code view
 
 ```js
-<assert-greater expression="payload.whatever.items.size()" value="3" type="integer"/>
+<assert-greater
+expression="payload.whatever.items.size()"
+value="3"
+type="integer"
+/>
 ```
+
 Notice how in the _expression_ field we deliberately used the `size()` command to retrieve the size of the object at its left.
 
 ## Even More Serious Grooviness
@@ -68,7 +73,7 @@ The first scenario is when you want to set a variable that is not a String. The 
 <img src={useBaseUrl('img/api-fortress/2017/10/set_obj.png')} alt="set_obj.png" />
 
 ```js
-<set var="number" object="otherNumber+50"/>
+<set var="number" object="otherNumber+50" />
 ```
 
 Here we are assuming that otherObject is a predefined numeric variable. When the SET is executed, the _number_ variable will be an integer.
@@ -95,7 +100,7 @@ What about all the fields that are not explicitly evaluated? Like _URL_, _value_
 <assert-equals expression="payload.id" value="${req_id}"/>`
 ```
 
-This assertion, for example, is evaluating the _req\_id_ variable right within the value.
+This assertion, for example, is evaluating the _req_id_ variable right within the value.
 
 ## A Little Bit of Everything
 

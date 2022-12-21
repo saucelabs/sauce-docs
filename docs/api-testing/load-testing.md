@@ -34,39 +34,40 @@ Once you have run the agents, you can continue in the API Testing platform:
 
 1. In Sauce Labs, click **API Testing**.
 
-  <img src={useBaseUrl('/img/api-testing/api-testing-nav.png')} alt="Navigating to API Testing" width="400"/>
+<img src={useBaseUrl('/img/api-testing/api-testing-nav.png')} alt="Navigating to API Testing" width="400"/>
 
 2. On the **Tests** page, next to the test you want to run a load test on, click the **Load Test** icon.
 
-  <img src={useBaseUrl('/img/api-testing/load-testing-nav.png')} alt="The Load Test icon"/>
+<img src={useBaseUrl('/img/api-testing/load-testing-nav.png')} alt="The Load Test icon"/>
 
-  :::note
-  Load testing only works with published tests. If you change a published test, and then run a load test without re-publishing it, the load test will be run on the published version, not the updated one.
-  :::
+:::note
+Load testing only works with published tests. If you change a published test, and then run a load test without re-publishing it, the load test will be run on the published version, not the updated one.
+:::
 
 3. On the tests page, click **Create Load test**.
 
-  <img src={useBaseUrl('/img/api-testing/create-load-test-button.png')} alt="The Create Load test button"/>
+<img src={useBaseUrl('/img/api-testing/create-load-test-button.png')} alt="The Create Load test button"/>
 
 4. On the **Create Load test** page, enter the relevant information and then click **Save and Run**. See [Create Load Test Fields](#create-load-test-fields) for more details.
 
-  <img src={useBaseUrl('/img/api-testing/create-load-test.png')} alt="The Create Load test page"/>
+<img src={useBaseUrl('/img/api-testing/create-load-test.png')} alt="The Create Load test page"/>
 
 ### Create Load Test Fields
-* Name - The name to assign to the load test profile.
-* Description - A description of the test.
-* Ramp up - The time the test will take to achieve the maximum engagement. This can be any value (expressed in seconds) less than or equal to the duration.
-* Duration - The time to stress your test (in minutes).
-* Intensity map - Here you can set up the aggressiveness of the virtual users. Each virtual user will repeatedly execute the provided test. At intensity 100, it will relentlessly start a new cycle right after a cycle is completed. As you lower the intensity, the virtual users will take breaks between cycles. As not all virtual users will complete a cycle at the same time, the breaks will create a more distributed, lower intensity, but same complexity volume of requests.
-* Agents - The available agents (pools/workers) and the max virtual users you can set up for each one. This is the only mandatory field without any default, so you need to manually select the agents you want to set up. If these are not set up you will not be able to save or run the test.
+
+- Name - The name to assign to the load test profile.
+- Description - A description of the test.
+- Ramp up - The time the test will take to achieve the maximum engagement. This can be any value (expressed in seconds) less than or equal to the duration.
+- Duration - The time to stress your test (in minutes).
+- Intensity map - Here you can set up the aggressiveness of the virtual users. Each virtual user will repeatedly execute the provided test. At intensity 100, it will relentlessly start a new cycle right after a cycle is completed. As you lower the intensity, the virtual users will take breaks between cycles. As not all virtual users will complete a cycle at the same time, the breaks will create a more distributed, lower intensity, but same complexity volume of requests.
+- Agents - The available agents (pools/workers) and the max virtual users you can set up for each one. This is the only mandatory field without any default, so you need to manually select the agents you want to set up. If these are not set up you will not be able to save or run the test.
 
   If you have saved a load test with an agent that is currently offline, you will see an alert and the system will prevent you from running the test with it. You will see the same alert if you are trying to use the same agent for more tests but there are no virtual users available.
 
   <img src={useBaseUrl('/img/api-testing/load-test-agents-offline.png')} alt="Alert that agents are offline" width="400"/>
 
-* Virtual users - The number of active users per agent you want to simulate. The value can be any value that is less than or equal to the max virtual users available for that agent. If more than one agent is selected, the lesser virtual users value is the max number of virtual users you can set up. If you try to set more agents than the available you will see an error message.
-* Environments - The environment dropdown allows you to select an environment to run the load test with or, if you haven't one already, you can create a new one.
-For more information, see [Creating Environments for Tests](/api-testing/environments/).
+- Virtual users - The number of active users per agent you want to simulate. The value can be any value that is less than or equal to the max virtual users available for that agent. If more than one agent is selected, the lesser virtual users value is the max number of virtual users you can set up. If you try to set more agents than the available you will see an error message.
+- Environments - The environment dropdown allows you to select an environment to run the load test with or, if you haven't one already, you can create a new one.
+  For more information, see [Creating Environments for Tests](/api-testing/environments/).
 
 :::note
 Variables and snippets in the Vault (Company/Project) are used by default, without the need to select them.
@@ -82,20 +83,21 @@ To stop a report before it is complete, click **Stop**.
 <img src={useBaseUrl('/img/api-testing/load-test-report-details-environments.png')} alt="Load Test Report Details" width="500"/>
 
 ### Load Test Report Details
-* Outcome - The status of the test:
-    * Running - The test is running.
-    * Stopped - The test has been stopped manually.
-    * Completed - The test is complete.
-* Load Test - The name of the load test (assigned at creation).
-* Test - The name of the test you are running the load test on.
-* Project - The project that contains the test.
-* Start - The start date and time of the test.
-* End - The end date and time of the test.
-* User - The user that executed the test.
-* Environment - The environment selected for running the test (if any).
-* Agents - The agents used to run the test.
-* Virtual Users - The number of virtual users for the execution of the test.
-* Failed Tests - The number of load test execution failures. This will only be visible if there were failures.
+
+- Outcome - The status of the test:
+  - Running - The test is running.
+  - Stopped - The test has been stopped manually.
+  - Completed - The test is complete.
+- Load Test - The name of the load test (assigned at creation).
+- Test - The name of the test you are running the load test on.
+- Project - The project that contains the test.
+- Start - The start date and time of the test.
+- End - The end date and time of the test.
+- User - The user that executed the test.
+- Environment - The environment selected for running the test (if any).
+- Agents - The agents used to run the test.
+- Virtual Users - The number of virtual users for the execution of the test.
+- Failed Tests - The number of load test execution failures. This will only be visible if there were failures.
 
 The report contains a dropdown that shows all the endpoints the test is calling that you can use to filter to a specific one (the default value shows the data for All the endpoints). For best results, set up footprints to ensure the report is readable. For more information, see [Improving Metrics](/api-testing/composer#improving-metrics).
 
@@ -117,9 +119,10 @@ The **Requests** graph shows the number of requests and the number of failures. 
 The **Status codes** graph shows the status codes the test has generated, as well as any connection codes, which are denoted with a negative number.
 
 Negative status codes represent connectivity issues:
-* -1 - Connection refused
-* -2 - Timeout
-* -3 - Unknown host
+
+- -1 - Connection refused
+- -2 - Timeout
+- -3 - Unknown host
 
 Click any of the measurement labels to remove them from the display.
 

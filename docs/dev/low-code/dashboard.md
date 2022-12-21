@@ -17,11 +17,13 @@ The left navigation panel, which is viewable from all screens, gives you quick a
 <img src={useBaseUrl('/img/dev/low-code/dashboard-left-nav.png')} alt="Dashboard - Left navigation panel" width="400"/>
 
 ## Dashboard Management Settings
+
 Use the **Dashboard Management** settings to customize what you see on your dashboard. Select and deselect checkboxes to display or hide detail cards, and select a time duration for the displayed details.
 
 <img src={useBaseUrl('/img/dev/low-code/dashboard-mgmt-settings.png')} alt="Dashboard Management settings" width="500"/>
 
 ## Dashboard Detail Cards
+
 The dashboard detail cards give a quick look at data that might be important to you. Each card displays the time period of the data in the lower-left corner, which can be modified in the **Dashboard Management** settings.
 
 Clicking the maximize icon will open a larger version of the details card, and clicking the collapse icon will collapse the card on the dashboard.
@@ -88,6 +90,7 @@ Clicking the maximize icon will open a larger version of the details card, and c
 </table>
 
 ## Execution Panel
+
 The <b>Execution</b> panel displays currently running test cases, as well as test cases that have already been executed, which can be filtered by status.
 
 ### Execution Panel Components

@@ -1,20 +1,20 @@
 ---
 id: red-hat-openshift
-title: "Deployment – Red Hat OpenShift (Self-Hosted)"
-sidebar_label: "Deployment – Red Hat OpenShift"
+title: 'Deployment – Red Hat OpenShift (Self-Hosted)'
+sidebar_label: 'Deployment – Red Hat OpenShift'
 keywords:
-    - api
-    - api-fortress
-    - deployment
-    - redhat
-    - openshift
+- api
+- api-fortress
+- deployment
+- redhat
+- openshift
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -37,12 +37,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 3. **Configure `apifortress.yml`, `downloader.yml` and `core-server.yml`** to point at the established image stream. Changing the bracketed value in the below example would change the selected imagestream.
    ```yaml
    spec:
-         containers:
-         - name: apifortress
-           image: '**\[imagestream-changeit\]**/apifortress/apifortress:16.5.3'
-           resources:
-             limits:
-               memory: 8Gi
+   containers:
+   - name: apifortress
+     image: '**\[imagestream-changeit\]**/apifortress/apifortress:16.5.3'
+     resources:
+     limits:
+     memory: 8Gi
    ```
 
 ### Step 2 - Configure apifortress.yml:
@@ -50,28 +50,29 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 1. Ensure that the cluster is capable of supporting the default image memory limits. The **apifortress** container is set for 8GB of memory. The optimal memory setting is 16GB, the minimum memory setting is 4GB;
 2. `memorySettings` (optional parameter) describe the minimum and maxium **heap memory** the process can use. Xmx should be set to 1/2 of the available memory of the process. You don't need to tweak these values if you don't change the overall available memory. This is an example of the setting to be placed among the environment variables:
    ```yaml
-       - name: memorySettings
-         value: '-Xms1024m -Xmx4098m'
+   - name: memorySettings
+     value: '-Xms1024m -Xmx4098m'
    ```
 3. **Ensure that any critical key/value pairs have been defined.** The configuration files should be populated with the values submitted with the pre-configuration survey, but for safeties sake a user should ensure that **grailsServerUrl** has been passed the URL that the instance will be reached through, that **license** has been passed a license key and that **adminEmail**, **adminFullName** and **companyName** have been defined. These values are all found in the **env** section of the apifortress.yml file. While it is not critical to deployment, it is **strongly recommended** that the user configures the mailer service as well. This section in **env:**
+
    ```yaml
    env:
-     - name: apifortressMailEnabled
-       value: "true"
-     - name: apifortressMailFrom
-       value: info@example.com
-     - name: apifortressMailSmtpHost
-       value: ""
-     - name: apifortressMailSmtpPassword
-       value: ""
-     - name: apifortressMailSmtpPort
-       value: "25"
-     - name: apifortressMailStartTLS
-       value: "true"
-     - name: apifortressMailSmtpUsername
-       value: info@example.com
-     - name: apifortressMailUseSES
-       value: "false"
+   - name: apifortressMailEnabled
+     value: 'true'
+   - name: apifortressMailFrom
+     value: info@example.com
+   - name: apifortressMailSmtpHost
+     value: ''
+   - name: apifortressMailSmtpPassword
+     value: ''
+   - name: apifortressMailSmtpPort
+     value: '25'
+   - name: apifortressMailStartTLS
+     value: 'true'
+   - name: apifortressMailSmtpUsername
+     value: info@example.com
+   - name: apifortressMailUseSES
+     value: 'false'
    ```
 
    as well as the settings in the **AFMAILER** **Microservice** should be completed to allow the platform to generate emails.
@@ -82,18 +83,18 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
    apiVersion: v1
    kind: Service
    metadata:
-     name: apifortress
-     labels:
-       app: apifortress
+   name: apifortress
+   labels:
+   app: apifortress
    spec:
-     type: NodePort
-     selector:
-       app: apifortress
-     ports:
-       - port: 8080
-         name: http
-     loadBalancerIP:
-     sessionAffinity: ClientIP
+   type: NodePort
+   selector:
+   app: apifortress
+   ports:
+   - port: 8080
+     name: http
+   loadBalancerIP:
+   sessionAffinity: ClientIP
    ---
    ```
 
@@ -109,28 +110,28 @@ MongoDB will store most of the data produced by the platform, so make sure the d
 
 ```yaml title="Mongo DB Example"
 volumeClaimTemplates:
-  - metadata:
-      name: mongovol
-    spec:
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: 50Gi
+- metadata:
+  name: mongovol
+  spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+  requests:
+  storage: 50Gi
 ```
 
 For **PostgreSQL** the proposed memory setting is 1Gi which is considered also an optimal setting. The minimum is 512Mi.
 
 ```yaml title="PostgreSQL Example"
 volumeClaimTemplates:
-  - metadata:
-      name: psqlvol
-    spec:
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: 1Gi
+- metadata:
+  name: psqlvol
+  spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+  requests:
+  storage: 1Gi
 ```
 
 ### Step 4 - Start the Main Services
@@ -166,19 +167,20 @@ Choose “Downloaders” from the list of actions and click on the “Add Downlo
 ### Step 2 - Configure the Downloader
 
 Fill in the following fields:
-* **Name:** Write a recognizable name.
-* **Location:** A representation of where the downloader is. ie. Chicago
-* **Latitude / Longitude:** The geographical position of the downloader.
-* **Last Resort:** Check this to make it the default downloader used.
-* **URL:** The address of the downloader, followed by port (default 8819) and path /api. In our OpenShift deployment, our downloader address would be
+
+- **Name:** Write a recognizable name.
+- **Location:** A representation of where the downloader is. ie. Chicago
+- **Latitude / Longitude:** The geographical position of the downloader.
+- **Last Resort:** Check this to make it the default downloader used.
+- **URL:** The address of the downloader, followed by port (default 8819) and path /api. In our OpenShift deployment, our downloader address would be
   ```bash
   https://downloader.apifortress.svc:8819/api
   ```
-* **API Key, API Secret:** Write these two values down for use later.
+- **API Key, API Secret:** Write these two values down for use later.
 
 ### Step 3 - Move the Key and Secret Values to `downloader.yml`
 
-Edit the  `downloader.yml` file and enter the API Key and API Secret provided by the platform in the previous step.
+Edit the `downloader.yml` file and enter the API Key and API Secret provided by the platform in the previous step.
 
 #### Step 4 - Start the Downloader
 
@@ -208,15 +210,15 @@ Large numbers of simulated users will require large amounts of hardware resource
 
 - Locate and open _config.yml._ It is located in _core-server-etc._
 - First, we have to configure the baseURL
-    - baseURL is located on line 3.
-    - If the Load Agent and the API Fortress Dashboard are located on the same cluster, then you can replace the baseURL with the internal address and port of the Dashboard on the server.
-    - If the Load Agent and the API Fortress Dashboard are located on different clusters, you can replace the baseURL with the actual URL of the Dashboard. That is to say, the URL you would use to access it via web browser.
+  - baseURL is located on line 3.
+  - If the Load Agent and the API Fortress Dashboard are located on the same cluster, then you can replace the baseURL with the internal address and port of the Dashboard on the server.
+  - If the Load Agent and the API Fortress Dashboard are located on different clusters, you can replace the baseURL with the actual URL of the Dashboard. That is to say, the URL you would use to access it via web browser.
 - Next, we need to provide the API Key and Secret.
-    - Open the main API Fortress dashboard and click the gear icon in the upper right corner to access the settings menu
-    - Click the “_API Keys_” option in the left sidebar.
-    - Click “_+API Key”_
+  - Open the main API Fortress dashboard and click the gear icon in the upper right corner to access the settings menu
+  - Click the “_API Keys_” option in the left sidebar.
+  - Click “_+API Key”_
 
- <img src={useBaseUrl('img/api-fortress/2018/06/CreateAPIKey.gif')} alt="CreateAPIKey.gif"/>
+<img src={useBaseUrl('img/api-fortress/2018/06/CreateAPIKey.gif')} alt="CreateAPIKey.gif"/>
 
 - Copy the _API Key_ to line 5 of _config.yml_.
 - Copy the _Secret_ to line 6 of _config.yml_.
@@ -268,7 +270,7 @@ To overcome this issue you will need to override one configuration file in the T
 
 **We will assume that the gateway will forward the x-forwarded-proto header.**
 
-The file to be added is located in the deployment files you have been provided: (works for both OpenShift and Kubernetes): /tomcat\_conf/context.xml
+The file to be added is located in the deployment files you have been provided: (works for both OpenShift and Kubernetes): /tomcat_conf/context.xml
 
 1. Tweak the file according to your needs
 2. Create a config map for the single file named tomcat-context
@@ -276,7 +278,7 @@ The file to be added is located in the deployment files you have been provided: 
 
    ```yaml
    volumeMounts:
-     - name: tomcat-context
+   - name: tomcat-context
    mountPath: /usr/local/tomcat/conf/context.xml
    subPath: context.xml
    ```
@@ -285,10 +287,9 @@ The file to be added is located in the deployment files you have been provided: 
 
    ```yaml
    volumes:
-     - name: tomcat-context
+   - name: tomcat-context
    configMap:
-     - name: tomcat-context
+   - name: tomcat-context
    ```
-
 
 By doing so, we will have API Fortress to accept the original protocol as the actual protocol being used.

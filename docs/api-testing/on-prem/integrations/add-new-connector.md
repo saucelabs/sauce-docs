@@ -3,20 +3,19 @@ id: add-new-connector
 title: Add a New Connector
 sidebar_label: Add New Connector
 keywords:
-    - api-testing
-    - integrations
-    - add
-    - connector
+- api-testing
+- integrations
+- add
+- connector
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-
 
 Here is a quick guide to load up a new connector into your API Fortress self-hosted/on-premises deployment.
 

@@ -4,6 +4,7 @@ title: Using Extended Debugging
 sidebar_label: Debugging
 description: Collect extended debugging data to help audit flaky test results.
 ---
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -16,24 +17,23 @@ Extended Debugging generates additional assets that impact test performance and 
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
-* Google Chrome (no older than 3 versions from latest) ***or*** Firefox browser (versions 53 and above) as the test browser
-:::caution Multi-Window Limitation on Chrome Browser
-In rare instances, tests running in Chrome that launch multiple browser windows may result in a Chrome DevTools socket interruption that throws a `408 Automation Server Error`. If this happens, discontinue extended debugging for tests that utilize multiple windows.
-:::
-
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- Google Chrome (no older than 3 versions from latest) **_or_** Firefox browser (versions 53 and above) as the test browser
+  :::caution Multi-Window Limitation on Chrome Browser
+  In rare instances, tests running in Chrome that launch multiple browser windows may result in a Chrome DevTools socket interruption that throws a `408 Automation Server Error`. If this happens, discontinue extended debugging for tests that utilize multiple windows.
+  :::
 
 ## Enabling Extended Debugging
 
 To generate the JS console logs and HAR files, add the `extendedDebugging` capability to the capabilities of your test and set it to true. Here are some example scripts in both W3C WebDriver Protocol and legacy JSON Wire Protocol that show Extended Debugging enabled.
 
 <Tabs
-  defaultValue="w3c"
-  values={[
-    {label: 'W3C', value: 'w3c'},
-    {label: 'JSONWP', value: 'jsonwp'},
-  ]}>
+defaultValue="w3c"
+values={[
+{label: 'W3C', value: 'w3c'},
+{label: 'JSONWP', value: 'jsonwp'},
+]}>
 
 <TabItem value="w3c">
 
@@ -47,6 +47,7 @@ const capabilities: {
   }
 }
 ```
+
 </TabItem>
 <TabItem value="jsonwp">
 
@@ -58,6 +59,7 @@ const capabilities = {
   extendedDebugging: true,
 }
 ```
+
 </TabItem>
 </Tabs>
 
@@ -98,10 +100,10 @@ Selenium's [JavascriptExecutor](https://seleniumhq.github.io/selenium/docs/api/j
 
 Use the `sauce:intercept` JavascriptExecutor command to modify browser requests to:
 
-* Prohibit requests to 3rd party vendors
-* Modify requests to REST API (Mock REST API response)
-* Redirect certain parts of the app
-* Insert or change headers
+- Prohibit requests to 3rd party vendors
+- Modify requests to REST API (Mock REST API response)
+- Redirect certain parts of the app
+- Insert or change headers
 
 The following use cases are supported for the `sauce:intercept` command.
 
@@ -129,12 +131,12 @@ Configure `sauce:intercept` to redirect an outgoing request to an alternate URL.
 ##### Examples
 
 <Tabs
-    groupId="lang"
-    defaultValue="python"
-    values={[
-      {"label":"Python","value":"python"},
-      {"label":"WebdriverIO","value":"wdio"}
-    ]}>
+groupId="lang"
+defaultValue="python"
+values={[
+{"label":"Python","value":"python"},
+{"label":"WebdriverIO","value":"wdio"}
+]}>
 <TabItem value="python">
 
 ```py
@@ -149,8 +151,8 @@ driver.execute_script('sauce:intercept', {
 
 ```js
 browser.interceptRequest({
-    "url": "https://saucelabs.com/",
-    "redirect": "https://google.com"
+url: 'https://saucelabs.com/',
+redirect: 'https://google.com'
 })
 ```
 
@@ -186,12 +188,12 @@ Configure `sauce:intercept` to return the specified response.
 ##### Examples
 
 <Tabs
-    groupId="lang"
-    defaultValue="python"
-    values={[
-      {"label":"Python","value":"python"},
-      {"label":"WebdriverIO","value":"wdio"}
-    ]}>
+groupId="lang"
+defaultValue="python"
+values={[
+{"label":"Python","value":"python"},
+{"label":"WebdriverIO","value":"wdio"}
+]}>
 <TabItem value="python">
 
 ```py
@@ -216,19 +218,21 @@ driver.execute_script("sauce:intercept", {
 
 ```js
 browser.interceptRequest({
-    "url": "http://sampleapp.appspot.com/api/todos",
-        "response": {
-            "headers": {
-                "x-custom-header": "foobar"
-            },
-            "body": [{
-                "title": "Hello",
-                "order": 1,
-                "completed": false,
-                "url": "http://todo-backend-express.herokuapp.com/15727"
-            }]
-        }
-    })
+url: 'http://sampleapp.appspot.com/api/todos',
+response: {
+headers: {
+'x-custom-header': 'foobar'
+},
+body: [
+{
+title: 'Hello',
+order: 1,
+completed: false,
+url: 'http://todo-backend-express.herokuapp.com/15727'
+}
+]
+}
+})
 ```
 
 </TabItem>
@@ -272,12 +276,12 @@ Configure `sauce:intercept` to return the specified error.
 ##### Examples
 
 <Tabs
-    groupId="lang"
-    defaultValue="python"
-    values={[
-      {"label":"Python","value":"python"},
-      {"label":"WebdriverIO","value":"wdio"}
-    ]}>
+groupId="lang"
+defaultValue="python"
+values={[
+{"label":"Python","value":"python"},
+{"label":"WebdriverIO","value":"wdio"}
+]}>
 <TabItem value="python">
 
 ```py
@@ -291,13 +295,14 @@ driver.execute_script("sauce:intercept", {
 
 ```js
 browser.interceptRequest({
-    "url": "https://saucecon.com/wp-content/uploads/2017/07/SauceCon-hero-img-100-2.jpg",
-    "error": "Failed"})
+url:
+'https://saucecon.com/wp-content/uploads/2017/07/SauceCon-hero-img-100-2.jpg',
+error: 'Failed'
+})
 ```
 
 </TabItem>
 </Tabs>
-
 
 ### Throttle Conditions
 
@@ -321,12 +326,12 @@ Mobile devices have less CPU power than most desktops and laptops (or a VM's def
 ##### Examples
 
 <Tabs
-    groupId="lang"
-    defaultValue="python"
-    values={[
-      {"label":"Python","value":"python"},
-      {"label":"WebdriverIO","value":"wdio"}
-    ]}>
+groupId="lang"
+defaultValue="python"
+values={[
+{"label":"Python","value":"python"},
+{"label":"WebdriverIO","value":"wdio"}
+]}>
 <TabItem value="python">
 
 ```py
@@ -438,12 +443,12 @@ With network conditioning you can test your site on a variety of network connect
 ##### Examples
 
 <Tabs
-    groupId="lang"
-    defaultValue="python"
-    values={[
-      {"label":"Python","value":"python"},
-      {"label":"WebdriverIO","value":"wdio"}
-    ]}>
+groupId="lang"
+defaultValue="python"
+values={[
+{"label":"Python","value":"python"},
+{"label":"WebdriverIO","value":"wdio"}
+]}>
 <TabItem value="python">
 
 ```py
@@ -464,22 +469,21 @@ driver.execute_script('sauce:throttleNetwork', {
 <TabItem value="wdio">
 
 ```js
-browser.throttleNetwork("GPRS")
+browser.throttleNetwork('GPRS')
 // or
 browser.throttleNetwork({
-        "download": 1000,
-        "upload": 500,
-        "latency": 40
+download: 1000,
+upload: 500,
+latency: 40
 })
 ```
 
 </TabItem>
 </Tabs>
 
-
 ## JavaScript (JS) Console Logs
 
-The JS console collects security errors, warnings, and messages that are explicitly logged by the browser. You can use these logs to find out which components of your web app failed to load or ran into an error, what warnings were logged by the browser, and get more information about app performance. The console log information is associated with the URL where it occurred, and is composed of four types of information: **Log**, **Info**, **Warning**, and **Error**. In this example, you can see how an error was generated for the URL  `https://pbs.twimg.com/profile_images/477099293250052097/fMFjb8gu_400x400.jpeg` when a resource failed to load:
+The JS console collects security errors, warnings, and messages that are explicitly logged by the browser. You can use these logs to find out which components of your web app failed to load or ran into an error, what warnings were logged by the browser, and get more information about app performance. The console log information is associated with the URL where it occurred, and is composed of four types of information: **Log**, **Info**, **Warning**, and **Error**. In this example, you can see how an error was generated for the URL `https://pbs.twimg.com/profile_images/477099293250052097/fMFjb8gu_400x400.jpeg` when a resource failed to load:
 
 ```
 {
@@ -509,11 +513,11 @@ curl --compressed -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}.s
 
 ## HAR Files
 
-[HTTP Archive Format (HAR) files](https://en.wikipedia.org/wiki/HAR_(file_format)) collect all network requests and responses made and received by the browser during testing. HAR files offer useful debugging information, such as:
+[HTTP Archive Format (HAR) files](<https://en.wikipedia.org/wiki/HAR_(file_format)>) collect all network requests and responses made and received by the browser during testing. HAR files offer useful debugging information, such as:
 
-* Identifying browser requests that time out
-* Pinpointing requests slowing down the loading process
-* Locating faulty API calls
+- Identifying browser requests that time out
+- Pinpointing requests slowing down the loading process
+- Locating faulty API calls
 
 ### Viewing HAR Files
 
@@ -521,9 +525,9 @@ You need a HAR viewer to read HAR files. Sauce Labs provides a [React Network Vi
 
 Alternatively, some other commonly used HAR viewers include:
 
-* Chrome devtools builtin [HAR imports](https://developer.chrome.com/blog/new-in-devtools-62/#har-imports)
-* Google Admin Toolbox [HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/)
-* *Software is Hard* blog [HTTP Archive Viewer](http://www.softwareishard.com/har/viewer/)
+- Chrome devtools builtin [HAR imports](https://developer.chrome.com/blog/new-in-devtools-62/#har-imports)
+- Google Admin Toolbox [HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/)
+- _Software is Hard_ blog [HTTP Archive Viewer](http://www.softwareishard.com/har/viewer/)
 
 ### Accessing HAR Files
 

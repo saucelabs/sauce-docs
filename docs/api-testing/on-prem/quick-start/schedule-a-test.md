@@ -2,14 +2,14 @@
 id: schedule-a-test
 title: Schedule a Test
 sidebar_label: Schedule a Test
-description: "Introduction In API Fortress, it is simple to schedule a test to run as often as you’d like, from any location you choose (based on account type), and with granular control as to when it runs. Let’s take a look at how it works. Step 1: Publish the Working Copy API Fortress has a unique."
+description: 'Introduction In API Fortress, it is simple to schedule a test to run as often as you’d like, from any location you choose (based on account type), and with granular control as to when it runs. Let’s take a look at how it works. Step 1: Publish the Working Copy API Fortress has a unique.'
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -47,17 +47,18 @@ Click **+ Create New Run** on the left side of the screen to create a new schedu
 
 **Pause Toggle** - This will prevent the run from triggering if clicked.
 
-**Try Second Execution Toggle  ** - When this checkbox is selected, another execution will run after 2m 30s if the initial execution fails.
+**Try Second Execution Toggle ** - When this checkbox is selected, another execution will run after 2m 30s if the initial execution fails.
 
 **Downloader** – This dropdown allows you to choose which datacenter the request will be made from. You can select one or more than one.
 
 **Dedicated engine (self-hosted/on-premises only):** If you are using the Self-Hosted/On-Premises version of API Fortress, you can select a dedicated engine to run the test from.
 
 **Time configuration** – This allows you to select when your tests will run. The time configuration system works via intersection.
-* **Minutes**: Sets the minutes of the hour that a test will run. The minimum interval is every 5 minutes. The interval type you can choose from depends on the account type.
-* **Hours:** The hours of the day that the test is going to run.
-* **Days:** The days of the month the test is going to run.
-* **Months:** The months of the year the test is going to run.
+
+- **Minutes**: Sets the minutes of the hour that a test will run. The minimum interval is every 5 minutes. The interval type you can choose from depends on the account type.
+- **Hours:** The hours of the day that the test is going to run.
+- **Days:** The days of the month the test is going to run.
+- **Months:** The months of the year the test is going to run.
 
 Example: If we set _minutes: 5, 15_ and _days: 1, 5._ The test will run every hour at minute 5 and 15, only if the day is either the 1st or 5th.
 
@@ -74,7 +75,6 @@ At the top of the page:
 **Delete Run:** Removes a run from the scheduler.
 
 **Save Run:** While API Fortress will automatically save working copies, we recommend that you click Save to manually save the run.
-
 
 ### Global Scheduler
 

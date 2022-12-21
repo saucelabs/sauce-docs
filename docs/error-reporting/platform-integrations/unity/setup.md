@@ -4,6 +4,7 @@ title: Setting Up Backtrace for Unity
 sidebar_label: Setup
 description: Add Backtrace to your Unity project.
 ---
+
 Add Backtrace to your Unity project to automatically detect and report errors and crashes that occur in your game.
 
 After you've completed the steps on this page, the Backtrace client will be installed and setup with the default configuration settings.
@@ -13,55 +14,67 @@ import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Features
+
 The Backtrace Unity SDK reports on the following types of errors:
 
-* Log errors - Error messages in the console log. Logged by Debug.LogError (a variant of Debug.Log).
-* Unhandled Exceptions - Exceptions that occur outside of an explicit try/catch statement.
-* Handled exceptions - Exceptions that are explicitly caught and handled.
-* Crashes - An end to the game play experience, where the game crashes or restarts.
-* Hangs (mobile only) -  Errors that occur when a game or an app is non-responsive.
-* Out of memory crashes (mobile only) - Terminations of your game or app due to low memory conditions.
-* Message reports - Error messages explicitly sent by the Backtrace client.
-
+- Log errors - Error messages in the console log. Logged by Debug.LogError (a variant of Debug.Log).
+- Unhandled Exceptions - Exceptions that occur outside of an explicit try/catch statement.
+- Handled exceptions - Exceptions that are explicitly caught and handled.
+- Crashes - An end to the game play experience, where the game crashes or restarts.
+- Hangs (mobile only) - Errors that occur when a game or an app is non-responsive.
+- Out of memory crashes (mobile only) - Terminations of your game or app due to low memory conditions.
+- Message reports - Error messages explicitly sent by the Backtrace client.
 
 ## Supported Platforms
-|Supported Platforms|Supported Systems|
-|---------|---------|
-|Mobile|Android, iOS|
-|PC|Windows, MacOS|
-|Web|WebGL|
-|Game Consoles|PlayStation 4, PlayStation 5, Xbox One, Xbox Series X, Nintendo Switch, Google Stadia|
+
+| Supported Platforms | Supported Systems                                                                     |
+| ------------------- | ------------------------------------------------------------------------------------- |
+| Mobile              | Android, iOS                                                                          |
+| PC                  | Windows, MacOS                                                                        |
+| Web                 | WebGL                                                                                 |
+| Game Consoles       | PlayStation 4, PlayStation 5, Xbox One, Xbox Series X, Nintendo Switch, Google Stadia |
 
 :::note
 Offline database capabilities are currently not supported for Nintendo Switch.
 :::
 
-
 ## What You'll Need
-* A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
-* Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
-* A Backtrace project and a submission token.
+
+- A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
+- Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
+- A Backtrace project and a submission token.
 
 :::tip Generate a Submission Token
-   1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
-   1. Select **+**.
-:::
+
+1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
+1. Select **+**.
+   :::
 
 ### System Requirements
-* Unity Editor version 2018.4 or higher
+
+- Unity Editor version 2018.4 or higher
 
 ### Player Configuration Settings
+
 Backtrace supports the following player configuration settings for Unity:
 
- * Scripting Backend: Mono or IL2CPP
- * API Compatibility Level: .NET 4.0 or .NET Standard 2.0
-
+- Scripting Backend: Mono or IL2CPP
+- API Compatibility Level: .NET 4.0 or .NET Standard 2.0
 
 ## Install the Backtrace Unity SDK
+
 The following methods are available to install the Backtrace Unity SDK.
 
-<Tabs>
-<TabItem value="openupm" label="OpenUPM" default>
+<Tabs
+defaultValue="openupm"
+values={[
+{label: 'OpenUPM', value: 'openupm'},
+{label: 'Unity Package Manager', value: 'unity'},
+{label: 'Git', value: 'git'},
+{label: 'Backtrace Hub', value: 'hub'}
+]}>
+
+<TabItem value="openupm">
 
 ```
 # Install openupm-cli
@@ -77,7 +90,7 @@ openupm add io.backtrace.unity
 For more information, see the installation steps on [OpenUPM](https://openupm.com/packages/io.backtrace.unity/).
 
 </TabItem>
-<TabItem value="unity" label="Unity Package Manager">
+<TabItem value="unity">
 
 1. Download the latest version of the Backtrace Unity SDK from [GitHub](https://github.com/backtrace-labs/backtrace-unity/releases).
 1. Unzip the package and save it locally.
@@ -85,18 +98,16 @@ For more information, see the installation steps on [OpenUPM](https://openupm.co
 1. Complete the steps in [Installing a package from a local folder](https://docs.unity3d.com/Manual/upm-ui-local.html) in the Unity Documentation.
 
 </TabItem>
-<TabItem value="git" label="Git">
-
-:::note
-This installation method is supported for Unity 2018.3 or higher.
-:::
+<TabItem value="git">
 
 1. Clone the source project’s [Git URL](https://github.com/backtrace-labs/backtrace-unity.git).
 1. In your Unity project, go to **Window > Package Manager**.
 1. Complete the steps in [Installing from a Git URL](https://docs.unity3d.com/Manual/upm-ui-giturl.html) in the Unity Documentation.
 
+> This installation method is supported for Unity 2018.3 or higher.
+
 </TabItem>
-<TabItem value="hub" label="Backtrace Hub">
+<TabItem value="hub">
 
 1. Download the installer for the [Backtrace Hub](https://drive.google.com/file/d/1hbSmqMSBEep00pHVLPUpTVsj5K_O8Jq6/view).
 1. Double-click to open the file.
@@ -107,6 +118,7 @@ This installation method is supported for Unity 2018.3 or higher.
 </Tabs>
 
 ## Initialize the Backtrace Client with GameObject
+
 In this step, you create the Backtrace Configuration asset, create a new GameObject, add the Backtrace Client component to the GameObject, then add the Backtrace Configuration to the Backtrace Client component.
 
 You can add the Backtrace Client component to any GameObject in your game scene.
@@ -129,36 +141,37 @@ To change Backtrace client and database options, we recommend to change these va
 For more information about the available configuration options, see [Configuration](/error-reporting/platform-integrations/unity/configuration).
 
 ## Configure the Server Address
+
 The server address is required to submit exceptions from your Unity project to your Backtrace instance.
 
 1. In the Backtrace Console, go to **Project Settings > Integration Guides > Unity**.
 1. Copy the server address.
 1. Go back to the Backtrace Configuration in your Unity project.
 1. In the **Server Address** field, enter the server address in the following format: `https://submit.backtrace.io/{subdomain}/{submission-token}/json`.
-    - Provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unity/setup/#what-youll-need).
-
+   - Provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unity/setup/#what-youll-need).
 
 ## Verify the Setup
+
 At this point, you've installed and setup the Backtrace client to automatically capture crashes and exceptions in your Unity game or app.
 
 To test the integration, use a try/catch block to throw an exception and start sending reports.
 
- ```csharp
-  //Read from manager BacktraceClient instance
- var backtraceClient = GameObject.Find("manager name").GetComponent<BacktraceClient>();
+```csharp
+ //Read from manager BacktraceClient instance
+var backtraceClient = GameObject.Find("manager name").GetComponent<BacktraceClient>();
 
- //Set custom client attribute
- backtraceClient["attribute"] = "attribute value";
+//Set custom client attribute
+backtraceClient["attribute"] = "attribute value";
 
-  //Read from manager BacktraceClient instance
- var database = GameObject.Find("manager name").GetComponent<BacktraceDatabase>();
+ //Read from manager BacktraceClient instance
+var database = GameObject.Find("manager name").GetComponent<BacktraceDatabase>();
 
 
- try{
-     //throw exception here
- }
- catch(Exception exception){
-     var report = new BacktraceReport(exception);
-     backtraceClient.Send(report);
- }
- ```
+try{
+    //throw exception here
+}
+catch(Exception exception){
+    var report = new BacktraceReport(exception);
+    backtraceClient.Send(report);
+}
+```

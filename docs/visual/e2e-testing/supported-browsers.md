@@ -57,8 +57,6 @@ sidebar_label: Supported Browsers and OSs
   </tr>
 </table>
 
-
-
 ## OS Versions Supported
 
 <table>
@@ -129,5 +127,6 @@ sidebar_label: Supported Browsers and OSs
 ## More Information
 
 For more information on what we support, see:
-* [Sauce Labs | Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices)
-* [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/)
+
+- [Sauce Labs | Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices)
+- [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/)

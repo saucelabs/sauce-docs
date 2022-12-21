@@ -4,6 +4,7 @@ title: Front-End Performance Testing
 sidebar_label: Getting Started
 description: Gain insight into how quickly and accurately your app renders, which directly affects your users' perception of quality.
 ---
+
 Does your app render quickly and flawlessly every time on every device and operating system? Are your page transitions fast and smooth? Are your users satisfied with the pace of their transactions on your site? Measuring and monitoring front end performance can help you answer these questions and is an important complement to your overall testing strategy. Learn how Sauce Labs can help you integrate this useful aspect of digital confidence.
 
 <div>

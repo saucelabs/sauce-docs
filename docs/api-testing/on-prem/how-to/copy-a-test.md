@@ -3,9 +3,9 @@ id: copy-a-test
 title: Copy a Test
 sidebar_label: Copy a Test
 keywords:
-    - api-testing
-    - how-to
-    - copy-a-test
+- api-testing
+- how-to
+- copy-a-test
 ---
 
 <head>
@@ -14,7 +14,7 @@ keywords:
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 Here we will show you how to copy and paste a test. Before that, it should be noted that this isn't often the right way to go. Take a step back and ask yourself if this is actually the perfect solution. We have specifically built our platform to improve work efficiency.
 

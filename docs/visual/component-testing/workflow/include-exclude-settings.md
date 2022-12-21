@@ -10,7 +10,6 @@ When you want to test only a subset of your UI states, you can use Include and E
 
 These rules can be set as options in your `screener.config.js` file.
 
-
 ## `includeRules`
 
 Optional array of regular expressions to filter states by. Rules are matched against state name. All matching states will be kept. Example of using the `includeRules` option:
@@ -25,7 +24,6 @@ module.exports = {
   ]
 }
 ```
-
 
 ## `excludeRules`
 

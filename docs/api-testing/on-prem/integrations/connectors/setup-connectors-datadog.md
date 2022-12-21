@@ -1,19 +1,19 @@
 ---
 id: datadog
-title: "Connectors: DataDog"
+title: 'Connectors: DataDog'
 sidebar_label: DataDog
 keywords:
-    - api-testing
-    - integrations
-    - datadog
-    - connectors
+- api-testing
+- integrations
+- datadog
+- connectors
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -24,9 +24,9 @@ To learn how to import a connector [click here](/api-testing/on-prem/integration
 :::
 
 1. First, we need to generate a new API key in DataDog.
-    1. Log in to your DataDog account.
-    2. Mouse-over Integrations and then click API
-    3. Create a new API key at the top of the view (Note: You must have Admin DataDog account access.)
+   1. Log in to your DataDog account.
+   2. Mouse-over Integrations and then click API
+   3. Create a new API key at the top of the view (Note: You must have Admin DataDog account access.)
 
 <img src={useBaseUrl('img/api-fortress/2018/07/datadog.gif')} alt="datadog.gif"/>
 

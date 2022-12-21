@@ -3,17 +3,17 @@ id: multiple-client-cert-downloader
 title: Multiple Client-Cert Downloader
 sidebar_label: Multiple Client-Cert Downloader
 keywords:
-    - api
-    - api-fortress
-    - certificates
-    - certs
+- api
+- api-fortress
+- certificates
+- certs
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -27,23 +27,23 @@ The updates focus on the downloader and it's currently available in the image or
 apifortress/remotedownloadagent:20.2.1
 ```
 
-If you are using the "latest" tag and updated you are all set.  
+If you are using the "latest" tag and updated you are all set.
 
 ## Components
 
 The configuration of the downloader is made of two parts:
 
-* **1. The client certificates**
+- **1. The client certificates**
 
-  The downloader will need to mount a volume for the certificates (we suggest /certs) which will contain the client-side certificates.  
+  The downloader will need to mount a volume for the certificates (we suggest /certs) which will contain the client-side certificates.
 
   For example:
 
   ```yaml
-  - ./certs:/certs  
+  - ./certs:/certs
   ```
 
-* **2. The trust store**
+- **2. The trust store**
 
   In case the certificates are issued by a non-trusted CA, it'll be necessary to update the internal trust store of the image. This operation can be done in multiple ways, such as creating a derivative image of the downloader or mounting the file.
   We'll discuss the two options later.
@@ -56,18 +56,18 @@ If your certificates are not in this format already, you will be able to convert
 
 a) Convert the certificate to PKCS#12 format using openssl, as in:
 
-   ```
-    openssl pkcs12 -export -in client.crt -inkey client.key -out client.p12
-   ```
+```
+ openssl pkcs12 -export -in client.crt -inkey client.key -out client.p12
+```
 
 b) Import the p12 to a JKS:
 
-   ```
-   keytool -importkeystore -srckeystore client.p12 \
-        -srcstoretype PKCS12 \
-        -destkeystore client.jks \
-        -deststoretype JKS
-   ```
+```
+keytool -importkeystore -srckeystore client.p12 \
+     -srcstoretype PKCS12 \
+     -destkeystore client.jks \
+     -deststoretype JKS
+```
 
 Once you're done, you can copy the resulting artifact to the mounted volume.
 
@@ -92,10 +92,10 @@ As previously said, we can tackle this in two different ways.
 One is creating a **derivate image** with a Dockerfile similar to this:
 
 ```
-FROM apifortress/remotedownloadagent:20.2.1  
-COPY ca.crt /ca.crt  
-COPY cert.crt /cert.crt  
-RUN /usr/java/latest/bin/keytool -import -trustcacerts -keystore /usr/java/latest/jre/lib/security/cacerts -storepass changeit -alias localca -import -file /ca.crt -noprompt  
+FROM apifortress/remotedownloadagent:20.2.1
+COPY ca.crt /ca.crt
+COPY cert.crt /cert.crt
+RUN /usr/java/latest/bin/keytool -import -trustcacerts -keystore /usr/java/latest/jre/lib/security/cacerts -storepass changeit -alias localca -import -file /ca.crt -noprompt
 RUN /usr/java/latest/bin/keytool -import -trustcacerts -keystore /usr/java/latest/jre/lib/security/cacerts -storepass changeit -alias localcrt -import -file /cert.crt -noprompt
 ```
 
@@ -124,29 +124,37 @@ For Kubernetes, the most practical way since Kubernetes 1.10.0 is to create a co
 - Whenever the **trust store** is altered, the service needs to be restarted for the change to be effective.
 - If a certificate is activated (see: Test writing) then the certificates involved need to be fully valid. It'll be, in other words, impossible to skip SSL validation
 - The `disable_ssl_validation` must be set to false.
-- This feature is currently unavailable in load testing (but will be implemented once we receive sufficient feedback on this implementation)  
+- This feature is currently unavailable in load testing (but will be implemented once we receive sufficient feedback on this implementation)
 
 ### Test writing
 
 The test writer is required to provide configuration (if necessary) on which certificate to use in each call. Here's an example:
 
 ```js
-<get url="[https://nginx.apifortress](https://nginx.apifortress/)" params="[:]" var="payload" mode="text">  
-<config name="client_cert_configuration" value="{&quot;keystorePath&quot;:&quot;/certs/client.jks&quot;,&quot;keystorePassword&quot;:&quot;foobar&quot;}"/>  
+<get
+url="[https://nginx.apifortress](https://nginx.apifortress/)"
+params="[:]"
+var="payload"
+mode="text"
+>
+<config
+name="client_cert_configuration"
+value='{"keystorePath":"/certs/client.jks","keystorePassword":"foobar"}'
+/>
 </get>
 ```
 
 The unescaped value is as follows:
 
-```json    
+```json
 {
-  "keystorePath": "/certs/client.jks",
-  "keystorePassword": "foobar"
+"keystorePath": "/certs/client.jks",
+"keystorePassword": "foobar"
 }
 ```
 
 Each call can be configured to use a different certificate, or no certificate at all.
 
-The value can also be parametrized as a template using the `${...}` syntax  
+The value can also be parametrized as a template using the `${...}` syntax
 
 <img src={useBaseUrl('img/api-fortress/2020/10/2020-10-15.png')} alt="2020-10-15.png"/>

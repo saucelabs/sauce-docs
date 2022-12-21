@@ -3,16 +3,16 @@ id: different-ways-to-compose-a-request-body
 title: Different Ways to Compose a Request Body
 sidebar_label: Different Ways to Compose a Request Body
 keywords:
-    - api-testing
-    - how-to
-    - request-body
+- api-testing
+- how-to
+- request-body
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -25,8 +25,8 @@ The first and easiest way is when we have a body from somewhere to copy and pas
 1. In the composer we add the POST component and type the url and all of the required fields.
 
    ```js
-   Url: https://mydomain.com/myPost //the url of the resource you want to test
-   Variable: payload //the name of the variable that contains the response
+   //mydomain.com/myPost //the url of the resource you want to test
+   Url: https: Variable: payload //the name of the variable that contains the response
    Mode: json //the type of the response
    ```
 
@@ -43,30 +43,29 @@ The first and easiest way is when we have a body from somewhere to copy and pas
 
 3. Now we can execute the call and proceed with the test. [![final_call](https://apifortress.com/doc/wp-content/uploads/2018/09/final_call.jpg)](https://apifortress.com/doc/wp-content/uploads/2018/09/final_call.jpg)
 
-
 ## Using Variables in the Request Body
 
-Another way to compose a request is using variables in the body.  
+Another way to compose a request is using variables in the body.
 
 1. In the composer we add the POST component typing the url and all the required fields.
 
-   ```js    
-   Url: https://mydomain.com/myPost //the url of the resource you want to test)
-   Variable: payload //the name of the variable that contains the response)
+   ```js
+   //mydomain.com/myPost //the url of the resource you want to test)
+   Url: https: Variable: payload //the name of the variable that contains the response)
    Mode: json //the type of the response)
-   ```     
+   ```
 
    <img src={useBaseUrl('img/api-fortress/2018/09/post_comp.jpg')} alt="post_comp.jpg"/>
 
 2. We add the Body component. In the Content-Type we choose the proper one, let's say application/json. In this scenario we need to use a variable so in the Content field we enter the following:
 
-   ```json   
+   ```json
    {
     "user": ${user},
     "password": ${password},
     "url": "http://www.testme.com/api/run/test"
    }
-   ```     
+   ```
 
    In this scenario `"user"` and `"password"` are not directly passed in the body, but they are variables defined as global parameters in the data set.
 
@@ -82,7 +81,7 @@ The next way to compose a Request Body is by using a variable from another call.
 
 1. The first thing we need to do is add the call we will retrieve the variable from. Let's consider, as example, the common scenario where we need to perform a login for authentication and retrieve the authentication token required for the following call.
 
-   ```js     
+   ```js
    Url: http://www.mydomain.com/login // the url of the resource you want to test
    Variable: payload // the name of the variable that contains the response
    Mode: json // the type of the response
@@ -90,24 +89,24 @@ The next way to compose a Request Body is by using a variable from another call.
        Name: Authorization
        Value: Basic YWRtaW46cGFzc3dvcmQ=
        // this value comes from encoding username:password in Base64
-   ```    
+   ```
 
    <img src={useBaseUrl('img/api-fortress/2018/09/loginAuth.jpg')} alt="loginAuth.jpg"/>
 
 2. Executing the login we will have as response the desired token. Let's see it using our console. [![response_token](https://apifortress.com/doc/wp-content/uploads/2018/09/response_token.jpg)](https://apifortress.com/doc/wp-content/uploads/2018/09/response_token.jpg)
 3. Now we need to save the token as variable.
 
-   ```js    
+   ```js
    Var: token //the name of the variable
    Variable mode: String // the type of the variable
    Value: ${payload.access_token} // we retrive the value from the previous 'payload'
-   ```     
+   ```
 
    <img src={useBaseUrl('img/api-fortress/2018/09/var_token.jpg')} alt="var_token.jpg"/>
 
 4. Once the token has been saved as variable we can proceed adding the second call and use that token in the Request Body.
 
-   ```js     
+   ```js
    Content-Type: application/json
    Content: {"token":"${token}"}
    ```
@@ -126,23 +125,23 @@ In the next example we will show you a more complex case. We will consider the s
 
    ```json
    {
-      "id":123,
-      "items":[
-         {
-            "id":11,
-            "name":"stuff1"
-         },
-         {
-            "id":12,
-            "name":"stuff2"
-         },
-         {
-            "id":13,
-            "name":"stuff3"
-         }
-      ]
+   "id": 123,
+   "items": [
+   {
+   "id": 11,
+   "name": "stuff1"
+   },
+   {
+   "id": 12,
+   "name": "stuff2"
+   },
+   {
+   "id": 13,
+   "name": "stuff3"
    }
-   ```  
+   ]
+   }
+   ```
 
    <img src={useBaseUrl('img/api-fortress/2018/09/search_response.jpg')} alt="search_response.jpg"/>
 
@@ -170,26 +169,26 @@ Let's see how we can do this:
 
    ```json
    {
-      "items":[
-         {
-            "id":11,
-            "price":5.99
-         },
-         {
-            "id":12,
-            "price":6.99
-         },
-         {
-            "id":13,
-            "price":10.99
-         },
-         {
-            "id":14,
-            "price":15.99
-         }
-      ]
+   "items": [
+   {
+   "id": 11,
+   "price": 5.99
+   },
+   {
+   "id": 12,
+   "price": 6.99
+   },
+   {
+   "id": 13,
+   "price": 10.99
+   },
+   {
+   "id": 14,
+   "price": 15.99
    }
-   ```  
+   ]
+   }
+   ```
 
    <img src={useBaseUrl('img/api-fortress/2018/09/response_get.jpg')} alt="response_get.jpg"/>
 
@@ -198,7 +197,7 @@ Let's see how we can do this:
    ```js
    // for each item in the array,
    payload.items.each {
-       it -> it.currency='$'  
+       it -> it.currency='$'
    };
    // we add the currency attribute with "$" as value
 
@@ -215,4 +214,4 @@ Let's see how we can do this:
 
    <img src={useBaseUrl('img/api-fortress/2018/09/allDone.jpg')} alt="allDone.jpg"/>
 
-__NOTE__: In this post we used the `POST` method, but all examples shown apply to the other REST methods. In this same way, we demonstrated scenarios with Request Bodies, but all examples apply for Header or Param cases as well.
+**NOTE**: In this post we used the `POST` method, but all examples shown apply to the other REST methods. In this same way, we demonstrated scenarios with Request Bodies, but all examples apply for Header or Param cases as well.

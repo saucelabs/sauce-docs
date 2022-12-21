@@ -17,9 +17,9 @@ Tosca scans your app to gather data about the various pages and elements. From t
 
 ## What You’ll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username](https://app.saucelabs.com/user-settings).
-* You’ll also need to download and install Tosca.
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- Your Sauce Labs [Username](https://app.saucelabs.com/user-settings).
+- You’ll also need to download and install Tosca.
 
 ## Scanning an App
 
@@ -56,6 +56,7 @@ This step sometimes takes a considerable amount of time, due to the large volume
 <img src={useBaseUrl('img/integrations/tosca-est-connection.png')} alt="Tosca Establishing connection box" width="400"/>
 
 ## Executing a Test
+
 Once you have some basic tests created, it’ll be time to execute them. For parallel execution of multiple tests on Sauce Labs devices, you’ll need to fill out the test configuration fields as indicated below.
 
 1. In the **Tosca Commander**, on the **Execution** tab, enter your Sauce Labs credentials.

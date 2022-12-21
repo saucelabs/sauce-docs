@@ -2,21 +2,23 @@
 id: vault
 title: Adding Reusable Variables, Snippets, and Files in the Vault
 sidebar_label: Vault, Variables, Snippets, Files
-description: "The Vault allows you to store variables, code snippets, and files that can be used across an entire project."
+description: 'The Vault allows you to store variables, code snippets, and files that can be used across an entire project.'
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Our **Vault** feature allows you to store variables and code snippets to use in your tests in one project, or across all projects. You can also store files for use in one project. 
+Our **Vault** feature allows you to store variables and code snippets to use in your tests in one project, or across all projects. You can also store files for use in one project.
 
 ## What You'll Need
-* An existing API Testing project. For details on how to create one, see the [Quickstart](/api-testing/quickstart/) guide.
+
+- An existing API Testing project. For details on how to create one, see the [Quickstart](/api-testing/quickstart/) guide.
 
 ## Vault Types
 
 There are two types of API Testing vaults, the **Company Vault** and a project-specific **Vault**. While their UI is the same, they serve two different purposes.
 
 ### Company Vault
+
 The **Company Vault** is where you can store variables and test code snippets to use across all of your projects. You can access this tab from your API Testing home page, where all of your projects are listed.<br/><img src={useBaseUrl('img/api-fortress/2021/04/fromDashboard.png')} alt="Access Vault from Dashboard" width="400" />
 
 ### Project Vault
@@ -83,13 +85,14 @@ When you save a snippet from the [**Composer**](/api-testing/composer/), it will
 1. Open a project.
 1. In the left panel, click **Vault**, then click **Code Snippets**.
 1. Click any of the fields and begin typing to edit the details.
-Your changes are saved automatically.
+   Your changes are saved automatically.
 
 ### Use Case: Authentication Snippet
 
 A good use case for the snippets feature is building an authentication flow; you don't need to rewrite all authentication steps for every single test. Instead, call the snippet that contains these authentication details. Another good example is integration testing, where you can reuse various tests to create one larger flow.
 
 Below is an example of how to create an Authentication Snippet.
+
 1. First, create a new test with a request component that requires basic authentication. For examples, check the [Sauce Labs REST API endpoints](/dev/api/) for ideas.<br/><img src={useBaseUrl('img/api-testing/vault_exampleSnippetRequest.png')} alt="Example Snippet Request"/>
 1. Select **Add Child Component** below the request component.<br/><img src={useBaseUrl('img/api-testing/vault_addRequestHeader.png')} alt="Add Request Header"/>
 1. Select **Basic Authentication** from the list.<br/><img src={useBaseUrl('img/api-testing/vault_basicAuth.png')} alt="Basic Auth Component"/>
@@ -111,16 +114,17 @@ In the **Drive** section of a project-specific **Vault**, you can upload files t
 
 1. Open a project.
 1. In the left panel, click **Vault**, then click **Drive**.
-1. Click **Upload file**. 
+1. Click **Upload file**.
 1. Upload the file using drag and drop or **Choose file**, or enter the URL, then click **Upload**.
- 
+
 You can work with your files in **Vault Drive** as follows:
 
-If you upload a file via a URL, you can hover over **source url** to view the full address.  <br/><img src={useBaseUrl('img/api-fortress/2022/09/vaultuploadfileURL.png')} alt="View Source URL" /> 
+If you upload a file via a URL, you can hover over **source url** to view the full address. <br/><img src={useBaseUrl('img/api-fortress/2022/09/vaultuploadfileURL.png')} alt="View Source URL" />
 
 You can rename, download, or delete individual files.<br/><img src={useBaseUrl('img/api-fortress/2022/09/vaultfileoptions.png')} alt="Rename, delete or download files" />
 
-To delete multiple files, select the checkbox next to the files, then click **Delete Selected**.<br/><img src={useBaseUrl('img/api-fortress/2022/09/vaultdeletefileoptions.png')} alt="Delete multiple files" /> 
+To delete multiple files, select the checkbox next to the files, then click **Delete Selected**.<br/><img src={useBaseUrl('img/api-fortress/2022/09/vaultdeletefileoptions.png')} alt="Delete multiple files" />
 
 ## More Information
-* [API Fortress Legacy Migration Guide](/api-testing/legacy)
+
+- [API Fortress Legacy Migration Guide](/api-testing/legacy)

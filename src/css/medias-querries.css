@@ -1,121 +1,121 @@
 /* media breakpoints - legacy backup */
 /* For typical mobile devices */
 @media only screen and (min-width: 320px) and (max-width: 479px) {
-  .container-landpage {
-    padding: 0;
-  }
-  .quickstart__container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    padding: 0;
-  }
+    .container-landpage {
+        padding: 0;
+    }
+    .quickstart__container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        padding: 0;
+    }
 
-  .quickstart__container:first-of-type {
-    padding: 8px;
-  }
-  .title-quickstart {
-    margin: 4px;
-    text-align: center;
-  }
-  .quickstart__container h3 {
-    font-size: 16px;
-    white-space: nowrap;
-  }
+    .quickstart__container:first-of-type {
+        padding: 8px;
+    }
+    .title-quickstart {
+        margin: 4px;
+        text-align: center;
+    }
+    .quickstart__container h3 {
+        font-size: 16px;
+        white-space: nowrap;
+    }
 
-  .callouts__container {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-  }
-  .callouts__container:first-of-type {
-    padding: 0;
-  }
+    .callouts__container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+    }
+    .callouts__container:first-of-type {
+        padding: 0;
+    }
 
-  .callouts__container .callout {
-    padding: 12px;
-    margin: 12px;
-  }
-  .callouts__container .callout:last-of-type {
-    margin-right: 12px;
-  }
-  .title {
-    text-align: center;
-    margin: 0;
-    padding: 16px 0 8px 0;
-  }
-  .search {
-    width: 100%;
-    margin: 16px 8px 8px 0;
-  }
-  /* Overrides navbar searchbar styles */
-  .DocSearch-Button {
-    width: 3rem;
-  }
+    .callouts__container .callout {
+        padding: 12px;
+        margin: 12px;
+    }
+    .callouts__container .callout:last-of-type {
+        margin-right: 12px;
+    }
+    .title {
+        text-align: center;
+        margin: 0;
+        padding: 16px 0 8px 0;
+    }
+    .search {
+        width: 100%;
+        margin: 16px 8px 8px 0;
+    }
+    /* Overrides navbar searchbar styles */
+    .DocSearch-Button {
+        width: 3rem;
+    }
 
-  html[data-theme='dark'] .navbar-sidebar {
-    background-color: var(--ifm-code-background);
-  }
+    html[data-theme="dark"] .navbar-sidebar {
+        background-color: var(--ifm-code-background);
+    }
 }
 
 /* For small mobile*/
 @media only screen and (max-width: 340px) {
-  /* Overrides navbar searchbar styles */
-  .DocSearch-Button {
-    width: 2.5rem;
-  }
+    /* Overrides navbar searchbar styles */
+    .DocSearch-Button {
+        width: 2.5rem;
+    }
 
-  .container-landpage {
-    flex-wrap: wrap;
-  }
+    .container-landpage {
+        flex-wrap: wrap;
+    }
 
-  .column-left,
-  .column-right {
-    width: 100%;
-  }
+    .column-left,
+    .column-right {
+        width: 100%;
+    }
 }
 
 /* For mobile (landscape) */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-  /* Overrides navbar searchbar styles */
-  .DocSearch-Button {
-    width: 12rem;
-  }
-  html[data-theme='dark'] .navbar-sidebar {
-    background-color: var(--ifm-code-background);
-  }
+    /* Overrides navbar searchbar styles */
+    .DocSearch-Button {
+        width: 12rem;
+    }
+    html[data-theme="dark"] .navbar-sidebar {
+        background-color: var(--ifm-code-background);
+    }
 
-  .container-landpage {
-    flex-wrap: wrap;
-  }
+    .container-landpage {
+        flex-wrap: wrap;
+    }
 
-  .column-left,
-  .column-right {
-    width: 100%;
-  }
+    .column-left,
+    .column-right {
+        width: 100%;
+    }
 }
 /* For tablet */
 @media only screen and (min-width: 768px) and (max-width: 979px) {
-  html[data-theme='dark'] .navbar-sidebar {
-    background-color: var(--ifm-code-background);
-  }
+    html[data-theme="dark"] .navbar-sidebar {
+        background-color: var(--ifm-code-background);
+    }
 }
 /* For small desktop */
 @media only screen and (min-width: 980px) and (max-width: 1023px) {
-  html[data-theme='dark'] .navbar-sidebar {
-    background-color: var(--ifm-code-background);
-  }
+    html[data-theme="dark"] .navbar-sidebar {
+        background-color: var(--ifm-code-background);
+    }
 }
 /* For typical desktop */
 @media only screen and (min-width: 1024px) and (max-width: 1199px) {
-  html[data-theme='dark'] .navbar-sidebar {
-    background-color: var(--ifm-code-background);
-  }
+    html[data-theme="dark"] .navbar-sidebar {
+        background-color: var(--ifm-code-background);
+    }
 }
 /* For large desktop */
 @media only screen and (min-width: 1200px) {
-  html[data-theme='dark'] .navbar-sidebar {
-    background-color: var(--ifm-code-background);
-  }
+    html[data-theme="dark"] .navbar-sidebar {
+        background-color: var(--ifm-code-background);
+    }
 }

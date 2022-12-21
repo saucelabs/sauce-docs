@@ -1,6 +1,6 @@
 ---
 id: delete-session
-title: "Virtual USB CLI: Delete Session"
+title: 'Virtual USB CLI: Delete Session'
 sidebar_label: Delete Session
 ---
 
@@ -50,7 +50,6 @@ A specific Virtual USB server host address. The default value, if not specified,
 
 </div>
 
-
 ### <span className="cli">--serverPort</span>
 
 <div className="cli-desc">
@@ -59,7 +58,6 @@ A specific Virtual USB server host address. The default value, if not specified,
 A specific Virtual USB server port. The default value, if not specified, is `33657`.
 
 </div>
-
 
 ## Examples
 

@@ -3,6 +3,7 @@ id: real-devices
 title: Account and Team Management for TestObject (Legacy)
 sidebar_label: TestObject (Legacy)
 ---
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -5,6 +5,7 @@ sidebar_label: Getting Started
 description: Capture error and crash reports from your games and mobile apps with Backtrace.
 hide_table_of_contents: true
 ---
+
 Capture error and crash reports from your games and mobile apps with Backtrace.
 
 <div className="box box1 card">

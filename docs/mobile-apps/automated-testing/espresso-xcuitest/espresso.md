@@ -3,6 +3,7 @@ id: espresso
 title: Configuring Your Espresso Tests
 sidebar_label: Espresso Configuration
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -23,7 +24,6 @@ saucectl run -c ./path/to/{config-file}.yml
 While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g., [Visual Studio Code](/dev/cli/saucectl/usage/ide/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
 :::
 
-
 ## Example Configuration
 
 ```yaml reference
@@ -33,6 +33,7 @@ https://github.com/saucelabs/saucectl-espresso-example/blob/master/.sauce/config
 Each of the properties supported for running Espresso tests through `saucectl` is defined below.
 
 ## `apiVersion`
+
 <p><small>| REQUIRED | STRING |</small></p>
 
 Identifies the version of the underlying configuration schema. At this time, `v1alpha` is the only supported value.
@@ -40,9 +41,11 @@ Identifies the version of the underlying configuration schema. At this time, `v1
 ```yaml
 apiVersion: v1alpha
 ```
+
 ---
 
 ## `kind`
+
 <p><small>| REQUIRED | STRING/ENUM |</small></p>
 
 Specifies which framework is associated with the automation tests configured in this specification.
@@ -50,9 +53,11 @@ Specifies which framework is associated with the automation tests configured in 
 ```yaml
 kind: espresso
 ```
+
 ---
 
 ## `showConsoleLog`
+
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Generates the `console.log` as local output and as a test asset in Sauce Labs for all tests. By default, `console.log` is only included in results for failed tests.
@@ -60,20 +65,24 @@ Generates the `console.log` as local output and as a test asset in Sauce Labs fo
 ```yaml
 showConsoleLog: true
 ```
+
 ---
 
 ## `defaults`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Specifies any default settings for the project.
 
 ```yaml
 defaults:
-  timeout: 15m
+timeout: 15m
 ```
+
 ---
 
 ### `timeout`
+
 <p><small>| OPTIONAL | DURATION |</small></p>
 
 Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
@@ -83,55 +92,63 @@ When setting the timeout values for your suites, consider that native framework 
 :::
 
 ```yaml
-  timeout: 15m
+timeout: 15m
 ```
+
 ---
 
 ## `sauce`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 The parent property containing all settings related to how tests are run and identified in the Sauce Labs platform.
 
 ```yaml
 sauce:
-  region: eu-central-1
-  metadata:
-    tags:
-      - e2e
-      - release team
-      - other tag
-    build: Release $CI_COMMIT_SHORT_SHA
-  concurrency: 5
+region: eu-central-1
+metadata:
+tags:
+- e2e
+- release team
+- other tag
+build: Release $CI_COMMIT_SHORT_SHA
+concurrency: 5
 ```
+
 ---
 
 ### `region`
+
 <p><small>| OPTIONAL | STRING/ENUM |</small></p>
 
 Specifies through which Sauce Labs data center tests will run. Valid values are: `us-west-1` or `eu-central-1`.
 
 ```yaml
-  region: eu-central-1
+region: eu-central-1
 ```
+
 ---
 
 ### `metadata`
+
 <p><small>| OPTIONAL | OBJECT | VIRTUAL ONLY |</small></p>
 
 The set of properties that allows you to provide additional information about your project that helps you distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you, as shown in the following example:
 
 ```yaml
 metadata:
-  build: RC 10.4.a
-  tags:
-    - e2e
-    - Android
-    - beta
-    - featurex
+build: RC 10.4.a
+tags:
+- e2e
+- Android
+- beta
+- featurex
 ```
+
 ---
 
 ### `concurrency`
+
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
 Sets the maximum number of suites to execute at the same time. If the test defines more suites than the max, excess suites are queued and run in order as each suite completes.
@@ -141,7 +158,7 @@ Set this value to equal or less than your Sauce concurrency allowance, as settin
 :::
 
 ```yaml
-  concurrency: 5
+concurrency: 5
 ```
 
 Alternatively, you can override the file setting at runtime by setting the concurrency flag as an inline parameter of the `saucectl run` command:
@@ -149,15 +166,17 @@ Alternatively, you can override the file setting at runtime by setting the concu
 ```bash
 saucectl run --ccy 5
 ```
+
 ---
 
 ### `retries`
+
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
 Sets the number of times to retry a failed suite.
 
 ```yaml
-  retries: 1
+retries: 1
 ```
 
 Alternatively, you can override the file setting at runtime by setting the retries flag as an inline parameter of the `saucectl run` command:
@@ -165,22 +184,26 @@ Alternatively, you can override the file setting at runtime by setting the retri
 ```bash
 saucectl run --retries 1
 ```
+
 ---
 
 ### `tunnel`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 `saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect/proxy-tunnels/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
 
 ```yaml
 sauce:
-  tunnel:
-    name: your_tunnel_name
-    owner: tunnel_owner_username
+tunnel:
+name: your_tunnel_name
+owner: tunnel_owner_username
 ```
+
 ---
 
 #### `name`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Identifies an active Sauce Connect tunnel to use for secure connectivity to the Sauce Labs cloud.
@@ -191,12 +214,14 @@ This property replaces the former `id` property, which is deprecated.
 
 ```yaml
 sauce:
-  tunnel:
-    name: your_tunnel_name
+tunnel:
+name: your_tunnel_name
 ```
+
 ---
 
 #### `owner`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Identifies the Sauce Labs user who created the specified tunnel, which is required if the user running the tests did not create the tunnel.
@@ -207,13 +232,15 @@ This property replaces the former `parent` property, which is deprecated.
 
 ```yaml
 sauce:
-  tunnel:
-    name: your_tunnel_name
-    owner: tunnel_owner_username
+tunnel:
+name: your_tunnel_name
+owner: tunnel_owner_username
 ```
 
 ---
+
 ### `visibility`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Sets the visibility level of test results for suites run on Sauce Labs. If unspecified or empty, `team` visibility will be applied. Valid values are:
@@ -222,256 +249,295 @@ Sets the visibility level of test results for suites run on Sauce Labs. If unspe
 This property is only valid for tests run against emulators. It has no effect on tests run against real devices.
 :::
 
-* `public`: Accessible to anyone.
-* `public restricted`: Share your job's results page and video, but keeps the logs only for you.
-* `share`: Only accessible to people with a valid link.
-* `team`: (Default) Only accessible to people under the same root account as you.
-* `private`: Only you (the owner) will be able to view assets and test results page.
+- `public`: Accessible to anyone.
+- `public restricted`: Share your job's results page and video, but keeps the logs only for you.
+- `share`: Only accessible to people with a valid link.
+- `team`: (Default) Only accessible to people under the same root account as you.
+- `private`: Only you (the owner) will be able to view assets and test results page.
 
 ```yaml
 sauce:
-  visibility: private
+visibility: private
 ```
+
 ---
 
 ### `launchOrder`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies the execution order for your test suites. When set to `fail rate`, test suites with the highest failure rate will execute first. If unspecified, test suites will execute in the order in which they are written in the configuration file.
 
 ```yaml
 sauce:
-  launchOrder: fail rate
+launchOrder: fail rate
 ```
+
 ---
+
 ## `reporters`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Configures additional reporting capabilities provided by `saucectl`.
 
 ```yaml
 reporters:
-  junit:
-    enabled: true
-    filename: saucectl-report.xml
+junit:
+enabled: true
+filename: saucectl-report.xml
 ```
 
 ---
+
 ### `junit`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 The JUnit reporter gathers JUnit reports from all jobs and combines them into a single report.
 
 ```yaml
 reporters:
-  junit:
-    enabled: true
-    filename: saucectl-report.xml
+junit:
+enabled: true
+filename: saucectl-report.xml
 ```
 
 ---
+
 ### `json`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 The JSON reporter gathers test results from all jobs and combines them into a single report.
 
 ```yaml
 reporters:
-  json:
-    enabled: true
-    filename: saucectl-report.json
-    webhookURL: https://my-webhook-url
+json:
+enabled: true
+filename: saucectl-report.json
+webhookURL: https://my-webhook-url
 ```
 
 ---
+
 #### `enabled`
+
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Toggles the reporter on/off.
 
 ```yaml
-    enabled: true
+enabled: true
 ```
 
 ---
+
 #### `webhookURL`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST with a JSON payload to the configured webhook URL.
 
 ```yaml
-    webhookURL: https://my-webhook-url
+webhookURL: https://my-webhook-url
 ```
 
 ---
+
 #### `filename`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies the report filename. Defaults to "saucectl-report.json".
 
 ```yaml
-    filename: my-saucectl-report.json
+filename: my-saucectl-report.json
 ```
 
 ---
+
 ## `artifacts`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Specifies how to manage test output, such as logs, videos, and screenshots.
 
 ```yaml
 artifacts:
-  cleanup: true
-  download:
-    when: always
-    match:
-      - junit.xml
-    directory: ./artifacts/
+cleanup: true
+download:
+when: always
+match:
+- junit.xml
+directory: ./artifacts/
 ```
+
 ---
 
 ### `cleanup`
+
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
 
 ```yaml
-  cleanup: true
+cleanup: true
 ```
+
 ---
 
 ### `download`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Specifies the settings related to downloading artifacts from tests run by `saucectl`.
 
 ```yaml
-  download:
-    when: always
-    match:
-      - junit.xml
-    directory: ./artifacts/
+download:
+when: always
+match:
+- junit.xml
+directory: ./artifacts/
 ```
+
 ---
 
 #### `when`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies when and under what circumstances to download artifacts. Valid values are:
 
-* `always`: Always download artifacts.
-* `never`: Never download artifacts.
-* `pass`: Download artifacts for passing suites only.
-* `fail`: Download artifacts for failed suites only.
+- `always`: Always download artifacts.
+- `never`: Never download artifacts.
+- `pass`: Download artifacts for passing suites only.
+- `fail`: Download artifacts for failed suites only.
 
 ```yaml
-    when: always
+when: always
 ```
+
 ---
 
 #### `match`
+
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
 
 Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
 
 ```yaml
-  match:
-    - junit.xml
-    - "*.log"
+match:
+- junit.xml
+- '*.log'
 ```
+
 ---
 
 #### `directory`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. The name of the subdirectory will match the suite name. If a directory with the same name already exists, the new one will be suffixed by a serial number.
 
 ```yaml
-    directory: ./artifacts/
+directory: ./artifacts/
 ```
+
 ---
 
 ## `notifications`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Specifies how to set up automatic test result alerts.
 
 ```yaml
 notifications:
-  slack:
-    channels:
-      - "saucectl-results"
-      - "espresso-tests"
-    send: always
+slack:
+channels:
+- 'saucectl-results'
+- 'espresso-tests'
+send: always
 ```
+
 ---
 
 ### `slack`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/basics/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
 
 ```yaml
-  slack:
-    channels: "saucectl-espresso-tests"
-    send: always
+slack:
+channels: 'saucectl-espresso-tests'
+send: always
 ```
+
 ---
 
 #### `channels`
+
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
 
 The set of Slack channels to which the test result notifications are to be sent.
 
 ```yaml
-  slack:
-    channels:
-      - "saucectl-results"
-      - "espresso-team"
-    send: always
+slack:
+channels:
+- 'saucectl-results'
+- 'espresso-team'
+send: always
 ```
+
 ---
 
 #### `send`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies when and under what circumstances to send notifications to specified Slack channels. Valid values are:
 
-* `always`: Send notifications for all test results.
-* `never`: Do not send any test result notifications.
-* `pass`: Send notifications for passing suites only.
-* `fail`: Send notifications for failed suites only.
+- `always`: Send notifications for all test results.
+- `never`: Do not send any test result notifications.
+- `pass`: Send notifications for passing suites only.
+- `fail`: Send notifications for failed suites only.
 
 ```yaml
-  slack:
-    channels: "saucectl-espresso-tests"
-    send: always
+slack:
+channels: 'saucectl-espresso-tests'
+send: always
 ```
+
 ---
 
 ## `espresso`
+
 <p><small>| REQUIRED | OBJECT |</small></p>
 
 The parent property containing the details specific to the Espresso project.
 
 ```yaml
 espresso:
-  app: ./apps/calc.apk
-  appDescription: My demo app
-  testApp: ./apps/calc-success.apk
-  testAppDescription: My test app
-  otherApps:
-    - ./apps/pre-installed-app1.apk
-    - ./apps/pre-installed-app2.apk
+app: ./apps/calc.apk
+appDescription: My demo app
+testApp: ./apps/calc-success.apk
+testAppDescription: My test app
+otherApps:
+- ./apps/pre-installed-app1.apk
+- ./apps/pre-installed-app2.apk
 ```
+
 ---
 
 ### `app`
+
 <p><small>| REQUIRED | STRING |</small></p>
 
 Specifies a local path, URL, or storage identifier to the app under test. This property supports expanded environment variables.
 
-When defining a local path, the default directory is `{project-root}/apps/filename.apk`. The app will be uploaded to the Sauce Labs storage service. Supports *.apk and *.aab files.
+When defining a local path, the default directory is `{project-root}/apps/filename.apk`. The app will be uploaded to the Sauce Labs storage service. Supports _.apk and _.aab files.
 
 When defining a URL to your app, it will be downloaded to a local temporary directory before being uploaded to Sauce storage.
 
@@ -480,43 +546,46 @@ To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must 
 :::
 
 ```yaml
-  app: ./apps/calc.apk
+app: ./apps/calc.apk
 ```
 
 ```yaml
-  app: https://example.app.download.url/calc.apk
+app: https://example.app.download.url/calc.apk
 ```
 
 ```yaml
-  app: $APP
+app: $APP
 ```
 
 ```yaml
-  app: storage:099557f6-aabb-f8b3-6ad1-8f6200898b92
+app: storage:099557f6-aabb-f8b3-6ad1-8f6200898b92
 ```
 
 ```yaml
-  app: storage:filename=calc.apk
+app: storage:filename=calc.apk
 ```
 
 ---
 
 ### `appDescription`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies description for the uploaded app.
 
 ```yaml
-  appDescription: My demo app
+appDescription: My demo app
 ```
+
 ---
 
 ### `testApp`
+
 <p><small>| REQUIRED | STRING |</small></p>
 
 Either a local path, url, or storage identifier to the testing app. This property supports expanded environment variables.
 
-When defining a local path, the default directory is `{project-root}/apps/testfile.apk`. The app will be uploaded to the Sauce Labs storage service. Supports *.apk and *.aab files.
+When defining a local path, the default directory is `{project-root}/apps/testfile.apk`. The app will be uploaded to the Sauce Labs storage service. Supports _.apk and _.aab files.
 
 When defining a url to your test app, it will be downloaded to a local temporary directory before being uploaded to the storage service.
 
@@ -525,57 +594,62 @@ To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must 
 :::
 
 ```yaml
-  testApp: ./apps/calc-success.apk
+testApp: ./apps/calc-success.apk
 ```
 
 ```yaml
-  testApp: https://example.app.download.url/calc-success.apk
+testApp: https://example.app.download.url/calc-success.apk
 ```
 
 ```yaml
-  testApp: $TEST_APP
+testApp: $TEST_APP
 ```
 
 ```yaml
-  testApp: storage:fbd59e8e-2555-0d3c-5583-1bba2cd17b64
+testApp: storage:fbd59e8e-2555-0d3c-5583-1bba2cd17b64
 ```
 
 ```yaml
-  testApp: storage:filename=calc-success.apk
+testApp: storage:filename=calc-success.apk
 ```
 
 ---
 
 ### `testAppDescription`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies description for the uploaded testApp.
 
 ```yaml
-  testAppDescription: My test app
+testAppDescription: My test app
 ```
+
 ---
 
 ### `otherApps`
+
 <p><small>| OPTIONAL | ARRAY | REAL DEVICES ONLY |</small></p>
 
-Set of up to seven apps to pre-install for your tests. You can upload an *.apk  or *.aab app file from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.apk`), a remote url, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
+Set of up to seven apps to pre-install for your tests. You can upload an _.apk or _.aab app file from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.apk`), a remote url, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
 
 :::note
 Apps specified as `otherApps` inherit the configuration of the main app under test for [`Device Language`, `Device Orientation`, and `Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
 :::
 
 ```yaml
-  otherApps:
-    - ./apps/pre-installed-app1.apk
-    - https://example.app.download.url/pre-installed-app1.apk
-    - $PRE_INSTALLED_APP2
-    - storage:d6aac80c-2000-a2f1-4c4e-539266e93ee6
-    - storage:filename=pre-installed-app3.apk
+otherApps:
+- ./apps/pre-installed-app1.apk
+- https://example.app.download.url/pre-installed-app1.apk
+- $PRE_INSTALLED_APP2
+- storage:d6aac80c-2000-a2f1-4c4e-539266e93ee6
+- storage:filename=pre-installed-app3.apk
 ```
+
 ---
 
 ## `suites`
+
 <p><small>| REQUIRED | OBJECT |</small></p>
 
 The set of properties providing details about the test suites to run. May contain multiple suite definitions. See the full [example config](#example-configuration) for an illustration of multiple suite definitions.
@@ -583,42 +657,50 @@ The set of properties providing details about the test suites to run. May contai
 :::tip Configure RDC and VMC
 You can configure tests for both Real Devices _and_ Virtual Machines in a single configuration file.
 :::
+
 ---
 
 ### `name`
+
 <p><small>| REQUIRED | STRING |</small></p>
 
 The name of the test suite, which will be reflected in the results and related artifacts.
 
 ```yaml
-  - name: "saucy test"
+- name: 'saucy test'
 ```
+
 ---
 
 ### `testApp`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Sets the test application on the suite level. See the full [usage](#testapp). If this property is not set, `saucectl` will use the default `testApp` from the [`espresso`](#espresso) level.
 
 ```yaml
 suites:
-  - testApp: ./apps/calc-success.apk
+- testApp: ./apps/calc-success.apk
 ```
+
 ---
 
 ### `testAppDescription`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies description for the uploaded testApp on the suite level. If `testApp` is not set on suite level, `saucectl` will use the default `testAppDescription` from the [`espresso`](#espresso) level.
 
 ```yaml
 suites:
-  - testApp: ./apps/calc-success.apk
-    testAppDescription: My test app
+- testApp: ./apps/calc-success.apk
+  testAppDescription: My test app
 ```
+
 ---
 
 ### `timeout`
+
 <p><small>| OPTIONAL | DURATION |</small></p>
 
 Instructs how long `saucectl` should wait for the suite to complete, potentially overriding the default project timeout setting.
@@ -630,59 +712,69 @@ Setting `0` reverts to the value set in `defaults`.
 :::
 
 ```yaml
-  timeout: 15m
+timeout: 15m
 ```
+
 ---
 
 ### `emulators`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 The parent property that defines details for running this suite on virtual devices using an emulator.
 
 ```yaml
 emulators:
-  - name: "Android GoogleApi Emulator"
-    orientation: portrait
-    platformVersions:
-      - "11.0"
-      - "10.0"
+- name: 'Android GoogleApi Emulator'
+  orientation: portrait
+  platformVersions:
+  - '11.0'
+  - '10.0'
 ```
+
 ---
 
 #### `name`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 The name of the device to emulate for this test suite. To ensure name accuracy, check the [list of supported virtual devices](https://app.saucelabs.com/live/web-testing/virtual).
 If you are using emulators for this test suite, this property is REQUIRED.
 
 ```yaml
-  - name: "Android GoogleApi Emulator"
+- name: 'Android GoogleApi Emulator'
 ```
+
 ---
 
 #### `orientation`
+
 <p><small>| OPTIONAL | ENUM |</small></p>
 
 The screen orientation to use while executing this test suite on this virtual device. Valid values are `portrait` or `landscape`.
 
 ```yaml
-  orientation: portrait
+orientation: portrait
 ```
+
 ---
 
 #### `platformVersions`
+
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
 The set of one or more versions of the device platform on which to run the test suite. Check the [list of supported virtual devices](https://app.saucelabs.com/live/web-testing/virtual) for compatible versions.
 
 ```yaml
-  platformVersions:
-    - "11.0"
-    - "10.0"
+platformVersions:
+- '11.0'
+- '10.0'
 ```
+
 ---
 
 ### `devices`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 The parent property that defines details for running this suite on real devices. You can request a specific device using its ID, or you can specify a set of criteria to choose the first available device that matches the specifications.
@@ -691,36 +783,41 @@ When an ID is specified, it supersedes the other settings.
 
 ```yaml
 devices:
-  - name: "Google Pixel.*"
-    platformVersion: 8.1
-    options:
-      carrierConnectivity: true
-  - id: Google_Pixel_2_real_us
+- name: 'Google Pixel.*'
+  platformVersion: 8.1
+  options:
+  carrierConnectivity: true
+- id: Google_Pixel_2_real_us
 ```
+
 ---
 
 #### `id`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Request a specific device for this test suite by its ID. You can look up device IDs on device selection pages or by using our [Get Devices API request](/dev/api/rdc/#get-devices).
 
 ```yaml
-        id: Google_Pixel_2_real_us
+id: Google_Pixel_2_real_us
 ```
+
 ---
 
 #### `name`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Find a device for this test suite that matches the device name or portion of the name ([Dynamic Device Allocation](/mobile-apps/supported-devices/#dynamic-device-allocation)), which may provide a larger pool of available devices of the type you want.
 
 ```yaml title="Use Complete Name"
-      - name: Google Pixel 4 XL
+- name: Google Pixel 4 XL
 ```
 
 ```yaml title="Use Dynamic Allocation"
       - name: Google Pixel.*
 ```
+
 ---
 
 #### `platformVersion`
@@ -749,7 +846,7 @@ This is optional for Real Devices. There are three options you can use to determ
     * **`^(?!15).*`:** Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1).
 
 :::note NOTE
-The stricter the  `platformVersions` is,  the smaller the pool of available devices will be and the longer you might need to wait for the available device. We recommend using only the major version or using the regex option to get the best results and an available device in the fastest way. 
+The stricter the  `platformVersions` is,  the smaller the pool of available devices will be and the longer you might need to wait for the available device. We recommend using only the major version or using the regex option to get the best results and an available device in the fastest way.
 :::
 
 ```yaml title="Use complete version for Virtual and or Real Devices"
@@ -759,9 +856,11 @@ The stricter the  `platformVersions` is,  the smaller the pool of available devi
 ```yaml title="Use dynamic platformVersion allocation. Real Devices Only"
         platformVersion: '^1[3-4|6].*'
 ```
+
 ---
 
 #### `options`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 A parent property to further specify desired device attributes within the pool of devices that match the `name` and `version` criteria.
@@ -769,134 +868,157 @@ A parent property to further specify desired device attributes within the pool o
 ---
 
 ##### `carrierConnectivity`
+
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Request that the matching device is also connected to a cellular network.
 
 ```yaml
-  options:
-      carrierConnectivity: true
+options:
+carrierConnectivity: true
 ```
+
 ---
 
 ##### `deviceType`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Request that the matching device is a specific type of device. Valid values are:  `ANY`, `TABLET`, or `PHONE`.
+Request that the matching device is a specific type of device. Valid values are: `ANY`, `TABLET`, or `PHONE`.
 
 ```yaml
-  options:
-      deviceType: TABLET
+options:
+deviceType: TABLET
 ```
+
 ---
 
 ##### `private`
+
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Request that the matching device is from your organization's private pool.
 
 ```yaml
-  options:
-      private: true
+options:
+private: true
 ```
+
 ---
 
 ### `testOptions`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 A set of parameters allowing you to provide additional details about which test class should be run for the suite and how to apply them.
 
 ```yaml
 suites:
-  testOptions:
-    class:
-      - com.example.android.testing.androidjunitrunnersample.CalculatorAddParameterizedTest
-    notClass:
-      - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest
-    size: small
-    package: com.example.android.testing.androidjunitrunnersample
-    notPackage: com.example.android.testing.androidMyDemoTests
-    annotation: com.android.buzz.MyAnnotation
-    notAnnotation: com.android.buzz.NotMyAnnotation
-    numShards: 4
-    clearPackageData: true
-    useTestOrchestrator: true
+testOptions:
+class:
+- com.example.android.testing.androidjunitrunnersample.CalculatorAddParameterizedTest
+notClass:
+- com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest
+size: small
+package: com.example.android.testing.androidjunitrunnersample
+notPackage: com.example.android.testing.androidMyDemoTests
+annotation: com.android.buzz.MyAnnotation
+notAnnotation: com.android.buzz.NotMyAnnotation
+numShards: 4
+clearPackageData: true
+useTestOrchestrator: true
 ```
+
 ---
 
 #### `class`
+
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
 Instructs `saucectl` to only run the specified classes for this test suite.
 
 ```yaml
-  class:
-    - com.example.android.testing.androidjunitrunnersample.CalculatorAddParameterizedTest
+class:
+- com.example.android.testing.androidjunitrunnersample.CalculatorAddParameterizedTest
 ```
+
 ---
 
 #### `notClass`
+
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Instructs `saucectl` to run all classes for the suite *except* those specified here.
+Instructs `saucectl` to run all classes for the suite _except_ those specified here.
 
 ```yaml
-  notClass:
-    - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest
+notClass:
+- com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest
 ```
+
 ---
 
 #### `size`
+
 <p><small>| OPTIONAL | ENUM |</small></p>
 
 Instructs `saucectl` to run only tests that are annotated with the matching size value i.e `@SmallTest`, `@MediumTest` or `@LargeTest`. Valid values are `small`, `medium`, or `large`. You may only specify one value for this property.
 
 ```yaml
-  size: small
+size: small
 ```
+
 ---
 
 #### `package`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Instructs `saucectl` to run only tests in the specified package.
 
 ```yaml
-  package: com.example.android.testing.androidjunitrunnersample
+package: com.example.android.testing.androidjunitrunnersample
 ```
+
 ---
 
 #### `notPackage`
+
 <p><small>| OPTIONAL | STRING | REAL DEVICES ONLY |</small></p>
 
-Instructs `saucectl` to run run all tests *except* those in the specified package.
+Instructs `saucectl` to run run all tests _except_ those in the specified package.
 
 ```yaml
-  notPackage: com.example.android.testing.androidMyDemoTests
+notPackage: com.example.android.testing.androidMyDemoTests
 ```
+
 ---
 
 #### `annotation`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Instructs `saucectl` to run only tests that match a custom annotation that you have set.
 
 ```yaml
-  annotation: com.android.buzz.MyAnnotation
+annotation: com.android.buzz.MyAnnotation
 ```
+
 ---
 
 #### `notAnnotation`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Instructs `saucectl` to run all tests *except* those matching a custom annotation that you have set.
+Instructs `saucectl` to run all tests _except_ those matching a custom annotation that you have set.
 
 ```yaml
-  notAnnotation: com.android.buzz.NotMyAnnotation
+notAnnotation: com.android.buzz.NotMyAnnotation
 ```
+
 ---
 
 #### `numShards`
+
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
 Sets the number of separate shards to create for the test suite. Read more about shard tests on the [Android developer site](https://developer.android.com/training/testing/junit-runner#sharding-tests).
@@ -908,11 +1030,13 @@ Espresso may not distribute tests evenly across the number of shards specified, 
 :::
 
 ```yaml
-  numShards: 2
+numShards: 2
 ```
+
 ---
 
 #### `clearPackageData`
+
 <p><small>| OPTIONAL | BOOLEAN | REAL DEVICES ONLY |</small></p>
 
 Removes all shared states from the testing device's CPU and memory at the completion of each test.
@@ -922,12 +1046,14 @@ The flag `clearPackageData` has to be used in conjunction with `useTestOrchestra
 :::
 
 ```yaml
-  clearPackageData: true
-  useTestOrchestrator: true
+clearPackageData: true
+useTestOrchestrator: true
 ```
+
 ---
 
 #### `useTestOrchestrator`
+
 <p><small>| OPTIONAL | BOOLEAN | REAL DEVICES ONLY |</small></p>
 
 Run each of your tests in its own Instrumentation instance to remove most of the app's shared state from the device CPU and memory between tests. Use this setting in conjunction with `clearPackageData: true` to completely remove all shared state.
@@ -935,51 +1061,59 @@ Run each of your tests in its own Instrumentation instance to remove most of the
 When set, the instrumentation starts with [Test Orchestrator version 1.1.1](https://developer.android.com/training/testing/junit-runner#using-android-test-orchestrator) in use. This property applies only to real devices, not emulators.
 
 ```yaml
-  useTestOrchestrator: true
+useTestOrchestrator: true
 ```
+
 ---
 
 ### `appSettings`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Application settings for real device tests.
 
 ```yaml
 appSettings:
-  audioCapture: true
-  instrumentation:
-    networkCapture: true
+audioCapture: true
+instrumentation:
+networkCapture: true
 ```
+
 ---
 
 #### `audioCapture`
+
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Record the audio stream generated by your native mobile app during a real device test.
 
 ```yaml
-  audioCapture: true
+audioCapture: true
 ```
+
 ---
 
 #### `instrumentation`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Instrumentation settings for real device tests.
 
 ```yaml
-  instrumentation:
-    networkCapture: true
+instrumentation:
+networkCapture: true
 ```
+
 ---
 
 ##### `networkCapture`
+
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Record network traffic for HTTP/HTTPS requests during app tests on real devices.
 
 ```yaml
-    networkCapture: true
+networkCapture: true
 ```
 
 ## Advanced Configuration Considerations
@@ -990,15 +1124,15 @@ The configuration file is flexible enough to allow for any customizations and de
 
 If you need to go through a proxy server, you can set it through the following variables:
 
-* `HTTP_PROXY`: Proxy to use to access HTTP websites
-* `HTTPS_PROXY`: Proxy to use to access HTTPS websites
+- `HTTP_PROXY`: Proxy to use to access HTTP websites
+- `HTTPS_PROXY`: Proxy to use to access HTTPS websites
 
-``` title= "Example: Windows Powershell"
+```title= "Example: Windows Powershell"
 PS> $Env:HTTP_PROXY=http://my.proxy.org:3128/
 PS> $Env:HTTPS_PROXY=http://my.proxy.org:3128/
 ```
 
-``` title= "Example: Linux/macOS"
+```title= "Example: Linux/macOS"
 $> export HTTP_PROXY=http://my.proxy.org:3128/
 $> export HTTPS_PROXY=http://my.proxy.org:3128/
 ```

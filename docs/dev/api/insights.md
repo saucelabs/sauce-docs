@@ -8,7 +8,6 @@ description: Retrieve Sauce Labs raw analytics data.
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 Use the Insights API methods to retrieve analytics data about your Sauce Labs jobs that you can then use to populate a dashboard that is meaningful for your organization.
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
@@ -192,10 +191,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   "has_more": true
 }
 ```
+
 </details>
 
 ---
-
 
 ### Get Summary of Test Metrics
 
@@ -380,6 +379,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   }
 }
 ```
+
 </details>
 
 ---
@@ -584,6 +584,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   }
 }
 ```
+
 </details>
 
 ---
@@ -769,6 +770,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   }
 }
 ```
+
 </details>
 
 ---
@@ -927,6 +929,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   ]
 }
 ```
+
 </details>
 
 ---

@@ -1,12 +1,12 @@
 .quickstart img {
-  width: 100px;
-  max-height: 100px;
+    width: 100px;
+    max-height: 100px;
 }
 
 .quickstart h3 {
-  white-space: nowrap;
-  font-weight: 400;
-  padding-top: 8px;
+    white-space: nowrap;
+    font-weight: 400;
+    padding-top: 8px;
 }
 
 /* .alice-carousel__stage {
@@ -16,15 +16,15 @@
 } */
 
 .alice-carousel__prev-btn-wrapper {
-  text-align: center;
+    text-align: center;
 }
 
 .alice-carousel__prev-btn-wrapper p {
-  font-size: 2.5rem;
+    font-size: 2.5rem;
 }
 
 .alice-carousel__next-btn-item {
-  font-size: 2.5rem;
+    font-size: 2.5rem;
 }
 
 /* .alice-carousel__prev-btn,
@@ -33,18 +33,18 @@
   margin: 0;
 } */
 
-html[data-theme='dark'] .alice-carousel__dots {
-  margin: 0;
+html[data-theme="dark"] .alice-carousel__dots {
+    margin: 0;
 }
 
-html[data-theme='light'] .alice-carousel__dots {
-  margin: 0;
+html[data-theme="light"] .alice-carousel__dots {
+    margin: 0;
 }
 
-html[data-theme='dark'] .alice-carousel__next-btn [data-area]::after {
-  color: white;
+html[data-theme="dark"] .alice-carousel__next-btn [data-area]::after {
+    color: white;
 }
 
-html[data-theme='dark'] .alice-carousel__prev-btn [data-area]::after {
-  color: white;
+html[data-theme="dark"] .alice-carousel__prev-btn [data-area]::after {
+    color: white;
 }

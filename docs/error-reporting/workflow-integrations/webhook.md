@@ -4,6 +4,7 @@ title: Webhook Integration with Backtrace
 sidebar_label: Webhook
 description: This guide will go through the steps necessary to integrate Backtrace with custom HTTP endpoints.
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -11,11 +12,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 This guide will go through the steps necessary to integrate Backtrace with custom HTTP endpoints.
 
 There are two main steps for setting up a webhook:
+
 - Set up the incoming webhook
 - Set up the integration
 
 ## Incoming Webhook
+
 In order to set up integration for webhook, you need an existing HTTP service which can handle POST requests. Webhooks will be triggered in batch every few seconds. Each batch may contain multiple group notifications. For each group in a batch, a distinct HTTP request will be triggered to the configured URL. The body of the request is a JSON payload of the following form:
+
 ```json
 {
 
@@ -82,6 +86,7 @@ In order to set up integration for webhook, you need an existing HTTP service wh
 ```
 
 ## Set Up the Integration
+
 To set up the integration, first go to the **Project Settings** page for the project you want to add a integration for:
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />

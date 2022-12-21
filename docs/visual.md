@@ -4,8 +4,8 @@ title: Sauce Labs Visual Testing
 sidebar_label: Getting Started
 ---
 
->**Screener Docs are Now Sauce Docs**<br/>
-Screener is now Sauce Labs Visual Testing. As part of our effort to bring you a single, unified documentation site, we've migrated all Visual Docs from [Screener.io](https://screener.io) to Sauce Docs.
+> **Screener Docs are Now Sauce Docs**<br/>
+> Screener is now Sauce Labs Visual Testing. As part of our effort to bring you a single, unified documentation site, we've migrated all Visual Docs from [Screener.io](https://screener.io) to Sauce Docs.
 
 Get clear and instant visibility into the impact of code changes on your UI across browsers, devices, and operating systems with our automated visual testing solution, which generates side-by-side comparisons of your UI versions.
 
