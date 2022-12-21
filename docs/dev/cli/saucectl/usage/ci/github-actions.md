@@ -12,27 +12,27 @@ These examples can apply to virtually any GitHub deployment, provided that you a
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
-* A [GitHub Account](https://github.com/join)
-* The following permissions in GitHub:
-    * ability to create and manage workflows
-    * ability to create and store [GitHub secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- A [GitHub Account](https://github.com/join)
+- The following permissions in GitHub:
+  - ability to create and manage workflows
+  - ability to create and store [GitHub secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)
 
 ## Create GitHub Secrets
 
 The first order of business is to export your [Sauce Labs account credentials](https://app.saucelabs.com/user-settings) and store them as GitHub Secrets.
 
-1. Navigate to your project repository and select the __settings__ icon.
+1. Navigate to your project repository and select the **settings** icon.
 
-    <img src={useBaseUrl('img/stt/github-settings.png')} alt="GitHub Settings" width="500" />
+   <img src={useBaseUrl('img/stt/github-settings.png')} alt="GitHub Settings" width="500" />
 
-2. Select __Secrets__.
-3. Click the __New secret__ button.
+2. Select **Secrets**.
+3. Click the **New secret** button.
 4. Add the following:
-    * Name: `SAUCE_USERNAME`
-    * Value: 'your-sauce-username'
-5. Click __Add secret__ to finish.
+   - Name: `SAUCE_USERNAME`
+   - Value: 'your-sauce-username'
+5. Click **Add secret** to finish.
 6. Repeat the same steps above for your `SAUCE_ACCESS_KEY`.
 
 ## Configure the GitHub Action
@@ -52,20 +52,21 @@ https://github.com/saucelabs/saucectl-cypress-example/blob/main/.github/workflow
 ## Create the Test Job
 
 In the examples below, we illustrate the two different `saucectl` run modes, which will determine where your tests will execute:
-* __Docker mode__ refers to executing tests locally in a container
-* __Sauce Cloud mode__ refers to executing tests on Sauce Cloud (i.e., Sauce Labs infrastructure)
-  * If you're testing on the Sauce Cloud, you will likely require a tunnel back to where your app is running. A tunnel enables the remote browser to access your local network. For this, you'll need to use [Sauce Connect](/secure-connections/sauce-connect).
+
+- **Docker mode** refers to executing tests locally in a container
+- **Sauce Cloud mode** refers to executing tests on Sauce Cloud (i.e., Sauce Labs infrastructure)
+  - If you're testing on the Sauce Cloud, you will likely require a tunnel back to where your app is running. A tunnel enables the remote browser to access your local network. For this, you'll need to use [Sauce Connect](/secure-connections/sauce-connect).
 
 :::note
 For more detailed information on setting event-driven actions and jobs, please visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).
 :::
 
 <Tabs
-  defaultValue="Docker"
-  values={[
-    {label: 'Docker', value: 'Docker'},
-    {label: 'Sauce Cloud', value: 'Sauce Cloud'},
-  ]}>
+defaultValue="Docker"
+values={[
+{label: 'Docker', value: 'Docker'},
+{label: 'Sauce Cloud', value: 'Sauce Cloud'},
+]}>
 
 <TabItem value="Docker">
 
@@ -95,7 +96,7 @@ To see the output:
 2. Navigate to your repository page.
 3. Click on **Actions**.
 
-    <img src={useBaseUrl('img/stt/github-actions.png')} alt="GitHub Actions" width="500" />
+   <img src={useBaseUrl('img/stt/github-actions.png')} alt="GitHub Actions" width="500" />
 
 Your output may look something like this:
 

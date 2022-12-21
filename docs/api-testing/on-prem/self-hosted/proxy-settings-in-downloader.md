@@ -3,17 +3,17 @@ id: proxy-settings-in-downloader
 title: Proxy Settings in Downloader
 sidebar_label: Proxy Settings in Downloader
 keywords:
-    - api
-    - api-fortress
-    - proxy
-    - settings
+- api
+- api-fortress
+- proxy
+- settings
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -30,34 +30,13 @@ You will need to modify the downloader config file, by adding an environment fie
 
 ### Docker
 
-* Navigate to the “downloader” folder within your installation files, and find the file named `docker-compose.yml`
+- Navigate to the “downloader” folder within your installation files, and find the file named `docker-compose.yml`
 
-* Locate the `environment` field at the end of the file
-* Add a field in this section called `proxy_configuration`.
+- Locate the `environment` field at the end of the file
+- Add a field in this section called `proxy_configuration`.
   See example below:
   ```yaml
   proxy_configuration: '{"*":
-    {
-    "address":"10.10.10.10",
-    "port":3128,
-    "authentication":"basic",
-    "username":"foo",
-    "password":"bar"
-    }
-    }'
-  ```
-
-### Kubernetes  
-
-* Navigate to the file named `downloader.yml`.
-* You will find a section named `env`, add a field to this section called `proxy_configuration`.
-
-See example below:
-
-```yaml
-name: proxy_configuration
-value: '{
-  "*":
   {
   "address":"10.10.10.10",
   "port":3128,
@@ -66,7 +45,27 @@ value: '{
   "password":"bar"
   }
   }'
+  ```
 
+### Kubernetes
+
+- Navigate to the file named `downloader.yml`.
+- You will find a section named `env`, add a field to this section called `proxy_configuration`.
+
+See example below:
+
+```yaml
+name: proxy_configuration
+value: '{
+"*":
+{
+"address":"10.10.10.10",
+"port":3128,
+"authentication":"basic",
+"username":"foo",
+"password":"bar"
+}
+}'
 ```
 
 Where `address` and `port` are, respectively, the addresses and port of the proxy. Authentication is optional.
@@ -77,18 +76,18 @@ The proxy configuration syntax is as below (multiple proxy configurations should
 
 ```json
 {
-  "foo.com": {
-    "address": "172.18.0.1",
-    "port": 3128,
-    "username": "proxyuser",
-    "password": "password"
-  },
-  "bar.com": {
-    "address": "172.18.0.1",
-    "port": 3128,
-    "username": "proxyuser",
-    "password": "password"
-  }
+"foo.com": {
+"address": "172.18.0.1",
+"port": 3128,
+"username": "proxyuser",
+"password": "password"
+},
+"bar.com": {
+"address": "172.18.0.1",
+"port": 3128,
+"username": "proxyuser",
+"password": "password"
+}
 }
 ```
 
@@ -96,24 +95,25 @@ There is also a catch-all syntax:
 
 ```json
 {
-  "*": {
-    "address": "172.18.0.1",
-    "port": 3128,
-    "username": "proxyuser",
-    "password": "password"
-  }
+"*": {
+"address": "172.18.0.1",
+"port": 3128,
+"username": "proxyuser",
+"password": "password"
+}
 }
 ```
+
 In addition, you can use a wildcard in place of the lowest level of the domain, as in:
 
 ```json
 {
-  "*.google.com": {
-    "address": "172.18.0.1",
-    "port": 3128,
-    "username": "proxyuser",
-    "password": "password"
-  }
+"*.google.com": {
+"address": "172.18.0.1",
+"port": 3128,
+"username": "proxyuser",
+"password": "password"
+}
 }
 ```
 
@@ -142,14 +142,14 @@ Again, check the order of appearance for priority!
 ### Examples
 
 <Tabs
-  defaultValue="ex1"
-  values={[
-    {label: 'Example 1', value: 'ex1'},
-    {label: 'Example 2', value: 'ex2'},
-    {label: 'Example 3', value: 'ex3'},
-    {label: 'Example 4', value: 'ex4'},
-    {label: 'Example 5', value: 'ex5'},
-  ]}>
+defaultValue="ex1"
+values={[
+{label: 'Example 1', value: 'ex1'},
+{label: 'Example 2', value: 'ex2'},
+{label: 'Example 3', value: 'ex3'},
+{label: 'Example 4', value: 'ex4'},
+{label: 'Example 5', value: 'ex5'},
+]}>
 
 <TabItem value="ex1">
 
@@ -157,10 +157,10 @@ Only `sub.domain.com` will go through `proxy1.com`. Other requests will go throu
 
 ```json
 {
-  "sub.domain.com": {
-    "address": "http://proxy1.com/",
-    "port": 2255
-  }
+"sub.domain.com": {
+"address": "http://proxy1.com/",
+"port": 2255
+}
 }
 ```
 
@@ -171,14 +171,14 @@ Only `sub1.domain.com` will go through `proxy1.com`. Other requests will go thro
 
 ```json
 {
-  "sub1.domain.com": {
-    "address": "proxy1.com",
-    "port": 2255
-  },
-  "*": {
-    "address": "proxy2.com",
-    "port": 2255
-  }
+"sub1.domain.com": {
+"address": "proxy1.com",
+"port": 2255
+},
+"*": {
+"address": "proxy2.com",
+"port": 2255
+}
 }
 ```
 
@@ -189,32 +189,32 @@ Only `sub1.domain.com` will go through `proxy1.com`. Requests to any `domain.com
 
 ```json
 {
-  "sub1.domain.com": {
-    "address": "proxy1.com",
-    "port": 2255
-  },
-  "*.domain.com": {
-    "address": "proxy2.com",
-    "port": 2255
-  }
+"sub1.domain.com": {
+"address": "proxy1.com",
+"port": 2255
+},
+"*.domain.com": {
+"address": "proxy2.com",
+"port": 2255
+}
 }
 ```
 
 </TabItem>
 <TabItem value="ex4">
 
-All subdomains of `sub1.domain.com`  will go through `proxy1.com`. Other subdomains of `domain.com` will go through `proxy2.com`. Any other domain will not go through a proxy.
+All subdomains of `sub1.domain.com` will go through `proxy1.com`. Other subdomains of `domain.com` will go through `proxy2.com`. Any other domain will not go through a proxy.
 
 ```json
 {
-  "*.sub1.domain.com": {
-    "address": "proxy1.com",
-    "port": 2255
-  },
-  "*.domain.com": {
-    "address": "proxy2.com",
-    "port": 2255
-  }
+"*.sub1.domain.com": {
+"address": "proxy1.com",
+"port": 2255
+},
+"*.domain.com": {
+"address": "proxy2.com",
+"port": 2255
+}
 }
 ```
 
@@ -225,17 +225,17 @@ All subdomains of `sub1.domain.com` will NOT go through a proxy. All subdomains 
 
 ```json
 {
-  "*.sub1.domain.com": {
-    "address": "NONE"
-  },
-  "*.domain.com": {
-    "address": "proxy2.com",
-    "port": 2255
-  },
-  "*": {
-    "address": "proxy3.com",
-    "port": 2255
-  }
+"*.sub1.domain.com": {
+"address": "NONE"
+},
+"*.domain.com": {
+"address": "proxy2.com",
+"port": 2255
+},
+"*": {
+"address": "proxy3.com",
+"port": 2255
+}
 }
 ```
 

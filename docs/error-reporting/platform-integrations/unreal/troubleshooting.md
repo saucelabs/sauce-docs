@@ -6,14 +6,17 @@ description: Troubleshooting reference for Unreal Engine crash reports.
 ---
 
 ## Android Assert (Check/Ensure/Verify) crashes are not showing up in Backtrace for my debug builds
+
 Backtrace currently doesn't handle the Assert crashes typically associated with Debug builds on Android. This is not a problem in release builds, where these types of conditions tend to be compiled out. For more information on Asserts, see the [Unreal Engine Documentation](https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/ProgrammingWithCPP/Assertions/).
 
 ## How can I troubleshoot failures in crash reporting?
+
 Please refer to your crash reporting client logs.
 
 Make sure the `DefaultEngine.ini` (for crashes in packaged builds) and `UserEngine.ini` files (for crashes within the editor) have the correct settings. For more information, see [Initialize the Backtrace Client](/error-reporting/platform-integrations/unreal/setup/#initialize-the-backtrace-client).
 
 ### Cooked Builds
+
 When [creating cooked](https://docs.unrealengine.com/4.27/en-US/SharingAndReleasing/Deployment/Cooking/) builds, the contents of `[ENGINE_DIR]\Engine\Programs\CrashReportClient\Config\DefaultEngine.ini` gets included as `Engine\Programs\CrashReportClient\Config\DefaultEngine.ini` in the cooked build's path.
 
 Even though the `CrashReportClient.ini` files generated in the Saved directory have the Backtrace URL, they appear to be using the file from the Unreal Base directory instead.

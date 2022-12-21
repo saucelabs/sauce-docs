@@ -12,21 +12,19 @@ As a best practice, we recommend setting your Sauce Labs authentication credenti
 
 For a list of Sauce Connect Proxy environment variables, see [Environment Variables](/secure-connections/sauce-connect/setup-configuration/environment-variables).
 
-
 ## What You’ll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
-
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 
 ## Setting Up Environment Variables
 
-  <Tabs
-      defaultValue="Mac/Linux"
-      values={[
-        {label: 'Mac/Linux', value: 'Mac/Linux'},
-        {label: 'Windows', value: 'Windows'},
-      ]}>
+<Tabs
+    defaultValue="Mac/Linux"
+    values={[
+      {label: 'Mac/Linux', value: 'Mac/Linux'},
+      {label: 'Windows', value: 'Windows'},
+    ]}>
 
 <TabItem value="Mac/Linux">
 
@@ -34,10 +32,12 @@ Sauce Connect Proxy enviroment variables may be added to one of the user environ
 
 1. Open `~/.bash_profile` in your prefered text editor.
 2. Add the variables
- ```bash
- export SAUCE_USERNAME="your Sauce username"
- export SAUCE_ACCESS_KEY="your Sauce access key"
- ```
+
+```bash
+export SAUCE_USERNAME="your Sauce username"
+export SAUCE_ACCESS_KEY="your Sauce access key"
+```
+
 3. Start a new shell or a new terminal.
 4. Confirm that your environment variables have been set by typing `echo $SAUCE_USERNAME` in your terminal. The response should be your username value.
 
@@ -54,21 +54,21 @@ Sauce Connect Proxy enviroment variables may be added to one of the user environ
 </TabItem>
 </Tabs>
 
-
 ## Referencing Environment Variables in Test Scripts
+
 Once you've set up the environment variables for your credentials, you need to reference them within the test scripts that you want to run on Sauce. You can find examples of test scripts that use environment variables for authentication in the demo directory for each language in the [Sauce Labs Training repo](https://github.com/saucelabs-training) on GitHub.
 
 Below are examples of how to set environment variables in a given language/framework:
 
 <Tabs
-  defaultValue="java"
-  values={[
-    {label: 'Java', value: 'java'},
-    {label: 'NodeJS', value: 'nodejs'},
-    {label: 'Python', value: 'python'},
-    {label: 'Ruby', value: 'ruby'},
-    {label: 'C#', value: 'csharp'},
-  ]}>
+defaultValue="java"
+values={[
+{label: 'Java', value: 'java'},
+{label: 'NodeJS', value: 'nodejs'},
+{label: 'Python', value: 'python'},
+{label: 'Ruby', value: 'ruby'},
+{label: 'C#', value: 'csharp'},
+]}>
 
 <TabItem value="java">
 

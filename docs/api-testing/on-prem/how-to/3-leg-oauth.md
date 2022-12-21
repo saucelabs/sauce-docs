@@ -1,19 +1,19 @@
 ---
 id: 3-leg-oauth
-title: "Automating 3-Legged OAuth"
-sidebar_label: "Automating 3-Legged OAuth"
+title: 'Automating 3-Legged OAuth'
+sidebar_label: 'Automating 3-Legged OAuth'
 keywords:
-    - 3-legged-oauth
-    - automation
-    - api-testing
-    - how-to
+- 3-legged-oauth
+- automation
+- api-testing
+- how-to
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -40,17 +40,18 @@ Now that we have that up and running, watch the short video below to learn how t
 In the example used in the video above, we show how to call the 3loa API with details to execute the authentication and return the access token. Below are some callouts from that example:
 
 ## `POST` Body Output
+
 The post body of the API call will need the following details:
 
-* `"username"`: `username` for logging in
-* `"password"`: `password` for logging in
-* `"usernameField"`: `x-path` selector for username field
-* `"passwordField"`: `x-path` selector for password field
-* `"loginButton"`: `x-path` selector for the login button
-* `"authorizeButton"`: `x-path` selector for the authorize button
-* `"authorizationURL"`: `URL` to authorize site
-* `"tokenURL"`: `URL` used to get access token
+- `"username"`: `username` for logging in
+- `"password"`: `password` for logging in
+- `"usernameField"`: `x-path` selector for username field
+- `"passwordField"`: `x-path` selector for password field
+- `"loginButton"`: `x-path` selector for the login button
+- `"authorizeButton"`: `x-path` selector for the authorize button
+- `"authorizationURL"`: `URL` to authorize site
+- `"tokenURL"`: `URL` used to get access token
 
-> __NOTE__: The `x-path` selectors will need to match the site used for authorization.
+> **NOTE**: The `x-path` selectors will need to match the site used for authorization.
 
 Please note that this is an open source tool if your authorization flow differs from the example provided, you can download the source code of the tool and modify it to achieve the flow needed for your specific flow.

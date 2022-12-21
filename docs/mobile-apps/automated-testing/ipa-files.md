@@ -21,6 +21,7 @@ If you need to maintain your own provisioning profile in the .ipa file, disable 
 You can also use the Appium capability `resigningEnabled=false` to disable app resigning. This option is available for private devices only.
 
 #### Building an .app Bundle
+
 1. Open your app project in Xcode.
 2. Select a **Generic iOS Device** or **Any iOS Device (arm64)** as your product's device target.
 3. In the **Product** menu, select **Clean**.
@@ -28,12 +29,14 @@ You can also use the Appium capability `resigningEnabled=false` to disable app r
 5. Navigate to your Xcode project's **Products** directory and find the generated **.app** file.
 
 #### Building an .ipa from an .app Bundle
+
 1. Create an empty directory with the name `Payload`.
 2. Move the **.app** file inside the `Payload` directory.
 3. Compress the `Payload` directory into an archive (.zip file) and give it a new name with .ipa appended to the end of the file name.
 4. Your .ipa file is now ready for upload to Sauce Labs.
 
 #### Building an .ipa File
+
 You can use any of the existing methods of distribution for your iOS app, except for the **App Store** type. This means that you can choose any of the three other export methods: **Ad Hoc**, **Enterprise**, or **Development**.
 
 1. Open your app project in Xcode.
@@ -43,14 +46,13 @@ You can use any of the existing methods of distribution for your iOS app, except
 5. Select your app and click **Export**.
 6. When prompted for an export method, select **Ad Hoc**, **Enterprise**, or **Development**.
 7. Set these **Distribution** options:
-    1. App Thinning: None.
-    2. Clear the selection **Rebuild from Bitcode**.
-    3. **Strip Swift symbols** is optional.
-    4. Clear the selection **Include manifest for over-the-air installation**.
+   1. App Thinning: None.
+   2. Clear the selection **Rebuild from Bitcode**.
+   3. **Strip Swift symbols** is optional.
+   4. Clear the selection **Include manifest for over-the-air installation**.
 8. Select your **Distribution Certificate** and **Provisioning Profile** (**Automatic** or **Manual**). This will generate the .ipa file.
 9. When the file generation process completes, click **Export** and choose where to save the .ipa file.
 10. Your .ipa file is now ready for upload to Sauce Labs.
-
 
 ### Creating an XCUITest Package
 
@@ -59,21 +61,22 @@ You can use any of the existing methods of distribution for your iOS app, except
 1. Open your app project in Xcode.
 2. Select **Generic iOS Device** or **Any iOS Device (arm64)** as your project's device target.
 3. Make sure that the your UI tests are part of a **Target Membership** and that those Targets are selected to be built in your Xcode **Build scheme**. _Targets containing UI Tests are typically selected to be built at the "Test" build action._
-<img src={useBaseUrl('img/xcuitest/xcode-build.png')} alt="Xcode Build Options" width="800" />
+   <img src={useBaseUrl('img/xcuitest/xcode-build.png')} alt="Xcode Build Options" width="800" />
 
 4. Generate your test package by selecting **Product** > **Build For** > **Testing**.
 5. Navigate to your Xcode project's **Products** directory and find the generated **.app** files.
-
 
 ### Creating .ipa Files for XCUITest Testing
 
 Make sure that you set the same iOS version for your app and test runner **iOS Deployment Target**. If they don't match, your tests will run locally, but fail when you run them against Sauce Labs real devices.
 
 To set the iOS version in your Xcode Project:
+
 1. Select the Project you want to build.
 2. Under **Build Settings**, set the **iOS Deployment Target** to the iOS version you want to use in your test. All target outputs of this project, including the app and your test runner, will be set to the same iOS version.
 
 To set the iOS version in your Xcode Target:
+
 1. Select the Target for your Project.
 2. Under **Build Settings**, set the iOS Deployment Target to the iOS version you want to use in your test.
 
@@ -82,7 +85,9 @@ This will also overwrite the **Build Settings** at the Project level to that iOS
 :::
 
 ## Virtual Devices
+
 ### Building an .app Bundle
+
 1. Open your app project in Xcode.
 2. Select any available simulator as your product's device target.
 3. In the **Product** menu, select **Clean**.
@@ -96,23 +101,23 @@ This will also overwrite the **Build Settings** at the Project level to that iOS
 
 Sauce Labs applies its own resigning to apps that are installed on our public iOS devices. Our resigner includes the following `keychain-access-groups` entitlements:
 
-|Key|Value|
-|------|--------------|
-|`application-identifier` | `<string>XXXXXXXXXX.*</string>` |
-|	`keychain-access-groups` | `<array>`<br/>&nbsp;&nbsp;`<string>XXXXXXXXXX.*</string>`<br/>&nbsp;&nbsp;`  <string>com.apple.token</string>`<br/>`</array>` |
-|`get-task-allow` | `<true/>` |
-|`com.apple.developer.team-identifier` | `<string>XXXXXXXXXX</string>` |
-|`com.apple.developer.ubiquity-kvstore-identifier` | `<string>XXXXXXXXXX.*</string>` |
-|`com.apple.developer.ubiquity-container-identifiers` | `<array>`<br/>&nbsp;&nbsp;`<string>XXXXXXXXXX.*</string>`<br/>`</array>` |
-|`inter-app-audio` | `<true/>` |
-|`com.apple.developer.networking.networkextension` | `<array>`<br/> &nbsp;&nbsp;`<string>app-proxy-provider</string>`<br/>&nbsp;&nbsp;`<string>content-filter-provider</string>`<br/> &nbsp;&nbsp;`<string>packet-tunnel-provider</string>`<br/>&nbsp;&nbsp;`<string>dns-proxy</string>`<br/> &nbsp;&nbsp;`<string>dns-settings</string>`<br/>`</array>` |
-|`com.apple.developer.siri` | `<true/>` |
-|`com.apple.developer.pass-type-identifiers` | `<array>`<br/>&nbsp;&nbsp;   `<string>XXXXXXXXXX.*</string>`<br/>`</array>` |
+| Key                                                  | Value                                                                                                                                                                                                                                                                                               |
+| ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `application-identifier`                             | `<string>XXXXXXXXXX.*</string>`                                                                                                                                                                                                                                                                     |
+| `keychain-access-groups`                             | `<array>`<br/>&nbsp;&nbsp;`<string>XXXXXXXXXX.*</string>`<br/>&nbsp;&nbsp;`  <string>com.apple.token</string>`<br/>`</array>`                                                                                                                                                                       |
+| `get-task-allow`                                     | `<true/>`                                                                                                                                                                                                                                                                                           |
+| `com.apple.developer.team-identifier`                | `<string>XXXXXXXXXX</string>`                                                                                                                                                                                                                                                                       |
+| `com.apple.developer.ubiquity-kvstore-identifier`    | `<string>XXXXXXXXXX.*</string>`                                                                                                                                                                                                                                                                     |
+| `com.apple.developer.ubiquity-container-identifiers` | `<array>`<br/>&nbsp;&nbsp;`<string>XXXXXXXXXX.*</string>`<br/>`</array>`                                                                                                                                                                                                                            |
+| `inter-app-audio`                                    | `<true/>`                                                                                                                                                                                                                                                                                           |
+| `com.apple.developer.networking.networkextension`    | `<array>`<br/> &nbsp;&nbsp;`<string>app-proxy-provider</string>`<br/>&nbsp;&nbsp;`<string>content-filter-provider</string>`<br/> &nbsp;&nbsp;`<string>packet-tunnel-provider</string>`<br/>&nbsp;&nbsp;`<string>dns-proxy</string>`<br/> &nbsp;&nbsp;`<string>dns-settings</string>`<br/>`</array>` |
+| `com.apple.developer.siri`                           | `<true/>`                                                                                                                                                                                                                                                                                           |
+| `com.apple.developer.pass-type-identifiers`          | `<array>`<br/>&nbsp;&nbsp; `<string>XXXXXXXXXX.*</string>`<br/>`</array>`                                                                                                                                                                                                                           |
 
 ### Private Devices
 
 If your organization requires specific entitlements, Sauce Labs gives you the option to [disable resigning](/dev/test-configuration-options/#resigningenabled) for devices in your private pool. When resigning is disabled, you may sign your app using your own provisioning profile, which can include any entitlements in:
 
-*  `com.apple.developer.associated-domains`
-*  `com.apple.security.application-groups`
-*  `keychain-access-groups`
+- `com.apple.developer.associated-domains`
+- `com.apple.security.application-groups`
+- `keychain-access-groups`

@@ -36,9 +36,10 @@ If you would like to contribute either by fixing a bug or adding a feature, plea
 [issues list](https://github.com/saucelabs/sauce-docs/issues).
 
 We will likely reach out to you to ask questions and discuss approaches. Please understand this is about ensuring
- that the repo stays easy for everyone to use.
+that the repo stays easy for everyone to use.
 
 ### Step 1: Create a Fork
+
 Make a fork and then clone the [sauce-docs](https://github.com/saucelabs/sauce-docs) repository.
 If you need help, you can refer to the [GitHub help page](https://help.github.com/articles/fork-a-repo).
 
@@ -56,12 +57,12 @@ should describe what changed, why, and reference issues fixed (if
 any). Follow these guidelines when writing one:
 
 1. The first line should be around 50 characters or less and contain a
-    short description of the change. It must be meaningful, as it's what people see when they
-    run `git shortlog` or `git log --oneline`.
+   short description of the change. It must be meaningful, as it's what people see when they
+   run `git shortlog` or `git log --oneline`.
 2. Keep the second line blank.
 3. Wrap all other lines at 72 columns.
 4. Include `Fixes #N`, where _N_ is the issue number the commit
-    fixes, if any.
+   fixes, if any.
 
 A good commit message can look like this:
 
@@ -80,13 +81,13 @@ nicely even when it is indented.
 Fixes #141
 ```
 
-
 ### Step 3: Test
 
 Bug fixes and features **should have tests**. Look at other tests to
 see how they should be structured.
 
 ### Step 4: Submit a PR
+
 Commit your changes to your fork and then create and submit a PR to `sauce-docs`.
 Make sure your PR has a clear description of the problem/outcome you are addressing
 and how you are approaching it. There is a template that simplifies this process.
@@ -95,8 +96,8 @@ For help, you can refer to
 [submitting a pull request](https://help.github.com/articles/using-pull-requests).
 
 ### Step 5: Connect
+
 We will reach out to ask any questions or make suggestions. Once done, we will
 merge the change and... congratulations! You've contributed to improving digital confidence!
-
 
 Have fun and enjoy hacking!

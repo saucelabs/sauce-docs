@@ -8,10 +8,10 @@ Virtual USB (vUSB) is an app debugging tool that simulates connecting a Sauce La
 
 ## What You'll Need
 
-* Your Sauce Labs account credentials.
-* Your mobile app file.
-* Have the Virtual USB client downloaded and installed.
-* Prior to using the vUSB CLI, navigate (`cd`) to the specific folder directory on your local machine where you downloaded and placed your Virtual USB client (`virtual-usb-client.jar`).
+- Your Sauce Labs account credentials.
+- Your mobile app file.
+- Have the Virtual USB client downloaded and installed.
+- Prior to using the vUSB CLI, navigate (`cd`) to the specific folder directory on your local machine where you downloaded and placed your Virtual USB client (`virtual-usb-client.jar`).
 
 ## CLI Structure
 

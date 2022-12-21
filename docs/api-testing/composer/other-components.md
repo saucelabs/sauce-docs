@@ -14,8 +14,9 @@ Here are some other components that you can add to a test using the Composer. Th
 <img src={useBaseUrl('img/api-testing/otherComponents.png')} alt="Other Components" />
 
 ## What You'll Need
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Familiarity with the [API Testing Composer](/api-testing/composer/).
+
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- Familiarity with the [API Testing Composer](/api-testing/composer/).
 
 ## Tag
 
@@ -56,6 +57,7 @@ All tags, dynamic and static will mark the test execution documents. On your pro
 - id: tag
   value: Production
 ```
+
 </details>
 
 ## Set (Variable)
@@ -120,21 +122,19 @@ Consider the following response payload and let’s say it has been stored in th
 
 ```json
 {
-  "id": 1,
-  "name": "Baseball Cap",
-  "price": 29.99,
-  "category": "1",
-  "description": "This is product 1!",
-  "quantity": 5,
-  "imageURL": "http://image.com",
-  "color": [
-    "blue",
-    "yellow"
-  ],
-  "createdAt": "2021-11-28T21:58:43.461Z",
-  "updatedAt": "2021-11-28T21:58:43.461Z"
+"id": 1,
+"name": "Baseball Cap",
+"price": 29.99,
+"category": "1",
+"description": "This is product 1!",
+"quantity": 5,
+"imageURL": "http://image.com",
+"color": ["blue", "yellow"],
+"createdAt": "2021-11-28T21:58:43.461Z",
+"updatedAt": "2021-11-28T21:58:43.461Z"
 }
 ```
+
 If you write the following:
 
 <img src={useBaseUrl('img/api-testing/set-var-dynamic.png')} alt="Set dynamic value"/>
@@ -149,20 +149,16 @@ The engine will evaluate the variable value every time the test will be executed
 
 ```json
 {
-  "id": 2,
-  "name": "Long Sleeve Shirt",
-  "price": 39.99,
-  "category": "1",
-  "description": "This is product 2!",
-  "quantity": 7,
-  "imageURL": "http://image.com",
-  "color": [
-    "blue",
-    "yellow",
-    "red"
-  ],
-  "createdAt": "2021-11-28T21:58:43.461Z",
-  "updatedAt": "2021-11-28T21:58:43.461Z"
+"id": 2,
+"name": "Long Sleeve Shirt",
+"price": 39.99,
+"category": "1",
+"description": "This is product 2!",
+"quantity": 7,
+"imageURL": "http://image.com",
+"color": ["blue", "yellow", "red"],
+"createdAt": "2021-11-28T21:58:43.461Z",
+"updatedAt": "2021-11-28T21:58:43.461Z"
 }
 ```
 
@@ -175,65 +171,56 @@ In the Data field, you need to enter a single line expression that returns a val
 
 For example, you can create a new array in this way:
 
-<img src={useBaseUrl('img/api-testing/set-data-array.png')} alt="Set array"/>  
+<img src={useBaseUrl('img/api-testing/set-data-array.png')} alt="Set array"/>
 
 ```
 Variable: product
 Mode: Data
 Data: ["Bluetooth Headphones","Long Sleeve Shirt","Baseball Cap"]
 ```
+
 Then, you can iterate over it using the `each` component or you can invoke a specific item using `${products[1]}` where the number inside the square brackets identifies the position of the item you want to reach out, starting from 0.
 
 Now, let's consider the example below and imagine we have the JSON payload stored in the `payload` variable:
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Baseball Cap",
-    "price": 29.99,
-    "category": "1",
-    "description": "This is product 1!",
-    "quantity": 5,
-    "imageURL": "http://image.com",
-    "color": [
-      "blue",
-      "yellow"
-    ],
-    "createdAt": "2021-11-28T21:58:43.461Z",
-    "updatedAt": "2021-11-28T21:58:43.461Z"
-  },
-  {
-    "id": 2,
-    "name": "Long Sleeve Shirt",
-    "price": 39.99,
-    "category": "1",
-    "description": "This is product 2!",
-    "quantity": 7,
-    "imageURL": "http://image.com",
-    "color": [
-      "blue",
-      "yellow",
-      "red"
-    ],
-    "createdAt": "2021-11-28T21:58:43.461Z",
-    "updatedAt": "2021-11-28T21:58:43.461Z"
-  },
-  {
-    "id": 3,
-    "name": "Bluetooth Headphones",
-    "price": 49.99,
-    "category": "1",
-    "description": "This is product 3!",
-    "quantity": 50,
-    "imageURL": "http://image.com",
-    "color": [
-      "green",
-      "yellow"
-    ],
-    "createdAt": "2021-11-28T21:58:43.462Z",
-    "updatedAt": "2021-11-28T21:58:43.462Z"
-  }
+{
+"id": 1,
+"name": "Baseball Cap",
+"price": 29.99,
+"category": "1",
+"description": "This is product 1!",
+"quantity": 5,
+"imageURL": "http://image.com",
+"color": ["blue", "yellow"],
+"createdAt": "2021-11-28T21:58:43.461Z",
+"updatedAt": "2021-11-28T21:58:43.461Z"
+},
+{
+"id": 2,
+"name": "Long Sleeve Shirt",
+"price": 39.99,
+"category": "1",
+"description": "This is product 2!",
+"quantity": 7,
+"imageURL": "http://image.com",
+"color": ["blue", "yellow", "red"],
+"createdAt": "2021-11-28T21:58:43.461Z",
+"updatedAt": "2021-11-28T21:58:43.461Z"
+},
+{
+"id": 3,
+"name": "Bluetooth Headphones",
+"price": 49.99,
+"category": "1",
+"description": "This is product 3!",
+"quantity": 50,
+"imageURL": "http://image.com",
+"color": ["green", "yellow"],
+"createdAt": "2021-11-28T21:58:43.462Z",
+"updatedAt": "2021-11-28T21:58:43.462Z"
+}
 ]
 ```
 
@@ -251,19 +238,16 @@ It will return the following object:
 
 ```json
 {
-  "id": 3,
-  "name": "Bluetooth Headphones",
-  "price": 49.99,
-  "category": "1",
-  "description": "This is product 3!",
-  "quantity": 50,
-  "imageURL": "http://image.com",
-  "color": [
-    "green",
-    "yellow"
-  ],
-  "createdAt": "2021-11-28T21:58:43.462Z",
-  "updatedAt": "2021-11-28T21:58:43.462Z"
+"id": 3,
+"name": "Bluetooth Headphones",
+"price": 49.99,
+"category": "1",
+"description": "This is product 3!",
+"quantity": 50,
+"imageURL": "http://image.com",
+"color": ["green", "yellow"],
+"createdAt": "2021-11-28T21:58:43.462Z",
+"updatedAt": "2021-11-28T21:58:43.462Z"
 }
 ```
 
@@ -286,7 +270,7 @@ To achieve this, you need to write the following script inside the `Body` field:
 ```javascript
 var pieces = token.split('.')
 var b64payload = pieces[1]
-var decoded = Buffer.from(b64payload,'base64').toString()
+var decoded = Buffer.from(b64payload, 'base64').toString()
 var json = JSON.parse(decoded)
 return json
 ```
@@ -297,14 +281,14 @@ That’s producing the following JSON:
 
 ```json
 {
-    "iat": 1658236568,
-    "exp": 1689772568,
-    "aud": "www.example.com",
-    "sub": "john.doe@example.com",
-    "Name": "John",
-    "Surname": "Doe",
-    "Email": "john.doe@example.com",
-    "Role": ["Manager", "Project Administrator"]
+"iat": 1658236568,
+"exp": 1689772568,
+"aud": "www.example.com",
+"sub": "john.doe@example.com",
+"Name": "John",
+"Surname": "Doe",
+"Email": "john.doe@example.com",
+"Role": ["Manager", "Project Administrator"]
 }
 ```
 
@@ -330,6 +314,7 @@ For example, if you need to add a new product in your database, you can create t
     "updatedAt": "${D.format (D.nowMillis(), 'yyyy-MM-DD')}T${D.format(D.nowMillis(), 'HH:mm:ssz')}"
 }
 ```
+
 <img src={useBaseUrl('img/api-testing/set-template.png')} alt="Set template"/>
 
 </details>
@@ -370,11 +355,11 @@ For example, if you need to add a new product in your database, you can create t
   mode: lang
   lang: javascript
   body: |-
-    var pieces = token.split('.')
-    var b64payload = pieces[1]
-    var decoded = Buffer.from(b64payload,'base64').toString()
-    var json = JSON.parse(decoded)
-    return json
+var pieces = token.split('.')
+var b64payload = pieces[1]
+var decoded = Buffer.from(b64payload,'base64').toString()
+var json = JSON.parse(decoded)
+return json
 ```
 
 ```yaml
@@ -383,21 +368,21 @@ For example, if you need to add a new product in your database, you can create t
   mode: lang
   lang: template
   body: >-
-    {
-        "id": 4,
-        "name": "T-Shirt",
-        "price": ${price},
-        "category": "1",
-        "description": "This is product ${id}!",
-        "quantity": 5,
-        "imageURL": "http://image.com",
-        "color": ["red", "green"],
-        "createdAt": "${D.format (D.nowMillis(), 'yyyy-MM-DD')}",
-        "updatedAt": "${D.format (D.nowMillis(), 'yyyy-MM-DD')}T${D.format(D.nowMillis(), 'HH:mm:ssz')}"
-    }
+{
+    "id": 4,
+    "name": "T-Shirt",
+    "price": ${price},
+    "category": "1",
+    "description": "This is product ${id}!",
+    "quantity": 5,
+    "imageURL": "http://image.com",
+    "color": ["red", "green"],
+    "createdAt": "${D.format (D.nowMillis(), 'yyyy-MM-DD')}",
+    "updatedAt": "${D.format (D.nowMillis(), 'yyyy-MM-DD')}T${D.format(D.nowMillis(), 'HH:mm:ssz')}"
+}
 ```
-</details>
 
+</details>
 
 ## Parse
 
@@ -453,6 +438,7 @@ As you can see before parsing the string, the test will consider the variable `c
   var: fileName
   adapter: csv
 ```
+
 </details>
 
 ## Comment
@@ -485,6 +471,7 @@ The value of the ID is ${payload.id}
 - id: comment
   text: This is a comment
 ```
+
 </details>
 
 ## Flow
@@ -535,6 +522,7 @@ In this example, the test will wait 1000 milliseconds before performing the `GET
   command: wait
   value: 1000
 ```
+
 </details>
 
 ## Fact
@@ -565,13 +553,11 @@ Test activity is tracked using test ID number. This may not work if you're testi
   </tbody>
 </table>
 
-
 :::caution
 The Fact component should be set as high up in the test as possible. If the test fails before it reaches the Fact, then it will not be set.
 :::
 
 <br/>
-
 
 **Examples/Uses Cases**
 
@@ -582,8 +568,8 @@ Assume that in the variable scope of your test, you have a variable called _env_
 By configuring a Fact in the following way, you can add the environment value to the incident signature:
 
 ```yaml
-Identifier: environment  
-label: The current environment  
+Identifier: environment
+label: The current environment
 value: ${env}
 ```
 
@@ -595,14 +581,13 @@ For example, you will receive start/end incidents for `test123` in the productio
 
 You can use anything as a value of the environment, such as domain names and IDs.
 
-
 #### Disabling Email Notifications
 
-A second use case is disabling email notifications for the test from within the test:  
+A second use case is disabling email notifications for the test from within the test:
 
 ```yaml
-Fact id: disable_alerts   
-label: whatever you want here   
+Fact id: disable_alerts
+label: whatever you want here
 value: true
 ```
 
@@ -616,13 +601,13 @@ As an example, you could say "IF the env is development, then disable emails for
 
 #### Setting Email Notification Thresholds
 
-Another use-case of the fact component is set an email alert threshold. If you want a test to fail more than once before an email is sent, a Fact called `mail_threshold` can be set in the test:  
+Another use-case of the fact component is set an email alert threshold. If you want a test to fail more than once before an email is sent, a Fact called `mail_threshold` can be set in the test:
 
 <img src={useBaseUrl('img/api-testing/factMultiFailure.png')} alt="factMultiFailure.png" />
 
-This means the test will need to fail twice in a row before an email alert is sent.  
+This means the test will need to fail twice in a row before an email alert is sent.
 
-Given that this can be configured within the test, it offers all the flexibility provided by conditional statements, such as an IF condition on the environment the test is running upon:  
+Given that this can be configured within the test, it offers all the flexibility provided by conditional statements, such as an IF condition on the environment the test is running upon:
 
 <img src={useBaseUrl('img/api-testing/factMultiFailure2.png')} alt="factMultiFailure2.png" />
 
@@ -641,15 +626,16 @@ Given that this can be configured within the test, it offers all the flexibility
 - id: fact
   identifier: disable_alerts
   label: alerts disabled
-  value: "true"
+  value: 'true'
 ```
 
 ```yaml
 - id: fact
   identifier: mail_threshold
   label: multi failure
-  value: "2"
+  value: '2'
 ```
+
 </details>
 
 ## Snippets
@@ -660,7 +646,7 @@ When you save a snippet from the **Composer**, it will be saved in the project [
 
 1. Open a project.
 1. Open a test.
-1. Click the first component you want to include. 
+1. Click the first component you want to include.
 1. Hold down the **`Ctrl + Shift`** keys and click the last component you want to include. This will highlight your snippet selection.
 1. Click **Save Snippet**.
 1. Give the snippet a name.
@@ -697,18 +683,19 @@ These Key/Value pairs are temporary. They expire after 24 hours has elapsed sinc
 ### Methods
 
 The Key/Value Store component has four methods available for use:
-* [**Set**](#basic-workflow): creates a new key/value pair in the Key/Value store. The value is entered in the __Data__ field.<br/><img src={useBaseUrl('img/api-testing/KeyValueSet.png')} alt="KeyValueSet.png" />
-* [**Load**](#basic-workflow): recalls a value from the Key/Value store when provided with a key.<br/><img src={useBaseUrl('img/api-testing/KeyValueLoad.png')} alt="KeyValueLoad.png" />
-* [**Push**](#pushpop-workflow): adds a value to the end of an existent value **of the datatype "Array"** in the Key/Value store. If no such key exists, it will create a new array containing the passed in value.  The passed in value is entered in the __Data__ field.<br/><img src={useBaseUrl('img/api-testing/KeyValuePush.png')} alt="KeyValuePush.png" />
-* [**Pop**](#pushpop-workflow): removes a value from the end of an existent value **of the datatype "Array"** in the Key/Value store.<br/><img src={useBaseUrl('/img/api-testing/KeyValuePop.png')} alt="KeyValuePop.png" />
+
+- [**Set**](#basic-workflow): creates a new key/value pair in the Key/Value store. The value is entered in the **Data** field.<br/><img src={useBaseUrl('img/api-testing/KeyValueSet.png')} alt="KeyValueSet.png" />
+- [**Load**](#basic-workflow): recalls a value from the Key/Value store when provided with a key.<br/><img src={useBaseUrl('img/api-testing/KeyValueLoad.png')} alt="KeyValueLoad.png" />
+- [**Push**](#pushpop-workflow): adds a value to the end of an existent value **of the datatype "Array"** in the Key/Value store. If no such key exists, it will create a new array containing the passed in value.  The passed in value is entered in the **Data** field.<br/><img src={useBaseUrl('img/api-testing/KeyValuePush.png')} alt="KeyValuePush.png" />
+- [**Pop**](#pushpop-workflow): removes a value from the end of an existent value **of the datatype "Array"** in the Key/Value store.<br/><img src={useBaseUrl('/img/api-testing/KeyValuePop.png')} alt="KeyValuePop.png" />
 
 <details><summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: kv
-  key: 
+  key:
   action: load
-  var: 
+  var:
 ```
 
 ```yaml
@@ -720,16 +707,16 @@ The Key/Value Store component has four methods available for use:
 
 ```yaml
 - id: kv
-  key: 
+  key:
   action: pop
-  var: 
+  var:
 ```
 
 ```yaml
 - id: kv
-  key: 
+  key:
   action: set
-  object: 
+  object:
 ```
 
 ```yaml
@@ -743,17 +730,17 @@ The Key/Value Store component has four methods available for use:
 - id: kv
   key: prods
   action: set
-  object: "[products[0].color]"
+  object: '[products[0].color]'
 ```
 
 ```yaml
 - id: kv
-  key: 
+  key:
   action: push
-  object: 
+  object:
 ```
-</details>
 
+</details>
 
 ### Basic Workflow
 
@@ -777,7 +764,7 @@ First, we're going to use **Push**. It should be noted that **Pop** works simila
 
 1. First, we're going to send a `GET` request and assign a key in the Key/Value Store to a value from the response body. In this case, we're going to use Color, which is an array.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-1.49.16-PM.png')} alt="Assign a key"/>
 2. Next, we're going to **Load** and **Comment** this key. We're doing that so we can actually see the change on the test report at the end of this workflow.
-3. The next step is to **Push** the new data on to the end of the existing array. In this case, we're pushing the integer _999_ onto the _prods_ array.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-2.43.53-PM.png')} alt="Push data"  />
+3. The next step is to **Push** the new data on to the end of the existing array. In this case, we're pushing the integer _999_ onto the _prods_ array.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-2.43.53-PM.png')} alt="Push data" />
 4. Finally, we're going to **Load** the modified data into the test from the K/V Store.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-1.51.48-PM.png')} alt="Load data" />
 5. When we run the test, we're presented with the following test report.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-1.51.59-PM.png')} alt="Test Report" />
 
@@ -787,9 +774,7 @@ Now, we've added something to the array. Let's remove it with **Pop**!
 
 1. The first step is to introduce a **Pop** K/V Store component.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-2.31.17-PM.png')} alt="screenshot.png" />
 
-  We provide the **Pop** component with the name of the key from the Key/Value Store, and the name of the variable we'd like to assign the popped value to. Remember, **Pop** removes the last value in an array and returns the value itself. In this case, we're going to assign it to a variable called Popped.
-2. Next, we're going to recall the modified key from the Key/Value Store. Then, we're going to Comment both the recalled Key/Value Store value AND the previously popped value.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-2.28.58-PM.png')} alt="screenshot.png" />
-3. Review the Test Report, where you can see the full workflow, showing that we first assigned an array to the Key/Value Store with **Set**, then added to that array with **Push**, and then removed the added value with **Pop**. Each time we made a change, we used **Load** to retrieve an updated value from the Key/Value Store.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-2.29.09-PM.png')} alt="screenshot.png" />
+We provide the **Pop** component with the name of the key from the Key/Value Store, and the name of the variable we'd like to assign the popped value to. Remember, **Pop** removes the last value in an array and returns the value itself. In this case, we're going to assign it to a variable called Popped. 2. Next, we're going to recall the modified key from the Key/Value Store. Then, we're going to Comment both the recalled Key/Value Store value AND the previously popped value.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-2.28.58-PM.png')} alt="screenshot.png" /> 3. Review the Test Report, where you can see the full workflow, showing that we first assigned an array to the Key/Value Store with **Set**, then added to that array with **Push**, and then removed the added value with **Pop**. Each time we made a change, we used **Load** to retrieve an updated value from the Key/Value Store.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-2.29.09-PM.png')} alt="screenshot.png" />
 
 The last two comments show the final state of the array in the Key/Value Store and the popped value itself. The popped value will only be available within the scope of this test run. The array in the Key/Value Store will remain retrievable and until 24 hours after it's most recent modification.
 

@@ -11,7 +11,7 @@ description: Learn how to quickly generate a test in API Fortress. By using the 
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 This page is a Quickstart guide for getting up and running with our legacy API Fortress (on-prem) tool. API Fortress may be deployed in our hosted cloud or self-hosted/on-premises via a container behind your firewall. Maintain complete test data ownership. [Learn more about the differences between the two types of deployments](/api-testing/on-prem/self-hosted/on-prem-platform).
 
@@ -19,9 +19,8 @@ Below, we walk through how to quickly create a test using an e-commerce API. Let
 
 ## What You'll Need
 
-* An API Fortress Account
-  * When first setting up your account, you should receive an email with your login credentials from the platform.  Before sure to confirm your email address. If you don't receive an email, contact us at [support@saucelabs.com](mailto:support@saucelabs.com). If you’d like to trial mocking or load testing, please contact support or your API Fortress representative.
-
+- An API Fortress Account
+  - When first setting up your account, you should receive an email with your login credentials from the platform. Before sure to confirm your email address. If you don't receive an email, contact us at [support@saucelabs.com](mailto:support@saucelabs.com). If you’d like to trial mocking or load testing, please contact support or your API Fortress representative.
 
 ## Step 1: Create a Project
 
@@ -43,8 +42,8 @@ Once you finish naming your test, you should see the _Interstitial Page_.
 
 There are two avenues that you may take in building a test from here:
 
-* Generate a test manually
-* Build from a spec file
+- Generate a test manually
+- Build from a spec file
 
 If you want to build a test manually, API Fortress is capable of building a test draft for you using the **Generate Test** button. You can also create a test by building from a spec file, or an Apiary account.
 
@@ -66,9 +65,9 @@ In order to generate a test based on the HTTP response payload, we need to add a
    You will be presented with a tutorial on the Visual Composer. The final screen of the tutorial provides you with further instructions on how to create a test. Feel free to explore the tutorial and then close the window in order to return to the _Console_.
    :::
 
-1.  Select the **HTTP Client** button in the left panel.
+1. Select the **HTTP Client** button in the left panel.
 
-   <img src={useBaseUrl('img/api-fortress/2019/06/Screen-Shot-2019-06-10-at-4.59.14-PM.png')} alt="Click HTTP Client"/>
+<img src={useBaseUrl('img/api-fortress/2019/06/Screen-Shot-2019-06-10-at-4.59.14-PM.png')} alt="Click HTTP Client"/>
 
 1. Copy and paste the following url in the empty _Request url_ form at the bottom of the page:
 
@@ -86,8 +85,8 @@ In order to generate a test based on the HTTP response payload, we need to add a
 
    ```json
    {
-      Status: 401,
-      Message: "Unauthorized Token"
+   "Status": 401,
+   "Message": "Unauthorized Token"
    }
    ```
 
@@ -97,7 +96,7 @@ In order to generate a test based on the HTTP response payload, we need to add a
 
    <img src={useBaseUrl('img/api-fortress/2019/06/addHeader.png')} alt="Add a Header"/>
 
-   Select the __Send__ button one more time and after the response payload appears, select __Save__, name your request, then select **Save Request**.
+   Select the **Send** button one more time and after the response payload appears, select **Save**, name your request, then select **Save Request**.
 
    <img src={useBaseUrl('img/api-fortress/2019/06/Screen Shot 2021-04-05 at 5.29.32 PM.png')} alt="Save Button"/>
 
@@ -109,17 +108,16 @@ Now select the **Generate Test** button to generate a test draft.
 
 The following screens allow you to choose whether you want to create the input set based on the data provided in the request, and if you want Magic to generate the assertions. The final screen summarizes what was done. Select **Continue** on each screen.
 
-| <p align="center"><img src={useBaseUrl('img/api-fortress/2019/06/screen1.png')} width="100%" alt="Screen 1"/></p> <p align="center"><small>Screen 1</small></p> | <p align="center"><img src={useBaseUrl('img/api-fortress/2019/06/screen2.png')} width="100%" alt="Screen 2"/></p> <p align="center"><small>Screen 2</small></p>             |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <p align="center"><img src={useBaseUrl('img/api-fortress/2019/06/screen1.png')} width="100%" alt="Screen 1"/></p> <p align="center"><small>Screen 1</small></p>                  | <p align="center"><img src={useBaseUrl('img/api-fortress/2019/06/screen2.png')} width="100%" alt="Screen 2"/></p> <p align="center"><small>Screen 2</small></p>                              |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <strong><p align="center"><img src={useBaseUrl('img/api-fortress/2019/06/screen3.png')} width="100%" alt="Screen 3"/></p> <p align="center"><small>Screen 3</small></p></strong> | <strong><p align="center"><img src={useBaseUrl('img/api-fortress/2019/06/finalScreen.png')} width="100%" alt="Final Screen"/></p> <p align="center"><small>Final Screen</small></p></strong> |
 
 After you successfully generate your first test, the generated test appears in the Visual Editor:
 
-
 <p align="center"><img src={useBaseUrl('img/api-fortress/2019/06/visual.png')} width="75%" alt="Screen 2"/></p>
-<p align="center"><small>Visual Editor</small></p>               
+<p align="center"><small>Visual Editor</small></p>
 
-The values for `${protocol}${domain}${endpoint}`, directly correlate with the values generated from the **Generate Test** button in the `HTTP Client` tool. You can find these values by selecting __Input Sets__ in the left hand side of the UI:
+The values for `${protocol}${domain}${endpoint}`, directly correlate with the values generated from the **Generate Test** button in the `HTTP Client` tool. You can find these values by selecting **Input Sets** in the left hand side of the UI:
 
 <p align="center"><img src={useBaseUrl('img/api-fortress/2019/06/inputSets.png')} width="25%" alt="Screen 1"/></p>
 <p align="center"><small>Global Parameters & Input Set</small></p>
@@ -132,8 +130,7 @@ At this stage, this test is only a draft. You should take a moment to verify eac
 
 ### Additional Topics
 
-* Check out the [Example Snippets](/api-testing/on-prem/quick-start/using-the-example-snippets) provided by the API Fortress Dashboard.
-* Learn how to [import Postman Collections](/api-testing/on-prem/quick-start/importing-postman-collections
-  ) so that you may generate more tests.
-* Learn how to schedule a test [here](/api-testing/on-prem/quick-start/schedule-a-test).  
-* Learn about data and notifications connectors [here](/api-testing/on-prem/quick-start/setup-connectors/). Simple solutions to plug into the systems you use today (e.g DataDog or New Relic).
+- Check out the [Example Snippets](/api-testing/on-prem/quick-start/using-the-example-snippets) provided by the API Fortress Dashboard.
+- Learn how to [import Postman Collections](/api-testing/on-prem/quick-start/importing-postman-collections) so that you may generate more tests.
+- Learn how to schedule a test [here](/api-testing/on-prem/quick-start/schedule-a-test).
+- Learn about data and notifications connectors [here](/api-testing/on-prem/quick-start/setup-connectors/). Simple solutions to plug into the systems you use today (e.g DataDog or New Relic).

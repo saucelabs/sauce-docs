@@ -10,8 +10,8 @@ Screener provides the ability to view the recent visual history of each UI state
 
 This is useful for:
 
-* Seeing how a UI state has changed over time.
-* Knowing ***who*** reviewed previously, and ***what*** was accepted or rejected.
+- Seeing how a UI state has changed over time.
+- Knowing **_who_** reviewed previously, and **_what_** was accepted or rejected.
 
 The visual history can be viewed by opening the side panel in a UI state, and selecting the **History** tab:
 

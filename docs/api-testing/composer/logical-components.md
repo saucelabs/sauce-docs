@@ -13,12 +13,11 @@ Logical components are a type of component that you can add to a test using the 
 
 <img src={useBaseUrl('img/api-testing/logicalComponents.png')} alt="Logical Components" />
 
-
 ## What You'll Need
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
-* Familiarity with the [API Testing Composer](/api-testing/composer/).
 
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
+- Familiarity with the [API Testing Composer](/api-testing/composer/).
 
 ## Logical Components
 
@@ -60,14 +59,13 @@ The `for each payload.content.flights` collection checks if `price.amount` is an
 ```yaml
 - id: each
   children:
-    - id: assert-is
-      expression: vector
-      type: integer
+  - id: assert-is
+    expression: vector
+    type: integer
   expression: payload.legs
 ```
 
 </details>
-
 
 ### If
 
@@ -90,7 +88,6 @@ Allows you to run a specific piece of code only if a specific condition is met.
 
 <strong>Examples</strong>
 
-
 If `payload.success` is equal to true then the code within the element is executed, otherwise is skipped.
 <img src={useBaseUrl('img/api-testing/if.png')} alt="if.png"/>
 
@@ -103,13 +100,13 @@ If `_1.intermediate` exists then the code within the element is executed, otherw
 ```yaml
 - id: if
   children:
-    - id: assert-equals
-      expression: payload.message
-      value: Seats Available
-    - id: assert-equals
-      expression: payload.content.flightid
-      value: ${id}
-      type: string
+  - id: assert-equals
+    expression: payload.message
+    value: Seats Available
+  - id: assert-equals
+    expression: payload.content.flightid
+    value: ${id}
+    type: string
   expression: payload.success == true
 ```
 
@@ -145,8 +142,9 @@ Allows you to run a block of assertions as long as a condition is valid.
 ```yaml
 - id: while
   children:
-    - id: comment
-      text: Executes assertion until items are less than 5
+  - id: comment
+    text: Executes assertion until items are less than 5
   expression: items<5
 ```
+
 </details>

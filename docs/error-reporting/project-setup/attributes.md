@@ -4,11 +4,13 @@ title: Indexing Attributes
 sidebar_label: Indexing Attributes
 description: Create an attribute for each metadata point added to your snapshots that you would like to query, group or filter on.
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Attributes
+
 Attributes define key metadata points to generate indices in the Backtrace database (coroner). These coroner indices are used for filtering, reporting, visualization and snapshot retrieval. They can be used to determine impact and investigate root cause by looking at interesting patterns. For example, you can request a distribution of process uptime or memory usage in real-time for any group of crashes.
 
 We recommend you create an attribute for each metadata point added to your snapshots that you would like to query, group or filter on. For example, if you are adding build_tag to each error submission belonging to this project, you should add "build_tag" as an attribute.
@@ -18,6 +20,7 @@ To create an attribute for a given project, select **Project Settings** from the
 <img src={useBaseUrl('img/error-reporting/project-settings/add-attributes.png')} alt="" />
 
 ## Configuration
+
 - Name: Name of the attribute
 - Description: Description of the attribute
 - Format: Format of data type, used for rendering the value. The following formats are supported:

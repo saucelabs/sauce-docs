@@ -15,48 +15,48 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 You can run `saucectl` locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms)) or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention. The following reference serves as a general guide:
 
 <Tabs
-  defaultValue="macos"
-  values={[
-    {label: 'macOS', value: 'macos'},
-    {label: 'Linux', value: 'linux'},
-    {label: 'Windows', value: 'windows'},
-  ]}>
+defaultValue="macos"
+values={[
+{label: 'macOS', value: 'macos'},
+{label: 'Linux', value: 'linux'},
+{label: 'Windows', value: 'windows'},
+]}>
 
 <TabItem value="macos">
 
-* OS: 10.14+ (Mojave, Catalina, or Big Sur)
-* Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
+- OS: 10.14+ (Mojave, Catalina, or Big Sur)
+- Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
 
 </TabItem>
 <TabItem value="linux">
 
-* OS/Distros: [CentOS](https://docs.docker.com/engine/install/centos/), [Debian](https://docs.docker.com/engine/install/debian/), [Fedora](https://docs.docker.com/engine/install/fedora/), [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-* Docker: [Server](https://docs.docker.com/engine/install/#server)
+- OS/Distros: [CentOS](https://docs.docker.com/engine/install/centos/), [Debian](https://docs.docker.com/engine/install/debian/), [Fedora](https://docs.docker.com/engine/install/fedora/), [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+- Docker: [Server](https://docs.docker.com/engine/install/#server)
 
 </TabItem>
 <TabItem value="windows">
 
-* OS: Windows 10 or 11 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
-* Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
+- OS: Windows 10 or 11 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
+- Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
 
 </TabItem>
 </Tabs>
 
 ## Supported Languages
 
-JavaScript is supported out of the box. TypeScript and Cucumber are also supported, but require additional dependencies at runtime.  See our [example repo](https://github.com/saucelabs/saucectl-cypress-example/tree/main/v1/examples) for working end-to-end examples.
+JavaScript is supported out of the box. TypeScript and Cucumber are also supported, but require additional dependencies at runtime. See our [example repo](https://github.com/saucelabs/saucectl-cypress-example/tree/main/v1/examples) for working end-to-end examples.
 
 ## Supported Testing Platforms
 
- Sauce Labs supports the following test configurations for Cypress:
+Sauce Labs supports the following test configurations for Cypress:
 
- <Tabs
-   groupId="platforms"
-   defaultValue="sauce"
-   values={[
-     {label: 'Sauce Labs', value: 'sauce'},
-     {label: 'Docker', value: 'docker'},
-   ]}>
+<Tabs
+groupId="platforms"
+defaultValue="sauce"
+values={[
+{label: 'Sauce Labs', value: 'sauce'},
+{label: 'Docker', value: 'docker'},
+]}>
 
  <TabItem value="sauce">
   <table id="table-fw">
@@ -168,15 +168,12 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 </TabItem>
 </Tabs>
 
-
-
 ## How to Get Started
 
-* [Quickstart](/web-apps/automated-testing/cypress/quickstart): Use our demo repo to quickly set up and run a sample Cypress project and test to see the results.
-* [Run your own tests](/web-apps/automated-testing/cypress/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
-* Try Cypress with Cucumber: `saucectl` supports Cypress using Cucumber, and the demo repo includes examples for [Cypress 9 and below](https://github.com/saucelabs/saucectl-cypress-example/tree/main/v1alpha/examples/cucumber) and [Cypress 10 and above](https://github.com/saucelabs/saucectl-cypress-example/tree/main/v1/examples/cucumber).
-* [Incorporate saucectl in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): Cypress on Sauce supports CI integrations with Circle CI, GitLab, Jenkins, and GitHub Actions.
-
+- [Quickstart](/web-apps/automated-testing/cypress/quickstart): Use our demo repo to quickly set up and run a sample Cypress project and test to see the results.
+- [Run your own tests](/web-apps/automated-testing/cypress/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
+- Try Cypress with Cucumber: `saucectl` supports Cypress using Cucumber, and the demo repo includes examples for [Cypress 9 and below](https://github.com/saucelabs/saucectl-cypress-example/tree/main/v1alpha/examples/cucumber) and [Cypress 10 and above](https://github.com/saucelabs/saucectl-cypress-example/tree/main/v1/examples/cucumber).
+- [Incorporate saucectl in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): Cypress on Sauce supports CI integrations with Circle CI, GitLab, Jenkins, and GitHub Actions.
 
 ## Cypress Plugin for Sauce Labs
 

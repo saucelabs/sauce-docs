@@ -46,7 +46,6 @@ Learn the Screener workflow for reviewing UIs. Each UI state under test has one 
   </tr>
 </table>
 
-
 ## 1. Start Reviewing
 
 When a test has **Changed** or **New** UI states, it will show a Review button:
@@ -79,28 +78,27 @@ Changed UI states will include highlights of visual changes directly overlayed o
 [Learn how to view change details](/visual/e2e-testing/workflow/change-details).
 :::
 
-
 ## 3. Accept or Reject
 
 After reviewing the UI state, you can either:
-* **Accept**: if the screenshots are as expected, which will set the current as the new baseline (tip: keyboard shortcut is Shift + Up Arrow).
-* **Reject**: if defects are found which need to be fixed (tip: keyboard shortcut is Shift + Down Arrow).
+
+- **Accept**: if the screenshots are as expected, which will set the current as the new baseline (tip: keyboard shortcut is Shift + Up Arrow).
+- **Reject**: if defects are found which need to be fixed (tip: keyboard shortcut is Shift + Down Arrow).
 
   <img src={useBaseUrl('img/visual/e2e-review-accept.png')} alt="E2E Review Accept" width="200"/>
-
 
 ## 4. Continue Reviewing
 
 Continue reviewing the remaining UI states by clicking one of the below options (or use keyboard shortcuts to navigate through UI states).
-* **Next** arrow (tip: keyboard shortcut is Right Arrow).
-* **Previous** arrow (tip: keyboard shortcut is Left Arrow).
+
+- **Next** arrow (tip: keyboard shortcut is Right Arrow).
+- **Previous** arrow (tip: keyboard shortcut is Left Arrow).
 
   <img src={useBaseUrl('img/visual/e2e-review-next.png')} alt="E2E Review Next" width="150"/>
 
-
 :::tip Tip: Accept All Button
 
-Use the **Accept All** button to quickly set ___all___ filtered UI states to accepted.
+Use the **Accept All** button to quickly set **_all_** filtered UI states to accepted.
 :::
 
 ## 5. Review Complete
@@ -113,7 +111,6 @@ The build status will be updated to **Success** when all UI states have been acc
 
 The build status will be updated to **Failure** when there are rejected UI states.
 
-
 ## Next Steps
 
-* [Integrate into your CI process](/visual/e2e-testing/integrations/continuous-integration) for continuous visual testing.
+- [Integrate into your CI process](/visual/e2e-testing/integrations/continuous-integration) for continuous visual testing.

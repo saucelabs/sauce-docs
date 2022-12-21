@@ -23,7 +23,6 @@ Returns the current (30 second cache) availability of the Sauce Labs platform.
 
 This method takes no parameters.
 
-
 <Tabs
 groupId="dc-url"
 defaultValue="us"
@@ -76,6 +75,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "status_message": "Basic service status checks passed."
 }
 ```
+
 </details>
 
 ---
@@ -151,61 +151,57 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </table>
 
 ```jsx title="Sample Response"
-[
-    {
-        "short_version": "11.3",
-        "long_name": "iPad Simulator",
-        "api_name": "ipad",
-        "long_version": "11.3.",
-        "device": "iPad Simulator",
-        "latest_stable_version": "",
-        "automation_backend": "webdriver",
-        "os": "Mac 10.13"
-    },
-    {
-        "deprecated_backend_versions": [],
-        "short_version": "11.3",
-        "long_name": "iPad Simulator",
-        "recommended_backend_version": "1.9.1",
-        "long_version": "11.3.",
-        "api_name": "ipad",
-        "supported_backend_versions": [
-            "1.8.1",
-            "1.9.1"
-        ],
-        "device": "iPad Simulator",
-        "latest_stable_version": "",
-        "automation_backend": "appium",
-        "os": "Mac 10.13"
-    },
-    {
-        "short_version": "12.0",
-        "long_name": "iPad Simulator",
-        "api_name": "ipad",
-        "long_version": "12.0.",
-        "device": "iPad Simulator",
-        "latest_stable_version": "",
-        "automation_backend": "webdriver",
-        "os": "Mac 10.13"
-    },
-    {
-        "deprecated_backend_versions": [],
-        "short_version": "12.0",
-        "long_name": "iPad Simulator",
-        "recommended_backend_version": "1.9.1",
-        "long_version": "12.0.",
-        "api_name": "ipad",
-        "supported_backend_versions": [
-            "1.9.1"
-        ],
-        "device": "iPad Simulator",
-        "latest_stable_version": "",
-        "automation_backend": "appium",
-        "os": "Mac 10.13"
-    },
-    //{...more results}
+;[
+{
+short_version: '11.3',
+long_name: 'iPad Simulator',
+api_name: 'ipad',
+long_version: '11.3.',
+device: 'iPad Simulator',
+latest_stable_version: '',
+automation_backend: 'webdriver',
+os: 'Mac 10.13'
+},
+{
+deprecated_backend_versions: [],
+short_version: '11.3',
+long_name: 'iPad Simulator',
+recommended_backend_version: '1.9.1',
+long_version: '11.3.',
+api_name: 'ipad',
+supported_backend_versions: ['1.8.1', '1.9.1'],
+device: 'iPad Simulator',
+latest_stable_version: '',
+automation_backend: 'appium',
+os: 'Mac 10.13'
+},
+{
+short_version: '12.0',
+long_name: 'iPad Simulator',
+api_name: 'ipad',
+long_version: '12.0.',
+device: 'iPad Simulator',
+latest_stable_version: '',
+automation_backend: 'webdriver',
+os: 'Mac 10.13'
+},
+{
+deprecated_backend_versions: [],
+short_version: '12.0',
+long_name: 'iPad Simulator',
+recommended_backend_version: '1.9.1',
+long_version: '12.0.',
+api_name: 'ipad',
+supported_backend_versions: ['1.9.1'],
+device: 'iPad Simulator',
+latest_stable_version: '',
+automation_backend: 'appium',
+os: 'Mac 10.13'
+}
+//{...more results}
 ]
 ```
+
 </details>
 
 ---
@@ -220,7 +216,6 @@ Returns the expected date (in Unix time) on which Sauce Labs support for each Ap
 #### Parameters
 
 This method takes no parameters.
-
 
 <Tabs
 groupId="dc-url"
@@ -310,6 +305,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "1.4.15": 1460160000
 }
 ```
+
 </details>
 
 ---

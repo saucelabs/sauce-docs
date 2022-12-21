@@ -19,4 +19,5 @@ This diagram illustrates at high level how `saucectl` interacts with the Sauce L
 <img src="/img/saucectl/components.jpg" />
 
 ## More Information
-* [Using the saucectl CLI](/dev/cli/saucectl)
+
+- [Using the saucectl CLI](/dev/cli/saucectl)

@@ -3,16 +3,16 @@ id: version-control
 title: Version Control
 sidebar_label: Version Control
 keywords:
-    - api-testing
-    - how-to
-    - version-control
+- api-testing
+- how-to
+- version-control
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 There are two primary mechanisms for version control in API Fortress. The first is the Publish Test feature, which allows for the pushing of updated test-code to a live version of the test.
 

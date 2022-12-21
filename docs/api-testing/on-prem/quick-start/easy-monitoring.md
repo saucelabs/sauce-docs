@@ -2,19 +2,19 @@
 id: easy-monitoring
 title: Easy Monitoring
 sidebar_label: Easy Monitoring
-description: "Quick-start instructions on how to set up easy monitoring with API fortress."
+description: 'Quick-start instructions on how to set up easy monitoring with API fortress.'
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 We suggest creating comprehensive functional tests, and then scheduling those tests as monitors for two reasons:
 
-* First, this method ensures that your monitors validate functional uptime rather than a simple `200 OK` ping.
-* Second, this approach makes it efficient to reuse existing tests. However, we understand that you may simply be looking for a simple monitor that validates that the 200 OK is returned, and performance is acceptable.
+- First, this method ensures that your monitors validate functional uptime rather than a simple `200 OK` ping.
+- Second, this approach makes it efficient to reuse existing tests. However, we understand that you may simply be looking for a simple monitor that validates that the 200 OK is returned, and performance is acceptable.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-RDh1ukLN8w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

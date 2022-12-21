@@ -9,18 +9,19 @@ Screener integrates with the Sauce Labs testing cloud for Cross-Browser Testing.
 To learn more about Screener's Cross-Browser Testing, see [Visual Component Cross-Browser Testing](/visual/component-testing/supported-browsers).
 
 :::note Important
-* Cross-Browser Testing with Sauce Labs will be slower than regular Screener visual regression tests.
-* You may want to limit cross-browser testing to certain scenarios, such as only when merging into your main branch (see example below).
-:::
+
+- Cross-Browser Testing with Sauce Labs will be slower than regular Screener visual regression tests.
+- You may want to limit cross-browser testing to certain scenarios, such as only when merging into your main branch (see example below).
+  :::
 
 ## What You'll Need
 
-* A valid Sauce Labs account.
-* Access to enough [concurrency](/basics/acct-team-mgmt/concurrency-limits) in your Sauce account to run Screener tests. Each browser/resolution combination will use one concurrent machine.
+- A valid Sauce Labs account.
+- Access to enough [concurrency](/basics/acct-team-mgmt/concurrency-limits) in your Sauce account to run Screener tests. Each browser/resolution combination will use one concurrent machine.
 
 ## Adding Sauce Labs Browsers
 
-You'll need to add your Sauce Labs credentials via the sauce option in your `screener.config.js` file. Browsers added ***must*** match one of the supported browsers/versions in the browser table below.
+You'll need to add your Sauce Labs credentials via the sauce option in your `screener.config.js` file. Browsers added **_must_** match one of the supported browsers/versions in the browser table below.
 
 Here is a CircleCI example that only runs cross-browser tests when committing into the main branch:
 
@@ -106,8 +107,6 @@ module.exports = config;
     </tr>
   </table>
 
-
-
 ## Sauce Connect Proxy Integration
 
 When using Sauce Labs browsers, you'll have the option of using a secure Sauce Connect tunnel. To enable this in Screener, set the flag `launchSauceConnect` to `true`. Sauce Connect will be launched and managed by this module, and assigned a unique tunnel identifier.
@@ -126,9 +125,10 @@ module.exports = {
 ```
 
 ### Important Notes
-* Sauce Connect integration requires all browsers to be Sauce Labs browsers. An error will be thrown if you use a non-Sauce browser.
-* Logs for Sauce Connect will be saved in the root of your project under `sauce-connect.log` for debugging purposes.
-* Sauce Connect tunnel cannot be used together with the tunnel: option.
-* A unique `tunnelIdentifier` will be automatically generated for you when using the Sauce Connect integration. An error will be thrown if you try to  set `tunnelIdentifier` manually.
-* When running Sauce Connect tunnels on your localhost, please note that Sauce Connect only supports a limited set of valid ports.
-* For additional information, see the [Sauce Connect Proxy documentation](/secure-connections/sauce-connect).
+
+- Sauce Connect integration requires all browsers to be Sauce Labs browsers. An error will be thrown if you use a non-Sauce browser.
+- Logs for Sauce Connect will be saved in the root of your project under `sauce-connect.log` for debugging purposes.
+- Sauce Connect tunnel cannot be used together with the tunnel: option.
+- A unique `tunnelIdentifier` will be automatically generated for you when using the Sauce Connect integration. An error will be thrown if you try to set `tunnelIdentifier` manually.
+- When running Sauce Connect tunnels on your localhost, please note that Sauce Connect only supports a limited set of valid ports.
+- For additional information, see the [Sauce Connect Proxy documentation](/secure-connections/sauce-connect).

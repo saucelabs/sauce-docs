@@ -39,6 +39,7 @@ Downloads an app file from Sauce Storage.
 ## Options Details
 
 ### <span className="cli">--filename</span>
+
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING |</small></p>
 
@@ -49,9 +50,11 @@ Saves the file to disk with this name.
 ```bash
 saucectl storage download 0244d466-ff99-4fa2-bee0-64afb2c407b0 --filename app.apk
 ```
+
 </div>
 
 ### <span className="cli">--region</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -62,4 +65,5 @@ The Sauce Labs region. Options are `us-west-1` (default) and `eu-central-1`.
 ```bash
 saucectl storage download 0244d466-ff99-4fa2-bee0-64afb2c407b0 --filename app.apk --region us-west-1
 ```
+
 </div>

@@ -149,8 +149,8 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
   </div>
 </div>
 
-
 ## Defect Reporting and Management
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -161,6 +161,7 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
 </div>
 
 ## Test Reporting and Management
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -183,6 +184,7 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
 </div>
 
 ## Test Enhancements
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -199,6 +201,7 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
 </div>
 
 ## Test Data Management
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -214,8 +217,8 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
   </div>
 </div>
 
-
 ## Low-code/No-code/Model-based Test Case Generation
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -274,6 +277,7 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
 </div>
 
 ## API Management and Testing
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">

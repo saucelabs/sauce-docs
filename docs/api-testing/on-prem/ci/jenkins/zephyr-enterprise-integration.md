@@ -1,19 +1,19 @@
 ---
 id: zephyr-enterprise-integration
-title: "Jenkins: Zephyr Enterprise Integration"
+title: 'Jenkins: Zephyr Enterprise Integration'
 sidebar_label: Zephyr Enterprise Integration
 keywords:
-    - cicd
-    - jenkins
-    - api-fortress
-    - zephyr-enterprise
+- cicd
+- jenkins
+- api-fortress
+- zephyr-enterprise
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -44,7 +44,7 @@ Next, we need to create an API Fortress Webhook to export the test data to Jenki
 
 To do so, head to the Settings panel in API Fortress. This view, seen below, can be accessed from anywhere in the application by clicking the _Gear_ icon in the top right corner of the screen.
 
-> __Note__: You need Manager access to generate a Webhook. From Settings, click the API Hooks section and generate the hook for your project.
+> **Note**: You need Manager access to generate a Webhook. From Settings, click the API Hooks section and generate the hook for your project.
 
 <img src={useBaseUrl('img/api-fortress/2018/04/hook.gif')} alt="Jenkins hook gif"/>
 
@@ -104,7 +104,7 @@ Now, we’ve enabled Jenkins to execute API Fortress tests and receive the test 
 
 1. Click "Add Post-Build Action"
 2. Select "Publish Test Results to Zephyr Enterprise."
-    Since we configured the Zephyr plugin in step 2, Zephyr information should populate automatically from your Zephyr Enterprise instance.
+   Since we configured the Zephyr plugin in step 2, Zephyr information should populate automatically from your Zephyr Enterprise instance.
 
 3. Select the project, release and cycle of your choice and save the build.
 

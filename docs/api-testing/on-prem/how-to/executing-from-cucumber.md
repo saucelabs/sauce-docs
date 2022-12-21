@@ -4,17 +4,17 @@ title: Executing from Cucumber
 hide_title: true
 sidebar_label: Executing from Cucumber
 keywords:
-    - api-testing
-    - how-to
-    - cucumber
-    - bdd
+- api-testing
+- how-to
+- cucumber
+- bdd
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
@@ -28,12 +28,11 @@ Cucumber is the most common behavior-driven development language for testers. Th
 
 With the flexibility of the API Fortress, you can easily invoke API Fortress tests within your Cucumber Automation Scripts. Simply make an HTTP request to our webhook to kick off a test from your Cucumber test. Have a link to the report printed out into your console, or print the results directly on the console.
 
-Below, we will show you how to easily integrate an API test into your Cucumber scripts.  
+Below, we will show you how to easily integrate an API test into your Cucumber scripts.
 
+## Walkthrough
 
-##  Walkthrough
-
-First lets walk through the files and method used in the example:  
+First lets walk through the files and method used in the example:
 
 :::tip
 You can find all of the below examples on our [Github](https://github.com/apifortress/cucumber-examples) page.
@@ -58,19 +57,22 @@ https://github.com/apifortress/cucumber-examples/blob/master/src/test/resources/
 ### `Stepdefs.java`
 
 In this example we are using Java, however Cucumber supports many programming languages. The example file contains a few things:
+
 1. `Stepdefs` class
-    1. In this class you will define what happens in each step from your feature file (Given, When, Then)
-    2. Given - will take in the inputed Api Fortress Project name and call the `getProjInfo` method to get the webhook for this project
-    3. When - will take the url of the webhook and call the `callAPI `method running all the API Fortress tests contained within that project
-    4. Then - will parse through the response of the API Fortress webhook to provide the amount of failures, links to the API Fortress test results, and will indicate which tests passed and which failed
-2. `getProjInfo` method - This method will parse the `config.json` file and match the Project name provided in the Given step to the Project name defined in the config file. This method will then return the associated webhook.    
+   1. In this class you will define what happens in each step from your feature file (Given, When, Then)
+   2. Given - will take in the inputed Api Fortress Project name and call the `getProjInfo` method to get the webhook for this project
+   3. When - will take the url of the webhook and call the `callAPI `method running all the API Fortress tests contained within that project
+   4. Then - will parse through the response of the API Fortress webhook to provide the amount of failures, links to the API Fortress test results, and will indicate which tests passed and which failed
+2. `getProjInfo` method - This method will parse the `config.json` file and match the Project name provided in the Given step to the Project name defined in the config file. This method will then return the associated webhook.
 3. `callAPI` method - This method will take the webhook url from the When step and make a call to the API running all API Fortress tests within that project. This method will return the response from the API.
 
 :::note `Stepdefs.java` Class
+
 <details><summary>Click here to see the full class</summary>
 
 ```java reference
 https://github.com/apifortress/cucumber-examples/blob/master/src/test/java/hellocucumber/Stepdefs.java
 ```
+
 </details>
 :::

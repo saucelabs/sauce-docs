@@ -1,4 +1,4 @@
-function ClientOnly({children}) {
+function ClientOnly({ children }) {
     if (typeof window === 'undefined') {
         return null;
     }

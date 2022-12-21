@@ -1,6 +1,6 @@
 ---
 id: find-sessionid
-title: "Virtual USB CLI: Find SessionID"
+title: 'Virtual USB CLI: Find SessionID'
 sidebar_label: Find SessionID
 ---
 
@@ -11,7 +11,6 @@ Look up the list of active Virtual USB (vUSB) device sessions available to a spe
 ## Usage
 
 <span className="cli">$ &lt;main class&gt; [OPTIONS] sessions [OPTIONS]</span>
-
 
 ## Options Details
 
@@ -42,7 +41,6 @@ A specific vUSB server host address. The default value, if not specified, is `ht
 
 </div>
 
-
 ### <span className="cli">--serverPort</span>
 
 <div className="cli-desc">
@@ -51,7 +49,6 @@ A specific vUSB server host address. The default value, if not specified, is `ht
 A specific vUSB server port. The default value, if not specified, is `33657`.
 
 </div>
-
 
 ## Examples
 

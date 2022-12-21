@@ -12,14 +12,13 @@ Azure DevOps (formerly Visual Studio Team Services or VSTS) is a Microsoft produ
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
-* An existing Azure DevOps pipeline
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- An existing Azure DevOps pipeline
 
 :::note
 The Sauce Labs OnDemand plugin for Azure DevOps has been deprecated.
 :::
-
 
 ## Using Azure DevOps
 
@@ -30,20 +29,22 @@ Follow the instructions below to integrate Sauce Labs testing into your Azure pi
 3. Link the new pipeline to your repository (see [Azure Pipelines Documentation](https://docs.microsoft.com/en-us/azure/devops/pipelines/) for guidance). You'll likely need to provide permissions for Azure Pipelines to access your repository management system.
 4. Set your [Sauce Labs username and access key as environment variables](https://ultimateqa.com/tfs-vsts-and-azure-devops/#1_Setup_your_username_and_access_key_in_ADO) in your pipeline by clicking **Pipeline** > **Variables**, and then pasting the values of your username and access key.
 5. In your source code, you'll need to reference the Sauce Labs environment variables that you set in Azure DevOps. For example:
-  ```csharp title="C# example"
-  var sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME");
-  var sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY");
-  ```
+
+```csharp title="C# example"
+var sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME");
+var sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY");
+```
+
 6. Create a YAML file using one of the templates below. You'll also need to reference your Sauce Labs environment variables here.
    <Tabs
-     defaultValue="node.js"
-     values={[
-       {label: 'Node.js', value: 'node.js'},
-       {label: 'Java', value: 'java'},
-       {label: 'C#', value: 'C#'},
-     ]}>
+   defaultValue="node.js"
+   values={[
+   {label: 'Node.js', value: 'node.js'},
+   {label: 'Java', value: 'java'},
+   {label: 'C#', value: 'C#'},
+   ]}>
 
-   <TabItem value="node.js">
+    <TabItem value="node.js">
 
    ```yml
    trigger:
@@ -80,8 +81,8 @@ Follow the instructions below to integrate Sauce Labs testing into your Azure pi
     displayName: 'install and run WebdriverIO tests in Sauce Labs'
    ```
 
-   </TabItem>
-   <TabItem value="java">
+    </TabItem>
+    <TabItem value="java">
 
    ```yaml
    # Build your Java project and run tests with Apache Maven.
@@ -118,8 +119,8 @@ Follow the instructions below to integrate Sauce Labs testing into your Azure pi
        goals: 'package'
    ```
 
-   </TabItem>
-   <TabItem value="C#">
+    </TabItem>
+    <TabItem value="C#">
 
    ```yaml
    pool:
@@ -163,7 +164,7 @@ Follow the instructions below to integrate Sauce Labs testing into your Azure pi
        Write-Host "Sauce Username stored in Env variables is=>$($env:SAUCE_USERNAME)";
        Write-Host "Sauce Access Key stored in Env variables is=>$($env:SAUCE_ACCESS_KEY)";
        Write-Host "Sauce Build Repository URI stored in Env variables is=>$($env:BUILD_REPOSITORY_URI)";
-  |
+   |
 
     # Checking to make sure that environment variables were set between yml tasks
     – powershell: |
@@ -190,14 +191,13 @@ Follow the instructions below to integrate Sauce Labs testing into your Azure pi
         failOnMinTestsNotRun: true
    ```
 
-   </TabItem>
-   </Tabs>
-
+    </TabItem>
+    </Tabs>
 
 ## More Information
 
-* [Sauce Labs Testing with Azure DevOps](https://ultimateqa.com/tfs-vsts-and-azure-devops/)
-* [Azure DevOps Pipelines documentation](https://docs.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops)
-  * [Build JavaScript and Node.js apps](https://docs.microsoft.com/azure/devops/pipelines/languages/javascript)
-  * [Build Java apps](https://docs.microsoft.com/azure/devops/pipelines/languages/java)
-  * [Build ASP.NET apps with .NET Framework](https://docs.microsoft.com/en-us/azure/devops/pipelines/apps/aspnet/build-aspnet-4?view=azure-devops)
+- [Sauce Labs Testing with Azure DevOps](https://ultimateqa.com/tfs-vsts-and-azure-devops/)
+- [Azure DevOps Pipelines documentation](https://docs.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops)
+  - [Build JavaScript and Node.js apps](https://docs.microsoft.com/azure/devops/pipelines/languages/javascript)
+  - [Build Java apps](https://docs.microsoft.com/azure/devops/pipelines/languages/java)
+  - [Build ASP.NET apps with .NET Framework](https://docs.microsoft.com/en-us/azure/devops/pipelines/apps/aspnet/build-aspnet-4?view=azure-devops)

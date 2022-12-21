@@ -6,7 +6,6 @@ sidebar_label: FAQ
 
 If you're new to Sauce Connect Proxy or troubleshooting, this list of frequently asked questions can help you with what you need to know.
 
-
 ## What outbound ports do I need open for Sauce Connect Proxy?
 
 Sauce Connect Proxy can only communicate with Sauce Labs via `port 443`. This is not configurable.
@@ -28,7 +27,6 @@ To share a tunnel, start a tunnel with the [`--shared-tunnel`](/dev/cli/sauce-co
 
 In order to use a tunnel that an admin or team member shares with you, you'll need to add [`tunnelOwner`](https://docs.saucelabs.com/dev/test-configuration-options/#tunnelowner) to your test capabilities and specify that person's username.
 
-
 ## How can I use Sauce Connect Proxy to test graceful degradation?
 
 You can use the [`--fast-fail-regexps`](/dev/cli/sauce-connect-proxy) command-line option to drop requests that fit a description altogether. It can be used to simulate non-loading of scripts, styles, or other resources.
@@ -36,11 +34,11 @@ You can use the [`--fast-fail-regexps`](/dev/cli/sauce-connect-proxy) command-li
 This flag can contain a list of regex that will match the domain that wants to be blocked. Example:
 
 Entering this code -- `(www.)?google-analytics.com,(www.)?googletagmanager.com,([a-z0 9]+[.])*google.com,([a-z0-9]+[.])+facebook.com` -- will block the following domains:
-* `www.google-analytics.com`
-* `google-analytics.com`
-* `google.com` and any subdomain of `google.com`
-* Any subdomain of `facebook.com`, but not `facebook.com`
 
+- `www.google-analytics.com`
+- `google-analytics.com`
+- `google.com` and any subdomain of `google.com`
+- Any subdomain of `facebook.com`, but not `facebook.com`
 
 ## Can I access apps on localhost?
 
@@ -50,16 +48,13 @@ However, because proxy requests to a localhost address are not supported by all 
 
 See also [Supported Browsers and Ports Specification](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports).
 
-
 ## How Can I Improve Tunnel Performance?
 
 See [Improving Sauce Connect Proxy Performance](/secure-connections/sauce-connect/proxy-tunnels/#improving-sauce-connect-proxy-performance).
 
-
 ### Supported Browsers and Ports
 
 See [Supported Browsers and Ports Specification](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports).
-
 
 ## If we have five users, should we use five instances of Sauce Connect Proxy or set up one shared instance?
 
@@ -67,41 +62,33 @@ Feel free to do either, even if you only have one Sauce account.
 
 If you do decide to use five separate instances, you'll need to create unique identifiers for each. More information: [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
 
-
 ## Can I split testing traffic across multiple Sauce Connect Proxy tunnels?
 
 Sauce Connect Proxy offers some options for high availability that enable multiple Sauce Connect Proxy tunnels to be grouped into a pool, which is treated like a single tunnel. This has several advantages, including the ability to distribute the load of test traffic. More information: [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
-
 
 ## Does Sauce Connect Proxy support running XCUITest and Espresso tests?
 
 Yes. More information: [Mobile Testing Frameworks](/mobile-apps/automated-testing/appium).
 
-
 ## How many Sauce Connect Proxy tunnels can I keep open simultaneously?
 
 Your options depend on your license type. More information: [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect/system-requirements).
-
 
 ## How many tests can I run in each Sauce Connect Proxy tunnel?
 
 There are currently no limits on how many tests you can run in each tunnel, though we may eventually implement limitations to maintain service quality. More information: [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect/system-requirements).
 
-
 ## Are there restrictions on who can use Sauce Connect Proxy tunnels for real device testing?
 
 No, tunnels to the Real Device Cloud are automatically shared with all of your team members. More information: [Security Settings for Organizations](/basics/acct-team-mgmt/org-settings).
-
 
 ## Can I run tests on Virtual Devices and Real Devices using the same Sauce Connect Proxy tunnel?
 
 Yes, you can use the same Sauce Connect Proxy tunnel and/or same machine to test with the Virtual Device Cloud (VDC) and Real Device Cloud (RDC).
 
-
 ## Are there any special parameters when using a PAC file in real device tests?
 
 No, though you cannot use the `localhost` address with iOS.
-
 
 ## Will Sauce Connect Proxy work with dynamic allocation of real devices?
 

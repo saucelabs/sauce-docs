@@ -3,6 +3,7 @@ id: sso-hub
 title: Single Sign-On
 sidebar_label: Getting Started
 ---
+
 Sauce Labs supports Idp-initiated SSO, which allows your authorized employees to access Sauce Labs in a moderated fashion.
 
 <div className="box-wrapper" markdown="1">

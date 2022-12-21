@@ -1,15 +1,15 @@
 ---
 id: io-components
-title: "I/O Components"
+title: 'I/O Components'
 sidebar_label: Overview
 keywords:
-    - api-testing
-    - io-components
-    - delete
-    - get
-    - post
-    - put
-    - patch
+- api-testing
+- io-components
+- delete
+- get
+- post
+- put
+- patch
 ---
 
 <head>
@@ -18,7 +18,7 @@ keywords:
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 The I/O operations you can do are: `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`.
 
@@ -34,19 +34,19 @@ Once done, you will have a form to fill up:
 
 _**Parameters:**_
 
-| **Name** | **Type/Value** | **Required** |
-| --- | --- | --- |
-| Url | Url | Yes |
-| Variable | String | Yes |
-| Expect | String | No |
-| Mode | 'json','xml', 'html','text' | Yes |
-| Params | String | No |
+| **Name** | **Type/Value**              | **Required** |
+| -------- | --------------------------- | ------------ |
+| Url      | Url                         | Yes          |
+| Variable | String                      | Yes          |
+| Expect   | String                      | No           |
+| Mode     | 'json','xml', 'html','text' | Yes          |
+| Params   | String                      | No           |
 
 **Url:** the url of the resource you want to test. It could be the full url of the resource or a string with variables using the $. (i.e. 'https://domain/resourcename' or 'https://${domain}${endpoint}')
 
 **Variable**: the name of the variable that contains the response. It will be the name you will refer during the test.
 
-**Expect**: it is an optional field and needs to be filled only if the expected behavior differs from a positive response (i.e. 404,500 vs. 200,201 etc.). _This is useful when looking to test negative responses and validate error messages._  
+**Expect**: it is an optional field and needs to be filled only if the expected behavior differs from a positive response (i.e. 404,500 vs. 200,201 etc.). _This is useful when looking to test negative responses and validate error messages._
 
 Possible values are **`<statusCode>|VALID`** or **`<statusCode>|INVALID`**. `VALID` means the payload type is the one selected in the "mode" field (JSON,XML), while `INVALID` means the opposite. Some examples:
 
@@ -84,37 +84,34 @@ When all things are set up, you can confirm it by tapping on the 'tick' icon in 
 
 <img src={useBaseUrl('img/api-fortress/2020/11/config-1024x152.jpg')} alt="config-1024x152.jpg"/>
 
-| **Name** | **Type/Value** | **Required** |
-| --- | --- | --- |
-| Name | String | Yes |
-| Value | String or Variable | Yes |
-
+| **Name** | **Type/Value**     | **Required** |
+| -------- | ------------------ | ------------ |
+| Name     | String             | Yes          |
+| Value    | String or Variable | Yes          |
 
 ## Header
 
 <img src={useBaseUrl('img/api-fortress/2020/11/headerComponent-1024x150.jpg')} alt="headerComponent-1024x150.jpg"/>
 
-| **Name** | **Type/Value** | **Required** |
-| --- | --- | --- |
-| Name | String | Yes |
-| Value | String or Variable | Yes |
+| **Name** | **Type/Value**     | **Required** |
+| -------- | ------------------ | ------------ |
+| Name     | String             | Yes          |
+| Value    | String or Variable | Yes          |
 
 ## Post Param/Put Param/Patch Param/Delete Param
 
 <img src={useBaseUrl('img/api-fortress/2020/11/PostPutPatchParam-1024x140.jpg')} alt="PostPutPatchParam-1024x140.jpg"/>
 
-| **Name** | **Type/Value** | **Required** |
-| --- | --- | --- |
-| Name | String | Yes |
-| Value | String or Variable | Yes |
-
-
+| **Name** | **Type/Value**     | **Required** |
+| -------- | ------------------ | ------------ |
+| Name     | String             | Yes          |
+| Value    | String or Variable | Yes          |
 
 ## Post Body/Put Body/Patch Body/Delete Body
 
 <img src={useBaseUrl('img/api-fortress/2020/11/PostPutPatchBody-1024x205.jpg')} alt="PostPutPatchBody-1024x205.jpg"/>
 
-| **Name** | **Type/Value** | **Required** |
-| --- | --- | --- |
-| Content-Type | 'application/json', 'text/plain', 'application/x-www-form-urlencoded','text/xml' | Yes |
-| Content | String | No |
+| **Name**     | **Type/Value**                                                                   | **Required** |
+| ------------ | -------------------------------------------------------------------------------- | ------------ |
+| Content-Type | 'application/json', 'text/plain', 'application/x-www-form-urlencoded','text/xml' | Yes          |
+| Content      | String                                                                           | No           |

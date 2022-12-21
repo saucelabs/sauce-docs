@@ -113,6 +113,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     {...more devices},
 ]
 ```
+
 </details>
 
 ---
@@ -222,6 +223,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "supportsXcuiTest": true
 }
 ```
+
 </details>
 
 ---
@@ -314,6 +316,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     ...
 ]
 ```
+
 </details>
 
 ---
@@ -417,6 +420,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     }
 }
 ```
+
 </details>
 
 ---
@@ -564,6 +568,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "automated": true
 }
 ```
+
 </details>
 
 ---

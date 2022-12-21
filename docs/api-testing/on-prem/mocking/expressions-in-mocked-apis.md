@@ -3,17 +3,17 @@ id: expressions-in-mocked-apis
 title: Expressions in Mocked APIs
 sidebar_label: Expressions in Mocked APIs
 keywords:
-    - api-testing
-    - mocking
-    - servicevirtualization
-    - expressions
+- api-testing
+- mocking
+- servicevirtualization
+- expressions
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -23,15 +23,15 @@ The expression field in mocking can evaluate multiple fields:
 
 ## Evaluate a Query
 
-To evaluate query or post parameters use the following syntax:  
+To evaluate query or post parameters use the following syntax:
 
 ```js
-request.params[parameter_name]=="parameter_value"
+request.params[parameter_name] == 'parameter_value'
 ```
 
 ## Evaluate a Header
 
-To evaluate a header use the following syntax:  
+To evaluate a header use the following syntax:
 
 ```js
 request.headers[‘header_name’]=="header_value"
@@ -44,7 +44,8 @@ You can string multiple queries together using standard Groovy expression langua
 **AND:**
 
 ```js
-request.params[parameter_name]=="parameter_value"&&request.params[parameter_name]=="parameter_value"
+request.params[parameter_name] == 'parameter_value' &&
+request.params[parameter_name] == 'parameter_value'
 ```
 
 **OR:**
@@ -55,7 +56,7 @@ request.headers[‘header_name’]=="header_value"||request.headers[‘header_na
 
 ## Evaluate a POST body
 
-To evaluate a POST body use the following syntax (this only works with JSON, so content type must be set to `application/json`):  
+To evaluate a POST body use the following syntax (this only works with JSON, so content type must be set to `application/json`):
 
 ```
 request.payload.”left_side_JSON”==”right_side_JSON”
@@ -67,7 +68,7 @@ You can also evaluate parts of the mocked url itself, if your mocked URL is `htt
 
 Starting after the `".com"` you have `“api”=0`, `“users”=1`, `“info”=2`
 
-Using the following syntax you can evaluate parts of the URL:  
+Using the following syntax you can evaluate parts of the URL:
 
 ```js
 request.pattern[1]==”users”
@@ -75,7 +76,7 @@ request.pattern[1]==”users”
 
 ## Use Wildcards
 
-The url can use wildcards like so:  
+The url can use wildcards like so:
 
 ```http request
 https://m1-test.apif.apifortress.com/api/users/\[a-zA-Z0-9\]\*

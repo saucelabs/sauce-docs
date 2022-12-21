@@ -22,13 +22,13 @@ In either case, the command generates a `.sauce/config.yml` folder and file in t
 
 ## Alternative Configuration Editing
 
-* If you are implementing a more complex set of properties, you can manually edit your `config.yml` file. Comprehensive descriptions for all supported properties are provided by framework:
-    * [Cypress YAML](/web-apps/automated-testing/cypress/yaml)
-    * [Playwright YAML](/web-apps/automated-testing/playwright/yaml)
-    * [TestCafe YAML](/web-apps/automated-testing/testcafe/yaml)
-    * [Puppeteer YAML](/web-apps/automated-testing/puppeteer/yaml)
-    * [Espresso YAML](/mobile-apps/automated-testing/espresso-xcuitest/espresso)
-    * [XCUITest YAML](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest)
+- If you are implementing a more complex set of properties, you can manually edit your `config.yml` file. Comprehensive descriptions for all supported properties are provided by framework:
+  - [Cypress YAML](/web-apps/automated-testing/cypress/yaml)
+  - [Playwright YAML](/web-apps/automated-testing/playwright/yaml)
+  - [TestCafe YAML](/web-apps/automated-testing/testcafe/yaml)
+  - [Puppeteer YAML](/web-apps/automated-testing/puppeteer/yaml)
+  - [Espresso YAML](/mobile-apps/automated-testing/espresso-xcuitest/espresso)
+  - [XCUITest YAML](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest)
 
 ## Options Summary
 
@@ -116,8 +116,8 @@ In either case, the command generates a `.sauce/config.yml` folder and file in t
 
 ## Options Details
 
-
 ### <span className="cli">--accessKey</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -128,6 +128,7 @@ The authentication access key associated with the Sauce Labs user account making
 </div>
 
 ### <span className="cli">--app</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Espresso/XCUITest Only</span> |</small></p>
 
@@ -142,14 +143,15 @@ The path to a valid mobile application to test.
 
 Specifies when and under what circumstances to download artifacts. Valid values are:
 
-* `always`: Always download artifacts.
-* `never`: Never download artifacts.
-* `pass`: Download artifacts for passing suites only.
-* `fail`: Download artifacts for failed suites only. (default value)
+- `always`: Always download artifacts.
+- `never`: Never download artifacts.
+- `pass`: Download artifacts for passing suites only.
+- `fail`: Download artifacts for failed suites only. (default value)
 
 </div>
 
 ### <span className="cli">--browserName</span>
+
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING | <span className="sauceDBlue">Web-app Only</span> |</small></p>
 
@@ -160,6 +162,7 @@ The name of the browser in which to run tests.
 </div>
 
 ### <span className="cli">--cypress.config</span>
+
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING | <span className="sauceDBlue">Cypress Only</span> |</small></p>
 
@@ -168,19 +171,20 @@ The file path to the Cypress configuration file (typically `cypress.json`).
 </div>
 
 ### <span className="cli">--device</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Espresso/XCUITest Only</span> |</small></p>
 
 Find a real device for this test by matching a set of one or more device characteristics:
 
-|Characteristic|Description|Example|
-|---|---|---|
-|`id`| Specify a device by its ID. Using this selection flag ignores all other characteristics and is not advised because availability of a specific device is uncertain and could cause your test to time out.| ```--device "id=HTC_U11_real_us"```|
-|`name`|Find a device based on a partial name in order to increase likelihood of availability of similar devices.|```--device "name=HTC.*"```|
-|`platformVersion`|Find a device based on its platform version.|```--device "platformVersion=8.0"```|
-|`carrierConnectivity`|The selected device must be connected to a cellular network. |```--device "carrierConnectivity=true"```|
-|`deviceType`|The selected device must be a particular type (`PHONE`, `TABLET`, or `ANY`).|```--device "deviceType=PHONE"```|
-|`private`|The selected device must be private.|```--device "private=true"```|
+| Characteristic        | Description                                                                                                                                                                                              | Example                               |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| `id`                  | Specify a device by its ID. Using this selection flag ignores all other characteristics and is not advised because availability of a specific device is uncertain and could cause your test to time out. | `--device "id=HTC_U11_real_us"`       |
+| `name`                | Find a device based on a partial name in order to increase likelihood of availability of similar devices.                                                                                                | `--device "name=HTC.*"`               |
+| `platformVersion`     | Find a device based on its platform version.                                                                                                                                                             | `--device "platformVersion=8.0"`      |
+| `carrierConnectivity` | The selected device must be connected to a cellular network.                                                                                                                                             | `--device "carrierConnectivity=true"` |
+| `deviceType`          | The selected device must be a particular type (`PHONE`, `TABLET`, or `ANY`).                                                                                                                             | `--device "deviceType=PHONE"`         |
+| `private`             | The selected device must be private.                                                                                                                                                                     | `--device "private=true"`             |
 
 You can specify a combination of device characteristics within this flag:
 
@@ -191,16 +195,17 @@ You can specify a combination of device characteristics within this flag:
 </div>
 
 ### <span className="cli">--emulator</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Espresso Only</span> |</small></p>
 
 Specify a virtual device for the test by matching a set of one or more emulator characteristics.
 
-|Characteristic|Description|Example|
-|---|---|---|
-|`name`|Specify all or part of the emulator name. [Supported VMD List](https://app.saucelabs.com/live/web-testing/virtual) |```--emulator "name=Android.*"```|
-|`platformVersion`|Specify the emulator platform version.|```--emulator "platformVersion=7.1"```|
-|`orientation`|Specify how the emulator should be oriented for the test (`portrait` or `landscape`). |```--emulator "orientation=portrait"```|
+| Characteristic    | Description                                                                                                        | Example                             |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
+| `name`            | Specify all or part of the emulator name. [Supported VMD List](https://app.saucelabs.com/live/web-testing/virtual) | `--emulator "name=Android.*"`       |
+| `platformVersion` | Specify the emulator platform version.                                                                             | `--emulator "platformVersion=7.1"`  |
+| `orientation`     | Specify how the emulator should be oriented for the test (`portrait` or `landscape`).                              | `--emulator "orientation=portrait"` |
 
 You can specify a combination of emulator characteristics within this flag:
 
@@ -211,6 +216,7 @@ You can specify a combination of emulator characteristics within this flag:
 </div>
 
 ### <span className="cli">--framework</span>
+
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING |</small></p>
 
@@ -221,6 +227,7 @@ The framework for which this configuration is intended.
 </div>
 
 ### <span className="cli">--frameworkVersion</span>
+
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING | <span className="sauceDBlue">Web-app Only</span> |</small></p>
 
@@ -241,6 +248,7 @@ Usage information for the `init` command.
 </div>
 
 ### <span className="cli">--platformName</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Web-app Only</span> |</small></p>
 
@@ -255,6 +263,7 @@ You can optionally specify `docker` here as the platform.
 </div>
 
 ### <span className="cli">--region</span>
+
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING |</small></p>
 
@@ -265,6 +274,7 @@ Specifies the Sauce Labs data center through which tests will run. Valid values 
 </div>
 
 ### <span className="cli">--testApp</span>
+
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING | <span className="sauceDBlue">Espresso/XCUITest Only</span> |</small></p>
 
@@ -275,6 +285,7 @@ The path to the mobile testing application.
 </div>
 
 ### <span className="cli">--username</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 

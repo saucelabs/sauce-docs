@@ -1,18 +1,18 @@
 ---
 id: github-for-datasets
-title: "GitHub – How to Use Files as Datasource (Large or Small Datasets)"
-sidebar_label: "GitHub – Use Files as Datasource"
+title: 'GitHub – How to Use Files as Datasource (Large or Small Datasets)'
+sidebar_label: 'GitHub – Use Files as Datasource'
 keywords:
-    - api-testing
-    - how-to
-    - github
+- api-testing
+- how-to
+- github
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -60,6 +60,7 @@ Github is a valuable platform to use when you want to pull files and use them as
   <img src={useBaseUrl('img/api-fortress/2018/04/7.png')} alt="7.png" />
 
   This will iterate over a subset of 5 randomly selected items. Other strategies are described in Appendix A
+
 - (Optional) Within each iteration, we suggest that you introduce a comment that will help you identify which item you’re looking at for debugging purposes.
   <img src={useBaseUrl('img/api-fortress/2018/04/8.png')} alt="8.png" />
   <img src={useBaseUrl('img/api-fortress/2018/04/9.png')} alt="9.png" />
@@ -80,7 +81,7 @@ Github is a valuable platform to use when you want to pull files and use them as
 
 - **Pick(n).** Ask the system to randomly select a _n_-sized sample of elements. Example: **`inputData.pick(5)`**
 
-- **Slice.** If you’re interested in using a specific slice of data from the **`inputData`**, you can slice it according to your needs. Example: **`inputData[10..20]`** (will select items from index 10 to index 20)**
+- **Slice.** If you’re interested in using a specific slice of data from the **`inputData`**, you can slice it according to your needs. Example: **`inputData[10..20]`** (will select items from index 10 to index 20)\*\*
 
 ### Advanced Slicing
 
@@ -100,7 +101,7 @@ Here’s a slicing technique we suggest to ease these points.
 - Use the following expression in your each statement:
 
   ```js
-  inputData[offset.toInteger().offset.toInteger()+limit.toInteger()]
+  inputData[offset.toInteger().offset.toInteger() + limit.toInteger()]
   ```
 
   Which reads: _slice inputData from the offset index to the offset+limit index_

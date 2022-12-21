@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## What You'll Need
 
-* [IntelliJ](https://www.jetbrains.com/idea/)
+- [IntelliJ](https://www.jetbrains.com/idea/)
 
 ## JSON Schema Validation
 

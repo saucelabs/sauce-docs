@@ -1,6 +1,6 @@
 ---
 id: start-server
-title: "Virtual USB CLI: Start the Server"
+title: 'Virtual USB CLI: Start the Server'
 sidebar_label: Start Server
 ---
 
@@ -11,7 +11,6 @@ sidebar_label: Start Server
 ## Usage
 
 <span className="cli">$ &lt;main class&gt; [OPTIONS] server [OPTIONS]</span>
-
 
 ## Options Details
 
@@ -33,7 +32,6 @@ A specific Virtual USB server host address. The default value, if not specified,
 
 </div>
 
-
 ### <span className="cli">--serverPort</span>
 
 <div className="cli-desc">
@@ -48,10 +46,9 @@ A specific vUSB server port. The default value, if not specified, is `33657`.
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
- Specifies a vUSB server Android Debug Bridge (ADB) port. Default value: `7000`.
+Specifies a vUSB server Android Debug Bridge (ADB) port. Default value: `7000`.
 
  </div>
-
 
 ### <span className="cli">--adbPortRange</span>
 
@@ -61,7 +58,6 @@ A specific vUSB server port. The default value, if not specified, is `33657`.
 Specifies a vUSB server ADB port range. Default value: `100`.
 
 </div>
-
 
 ### <span className="cli">--proxyHost</span>
 
