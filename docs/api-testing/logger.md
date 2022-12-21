@@ -39,7 +39,6 @@ The Logger tool helps with API call recording by facilitating complete captures 
    --logger https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/logger
    ```
 
-```
 7. In your CLI, make a call to any mocking endpoint (i.e., `curl localhost:5000/api/v1/release-notes`).
 
 ### Review Results
@@ -60,4 +59,4 @@ The Logger tool helps with API call recording by facilitating complete captures 
 :::info Coming Soon
 The Logger is the first tool in an upcoming larger suite of API debugging tools.
 :::
-```
+
