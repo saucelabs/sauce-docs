@@ -377,19 +377,19 @@ This is mandatory for Android Emulators and iOS Simulators. You can find the ava
 **Real Devices**
 
 This is optional for Real Devices. There are three options you can use to determine which version you want to use for your automated Appium, Espresso, or XCUITest tests:
+
 1. Don't provide a `platformVersion`, this will result in any available Android or iOS device, no matter the version.
 2. Provide a `platformVersion` that starts with your provided `platformVersion` string:
-    * **`12`:** matches all minors and patches for `platformVersion: "12"`. For example `12.1.0|12.1.1|12.2.0|...`
-    * **`12.1`:** matches all patches for `platformVersion: "12.1"`. For example `12.1.0|12.1.1`, it will **not** match `12.2.x|12.3.x` and higher
-    * **`12.1.1`:** matches all devices that have **this exact** platform version
+   - **`12`:** matches all minors and patches for `platformVersion: "12"`. For example `12.1.0|12.1.1|12.2.0|...`
+   - **`12.1`:** matches all patches for `platformVersion: "12.1"`. For example `12.1.0|12.1.1`, it will **not** match `12.2.x|12.3.x` and higher
+   - **`12.1.1`:** matches all devices that have **this exact** platform version
 3. In/exclude a specific version and or a range of versions by using a regular expression (regex). You don't need to provide the forward slashes (`/{your-regex}/`) as you would normally do with regex. Keep in mind that the regex needs to match the format `MAJOR.MINOR.PATCH`. The possibilities are endless, but here are just a few examples:
-    * **`^1[3-4|6].*`:** Will match `13`, `14` and `16`, but not 15, see [example](https://regex101.com/r/ExICgZ/1).
-    * **`^(?!15).*`:** Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1).
+   - **`^1[3-4|6].*`:** Will match `13`, `14` and `16`, but not 15, see [example](https://regex101.com/r/ExICgZ/1).
+   - **`^(?!15).*`:** Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1).
 
 :::note NOTE
-The stricter the  `platformVersions` is,  the smaller the pool of available devices will be and the longer you might need to wait for the available device. We recommend using only the major version or using the regex option to get the best results and an available device in the fastest way.
+The stricter the `platformVersions` is, the smaller the pool of available devices will be and the longer you might need to wait for the available device. We recommend using only the major version or using the regex option to get the best results and an available device in the fastest way.
 :::
-
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -845,12 +845,13 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `customLogFiles`
+
 <p><small>| OPTIONAL | LIST | <span className="sauceDBlue">Virtual Devices Only</span> |</small></p>
 
 If your app creates an extra log then you can use the `customLogFiles` to store those additional logs in the "Logs" tab of the executed automated session. It is created in the form of a list of search filters that enumerate after an app test to locate text files to upload as logs. Files are uploaded with the `.log` extension appended. The search paths are rooted at the application under test:
- * Android (path on the emulated device): `/data/data/*PACKAGE_ID*/...`
- * iOS: `*SIMULATED_DEVICE_PATH*/data/Containers/Data/Application/*APPLICATION_ID*/...`. On a macOS filesystem, an example of SIMULATED_DEVICE_PATH would be `~/Library/Developer/CoreSimulator/Devices/*DEVICE_ID*`
 
+- Android (path on the emulated device): `/data/data/*PACKAGE_ID*/...`
+- iOS: `*SIMULATED_DEVICE_PATH*/data/Containers/Data/Application/*APPLICATION_ID*/...`. On a macOS filesystem, an example of SIMULATED_DEVICE_PATH would be `~/Library/Developer/CoreSimulator/Devices/*DEVICE_ID*`
 
 To view and download the extra log files, go to the executed session in the Sauce Labs dashboard, and switch to the "Logs" tab:
 
@@ -860,20 +861,19 @@ To view and download the extra log files, go to the executed session in the Sauc
 
 <img src={useBaseUrl('/img/dev/customLogFiles.png')} alt="customLogFiles"/>
 
-
 The following examples outline how this is handled for the different device types.
 
 Supplying the list `["files/*_log", "*crash*"]` to an Android app test of the package `com.saucelabs.exampleapp` will upload all the files found after the test, that match either of the glob expressions:
-  * `/data/data/com.saucelabs.exampleapp/files/*.log`
-  * `/data/data/com.saucelabs.exampleapp/*crash*`
+
+- `/data/data/com.saucelabs.exampleapp/files/*.log`
+- `/data/data/com.saucelabs.exampleapp/*crash*`
 
 Supplying the list `["files/*_log", "*crash*"]` to an iOS app test will upload all the files found after the test, that match either of the glob expressions (SIMULATED_DEVICE_PATH and APPLICATION_ID filled in with example values):
-  * `~/Library/Developer/CoreSimulator/Devices/8BF8C5E3-E992-424F-A491-5C673761737C/data/Containers/Data/Application/DBF4A728-9414-4431-9A56-41EC1CBFFA0B/files/*.log`
-  * `~/Library/Developer/CoreSimulator/Devices/8BF8C5E3-E992-424F-A491-5C673761737C/data/Containers/Data/Application/DBF4A728-9414-4431-9A56-41EC1CBFFA0B/*crash*`
+
+- `~/Library/Developer/CoreSimulator/Devices/8BF8C5E3-E992-424F-A491-5C673761737C/data/Containers/Data/Application/DBF4A728-9414-4431-9A56-41EC1CBFFA0B/files/*.log`
+- `~/Library/Developer/CoreSimulator/Devices/8BF8C5E3-E992-424F-A491-5C673761737C/data/Containers/Data/Application/DBF4A728-9414-4431-9A56-41EC1CBFFA0B/*crash*`
 
 In both sets of examples, it is worth noting that an asterisk can match directory elements as well as characters, so `files/*log` will match both `files/debug.log` and `files/subdir/other.log`
-
-
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -902,6 +902,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ---
 
 ### `setupDeviceLock`
+
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | </small></p>
 
 Sets up the device pin code for the automated test session. Valid values are `true` and `false`.

@@ -129,13 +129,13 @@ This is specifying an exact device for your test by setting `deviceName` to the 
 When using this, there's no need to specify the `platformName` and `platformVersion` because they'll be set by default (i.e., if you include these separately included in your test script, they will be ignored).
 
 <Tabs
-  defaultValue="Espresso"
-  values={[
-    {label: 'Espresso', value: 'Espresso'},
-    {label: 'XCUITest', value: 'XCUITest'},
-    {label: 'Appium (Android)', value: 'Appium-android'},
-    {label: 'Appium (iOS)', value: 'Appium-ios'},
-  ]}>
+defaultValue="Espresso"
+values={[
+{label: 'Espresso', value: 'Espresso'},
+{label: 'XCUITest', value: 'XCUITest'},
+{label: 'Appium (Android)', value: 'Appium-android'},
+{label: 'Appium (iOS)', value: 'Appium-ios'},
+]}>
 
 <TabItem value="Espresso">
 
@@ -143,7 +143,7 @@ Static allocation example — exact device names are provided.
 
 ```yml
 devices:
-  - id: Google_Pixel_2_real_us
+- id: Google_Pixel_2_real_us
 ```
 
 </TabItem>
@@ -154,7 +154,7 @@ Static allocation example — exact device names are provided.
 
 ```yml
 devices:
-  - id: iPhone_11_13_5_real_us
+- id: iPhone_11_13_5_real_us
 ```
 
 </TabItem>
@@ -200,13 +200,13 @@ The more strict you set the capabilities, the smaller the pool of available devi
 | <code>"^(?=Nokia.\*&vert;Oppo.\*&vert;Huawei.\*&vert;Xiaomi.\*).\*"</code> | Allocates **only** Nokia, Oppo, Huawei, and Xiaomi devices. See [example](https://regex101.com/r/yhQ3oy/2).                                                    |
 
 <Tabs
-  defaultValue="Espresso"
-  values={[
-    {label: 'Espresso', value: 'Espresso'},
-    {label: 'XCUITest', value: 'XCUITest'},
-    {label: 'Appium (Android)', value: 'Appium (Android)'},
-    {label: 'Appium (iOS)', value: 'Appium (iOS)'},
-  ]}>
+defaultValue="Espresso"
+values={[
+{label: 'Espresso', value: 'Espresso'},
+{label: 'XCUITest', value: 'XCUITest'},
+{label: 'Appium (Android)', value: 'Appium (Android)'},
+{label: 'Appium (iOS)', value: 'Appium (iOS)'},
+]}>
 
 <TabItem value="Espresso">
 
@@ -214,14 +214,14 @@ Dynamic allocation example - finds any device that starts with the display name 
 
 ```yml
 devices:
-  - name: "^Google.*"
+- name: '^Google.*'
 ```
 
 Dynamic allocation example - finds all Android devices except the Oppo ones.
 
 ```yml
 devices:
-  - name: "^(?!Oppo).*"
+- name: '^(?!Oppo).*'
 ```
 
 </TabItem>
@@ -232,7 +232,7 @@ Dynamic allocation example - finds any device that starts with the display name 
 
 ```yml
 devices:
-  - name: "^iPhone.*"
+- name: '^iPhone.*'
 ```
 
 Dynamic allocation example - finds all iPhone devices except 5 and 5S.
@@ -277,19 +277,19 @@ capabilities.setCapability("appium:deviceName", "^iPhone\s+(?!(5|5S)).*");
 
 ##### Based on platform version
 
-| Regex Input | Dynamic Allocation Action
-| :--- | :---
-| <code>"^1[3-4&vert;6].*"</code> | Will match `13`, `14` and `16`, but not 15, see [example](https://regex101.com/r/ExICgZ/1).
-| `"^(?!15).*"` | Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1).
+| Regex Input                      | Dynamic Allocation Action                                                                                                                      |
+| :------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>"^1[3-4&vert;6].\*"</code> | Will match `13`, `14` and `16`, but not 15, see [example](https://regex101.com/r/ExICgZ/1).                                                    |
+| `"^(?!15).*"`                    | Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1). |
 
 <Tabs
-  defaultValue="Espresso"
-  values={[
-    {label: 'Espresso', value: 'Espresso'},
-    {label: 'XCUITest', value: 'XCUITest'},
-    {label: 'Appium (Android)', value: 'Appium (Android)'},
-    {label: 'Appium (iOS)', value: 'Appium (iOS)'},
-  ]}>
+defaultValue="Espresso"
+values={[
+{label: 'Espresso', value: 'Espresso'},
+{label: 'XCUITest', value: 'XCUITest'},
+{label: 'Appium (Android)', value: 'Appium (Android)'},
+{label: 'Appium (iOS)', value: 'Appium (iOS)'},
+]}>
 
 <TabItem value="Espresso">
 
@@ -297,8 +297,8 @@ Dynamic allocation example - finds any device that starts with the display name 
 
 ```yml
 devices:
-  - name: "^Google.*"
-    platformVersion: "^1[1-3].*"
+- name: '^Google.*'
+  platformVersion: '^1[1-3].*'
 ```
 
 </TabItem>
@@ -309,8 +309,8 @@ Dynamic allocation example - finds any device that starts with the display name 
 
 ```yml
 devices:
-  - name: "^iPhone.*"
-    platformVersion: "^(?!15).*"
+- name: '^iPhone.*'
+  platformVersion: '^(?!15).*'
 ```
 
 </TabItem>
@@ -337,9 +337,10 @@ capabilities.setCapability("appium:platformVersion", "^(?!15).*");
 </Tabs>
 
 :::note
-* A matching device must be present in your account in order for the test to run.
-* Regex values are not case-sensitive (i.e., `"iphone .*S"` and `"IPHONe .*s"` are the same).
-:::
+
+- A matching device must be present in your account in order for the test to run.
+- Regex values are not case-sensitive (i.e., `"iphone .*S"` and `"IPHONe .*s"` are the same).
+  :::
 
 ## Additional Resources
 
