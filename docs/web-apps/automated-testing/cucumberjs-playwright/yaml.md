@@ -289,7 +289,7 @@ A property containing one or more environment variables that are global for all 
 ```yaml
   env:
     hello: world
-    my_var: $MY_VAR  # You can also pass through existing environment variables through parameter expansion
+    my_var: $MY_VAR # You can also pass through existing environment variables through parameter expansion
 ```
 
 ---
