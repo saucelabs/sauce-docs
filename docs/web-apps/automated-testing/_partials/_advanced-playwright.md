@@ -14,8 +14,10 @@ If you have a custom reporter, simply set it in your _playwright.config.js/ts_ f
 
 ```typescript
 const config: PlaywrightTestConfig = {
-reporter: [['./fancy.reporter.ts']]
-}
+  reporter: [
+    ['./fancy.reporter.ts'],
+  ],
+};
 ```
 
 Your reporter runs automatically alongside our reporters.
@@ -25,8 +27,10 @@ If you'd like a different set of reporters when running on Sauce versus local, c
 
 ```typescript
 const config: PlaywrightTestConfig = {
-reporter: process.env.SAUCE_VM ? [['./fancy.reporter.ts']] : 'list'
-}
+  reporter: process.env.SAUCE_VM ? [
+    ['./fancy.reporter.ts'],
+  ] : 'list',
+};
 ```
 
 :::caution

@@ -76,8 +76,8 @@ Specifies any default settings for the project.
 
 ```yaml
 defaults:
-mode: sauce
-timeout: 15m
+  mode: sauce
+  timeout: 15m
 ```
 
 ---
@@ -89,7 +89,7 @@ timeout: 15m
 Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally on `docker`. You can override this setting for individual suites using the `mode` setting within the [`suites`](#suites) object. If not set, the default value is `sauce`.
 
 ```yaml
-mode: 'sauce'
+  mode: "sauce"
 ```
 
 ---
@@ -101,7 +101,7 @@ mode: 'sauce'
 Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
 
 ```yaml
-timeout: 15m
+  timeout: 15m
 ```
 
 ---
@@ -114,15 +114,15 @@ The parent property containing all settings related to how tests are run and ide
 
 ```yaml
 sauce:
-region: eu-central-1
-metadata:
-name: Testing TestCafe Support
-tags:
-- e2e
-- release team
-- other tag
-build: Release $CI_COMMIT_SHORT_SHA
-concurrency: 10
+  region: eu-central-1
+  metadata:
+    name: Testing TestCafe Support
+    tags:
+      - e2e
+      - release team
+      - other tag
+    build: Release $CI_COMMIT_SHORT_SHA
+  concurrency: 10
 ```
 
 ---
@@ -134,7 +134,7 @@ concurrency: 10
 Specifies through which Sauce Labs data center tests will run. Valid values are: `us-west-1` or `eu-central-1`.
 
 ```yaml
-region: eu-central-1
+  region: eu-central-1
 ```
 
 ---
@@ -147,13 +147,13 @@ The set of properties that allows you to provide additional information about yo
 
 ```yaml
 metadata:
-name: Testing TestCafe Support
-build: RC 10.4.a
-tags:
-- e2e
-- release team
-- beta
-- featurex
+  name: Testing TestCafe Support
+  build: RC 10.4.a
+  tags:
+    - e2e
+    - release team
+    - beta
+    - featurex
 ```
 
 ---
@@ -169,7 +169,7 @@ For tests running on Sauce, set this value to equal or less than your Sauce conc
 :::
 
 ```yaml
-concurrency: 5
+  concurrency: 5
 ```
 
 Alternatively, you can override the file setting at runtime by setting the concurrency flag as an inline parameter of the `saucectl run` command:
@@ -177,17 +177,15 @@ Alternatively, you can override the file setting at runtime by setting the concu
 ```bash
 saucectl run --ccy 5
 ```
-
 ---
 
 ### `retries`
-
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
 Sets the number of times to retry a failed suite.
 
 ```yaml
-retries: 1
+  retries: 1
 ```
 
 Alternatively, you can override the file setting at runtime by setting the retries flag as an inline parameter of the `saucectl run` command:
@@ -206,9 +204,9 @@ saucectl run --retries 1
 
 ```yaml
 sauce:
-tunnel:
-name: your_tunnel_name
-owner: tunnel_owner_username
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
 ```
 
 ---
@@ -225,8 +223,8 @@ This property replaces the former `id` property, which is deprecated.
 
 ```yaml
 sauce:
-tunnel:
-name: your_tunnel_name
+  tunnel:
+    name: your_tunnel_name
 ```
 
 ---
@@ -243,9 +241,9 @@ This property replaces the former `parent` property, which is deprecated.
 
 ```yaml
 sauce:
-tunnel:
-name: your_tunnel_name
-owner: tunnel_owner_username
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
 ```
 
 ---
@@ -264,7 +262,7 @@ Sets the visibility level of test results for suites run on Sauce Labs. If unspe
 
 ```yaml
 sauce:
-visibility: private
+  visibility: private
 ```
 
 ---
@@ -277,7 +275,7 @@ Specifies the execution order for your test suites. When set to `fail rate`, tes
 
 ```yaml
 sauce:
-launchOrder: fail rate
+  launchOrder: fail rate
 ```
 
 ---
@@ -289,9 +287,9 @@ launchOrder: fail rate
 A property containing one or more environment variables that are global for all tests suites in this configuration. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
 
 ```yaml
-env:
-hello: world
-my_var: $MY_VAR # You can also pass through existing environment variables through parameter expansion
+  env:
+    hello: world
+    my_var: $MY_VAR  # You can also pass through existing environment variables through parameter expansion
 ```
 
 ---
@@ -304,8 +302,8 @@ The set of properties defining the specific Docker image and type your are using
 
 ```yaml
 docker:
-fileTransfer: copy
-image: saucelabs/stt-testcafe-node:vX.X.X
+  fileTransfer: copy
+  image: saucelabs/stt-testcafe-node:vX.X.X
 ```
 
 ---
@@ -320,7 +318,7 @@ Method in which to transfer test files into the docker container. Valid values a
 - `copy`: Copies files and folders into the docker container. If you run into permission issues, either due to docker or host settings, `copy` is the advised use case. See the [Docker documentation](https://docs.docker.com/engine/reference/builder/#copy) for more about the copy convention.
 
 ```yaml
-fileTransfer: < mount | copy >
+  fileTransfer: < mount | copy >
 ```
 
 ---
@@ -333,7 +331,7 @@ Specifies which docker image and version to use when running tests. Valid values
 `saucelabs/<framework-node>:<vX.X.X>`. See [Supported Testing Platforms](/web-apps/automated-testing/testcafe#supported-testing-platforms) for Docker release notes related to TestCafe.
 
 ```yaml
-image: saucelabs/< stt-cypress-mocha-node | stt-playwright-node | stt-testcafe-node >:< vX.X.X >
+  image: saucelabs/< stt-cypress-mocha-node | stt-playwright-node | stt-testcafe-node >:< vX.X.X >
 ```
 
 :::caution
@@ -349,11 +347,11 @@ Avoid using the `latest` tag for docker images, as advised in [this article](htt
 The directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Tailoring Your Test File Bundle](#tailoring-your-test-file-bundle) for more details. The following examples show the different relative options for setting this value.
 
 ```yaml
-rootDir: './' # Use the current directory
+  rootDir: "./" # Use the current directory
 ```
 
 ```yaml
-rootDir: 'packages/subpackage' # Some other package from within a monorepo
+  rootDir: "packages/subpackage" # Some other package from within a monorepo
 ```
 
 :::caution
@@ -370,11 +368,11 @@ A parent property specifying the configuration details for any `npm` dependencie
 
 ```yaml
 npm:
-registry: https://registry.npmjs.org
-packages:
-lodash: '4.17.20'
-'@babel/preset-typescript': '7.12'
-'@testcafe/react': '^5.0.1'
+  registry: https://registry.npmjs.org
+  packages:
+    lodash: "4.17.20"
+    "@babel/preset-typescript": "7.12"
+    "@testcafe/react": "^5.0.1"
 ```
 
 ---
@@ -386,7 +384,7 @@ lodash: '4.17.20'
 Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
 
 ```yaml
-registry: https://registry.npmjs.org
+  registry: https://registry.npmjs.org
 ```
 
 ---
@@ -398,10 +396,10 @@ registry: https://registry.npmjs.org
 Specifies any npm packages that are required to run tests and should, therefore, be installed on the Sauce Labs VM. See [Including Node Dependencies](#including-node-dependencies).
 
 ```yaml
-packages:
-lodash: '4.17.20'
-'@babel/preset-typescript': '7.12'
-'@testcafe/react': '^5.0.1'
+  packages:
+    lodash: "4.17.20"
+    "@babel/preset-typescript": "7.12"
+    "@testcafe/react": "^5.0.1"
 ```
 
 ---
@@ -419,8 +417,8 @@ Take note that the syntax is different from `packages`. It's a simple **list** o
 
 ```yaml
 npm:
-dependencies:
-- lodash
+  dependencies:
+    - lodash
 ```
 
 To use this feature, make sure that `node_modules` is not ignored via `.sauceignore`.
@@ -484,7 +482,7 @@ reporters:
 Toggles the reporter on/off.
 
 ```yaml
-enabled: true
+    enabled: true
 ```
 
 ---
@@ -496,7 +494,7 @@ enabled: true
 Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST with a JSON payload to the configured webhook URL.
 
 ```yaml
-webhookURL: https://my-webhook-url
+    webhookURL: https://my-webhook-url
 ```
 
 ---
@@ -508,7 +506,7 @@ webhookURL: https://my-webhook-url
 Specifies the report filename. Defaults to "saucectl-report.json".
 
 ```yaml
-filename: my-saucectl-report.json
+    filename: my-saucectl-report.json
 ```
 
 ---
@@ -521,12 +519,12 @@ Specifies how to manage test artifacts, such as logs, videos, and screenshots.
 
 ```yaml
 artifacts:
-cleanup: true
-download:
-when: always
-match:
-- junit.xml
-directory: ./artifacts/
+  cleanup: true
+  download:
+    when: always
+    match:
+      - junit.xml
+    directory: ./artifacts/
 ```
 
 ---
@@ -538,7 +536,7 @@ directory: ./artifacts/
 When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
 
 ```yaml
-cleanup: true
+  cleanup: true
 ```
 
 ---
@@ -550,11 +548,11 @@ cleanup: true
 Specifies the settings related to downloading artifacts from tests run by `saucectl`.
 
 ```yaml
-download:
-when: always
-match:
-- junit.xml
-directory: ./artifacts/
+  download:
+    when: always
+    match:
+      - junit.xml
+    directory: ./artifacts/
 ```
 
 ---
@@ -571,7 +569,7 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 - `fail`: Download artifacts for failed suites only.
 
 ```yaml
-when: always
+    when: always
 ```
 
 ---
@@ -583,9 +581,9 @@ when: always
 Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
 
 ```yaml
-match:
-- junit.xml
-- '*.log'
+  match:
+    - junit.xml
+    - "*.log"
 ```
 
 ---
@@ -597,7 +595,7 @@ match:
 Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. The name of the subdirectory will match the suite name. If a directory with the same name already exists, the new one will be suffixed by a serial number.
 
 ```yaml
-directory: ./artifacts/
+    directory: ./artifacts/
 ```
 
 ---
@@ -610,11 +608,11 @@ Specifies how to set up automatic test result alerts.
 
 ```yaml
 notifications:
-slack:
-channels:
-- 'saucectl-results'
-- 'testcafe-tests'
-send: always
+  slack:
+    channels:
+      - "saucectl-results"
+      - "testcafe-tests"
+    send: always
 ```
 
 ---
@@ -626,9 +624,9 @@ send: always
 Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/basics/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
 
 ```yaml
-slack:
-channels: 'saucectl-testcafe'
-send: always
+  slack:
+    channels: "saucectl-testcafe"
+    send: always
 ```
 
 ---
@@ -640,11 +638,11 @@ send: always
 The set of Slack channels to which the test result notifications are to be sent.
 
 ```yaml
-slack:
-channels:
-- 'saucectl-results'
-- 'testcafe-team'
-send: always
+  slack:
+    channels:
+      - "saucectl-results"
+      - "testcafe-team"
+    send: always
 ```
 
 ---
@@ -661,9 +659,9 @@ Specifies when and under what circumstances to send notifications to specified S
 - `fail`: Send notifications for failed suites only.
 
 ```yaml
-slack:
-channels: 'saucectl-testcafe-tests'
-send: always
+  slack:
+    channels: "saucectl-testcafe-tests"
+    send: always
 ```
 
 ---
@@ -676,7 +674,7 @@ The parent property containing the details specific to the TestCafe project.
 
 ```yaml
 testcafe:
-version: 1.14.2
+  version: 1.14.2
 ```
 
 ---
@@ -688,7 +686,7 @@ version: 1.14.2
 The version of TestCafe that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/testcafe#supported-testing-platforms) for the list of TestCafe versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
-version: 1.14.2
+  version: 1.14.2
 ```
 
 :::tip
@@ -714,7 +712,7 @@ The set of properties providing details about the test suites to run. May contai
 The name of the test suite, which will be reflected in the results and related artifacts.
 
 ```yaml
-- name: 'saucy test'
+  - name: "saucy test"
 ```
 
 ---
@@ -726,9 +724,9 @@ The name of the test suite, which will be reflected in the results and related a
 A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
 
 ```yaml
-env:
-hello: world
-my_var: $MY_VAR
+  env:
+    hello: world
+    my_var: $MY_VAR
 ```
 
 ---
@@ -741,7 +739,7 @@ The name of the browser in which to run this test suite.
 Available browser names: `chrome`, `firefox`, `microsoftedge`(only for sauce mode) and `safari`(only for sauce mode on macOS or iOS simulators)
 
 ```yaml
-browser: 'firefox'
+    browser: "firefox"
 ```
 
 ---
@@ -753,7 +751,7 @@ browser: 'firefox'
 The version of the browser to use for this test suite.
 
 ```yaml
-browserVersion: '85.0'
+    browserVersion: "85.0"
 ```
 
 ---
@@ -765,7 +763,7 @@ browserVersion: '85.0'
 Pass flags to configure how TestCafe launches the selected browser. Review supported flags for [Chrome/Chromium](https://peter.sh/experiments/chromium-command-line-switches/)
 
 ```yaml
-browserArgs: ['--no-sandbox', '--disable-features=site-per-process']
+    browserArgs: ["--no-sandbox", "--disable-features=site-per-process"]
 ```
 
 ---
@@ -777,7 +775,7 @@ browserArgs: ['--no-sandbox', '--disable-features=site-per-process']
 Determines whether to run the test suite in [headless](/headless) mode.
 
 ```yaml
-headless: true
+  headless: true
 ```
 
 ---
@@ -789,7 +787,7 @@ headless: true
 A specific operating system and version on which to run the specified browser and test suite. Defaults to a platform that is supported by `saucectl` for the chosen browser.
 
 ```yaml
-platformName: 'Windows 10'
+    platformName: "Windows 10"
 ```
 
 ---
@@ -801,7 +799,7 @@ platformName: 'Windows 10'
 Specifies a browser window screen resolution, which may be useful if you are attempting to simulate a browser on a particular device type. See [Test Configurations](/basics/test-config-annotation/test-config) for a list of available resolution values.
 
 ```yaml
-screenResolution: '1920x1080'
+    screenResolution: "1920x1080"
 ```
 
 ---
@@ -813,7 +811,7 @@ screenResolution: '1920x1080'
 Specifies whether the individual suite will run on `docker` or `sauce`, potentially overriding the default project mode setting.
 
 ```yaml
-mode: 'sauce'
+  mode: "sauce"
 ```
 
 ---
@@ -836,8 +834,8 @@ To split tests in the most efficient way possible, use:
 
 ```yaml
 suites:
-- name: 'I am sharded'
-  shard: spec
+  - name: "I am sharded"
+    shard: spec
 ```
 
 ---
@@ -849,10 +847,10 @@ suites:
 The explicit name, file glob, or location of the test files to be included in this suite.
 
 ```yaml
-src:
-- 'tests/test_file1.test.js'
-- 'tests/integrations'
-- '*/*.test.js'
+  src:
+    - "tests/test_file1.test.js"
+    - "tests/integrations"
+    - "*/*.test.js"
 ```
 
 ---
@@ -864,7 +862,7 @@ src:
 Excludes test files to skip the tests. Files are matched by shell pattern, such as the explicit name, file glob, or location of the test files.
 
 ```yaml
-excludedTestFiles: ['*/*.test.js']
+      excludedTestFiles: [ "*/*.test.js" ]
 ```
 
 ---
@@ -877,16 +875,16 @@ Specify a set of criteria to limit which tests in the `src` directory to execute
 
 ```yaml
 suites:
-- name: Example Suite
-  filter:
-  test: browser-should-display-time
-  testGrep: browser.*
-  fixture: browswer-expectations
-  fixtureGrep: browser.*
-  testMeta:
-  region: us-west-1
-  fixtureMeta:
-  env: staging
+  - name: Example Suite
+    filter:
+      test: browser-should-display-time
+      testGrep: browser.*
+      fixture: browswer-expectations
+      fixtureGrep: browser.*
+      testMeta:
+        region: us-west-1
+      fixtureMeta:
+        env: staging
 ```
 
 ---
@@ -899,7 +897,7 @@ Runs a test with the specified name.
 
 ```yaml
 filter:
-test: browser-should-display-time
+  test: browser-should-display-time
 ```
 
 ---
@@ -912,7 +910,7 @@ Runs tests whose names match the specified `grep` pattern.
 
 ```yaml
 filter:
-testGrep: should-.*
+  testGrep: should-.*
 ```
 
 ---
@@ -925,7 +923,7 @@ Runs a test with the specified fixture name.
 
 ```yaml
 filter:
-fixture: browswer-expectations
+  fixture: browswer-expectations
 ```
 
 ---
@@ -938,7 +936,7 @@ Runs any tests included in fixtures whose names match the specified `grep` patte
 
 ```yaml
 filter:
-fixtureGrep: browser-.*
+  fixtureGrep: browser-.*
 ```
 
 ---
@@ -951,8 +949,8 @@ Runs any tests whose metadata matches the specified key-value pairs. Accepts one
 
 ```yaml
 filter:
-testMeta:
-region: us-west-1
+  testMeta:
+    region: us-west-1
 ```
 
 ---
@@ -965,8 +963,8 @@ Runs any tests included in fixtures whose metadata matches the specified key-val
 
 ```yaml
 filter:
-fixtureMeta:
-env: staging
+  fixtureMeta:
+    env: staging
 ```
 
 ---
@@ -978,11 +976,11 @@ env: staging
 The property containing details about on which simulators the tests in this suite will run. This property can include multiple device definitions.
 
 ```yaml
-simulators:
-- name: iPhone 12 Simulator
-  platformName: iOS
-  platformVersions:
-  - '14.3'
+  simulators:
+    - name: iPhone 12 Simulator
+      platformName: iOS
+      platformVersions:
+        - "14.3"
 ```
 
 ---
@@ -994,9 +992,9 @@ simulators:
 A parent property containing the details about whether and how to handle screenshots for this test suite. [See Testcafe Documentation](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#screenshots).
 
 ```yaml
-screenshots:
-takeOnFails: true
-fullPage: true
+  screenshots:
+    takeOnFails: true
+    fullPage: true
 ```
 
 ---
@@ -1008,7 +1006,7 @@ fullPage: true
 Prevents TestCafe from taking screenshots. See [TestCafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#disablescreenshots).
 
 ```yaml
-disableScreenshots: true
+  disableScreenshots: true
 ```
 
 ---
@@ -1020,7 +1018,7 @@ disableScreenshots: true
 Allows you to alter the test execution speed for the test suite. Tests are run at the maximum speed by default, but you can slow the test down by setting a value between `1` (the fastest) and `0.01` (the slowest).
 
 ```yaml
-speed: 0.1
+  speed: 0.1
 ```
 
 ---
@@ -1032,7 +1030,7 @@ speed: 0.1
 The absolute or relative path to the TypeScript configuration file. Relative paths are resolved against the current directory (the directory from which you run TestCafe).
 
 ```yaml
-tsConfigPath: /path/to/file
+  tsConfigPath: /path/to/file
 ```
 
 ---
@@ -1044,7 +1042,7 @@ tsConfigPath: /path/to/file
 A list of one or more filepath values for scripts to inject into all pages visited during the test. See [TestCafe definition](https://devexpress.github.io/testcafe/documentation/reference/test-api/fixture/clientscripts.html).
 
 ```yaml
-clientScripts: ['/path/to/file1', '/path/to/file2']
+  clientScripts: ["/path/to/file1", "/path/to/file2"]
 ```
 
 ---
@@ -1056,7 +1054,7 @@ clientScripts: ['/path/to/file1', '/path/to/file2']
 Determines whether to ignore JavaScript errors on a webpage. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#skipjserrors).
 
 ```yaml
-skipJsErrors: true
+  skipJsErrors: true
 ```
 
 ---
@@ -1068,9 +1066,9 @@ skipJsErrors: true
 Determines whether to enable quarantine mode for tests that fail. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#quarantinemode).
 
 ```yaml
-quarantineMode:
-attemptLimit: 5
-successThreshold: 3
+  quarantineMode:
+    attemptLimit: 5
+    successThreshold: 3
 ```
 
 ---
@@ -1082,8 +1080,8 @@ successThreshold: 3
 The maximum number of test execution attempts. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#quarantinemodeattemptlimit).
 
 ```yaml
-quarantineMode:
-attemptLimit: 5
+  quarantineMode:
+    attemptLimit: 5
 ```
 
 ---
@@ -1095,8 +1093,8 @@ attemptLimit: 5
 The number of successful attempts necessary to confirm a test’s success. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#quarantinemodesuccessthreshold).
 
 ```yaml
-quarantineMode:
-successThreshold: 3
+  quarantineMode:
+    successThreshold: 3
 ```
 
 ---
@@ -1108,7 +1106,7 @@ successThreshold: 3
 Determines whether to ignores uncaught errors and unhandled promise rejections in test code. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#skipUncaughtErrors).
 
 ```yaml
-skipUncaughtErrors: true
+  skipUncaughtErrors: true
 ```
 
 ---
@@ -1120,7 +1118,7 @@ skipUncaughtErrors: true
 Specifies the time (in milliseconds) within which selectors may attempt to return a node. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#selectorTimeout`).
 
 ```yaml
-selectorTimeout: 1000
+  selectorTimeout: 1000
 ```
 
 ---
@@ -1132,7 +1130,7 @@ selectorTimeout: 1000
 Specifies the time (in milliseconds) TestCafe may attempt to successfully execute an assertion if a selector property or a client function was passed as an actual value. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#assertionTimeout).
 
 ```yaml
-assertionTimeout: 1000
+  assertionTimeout: 1000
 ```
 
 ---
@@ -1144,7 +1142,7 @@ assertionTimeout: 1000
 Specifies the time (in milliseconds) passed after the `DOMContentLoaded` event, within which TestCafe waits for the `window.load` event to fire. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#pageLoadTimeout).
 
 ```yaml
-pageLoadTimeout: 1000
+  pageLoadTimeout: 1000
 ```
 
 ---
@@ -1156,7 +1154,7 @@ pageLoadTimeout: 1000
 Determines whether to stop a test run if a test fails. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#stopOnFirstFail).
 
 ```yaml
-stopOnFirstFail: true
+  stopOnFirstFail: true
 ```
 
 ---
@@ -1168,7 +1166,7 @@ stopOnFirstFail: true
 Determines whether to prevent the browser from caching page content. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#disablePageCaching).
 
 ```yaml
-disablePageCaching: true
+  disablePageCaching: true
 ```
 
 ---
@@ -1186,7 +1184,7 @@ Setting `0` reverts to the value set in `defaults`.
 :::
 
 ```yaml
-timeout: 15m
+  timeout: 15m
 ```
 
 ---
@@ -1202,8 +1200,8 @@ There is a 300-second limit for all `preExec` commands to complete.
 :::
 
 ```yaml
-preExec:
-- node ./scripts/pre-execution-script.js
+  preExec:
+    - node ./scripts/pre-execution-script.js
 ```
 
 ---
@@ -1215,5 +1213,5 @@ preExec:
 Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
 
 ```yaml
-timeZone: New_York
+  timeZone: New_York
 ```

@@ -76,7 +76,7 @@ Specifies any default settings for the project.
 
 ```yaml
 defaults:
-timeout: 15m
+  timeout: 15m
 ```
 
 ---
@@ -89,7 +89,7 @@ Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each s
 
 ```yaml
 defaults:
-timeout: 15m
+  timeout: 15m
 ```
 
 ---
@@ -102,15 +102,15 @@ The parent property containing all settings related to how Jobs are run and iden
 
 ```yaml
 sauce:
-region: us-west-1
-metadata:
-name: Testing Replay Support
-tags:
-- e2e
-- release team
-- other tag
-build: Release $CI_COMMIT_SHORT_SHA
-concurrency: 10
+  region: us-west-1
+  metadata:
+    name: Testing Replay Support
+    tags:
+      - e2e
+      - release team
+      - other tag
+    build: Release $CI_COMMIT_SHORT_SHA
+  concurrency: 10
 ```
 
 ---
@@ -123,7 +123,7 @@ Specifies on which Sauce Labs data center jobs will run. Valid values are: `us-w
 
 ```yaml
 sauce:
-region: eu-central-1
+  region: eu-central-1
 ```
 
 ---
@@ -136,14 +136,14 @@ The set of properties that allows you to provide additional information about yo
 
 ```yaml
 sauce:
-metadata:
-name: Testing Replay Support
-build: RC 10.4.a
-tags:
-- e2e
-- release team
-- beta
-- featurex
+  metadata:
+    name: Testing Replay Support
+    build: RC 10.4.a
+    tags:
+      - e2e
+      - release team
+      - beta
+      - featurex
 ```
 
 ---
@@ -160,7 +160,7 @@ Set this value to equal or less than your Sauce Labs concurrency allowance, as s
 
 ```yaml
 sauce:
-concurrency: 5
+  concurrency: 5
 ```
 
 Alternatively, you can override the file setting at runtime by setting the concurrency flag as an inline parameter of the `saucectl run` command:
@@ -168,18 +168,16 @@ Alternatively, you can override the file setting at runtime by setting the concu
 ```bash
 saucectl run --ccy 5
 ```
-
 ---
 
 ### `retries`
-
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
 Sets the number of times to retry a failed suite.
 
 ```yaml
 sauce:
-retries: 1
+  retries: 1
 ```
 
 Alternatively, you can override the file setting at runtime by setting the retries flag as an inline parameter of the `saucectl run` command:
@@ -198,9 +196,9 @@ saucectl run --retries 1
 
 ```yaml
 sauce:
-tunnel:
-name: your_tunnel_name
-owner: tunnel_owner_username
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
 ```
 
 ---
@@ -217,8 +215,8 @@ This property replaces the former `id` property, which is deprecated.
 
 ```yaml
 sauce:
-tunnel:
-name: your_tunnel_name
+  tunnel:
+    name: your_tunnel_name
 ```
 
 ---
@@ -235,9 +233,9 @@ This property replaces the former `parent` property, which is deprecated.
 
 ```yaml
 sauce:
-tunnel:
-name: your_tunnel_name
-owner: tunnel_owner_username
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
 ```
 
 ---
@@ -256,7 +254,7 @@ Sets the visibility level of Jobs on Sauce Labs. If unspecified or empty, `team`
 
 ```yaml
 sauce:
-visibility: private
+  visibility: private
 ```
 
 ---
@@ -269,7 +267,7 @@ Specifies the execution order for your test suites. When set to `fail rate`, tes
 
 ```yaml
 sauce:
-launchOrder: fail rate
+  launchOrder: fail rate
 ```
 
 ---
@@ -282,10 +280,10 @@ Configures additional reporting capabilities provided by `saucectl`.
 
 ```yaml
 reporters:
-json:
-enabled: true
-filename: saucectl-report.json
-webhookURL: https://my-webhook-url
+  json:
+    enabled: true
+    filename: saucectl-report.json
+    webhookURL: https://my-webhook-url
 ```
 
 ---
@@ -298,10 +296,10 @@ The JSON reporter gathers Job results and combines them into a single report.
 
 ```yaml
 reporters:
-json:
-enabled: true
-filename: saucectl-report.json
-webhookURL: https://my-webhook-url
+  json:
+    enabled: true
+    filename: saucectl-report.json
+    webhookURL: https://my-webhook-url
 ```
 
 ---
@@ -314,8 +312,8 @@ Toggles the reporter on/off.
 
 ```yaml
 reporters:
-json:
-enabled: true
+  json:
+    enabled: true
 ```
 
 ---
@@ -328,8 +326,8 @@ The JSON reporter gathers Job results, combines them into a single report and se
 
 ```yaml
 reporters:
-json:
-webhookURL: https://my-webhook-url
+  json:
+    webhookURL: https://my-webhook-url
 ```
 
 ---
@@ -342,8 +340,8 @@ Specifies the report filename. Defaults to "saucectl-report.json".
 
 ```yaml
 reporters:
-json:
-filename: saucectl-report.json
+  json:
+    filename: saucectl-report.json
 ```
 
 ---
@@ -356,12 +354,12 @@ Specifies how to manage job artifacts, such as logs, videos, and screenshots.
 
 ```yaml
 artifacts:
-cleanup: true
-download:
-when: always
-match:
-- '*'
-directory: ./artifacts/
+  cleanup: true
+  download:
+    when: always
+    match:
+      - "*"
+    directory: ./artifacts/
 ```
 
 ---
@@ -374,7 +372,7 @@ When set to `true`, all contents of the specified download directory are deleted
 
 ```yaml
 artifacts:
-cleanup: true
+  cleanup: true
 ```
 
 ---
@@ -387,11 +385,11 @@ Specifies the settings related to downloading artifacts.
 
 ```yaml
 artifacts:
-download:
-when: always
-match:
-- junit.xml
-directory: ./artifacts/
+  download:
+    when: always
+    match:
+      - junit.xml
+    directory: ./artifacts/
 ```
 
 ---
@@ -409,8 +407,8 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 
 ```yaml
 artifacts:
-download:
-when: always
+  download:
+    when: always
 ```
 
 ---
@@ -423,9 +421,9 @@ Specifies which artifacts to download based on whether they match the name or fi
 
 ```yaml
 artifacts:
-download:
-match:
-- '*.log'
+  download:
+    match:
+      - "*.log"
 ```
 
 ---
@@ -438,8 +436,8 @@ Specifies the path to the folder location in which to download artifacts. A sepa
 
 ```yaml
 artifacts:
-download:
-directory: ./artifacts/
+  download:
+    directory: ./artifacts/
 ```
 
 ---
@@ -452,10 +450,10 @@ Specifies how to set up automatic job result alerts.
 
 ```yaml
 notifications:
-slack:
-channels:
-- 'replay-results'
-send: always
+  slack:
+    channels:
+      - "replay-results"
+    send: always
 ```
 
 ---
@@ -468,10 +466,10 @@ Specifies the settings related to sending tests result notifications through Sla
 
 ```yaml
 notifications:
-slack:
-channels:
-- 'saucectl-pw-tests'
-send: always
+  slack:
+    channels:
+      - "saucectl-pw-tests"
+    send: always
 ```
 
 ---
@@ -484,10 +482,10 @@ The set of Slack channels to which the test result notifications are to be sent.
 
 ```yaml
 notifications:
-slack:
-channels:
-- 'saucectl-results'
-- 'playwright-team'
+  slack:
+    channels:
+      - "saucectl-results"
+      - "playwright-team"
 ```
 
 ---
@@ -505,8 +503,8 @@ Specifies when and under what circumstances to send notifications to specified S
 
 ```yaml
 notifications:
-slack:
-send: always
+  slack:
+    send: always
 ```
 
 ---
@@ -519,10 +517,10 @@ The set of properties providing details about the suites to run. May contain mul
 
 ```yaml
 suites:
-- name: 'getting some coffee'
-  recordings: ['recordings/coffee-cart.json']
-  platform: 'Windows 11'
-  timeout: 5m
+  - name: "getting some coffee"
+    recordings: [ "recordings/coffee-cart.json" ]
+    platform: "Windows 11"
+    timeout: 5m
 ```
 
 ---
@@ -535,7 +533,7 @@ The name of the test suite, which will be reflected in the results and related a
 
 ```yaml
 suites:
-- name: 'saucy test'
+  - name: "saucy test"
 ```
 
 ---
@@ -548,8 +546,8 @@ A specific operating system and version on which to run the specified recordings
 
 ```yaml
 suites:
-- name: 'getting some coffee'
-  platform: 'Windows 11'
+  - name: "getting some coffee"
+    platform: "Windows 11"
 ```
 
 ---
@@ -562,9 +560,9 @@ One or more paths to the Chrome DevTools JSON recordings to run for this suite. 
 
 ```yaml
 suites:
-- name: 'getting some coffee'
-  recordings:
-  - 'recordings/*.json'
+  - name: "getting some coffee"
+    recordings:
+      - "recordings/*.json"
 ```
 
 ---
@@ -577,8 +575,8 @@ The name of the browser in which to run this test suite. Defaults to `googlechro
 
 ```yaml
 suites:
-- name: 'getting some coffee'
-  browserName: 'googlechrome'
+  - name: "getting some coffee"
+    browserName: "googlechrome"
 ```
 
 ---
@@ -591,8 +589,8 @@ The version of the browser in which to run this suite. Defaults to `latest`.
 
 ```yaml
 suites:
-- name: 'getting some coffee'
-  browserVersion: 'latest'
+  - name: "getting some coffee"
+    browserVersion: "latest"
 ```
 
 ---
@@ -611,6 +609,6 @@ Setting `0` reverts to the value set in `defaults`.
 
 ```yaml
 suites:
-- name: 'getting some coffee'
-  timeout: 15m
+  - name: "getting some coffee"
+    timeout: 15m
 ```
