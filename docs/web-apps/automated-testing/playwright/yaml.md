@@ -76,8 +76,8 @@ Specifies any default settings for the project.
 
 ```yaml
 defaults:
-mode: sauce
-timeout: 15m
+  mode: sauce
+  timeout: 15m
 ```
 
 ---
@@ -89,7 +89,7 @@ timeout: 15m
 Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally on `docker`. You can override this setting for individual suites using the `mode` setting within the [`suites`](#suites) object. If not set, the default value is `sauce`.
 
 ```yaml
-mode: sauce
+  mode: sauce
 ```
 
 ---
@@ -101,7 +101,7 @@ mode: sauce
 Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
 
 ```yaml
-timeout: 15m
+  timeout: 15m
 ```
 
 ---
@@ -114,15 +114,15 @@ The parent property containing all settings related to how tests are run and ide
 
 ```yaml
 sauce:
-region: eu-central-1
-metadata:
-name: Testing Playwright Support
-tags:
-- e2e
-- release team
-- other tag
-build: Release $CI_COMMIT_SHORT_SHA
-concurrency: 10
+  region: eu-central-1
+  metadata:
+    name: Testing Playwright Support
+    tags:
+      - e2e
+      - release team
+      - other tag
+    build: Release $CI_COMMIT_SHORT_SHA
+  concurrency: 10
 ```
 
 ---
@@ -134,7 +134,7 @@ concurrency: 10
 Specifies through which Sauce Labs data center tests will run. Valid values are: `us-west-1` or `eu-central-1`.
 
 ```yaml
-region: eu-central-1
+  region: eu-central-1
 ```
 
 ---
@@ -147,13 +147,13 @@ The set of properties that allows you to provide additional information about yo
 
 ```yaml
 metadata:
-name: Testing Playwright Support
-build: RC 10.4.a
-tags:
-- e2e
-- release team
-- beta
-- featurex
+  name: Testing Playwright Support
+  build: RC 10.4.a
+  tags:
+    - e2e
+    - release team
+    - beta
+    - featurex
 ```
 
 ---
@@ -169,7 +169,7 @@ For tests running on Sauce, set this value to equal or less than your Sauce conc
 :::
 
 ```yaml
-concurrency: 5
+  concurrency: 5
 ```
 
 Alternatively, you can override the file setting at runtime by setting the concurrency flag as an inline parameter of the `saucectl run` command:
@@ -177,17 +177,15 @@ Alternatively, you can override the file setting at runtime by setting the concu
 ```bash
 saucectl run --ccy 5
 ```
-
 ---
 
 ### `retries`
-
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
 Sets the number of times to retry a failed suite.
 
 ```yaml
-retries: 1
+  retries: 1
 ```
 
 Alternatively, you can override the file setting at runtime by setting the retries flag as an inline parameter of the `saucectl run` command:
@@ -206,9 +204,9 @@ saucectl run --retries 1
 
 ```yaml
 sauce:
-tunnel:
-name: your_tunnel_name
-owner: tunnel_owner_username
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
 ```
 
 ---
@@ -225,8 +223,8 @@ This property replaces the former `id` property, which is deprecated.
 
 ```yaml
 sauce:
-tunnel:
-name: your_tunnel_name
+  tunnel:
+    name: your_tunnel_name
 ```
 
 ---
@@ -243,9 +241,9 @@ This property replaces the former `parent` property, which is deprecated.
 
 ```yaml
 sauce:
-tunnel:
-name: your_tunnel_name
-owner: tunnel_owner_username
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
 ```
 
 ---
@@ -264,7 +262,7 @@ Sets the visibility level of test results for suites run on Sauce Labs. If unspe
 
 ```yaml
 sauce:
-visibility: private
+  visibility: private
 ```
 
 ---
@@ -277,7 +275,7 @@ Specifies the execution order for your test suites. When set to `fail rate`, tes
 
 ```yaml
 sauce:
-launchOrder: fail rate
+  launchOrder: fail rate
 ```
 
 ---
@@ -289,9 +287,9 @@ launchOrder: fail rate
 A property containing one or more environment variables that are global for all tests suites in this configuration. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
 
 ```yaml
-env:
-hello: world
-my_var: $MY_VAR # You can also pass through existing environment variables through parameter expansion
+  env:
+    hello: world
+    my_var: $MY_VAR  # You can also pass through existing environment variables through parameter expansion
 ```
 
 ---
@@ -304,8 +302,8 @@ The set of properties defining the specific Docker image and type your are using
 
 ```yaml
 docker:
-fileTransfer: copy
-image: saucelabs/stt-playwright-node:vX.X.X
+  fileTransfer: copy
+  image: saucelabs/stt-playwright-node:vX.X.X
 ```
 
 ---
@@ -320,7 +318,7 @@ Method in which to transfer test files into the docker container. Valid values a
 - `copy`: Copies files and folders into the docker container. If you run into permission issues, either due to docker or host settings, `copy` is the advised use case. See the [Docker documentation](https://docs.docker.com/engine/reference/builder/#copy) for more about the copy convention.
 
 ```yaml
-fileTransfer: copy
+  fileTransfer: copy
 ```
 
 ---
@@ -333,7 +331,7 @@ Specifies which docker image and version to use when running tests. Valid values
 `saucelabs/<framework-node>:<vX.X.X>`. See [Supported Testing Platforms](/web-apps/automated-testing/playwright#supported-testing-platforms) for Docker release notes related to Playwright.
 
 ```yaml
-image: saucelabs/< stt-playwright-mocha-node | stt-playwright-node | stt-testcafe-node >:< vX.X.X >
+  image: saucelabs/< stt-playwright-mocha-node | stt-playwright-node | stt-testcafe-node >:< vX.X.X >
 ```
 
 :::caution
@@ -349,11 +347,11 @@ Avoid using the `latest` tag for docker images, as advised in [this article](htt
 The directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Tailoring Your Test File Bundle](#tailoring-your-test-file-bundle) for more details. The following examples show the different relative options for setting this value.
 
 ```yaml
-rootDir: './' # Use the current directory
+  rootDir: "./" # Use the current directory
 ```
 
 ```yaml
-rootDir: 'packages/subpackage' # Some other package from within a monorepo
+  rootDir: "packages/subpackage" # Some other package from within a monorepo
 ```
 
 :::caution
@@ -370,11 +368,11 @@ A parent property specifying the configuration details for any `npm` dependencie
 
 ```yaml
 npm:
-registry: https://registry.npmjs.org
-packages:
-lodash: '4.17.20'
-'@babel/preset-typescript': '7.12'
-'@playwright/react': '^5.0.1'
+  registry: https://registry.npmjs.org
+  packages:
+    lodash: "4.17.20"
+    "@babel/preset-typescript": "7.12"
+    "@playwright/react": "^5.0.1"
 ```
 
 ---
@@ -386,7 +384,7 @@ lodash: '4.17.20'
 Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
 
 ```yaml
-registry: https://registry.npmjs.org
+  registry: https://registry.npmjs.org
 ```
 
 ---
@@ -398,10 +396,10 @@ registry: https://registry.npmjs.org
 Specifies any npm packages that are required to run tests and should, therefore, be installed on the Sauce Labs VM. See [Including Node Dependencies](#including-node-dependencies).
 
 ```yaml
-packages:
-lodash: '4.17.20'
-'@babel/preset-typescript': '7.12'
-'@playwright/react': '^5.0.1'
+  packages:
+    lodash: "4.17.20"
+    "@babel/preset-typescript": "7.12"
+    "@playwright/react": "^5.0.1"
 ```
 
 ---
@@ -419,8 +417,8 @@ Take note that the syntax is different from `packages`. It's a simple **list** o
 
 ```yaml
 npm:
-dependencies:
-- lodash
+  dependencies:
+    - lodash
 ```
 
 To use this feature, make sure that `node_modules` is not ignored via `.sauceignore`.
@@ -439,9 +437,9 @@ Configures additional reporting capabilities provided by `saucectl`.
 
 ```yaml
 reporters:
-junit:
-enabled: true
-filename: saucectl-report.xml
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
 ```
 
 ---
@@ -454,9 +452,9 @@ The JUnit reporter gathers JUnit reports from all jobs and combines them into a 
 
 ```yaml
 reporters:
-junit:
-enabled: true
-filename: saucectl-report.xml
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
 ```
 
 ---
@@ -469,10 +467,10 @@ The JSON reporter gathers test results from all jobs and combines them into a si
 
 ```yaml
 reporters:
-json:
-enabled: true
-filename: saucectl-report.json
-webhookURL: https://my-webhook-url
+  json:
+    enabled: true
+    filename: saucectl-report.json
+    webhookURL: https://my-webhook-url
 ```
 
 ---
@@ -484,7 +482,7 @@ webhookURL: https://my-webhook-url
 Toggles the reporter on/off.
 
 ```yaml
-enabled: true
+    enabled: true
 ```
 
 ---
@@ -496,7 +494,7 @@ enabled: true
 Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST with a JSON payload to the configured webhook URL.
 
 ```yaml
-webhookURL: https://my-webhook-url
+    webhookURL: https://my-webhook-url
 ```
 
 ---
@@ -508,7 +506,7 @@ webhookURL: https://my-webhook-url
 Specifies the report filename. Defaults to "saucectl-report.json".
 
 ```yaml
-filename: my-saucectl-report.json
+    filename: my-saucectl-report.json
 ```
 
 ---
@@ -521,12 +519,12 @@ Specifies how to manage test artifacts, such as logs, videos, and screenshots.
 
 ```yaml
 artifacts:
-cleanup: true
-download:
-when: always
-match:
-- junit.xml
-directory: ./artifacts/
+  cleanup: true
+  download:
+    when: always
+    match:
+      - junit.xml
+    directory: ./artifacts/
 ```
 
 ---
@@ -538,7 +536,7 @@ directory: ./artifacts/
 When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
 
 ```yaml
-cleanup: true
+  cleanup: true
 ```
 
 ---
@@ -550,11 +548,11 @@ cleanup: true
 Specifies the settings related to downloading artifacts from tests run by `saucectl`.
 
 ```yaml
-download:
-when: always
-match:
-- junit.xml
-directory: ./artifacts/
+  download:
+    when: always
+    match:
+      - junit.xml
+    directory: ./artifacts/
 ```
 
 ---
@@ -571,7 +569,7 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 - `fail`: Download artifacts for failed suites only.
 
 ```yaml
-when: always
+    when: always
 ```
 
 ---
@@ -583,9 +581,9 @@ when: always
 Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
 
 ```yaml
-match:
-- junit.xml
-- '*.log'
+  match:
+    - junit.xml
+    - "*.log"
 ```
 
 ---
@@ -597,7 +595,7 @@ match:
 Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. The name of the subdirectory will match the suite name. If a directory with the same name already exists, the new one will be suffixed by a serial number.
 
 ```yaml
-directory: ./artifacts/
+    directory: ./artifacts/
 ```
 
 ---
@@ -610,11 +608,11 @@ Specifies how to set up automatic test result alerts.
 
 ```yaml
 notifications:
-slack:
-channels:
-- 'saucectl-results'
-- 'playwright-tests'
-send: always
+  slack:
+    channels:
+      - "saucectl-results"
+      - "playwright-tests"
+    send: always
 ```
 
 ---
@@ -626,9 +624,9 @@ send: always
 Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/basics/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
 
 ```yaml
-slack:
-channels: 'saucectl-pw-tests'
-send: always
+  slack:
+    channels: "saucectl-pw-tests"
+    send: always
 ```
 
 ---
@@ -640,11 +638,11 @@ send: always
 The set of Slack channels to which the test result notifications are to be sent.
 
 ```yaml
-slack:
-channels:
-- 'saucectl-results'
-- 'playwright-team'
-send: always
+  slack:
+    channels:
+      - "saucectl-results"
+      - "playwright-team"
+    send: always
 ```
 
 ---
@@ -661,9 +659,9 @@ Specifies when and under what circumstances to send notifications to specified S
 - `fail`: Send notifications for failed suites only.
 
 ```yaml
-slack:
-channels: 'saucectl-pw-tests'
-send: always
+  slack:
+    channels: "saucectl-pw-tests"
+    send: always
 ```
 
 ---
@@ -676,8 +674,8 @@ The parent property containing the details specific to the Playwright project.
 
 ```yaml
 playwright:
-version: 1.11.1
-configFile: config.ts
+  version: 1.11.1
+  configFile: config.ts
 ```
 
 ---
@@ -689,7 +687,7 @@ configFile: config.ts
 The version of Playwright that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/playwright#supported-testing-platforms) for the list of Playwright versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
-version: 1.11.1
+  version: 1.11.1
 ```
 
 :::tip
@@ -708,7 +706,7 @@ The path (relative to `rootDir`) to your Playwright configuration file. `saucect
 If it's not set, `saucectl` defaults to `playwright.config.ts` or `playwright.config.js`.
 
 ```yaml
-configFile: config.ts
+  configFile: config.ts
 ```
 
 ---
@@ -728,7 +726,7 @@ The set of properties providing details about the test suites to run. May contai
 The name of the test suite, which will be reflected in the results and related artifacts.
 
 ```yaml
-- name: 'saucy test'
+  - name: "saucy test"
 ```
 
 ---
@@ -740,9 +738,9 @@ The name of the test suite, which will be reflected in the results and related a
 A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
 
 ```yaml
-env:
-hello: world
-my_var: $MY_VAR
+  env:
+    hello: world
+    my_var: $MY_VAR
 ```
 
 ---
@@ -754,7 +752,7 @@ my_var: $MY_VAR
 A specific operating system and version on which to run the specified browser and test suite. Defaults to a platform that is supported by `saucectl` for the chosen browser.
 
 ```yaml
-platformName: 'Windows 10'
+    platformName: "Windows 10"
 ```
 
 ---
@@ -766,7 +764,7 @@ platformName: 'Windows 10'
 Specifies a browser window screen resolution, which may be useful if you are attempting to simulate a browser on a particular device type. See [Test Configurations](/basics/test-config-annotation/test-config) for a list of available resolution values.
 
 ```yaml
-screenResolution: '1920x1080'
+    screenResolution: "1920x1080"
 ```
 
 ---
@@ -778,7 +776,7 @@ screenResolution: '1920x1080'
 Specifies whether the individual suite will run on `docker` or `sauce`, potentially overriding the default project mode setting.
 
 ```yaml
-mode: 'sauce'
+  mode: "sauce"
 ```
 
 ---
@@ -790,7 +788,7 @@ mode: 'sauce'
 One or more paths to the Playwright test files to run for this suite. Regex values are supported to indicate all files of a certain type or in a certain directory, etc.
 
 ```yaml
-testMatch: ['**/*.js']
+    testMatch: ["**/*.js"]
 ```
 
 ---
@@ -802,7 +800,7 @@ testMatch: ['**/*.js']
 Excludes test files to skip the tests. You can use regex values to indicate all files that match a specific value, such as a file name, type, or directory.
 
 ```yaml
-excludedTestFiles: ['**/*.js']
+    excludedTestFiles: ["**/*.js"]
 ```
 
 ---
@@ -820,7 +818,7 @@ The `numShards` and `shard` properties are mutually exclusive within each suite.
 :::
 
 ```yaml
-numShards: 2
+  numShards: 2
 ```
 
 ---
@@ -860,13 +858,13 @@ The `numShards` and `shard` properties are mutually exclusive within each suite.
 A parent property that details any additional parameters you wish to set for the test suite.
 
 ```yaml
-params:
-browserName: 'firefox'
-headless: true
-slowMo: 1000
-project: 'project name'
-grep: 'should include'
-grepInvert: 'should exclude'
+    params:
+      browserName: "firefox"
+      headless: true
+      slowMo: 1000
+      project: "project name"
+      grep: "should include"
+      grepInvert: "should exclude"
 ```
 
 #### `browserName`
@@ -877,7 +875,7 @@ The name of the browser in which to run this test suite.
 Available browser names: `chromium`, `firefox`, `webkit`, and `chrome`.
 
 ```yaml
-browserName: 'firefox'
+    browserName: "firefox"
 ```
 
 :::note
@@ -893,7 +891,7 @@ browserName: 'firefox'
 Determines whether to run the test suite in [headless](/headless) mode.
 
 ```yaml
-headless: true
+    headless: true
 ```
 
 ---
@@ -905,7 +903,7 @@ headless: true
 Allows you to alter the test execution speed for the test suite in milliseconds, to simulate different network connectivity or other conditions that may impact load times.
 
 ```yaml
-sloMo: 1000
+    sloMo: 1000
 ```
 
 ---
@@ -921,7 +919,7 @@ Allows you to apply the configurations from your [Playwright project](https://pl
 :::
 
 ```yaml
-project: 'project name'
+    project: "project name"
 ```
 
 ---
@@ -933,7 +931,7 @@ project: 'project name'
 Patterns to run tests based on their title.
 
 ```yaml
-grep: 'should include'
+    grep: "should include"
 ```
 
 ---
@@ -945,7 +943,7 @@ grep: 'should include'
 Patterns to skip tests based on their title.
 
 ```yaml
-grepInvert: 'should exclude'
+    grepInvert: "should exclude"
 ```
 
 ---
@@ -957,7 +955,7 @@ grepInvert: 'should exclude'
 Determines whether to update snapshots with the actual results produced by the test run. Playwright tests support [visual comparisons](https://playwright.dev/docs/test-snapshots).
 
 ```yaml
-updateSnapshots: true
+    updateSnapshots: true
 ```
 
 To run a test with `saucectl`:
@@ -988,7 +986,7 @@ $ mv artifacts/{your-suite-name}/example-test-1-actual.png tests/example.test.js
 4. Set `updateSnapshots` to `true`. Playwright will continue to update the baseline screenshots.
 
 ```yaml
-updateSnapshots: true
+    updateSnapshots: true
 ```
 
 ---
@@ -1006,7 +1004,7 @@ Setting `0` reverts to the value set in `defaults`.
 :::
 
 ```yaml
-timeout: 15m
+  timeout: 15m
 ```
 
 ---
@@ -1022,8 +1020,8 @@ There is a 300-second limit for all `preExec` commands to complete.
 :::
 
 ```yaml
-preExec:
-- node ./scripts/pre-execution-script.js
+  preExec:
+    - node ./scripts/pre-execution-script.js
 ```
 
 ---
@@ -1035,5 +1033,5 @@ preExec:
 Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
 
 ```yaml
-timeZone: New_York
+  timeZone: New_York
 ```
