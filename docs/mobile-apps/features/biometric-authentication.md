@@ -21,6 +21,32 @@ Biometrics test support in Sauce Labs is not intended to test actual biometrics 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 - Your mobile app file. If you don't have one on hand, consider using our [React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases).
 
+|                                |  Supported  | Not Supported |
+| :----------------------------- | :---------: | :-----------: |
+| **Device Type **               |             |               |
+| Android real devices           | &checkmark; |               |
+| iOS real devices               | &checkmark; |               |
+| Android Emulators              |             |   &#x2715;    |
+| iOS Simulators                 |             |   &#x2715;    |
+|                                |             |               |
+| **App Type**<sup>1</sup>       |             |               |
+| Flutter(iOS/Android)           |             |   &#x2715;    |
+| React Native(iOS/Android)      |             |   &#x2715;    |
+| Cordova (iOS/Android)          |             |   &#x2715;    |
+|                                |             |               |
+| **Framework Type**<sup>1</sup> |             |               |
+| Appium                         | &checkmark; |               |
+| Espresso (Android)             |             |   &#x2715;    |
+| XCUITest (iOS)                 |             |   &#x2715;    |
+
+:::note Not Supported
+
+- <small>Mobile browsers and pre-installed system apps.</small>
+- <small> Cross platform development frameworks like Flutter, React Native, Cordova (libraries and frameworks are not supported. 
+- <small>Ephemeral apps.</small>
+
+:::
+
 ## Live Testing
 
 <p><span className="sauceDBlue">Real Devices Only</span></p>
