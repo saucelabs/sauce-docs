@@ -33,6 +33,11 @@ Camera Image Injection is available for testing on all Sauce Labs Android and iO
 | Android Emulators              |             |   &#x2715;    |
 | iOS Simulators                 |             |   &#x2715;    |
 |                                |             |               |
+| **App Type**<sup>1</sup>       |             |               |
+| Flutter(iOS/Android)           |             |   &#x2715;    |
+| React Native(iOS/Android)      |             |   &#x2715;    |
+| Cordova (iOS/Android)          |             |   &#x2715;    |
+|                                |             |               |
 | **Framework Type**<sup>1</sup> |             |               |
 | Appium                         | &checkmark; |               |
 | Espresso (Android)             |             |   &#x2715;    |
@@ -42,10 +47,10 @@ Camera Image Injection is available for testing on all Sauce Labs Android and iO
 
 :::note Not Supported
 
-- <small>Ephemeral apps (apps with temporary, disappearing messages and photos).</small>
 - <small>Mobile browsers and pre-installed system apps.</small>
-- <small>Apache Cordova(Phonegap) libraries and frameworks are not supported. https://cordova.apache.org/docs/en/latest/index.html#develop-for-platforms </small>
-
+- <small> Cross platform development frameworks like Flutter, React Native, Cordova (libraries and frameworks are not supported. 
+- <small>Ephemeral apps (apps with temporary, disappearing messages and photos).</small>
+        
 :::
 
 ### Android System Camera
