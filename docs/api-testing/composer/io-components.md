@@ -298,7 +298,7 @@ The **File Data Source** component allows you to use a file from the [Vault](/ap
 For all the Child Components the value can be:
 
 - **String value**: the value will always be the same for all of the requests. To do so, enter the value in the related field.
-- **Variable**: the value will be taken dynamically and could changed from time to time. To do so, enter the name of the variable between ${}<br/>
+- **Variable**: the value will be taken dynamically and could changed from time to time. To do so, enter the name of the variable between `${}`<br/>
 
 ### Request Body
 

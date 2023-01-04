@@ -71,7 +71,7 @@ To create a simple `GET` request and validate that response is correct:
 
 <img src={useBaseUrl('/img/api-testing/get-request-nav.png')} alt="Navigating to the GET request window"/>
 
-3. In the **GET request** window, in the **Url** field, enter `https://</span>api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions`.
+3. In the **GET request** window, in the **Url** field, enter `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions`.
 
 This endpoint will return a JSON response body. 4. In the **Variable** field, enter **payload**. This variable stores the response, so it can now be referred to as **payload**.
 
@@ -115,7 +115,7 @@ In the following example, the expression checks if the `download_url` value insi
 
 2. In the list of component options, click the **Assert Is** component.
 
-3. In the **Assert is** window, in the **Expression** field, enter `payload.downloads`. This expression checks for the **downloads** field in the json response body.
+3. In the **Assert is** window, in the **Expression** field, enter `payload.downloads.linux.download_url`. This expression checks for the **download_url** field in the json response payload.
 
 4. Leave the rest of the fields blank and click **Save Changes**.
 
@@ -180,13 +180,13 @@ In this method, you copy an existing body and paste it into the call.
 
 3. Select the relevant **Content-Type** and enter the following in the **Body** field:
 
-   ```json
-   {
-   "user": "${user}",
-   "password": "${password}",
-   "url": "http://www.testme.com/api/run/test"
-   }
-   ```
+  ```json
+  {
+   "user":"${user}",
+   "password":"${password}",
+   "url":"http://www.testme.com/api/run/test"
+  }
+  ```
 
    <img src={useBaseUrl('/img/api-testing/post-body-window-2.png')} alt="The Post body window"/>
 
@@ -242,7 +242,7 @@ Using an object from another call is a more complex method. Scenarios in which y
 
 The response payload from the call:
 
-    ```json
+  ```json
     {
       "id":123,
       "items":[
@@ -260,15 +260,17 @@ The response payload from the call:
           }
       ]
     }
-    ```
+  ```
 
 2. In this example, you need the object `items` as the body in the subsequent call. So, as a second call, add a `POST` and enter the following as body:
 
 ```json
-{ "items": "${searchPayload.items.asJSON()}" }
+{
+  "items": "${searchPayload.items.asJSON()}"
+}
 ```
 
-    <img src={useBaseUrl('/img/api-testing/post-body-window-3.png')} alt="POST request body"/>
+<img src={useBaseUrl('/img/api-testing/post-body-window-3.png')} alt="POST request body"/>
 
 3. Continue with the test.
 
@@ -282,24 +284,24 @@ This method can be used when you need to create a new structure to add as a body
 
 ```json
 {
-"items": [
-{
-"id": 11,
-"price": 5.99
-},
-{
-"id": 12,
-"price": 6.99
-},
-{
-"id": 13,
-"price": 10.99
-},
-{
-"id": 14,
-"price": 15.99
-}
-]
+   "items":[
+      {
+         "id":11,
+         "price":5.99
+      },
+      {
+         "id":12,
+         "price":6.99
+      },
+      {
+         "id":13,
+         "price":10.99
+      },
+      {
+         "id":14,
+         "price":15.99
+      }
+   ]
 }
 ```
 
@@ -420,14 +422,14 @@ To create an object of data:
 - **Language:** Template
 - **Body:** The object to generate with the required methods.
 
-```
+```json
 {
-"name": "${F.firstName()}",
-"last name": "${F.lastName()}",
-"address": "${F.streetName()}",
-"profession": "${F.profession()}",
-"mobile phone": "${F.mobile()}",
-"email": "${F.emailAddress()}"
+   "name":"${F.firstName()}",
+   "last name":"${F.lastName()}",
+   "address":"${F.streetName()}",
+   "profession":"${F.profession()}",
+   "mobile phone":"${F.mobile()}",
+   "email":"${F.emailAddress()}"
 }
 ```
 
@@ -440,12 +442,12 @@ Any of the following methods can be used in a request body.
 - **Content-Type:** The content-type of the body (application/json in this example).
 - **Body:** The body of the request.
 
-```
+```json
 {
-"name": "${F.firstName()}",
-"last name": "${F.lastName()}",
-"city": "${F.city()}",
-"profession": "${F.profession()}"
+  "name": "${F.firstName()}",
+  "last name": "${F.lastName()}",
+  "city": "${F.city()}",
+  "profession": "${F.profession()}"
 }
 ```
 
@@ -589,7 +591,7 @@ In a scenario in which the response contains many products, it may be useful to 
 
 3. Test the response payload for the endpoint.
 
-4. Add a new `Set (variable)` assertion to set the `id` variable as every single `productsPayload.product` that is returned. In the following example, the string is `${_1.id}`. The system uses `_1` automatically when recognizing a subroutine, which makes it easier when there are multiple sub-levels.
+4. Add a new `Set(variable)` assertion to set the `id` variable as every single `productsPayload.product` that is returned. In the following example, the string is `${_1.id}`. The system uses `_1` automatically when recognizing a subroutine, which makes it easier when there are multiple sub-levels.
 
    <img src={useBaseUrl('/img/api-testing/int-test-endpoints.png')} alt="Testing interactions between endpoints" width="600"/>
 
@@ -768,7 +770,7 @@ In a scenario in which the response contains many products, it may be useful to 
     - id: assert-exists
       expression: productPayload.updatedAt
       comment: updateAt must exists
-      expression: productsPayload.pick(5)
+  expression: productsPayload.pick(5)
 ```
 
 ## Testing Metrics
@@ -803,7 +805,7 @@ You can create specific assertions to verify performance metrics.
 
 #### Example
 
-The following is an example in **Code** view.
+The following are examples in **Code** view.
 
 ```yaml
 - id: assert-less
@@ -821,7 +823,7 @@ The following is an example in **Code** view.
 - `fetch` is the total download time of the payload.
 - `overall` is fetch and latency combined.
 
-The following is the same example, but in **Visual** view:
+The following is the `overall` example, but in **Visual** view:
 
 <img src={useBaseUrl('/img/api-testing/metrics-assert-less-visual.png')} alt="An Assert-Less component in Visual view" width="600"/>
 
@@ -891,12 +893,12 @@ Saves your progress.<br/>
 
 ### Publish
 
-[Publishes your test](/api-testing/quickstart#publish-your-test/).<br/>
+Publishes your test.<br/>
 <img src={useBaseUrl('img/api-testing/publishtest.png')} alt="Publish"/>
 
 ### Clear
 
-[Clears the most recent unpublished changes made to your test](/api-testing/quickstart#publish-your-test/).<br/>
+Clears the most recent unpublished changes made to your test.<br/>
 <img src={useBaseUrl('img/api-testing/cleartest.png')} alt="Clear"/>
 
 ### Run
