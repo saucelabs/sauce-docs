@@ -84,8 +84,8 @@ Specifies any default settings for the project.
 
 ```yaml
 defaults:
-mode: sauce
-timeout: 15m
+  mode: sauce
+  timeout: 15m
 ```
 
 ---
@@ -97,7 +97,7 @@ timeout: 15m
 Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally on `docker`. You can override this setting for individual suites using the `mode` setting within the [`suites`](#suites) object. If not set, the default value is `sauce`.
 
 ```yaml
-mode: sauce
+  mode: sauce
 ```
 
 ---
@@ -111,7 +111,7 @@ Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each s
 When the suite reaches the timeout limit, its status is set to '?' in the CLI. This does not reflect the actual status of the job in the Sauce Labs web UI or API.
 
 ```yaml
-timeout: 15m
+  timeout: 15m
 ```
 
 ---
@@ -124,15 +124,15 @@ The parent property containing all settings related to how tests are run and ide
 
 ```yaml
 sauce:
-region: eu-central-1
-metadata:
-name: Testing Cypress Support
-tags:
-- e2e
-- release team
-- other tag
-build: Release $CI_COMMIT_SHORT_SHA
-concurrency: 10
+  region: eu-central-1
+  metadata:
+    name: Testing Cypress Support
+    tags:
+      - e2e
+      - release team
+      - other tag
+    build: Release $CI_COMMIT_SHORT_SHA
+  concurrency: 10
 ```
 
 ---
@@ -144,7 +144,7 @@ concurrency: 10
 Specifies through which Sauce Labs data center tests will run. Valid values are: `us-west-1` or `eu-central-1`.
 
 ```yaml
-region: eu-central-1
+  region: eu-central-1
 ```
 
 ---
@@ -157,13 +157,13 @@ The set of properties that allows you to provide additional information about yo
 
 ```yaml
 metadata:
-name: Testing Cypress Support
-build: RC 10.4.a
-tags:
-- e2e
-- release team
-- beta
-- featurex
+  name: Testing Cypress Support
+  build: RC 10.4.a
+  tags:
+    - e2e
+    - release team
+    - beta
+    - featurex
 ```
 
 ---
@@ -179,7 +179,7 @@ For tests running on Sauce, set this value to equal or less than your Sauce conc
 :::
 
 ```yaml
-concurrency: 5
+  concurrency: 5
 ```
 
 Alternatively, you can override the file setting at runtime by setting the concurrency flag as an inline parameter of the `saucectl run` command:
@@ -197,7 +197,7 @@ saucectl run --ccy 5
 Sets the number of times to retry a failed suite.
 
 ```yaml
-retries: 1
+  retries: 1
 ```
 
 Alternatively, you can override the file setting at runtime by setting the retries flag as an inline parameter of the `saucectl run` command:
@@ -216,9 +216,9 @@ saucectl run --retries 1
 
 ```yaml
 sauce:
-tunnel:
-name: your_tunnel_name
-owner: tunnel_owner_username
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
 ```
 
 ---
@@ -235,8 +235,8 @@ This property replaces the former `id` property, which is deprecated.
 
 ```yaml
 sauce:
-tunnel:
-name: your_tunnel_name
+  tunnel:
+    name: your_tunnel_name
 ```
 
 ---
@@ -253,9 +253,9 @@ This property replaces the former `parent` property, which is deprecated.
 
 ```yaml
 sauce:
-tunnel:
-name: your_tunnel_name
-owner: tunnel_owner_username
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
 ```
 
 ---
@@ -274,7 +274,7 @@ Sets the visibility level of test results for suites run on Sauce Labs. If unspe
 
 ```yaml
 sauce:
-visibility: private
+  visibility: private
 ```
 
 ---
@@ -287,7 +287,7 @@ Specifies the execution order for your test suites. When set to `fail rate`, tes
 
 ```yaml
 sauce:
-launchOrder: fail rate
+  launchOrder: fail rate
 ```
 
 ---
@@ -299,9 +299,9 @@ launchOrder: fail rate
 A property containing one or more environment variables that are global for all tests suites in this configuration. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
 
 ```yaml
-env:
-hello: world
-my_var: $MY_VAR # You can also pass through existing environment variables through parameter expansion
+  env:
+    hello: world
+    my_var: $MY_VAR  # You can also pass through existing environment variables through parameter expansion
 ```
 
 :::caution
@@ -318,8 +318,8 @@ The set of properties defining the specific Docker image and type your are using
 
 ```yaml
 docker:
-fileTransfer: mount
-image: saucelabs/stt-cypress-mocha-node:vX.X.X
+  fileTransfer: mount
+  image: saucelabs/stt-cypress-mocha-node:vX.X.X
 ```
 
 ---
@@ -334,7 +334,7 @@ Method in which to transfer test files into the docker container. Valid values a
 - `copy`: Copies files and folders into the docker container. If you run into permission issues, either due to docker or host settings, `copy` is the advised use case. See the [Docker documentation](https://docs.docker.com/engine/reference/builder/#copy) for more about the copy convention.
 
 ```yaml
-fileTransfer: < mount | copy >
+  fileTransfer: < mount | copy >
 ```
 
 ---
@@ -347,7 +347,7 @@ Specifies which docker image and version to use when running tests. Valid values
 `saucelabs/<framework-node>:<vX.X.X>`. See [Supported Testing Platforms](/web-apps/automated-testing/cypress#supported-testing-platforms) for Docker release notes related to Cypress.
 
 ```yaml
-image: saucelabs/< stt-cypress-mocha-node | stt-playwright-node | stt-testcafe-node >:< vX.X.X >
+  image: saucelabs/< stt-cypress-mocha-node | stt-playwright-node | stt-testcafe-node >:< vX.X.X >
 ```
 
 :::caution
@@ -363,11 +363,11 @@ Avoid using the `latest` tag for docker images, as advised in [this article](htt
 The directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Tailoring Your Test File Bundle](#tailoring-your-test-file-bundle) for more details. The following examples show the different relative options for setting this value.
 
 ```yaml
-rootDir: './' # Use the current directory
+  rootDir: "./" # Use the current directory
 ```
 
 ```yaml
-rootDir: 'packages/subpackage' # Some other package from within a monorepo
+  rootDir: "packages/subpackage" # Some other package from within a monorepo
 ```
 
 :::caution
@@ -384,11 +384,11 @@ A parent property specifying the configuration details for any `npm` dependencie
 
 ```yaml
 npm:
-registry: https://registry.npmjs.org
-packages:
-lodash: '4.17.20'
-'@babel/preset-typescript': '7.12'
-'@cypress/react': '^5.0.1'
+  registry: https://registry.npmjs.org
+  packages:
+    lodash: "4.17.20"
+    "@babel/preset-typescript": "7.12"
+    "@cypress/react": "^5.0.1"
 ```
 
 ---
@@ -400,7 +400,7 @@ lodash: '4.17.20'
 Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
 
 ```yaml
-registry: https://registry.npmjs.org
+  registry: https://registry.npmjs.org
 ```
 
 ---
@@ -412,10 +412,10 @@ registry: https://registry.npmjs.org
 Specifies any npm packages that are required to run tests and should, therefore, be installed on the Sauce Labs VM. See [Including Node Dependencies](#including-node-dependencies).
 
 ```yaml
-packages:
-lodash: '4.17.20'
-'@babel/preset-typescript': '7.12'
-'@cypress/react': '^5.0.1'
+  packages:
+    lodash: "4.17.20"
+    "@babel/preset-typescript": "7.12"
+    "@cypress/react": "^5.0.1"
 ```
 
 ---
@@ -433,8 +433,8 @@ Take note that the syntax is different from `packages`. It's a simple **list** o
 
 ```yaml
 npm:
-dependencies:
-- lodash
+  dependencies:
+    - lodash
 ```
 
 To use this feature, make sure that `node_modules` is not ignored via `.sauceignore`.
@@ -453,9 +453,9 @@ Configures additional reporting capabilities provided by `saucectl`.
 
 ```yaml
 reporters:
-junit:
-enabled: true
-filename: saucectl-report.xml
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
 ```
 
 ---
@@ -468,9 +468,9 @@ The JUnit reporter gathers JUnit reports from all jobs and combines them into a 
 
 ```yaml
 reporters:
-junit:
-enabled: true
-filename: saucectl-report.xml
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
 ```
 
 ---
@@ -483,10 +483,10 @@ The JSON reporter gathers test results from all jobs and combines them into a si
 
 ```yaml
 reporters:
-json:
-enabled: true
-filename: saucectl-report.json
-webhookURL: https://my-webhook-url
+  json:
+    enabled: true
+    filename: saucectl-report.json
+    webhookURL: https://my-webhook-url
 ```
 
 ---
@@ -498,7 +498,7 @@ webhookURL: https://my-webhook-url
 Toggles the reporter on/off.
 
 ```yaml
-enabled: true
+    enabled: true
 ```
 
 ---
@@ -510,7 +510,7 @@ enabled: true
 Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST with a JSON payload to the configured webhook URL.
 
 ```yaml
-webhookURL: https://my-webhook-url
+    webhookURL: https://my-webhook-url
 ```
 
 ---
@@ -522,7 +522,7 @@ webhookURL: https://my-webhook-url
 Specifies the report filename. Defaults to "saucectl-report.json".
 
 ```yaml
-filename: my-saucectl-report.json
+    filename: my-saucectl-report.json
 ```
 
 ---
@@ -535,12 +535,12 @@ Specifies how to manage test artifacts, such as logs, videos, and screenshots.
 
 ```yaml
 artifacts:
-cleanup: true
-download:
-when: always
-match:
-- junit.xml
-directory: ./artifacts/
+  cleanup: true
+  download:
+    when: always
+    match:
+      - junit.xml
+    directory: ./artifacts/
 ```
 
 ---
@@ -552,7 +552,7 @@ directory: ./artifacts/
 When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
 
 ```yaml
-cleanup: true
+  cleanup: true
 ```
 
 ---
@@ -564,11 +564,11 @@ cleanup: true
 Specifies the settings related to downloading artifacts from tests run by `saucectl`.
 
 ```yaml
-download:
-when: always
-match:
-- junit.xml
-directory: ./artifacts/
+  download:
+    when: always
+    match:
+      - junit.xml
+    directory: ./artifacts/
 ```
 
 ---
@@ -585,7 +585,7 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 - `fail`: Download artifacts for failed suites only.
 
 ```yaml
-when: always
+    when: always
 ```
 
 ---
@@ -597,9 +597,9 @@ when: always
 Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
 
 ```yaml
-match:
-- junit.xml
-- '*.log'
+  match:
+    - junit.xml
+    - "*.log"
 ```
 
 ---
@@ -611,7 +611,7 @@ match:
 Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. The name of the subdirectory will match the suite name. If a directory with the same name already exists, the new one will be suffixed by a serial number.
 
 ```yaml
-directory: ./artifacts/
+    directory: ./artifacts/
 ```
 
 ---
@@ -624,11 +624,11 @@ Specifies how to set up automatic test result alerts.
 
 ```yaml
 notifications:
-slack:
-channels:
-- 'saucectl-results'
-- 'cypress-tests'
-send: always
+  slack:
+    channels:
+      - "saucectl-results"
+      - "cypress-tests"
+    send: always
 ```
 
 ---
@@ -640,9 +640,9 @@ send: always
 Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/basics/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
 
 ```yaml
-slack:
-channels: 'saucectl-cypress-tests'
-send: always
+  slack:
+    channels: "saucectl-cypress-tests"
+    send: always
 ```
 
 ---
@@ -654,11 +654,11 @@ send: always
 The set of Slack channels to which the test result notifications are to be sent.
 
 ```yaml
-slack:
-channels:
-- 'saucectl-results'
-- 'cypress-team'
-send: always
+  slack:
+    channels:
+      - "saucectl-results"
+      - "cypress-team"
+    send: always
 ```
 
 ---
@@ -675,9 +675,9 @@ Specifies when and under what circumstances to send notifications to specified S
 - `fail`: Send notifications for failed suites only.
 
 ```yaml
-slack:
-channels: 'saucectl-cypress-tests'
-send: always
+  slack:
+    channels: "saucectl-cypress-tests"
+    send: always
 ```
 
 ---
@@ -690,8 +690,8 @@ The parent property containing the details specific to the Cypress project.
 
 ```yaml
 cypress:
-version: 6.6.0
-configFile: 'cypress.json'
+  version: 6.6.0
+  configFile: "cypress.json"
 ```
 
 ---
@@ -703,7 +703,7 @@ configFile: 'cypress.json'
 The version of Cypress that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/cypress#supported-testing-platforms) for the list of Cypress versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
-version: 8.6.0
+  version: 8.6.0
 ```
 
 :::tip
@@ -721,7 +721,7 @@ The path to your `package.json` file will be relative to the `rootDir` of your c
 The designated `cypress` configuration file. `saucectl` determines related files based on the location of the config file. By default `saucectl` defers to the test file location defined in `cypress.json`.
 
 ```yaml
-configFile: 'cypress.json'
+  configFile: "cypress.json"
 ```
 
 ---
@@ -733,8 +733,8 @@ configFile: 'cypress.json'
 Determines whether to record your test results in the Cypress dashboard.
 
 ```yaml
-record: true
-key: $MY_SECRET_KEY
+  record: true
+  key: $MY_SECRET_KEY
 ```
 
 ---
@@ -746,8 +746,8 @@ key: $MY_SECRET_KEY
 The secret key that grants permission to record your tests in the Cypress dashboard.
 
 ```yaml
-record: true
-key: $MY_SECRET_KEY
+  record: true
+  key: $MY_SECRET_KEY
 ```
 
 The `record` and `key` fields depend on the cypress `"projectId"` being set in your `cypress.json` file because the value of your `projectId` correlates directly with the value of the `key` field. See [Cypress Project-ID Documentation](https://docs.cypress.io/guides/dashboard/projects.html#Project-ID) for details about how to configure/retrieve the cypress `projectId` or [Cypress Record-Key Documentation](https://docs.cypress.io/guides/guides/command-line.html#cypress-run-record-key-lt-record-key-gt) for details about configuring Record-Key parameters.
@@ -765,12 +765,12 @@ For additional information regarding cypress configurations, please consult the 
 The set of additional reporters to execute as part of your Cypress tests.
 
 ```yaml
-reporters:
-- name: cypress-mochawesome
-  options:
-  reportDir: __assets__/cypress/report
-  charts: true
-  reportPageTitle: Cypress running on Sauce
+  reporters:
+    - name: cypress-mochawesome
+      options:
+        reportDir: __assets__/cypress/report
+        charts: true
+        reportPageTitle: Cypress running on Sauce
 ```
 
 :::note
@@ -786,7 +786,7 @@ In order for your additional reporter to work, it must be compatible with the [c
 The name of the reporter to enable, which corresponds to the `reporter` property in the `cypres.json` file.
 
 ```yaml
-- name: cypress-mochawesome
+      - name: cypress-mochawesome
 ```
 
 :::note
@@ -802,10 +802,10 @@ Some reporters may require you to install dependencies.
 Any relevant settings that are be supported by the specified reporter. These properties correspond to the `reporterOptions` object in the `cypress.json` file.
 
 ```yaml
-options:
-reportDir: __assets__/cypress/report
-charts: true
-reportPageTitle: Cypress running on Sauce
+      options:
+        reportDir: __assets__/cypress/report
+        charts: true
+        reportPageTitle: Cypress running on Sauce
 ```
 
 ---
@@ -825,7 +825,7 @@ The set of properties providing details about the test suites to run. May contai
 The name of the test suite, which will be reflected in the results and related artifacts.
 
 ```yaml
-- name: 'saucy test'
+  - name: "saucy test"
 ```
 
 ---
@@ -838,7 +838,7 @@ The name of the browser in which to run this test suite.
 Available browser names: `chrome`, `firefox`, `microsoftedge`(only for sauce mode) and `electron`(only for docker mode).
 
 ```yaml
-browser: 'chrome'
+    browser: "chrome"
 ```
 
 ---
@@ -850,7 +850,7 @@ browser: 'chrome'
 The version of the browser to use for this test suite.
 
 ```yaml
-browserVersion: '85.0'
+    browserVersion: "85.0"
 ```
 
 ---
@@ -862,7 +862,7 @@ browserVersion: '85.0'
 A specific operating system and version on which to run the specified browser and test suite. Defaults to a platform that is supported by `saucectl` for the chosen browser.
 
 ```yaml
-platformName: 'Windows 10'
+    platformName: "Windows 10"
 ```
 
 ---
@@ -874,7 +874,7 @@ platformName: 'Windows 10'
 Specifies a browser window screen resolution, which may be useful if you are attempting to simulate a browser on a particular device type. See [Test Configurations](/basics/test-config-annotation/test-config) for a list of available resolution values.
 
 ```yaml
-screenResolution: '1920x1080'
+    screenResolution: "1920x1080"
 ```
 
 ---
@@ -886,7 +886,7 @@ screenResolution: '1920x1080'
 Specifies whether the individual suite will run on `docker` or `sauce`, potentially overriding the default project mode setting.
 
 ```yaml
-mode: 'sauce'
+  mode: "sauce"
 ```
 
 ---
@@ -898,14 +898,14 @@ mode: 'sauce'
 Provides details related to the Cypress test configuration that are relevant for this test suite.
 
 ```yaml {5}
-suites:
-- name: 'Hello'
-  browser: 'firefox'
-  platformName: 'Windows 10'
-  config:
-  env:
-  hello: world
-  testFiles: ['**/*.spec.js']
+  suites:
+    - name: "Hello"
+      browser: "firefox"
+      platformName: "Windows 10"
+      config:
+        env:
+          hello: world
+        testFiles: [ "**/*.spec.js" ]
 ```
 
 ---
@@ -917,10 +917,10 @@ suites:
 A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
 
 ```yaml
-config:
-env:
-hello: world
-my_var: $MY_VAR
+  config:
+    env:
+      hello: world
+      my_var: $MY_VAR
 ```
 
 :::caution
@@ -936,7 +936,7 @@ Since environment variables are provided to Cypress directly, avoid using `CYPRE
 One or more paths to the Cypress test files to run for this suite, if not otherwise specified explicitly in `cypress.json`. Regex values are supported to indicate all files of a certain type or in a certain directory, etc.
 
 ```yaml
-testFiles: ['**/*.*']
+      testFiles: [ "**/*.*" ]
 ```
 
 :::note
@@ -952,7 +952,7 @@ testFiles: ['**/*.*']
 Excludes test files to skip the tests. Regex values are supported to indicate all files of a certain type or in a certain directory, etc.
 
 ```yaml
-excludedTestFiles: ['**/*.*']
+      excludedTestFiles: [ "**/*.*" ]
 ```
 
 :::note
@@ -968,9 +968,9 @@ excludedTestFiles: ['**/*.*']
 Controls whether or not tests are run in headless mode.
 
 ```yaml
-suites:
-- name: 'Hello'
-  headless: true
+  suites:
+    - name: "Hello"
+      headless: true
 ```
 
 ---
@@ -993,8 +993,8 @@ To split tests in the most efficient way possible, use:
 
 ```yaml
 suites:
-- name: 'I am sharded'
-  shard: spec
+  - name: "I am sharded"
+    shard: spec
 ```
 
 ---
@@ -1010,7 +1010,7 @@ Setting `0` reverts to the value set in `defaults`.
 :::
 
 ```yaml
-timeout: 15m
+  timeout: 15m
 ```
 
 ---
@@ -1026,8 +1026,8 @@ There is a 300-second limit for all `preExec` commands to complete.
 :::
 
 ```yaml
-preExec:
-- node ./scripts/pre-execution-script.js
+  preExec:
+    - node ./scripts/pre-execution-script.js
 ```
 
 ---
@@ -1039,5 +1039,5 @@ preExec:
 Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
 
 ```yaml
-timeZone: New_York
+  timeZone: New_York
 ```

@@ -76,8 +76,8 @@ Specifies any default settings for the project.
 
 ```yaml
 defaults:
-mode: docker
-timeout: 15m
+  mode: docker
+  timeout: 15m
 ```
 
 ---
@@ -89,7 +89,7 @@ timeout: 15m
 Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally on `docker`. At this time, the only supported value for this property for Puppeteer is `docker`.
 
 ```yaml
-mode: docker
+  mode: docker
 ```
 
 ---
@@ -101,7 +101,7 @@ mode: docker
 Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
 
 ```yaml
-timeout: 15m
+  timeout: 15m
 ```
 
 ---
@@ -114,15 +114,15 @@ The parent property containing all settings related to how tests are identified 
 
 ```yaml
 sauce:
-region: eu-central-1
-metadata:
-name: Testing Puppeteer Support
-tags:
-- e2e
-- release team
-- other tag
-build: GitHub Run $GITHUB_RUN_ID
-concurrency: 5
+  region: eu-central-1
+  metadata:
+    name: Testing Puppeteer Support
+    tags:
+      - e2e
+      - release team
+      - other tag
+    build: GitHub Run $GITHUB_RUN_ID
+  concurrency: 5
 ```
 
 ---
@@ -134,7 +134,7 @@ concurrency: 5
 Specifies through which Sauce Labs data center tests will run. Valid values are: `us-west-1` or `eu-central-1`.
 
 ```yaml
-region: eu-central-1
+  region: eu-central-1
 ```
 
 ---
@@ -147,13 +147,13 @@ The set of properties that allows you to provide additional information about yo
 
 ```yaml
 metadata:
-name: Testing Puppeteer Support
-build: RC 10.4.a
-tags:
-- e2e
-- release team
-- beta
-- featurex
+  name: Testing Puppeteer Support
+  build: RC 10.4.a
+  tags:
+    - e2e
+    - release team
+    - beta
+    - featurex
 ```
 
 ---
@@ -165,7 +165,7 @@ tags:
 Sets the maximum number of suites to execute at the same time. If the test defines more suites than the max, excess suites are queued and run in order as each suite completes.
 
 ```yaml
-concurrency: 5
+  concurrency: 5
 ```
 
 Alternatively, you can override the file setting at runtime by setting the concurrency flag as an inline parameter of the `saucectl run` command:
@@ -183,9 +183,9 @@ saucectl run --ccy 5
 A property containing one or more environment variables that are global for all tests suites in this configuration. Expanded environment variables are supported. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
 
 ```yaml
-env:
-hello: world
-my_var: $MY_VAR
+  env:
+    hello: world
+    my_var: $MY_VAR
 ```
 
 ---
@@ -198,8 +198,8 @@ The set of properties defining the specific Docker image and type your are using
 
 ```yaml
 docker:
-fileTransfer: copy
-image: saucelabs/stt-puppeteer-jest-node:<vX.X.X>
+  fileTransfer: copy
+  image: saucelabs/stt-puppeteer-jest-node:<vX.X.X>
 ```
 
 ---
@@ -214,7 +214,7 @@ Method in which to transfer test files into the docker container. Valid values a
 - `copy`: Copies files and folders into the docker container. If you run into permission issues, either due to docker or host settings, `copy` is the advised use case. See the [Docker documentation](https://docs.docker.com/engine/reference/builder/#copy) for more about the copy convention.
 
 ```yaml
-fileTransfer: copy
+  fileTransfer: copy
 ```
 
 ---
@@ -227,7 +227,7 @@ Specifies which docker image and version to use when running tests. Valid values
 `saucelabs/<framework-node>:<vX.X.X>`. See [Supported Testing Platforms](/web-apps/automated-testing/puppeteer#supported-testing-platforms) for Docker release notes related to Puppeteer.
 
 ```yaml
-image: saucelabs/stt-puppeteer-jest-node:< vX.X.X >
+  image: saucelabs/stt-puppeteer-jest-node:< vX.X.X >
 ```
 
 :::caution
@@ -243,11 +243,11 @@ Avoid using the `latest` tag for docker images, as advised in [this article](htt
 The directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Tailoring Your Test File Bundle](#tailoring-your-test-file-bundle) for more details. The following examples show the different relative options for setting this value.
 
 ```yaml
-rootDir: './' # Use the current directory
+  rootDir: "./" # Use the current directory
 ```
 
 ```yaml
-rootDir: 'packages/subpackage' # Some other package from within a monorepo
+  rootDir: "packages/subpackage" # Some other package from within a monorepo
 ```
 
 :::caution
@@ -264,10 +264,10 @@ A parent property specifying the configuration details for any `npm` dependencie
 
 ```yaml
 npm:
-registry: https://registry.npmjs.org
-packages:
-lodash: '4.17.20'
-'@babel/preset-typescript': '7.12'
+  registry: https://registry.npmjs.org
+  packages:
+    lodash: "4.17.20"
+    "@babel/preset-typescript": "7.12"
 ```
 
 ---
@@ -279,7 +279,7 @@ lodash: '4.17.20'
 Specifies the location of the npm registry source.
 
 ```yaml
-registry: https://registry.npmjs.org
+  registry: https://registry.npmjs.org
 ```
 
 ---
@@ -291,9 +291,9 @@ registry: https://registry.npmjs.org
 Specifies any NPM packages that are required to run tests and should, therefore, be included in the bundle. See [Including Node Dependencies](#including-node-dependencies).
 
 ```yaml
-packages:
-lodash: '4.17.20'
-'@babel/preset-typescript': '7.12'
+  packages:
+    lodash: "4.17.20"
+    "@babel/preset-typescript": "7.12"
 ```
 
 ---
@@ -306,9 +306,9 @@ Configures additional reporting capabilities provided by `saucectl`.
 
 ```yaml
 reporters:
-junit:
-enabled: true
-filename: saucectl-report.xml
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
 ```
 
 ---
@@ -321,9 +321,9 @@ The JUnit reporter gathers JUnit reports from all jobs and combines them into a 
 
 ```yaml
 reporters:
-junit:
-enabled: true
-filename: saucectl-report.xml
+  junit:
+    enabled: true
+    filename: saucectl-report.xml
 ```
 
 ---
@@ -336,10 +336,10 @@ The JSON reporter gathers test results from all jobs and combines them into a si
 
 ```yaml
 reporters:
-json:
-enabled: true
-filename: saucectl-report.json
-webhookURL: https://my-webhook-url
+  json:
+    enabled: true
+    filename: saucectl-report.json
+    webhookURL: https://my-webhook-url
 ```
 
 ---
@@ -351,7 +351,7 @@ webhookURL: https://my-webhook-url
 Toggles the reporter on/off.
 
 ```yaml
-enabled: true
+    enabled: true
 ```
 
 ---
@@ -363,7 +363,7 @@ enabled: true
 Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST with a JSON payload to the configured webhook URL.
 
 ```yaml
-webhookURL: https://my-webhook-url
+    webhookURL: https://my-webhook-url
 ```
 
 ---
@@ -375,7 +375,7 @@ webhookURL: https://my-webhook-url
 Specifies the report filename. Defaults to "saucectl-report.json".
 
 ```yaml
-filename: my-saucectl-report.json
+    filename: my-saucectl-report.json
 ```
 
 ---
@@ -388,12 +388,12 @@ Specifies how to manage test artifacts, such as logs, videos, and screenshots.
 
 ```yaml
 artifacts:
-cleanup: true
-download:
-when: always
-match:
-- junit.xml
-directory: ./artifacts/
+  cleanup: true
+  download:
+    when: always
+    match:
+      - junit.xml
+    directory: ./artifacts/
 ```
 
 ---
@@ -405,7 +405,7 @@ directory: ./artifacts/
 When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
 
 ```yaml
-cleanup: true
+  cleanup: true
 ```
 
 ---
@@ -417,11 +417,11 @@ cleanup: true
 Specifies the settings related to downloading artifacts from tests run by `saucectl`.
 
 ```yaml
-download:
-when: always
-match:
-- junit.xml
-directory: ./artifacts/
+  download:
+    when: always
+    match:
+      - junit.xml
+    directory: ./artifacts/
 ```
 
 ---
@@ -438,7 +438,7 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 - `fail`: Download artifacts for failed suites only.
 
 ```yaml
-when: always
+    when: always
 ```
 
 ---
@@ -450,9 +450,9 @@ when: always
 Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
 
 ```yaml
-match:
-- junit.xml
-- '*.log'
+  match:
+    - junit.xml
+    - "*.log"
 ```
 
 ---
@@ -464,7 +464,7 @@ match:
 Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. The name of the subdirectory will match the suite name. If a directory with the same name already exists, the new one will be suffixed by a serial number.
 
 ```yaml
-directory: ./artifacts/
+    directory: ./artifacts/
 ```
 
 ---
@@ -477,11 +477,11 @@ Specifies how to set up automatic test result alerts.
 
 ```yaml
 notifications:
-slack:
-channels:
-- 'saucectl-results'
-- 'ppt-tests'
-send: always
+  slack:
+    channels:
+      - "saucectl-results"
+      - "ppt-tests"
+    send: always
 ```
 
 ---
@@ -493,9 +493,9 @@ send: always
 Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/basics/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
 
 ```yaml
-slack:
-channels: 'saucectl-ppt-tests'
-send: always
+  slack:
+    channels: "saucectl-ppt-tests"
+    send: always
 ```
 
 ---
@@ -507,11 +507,11 @@ send: always
 The set of Slack channels to which the test result notifications are to be sent.
 
 ```yaml
-slack:
-channels:
-- 'saucectl-results'
-- 'ppt-team'
-send: always
+  slack:
+    channels:
+      - "saucectl-results"
+      - "ppt-team"
+    send: always
 ```
 
 ---
@@ -528,9 +528,9 @@ Specifies when and under what circumstances to send notifications to specified S
 - `fail`: Send notifications for failed suites only.
 
 ```yaml
-slack:
-channels: 'saucectl-ppt-tests'
-send: always
+  slack:
+    channels: "saucectl-ppt-tests"
+    send: always
 ```
 
 ---
@@ -543,7 +543,7 @@ The parent property containing the details specific to the Puppeteer project.
 
 ```yaml
 puppeteer:
-version: 9.1.1
+  version: 9.1.1
 ```
 
 ---
@@ -555,7 +555,7 @@ version: 9.1.1
 The version of Puppeteer that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/puppeteer#supported-testing-platforms) for the list of Puppeteer versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
-version: 9.1.1
+  version: 9.1.1
 ```
 
 :::tip
@@ -581,7 +581,7 @@ The set of properties providing details about the test suites to run. May contai
 The name of the test suite, which will be reflected in the results and related artifacts.
 
 ```yaml
-- name: 'saucy test'
+  - name: "saucy test"
 ```
 
 ---
@@ -593,9 +593,9 @@ The name of the test suite, which will be reflected in the results and related a
 A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
 
 ```yaml
-env:
-hello: world
-my_var: $MY_VAR
+  env:
+    hello: world
+    my_var: $MY_VAR
 ```
 
 ---
@@ -608,7 +608,7 @@ The name of the browser in which to run this test suite.
 Available browser names: `chrome` and `firefox`.
 
 ```yaml
-browser: 'chrome'
+    browser: "chrome"
 ```
 
 ---
@@ -620,8 +620,8 @@ browser: 'chrome'
 A set of any ephemeral/environment variables needed to run the tests in this suite, which might take any of the following formats: _string_ | _int_ | _float_ | _boolean_.
 
 ```yaml
-env:
-hello: world
+      env:
+        hello: world
 ```
 
 ---
@@ -633,7 +633,7 @@ hello: world
 One or more paths to the puppeteer test files to run for this suite. Regex values are supported to indicate all files of a certain type or in a certain directory, etc. If your tests are in TypeScript, you must [transpile them to JavaScript](#transpiling-typescript-tests).
 
 ```yaml
-testMatch: ['**/*.js']
+    testMatch: ["**/*.js"]
 ```
 
 ---
@@ -651,7 +651,7 @@ Setting `0` reverts to the value set in `defaults`.
 :::
 
 ```yaml
-timeout: 15m
+  timeout: 15m
 ```
 
 ### `browserArgs`
@@ -661,7 +661,7 @@ timeout: 15m
 Pass flags to configure how TestCafe launches the selected browser. Review supported flags for [Chrome/Chromium](https://peter.sh/experiments/chromium-command-line-switches/)
 
 ```yaml
-browserArgs: ['--no-sandbox', '--disable-features=site-per-process']
+    browserArgs: ["--no-sandbox", "--disable-features=site-per-process"]
 ```
 
 ---
@@ -673,7 +673,7 @@ browserArgs: ['--no-sandbox', '--disable-features=site-per-process']
 Execute specific groups of tests with puppeteer runner.
 
 ```yaml
-groups: ['group1', 'group2']
+    groups: ["group1", "group2"]
 ```
 
 ---
@@ -850,11 +850,10 @@ If your Puppeteer tests are in TypeScript, you need to transpile your Typescript
    ```bash
    tsc --project ./tests/tsconfig.json
    ```
-
 4. Edit the `testMatch` properties for each of your test suites in `.sauce/config.yml` to call the JavaScript test files instead of the TypeScript files.
 
    ```yaml
    suites:
-   - name: 'basic test'
-     testMatch: ['tests/*.js']
+     - name: "basic test"
+       testMatch: ['tests/*.js']
    ```

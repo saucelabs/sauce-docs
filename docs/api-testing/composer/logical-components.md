@@ -45,13 +45,13 @@ Allows you to iterate over a collection of elements and execute the piece of cod
 
 <img src={useBaseUrl('img/api-testing/1each.png')} alt="1each.png"/>
 
-The `for each 'legs' collection` checks if `vector` item is an integer value.
+The **for each 'legs'** collection checks if `vector` item is an integer value.
 
 If a collection is nested in another one, you need to refer to them as `_1`, `_2`, and so on.
 
 <img src={useBaseUrl('img/api-testing/nestedEach.png')} alt="nestedEach.png"/>
 
-The `for each payload.content.flights` collection checks if `price.amount` is an integer. Then, the `for each legs` array, a nested collection within the flights collection, checks if vector item is an integer value.
+The **for each payload.content.flights** collection checks if `price.amount` is an integer. Then, the **for each legs** array, a nested collection within the flights collection, checks if vector item is an integer value.
 
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
