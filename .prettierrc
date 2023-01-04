@@ -38,6 +38,6 @@
   "printWidth": 80,
   "semi": true,
   "trailingComma": "es5",
-  "jsxSingleQuote": true,
-  "singleQuote": true
+  "jsxSingleQuote": false,
+  "singleQuote": false
 }
