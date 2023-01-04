@@ -41,6 +41,8 @@ Biometrics test support in Sauce Labs is not intended to test actual biometrics 
 | Espresso (Android)             |             |   &#x2715;    |
 | XCUITest (iOS)                 |             |   &#x2715;    |
 
+<sup>1</sup> Automated testing only.
+
 :::note Not Supported
 
 - <small>Mobile browsers and pre-installed system apps.</small>
