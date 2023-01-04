@@ -55,7 +55,7 @@ Biometric Authentication is available for testing on all Sauce Labs Android and 
 
 For Android devices, there are multiple ways to configure biometrics. From API 28 and above we support the following:
 
-* [`BiometricManager`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager) provides APIs to query if the app can authenticate and list of [Authenticators](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Authenticators).
+* [`BiometricManager`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager) provides APIs to query if the app can authenticate and a list of [Authenticators](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Authenticators).
 * [`BiometricPrompt`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt) provides a user interface in the form of a dialog which is used the user to provide the finger touch and the call [`BiometricPrompt.AuthenticationCallback`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt.AuthenticationCallback) provides the response of the fingerprint Authentication.
 
 ### iOS Biometrics
