@@ -182,9 +182,9 @@ In this method, you copy an existing body and paste it into the call.
 
   ```json
   {
-   "user":"${user}",
-   "password":"${password}",
-   "url":"http://www.testme.com/api/run/test"
+   "user": "${user}",
+   "password": "${password}",
+   "url": "http://www.testme.com/api/run/test"
   }
   ```
 
