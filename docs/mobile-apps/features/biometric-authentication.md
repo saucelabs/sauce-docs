@@ -21,6 +21,8 @@ Biometrics test support in Sauce Labs is not intended to test actual biometrics 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 - Your mobile app file. If you don't have one on hand, consider using our [React Native Demo App](https://github.com/saucelabs/my-demo-app-rn/releases).
 
+## Limitations
+
 |                                |  Supported  | Not Supported |
 | :----------------------------- | :---------: | :-----------: |
 | **Device Type **               |             |               |
