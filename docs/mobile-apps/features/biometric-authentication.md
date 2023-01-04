@@ -44,11 +44,9 @@ Biometrics test support in Sauce Labs is not intended to test actual biometrics 
 <sup>1</sup> Automated testing only.
 
 :::note Not Supported
-
-- <small>Mobile browsers and pre-installed system apps.</small>
-- <small> Cross platform development frameworks like Flutter, React Native, Cordova (libraries and frameworks are not supported. 
-- <small>Ephemeral apps.</small>
-
+* Mobile browsers and pre-installed system apps.
+* Cross-platform development frameworks like Flutter, React Native, and Cordova (libraries and frameworks are not supported). 
+* Ephemeral apps.
 :::
 
 ## Live Testing
