@@ -21,11 +21,9 @@ Your account will be named **My Account** temporarily until you name your accoun
 
 :::
 
-
 ## 2. User Roles
 
 Before you create a team, it is useful to understand the different user roles in Screener. The table below identifies the features that are accessible for each role.
-
 
 <table>
   <tr>
@@ -114,7 +112,6 @@ Before you create a team, it is useful to understand the different user roles in
   </tr>
 </table>
 
-
 Every Screener user has an individual account and will be the **Account Owner** for their own account. When a user is added to a team in another user's account, they will have access to the project(s) as defined by their role in the team.
 
 When a user is added as an **Administrator**, this user will have access to all projects within the account. There is no option to add a specific project to the team that has an Administrator role. Administrators have access to add/edit/delete projects.
@@ -132,7 +129,6 @@ To add a new Team, click on the **+ Team** button.
 Enter a team name, select the appropriate user role, and click **Save**.
 
 <img src={useBaseUrl('img/visual/e2e-add-team.png')} alt="E2E Add Team" />
-
 
 ## 4. Add Users to a Team
 
@@ -152,8 +148,6 @@ You will see the user added to the list. For new users, you will see **To Be Inv
 For new users who are invited to join Screener, they will receive an invitation email. They can follow the instructions in the email to complete the registration process. When they are registered, they will have access to your project(s).
 
 :::
-
-
 
 ## 5. Assign Projects to a Team
 

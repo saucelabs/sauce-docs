@@ -49,6 +49,7 @@ Returns the list of files that have been uploaded to Sauce Storage.
 ## Options Details
 
 ### <span className="cli">--name</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -59,9 +60,11 @@ The filename (case-insensitive) by which you want to filter.
 ```bash
 saucectl storage list --name app.apk
 ```
+
 </div>
 
 ### <span className="cli">--out</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -72,9 +75,11 @@ Output format to the console. Options are `text` (default) and `json`.
 ```bash
 saucectl storage list --out json
 ```
+
 </div>
 
 ### <span className="cli">--query</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -85,9 +90,11 @@ Any search term (such as app name, file name, description, build number or versi
 ```bash
 saucectl storage list --query myapp
 ```
+
 </div>
 
 ### <span className="cli">--region</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -98,4 +105,5 @@ The Sauce Labs region. Options are `us-west-1` (default) and `eu-central-1`.
 ```bash
 saucectl storage list --region us-west-1
 ```
+
 </div>

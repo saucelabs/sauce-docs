@@ -3,16 +3,16 @@ id: expression-language-extensions
 title: Expression Language Extensions
 sidebar_label: Expression Language Extensions
 keywords:
-    - api
-    - api-fortress
-    - expression-language-extensions
+- api
+- api-fortress
+- expression-language-extensions
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 ## Preamble
 
@@ -46,7 +46,7 @@ This is the main extension. It supports many useful functions.
 
   ```groovy
   WSUtil.composeUrl('http://www.testurlwhatever.com/index',['page':1] )
-  ```  
+  ```
 
   Returns **http://www.testurlwhatever.com/index?page=1**
 
@@ -55,6 +55,7 @@ This is the main extension. It supports many useful functions.
   ```
 
   Returns:
+
   ```
   http://www.testurlwhatever.com/index?offset=5&page=1
   ```
@@ -64,7 +65,7 @@ This is the main extension. It supports many useful functions.
 
   ```groovy
   WSUtil.contains('banana', payload.fruit.name)
-  ```  
+  ```
 
 - **isInteger(string: String) , isFloat(string: String), isUrl(string: String), isEmail(string: String), isPhoneNumber(string: String), isBoolean(string: String), isArray(object: Object), isMap(object: Object), isCreditCard(string: String) : Boolean :** evaluate the nature of a data item
 
@@ -82,7 +83,7 @@ Utility functions for numbers.
 
   ```groovy
   N.random(10,30,5)
-  ```  
+  ```
 
 ### `D`
 
@@ -102,34 +103,36 @@ Plays with dates.
 
 Here's the conversion map for formats:
 
- Symbol  Meaning                      Presentation  Examples
- ------ ------- ------------ -------
- G       era                          text          AD
- C       century of era (>=0)         number        20
- Y       year of era (>=0)            year          1996
+Symbol Meaning Presentation Examples
 
- x       weekyear                     year          1996
- w       week of weekyear             number        27
- e       day of week                  number        2
- E       day of week                  text          Tuesday; Tue
+---
 
- y       year                         year          1996
- D       day of year                  number        189
- M       month of year                month         July; Jul; 07
- d       day of month                 number        10
+G era text AD
+C century of era (>=0) number 20
+Y year of era (>=0) year 1996
 
- a       halfday of day               text          PM
- K       hour of halfday (0~11)       number        0
- h       clockhour of halfday (1~12)  number        12
+x weekyear year 1996
+w week of weekyear number 27
+e day of week number 2
+E day of week text Tuesday; Tue
 
- H       hour of day (0~23)           number        0
- k       clockhour of day (1~24)      number        24
- m       minute of hour               number        30
- s       second of minute             number        55
- S       fraction of second           millis        978
+y year year 1996
+D day of year number 189
+M month of year month July; Jul; 07
+d day of month number 10
 
- z       time zone                    text          Pacific Standard Time; PST
- Z       time zone offset/id          zone          -0800; -08:00; America/Los\_Angeles
+a halfday of day text PM
+K hour of halfday (0~11) number 0
+h clockhour of halfday (1~12) number 12
+
+H hour of day (0~23) number 0
+k clockhour of day (1~24) number 24
+m minute of hour number 30
+s second of minute number 55
+S fraction of second millis 978
+
+z time zone text Pacific Standard Time; PST
+Z time zone offset/id zone -0800; -08:00; America/Los_Angeles
 
 ### `WSCrypto`
 

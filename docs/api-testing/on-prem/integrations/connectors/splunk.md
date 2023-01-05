@@ -1,23 +1,23 @@
 ---
 id: splunk
-title: "Connectors: Splunk"
+title: 'Connectors: Splunk'
 sidebar_label: Splunk
 keywords:
-    - api-testing
-    - integrations
-    - splunk
-    - connectors
+- api-testing
+- integrations
+- splunk
+- connectors
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Using the connector, you can send test execution information to Splunk then use that data to create visualizations.  
+Using the connector, you can send test execution information to Splunk then use that data to create visualizations.
 
 Below is a quick guide to setting up and using the Splunk connector.
 
@@ -46,8 +46,9 @@ Note: You can click on the screenshots to zoom in.
 
 6. Configure the connector  
    <img src={useBaseUrl('img/api-fortress/2020/04/6.-configure-splunk-connector.png')} alt="6.-configure-splunk-connector.png"/>
-   1. `url` - this is the url for "http event collector" generated in [Splunk platform](https://docs.splunk.com/Documentation/SplunkCloud/8.0.2003/Data/UsetheHTTPEventCollector#Configure\_HTTP\_Event\_Collector\_on\_self-service\_Splunk\_Cloud). Please include the port number in the url, but do not include the endpoint.  
-   2. `hec_token` - this is the token generated for the "http event collector"  
+
+   1. `url` - this is the url for "http event collector" generated in [Splunk platform](https://docs.splunk.com/Documentation/SplunkCloud/8.0.2003/Data/UsetheHTTPEventCollector#Configure_HTTP_Event_Collector_on_self-service_Splunk_Cloud). Please include the port number in the url, but do not include the endpoint.
+   2. `hec_token` - this is the token generated for the "http event collector"
 
 7. Go into project settings for a project you would like Splunk connector set up for  
    <img src={useBaseUrl('img/api-fortress/2020/04/7.-splunk-project-settings.png')} alt="7.-splunk-project-settings.png"/>
@@ -63,10 +64,10 @@ You can create a dataset table of your executions like so:
 You can also use the data to create visualizations like below:  
 <img src={useBaseUrl('img/api-fortress/2020/04/9.-dashboard-chart.png')} alt="9.-dashboard-chart.png"/>
 
-In this example, you can see all the tests executed, and the "blue" bar is the total number of successful runs whereas the "green" bar shows the total number of failed runs.  
+In this example, you can see all the tests executed, and the "blue" bar is the total number of successful runs whereas the "green" bar shows the total number of failed runs.
 
 ### Video Example
 
 You can also watch a video walk through of the integration below.
 
-[![Splunk Video](https://i.imgur.com/Qx7hMPk.png)](https://player.vimeo.com/video/414869023 "Splunk Video - Click to Watch!")
+[![Splunk Video](https://i.imgur.com/Qx7hMPk.png)](https://player.vimeo.com/video/414869023 'Splunk Video - Click to Watch!')

@@ -3,6 +3,7 @@ id: config-okta
 title: Configuring Okta
 sidebar_label: Configuring Okta
 ---
+
 1. Log in to **Okta** with administrator credentials.
 2. On the **Applications** tab, search for and select the **Sauce Labs** application.
 3. Click **Add**.

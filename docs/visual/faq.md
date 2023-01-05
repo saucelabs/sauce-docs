@@ -11,7 +11,9 @@ import TabItem from '@theme/TabItem';
 ## General
 
 ### Can I revert a recently accepted snapshot?
+
 Yes. After accepting a snapshot, you can revert its acceptance before running another build:
+
 1. Go to the **State Detail** page.
 2. Click on the **Accepted** status dropdown.
 3. Select **Revert**.<br/>
@@ -24,7 +26,7 @@ You will need to trigger the lazy-loaded content so that it loads and displays i
 For example, if content is loaded based on scrolling down to a particular section of your web page, then you will need to scroll to that section using JavaScript:
 
 ```js
-window.scroll(0, 1000);
+window.scroll(0, 1000)
 ```
 
 ### Why is my screenshot not showing as a full page?
@@ -43,18 +45,18 @@ If the overflow style on the body is "hidden", then the client could execute the
 document.body.style.overflow = 'auto'
 ```
 
-
 ### What happens if my page has broken HTML tags?
 
 Sauce Visual assumes that there are no broken HTML tags on your pages and will not check for this.
 
-
 ## Visual E2E
 
 ### What Sauce Labs browsers are supported by Visual E2E?
+
 Visual E2E is unified with Sauce VMs, and uses Sauce browsers exclusively. For a full list, see [Visual E2E Supported Browsers and Operation Systems](https://docs.saucelabs.com/visual/e2e-testing/supported-browsers).
 
 ### How do I test smaller mobile web viewport sizes for responsive design testing?
+
 This can be done by setting [`viewportSize` in your `sauce:visual` capabilities](/visual/e2e-testing/commands-options/#saucevisual-capability-options).
 
 ### How do I run functional tests only after integrating Visual E2E?
@@ -62,27 +64,28 @@ This can be done by setting [`viewportSize` in your `sauce:visual` capabilities]
 If you want to run functional tests only, you do not need to modify any of your visual integration code. Just change your WebDriver endpoint from `hub.screener.io` to `ondemand.saucelabs.com`.
 
 ### Does Screener capture `iframes`?
+
 Yes &#8212; look for [`iframes`](/visual/e2e-testing/commands-options) and [`iframesOptions`](/visual/e2e-testing/commands-options).
-
-
 
 ## Component Testing
 
 ### What Storybook versions are supported?
+
 screener-storybook supports Storybook version 3.0 to 6.x (latest).
 
 ### Why is Screener not picking up data from my CI build?
+
 For screener-storybook and screener-runner tests run within a CI tool, Screener will automatically set build, branch, and commit options if you are using one of the CI tools below. It works by pulling data from environment variables in the CI job.
 
 <Tabs
-  defaultValue="Jenkins"
-  values={[
-    {label: 'Jenkins', value: 'Jenkins'},
-    {label: 'CircleCI', value: 'CircleCI'},
-    {label: 'TravisCI', value: 'TravisCI'},
-    {label: 'Visual Studio', value: 'Visual Studio'},
-    {label: 'Codeship', value: 'Codeship'},
-  ]}>
+defaultValue="Jenkins"
+values={[
+{label: 'Jenkins', value: 'Jenkins'},
+{label: 'CircleCI', value: 'CircleCI'},
+{label: 'TravisCI', value: 'TravisCI'},
+{label: 'Visual Studio', value: 'Visual Studio'},
+{label: 'Codeship', value: 'Codeship'},
+]}>
 
 <TabItem value="Jenkins">
 
@@ -125,16 +128,15 @@ https://github.com/screener-io/screener-runner/blob/master/src/ci.js#L54-L60
 </TabItem>
 </Tabs>
 
-
 <Tabs
-  defaultValue="GitLabCI"
-  values={[
-    {label: 'GitLabCI', value: 'GitLabCI'},
-    {label: 'Drone', value: 'Drone'},
-    {label: 'Bitbucket', value: 'Bitbucket'},
-    {label: 'Semaphore', value: 'Semaphore'},
-    {label: 'Buildkite', value: 'Buildkite'},
-  ]}>
+defaultValue="GitLabCI"
+values={[
+{label: 'GitLabCI', value: 'GitLabCI'},
+{label: 'Drone', value: 'Drone'},
+{label: 'Bitbucket', value: 'Bitbucket'},
+{label: 'Semaphore', value: 'Semaphore'},
+{label: 'Buildkite', value: 'Buildkite'},
+]}>
 
 <TabItem value="GitLabCI">
 
@@ -176,9 +178,11 @@ https://github.com/screener-io/screener-runner/blob/master/src/ci.js#L94-L100
 If these environment variables are NOT accessible in the build, the reason is most likely that the CI is running the test job inside a separate container, and the variables need to be passed into the container.
 
 ### How do I add Screener Steps to Storybook Component Story Format (CSF) stories?
+
 Screener Storybook supports version 3.0 to 6.x (latest) and [CSF](https://storybook.js.org/docs/react/api/csf)-formatted stories. To see examples, refer to [GitHub Gist | Three ways to add Screener Steps to a React Component in Storybook to CSF](https://gist.github.com/screener-io/dfbd4b9aa5284e555ea83c936fc0b2ba).
 
 ### How do I add Screener Steps to my Storybook project that uses React Hooks?
+
 React Hooks messes up using the Screener component because it executes its magic at runtime. So to use Screener Steps with React Hooks, you need to use Storybook Decorators to wrap the component story. Here is an example script: [Storybook + Screener Steps with Hooks](https://gist.github.com/screener-io/ada0e3c51137c907ba80728ad7fab23b).
 
 ### Does Sauce Visual interact with knobs within stories in Storybook and test as needed?
@@ -204,10 +208,11 @@ Click on the copy button in the lower right, then paste into an editor, then cop
 2. After running with the debug flag, reach out to the Sauce Labs Support Team and provide them with your log output.
 
 If the following logs are found, it means that Puppeteer could not be launched because of missing dependencies:
-  ```txt
-  Error: Failed to launch chrome!
-  /node-packages/kanan_ui/node_modules/puppeteer/.local-chromium/linux-662092/chrome-linux/chrome: error while loading shared libraries: libX11-xcb.so.1: cannot open shared object file: No such file or directory
-  ```
+
+```txt
+Error: Failed to launch chrome!
+/node-packages/kanan_ui/node_modules/puppeteer/.local-chromium/linux-662092/chrome-linux/chrome: error while loading shared libraries: libX11-xcb.so.1: cannot open shared object file: No such file or directory
+```
 
 The [Troubleshooting for Puppeteer documentation](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md) contains info on how to resolve this for various environments, such as TravisCI and CircleCI.
 

@@ -117,7 +117,6 @@ You can narrow the results of your query using any of the optional filtering par
   </tbody>
 </table>
 
-
 <Tabs
 groupId="dc-url"
 defaultValue="us"
@@ -202,6 +201,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     ]
 }
 ```
+
 </details>
 
 ---
@@ -233,7 +233,6 @@ Retrieve the details related to a specific build by passing its unique ID in the
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -314,6 +313,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "team_id": "64e0d884a79b4f81ba6bc1025c10eb63"
 }
 ```
+
 </details>
 
 ---
@@ -345,7 +345,6 @@ Retrieves the build details for a known job.
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -426,6 +425,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "team_id": "98b9f34e596047d99abba56f517846a9"
 }
 ```
+
 </details>
 
 ---
@@ -564,7 +564,6 @@ Returns information about all jobs associated with the specified build. You can 
   </tbody>
 </table>
 
-
 <Tabs
 groupId="dc-url"
 defaultValue="us"
@@ -645,6 +644,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     ]
 }
 ```
+
 </details>
 
 ---

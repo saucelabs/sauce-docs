@@ -15,8 +15,8 @@ import TabItem from '@theme/TabItem';
 
 The Sauce Labs Slack app allows you to easily share your test results in Slack. You can:
 
-* Share a test result link in Slack, and it automatically expands to show the test summary
-* Configure `saucectl` to automatically post test result notifications to selected channels in Slack
+- Share a test result link in Slack, and it automatically expands to show the test summary
+- Configure `saucectl` to automatically post test result notifications to selected channels in Slack
 
 :::note
 The Slack integration is supported for a single workspace. If your organization has other workspaces, the Slack integration will not work.
@@ -24,10 +24,9 @@ The Slack integration is supported for a single workspace. If your organization 
 
 ## What You'll Need
 
-* A Sauce Labs account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
-* A [Slack](https://slack.com/) workspace
-
+- A Sauce Labs account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- A [Slack](https://slack.com/) workspace
 
 ## Install the Sauce Slack App for Your Organization
 
@@ -61,31 +60,33 @@ Setting up automatic notifications from `saucectl` requires you to first add the
 
 1. In your Slack workspace, select the channel from the sidebar.
 1. Click the dropdown at the end of the channel title to access the settings menu for the channel.
-    <img src={useBaseUrl('img/integrations/slack/set-channel-details.png')} alt="Set Channel Details" width="600"/>
+   <img src={useBaseUrl('img/integrations/slack/set-channel-details.png')} alt="Set Channel Details" width="600"/>
 1. Select the **Integrations** tab, then the **Add an App** button.
 1. Click the **Add** button for the Sauce Labs app to enable notifications for the channel.
 
 ### Configure Notifications from `saucectl`
 
 1. In the `config.yaml` file that defines your [`saucectl` test configuration settings](/dev/cli/saucectl/init), add the `notifications.slack` property.
-    ```yml
-    notifications:
-      slack:
-        channels:
-          - "saucectl-results"
-          - "cypress-tests"
-        send: always
-    ```
-    Make sure you have [added the app to the channels](#add-the-sauce-app-to-notification-channels) you specify in your configuration. Otherwise, `saucectl` will return an error at the completion of your test stating that the app is not in the channel:
 
-    <img src={useBaseUrl('img/integrations/slack/not-in-channel-error.png')} alt="No App in Channel Error" width="900"/>
+   ```yml
+   notifications:
+   slack:
+   channels:
+   - 'saucectl-results'
+   - 'cypress-tests'
+   send: always
+   ```
+
+   Make sure you have [added the app to the channels](#add-the-sauce-app-to-notification-channels) you specify in your configuration. Otherwise, `saucectl` will return an error at the completion of your test stating that the app is not in the channel:
+
+   <img src={useBaseUrl('img/integrations/slack/not-in-channel-error.png')} alt="No App in Channel Error" width="900"/>
 
 1. Specify the names of one or more channels in your Slack workspace to which you want the test results sent.
 1. Specify when to send notifications to specified Slack channels. Valid values are:
-    * `always`: Send notifications for all test results.
-    * `never`: Do not send any test result notifications.
-    * `pass`: Send notifications for passing suites only.
-    * `fail`: Send notifications for failed suites only.
+   - `always`: Send notifications for all test results.
+   - `never`: Do not send any test result notifications.
+   - `pass`: Send notifications for passing suites only.
+   - `fail`: Send notifications for failed suites only.
 
 When you run your tests with the notifications configuration applied, any completed test suites that match your criteria trigger a notification in your specified channels, as shown in the following illustration:
 
@@ -97,18 +98,18 @@ When test results are shared to Slack, they include the following details about 
 
 **Job Details**
 
-* The framework on which the test ran
-* The Build ID (if any) applied to the job
-* The username of the Sauce Labs account that executed the test
-* The date and time at which the job completed
+- The framework on which the test ran
+- The Build ID (if any) applied to the job
+- The username of the Sauce Labs account that executed the test
+- The date and time at which the job completed
 
 **Test Suite Details**
 
-* The result of the test suite
-* The name of test suite
-* The Operating System on which the test suite ran
-* The browser on which the test suite ran (web-app tests)
-* The device or emulator on which the test suite ran (mobile-app tests)
-* The duration of the test
+- The result of the test suite
+- The name of test suite
+- The Operating System on which the test suite ran
+- The browser on which the test suite ran (web-app tests)
+- The device or emulator on which the test suite ran (mobile-app tests)
+- The duration of the test
 
 In addition, the notifications include a color-coded sidebar for a quick indication of the test result; green if all suites in the job passed, and red if any of the the suites in the job failed.

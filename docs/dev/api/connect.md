@@ -14,10 +14,10 @@ To download Sauce Connect, see [Sauce Connect Installation](secure-connections/s
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
-
 ## What You'll Need
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 
 ### Get Tunnels for a User
 
@@ -27,7 +27,7 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 Returns Tunnel IDs or Tunnels Info for any currently running tunnels launched by or shared with the specified user.
 It also allows to filter tunnels using an optional "filter" parameter that may take the following values:
 
-- <code>filter=v2alpha</code>  - a response will contain only tunnels that were started with <code>--vm-version v2alpha</code>.
+- <code>filter=v2alpha</code> - a response will contain only tunnels that were started with <code>--vm-version v2alpha</code>.
 - <code>filter=one_per_pool</code> - a response will contain only one (arbitrary) tunnel per tunnel pool.
 
 #### Parameters
@@ -119,9 +119,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </table>
 
 ```jsx title="Sample Response to the default request"
-[
-    "28e7c8133ede4588a891666dd35af1f8"
-]
+;['28e7c8133ede4588a891666dd35af1f8']
 ```
 
 ```jsx title="Sample Response to the request with an optional parameter full=true"
@@ -165,6 +163,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     ]
 }
 ```
+
 </details>
 
 ---
@@ -241,7 +240,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </TabItem>
 </Tabs>
 
-
 #### Responses
 
 <table id="table-api">
@@ -284,6 +282,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "tunnel_identifier": "jim.smith_tunnel_id"
 }
 ```
+
 </details>
 
 ---
@@ -360,7 +359,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </TabItem>
 </Tabs>
 
-
 #### Responses
 
 <table id="table-api">
@@ -384,6 +382,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "jobs_running": 1
 }
 ```
+
 </details>
 
 ---
@@ -484,6 +483,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "jobs_running": 0
 }
 ```
+
 </details>
 
 ---

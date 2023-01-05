@@ -4,6 +4,7 @@ title: Comparing Statistical Trends
 sidebar_label: Trends
 description: See how grouping tests reveals outcome patterns across isolated variables, such as browser, operating system, or date to optimize your tests.
 ---
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The Trends section of the Insights feature provides a variety of data visualizations to give you a holistic perspective of your test outcomes. The following table describes each section.
@@ -37,7 +38,6 @@ The Trends section of the Insights feature provides a variety of data visualizat
     <td>A snapshot of all tests run during the time period, displayed in separate tabs based on whether the test is or is not assigned a Build ID.For each test listed, basic data about the time the test was executed, the time it took to run, the Sauce Labs user who ran it, and its outcome. Tests in the <b>Builds</b> tab have an additional statistic &mdash; <i>Efficiency</i> &mdash; that indicates whether the tests in the build run in parallel to optimize the execution time for the entire build.<br/>This visualization can be further filtered to show only tests with a failed and/or errored status.</td>
   </tr>
 </table>
-
 
 ## Drilling Down on Visualizations
 
@@ -73,9 +73,9 @@ The pass rate for these tests is lower than Chrome 55, at 32% and we still see a
 
 In summary, we see from this browser version comparison:
 
-* Overall coverage is consistent.
-* Test performance is good for both, with low error rates.
-* Site functionality is ambiguous for both browsers due to the high number of completed tests with no status.
+- Overall coverage is consistent.
+- Test performance is good for both, with low error rates.
+- Site functionality is ambiguous for both browsers due to the high number of completed tests with no status.
 
 #### Next Steps
 
@@ -97,27 +97,27 @@ The **Builds and Test Statistics** section of the **Trends** page provides an **
 
 The Efficiency metric is expressed as a percentage because it is based on how long the build took to run as compared to the duration of the longest test within it. For example, let's say that Build A contains four tests with these run times:
 
-|Test|Run Time|
-|---|---|
-|T1 |30 secs|
-|T2	|60 secs|
-|T3	|45 secs|
-|T4	|30 secs|
+| Test | Run Time |
+| ---- | -------- |
+| T1   | 30 secs  |
+| T2   | 60 secs  |
+| T3   | 45 secs  |
+| T4   | 30 secs  |
 
 In this build, T2 serves as the benchmark test because it takes the longest to run at 60 seconds. If the entire build takes 60 seconds to run, then it has achieved full efficiency, because all the tests are running in parallel, and the Efficiency metric would be 100%.
 
 Consider another example, Build B:
 
-|Test|Run Time|
-|---|---|
-|T1	|15 secs|
-|T2	|20 secs|
-|T3	|10 secs|
-|T4 |45 secs|
-|T5	|30 secs|
-|T7	|10 secs|
-|T8	|20 secs|
-|T9	|15 secs|
+| Test | Run Time |
+| ---- | -------- |
+| T1   | 15 secs  |
+| T2   | 20 secs  |
+| T3   | 10 secs  |
+| T4   | 45 secs  |
+| T5   | 30 secs  |
+| T7   | 10 secs  |
+| T8   | 20 secs  |
+| T9   | 15 secs  |
 
 In this example, T4 serves as the benchmark for the build efficiency, because it takes the longest to run at 45 seconds. However, even if the test has complete parallelization (the entire build runs in 45 seconds), given that the majority of the tests are considerably shorter than 45 seconds, the overall efficiency of this build is still not optimal. Reducing the run time of T4 (and even T5) would improve the build efficiency.
 
@@ -127,10 +127,10 @@ An Efficiency score of less than 100% means that the entire build took longer to
 
 The following table provides some guidance for how you might improve your build efficiency based on your score.
 
-|Efficiency|Degree of Parallelization|Guidance|
-|---|---|---------|
-|0%	|Sequential	|The build took as long to run as the sum of each run time of all the tests within it, which means that the tests ran in sequential order. Consider using a test framework to run your tests in parallel. |
-|1 - 90%	|Semi-parallel	|The build took less time to run than the sum of all test run times, which means that some tests ran in parallel and some ran in sequential order. Consider reorganizing your tests into small, atomic, and autonomous validations of very focused functionality to make sure they aren't dependent on one another to complete before they can execute.|
-|91 - 100%	|Parallel	|The build took approximately the same amount of time to run as the longest test within it, meaning that most, if not all, the tests ran simultaneously. You can still potentially improve the overall efficiency of your build by breaking your longer running tests into smaller, shorter tests, if possible. In the benchmarking example for Build A, if T2 could be broken down into two tests that ran for 30 seconds each, you would improve the efficiency of that build by 25%, since the longest running test within it would be 45 seconds instead of 60 seconds.|
+| Efficiency | Degree of Parallelization | Guidance                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ---------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0%         | Sequential                | The build took as long to run as the sum of each run time of all the tests within it, which means that the tests ran in sequential order. Consider using a test framework to run your tests in parallel.                                                                                                                                                                                                                                                                                                                                                                   |
+| 1 - 90%    | Semi-parallel             | The build took less time to run than the sum of all test run times, which means that some tests ran in parallel and some ran in sequential order. Consider reorganizing your tests into small, atomic, and autonomous validations of very focused functionality to make sure they aren't dependent on one another to complete before they can execute.                                                                                                                                                                                                                     |
+| 91 - 100%  | Parallel                  | The build took approximately the same amount of time to run as the longest test within it, meaning that most, if not all, the tests ran simultaneously. You can still potentially improve the overall efficiency of your build by breaking your longer running tests into smaller, shorter tests, if possible. In the benchmarking example for Build A, if T2 could be broken down into two tests that ran for 30 seconds each, you would improve the efficiency of that build by 25%, since the longest running test within it would be 45 seconds instead of 60 seconds. |
 
 See our [Short Tests in Parallel](https://saucelabs.com/blog/speeding-up-your-tests-short-tests-in-parallel) blog for a more comprehensive discussion about improving the speed and efficiency of your builds.

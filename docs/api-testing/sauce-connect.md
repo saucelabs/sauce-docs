@@ -9,110 +9,109 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabling you to test and monitor both internal and public APIs. If your APIs are behind a firewall on your private network, follow the steps below to launch a secure trusted connection between your network and Sauce Labs.
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username](https://app.saucelabs.com/user-settings) and [Access Key](https://app.saucelabs.com/user-settings).
-* Have the [Sauce Connect Proxy client installed](/secure-connections/sauce-connect/installation/) on your local machine. If you're new to the feature, check out the [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/).
-* An existing API Testing Project and Test. For details on how to create them, see [API Testing Quickstart](/api-testing/quickstart/).
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- Your Sauce Labs [Username](https://app.saucelabs.com/user-settings) and [Access Key](https://app.saucelabs.com/user-settings).
+- Have the [Sauce Connect Proxy client installed](/secure-connections/sauce-connect/installation/) on your local machine. If you're new to the feature, check out the [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/).
+- An existing API Testing Project and Test. For details on how to create them, see [API Testing Quickstart](/api-testing/quickstart/).
 
 ## Start API-Specific Tunnel
 
 1. First, you'll need to create a YAML configuration file. From a text editor or IDE, create a file called **api-config.yaml**, then copy and paste in the template below.
 
-  <Tabs
-      defaultValue="US Data Center"
-      values={[
-        {label: 'US Data Center', value: 'US Data Center'},
-        {label: 'EU Data Center', value: 'EU Data Center'},
-      ]}>
+<Tabs
+  defaultValue="US Data Center"
+  values={[
+    {label: 'US Data Center', value: 'US Data Center'},
+    {label: 'EU Data Center', value: 'EU Data Center'},
+  ]}>
 
   <TabItem value="US Data Center">
 
-  ```yaml
-  ---
-  rest-url: "https://api.us-west-4-i3er.saucelabs.com/rest/v1"
-  user: "$SAUCE_USERNAME"
-  api-key: "$SAUCE_ACCESS_KEY"
-  vm-version: "v2alpha"
-  tunnel-identifier: "$SAUCE_USERNAME_TUNNEL"
-  ```
+```yaml
+---
+rest-url: 'https://api.us-west-4-i3er.saucelabs.com/rest/v1'
+user: '$SAUCE_USERNAME'
+api-key: '$SAUCE_ACCESS_KEY'
+vm-version: 'v2alpha'
+tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
+```
 
   </TabItem>
   <TabItem value="EU Data Center">
 
-  ```yaml
-  ---
-  rest-url: "https://api.eu-west-3-lnbf.saucelabs.com/rest/v1"
-  user: "$SAUCE_USERNAME"
-  api-key: "$SAUCE_ACCESS_KEY"
-  vm-version: "v2alpha"
-  tunnel-identifier: "$SAUCE_USERNAME_TUNNEL"
-  ```
+```yaml
+---
+rest-url: 'https://api.eu-west-3-lnbf.saucelabs.com/rest/v1'
+user: '$SAUCE_USERNAME'
+api-key: '$SAUCE_ACCESS_KEY'
+vm-version: 'v2alpha'
+tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
+```
 
   </TabItem>
   </Tabs>
 
 2. In the **api-config.yaml** file:
-   * Leave the `rest-url` and `vm-version` values as-is
-   * Set the `user` and `api-key` values as your own Sauce username and access key, respectively
-   * Set the `tunnel-identifier` value to whatever you'd like to name your tunnel
+   - Leave the `rest-url` and `vm-version` values as-is
+   - Set the `user` and `api-key` values as your own Sauce username and access key, respectively
+   - Set the `tunnel-identifier` value to whatever you'd like to name your tunnel
 3. Save the **api-config.yaml** file to the Sauce Connect Proxy root folder on your local machine. <br/>
-  <img src={useBaseUrl('img/api-fortress/2021/09/sauceconnect-folders.png')} alt="API Testing Sauce Connect folder structure" width="350" />
+   <img src={useBaseUrl('img/api-fortress/2021/09/sauceconnect-folders.png')} alt="API Testing Sauce Connect folder structure" width="350" />
 4. Open your terminal and navigate to the Sauce Connect Proxy folder. If your folder is in your home directory, you'd run:
 
-  <Tabs
-    defaultValue="Mac/Linux"
-    values={[
-      {label: 'Mac/Linux', value: 'Mac/Linux'},
-      {label: 'Windows', value: 'Windows'},
-    ]}>
+<Tabs
+  defaultValue="Mac/Linux"
+  values={[
+    {label: 'Mac/Linux', value: 'Mac/Linux'},
+    {label: 'Windows', value: 'Windows'},
+  ]}>
 
   <TabItem value="Mac/Linux">
 
-  ```bash
-  cd sc-4.8.2-osx
-  ```
+```bash
+cd sc-4.8.2-osx
+```
 
   </TabItem>
   <TabItem value="Windows">
 
-  ```bash
-  cd C:\sc-4.8.2-win32
-  ```
+```bash
+cd C:\sc-4.8.2-win32
+```
+
   </TabItem>
   </Tabs>
 
 5. Start your tunnel by issuing:
 
-  <Tabs
-    defaultValue="Mac/Linux"
-    values={[
-      {label: 'Mac/Linux', value: 'Mac/Linux'},
-      {label: 'Windows', value: 'Windows'},
-    ]}>
+<Tabs
+  defaultValue="Mac/Linux"
+  values={[
+    {label: 'Mac/Linux', value: 'Mac/Linux'},
+    {label: 'Windows', value: 'Windows'},
+  ]}>
 
   <TabItem value="Mac/Linux">
 
-  ```bash
-  bin/sc -c api-config.yaml
-  ```
+```bash
+bin/sc -c api-config.yaml
+```
 
   </TabItem>
   <TabItem value="Windows">
 
-   ```bash
-  bin\sc.exe -c api-config.yaml
-  ```
+```bash
+bin\sc.exe -c api-config.yaml
+```
+
   </TabItem>
   </Tabs>
 
-
-  If the tunnel was launched successfully, you'll see a [CLI response](/secure-connections/sauce-connect/proxy-tunnels/#command-line-interface) indicating that you can start your tests.
-
+If the tunnel was launched successfully, you'll see a [CLI response](/secure-connections/sauce-connect/proxy-tunnels/#command-line-interface) indicating that you can start your tests.
 
 ## Configure Test to Use Tunnel
 
@@ -130,6 +129,7 @@ This feature does not apply to the **HTTP Client** or **Schedule** tabs, where t
 If you shut down a tunnel that's currently selected in a Sauce Connect dropdown anywhere in the platform (**Tests**, **Compose**, **HTTP Client**, or **Schedule** tab), the test would fail and you'd see the below error message. This is something to be mindful of when selecting a tunnel in the **Schedule** tab to run in the future.
 
 <img src={useBaseUrl('img/api-fortress/2021/12/api-sc-tunnel-error.png')} alt="API Testing Sauce Connect Nav error" width="350"/>
+
 </details>
 
 :::
@@ -140,5 +140,5 @@ If you shut down a tunnel that's currently selected in a Sauce Connect dropdown 
 
 ## More Information
 
-* [Using Sauce Connect Proxy](/secure-connections/sauce-connect)
-* [Specialized Sauce Connect Proxy Setups](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#api-testing-setup)
+- [Using Sauce Connect Proxy](/secure-connections/sauce-connect)
+- [Specialized Sauce Connect Proxy Setups](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#api-testing-setup)

@@ -19,78 +19,76 @@
 
 Welcome to the `sauce-docs`, this website contains all technical documentation about Sauce Labs and its products. This site uses [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
-__Table of Contents__
+**Table of Contents**
 
 1. [Prerequisites](#prerequisites)
 2. [Installation](#installation)
 3. [Local Development](#local-development)
-	1. [Building the Website](#building-the-website)
-5. [Contributing](#contributing)
+    1. [Building the Website](#building-the-website)
+4. [Contributing](#contributing)
 
 ## Prerequisites
 
-* [`git`](https://git-scm.com/downloads)
-* [Node.js](https://nodejs.org/en/download/) `version >= 14.15.0` or above (which can be checked by running node -v). You can use nvm for managing multiple Node versions on a single machine installed
-* [Yarn](https://yarnpkg.com/en/) `version >= 1.22.5` (which can be checked by running yarn version). Yarn is a performant package manager for JavaScript and replaces the npm client. It is not strictly necessary but highly encouraged.
-* [Docker](https://docs.docker.com/get-docker/) (optional if you want to deploy locally via a container or to test before you deploy)
+-   [`git`](https://git-scm.com/downloads)
+-   [Node.js](https://nodejs.org/en/download/) `version >= 14.15.0` or above (which can be checked by running node -v). You can use nvm for managing multiple Node versions on a single machine installed
+-   [Yarn](https://yarnpkg.com/en/) `version >= 1.22.5` (which can be checked by running yarn version). Yarn is a performant package manager for JavaScript and replaces the npm client. It is not strictly necessary but highly encouraged.
+-   [Docker](https://docs.docker.com/get-docker/) (optional if you want to deploy locally via a container or to test before you deploy)
 
 ## Installation
 
-* Pull down this repo:
+-   Pull down this repo:
 
-	```bash
-	git clone https://github.com/saucelabs/sauce-docs.git
-	```
+    ```bash
+    git clone https://github.com/saucelabs/sauce-docs.git
+    ```
 
-* Change directory to `sauce-docs`:
+-   Change directory to `sauce-docs`:
 
     ```bash
     cd sauce-docs
     ```
 
-* Install the dependencies:
+-   Install the dependencies:
 
-	```
-	npm install
-	```
+    ```
+    npm install
+    ```
 
 ## Local Development
 
-* Serve the website locally (without Algolia API Key):
+-   Serve the website locally (without Algolia API Key):
 
-   ```
-   npm run dev
-   ```
+    ```
+    npm run dev
+    ```
 
-	This command builds the site and serves it on your machine's host (http://localhost:3000) and requires no [Algolia API key](https://docusaurus.io/docs/search#connecting-algolia).
+    This command builds the site and serves it on your machine's host (http://localhost:3000) and requires no [Algolia API key](https://docusaurus.io/docs/search#connecting-algolia).
 
-* Start the website locally (with Algolia API Key):
+-   Start the website locally (with Algolia API Key):
 
-	```
-	npm run start
-	```
+    ```
+    npm run start
+    ```
 
-	This command starts a local development server and open up a browser window (http://localhost:3000). Most changes perform live updates to your server without having to restart.
+    This command starts a local development server and open up a browser window (http://localhost:3000). Most changes perform live updates to your server without having to restart.
 
 ### Building the Website
 
-* Build the website:
+-   Build the website:
 
-	```
-	npm run build
-	```
+    ```
+    npm run build
+    ```
 
-	This command gathers the static content and places them in a `build` directory; which is compatible with most static content hosting services.
+    This command gathers the static content and places them in a `build` directory; which is compatible with most static content hosting services.
 
-* Serve the website:
+-   Serve the website:
 
-	```
-	npm run serve
-	```
+    ```
+    npm run serve
+    ```
 
-	This command builds the site and serves it on your machine's host (http://localhost:3000).
-
-
+    This command builds the site and serves it on your machine's host (http://localhost:3000).
 
 ## Contributing
 

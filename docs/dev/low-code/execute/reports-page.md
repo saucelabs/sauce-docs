@@ -6,7 +6,7 @@ sidebar_label: Reports Page
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The **Reports**  page displays reports for your projects, test suites, and test cases. To view the relevant information, in the dropdown box, select **Project**, **Test Suites**, or **Test Cases**.
+The **Reports** page displays reports for your projects, test suites, and test cases. To view the relevant information, in the dropdown box, select **Project**, **Test Suites**, or **Test Cases**.
 
 There are two options for viewing report dates: **Actual Date (Default)** and **Relative Date**. The actual date is the date the report was created, while the relative date is the time since the report was created.
 

@@ -1,6 +1,6 @@
 ---
 id: expressions
-title: "Bloodhound: Expressions"
+title: 'Bloodhound: Expressions'
 sidebar_label: Expressions
 ---
 
@@ -8,7 +8,7 @@ sidebar_label: Expressions
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 In Bloodhound actors configuration, you may find fields allowing dynamic expressions. These expressions get evaluated to generate a dynamic value.
 
@@ -22,13 +22,13 @@ All of expressions will make use of the current message being processed. The mes
 
 Here's a breakdown of many internal members, accessed using SpEL.
 
-* `#msg`: the current message;
-* `#msg.request()`: the request object;
-* `#msg.request().getHeader('key')`: returns a certain request header;
-* `#msg.request().payload()`: the request payload, in the form of an array of bytes;
-* `#msg.request().callId()`: the call id, as defined by the EndpointIdentifierActor
-* `#msg.response()`: when evaluating a message after the upstream phase, this expression will access the response object;
-* `#msg.response().getHeader('key')`: returns a certain response header;
-* `#msg.response().payload()`: the response payload, in the form of an array of bytes;
-* `#msg.meta()`: the metadata map;
-* `#msg.meta().getOrElse('key','defaultValue')`: returns the value of the metadata identified by the key. 'defaultValue' in case the metadata does not exist
+- `#msg`: the current message;
+- `#msg.request()`: the request object;
+- `#msg.request().getHeader('key')`: returns a certain request header;
+- `#msg.request().payload()`: the request payload, in the form of an array of bytes;
+- `#msg.request().callId()`: the call id, as defined by the EndpointIdentifierActor
+- `#msg.response()`: when evaluating a message after the upstream phase, this expression will access the response object;
+- `#msg.response().getHeader('key')`: returns a certain response header;
+- `#msg.response().payload()`: the response payload, in the form of an array of bytes;
+- `#msg.meta()`: the metadata map;
+- `#msg.meta().getOrElse('key','defaultValue')`: returns the value of the metadata identified by the key. 'defaultValue' in case the metadata does not exist

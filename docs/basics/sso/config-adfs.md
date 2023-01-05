@@ -7,16 +7,18 @@ sidebar_label: Configuring Active Directory Federation Services (AD FS)
 These instructions are for setting up Microsoft's Active Directory Federated Service (AD FS) as an Identity Provider for Sauce Labs SSO using Windows Server 2012 R2 and ADFS 3.0. ADFS 3.0 is also supported on Windows Server 2008R2, but may require additional configuration for that operating system.
 
 ## Before You Begin
+
 - Make sure that your Active Directory Domain Service is set up
 - Make sure that the Active Directory Federation Services Role is set up
 
 Microsoft has an extensive library of how-to and step-by-step guides for AD FS in their [documentation library](https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services).
 
 ## Configuration
+
 1. Log in to the Server Manager app for your Windows Server 2012 R2 instance as an administrator and go to the **Dashboard**.
 2. In the **Tools** menu, select **AD FS Management**.
 3. In the **Actions** menu, under **AD FS**, select **Add Relying Party Trust**.
-This will launch the **Add Relying Party Trust Wizard**.<br></br>
+   This will launch the **Add Relying Party Trust Wizard**.<br></br>
 4. In the **Select Data Source** screen, select **Enter Data about the Relying Party Manually**, and then click **Next**.
 5. On the **Specify Display Name** screen, enter **Sauce Labs**, and then click **Next**.
 6. On the **Choose Profile** screen, select **AD FS profile**, and then click **Next**.

@@ -3,17 +3,16 @@ id: architecture
 title: Sauce Connect Proxy Architecture
 sidebar_label: Architecture
 ---
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 This document provides an overview of Sauce Connect Proxy architecture to assist customer network and security engineering teams to better understand how it works.
 
-
 ## What You'll Need
 
 - If you're new to Sauce Connect, we recommend reviewing the [Sauce Connect Proxy overview](/secure-connections/sauce-connect) documentation.
-
 
 ## Architecture Components
 
@@ -36,7 +35,6 @@ The [client (also known as SC)](/secure-connections/sauce-connect/installation/#
 - KGP Client: the client side implementation of [KGP, Sauce Labs proprietary protocol](/secure-connections/sauce-connect/advanced/kgp).
 - HTTP Proxy: this contains a non-caching HTTP proxy that sends HTTP requests coming from tests that run on virtual machines (VMs) or devices on the Sauce Labs infrastructure to the website or app that is hosted inside the user’s firewall (either on an intranet or a local machine).
 
-
 ### Sauce Connect Proxy Server
 
 The server is a VM (or container) running in Sauce Labs data centers and it includes the following components:
@@ -45,11 +43,9 @@ The server is a VM (or container) running in Sauce Labs data centers and it incl
 - KGP Server: the server side implementation of [KGP, Sauce Labs proprietary protocol](/secure-connections/sauce-connect/advanced/kgp).
 - HTTP Proxy: off-the-shelf HTTP proxy that is responsible for sending requests from tests running in Sauce Labs VMs or devices to the KGP Server. Note that SSL traffic is “bumped” by default. This can be disabled.
 
-
 ### Sauce Labs REST API
 
 The Sauce Labs REST API allows the Sauce Connect Proxy Client (or any authenticated client) to start and stop tunnels and/or get information about existing tunnels. For more information, refer to the [Sauce Connect Proxy API documentation](/dev/api/connect).
-
 
 ### Tunnels Web UI
 

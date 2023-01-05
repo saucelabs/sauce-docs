@@ -10,7 +10,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::warning Appium 1 End-of-life
-The Appium core team does not maintain Appium 1.x anymore since the 1st of January 2022. Recent versions of all officially supported platform drivers are no longer compatible with  Appium 1.x, and require Appium 2 to run.
+The Appium core team does not maintain Appium 1.x anymore since the 1st of January 2022. Recent versions of all officially supported platform drivers are no longer compatible with Appium 1.x, and require Appium 2 to run.
 :::
 
 The changes in Appium 2.0 are not primarily related to changes in automation behaviors for specific platforms. Instead, Appium 2.0 re-envisions Appium as a platform where "drivers" (code projects that introduce support for automation of a given platform) and "plugins" (code projects that allow for overriding, altering, extending, or adding behaviors to Appium) can be easily created and shared.
@@ -161,17 +161,17 @@ values={[
 
 ```js
 const capabilities = {
-  platformName: 'android',
-  // W3C Protocol is mandatory for Appium 2.0
-  'appium:platformVersion': '12',
-  'appium:deviceName': 'Google Pixel 6',
-  // automationName for Appium 2.0
-  'appium:automationName': 'UiAutomator2',
-  'sauce:options': {
-    // appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-    appiumVersion: '2.0.0',
-  },
-};
+platformName: 'android',
+// W3C Protocol is mandatory for Appium 2.0
+'appium:platformVersion': '12',
+'appium:deviceName': 'Google Pixel 6',
+// automationName for Appium 2.0
+'appium:automationName': 'UiAutomator2',
+'sauce:options': {
+// appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
+appiumVersion: '2.0.0'
+}
+}
 ```
 
 </TabItem>
@@ -179,17 +179,17 @@ const capabilities = {
 
 ```js
 const capabilities = {
-  platformName: 'ios',
-  // W3C Protocol is mandatory for Appium 2.0
-  'appium:platformVersion': '16',
-  'appium:deviceName': 'iPhone 14',
-  // automationName for Appium 2.0
-  'appium:automationName': 'XCUITest',
-  'sauce:options': {
-    // appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-    appiumVersion: '2.0.0',
-  },
-};
+platformName: 'ios',
+// W3C Protocol is mandatory for Appium 2.0
+'appium:platformVersion': '16',
+'appium:deviceName': 'iPhone 14',
+// automationName for Appium 2.0
+'appium:automationName': 'XCUITest',
+'sauce:options': {
+// appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
+appiumVersion: '2.0.0'
+}
+}
 ```
 
 </TabItem>

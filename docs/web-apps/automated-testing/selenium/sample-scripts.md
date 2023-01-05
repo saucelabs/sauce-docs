@@ -4,6 +4,7 @@ title: Selenium Demonstration Scripts
 sidebar_label: Demo Scripts
 description: A collection of Selenium demonstration scripts in Ruby, Python, NodeJS, Java, and C#.
 ---
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -32,12 +33,12 @@ Visit the [Sauce Labs Java Demonstration Repo](https://github.com/saucelabs-trai
 setup instructions, a variety of sample scripts, and many other resources related to writing and running Selenium scripts in Java.
 
 <Tabs
-  defaultValue="junit5"
-  values={[
-    {label: 'JUnit 5', value: 'junit5'},
-    {label: 'JUnit 4', value: 'junit4'},
-    {label: 'TestNG', value: 'testng'},
-  ]}>
+defaultValue="junit5"
+values={[
+{label: 'JUnit 5', value: 'junit5'},
+{label: 'JUnit 4', value: 'junit4'},
+{label: 'TestNG', value: 'testng'},
+]}>
 
 <TabItem value="junit5">
 
