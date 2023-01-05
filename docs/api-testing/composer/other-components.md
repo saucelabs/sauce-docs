@@ -108,10 +108,11 @@ Consider the following example:
 
 <img src={useBaseUrl('img/api-testing/set-string.png')} alt="Set static string" />
 
-```
-Variable: product
-Mode: String
-Value: t-shirt
+```yaml
+- id: set
+  var: product
+  mode: string
+  value: t-shirt
 ```
 
 In the above example the variable `product` will always have the value `t-shirt`.
@@ -122,16 +123,19 @@ Consider the following response payload and let’s say it has been stored in th
 
 ```json
 {
-"id": 1,
-"name": "Baseball Cap",
-"price": 29.99,
-"category": "1",
-"description": "This is product 1!",
-"quantity": 5,
-"imageURL": "http://image.com",
-"color": ["blue", "yellow"],
-"createdAt": "2021-11-28T21:58:43.461Z",
-"updatedAt": "2021-11-28T21:58:43.461Z"
+  "id": 1,
+  "name": "Baseball Cap",
+  "price": 29.99,
+  "category": "1",
+  "description": "This is product 1!",
+  "quantity": 5,
+  "imageURL": "http://image.com",
+  "color": [
+    "blue",
+    "yellow"
+  ],
+  "createdAt": "2021-11-28T21:58:43.461Z",
+  "updatedAt": "2021-11-28T21:58:43.461Z"
 }
 ```
 
@@ -139,26 +143,31 @@ If you write the following:
 
 <img src={useBaseUrl('img/api-testing/set-var-dynamic.png')} alt="Set dynamic value"/>
 
-```
-Variable: product
-Mode: String
-Value:${payload.name}
+```yaml
+- id: set
+  var: product
+  mode: string
+  value: ${payload.name}
 ```
 
 The engine will evaluate the variable value every time the test will be executed. In the above scenario the variable `product` will contain the value `Baseball Cap` but if the response is the following:
 
 ```json
 {
-"id": 2,
-"name": "Long Sleeve Shirt",
-"price": 39.99,
-"category": "1",
-"description": "This is product 2!",
-"quantity": 7,
-"imageURL": "http://image.com",
-"color": ["blue", "yellow", "red"],
-"createdAt": "2021-11-28T21:58:43.461Z",
-"updatedAt": "2021-11-28T21:58:43.461Z"
+  "id": 2,
+  "name": "Long Sleeve Shirt",
+  "price": 39.99,
+  "category": "1",
+  "description": "This is product 2!",
+  "quantity": 7,
+  "imageURL": "http://image.com",
+  "color": [
+    "blue",
+    "yellow",
+    "red"
+  ],
+  "createdAt": "2021-11-28T21:58:43.461Z",
+  "updatedAt": "2021-11-28T21:58:43.461Z"
 }
 ```
 
@@ -173,54 +182,65 @@ For example, you can create a new array in this way:
 
 <img src={useBaseUrl('img/api-testing/set-data-array.png')} alt="Set array"/>
 
-```
-Variable: product
-Mode: Data
-Data: ["Bluetooth Headphones","Long Sleeve Shirt","Baseball Cap"]
+```yaml
+- id: set
+  var: product
+  mode: object
+  object: '["Bluetooth Headphones","Long Sleeve Shirt","Baseball Cap"]'
 ```
 
-Then, you can iterate over it using the `each` component or you can invoke a specific item using `${products[1]}` where the number inside the square brackets identifies the position of the item you want to reach out, starting from 0.
+Then, you can iterate over it using the `each` component or you can invoke a specific item using `${product[1]}` where the number inside the square brackets identifies the position of the item you want to reach out, starting from 0.
 
 Now, let's consider the example below and imagine we have the JSON payload stored in the `payload` variable:
 
 ```json
 [
-{
-"id": 1,
-"name": "Baseball Cap",
-"price": 29.99,
-"category": "1",
-"description": "This is product 1!",
-"quantity": 5,
-"imageURL": "http://image.com",
-"color": ["blue", "yellow"],
-"createdAt": "2021-11-28T21:58:43.461Z",
-"updatedAt": "2021-11-28T21:58:43.461Z"
-},
-{
-"id": 2,
-"name": "Long Sleeve Shirt",
-"price": 39.99,
-"category": "1",
-"description": "This is product 2!",
-"quantity": 7,
-"imageURL": "http://image.com",
-"color": ["blue", "yellow", "red"],
-"createdAt": "2021-11-28T21:58:43.461Z",
-"updatedAt": "2021-11-28T21:58:43.461Z"
-},
-{
-"id": 3,
-"name": "Bluetooth Headphones",
-"price": 49.99,
-"category": "1",
-"description": "This is product 3!",
-"quantity": 50,
-"imageURL": "http://image.com",
-"color": ["green", "yellow"],
-"createdAt": "2021-11-28T21:58:43.462Z",
-"updatedAt": "2021-11-28T21:58:43.462Z"
-}
+  {
+    "id": 1,
+    "name": "Baseball Cap",
+    "price": 29.99,
+    "category": "1",
+    "description": "This is product 1!",
+    "quantity": 5,
+    "imageURL": "http://image.com",
+    "color": [
+      "blue",
+      "yellow"
+    ],
+    "createdAt": "2021-11-28T21:58:43.461Z",
+    "updatedAt": "2021-11-28T21:58:43.461Z"
+  },
+  {
+    "id": 2,
+    "name": "Long Sleeve Shirt",
+    "price": 39.99,
+    "category": "1",
+    "description": "This is product 2!",
+    "quantity": 7,
+    "imageURL": "http://image.com",
+    "color": [
+      "blue",
+      "yellow",
+      "red"
+    ],
+    "createdAt": "2021-11-28T21:58:43.461Z",
+    "updatedAt": "2021-11-28T21:58:43.461Z"
+  },
+  {
+    "id": 3,
+    "name": "Bluetooth Headphones",
+    "price": 49.99,
+    "category": "1",
+    "description": "This is product 3!",
+    "quantity": 50,
+    "imageURL": "http://image.com",
+    "color": [
+      "green",
+      "yellow"
+    ],
+    "createdAt": "2021-11-28T21:58:43.462Z",
+    "updatedAt": "2021-11-28T21:58:43.462Z"
+  }
 ]
 ```
 
@@ -228,26 +248,30 @@ If you write the following:
 
 <img src={useBaseUrl('img/api-testing/set-data.png')} alt="Set data"/>
 
-```
-Variable: product
-Mode: Data
-Data: payload.filter(it=>it.name=='Bluetooth Headphones')
+```yaml
+- id: set
+  var: product
+  mode: object
+  object: payload.filter(it=>it.name=='Bluetooth Headphones')
 ```
 
 It will return the following object:
 
 ```json
 {
-"id": 3,
-"name": "Bluetooth Headphones",
-"price": 49.99,
-"category": "1",
-"description": "This is product 3!",
-"quantity": 50,
-"imageURL": "http://image.com",
-"color": ["green", "yellow"],
-"createdAt": "2021-11-28T21:58:43.462Z",
-"updatedAt": "2021-11-28T21:58:43.462Z"
+  "id": 3,
+  "name": "Bluetooth Headphones",
+  "price": 49.99,
+  "category": "1",
+  "description": "This is product 3!",
+  "quantity": 50,
+  "imageURL": "http://image.com",
+  "color": [
+    "green",
+    "yellow"
+  ],
+  "createdAt": "2021-11-28T21:58:43.462Z",
+  "updatedAt": "2021-11-28T21:58:43.462Z"
 }
 ```
 
@@ -281,14 +305,17 @@ That’s producing the following JSON:
 
 ```json
 {
-"iat": 1658236568,
-"exp": 1689772568,
-"aud": "www.example.com",
-"sub": "john.doe@example.com",
-"Name": "John",
-"Surname": "Doe",
-"Email": "john.doe@example.com",
-"Role": ["Manager", "Project Administrator"]
+  "iat": 1658236568,
+  "exp": 1689772568,
+  "aud": "www.example.com",
+  "sub": "john.doe@example.com",
+  "Name": "John",
+  "Surname": "Doe",
+  "Email": "john.doe@example.com",
+  "Role": [
+    "Manager",
+    "Project Administrator"
+  ]
 }
 ```
 
@@ -355,11 +382,11 @@ For example, if you need to add a new product in your database, you can create t
   mode: lang
   lang: javascript
   body: |-
-var pieces = token.split('.')
-var b64payload = pieces[1]
-var decoded = Buffer.from(b64payload,'base64').toString()
-var json = JSON.parse(decoded)
-return json
+    var pieces = token.split('.')
+    var b64payload = pieces[1]
+    var decoded = Buffer.from(b64payload,'base64').toString()
+    var json = JSON.parse(decoded)
+    return json
 ```
 
 ```yaml
@@ -368,18 +395,18 @@ return json
   mode: lang
   lang: template
   body: >-
-{
-    "id": 4,
-    "name": "T-Shirt",
-    "price": ${price},
-    "category": "1",
-    "description": "This is product ${id}!",
-    "quantity": 5,
-    "imageURL": "http://image.com",
-    "color": ["red", "green"],
-    "createdAt": "${D.format (D.nowMillis(), 'yyyy-MM-DD')}",
-    "updatedAt": "${D.format (D.nowMillis(), 'yyyy-MM-DD')}T${D.format(D.nowMillis(), 'HH:mm:ssz')}"
-}
+    {
+        "id": 4,
+        "name": "T-Shirt",
+        "price": ${price},
+        "category": "1",
+        "description": "This is product ${id}!",
+        "quantity": 5,
+        "imageURL": "http://image.com",
+        "color": ["red", "green"],
+        "createdAt": "${D.format (D.nowMillis(), 'yyyy-MM-DD')}",
+        "updatedAt": "${D.format (D.nowMillis(), 'yyyy-MM-DD')}T${D.format(D.nowMillis(), 'HH:mm:ssz')}"
+      }
 ```
 
 </details>
@@ -459,7 +486,7 @@ This is a comment
 
 The second is useful for test debugging and analysis. You can pass variables into the comments. An example use of this would be to print out the product ID being used in the current loop of a test.
 
-```bash
+```text
 The value of the ID is ${payload.id}
 ```
 
@@ -470,6 +497,11 @@ The value of the ID is ${payload.id}
 ```yaml
 - id: comment
   text: This is a comment
+```
+
+```yaml
+- id: comment
+  text: The value of the ID is ${payload.id}
 ```
 
 </details>
@@ -568,9 +600,10 @@ Assume that in the variable scope of your test, you have a variable called _env_
 By configuring a Fact in the following way, you can add the environment value to the incident signature:
 
 ```yaml
-Identifier: environment
-label: The current environment
-value: ${env}
+- id: fact
+  identifier: environment
+  label: environment
+  value: ${env}
 ```
 
 <img src={useBaseUrl('img/api-testing/fact.png')} alt="fact.png" />

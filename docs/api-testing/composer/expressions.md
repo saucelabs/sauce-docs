@@ -21,7 +21,7 @@ Expressions are fields that reference an item in the test scope. The item can be
 When working with structured data, expression is the path for reaching out a specific element. Most of the time, it's just object dot notation. Most expressions will start with the name of the variable the data is stored in. In this example, we will assume the data has been assigned to a variable named `payload`:
 
 ```json
-"data":{
+"data": {
   "created_time": "1453198835",
   "images": {
     "thumbnail": {
@@ -51,7 +51,7 @@ payload.data.images.thumbnail.width
 The `Total-items` element is a bit tricky, because the minus sign ( - ) would be misunderstood and treated as a subtraction operation. For this reason, the dot notation would require square brackets:
 
 ```js
-`payload.data['Total-Items']
+payload.data['Total-Items']
 ```
 
 ### XML
@@ -113,7 +113,7 @@ Expressions can also contain directives to transform the data you are willing to
 ```
 
 ```js
-`payload.HotelSummary.length'
+payload.HotelSummary.length
 ```
 
 Will count the number of instances of `HotelSummary`.
@@ -122,7 +122,7 @@ Will count the number of instances of `HotelSummary`.
 
 Expressions are automatically evaluated in the **Expression** field for logical components, but can also be introduced in other fields, such as "value", with a specific notation.
 
-In this example, we compare the actual size of the collection with the "size attribute", by enclosing the expression within `${ .. }`. The "type" attribute ensures the comparison will happen with a numeric comparator, rather than string.<br/><img src={useBaseUrl('img/api-testing/assertEquals.png')} alt="assertEquals" />
+In this example, we compare the actual size of the collection with the "size" attribute, by enclosing the expression within `${ .. }`. The "type" attribute ensures the comparison will happen with a numeric comparator, rather than string.<br/><img src={useBaseUrl('img/api-testing/assert-equals-updated.png')} alt="assert Equals" />
 
 ### Expression Language Extensions
 
@@ -130,7 +130,7 @@ Our API Testing expression language is mostly used to identify a path in a paylo
 
 These _extensions_ can be used in any field that can be evaluated, which means in all **expression** fields, and all the fields where the value is wrapped in the `${...}` brackets.
 
-#### `WSUtil`
+#### WSUtil
 
 This is the main extension. It supports many useful functions.
 
@@ -143,7 +143,7 @@ This is the main extension. It supports many useful functions.
 
 - **isInteger(string: String) , isFloat(string: String), isUrl(string: String), isEmail(string: String), isPhoneNumber(string: String), isBoolean(string: String), isArray(object: Object), isMap(object: Object), isCreditCard(string: String) : Boolean :** evaluate the nature of a data item
 
-#### `anyArray.pick(n)`
+#### anyArray.pick(n)
 
 Given any array, you can ask the system to create a random subset of it. One typical usage is when an iterator would turn out to be huge, and you prefer to cherry-pick a few items. The code will return an array of five random elements off the _artists_ array.
 
@@ -163,7 +163,7 @@ A hands on example:
   expression: payload.artists.pick(5)
 ```
 
-#### `anyArray.pick()`
+#### anyArray.pick()
 
 Similar to the `pick(n)`, this method will pick one random item off an array, and return it.
 
@@ -171,7 +171,7 @@ Similar to the `pick(n)`, this method will pick one random item off an array, an
 If you are testing XML, the pick() function must be `WSUtil.pick(array,n)`. Considering the previous example, `payload.artists.pick(5)` becomes `WSUtil.pick(payload.artists,5)`.
 :::
 
-#### `N`
+#### N
 
 Utility functions for numbers.
 
@@ -187,7 +187,7 @@ Utility functions for numbers.
   N.random(10,30,5)
   ```
 
-#### `D`
+#### D
 
 Plays with dates.
 
@@ -225,7 +225,7 @@ Here's the conversion map for formats:
 | `S`    | fraction of second          | millis       | 978                                |
 | `Z`    | time zone offset/id         | zone         | -0800; -08:00; America/Los_Angeles |
 
-#### `WSCrypto`
+#### WSCrypto
 
 Encryption utilities:
 

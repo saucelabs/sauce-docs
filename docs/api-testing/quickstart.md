@@ -29,7 +29,6 @@ If your APIs are behind a firewall, you'll need to set up a [Sauce Connect Proxy
 
 :::note Returning Users
 If you're seeing an existing list of Projects instead of the landing page shown above, click **Create Project** instead.<br/><img src={useBaseUrl('img/api-fortress/2021/01/createProject.png')} alt="Create Project" width="450" />
-
 :::
 
 3. In the **Create a New Project** window:
@@ -61,16 +60,16 @@ The JSON response &#8212; in this case, a list of dog breeds &#8212; will popula
    - Click **Create Test** when you're finished.<br/><img src={useBaseUrl('img/api-fortress/2021/01/testDetails.png')} alt="Create Test" width="400"/>
 
 This will generate a series of functional tests for this specific API request.
-:::tip
 
-  <details><summary>Viewing your test data</summary>
+:::tip
+<details><summary>Viewing your test data</summary>
 
 **Visual** view shows your test as components:<br/><img src={useBaseUrl('img/api-testing/testVisual.png')} alt="Sample Test Visual View"/>
 
 **Code** view displays it as code:<br/><img src={useBaseUrl('img/api-testing/testCode.png')} alt="Sample Test Code View"/>
 
-  </details>
-  :::
+</details>
+:::
 
 ## Run Test
 
