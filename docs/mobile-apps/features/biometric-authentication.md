@@ -58,6 +58,10 @@ For Android devices, there are multiple ways to configure biometrics. From API 2
 * [`BiometricManager`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager) provides APIs to query if the app can authenticate and a list of [Authenticators](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Authenticators).
 * [`BiometricPrompt`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt) provides a user interface in the form of a dialog for the user's finger touch, and the call [`BiometricPrompt.AuthenticationCallback`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt.AuthenticationCallback) provides the response of the fingerprint Authentication.
 
+From API 23 to 28 we support the following:
+* [`FingerprintManager.authenticate()`](https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager#authenticate(android.hardware.fingerprint.FingerprintManager.CryptoObject,%20android.os.CancellationSignal,%20int,%20android.hardware.fingerprint.FingerprintManager.AuthenticationCallback,%20android.os.Handler)) triggers the authentication.
+* [`FingerprintManager.AuthenticationCallback`](https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager.AuthenticationCallback.html) provides an instant response of the fingerprint.
+
 ### iOS Biometrics
 
 For iOS devices, biometrics can be configured with different outputs. We support the following instance methods: 
@@ -66,9 +70,7 @@ For iOS devices, biometrics can be configured with different outputs. We support
 * [`interactionNotAllowed`](https://developer.apple.com/documentation/localauthentication/lacontext/2873508-interactionnotallowed) indicates if the authentication can be interactive.
 * [`SecItemAdd`](https://developer.apple.com/documentation/security/1401659-secitemadd) adds one or more items to a keychain. [`SecItemCopyMatching`](https://developer.apple.com/documentation/security/1398306-secitemcopymatching) returns more keychain items that match the search query. You can delete items that match the search query by using the [`SecItemDelete`](https://developer.apple.com/documentation/security/1395547-secitemdelete) method. We support the following SecItem Classes: [`kSecClassGenericPassword`](https://developer.apple.com/documentation/security/ksecclassgenericpassword) and [`kSecClassInternetPassword`](https://developer.apple.com/documentation/security/ksecclassinternetpassword).
 
-From API 23 to 28 we support the following:
-* [`FingerprintManager.authenticate()`](https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager#authenticate(android.hardware.fingerprint.FingerprintManager.CryptoObject,%20android.os.CancellationSignal,%20int,%20android.hardware.fingerprint.FingerprintManager.AuthenticationCallback,%20android.os.Handler)) triggers the authentication.
-* [`FingerprintManager.AuthenticationCallback`](https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager.AuthenticationCallback.html) provides an instant response of the fingerprint.
+
   
 ## Live Testing
 
