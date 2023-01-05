@@ -48,7 +48,7 @@ cd C:\sc-4.8.2-win32\bin
 </Tabs>
 
 4. Log in to Sauce Labs.
-5. Go to the **Tunnel Proxies** [page](https://app.saucelabs.com/tunnels).<br/><img src={useBaseUrl('img/sauce-connect/tunnelsPage.png')} alt="Sauce Connect Proxy Tunnels page" width="400"/>
+5. Go to the [**Tunnel Proxies**](https://app.saucelabs.com/tunnels) page.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsPage.png')} alt="Sauce Connect Proxy Tunnels page" width="400"/>
 6. Under step 2, **Authenticate & connect**, copy the code snippet.<br/><img src={useBaseUrl('img/sauce-connect/configureAuth.png')} alt="Sauce Connect Proxy Tunnels page snippet" width="300"/>
 
 <details><summary>What is this?</summary>
