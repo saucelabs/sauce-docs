@@ -429,11 +429,32 @@ See also [Comment](#comment)
 ```yaml
 - id: assert-valid-jsonschema
   expression: json_success
-  body: '{ "type" : "object", "properties" : { "rectangle" : {"$ref"
-  :"#/definitions/Rectangle" } }, "definitions" : { "size" : { "type"
-  :"number", "minimum" : 0 }, "Rectangle" : { "type" : "object", "properties"
-  : { "a" : {"$ref" : "#/definitions/size"}, "b" : {"$ref" :
-  "#/definitions/size"} } } } }'
+  body: |-
+    {
+      "type": "object",
+      "properties": {
+        "rectangle": {
+          "$ref": "#/definitions/Rectangle"
+        }
+      },
+      "definitions": {
+        "size": {
+          "type": "number",
+          "minimum": 0
+        },
+        "Rectangle": {
+          "type": "object",
+          "properties": {
+            "a": {
+              "$ref": "#/definitions/size"
+            },
+            "b": {
+              "$ref": "#/definitions/size"
+            }
+          }
+        }
+      }
+    }
 ```
 
 </details>
