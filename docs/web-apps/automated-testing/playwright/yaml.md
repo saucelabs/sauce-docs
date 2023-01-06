@@ -60,7 +60,7 @@ kind: playwright
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Generates the `console.log` as local output and as a test asset in Sauce Labs for all tests. By default, `console.log` is only included in results for failed tests.
+Controls whether the contents of `console.log` are always shown in the local output of saucectl. By default (false), `console.log` is only shown for failed suites.
 
 ```yaml
 showConsoleLog: true
