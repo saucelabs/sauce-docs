@@ -7,7 +7,7 @@ description: Learn how to configure storage sampling for your Backtrace instance
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Popular games or applications can see volumes of 1,000,000 submitted crashes a week with average attached object files (i.e. dumps or attachments) ranging from 15-20MB. Storing all these objects can easily fill up 17.5TB of storage every week, or 200TB for 90 days retention of data.
+Popular games or applications can see volumes of 1,000,000 submitted crashes a week with average attached object files (i.e. dumps or attachments) ranging from 15-20 MB. Storing all these objects can easily fill up 17.5 TB of storage every week, or 200 TB for 90 days retention of data.
 
 When a fingerprint has large numbers of objects, storing most objects beyond a certain amount, generally a few dozen, adds little value. Backtrace offers storage sampling to control object storage with respect to a unique combination of fingerprint and optional specified attribute values. 
 
