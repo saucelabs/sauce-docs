@@ -90,4 +90,10 @@ cd quickstart-appium-java
 mvn clean test
 ```
 
+The terminal command `mvn clean test` uses a containing test classes configuration valued inside `<testngXmlFile>` attribute of `<properties>` attributes from the `pom.xml` file and the default configuration in the [Appium Demo Project](https://github.com/saucelabs-training/quickstart-appium-java) is the emulator (Android) configuration `appium_android_emu_web_test.xml`. 
+
+That results in executing tests inside of the class `src/test/java/tests/EmuSim/AppiumAndroidEmuWebTest` when `mvn clean test` is run. 
+
+Change the value of the `<testngXmlFile>` attribute to `appium_ios_rdc_app_test.xml` to use the real device (iOS) configuration with tests located inside the class `src/test/java/tests/RDC/AppiumIosRdcAppTest` and again run `mvn clean test`.
+
 Once your tests complete, you should be able to see the results in your Sauce Labs account under [AUTOMATED > Test Results > Real Devices](https://app.saucelabs.com/dashboard/tests/rdc).
