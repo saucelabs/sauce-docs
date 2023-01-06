@@ -11,7 +11,7 @@ Popular games or applications can see volumes of 1,000,000 submitted crashes a w
 
 When a fingerprint has large numbers of objects, storing most objects beyond a certain amount, generally a few dozen, adds little value. Backtrace offers storage sampling to control object storage with respect to a unique combination of fingerprint and optional specified attribute values. 
 
-Storage sampling dynamically decides upon ingestion which files should be kept in long term storage and which files can be discarded after processing is complete. Most Backtrace instances have disk quota associated to them, and storage sampling provides a way to control the usage of disk depending on your teams specific needs by limiting the number of objects stored within a fingerprint.
+Storage sampling dynamically decides upon ingestion which files should be kept in long-term storage and which files can be discarded after processing is complete. Most Backtrace instances have disk quota associated to them, and storage sampling provides a way to control the usage of disk depending on your teams specific needs by limiting the number of objects stored within a fingerprint.
 
 
 ## Rate Limit Rules
