@@ -2,7 +2,7 @@
 id: appdome
 title: Appdome Integration
 sidebar_label: Appdome
-description: Test Appdome-secured Android and iOS Apps Using SauceLabs automation test platform for DevSecOps.
+description: Test Appdome-secured Android and iOS apps with Sauce Labs.
 keywords:
  - devsecops
  - security
