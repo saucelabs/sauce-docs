@@ -33,17 +33,16 @@ Biometric Authentication is available for testing on all Sauce Labs Android and 
 | Android Emulators              |             |   &#x2715;    |
 | iOS Simulators                 |             |   &#x2715;    |
 |                                |             |               |
-| **App Type**<sup>1</sup>       |             |               |
+| **App Type**      |             |               |
 | Flutter(iOS/Android)           |             |   &#x2715;    |
 | React Native(iOS/Android)      |             |   &#x2715;    |
 | Cordova (iOS/Android)          |             |   &#x2715;    |
 |                                |             |               |
-| **Framework Type**<sup>1</sup> |             |               |
+| **Framework Type** |             |               |
 | Appium                         | &checkmark; |               |
 | Espresso (Android)             |             |   &#x2715;    |
 | XCUITest (iOS)                 |             |   &#x2715;    |
 
-<sup>1</sup> Automated testing only.
 
 :::note Not Supported
 * Mobile browsers and pre-installed system apps.
