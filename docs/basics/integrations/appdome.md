@@ -38,9 +38,6 @@ If you see an option to choose between devices on a **Virtual Cloud** and **Real
 <img src={useBaseUrl('img/integrations/appdome/appdome-2.png')} alt="Mobile App Settings"/>
 
 4. Disable **Instrumentation** and **Image Injection**. Then click **Back to App Selection**.
-
-<img src={useBaseUrl('img/integrations/appdome/appdome-3.png')} alt="Mobile App Settings"/>
-
 5. Hover over the app and click **Choose Device** to select the test device.
 6. Click **Start test** for the selected device. This starts a manual test on the uploaded app on the selected device.
 
@@ -64,20 +61,15 @@ If you want to test using Appium, see [Appium on Sauce Labs](/mobile-apps/automa
 If you see an option to choose between devices on a **Virtual Cloud** and **Real Devices**, select **Real Devices**.
 :::
 
-<img src={useBaseUrl('img/integrations/appdome/appdome-6.png')} alt="Mobile App page"/>
+<img src={useBaseUrl('img/integrations/appdome/appdome-1.png')} alt="Mobile App page"/>
 
 3. A list of your apps will be displayed. If you haven’t uploaded an app before then the list will be empty. If your test app does not appear in the above list, you can upload it by pressing **Upload App** button.
-
 4.  After you uploaded your test app, hover over the app, and then click the **Settings** option.
 
-<img src={useBaseUrl('img/integrations/appdome/appdome-7.png')} alt="Mobile App Settings"/>
+<img src={useBaseUrl('img/integrations/appdome/appdome-2.png')} alt="Mobile App Settings"/>
 
 5. Disable **Instrumentation** and **Image Injection**. Then click **Back to App Selection**.
-
-<img src={useBaseUrl('img/integrations/appdome/appdome-8.png')} alt="Mobile App Settings"/>
-
 6. Hover over the app and click **Choose Device** to select the test device.
-
 7. Click **Start test**. This will start a manual test of the uploaded app on the selected device.
 
 <img src={useBaseUrl('img/integrations/appdome/appdome-9.png')} alt="Start test"/>
