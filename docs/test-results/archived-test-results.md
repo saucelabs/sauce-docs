@@ -17,6 +17,7 @@ We only keep assets such as screenshots, logs, and videos for 30 days.
 You can filter your archived test results, apply tags, create structured searches using multiple filters, and search using freeform text. To simplify your future filtering, you can save your search queries as favorites.
 
 ## Changing the Archive Page Layout
+
 You can change the layout of the **Archive** page by changing which columns are displayed, and how the content in those columns is sorted.
 
 1. On the **Archive** page, click **Show Columns**.
@@ -30,8 +31,8 @@ You can change the layout of the **Archive** page by changing which columns are 
 
 Your layout changes will be saved until you change them again.
 
-
 ## Filtering Test and Build Results
+
 The **Archives** page includes a number of filters you can use to search through your tests and builds. You can search using a single filter, or you can use multiple filters to build a structured search.
 
 1. In Sauce Labs, in the left panel, click **AUTOMATED** and then click **Archive**.
@@ -48,7 +49,7 @@ The **Archives** page includes a number of filters you can use to search through
 
 ### Special Filter Criteria and Operators
 
-Some filters include additional options and the ability to use special operators. See [Filters and Examples](#filters-and-examples) for more information.  
+Some filters include additional options and the ability to use special operators. See [Filters and Examples](#filters-and-examples) for more information.
 
 ## Searching Test and Build Results
 
@@ -64,18 +65,18 @@ If you want to create a more complex search using AND, OR, or special operators 
 
 #### Tips for Writing Structured Searches
 
-* Strings must always be enclosed with quotation marks, but criteria values that are supplied by the app (for example, status:failed) do not.
-* If you want to search using text only, enter text: in the search field, and then enter the text you want to search for enclosed in quotation marks.
-* You can use * as a wildcard in any of your filter criteria.
-* Use quotation marks around a string to search for that exact string. For example, "ruby test" will return "ruby test 1" and "ruby test 2," but not "ruby example test."
-* Use parentheses around a string to find those terms anywhere in the search field. For example, (ruby test) will return both "ruby test 1" and "ruby example test."
+- Strings must always be enclosed with quotation marks, but criteria values that are supplied by the app (for example, status:failed) do not.
+- If you want to search using text only, enter text: in the search field, and then enter the text you want to search for enclosed in quotation marks.
+- You can use \* as a wildcard in any of your filter criteria.
+- Use quotation marks around a string to search for that exact string. For example, "ruby test" will return "ruby test 1" and "ruby test 2," but not "ruby example test."
+- Use parentheses around a string to find those terms anywhere in the search field. For example, (ruby test) will return both "ruby test 1" and "ruby example test."
 
 ### Examples of Structured Searches
 
-| Search Description | Structured Search |
-|----|----|
+| Search Description                                                                                           | Structured Search                                                              |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
 | Find all of the tests that were tagged as `Selenium_194` or `Selenium_193` that have failed since 03/10/2015 | `tag:(Selenium_194 Selenium_193) AND status:failed and date:[2015-10-03 TO *]` |
-| Find only the IE tests that have failed with the word `Main` in the title. | `name:"Main*" AND browser:"Internet Explorer *"` |
+| Find only the IE tests that have failed with the word `Main` in the title.                                   | `name:"Main*" AND browser:"Internet Explorer *"`                               |
 
 ### Saving Searches
 
@@ -85,7 +86,7 @@ If you've created a search that you want to use in the future, you can save it b
 
 <img src={useBaseUrl('img/test-results/test-results-archive-save.png')} alt="Test results archive - Save a search" width="650"/>
 
-2. Click the expand icon next to the star to view your favorited searches. You can select a favorite search to run it, or remove it by clicking **Delete**.  
+2. Click the expand icon next to the star to view your favorited searches. You can select a favorite search to run it, or remove it by clicking **Delete**.
 
 <img src={useBaseUrl('img/test-results/archive-saved-search.png')} alt="Saved archive search" width="650"/>
 
@@ -94,36 +95,37 @@ If you've created a search that you want to use in the future, you can save it b
 You can use these filters singly or or combination to search through the tests and builds on your **Archive** page. The **Example** column shows how you could construct a search using a specific filter in the **Search** text field. See [Searching Test and Build Results](#searching-test-and-build-results) for tips and examples of how to build structured searches using multiple filters in the Search field.
 
 ### Virtual Cloud Device Filters
-| Filter | Description | Example |
-|----|----|----|
-| Date | Search for tests that ran on a specific date or over a specified range. Dates should be in _YYYY-MM-DD_ format. | `date:[2014-05-05 TO 2015-05-05]` |
-| Status | Search for tests based on their status. Currently there are four possible states: `failed`, `passed`, `complete`, `error`| `status: failed` |
-| Build | Search for tests that belong to a specific build. | `build:main and browser:"Internet Explorer 11"` |
-| Tag | Search for tests that have one or multiple tags. | `tag: Jenkins` |
-| Platform | Search for tests that ran on one or multiple operating systems. See [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices) for more information. | `platform:("OS X 10.10" "Windows 8.1")` |
-| Browser | Search for tests that ran on one or multiple browsers. See [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices) for more information.  | `browser:("Google Chrome 43" "Internet Explorer 11")` |
-| Owner | Search for tests that were created by a specific user. | `owner: admin` |
-| Teams | Search for tests that were created by users on a specific team.| `team: sauce-school` |
-| Text | Search for any mention of the string across test details. | `text: Appium` |  
-| Name | Search for full or partial test name. **NOTE:** The Name filter refers to the test name; tests that don't have the test name capability (for example, "Unnamed job 123456abcxdsdjks83928323") will not be returned in a Name search. | `name: SauceTest` |
+
+| Filter   | Description                                                                                                                                                                                                                          | Example                                               |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
+| Date     | Search for tests that ran on a specific date or over a specified range. Dates should be in _YYYY-MM-DD_ format.                                                                                                                      | `date:[2014-05-05 TO 2015-05-05]`                     |
+| Status   | Search for tests based on their status. Currently there are four possible states: `failed`, `passed`, `complete`, `error`                                                                                                            | `status: failed`                                      |
+| Build    | Search for tests that belong to a specific build.                                                                                                                                                                                    | `build:main and browser:"Internet Explorer 11"`       |
+| Tag      | Search for tests that have one or multiple tags.                                                                                                                                                                                     | `tag: Jenkins`                                        |
+| Platform | Search for tests that ran on one or multiple operating systems. See [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices) for more information.                                                | `platform:("OS X 10.10" "Windows 8.1")`               |
+| Browser  | Search for tests that ran on one or multiple browsers. See [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices) for more information.                                                         | `browser:("Google Chrome 43" "Internet Explorer 11")` |
+| Owner    | Search for tests that were created by a specific user.                                                                                                                                                                               | `owner: admin`                                        |
+| Teams    | Search for tests that were created by users on a specific team.                                                                                                                                                                      | `team: sauce-school`                                  |
+| Text     | Search for any mention of the string across test details.                                                                                                                                                                            | `text: Appium`                                        |
+| Name     | Search for full or partial test name. **NOTE:** The Name filter refers to the test name; tests that don't have the test name capability (for example, "Unnamed job 123456abcxdsdjks83928323") will not be returned in a Name search. | `name: SauceTest`                                     |
 
 ### Real Device Filters
-| Filter | Description | Example |
-|----|----|----|
-| Date | Search for tests that ran on a specific date or over a specified range. Dates should be in _YYYY-MM-DD_ format. | `date:[2014-05-05 TO 2015-05-05]` |
-| Status | Search for tests based on their status. Currently there are four possible states: `failed`, `passed`, `complete`, `error`| `status: failed` |
-| Builds | Search for tests that belong to a specific build. | `build:main and browser:"Internet Explorer 11"` |
-| OS | Search for tests that ran on one or multiple operating systems. See [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices) for more information. | `platform:("OS X 10.10" "Windows 8.1")` |
-| Device | Search for tests that were run on a specific device. | `device: "iPhone 8"` |
-| Owner | Search for tests that were created by a specific user. | `owner: admin` |
-| Team | Search for tests that were created by users on a specific team.| `team: sauce-school` |
 
+| Filter | Description                                                                                                                                                                           | Example                                         |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| Date   | Search for tests that ran on a specific date or over a specified range. Dates should be in _YYYY-MM-DD_ format.                                                                       | `date:[2014-05-05 TO 2015-05-05]`               |
+| Status | Search for tests based on their status. Currently there are four possible states: `failed`, `passed`, `complete`, `error`                                                             | `status: failed`                                |
+| Builds | Search for tests that belong to a specific build.                                                                                                                                     | `build:main and browser:"Internet Explorer 11"` |
+| OS     | Search for tests that ran on one or multiple operating systems. See [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices) for more information. | `platform:("OS X 10.10" "Windows 8.1")`         |
+| Device | Search for tests that were run on a specific device.                                                                                                                                  | `device: "iPhone 8"`                            |
+| Owner  | Search for tests that were created by a specific user.                                                                                                                                | `owner: admin`                                  |
+| Team   | Search for tests that were created by users on a specific team.                                                                                                                       | `team: sauce-school`                            |
 
 ## Deleting Test and Build Results
 
 You can delete any of the tests or builds listed on your **Archive** page.
 
-1. Select the test or build result you want to delete. You can also select multiple test or build results for deletion.  
+1. Select the test or build result you want to delete. You can also select multiple test or build results for deletion.
 2. Click **Delete**.
 3. In the confirmation dialog, click **Yes**.
 

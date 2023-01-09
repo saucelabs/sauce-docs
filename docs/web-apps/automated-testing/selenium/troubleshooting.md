@@ -26,21 +26,21 @@ Your test:
 
 Sauce Labs:
 
-  `Command requested: getTitle()`
-  `Result: Your Page's Title`
+`Command requested: getTitle()`
+`Result: Your Page's Title`
 
 The way the assertion is coded does not tell Sauce Labs to fail the test if the assertion doesn't match. To resolve this disconnect, [annotate your tests with Pass/Fail status](/basics/test-config-annotation/test-annotation#setting-passfail).
 
 ## Add Logging to debug parallel testing issues
 
-Many languages have tracing tools that are useful for debugging code problems if you're proficient in using them. Sometimes, the less complicated alternative of logging, whether through your programming language, test framework, container, or even printing to `standard out`, produces the data that helps you best deduce issues in parallel tests over time.  
+Many languages have tracing tools that are useful for debugging code problems if you're proficient in using them. Sometimes, the less complicated alternative of logging, whether through your programming language, test framework, container, or even printing to `standard out`, produces the data that helps you best deduce issues in parallel tests over time.
 
 Every log, regardless of how you generate it, should include:
 
-* Timestamps
-* ID of the current thread or process (where applicable)
-* ID of the Selenium driver currently in use (where applicable)
-* `DEBUG` or `VERBOSE` log level
+- Timestamps
+- ID of the current thread or process (where applicable)
+- ID of the Selenium driver currently in use (where applicable)
+- `DEBUG` or `VERBOSE` log level
 
 A good template to log with is:
 
@@ -50,21 +50,21 @@ A good template to log with is:
 
 The log message itself should include everything relevant to the problem you're seeing, in particular:
 
-* Just before creating a Selenium driver, with the test capabilities
-* When the driver is created successfully, with its session ID
-* When a driver is going to be quit, with its session ID
-* When a driver has been successfully quit, with its session ID
-* When a test starts
-* When a test finishes
-* When a test is first about to use a Selenium driver
-* Every time a test is using a Selenium driver
-* When a test is about to do something that is network intensive for the browser
-* When test exceptions occur
-* When driver setup exceptions occur
-* When any pre-test actions that set up data or browser state, are about to run
-* When any pre-test actions that set up data or browser state have run
-* When any post-test actions that clean up data or browser state have run
-* When any post-test actions that clean up data or browser state have run
+- Just before creating a Selenium driver, with the test capabilities
+- When the driver is created successfully, with its session ID
+- When a driver is going to be quit, with its session ID
+- When a driver has been successfully quit, with its session ID
+- When a test starts
+- When a test finishes
+- When a test is first about to use a Selenium driver
+- Every time a test is using a Selenium driver
+- When a test is about to do something that is network intensive for the browser
+- When test exceptions occur
+- When driver setup exceptions occur
+- When any pre-test actions that set up data or browser state, are about to run
+- When any pre-test actions that set up data or browser state have run
+- When any post-test actions that clean up data or browser state have run
+- When any post-test actions that clean up data or browser state have run
 
 You should always include test names when talking about specific tests, Session IDs when using Selenium drivers, and Thread or Process IDs.
 
@@ -72,24 +72,24 @@ Once you have logs to review, here are some things to look for:
 
 ### Incorrect driver setup
 
-* "Empty" or incomplete test capabilities
-* "Empty" or missing user authentication
+- "Empty" or incomplete test capabilities
+- "Empty" or missing user authentication
 
 ### Non-thread-safe code
 
-* Selenium session IDs changing during a single test
-* Selenium session IDs being used across threads
-* Tests using Selenium sessions that have already been quit
-* Tests using Selenium sessions which don't exist
+- Selenium session IDs changing during a single test
+- Selenium session IDs being used across threads
+- Tests using Selenium sessions that have already been quit
+- Tests using Selenium sessions which don't exist
 
 ### Selenium Lifecycle Problems
 
-* Selenium sessions being created all at once, but only used by tests much later
-* Selenium sessions all quit at once
-* Selenium session IDs being used across multiple threads
-* Selenium sessions being created and never quit
-* Tests using Selenium sessions that have already been quit
-* Tests using Selenium sessions which don't exist
+- Selenium sessions being created all at once, but only used by tests much later
+- Selenium sessions all quit at once
+- Selenium session IDs being used across multiple threads
+- Selenium sessions being created and never quit
+- Tests using Selenium sessions that have already been quit
+- Tests using Selenium sessions which don't exist
 
 ## Check How Much Parallelization Your Tests Can Stand
 

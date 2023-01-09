@@ -1,6 +1,6 @@
 ---
 id: analyze-step
-title: Analyze 
+title: Analyze
 sidebar_label: Analyze
 ---
 
@@ -9,6 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 The **Analyze** step comprises two pages: **Alert Details** and **Smart Maintenance**.
 
 ## Alert Details Page
+
 The **Alert Details** page displays information about the alerts given for your projects. In the projects dropdown, you can view either all projects or filter by a specific project. In the alert type dropdown, you can filter by **All**, **Error**, or **Warning**.
 
 ### Alert Details Page Components

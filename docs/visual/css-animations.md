@@ -19,7 +19,6 @@ module.exports = {
 }
 ```
 
-
 ## Animated GIFs
 
 Animated GIFs can cause inconsistency in your screenshots, resulting in failing visual tests. To alleviate this, Screener automatically freezes Animated GIFs to the first frame to help ensure consistent results.

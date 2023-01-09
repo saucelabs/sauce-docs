@@ -1,15 +1,15 @@
 ---
 id: forge
-title: "APIF Forge (Local IDE)"
-sidebar_label: "APIF Forge (Local IDE)"
-description: "Forge is a downloadable IDE made for writing and running tests locally. The APIF Composer on Forge works exactly like the Composer on the hosted cloud or self-hosted/on-premises version of API Fortress."
+title: 'APIF Forge (Local IDE)'
+sidebar_label: 'APIF Forge (Local IDE)'
+description: 'Forge is a downloadable IDE made for writing and running tests locally. The APIF Composer on Forge works exactly like the Composer on the hosted cloud or self-hosted/on-premises version of API Fortress.'
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -39,7 +39,7 @@ Auto generate a high-level schema validation test by using our HTTP client to ma
 
 <img src={useBaseUrl('img/api-fortress/2020/08/Screen-Shot-2019-07-18-at-2.11.00-PM.png')} alt="Generate Test"/>
 
-__Example Output__:
+**Example Output**:
 
 <img src={useBaseUrl('img/api-fortress/2020/08/Screen-Shot-2019-07-18-at-2.11.35-PM.png')} alt="Output"/>
 
@@ -47,14 +47,14 @@ You can also write tests from scratch via the API Fortress visual composer or co
 
 ### Visual Composer
 
-* Select the **+** symbol:
-<img src={useBaseUrl('img/api-fortress/2020/08/forgescreen1.png')} alt="forge screen 1"/>
+- Select the **+** symbol:
+  <img src={useBaseUrl('img/api-fortress/2020/08/forgescreen1.png')} alt="forge screen 1"/>
 
-* Select a request method:
-<img src={useBaseUrl('img/api-fortress/2020/08/forgescreen2.png')} alt="forge screen 2"/>
+- Select a request method:
+  <img src={useBaseUrl('img/api-fortress/2020/08/forgescreen2.png')} alt="forge screen 2"/>
 
-* Set the request parameters:
-<img src={useBaseUrl('img/api-fortress/2020/08/forgescreen3.png')} alt="forge screen 3"/>
+- Set the request parameters:
+  <img src={useBaseUrl('img/api-fortress/2020/08/forgescreen3.png')} alt="forge screen 3"/>
 
 ### Code View Composer
 
@@ -76,7 +76,7 @@ By combining Forge with APIF-Local (APIF – Local Engine), you can execute loca
 
 Find a step-by-step guide on how to set up APIF-Local [here](https://apifortress.com/doc/apf-local-engine/).
 
-Once you have configured your local engine, integrating into Forge is very easy.  *See below in the settings section of Forge*:
+Once you have configured your local engine, integrating into Forge is very easy. _See below in the settings section of Forge_:
 
 **Load the local engine jar file here**:
 

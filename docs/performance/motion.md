@@ -11,18 +11,18 @@ In addition to testing the efficiency of your app rendering, Sauce Labs also pro
 
 ## What You'll Learn
 
-* What is jankiness
-* How to measure jankiness with Sauce Performance
-* How to review jankiness results
+- What is jankiness
+- How to measure jankiness with Sauce Performance
+- How to review jankiness results
 
 ### What You'll Need
 
-* Google Chrome (no older than 3 versions from latest)
-* Test configuration must have performance enabled. See [Set Performance Capabilities](/performance/transitions#set-performance-capabilities) for instructions.
+- Google Chrome (no older than 3 versions from latest)
+- Test configuration must have performance enabled. See [Set Performance Capabilities](/performance/transitions#set-performance-capabilities) for instructions.
 
 ## What is Jankiness?
 
-Web apps sometimes appear to lack smoothness when the the app isn't keeping up with the refresh, a condition sometimes referred to as jankiness.  
+Web apps sometimes appear to lack smoothness when the the app isn't keeping up with the refresh, a condition sometimes referred to as jankiness.
 
 According to jankfree.org:
 
@@ -34,10 +34,10 @@ View an [example of jankiness](https://googlechrome.github.io/devtools-samples/j
 
 Since Jankiness occurs during interaction with a page (such as scrolling) rather than just at page load, Sauce Labs created a framework-agnostic custom command that executes a set of automation actions:
 
-* It jumps to the top.
-* It scrolls slowly from the top to the bottom for ~5 seconds.
-* It captures the browser activity for the time it was scrolling through the app.
-* Based on this browser activity it generates the metrics you can use to assert the performance.
+- It jumps to the top.
+- It scrolls slowly from the top to the bottom for ~5 seconds.
+- It captures the browser activity for the time it was scrolling through the app.
+- Based on this browser activity it generates the metrics you can use to assert the performance.
 
 ### Command
 
@@ -84,10 +84,10 @@ Click the **View Full Report** button to see additional details, including area 
 
 The metrics that define whether a user's interaction with a page produces smooth movement are different from those that measure the speed at which objects on a page load. The objective of this page is to help you understand the metrics that make up the jankiness score.
 
-* Frame Rate
-* Browser Workload
-* Forced Style Reflows
-* Memory Consumption
+- Frame Rate
+- Browser Workload
+- Forced Style Reflows
+- Memory Consumption
 
 Here is an example showing the output of jankiness results:
 
@@ -126,11 +126,11 @@ The frame rate, or frames per second (`fpsScore`) captures any sort of stutterin
 
 The `idleDurationScore` represents the extent to which the browser is using resources to redraw content as the page moves, which influences the overall performance. The score is based on the metric results for:
 
-* `renderingTime`
-* `paintingTime`
-* `scriptingTime`
-* `otherTime` (e.g., network requests, etc.)
-* `idleTime`
+- `renderingTime`
+- `paintingTime`
+- `scriptingTime`
+- `otherTime` (e.g., network requests, etc.)
+- `idleTime`
 
 ### Forced Style Reflows
 

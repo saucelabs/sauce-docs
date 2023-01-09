@@ -11,9 +11,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Screener sends project-specific email notifications for the following build statuses:
 
-* `Build Failed`
-* `Build Error`
-* `Build Accepted`
+- `Build Failed`
+- `Build Error`
+- `Build Accepted`
 
 You can manage these notifications under [**Account** > **Notifications**](https://screener.io/v2/account/notifications):
 

@@ -6,7 +6,7 @@ sidebar_label: saucectl storage upload
 
 ## Description
 
-Uploads an app file to Sauce Storage and returns a unique file ID assigned to the app. Sauce Storage supports app files in *.apk, *.aab, *.ipa, or *.zip format.
+Uploads an app file to Sauce Storage and returns a unique file ID assigned to the app. Sauce Storage supports app files in _.apk, _.aab, _.ipa, or _.zip format.
 
 ## Usage
 
@@ -44,6 +44,7 @@ Uploads an app file to Sauce Storage and returns a unique file ID assigned to th
 ## Options Details
 
 ### <span className="cli">--force</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
@@ -52,9 +53,11 @@ Forces the upload to happen, even if there's already a file in storage with a ma
 ```bash
 saucectl storage upload app.apk --force
 ```
+
 </div>
 
 ### <span className="cli">--out</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -65,9 +68,11 @@ Output format to the console. Options are `text` (default) and `json`.
 ```bash
 saucectl storage upload app.apk --out json
 ```
+
 </div>
 
 ### <span className="cli">--region</span>
+
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -78,4 +83,5 @@ The Sauce Labs region. Options are `us-west-1` (default) and `eu-central-1`.
 ```bash
 saucectl storage upload app.apk --region us-west-1
 ```
+
 </div>
