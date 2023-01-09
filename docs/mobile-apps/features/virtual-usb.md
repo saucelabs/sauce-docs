@@ -202,6 +202,8 @@ values={[
 
 To use Sauce Connect Proxy: launch a tunnel in the Sauce Connect client, then add your [`--tunnel-identifier`](/dev/cli/virtual-usb/start-session/#--tunnelidentifier), which the vUSB client will use to retrieve and secure test data. You can also set up a device proxy using [proxy command options](/dev/cli/virtual-usb/start-session).
 
+If you require video recordings & device logs to be generated for the virtual USB session created via this method (accessible via SauceLabs account on the website), include the `--artifactsEnabled` optional flag when using the `startSession` command. Otherwise, the test report associated with this session will only contain metadata (i.e. device info, start & end timestamps etc.).
+
 If your vUSB test session launch is successful, you'll see a success message:
 <Tabs
 defaultValue="Android"
