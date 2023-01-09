@@ -2,21 +2,19 @@
 id: appdome
 title: Appdome Integration
 sidebar_label: Appdome
-description: Learn how to test Appdome-secured Android & iOS Apps Using SauceLabs automation test platform for DevSecOps.
+description: Test Appdome-secured Android and iOS Apps Using SauceLabs automation test platform for DevSecOps.
 keywords:
-- devsecops
-- security
-- automated-testing
-- mobile
-- mobile-native
-- how-to
+ - devsecops
+ - security
+ - automated-testing
+ - mobile
+ - mobile-native
+ - how-to
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Testing Secured Android & iOS Apps Using Appdome
-
-Learn how to test Appdome-secured Android & iOS Apps Using SauceLabs automation test platform for DevSecOps. Appdome works with all leading mobile automation testing solutions to help customers achieve comprehensive mobile app security at DevSecOps speed and agility, all within the app’s existing application lifecycle.
+Learn how to test Appdome-secured Android and iOS Apps Using SauceLabs automation test platform for DevSecOps. Appdome works with all leading mobile automation testing solutions to help you achieve comprehensive mobile app security at DevSecOps speed and agility, all within the app’s existing application lifecycle.
 
 ## How to Test Appdome-secured Android Apps using SauceLabs
 
@@ -25,7 +23,7 @@ Learn how to test Appdome-secured Android & iOS Apps Using SauceLabs automation 
 
 ## Testing the secured Android App Using SauceLabs
 
-* On the left sidebar select **LIVE** -> **Mobile App**
+* On the left sidebar select **LIVE** > **Mobile App**
 
 :::note
 If you see an option to choose between devices on a **Virtual Cloud** and **Real Devices**, select **Real Devices**.
@@ -33,10 +31,10 @@ If you see an option to choose between devices on a **Virtual Cloud** and **Real
 
 <img src={useBaseUrl('img/integrations/appdome/appdome-1.png')} alt=""/>
 
-* A list of your apps will be displayed. If you haven’t uploaded an app before then the list will be empty. 
+* A list of your apps will be displayed. If you haven’t uploaded an app before, then the list will be empty. 
 If your test app does not appear in the above list, you can upload it by clicking **App Upload**.
 
-* After you uploaded your test app, hover your mouse/cursor over the app to display the **Settings** option. Click on Settings.
+* After you uploaded your test app, hover your mouse/cursor over the app to display the **Settings** option. Then click **Settings**.
 
 <img src={useBaseUrl('img/integrations/appdome/appdome-2.png')} alt=""/>
 
@@ -49,11 +47,11 @@ If your test app does not appear in the above list, you can upload it by clickin
 
 <img src={useBaseUrl('img/integrations/appdome/appdome-4.png')} alt=""/>
 
-You can see live device logs by clicking the **LOG** button on the menu on the right
+You can see live device logs by clicking the **LOG** button on the menu on the right.
 
 <img src={useBaseUrl('img/integrations/appdome/appdome-5.png')} alt=""/>
 
-When Done click **STOP** on the right menu
+When Done click **STOP** on the right menu.
 
 If you want to test using Appium, see [Appium on Sauce Labs](/mobile-apps/automated-testing/appium/).
 
