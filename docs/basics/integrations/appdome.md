@@ -23,73 +23,70 @@ Learn how to test Appdome-secured Android and iOS Apps Using SauceLabs automatio
 
 ## Testing the secured Android App Using SauceLabs
 
-* On the left sidebar select **LIVE** > **Mobile App**
+1. On the left sidebar select **LIVE** > **Mobile App**
 
 :::note
 If you see an option to choose between devices on a **Virtual Cloud** and **Real Devices**, select **Real Devices**.
 :::
 
-<img src={useBaseUrl('img/integrations/appdome/appdome-1.png')} alt=""/>
+<img src={useBaseUrl('img/integrations/appdome/appdome-1.png')} alt="Mobile App page"/>
 
-* A list of your apps will be displayed. If you haven’t uploaded an app before, then the list will be empty. 
-If your test app does not appear in the above list, you can upload it by clicking **App Upload**.
+2. A list of your apps will be displayed. If you haven’t uploaded an app before, then the list will be empty. If your test app does not appear in the above list, you can upload it by clicking **Upload App**.
 
-* After you uploaded your test app, hover your mouse/cursor over the app to display the **Settings** option. Then click **Settings**.
+3. After you uploaded your test app, hover over the app, and then click the **Settings** option. 
 
-<img src={useBaseUrl('img/integrations/appdome/appdome-2.png')} alt=""/>
+<img src={useBaseUrl('img/integrations/appdome/appdome-2.png')} alt="Mobile App Settings"/>
 
-* Disable **Instrumentation** and **Image Injection**. Then click **Back to App Selection**.
+4. Disable **Instrumentation** and **Image Injection**. Then click **Back to App Selection**.
 
-<img src={useBaseUrl('img/integrations/appdome/appdome-3.png')} alt=""/>
+<img src={useBaseUrl('img/integrations/appdome/appdome-3.png')} alt="Mobile App Settings"/>
 
-* Hover your mouse/cursor over the app.  It will show the **Choose Device** option. Click it in order to select the test device.
-* Select a test device from the displayed list and click **Launch**. This will start a manual test on the uploaded app on the selected device.
+5. Hover over the app and click **Choose Device** to select the test device.
+6. Click **Start test** for the selected device. This starts a manual test on the uploaded app on the selected device.
 
-<img src={useBaseUrl('img/integrations/appdome/appdome-4.png')} alt=""/>
+<img src={useBaseUrl('img/integrations/appdome/appdome-4.png')} alt="Start test"/>
 
-You can see live device logs by clicking the **LOG** button on the menu on the right.
+7. Click **Developer options** on the menu on the right to view live device logs.
 
-<img src={useBaseUrl('img/integrations/appdome/appdome-5.png')} alt=""/>
+<img src={useBaseUrl('img/integrations/appdome/appdome-5.png')} alt="Device logs"/>
 
-When Done click **STOP** on the right menu.
+8. When done, click **End** on the right menu.
 
 If you want to test using Appium, see [Appium on Sauce Labs](/mobile-apps/automated-testing/appium/).
 
 ## Testing Appdome-secured iOS Apps using SauceLabs
 
-* Go to [https://saucelabs.com](https://saucelabs.com/) and sign in.
+1. Go to [https://saucelabs.com](https://saucelabs.com/) and sign in.
 
-* On the left sidebar select **LIVE** -> **Mobile App**
+2. On the left sidebar select **LIVE** > **Mobile App**
 
 :::note
 If you see an option to choose between devices on a **Virtual Cloud** and **Real Devices**, select **Real Devices**.
 :::
 
-<img src={useBaseUrl('img/integrations/appdome/appdome-6.png')} alt=""/>
+<img src={useBaseUrl('img/integrations/appdome/appdome-6.png')} alt="Mobile App page"/>
 
-* A list of your apps will be displayed. If you haven’t uploaded an app before then the list will be empty.
+3. A list of your apps will be displayed. If you haven’t uploaded an app before then the list will be empty. If your test app does not appear in the above list, you can upload it by pressing **Upload App** button.
 
-* If your test app does not appear in the above list, you can upload it by pressing **App Upload** button.
+4.  After you uploaded your test app, hover over the app, and then click the **Settings** option.
 
-* After you uploaded your test app, hover over the app to display the  **Settings** option. Click **Settings**.
+<img src={useBaseUrl('img/integrations/appdome/appdome-7.png')} alt="Mobile App Settings"/>
 
-<img src={useBaseUrl('img/integrations/appdome/appdome-7.png')} alt=""/>
+5. Disable **Instrumentation** and **Image Injection**. Then click **Back to App Selection**.
 
-* Disable **Instrumentation** and **Image Injection**. Then click **Back to App Selection**.
+<img src={useBaseUrl('img/integrations/appdome/appdome-8.png')} alt="Mobile App Settings"/>
 
-<img src={useBaseUrl('img/integrations/appdome/appdome-8.png')} alt=""/>
+6. Hover over the app and click **Choose Device** to select the test device.
 
-* Hover your mouse/cursor over the app. It will show the **Choose Device** option. Select the test device.
+7. Click **Start test**. This will start a manual test of the uploaded app on the selected device.
 
-* Select an available test device from the displayed list and click **Launch**. This will start a manual test of the uploaded app on the selected device.
+<img src={useBaseUrl('img/integrations/appdome/appdome-9.png')} alt="Start test"/>
 
-<img src={useBaseUrl('img/integrations/appdome/appdome-9.png')} alt=""/>
+8. Click **Developer options** on the menu on the right to view live device logs.
 
-* You can see live device logs by pressing **LOG** button on the menu on the right.
+<img src={useBaseUrl('img/integrations/appdome/appdome-10.png')} alt="Device logs"/>
 
-<img src={useBaseUrl('img/integrations/appdome/appdome-10.png')} alt=""/>
-
-* When Done click **STOP** on the right menu.
+9. When done, click **End** on the right menu.
 
 ## Troubleshooting Tips
 
