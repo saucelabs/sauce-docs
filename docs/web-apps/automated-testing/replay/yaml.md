@@ -60,7 +60,7 @@ kind: puppeteer-replay
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Show the contents of the remote `console.log` as local output. By default, the contents of `console.log` are only displayed locally on failure.
+Controls whether the contents of `console.log` are always shown in the local output of saucectl. By default (false), `console.log` is only shown for failed suites.
 
 ```yaml
 showConsoleLog: true
