@@ -1790,7 +1790,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/membership/' \
+--request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/membership/' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "user": "<user-id>",
