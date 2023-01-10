@@ -65,7 +65,7 @@ You can add additional filters or aggregations for `application.version` (or the
 
 Storage sampling controls how the objects attached to errors are sampled out before being stored.
 
-For high volume customers, storage sampling is an effective way to conserve storage space by limiting the number of dump objects (used in the Debug view) that are persisted to long-term storage upon ingestion. Rules default to keep a certain number of dump objects per fingerprint, but additional attributes such as You can add additional filters, or add an aggregation for `application.version` to ensure that sampling is not overly broad.
+For high volume customers, storage sampling is an effective way to conserve storage space by limiting the number of dump objects (used in the Debug view) that are persisted to long-term storage upon ingestion. Rules default to keep a certain number of dump objects per fingerprint. You can also add an aggregation for `application.version` to ensure that sampling is not overly broad.
 
 You can configure storage sampling in the **Project settings** > under **Project** > **Storage sampling**. For more information, see [Storage Sampling](/error-reporting/project-setup/storage-sampling/).
 
