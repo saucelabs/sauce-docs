@@ -19,7 +19,7 @@ Project settings allow you to configure access to projects, project details such
 
 Access to a project is assigned when the project is created. You can assign the following access levels to a project:  
 
-- **Team Access**  Available if an organization admin had set up teams in Team Management. Users must be a member of the assigned team or an organization admin to access the project. 
+- **Team Access**: Available if an organization admin has set up teams in Team Management. Users must be a member of the assigned team or an organization admin to access the project. 
 - **Organization Access**: Users who are a member of any team and organization admins can access the project. Individual users have access only if they created the project. 
 
 The type of project access users have and can configure for the projects they create is based on the following user scenarios:
