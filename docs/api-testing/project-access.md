@@ -76,7 +76,7 @@ Use the Fact component in your API tests to control the behavior of email notifi
 
 See [PagerDuty and Webhook Connectors](/api-testing/integrations/pagerduty-webhooks/) for more information.
 
-## Deleting a Project
+## Delete a Project
 
 To delete a project:
 
