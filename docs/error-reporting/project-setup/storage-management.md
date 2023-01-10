@@ -54,7 +54,7 @@ To query fingerprints:
 1. Go to the **Explore** view.
 1. From the **Group by** filter, select `fingerprint`.
 1. Select **Add aggregation**, add the `object.size` attribute and the `sum` operator.
-1. Click on the column header to sort in decreasing order.
+1. Click the column header to sort in decreasing order.
 1. Set the **Time frame** filter for which you want to delete the fingerprints.
 
 <img src={useBaseUrl('img/error-reporting/project-settings/query-fingerprint.png')} alt="Shows how to query for fingerprints in the Explore View." />
