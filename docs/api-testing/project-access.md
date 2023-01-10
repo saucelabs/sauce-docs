@@ -13,7 +13,7 @@ Project settings allow you to configure access to projects, project details such
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* An understanding of [Account and Team Management](basics/acct-team-mgmt/managing-user-info/) if you are an organization admin configuring team access to projects. 
+* An understanding of [Account and Team Management](/basics/acct-team-mgmt/managing-user-info/) if you are an organization admin configuring team access to projects. 
 
 ## Project Access Levels and User Scenarios
 
