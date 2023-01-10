@@ -46,7 +46,7 @@ You create projects and edit project settings on the **Settings > General > Proj
 
 ### Managing Access to Projects
 
-Once a project has been created and saved, the Access (team or organization-wide access) is uneditable. If an organization admin deletes a team from Team Management before managing project access in APIT, the Access defaults to Organization, because Access is required. However, the project will still be available only to the original team and does not change to organization-wide access. Consider using one of the following options to update project access. 
+Once a project has been created and saved, the access level (team or organization-wide access) is uneditable. If an organization admin deletes a team from Team Management before managing project access in API Testing, the access level defaults to Organization because the setting is required. However, the project will still be available only to the original team and does not change to organization-wide access. Consider using one of the following options to update project access. 
 
 You have a few options if you need to change access to a project:
 
