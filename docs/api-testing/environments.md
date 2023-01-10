@@ -2,7 +2,7 @@
 id: environments
 title: Creating Environments for Tests
 sidebar_label: Environments
-description: "Gain a wide range of options to mix and match your test settings with our latest Environments features."
+description: 'Gain a wide range of options to mix and match your test settings with our latest Environments features.'
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -13,11 +13,10 @@ If properly set up, any API Testing test can be run against any environment. Thi
 
 The **Environments** section lets you change anything, not just environments. You can run the Test against a certain environment, using a different API key and data source.
 
-
 ## What You'll Need
-* An existing API Testing Project and Test. For details on how to create them, see [API Testing Quickstart](/api-testing/quickstart/).
-* Recommended: review [Creating Reusable Variables and Snippets with the Vault](/api-testing/vault/)
 
+- An existing API Testing Project and Test. For details on how to create them, see [API Testing Quickstart](/api-testing/quickstart/).
+- Recommended: review [Creating Reusable Variables and Snippets with the Vault](/api-testing/vault/)
 
 ## Creating Environments
 
@@ -31,12 +30,13 @@ There are multiple ways to create and access Test environments:
 2. Click **Create Environment**.
 3. Enter a name for your environment, then click **Save** when finished.<br/><img src={useBaseUrl('img/api-fortress/2021/04/createEnvironment.png')} alt="create environment" width="300"/>
 4. From here, you can:
-   * Add variable(s) manually by clicking **New Entry** > Enter **Key** and **Value** pairs > **Confirm**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/manualEntry.png')} alt="create environment" width="500"/>
-   * Import an existing environment by clicking **Import** > **Choose File** (accepted file types are Postman, .json, .csv).<br/><img src={useBaseUrl('img/api-fortress/2021/04/importEnv.png')} alt="create environment" width="500"/>
+   - Add variable(s) manually by clicking **New Entry** > Enter **Key** and **Value** pairs > **Confirm**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/manualEntry.png')} alt="create environment" width="500"/>
+   - Import an existing environment by clicking **Import** > **Choose File** (accepted file types are Postman, .json, .csv).<br/><img src={useBaseUrl('img/api-fortress/2021/04/importEnv.png')} alt="create environment" width="500"/>
 
 The resulting environment (along with its defined variables) will now appear in each of your Tests as an option in the environment dropdown.
 
 ### From a Project
+
 1. From within a Project, go to any of the following sections: **Tests**, **Compose**, **HTTP Client**, or **Load Test**.
 2. Under **Run Configuration**, click the **Environments** dropdown (defaults to **No environment**).
 3. Select **Add item**.
@@ -47,6 +47,7 @@ The resulting environment (along with its defined variables) will now appear in 
 This new environment will be selected by default in the dropdown.
 
 ## Using Environments
+
 Once you've created an environment and added your variables, you can run your Test against that environment.
 
 1. From within a Project, go to any of the following sections: **Tests**, **Compose**, **HTTP Client**, or **Load Test**.
@@ -55,16 +56,19 @@ Once you've created an environment and added your variables, you can run your Te
 By activating an environment here, you will be able to hit a different variable (key/value pair) in your current session without actually changing your Test.
 
 ### no environment
+
 If **None** (**no environment**) is selected, the Test will run using the values written as inputs in the test and the variables saved in the **Vault**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/noEnv.png')} alt="result in tests" width="270"/>
 
-
 ### Loading Environments
+
 If you begin using environments heavily, the integration using the APIF API (or any CI/CD plugin) may become overly complex and “unfriendly,” as lots of data will need to be copied around.
 
 For this reason, we have introduced a special override variable, `apif_env`, which tells our API to load a specific environment when invoking a test using the API. For example, to load the `staging` environment and all its override variables:
+
 ```bash
 apif_env: staging
 ```
 
 ## More Information
-* [API Fortress Legacy Migration Guide](/api-testing/legacy)
+
+- [API Fortress Legacy Migration Guide](/api-testing/legacy)

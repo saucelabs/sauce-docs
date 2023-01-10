@@ -88,7 +88,9 @@ On the **Plan -> Test Suites** page you can view, update, execute, clone, or del
 </table>
 
 ## Updating a Test Suite
+
 To update a test suite:
+
 1. On the dashboard, in the left navigation, click **Plan** and then click **Test Suites**.
 
 <img src={useBaseUrl('/img/dev/low-code/test-suites-nav.png')} alt="Navigating to the Test Suites page" width="350"/>
@@ -100,7 +102,9 @@ To update a test suite:
 See [Creating a Test Suite](/dev/low-code/plan/projects/project-details-page#creating-a-test-suite) for information about the tabs in the **Update Suite** window.
 
 ## Cloning a Test Suite
+
 To clone a test suite:
+
 1. On the dashboard, in the left navigation, click **Plan** and then click **Test Suites**.
 2. Next to the test suite you want to clone, click the **Actions** icon and then click **Clone Suite**.
 
@@ -111,7 +115,9 @@ To clone a test suite:
 <img src={useBaseUrl('/img/dev/low-code/test-suites-clone-window.png')} alt="The Clone Suite window" width="300"/>
 
 ## Executing a Test Suite
+
 To execute a test suite:
+
 1. On the dashboard, in the left navigation, click **Plan** and then click **Test Suites**.
 2. Next to the test suite you want to clone, click the **Actions** icon and then click **Execute**.
 

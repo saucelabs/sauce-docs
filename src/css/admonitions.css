@@ -1,9 +1,8 @@
-
 /* Callout boxes / admonition styles */
 
 .alert a {
     color: var(--ds-blue-900);
-    text-decoration:none;
+    text-decoration: none;
     cursor: pointer;
     font-weight: bold;
 }
@@ -12,7 +11,7 @@
     text-decoration: underline;
 }
 
-html[data-theme='dark'] .admonition-tip p a {
+html[data-theme="dark"] .admonition-tip p a {
     color: var(--ds-green-400);
     cursor: pointer;
 }
@@ -33,7 +32,8 @@ html[data-theme='dark'] .admonition-tip p a {
     border-radius: 0px;
 }
 
-html[data-theme='dark'] .alert--warning p, .alert--warning h5 {
+html[data-theme="dark"] .alert--warning p,
+.alert--warning h5 {
     color: var(--ds-gray-700);
 }
 
@@ -62,7 +62,6 @@ html[data-theme='dark'] .alert--warning p, .alert--warning h5 {
     stroke: var(--ds-gray-400);
     fill: var(--ds-gray-400);
 }
-
 
 .admonition-tip {
     border-left: 5px solid var(--ds-green-400);
@@ -132,7 +131,7 @@ html[data-theme='dark'] .alert--warning p, .alert--warning h5 {
 
 .admonition-warning .admonition-icon svg {
     stroke: var(--ds-gray-300);
-    fill: var(--ds-orange-600);;
+    fill: var(--ds-orange-600);
 }
 
 .admonition-caution code {

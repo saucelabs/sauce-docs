@@ -24,7 +24,6 @@ saucectl run -c ./path/to/{config-file}.yml
 While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g., [Visual Studio Code](/dev/cli/saucectl/usage/ide/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
 :::
 
-
 ## Example Configuration
 
 ```yaml reference
@@ -34,6 +33,7 @@ https://github.com/saucelabs/saucectl-replay-example/blob/main/.sauce/config.yml
 Each of the properties supported for running Playwright tests through `saucectl` is defined below.
 
 ## `apiVersion`
+
 <p><small>| REQUIRED | STRING |</small></p>
 
 Identifies the version of the underlying configuration schema. At this time, `v1alpha` is the only supported value.
@@ -41,9 +41,11 @@ Identifies the version of the underlying configuration schema. At this time, `v1
 ```yaml
 apiVersion: v1alpha
 ```
+
 ---
 
 ## `kind`
+
 <p><small>| REQUIRED | STRING/ENUM |</small></p>
 
 Specifies which framework is associated with the automation tests configured in this specification.
@@ -51,19 +53,23 @@ Specifies which framework is associated with the automation tests configured in 
 ```yaml
 kind: puppeteer-replay
 ```
+
 ---
 
 ## `showConsoleLog`
+
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Show the contents of the remote `console.log` as local output. By default, the contents of `console.log` are only displayed locally on failure.
+Controls whether the contents of `console.log` are always shown in the local output of saucectl. By default (false), `console.log` is only shown for failed suites.
 
 ```yaml
 showConsoleLog: true
 ```
+
 ---
 
 ## `defaults`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Specifies any default settings for the project.
@@ -72,9 +78,11 @@ Specifies any default settings for the project.
 defaults:
   timeout: 15m
 ```
+
 ---
 
 ### `timeout`
+
 <p><small>| OPTIONAL | DURATION |</small></p>
 
 Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
@@ -83,9 +91,11 @@ Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each s
 defaults:
   timeout: 15m
 ```
+
 ---
 
 ## `sauce`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 The parent property containing all settings related to how Jobs are run and identified in the Sauce Labs platform.
@@ -102,9 +112,11 @@ sauce:
     build: Release $CI_COMMIT_SHORT_SHA
   concurrency: 10
 ```
+
 ---
 
 ### `region`
+
 <p><small>| OPTIONAL | STRING/ENUM |</small></p>
 
 Specifies on which Sauce Labs data center jobs will run. Valid values are: `us-west-1` or `eu-central-1`.
@@ -113,9 +125,11 @@ Specifies on which Sauce Labs data center jobs will run. Valid values are: `us-w
 sauce:
   region: eu-central-1
 ```
+
 ---
 
 ### `metadata`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 The set of properties that allows you to provide additional information about your project that helps you distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate Jobs based on metrics that are meaningful to you, as shown in the following example:
@@ -131,9 +145,11 @@ sauce:
       - beta
       - featurex
 ```
+
 ---
 
 ### `concurrency`
+
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
 Sets the maximum number of suites to execute at the same time. If the config defines more suites than the max, excess suites are queued and run in order as each suite completes.
@@ -169,9 +185,11 @@ Alternatively, you can override the file setting at runtime by setting the retri
 ```bash
 saucectl run --retries 1
 ```
+
 ---
 
 ### `tunnel`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 `saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect/proxy-tunnels/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel, and then provide the name and owner (if applicable) in this property.
@@ -182,9 +200,11 @@ sauce:
     name: your_tunnel_name
     owner: tunnel_owner_username
 ```
+
 ---
 
 #### `name`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Identifies an active Sauce Connect tunnel to use for secure connectivity to the Sauce Labs cloud.
@@ -198,9 +218,11 @@ sauce:
   tunnel:
     name: your_tunnel_name
 ```
+
 ---
 
 #### `owner`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Identifies the Sauce Labs user who created the specified tunnel, which is required if the user running the job did not create the tunnel.
@@ -215,26 +237,30 @@ sauce:
     name: your_tunnel_name
     owner: tunnel_owner_username
 ```
+
 ---
 
 ### `visibility`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Sets the visibility level of Jobs on Sauce Labs. If unspecified or empty, `team` visibility will be applied. Valid values are:
 
-* `public`: Accessible to everyone.
-* `public restricted`: Share your job's results page and video, but keeps the logs only for you.
-* `share`: Only accessible to people with a valid link.
-* `team`: (Default) Only accessible to people under the same root account as you.
-* `private`: Only you (the owner) will be able to view assets and test results page.
+- `public`: Accessible to everyone.
+- `public restricted`: Share your job's results page and video, but keeps the logs only for you.
+- `share`: Only accessible to people with a valid link.
+- `team`: (Default) Only accessible to people under the same root account as you.
+- `private`: Only you (the owner) will be able to view assets and test results page.
 
 ```yaml
 sauce:
   visibility: private
 ```
+
 ---
 
 ### `launchOrder`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies the execution order for your test suites. When set to `fail rate`, test suites with the highest failure rate will execute first. If unspecified, test suites will execute in the order in which they are written in the configuration file.
@@ -243,9 +269,11 @@ Specifies the execution order for your test suites. When set to `fail rate`, tes
 sauce:
   launchOrder: fail rate
 ```
+
 ---
 
 ## `reporters`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Configures additional reporting capabilities provided by `saucectl`.
@@ -259,7 +287,9 @@ reporters:
 ```
 
 ---
+
 ### `json`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 The JSON reporter gathers Job results and combines them into a single report.
@@ -273,7 +303,9 @@ reporters:
 ```
 
 ---
+
 #### `enabled`
+
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Toggles the reporter on/off.
@@ -285,7 +317,9 @@ reporters:
 ```
 
 ---
+
 #### `webhookURL`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 The JSON reporter gathers Job results, combines them into a single report and sends an HTTP POST request with the JSON payload to the specified webhook URL.
@@ -297,7 +331,9 @@ reporters:
 ```
 
 ---
+
 #### `filename`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies the report filename. Defaults to "saucectl-report.json".
@@ -309,7 +345,9 @@ reporters:
 ```
 
 ---
+
 ## `artifacts`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Specifies how to manage job artifacts, such as logs, videos, and screenshots.
@@ -323,9 +361,11 @@ artifacts:
       - "*"
     directory: ./artifacts/
 ```
+
 ---
 
 ### `cleanup`
+
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 When set to `true`, all contents of the specified download directory are deleted before downloading new artifacts.
@@ -338,6 +378,7 @@ artifacts:
 ---
 
 ### `download`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Specifies the settings related to downloading artifacts.
@@ -350,26 +391,30 @@ artifacts:
       - junit.xml
     directory: ./artifacts/
 ```
+
 ---
 
 #### `when`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies when and under what circumstances to download artifacts. Valid values are:
 
-* `always`: Always download artifacts.
-* `never`: Never download artifacts.
-* `pass`: Download artifacts for passing suites only.
-* `fail`: Download artifacts for failed suites only.
+- `always`: Always download artifacts.
+- `never`: Never download artifacts.
+- `pass`: Download artifacts for passing suites only.
+- `fail`: Download artifacts for failed suites only.
 
 ```yaml
 artifacts:
   download:
     when: always
 ```
+
 ---
 
 #### `match`
+
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
 
 Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
@@ -380,9 +425,11 @@ artifacts:
     match:
       - "*.log"
 ```
+
 ---
 
 #### `directory`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. The name of the subdirectory will match the suite name. If a directory with the same name already exists, the new one will be suffixed by a serial number.
@@ -392,9 +439,11 @@ artifacts:
   download:
     directory: ./artifacts/
 ```
+
 ---
 
 ## `notifications`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Specifies how to set up automatic job result alerts.
@@ -406,9 +455,11 @@ notifications:
       - "replay-results"
     send: always
 ```
+
 ---
 
 ### `slack`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/basics/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
@@ -420,9 +471,11 @@ notifications:
       - "saucectl-pw-tests"
     send: always
 ```
+
 ---
 
 #### `channels`
+
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
 
 The set of Slack channels to which the test result notifications are to be sent.
@@ -434,26 +487,30 @@ notifications:
       - "saucectl-results"
       - "playwright-team"
 ```
+
 ---
 
 #### `send`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies when and under what circumstances to send notifications to specified Slack channels. Valid values are:
 
-* `always`: Send notifications for all test results.
-* `never`: Do not send any test result notifications.
-* `pass`: Send notifications for passing suites only.
-* `fail`: Send notifications for failed suites only.
+- `always`: Send notifications for all test results.
+- `never`: Do not send any test result notifications.
+- `pass`: Send notifications for passing suites only.
+- `fail`: Send notifications for failed suites only.
 
 ```yaml
 notifications:
   slack:
     send: always
 ```
+
 ---
 
 ## `suites`
+
 <p><small>| REQUIRED | OBJECT |</small></p>
 
 The set of properties providing details about the suites to run. May contain multiple suite definitions. See the full [example config](#example-configuration) for an illustration of multiple suite definitions.
@@ -465,9 +522,11 @@ suites:
     platform: "Windows 11"
     timeout: 5m
 ```
+
 ---
 
 ### `name`
+
 <p><small>| REQUIRED | STRING |</small></p>
 
 The name of the test suite, which will be reflected in the results and related artifacts.
@@ -476,9 +535,11 @@ The name of the test suite, which will be reflected in the results and related a
 suites:
   - name: "saucy test"
 ```
+
 ---
 
 ### `platform`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 A specific operating system and version on which to run the specified recordings. Defaults to a platform that is supported by `saucectl`.
@@ -488,9 +549,11 @@ suites:
   - name: "getting some coffee"
     platform: "Windows 11"
 ```
+
 ---
 
 ### `recordings`
+
 <p><small>| REQUIRED | STRING/ARRAY |</small></p>
 
 One or more paths to the Chrome DevTools JSON recordings to run for this suite. Regex values are supported to indicate all files of a certain type or in a certain directory, etc.
@@ -501,9 +564,11 @@ suites:
     recordings:
       - "recordings/*.json"
 ```
+
 ---
 
 ### `browserName`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 The name of the browser in which to run this test suite. Defaults to `googlechrome`, which is currently the only supported browser.
@@ -513,9 +578,11 @@ suites:
   - name: "getting some coffee"
     browserName: "googlechrome"
 ```
+
 ---
 
 ### `browserVersion`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 The version of the browser in which to run this suite. Defaults to `latest`.
@@ -525,9 +592,11 @@ suites:
   - name: "getting some coffee"
     browserVersion: "latest"
 ```
+
 ---
 
 ### `timeout`
+
 <p><small>| OPTIONAL | DURATION |</small></p>
 
 Instructs how long `saucectl` should wait for the suite to complete, potentially overriding the default project timeout setting.

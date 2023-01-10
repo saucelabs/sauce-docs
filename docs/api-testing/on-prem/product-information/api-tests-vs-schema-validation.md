@@ -1,18 +1,18 @@
 ---
 id: api-tests-vs-schema-validation
-title: "API Tests vs. Schema Validation"
-sidebar_label: "API Tests vs. Schema Validation"
+title: 'API Tests vs. Schema Validation'
+sidebar_label: 'API Tests vs. Schema Validation'
 keywords:
-    - api
-    - api-fortress
-    - schema
+- api
+- api-fortress
+- schema
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 One of the most common questions we receive about API testing is:
 
@@ -29,14 +29,15 @@ For what concerns ( 1 ) deal with it. ( 2 ) is a little more intriguing. Let's w
 
 ```json
 {
-  "group": "food",
-  "items": [ 10,15,17,19 ],
-  "install": false,
-  "installDay": null,
-  "delivery": true,
-  "request_date": 1456249628
+"group": "food",
+"items": [10, 15, 17, 19],
+"install": false,
+"installDay": null,
+"delivery": true,
+"request_date": 1456249628
 }
 ```
+
 Of course a schema can determine whether these items are the right types, but no schema can tell that:
 
 1. _Food items should have ids lower than 100_

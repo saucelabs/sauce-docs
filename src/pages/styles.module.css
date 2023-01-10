@@ -6,42 +6,42 @@
  */
 
 .heroBanner {
-  padding: 1rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 966px) {
-  .heroBanner {
-    padding: 0;
-  }
+    .heroBanner {
+        padding: 0;
+    }
 }
 
 .buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+    width: 100%;
 }
 
 .featureImage {
-  /*height: 200px;*/
-  width: 200px;
+    /*height: 200px;*/
+    width: 200px;
 }
 
 .pathButton {
-  --ifm-font-color-base: white;
-  background-color: #e13326;
+    --ifm-font-color-base: white;
+    background-color: #e13326;
 }
 
 .pathButton:hover {
-  --ifm-font-color-base: black;
-  background-color: #f8f8f8;
+    --ifm-font-color-base: black;
+    background-color: #f8f8f8;
 }

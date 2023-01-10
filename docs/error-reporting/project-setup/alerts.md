@@ -4,6 +4,7 @@ title: Alerts
 sidebar_label: Alerts
 description: Backtrace offers an Alert capability that enables teams to be notified at Warning and Critical levels if error reports climb to a critical rate.
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -26,7 +27,7 @@ When a threshold is met, a notification including a link to the alert’s Activi
 
 <img src={useBaseUrl('img/error-reporting/project-settings/slack-alert-example.png')} alt="" />
 
-The activity feed will display the fingerprint(s) that met the alert, providing teams with the information they need to investigate the spike. 
+The activity feed will display the fingerprint(s) that met the alert, providing teams with the information they need to investigate the spike.
 
 <img src={useBaseUrl('img/error-reporting/project-settings/alert-activity-feed.png')} alt="" />
 

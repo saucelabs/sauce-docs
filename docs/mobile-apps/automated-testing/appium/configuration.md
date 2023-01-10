@@ -11,30 +11,30 @@ import TabItem from '@theme/TabItem';
 
 Sauce Labs supports Appium to test your app on a mobile device in multiple ways:
 
-* On any of a vast library of [Android and iOS real devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices) in our data centers
-* On any of a vast library of [Android emulators or iOS simulators]((https://docs.saucelabs.com/mobile-apps/automated-testing/appium/virtual-devices) in our cloud
-* As a web-app running in any of a wide variety of supported mobile browser/OS combinations
-* As a native app running on any supported device, emulator, simulator, and OS
+- On any of a vast library of [Android and iOS real devices](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/real-devices) in our data centers
+- On any of a vast library of [Android emulators or iOS simulators]((https://docs.saucelabs.com/mobile-apps/automated-testing/appium/virtual-devices) in our cloud
+- As a web-app running in any of a wide variety of supported mobile browser/OS combinations
+- As a native app running on any supported device, emulator, simulator, and OS
 
 Depending on which combination of environments you wish to apply to your testing, the Appium configurations may be different. This page provides descriptions for the settings that are applicable to each of the testing scenarios support for Appium on Sauce Labs.
 
-
 ## What You'll Need
 
-* [Sample Tests](https://github.com/saucelabs-training/quickstart-appium-java)
-* The [Swag Labs Sample App](https://github.com/saucelabs/sample-app-mobile/releases)
-* A [Sauce Labs Username and Access Key](https://app.saucelabs.com/user-settings)
-* An IDE such as [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=mac)
-* [Maven](https://maven.apache.org/install.html)
+- [Sample Tests](https://github.com/saucelabs-training/quickstart-appium-java)
+- The [Swag Labs Sample App](https://github.com/saucelabs/sample-app-mobile/releases)
+- A [Sauce Labs Username and Access Key](https://app.saucelabs.com/user-settings)
+- An IDE such as [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=mac)
+- [Maven](https://maven.apache.org/install.html)
 
 ## Creating an Appium Test
 
 Here are the basic steps for creating an Appium test script for your app under test (AUT):
 
 ### 1. Set your app location
+
 When you write an Appium test script, the most basic component is the [capabilities object](/basics/test-config-annotation/test-annotation). This is where you set your test parameters, such as the mobile platform and operating system you want to test against.
 
-Within that object, one of the [required capabilities](/dev/test-configuration-options) is the `app` capability: the path to your app (e.g., Sauce Storage, AWS, GitHub). One of the advantages of the Appium architecture is that the app you want to test can be hosted anywhere, from a local path to any other web host on the network, since the Appium server will send the commands it receives from the client to any app path you specify. Practically, you have three options. 
+Within that object, one of the [required capabilities](/dev/test-configuration-options) is the `app` capability: the path to your app (e.g., Sauce Storage, AWS, GitHub). One of the advantages of the Appium architecture is that the app you want to test can be hosted anywhere, from a local path to any other web host on the network, since the Appium server will send the commands it receives from the client to any app path you specify. Practically, you have three options.
 
 To learn about App Storage on Sauce Labs, [click here](/mobile-apps/app-storage.md).
 
@@ -44,34 +44,36 @@ To learn about App Storage on Sauce Labs, [click here](/mobile-apps/app-storage.
 
 In this step, you'll create an Appium driver instance which points to a running Appium server (e.g., the servers on Sauce Labs). The WebDriver instance is the starting point for all uses of the Mobile JSON Wire Protocol.
 
-You'll need to create an instance of the WebDriver interface using a constructor for either Android or iOS. For mobile native app tests, you set both the platform and browser to test against by setting the `browserName` capability. 
+You'll need to create an instance of the WebDriver interface using a constructor for either Android or iOS. For mobile native app tests, you set both the platform and browser to test against by setting the `browserName` capability.
 
 Once you have created an instance of the WebDriver interface, you use this instance to invoke methods, such as tap and swipe, to access other interfaces used in basic test steps. You do so by assigning the instance to a variable when you create it, and by using that variable to invoke methods.
 
 #### **WebDriver Examples**
+
 These pseudo-code examples illustrate how to instantiate iOS and Android WebDriver objects in the various Appium language bindings.
 
-
 <Tabs
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Node.js', value: 'Node.js'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+defaultValue="Java"
+values={[
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'Node.js', value: 'Node.js'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
 
 <TabItem value="Java">
 
 Visit the [java-client page](https://github.com/appium/java-client) for more information on the Java Appium language bindings.
 
 **iOS**
+
 ```java
 WebDriver driver = new iOSDriver<WebElement>( new URL("https://ondemand.us-west-1.saucelabs.com/wd/hub"), capabilities);
 ```
 
 **Android**
+
 ```java
 WebDriver driver = new AndroidDriver<WebElement>( new URL("https://ondemand.us-west-1.saucelabs.com/wd/hub"), capabilities);
 ```
@@ -82,6 +84,7 @@ WebDriver driver = new AndroidDriver<WebElement>( new URL("https://ondemand.us-w
 Visit the [python-client page](https://github.com/appium/python-client) for more information on the Python Appium language bindings.
 
 **iOS**
+
 ```py
 desired_caps = {}
 desired_caps['platformName'] = 'iOS'
@@ -90,6 +93,7 @@ self.driver = webdriver.Remote('https://ondemand.us-west-1.saucelabs.com/wd/hub'
 ```
 
 **Android**
+
 ```py
 desired_caps = {}
 desired_caps['platformName'] = 'Android'
@@ -103,27 +107,29 @@ self.driver = webdriver.Remote('https://ondemand.us-west-1.saucelabs.com/wd/hub'
 We recommend using the [webdriverio testing utility](https://webdriver.io/) as your WebDriver testing framework for node.js. For more information, refer to the [documentation](https://webdriver.io/docs/gettingstarted/).
 
 **iOS**
+
 ```js
 const opts = {
-  capabilities: {
-    platformName: "iOS",
-    app: "/path/to/the/downloaded/MyiOS.app.zip",
-  }
-};
+capabilities: {
+platformName: 'iOS',
+app: '/path/to/the/downloaded/MyiOS.app.zip'
+}
+}
 
-const client = wdio.remote(opts);
+const client = wdio.remote(opts)
 ```
 
 **Android**
+
 ```js
 const opts = {
-  capabilities: {
-    platformName: "Android",
-    app: "/path/to/the/downloaded/MyAndroid.apk",
-  }
-};
+capabilities: {
+platformName: 'Android',
+app: '/path/to/the/downloaded/MyAndroid.apk'
+}
+}
 
-const client = wdio.remote(opts);
+const client = wdio.remote(opts)
 ```
 
 </TabItem>
@@ -132,6 +138,7 @@ const client = wdio.remote(opts);
 Visit [appium_lib](https://github.com/appium/ruby_lib/blob/master/lib/appium_lib/driver.rb) for more information about the Ruby Appium language bindings.
 
 **iOS**
+
 ```ruby
 opts = { caps: { platformName: :ios, app: '/path/to/MyiOS.app'}, appium_lib: { wait_timeout: 30 }}
 appium_driver = Appium::Driver.new(opts, true)
@@ -139,6 +146,7 @@ appium_driver.start_driver
 ```
 
 **Android**
+
 ```ruby
 opts = { caps: { platformName: :android, app: '/path/to/MyAndroid.apk'}, appium_lib: { wait_timeout: 30 }}
 appium_driver = Appium::Driver.new(opts, true)
@@ -151,12 +159,14 @@ appium_driver.start_driver
 Visit the [appium-dot-net page](https://github.com/appium/appium-dotnet-driver) for more information about the C# Appium language bindings.
 
 **iOS**
+
 ```CS
 var sauceURL = "https://ondemand.us-west-1.saucelabs.com";
 var driver = new IOSDriver<IWebElement>(new Uri(sauceURL));
 ```
 
 **Android**
+
 ```CS
 var sauceURL = "https://ondemand.us-west-1.saucelabs.com";
 var driver = new AndroidDriver<IWebElement>(new Uri(sauceURL));
@@ -173,26 +183,26 @@ Next, locate an element within your app, such as a login button or a link.
 In order to find elements in a mobile environment, Appium implements a number of locator strategies that are specific to, or adaptations for, the particulars of a mobile device. Three are available for both Android and iOS:
 
 <Tabs
-  defaultValue="accessibility ID"
-  values={[
-    {label: 'accessibility ID', value: 'accessibility ID'},
-    {label: 'class name', value: 'class name'},
-    {label: 'id', value: 'id'},
-    {label: 'xpath', value: 'xpath'},
-  ]}>
+defaultValue="accessibility ID"
+values={[
+{label: 'accessibility ID', value: 'accessibility ID'},
+{label: 'class name', value: 'class name'},
+{label: 'id', value: 'id'},
+{label: 'xpath', value: 'xpath'},
+]}>
 
 <TabItem value="accessibility ID">
 
 The `accessibility ID` locator strategy is designed to read a unique identifier for a UI element. This has the benefit of not changing during localization or any other process that might change text. In addition, it can be an aid in creating cross-platform tests, if elements that are functionally the same have the same accessibility id.
 
-* For iOS, this is the accessibility identifier laid out by Apple [here](https://developer.apple.com/documentation/uikit/uiaccessibilityidentification).
-* For Android, the accessibility id maps to the content-description for the element, as described [here](https://developer.android.com/guide/topics/ui/accessibility/apps).
+- For iOS, this is the accessibility identifier laid out by Apple [here](https://developer.apple.com/documentation/uikit/uiaccessibilityidentification).
+- For Android, the accessibility id maps to the content-description for the element, as described [here](https://developer.android.com/guide/topics/ui/accessibility/apps).
 
 For both platforms getting an element, or multiple elements, by their accessibility id is usually the best method. It is also the preferred way, in replacement of the deprecated name strategy.
 
 The client libraries specific to Appium support getting elements by `accessibility id`.
 
-__Example__:
+**Example**:
 
 ```py
 driver.find_element_by_accessibility_id('my_accessibility_identifier')
@@ -203,8 +213,8 @@ driver.find_element_by_accessibility_id('my_accessibility_identifier')
 
 The `class name` strategy is a string representing a UI element on the current view.
 
-* For iOS, it is the full name of a [UIAutomation class](https://help.apple.com/instruments/mac/current/). It will begin with UIA-, such as `UIATextField` for a text field. A full reference can be found [here](https://developer.apple.com/library/archive/navigation/#section=Frameworks&topic=UIAutomation).
-* For Android, it is the fully qualified name of a [UI Automator class](https://developer.android.com/training/testing#UIAutomator), such `android.widget.EditText` for a text field. A full reference can be found [here](https://developer.android.com/reference/android/widget/package-summary.html).
+- For iOS, it is the full name of a [UIAutomation class](https://help.apple.com/instruments/mac/current/). It will begin with UIA-, such as `UIATextField` for a text field. A full reference can be found [here](https://developer.apple.com/library/archive/navigation/#section=Frameworks&topic=UIAutomation).
+- For Android, it is the fully qualified name of a [UI Automator class](https://developer.android.com/training/testing#UIAutomator), such `android.widget.EditText` for a text field. A full reference can be found [here](https://developer.android.com/reference/android/widget/package-summary.html).
 
 The client libraries for Appium support getting a single element, or multiple elements, based on the class name. This functionality is in the Selenium clients (e.g., [Python](https://selenium-python.readthedocs.io/locating-elements.html#locating-elements-by-class-name)).
 
@@ -217,12 +227,12 @@ driver.find_element_by_class_name('android.widget.DatePicker')
 
 In the mobile environment, `id`s are not, as in WebDriver, CSS ids, but rather some form of native identifier.
 
-* For iOS, the situation is complicated. Appium will first search for an `accessibility id` that matches. If none are found, a string match will be attempted on the element labels. Finally, if the `id` passed in is a localization key, it will search the localized string.
-* For Android, the `id` is the element’s `android:id`.
+- For iOS, the situation is complicated. Appium will first search for an `accessibility id` that matches. If none are found, a string match will be attempted on the element labels. Finally, if the `id` passed in is a localization key, it will search the localized string.
+- For Android, the `id` is the element’s `android:id`.
 
 This example below invokes the `findElement` method on the driver variable, using the name attribute to locate the `username` and `password` text input elements, and (optionally) the `id` attribute to locate the form element.
 
-__Example__:
+**Example**:
 
 ```java
 import org.openqa.selenium.By;
@@ -237,7 +247,7 @@ The `xpath` locator strategy is also available in the WebDriver protocol, and 
 
 The Selenium clients have methods for retrieving elements using the `xpath` locator strategy.
 
-__Example__:
+**Example**:
 
 ```py
 driver.find_element_by_xpath('//UIAApplication[1]/UIAWindow[1]/UIATextField[1]')
@@ -260,9 +270,9 @@ Once you've identified the mobile elements you want your test to interact with, 
 
 In this example, we'll test a login button. The WebElement interface declares basic interaction methods including:
 
-* The `sendKeys` method, to enter text.
-* The `clear` method, to clear entered text.
-* The `submit` method, to submit a form.
+- The `sendKeys` method, to enter text.
+- The `clear` method, to clear entered text.
+- The `submit` method, to submit a form.
 
 This example first invokes the `sendKeys` method to enter text in the username and password elements, and then invokes the `submit` method to submit the login form. Enter a username and password:
 
@@ -284,7 +294,7 @@ When you click a **Submit** button, you know that you have to wait a second or
 
 If you're trying to test the response, and what happens afterwards, then you need to build that waiting time into your test. Otherwise, the test might fail because the elements that are expected for the next step haven't loaded into the browser you.
 
-The WebDriver API supports two basic techniques for anticipating browser response by waiting: ___implicit waits___ and ___explicit waits___.  
+The WebDriver API supports two basic techniques for anticipating browser response by waiting: **_implicit waits_** and **_explicit waits_**.
 
 #### **Implicit Waits Strategy**
 
@@ -298,7 +308,7 @@ driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 #### **Explicit Waits Strategy**
 
-_Explicit waits_ wait until an expected condition occurs on the web page, or until a maximum wait time elapses. To use an explicit wait, you create an instance of the WebDriverWait class with a maximum wait time, and you invoke its until method with an expected condition. 
+_Explicit waits_ wait until an expected condition occurs on the web page, or until a maximum wait time elapses. To use an explicit wait, you create an instance of the WebDriverWait class with a maximum wait time, and you invoke its until method with an expected condition.
 
 The WebDriver API provides an `ExpectedConditions` class with methods for various standard types of expected condition. These methods return an instance of an expected condition class. You can pass an invocation of these standard expected-condition methods as argument values to `until` method. You can also pass - in ways that your programming language and its WebDriver API support - any function, code block, or closure that returns a boolean value or an object reference to a found web element as an argument value to the until method. How this is done varies over programming languages. The `until` method checks repeatedly, until the maximum wait time elapses, for a true boolean return value or a non-`null` object reference, as an indication that the expected condition has occurred.
 
@@ -327,20 +337,20 @@ Running tests and recording test results is the ultimate purpose of your test sc
 
 To run test and to record test results, you use methods of a test framework for your programming language. There are many available test frameworks, including the frameworks in the so-called XUnit family, which includes:
 
-* JUnit for Java
-* NUnit for C#
-* unittest or pyunit for Python
-* RSpec for Ruby
+- JUnit for Java
+- NUnit for C#
+- unittest or pyunit for Python
+- RSpec for Ruby
 
-For some programming languages, test frameworks other than those in the XUnit family are common - for example, the RSpec framework for Ruby. Our [sample test framework repos on GitHub](https://github.com/saucelabs-training) contain over 60 examples of test frameworks set up to work with Sauce Labs. 
+For some programming languages, test frameworks other than those in the XUnit family are common - for example, the RSpec framework for Ruby. Our [sample test framework repos on GitHub](https://github.com/saucelabs-training) contain over 60 examples of test frameworks set up to work with Sauce Labs.
 
 #### **Test Assertions**
 
-Most test frameworks implement the basic concept of an ***assertion***, a method representing whether or not a logical condition holds after interaction with an AUT.
+Most test frameworks implement the basic concept of an **_assertion_**, a method representing whether or not a logical condition holds after interaction with an AUT.
 
 Test frameworks generally declare methods whose names begin with the term `assert` and end with a term for a logical condition (e.g., `assertEquals` in JUnit). Generally, when the logical condition represented by an assert method does not hold, an exception for the condition is thrown.
 
-There are various approaches to using exceptions in most test frameworks. The [SeleniumHQ documentation](https://www.selenium.dev/documentation/en/) has more detailed information on using assertions and verifications in your tests. 
+There are various approaches to using exceptions in most test frameworks. The [SeleniumHQ documentation](https://www.selenium.dev/documentation/en/) has more detailed information on using assertions and verifications in your tests.
 
 #### **Recording Test Results**
 
@@ -366,13 +376,14 @@ assertEquals (message, successMsg);
 In this step, you'll shut down the connection to Sauce Labs.
 
 #### `quit` Method
-Conclude your test by invoking the _`quit` method_ on an instance of the WebDriver interface (e.g., on the driver variable). 
+
+Conclude your test by invoking the *`quit` method* on an instance of the WebDriver interface (e.g., on the driver variable).
 
 The `quit` method concludes a test by disposing of resources, which allows later tests to run without resources and app state affected by earlier tests. The quit method:
 
-* quits the web browser app, closing all web pages.
-* quits the WebDriver server, which interacts with the web browser.
-* releases driver, the variable referencing the unique instance of the WebDriver interface. 
+- quits the web browser app, closing all web pages.
+- quits the WebDriver server, which interacts with the web browser.
+- releases driver, the variable referencing the unique instance of the WebDriver interface.
 
 The following example invokes the `quit` method on the driver variable:
 
@@ -422,8 +433,8 @@ public class SampleSauceTest {
 
 ## Additional Resources
 
-* [Appium Bootcamp](https://saucelabs.com/blog/appium-bootcamp-chapter-1-get-started-with-appium), by Bill McGee.
-* [Official Appium website](http://appium.io): documentation and test script examples.
-* [An Introduction to Appium](https://youtu.be/1J0aXDbjiUE?list=PLSIUOFhnxEiCODb8XQB-RUQ0RGNZ2yW7d), presented by Jonathan Lipps of Sauce Labs and the Appium project given at the 2013 Google Test Automation Conference.
-* [A talk on the Mobile JSON Wire Protocol](https://confengine.com/selenium-conf-2015/proposal/1319/the-mobile-json-wire-protocol), presented by Jonathan Lipps at the 2015 Selenium Conference.
-* [An in-depth tutorial](http://stackshare.io/sauce-labs/mobile-automation-with-appium-and-sauce-labs), by Jonathan Lipps covering Appium basics using Ruby and Sauce Labs.
+- [Appium Bootcamp](https://saucelabs.com/blog/appium-bootcamp-chapter-1-get-started-with-appium), by Bill McGee.
+- [Official Appium website](http://appium.io): documentation and test script examples.
+- [An Introduction to Appium](https://youtu.be/1J0aXDbjiUE?list=PLSIUOFhnxEiCODb8XQB-RUQ0RGNZ2yW7d), presented by Jonathan Lipps of Sauce Labs and the Appium project given at the 2013 Google Test Automation Conference.
+- [A talk on the Mobile JSON Wire Protocol](https://confengine.com/selenium-conf-2015/proposal/1319/the-mobile-json-wire-protocol), presented by Jonathan Lipps at the 2015 Selenium Conference.
+- [An in-depth tutorial](http://stackshare.io/sauce-labs/mobile-automation-with-appium-and-sauce-labs), by Jonathan Lipps covering Appium basics using Ruby and Sauce Labs.

@@ -4,11 +4,13 @@ title: Data Retention
 sidebar_label: Data Retention
 description: Describes Backtrace's data retention policies.
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Backtrace offers three different types of data retention policies:
+
 - Dump compression
 - Dump retention
 - Metadata retention
@@ -22,6 +24,7 @@ When a retention policy compresses dumps, you will still be able to view, query,
 When a retention policy removes the dumps but leaves the metadata (also known as a "physical only" policy), you will still be able to view, query, and aggregate on the metadata for the removed crashes. The abilities to view the dump in the debugger view or download the original object and any attachments are removed.
 
 ## Retention Policies
+
 Enterprise customers have flexible retention policies. Administrators can also configure dump and metadata retention policies that will allow data to be removed after a defined period of time.
 
 <img src={useBaseUrl('img/error-reporting/project-settings/retention-policies.png')} alt="" />

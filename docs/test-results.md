@@ -3,6 +3,7 @@ id: test-results
 title: Test Results
 sidebar_label: Getting Started
 ---
+
 Use the results of your Sauce Labs tests to maximize your testing.
 
 <div className="box-wrapper" markdown="1">

@@ -5,6 +5,7 @@ sidebar_label: Welcome
 description: Landing Page for Sauce Labs Documentation
 hide_table_of_contents: true
 ---
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <div className="box-wrapper" markdown="1">

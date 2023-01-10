@@ -15,44 +15,42 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 You can run `saucectl` locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms)) or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention. The following reference serves as a general guide:
 
 <Tabs
-  defaultValue="macos"
-  values={[
-    {label: 'macOS', value: 'macos'},
-    {label: 'Linux', value: 'linux'},
-    {label: 'Windows', value: 'windows'},
-  ]}>
+defaultValue="macos"
+values={[
+{label: 'macOS', value: 'macos'},
+{label: 'Linux', value: 'linux'},
+{label: 'Windows', value: 'windows'},
+]}>
 
 <TabItem value="macos">
 
-* OS: 10.14+ (Mojave, Catalina, or Big Sur)
+- OS: 10.14+ (Mojave, Catalina, or Big Sur)
 
 </TabItem>
 <TabItem value="linux">
 
-* OS/Distros: Ubuntu 22.04+
+- OS/Distros: Ubuntu 22.04+
 
 </TabItem>
 <TabItem value="windows">
 
-* OS: Windows 10+
+- OS: Windows 10+
 
 </TabItem>
 </Tabs>
 
-
 ## Supported Testing Platforms
 
- Sauce Labs supports the following test configurations for Replay:
+Sauce Labs supports the following test configurations for Replay:
 
- * Browsers: Chrome
- * Platforms: Windows 10, Windows 11, macOS 11, macOS 12
-
+- Browsers: Chrome
+- Platforms: Windows 10, Windows 11, macOS 11, macOS 12
 
 ## How to Get Started
 
-* [Quickstart](/web-apps/automated-testing/replay/quickstart): Use our demo repo to quickly set up and run a sample Replay project and test to see the results.
-* [Run your own](/web-apps/automated-testing/replay/yaml): Customize `saucectl` to replay your existing recordings just by modifying the `config.yml` file for your project.
-* [Incorporate saucectl in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): Replay in Sauce Labs supports CI integrations with Circle CI, GitLab, Jenkins, and GitHub Actions.
+- [Quickstart](/web-apps/automated-testing/replay/quickstart): Use our demo repo to quickly set up and run a sample Replay project and test to see the results.
+- [Run your own](/web-apps/automated-testing/replay/yaml): Customize `saucectl` to replay your existing recordings just by modifying the `config.yml` file for your project.
+- [Incorporate saucectl in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): Replay in Sauce Labs supports CI integrations with Circle CI, GitLab, Jenkins, and GitHub Actions.
 
 ## Limitations
 

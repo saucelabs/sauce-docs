@@ -17,9 +17,11 @@ Click the more actions icon to view or modify the project properties, download t
 <img src={useBaseUrl('/img/dev/low-code/project-details-more-actions.png')} alt="Project Details page - More actions button" width="400"/>
 
 ## Test Cases Tab
+
 The **Test Cases** tab consists of a table of information about the test cases that are part of the project. From this page you can also create a new test case.
 
 ### Merging Test Cases
+
 To merge multiple test cases into a new test case:
 
 1. On the dashboard, in the **Projects** card, click **Go to Projects**.
@@ -37,6 +39,7 @@ To merge multiple test cases into a new test case:
 <img src={useBaseUrl('/img/dev/low-code/merge-cases-arrange-tab.png')} alt="Merge Cases window - Arrange tab" width="400"/>
 
 ### Test Cases Table Columns
+
 <table>
   <tr>
     <td colSpan='3'><b>Column</b>
@@ -148,19 +151,24 @@ To merge multiple test cases into a new test case:
 </table>
 
 ## Adding a Test Case
+
 There are three ways to add a test case. You can record the case using the recorder, upload the case as an .xls, .xlsx, or .csv file, or manually enter the case and its steps.
 
 ### Using the Recorder
+
 To record a test case you first have to download and install the recorder extension in Google Chrome.
 
 #### Installing the Recorder
+
 If you click the **Record** icon and do not have the recorder extension installed, you will be prompted to do so. To install the recorder without the prompt:
+
 1. Go to the [AutonomIQ AI Enterprise Recorder extension page](https://chrome.google.com/webstore/detail/autonomiq-ai-enterprise-r/gcjbafckoidlgfcdgnpmanplcjkfjbbb/related?hl=en-GB).
 2. Click **Add to Chrome**.
 3. In the **Add “AutonomIQ AI Enterprise Recorder”?** window, click **Add extension**.
 4. The recorder will now be available in your extensions. To launch the recorder, in Google Chrome, click the **Extensions** icon and then click **AutonomIQ AI Enterprise Recorder**.
 
 #### Recording a Test Case
+
 When you launch the recorder, it records the actions you perform and translates them into test steps that can be managed in the step editor (see [Using the Step Editor](#using-the-step-editor) for more information). The recording happens in the background and is displayed in the **AI Test Studio** window. The recorder will start recording as soon as it is launched.
 
 <img src={useBaseUrl('/img/dev/low-code/using-the-recorder.png')} alt="AI Test Studio window" width="400"/>
@@ -305,7 +313,9 @@ When you launch the recorder, it records the actions you perform and translates 
   </table>
 
 ### Uploading a Test Case
+
 To upload a test case:
+
 1. On the dashboard, in the **Projects** card, click **Go to Projects**.
 2. On the **Projects** page, click the project card of the project you want to upload a test case to.
 3. On the **Project Details** page, click **ADD TEST CASE** and then click the **Upload** button.
@@ -313,26 +323,29 @@ To upload a test case:
 <img src={useBaseUrl('/img/dev/low-code/upload-a-test-case.png')} alt="Navigating to the Upload Test Case window" width="400"/>
 
 4. In the **Upload Test Case** window:
-    * On the **Test Case** tab, drag and drop or navigate to the .xls, .xlsx, or .csv file to upload. Click **Next**.
 
-    <img src={useBaseUrl('/img/dev/low-code/upload-test-case-test-case-tab.png')} alt="Upload Test Case - Test Case tab" width="400"/>
+   - On the **Test Case** tab, drag and drop or navigate to the .xls, .xlsx, or .csv file to upload. Click **Next**.
 
-    * (Optional) On the **Test Data** tab, drag and drop or navigate to the .xls, .xlsx, or .csv file to upload. Click **Next**.
+   <img src={useBaseUrl('/img/dev/low-code/upload-test-case-test-case-tab.png')} alt="Upload Test Case - Test Case tab" width="400"/>
 
-    <img src={useBaseUrl('/img/dev/low-code/upload-test-case-test-data-tab.png')} alt="Upload Test Case - Test Data tab" width="400"/>
+   - (Optional) On the **Test Data** tab, drag and drop or navigate to the .xls, .xlsx, or .csv file to upload. Click **Next**.
 
-    * (Optional) On the **Artifacts** tab, drag and drop or navigate to the file(s) to upload. Click **Next**.
+   <img src={useBaseUrl('/img/dev/low-code/upload-test-case-test-data-tab.png')} alt="Upload Test Case - Test Data tab" width="400"/>
 
-    <img src={useBaseUrl('/img/dev/low-code/upload-test-case-artifacts-tab.png')} alt="Upload Test Case - Artifacts tab" width="400"/>
+   - (Optional) On the **Artifacts** tab, drag and drop or navigate to the file(s) to upload. Click **Next**.
 
-    * (Optional) On the **Audio** tab, drag and drop or navigate to the .wav file to upload. **Click Next**.
+   <img src={useBaseUrl('/img/dev/low-code/upload-test-case-artifacts-tab.png')} alt="Upload Test Case - Artifacts tab" width="400"/>
 
-    <img src={useBaseUrl('/img/dev/low-code/upload-test-case-audio-tab.png')} alt="Upload Test Case - Audio tab" width="400"/>
+   - (Optional) On the **Audio** tab, drag and drop or navigate to the .wav file to upload. **Click Next**.
+
+   <img src={useBaseUrl('/img/dev/low-code/upload-test-case-audio-tab.png')} alt="Upload Test Case - Audio tab" width="400"/>
 
 5. Click **Submit**.
 
 ### Manually Creating a Test Case
+
 To manually add a test case:
+
 1. On the dashboard, in the **Projects** card, click **Go to Projects**.
 2. On the **Projects** page, click the project card of the project you want to upload a test case to.
 3. On the **Project Details** page, on the **Tests Cases** tab, click **ADD TEST CASE** and then click the **Create** button. See [Using the Step Editor](#using-the-step-editor) for information about the next steps.
@@ -340,9 +353,11 @@ To manually add a test case:
 <img src={useBaseUrl('/img/dev/low-code/create-test-case-manual.png')} alt="Navigating to the step editor" width="400"/>
 
 ### Using the Step Editor
+
 The step editor utilizes Natural Language Processing (NLP) and allows you to manually enter test steps, as opposed to using the recorder. This method gives you more focused control over the actions to test, but it can also result in more errors and frustration for a less-experienced user. If you are new to AutonomIQ, or to testing in general, you can start with the recorder (see [Recording a Test Case](#recording-a-test-case) for more information).
 
 ### Step Editor Page Components
+
 <table>
 
   <tr>
@@ -527,9 +542,11 @@ The step editor utilizes Natural Language Processing (NLP) and allows you to man
 </table>
 
 #### Creating a Step
+
 The following are the basic instructions to add a step to a test case, but the step editor is a very robust tool that can perform much more complex functions. For more detailed information about using the step editor and NLP commands, see [NLP Reference](/dev/low-code/nlp-reference).
 
 To create a new step in the step editor:
+
 1. On the dashboard, in the **Projects** card, click **Go to Projects**.
 2. On the **Projects** page, click the project card of the project you want to create a step for.
 3. On the **Cases** page, click the test case you want to create a step for. To create a new test case, see [Adding a Test Case](#adding-a-test-case).
@@ -556,10 +573,13 @@ To create a new step in the step editor:
 9. To save the step, click the green checkmark.
 
 #### Copying Excel Data
+
 To paste copied data from an Excel spreadsheet into the step editor, on the **Step Editor** page, click the clipboard icon or use the **CTRL+V** or **command+V** keyboard shortcuts. The pasted steps will be added to the end of the list of steps.
 
 ## Generating a Test
+
 To generate a test:
+
 1. On the dashboard, in the **Projects** card, click **Go to Projects**.
 2. On the **Projects** page, click the project card of the project you want to generate a test for.
 3. On the **Project Details** page, on the **Tests Cases** tab, hover in the **GENERATE** column and then click the **Generate** button.
@@ -567,7 +587,9 @@ To generate a test:
 <img src={useBaseUrl('/img/dev/low-code/generate-a-test.png')} alt="Navigating to the test generation window" width="400"/>
 
 ## Executing a Test
+
 To execute a test:
+
 1. On the dashboard, in the **Projects** card, click **Go to Projects**.
 2. On the **Projects** page, click the project card of the project you want to execute a test for.
 3. On the **Project Details** page, on the **Tests Cases** tab, hover in the **EXECUTE** column and then click the **Execute** button.
@@ -575,6 +597,7 @@ To execute a test:
 <img src={useBaseUrl('/img/dev/low-code/execute-a-test.png')} alt="Navigating to the test execution window" width="400"/>
 
 ## Data Tab
+
 The **Data** tab displays the data uploaded to a project, in table form. From this screen you can also upload new data, and delete and download existing data.
 
 ### Data Tab Columns
@@ -625,6 +648,7 @@ The **Data** tab displays the data uploaded to a project, in table form. From th
 </table>
 
 ### Uploading New Data
+
 To upload new data to your test case:
 
 1. On the dashboard, in the **Projects** card, click **Go to Projects**.
@@ -652,6 +676,7 @@ To upload new data to your test case:
 8. Click **Submit**.
 
 ## Variables Tab
+
 For information about specific variables, see [Variables](/dev/low-code/variables).
 
 ### Variables Tab Columns
@@ -690,7 +715,9 @@ For information about specific variables, see [Variables](/dev/low-code/variable
 </table>
 
 ### Adding a Variable
+
 To add a variable to a test case:
+
 1. On the dashboard, in the **Projects** card, click **Go to Projects**.
 2. On the **Projects** page, click the project card of the project you want to upload new data to.
 3. On the **Project Details** page, click the **Variables** tab and then click the **ADD VARIABLE** button.
@@ -702,11 +729,13 @@ To add a variable to a test case:
 <img src={useBaseUrl('/img/dev/low-code/new-variable-window.png')} alt="The New Variable window" width="400"/>
 
 ### More Options
+
 Click the more options button to the far right of the **ADD VARIABLE** button to download or delete all variables from the project.
 
 <img src={useBaseUrl('/img/dev/low-code/variables-tab-more-options.png')} alt="Variables tab - More options" width="400"/>
 
 ## Flows Tab
+
 A flow is a set of steps that are linked for easy re-use. The **Flows** tab displays the flows associated with a project.
 
 ### Flows Tab Columns
@@ -757,7 +786,9 @@ A flow is a set of steps that are linked for easy re-use. The **Flows** tab disp
 </table>
 
 ### Creating a Flow
+
 To add a flow to a project:
+
 1. On the dashboard, in the **Projects** card, click **Go to Projects**.
 2. On the **Projects** page, click the project card of the project you want to create a flow for.
 3. On the **Project Details** page, click the **Flows** tab and then click the **CREATE NEW FLOW** button.
@@ -771,6 +802,7 @@ To add a flow to a project:
 5. Click **Save**.
 
 ## Test Suites Tab
+
 A test suite is a collection of test cases in a project. The **Test Suites** tab displays the test suites in a project, in table form. From this screen you can also create a new test suite, and clone, download, and disable existing test suites.
 
 ### Test Suites Tab Columns
@@ -841,7 +873,9 @@ A test suite is a collection of test cases in a project. The **Test Suites** tab
 </table>
 
 ### Creating a Test Suite
+
 To create a test suite:
+
 1. On the dashboard, in the **Projects** card, click **Go to Projects**.
 2. On the **Projects** page, click the project card of the project you want to create a test suite for.
 3. On the **Project Details** page, click the **Test Suites** tab and then click the **CREATE TEST SUITE** button.
@@ -865,4 +899,5 @@ For information about the **Post Action** tab, see [Post Processing](#post-proce
 7. Click **Finish**.
 
 ### Post Processing
+
 You can set a test suite or suites to be triggered after the completion of the parent test suite. Post processing suites can be from the same project or from different projects. Suites can be made to trigger based on different conditions. They can be also triggered at desired time intervals by using the **Delay** feature.

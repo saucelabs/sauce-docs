@@ -1,6 +1,6 @@
 ---
 id: connect-session
-title: "Virtual USB CLI: Connect to Existing Session"
+title: 'Virtual USB CLI: Connect to Existing Session'
 sidebar_label: Connect to Session
 ---
 
@@ -11,7 +11,6 @@ Connect to an existing Virtual USB (vUSB) session in lieu of launching a new vUS
 ## Usage
 
 <span className="cli">$ &lt;main class&gt; [OPTIONS] connect [OPTIONS]</span>
-
 
 ## Options Details
 
@@ -51,7 +50,6 @@ A specific vUSB server host address. The default value, if not specified, is `ht
 
 </div>
 
-
 ### <span className="cli">--serverPort</span>
 
 <div className="cli-desc">
@@ -60,7 +58,6 @@ A specific vUSB server host address. The default value, if not specified, is `ht
 A specific vUSB server port. The default value, if not specified, is `33657`.
 
 </div>
-
 
 ## Examples
 
