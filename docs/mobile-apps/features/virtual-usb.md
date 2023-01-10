@@ -45,7 +45,7 @@ See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB
 
 1. Click below to download the latest Virtual USB client to your local machine where you have your IDE installed/set up.
 
-  <p> <a href="https://saucelabs-vusb.s3.eu-west-1.amazonaws.com/v2.0.3/virtual-usb-client-2.0.3.jar"><button class="download">Download Virtual USB 2.0.3</button></a> </p>
+  <p> <a href="https://saucelabs-vusb.s3.eu-west-1.amazonaws.com/v2.0.4/virtual-usb-client-2.0.4.jar"><button class="download">Download Virtual USB 2.0.4</button></a> </p>
 
 For Virtual USB release history, see our [changelog](https://changelog.saucelabs.com/en?category=virtual%20usb).
 
@@ -201,6 +201,8 @@ values={[
 </Tabs>
 
 To use Sauce Connect Proxy: launch a tunnel in the Sauce Connect client, then add your [`--tunnel-identifier`](/dev/cli/virtual-usb/start-session/#--tunnelidentifier), which the vUSB client will use to retrieve and secure test data. You can also set up a device proxy using [proxy command options](/dev/cli/virtual-usb/start-session).
+
+If you require video recordings and device logs to be generated for the virtual USB session created via this method (accessible via SauceLabs account on the website), include the `--artifactsEnabled` optional flag when using the `startSession` command. Otherwise, the test report associated with this session will only contain metadata (i.e. device info, start/end timestamps, etc.).
 
 If your vUSB test session launch is successful, you'll see a success message:
 <Tabs
