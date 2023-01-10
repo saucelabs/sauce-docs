@@ -1,7 +1,7 @@
 ---
 id: gitlab
 title: GitLab Integration
-sidebar_label: GitLab Integration
+sidebar_label: GitLab
 description: Use GitLab with Sauce Labs to scale up your CI/CD testing process
 keywords:
 - gitlab
