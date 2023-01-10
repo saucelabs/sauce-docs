@@ -511,6 +511,7 @@ module.exports = {
                         'error-reporting/project-setup/alerts',
                         'error-reporting/project-setup/scheduled-reports',
                         'error-reporting/project-setup/access-control',
+                        'error-reporting/project-setup/storage-management',
                         'error-reporting/project-setup/data-retention',
                         'error-reporting/project-setup/storage-sampling',
                         'error-reporting/project-setup/user-mgmnt',
