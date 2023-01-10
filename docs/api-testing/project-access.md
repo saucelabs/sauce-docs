@@ -24,7 +24,7 @@ Access to a project is assigned when the project is created. You can assign the 
 
 The type of project access users have and can configure for the projects they create is based on the following user scenarios:
 
-- **Individual User**  Individual users who are not a member of a team. When these users first log in to API Testing, they will be guided through creating a project and a test.<br/><img src={useBaseUrl('img/api-fortress/2021/12/emptyState.png')} alt="New user UI" width="500" /><br/> When creating a project, access will default to organization-wide access, and they will only be able to access the projects they've created.
+- **Individual User**: Individual users who are not a member of a team. When these users first log in to API Testing, they will be guided through creating a project and a test.<br/><img src={useBaseUrl('img/api-fortress/2021/12/emptyState.png')} alt="New user UI" width="600" /><br/> When creating a project, access will default to organization-wide access, and individual users will only be able to access the projects they've created.
 - **Team Member** Users who are a member of one or more teams. They can work in projects with access assigned to teams that they are a member of and also projects with organization-wide access. They cannot view projects with access assigned to teams they are not a member of. When creating a project, they will have the option to set the project access to a team that they are a member of or organization-wide access. 
 - **Organization Admin**: Organization Admins can create and interact with all data in all projects across their organization.
 
