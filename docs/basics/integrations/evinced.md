@@ -28,14 +28,14 @@ Virtual USB (vUSB) is a mobile (app) debugging tool that simulates connecting a 
 
 To get started, we will need to download the vUSB client from the Sauce Labs website. Once we have that, we can navigate to the client directory and start the local vUSB server with the following command:
 
-```java -jar virtual-usb-client.jar server --datacenter US```
+`java -jar virtual-usb-client.jar server --datacenter US`
 
 Make sure to double check the data center that is closest to you for the best performance. Once we have the server started, we can grab the device ID from our private iOS device. We can find this ID in the details section when choosing a device in the Sauce Labs UI:
-
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Mobile Flow Analyzer
+
 The Evinced [Mobile Flow Analyzer](https://www.evinced.com/products/flow-analyzer-for-mobile) allows you to connect to a mobile device right from your desktop and scan any native mobile applications for accessibility issues. Actionable reports can be created with a single click to make communicating with developer team members easier than ever.
 
 Evinced uses advanced algorithms to create a single actionable report that is easy to digest. Best of all, access to the source code isn’t required! There is no need to rebuild the app or modify it in any way to test it for accessibility issues.
@@ -56,7 +56,7 @@ Virtual USB (vUSB) is a mobile debugging tool that simulates connecting a Sauce 
 
 To get started, we will need to [download the vUSB client](https://docs.saucelabs.com/mobile-apps/features/virtual-usb/#download-client) from Sauce Labs. Then we navigate to the client directory and start the local vUSB server with the following [command](https://docs.saucelabs.com/dev/cli/virtual-usb/):
 
-```java -jar virtual-usb-client.jar server --datacenter US```
+`java -jar virtual-usb-client.jar server --datacenter US`
 
 :::tip
 Double-check [the data center](https://docs.saucelabs.com/basics/data-center-endpoints/) closest to you for the best performance.
@@ -68,7 +68,7 @@ Once the server is running, grab the device ID from our private iOS device. This
 
 Once we have the ID can use the following command in a new terminal tab:
 
-```java -jar virtual-usb-client.jar startSession --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY --deviceName iPhone_Device_ID```
+`java -jar virtual-usb-client.jar startSession --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY --deviceName iPhone_Device_ID`
 
 This will start the device session and establish the virtual USB connection. The device is now available to your workstation just as if it were plugged in directly.
 

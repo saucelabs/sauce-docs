@@ -8,19 +8,20 @@ Screener provides Interaction Testing that can be added directly to your Storybo
 
 Example use cases:
 
-* Testing stateful components.
-* Testing functional flows.
-* Integration testing multiple layers of your app.
-
+- Testing stateful components.
+- Testing functional flows.
+- Integration testing multiple layers of your app.
 
 ## Integrating Steps into Stories
 
 To test interactions, Screener provides a class called `Steps` that you can add to your existing Storybook stories. Each step is an instruction to interact with the component.
 
 ### For React
+
 To add steps to a React story, wrap your component within the `<Screener/>` component, and pass it as a `'steps'` prop. The steps can then be generated using our fluent API below.
 
 Example using React Storybook:
+
 ```java
 import Screener, {Steps} from 'screener-storybook/src/screener';
 
@@ -40,8 +41,8 @@ storiesOf('MyComponent', module)
 The `<Screener/>` component must be the top-most component returned within a story. If you use `addDecorator` in your stories, ensure the last decorator contains the Screener component and steps.
 :::
 
-
 ### For Vue
+
 To add steps to a Vue story, add a `'steps'` prop to the story object being returned. The steps can then be generated using our fluent API below.
 
 Example using Vue Storybook:
@@ -82,7 +83,6 @@ storiesOf('MyComponent', module)
 ## Steps API
 
 The following step methods are available. Step methods with selectors have built-in waits to simplify test flow creation.
-
 
 <table>
 <tr>
@@ -218,7 +218,6 @@ The following step methods are available. Step methods with selectors have built
    </td>
   </tr>
 </table>
-
 
 :::note
 When adding `Steps` using the fluent API, you must end the method chain with `end()`.

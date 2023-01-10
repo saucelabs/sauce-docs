@@ -11,14 +11,15 @@ Screener can send webhook events that notify your app any time an event happens 
 
 Screener has the following event types:
 
-* build.status.error
-* build.status.failure
-* build.status.success
+- build.status.error
+- build.status.failure
+- build.status.success
 
 ## Setup Steps
+
 1. In Screener, go to **Open Account** > **Webhooks** > **Add Webhook Endpoint**.
 2. In the **Add Webhook** dialog, enter your Webhook URL. Optionally, you can filter notifications by project and/or events.
-<img src={useBaseUrl('img/visual/component-add-webhook.png')} alt="Component Add Webhook" width="550px" />
+   <img src={useBaseUrl('img/visual/component-add-webhook.png')} alt="Component Add Webhook" width="550px" />
 
 3. Click **Add Endpoint**, and your Webhook will be added.
-<img src={useBaseUrl('img/visual/component-webhooks.png')} alt="Component Webhooks" />
+   <img src={useBaseUrl('img/visual/component-webhooks.png')} alt="Component Webhooks" />

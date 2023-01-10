@@ -3,16 +3,16 @@ id: create-a-dynamic-header
 title: How to Create a Dynamic Header
 sidebar_label: How to Create a Dynamic Header
 keywords:
-    - api-testing
-    - how-to
-    - dynamic-header
+- api-testing
+- how-to
+- dynamic-header
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -44,17 +44,16 @@ If you are testing the JSON case and `"application/xml"` if you are testing the 
    <img src={useBaseUrl('img/api-fortress/2018/04/setDynamVar.jpg')} alt="setDynamVar.jpg" />
 
 1. Add the following snippet into the **Content** field:
+
    ```js
-    if (format == 'xml')
-        return "application/xml";
-    else
-        return "application/json";
+   if (format == 'xml') return 'application/xml'
+   else return 'application/json'
    ```
 
    :::caution Explanation
    The `acceptHeader` variable will have `application/xml` as value if format is `xml` and `application/json` otherwise (since we have only two different formats, it will be `application/json` only for JSON format)
    :::
 
-5. Now, we can finally remove the 'static' header and add the 'dynamic' header by changing the Header value to `${acceptHeader}`
+1. Now, we can finally remove the 'static' header and add the 'dynamic' header by changing the Header value to `${acceptHeader}`
    <img src={useBaseUrl('img/api-fortress/2018/04/dynamicHeader.jpg')} alt="dynamicHeader.jpg" />
    Now,the test will be executed two times; once for `XML` and once for `JSON`, ensuring that the header will have the correct value.

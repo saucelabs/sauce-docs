@@ -149,8 +149,8 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
   </div>
 </div>
 
-
 ## Defect Reporting and Management
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -161,6 +161,7 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
 </div>
 
 ## Test Reporting and Management
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -170,8 +171,8 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
   </div>
   <div className="box box2 card">
     <div className="container">
-        <a href="https://docs.testmo.com/integrations/automation/saucelabs"> <img src={useBaseUrl('img/integrations/testmo.png')} alt="TestMo logo" width="45" />
-        <h3>TestMo</h3></a>
+        <a href="https://docs.testmo.com/integrations/automation/saucelabs"> <img src={useBaseUrl('img/integrations/testmo.png')} alt="Testmo logo" width="45" />
+        <h3>Testmo</h3></a>
     </div>
   </div>
   <div className="box box3 card">
@@ -183,6 +184,7 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
 </div>
 
 ## Test Enhancements
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -199,6 +201,7 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
 </div>
 
 ## Test Data Management
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -214,8 +217,8 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
   </div>
 </div>
 
-
 ## Low-code/No-code/Model-based Test Case Generation
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
@@ -274,6 +277,7 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
 </div>
 
 ## API Management and Testing
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">

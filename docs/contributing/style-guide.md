@@ -4,10 +4,11 @@ title: Style Guide
 sidebar_label: Style Guide
 description: The Sauce Labs Documentation Style Guide
 keywords:
-    - contributing
-    - style
-    - markdown
+- contributing
+- style
+- markdown
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -29,15 +30,16 @@ This site uses Docusaurus version 2 Beta. Docusaurus uses the
 
 At the top of each docs page, you need to include these things:
 
-| Variable | Description |
-| ----------- | ----------- |
-|`id`|A brief string that uniquely identifies the page within its parent folder. The id and the name of the file should be the same.|
-|`title`|The main title of the page. This value will automatically be rendered using the H1 style at the top of the page.
-|`sidebar_label`|This is what will appear in the left hand navigation tree for the page.|
-|`description` (optional)|This is what appears when the page is referenced in a Google search result.|
-|`keywords` (optional)| A list of terms that help categorize the page for SEO purposes.|
+| Variable                 | Description                                                                                                                    |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| `id`                     | A brief string that uniquely identifies the page within its parent folder. The id and the name of the file should be the same. |
+| `title`                  | The main title of the page. This value will automatically be rendered using the H1 style at the top of the page.               |
+| `sidebar_label`          | This is what will appear in the left hand navigation tree for the page.                                                        |
+| `description` (optional) | This is what appears when the page is referenced in a Google search result.                                                    |
+| `keywords` (optional)    | A list of terms that help categorize the page for SEO purposes.                                                                |
 
 It looks like this in the document:
+
 ```markdown
 ---
 id: style-guide
@@ -45,9 +47,9 @@ title: Style Guide Introduction
 sidebar_label: Style Guide
 description: The Sauce Labs Documentation Style Guide
 keywords:
-    - contributing
-    - style
-    - markdown
+- contributing
+- style
+- markdown
 ---
 ```
 
@@ -61,17 +63,20 @@ Describe the key benefits to the user, but do not include links.
 For accessibility and SEO reasons, never have an H4 header that isn't under an H3 header,
 or an H3 header that isn't under an H2 header.
 
-* H1 headers should never be used in a document since the title is automatically generated as an H1.
-* H2 headers are used for SEO, so make sure they succinctly represent what a user will find on the page in that section.
-* H3 headers are included in the page's table of contents on the right, so make sure the title describes something
-a user might want to directly navigate to.
-* H4 headers are to emphasize things within a subsection of the page; these can be longer than the other headers
-if needed because they aren't included in the Table of Contents.
+- H1 headers should never be used in a document since the title is automatically generated as an H1.
+- H2 headers are used for SEO, so make sure they succinctly represent what a user will find on the page in that section.
+- H3 headers are included in the page's table of contents on the right, so make sure the title describes something
+  a user might want to directly navigate to.
+- H4 headers are to emphasize things within a subsection of the page; these can be longer than the other headers
+  if needed because they aren't included in the Table of Contents.
 
 Markdown Code:
+
 ```markdown
 ## H2 Header
+
 ### H3 Header
+
 #### H4 Header
 ```
 
@@ -147,17 +152,27 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 ```
 
 and then reference the image as follows:
+
 ```html
-<img src={useBaseUrl('img/contributing/my-image.png')} alt="All images should have alt text" width="250"/>
+<img src={useBaseUrl('img/contributing/my-image.png')} alt="All images should
+have alt text" width="250"/>
 ```
 
 ## Videos
 
 Any referenced videos need to be from a Sauce Labs YouTube account.
 The suggested iframe code structure is as follows:
+
 ```html
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-RDh1ukLN8w" frameborder="0" allow="accelerometer;
-autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe
+width="560"
+height="315"
+src="https://www.youtube.com/embed/-RDh1ukLN8w"
+frameborder="0"
+allow="accelerometer;
+autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen
+></iframe>
 ```
 
 ## Tabs
@@ -173,6 +188,7 @@ all tabs with that ID will switch to the selected tab.
 
 To use tabs, you need to import two special methods by placing these lines below the [Frontmatter](#frontmatter),
 but above the [Introduction](#introduction):
+
 ```markdown
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -192,12 +208,12 @@ and then use the tabs as follows:
 
 ```markdown
 <Tabs
-  groupId="lang-ex"
-  defaultValue="java"
-  values={[
-    {label: 'Java', value: 'java'},
-    {label: 'Node.js', value: 'js'},
-  ]}>
+groupId="lang-ex"
+defaultValue="java"
+values={[
+{label: 'Java', value: 'java'},
+{label: 'Node.js', value: 'js'},
+]}>
 
 <TabItem value="java">
 
@@ -336,12 +352,13 @@ a branch name or a commit hash. For our `demo-<language>` repos, we are doing se
 So, we will create and use `docs-1.0` or `docs-1.1`, etc., as needed.
 
 To create a new tag in one of the Sauce Labs owned repos:
+
 ```shell
 git tag -a -m 'reference for Sauce Labs documentation' docs-<version>
 git push origin --tags
 ```
-:::
 
+:::
 
 <table class="code">
   <tbody>
@@ -393,10 +410,10 @@ it to take up too much space on the page by default, we encourage the use of `de
 
 ```html
 <details>
-  <summary>
-    <strong>Click here</strong> to see an example of something hidden by default.
-  </summary>
-    This is hidden by default!
+<summary>
+<strong>Click here</strong> to see an example of something hidden by default.
+</summary>
+This is hidden by default!
 </details>
 ```
 
@@ -420,15 +437,14 @@ it to take up too much space on the page by default, we encourage the use of `de
   </tbody>
 </table>
 
-
-
 ## Admonitions
 
 There are four types of [Docusaurus admonitions](https://docusaurus.io/docs/markdown-features/admonitions):
-* Note - Relevant information.
-* Tip - A user should do this.
-* Caution - A user should pay attention to this.
-* Warning - A user might do something dangerous!
+
+- Note - Relevant information.
+- Tip - A user should do this.
+- Caution - A user should pay attention to this.
+- Warning - A user might do something dangerous!
 
 <table class="code">
   <tbody>
@@ -602,44 +618,44 @@ For overview pages that have four categories, we often use these Boxes. Note tha
 
 ```html
 <div className="box-wrapper" markdown="1">
-    <div className="box box1 card">
-        <div className="container">
-            <h2>Box 1</h2>
-            <p>Box 1 things.</p>
-            <ul>
-                <li><a href="">Link 1</a></li>
-                <li><a href="">Link 2</a></li>
-            </ul>
-        </div>
-    </div>
-    <div className="box box2 card">
-        <div className="container">
-            <h2>Box 2</h2>
-            <p>Box 2 things.</p>
-            <ul>
-                <li><a href="">Link 1</a></li>
-            </ul>
-        </div>
-    </div>
-    <div className="box box3 card">
-        <div className="container">
-            <h2>Box 3</h2>
-            <p>Box 3 things, <a href="">Link 1</a>.</p>
-            <ul>
-                <li><a href="">Link 2</a></li>
-            </ul>
-        </div>
-    </div>
-    <div className="box box4 card">
-        <div className="container">
-            <h2>Box 4</h2>
-            <p>Box 4 things.</p>
-            <ul>
-                <li><a href="">Link 1</a></li>
-                <li><a href="">Link 2</a></li>
-            </ul>
-        </div>
-    </div>
+<div className="box box1 card">
+<div className="container">
+<h2>Box 1</h2>
+<p>Box 1 things.</p>
+<ul>
+<li><a href="">Link 1</a></li>
+<li><a href="">Link 2</a></li>
+</ul>
+</div>
+</div>
+<div className="box box2 card">
+<div className="container">
+<h2>Box 2</h2>
+<p>Box 2 things.</p>
+<ul>
+<li><a href="">Link 1</a></li>
+</ul>
+</div>
+</div>
+<div className="box box3 card">
+<div className="container">
+<h2>Box 3</h2>
+<p>Box 3 things, <a href="">Link 1</a>.</p>
+<ul>
+<li><a href="">Link 2</a></li>
+</ul>
+</div>
+</div>
+<div className="box box4 card">
+<div className="container">
+<h2>Box 4</h2>
+<p>Box 4 things.</p>
+<ul>
+<li><a href="">Link 1</a></li>
+<li><a href="">Link 2</a></li>
+</ul>
+</div>
+</div>
 </div>
 ```
 

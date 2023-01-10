@@ -1,22 +1,36 @@
-@import url('https://use.typekit.net/bte6qhg.css');
+@import url("https://use.typekit.net/bte6qhg.css");
 
-.tk-museo-sans { font-family: "museo-sans",sans-serif; }
-.tk-museo-sans-rounded { font-family: "museo-sans-rounded",sans-serif; }
-.tk-museo-sans-condensed { font-family: "museo-sans-condensed",sans-serif; }
-.tk-museo-sans-display { font-family: "museo-sans-display",sans-serif; }
+.tk-museo-sans {
+    font-family: "museo-sans", sans-serif;
+}
+.tk-museo-sans-rounded {
+    font-family: "museo-sans-rounded", sans-serif;
+}
+.tk-museo-sans-condensed {
+    font-family: "museo-sans-condensed", sans-serif;
+}
+.tk-museo-sans-display {
+    font-family: "museo-sans-display", sans-serif;
+}
 
 body {
     font-family: museo-sans, sans-serif;
     font-weight: semi-bold;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: #e2231a;
     font-family: museo-sans, sans-serif;
     font-weight: 500;
 }
 
-h2, .h2 {
+h2,
+.h2 {
     padding-bottom: 5px;
     font-size: 24px;
     margin-bottom: 8px;
@@ -33,9 +47,9 @@ footer {
         width: 100%;
         grid-template-columns: 250px;
         grid-template-areas:
-        "hd"
-        "sb"
-        "mt";
+            "hd"
+            "sb"
+            "mt";
         grid-gap: 15px;
         margin: auto;
         justify-content: center;
@@ -47,7 +61,6 @@ footer {
     justify-content: center;
     align-items: center;
 }
-
 
 .header {
     grid-area: hd;
@@ -90,7 +103,7 @@ footer {
 }
 
 .button_base:hover a {
-    color: #FFFFFF;
+    color: #ffffff;
     text-decoration: none;
 }
 

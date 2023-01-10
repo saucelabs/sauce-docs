@@ -3,16 +3,19 @@ id: adding-deactivating-users
 title: Adding and Deactivating Users
 sidebar_label: Adding and Deactivating Users
 ---
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <p><span className="sauceDBlue">Enterprise Plans only</span></p>
 
 ## Adding Users
+
 If you are an organization administrator, you can add users to your organization or team by inviting them via email, or by adding them manually to the organization or team.
 
 When you add a user manually, you assign the user a user name and password. To allow a user to set their own user name and password, invite them via email.
 
 ### Adding a User Manually
+
 1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 
    <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
@@ -25,11 +28,12 @@ When you add a user manually, you assign the user a user name and password. To a
 
    <img src={useBaseUrl('img/team-mgmt/add-new-user-manual.jpg')} alt="Add new user - manually" width="500"/>
 
-4. In the **ADD TO TEAM** dropdown, select the team for the user. If you don't select a team, the user will be added to the default team.  
+4. In the **ADD TO TEAM** dropdown, select the team for the user. If you don't select a team, the user will be added to the default team.
 5. In the **ORG ROLE** dropdown, select an organizational role for the user. The options are Org. Admin, Team Member, and Member. For more information about the permissions associated with each role, see [User Roles](/basics/acct-team-mgmt/managing-user-info/#user-roles).
 6. Click **ADD USER**.
 
 ### Adding a User Via Email
+
 1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 2. On the **USERS** tab, click the blue plus sign.
 3. On the **INVITE VIA EMAIL** tab, enter the user's email address, and then select a role from the **USER ROLE** dropdown.
@@ -56,9 +60,11 @@ For example, in the following scenarios you may need to add non-SSO users to you
 - You have a group of contractors who will be using your Sauce Labs account, but won't be added to your organization's IdP. This option is NOT consistent with the **Require Single Sign-On** option, as in this case the contractors are likely to need access to the Sauce Labs portal.
 
 ## Deactivating Users
+
 You can deactivate users in your account on the **Organization Management** page and also on the **User Details** page.
 
 ### Deactivating a User - Organization Management
+
 1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 2. On the **USERS** tab, select the check box of the user you want to deactivate.
 3. Above the list of users, in the **Action** dropdown, click **Deactivate User**.
@@ -68,6 +74,7 @@ You can deactivate users in your account on the **Organization Management** page
 4. In the **Confirm deactivate** box, click **Yes, Deactivate**.
 
 ### Deactivating a User - User Details
+
 1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 2. On the **USERS** tab, click the user name of the user you want to deactivate.
 

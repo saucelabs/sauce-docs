@@ -1,19 +1,19 @@
 ---
 id: best-practices-for-disaster-recovery
-title: "Best Practices for Disaster Recovery (Self-Hosted)"
-sidebar_label: "Best Practices for Disaster Recovery (Self-Hosted)"
+title: 'Best Practices for Disaster Recovery (Self-Hosted)'
+sidebar_label: 'Best Practices for Disaster Recovery (Self-Hosted)'
 keywords:
-    - api
-    - api-fortress
-    - self-hosted
-    - docker
+- api
+- api-fortress
+- self-hosted
+- docker
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 :::note
 This document is referential only to the API Fortress-HA (High Availability) deployment.
@@ -61,7 +61,7 @@ Databases are the only components in need of a persistent state, therefore the m
 There are 2 primary types of backups:
 
 - Taking **snapshots** of the persisted database disks. The procedure is runtime dependent (AWS, GCloud, OpenShift etc.)
-- Dumping databases to files for classic restore. These procedures are described  [here](https://apifortress.com/doc/backing-up-your-data-on-premises-only/). The actual commands may vary based on the runtime.
+- Dumping databases to files for classic restore. These procedures are described [here](https://apifortress.com/doc/backing-up-your-data-on-premises-only/). The actual commands may vary based on the runtime.
 
 ### Restoration
 

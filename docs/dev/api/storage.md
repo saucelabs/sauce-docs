@@ -8,15 +8,14 @@ description: Upload and manage files in Sauce Storage.
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 Use the Storage API methods to upload and manage your app and any file dependencies required for testing.
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 
 ### Get App Storage Files
 
@@ -83,7 +82,6 @@ Returns the set of files that have been uploaded to Sauce Storage by the request
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -250,6 +248,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "total_items": 3
 }
 ```
+
 </details>
 
 ---
@@ -295,7 +294,6 @@ Returns an array of groups (apps containing multiple files) currently in storage
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -403,9 +401,11 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "total_items": 1
 }
 ```
+
 </details>
 
 ---
+
 ### Get App Storage Group Settings
 
 <details><summary><span className="api get">GET</span> <code>/v1/storage/groups/&#123;group_id&#125;/settings</code></summary>
@@ -424,7 +424,6 @@ Returns the settings of an app group with the given ID.
   </tbody>
 
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -493,6 +492,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
     "identifier": "com.saucelabs.mydemoapp.ios"
 }
 ```
+
 </details>
 
 ---
@@ -520,7 +520,6 @@ Adds or updates the settings of an app group with the given ID.
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -617,6 +616,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
     "identifier": "com.saucelabs.mydemoapp.ios"
 }
 ```
+
 </details>
 
 ---
@@ -627,7 +627,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
 <p/>
 
 Uploads an app file to Sauce Storage for the purpose of mobile app testing and returns a unique file ID assigned to the app. Sauce Storage supports app files in \*.apk, \*.aab, \*.ipa, or \*.zip format, up to 4GB.
-
 
 #### Parameters
 
@@ -651,7 +650,6 @@ Uploads an app file to Sauce Storage for the purpose of mobile app testing and r
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -738,6 +736,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     }
 }
 ```
+
 </details>
 
 ---
@@ -759,7 +758,6 @@ Returns an app file from Sauce Storage as a payload object in the response.
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -811,6 +809,7 @@ PK
 �����(BwQ������������-��Payload/SwagLabsMobileApp.app/_CodeSignature/UX��a�_�a�_��PK���*BwQ������������:��Payload/SwagLabsMobileApp.app/_CodeSignature/CodeResourcesUX��a�_�a�_���}i��H����_QS�3#ؼ$�Zt��x��(R�$�m�oR"���+�]6%R.WX,��+���$3##"#����,����MT���~���;���߾�5�����/�7J"��LW�Q�~'�ā#������2���Ҩ���j�=d��}����ö-�'�����֧O}t���@��ҫ����������1̏����n�����k�
 ...
 ```
+
 </details>
 
 ---
@@ -838,7 +837,6 @@ Adds or updates the `description` attribute of the specified file.
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -932,6 +930,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "changed": true
 }
 ```
+
 </details>
 
 ---
@@ -953,7 +952,6 @@ Deletes the specified file from Sauce Storage.
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -1028,11 +1026,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     }
 }
 ```
+
 </details>
 
 ---
-
-
 
 ### Delete a Group of App Storage Files
 
@@ -1051,7 +1048,6 @@ Deletes the specified group of files from Sauce Storage.
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -1103,6 +1099,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "detail": "The group identified by \"64612\" does not exist or is not accessible (Request ID: nancy.swee__delete_group__35803e43)"
 }
 ```
+
 </details>
 
 ---

@@ -54,7 +54,6 @@ You have a few options if you need to change access to a project:
 - If access is assigned to an organization and you need to have it limited to a team, you can consider creating a new project with the team access, and then exporting the tests from the project with organization access and importing them to the new project with team access. Then you can either delete the project with organization access, or manage the project by renaming it to indicate it is no longer being used. Make sure to [update any test schedules]((/api-testing/schedule-test))for tests in the project as well so that the tests in the archived project are not automatically run. You need to be a team member of the team you are assigning to the project or an organization admin to do this. 
 - If access is assigned to a team and you need to allow organization access to the project, you can manage this change using the previous process for changing from organization to team. You need to be a team member of the team the project access is assigned to and a team member of the team for the new project or an organization admin to do this.
 
-
 ## Email Notifications
 
 You can configure one or more email addresses to be notified when tests in a project are failing. 
@@ -80,6 +79,7 @@ See [PagerDuty and Webhook Connectors](/api-testing/integrations/pagerduty-webho
 ## Deleting a Project
 
 To delete a project:
-1. In **API Testing**, on the **Projects** page, under a project name, click **Settings**. 
+
+1. In **API Testing**, on the **Projects** page, under a project name, click **Settings**.
 2. On the **Settings** page, in the left nav, click **Danger Zone**.
 3. Click **Delete project**.

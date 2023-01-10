@@ -41,7 +41,6 @@ To test against additional browsers (e.g., Safari and Edge), you can [integrate 
 
 Cross-browser testing is available through Screener's Perform plan. By default, Screener runs tests against the Chrome browser.
 
-
 ## Adding Browsers
 
 To test against multiple browsers, add the `browsers` option to your `screener.config.js` file:
@@ -96,9 +95,9 @@ if (process.env.CIRCLE_BRANCH === 'main') {
 module.exports = config;
 ```
 
-
 ## More Information
 
 For more information on what we support, see:
-* [Sauce Labs | Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices)
-* [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/)
+
+- [Sauce Labs | Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices)
+- [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platform-configurator#/)

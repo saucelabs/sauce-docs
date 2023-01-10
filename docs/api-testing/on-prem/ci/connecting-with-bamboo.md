@@ -1,17 +1,17 @@
 ---
 id: connecting-with-bamboo
-title: "Bamboo – Integrate API Tests & Results"
+title: 'Bamboo – Integrate API Tests & Results'
 sidebar_label: Bamboo
 keywords:
-    - cicd
-    - bamboo
+- cicd
+- bamboo
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -21,7 +21,7 @@ Passing data from API Fortress to Atlassian Bamboo allows Bamboo users to includ
 
 The first step to integrating API Fortress into your CI/CD process is to grab the generated API hook for the project in question. To do so, head to the Settings panel in API Fortress. This view, seen below, can be accessed from anywhere in the application by clicking the _Gear_ icon in the top right corner of the screen.
 
-> __NOTE__: you need Manager access to generate a webhook.
+> **NOTE**: you need Manager access to generate a webhook.
 
 From **Settings**, click the **API Hooks** section and generate the hook for your project. The process can be seen in detail in the gif below:
 

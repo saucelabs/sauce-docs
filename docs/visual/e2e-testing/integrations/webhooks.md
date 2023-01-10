@@ -12,9 +12,9 @@ Screener can send webhook events that notify your app any time an event happens 
 
 Screener has the following event types:
 
-* `build.status.error`
-* `build.status.failure`
-* `build.status.success`
+- `build.status.error`
+- `build.status.failure`
+- `build.status.success`
 
 ## Setup Steps
 

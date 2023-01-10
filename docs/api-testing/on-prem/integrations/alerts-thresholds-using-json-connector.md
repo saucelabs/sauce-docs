@@ -1,20 +1,20 @@
 ---
 id: alerts-thresholds-using-json-connector
-title: "Alert Thresholds (Using JSON Connector"
+title: 'Alert Thresholds (Using JSON Connector'
 sidebar_label: Alert Thresholds
 keywords:
-    - api-testing
-    - integrations
-    - alerts
-    - json
-    - connector
+- api-testing
+- integrations
+- alerts
+- json
+- connector
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -33,9 +33,9 @@ It can also work with other similar services, but those are two of the most popu
 5. Select "+ Connector to this group"
 6. Select "JSON Alert /w threshold" from the list
 7. Enter the required settings
-    1. **URL:** The URL of the WebHook the alert should be sent to.
-    2. **Counter:** The number of **errors per specific test in a period** before the alert is actually sent out.
-    3. **TTL**: The time frame, expressed in seconds. (Ex. 3 errors over a TTL of 600sec `[10 min]`)
+   1. **URL:** The URL of the WebHook the alert should be sent to.
+   2. **Counter:** The number of **errors per specific test in a period** before the alert is actually sent out.
+   3. **TTL**: The time frame, expressed in seconds. (Ex. 3 errors over a TTL of 600sec `[10 min]`)
 8. Save
 9. From the main dashboard, edit the "Settings" the project(s) you want to assign the alert group to if the group has not been assigned yet
 
@@ -47,30 +47,30 @@ The JSON sent will look like the following:
 
 ```json
 {
-   "date":"2017-12-29T14:36:31+0000",
-   "eventId":"5a4aa0a1-d071-4a05-981d-ff57e4ff3897",
-   "test":{
-      "name":"book",
-      "id":"123a"
-   },
-   "value2":"fake project",
-   "value1":"book",
-   "companyName":"fake company",
-   "eventType":"failure",
-   "criticalFailures":[
-      {
-         "action":"get",
-         "expression":"get http://www.example.com",
-         "status":"Generic Failure",
-         "failureType":"MissingPropertyException",
-         "extra":"Error parsing URL. Missing variable yay"
-      }
-   ],
-   "companyId":1,
-   "failuresCount":1,
-   "location":"Ashburn,Virginia",
-   "projectName":"fake project",
-   "projectId":1
+"date": "2017-12-29T14:36:31+0000",
+"eventId": "5a4aa0a1-d071-4a05-981d-ff57e4ff3897",
+"test": {
+"name": "book",
+"id": "123a"
+},
+"value2": "fake project",
+"value1": "book",
+"companyName": "fake company",
+"eventType": "failure",
+"criticalFailures": [
+{
+"action": "get",
+"expression": "get http://www.example.com",
+"status": "Generic Failure",
+"failureType": "MissingPropertyException",
+"extra": "Error parsing URL. Missing variable yay"
+}
+],
+"companyId": 1,
+"failuresCount": 1,
+"location": "Ashburn,Virginia",
+"projectName": "fake project",
+"projectId": 1
 }
 ```
 
