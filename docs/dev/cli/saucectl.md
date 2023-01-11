@@ -14,6 +14,7 @@ The `saucectl` command line interface orchestrates the relationship between your
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 - [Docker](https://docs.docker.com/get-docker/), if you plan to run tests locally
+  <!-- prettier-ignore -->
   :::note
   Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g., `docker info` works in your terminal / command prompt).
   :::
@@ -309,7 +310,7 @@ After tests complete, `saucectl` uploads test assets such as logs, test results,
 The CLI output includes a link to the job test results page in Sauce Labs:
 
 ```html
-Open job details page: https://app.saucelabs.com/tests/<job-number></job-number>
+Open job details page: https://app.saucelabs.com/tests/<job-number>
 ```
 
 :::note Media Assets Not Viewable in UI
