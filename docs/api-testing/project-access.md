@@ -41,7 +41,7 @@ You create projects and edit project settings on the **Settings > General > Proj
 1. Optionally, select one or more **Tags**, or click **Add custom tag** to add a new tag. 
 1. Optionally, enter a **Description** of the project. 
 1. Optionally, enter **Notes** about the project. 
-1. Select the **Access** level for the project. If teams have been set up for your organization and you are an organization admin or a member a team, you can select a team from the dropdown. Otherwise, the access level defaults to Organization. This selection cannot be changed once the project is saved. 
+1. Select the **Access** level for the project. If teams have been set up for your organization and you are an organization admin or a member of a team, you can select a team from the dropdown. Otherwise, the access level defaults to Organization. This selection cannot be changed once the project is saved. 
 1. Click **Save**. 
 
 ### Manage Access to Projects
