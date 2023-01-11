@@ -51,7 +51,6 @@ You have a few options if you need to change access to a project:
 
 - If access is assigned to a team, you can add or remove team members from the team in Team Management. You must be an organization admin to work with teams in Team Management. 
 - If access is assigned to an organization and you need to limited it to a team, you can create a new project with the team access, and then export the tests from the project with organization access and import them to the new project with team access. 
-
 Once the new project is created, you can either delete the project with organization access, or  rename it to indicate it is no longer being used. Make sure to [update any test schedules](/api-testing/schedule-test/) for tests in the project so that the tests in the archived project are not run automatically. 
 
 You must be member of the team you are assigning to the project or an organization admin to do this. 
