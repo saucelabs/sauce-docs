@@ -101,4 +101,4 @@ Indeed, but if you understand how this can help you, good things will happen.
 
 - Actors are about how many tasks can potentially be executed at the same time, but also how things will line up. A team of actors (instead of just one) make so that if a task is taking longer than expected, the tasks lining up will get assigned to the other actors of the team and not wait forever.
 - Threads, instead, are about how you want to assign the resources of your system to the actors.
-  :::
+:::

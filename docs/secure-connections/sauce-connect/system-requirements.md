@@ -74,7 +74,7 @@ Enable your Mac to allow apps from the App Store and identified developers.
 
 1. Go to **System Preferences** > **Security & Privacy** > **General**.
 2. Under **Allow apps downloaded from**, select the option **App Store and identified developers**.
-   :::
+:::
 
 ### Sauce Connect v4.7.x
 
@@ -625,7 +625,7 @@ values={[
 `*.miso.saucelabs.com` will cover all virtual and real device cloud data centers except for Headless.
 
 - For US-West-1 (Virtual Device Cloud/Real Device Cloud + Sauce Connect): `*.miso.saucelabs.com`
-  :::
+:::
 
 <br/>
 

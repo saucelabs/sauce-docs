@@ -264,7 +264,7 @@ If you set your credentials using more than one of the methods above, `saucectl`
 1. Environment Variables
 2. `saucectl run` command
 3. `credentials.yml` file
-   :::
+:::
 
 ### Check out your Framework Demo Repo
 

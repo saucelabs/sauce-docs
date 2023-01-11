@@ -546,7 +546,7 @@ Client-side unwinding is only available for the following platforms:
 
 - NDK level 17 or higher (i.e: only with the Crashpad crash reporting backend).
 - SDK level 21 or higher (i.e: if the minimum SDK version is lower than 21, client-side unwinding will be disabled for 32-bit arm platforms).
-  :::
+:::
 
 #### Unwinding Modes
 

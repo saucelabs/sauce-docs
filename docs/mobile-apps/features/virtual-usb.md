@@ -270,7 +270,7 @@ To do proper debugging, the iOS device symbols will need to be downloaded to you
 
 - **What to Do**: Go to `~/Library/Developer/Xcode/iOS DeviceSupport/` and check the used iOS version of the phone to see if the symbols have been downloaded. The total used space per OS should be more than 1GB. If they are less than 1MB, delete the folder and restart Xcode again so it can re-fetch them.
   This a one-time action that you won't need to do again for future tests.
-  :::
+:::
 
 <br/>
 
