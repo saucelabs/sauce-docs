@@ -87,7 +87,7 @@ Alternatively, you can run the following command in your terminal:
 
 ```bash title="Terminal Command"
 cd quickstart-appium-java
-mvn clean test
+mvn clean install -DtestngXmlFile=appium_ios_rdc_app_test.xml -Dregion=us
 ```
 
-Once your tests complete, you should be able to see the results in your Sauce Labs account under [AUTOMATED > Test Results > Real Devices](https://app.saucelabs.com/dashboard/tests/rdc).
+Once your tests complete, you should be able to see the results in your Sauce Labs account under [Automated > Test Results > Real Devices](https://app.saucelabs.com/dashboard/tests/rdc).
