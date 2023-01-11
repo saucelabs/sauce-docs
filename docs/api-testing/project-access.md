@@ -33,7 +33,7 @@ You can view the access set for projects on the Projects page.<br/><img src={use
 
 ## Create a Project
 
-You create projects and edit project settings on the **Settings > General > Project details** page.  
+You create projects and define project settings on the Projects page and and edit project settings on the **Settings > General > Project details** page.  
 
 1. In **API Testing**, on the **Projects** page, click **Create Project**. 
 1. Select an option in the **Create from** dropdown. 
