@@ -472,6 +472,7 @@ Identifies the browser to be used when automating with a mobile browser. See the
 - For Android the value needs to be `"Chrome"`.
 - For iOS, the value needs to be `"Safari"`.
 
+<!-- prettier-ignore -->
 :::note
 - If this capability is not provided for a virtual device, the ['app'](#app) capability needs to be set. If none is set the test will throw an error.
 - This capability can be omitted for virtual devices if the ['app'](#app) capability is set.
@@ -491,6 +492,7 @@ capabilities.setCapability("browserName", "chrome");
 
 Allows you to set a path to an `.ipa`, `.apk`, `.aab` or `.zip` file containing the mobile app you want to test. This could be the location of your app in [App Storage](/mobile-apps/app-storage) (e.g., `storage:filename=myapp.zip`) or the URL to a remote location where your app is located (e.g., `http://myappurl.zip`). The remote location needs to be accessible from the web, Sauce Connect can not access your internal file system where apps are hosted.
 
+<!-- prettier-ignore -->
 :::note
 - If this capability is not provided for a virtual device, the ['browserName'](#browserName) capability needs to be set. If none is set the test will throw an error.
 - This capability can be omitted for virtual devices if the ['browserName'](#browserName) capability is set.

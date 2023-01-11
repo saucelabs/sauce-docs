@@ -14,7 +14,6 @@ The `saucectl` command line interface orchestrates the relationship between your
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 - [Docker](https://docs.docker.com/get-docker/), if you plan to run tests locally
-  <!-- prettier-ignore -->
   :::note
   Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g., `docker info` works in your terminal / command prompt).
   :::
@@ -259,6 +258,7 @@ Your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` (available on your [User Settings](
 - Set your credentials as [environment variables](/basics/environment-variables/) that `saucectl` can access at runtime.
 - Manually enter your credentials as options in the `saucectl run` command.
 
+<!-- prettier-ignore-start -->
 :::note Credentials Order of Preference
 If you set your credentials using more than one of the methods above, `saucectl` will apply the values in the following order or preference:
 
@@ -316,3 +316,4 @@ Open job details page: https://app.saucelabs.com/tests/<job-number>
 :::note Media Assets Not Viewable in UI
 Any screenshots and video recorded during the test execution and uploaded to Sauce Labs are not currently viewable in the Sauce Labs UI, but can be accessed and downloaded through the [Job Assets API endpoints](/dev/api/jobs/#list-job-assets). Alternatively, you can automatically download your test assets locally using the [`artifacts`](/dev/cli/saucectl/init) parameter in your config file.
 :::
+<!-- prettier-ignore-end -->
