@@ -257,6 +257,10 @@ Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunne
 **Environment variable**: `SAUCE_PAC_AUTH`<br/>
 **Shorthand**: n/a
 
+:::note
+Use a comma separated list when using multiple PAC settings via environment variable. Do not include spaces in this list. For example: `SAUCE_PAC_AUTH=username:password@host:port,username2:password@host2:port`
+:::
+
 ---
 
 ### `--proxy`
