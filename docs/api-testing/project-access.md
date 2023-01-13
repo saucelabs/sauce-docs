@@ -13,7 +13,11 @@ Project settings allow you to view the access to projects that was defined when 
 ## What You'll Need
 
 * A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* An understanding of [Account and Team Management](/basics/acct-team-mgmt/managing-user-info/) if you are an organization admin configuring team access to projects. 
+* An understanding of [Team Management](/basics/acct-team-mgmt/managing-user-info/) if you are an organization admin configuring team access to projects. 
+
+:::note
+Sauce Labs Team Management features are available for <span className="sauceDBlue">Enterprise Plans only</span>. 
+:::
 
 ## Project Access Levels and User Scenarios
 
@@ -45,15 +49,24 @@ You create projects and define project settings on the Projects page and and edi
 
 ### Manage Access to Projects
 
-Once a project has been created and saved, the access level (team or organization-wide access) is uneditable. If an organization admin deletes a team from Team Management before managing project access in API Testing, the access level defaults to Organization because the setting is required. However, the project will still be available only to the original team and does not change to organization-wide access. 
+Once a project has been created and saved, the access level (team or organization-wide access) is uneditable. 
 
-You have a few options if you need to change access to a project:
+If an organization admin deletes a team from Sauce Labs [Accounts > Team Management](/basics/acct-team-mgmt/managing-user-info/) before managing project access in API Testing, the access level defaults to Organization because the access setting is required. However, the project will still be available only to the original team and does not change to organization-wide access. 
 
-- If access is assigned to a team, you can add or remove team members from the team in Team Management. You must be an organization admin to work with teams in Team Management. 
-- If access is assigned to an organization and you need to limited it to a team, you can create a new project with the team access, and then export the tests from the project with organization access and import them to the new project with team access. 
-Once the new project is created, you can either delete the project with organization access, or  rename it to indicate it is no longer being used. Make sure to [update any test schedules](/api-testing/schedule-test/) for tests in the project so that the tests in the archived project are not run automatically. 
-You must be member of the team you are assigning to the project or an organization admin to do this. 
-- If access is assigned to a team and you need to allow organization access to the project, you can use the process above. You must be a member of the team the project access is assigned to or an organization admin to do this.
+If you need to change access to a project, you have the following options. 
+
+#### Update Teams in Sauce Labs Accounts > Team Management
+
+If access is assigned to a team, you can add or remove team members from the team in Accounts > Team Management. You must be an organization admin to work with teams in Team Management. 
+
+#### Update Project Access in API Testing
+You can create a new project with the access you want, and then delete or rename the original project as follows. You must have team access to the team you want to configure, or be an organization admin to do this. 
+
+ 1. Create a new project with the access (team or organization) you want. 
+ 2. Export the tests from the original project and import them to the new project.
+ 3. Then either delete the original project or rename it to indicate it has been archived. 
+:::note
+Make sure to [update any test schedules](/api-testing/schedule-test/) for tests in the archived project so that tests are not run automatically. 
 
 ## Email Notifications
 
