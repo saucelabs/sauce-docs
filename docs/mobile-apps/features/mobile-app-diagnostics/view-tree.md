@@ -80,11 +80,11 @@ The following table lists the available attributes:
 
 ## Limitations
 
+<!-- prettier-ignore -->
 :::note
-
 - Webviews and hybrid apps will have additional capture limitations.
 - Emulators and Simulators are not supported.
-  :::
+:::
 
 ## More Information
 

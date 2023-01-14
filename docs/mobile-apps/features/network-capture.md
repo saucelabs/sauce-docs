@@ -72,14 +72,14 @@ Alternatively, some other commonly used HAR viewers include:
 
 ## Limitations
 
+<!-- prettier-ignore -->
 :::note Not Supported
-
 - Android Emulators
 - iOS Simulators
 - Hybrid Applications
 - Android Chrome Browser
 - iOS Safari Browser
-  :::
+:::
 
 ### Android
 
