@@ -16,7 +16,7 @@ Keep in mind that these are guidelines. Most environments have their own workloa
 
 - Minimum 2 core x 8 GB Machine.
 - We recommend using the [cURL command line](https://curl.haxx.se/download.html) or an equivalent tool to ensure that any error messages you receive are precise and actionable. If you're not familiar with the tool, [review their docs here](https://curl.se/docs) and then install cURL on your local machine.
-- For Unix-based systems, set your [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) to at least 64000.
+- For macOS and other Unix-based systems, set your [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) to at least 64000. See [What are the optimal open file settings?](/secure-connections/sauce-connect/faq/#what-are-the-optimal-open-file-settings).
 
 ## Supported Operating Systems
 
@@ -147,7 +147,9 @@ As an important step prior to downloading Sauce Connect Proxy, you or your syste
 
 Select a cloud provider from the tables below to view the minimum and recommended system requirements:
 
-:::note These are general recommendations; actual system requirements will depend on the number of parallel tests, and amount of data transferred with each test.
+:::note These are general recommendations
+Actual system requirements will depend on the number of parallel tests, and amount of data transferred with each test.
+:::
 
 ### Amazon Web Services (AWS)
 
