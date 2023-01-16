@@ -194,15 +194,14 @@ If `var` = `"testing"`, and `var_2` = `"printing variable: testing"`:
 `exec _py{print(‘Modified variable: ' +aiq_1)} with ${var1} returning ${var2}`
 `exec _js{return 'Modified variable: ' + aiq_1} with ${var1} returning ${var2}`
 `exec _bash(echo 'Modified variable: ' + aiq_1) with ${var1}returning ${var2}`
-
+<!-- prettier-ignore -->
 :::note
-
-- Any reference to an input variable should be `aiq_1` , `aiq_2`, and so on.
+- Any reference to an input variable should be `aiq_1`, `aiq_2`, and so on.
 - Multiple input variables should be comma separated.
 - Only one output variable is supported.
 - Returning `${}` is required with a variable name. This is different than saving a variable.
 - Since the scripts being executed are separate, any kind of iframe navigation has to be handled within the script.
-  :::
+:::
 
 ### Saving with Execution
 

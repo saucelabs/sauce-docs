@@ -74,11 +74,11 @@ You can also download the results using the API call below:
 
 ## Limitations
 
+<!-- prettier-ignore -->
 :::note
-
 - Emulators and Simulators are not supported.
 - Cross-browser testing is not available.
-  :::
+:::
 
 ## More Information
 

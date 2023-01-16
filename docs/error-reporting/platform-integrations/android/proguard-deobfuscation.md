@@ -17,11 +17,11 @@ If you use ProGuard to optimize and obfuscate your app, you can configure Backtr
 - Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
 - A Backtrace project and an access token.
 
+<!-- prettier-ignore -->
 :::tip Generate an Access Token
-
 1. In the Backtrace Console, go to **Project settings > Symbols > Access tokens**.
 1. Select **+**.
-   :::
+:::
 
 ## Setup
 
