@@ -122,9 +122,9 @@ On the device selection page, click the **Mobile Virtual** tab. Use the dropdown
 
 There is a distinction between **Public Devices** and **Private Devices**.
 
-- Public devices are accessible by anyone with a Sauce Labs account and are subject to availability. If a device is in use, you will see a yellow **Busy** flag across the thumbnail.
+- Public devices are accessible by anyone with a Sauce Labs account and are subject to availability. If a device is in use, you will see a yellow **In Use** flag across the thumbnail.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-busy.png')} alt="Busy public device" width="280"/>
+<img src={useBaseUrl('img/live-testing/live9.png')} alt="Busy public device" width="400"/>
 
 - Private devices are associated with your account and are an **enterprise only** feature. Private devices are indicated by a green device icon.
 
