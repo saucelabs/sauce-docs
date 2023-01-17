@@ -57,7 +57,7 @@ For Virtual USB release history, see our [changelog](https://changelog.saucelabs
 
 <img src={useBaseUrl('img/virtual-usb/vusb-devicename.jpg')} alt="Virtual USB Device Name" width="500" />
 
-The device you choose will be allocated specifically to you while your session is active. Other users in your organization will see it marked **Busy**.
+The device you choose will be allocated specifically to you while your session is active. Other users in your organization will see it marked **In Use**.
 
 As a reminder, vUSB only works on private devices (marked with a <img src={useBaseUrl('img/live-testing/green-icon.png')} alt="Sauce Labs Private Device Icon" width="17" />). A quick way to find your organization's private devices from the device list is to click **Filters** and toggle **Private Devices**.
 
