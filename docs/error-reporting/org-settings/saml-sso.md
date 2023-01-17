@@ -15,7 +15,7 @@ First, the identity provider configuration should be completed. The following se
 
 | Settings | Expected Value |
 | ---------- | -------------- |
-| **EntityID** (Issuer) | https://saml.backtrace.io (for Backtrace hosted instances)| 
+| **EntityID** (Issuer) | `https://saml.backtrace.io` (for Backtrace hosted instances)| 
 | **NameID**    | Your primary email address|
 
 ## Configure SSO
