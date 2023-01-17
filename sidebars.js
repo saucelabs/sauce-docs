@@ -673,6 +673,8 @@ module.exports = {
                                 'dev/cli/saucectl/artifacts/download',
                                 'dev/cli/saucectl/artifacts/list',
                                 'dev/cli/saucectl/artifacts/upload',
+                                'dev/cli/saucectl/jobs/list',
+                                'dev/cli/saucectl/jobs/get',
                             ],
                         },
                         'dev/cli/saucectl/usage/use-cases',
