@@ -44,7 +44,7 @@ Since Jankiness occurs during interaction with a page (such as scrolling) rather
 The jankiness custom command is a WebDriver extension that can be used with any framework (i.e., Selenium or WebdriverIO). Alternatively, you can call is using the JS Executor.
 
 ```js title="Jankiness Script Example (WebdriverIO)"
-const jankiness = browser.execute('sauce:jankinessCheck')
+const jankiness = browser.execute("sauce:jankinessCheck")
 ```
 
 ### Assertion

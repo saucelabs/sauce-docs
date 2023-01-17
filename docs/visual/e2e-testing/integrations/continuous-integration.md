@@ -31,7 +31,7 @@ values={[
 WebDriverIO Example:
 
 ```javascript
-const result = driver.execute('/*@visual.end*/')
+const result = driver.execute("/*@visual.end*/")
 assert.ok(result.passed, result.message)
 ```
 

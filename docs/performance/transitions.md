@@ -69,12 +69,12 @@ def driver(request):
 <TabItem value="js">
 
 ```js {5,6}
-const { config } = require('./wdio.shared.conf')
+const { config } = require("./wdio.shared.conf")
 const defaultBrowserSauceOptions = {
-build: `WebdriverIO-V6 Front-End Performance-${new Date().getTime()}`,
-name: `WebdriverIO-V6 Front-End Performance-${new Date().getTime()}`,
-extendedDebugging: true,
-capturePerformance: true
+  build: `WebdriverIO-V6 Front-End Performance-${new Date().getTime()}`,
+  name: `WebdriverIO-V6 Front-End Performance-${new Date().getTime()}`,
+  extendedDebugging: true,
+  capturePerformance: true
 }
 ```
 
@@ -142,71 +142,75 @@ https://github.com/saucelabs/performance-python-examples/blob/main/tests/test_pe
 See the complete [JavaScript performance demo](https://github.com/saucelabs/performance-js-examples/blob/main/WebDriver.io/tests/performance.js).
 
 ```js
-describe('Sauce Labs Front-End Performance', () => {
-beforeEach(() => {
-//
-// Adding extra logs to the Sauce Commands Dashboard
-browser.execute('sauce:context=########## Start beforeEach ##########')
-//
-// Now load the url and wait for it to be displayed
-browser.url('')
+describe("Sauce Labs Front-End Performance", () => {
+  beforeEach(() => {
+    //
+    // Adding extra logs to the Sauce Commands Dashboard
+    browser.execute("sauce:context=########## Start beforeEach ##########")
+    //
+    // Now load the url and wait for it to be displayed
+    browser.url("")
 
-//
-// Adding extra logs to the Sauce Commands Dashboard
-browser.execute('sauce:context=########## End beforeEach ##########')
-})
+    //
+    // Adding extra logs to the Sauce Commands Dashboard
+    browser.execute("sauce:context=########## End beforeEach ##########")
+  })
 
-afterEach(() => {
-//
-// Adding extra logs to the Sauce Commands Dashboard
-browser.execute('sauce:context=########## Enf of test ##########')
-})
+  afterEach(() => {
+    //
+    // Adding extra logs to the Sauce Commands Dashboard
+    browser.execute("sauce:context=########## Enf of test ##########")
+  })
 
-it('logs (sauce:performance) should check if all metrics were captured', () => {
-//
-// The expected metrics
-const metrics = [
-'load',
-'speedIndex',
-'firstInteractive',
-'firstVisualChange',
-'lastVisualChange',
-'firstMeaningfulPaint',
-'firstCPUIdle',
-'timeToFirstByte',
-'firstPaint',
-'estimatedInputLatency',
-'firstContentfulPaint',
-'totalBlockingTime',
-'score',
-'domContentLoaded',
-'cumulativeLayoutShift',
-'serverResponseTime',
-'largestContentfulPaint'
-]
-//
-// Get the performance logs
-const performance = browser.execute('sauce:log', { type: 'sauce:performance' })
+  it("logs (sauce:performance) should check if all metrics were captured", () => {
+    //
+    // The expected metrics
+    const metrics = [
+      "load",
+      "speedIndex",
+      "firstInteractive",
+      "firstVisualChange",
+      "lastVisualChange",
+      "firstMeaningfulPaint",
+      "firstCPUIdle",
+      "timeToFirstByte",
+      "firstPaint",
+      "estimatedInputLatency",
+      "firstContentfulPaint",
+      "totalBlockingTime",
+      "score",
+      "domContentLoaded",
+      "cumulativeLayoutShift",
+      "serverResponseTime",
+      "largestContentfulPaint"
+    ]
+    //
+    // Get the performance logs
+    const performance = browser.execute("sauce:log", {
+      type: "sauce:performance"
+    })
 
-//
-// Verify that all logs have been captured
-metrics.forEach((metric) =>
-expect(metric in performance, `${metric} metric is missing`)
-)
-})
+    //
+    // Verify that all logs have been captured
+    metrics.forEach((metric) =>
+      expect(metric in performance, `${metric} metric is missing`)
+    )
+  })
 
-it('(sauce:performance) should validate speedIndex', () => {
-//
-// Get the performance logs
-const performance = browser.execute('sauce:log', { type: 'sauce:performance' })
+  it("(sauce:performance) should validate speedIndex", () => {
+    //
+    // Get the performance logs
+    const performance = browser.execute("sauce:log", {
+      type: "sauce:performance"
+    })
 
-//
-// Verify that all logs have been captured
-expect(
-performance.speedIndex < 1000,
-`${performance.speedIndex} is equal or bigger than 100`
-)
-})
+    //
+    // Verify that all logs have been captured
+    expect(
+      performance.speedIndex < 1000,
+      `${performance.speedIndex} is equal or bigger than 100`
+    )
+  })
 })
 ```
 
@@ -220,10 +224,10 @@ You can use the `sauce:performanceDisable` and `sauce:performanceEnable` command
 ### Example
 
 ```js title="JS Performance Pause Sample"
-browser.execute('sauce:performanceDisable')
-browser.url('https://www.json.org/json-en.html')
-browser.execute('sauce:performanceEnable')
-browser.url('https://example.com')
+browser.execute("sauce:performanceDisable")
+browser.url("https://www.json.org/json-en.html")
+browser.execute("sauce:performanceEnable")
+browser.url("https://example.com")
 ```
 
 In the preceding example, performance metrics will only be collected for `https://example.com`.
@@ -236,33 +240,34 @@ First, create a separate file in which you define your target metric limits, as 
 
 ```json title="budget.json"
 {
-"https://saucelabs.com/": {
-"speedIndex": 2300,
-"lastVisualChange": 2200,
-"load": 4200
-},
-"https://saucelabs.com/platform/analytics-performance/sauce-performance": {
-"score": 0.78
-}
+  "https://saucelabs.com/": {
+    "speedIndex": 2300,
+    "lastVisualChange": 2200,
+    "load": 4200
+  },
+  "https://saucelabs.com/platform/analytics-performance/sauce-performance": {
+    "score": 0.78
+  }
 }
 ```
 
 Then, import your budget file in your test script and assert your performance call against the values in your budget, as shown in the following sample.
 
 ```js {1,9,19,11}
-const budgets = require('./budget.json')
+const budgets = require("./budget.json")
 
 for (const [url, budget] of Object.entries(budgets)) {
-await browser.url(url)
-const performanceLogs = await browser.execute('sauce:log', {
-type: 'sauce:performance'
-})
+  await browser.url(url)
+  const performanceLogs = await browser.execute("sauce:log", {
+    type: "sauce:performance"
+  })
 
-for (const [metric, value] of Object.keys(budget)) {
-assert.ok(
-performanceLogs[metric] < value`metric ${metric} is over the performance budget`
-)
-}
+  for (const [metric, value] of Object.keys(budget)) {
+    assert.ok(
+      performanceLogs[metric] <
+        value`metric ${metric} is over the performance budget`
+    )
+  }
 }
 ```
 
@@ -353,9 +358,9 @@ See the complete [JavaScript performance demo](https://github.com/saucelabs/perf
 
 ```js {2}
 // Get the performance logs
-const performance = browser.execute('sauce:log', {
-type: 'sauce:performance',
-options: { fullReport: true }
+const performance = browser.execute("sauce:log", {
+  type: "sauce:performance",
+  options: { fullReport: true }
 })
 ```
 

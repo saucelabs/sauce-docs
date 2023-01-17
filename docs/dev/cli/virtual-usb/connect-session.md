@@ -1,6 +1,6 @@
 ---
 id: connect-session
-title: 'Virtual USB CLI: Connect to Existing Session'
+title: "Virtual USB CLI: Connect to Existing Session"
 sidebar_label: Connect to Session
 ---
 

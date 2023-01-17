@@ -1,6 +1,6 @@
 ---
 id: start-server
-title: 'Virtual USB CLI: Start the Server'
+title: "Virtual USB CLI: Start the Server"
 sidebar_label: Start Server
 ---
 

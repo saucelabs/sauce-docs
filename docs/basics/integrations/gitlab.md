@@ -4,10 +4,10 @@ title: GitLab Integration
 sidebar_label: GitLab
 description: Use GitLab with Sauce Labs to scale up your CI/CD testing process
 keywords:
-- gitlab
-- ci/cd
-- automated-testing
-- how-to
+  - gitlab
+  - ci/cd
+  - automated-testing
+  - how-to
 ---
 
 import Tabs from '@theme/Tabs';
@@ -91,11 +91,11 @@ This script assumes that the environment variables SAUCE_USERNAME and SAUCE_ACCE
 
 ```yaml title="gitlab-sc.yml"
 script:
-- curl https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz | tar -xz
-- chmod 777 -R ./sc-4.8.2-linux
-- PATH=./sc-4.8.2-linux/bin:$PATH
-- sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -i “gitlabTunnel” -v -s &
-- sleep 50
+  - curl https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz | tar -xz
+  - chmod 777 -R ./sc-4.8.2-linux
+  - PATH=./sc-4.8.2-linux/bin:$PATH
+  - sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -i “gitlabTunnel” -v -s &
+  - sleep 50
 ```
 
 ### Additional Resources

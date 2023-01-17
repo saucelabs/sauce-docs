@@ -2,7 +2,7 @@
 id: import-postman-collection
 title: Importing Postman Collections, Variables, and Environments
 sidebar_label: Importing from Postman
-description: 'Automatically generate tests from an existing Postman Collection.'
+description: "Automatically generate tests from an existing Postman Collection."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -34,54 +34,54 @@ If you don't have a file available, try out the sample below.
 
 ```json title="demo_postman_collection.json"
 {
-"info": {
-"_postman_id": "901ae894-37d4-45c1-b1bc-bd6b31762bfe",
-"name": "demoapif",
-"description": "Call to the APIF demo API All Products Get.",
-"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-},
-"item": [
-{
-"name": "product",
-"item": [
-{
-"name": "List All Products",
-"request": {
-"auth": {
-"type": "oauth2",
-"oauth2": [
-{
-"key": "addTokenTo",
-"value": "header",
-"type": "string"
-}
-]
-},
-"method": "GET",
-"header": [
-{
-"key": "Accept",
-"value": "application/json"
-},
-{
-"key": "key",
-"value": "ABC123",
-"type": "text"
-}
-],
-"url": {
-"raw": "http://demoapi.apifortress.com/api/retail/product",
-"protocol": "http",
-"host": ["demoapi", "apifortress", "com"],
-"path": ["api", "retail", "product"]
-}
-},
-"response": []
-}
-],
-"description": "Folder for product"
-}
-]
+  "info": {
+    "_postman_id": "901ae894-37d4-45c1-b1bc-bd6b31762bfe",
+    "name": "demoapif",
+    "description": "Call to the APIF demo API All Products Get.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "product",
+      "item": [
+        {
+          "name": "List All Products",
+          "request": {
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "addTokenTo",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "key",
+                "value": "ABC123",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://demoapi.apifortress.com/api/retail/product",
+              "protocol": "http",
+              "host": ["demoapi", "apifortress", "com"],
+              "path": ["api", "retail", "product"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Folder for product"
+    }
+  ]
 }
 ```
 

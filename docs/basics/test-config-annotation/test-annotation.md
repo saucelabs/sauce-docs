@@ -3,9 +3,9 @@ id: test-annotation
 title: Test Annotation
 sidebar_label: Test Annotation
 keywords:
-- update RDC job
-- update real device
-- update device job
+  - update RDC job
+  - update real device
+  - update device job
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -298,22 +298,22 @@ IWebDriver driver = new RemoteWebDriver(new Uri("https://ondemand.us-west-1.sauc
 ```js
 const username = process.env.SAUCE_USERNAME
 const accessKey = process.env.SAUCE_ACCESS_KEY
-const tags = ['tag1', 'tag2', 'tag3']
+const tags = ["tag1", "tag2", "tag3"]
 const driver = new webdriver.Builder()
-.withCapabilities({
-browserName: 'firefox',
-platform: 'Windows 10',
-version: '79.0',
-'sauce:options': {
-name: 'Web Driver demo Test',
-build: 'build-1234',
-tags: tags,
-username: username,
-accessKey: accessKey
-}
-})
-.usingServer('https://ondemand.us-west-1.saucelabs.com:443/wd/hub')
-.build()
+  .withCapabilities({
+    browserName: "firefox",
+    platform: "Windows 10",
+    version: "79.0",
+    "sauce:options": {
+      name: "Web Driver demo Test",
+      build: "build-1234",
+      tags: tags,
+      username: username,
+      accessKey: accessKey
+    }
+  })
+  .usingServer("https://ondemand.us-west-1.saucelabs.com:443/wd/hub")
+  .build()
 ```
 
 </TabItem>

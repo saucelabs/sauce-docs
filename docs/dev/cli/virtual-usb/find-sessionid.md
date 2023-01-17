@@ -1,6 +1,6 @@
 ---
 id: find-sessionid
-title: 'Virtual USB CLI: Find SessionID'
+title: "Virtual USB CLI: Find SessionID"
 sidebar_label: Find SessionID
 ---
 

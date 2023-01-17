@@ -194,7 +194,7 @@ After you've created the download script, use the prerun capability in your test
 If your script is in a publicly accessible location, you need to add the URL to the prerun capability.
 
 ```js
-capabilities['prerun'] = 'http://location.of/curl.sh'
+capabilities["prerun"] = "http://location.of/curl.sh"
 ```
 
 ## Editing the VM's Host File

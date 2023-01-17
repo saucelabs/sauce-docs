@@ -110,10 +110,10 @@ We recommend using the [webdriverio testing utility](https://webdriver.io/) as y
 
 ```js
 const opts = {
-capabilities: {
-platformName: 'iOS',
-app: '/path/to/the/downloaded/MyiOS.app.zip'
-}
+  capabilities: {
+    platformName: "iOS",
+    app: "/path/to/the/downloaded/MyiOS.app.zip"
+  }
 }
 
 const client = wdio.remote(opts)
@@ -123,10 +123,10 @@ const client = wdio.remote(opts)
 
 ```js
 const opts = {
-capabilities: {
-platformName: 'Android',
-app: '/path/to/the/downloaded/MyAndroid.apk'
-}
+  capabilities: {
+    platformName: "Android",
+    app: "/path/to/the/downloaded/MyAndroid.apk"
+  }
 }
 
 const client = wdio.remote(opts)

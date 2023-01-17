@@ -4,10 +4,10 @@ title: Deque axe™ Integration
 sidebar_label: Deque axe
 description: Link your Sauce Labs account with axe to add accessibility testing to your existing tests.
 keywords:
-- accessibility-testing
-- accessibility
-- automated-testing
-- how-to
+  - accessibility-testing
+  - accessibility
+  - automated-testing
+  - how-to
 ---
 
 import Tabs from '@theme/Tabs';
@@ -111,8 +111,8 @@ before: function (capabilities, specs, browser) {
 1. In the `wdio.conf.js` file, add a command for getting basic accessibility results.
 
 ```js
-browser.addCommand('getAxeResults', function (name) {
-return axeWdio.analyze()
+browser.addCommand("getAxeResults", function (name) {
+  return axeWdio.analyze()
 })
 ```
 

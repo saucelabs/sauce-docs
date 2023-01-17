@@ -213,6 +213,7 @@ brew install saucectl
 ```bash title="Using curl (Linux / macOS)"
 sudo sh -c 'curl -L https://saucelabs.github.io/saucectl/install | bash -s -- -b /usr/local/bin'
 ```
+
 If you would like to inspect the content of our one line installer, download it, have a look, and execute it:
 
 ```bash
@@ -234,7 +235,6 @@ Remove-Item -Force -Recurse  -Path ./saucectl,./saucectl.zip
 
 </TabItem>
 </Tabs>
-
 
 :::caution Are you using mingw?
 Mingw on Windows is known to interfere with the interactive `saucectl` commands, so Windows users should use `cmd` or `powershell` when interacting with `saucectl`.
@@ -300,7 +300,7 @@ When you are ready to run your tests, you can do so using the [`saucectl run`](/
 If you set conflicting configuration values in the `config.yml` file and as `saucectl run` command options, the values in set in the `run` command are applied.
 :::
 
-The CLI output includes a Results table. The Attempts column in the table displays the number of times a test suite was run, which can be configured with the `Retries` property [in your YAML specification file](/dev/cli/saucectl/#configure-saucectl-for-your-tests). 
+The CLI output includes a Results table. The Attempts column in the table displays the number of times a test suite was run, which can be configured with the `Retries` property [in your YAML specification file](/dev/cli/saucectl/#configure-saucectl-for-your-tests).
 
 ### View your Test Results in Sauce Labs
 

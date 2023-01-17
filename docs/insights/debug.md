@@ -151,8 +151,8 @@ driver.execute_script('sauce:intercept', {
 
 ```js
 browser.interceptRequest({
-url: 'https://saucelabs.com/',
-redirect: 'https://google.com'
+  url: "https://saucelabs.com/",
+  redirect: "https://google.com"
 })
 ```
 
@@ -218,20 +218,20 @@ driver.execute_script("sauce:intercept", {
 
 ```js
 browser.interceptRequest({
-url: 'http://sampleapp.appspot.com/api/todos',
-response: {
-headers: {
-'x-custom-header': 'foobar'
-},
-body: [
-{
-title: 'Hello',
-order: 1,
-completed: false,
-url: 'http://todo-backend-express.herokuapp.com/15727'
-}
-]
-}
+  url: "http://sampleapp.appspot.com/api/todos",
+  response: {
+    headers: {
+      "x-custom-header": "foobar"
+    },
+    body: [
+      {
+        title: "Hello",
+        order: 1,
+        completed: false,
+        url: "http://todo-backend-express.herokuapp.com/15727"
+      }
+    ]
+  }
 })
 ```
 
@@ -295,9 +295,8 @@ driver.execute_script("sauce:intercept", {
 
 ```js
 browser.interceptRequest({
-url:
-'https://saucecon.com/wp-content/uploads/2017/07/SauceCon-hero-img-100-2.jpg',
-error: 'Failed'
+  url: "https://saucecon.com/wp-content/uploads/2017/07/SauceCon-hero-img-100-2.jpg",
+  error: "Failed"
 })
 ```
 
@@ -469,12 +468,12 @@ driver.execute_script('sauce:throttleNetwork', {
 <TabItem value="wdio">
 
 ```js
-browser.throttleNetwork('GPRS')
+browser.throttleNetwork("GPRS")
 // or
 browser.throttleNetwork({
-download: 1000,
-upload: 500,
-latency: 40
+  download: 1000,
+  upload: 500,
+  latency: 40
 })
 ```
 

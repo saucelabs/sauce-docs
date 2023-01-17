@@ -11,3 +11,13 @@ tests
 webdriver
 *.yml
 *.json
+docs/web-apps/automated-testing/cucumberjs-playwright/yaml.md
+docs/web-apps/automated-testing/cypress/yaml
+docs/web-apps/automated-testing/cypress/yaml.md
+docs/web-apps/automated-testing/playwright/yaml.md
+docs/web-apps/automated-testing/puppeteer/yaml.md
+docs/web-apps/automated-testing/replay/yaml.md
+docs/web-apps/automated-testing/testcafe/yaml.md
+docs/api-testing/on-prem
+docs/api-testing/composer
+docs/api-testing/composer.md

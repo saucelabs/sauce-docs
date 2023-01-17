@@ -16,13 +16,13 @@ Config file may contain any Sauce Connect Proxy CLI flag. It may also contain co
 
 ```yaml
 ---
-region: 'us-west'
-user: 'janedoe-sauce'
-api-key: 'xxxx-xxx-xxx'
+region: "us-west"
+user: "janedoe-sauce"
+api-key: "xxxx-xxx-xxx"
 # this is my log file for SC I use for Mac OS tests.
-logfile: '/tmp/sc-mac.log'
+logfile: "/tmp/sc-mac.log"
 # this is the tunnel I use for Mac OS tests
-tunnel-identifier: 'my-macos'
+tunnel-identifier: "my-macos"
 ```
 
 :::note

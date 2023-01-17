@@ -39,7 +39,7 @@ values={[
 
 ```jsx title="/src/components/HelloCodeTitle.js"
 function HelloCodeTitle(props) {
-return <h1>Hello, {props.name}</h1>
+  return <h1>Hello, {props.name}</h1>
 }
 ```
 
@@ -57,7 +57,7 @@ values={[
 
 ```js
 function helloWorld() {
-console.log('Hello, world!')
+  console.log("Hello, world!")
 }
 ```
 

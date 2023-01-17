@@ -178,47 +178,47 @@ To find an element, we need to right-click on the elements we are interested in 
 
 ```html title="Login Form HTML"
 <html>
-<body>
-...
-<form>
-<div class="form_group">
-<input
-class="input_error form_input"
-placeholder="Username"
-type="text"
-data-test="username"
-id="user-name"
-name="user-name"
-autocorrect="off"
-autocapitalize="none"
-value=""
-/>
-</div>
-<div class="form_group">
-<input
-class="input_error form_input"
-placeholder="Password"
-type="password"
-data-test="password"
-id="password"
-name="password"
-autocorrect="off"
-autocapitalize="none"
-value=""
-/>
-</div>
-<div class="error-message-container"></div>
-<input
-type="submit"
-class="submit-button btn_action"
-data-test="login-button"
-id="login-button"
-name="login-button"
-value="Login"
-/>
-</form>
-...
-</body>
+  <body>
+    ...
+    <form>
+      <div class="form_group">
+        <input
+          class="input_error form_input"
+          placeholder="Username"
+          type="text"
+          data-test="username"
+          id="user-name"
+          name="user-name"
+          autocorrect="off"
+          autocapitalize="none"
+          value=""
+        />
+      </div>
+      <div class="form_group">
+        <input
+          class="input_error form_input"
+          placeholder="Password"
+          type="password"
+          data-test="password"
+          id="password"
+          name="password"
+          autocorrect="off"
+          autocapitalize="none"
+          value=""
+        />
+      </div>
+      <div class="error-message-container"></div>
+      <input
+        type="submit"
+        class="submit-button btn_action"
+        data-test="login-button"
+        id="login-button"
+        name="login-button"
+        value="Login"
+      />
+    </form>
+    ...
+  </body>
 </html>
 ```
 

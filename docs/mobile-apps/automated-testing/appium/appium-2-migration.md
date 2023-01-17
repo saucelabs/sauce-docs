@@ -161,16 +161,16 @@ values={[
 
 ```js
 const capabilities = {
-platformName: 'android',
-// W3C Protocol is mandatory for Appium 2.0
-'appium:platformVersion': '12',
-'appium:deviceName': 'Google Pixel 6',
-// automationName for Appium 2.0
-'appium:automationName': 'UiAutomator2',
-'sauce:options': {
-// appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-appiumVersion: '2.0.0'
-}
+  platformName: "android",
+  // W3C Protocol is mandatory for Appium 2.0
+  "appium:platformVersion": "12",
+  "appium:deviceName": "Google Pixel 6",
+  // automationName for Appium 2.0
+  "appium:automationName": "UiAutomator2",
+  "sauce:options": {
+    // appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
+    appiumVersion: "2.0.0"
+  }
 }
 ```
 
@@ -179,16 +179,16 @@ appiumVersion: '2.0.0'
 
 ```js
 const capabilities = {
-platformName: 'ios',
-// W3C Protocol is mandatory for Appium 2.0
-'appium:platformVersion': '16',
-'appium:deviceName': 'iPhone 14',
-// automationName for Appium 2.0
-'appium:automationName': 'XCUITest',
-'sauce:options': {
-// appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-appiumVersion: '2.0.0'
-}
+  platformName: "ios",
+  // W3C Protocol is mandatory for Appium 2.0
+  "appium:platformVersion": "16",
+  "appium:deviceName": "iPhone 14",
+  // automationName for Appium 2.0
+  "appium:automationName": "XCUITest",
+  "sauce:options": {
+    // appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
+    appiumVersion: "2.0.0"
+  }
 }
 ```
 

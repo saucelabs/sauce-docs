@@ -4,9 +4,9 @@ title: Slack Integration
 sidebar_label: Slack
 description: Link your Sauce Labs account with your Slack workspace set up auto-notification of your test results.
 keywords:
-- share-test-results
-- slack
-- how-to
+  - share-test-results
+  - slack
+  - how-to
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -72,8 +72,8 @@ Setting up automatic notifications from `saucectl` requires you to first add the
    notifications:
    slack:
    channels:
-   - 'saucectl-results'
-   - 'cypress-tests'
+     - "saucectl-results"
+     - "cypress-tests"
    send: always
    ```
 

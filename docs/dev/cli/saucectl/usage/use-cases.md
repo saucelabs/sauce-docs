@@ -83,10 +83,10 @@ metadata:
 name: Testing Cypress Support
 build: RC 10.4.a
 tags:
-- e2e
-- release team
-- beta
-- featurex
+  - e2e
+  - release team
+  - beta
+  - featurex
 ```
 
 ## Concurrency

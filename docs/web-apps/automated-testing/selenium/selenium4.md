@@ -710,11 +710,11 @@ The selenium-webdriver package can be found at the Node package manager, [npmjs]
 - or update your package. json and run npm install:
   ```json
   {
-  "name": "selenium-tests",
-  "version": "1.0.0",
-  "dependencies": {
-  "selenium-webdriver": "^4.0.0"
-  }
+    "name": "selenium-tests",
+    "version": "1.0.0",
+    "dependencies": {
+      "selenium-webdriver": "^4.0.0"
+    }
   }
   ```
 

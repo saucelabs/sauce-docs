@@ -42,7 +42,7 @@ Yes, but the workaround depends on how the website CSS was built, and understand
 If the overflow style on the body is "hidden", then the client could execute the following JS in an Execute Script command in the test to set body overflow to `'auto'` before capturing a snapshot:
 
 ```js
-document.body.style.overflow = 'auto'
+document.body.style.overflow = "auto"
 ```
 
 ### What happens if my page has broken HTML tags?

@@ -2,7 +2,7 @@
 id: schedule-test
 title: Scheduling API Tests
 sidebar_label: Scheduling Tests
-description: 'With Sauce Labs API Testing, you can schedule tests to run as often as you’d like, with granular control as to when they run.'
+description: "With Sauce Labs API Testing, you can schedule tests to run as often as you’d like, with granular control as to when they run."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

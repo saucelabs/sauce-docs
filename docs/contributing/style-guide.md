@@ -4,9 +4,9 @@ title: Style Guide
 sidebar_label: Style Guide
 description: The Sauce Labs Documentation Style Guide
 keywords:
-- contributing
-- style
-- markdown
+  - contributing
+  - style
+  - markdown
 ---
 
 import Tabs from '@theme/Tabs';
@@ -47,9 +47,9 @@ title: Style Guide Introduction
 sidebar_label: Style Guide
 description: The Sauce Labs Documentation Style Guide
 keywords:
-- contributing
-- style
-- markdown
+  - contributing
+  - style
+  - markdown
 ---
 ```
 
@@ -165,13 +165,13 @@ The suggested iframe code structure is as follows:
 
 ```html
 <iframe
-width="560"
-height="315"
-src="https://www.youtube.com/embed/-RDh1ukLN8w"
-frameborder="0"
-allow="accelerometer;
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/-RDh1ukLN8w"
+  frameborder="0"
+  allow="accelerometer;
 autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-allowfullscreen
+  allowfullscreen
 ></iframe>
 ```
 
@@ -410,10 +410,11 @@ it to take up too much space on the page by default, we encourage the use of `de
 
 ```html
 <details>
-<summary>
-<strong>Click here</strong> to see an example of something hidden by default.
-</summary>
-This is hidden by default!
+  <summary>
+    <strong>Click here</strong> to see an example of something hidden by
+    default.
+  </summary>
+  This is hidden by default!
 </details>
 ```
 
@@ -618,44 +619,44 @@ For overview pages that have four categories, we often use these Boxes. Note tha
 
 ```html
 <div className="box-wrapper" markdown="1">
-<div className="box box1 card">
-<div className="container">
-<h2>Box 1</h2>
-<p>Box 1 things.</p>
-<ul>
-<li><a href="">Link 1</a></li>
-<li><a href="">Link 2</a></li>
-</ul>
-</div>
-</div>
-<div className="box box2 card">
-<div className="container">
-<h2>Box 2</h2>
-<p>Box 2 things.</p>
-<ul>
-<li><a href="">Link 1</a></li>
-</ul>
-</div>
-</div>
-<div className="box box3 card">
-<div className="container">
-<h2>Box 3</h2>
-<p>Box 3 things, <a href="">Link 1</a>.</p>
-<ul>
-<li><a href="">Link 2</a></li>
-</ul>
-</div>
-</div>
-<div className="box box4 card">
-<div className="container">
-<h2>Box 4</h2>
-<p>Box 4 things.</p>
-<ul>
-<li><a href="">Link 1</a></li>
-<li><a href="">Link 2</a></li>
-</ul>
-</div>
-</div>
+  <div className="box box1 card">
+    <div className="container">
+      <h2>Box 1</h2>
+      <p>Box 1 things.</p>
+      <ul>
+        <li><a href="">Link 1</a></li>
+        <li><a href="">Link 2</a></li>
+      </ul>
+    </div>
+  </div>
+  <div className="box box2 card">
+    <div className="container">
+      <h2>Box 2</h2>
+      <p>Box 2 things.</p>
+      <ul>
+        <li><a href="">Link 1</a></li>
+      </ul>
+    </div>
+  </div>
+  <div className="box box3 card">
+    <div className="container">
+      <h2>Box 3</h2>
+      <p>Box 3 things, <a href="">Link 1</a>.</p>
+      <ul>
+        <li><a href="">Link 2</a></li>
+      </ul>
+    </div>
+  </div>
+  <div className="box box4 card">
+    <div className="container">
+      <h2>Box 4</h2>
+      <p>Box 4 things.</p>
+      <ul>
+        <li><a href="">Link 1</a></li>
+        <li><a href="">Link 2</a></li>
+      </ul>
+    </div>
+  </div>
 </div>
 ```
 

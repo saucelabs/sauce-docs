@@ -172,17 +172,17 @@ values={[
 
 ```js
 const capabilities = {
-platformName: 'android',
-'appium:platformVersion': '12',
-'appium:deviceName': 'Google Pixel 6 Pro GoogleAPI Emulator',
-// Mandatory for using the appium-flutter-driver
-'appium:automationName': 'flutter',
-'appium:app': 'storage:filename=flutter-counter-debug.apk',
-'sauce:options': {
-// The appium-flutter-driver for Appium 2.0 is not yet supported on Sauce Labs, please
-// check our https://saucelabs.com/platform/platform-configurator#/ for the supported Appium 1 versions
-appiumVersion: '1.22.1'
-}
+  platformName: "android",
+  "appium:platformVersion": "12",
+  "appium:deviceName": "Google Pixel 6 Pro GoogleAPI Emulator",
+  // Mandatory for using the appium-flutter-driver
+  "appium:automationName": "flutter",
+  "appium:app": "storage:filename=flutter-counter-debug.apk",
+  "sauce:options": {
+    // The appium-flutter-driver for Appium 2.0 is not yet supported on Sauce Labs, please
+    // check our https://saucelabs.com/platform/platform-configurator#/ for the supported Appium 1 versions
+    appiumVersion: "1.22.1"
+  }
 }
 ```
 
@@ -191,17 +191,17 @@ appiumVersion: '1.22.1'
 
 ```js
 const capabilities = {
-platformName: 'ios',
-'appium:platformVersion': '15.4',
-'appium:deviceName': 'iPhone 13 Simulator',
-// Mandatory for using the appium-flutter-driver
-'appium:automationName': 'flutter',
-'appium:app': 'storage:filename=flutter-counter-debug.zip',
-'sauce:options': {
-// The appium-flutter-driver for Appium 2.0 is not yet supported on Sauce Labs, please
-// check our https://saucelabs.com/platform/platform-configurator#/ for the supported Appium 1 versions
-appiumVersion: '1.22.3'
-}
+  platformName: "ios",
+  "appium:platformVersion": "15.4",
+  "appium:deviceName": "iPhone 13 Simulator",
+  // Mandatory for using the appium-flutter-driver
+  "appium:automationName": "flutter",
+  "appium:app": "storage:filename=flutter-counter-debug.zip",
+  "sauce:options": {
+    // The appium-flutter-driver for Appium 2.0 is not yet supported on Sauce Labs, please
+    // check our https://saucelabs.com/platform/platform-configurator#/ for the supported Appium 1 versions
+    appiumVersion: "1.22.3"
+  }
 }
 ```
 
@@ -439,17 +439,17 @@ values={[
 
 ```js
 const capabilities = {
-platformName: 'android',
-// W3C Protocol is mandatory for Appium 2.0
-'appium:platformVersion': '12',
-'appium:deviceName': 'Google Pixel 6',
-// Mandatory for Appium 2.0
-'appium:automationName': 'flutter',
-'appium:app': 'storage:filename=flutter-counter-debug.apk',
-'sauce:options': {
-// appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-appiumVersion: '2.0.0'
-}
+  platformName: "android",
+  // W3C Protocol is mandatory for Appium 2.0
+  "appium:platformVersion": "12",
+  "appium:deviceName": "Google Pixel 6",
+  // Mandatory for Appium 2.0
+  "appium:automationName": "flutter",
+  "appium:app": "storage:filename=flutter-counter-debug.apk",
+  "sauce:options": {
+    // appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
+    appiumVersion: "2.0.0"
+  }
 }
 ```
 
@@ -458,17 +458,17 @@ appiumVersion: '2.0.0'
 
 ```js
 const capabilities = {
-platformName: 'ios',
-// W3C Protocol is mandatory for Appium 2.0
-'appium:platformVersion': '16',
-'appium:deviceName': 'iPhone 14',
-// Mandatory for Appium 2.0
-'appium:automationName': 'flutter',
-'appium:app': 'storage:filename=flutter-counter-debug.ipa',
-'sauce:options': {
-// appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-appiumVersion: '2.0.0'
-}
+  platformName: "ios",
+  // W3C Protocol is mandatory for Appium 2.0
+  "appium:platformVersion": "16",
+  "appium:deviceName": "iPhone 14",
+  // Mandatory for Appium 2.0
+  "appium:automationName": "flutter",
+  "appium:app": "storage:filename=flutter-counter-debug.ipa",
+  "sauce:options": {
+    // appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
+    appiumVersion: "2.0.0"
+  }
 }
 ```
 

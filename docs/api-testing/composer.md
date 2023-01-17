@@ -180,17 +180,17 @@ In this method, you copy an existing body and paste it into the call.
 
 3. Select the relevant **Content-Type** and enter the following in the **Body** field:
 
-  ```json
-  {
-   "user": "${user}",
-   "password": "${password}",
-   "url": "http://www.testme.com/api/run/test"
-  }
-  ```
+```json
+{
+  "user": "${user}",
+  "password": "${password}",
+  "url": "http://www.testme.com/api/run/test"
+}
+```
 
-   <img src={useBaseUrl('/img/api-testing/post-body-window-2.png')} alt="The Post body window"/>
+<img src={useBaseUrl('/img/api-testing/post-body-window-2.png')} alt="The Post body window"/>
 
-   `user` and `password` are not directly passed in the body, but they are variables defined in a data set or stored in the vault (or environments).
+`user` and `password` are not directly passed in the body, but they are variables defined in a data set or stored in the vault (or environments).
 
 4. Click **Save Changes** and proceed with the test.
 
@@ -242,25 +242,25 @@ Using an object from another call is a more complex method. Scenarios in which y
 
 The response payload from the call:
 
-  ```json
+```json
+{
+  "id": 123,
+  "items": [
     {
-      "id":123,
-      "items":[
-          {
-            "id":11,
-            "name":"stuff1"
-          },
-          {
-            "id":12,
-            "name":"stuff2"
-          },
-          {
-            "id":13,
-            "name":"stuff3"
-          }
-      ]
+      "id": 11,
+      "name": "stuff1"
+    },
+    {
+      "id": 12,
+      "name": "stuff2"
+    },
+    {
+      "id": 13,
+      "name": "stuff3"
     }
-  ```
+  ]
+}
+```
 
 2. In this example, you need the object `items` as the body in the subsequent call. So, as a second call, add a `POST` and enter the following as body:
 
@@ -284,24 +284,24 @@ This method can be used when you need to create a new structure to add as a body
 
 ```json
 {
-   "items":[
-      {
-         "id":11,
-         "price":5.99
-      },
-      {
-         "id":12,
-         "price":6.99
-      },
-      {
-         "id":13,
-         "price":10.99
-      },
-      {
-         "id":14,
-         "price":15.99
-      }
-   ]
+  "items": [
+    {
+      "id": 11,
+      "price": 5.99
+    },
+    {
+      "id": 12,
+      "price": 6.99
+    },
+    {
+      "id": 13,
+      "price": 10.99
+    },
+    {
+      "id": 14,
+      "price": 15.99
+    }
+  ]
 }
 ```
 
@@ -424,12 +424,12 @@ To create an object of data:
 
 ```json
 {
-   "name":"${F.firstName()}",
-   "last name":"${F.lastName()}",
-   "address":"${F.streetName()}",
-   "profession":"${F.profession()}",
-   "mobile phone":"${F.mobile()}",
-   "email":"${F.emailAddress()}"
+  "name": "${F.firstName()}",
+  "last name": "${F.lastName()}",
+  "address": "${F.streetName()}",
+  "profession": "${F.profession()}",
+  "mobile phone": "${F.mobile()}",
+  "email": "${F.emailAddress()}"
 }
 ```
 

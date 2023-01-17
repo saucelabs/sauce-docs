@@ -33,11 +33,11 @@ Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabli
 
 ```yaml
 ---
-rest-url: 'https://api.us-west-4-i3er.saucelabs.com/rest/v1'
-user: '$SAUCE_USERNAME'
-api-key: '$SAUCE_ACCESS_KEY'
-vm-version: 'v2alpha'
-tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
+rest-url: "https://api.us-west-4-i3er.saucelabs.com/rest/v1"
+user: "$SAUCE_USERNAME"
+api-key: "$SAUCE_ACCESS_KEY"
+vm-version: "v2alpha"
+tunnel-identifier: "$SAUCE_USERNAME_TUNNEL"
 ```
 
   </TabItem>
@@ -45,11 +45,11 @@ tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
 
 ```yaml
 ---
-rest-url: 'https://api.eu-west-3-lnbf.saucelabs.com/rest/v1'
-user: '$SAUCE_USERNAME'
-api-key: '$SAUCE_ACCESS_KEY'
-vm-version: 'v2alpha'
-tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
+rest-url: "https://api.eu-west-3-lnbf.saucelabs.com/rest/v1"
+user: "$SAUCE_USERNAME"
+api-key: "$SAUCE_ACCESS_KEY"
+vm-version: "v2alpha"
+tunnel-identifier: "$SAUCE_USERNAME_TUNNEL"
 ```
 
   </TabItem>

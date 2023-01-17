@@ -94,7 +94,7 @@ When setting the timeout values for your suites, consider that native framework 
 :::
 
 ```yaml
-  timeout: 15m
+timeout: 15m
 ```
 
 ---
@@ -126,7 +126,7 @@ sauce:
 Specifies through which Sauce Labs data center tests will run. Valid values are: `us-west-1` or `eu-central-1`.
 
 ```yaml
-  region: eu-central-1
+region: eu-central-1
 ```
 
 ---
@@ -164,7 +164,7 @@ Set this value to equal or less than your Sauce concurrency allowance, as settin
 :::
 
 ```yaml
-  concurrency: 5
+concurrency: 5
 ```
 
 Alternatively, you can override the file setting at runtime by setting the concurrency flag as an inline parameter of the `saucectl run` command:
@@ -172,15 +172,17 @@ Alternatively, you can override the file setting at runtime by setting the concu
 ```bash
 saucectl run --ccy 5
 ```
+
 ---
 
 ### `retries`
+
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
 Sets the number of times to retry a failed suite. For more settings, you can refer to [passThreshold](#passThreshold).
 
 ```yaml
-  retries: 1
+retries: 1
 ```
 
 Alternatively, you can override the file setting at runtime by setting the retries flag as an inline parameter of the `saucectl run` command:
@@ -309,7 +311,7 @@ reporters:
 Toggles the reporter on/off.
 
 ```yaml
-    enabled: true
+enabled: true
 ```
 
 ---
@@ -321,7 +323,7 @@ Toggles the reporter on/off.
 Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST with a JSON payload to the configured webhook URL.
 
 ```yaml
-    webhookURL: https://my-webhook-url
+webhookURL: https://my-webhook-url
 ```
 
 ---
@@ -333,7 +335,7 @@ Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP PO
 Specifies the report filename. Defaults to "saucectl-report.json".
 
 ```yaml
-    filename: my-saucectl-report.json
+filename: my-saucectl-report.json
 ```
 
 ---
@@ -363,7 +365,7 @@ artifacts:
 When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
 
 ```yaml
-  cleanup: true
+cleanup: true
 ```
 
 ---
@@ -375,11 +377,11 @@ When set to `true`, all contents of the specified download directory are cleared
 Specifies the settings related to downloading artifacts from tests run by `saucectl`.
 
 ```yaml
-  download:
-    when: always
-    match:
-      - junit.xml
-    directory: ./artifacts/
+download:
+  when: always
+  match:
+    - junit.xml
+  directory: ./artifacts/
 ```
 
 ---
@@ -396,7 +398,7 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 - `fail`: Download artifacts for failed suites only.
 
 ```yaml
-    when: always
+when: always
 ```
 
 ---
@@ -408,9 +410,9 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
 
 ```yaml
-  match:
-    - junit.xml
-    - "*.log"
+match:
+  - junit.xml
+  - "*.log"
 ```
 
 ---
@@ -422,7 +424,7 @@ Specifies which artifacts to download based on whether they match the name or fi
 Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. The name of the subdirectory will match the suite name. If a directory with the same name already exists, the new one will be suffixed by a serial number.
 
 ```yaml
-    directory: ./artifacts/
+directory: ./artifacts/
 ```
 
 ---
@@ -451,9 +453,9 @@ notifications:
 Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/basics/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
 
 ```yaml
-  slack:
-    channels: "saucectl-xcuitest"
-    send: always
+slack:
+  channels: "saucectl-xcuitest"
+  send: always
 ```
 
 ---
@@ -465,11 +467,11 @@ Specifies the settings related to sending tests result notifications through Sla
 The set of Slack channels to which the test result notifications are to be sent.
 
 ```yaml
-  slack:
-    channels:
-      - "saucectl-results"
-      - "xcuitest-team"
-    send: always
+slack:
+  channels:
+    - "saucectl-results"
+    - "xcuitest-team"
+  send: always
 ```
 
 ---
@@ -486,9 +488,9 @@ Specifies when and under what circumstances to send notifications to specified S
 - `fail`: Send notifications for failed suites only.
 
 ```yaml
-  slack:
-    channels: "saucectl-xcuitest"
-    send: always
+slack:
+  channels: "saucectl-xcuitest"
+  send: always
 ```
 
 ---
@@ -516,27 +518,26 @@ xcuitest:
 
 <p><small>| REQUIRED | STRING |</small></p>
 
-Specifies a local path, url, or storage identifier to the app under test. This property supports expanded environment variables. Supports *.ipa and *.app file types.
-
+Specifies a local path, url, or storage identifier to the app under test. This property supports expanded environment variables. Supports _.ipa and _.app file types.
 
 ```yaml
-  app: ./apps/xcuitest/SauceLabs.Mobile.Sample.XCUITest.App.ipa
+app: ./apps/xcuitest/SauceLabs.Mobile.Sample.XCUITest.App.ipa
 ```
 
 ```yaml
-  app: https://example.app.download.url/SauceLabs.Mobile.Sample.XCUITest.App.ipa
+app: https://example.app.download.url/SauceLabs.Mobile.Sample.XCUITest.App.ipa
 ```
 
 ```yaml
-  app: $APP
+app: $APP
 ```
 
 ```yaml
-  app: storage:c78ec45e-ea3e-ac6a-b094-00364171addb
+app: storage:c78ec45e-ea3e-ac6a-b094-00364171addb
 ```
 
 ```yaml
-  app: storage:filename=SauceLabs.Mobile.Sample.XCUITest.App.ipa
+app: storage:filename=SauceLabs.Mobile.Sample.XCUITest.App.ipa
 ```
 
 ---
@@ -548,7 +549,7 @@ Specifies a local path, url, or storage identifier to the app under test. This p
 Specifies description for the uploaded app.
 
 ```yaml
-  appDescription: My demo app
+appDescription: My demo app
 ```
 
 ---
@@ -557,27 +558,26 @@ Specifies description for the uploaded app.
 
 <p><small>| REQUIRED | STRING |</small></p>
 
-Either a local path, url, or storage identifier to the testing app. This property supports expanded environment variables. Supports *.ipa and *.app file types.
-
+Either a local path, url, or storage identifier to the testing app. This property supports expanded environment variables. Supports _.ipa and _.app file types.
 
 ```yaml
-  testApp: ./apps/SwagLabsMobileAppUITests-Runner.app
+testApp: ./apps/SwagLabsMobileAppUITests-Runner.app
 ```
 
 ```yaml
-  app: https://example.app.download.url/SwagLabsMobileAppUITests-Runner.app
+app: https://example.app.download.url/SwagLabsMobileAppUITests-Runner.app
 ```
 
 ```yaml
-  testApp: $TEST_APP
+testApp: $TEST_APP
 ```
 
 ```yaml
-  testApp: storage:11f421f0-30e3-23c2-9026-d73a205dcd38
+testApp: storage:11f421f0-30e3-23c2-9026-d73a205dcd38
 ```
 
 ```yaml
-  testApp: storage:filename=./apps/SwagLabsMobileAppUITests-Runner.app.ipa
+testApp: storage:filename=./apps/SwagLabsMobileAppUITests-Runner.app.ipa
 ```
 
 ---
@@ -589,7 +589,7 @@ Either a local path, url, or storage identifier to the testing app. This propert
 Specifies description for the uploaded testApp.
 
 ```yaml
-  testAppDescription: My test app
+testAppDescription: My test app
 ```
 
 ---
@@ -605,12 +605,12 @@ Apps specified as `otherApps` inherit the configuration of the main app under te
 :::
 
 ```yaml
-  otherApps:
-    - ./apps/pre-installed-app1.ipa
-    - https://example.app.download.url/pre-installed-app1.ipa
-    - $PRE_INSTALLED_APP2
-    - storage:8d250fec-5ecb-535c-5d63-aed4da026293
-    - storage:filename=pre-installed-app3.ipa
+otherApps:
+  - ./apps/pre-installed-app1.ipa
+  - https://example.app.download.url/pre-installed-app1.ipa
+  - $PRE_INSTALLED_APP2
+  - storage:8d250fec-5ecb-535c-5d63-aed4da026293
+  - storage:filename=pre-installed-app3.ipa
 ```
 
 ---
@@ -634,7 +634,7 @@ At this time, `saucectl` does not support automated tests running on simulators.
 The name of the test suite, which will be reflected in the results and related artifacts.
 
 ```yaml
-  - name: "saucy test"
+- name: "saucy test"
 ```
 
 ---
@@ -679,7 +679,7 @@ Setting `0` reverts to the value set in `defaults`.
 :::
 
 ```yaml
-  timeout: 15m
+timeout: 15m
 ```
 
 ---
@@ -702,6 +702,7 @@ suite:
   - name: My Saucy Test
     passThreshold: 2
 ```
+
 ---
 
 ### `appSettings`
@@ -726,7 +727,7 @@ appSettings:
 Record the audio stream generated by your native mobile app during a real device test.
 
 ```yaml
-  audioCapture: true
+audioCapture: true
 ```
 
 ---
@@ -738,8 +739,8 @@ Record the audio stream generated by your native mobile app during a real device
 Instrumentation settings for real device tests.
 
 ```yaml
-  instrumentation:
-    networkCapture: true
+instrumentation:
+  networkCapture: true
 ```
 
 ---
@@ -751,7 +752,7 @@ Instrumentation settings for real device tests.
 Record network traffic for HTTP/HTTPS requests during app tests on real devices.
 
 ```yaml
-    networkCapture: true
+networkCapture: true
 ```
 
 ---
@@ -782,26 +783,29 @@ devices:
 Request a specific device for this test suite by its ID. You can look up device IDs on device selection pages or by using our [Get Devices API request](/dev/api/rdc/#get-devices).
 
 ```yaml
-        id: iPhone_11_14_5_real_us
+id: iPhone_11_14_5_real_us
 ```
+
 ---
 
 #### `name`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Find a device for this test suite that matches the device name or portion of the name ([Dynamic Device Allocation](/mobile-apps/supported-devices/#dynamic-device-allocation)), which may provide a larger pool of available devices of the type you want.
 
 ```yaml title="Use Complete Name"
-      - name: iPhone 11
+- name: iPhone 11
 ```
 
 ```yaml title="Use Dynamic Allocation"
-      - name: iPhone.*
+- name: iPhone.*
 ```
 
 ---
 
 #### `platformVersion`
+
 <p><small>| MANDATORY <span className="sauceDBlue">for Virtual Devices</span> | OPTIONAL <span className="sauceDBlue">for Real Devices</span> | STRING |</small></p>
 
 Allows you to set the mobile OS platform version that you want to use in your test.
@@ -817,28 +821,29 @@ This is mandatory for Android Emulators and iOS Simulators. You can find the ava
 **Real Devices**
 
 This is optional for Real Devices. There are three options you can use to determine which version you want to use for your automated Appium, Espresso, or XCUITest tests:
+
 1. Don't provide a `platformVersion`, this will result in any available Android or iOS device, no matter the version.
 2. Provide a `platformVersion` that starts with your provided `platformVersion` string:
-    * **`12`:** matches all minors and patches for `platformVersion: "12"`. For example `12.1.0|12.1.1|12.2.0|...`
-    * **`12.1`:** matches all patches for `platformVersion: "12.1"`. For example `12.1.0|12.1.1`, it will **not** match `12.2.x|12.3.x` and higher
-    * **`12.1.1`:** matches all devices that have **this exact** platform version
+   - **`12`:** matches all minors and patches for `platformVersion: "12"`. For example `12.1.0|12.1.1|12.2.0|...`
+   - **`12.1`:** matches all patches for `platformVersion: "12.1"`. For example `12.1.0|12.1.1`, it will **not** match `12.2.x|12.3.x` and higher
+   - **`12.1.1`:** matches all devices that have **this exact** platform version
 3. In/exclude a specific version and or a range of versions by using a regular expression (regex). You don't need to provide the forward slashes (`/{your-regex}/`) as you would normally do with regex. Keep in mind that the regex needs to match the format `MAJOR.MINOR.PATCH`. The possibilities are endless, but here are just a few examples:
-    * **`^1[3-4|6].*`:** Will match `13`, `14` and `16`, but not 15, see [example](https://regex101.com/r/ExICgZ/1).
-    * **`^(?!15).*`:** Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1).
+   - **`^1[3-4|6].*`:** Will match `13`, `14` and `16`, but not 15, see [example](https://regex101.com/r/ExICgZ/1).
+   - **`^(?!15).*`:** Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1).
 
 :::note NOTE
-The stricter the  `platformVersions` is,  the smaller the pool of available devices will be and the longer you might need to wait for the available device. We recommend using only the major version or using the regex option to get the best results and an available device in the fastest way.
+The stricter the `platformVersions` is, the smaller the pool of available devices will be and the longer you might need to wait for the available device. We recommend using only the major version or using the regex option to get the best results and an available device in the fastest way.
 :::
 
 ```yaml title="Use complete version for Virtual and or Real Devices"
-        platformVersion: 11.0
+platformVersion: 11.0
 ```
 
-```yaml title="Use dynamic platformVersion allocation. Real Devices Only"
+````yaml title="Use dynamic platformVersion allocation. Real Devices Only"
         platformVersion: '^1[3-4|6].*'
 ```yaml
         platformVersion: 14.3
-```
+````
 
 ---
 
@@ -857,8 +862,8 @@ A parent property to further specify desired device attributes within the pool o
 Request that the matching device is also connected to a cellular network.
 
 ```yaml
-  options:
-      carrierConnectivity: true
+options:
+  carrierConnectivity: true
 ```
 
 ---
@@ -870,8 +875,8 @@ Request that the matching device is also connected to a cellular network.
 Request that the matching device is a specific type of device. Valid values are: `ANY`, `TABLET`, or `PHONE`.
 
 ```yaml
-  options:
-      deviceType: TABLET
+options:
+  deviceType: TABLET
 ```
 
 ---
@@ -883,8 +888,8 @@ Request that the matching device is a specific type of device. Valid values are:
 Request that the matching device is from your organization's private pool.
 
 ```yaml
-  options:
-      private: true
+options:
+  private: true
 ```
 
 ---
@@ -897,12 +902,12 @@ A set of parameters allowing you to provide additional details about which test 
 
 ```yaml
 testOptions:
-    class:
-      - SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
-      - SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
-      - SwagLabsMobileAppUITests.LoginTests
-    notClass:
-      - SwagLabsMobileAppUITests.SwagLabsFlow/testCompleteFlow
+  class:
+    - SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
+    - SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
+    - SwagLabsMobileAppUITests.LoginTests
+  notClass:
+    - SwagLabsMobileAppUITests.SwagLabsFlow/testCompleteFlow
 ```
 
 ---
@@ -914,10 +919,10 @@ testOptions:
 Instructs `saucectl` to only run the specified classes for this test suite.
 
 ```yaml
-    class:
-      - SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
-      - SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
-      - SwagLabsMobileAppUITests.LoginTests
+class:
+  - SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
+  - SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
+  - SwagLabsMobileAppUITests.LoginTests
 ```
 
 ---
@@ -929,8 +934,8 @@ Instructs `saucectl` to only run the specified classes for this test suite.
 Instructs `saucectl` to run all classes for the suite _except_ those specified here.
 
 ```yaml
-    notClass:
-      - SwagLabsMobileAppUITests.SwagLabsFlow/testCompleteFlow
+notClass:
+  - SwagLabsMobileAppUITests.SwagLabsFlow/testCompleteFlow
 ```
 
 ---

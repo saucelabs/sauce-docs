@@ -88,7 +88,7 @@ In the below example, the `x-sauce-cond` extension tells the mock to take the `2
 
 ```yaml
 responses:
-'200':
+"200":
 x-sauce-cond:
 op: matches
 collection: headers
@@ -142,14 +142,14 @@ x-sauce-cond:
 op: and
 priority: 10
 conditions:
-- op: matches
-  collection: headers
-  key: authorization
-  value: Basic .*
-- op: equals
-  collection: headers
-  key: key
-  value: ABC123
+  - op: matches
+    collection: headers
+    key: authorization
+    value: Basic .*
+  - op: equals
+    collection: headers
+    key: key
+    value: ABC123
 ```
 
 Mind that `priority` should be at the top level instruction.
@@ -188,21 +188,21 @@ Run Piestry with `--validate-examples` to activate the validation of examples. O
 
 ```json
 {
-"errors": [
-{
-"argument": ["boolean"],
-"instance": "false",
-"message": "is not of a type(s) boolean",
-"name": "type",
-"path": ["is_admin"],
-"property": "instance.is_admin",
-"schema": {
-"type": "boolean"
-},
-"stack": "instance.is_admin is not of a type(s) boolean"
-}
-],
-"message": "The example does not match the schema"
+  "errors": [
+    {
+      "argument": ["boolean"],
+      "instance": "false",
+      "message": "is not of a type(s) boolean",
+      "name": "type",
+      "path": ["is_admin"],
+      "property": "instance.is_admin",
+      "schema": {
+        "type": "boolean"
+      },
+      "stack": "instance.is_admin is not of a type(s) boolean"
+    }
+  ],
+  "message": "The example does not match the schema"
 }
 ```
 
@@ -216,22 +216,22 @@ Run it with the `--validate-request` switch to activate the validation of inboun
 
 ```json
 {
-"collection": "queryParams",
-"errors": [
-{
-"argument": ["integer"],
-"instance": "aa",
-"message": "is not of a type(s) integer",
-"name": "type",
-"path": [],
-"property": "instance",
-"schema": {
-"type": "integer"
-},
-"stack": "instance is not of a type(s) integer"
-}
-],
-"message": "Wrong field types"
+  "collection": "queryParams",
+  "errors": [
+    {
+      "argument": ["integer"],
+      "instance": "aa",
+      "message": "is not of a type(s) integer",
+      "name": "type",
+      "path": [],
+      "property": "instance",
+      "schema": {
+        "type": "integer"
+      },
+      "stack": "instance is not of a type(s) integer"
+    }
+  ],
+  "message": "Wrong field types"
 }
 ```
 

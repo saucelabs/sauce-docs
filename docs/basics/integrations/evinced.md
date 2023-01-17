@@ -4,12 +4,12 @@ title: Evinced Integration
 sidebar_label: Evinced
 description: Test your mobile apps for accessibility challenges with Evinced and the Sauce Labs cloud
 keywords:
-- accessibility
-- accessibility-testing
-- automated-testing
-- mobile
-- mobile-native
-- how-to
+  - accessibility
+  - accessibility-testing
+  - automated-testing
+  - mobile
+  - mobile-native
+  - how-to
 ---
 
 The Evinced Mobile Flow Analyzer allows you to connect to a mobile device right from your desktop and scan any native mobile applications for accessibility issues. Actionable reports can be created with a single click to make communicating with developer team members easier than ever.

@@ -99,13 +99,13 @@ Following are some sample error responses that include additional detail.
 
 ```json title="404 User ID Not Found Error Response"
 {
-"detail": "Not found."
+  "detail": "Not found."
 }
 ```
 
 ```json title="400 Missing Required Parameter Error Response"
 {
-"verify_password": ["This field is required."]
+  "verify_password": ["This field is required."]
 }
 ```
 

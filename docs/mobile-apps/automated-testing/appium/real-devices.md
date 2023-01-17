@@ -156,18 +156,18 @@ For native app tests, the `app` capability is the only other required configurat
 For native app tests on real devices, you must provide a location from which your mobile app can be accessed in the `app` capability so your app can be installed on the test devices. You can specify a Sauce Labs App Storage ID or filename, or a remote location to which Sauce Labs has access. See [Application Storage](/mobile-apps/app-storage) for details.
 
 ```js title=App Storage Example
-'appium:app', 'storage:filename=mapp.ipa'
+"appium:app", "storage:filename=mapp.ipa"
 ```
 
 ```js title=Remote App Example
-'appium:app', 'https://github.com/test-apps/ios-app.ipa'
+"appium:app", "https://github.com/test-apps/ios-app.ipa"
 ```
 
 You can also install a dependent app or an app upgrade during a test by using the `driver.installApp('path-to-app')` command.
 
 ```js title=Driver App Example
 driver.installApp(
-'https://github.com/saucelabs/my-demo-app-rn/releases/download/v1.3.0/Android-MyDemoAppRN.apk'
+  "https://github.com/saucelabs/my-demo-app-rn/releases/download/v1.3.0/Android-MyDemoAppRN.apk"
 )
 ```
 
@@ -360,15 +360,15 @@ caps['sauce:options']['accessKey'] = 'SAUCE_ACCESS_KEY'
 
 ```js
 caps = {
-platformName: 'iOS',
-'appium:platformVersion': '15',
-'appium:deviceName': 'iPhone .*',
-'appium:orientation': 'portrait',
-'appium:app': 'storage:filename=<file-name>',
-'sauce:options': {
-username: 'SAUCE_USERNAME',
-accessKey: 'SAUCE_ACCESS_KEY'
-}
+  platformName: "iOS",
+  "appium:platformVersion": "15",
+  "appium:deviceName": "iPhone .*",
+  "appium:orientation": "portrait",
+  "appium:app": "storage:filename=<file-name>",
+  "sauce:options": {
+    username: "SAUCE_USERNAME",
+    accessKey: "SAUCE_ACCESS_KEY"
+  }
 }
 ```
 
@@ -455,15 +455,15 @@ caps['sauce:options']['accessKey'] = 'SAUCE_ACCESS_KEY'
 
 ```js
 caps = {
-platformName: 'Android',
-'appium:platformVersion': '11',
-'appium:deviceName': 'Samsung.*Galaxy.*',
-'appium:orientation': 'portrait',
-'appium:app': 'storage:filename=<file-name>',
-'sauce:options': {
-username: 'SAUCE_USERNAME',
-accessKey: 'SAUCE_ACCESS_KEY'
-}
+  platformName: "Android",
+  "appium:platformVersion": "11",
+  "appium:deviceName": "Samsung.*Galaxy.*",
+  "appium:orientation": "portrait",
+  "appium:app": "storage:filename=<file-name>",
+  "sauce:options": {
+    username: "SAUCE_USERNAME",
+    accessKey: "SAUCE_ACCESS_KEY"
+  }
 }
 ```
 

@@ -72,8 +72,8 @@ values={[
 <TabItem value="JS/WebdriverIO">
 
 ```javascript
-browser.execute('/*@visual.init*/', 'My Visual Test')
-browser.execute('/*@visual.init*/', 'My Visual Test', { ignore: '.selector' })
+browser.execute("/*@visual.init*/", "My Visual Test")
+browser.execute("/*@visual.init*/", "My Visual Test", { ignore: ".selector" })
 ```
 
 </TabItem>
@@ -168,31 +168,31 @@ values={[
 <TabItem value="JS/WebdriverIO">
 
 ```javascript
-browser.execute('/*@visual.snapshot*/', 'State Name')
+browser.execute("/*@visual.snapshot*/", "State Name")
 ```
 
 Example with <code>ignore</code> option:
 
 ```javascript
-browser.execute('/*@visual.snapshot*/', 'State Name', { ignore: '.selector' })
+browser.execute("/*@visual.snapshot*/", "State Name", { ignore: ".selector" })
 ```
 
 Example with <code>cropTo</code> option:
 
 ```javascript
-browser.execute('/*@visual.snapshot*/', 'State Name', {
-ignore: '.selector',
-cropTo: '#header'
+browser.execute("/*@visual.snapshot*/", "State Name", {
+  ignore: ".selector",
+  cropTo: "#header"
 })
 ```
 
 Example with <code>scrollAndStitchScreenshot</code> option:
 
 ```javascript
-browser.execute('/*@visual.snapshot*/', 'State Name', {
-ignore: '.selector',
-cropTo: '#header',
-scrollAndStitchScreenshot: true
+browser.execute("/*@visual.snapshot*/", "State Name", {
+  ignore: ".selector",
+  cropTo: "#header",
+  scrollAndStitchScreenshot: true
 })
 ```
 
@@ -317,7 +317,7 @@ values={[
 <TabItem value="JS/WebdriverIO">
 
 ```javascript
-const result = browser.execute('/*@visual.end*/')
+const result = browser.execute("/*@visual.end*/")
 assert.ok(result.passed, result.message)
 ```
 

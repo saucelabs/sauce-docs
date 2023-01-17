@@ -62,6 +62,7 @@ The JSON response &#8212; in this case, a list of dog breeds &#8212; will popula
 This will generate a series of functional tests for this specific API request.
 
 :::tip
+
 <details><summary>Viewing your test data</summary>
 
 **Visual** view shows your test as components:<br/><img src={useBaseUrl('img/api-testing/testVisual.png')} alt="Sample Test Visual View"/>

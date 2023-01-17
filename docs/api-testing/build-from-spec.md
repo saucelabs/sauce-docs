@@ -2,7 +2,7 @@
 id: build-from-spec
 title: Building an API Test from a Spec File
 sidebar_label: Build Test from Spec File
-description: 'Automatically generate tests from an OpenAPI spec or HAR file.'
+description: "Automatically generate tests from an OpenAPI spec or HAR file."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

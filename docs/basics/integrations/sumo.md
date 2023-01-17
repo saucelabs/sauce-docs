@@ -4,9 +4,9 @@ title: Sumo Logic Integration
 sidebar_label: Sumo Logic
 description: Automatically view your Sauce Labs test results in a custom Sumo Logic dashboard.
 keywords:
-- send-test-results
-- sumo logic
-- how-to
+  - send-test-results
+  - sumo logic
+  - how-to
 ---
 
 import Tabs from '@theme/Tabs';

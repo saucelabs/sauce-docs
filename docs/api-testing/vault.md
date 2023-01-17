@@ -2,7 +2,7 @@
 id: vault
 title: Adding Reusable Variables, Snippets, and Files in the Vault
 sidebar_label: Vault, Variables, Snippets, Files
-description: 'The Vault allows you to store variables, code snippets, and files that can be used across an entire project.'
+description: "The Vault allows you to store variables, code snippets, and files that can be used across an entire project."
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

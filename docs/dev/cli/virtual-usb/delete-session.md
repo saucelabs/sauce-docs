@@ -1,6 +1,6 @@
 ---
 id: delete-session
-title: 'Virtual USB CLI: Delete Session'
+title: "Virtual USB CLI: Delete Session"
 sidebar_label: Delete Session
 ---
 

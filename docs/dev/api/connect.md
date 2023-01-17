@@ -119,7 +119,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </table>
 
 ```jsx title="Sample Response to the default request"
-;['28e7c8133ede4588a891666dd35af1f8']
+;["28e7c8133ede4588a891666dd35af1f8"]
 ```
 
 ```jsx title="Sample Response to the request with an optional parameter full=true"

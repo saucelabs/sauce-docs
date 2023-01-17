@@ -503,8 +503,8 @@ It can also be used to simulate non-loading of scripts, styles, or other resourc
   ---
   # this will include all subdomains of example.com as well as dev.httpbin.org
   tunnel-domains:
-  - '.example.com'
-  - 'dev.httbin.org'
+    - ".example.com"
+    - "dev.httbin.org"
   ```
 
 #### Configuring Domain Regular Expressions (--fast-fail-regexps)
@@ -522,8 +522,8 @@ It can also be used to simulate non-loading of scripts, styles, or other resourc
   ```yaml
   ---
   fast-fail-regexps:
-  - '.*mydomain.*'
-  - '.*.example.com'
+    - ".*mydomain.*"
+    - ".*.example.com"
   ```
 
 ### Sauce Connect Proxy Host Performance Optimization

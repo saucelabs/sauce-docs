@@ -71,10 +71,10 @@ version: 2
 jobs:
 build:
 steps:
-- checkout
-- run: npm install
-# Run Screener visual component tests
-- run: npm run test-storybook
+  - checkout
+  - run: npm install
+  # Run Screener visual component tests
+  - run: npm run test-storybook
 ```
 
 </TabItem>
@@ -84,12 +84,12 @@ steps:
 
 ```yaml
 install:
-- npm install
+  - npm install
 
 script:
-- npm test
-# Run Screener visual component tests
-- npm run test-storybook
+  - npm test
+  # Run Screener visual component tests
+  - npm run test-storybook
 ```
 
 </TabItem>
@@ -100,12 +100,12 @@ script:
 ```yaml
 pipelines:
 default:
-- step:
-  script:
-  - npm install
-  - npm test
-  # Run Screener visual component tests
-  - npm run test-storybook
+  - step:
+    script:
+      - npm install
+      - npm test
+      # Run Screener visual component tests
+      - npm run test-storybook
 ```
 
 </TabItem>
@@ -119,10 +119,10 @@ jobs:
 default:
 runs-on: ubuntu-latest
 steps:
-- uses: actions/checkout@v2
-- uses: actions/setup-node@v1
-- run: npm install
-- run: npm run test-storybook
+  - uses: actions/checkout@v2
+  - uses: actions/setup-node@v1
+  - run: npm install
+  - run: npm run test-storybook
 ```
 
 </TabItem>

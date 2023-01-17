@@ -308,20 +308,20 @@ If `curl -v --proxy external.proxy.com private.mysite.com` does not get a respon
 
 ```javascript title="multiproxy proxy.pac"
 function FindProxyForURL(url, host) {
-// Sauce domain calls required to start a tunnel
-if (
-shExpMatch(host, '*.miso.saucelabs.com*') ||
-shExpMatch(host, '*.saucelabs.com') ||
-shExpMatch(host, 'saucelabs.com')
-) {
-// Send the required Sauce Traffic
-// to the External proxy
-return 'PROXY external.proxy.com:8080'
-}
+  // Sauce domain calls required to start a tunnel
+  if (
+    shExpMatch(host, "*.miso.saucelabs.com*") ||
+    shExpMatch(host, "*.saucelabs.com") ||
+    shExpMatch(host, "saucelabs.com")
+  ) {
+    // Send the required Sauce Traffic
+    // to the External proxy
+    return "PROXY external.proxy.com:8080"
+  }
 
-// Test VM HTTP traffic gets routed to the
-// Internal proxy to reach the site Under Test
-return 'PROXY internal.proxy.com:8080'
+  // Test VM HTTP traffic gets routed to the
+  // Internal proxy to reach the site Under Test
+  return "PROXY internal.proxy.com:8080"
 }
 ```
 
@@ -330,17 +330,17 @@ Here's an example of a single-proxy PAC setup for public internet access:
 ```javascript title="single_proxy.pac"
 // A proxy is required to reach external resources
 function FindProxyForURL(url, host) {
-// Internal calls for resources in your network
-if (
-shExpMatch(host, '*.auth.my-company.com') ||
-shExpMatch(host, '*staging.my-company.com') ||
-shExpMatch(host, 'internal-resource1.com')
-) {
-return 'DIRECT'
-}
+  // Internal calls for resources in your network
+  if (
+    shExpMatch(host, "*.auth.my-company.com") ||
+    shExpMatch(host, "*staging.my-company.com") ||
+    shExpMatch(host, "internal-resource1.com")
+  ) {
+    return "DIRECT"
+  }
 
-// All other traffic should
-// go to the public internet via proxy
-return 'PROXY my-company.org:8880'
+  // All other traffic should
+  // go to the public internet via proxy
+  return "PROXY my-company.org:8880"
 }
 ```

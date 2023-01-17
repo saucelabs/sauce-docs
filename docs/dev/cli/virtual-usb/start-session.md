@@ -1,6 +1,6 @@
 ---
 id: start-session
-title: 'Virtual USB CLI: Start Test Session'
+title: "Virtual USB CLI: Start Test Session"
 sidebar_label: Start Session
 ---
 

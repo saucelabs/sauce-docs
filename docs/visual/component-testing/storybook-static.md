@@ -16,8 +16,8 @@ To run Screener against a static Storybook build, instead of starting the Storyb
 1. Open your Storybook config file (under ".storybook/preview.js") and add the following snippet at the end:
 
 ```js
-if (typeof window === 'object') {
-window.__screener_storybook__ = require('@storybook/react').getStorybook
+if (typeof window === "object") {
+  window.__screener_storybook__ = require("@storybook/react").getStorybook
 }
 ```
 
@@ -31,11 +31,11 @@ npm run build-storybook
 
 ```js
 module.exports = {
-projectRepo: 'sb-6.1-test',
-storybookConfigDir: '.storybook',
-apiKey: process.env.SCREENER_API_KEY,
-resolution: '1024x768',
-storybookStaticBuildDir: 'storybook-static'
+  projectRepo: "sb-6.1-test",
+  storybookConfigDir: ".storybook",
+  apiKey: process.env.SCREENER_API_KEY,
+  resolution: "1024x768",
+  storybookStaticBuildDir: "storybook-static"
 }
 ```
 

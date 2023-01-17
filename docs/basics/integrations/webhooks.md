@@ -4,9 +4,9 @@ title: Webhooks Integration
 sidebar_label: Webhooks
 description: Setup a webhook to which Sauce Labs test results are automatically pushed.
 keywords:
-- get-test-results
-- webhooks
-- how-to
+  - get-test-results
+  - webhooks
+  - how-to
 ---
 
 import Tabs from '@theme/Tabs';

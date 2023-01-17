@@ -1,6 +1,6 @@
 ---
 id: disconnect-session
-title: 'Virtual USB CLI: Disconnect Session'
+title: "Virtual USB CLI: Disconnect Session"
 sidebar_label: Disconnect Session
 ---
 

@@ -98,11 +98,11 @@ From a text editor or IDE, create a new JavaScript file called **screener.config
 
 ```js
 module.exports = {
-projectRepo: '<your-repo>',
-storybookConfigDir: '<directory>',
-storybookStaticDir: '<directory>',
-apiKey: process.env.SCREENER_API_KEY,
-resolution: '<resolution>'
+  projectRepo: "<your-repo>",
+  storybookConfigDir: "<directory>",
+  storybookStaticDir: "<directory>",
+  apiKey: process.env.SCREENER_API_KEY,
+  resolution: "<resolution>"
 }
 ```
 
@@ -112,21 +112,21 @@ If you want to use sauce VMs on your screener tests, you'll need to add the sauc
 
 ```js
 module.exports = {
-projectRepo: '<your-repo>',
-storybookConfigDir: '<directory>',
-storybookStaticDir: '<directory>',
-apiKey: process.env.SCREENER_API_KEY,
-resolution: '<resolution>',
-browsers: [
-{
-browserName: 'chrome',
-version: '74.0'
-}
-],
-sauce: {
-username: process.env.SAUCE_USERNAME,
-accessKey: process.env.SAUCE_ACCESS_KEY
-}
+  projectRepo: "<your-repo>",
+  storybookConfigDir: "<directory>",
+  storybookStaticDir: "<directory>",
+  apiKey: process.env.SCREENER_API_KEY,
+  resolution: "<resolution>",
+  browsers: [
+    {
+      browserName: "chrome",
+      version: "74.0"
+    }
+  ],
+  sauce: {
+    username: process.env.SAUCE_USERNAME,
+    accessKey: process.env.SAUCE_ACCESS_KEY
+  }
 }
 ```
 
@@ -261,10 +261,10 @@ From a text editor or IDE, create a new JavaScript file called **screener.config
 
 ```js
 module.exports = {
-projectRepo: 'sb-6.1-test',
-storybookConfigDir: '.storybook',
-apiKey: process.env.SCREENER_API_KEY,
-resolution: '1024x768'
+  projectRepo: "sb-6.1-test",
+  storybookConfigDir: ".storybook",
+  apiKey: process.env.SCREENER_API_KEY,
+  resolution: "1024x768"
 }
 ```
 

@@ -186,10 +186,10 @@ values={[
 
 ```javascript
 exports.config = {
-hostname: 'hub.screener.io',
-port: 443,
-protocol: 'https',
-path: '/wd/hub'
+  hostname: "hub.screener.io",
+  port: 443,
+  protocol: "https",
+  path: "/wd/hub"
 }
 ```
 
@@ -247,10 +247,10 @@ values={[
 <TabItem value="JS/WebdriverIO">
 
 ```javascript
-it('should take snapshot', () => {
-browser.url('https://screener.io')
-browser.execute('/*@visual.init*/', 'My Visual Test')
-browser.execute('/*@visual.snapshot*/', 'Home')
+it("should take snapshot", () => {
+  browser.url("https://screener.io")
+  browser.execute("/*@visual.init*/", "My Visual Test")
+  browser.execute("/*@visual.snapshot*/", "Home")
 })
 ```
 
@@ -410,7 +410,7 @@ To view a breakdown of what's happening in each test script, click on any of the
 
 ```js
 //Navigate to the test site
-await browser.url('http://saucedemo.com')
+await browser.url("http://saucedemo.com")
 ```
 
 At a high level, each test script:
