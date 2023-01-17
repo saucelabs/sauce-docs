@@ -1,7 +1,7 @@
 ---
 id: team-mgmnt
-title: Teams
-sidebar_label: Teams
+title: Team Management
+sidebar_label: Team Management
 description: Manage teams.
 ---
 
