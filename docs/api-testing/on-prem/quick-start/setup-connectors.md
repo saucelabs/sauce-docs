@@ -1,15 +1,15 @@
 ---
 id: setup-connectors
-title:  "Set Up Connectors (For Notifications and Data)"
+title: 'Set Up Connectors (For Notifications and Data)'
 sidebar_label: Set Up Connectors
-description: "Introduction Connectors are the way API Fortress integrates with other services and platforms to send data and/or notifications to them. A big benefit is how seamlessly API Fortress can be integrated into your day-to-day operations without disrupting workflows."
+description: 'Introduction Connectors are the way API Fortress integrates with other services and platforms to send data and/or notifications to them. A big benefit is how seamlessly API Fortress can be integrated into your day-to-day operations without disrupting workflows.'
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 

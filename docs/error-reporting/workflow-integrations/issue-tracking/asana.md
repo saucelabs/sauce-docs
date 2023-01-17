@@ -4,6 +4,7 @@ title: Asana Integration with Backtrace
 sidebar_label: Asana
 description: Integrate Backtrace with Asana.
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -11,15 +12,18 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 This guide goes through the steps necessary to integrate Backtrace with Asana.
 
 The steps in this process are:
+
 - Generate a personal access token
 - Set up the integration
 
 ## Generate Personal Access Token
+
 To set up integration for Asana, you must generate a personal access token. Follow the instructions at the Asana API Page under "Personal Access Tokens"
 
 Once the token is created, you will use it in the next step.
 
 ## Set Up the Integration
+
 To set up the integration, first go to the **Project Settings** page for the project you want to add a integration for:
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />

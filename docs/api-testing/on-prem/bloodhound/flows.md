@@ -1,15 +1,15 @@
 ---
 id: flows
-title: "Bloodhound: Flows"
+title: 'Bloodhound: Flows'
 sidebar_label: Flows
-description: "A flow is a number of steps (actors) that will be performed between the inbound request and the response to the outbound request."
+description: 'A flow is a number of steps (actors) that will be performed between the inbound request and the response to the outbound request.'
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 In the default configuration module, flows are files located in the `etc/flows` directory.
 
@@ -40,31 +40,31 @@ If a certain actor is referenced either as `next` or in `sidecars`, it **must** 
 
 ```yaml
 proxy/request:
-  next: filter/header\_filter
-  sidecars:
-    - sidecar/access\_logger
+next: filter/header\_filter
+sidecars:
+- sidecar/access\_logger
 
 filter/header\_filter:
-  next: proxy/upstream\_http
-  sidecars:
-    - sidecar/access\_logger
-  config:
-    accept:
-      - value: "#msg.request().getHeader('key')=='ABC123'"
-        evaluated: true
-      - value: "#msg.request().getHeader('accept')=='application/json'"
-        evaluated: true
-    reject:
-      - value: "#msg.request().method()!='GET'"
-        evaluated: true
+next: proxy/upstream\_http
+sidecars:
+- sidecar/access\_logger
+config:
+accept:
+- value: "#msg.request().getHeader('key')=='ABC123'"
+  evaluated: true
+- value: "#msg.request().getHeader('accept')=='application/json'"
+  evaluated: true
+reject:
+- value: "#msg.request().method()!='GET'"
+  evaluated: true
 
 proxy/upstream\_http:
-  next: proxy/send\_back
+next: proxy/send\_back
 
 proxy/send\_back:
-  sidecars:
-    - sidecar/access\_logger
+sidecars:
+- sidecar/access\_logger
 
 sidecar/access\_logger:
-  config: {}
+config: {}
 ```

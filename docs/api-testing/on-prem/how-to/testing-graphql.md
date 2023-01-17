@@ -3,16 +3,16 @@ id: testing-graphql
 title: Testing GraphQL
 sidebar_label: Testing GraphQL
 keywords:
-    - api-testing
-    - how-to
-    - graphql
+- api-testing
+- how-to
+- graphql
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 GraphQL is a fantastic tool for creating versatile, eminently flexible servers. With API Fortress, testing GraphQL queries is as easy as testing regular REST endpoints.
 
@@ -28,8 +28,8 @@ If we're sending a query request to our GraphQL server, we would format our POST
 
 ```json
 {
- "query": "query (\$id: Int!) { course(id: \$id) { id, title, author, description, topic, url }}",
- "variables": { "id": 1}
+"query": "query ($id: Int!) { course(id: $id) { id, title, author, description, topic, url }}",
+"variables": { "id": 1 }
 }
 ```
 
@@ -42,7 +42,7 @@ The above object says the following: we are querying for a specific course by ID
    "id": 1,
    "title": "The Complete Node.js Developer Course",
    "author": "Andrew Mead, Rob Percival",
-   "description": "Learn Node.js by building real-world applications with     
+   "description": "Learn Node.js by building real-world applications with
     Node, Express, MongoDB, Mocha, and more!",
    "topic": "Node.js",
    "url": "https://codingthesmartway.com/courses/nodejs/"
@@ -61,8 +61,8 @@ A Mutation is also passed as a POST body to the GraphQL endpoint in question:
 
 ```json
 {
- "query": "mutation (\$id: Int!, \$topic: String!) { updateCourseTopic(id: \$id, topic: \$topic) { title, topic }}",
- "variables": { "id": 1, "topic" : "Ruby" }
+"query": "mutation ($id: Int!, $topic: String!) { updateCourseTopic(id: $id, topic: $topic) { title, topic }}",
+"variables": { "id": 1, "topic": "Ruby" }
 }
 ```
 
@@ -70,12 +70,12 @@ This Mutation is executing the 'updateCourseTopic' operation on the database ent
 
 ```json
 {
- "data": {
-    "updateCourseTopic": {
-    "title": "The Complete Node.js Developer Course",
-    "topic": "Ruby"
-    }
-  }
+"data": {
+"updateCourseTopic": {
+"title": "The Complete Node.js Developer Course",
+"topic": "Ruby"
+}
+}
 }
 ```
 

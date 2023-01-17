@@ -14,16 +14,13 @@ Keep in mind that these are guidelines. Most environments have their own workloa
 
 ## What You'll Need
 
-* Minimum 2 core x 8 GB Machine.
-* We recommend using the [cURL command line](https://curl.haxx.se/download.html) or an equivalent tool to ensure that any error messages you receive are precise and actionable. If you're not familiar with the tool, [review their docs here](https://curl.se/docs) and then install cURL on your local machine.
-* For Unix-based systems, you may need to increase your open file limit if you plan to run a high number of parallel tests (i.e., `ulimit -n 64000`).
-
+- Minimum 2 core x 8 GB Machine.
+- We recommend using the [cURL command line](https://curl.haxx.se/download.html) or an equivalent tool to ensure that any error messages you receive are precise and actionable. If you're not familiar with the tool, [review their docs here](https://curl.se/docs) and then install cURL on your local machine.
+- For Unix-based systems, you may need to increase your [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) to, at least, 64000.
 
 ## Supported Operating Systems
 
 ### Sauce Connect v4.8.x
-
-<p><span className="sauceDBlue">Beta</span></p>
 
 <table>
   <tr>
@@ -72,10 +69,11 @@ Keep in mind that these are guidelines. Most environments have their own workloa
   </tr>
 </table>
 
+<!-- prettier-ignore -->
 :::note macOS Catalina 10.15+ compatibility
-Enable your Mac to allow apps from the App Store and identified developers.  
-  1. Go to **System Preferences** > **Security & Privacy** > **General**.
-  2. Under **Allow apps downloaded from**, select the option **App Store and identified developers**.
+Enable your Mac to allow apps from the App Store and identified developers.
+1. Go to **System Preferences** > **Security & Privacy** > **General**.
+2. Under **Allow apps downloaded from**, select the option **App Store and identified developers**.
 :::
 
 ### Sauce Connect v4.7.x
@@ -126,57 +124,6 @@ Enable your Mac to allow apps from the App Store and identified developers.
   </tr>
 </table>
 
-
-
-### Sauce Connect v4.6.x
-
-<table>
-  <tr>
-   <td><strong>Name</strong>
-   </td>
-   <td><strong>Value</strong>
-   </td>
-   <td><strong>CPU Arch</strong>
-   </td>
-   <td><strong>Notes</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>Linux
-   </td>
-   <td>Ubuntu 14.04 or higher
-        <p>Debian 7 or higher</p>
-        <p>RedHat EL-6 and higher</p>
-   </td>
-   <td>x86_64
-       <p>x86</p>
-   </td>
-   <td>Unsupported OSes may still be able to run Sauce Connect, but they've not been tested for versions 4.6.x and higher.
-   </td>
-  </tr>
-  <tr>
-   <td>macOS
-   </td>
-   <td>OS X 10.6 (Snow Leopard) or higher
-   </td>
-   <td>x86_64
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>Windows
-   </td>
-   <td>Windows 7 and higher
-   </td>
-   <td>x86
-   </td>
-   <td>
-   </td>
-  </tr>
-</table>
-
-
 ## Verifying Sauce Connect Network Routes on Your Host Machine
 
 As an important step prior to downloading Sauce Connect Proxy, you or your systems administrator will need to verify that Sauce Connect Proxy can make the required network requests.
@@ -186,30 +133,21 @@ As an important step prior to downloading Sauce Connect Proxy, you or your syste
 2. Use cURL (or equivalent tool) to reach your Site Under Test. If you are relying on API to support a website or mobile app, you can cURL that as well. You should get a `200 OK HTTP` response. If you do NOT see a `200 OK HTTP` response, then Sauce Connect Proxy will not be able to reach it either.
 
 3. Use cURL (or equivalent tool) to reach the below URLs, as needed. For example:
-   * [https://saucelabs.com](https://saucelabs.com/)
-   * [https://api.us-west-1.saucelabs.com/rest/v1](https://api.us-west-1.saucelabs.com/rest/v1) for US-WEST region
-   * [https://api.us-east-1.saucelabs.com/rest/v1](https://api.us-east-1.saucelabs.com/rest/v1) for US-East region
-   * [https://api.eu-central-1.saucelabs.com](https://api.eu-central-1.saucelabs.com/) for EU-Central region
+
+   - [https://saucelabs.com](https://saucelabs.com/)
+   - [https://api.us-west-1.saucelabs.com/rest/v1](https://api.us-west-1.saucelabs.com/rest/v1) for US-WEST region
+   - [https://api.us-east-1.saucelabs.com/rest/v1](https://api.us-east-1.saucelabs.com/rest/v1) for US-East region
+   - [https://api.eu-central-1.saucelabs.com](https://api.eu-central-1.saucelabs.com/) for EU-Central region
 
    If you can get a `200 OK` response from all URLs above, you are ready to start Sauce Connect!
    As an alternative, you can just try to [start a tunnel](/secure-connections/sauce-connect/setup-configuration/basic-setup/#validating-your-basic-setup)
    and check the console output.
-
 
 ## Configuring Your System to Use Sauce Connect
 
 Select a cloud provider from the tables below to view the recommended system requirements:
 
 ### Amazon Web Services (AWS)
-
-<Tabs
-  defaultValue="Virtual Machines"
-  values={[
-    {label: 'Virtual Machines', value: 'Virtual Machines'},
-    {label: 'Headless', value: 'Headless'},
-  ]}>
-
-<TabItem value="Virtual Machines">
 
 <table>
   <tr>
@@ -228,7 +166,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
   </tr>
   <tr>
-   <td>0-99
+   <td>0-59
    </td>
    <td>EC2 m4.large
    </td>
@@ -242,21 +180,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
   </tr>
   <tr>
-   <td>100-199
-   </td>
-   <td>EC2 m4.xlarge
-   </td>
-   <td>16 GB
-   </td>
-   <td>4
-   </td>
-   <td>750 Mbps
-   </td>
-   <td>1
-   </td>
-  </tr>
-  <tr>
-   <td>200-399
+   <td>60-119
    </td>
    <td>EC2 m4.xlarge
    </td>
@@ -270,7 +194,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
   </tr>
   <tr>
-   <td>400-599
+   <td>120-199
    </td>
    <td>EC2 m4.xlarge
    </td>
@@ -284,6 +208,34 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
   </tr>
   <tr>
+   <td>200-399
+   </td>
+   <td>EC2 m4.xlarge
+   </td>
+   <td>16 GB
+   </td>
+   <td>4
+   </td>
+   <td>750 Mbps
+   </td>
+   <td>4-5
+   </td>
+  </tr>
+  <tr>
+   <td>400-599
+   </td>
+   <td>EC2 m4.xlarge
+   </td>
+   <td>16 GB
+   </td>
+   <td>4
+   </td>
+   <td>750 Mbps
+   </td>
+   <td>6-7
+   </td>
+  </tr>
+  <tr>
    <td>600-799
    </td>
    <td>EC2 m4.xlarge
@@ -294,7 +246,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>750 Mbps
    </td>
-   <td>4
+   <td>8
    </td>
   </tr>
   <tr>
@@ -308,103 +260,12 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>750 Mbps
    </td>
-   <td>6
+   <td>10
    </td>
   </tr>
 </table>
-
-</TabItem>
-<TabItem value="Headless">
-
-<table>
-  <tr>
-   <td><strong>Parallel Tests</strong>
-   </td>
-   <td><strong>Machine Type</strong>
-   </td>
-   <td><strong>Memory</strong>
-   </td>
-   <td>
-<strong>Processor</strong>
-   </td>
-   <td><strong>Bandwidth</strong>
-   </td>
-   <td><strong>Recommended SC Tunnels</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>0-99
-   </td>
-   <td>EC2 m5.large
-   </td>
-   <td>7.5 GB
-   </td>
-   <td>2
-   </td>
-   <td>3.5 Gbps
-   </td>
-   <td>1
-   </td>
-  </tr>
-  <tr>
-   <td>500-999
-   </td>
-   <td>EC2 m5.large
-   </td>
-   <td>7.5 GB
-   </td>
-   <td>2
-   </td>
-   <td>3.5 Gbps
-   </td>
-   <td>2
-   </td>
-  </tr>
-  <tr>
-   <td>1000-1999
-   </td>
-   <td>EC2 m5.large
-   </td>
-   <td>7.5 GB
-   </td>
-   <td>2
-   </td>
-   <td>3.5 Gbps
-   </td>
-   <td>4
-   </td>
-  </tr>
-  <tr>
-   <td>2000+
-   </td>
-   <td>EC2 m5.large
-   </td>
-   <td>7.5 GB
-   </td>
-   <td>2
-   </td>
-   <td>3.5 Gbps
-   </td>
-   <td>8
-   </td>
-  </tr>
-</table>
-
-</TabItem>
-</Tabs>
-
-<br/>
 
 ### Google Compute Engine (GCE)
-
-<Tabs
-  defaultValue="Virtual Machines"
-  values={[
-    {label: 'Virtual Machines', value: 'Virtual Machines'},
-    {label: 'Headless', value: 'Headless'},
-  ]}>
-
-<TabItem value="Virtual Machines">
 
 <table>
   <tr>
@@ -424,7 +285,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
   </tr>
   <tr>
-   <td>0-99
+   <td>0-59
    </td>
    <td>GCE n1-standard-2
    </td>
@@ -438,21 +299,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
   </tr>
   <tr>
-   <td>100-199
-   </td>
-   <td>GCE n1-standard-4
-   </td>
-   <td>15 GB
-   </td>
-   <td>4
-   </td>
-   <td>750 Mbps
-   </td>
-   <td>1
-   </td>
-  </tr>
-  <tr>
-   <td>200-399
+   <td>60-119
    </td>
    <td>GCE n1-standard-4
    </td>
@@ -466,7 +313,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
   </tr>
   <tr>
-   <td>400-599
+   <td>120-199
    </td>
    <td>GCE n1-standard-4
    </td>
@@ -480,6 +327,34 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
   </tr>
   <tr>
+   <td>200-399
+   </td>
+   <td>GCE n1-standard-4
+   </td>
+   <td>15 GB
+   </td>
+   <td>4
+   </td>
+   <td>750 Mbps
+   </td>
+   <td>4-5
+   </td>
+  </tr>
+  <tr>
+   <td>400-599
+   </td>
+   <td>GCE n1-standard-4
+   </td>
+   <td>15 GB
+   </td>
+   <td>4
+   </td>
+   <td>750 Mbps
+   </td>
+   <td>6-7
+   </td>
+  </tr>
+  <tr>
    <td>600-799
    </td>
    <td>GCE n1-standard-4
@@ -490,7 +365,7 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>750 Mbps
    </td>
-   <td>4
+   <td>8
    </td>
   </tr>
   <tr>
@@ -504,105 +379,14 @@ Select a cloud provider from the tables below to view the recommended system req
    </td>
    <td>750 Mbps
    </td>
-   <td>6
+   <td>10
    </td>
   </tr>
 </table>
-
-</TabItem>
-<TabItem value="Headless">
-
-<table>
-  <tr>
-   <td>
-<strong>Parallel Tests</strong>
-   </td>
-   <td><strong>Machine Type</strong>
-   </td>
-   <td><strong>Memory</strong>
-   </td>
-   <td>
-<strong>Processor</strong>
-   </td>
-   <td><strong>Bandwidth</strong>
-   </td>
-   <td><strong>Recommended SC Tunnels</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>0-99
-   </td>
-   <td>GCE n1-standard-2
-   </td>
-   <td>7.5 GB
-   </td>
-   <td>2
-   </td>
-   <td>3.5 Gbps
-   </td>
-   <td>1
-   </td>
-  </tr>
-  <tr>
-   <td>500-999
-   </td>
-   <td>GCE n1-standard-2
-   </td>
-   <td>7.5 GB
-   </td>
-   <td>2
-   </td>
-   <td>3.5 Gbps
-   </td>
-   <td>2
-   </td>
-  </tr>
-  <tr>
-   <td>1000-1999
-   </td>
-   <td>GCE n1-standard-2
-   </td>
-   <td>7.5GB
-   </td>
-   <td>2
-   </td>
-   <td>3.5 Gbps
-   </td>
-   <td>4
-   </td>
-  </tr>
-  <tr>
-   <td>2000+
-   </td>
-   <td>GCE n1-standard-2
-   </td>
-   <td>7.5 GB
-   </td>
-   <td>2
-   </td>
-   <td>3.5 Gbps
-   </td>
-   <td>8
-   </td>
-  </tr>
-</table>
-
-</TabItem>
-</Tabs>
-
 
 ### Microsoft Azure
 
 The below recommendations are for Linux VMs.
-
-<Tabs
-  defaultValue="Virtual Machines"
-  values={[
-    {label: 'Virtual Machines', value: 'Virtual Machines'},
-    {label: 'Headless', value: 'Headless'},
-  ]}>
-
-<TabItem value="Virtual Machines">
 
 <table>
   <tr>
@@ -622,7 +406,7 @@ The below recommendations are for Linux VMs.
    </td>
   </tr>
   <tr>
-   <td>0-99
+   <td>0-59
    </td>
    <td>Standard_D2a_v4
    </td>
@@ -636,21 +420,7 @@ The below recommendations are for Linux VMs.
    </td>
   </tr>
   <tr>
-   <td>100-199
-   </td>
-   <td>Standard_D4a_v4
-   </td>
-   <td>16 GiB
-   </td>
-   <td>4
-   </td>
-   <td>4000 Mbps
-   </td>
-   <td>1
-   </td>
-  </tr>
-  <tr>
-   <td>200-399
+   <td>60-119
    </td>
    <td>Standard_D4a_v4
    </td>
@@ -664,7 +434,7 @@ The below recommendations are for Linux VMs.
    </td>
   </tr>
   <tr>
-   <td>400-599
+   <td>120-199
    </td>
    <td>Standard_D4a_v4
    </td>
@@ -678,6 +448,34 @@ The below recommendations are for Linux VMs.
    </td>
   </tr>
   <tr>
+   <td>200-399
+   </td>
+   <td>Standard_D4a_v4
+   </td>
+   <td>16 GiB
+   </td>
+   <td>4
+   </td>
+   <td>4000 Mbps
+   </td>
+   <td>4-5
+   </td>
+  </tr>
+  <tr>
+   <td>400-599
+   </td>
+   <td>Standard_D4a_v4
+   </td>
+   <td>16 GiB
+   </td>
+   <td>4
+   </td>
+   <td>4000 Mbps
+   </td>
+   <td>6-7
+   </td>
+  </tr>
+  <tr>
    <td>600-799
    </td>
    <td>Standard_D4a_v4
@@ -688,7 +486,7 @@ The below recommendations are for Linux VMs.
    </td>
    <td>4000 Mbps
    </td>
-   <td>4
+   <td>8
    </td>
   </tr>
   <tr>
@@ -702,107 +500,24 @@ The below recommendations are for Linux VMs.
    </td>
    <td>4000 Mbps
    </td>
-   <td>6
+   <td>10
    </td>
   </tr>
 </table>
 
-</TabItem>
-<TabItem value="Headless">
+## Optimizing the Sauce Connect Proxy Performance
 
-<table>
-  <tr>
-   <td>
-   <strong>Parallel Tests</strong>
-   </td>
-   <td><strong>Machine Type</strong>
-   </td>
-   <td><strong>Memory</strong>
-   </td>
-   <td>
-   <strong>Processor</strong>
-   </td>
-   <td><strong>Bandwidth</strong>
-   </td>
-   <td><strong>Recommended SC Tunnels</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>0-499
-   </td>
-   <td>Standard_D2a_v4
-   </td>
-   <td>8 GiB
-   </td>
-   <td>2
-   </td>
-   <td>2000 Gbps
-   </td>
-   <td>1
-   </td>
-  </tr>
-  <tr>
-   <td>500-999
-   </td>
-   <td>Standard_D4a_v4
-   </td>
-   <td>16 GiB
-   </td>
-   <td>4
-   </td>
-   <td>4000 Gbps
-   </td>
-   <td>2
-   </td>
-  </tr>
-  <tr>
-   <td>1000-1999
-   </td>
-   <td>Standard_D4a_v4
-   </td>
-   <td>16 GiB
-   </td>
-   <td>6
-   </td>
-   <td>4000 Gbps
-   </td>
-   <td>4
-   </td>
-  </tr>
-  <tr>
-   <td>2000+
-   </td>
-   <td>Standard_D4a_v4
-   </td>
-   <td>16 GiB
-   </td>
-   <td>8
-   </td>
-   <td>4000 Gbps
-   </td>
-   <td>8
-   </td>
-  </tr>
-</table>
-
-</TabItem>
-</Tabs>
-
-
-Tips for optimizing your tests running through Sauce Connect tunnels:
-
-*  If you're running **100 or more parallel tests**, we recommend a minimum network bandwidth of 750 Mbps to support the high volume of network traffic.
-*  If you're running **200 or more parallel tests**, we recommend launching more than one tunnel and using the [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
-*  When running a high volume of parallel tests on Unix-based operating systems, you may need to increase your [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) (for example, `ulimit -n 64000`).
-*  For best performance, stability, and security, we recommend using a dedicated server (see [Sauce Connect Proxy Network Security](/secure-connections/sauce-connect/security-authentication)).
-
+- If you're running **50 or more parallel tests**, we recommend a minimum network bandwidth of 450 Mbps to support the high volume of network traffic.
+- If you're running **100 or more parallel tests**, we recommend a minimum network bandwidth of 750 Mbps to support the high volume of network traffic.
+- If you're running **100 or more parallel tests**, we recommend launching more than one tunnel and using the [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
+- When running parallel tests on Unix-based operating systems, you may need to increase your [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) (for example, `ulimit -n 64000`).
+- For best performance, stability, and security, we recommend using a dedicated server (see [Sauce Connect Proxy Network Security](/secure-connections/sauce-connect/security-authentication)).
 
 ## Setting Up Sauce Connect on Your Test Device Network
 
 Sauce Connect Proxy must be set up on the same network as your test devices. It does not, however, need to be set up on the same machine as the website or app you're testing.
 
-[What Not to Do: Common Mistakes in Sauce Connect Proxy Network Configurations](/secure-connections/sauce-connect/troubleshooting) illustrates some examples of network architectures in which Sauce Connect will not be able to create a tunnel or will be too slow to carry out effective testing.  
-
+[What Not to Do: Common Mistakes in Sauce Connect Proxy Network Configurations](/secure-connections/sauce-connect/troubleshooting) illustrates some examples of network architectures in which Sauce Connect will not be able to create a tunnel or will be too slow to carry out effective testing.
 
 ## Configuring Your Network to Use Sauce Connect
 
@@ -821,7 +536,6 @@ When your tests are running through a Sauce Connect tunnel, the client on your n
 1. To pass status information: Communication to the Sauce Labs REST API tunnels endpoint.
 2. To connect with the site or app under test: Communication to the sites or apps you specify in your tests.
 
-
 ### Allowlisting for Restricted Networks
 
 If you're testing in a restricted network setting, you may need to allowlist the Sauce Labs domains below to allow outbound communication to Sauce Labs Selenium and Appium endpoints. Allowlisting for inbound traffic coming into your network is not necessary. To confirm your setup is successful, try running a test using the [basic setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
@@ -837,81 +551,80 @@ For more information on our data centers and how to choose the right one for you
 The Sauce Labs REST API is a requirement for using Sauce Connect Proxy. Select your relevant [Data Center](/basics/data-center-endpoints):
 
 <Tabs
-  groupId="dc-url"
-  defaultValue="US-West-1"
-  values={[
-    {label: 'US-West-1', value: 'US-West-1'},
-    {label: 'EU-Central-1', value: 'EU-Central-1'},
-    {label: 'Headless US-East', value: 'Headless US-East'},
-  ]}>
+groupId="dc-url"
+defaultValue="US-West-1"
+values={[
+{label: 'US-West-1', value: 'US-West-1'},
+{label: 'EU-Central-1', value: 'EU-Central-1'},
+{label: 'Headless US-East', value: 'Headless US-East'},
+]}>
 
 <TabItem value="US-West-1">
 
-|Virtual Device Cloud/Real Device Cloud + Sauce Connect |
-| :-------- |
-|`https://api.us-west-1.saucelabs.com/rest/v1` |
+| Virtual Device Cloud/Real Device Cloud + Sauce Connect |
+| :----------------------------------------------------- |
+| `https://api.us-west-1.saucelabs.com/rest/v1`          |
 
 </TabItem>
 <TabItem value="EU-Central-1">
 
-|Virtual Device Cloud/Real Device Cloud + Sauce Connect|
-| :-------- |
-|`https://api.eu-central-1.saucelabs.com/rest/v1`|
+| Virtual Device Cloud/Real Device Cloud + Sauce Connect |
+| :----------------------------------------------------- |
+| `https://api.eu-central-1.saucelabs.com/rest/v1`       |
 
 </TabItem>
 <TabItem value="Headless US-East">
 
-|Headless + Sauce Connect|
-| :-------- |
-|`https://api.us-east-1.saucelabs.com/rest/v1`|
+| Headless + Sauce Connect                      |
+| :-------------------------------------------- |
+| `https://api.us-east-1.saucelabs.com/rest/v1` |
 
 </TabItem>
 </Tabs>
 
 <br/>
 
-
 #### Sauce Connect Tunnel Service Domains
 
 The following domains must be allowlisted for outbound communication from you network in order to make connections to Sauce Connect tunnels. Select your relevant [Data Center](/basics/data-center-endpoints):
 
 <Tabs
-  groupId="dc-url"
-  defaultValue="US-West-1"
-  values={[
-    {label: 'US-West-1', value: 'US-West-1'},
-    {label: 'EU-Central-1', value: 'EU-Central-1'},
-    {label: 'Headless US-East', value: 'Headless US-East'},
-  ]}>
+groupId="dc-url"
+defaultValue="US-West-1"
+values={[
+{label: 'US-West-1', value: 'US-West-1'},
+{label: 'EU-Central-1', value: 'EU-Central-1'},
+{label: 'Headless US-East', value: 'Headless US-East'},
+]}>
 
 <TabItem value="US-West-1">
 
 | Virtual Device Cloud/Real Device Cloud + Sauce Connect |
-| :-------- |
-| `*.miso.saucelabs.com` |
+| :----------------------------------------------------- |
+| `*.miso.saucelabs.com`                                 |
 
 </TabItem>
 <TabItem value="EU-Central-1">
 
 | Virtual Device Cloud/Real Device Cloud + Sauce Connect |
-| :----- |
-| `*.eu-central-1.miso.saucelabs.com` |
+| :----------------------------------------------------- |
+| `*.eu-central-1.miso.saucelabs.com`                    |
 
 </TabItem>
 <TabItem value="Headless US-East">
 
-|Headless + Sauce Connect|
-| :-------- |
-|`*.tunnels.us-east-1.saucelabs.com`|
+| Headless + Sauce Connect            |
+| :---------------------------------- |
+| `*.tunnels.us-east-1.saucelabs.com` |
 
 </TabItem>
 </Tabs>
 
+<!-- prettier-ignore -->
 :::note **Recommended Wildcard Allowlisting**
-
 `*.miso.saucelabs.com` will cover all virtual and real device cloud data centers except for Headless.
 
-* For US-West-1 (Virtual Device Cloud/Real Device Cloud + Sauce Connect): `*.miso.saucelabs.com`
+- For US-West-1 (Virtual Device Cloud/Real Device Cloud + Sauce Connect): `*.miso.saucelabs.com`
 :::
 
 <br/>
@@ -920,9 +633,9 @@ The following domains must be allowlisted for outbound communication from you ne
 
 Here are the Sauce Connect Proxy network requirements for TLS and SSL traffic:
 
-* TLS version 1.2 or higher
-* TLS/SSL library (e.g., OpenSSL)
-* Network `port 443`, through which all traffic between your site and a Sauce Labs tunnel endpoint must pass
+- TLS version 1.2 or higher
+- TLS/SSL library (e.g., OpenSSL)
+- Network `port 443`, through which all traffic between your site and a Sauce Labs tunnel endpoint must pass
 
 ## Certificate Management
 

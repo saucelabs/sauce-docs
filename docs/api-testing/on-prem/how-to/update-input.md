@@ -3,20 +3,20 @@ id: update-input
 title: Update Input
 sidebar_label: Update Input
 keywords:
-    - api-testing
-    - how-to
-    - update-input
+- api-testing
+- how-to
+- update-input
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The  _update input_ component allows you to persist a variable defined inside of the test so that the value will be accessible outside the current scope of the test.
+The _update input_ component allows you to persist a variable defined inside of the test so that the value will be accessible outside the current scope of the test.
 
 <img src={useBaseUrl('img/api-fortress/2020/10/updateComponent.jpg')} alt="updateComponent.jpg" />
 

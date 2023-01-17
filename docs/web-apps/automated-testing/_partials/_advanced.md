@@ -6,10 +6,10 @@ All values in your `saucectl` configuration support environment variable expansi
 
 The following environment variables are available during test execution.
 
-| Environment Variable      | Description                              |
-| ------------------------- | ---------------------------------------- |
-| SAUCE_JOB_ID              | Job ID                                   |
-| SAUCE_SUITE_NAME          | Suite Name                               |
+| Environment Variable      | Description                                                                                       |
+| ------------------------- | ------------------------------------------------------------------------------------------------- |
+| SAUCE_JOB_ID              | Job ID                                                                                            |
+| SAUCE_SUITE_NAME          | Suite Name                                                                                        |
 | SAUCE_ARTIFACTS_DIRECTORY | Absolute path to the artifacts directory. Files placed in this folder are persisted with the Job. |
 
 ## Tailoring Your Test File Bundle
@@ -52,12 +52,32 @@ node_modules/
 credentials.yml
 ```
 
+Sometimes it's easier to do the inverse: Including files for the bundle.
+
+```bash
+# Ignore all files by default.
+/*
+
+# Re-include files we selectively want as part of the payload by prefixing the lines with '!'.
+!/node_modules
+!/cypress
+!cypress.config.js
+
+# Since the whole '/cypress' folder is now included, this would also include any
+# subdirectories that potentially contain auto-generated test artifacts from
+# the local dev environment.
+# It'd be wasteful to include them in the payload, so let's ignore those subfolders.
+/cypress/videos/
+/cypress/results/
+/cypress/screenshots/
+```
+
 ### Including Node Dependencies
 
 The default `.sauceignore` file lists `node_modules/` so locally installed node dependencies are excluded from the bundle. If your tests require node dependencies to run, you can either:
 
-* [Include `node_modules` with your bundle](#remove-node_modules-from-sauceignore) or
-* [Set NPM packages in config.yml](#set-npm-packages-in-configyml)
+- [Include `node_modules` with your bundle](#remove-node_modules-from-sauceignore) or
+- [Set NPM packages in config.yml](#set-npm-packages-in-configyml)
 
 ### Remove "node_modules" from `.sauceignore`
 
@@ -150,9 +170,8 @@ Please keep that in mind when creating custom assets, as examples like `__assets
 
 If you need to go through a proxy server, you can set it through the following variables:
 
-* `HTTP_PROXY`: Proxy to use to access HTTP websites
-* `HTTPS_PROXY`: Proxy to use to access HTTPS websites
-
+- `HTTP_PROXY`: Proxy to use to access HTTP websites
+- `HTTPS_PROXY`: Proxy to use to access HTTPS websites
 
 ### Docker Proxy Considerations
 
@@ -160,13 +179,13 @@ When running in docker-mode, `saucectl` still must reach the Sauce Labs platform
 
 Therefore, you may be required to set the proxy twice, as shown in the following examples:
 
-``` title= "Example: Windows Powershell"
+```title= "Example: Windows Powershell"
 PS> $Env:HTTP_PROXY=http://my.proxy.org:3128/
 PS> $Env:HTTPS_PROXY=http://my.proxy.org:3128/
 PS> saucectl run -e HTTP_PROXY=${Env:HTTP_PROXY} -e HTTPS_PROXY=${Env:HTTPS_PROXY}
 ```
 
-``` title= "Example: Linux/macOS"
+```title= "Example: Linux/macOS"
 $> export HTTP_PROXY=http://my.proxy.org:3128/
 $> export HTTPS_PROXY=http://my.proxy.org:3128/
 $> saucectl run -e HTTP_PROXY=${HTTP_PROXY} -e HTTPS_PROXY=${HTTPS_PROXY}

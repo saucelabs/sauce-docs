@@ -1,6 +1,6 @@
 ---
 id: disconnect-session
-title: "Virtual USB CLI: Disconnect Session"
+title: 'Virtual USB CLI: Disconnect Session'
 sidebar_label: Disconnect Session
 ---
 
@@ -36,7 +36,6 @@ A specific vUSB server host address. The default value, if not specified, is `ht
 
 </div>
 
-
 ### <span className="cli">--serverPort</span>
 
 <div className="cli-desc">
@@ -45,7 +44,6 @@ A specific vUSB server host address. The default value, if not specified, is `ht
 A specific vUSB server port. The default value, if not specified, is `33657`.
 
 </div>
-
 
 ## Examples
 

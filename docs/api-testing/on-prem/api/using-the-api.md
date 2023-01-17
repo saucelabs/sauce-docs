@@ -1,16 +1,16 @@
 ---
 id: using-the-api
-title: "Using the API (for CI/CD and More)"
+title: 'Using the API (for CI/CD and More)'
 sidebar_label: Using the API
-description: "A guide showing you various ways to call the API. This is useful for those that want to use the platform to run tests during continuous deployments."
+description: 'A guide showing you various ways to call the API. This is useful for those that want to use the platform to run tests during continuous deployments.'
 keywords:
-    - cicd
-    - jenkins
-    - bamboo
-    - microsoft tfs
-    - team foundation server
-    - gitlab ci/cd
-    - travisci
+- cicd
+- jenkins
+- bamboo
+- microsoft tfs
+- team foundation server
+- gitlab ci/cd
+- travisci
 ---
 
 <head>
@@ -19,7 +19,7 @@ keywords:
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 Here is a guide showing you various ways to call the API. This is particularly useful for those that want to use the platform to run tests during continuous deployments, and who are not using our [Jenkins](https://plugins.jenkins.io) plugin.
 
@@ -35,22 +35,21 @@ An example is:
 https://mastiff.apifortress.com/app/api/rest/v3/34d8mm70-c03e-267a-9fa1-90b9flsbcea2607
 ```
 
-> __NOTE__: The above unique project hook is **`34d8mm70-c03e-267a-9fa1-90b9flsbcea2607`.**
+> **NOTE**: The above unique project hook is **`34d8mm70-c03e-267a-9fa1-90b9flsbcea2607`.**
 >
 > This is useful for later.
 
-__Jump to a Section__
+**Jump to a Section**
 
 - [Unauthenticated Endpoints](#unauthenticated-endpoints)
-    - [Run Tests](#test-run)
-    - [Insights (Data & Information)](#insights-data--information)
+  - [Run Tests](#test-run)
+  - [Insights (Data & Information)](#insights-data--information)
 - [Authenticated endpoints](#authenticated-endpoints)
-    - [Authentication](#authentication)
-    - [Insights (Data & Information)](#insights)
-    - [Update Tests](#update-tests)
-    - [Creating Tests Outside of API Fortress](#creating-tests-outside-of-api-fortress)
-    - [Converting to JUnit Format](#converting-to-junit-format)
-
+  - [Authentication](#authentication)
+  - [Insights (Data & Information)](#insights)
+  - [Update Tests](#update-tests)
+  - [Creating Tests Outside of API Fortress](#creating-tests-outside-of-api-fortress)
+  - [Converting to JUnit Format](#converting-to-junit-format)
 
 # Unauthenticated Endpoints
 
@@ -64,28 +63,30 @@ Optionally, for all the endpoints you can add the following query parameters:
 - _`dryrun`_ (boolean): the test will run but no events or metrics will be stored.
 - _`silent`_ (boolean): no alerts will be triggered by the execution of the test.
 
-### __Basic__: Run a Test By Test ID
+### **Basic**: Run a Test By Test ID
 
 ```http request
 GET https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests/**test\_id**/run
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -v https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/34d8mm70-c03e-267a-9fa1-90b9flsbcea2607/tests/129d32j9dksdoo23e393/run
 ```
-### __Advanced__: Run a Test With Additional Information (Variable Override)
+
+### **Advanced**: Run a Test With Additional Information (Variable Override)
 
 If you want to override variables, or include a payload, you have to use:
 
-``` http request
+```http request
 POST https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests/**test\_id**/run
 ```
 
 The request body will contain the variable you want to override.
 
-__Example body__:
+**Example body**:
+
 ```json
 {
   "payload": "{ \\"id\\":\\"123\\" }",
@@ -101,7 +102,7 @@ __Example body__:
 
 `payload` AND `params` are not required at the same time.
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X POST \\
@@ -114,7 +115,7 @@ https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df0
 }'
 ```
 
-### __Automatch__: Run Multiple Tests Based On a URL Pattern
+### **Automatch**: Run Multiple Tests Based On a URL Pattern
 
 Automatch is a way to simultaneously launch tests inside a project. The tests to run are selected by comparing the URL provided in the payload to the "automatch" configuration pattern in the tests.
 
@@ -124,7 +125,7 @@ Just like the **advanced run** endpoint, you can override both variables and the
 POST https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests/automatch
 ```
 
-__Example body__:
+**Example body**:
 
 ```json
 {
@@ -137,7 +138,7 @@ __Example body__:
 }
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X POST \\
@@ -150,13 +151,13 @@ https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df0
 }'
 ```
 
-### __Basic Tags__: Run Tests With Certain Tags
+### **Basic Tags**: Run Tests With Certain Tags
 
 ```http request
 GET https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests/tag/**tag**/run
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X GET \\
@@ -168,13 +169,13 @@ https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df0
 }'
 ```
 
-### __Advanced Tags__: Run Tests Tagged With a Certain Word
+### **Advanced Tags**: Run Tests Tagged With a Certain Word
 
 ```http request
 POST https://mastiff.apifortress.comapp/api/rest/v3/**project\_hook**/tests/tag/**tag**/run
 ```
 
-__Example body__:
+**Example body**:
 
 ```json
 {
@@ -186,7 +187,7 @@ __Example body__:
 }
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X POST \\
@@ -199,13 +200,13 @@ https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df0
 }'
 ```
 
-### __Basic By Project__: Run all Published Tests of a Specific Project
+### **Basic By Project**: Run all Published Tests of a Specific Project
 
 ```http request
 GET https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests/run-all
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X GET \\
@@ -217,13 +218,13 @@ https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df0
 }'
 ```
 
-### __Advanced By Project__: Run All Published Tests of a Project With Additional Information
+### **Advanced By Project**: Run All Published Tests of a Project With Additional Information
 
 ```http request
 POST https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests/run-all
 ```
 
-__Example body__:
+**Example body**:
 
 ```json
 {
@@ -235,7 +236,7 @@ __Example body__:
 }
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X POST \\
@@ -252,52 +253,52 @@ https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df0
 
 The API Fortress API also allows you to retrieve metrics and data of your tests.
 
-### __Events__: Shows Information About Test Failures and Successes
+### **Events**: Shows Information About Test Failures and Successes
 
 ```http request
 GET https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/insights/events
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X GET \\
 https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df01-4782-8046-3seee6f4c093782/insights/events
 ```
 
-### __Events Stream__: Show Test Success and Failure Information As An Event Stream
+### **Events Stream**: Show Test Success and Failure Information As An Event Stream
 
 ```http request
 GET https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/insights/events/stream
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X GET \\
 https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df01-4782-8046-3seee6f4c093782/insights/events/stream
 ```
 
-### __Metrics__: Provide Details on Performance
+### **Metrics**: Provide Details on Performance
 
 ```http request
 GET https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/insights/metrics
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X GET \\
 https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df01-4782-8046-3seee6f4c093782/insights/metrics
 ```
 
-### __Metrics Stream__: Provide Details on Performance in an Event Stream
+### **Metrics Stream**: Provide Details on Performance in an Event Stream
 
 ```http request
 GET https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/insights/metrics/stream
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X GET \\
@@ -310,7 +311,7 @@ https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df0
 GET https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X GET \\
@@ -323,7 +324,7 @@ https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df0
 GET https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X GET \\
@@ -344,7 +345,7 @@ The user credentials, provided by basic `HTTP` authentication, need to match the
 
 To achieve authentication, send a valid access token in the request header (i.e. in the form: `Authorization: Bearer access\_token`).
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X GET \\
@@ -363,7 +364,7 @@ GET https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/insights/e
 
 > The **`event\_id`** can be retrieved by performing the `events` endpoint first.
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X GET \\
@@ -384,7 +385,7 @@ The **`test\_id`** can be retrieved by calling the `test` endpoint or, the easie
 
 <img src={useBaseUrl('img/api-fortress/2017/07/testidIntersitial.jpeg')} alt="Go to the Interstitial Page"/>
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X GET \\
@@ -405,7 +406,7 @@ GET https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests/**te
 GET https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests/**test\_id**/unit/file
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X GET \\
@@ -420,7 +421,7 @@ https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df0
 GET https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests/**test\_id**/input
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X GET \\
@@ -435,7 +436,7 @@ https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df0
 GET https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests/**test\_id**/input/file
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X GET \\
@@ -454,7 +455,7 @@ POST https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests/**t
 
 > The `unit` will be passed as body.
 
-__Example body__:
+**Example body**:
 
 ```json
 {
@@ -462,7 +463,7 @@ __Example body__:
 }
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X POST \\
@@ -482,7 +483,7 @@ POST https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests/**t
 
 > The `unit` will be passed as body.
 
-__Example body__:
+**Example body**:
 
 ```xml
 <unit xmlns:xsi\="http://www.w3.org/2001/XMLSchema-instance" name\="main" xsi:noNamespaceSchemaLocation\="http://apifortress.com/app/unit.xsd"\>
@@ -495,7 +496,7 @@ __Example body__:
 </unit\>
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X POST \\
@@ -518,7 +519,7 @@ https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df0
 POST https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests/**test\_id**/input/update The input will be passed as body.
 ```
 
-__Example body__:
+**Example body**:
 
 ```json
 {
@@ -526,7 +527,7 @@ __Example body__:
 }
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X POST \\
@@ -544,7 +545,7 @@ https://private-e9aac-apifortressv3.apiary-mock.com/app/api/rest/v3/6de267cd-df0
 POST https://mastiff.apifortress.com/app/api/rest/v3/**project\_hook**/tests/**test\_id**/input/update/file The input will be passed as body.
 ```
 
-__Example body__:
+**Example body**:
 
 ```xml
 <sets xmlns:xsi\="http://www.w3.org/2001/XMLSchema-instance" name\="main" xsi:noNamespaceSchemaLocation\="http://mastiff.apifortress.com/app/input.xsd"\>
@@ -559,7 +560,7 @@ __Example body__:
 </sets\>
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X POST \\
@@ -592,7 +593,7 @@ POST https://mastiff.apifortress.com/app/api/rest/v3/validators/unit
 
 > The `unit` will be passed as body
 
-__Example body__:
+**Example body**:
 
 ```json
 {
@@ -600,7 +601,7 @@ __Example body__:
 }
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X POST \\
@@ -619,7 +620,7 @@ POST https://mastiff.apifortress.com/app/api/rest/v3/validators/input
 
 > The `input-set` will be passed as body
 
-__Example body__:
+**Example body**:
 
 ```json
 {
@@ -627,7 +628,7 @@ __Example body__:
 }
 ```
 
-__Mock Example__:
+**Mock Example**:
 
 ```bash
 curl -X POST \\
@@ -645,6 +646,7 @@ Converting to JUnit format (for Jenkins/QTest/etc.) is done by adding the follow
 ```js
 ?sync=true&format=junit
 ```
+
 The completed request would be as follows:
 
 ```http request

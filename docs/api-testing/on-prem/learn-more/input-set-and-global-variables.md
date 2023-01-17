@@ -3,17 +3,17 @@ id: input-set-and-global-variables
 title: Input Sets and Global Variables
 sidebar_label: Input Sets and Global Variables
 keywords:
-    - api-testing
-    - input-sets
-    - global
-    - vars
+- api-testing
+- input-sets
+- global
+- vars
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -38,7 +38,7 @@ The parameter/variable will be present in the test scope, and remains constant d
 The **input set**, instead, is a group of input variables representing a scenario (i.e product id).
 
 1. To add in input set, click the _**+** button_ in the **Input Set** section
-3. Then add a name for the set. Then click _+ Add Param_ and add the variable name and value.
+2. Then add a name for the set. Then click _+ Add Param_ and add the variable name and value.
 
    <img src={useBaseUrl('img/api-fortress/2017/07/inputSet.jpg')} alt="inputSet.jpg"/>
 
@@ -58,5 +58,5 @@ The priority order is:
 
 - if the same variable is defined in the _Vault_ and in the [_composer_](/api-testing/on-prem/quick-start/composer), the one defined in the composer will be used.
   > it also doesn't matter if it is a global parameter, or an input set
-- if the same variable is defined in the composer both as a  _global param_ and an _input set_, the value of the input set will be used
+- if the same variable is defined in the composer both as a _global param_ and an _input set_, the value of the input set will be used
 - if the same variable is defined in the _Vault_ (or in the composer) and in the _scheduler_, the variable defined in the scheduler will be used for the tests.

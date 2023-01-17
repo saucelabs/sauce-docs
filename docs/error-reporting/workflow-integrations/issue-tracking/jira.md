@@ -4,6 +4,7 @@ title: Jira Integration with Backtrace
 sidebar_label: Jira
 description: Connect errors from Backtrace with issues in Jira to easily manage and track bug fixes.
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -13,7 +14,6 @@ Integrate your Backtrace and Atlassian Jira accounts so you can create and updat
 ## What You'll Need
 - A Backtrace Account ([log in](https://backtrace.io/login) or [sign up](https://backtrace.io/sign-up) for a free license)
 - A [Jira Cloud Account](https://www.atlassian.com/software/jira)
-
 
 ## Jira Cloud v1
 ### Setup
@@ -64,9 +64,9 @@ One-way synchronization  updates from Backtrace issues to Jira, and two-way sync
 - Backtrace can update linked Jira issues with new values for State and Assignee when those values are changed in Backtrace.
 - Jira can update the linked Backtrace fingerprints with new values for State and Assignee when those values are changed in Jira.
 
+
 ### Jira URL Examples
 The Jira URL generally takes one of the following formats:
-
 - https://yourhost.yourdomain.com/rest/api/2/
 - https://yourhost.yourdomain.com/jira/rest/api/2/
 - https://yourname.atlassian.net/rest/api/2/ (for Atlassian-hosted Jira sites)
@@ -93,6 +93,7 @@ If you've set up a Backtrace integration with Jira, but are not receiving any ne
 - Does your screen have fields called "labels" and "description"? If one of these is missing, you'll need to specify an alternative for these in the Custom Field Mapping section.
 
 #### Required Jira Fields
+
 Backtrace requires the following fields, and automatically populates them based on your settings. You can override the content of any of these settings by specifying their value in the appropriate Backtrace Jira config setting, or by specifying it as a Custom Field
 
 It is important to ensure that these fields are specified properly, as the Jira API will reject any request that has invalid fields or missing required fields.
@@ -125,3 +126,4 @@ You can then continue to configure the Jira Cloud integration.
 1. Find the Jira Cloud integration then click **Edit**. 
 1. Configure the following settings as required:
     
+

@@ -10,7 +10,8 @@
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
-    "clear": "docusaurus clear"
+    "clear": "docusaurus clear",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@algolia/client-search": "4.10.3",
@@ -18,7 +19,7 @@
     "@docusaurus/preset-classic": "^2.0.1",
     "@mdx-js/react": "^1.6.21",
     "@saucelabs/theme-github-codeblock": "0.1.1",
-    "@svgr/webpack": "^5.5.0",
+    "@svgr/webpack": "^6.5.1",
     "algoliasearch": "^4.11.0",
     "clsx": "1.1.1",
     "file-loader": "^6.2.0",
@@ -45,6 +46,16 @@
   "devDependencies": {
     "axios": "^0.21.1",
     "cross-env": "^7.0.3",
-    "cypress": "9.3.1"
+    "cypress": "9.3.1",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.5.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.31.11",
+    "prettier": "2.8.0",
+    "husky": "^8.0.0"
   }
 }

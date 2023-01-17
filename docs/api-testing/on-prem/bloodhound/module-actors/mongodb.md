@@ -1,6 +1,6 @@
 ---
 id: mongodb
-title: "Bloodhound: MongoDB Module"
+title: 'Bloodhound: MongoDB Module'
 sidebar_label: MongoDB
 ---
 
@@ -8,7 +8,7 @@ sidebar_label: MongoDB
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 The module implements a number of functions requiring interaction with the MongoDB database.
 
@@ -26,11 +26,11 @@ Example:
 
 ```yaml
 config_loader:
-  class: com.apifortress.afthem.modules.mongodb.config.loaders.MongoDbConfigLoader
-  params:
-    database: afthem
-    collection: configuration
-    uri: mongodb://localhost
+class: com.apifortress.afthem.modules.mongodb.config.loaders.MongoDbConfigLoader
+params:
+database: afthem
+collection: configuration
+uri: mongodb://localhost
 ```
 
 Here are some examples of configuration documents:
@@ -39,10 +39,10 @@ Here are some examples of configuration documents:
 
 ```json
 {
-  "type" : "backend",
-  "flow_id" : "default",
-  "prefix" : "127.0.0.1/demo",
-  "upstream" : "http://demoapi.apifortress.com/api/retail"
+"type": "backend",
+"flow_id": "default",
+"prefix": "127.0.0.1/demo",
+"upstream": "http://demoapi.apifortress.com/api/retail"
 }
 ```
 
@@ -50,20 +50,20 @@ Here are some examples of configuration documents:
 
 ```json
 {
-  "id" : "default",
-  "type" : "flow",
-  "flow" : {
-    "proxy/request" : {
-      "next" : "proxy/upstream_http",
-      "config" : {},
-      "sidecars" : []
-    },
-    "proxy/upstream_http" : {
-      "next" : "proxy/send_back",
-      "config" : {},
-      "sidecars" : []
-    }
-  }
+"id": "default",
+"type": "flow",
+"flow": {
+"proxy/request": {
+"next": "proxy/upstream_http",
+"config": {},
+"sidecars": []
+},
+"proxy/upstream_http": {
+"next": "proxy/send_back",
+"config": {},
+"sidecars": []
+}
+}
 }
 ```
 
@@ -71,31 +71,31 @@ Here are some examples of configuration documents:
 
 ```json
 {
-  "type" : "implementers",
-  "implementers" : [
-    {
-      "id" : "request",
-      "class" : "com.apifortress.afthem.actors.proxy.RequestActor",
-      "type" : "proxy"
-    },
-    {
-      "id" : "upstream_http",
-      "class" : "com.apifortress.afthem.actors.proxy.UpstreamHttpActor",
-      "type" : "proxy"
-    },
-    {
-      "id" : "send_back",
-      "class" : "com.apifortress.afthem.actors.proxy.SendBackActor",
-      "type" : "proxy"
-    }
-  ],
-  "thread_pools" : {
-    "default" : {
-      "min" : 1,
-      "max" : 1,
-      "factor" : 1
-    }
-  }
+"type": "implementers",
+"implementers": [
+{
+"id": "request",
+"class": "com.apifortress.afthem.actors.proxy.RequestActor",
+"type": "proxy"
+},
+{
+"id": "upstream_http",
+"class": "com.apifortress.afthem.actors.proxy.UpstreamHttpActor",
+"type": "proxy"
+},
+{
+"id": "send_back",
+"class": "com.apifortress.afthem.actors.proxy.SendBackActor",
+"type": "proxy"
+}
+],
+"thread_pools": {
+"default": {
+"min": 1,
+"max": 1,
+"factor": 1
+}
+}
 }
 ```
 
@@ -113,14 +113,16 @@ represents a query, or a document to insert.
 **sidecars**: yes
 
 **config:**
-* `uri`: the MongoDB URI
-* `database`: the name of the MongoDB database
-* `collection`: the name of the connection to be used
-* `max_documents` (default=100): a limiter on the number of returned documents. Overridden by header `x-limit-results`
+
+- `uri`: the MongoDB URI
+- `database`: the name of the MongoDB database
+- `collection`: the name of the connection to be used
+- `max_documents` (default=100): a limiter on the number of returned documents. Overridden by header `x-limit-results`
 
 **headers:**
-* `x-op`: either "find" or "insert"
-* `x-limit-results` (optional): limits the number of results
+
+- `x-op`: either "find" or "insert"
+- `x-limit-results` (optional): limits the number of results
 
 **Multi-flow**: no
 
@@ -131,26 +133,27 @@ represents a query, or a document to insert.
 Filters out any request that does not carry a valid API key in the headers or in the query string.
 This base actor loads the API keys from a YAML file.
 
-
 **class:** `com.apifortress.afthem.modules.mongodb.actors.filters.MongoApiKeyFilterActor`
 
 **sidecars**: yes
 
 **config:**
-* `uri`: the MongoDB URI
-* `database`: the name of the MongoDB database
-* `collection`: the name of the connection to be used
-* `in`: either `query` (expecting the key in the query string) or `header` (expecting the key in the headers)
-* `name`: key of the field carrying the API key
+
+- `uri`: the MongoDB URI
+- `database`: the name of the MongoDB database
+- `collection`: the name of the connection to be used
+- `in`: either `query` (expecting the key in the query string) or `header` (expecting the key in the headers)
+- `name`: key of the field carrying the API key
 
 **Multi-flow**: no
 
 **Example document**
+
 ```json
 {
-    "api_key" : "123",
-    "app_id" : "TheFoobar",
-    "enabled" : true
+"api_key": "123",
+"app_id": "TheFoobar",
+"enabled": true
 }
 ```
 
@@ -168,24 +171,24 @@ Serializes an API conversation and sends it to MongoDB for storage.
 
 General serializer settings:
 
-* `disable_on_header`: if the provided header is present in the request, then the conversation will skip serialization
-* `enable_on_header`: if the provided header is present in the request, then the conversation will be serialized
-* `discard_request_headers`: list of request headers that should not appear in the serialized conversation
-* `discard_response_headers`: list of response headers that should not appear in the serialized conversation
-* `allow_content_types`: full or partial response content types which make the request eligible for serialization. If
-the list is null or empty, all content types will be accepted
+- `disable_on_header`: if the provided header is present in the request, then the conversation will skip serialization
+- `enable_on_header`: if the provided header is present in the request, then the conversation will be serialized
+- `discard_request_headers`: list of request headers that should not appear in the serialized conversation
+- `discard_response_headers`: list of response headers that should not appear in the serialized conversation
+- `allow_content_types`: full or partial response content types which make the request eligible for serialization. If
+  the list is null or empty, all content types will be accepted
 
 Extra serializer settings:
 
-* `buffer_size`: the serializer can buffer a number of conversations and save them once the buffer is full to improve
-DB communication performance. If absent or if the value is less than 1, the document is inserted as asson as the actor
-receives it
-* `extra_fields`: a map of k/v fields that should be added to the document.
+- `buffer_size`: the serializer can buffer a number of conversations and save them once the buffer is full to improve
+  DB communication performance. If absent or if the value is less than 1, the document is inserted as asson as the actor
+  receives it
+- `extra_fields`: a map of k/v fields that should be added to the document.
 
 MongoDB settings:
 
-* `uri`: the MongoDB URI
-* `database`: the name of the MongoDB database
-* `collection`: the name of the connection to be used
+- `uri`: the MongoDB URI
+- `database`: the name of the MongoDB database
+- `collection`: the name of the connection to be used
 
 **Multi-flow**: no

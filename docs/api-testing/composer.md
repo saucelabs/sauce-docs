@@ -10,9 +10,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 The API Testing Composer enables you to quickly generate API functional tests (no coding experience required) and/or code them from scratch. You can reuse these tests as end-to-end integration tests and load (stress) tests. In turn, load tests can be reused as monitors for performance testing.
 
 ## What You'll Need
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
 ## Creating a Test with the Composer
 
@@ -20,20 +20,21 @@ The API Testing Composer enables you to quickly generate API functional tests (n
 
 1. In Sauce Labs, click **API Testing**.
 
-  <img src={useBaseUrl('/img/api-testing/api-testing-nav.png')} alt="Navigating to API Testing" width="400"/>
+<img src={useBaseUrl('/img/api-testing/api-testing-nav.png')} alt="Navigating to API Testing"/>
 
 2. On the **Projects** page:
-  * If you have no tests or projects yet, in the **Write your own test** box, click **Use Composer**.
 
-  <img src={useBaseUrl('/img/api-testing/composer-nav.png')} alt="Navigating to the Composer" width="700"/>
+   - If you have no tests or projects yet, in the **Write your own test** box, click **Use Composer**.
 
-  * If you have a project but no tests, on the **Projects** page, click **Write your own test**.
+   <img src={useBaseUrl('/img/api-testing/composer-nav.png')} alt="Navigating to the Composer" width="700"/>
 
-  * If your project has tests, click **Create Test** and then click **From Scratch**.
+   - If you have a project but no tests, on the **Projects** page, click **Write your own test**.
 
-  <img src={useBaseUrl('/img/api-testing/test-create-from-scratch-nav.png')} alt="Navigating to the New Test window" width="350"/>
+   - If your project has tests, click **Create Test** and then click **From Scratch**.
 
-4. In the **New Test** box, enter a test name, test description (optional), and tags (optional), and then click **Create Test**.
+     <img src={useBaseUrl('/img/api-testing/test-create-from-scratch-nav.png')} alt="Navigating to the New Test window" width="350"/>
+
+3. In the **New Test** box, enter a test name, test description (optional), and tags (optional), and then click **Create Test**.
 
 <img src={useBaseUrl('/img/api-testing/test-create-new-test.png')} alt="New Test window" width="350"/>
 
@@ -44,82 +45,88 @@ You can use either the **Visual** composer (guides you through building componen
 For more information, see [Input Sets](/api-testing/composer/#input-sets) and [Visual View and Code View](/api-testing/composer/#visual-view-and-code-view).
 
 ### Edit a Test
+
 To edit a test at any time, on the **Projects** page, on the **Tests** tab, hover over a test name and then click **Edit Test**.
 
 <img src={useBaseUrl('/img/api-testing/edit-test-nav.png')} alt="Navigating to the test editor" width="300"/>
 
 ### Add Test Components
-When test components are combined, they act as our test logic. There are three component types available in API Testing:
-  * [I/O Request Test Components](/api-testing/composer/io-components)
-  * [Assertion Test Components](/api-testing/composer/assertion-components/)
-  * [Logical Test Components](/api-testing/composer/logical-components/)
+
+When test components are combined, they act as our test logic. See the following pages for more information about the components types available in API Testing:
+
+- [I/O Request Test Components](/api-testing/composer/io-components)
+- [Assertion Test Components](/api-testing/composer/assertion-components/)
+- [Logical Test Components](/api-testing/composer/logical-components/)
+- [Other Components](/api-testing/composer/other-components/)
 
 #### Add an I/O Request Test Component
+
 To create a simple `GET` request and validate that response is correct:
-  1. In API Testing, on the **Compose** page, click the **Add component** button.
 
-  <img src={useBaseUrl('/img/api-testing/add-component-nav.png')} alt="Navigating to the Add component screen" width="600"/>
+1. In API Testing, on the **Compose** page, click **Add child component**.
 
-  2. In the list of component options, click the **GET** component.
+<img src={useBaseUrl('/img/api-testing/add-component-nav.png')} alt="Navigating to the Add component screen"/>
 
-  <img src={useBaseUrl('/img/api-testing/get-request-nav.png')} alt="Navigating to the GET request window" width="400"/>
+2. In the list of component options, click the **GET** component.
 
-  3. In the **GET request** window, in the **Url** field, enter **ht<span>tps://</span>api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions**.
+<img src={useBaseUrl('/img/api-testing/get-request-nav.png')} alt="Navigating to the GET request window"/>
 
-  This endpoint will return a JSON response body.
-  4. In the **Variable** field, enter **payload**. This variable stores the response, so it can now be referred to as **payload**.
+3. In the **GET request** window, in the **Url** field, enter `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions`.
 
-  <img src={useBaseUrl('/img/api-testing/get-request-window.png')} alt="Editing in the GET request window"/>
+This endpoint will return a JSON response body. 4. In the **Variable** field, enter **payload**. This variable stores the response, so it can now be referred to as **payload**.
 
-  5. Leave the rest of the fields blank and then click the **Confirm changes** icon.
+<img src={useBaseUrl('/img/api-testing/get-request-window.png')} alt="Editing in the GET request window"/>
 
-  <img src={useBaseUrl('/img/api-testing/get-request-confirm-changes.png')} alt="Confirm changes icon" width="200"/>
+5. Leave the rest of the fields blank and then click **Save Changes**.
 
-  The result should look like the following:
+The result should look like the following:
 
-  <img src={useBaseUrl('/img/api-testing/get-request-final.png')} alt="What the GET request should look like" width="600"/>
+<img src={useBaseUrl('/img/api-testing/get-request-final.png')} alt="What the GET request should look like" width="600"/>
 
 For more information, see [I/O Request Test Components](/api-testing/composer/io-components/).
 
 #### Add an Assertion Component
-1. In API Testing, on the **Compose** page, click the **Add component** button.
 
-  <img src={useBaseUrl('/img/api-testing/add-component-nav.png')} alt="Navigating to the Add component screen" width="600"/>
+1. In API Testing, on the **Compose** page, click **Add child component**.
+
+<img src={useBaseUrl('/img/api-testing/add-component-nav.png')} alt="Navigating to the Add component screen" width="600"/>
 
 2. In the list of component options, click the **Assert Exists** component.
 
-  <img src={useBaseUrl('/img/api-testing/assert-exists-nav.png')} alt="Navigating to the Assert exists window"/>
+<img src={useBaseUrl('/img/api-testing/assert-exists-nav.png')} alt="Navigating to the Assert exists window"/>
 
 3. In the **Assert exists** window, in the **Expression** field, enter `payload.downloads`. This expression checks for the **downloads** field in the json response body.
 
-4. Leave the rest of the fields blank and click the checkmark to confirm the changes.
+4. Leave the rest of the fields blank and click **Save Changes**.
 
-  <img src={useBaseUrl('/img/api-testing/assert-exists-window.png')} alt="Confirm changes"  width="600"/>
+<img src={useBaseUrl('/img/api-testing/assert-exists-window.png')} alt="Confirm changes" width="600"/>
 
 5. The result should look like the following:
 
-  <img src={useBaseUrl('/img/api-testing/assert-exists-final.png')} alt="What the Assert request should look like" width="500"/>
+<img src={useBaseUrl('/img/api-testing/assert-exists-final.png')} alt="What the Assert request should look like" />
 
 For more information, see [Assertion Test Components](/api-testing/composer/assertion-components/).
 
 #### Additional Example
+
 In the following example, the expression checks if the `download_url` value inside the Linux object is a valid URL.
 
-1. In API Testing, on the **Compose** page, click the **Add component** button.
+1. In API Testing, on the **Compose** page, click **Add child component**.
 
 2. In the list of component options, click the **Assert Is** component.
 
-3. In the **Assert is** window, in the **Expression** field, enter `payload.downloads`. This expression checks for the **downloads** field in the json response body.
+3. In the **Assert is** window, in the **Expression** field, enter `payload.downloads.linux.download_url`. This expression checks for the **download_url** field in the json response payload.
 
-4. Leave the rest of the fields blank and click the checkmark to confirm the changes.
+4. Leave the rest of the fields blank and click **Save Changes**.
 
-  <img src={useBaseUrl('/img/api-testing/assert-exists-window-2.png')} alt="Confirm changes" width="600"/>
+<img src={useBaseUrl('/img/api-testing/assert-exists-window-2.png')} alt="Confirm changes" width="600"/>
 
 5. The result should look like the following:
 
-  <img src={useBaseUrl('/img/api-testing/assert-exists-final-2.png')} alt="What the Assert request should look like" width="500"/>
+<img src={useBaseUrl('/img/api-testing/assert-exists-final-2.png')} alt="What the Assert request should look like" width="500"/>
 
 ### Run the Test
+
 In the Composer, click **Run**.
 
 <img src={useBaseUrl('/img/api-testing/run-test-save-run.png')} alt="Save and Run icons in the Composer" width="500"/>
@@ -129,9 +136,11 @@ All test runs appear to the right of the Composer, under the test details and en
 <img src={useBaseUrl('/img/api-testing/test-runs.png')} alt="Test Runs in the Composer" width="350"/>
 
 ### Review Test Results
+
 To view your results, in the Composer, in the **Test Runs** list, click the name of the test. This will open the **Test Report Details**. For more information, see [Test Outcome Report](/api-testing/project-dashboard/#test-outcome-report).
 
 ## Compose a Request Body
+
 There are several ways you can compose a request body in Sauce Labs API Testing, ranging from simple to complex.
 
 :::note
@@ -139,93 +148,89 @@ The included examples use the **POST** method, but all examples can be applied t
 :::
 
 ### Copy and Paste the Body
+
 In this method, you copy an existing body and paste it into the call.
 
 1. In the Composer, add a `POST` component and enter the URL and all of the required fields.
-    * Url (the url of the resource you want to test) - `https://domain/endpoint`
-    * Variable (the name of the variable that contains the response) - `payload`
-    * Mode (the response type) - `json`
+   - Url (the url of the resource you want to test) - `https://domain/endpoint`
+   - Variable (the name of the variable that contains the response) - `payload`
+   - Mode (the response type) - `json`
+2. Below the **POST request**, click **Add Child Component** and then click **Request Body**.
 
-      <img src={useBaseUrl('/img/api-testing/post-request-window.png')} alt="The POST request window"/>
-
-2. At the bottom of the **POST request** window, click **Add Body**.
-
-    <img src={useBaseUrl('/img/api-testing/post-request-add-body-nav.png')} alt="Navigating to the Post body window"/>
+   <img src={useBaseUrl('/img/api-testing/post-request-add-body-nav.png')} alt="Navigating to the Post body window"/>
 
 3. Use the following in the Post body fields:
-    * Content-Type - `application/json`
-    * Content (the body required in your call) - `{"method":"post","url":"http://www.testme.com/api/run/test"}`
 
-      <img src={useBaseUrl('/img/api-testing/post-body-window.png')} alt="The Post body window"/>
+   - Content-Type - `application/json`
+   - Body (the body required in your call) - `{"method":"post","url":"http://www.testme.com/api/run/test"}`
 
-4. Click the **Confirm changes** icon and proceed with the test.
+     <img src={useBaseUrl('/img/api-testing/post-body-window.png')} alt="The Post body window"/>
+
+4. Click **Save Changes** and proceed with the test.
 
 ### Use Variables in the Request Body
 
 1. In the Composer, add a `POST` component and enter the URL and all of the required fields.
-    * Url (the url of the resource you want to test) - `https://domain/endpoint`
-    * Variable (the name of the variable that contains the response) - `payload`
-    * Mode (the response type) - `json`
+   - Url (the url of the resource you want to test) - `https://domain/endpoint`
+   - Variable (the name of the variable that contains the response) - `payload`
+   - Mode (the response type) - `json`
+2. Below the **POST request**, click **Add Child Component** and then click **Request Body**.
 
-      <img src={useBaseUrl('/img/api-testing/post-request-window.png')} alt="The POST request window"/>
+   <img src={useBaseUrl('/img/api-testing/post-request-add-body-nav.png')} alt="Navigating to the Post body window"/>
 
-2. At the bottom of the **POST request** window, click **Add Body**.
+3. Select the relevant **Content-Type** and enter the following in the **Body** field:
 
-    <img src={useBaseUrl('/img/api-testing/post-request-add-body-nav.png')} alt="Navigating to the Post body window"/>
+  ```json
+  {
+   "user": "${user}",
+   "password": "${password}",
+   "url": "http://www.testme.com/api/run/test"
+  }
+  ```
 
-3. Select the relevant **Content-Type** and enter the following in the **Content** field:
+   <img src={useBaseUrl('/img/api-testing/post-body-window-2.png')} alt="The Post body window"/>
 
-    ```json   
-    {
-     "user": "${user}",
-     "password": "${password}",
-     "url": "http://www.testme.com/api/run/test"
-    }
-    ```
+   `user` and `password` are not directly passed in the body, but they are variables defined in a data set or stored in the vault (or environments).
 
-    <img src={useBaseUrl('/img/api-testing/post-body-window-2.png')} alt="The Post body window"/>
-
-    `user` and `password` are not directly passed in the body, but they are variables defined in a data set or stored in the vault (or environments).
-
-4. Click the **Confirm changes** icon and proceed with the test.
+4. Click **Save Changes** and proceed with the test.
 
 ### Use a Variable from Another Call
 
 1. Add the call to retrieve the variable from. The following is an example of a common scenario in which you need to perform a login for authentication and retrieve the authentication token required for the following call.
-    * Url (the url of the resource you want to test) - `https://domain/login`
-    * Variable (the name of the variable that contains the response) - `payload`
-    * Mode (the response type) - `json`
+   - Url (the url of the resource you want to test) - `https://domain/login`
+   - Variable (the name of the variable that contains the response) - `payload`
+   - Mode (the response type) - `json`
+2. Below the request, click **Add Child Component** and then click **Request Header**.
 
-      <img src={useBaseUrl('/img/api-testing/get-request-window-2.png')} alt="GET request window"/>
-
-2. At the bottom of the request window, click **Add Header**.
-
-      <img src={useBaseUrl('/img/api-testing/get-request-add-header-nav.png')} alt="Navigating to the Header window"/>
+   <img src={useBaseUrl('/img/api-testing/get-request-add-header-nav.png')} alt="Navigating to the Header window"/>
 
 3. In the **Header** window, enter the following:
-    * Name - `Authorization`
-    * Value (from encoding `username:password` in Base64) - `Basic YWRtaW46cGFzc3dvcmQ=`
 
-      <img src={useBaseUrl('/img/api-testing/get-request-header-window.png')} alt="The Header window"/>
+   - Name - `Authorization`
+   - Value (from encoding `username:password` in Base64) - `Basic YWRtaW46cGFzc3dvcmQ=`
 
-4. Click the **Confirm changes** icon.
+     <img src={useBaseUrl('/img/api-testing/get-request-header-window.png')} alt="The Header window"/>
+
+4. Click **Save Changes**.
 
 5. The response payload from the login call will contain the desired token. Let's use the following as an example response.
 
-    <img src={useBaseUrl('/img/api-testing/response-token.png')} alt="An example response"/>
+   <img src={useBaseUrl('/img/api-testing/response-token.png')} alt="An example response"/>
 
 6. Save the token as a variable using a `SET` component.
-    * Var (the variable name) - `token`
-    * Variable mode (the variable type) - `String`
-    * Value (retrieves the value from the previous payload- `${payload.access_token}`
 
-      <img src={useBaseUrl('/img/api-testing/set-variable-window.png')} alt="The SET Variable window"/>
+   - Variable (the variable name) - `token`
+   - Mode (the variable type) - `String`
+   - Value (retrieves the value from the previous payload- `${payload.access_token}`
+
+     <img src={useBaseUrl('/img/api-testing/set-variable-window.png')} alt="The SET Variable window"/>
 
 7. Once the token has been saved as a variable, add the second call and use that token in the request body.
-    * Content-Type - `application/json`
-    * Content - `{"token":"${token}"}`
 
-      <img src={useBaseUrl('/img/api-testing/post-request-body-token.png')} alt="POST request body"/>
+   - Content-Type - `application/json`
+   - Body - `{"token":"${token}"}`
+
+     <img src={useBaseUrl('/img/api-testing/post-request-body-token.png')} alt="POST request body"/>
 
 ## Using an Object from Another Call
 
@@ -233,11 +238,11 @@ Using an object from another call is a more complex method. Scenarios in which y
 
 1. Perform the call you retrieve the object from.
 
-    <img src={useBaseUrl('/img/api-testing/get-request-window-3.png')} alt="GET request window"/>
+   <img src={useBaseUrl('/img/api-testing/get-request-window-3.png')} alt="GET request window"/>
 
-  The response payload from the call:
+The response payload from the call:
 
-    ```json
+  ```json
     {
       "id":123,
       "items":[
@@ -255,15 +260,17 @@ Using an object from another call is a more complex method. Scenarios in which y
           }
       ]
     }
-    ```  
+  ```
 
 2. In this example, you need the object `items` as the body in the subsequent call. So, as a second call, add a `POST` and enter the following as body:
 
-  ```json
-  {"items":"${searchPayload.items.asJSON()}"}
-  ```
+```json
+{
+  "items": "${searchPayload.items.asJSON()}"
+}
+```
 
-    <img src={useBaseUrl('/img/api-testing/post-body-window-3.png')} alt="POST request body"/>
+<img src={useBaseUrl('/img/api-testing/post-body-window-3.png')} alt="POST request body"/>
 
 3. Continue with the test.
 
@@ -273,50 +280,48 @@ This method can be used when you need to create a new structure to add as a body
 
 1. Perform the call that retrieves the data you are using. In the following example, using a `GET` returns an array of items.
 
-    <img src={useBaseUrl('/img/api-testing/get-request-window-4.png')} alt="The GET request window"/>
-
 2. The response payload:
 
-  ```json
-  {
-    "items":[
-        {
-          "id":11,
-          "price":5.99
-        },
-        {
-          "id":12,
-          "price":6.99
-        },
-        {
-          "id":13,
-          "price":10.99
-        },
-        {
-          "id":14,
-          "price":15.99
-        }
-    ]
-  }
-  ```  
+```json
+{
+   "items":[
+      {
+         "id":11,
+         "price":5.99
+      },
+      {
+         "id":12,
+         "price":6.99
+      },
+      {
+         "id":13,
+         "price":10.99
+      },
+      {
+         "id":14,
+         "price":15.99
+      }
+   ]
+}
+```
 
 3. Create the new data structure by adding a `SET` component.
-    * Var (the variable name) - `itemsAvailable`
-    * Variable mode (the variable type) - `Language`
-    * Lang - `Javascript`
-    * Content - `payload.items.forEach(function (item) {  item.currency = "$"; }); return payload;`
 
-      <img src={useBaseUrl('/img/api-testing/set-variable-window-2.png')} alt="The SET Variable window"/>
+   - Variable (the variable name) - `itemsAvailable`
+   - Mode (the variable type) - `Language`
+   - Language - `Javascript`
+   - Body - `payload.items.forEach(function (item) {  item.currency = "$"; }); return payload;`
+
+     <img src={useBaseUrl('/img/api-testing/set-variable-window-2.png')} alt="The SET Variable window"/>
 
 4. Add the `POST` and add the new structure as the `POST` request body.
 
-    <img src={useBaseUrl('/img/api-testing/post-body-window-4.png')} alt="The POST body window" width="600"/>
+   <img src={useBaseUrl('/img/api-testing/post-body-window-4.png')} alt="The POST body window" width="600"/>
 
 5. Continue with the test.
 
-    <img src={useBaseUrl('/img/api-testing/new-structure-body.png')} alt="A new structure added as a body" width="600"/>
-
 ## Dynamic Dates
+
 Instead of entering dates as static values, which may need to be updated periodically, you can create dynamic dates.
 
 ### Create a Future Date
@@ -324,118 +329,125 @@ Instead of entering dates as static values, which may need to be updated periodi
 1. Open the Composer and add a **Set** component.
 
 2. Enter/select the following:
-    * Var (the variable name) - `futureDate`
-    * Variable mode (the variable type) - `String`
-    * Value - `${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD')}`
 
-      <img src={useBaseUrl('/img/api-testing/create-future-date-variable.png')} alt="The SET Variable window"/>
+   - Variable (the variable name) - `futureDate`
+   - Mode (the variable type) - `String`
+   - Value - `${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD')}`
 
-    * `D.nowMillis()` - Returns the current Unix epoch in milliseconds.
-    * `D.plusDays()` - Returns the provided milliseconds, plus the provided number of days (in the example, 35 days were added to today's date).
-    * `D.format()` - Creates a timestamp with the given format, using the current timezone (in the example, `yyyy-MM-DD`).
+     <img src={useBaseUrl('/img/api-testing/create-future-date-variable.png')} alt="The SET Variable window"/>
 
-    ```js
-    ${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD')}
-    ```
+   - `D.nowMillis()` - Returns the current Unix epoch in milliseconds.
+   - `D.plusDays()` - Returns the provided milliseconds, plus the provided number of days (in the example, 35 days were added to today's date).
+   - `D.format()` - Creates a timestamp with the given format, using the current timezone (in the example, `yyyy-MM-DD`).
+
+   ```js
+   ${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD')}
+   ```
 
 3. Invoke the variable in your test.
 
 ### Create a Past Date
 
 Follow the steps for [Create a Future Date](#create-a-future-date), but replace the string with the following:
-  * `D.minusDays()` - Returns the provided milliseconds, minus the provided number of days (in the example, 35 days were subtracted from today's date).
 
-  ```js
-  ${D.format(D.minusDays(D.nowMillis(),35), 'yyyy-MM-DD')}
-  ```
+- `D.minusDays()` - Returns the provided milliseconds, minus the provided number of days (in the example, 35 days were subtracted from today's date).
+
+```js
+${D.format(D.minusDays(D.nowMillis(),35), 'yyyy-MM-DD')}
+```
 
 ### Create a Date with a Time Zone
 
 To create a date based on a specified time zone:
-  * `D.format()` - Creates a timestamp with the given format, based on the provided time zone ID (the example uses the same date as before, but uses `New York` as the time zone).
 
-  ```js
-  ${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD','America/New_York')}
-  ```
+- `D.format()` - Creates a timestamp with the given format, based on the provided time zone ID (the example uses the same date as before, but uses `New York` as the time zone).
+
+```js
+${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD','America/New_York')}
+```
 
 ### Convert a Timestamp in Unix Time in Milliseconds
 
 To convert a timestamp from a payload response to milliseconds:
-  * `D.parse()` - Parses the provided timestamp and converts it to milliseconds.
 
-  ```js
-  ${D.parse(1649094357)}
-  ```
+- `D.parse()` - Parses the provided timestamp and converts it to milliseconds.
 
-For more information, see [Expression Language Extensions](/api-testing/composer/logical-components/#expression-language-extensions).
+```js
+${D.parse(1649094357)}
+```
+
+For more information, see [Expression Language Extensions](/api-testing/composer/expressions/#expression-language-extensions).
 
 ## Generating Test Data
+
 If your API or test requires random names, emails, or different types of input data, you can generate those directly in Sauce Labs API Testing. You can directly reference the method in your variable, API call, or anywhere in the test where you can enter the `${F.<methodName()>}` syntax.
 
-* `F.fullName()` - Generates a full name
-* `F.firstName()` - Generates a first name
-* `F.lastName()` - Generates a last name
-* `F.emailAddress()` - Generates an email address
-* `F.password(<minimumLength,maximumLength,includeUppercase,includeSpecial,includeDigit>)` - Generates a password
-* `F.creditCardNumber()` - Generates a credit card number
-* `F.creditCardExpiry()` - Generates a credit card expiration date
-* `F.integer(<min,max>)` - Generates an integer
+- `F.fullName()` - Generates a full name
+- `F.firstName()` - Generates a first name
+- `F.lastName()` - Generates a last name
+- `F.emailAddress()` - Generates an email address
+- `F.password(<minimumLength,maximumLength,includeUppercase,includeSpecial,includeDigit>)` - Generates a password. By default the values are F.password(8,16,false,false,false). Minimum length is 3 chars.
+- `F.creditCardNumber()` - Generates a credit card number
+- `F.creditCardExpiry()` - Generates a credit card expiration date
+- `F.integer(<min,max>)` - Generates an integer
 
 For the full list of methods, see [Test Data Methods](#test-data-methods).
 
 These methods can be used anywhere you can write a variable, such as inside a Set (variable) or in any part of the request (body, header, param, etc.).
 
 ### Set (variable)
+
 Set (variable) allows you to create variables or more structured data.
 
 To create a single variable:
 
-* **Var:** The name to assign the variable.
-* **Variable Mode:** String
-* **Value:** The method to use to generate data. For example, `${F.fullName()}` will generate a random full name.
+- **Variable:** The name to assign the variable.
+- **Mode:** String
+- **Value:** The method to use to generate data. For example, `${F.fullName()}` will generate a random full name.
 
 <img src={useBaseUrl('/img/api-testing/test-data-full-name.png')} alt="Full name generation" width="600"/>
 
 To create an array of data:
 
-* **Var:** The name to assign the variable.
-* **Variable Mode:** Data
-* **Data:** The JS function for creating an array. For example, `new Array(5).fill(0).map(_ => F.streetAddress())` generates an array with five random addresses.
+- **Variable:** The name to assign the variable.
+- **Mode:** Data
+- **Data:** The JS function for creating an array. For example, `new Array(5).fill(0).map(_ => F.streetAddress())` generates an array with five random addresses.
 
 <img src={useBaseUrl('/img/api-testing/test-data-array.png')} alt="Data array generation" width="600"/>
 
 To create an object of data:
 
-* **Var:** The name to assign the variable.
-* **Variable Mode:** Language
-* **Lang:** Template
-* **Content:** The object to generate with the required methods.
+- **Variable:** The name to assign the variable.
+- **Mode:** Language
+- **Language:** Template
+- **Body:** The object to generate with the required methods.
 
-```
+```json
 {
-"name": "${F.firstName()}",
-"last name": "${F.lastName()}",
-"address": "${F.streetName()}",
-"profession": "${F.profession()}",
-"mobile phone": "${F.mobile()}",
-"email": "${F.emailAddress()}"
+   "name":"${F.firstName()}",
+   "last name":"${F.lastName()}",
+   "address":"${F.streetName()}",
+   "profession":"${F.profession()}",
+   "mobile phone":"${F.mobile()}",
+   "email":"${F.emailAddress()}"
 }
 ```
+
 <img src={useBaseUrl('/img/api-testing/test-data-personal-data.png')} alt="Personal data generation" width="600"/>
 
 ### Body
 
 Any of the following methods can be used in a request body.
 
-* **Content-Type:** The content-type of the body (application/json in this example).
-* **Content:** The body of the request.
+- **Content-Type:** The content-type of the body (application/json in this example).
+- **Body:** The body of the request.
 
-```
+```json
 {
-"name": "${F.firstName()}",
-"last name": "${F.lastName()}",
-"city": "${F.city()}",
-"profession": "${F.profession()}"
+  "name": "${F.firstName()}",
+  "last name": "${F.lastName()}",
+  "city": "${F.city()}",
+  "profession": "${F.profession()}"
 }
 ```
 
@@ -443,8 +455,8 @@ Any of the following methods can be used in a request body.
 
 In this example we use a POST body, but this can be applied in all REST methods. Similarly, these methods can also be used as params.
 
-* **Name:** The name of the param.
-* **Value:** The value of the param. For example, `${F.creditCardNumber()}`.
+- **Name:** The name of the param.
+- **Value:** The value of the param. For example, `${F.creditCardNumber()}`.
 
 <img src={useBaseUrl('/img/api-testing/test-data-request-body-param.png')} alt="Request body param data" width="600"/>
 
@@ -453,65 +465,66 @@ These examples are of the most common places where you may need to generate data
 ### Test Data Methods
 
 #### Addresses and Countries
-* `F.streetName()` - Generates a street name
-* `F.streetAddressNumber()` - Generates an address number
-* `F.streetAddress()` - Generates a street and address number. If secondary is specified, this method provides an apartment number.
-* `F.secondaryAddress()` - Generates an apartment number
-* `F.zipCode()` - Generates a ZIP code. Valid only for US states.
-* `F.streetSuffix()` - Generates a street suffix
-* `F.citySuffix()` - Generates a city suffix
-* `F.cityPrefix()` - Generates a city prefix
-* `F.city()` - Generates a city name
-* `F.state()` - Generates a state/province
-* `F.buildingNumber()` - Generates a build number
-* `F.country()` - Generates a country
-* `F.countryCode()` - Generates a country code
-* `F.countryCodeSL()` - Generates a country code in small letters
+
+- `F.streetName()` - Generates a street name
+- `F.streetAddressNumber()` - Generates an address number
+- `F.streetAddress()` - Generates a street and address number. If secondary is specified, this method provides an apartment number.
+- `F.secondaryAddress()` - Generates an apartment number
+- `F.zipCode()` - Generates a ZIP code. Valid only for US states.
+- `F.streetSuffix()` - Generates a street suffix
+- `F.citySuffix()` - Generates a city suffix
+- `F.cityPrefix()` - Generates a city prefix
+- `F.city()` - Generates a city name
+- `F.state()` - Generates a state/province
+- `F.buildingNumber()` - Generates a build number
+- `F.country()` - Generates a country
+- `F.countryCode()` - Generates a country code
+- `F.countryCodeSL()` - Generates a country code in small letters
 
 #### People and Identity
 
-* `F.fullName()` - Generates a full name
-* `F.firstName()` - Generates a first name
-* `F.lastName()` - Generates a last name
-* `F.profession()` - Generates a profession
-* `F.timeZone()` - Generates a time zone
-* `F.phone()` - Generates a phone number
-* `F.mobile()` - Generates a mobile number
+- `F.fullName()` - Generates a full name
+- `F.firstName()` - Generates a first name
+- `F.lastName()` - Generates a last name
+- `F.profession()` - Generates a profession
+- `F.timeZone()` - Generates a time zone
+- `F.phone()` - Generates a phone number
+- `F.mobile()` - Generates a mobile number
 
 #### Internet
 
-* `F.emailAddress()` - Generates an email address. **Note:** These email addresses are randomly generated with real domains. Please be careful if you are using this in a test as there is a chance that some of them could be real email addresses.
-* `F.domainName()` - Generates a domain name
-* `F.domainWord()` - Generates a word
-* `F.domainSuffix()` - Generates a suffix
-* `F.url()` - Generates a URL
-* `F.password(<minimumLength,maximumLength,includeUppercase,includeSpecial,includeDigit>)` - Generates a password. For example, `password(5,10,true,false, true)`.
+- `F.emailAddress()` - Generates an email address. **Note:** These email addresses are randomly generated with real domains. Please be careful if you are using this in a test as there is a chance that some of them could be real email addresses.
+- `F.domainName()` - Generates a domain name
+- `F.domainWord()` - Generates a word
+- `F.domainSuffix()` - Generates a suffix
+- `F.url()` - Generates a URL
+- `F.password(<minimumLength,maximumLength,includeUppercase,includeSpecial,includeDigit>)` - Generates a password. For example, `password(5,10,true,false, true)`.
 
 #### Credit Card
 
-* `F.creditCardNumber()` - Generates a credit card number
-* `F.creditCardExpiry()` - Generates a credit card expiration date
-* `F.creditCardType()` - Generates a credit card type
+- `F.creditCardNumber()` - Generates a credit card number
+- `F.creditCardExpiry()` - Generates a credit card expiration date
+- `F.creditCardType()` - Generates a credit card type
 
 #### Products
 
-* `F.productName()` - Generates a product name
-* `F.price()` - Generates a price
+- `F.productName()` - Generates a product name
+- `F.price()` - Generates a price
 
 #### Companies
 
-* `F.companyName()` - Generates a company name
-* `F.suffix()` - Generates a company suffix
+- `F.companyName()` - Generates a company name
+- `F.suffix()` - Generates a company suffix
 
 #### Random Numbers
 
-* `F.integer(<min,max>)` - Generates an integer. For example, `integer(2,20)`
-* `F.decimal(<min,max,maxdecimals>)` - Generates a decimal number. For example, `integer(0,2,2)`
-* `F.uuid()` - Generates a unique identifier
+- `F.integer(<min,max>)` - Generates an integer. For example, `integer(2,20)`
+- `F.decimal(<min,max,maxdecimals>)` - Generates a decimal number. For example, `integer(0,2,2)`
+- `F.uuid()` - Generates a unique identifier
 
 #### Boolean
 
-* `F.bool()` - Generates a boolean value
+- `F.bool()` - Generates a boolean value
 
 ## Integration Tests
 
@@ -523,124 +536,245 @@ Company A has an authentication server. This server, when given the proper user 
 
 1. To get the token, make a `POST` call to the authorization server.
 
-  <img src={useBaseUrl('/img/api-testing/int-getting-token.png')} alt="POST request to authentication server" width="600"/>
+<img src={useBaseUrl('/img/api-testing/int-getting-token.png')} alt="POST request to authentication server" width="600"/>
 
-  The request body is the user ID and password. Given proper credentials, the authentication server will return a user token.
+The request body is the user ID and password. Given proper credentials, the authentication server will return a user token.
 
-  <img src={useBaseUrl('/img/api-testing/int-token.png')} alt="The user token" width="400"/>
+<img src={useBaseUrl('/img/api-testing/int-token.png')} alt="The user token" width="400"/>
 
-  Use this token to make further calls to the application.
+Use this token to make further calls to the application.
 
 2. Add a `Set (variable)` component by entering/selecting the following in the Composer:
-    * Var (the variable name) - `access_token`
-    * Variable mode (the variable type) - `String`
-    * Value - `${authPayload.access_token}`
 
-    <img src={useBaseUrl('/img/api-testing/int-assign-token.png')} alt="Setting the variable"/>
+   - Variable (the variable name) - `access_token`
+   - Mode (the variable type) - `String`
+   - Value - `${authPayload.access_token}`
 
-  This step takes the `access_token` variable in the `authPayload` response, and sets it as `access_token`; the response body from the original post call was saved to a variable called `authPayload`. The access key for the token is `access_token`, which can be found by calling `authPayload.access_token`.
+   <img src={useBaseUrl('/img/api-testing/int-assign-token.png')} alt="Setting the variable"/>
 
-  :::note
-  The dollar sign and brackets are necessary when referencing variables so that Sauce Labs API Testing knows to interpret what’s between the brackets instead of using it literally.
-  :::
+This step takes the `access_token` variable in the `authPayload` response, and sets it as `access_token`; the response body from the original post call was saved to a variable called `authPayload`. The access key for the token is `access_token`, which can be found by calling `authPayload.access_token`.
 
-  Variables are used to store data temporarily for a test, but you can use the Sauce Labs API Testing Vault for permanent variables. For more information, see [Creating Reusable Variables and Snippets with the Vault](/api-testing/vault)).
+:::note
+The dollar sign and brackets are necessary when referencing variables so that Sauce Labs API Testing knows to interpret what’s between the brackets instead of using it literally.
+:::
+
+Variables are used to store data temporarily for a test, but you can use the Sauce Labs API Testing Vault for permanent variables. For more information, see [Creating Reusable Variables and Snippets with the Vault](/api-testing/vault)).
 
 3. Make follow-up calls.
 
-  In the following example, the API has a cart function that requires a user token to add items to a cart or view items currently in the cart. Use a `PUT` request to the cart endpoint to update the cart. Use the access token granted by the authentication server to add items to a cart by setting the `token` header to `${access_token}`.
+In the following example, the API has a cart function that requires a user token to add items to a cart or view items currently in the cart. Use a `PUT` request to the cart endpoint to update the cart. Use the access token granted by the authentication server to add items to a cart by setting the `token` header to `${access_token}`.
 
-  <img src={useBaseUrl('/img/api-testing/int-set-token-header.png')} alt="Setting the token header"/>
+<img src={useBaseUrl('/img/api-testing/int-set-token-header.png')} alt="Setting the token header"/>
 
-  You can also reuse access tokens:
+You can also reuse access tokens:
 
-  <img src={useBaseUrl('/img/api-testing/int-reuse-tokens.png')} alt="Reusing tokens" width="600"/>
+<img src={useBaseUrl('/img/api-testing/int-reuse-tokens.png')} alt="Reusing tokens" width="600"/>
 
-###  Test Interactions between Endpoints
+### Test Interactions between Endpoints
 
 In the following example, there is an API endpoint that produces an array of all the available products and another endpoint that shows the details of a specific product based on its ID.
 
-  ```http request
-  http://demoapi.apifortress.com/api/retail/product
-  http://demoapi.apifortress.com/api/retail/product/${id}
-  ```
+```http request
+http://demoapi.apifortress.com/api/retail/product
+http://demoapi.apifortress.com/api/retail/product/${id}
+```
 
 To create an integration test to test the interaction between the endpoints:
 
-  1. Call the product listing endpoint and assign the response to the `productsPayload` variable.
+1. Call the product listing endpoint and assign the response to the `productsPayload` variable.
 
-  2. Add an `each` assertion and reference the `productsPayload.products` object.
+2. Add an `each` assertion and reference the `productsPayload.products` object.
 
-  :::note
-  In a scenario in which the response contains many products, it may be useful to pick a few at random by using `pick(n)`.
-  :::
+:::note
+In a scenario in which the response contains many products, it may be useful to pick a few at random by using `pick(n)`.
+:::
 
-  3. Test the response payload for the endpoint.
+3. Test the response payload for the endpoint.
 
-  4. Add a new `Set (variable)` assertion to set the `id` variable as every single `productsPayload.product` that is returned. In the following example, the string is `${_1.id}`. The system uses `_1` automatically when recognizing a subroutine, which makes it easier when there are multiple sub-levels.
+4. Add a new `Set (variable)` assertion to set the `id` variable as every single `productsPayload.product` that is returned. In the following example, the string is `${_1.id}`. The system uses `_1` automatically when recognizing a subroutine, which makes it easier when there are multiple sub-levels.
 
-    <img src={useBaseUrl('/img/api-testing/int-test-endpoints.png')} alt="Testing interactions between endpoints" width="600"/>
+   <img src={useBaseUrl('/img/api-testing/int-test-endpoints.png')} alt="Testing interactions between endpoints" width="600"/>
 
-  5. Create a **`GET` request** to the product details endpoint, using the new `id` variable as the **id** parameter. Variables last through the entire test unless overwritten.
+5. Create a **`GET` request** to the product details endpoint, using the new `id` variable as the **id** parameter. Variables last through the entire test unless overwritten.
 
-  6. Test the response payload for the endpoint.
+6. Test the response payload for the endpoint.
 
-    <img src={useBaseUrl('/img/api-testing/int-test-response-payload.png')} alt="Testing the response payload"/>
+   <img src={useBaseUrl('/img/api-testing/int-test-response-payload.png')} alt="Testing the response payload"/>
 
-  ```xml
-  <get url="http://demoapi.apifortress.com/api/retail/product" params="[:]" var="productsPayload" mode="json">
-    <header name="key" value="ABC123"/>
-  </get>
-  <assert-is expression="productsPayload" type="array" mode="all" comment="payload must be an array"/>
-  <comment>
-    <![CDATA[pick randomly 5 items from the payload response]]>
-  </comment>
-  <each expression="productsPayload.pick(5)">
-      <comment>
-          <![CDATA[product id is: ${_1.id} and product name is: ${_1.name}]]>
-      </comment>
-      <assert-is expression="_1.id" type="integer" mode="all" comment="id must be an integer value"/>
-      <set var="id" value="${_1.id}" lang="java"/>
-      <assert-exists expression="_1.name"  mode="all" comment="name must exists"/>
-      <assert-is expression="_1.price" type="float" mode="all" comment="price must be a float number"/>
-      <assert-exists expression="_1.category"  mode="all" comment="category must exists"/>
-      <assert-exists expression="_1.description"  mode="all" comment="description must exists"/>
-      <assert-is expression="_1.quantity" type="integer" mode="all" comment="quantity must be an integer value"/>
-      <assert-greater expression="_1.quantity" value="0" type="integer" mode="all" comment="quantity must be greater than 0"/>
-      <assert-is expression="_1.imageURL" type="url" mode="all" comment="imageURL must be a valid url value"/>
-      <assert-is expression="_1.color" type="array" mode="all" comment="color must be an array"/>
-      <assert-exists expression="_1.createdAt"  mode="all" comment="createdAt must exists"/>
-      <assert-exists expression="_1.updatedAt"  comment="updateAt must exists"/>
-      <comment>
-          <![CDATA[get product details]]>
-      </comment>
-      <get url="http://demoapi.apifortress.com/api/retail/product/${id}" params="[:]" var="productPayload" mode="json">
-          <header name="key" value="ABC123"/>
-      </get>
-      <assert-exists expression="productPayload"  mode="all" comment="payload must exist, if not, test does not need to be executed" stoponfail="true"/>
-      <comment>
-          <![CDATA[product id is: ${productPayload.id} and product name is: ${productPayload.name}]]>
-      </comment>
-      <assert-equals expression="productPayload.id" value="${id}" type="integer" mode="all" comment="id is the same as the one from the previous call"/>
-      <assert-is expression="productPayload.id" type="integer" mode="all" comment="id must be an integer value"/>
-      <assert-exists expression="productPayload.name"  mode="all" comment="name must exists"/>
-      <assert-is expression="productPayload.price" type="float" mode="all" comment="price must be a float number"/>
-      <assert-exists expression="productPayload.category"  mode="all" comment="category must exists"/>
-      <assert-exists expression="productPayload.description"  mode="all" comment="description must exists"/>
-      <assert-is expression="productPayload.quantity" type="integer" mode="all" comment="quantity must be an integer value"/>
-      <assert-greater expression="productPayload.quantity" value="0" type="integer" mode="all" comment="quantity must be greater than 0"/>
-      <assert-is expression="productPayload.imageURL" type="url" mode="all" comment="imageURL must be a valid url value"/>
-      <assert-is expression="productPayload.color" type="array" mode="all" comment="color must be an array"/>
-      <each expression="productPayload.color">
-          <assert-exists expression="_2"  mode="all" comment="color array should contain some values"/>
-          <assert-in expression="_2" value="['yellow','blue','red','green','brown','orange','gray','pink','black','white']" mode="all" comment="colors must be the expected one"/>
-      </each>
-      <assert-exists expression="productPayload.createdAt"  mode="all" comment="createdAt must exists"/>
-      <assert-exists expression="productPayload.updatedAt"  comment="updateAt must exists"/>
-  </each>
-  ```
+```yaml
+- id: get
+  children:
+    - id: header
+      name: key
+      value: ABC123
+  url: http://demoapi.apifortress.com/api/retail/product
+  var: productsPayload
+  mode: json
+- id: if
+  children:
+    - id: comment
+      text: endpoint is not working fine, test will be stopped
+    - id: flow
+      command: stop
+  expression: productsPayload_response.statusCode!='200'
+- id: assert-is
+  expression: productsPayload
+  comment: payload must be an array
+  type: array
+- id: each
+  children:
+    - id: comment
+      text: "product id is: ${_1.id} and product name is: ${_1.name}"
+    - id: assert-is
+      expression: _1.id
+      comment: id must be an integer value
+      type: integer
+    - id: set
+      var: id
+      mode: string
+      value: ${_1.id}
+    - id: assert-exists
+      expression: _1.name
+      comment: name must exists
+    - id: assert-is
+      expression: _1.price
+      comment: price must be a float number
+      type: float
+    - id: assert-exists
+      expression: _1.category
+      comment: category must exists
+    - id: assert-exists
+      expression: _1.description
+      comment: description must exists
+    - id: assert-is
+      expression: _1.quantity
+      comment: quantity must be an integer value
+      type: integer
+    - id: assert-greater
+      expression: _1.quantity
+      comment: quantity must be greater than 0
+      value: 0
+    - id: assert-is
+      expression: _1.imageURL
+      comment: imageURL must be a valid url value
+      type: url
+    - id: assert-is
+      expression: _1.color
+      comment: color must be an array
+      type: array
+    - id: each
+      children:
+        - id: assert-exists
+          expression: _2
+          comment: color array should contain some values
+        - id: assert-in
+          expression: _2
+          comment: colors must be the expected one
+          value:
+            - yellow
+            - blue
+            - red
+            - green
+            - brown
+            - orange
+            - gray
+            - pink
+            - black
+            - white
+      expression: _1.color
+    - id: assert-exists
+      expression: _1.createdAt
+      comment: createdAt must exists
+    - id: assert-exists
+      expression: _1.updatedAt
+      comment: updateAt must exists
+    - id: comment
+      text: get product details
+    - id: get
+      children:
+        - id: header
+          name: key
+          value: ABC123
+      url: http://demoapi.apifortress.com/api/retail/product/${id}
+      var: productPayload
+      mode: json
+    - id: if
+      children:
+        - id: comment
+          text: endpoint is not working fine, test will be stopped
+        - id: flow
+          command: stop
+      expression: productPayload_response.statusCode!='200'
+    - id: assert-exists
+      expression: productPayload
+      comment: payload must exist, if not, test does not need to be executed
+    - id: comment
+      text: "product id is: ${productPayload.id} and product name is:
+        ${productPayload.name}"
+    - id: assert-is
+      expression: productPayload.id
+      comment: id must be an integer value
+      type: integer
+    - id: assert-exists
+      expression: productPayload.name
+      comment: name must exists
+    - id: assert-is
+      expression: productPayload.price
+      comment: price must be a float number
+      type: float
+    - id: assert-exists
+      expression: productPayload.category
+      comment: category must exists
+    - id: assert-exists
+      expression: productPayload.description
+      comment: description must exists
+    - id: assert-is
+      expression: productPayload.quantity
+      comment: quantity must be an integer value
+      type: integer
+    - id: assert-greater
+      expression: productPayload.quantity
+      comment: quantity must be greater than 0
+      value: 0
+    - id: assert-is
+      expression: productPayload.imageURL
+      comment: imageURL must be a valid url value
+      type: url
+    - id: assert-is
+      expression: productPayload.color
+      comment: color must be an array
+      type: array
+    - id: each
+      children:
+        - id: assert-exists
+          expression: _2
+          comment: color array should contain some values
+        - id: assert-in
+          expression: _2
+          comment: colors must be the expected one
+          value:
+            - yellow
+            - blue
+            - red
+            - green
+            - brown
+            - orange
+            - gray
+            - pink
+            - black
+            - white
+      expression: productPayload.color
+    - id: assert-exists
+      expression: productPayload.createdAt
+      comment: createdAt must exists
+    - id: assert-exists
+      expression: productPayload.updatedAt
+      comment: updateAt must exists
+  expression: productsPayload.pick(5)
+```
 
 ## Testing Metrics
+
 An HTTP response is made of a payload, but also contains contextual information. You can use Sauce Labs API Testing to test the entire response envelope.
 
 When you're making an HTTP request in the composer, you're providing a variable name. That variable will host the entire response payload. For example, if `payload` is the name of that variable, when the operation completes, another variable called `<variable_name>_response` is also created.
@@ -650,6 +784,7 @@ Therefore various pieces of information such as HTTP header and metrics are cont
 By referencing the `payload_response.statusCode` expression you can access the status code.
 
 ### Example
+
 In this example, you want to run a branch of code when the status code is `400`:
 
 <img src={useBaseUrl('/img/api-testing/metrics-testing-example.png')} alt="Testing metrics - example" width="600"/>
@@ -659,6 +794,7 @@ You can use multiple `if` conditions to check the status codes you need to check
 <img src={useBaseUrl('/img/api-testing/metrics-mult-if-cond.png')} alt="Using multiple if conditions" width="600"/>
 
 ### Example
+
 To check that a resource shouldn't be cached:
 
 <img src={useBaseUrl('/img/api-testing/metrics-resource-not-cached.png')} alt="Checking that a resource shouldn't be cached" width="600"/>
@@ -668,21 +804,26 @@ To check that a resource shouldn't be cached:
 You can create specific assertions to verify performance metrics.
 
 #### Example
-The following is an example in **Code** view.
 
-  ```html
-  <assert-less expression="payload_response.metrics.latency" value="350" type="integer"/>
+The following are examples in **Code** view.
 
-  <assert-less expression="payload_response.metrics.fetch" value="350" type="integer"/>
+```yaml
+- id: assert-less
+  expression: payload_response.metrics.latency
+  value: 350
+- id: assert-less
+  expression: payload_response.metrics.fetch
+  value: 350
+- id: assert-less
+  expression: payload_response.metrics.overall
+  value: 450
+```
 
-  <assert-less expression="payload_response.metrics.overall" value="550" type="integer"/>
-  ```
+- `latency` is the time to first byte.
+- `fetch` is the total download time of the payload.
+- `overall` is fetch and latency combined.
 
-* `latency` is the time to first byte.
-* `fetch` is the total download time of the payload.
-* `overall` is fetch and latency combined.
-
-The following is the same example, but in **Visual** view:
+The following is the `overall` example, but in **Visual** view:
 
 <img src={useBaseUrl('/img/api-testing/metrics-assert-less-visual.png')} alt="An Assert-Less component in Visual view" width="600"/>
 
@@ -695,65 +836,43 @@ The classic approach of creating big tables of HTTP hits with the actual URL bei
 Sauce Labs API Testing, as a default, works in this classic way, but also gives you the ability to change the footprint of requests based on your organization needs.
 
 #### Example
+
 The following example includes a route with a parameter:
 
-  ```http request
-  http://www.whereever.com/[id]/details
-  ```
+```http request
+http://www.whereever.com/[id]/details
+```
 
 Each individual `REST` run for this route will produce a new line in the metrics view:
 
-  ```http request
-  http://www.whereever.com/1/details  
-  http://www.whereever.com/2/details  
-  http://www.whereever.com/3/details  
-  http://www.whereever.com/4/details
-  ...  
-  ```
-To produce a single endpoint for reporting from each one of these calls, you can use a **footprint**.
+```http request
+http://www.whereever.com/1/details
+http://www.whereever.com/2/details
+http://www.whereever.com/3/details
+http://www.whereever.com/4/details
+...
+```
 
-To reconfigure the footprint, in the test, add a `config` component to the I/O component:  
-
-<img src={useBaseUrl('/img/api-testing/metrics-improve-config.png')} alt="Reconfiguring a footprint" width="600"/>
-
-The `config` component has two fields:  
-  * Name - The name you want to assign. In this case, you **MUST** enter `footprint`.
-  * Value - The value for the configuration component.
-
-To set up a footprint, enter the URL that's in the I/O component. Any parameterized portion of the URL must be wrapped in square brackets.
-
-The value in this example would be:
-
-  ```http request
-  http://www.wherever.com/whatever/[id]/details  
-  ```
-
-For each endpoint, you can use more square brackets, one for each variable that could assume multiple values:
-
-  ```http request
-  http://www.whereever.com/[whatever]/[id]/details/[colors]/whatever
-  ```
-
-When you write the value of the config, for the static part of the endpoint, you can also call a variable as in any I/O operation:
-
-  ```js
-  ${protocol}/${domain}/[whatever]/[id]/details/[colors]/whatever
-  ```
+To produce a single endpoint for reporting from each one of these calls, you can use a [footprint](/api-testing/composer/io-components/#config).
 
 ## Terminology
 
 ### Visual View and Code View
+
 This toggle switches between the Visual and Code views in the Composer. You can make calls and add assertions for testing your APIs, and insert variables wherever needed. You can use either, depending on which you're more comfortable with.
 
 #### Visual View
-Guides you through creating API tests using automated real-time suggestions via predictive text. No coding experience is required.<br/><img src={useBaseUrl('img/api-fortress/2021/01/visualView.png')} alt="Test Composer Visual view"/>
+
+Guides you through creating API tests using automated real-time suggestions via predictive text. No coding experience is required.<br/><img src={useBaseUrl('img/api-testing/visualView.png')} alt="Test Composer Visual view"/>
 
 #### Code View
-Enables you to write tests here from scratch, if you feel more comfortable working in code.<br/><img src={useBaseUrl('img/api-fortress/2021/01/codeView.png')} alt="Test Composer Code view"/>
 
-### Add Component
+Enables you to write tests here from scratch, if you feel more comfortable working in code.<br/><img src={useBaseUrl('img/api-testing/codeView.png')} alt="Test Composer Code view"/>
+
+### Add Child Component
+
 This button displays all available [assertion components](/api-testing/composer/assertion-components/), [I/O components](/api-testing/composer/io-components/), and [logical components](/api-testing/composer/logical-components/).<br/>
-<img src={useBaseUrl('img/api-fortress/2021/01/addComponent.png')} alt="Add Component"/>
+<img src={useBaseUrl('img/api-testing/add-component-nav.png')} alt="Add Component"/>
 
 If a component is not valid for the operation you are conducting, it will not be made available to help avoid mistakes. For instance, if you don’t add a `POST` first, you cannot add a `POST` Body or `POST` Param.
 
@@ -761,54 +880,68 @@ If a component is not valid for the operation you are conducting, it will not be
 Sauce Labs free trials may not give you access to all available components.
 :::
 
-### Transform Component
-Transforms an existing component into another component of the same type.<br/>
-<img src={useBaseUrl('img/api-fortress/2021/01/transformComponent.png')} alt="Add Component"/>
+### Component Options
 
-### Delete Component
-Deletes a selected component from the test while using Visual view.<br/>
-<img src={useBaseUrl('img/api-fortress/2021/01/deleteComponent.png')} alt="Delete Component"/>
+Click **Edit** to modify an existing component, or use the dropdown menu next to **Edit** to perform the actions shown below.
 
-### Invoke Snippet
-Allows you to use a previously created code snippet stored in [The Vault](/api-testing/vault).<br/>
-<img src={useBaseUrl('img/api-fortress/2021/01/invokeSnippet.png')} alt="Invoke Snippet"/>
+<img src={useBaseUrl('img/api-testing/deleteComponent.png')} alt="Component Options"/>
 
-### Export Snippet
-Allows you to export a selected code snippet to the vault in order to be re-used later, or in another test.<br/>
-<img src={useBaseUrl('img/api-fortress/2021/01/exportSnippet.png')} alt="Export Snippet"/>
+### Save
 
-### Save Test
 Saves your progress.<br/>
-<img src={useBaseUrl('img/api-fortress/2021/01/saveTest.png')} alt="Save Test"/>
+<img src={useBaseUrl('img/api-testing/saveTest.png')} alt="Save"/>
 
-### Run Test
+### Publish
+
+Publishes your test.<br/>
+<img src={useBaseUrl('img/api-testing/publishtest.png')} alt="Publish"/>
+
+### Clear
+
+Clears the most recent unpublished changes made to your test.<br/>
+<img src={useBaseUrl('img/api-testing/cleartest.png')} alt="Clear"/>
+
+### Run
+
 Executes a test.<br/>
-<img src={useBaseUrl('img/api-fortress/2021/01/runTest.png')} alt="Run Test"/>
+<img src={useBaseUrl('img/api-testing/runTest.png')} alt="Run"/>
 
 ### Input Sets
-Displays the Input Set view where you can store input data sets to reuse within the specific test you're working on.<br/><img src={useBaseUrl('img/api-fortress/2021/01/inputSets.png')} alt="Input Sets" width="500"/>
+
+Displays the Input Set view where you can store input data sets to reuse within the specific test you're working on.<br/>
+<img src={useBaseUrl('img/api-testing/inputSets.png')} alt="Input Sets" width="500"/>
 
 There are two types of input data sets you can use:
-* Global Parameters - Variables that are available within a test, valid for that specific test only.
-* Input Set - Group of input variables representing a scenario, valid for that specific test only. The test will be executed once for each input set, overriding the variable values into your test.
+
+- Global Parameters - Variables that are available within a test, valid for that specific test only.
+- Input Set - Group of input variables representing a scenario, valid for that specific test only. The test will be executed once for each input set, overriding the variable values into your test.
 
 <table>
 <tr>
 <td><strong>Input Set with Visual View</strong></td>
-<td> <img src={useBaseUrl('img/api-fortress/2021/01/inputVisual.png')} alt="Input Set Visual View"/> </td>
+<td> <img src={useBaseUrl('img/api-testing/inputVisual.png')} alt="Input Set Visual View"/> </td>
 </tr>
 <tr>
 <td><strong>Input Set with Code View</strong></td>
-<td><img src={useBaseUrl('img/api-fortress/2021/01/inputCode.png')} alt="Input Set Code View"/> </td>
+<td><img src={useBaseUrl('img/api-testing/inputCode.png')} alt="Input Set Code View"/> </td>
 </tr>
 </table>
 
 ### Unit View
-These buttons switch between the Input Set and Unit views.
 
-<br/>
-<img src={useBaseUrl('img/api-fortress/2021/01/unitView.png')} alt="Unit View"/>
+These buttons switch between the Input Set and Unit views.<br/>
+<img src={useBaseUrl('img/api-testing/unitView.png')} alt="Unit View"/>
+
+## Test Options
+
+Once you've generated your tests in the Composer, you can manage them from the **Tests** tab. In your project, on the **Tests** tab, hover your mouse over the test line item. You'll see icons that allow you to edit, run, schedule, or delete a test.<br/>
+<img src={useBaseUrl('img/api-fortress/2021/02/scheduleIcons.png')} alt="Schedules Icons"/>
+
+- Pencil icon: Edit the test (opens the **Compose** tab)
+- Play icon: Run the test manually
+- Calendar icon: Open the [test scheduler](/api-testing/schedule-test)
+- Trash icon: Delete the test
 
 ## More Information
-* [Sauce School | API Testing Course and Best Practices](https://training.saucelabs.com/apiTesting/index.html)
-* [API Testing Quickstart](/api-testing/quickstart)
+
+- [API Testing Quickstart](/api-testing/quickstart)

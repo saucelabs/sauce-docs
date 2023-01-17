@@ -1,15 +1,15 @@
 ---
 id: integrate-with-your-cicd
-title: "Integrate with CI/CD Platforms"
-sidebar_label: "Integrate with CI/CD"
-description: "Using the API Fortress API or CLI you can easily and seamlessly integrate continuous API testing powered by API Fortress into your CI/CD pipeline."
+title: 'Integrate with CI/CD Platforms'
+sidebar_label: 'Integrate with CI/CD'
+description: 'Using the API Fortress API or CLI you can easily and seamlessly integrate continuous API testing powered by API Fortress into your CI/CD pipeline.'
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -22,15 +22,15 @@ Find APIs on the API Fortress platform for most features, including data and tes
 - [Jenkins and API Fortress](/api-testing/on-prem/ci/jenkins/using-the-api)
 - [Bamboo and API Fortress](/api-testing/on-prem/ci/connecting-with-bamboo)
 - [Comprehensive API docs](/api-testing/on-prem/api/using-the-api)
-- Search below to the _General Guide_ for all other CI platforms:  
-    - Azure DevOps Server
-    - TravisCI
-    - TeamCity
-    - CircleCI
-    - Gitlab CI
-    - Buddy
-    - Wercker
-    - And more!
+- Search below to the _General Guide_ for all other CI platforms:
+  - Azure DevOps Server
+  - TravisCI
+  - TeamCity
+  - CircleCI
+  - Gitlab CI
+  - Buddy
+  - Wercker
+  - And more!
 
 ## Command-line Tool (APIF-Auto)
 
