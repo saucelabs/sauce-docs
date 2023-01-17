@@ -119,11 +119,22 @@ It is important to ensure that these fields are specified properly, as the Jira 
 1. To complete the setup, enter the **Integration Name** and select the **Project Name**.
 1. Click **Save**.
 
+After the integration is setup, you can test the integration to verify that it works.
+
+<details>
+<summary> Test the integration </summary>
+<ol> 
+<li>Go to <b>Project settings</b> > under <b>Workflow</b> > select <b>Integrations</b>.</li>
+<li>Find the Jira Cloud integration then click <b>⌄</b>.</li>
+<li>Click <b>Test integration</b>.</li>
+</ol>
+</details>
+
 You can then continue to configure the Jira Cloud integration.
 
 ### Configure the Integration
 1. Go to **Project settings** > under **Workflow** > select **Integrations**.
 1. Find the Jira Cloud integration then click **Edit**. 
-1. Configure the following settings as required:
+1. Configure the settings as required.
     
 
