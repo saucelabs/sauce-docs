@@ -25,7 +25,7 @@ Integrate your Backtrace and Atlassian Jira accounts so that you can create and 
     - API Token (required): Jira API Token obtained here. Some Jira instances also support passwords in lieu of API Tokens, but that functionality is deprecated and will be removed.
     - Project Key (required): The Jira Project Key.
     - Issue Type: Jira Issue Type. Defaults to Bug if not present.
-    - Subject (required): Content to put in the "Summary" field of the ticket.
+    - Subject (required): Content to put in the Summary field of the ticket.
     - Custom Field Mapping - Labels: See below
     - Custom Field Mapping - Description: See below
     - Custom Fields: See below
