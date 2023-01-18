@@ -925,7 +925,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Use this capability to select only tablet devices for testing by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
+Use this capability to select only tablet devices for testing by setting it to `"true"`. For [**Dynamic Allocation**](/mobile-apps/automated-testing/appium/real-devices).
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -941,7 +941,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Use this capability to select only phone devices by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
+Use this capability to select only phone devices by setting it to `"true"`. For [**Dynamic Allocation**](/mobile-apps/automated-testing/appium/real-devices).
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -957,7 +957,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-If your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
+If your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For [**Dynamic Allocation**](/mobile-apps/automated-testing/appium/real-devices).
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -973,7 +973,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-If your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
+If your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For [**Dynamic Allocation**](/mobile-apps/automated-testing/appium/real-devices).
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -989,7 +989,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Private Devices Only</span> |</small></p>
 
-Use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
+Use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For [**Dynamic Allocation**](/mobile-apps/automated-testing/appium/real-devices).
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
