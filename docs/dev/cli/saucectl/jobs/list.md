@@ -137,7 +137,7 @@ saucectl jobs list --status passed
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Job source from saucelabs. Options: `vdc`, `rdc` and `api`.
+Job source from saucelabs. Options: `vdc`, `rdc`, and `api`.
 
 ```bash
 saucectl jobs list --source vdc
