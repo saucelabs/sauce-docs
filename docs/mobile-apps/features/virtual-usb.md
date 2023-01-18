@@ -57,7 +57,7 @@ For Virtual USB release history, see our [changelog](https://changelog.saucelabs
 
 <img src={useBaseUrl('img/virtual-usb/vusb-devicename.jpg')} alt="Virtual USB Device Name" width="500" />
 
-The device you choose will be allocated specifically to you while your session is active. Other users in your organization will see it marked **Busy**.
+The device you choose will be allocated specifically to you while your session is active. Other users in your organization will see it marked **In Use**.
 
 As a reminder, vUSB only works on private devices (marked with a <img src={useBaseUrl('img/live-testing/green-icon.png')} alt="Sauce Labs Private Device Icon" width="17" />). A quick way to find your organization's private devices from the device list is to click **Filters** and toggle **Private Devices**.
 
@@ -265,18 +265,20 @@ adb connect localhost:7000
 
 8. Now, you can debug and run tests on your app. For guidance and ideas, see the [Example Use Cases](/mobile-apps/features/virtual-usb/#example-use-cases).
 
+<!-- prettier-ignore-start -->
 :::caution iOS Limitation
 To do proper debugging, the iOS device symbols will need to be downloaded to your local machine. This happens automatically when you're connecting to a Sauce Labs iOS device for the first time via a remote debug vUSB session with Xcode. **Xcode will attempt to download the iOS device symbols over the vUSB tunnel, causing a lag that can last up to a few minutes.**
 
 - **What to Do**: Go to `~/Library/Developer/Xcode/iOS DeviceSupport/` and check the used iOS version of the phone to see if the symbols have been downloaded. The total used space per OS should be more than 1GB. If they are less than 1MB, delete the folder and restart Xcode again so it can re-fetch them.
   This a one-time action that you won't need to do again for future tests.
-  :::
+:::
 
 <br/>
 
 :::caution Android Limitation
 **The `adb-reverse` command is not supported.**
 :::
+<!-- prettier-ignore-end -->
 
 ### Close Test
 
@@ -310,7 +312,6 @@ If you've lost track of your `--sessionId`, you can recover it using the [`sessi
 ```java
 java -jar virtual-usb-client.jar disconnect --sessionId 37D274BC3A65A34BB3DA4DDF7B77E341
 ```
-
 :::
 
 ## Example Use Cases

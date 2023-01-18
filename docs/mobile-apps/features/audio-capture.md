@@ -43,28 +43,31 @@ You will be able to mute and unmute the sound during your session by clicking on
 
 ## Streaming Limitations
 
+<!-- prettier-ignore -->
 :::note Limitations
-
 - Audio Streaming is supported on iOS/iPadOS 13.2 and above.
 - Audio Streaming is supported on Android 10 and above.
 - When Audio Streaming is enabled, we are not attaching the audio to the test results after the session ends.
 - TalkBack Audio verification on Android is not supported.
 - Website testing is not yet available on Android.
-  :::
+:::
 
 ## Using Audio Capture and Streaming on your Android device
 
 You will be able to capture audio on Android 10 and above.
 
+<!-- prettier-ignore-start -->
 :::note
 Once `audioCapture` is enabled, the status bar will display the recording icon.
 :::
 
 We use native Android audio capture for seamless audio capture for our real devices experience. Your test results and sessions are secured, and can only be viewed by you.
+
 :::caution
 If your apps's manifest.xml file defines `android:allowAudioPlaybackCapture="false"`, you need to enable instrumentation to have Audio Capture work for your apps.
 <br/><img src={useBaseUrl('img/mobile-apps/audio_capture_screen3.png')} alt="Mobile app settings navigation" width="800"/>
 :::
+<!-- prettier-ignore-end -->
 
 ## Using Audio Capture on iOS/iPadOS 
 
@@ -83,15 +86,15 @@ curl --compressed \ -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}
 
 ## Limitations
 
+<!-- prettier-ignore -->
 :::note Limitations
-
 - iOS Audio capture for automated test results is supported on iOS/iPadOS 10.1 and above.
 - Android Audio capture for test results is supported on Android 10 and above.
 - When Audio streaming is enabled, we are not attaching the audio to the test results after the session ends.
 - Accessibility and TalkBack on Android are not supported.
 - Emulators and simulators are not supported.
 - Website testing is not yet available on Android.
-  :::
+:::
 
 ## More Information
 

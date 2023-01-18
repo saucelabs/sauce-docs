@@ -45,13 +45,13 @@ Crashes for iOS apps are currently not supported when running real device tests 
 - Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
 - A Backtrace project and an API token with object:get and query:post capabilities.
 
+<!-- prettier-ignore -->
 :::tip Generate an API Token
-
 1. In the Backtrace Console, go to **Project settings > API tokens**.
 1. Click **New**.
 1. Select the **object:get** and **query:post** capabilities.
 1. Click **Create**.
-   :::
+:::
 
 ## Create Custom Attributes
 
