@@ -47,7 +47,7 @@ Lists jobs from Sauce Labs.
 		<tr>
       <td><span className="t-cli"><a href="#--status">--status</a></span></td>
       <td><span className="t-cli">None</span></td>
-			<td>Filter job using status. Options are <code>passed</code>, <code>failed</code>, <code>error</code>, <code>complete</code>, <code>in progress</code> and <code>queued</code>.</td>
+			<td>Filter job using status. Options are <code>passed</code>, <code>failed</code>, <code>error</code>, <code>complete</code>, <code>in progress</code>, and <code>queued</code>.</td>
     </tr>
 		<tr>
       <td><span className="t-cli"><a href="#--source">--source</a></span></td>
