@@ -57,7 +57,7 @@ If you need to change access to a project, you have the following options.
 
 #### Update Teams in Sauce Labs Accounts > Team Management
 
-If access is assigned to a team, you can add or remove team members from the team in Accounts > Team Management. You must be an organization admin to work with teams in Team Management. 
+If access is assigned to a team, you can add or remove team members from the team, which is outside of APIT in the Account area in Sauce Labs (go to Accounts > Team Management). You must be an organization admin to work with teams in Team Management. 
 
 #### Update Project Access in API Testing
 You can create a new project with the access you want, and then delete or rename the original project as follows. You must have team access to the team you want to configure, or be an organization admin to do this. 
