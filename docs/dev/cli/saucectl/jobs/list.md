@@ -52,7 +52,7 @@ Lists jobs from Sauce Labs.
 		<tr>
       <td><span className="t-cli"><a href="#--source">--source</a></span></td>
       <td><span className="t-cli">None</span></td>
-			<td>Job source from Sauce Labs. Options are <code>vdc</code>, <code>rdc</code> and <code>api</code>.</td>
+			<td>Job source from Sauce Labs. Options are <code>vdc</code>, <code>rdc</code>, and <code>api</code>.</td>
     </tr>
   </tbody>
 </table>
