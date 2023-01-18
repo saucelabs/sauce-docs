@@ -10,7 +10,7 @@ Get job details from Sauce Labs.
 
 ## Usage
 
-<span className="cli">$ saucectl jobs get jobID [flags]</span>
+<span className="cli">$ saucectl jobs get JOB_ID [flags]</span>
  
 
 ## Available Options
@@ -34,7 +34,7 @@ Get job details from Sauce Labs.
       <td><span className="t-cli">-r</span></td>
       <td>The Sauce Labs region. Options are <code>us-west-1</code> (default) and <code>eu-central-1</code>.</td>
     </tr>
-	</tbody>
+g</tbody>
 </table>
 
 ## Options Details
