@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Integrate your Backtrace and Atlassian Jira accounts so you can create and update issues in Jira for errors reported to Backtrace.
+Integrate your Backtrace and Atlassian Jira accounts so that you can create and update issues in Jira for errors reported to Backtrace.
 
 ## What You'll Need
 - A Backtrace Account ([log in](https://backtrace.io/login) or [sign up](https://backtrace.io/sign-up) for a free license)
