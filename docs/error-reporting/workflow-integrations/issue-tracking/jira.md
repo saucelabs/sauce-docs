@@ -90,7 +90,7 @@ If you've set up a Backtrace integration with Jira, but are not receiving any ne
 - Are you using e-mail/password or username/password combination instead of e-mail/API Token or username/API Token? API Token can be obtained here.
 - Do you have any required custom fields? If so, you'll need to provide values for these fields within the Custom Fields section of the Backtrace Jira workflow configuration.
 - Are you using an Issue Type other than Bug? If so, make sure to specify this in the Issue Type configuration setting.
-- Does your screen have fields called "labels" and "description"? If one of these is missing, you'll need to specify an alternative for these in the Custom Field Mapping section.
+- Does your screen have fields called Labels and  Description? If one of these is missing, you'll need to specify an alternative for these in the Custom Field Mapping section.
 
 #### Required Jira Fields
 
