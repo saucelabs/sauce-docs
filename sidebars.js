@@ -490,7 +490,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Project Setup',
+                    label: 'Project Settings',
                     link: {
                         type: 'doc',
                         id: 'error-reporting/project-setup/attributes',
@@ -514,8 +514,20 @@ module.exports = {
                         'error-reporting/project-setup/storage-management',
                         'error-reporting/project-setup/data-retention',
                         'error-reporting/project-setup/storage-sampling',
-                        'error-reporting/project-setup/user-mgmnt',
-                        'error-reporting/project-setup/team-mgmnt',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Organization Settings',
+                    link: {
+                        type: 'doc',
+                        id: 'error-reporting/org-settings/user-mgmnt',
+                    },
+                    collapsed: true,
+                    items: [
+                        'error-reporting/org-settings/user-mgmnt',
+                        'error-reporting/org-settings/team-mgmnt',
+                        'error-reporting/org-settings/saml-sso',   
                     ],
                 },
                 {
