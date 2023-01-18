@@ -34,25 +34,25 @@ Lists jobs from Sauce Labs.
       <td><span className="t-cli">-r</span></td>
       <td>The Sauce Labs region. Options are <code>us-west-1</code> (default) and <code>eu-central-1</code>.</td>
     </tr>
-		<tr>
+    <tr>
       <td><span className="t-cli"><a href="#--page">--page</a></span></td>
       <td><span className="t-cli">-p</span></td>
-			<td>Page for pagination. Default is 0.</td>
+      <td>Page for pagination. Default is 0.</td>
     </tr>
-		<tr>
+    <tr>
       <td><span className="t-cli"><a href="#--size">--size</a></span></td>
       <td><span className="t-cli">-s</span></td>
-			<td>Per page for pagination. Default is 20.</td>
+      <td>Per page for pagination. Default is 20.</td>
     </tr>
-		<tr>
+    <tr>
       <td><span className="t-cli"><a href="#--status">--status</a></span></td>
       <td><span className="t-cli">None</span></td>
-			<td>Filter job using status. Options are <code>passed</code>, <code>failed</code>, <code>error</code>, <code>complete</code>, <code>in progress</code>, and <code>queued</code>.</td>
+      <td>Filter job using status. Options are <code>passed</code>, <code>failed</code>, <code>error</code>, <code>complete</code>, <code>in progress</code>, and <code>queued</code>.</td>
     </tr>
-		<tr>
+    <tr>
       <td><span className="t-cli"><a href="#--source">--source</a></span></td>
       <td><span className="t-cli">None</span></td>
-			<td>Job source from Sauce Labs. Options are <code>vdc</code>, <code>rdc</code>, and <code>api</code>.</td>
+      <td>Job source from Sauce Labs. Options are <code>vdc</code>, <code>rdc</code>, and <code>api</code>.</td>
     </tr>
   </tbody>
 </table>
