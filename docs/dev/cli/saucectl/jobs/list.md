@@ -124,7 +124,7 @@ saucectl jobs list --size 20
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Filter job using status. Options: `passed`, `failed`, `error`, `complete`, `in progress` and `queued`.
+Filter job using status. Options: `passed`, `failed`, `error`, `complete`, `in progress`, and `queued`.
 
 ```bash
 saucectl jobs list --status passed
