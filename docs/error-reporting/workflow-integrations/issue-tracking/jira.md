@@ -69,7 +69,7 @@ One-way synchronization  updates from Backtrace issues to Jira, and two-way sync
 The Jira URL generally takes one of the following formats:
 - https://yourhost.yourdomain.com/rest/api/2/
 - https://yourhost.yourdomain.com/jira/rest/api/2/
-- https://yourname.atlassian.net/rest/api/2/ (for Atlassian-hosted Jira sites)
+- https:<span>//yourname.atlassian.net/rest/api/2/</span> (for Atlassian-hosted Jira sites)
 
 Atlassian now also offers a v3 API that is currently in Beta, at this time v3 is not currently supported. Be sure to use a v2 endpoint.
 
