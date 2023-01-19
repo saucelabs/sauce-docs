@@ -4,6 +4,7 @@ title: Flame Graphs
 sidebar_label: Flame Graphs
 description: Allows you visualize a large collection of stack traces in the Explore view.
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -16,8 +17,8 @@ Below is an example flame graph of real instability data of our object store fro
 
 <img src={useBaseUrl('img/error-reporting/console-views/explore-view-flame-graphs.png')} alt="Shows an example flame graph of real instability data of our object store from development, experimental and production release channels." />
 
-
 ## Introduction
+
 This section provides a brief summary of the flame graph. If you are already familiar with flame graphs, you may skip this section. A deeper introduction to flame graphs is available at [ACM Queue](https://queue.acm.org/detail.cfm?id=2927301), written by Brendan Gregg. We will demonstrate the flame graph by example.
 
 Below is a flame graph for one stack trace a -> b -> c -> d, where a is the outer-most function. In other words, a calls into b calls into c calls into d.

@@ -4,14 +4,15 @@ title: Measuring Your Test Coverage
 sidebar_label: Coverage
 description: See a breakdown of the browser and device variations covered by your tests.
 ---
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The Coverage report allows Org Admins to view and download the breakdown of browsers and mobile devices the tests across their organization have run against. Having insight into your coverage data helps companies:
 
-* See at a glance whether their testing is in sync with the environments in which it is most often accessed
-* Evaluate how evenly tests are being distributing across browsers and devices
-* Design their test strategy to keep up with newly released browser and device versions
-* Utilize their concurrency to spread testing across test environments for greater efficiency and comprehensiveness
+- See at a glance whether their testing is in sync with the environments in which it is most often accessed
+- Evaluate how evenly tests are being distributing across browsers and devices
+- Design their test strategy to keep up with newly released browser and device versions
+- Utilize their concurrency to spread testing across test environments for greater efficiency and comprehensiveness
 
 :::note Org Admins Only
 You must have [Org Admin](/basics/acct-team-mgmt/managing-user-info/#user-roles) privileges for your organization in order to view and download coverage data.
@@ -40,7 +41,6 @@ By default, coverage is shown in descending order based on the number of tests r
 <img src={useBaseUrl('img/insights/sorting.png')} alt="Edit Sort Order" width="600"/>
 
 As the image shows, sorting by the **Name** column sorts the data alphabetically by the name of the browser or device, allowing you to quickly discern how much coverage a particular environment has in your testing.
-
 
 ## Downloading Your Report
 

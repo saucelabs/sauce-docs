@@ -16,12 +16,10 @@ These calls are specific to jobs running in simulation. For methods related to R
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
-
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
-
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 
 ## Jobs Methods
 
@@ -152,6 +150,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     },
     {...},
 ```
+
 </details>
 
 ---
@@ -263,6 +262,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "browser": "googlechrome"
 }
 ```
+
 </details>
 
 ---
@@ -458,6 +458,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "browser": "chrome"
 }
 ```
+
 </details>
 
 ---
@@ -561,6 +562,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "browser": "googlechrome"
 }
 ```
+
 </details>
 
 ---
@@ -717,6 +719,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     ]
 }
 ```
+
 </details>
 
 ---
@@ -796,161 +799,162 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location --compressed \
 </table>
 
 ```jsx title="Sample Response"
-[
-    {
-        "lighthouseVersion": "6.3.0",
-        "timestamp": 1618922245243,
-        "loaderId": "806270ED1EF8FA367C4CDC4083079F32",
-        "score": 0.61,
-        "url": "https://www.paypal.com/",
-        "value": {
-            "mainThreadWorkBreakdown": [
-                {
-                    "group": "scriptEvaluation",
-                    "duration": 498
-                },
-                {
-                    "group": "other",
-                    "duration": 304
-                },
-                {
-                    "group": "styleLayout",
-                    "duration": 236
-                },
-                {
-                    "group": "paintCompositeRender",
-                    "duration": 102
-                },
-                {
-                    "group": "parseHTML",
-                    "duration": 24
-                },
-                {
-                    "group": "garbageCollection",
-                    "duration": 22
-                },
-                {
-                    "group": "scriptParseCompile",
-                    "duration": 18
-                }
-            ],
-            "diagnostics": {
-                "numRequests": 33,
-                "numScripts": 12,
-                "numStylesheets": 1,
-                "numFonts": 4,
-                "numTasks": 266,
-                "numTasksOver10ms": 16,
-                "numTasksOver25ms": 7,
-                "numTasksOver50ms": 5,
-                "numTasksOver100ms": 2,
-                "numTasksOver500ms": 0,
-                "rtt": 8,
-                "throughput": 1446875.3581661892,
-                "maxRtt": 26,
-                "maxServerLatency": 581,
-                "totalByteWeight": 3646672,
-                "totalTaskTime": 1204,
-                "mainDocumentTransferSize": 37202
-            },
-            "metrics": {
-                "estimatedInputLatency": 19,
-                "timeToFirstByte": 572,
-                "serverResponseTime": 572,
-                "domContentLoaded": 4057,
-                "firstVisualChange": 4111,
-                "firstPaint": 4115,
-                "firstContentfulPaint": 4115,
-                "firstMeaningfulPaint": 4115,
-                "lastVisualChange": 17642,
-                "firstCPUIdle": 7608,
-                "firstInteractive": 7608,
-                "load": 5043,
-                "speedIndex": 6431,
-                "totalBlockingTime": 200,
-                "largestContentfulPaint": 4115,
-                "cumulativeLayoutShift": 0
-            },
-            "scoreOverview": {
-                "firstContentfulPaint": {
-                    "score": 0.47,
-                    "value": 4114.5,
-                    "weight": 15
-                },
-                "speedIndex": {
-                    "score": 0.4,
-                    "value": 6431,
-                    "weight": 15
-                },
-                "largestContentfulPaint": {
-                    "score": 0.47,
-                    "value": 4114.5,
-                    "weight": 25
-                },
-                "firstInteractive": {
-                    "score": 0.47,
-                    "value": 7607.5,
-                    "weight": 15
-                },
-                "totalBlockingTime": {
-                    "score": 0.97,
-                    "value": 200,
-                    "weight": 25
-                },
-                "cumulativeLayoutShift": {
-                    "score": 1,
-                    "value": 0,
-                    "weight": 5
-                }
-            },
-            "requestTypes": {
-                "Document": {
-                    "size": 106595,
-                    "encoded": 0,
-                    "count": 1
-                },
-                "Font": {
-                    "size": 73360,
-                    "encoded": 0,
-                    "count": 4
-                },
-                "Stylesheet": {
-                    "size": 316022,
-                    "encoded": 0,
-                    "count": 1
-                },
-                "Image": {
-                    "size": 191384,
-                    "encoded": 0,
-                    "count": 7
-                },
-                "Script": {
-                    "size": 1587992,
-                    "encoded": 0,
-                    "count": 12
-                },
-                "XHR": {
-                    "size": 39994,
-                    "encoded": 0,
-                    "count": 2
-                },
-                "Other": {
-                    "size": 6876,
-                    "encoded": 0,
-                    "count": 2
-                },
-                "Media": {
-                    "size": 1360299,
-                    "encoded": 0,
-                    "count": 2
-                }
-            },
-            "warnings": {}
-        },
-        "type": "hard"
-    }
+;[
+{
+lighthouseVersion: '6.3.0',
+timestamp: 1618922245243,
+loaderId: '806270ED1EF8FA367C4CDC4083079F32',
+score: 0.61,
+url: 'https://www.paypal.com/',
+value: {
+mainThreadWorkBreakdown: [
+{
+group: 'scriptEvaluation',
+duration: 498
+},
+{
+group: 'other',
+duration: 304
+},
+{
+group: 'styleLayout',
+duration: 236
+},
+{
+group: 'paintCompositeRender',
+duration: 102
+},
+{
+group: 'parseHTML',
+duration: 24
+},
+{
+group: 'garbageCollection',
+duration: 22
+},
+{
+group: 'scriptParseCompile',
+duration: 18
+}
+],
+diagnostics: {
+numRequests: 33,
+numScripts: 12,
+numStylesheets: 1,
+numFonts: 4,
+numTasks: 266,
+numTasksOver10ms: 16,
+numTasksOver25ms: 7,
+numTasksOver50ms: 5,
+numTasksOver100ms: 2,
+numTasksOver500ms: 0,
+rtt: 8,
+throughput: 1446875.3581661892,
+maxRtt: 26,
+maxServerLatency: 581,
+totalByteWeight: 3646672,
+totalTaskTime: 1204,
+mainDocumentTransferSize: 37202
+},
+metrics: {
+estimatedInputLatency: 19,
+timeToFirstByte: 572,
+serverResponseTime: 572,
+domContentLoaded: 4057,
+firstVisualChange: 4111,
+firstPaint: 4115,
+firstContentfulPaint: 4115,
+firstMeaningfulPaint: 4115,
+lastVisualChange: 17642,
+firstCPUIdle: 7608,
+firstInteractive: 7608,
+load: 5043,
+speedIndex: 6431,
+totalBlockingTime: 200,
+largestContentfulPaint: 4115,
+cumulativeLayoutShift: 0
+},
+scoreOverview: {
+firstContentfulPaint: {
+score: 0.47,
+value: 4114.5,
+weight: 15
+},
+speedIndex: {
+score: 0.4,
+value: 6431,
+weight: 15
+},
+largestContentfulPaint: {
+score: 0.47,
+value: 4114.5,
+weight: 25
+},
+firstInteractive: {
+score: 0.47,
+value: 7607.5,
+weight: 15
+},
+totalBlockingTime: {
+score: 0.97,
+value: 200,
+weight: 25
+},
+cumulativeLayoutShift: {
+score: 1,
+value: 0,
+weight: 5
+}
+},
+requestTypes: {
+Document: {
+size: 106595,
+encoded: 0,
+count: 1
+},
+Font: {
+size: 73360,
+encoded: 0,
+count: 4
+},
+Stylesheet: {
+size: 316022,
+encoded: 0,
+count: 1
+},
+Image: {
+size: 191384,
+encoded: 0,
+count: 7
+},
+Script: {
+size: 1587992,
+encoded: 0,
+count: 12
+},
+XHR: {
+size: 39994,
+encoded: 0,
+count: 2
+},
+Other: {
+size: 6876,
+encoded: 0,
+count: 2
+},
+Media: {
+size: 1360299,
+encoded: 0,
+count: 2
+}
+},
+warnings: {}
+},
+type: 'hard'
+}
 ]
 ```
+
 </details>
 
 ---
@@ -1034,10 +1038,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
                                Dload  Upload   Total   Spent    Left  Speed
 100     9    0     9    0     0     18      0 --:--:-- --:--:-- --:--:--    18
 ```
+
 </details>
 
 ---
-
 
 ### Delete Job Assets
 
@@ -1108,57 +1112,22 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </table>
 
 ```jsx title="Sample Response"
-[
-    [
-        "0000screenshot.png",
-        11305
-    ],
-    [
-        "0001screenshot.png",
-        55109
-    ],
-    [
-        "0002screenshot.png",
-        55109
-    ],
-    [
-        "_crmuxdriver.log",
-        100136
-    ],
-    [
-        "_lhr_806270ED1EF8FA367C4CDC4083079F32.json.gz",
-        46316
-    ],
-    [
-        "_tracelog_806270ED1EF8FA367C4CDC4083079F32.json.gz",
-        1690435
-    ],
-    [
-        "automator.log",
-        281824
-    ],
-    [
-        "log.json",
-        6201
-    ],
-    [
-        "network.har",
-        14118
-    ],
-    [
-        "performance.json",
-        4812
-    ],
-    [
-        "selenium-server.log",
-        341436
-    ],
-    [
-        "video.mp4",
-        210140
-    ]
+;[
+['0000screenshot.png', 11305],
+['0001screenshot.png', 55109],
+['0002screenshot.png', 55109],
+['_crmuxdriver.log', 100136],
+['_lhr_806270ED1EF8FA367C4CDC4083079F32.json.gz', 46316],
+['_tracelog_806270ED1EF8FA367C4CDC4083079F32.json.gz', 1690435],
+['automator.log', 281824],
+['log.json', 6201],
+['network.har', 14118],
+['performance.json', 4812],
+['selenium-server.log', 341436],
+['video.mp4', 210140]
 ]
 ```
+
 </details>
 
 ---
@@ -1168,7 +1137,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <p><span className="sauceGold">DEPRECATED</span></p>
 
 Builds are now available to both RDC and VDC jobs. See the new [Builds API](/dev/api/builds) for endpoints that incorporate this enhancement.
-
 
 ### Get Builds
 
@@ -1266,6 +1234,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     {...}
 ]
 ```
+
 </details>
 
 ---

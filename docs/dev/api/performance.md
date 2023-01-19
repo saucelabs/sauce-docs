@@ -12,7 +12,6 @@ The Performance API methods allow you to manage your front-end performance testi
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
-
 ### Get Performance Test Results
 
 <details><summary><span className="api get">GET</span> <code>/v2/performance/metrics/</code></summary>
@@ -128,6 +127,7 @@ curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/perform
     }
 }
 ```
+
 </details>
 
 ---
@@ -267,6 +267,7 @@ curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/perform
     ]
 }
 ```
+
 </details>
 
 ---
@@ -365,6 +366,7 @@ curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/perform
     }
 }
 ```
+
 </details>
 
 ---
@@ -484,6 +486,7 @@ curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/perform
     }
 }
 ```
+
 </details>
 
 ---
@@ -552,6 +555,7 @@ curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/perform
     "result": false
 }
 ```
+
 </details>
 
 ---
@@ -699,6 +703,7 @@ curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/perform
   "job_ids": []
 }
 ```
+
 </details>
 
 ---
@@ -1056,6 +1061,7 @@ curl --location --request GET 'https://api.eu-central-1.saucelabs.com/v2/perform
     ]
 }
 ```
+
 </details>
 
 ---

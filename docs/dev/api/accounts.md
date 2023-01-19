@@ -101,6 +101,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     ]
 }
 ```
+
 </details>
 
 ---
@@ -122,7 +123,6 @@ Returns the full profile of the specified team. The `ID` of the team is the only
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -195,6 +195,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "links": {...}
 }
 ```
+
 </details>
 
 ---
@@ -227,8 +228,6 @@ Creates a new team under the organization of the requesting account.
      <td><p><small>| BODY | REQUIRED | OBJECT |</small></p><p>The settings object specifies the concurrency allocations for the team within the organization. The available attributes are:
      <ul>
       <li><code>virtual_machines</code> - <small>INTEGER</small></li>
-      <li><code>real_devices</code> - <small>INTEGER</small></li>
-      <li><code>live_only</code> - <small>BOOLEAN</small> Defaults to <code>false</code>.</li>
     </ul>
     </p><p>The <code>settings</code> parameter is required, but you only need to include the applicable concurrency attribute(s) for the team.</p></td>
     </tr>
@@ -321,6 +320,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "links": {...}
 }
 ```
+
 </details>
 
 ---
@@ -422,8 +422,6 @@ Replaces all values of the specified team with the new set of parameters passed 
      <td><p><small>| BODY | REQUIRED | OBJECT |</small></p><p>The updated concurrency allocations for the team. The available attributes are:
       <ul>
         <li><code>virtual_machines</code> - <small>INTEGER</small></li>
-        <li><code>real_devices</code> - <small>INTEGER</small></li>
-        <li><code>live_only</code> - <small>BOOLEAN</small> Defaults to <code>false</code>.</li>
       </ul>
       </p><p>The <code>settings</code> parameter is required, but you only need to include the applicable concurrency attribute(s) for the team.</p></td>
     </tr>
@@ -435,7 +433,6 @@ Replaces all values of the specified team with the new set of parameters passed 
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -521,6 +518,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "links": {...}
 }
 ```
+
 </details>
 
 ---
@@ -553,8 +551,6 @@ Updates one or more individual editable parameters (such as the concurrency allo
       <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>The updated concurrency allocations for the team. The available attributes are:
         <ul>
           <li><code>virtual_machines</code> - <small>INTEGER</small></li>
-          <li><code>real_devices</code> - <small>INTEGER</small></li>
-          <li><code>live_only</code> - <small>BOOLEAN</small> Defaults to <code>false</code>.</li>
         </ul></p>
       </td>
     </tr>
@@ -606,7 +602,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </TabItem>
 </Tabs>
 
-
 #### Responses
 
 <table id="table-api">
@@ -648,6 +643,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "links": {...}
 }
 ```
+
 </details>
 
 ---
@@ -724,6 +720,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "results": []
 }
 ```
+
 </details>
 
 ---
@@ -798,8 +795,9 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </table>
 
 ```jsx title="Sample Response"
-[]
+;[]
 ```
+
 </details>
 
 ---
@@ -942,6 +940,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     ]
 }
 ```
+
 </details>
 
 ---
@@ -1030,6 +1029,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "is_team_admin": false
 }
 ```
+
 </details>
 
 ---
@@ -1106,7 +1106,6 @@ Creates a new user in the Sauce Labs platform.
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -1222,6 +1221,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "is_team_admin": true
 }
 ```
+
 </details>
 
 ---
@@ -1361,6 +1361,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     ]
 }
 ```
+
 </details>
 
 ---
@@ -1433,7 +1434,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/' \
+--request PATCH 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "first_name": "Jimmy"
@@ -1502,6 +1503,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "is_team_admin": false
 }
 ```
+
 </details>
 
 ---
@@ -1658,10 +1660,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 }
 
 ```
+
 </details>
 
 ---
-
 
 ### Get a User's Team
 
@@ -1750,6 +1752,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     ]
 }
 ```
+
 </details>
 
 ---
@@ -1885,6 +1888,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "updated_at": "2020-12-30T17:21:52.344961Z"
 }
 ```
+
 </details>
 
 ---
@@ -1978,6 +1982,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "is_team_admin": false
 }
 ```
+
 </details>
 
 ---
@@ -1988,7 +1993,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <p/>
 
 Assigns administrator rights to the user within their current team. If the user is currently assigned an Org Admin role, this call would reduce the rights to only those of a Team Admin.
-
 
 #### Parameters
 
@@ -2072,10 +2076,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "is_team_admin": true
 }
 ```
+
 </details>
 
 ---
-
 
 ### Remove Admin Rights from User
 
@@ -2083,7 +2087,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <p/>
 
 Assigns the `member` role to the user. If the user is currently assigned any Admin rights, this call removes those rights.
-
 
 #### Parameters
 
@@ -2167,10 +2170,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "is_team_admin": false
 }
 ```
+
 </details>
 
 ---
-
 
 ### Get a User's Access Key
 
@@ -2178,7 +2181,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <p/>
 
 Retrieves the Sauce Labs access key for the specified user.
-
 
 #### Parameters
 
@@ -2243,6 +2245,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "access_key": "********-****-****-****-************"
 }
 ```
+
 </details>
 
 ---
@@ -2257,7 +2260,6 @@ Creates a new auto-generated access key for the specified user.
 :::warning
 Regenerating an access key invalidates the previous value and any tests containing the prior value will fail, so make sure you update any tests and credential environment variables with the new value.
 :::
-
 
 #### Parameters
 
@@ -2322,6 +2324,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "access_key": "********-****-****-****-************"
 }
 ```
+
 </details>
 
 ---
@@ -2417,10 +2420,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "is_team_admin": false
 }
 ```
+
 </details>
 
 ---
-
 
 ### Activate a User
 
@@ -2513,6 +2516,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "is_team_admin": false
 }
 ```
+
 </details>
 
 ---

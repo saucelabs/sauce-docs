@@ -3,16 +3,16 @@ id: company-settings
 title: Company Settings
 sidebar_label: Company Settings
 keywords:
-    - api
-    - api-fortress
-    - company-settings
+- api
+- api-fortress
+- company-settings
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -38,11 +38,10 @@ In the **Account** page, you can see information about the company:
 
 <img src={useBaseUrl('img/api-fortress/2020/13/newAccount.jpg')} alt="newAccount.jpg"/>
 
-
-* **Contract**: the contract type of your account.
-* **Monthly Events**: the number of executions so far for the current month.
-* **Monthly API Downloads**: how many times tests downloaded a web service.
-* **Overall documents**: the number of documents generated and still available for consultation.
+- **Contract**: the contract type of your account.
+- **Monthly Events**: the number of executions so far for the current month.
+- **Monthly API Downloads**: how many times tests downloaded a web service.
+- **Overall documents**: the number of documents generated and still available for consultation.
 
 ## Users
 
@@ -54,10 +53,10 @@ By clicking '**+ User**' you will be presented a popup:
 
 <img src={useBaseUrl('img/api-fortress/2020/13/newadduser.jpg')} alt="newadduser.jpg"/>
 
-* **e-mail**: the email address of the user you want to add.
-* **Full Name**: the name of the user.
-* **Time Zone**: the Time Zone of the user.
-* **Level**: the permission level of the user: as 'Manager' the user will have access to company settings, tests and analytics. As 'Developer' the user will have access to tests and analytics. As 'analyst' only analytics will be made available.
+- **e-mail**: the email address of the user you want to add.
+- **Full Name**: the name of the user.
+- **Time Zone**: the Time Zone of the user.
+- **Level**: the permission level of the user: as 'Manager' the user will have access to company settings, tests and analytics. As 'Developer' the user will have access to tests and analytics. As 'analyst' only analytics will be made available.
 
 ## Notification
 

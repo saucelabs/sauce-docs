@@ -13,9 +13,9 @@ The Selenium browser automation tool allows you to write test code that runs thr
 
 ## What You’ll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username](https://app.saucelabs.com/user-settings).
-* A working development environment for one of the supported Selenium languages: Java, C#, Python, or Ruby.
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- Your Sauce Labs [Username](https://app.saucelabs.com/user-settings).
+- A working development environment for one of the supported Selenium languages: Java, C#, Python, or Ruby.
 
 :::tip
 Selenium has JavaScript bindings, but we recommend using [WebdriverIO](https://webdriver.io) when running tests on Sauce Labs.
@@ -28,14 +28,16 @@ Selenium is built on a **client-server architecture**, which includes both clien
 The current API used by Selenium servers and browser drivers is defined in the
 [W3C WebDriver specification](https://w3c.github.io/webdriver/) and communicated
 between the components using HTTP commands.
-* The client code, specifically the Remote WebDriver class contains the methods that implement the API for automating the browser.
+
+- The client code, specifically the Remote WebDriver class contains the methods that implement the API for automating the browser.
   Selenium translates this code into the HTTPS commands defined by the W3C, and sends
   this information to a server.
-* The Selenium Server receives the HTTP commands that were sent by the Selenium client.
+- The Selenium Server receives the HTTP commands that were sent by the Selenium client.
   This server can be in standalone mode, or in a grid mode with different servers set as hubs and nodes.
   The server forwards the commands to the browser driver, which ultimately controls how the browser is automated. For more information about Selenium Grid, see [Selenium Grid and Sauce Labs](/web-apps/automated-testing/selenium/selenium-grid/).
 
 #### For Sauce Labs, it looks like this:
+
 <img src={useBaseUrl('img/selenium/selenium-diagram.png')} alt="Diagram of Selenium and Sauce Labs"/>
 
 ## Seven Steps of Selenium Tests
@@ -63,12 +65,13 @@ Remote WebDriver classes are instantiated with the URL of the server or service 
 #### Define Capabilities
 
 The way to define capabilities in recent versions of Selenium is with browser options classes. These classes are designed to ensure users have [W3C WebDriver-compliant capabilities](/dev/w3c-webdriver-capabilities/). The configurations set on these classes do one of two things:
-* Ensure you have the session you want (e.g., browser name, browser version, operating system).
-* Set the behavior you want in your session. There are three types of options that set behavior:
-  * [Common options](/dev/test-configuration-options/#browser-w3c-capabilities--optional):
+
+- Ensure you have the session you want (e.g., browser name, browser version, operating system).
+- Set the behavior you want in your session. There are three types of options that set behavior:
+  - [Common options](/dev/test-configuration-options/#browser-w3c-capabilities--optional):
     these include things such as page load timeouts, and insecure certificate behavior.
-  * [Browser options](/dev/test-configuration-options/#browser-vendor-capabilities)
-  * Sauce Labs options: see [Test Configuration](/dev/test-configuration-options)
+  - [Browser options](/dev/test-configuration-options/#browser-vendor-capabilities)
+  - Sauce Labs options: see [Test Configuration](/dev/test-configuration-options)
     for a complete guide to our available capabilities.
 
 :::note
@@ -78,14 +81,14 @@ Selenium has moved away from "Desired Capabilities" classes to Browser Options c
 The following example shows the instantiation of a Sauce Labs session with a driver object instance, using authentication values and the OS/Browser targets for a test written in Selenium 4.0:
 
 <Tabs
-  groupId="lang-ex"
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+groupId="lang-ex"
+defaultValue="Java"
+values={[
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
 
 <TabItem value="Java">
 
@@ -117,26 +120,23 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 </TabItem>
 </Tabs>
 
-
 :::tip Use Credential Environment Variables
 Set your Sauce Labs account credentials as [environment variables](/basics/environment-variables) rather than hard-coding them into all your scripts for efficiency and to protect them from unintended exposure.
 :::
-
 
 ### Step 2: Navigate to a Web Page
 
 Invoke the `get` method on your WedDriver instance, using the variable name you assigned, and pass the URL of the web page containing the element you wish to test as an argument. The following gets our Swag Labs login page:
 
-
 <Tabs
-  groupId="lang-ex"
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+groupId="lang-ex"
+defaultValue="Java"
+values={[
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
 
 <TabItem value="Java">
 
@@ -170,7 +170,6 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 For more information, see the [Selenium documentation on Browser Navigation](https://www.selenium.dev/documentation/webdriver/browser_manipulation/#browser-navigation).
 
-
 ### Step 3: Locate an HTML Element on a Web Page
 
 Once the test script accesses the page to test, it needs to find the elements that an end user would interact with. In this case, the Login text fields and **Submit** button.
@@ -179,19 +178,47 @@ To find an element, we need to right-click on the elements we are interested in 
 
 ```html title="Login Form HTML"
 <html>
- <body>
- ...
-  <form>
-    <div class="form_group">
-      <input class="input_error form_input" placeholder="Username" type="text" data-test="username" id="user-name" name="user-name" autocorrect="off" autocapitalize="none" value="">
-    </div>
-    <div class="form_group">
-      <input class="input_error form_input" placeholder="Password" type="password" data-test="password" id="password" name="password" autocorrect="off" autocapitalize="none" value="">
-    </div>
-    <div class="error-message-container"></div>
-      <input type="submit" class="submit-button btn_action" data-test="login-button" id="login-button" name="login-button" value="Login">
-  </form> ...
- </body>
+<body>
+...
+<form>
+<div class="form_group">
+<input
+class="input_error form_input"
+placeholder="Username"
+type="text"
+data-test="username"
+id="user-name"
+name="user-name"
+autocorrect="off"
+autocapitalize="none"
+value=""
+/>
+</div>
+<div class="form_group">
+<input
+class="input_error form_input"
+placeholder="Password"
+type="password"
+data-test="password"
+id="password"
+name="password"
+autocorrect="off"
+autocapitalize="none"
+value=""
+/>
+</div>
+<div class="error-message-container"></div>
+<input
+type="submit"
+class="submit-button btn_action"
+data-test="login-button"
+id="login-button"
+name="login-button"
+value="Login"
+/>
+</form>
+...
+</body>
 </html>
 ```
 
@@ -199,13 +226,13 @@ To find an element, we need to right-click on the elements we are interested in 
 
 Selenium provides multiple [element selection strategies](https://www.selenium.dev/documentation/en/webdriver/locating_elements/#element-selection-strategies), which include identifying an element by:
 
-* A specific **attribute** value, such as the value of `name` or `id`.
-* The **tag name** of the element, such as `div` or `button`.
-* **Visible text**; this only applies to anchor elements, such as `Sauce Labs`
+- A specific **attribute** value, such as the value of `name` or `id`.
+- The **tag name** of the element, such as `div` or `button`.
+- **Visible text**; this only applies to anchor elements, such as `Sauce Labs`
   in `<a href="https://www.saucelabs.com">Sauce Labs</a>`.
-* A [**CSS** selector](https://www.w3.org/TR/selectors-3/#selectors),
+- A [**CSS** selector](https://www.w3.org/TR/selectors-3/#selectors),
   such as `[placeholder="Username"]`.
-* An [**XPath** expression](https://www.w3.org/TR/1999/REC-xpath-19991116/#location-paths), such as `//input[@placeholder="Username"]`.
+- An [**XPath** expression](https://www.w3.org/TR/1999/REC-xpath-19991116/#location-paths), such as `//input[@placeholder="Username"]`.
 
 :::tip Identifying Elements in HTML
 
@@ -215,14 +242,14 @@ Learn to use CSS Selectors! Selenium 4.0 converts most of the supported selector
 Most of the elements in our Swag Labs example have multiple unique attributes that make it easy to identify them with CSS.
 
 <Tabs
-  groupId="lang-ex"
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+groupId="lang-ex"
+defaultValue="Java"
+values={[
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
 
 <TabItem value="Java">
 
@@ -254,9 +281,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 </TabItem>
 </Tabs>
 
-
 For more information, see the [Selenium documentation on Locating Elements](https://www.selenium.dev/documentation/en/webdriver/locating_elements).
-
 
 #### Finder Methods
 
@@ -269,14 +294,14 @@ Regardless of the language, changing the method name from "element" to "elements
 The following example invokes the finder method on the driver instance to locate the elements for which we defined locators in the last section:
 
 <Tabs
-  groupId="lang-ex"
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+groupId="lang-ex"
+defaultValue="Java"
+values={[
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
 
 <TabItem value="Java">
 
@@ -307,7 +332,6 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 </TabItem>
 </Tabs>
-
 
 For more information, see the [Selenium documentation on the Find Element](https://www.selenium.dev/documentation/en/webdriver/web_element/#find-element).
 
@@ -340,14 +364,14 @@ Mixing implicit and explicit waits can cause unpredictable outcomes, which is an
 Each language implements this slightly differently. Java and Python have Expected Conditions classes, but the recommended approach in all languages at this point is to use a lambda expression, like so:
 
 <Tabs
-  groupId="lang-ex"
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+groupId="lang-ex"
+defaultValue="Java"
+values={[
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
 
 <TabItem value="Java">
 
@@ -385,10 +409,10 @@ For more information, see the [Selenium documentation on Waits](https://www.sele
 
 Invoke an interaction method on an instance of the WebElement interface to simulate the user's interaction with the website elements you have located. The basic interactions include:
 
-* The "send keys" method to enter text into an input field
-* The "clear" method to clear entered text from an input field
-* The "click" method to simulate a mouse down action on any element
-* The "submit" method will submit a form
+- The "send keys" method to enter text into an input field
+- The "clear" method to clear entered text from an input field
+- The "click" method to simulate a mouse down action on any element
+- The "submit" method will submit a form
 
 :::caution
 The "submit" method does not accurately simulate how a user would submit the form, so it is recommended to click the **Submit** button instead.
@@ -398,14 +422,14 @@ The following example automates a user login by sending keys to the username and
 and clicking the **Submit** button:
 
 <Tabs
-  groupId="lang-ex"
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+groupId="lang-ex"
+defaultValue="Java"
+values={[
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
 
 <TabItem value="Java">
 
@@ -437,20 +461,19 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 </TabItem>
 </Tabs>
 
-
 ### Step 5: Assert a Result
 
 You can not have a test without an assertion. Each test should have something specific it is validating and have at least one explicit line of code to ensure that this functionality is working as intended. What makes a test successful and how to evaluate success requires docs-1.1 knowledge and can be more art than science.
 
 <Tabs
-  groupId="lang-ex"
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+groupId="lang-ex"
+defaultValue="Java"
+values={[
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
 
 <TabItem value="Java">
 
@@ -494,14 +517,14 @@ To see your results on Sauce Labs, navigate to the [**AUTOMATED** > **Test Resul
 Since Sauce Labs doesn't know what you are asserting in your code, we rely on users to send us the information. One approach is with JavaScript before you end your session:
 
 <Tabs
-  groupId="lang-ex"
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+groupId="lang-ex"
+defaultValue="Java"
+values={[
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
 
 <TabItem value="Java">
 
@@ -535,25 +558,24 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 </TabItem>
 </Tabs>
 
-
 ### Step 7: End the Session
 
 It is important to remember to close the browser when you are done with it by calling the quit method on the Remote WebDriver instance.
 
-* quits the browser, closing all windows.
-* ends the Sauce session allowing timely processing of results and storage of artifacts.
+- quits the browser, closing all windows.
+- ends the Sauce session allowing timely processing of results and storage of artifacts.
 
 The following examples invokes the quit method on the driver variable:
 
 <Tabs
-  groupId="lang-ex"
-  defaultValue="Java"
-  values={[
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+groupId="lang-ex"
+defaultValue="Java"
+values={[
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
 
 <TabItem value="Java">
 
@@ -599,6 +621,7 @@ Compare these equivalent Java implementations:
 ```java reference title="Complete Selenium Example"
 https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#
 ```
+
 </details>
 
 <details>
@@ -609,6 +632,7 @@ https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/
 ```java reference title="Simplify With Sauce Bindings"
 https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/src/test/java/com/saucedemo/selenium/login/SauceBindingsLoginTest.java
 ```
+
 </details>
 
 ## Scaling Tests
@@ -618,20 +642,22 @@ The example is a simple one, and only creating a number of files just like it on
 Scaling up tests requires at a minimum a test runner, and even better a more fully featured testing library. These tools allow for better abstractions and less code duplication in your tests, as well as the ability to run tests in parallel instead of just sequentially.
 
 Test Runners include:
-* Java - JUnit 5, JUnit 4, TestNG
-* Python - pyTest, unittest
-* Ruby - RSpec, Cucumber
-* .NET - NUnit, MSTest
+
+- Java - JUnit 5, JUnit 4, TestNG
+- Python - pyTest, unittest
+- Ruby - RSpec, Cucumber
+- .NET - NUnit, MSTest
 
 Testing Libraries include:
-* Java - Selenide, FluentLenium, QAF
-* Python - Nerodia, Helium, SeleniumBase
-* Ruby - Capybara, Watir
-* JavaScript - WebdriverIO, Nightwatch.js, CodeceptJS
+
+- Java - Selenide, FluentLenium, QAF
+- Python - Nerodia, Helium, SeleniumBase
+- Ruby - Capybara, Watir
+- JavaScript - WebdriverIO, Nightwatch.js, CodeceptJS
 
 The [Sauce Labs Training Repo](https://github.com/saucelabs-training) contains an extensive selection of demonstration scripts illustrating parallel testing in different frameworks and programming language combinations.
 
-
 ## Selenium Resources
-* [Selenium HQ](https://www.selenium.dev): Official Selenium website and documentation.
-* [How to Run a Selenium Test on Sauce Labs](https://www.youtube.com/watch?v=qq1WCsAMZsk): Automated testing guru Joe Colantonio demonstrates how to run a Selenium Test with Sauce Labs.
+
+- [Selenium HQ](https://www.selenium.dev): Official Selenium website and documentation.
+- [How to Run a Selenium Test on Sauce Labs](https://www.youtube.com/watch?v=qq1WCsAMZsk): Automated testing guru Joe Colantonio demonstrates how to run a Selenium Test with Sauce Labs.

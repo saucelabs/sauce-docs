@@ -4,7 +4,6 @@ title: Sauce Labs CLI Reference
 sidebar_label: Getting Started
 description: Documentation for using the various CLI tools Sauce Labs offers
 hide_table_of_contents: true
-
 ---
 
 <div>

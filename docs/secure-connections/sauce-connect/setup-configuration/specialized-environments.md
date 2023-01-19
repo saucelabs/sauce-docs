@@ -3,25 +3,24 @@ id: specialized-environments
 title: Specialized Environment Setups
 sidebar_label: Specialized Environment Setups
 ---
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## What You'll Need
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-  * We recommend setting these values as [environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/) to protect your username and api key from exposure, and also for future convenience.
-* The name of your closest regional Sauce Labs Data Center (see the [SC CLI](/dev/cli/sauce-connect-proxy/#--region) and [Data Center Endpoints](/basics/data-center-endpoints/).
-* For the Docker Setup, you'll need to have [Docker installed and configured](https://docs.docker.com/get-docker/).
 
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+  - We recommend setting these values as [environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/) to protect your username and api key from exposure, and also for future convenience.
+- The name of your closest regional Sauce Labs Data Center (see the [SC CLI](/dev/cli/sauce-connect-proxy/#--region) and [Data Center Endpoints](/basics/data-center-endpoints/).
+- For the Docker Setup, you'll need to have [Docker installed and configured](https://docs.docker.com/get-docker/).
 
 ## Real Device Cloud Setup
 
 Real Device Cloud on Sauce Labs offers public and private mobile devices for users looking to expedite automated and live testing for their mobile apps. You can run a high volume of tests across a broad range of real devices without compromising performance, quality, or reliability.
 
 With Sauce Connect Proxy, you’ll have a secure tunnel for testing apps and websites on your local machine (or behind a firewall) against devices and browsers in the Sauce Labs Real Device Cloud.
-
 
 ### Security Considerations
 
@@ -30,11 +29,13 @@ With Sauce Connect Proxy, you’ll have a secure tunnel for testing apps and web
 If you'd like to restrict Sauce Connect Proxy tunnel deployment to organization admins only, follow the steps in [Security Settings](/basics/acct-team-mgmt/org-settings) to only allow organization admins to start Sauce Connect Proxy tunnels.
 
 #### Testing with Public Devices
+
 In order to begin running tests on public devices using Sauce Connect Proxy or IPSec VPN, your organization admin must enable this option in their settings. Follow the steps in [Security Settings](/basics/acct-team-mgmt/org-settings) to enable Sauce Connect Proxy/VPN for public cloud devices.
 
 Once the setting is enabled, all users across your organization can run live and automated tests on public devices over Sauce Connect Proxy or IPSec VPN. Each time you initiate a test, you'll see a temporary pop-up alert window with a reminder that the utilization of a trusted Sauce Connect Proxy or IPSec VPN connection combined with RDC public real device tests may not be compliant with your organization's network policy.
 
 #### Testing Mobile Devices Against `localhost`
+
 Testing with the address `localhost` (or the IP address `127.0.0.1`) is not supported with iOS or Android real devices in Sauce Connect Proxy.
 
 To work around this, you'll need to edit your hosts file on the machine on which you are running Sauce Connect Proxy. Add an entry for a dummy hostname (such as `localtestsite`) and the IP address `127.0.0.1`. Requests for `localtestsite` in your tests will then be sent through your Sauce Connect Proxy tunnel to `localhost`, which is the machine on which you are running Sauce Connect Proxy.
@@ -42,20 +43,24 @@ To work around this, you'll need to edit your hosts file on the machine on which
 For tips on editing your hosts file, see [How To Edit Hosts File In Linux, Windows, or Mac](https://phoenixnap.com/kb/how-to-edit-hosts-file-in-windows-mac-or-linux).
 
 #### SSL Bumping
+
 While rare, there are some test cases that will require you to disable SSL Bumping when using Sauce Connect Proxy in order to avoid certificate issues. For more information, see [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication).
 
 ### Selecting the Tunnel to Use
+
 Sauce Connect Proxy can have multiple tunnels running simultaneously, as described in [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). You can select which tunnel to use in a real device test in the same way as you would any other type of automated test.
 
 1. Start Sauce Command Proxy from the command line, using the [`-u (--user)`](/dev/cli/sauce-connect-proxy/#--user), [`-k (--api-key)`](/dev/cli/sauce-connect-proxy/#--api-key), [`-r (--region`)](/dev/cli/sauce-connect-proxy/#--region), and [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) flags.
-  ```bash
-  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DATA_CENTER --tunnel-name $TUNNEL_NAME
-  ```
 
-  In this example, we'll [set our credentials (username/access key) as environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/), start a tunnel in US West Data Center and name the tunnel `rdc-on-sauce-tunnel-us`.
-  ```bash
-  ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west --tunnel-name rdc-on-sauce-tunnel-us
-  ```
+```bash
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DATA_CENTER --tunnel-name $TUNNEL_NAME
+```
+
+In this example, we'll [set our credentials (username/access key) as environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/), start a tunnel in US West Data Center and name the tunnel `rdc-on-sauce-tunnel-us`.
+
+```bash
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west --tunnel-name rdc-on-sauce-tunnel-us
+```
 
 2. In your device testing script, specify the tunnel name with `tunnelName` in your capabilities, as shown in this Java example:
 
@@ -70,29 +75,29 @@ final DesiredCapabilities capabilities = new DesiredCapabilities();
 final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.us-west-1.saucelabs.com/wd/hub"), capabilities);
 ```
 
-
 ### Selecting the Right Data Center Endpoint
+
 By default, Sauce Labs will automatically connect you to the main US-West-1 Data Center. For information on Sauce Connect Proxy endpoints, see the [Sauce Connect Proxy CLI documentation](/dev/cli/sauce-connect-proxy/#data-center-endpoints) and [Data Center Endpoints](/basics/data-center-endpoints).
 
 At present, real device testing is supported in the following data centers:
- - US West Data Center (`us-west`)
- - EU Central Data Center (`eu-central`)
+
+- US West Data Center (`us-west`)
+- EU Central Data Center (`eu-central`)
 
 :::note
 Once you establish a Sauce Connect Proxy tunnel for real device testing, you can also use it for virtual devices (and vice versa).
 :::
-
 
 #### OnDemand Endpoint Examples for Driver Setup
 
 To ensure you're testing against the correct data center, you'll need to add the correct OnDemand endpoint when you instantiate a MobileDriver in your automated test:
 
 <Tabs
-  defaultValue="US Data Center"
-  values={[
-    {label: 'US Data Center', value: 'US Data Center'},
-    {label: 'EU Data Center', value: 'EU Data Center'},
-  ]}>
+defaultValue="US Data Center"
+values={[
+{label: 'US Data Center', value: 'US Data Center'},
+{label: 'EU Data Center', value: 'EU Data Center'},
+]}>
 
 <TabItem value="US Data Center">
 
@@ -115,9 +120,6 @@ final AndroidDriver driver = new AndroidDriver(new URL("https://ondemand.eu-cent
 </TabItem>
 </Tabs>
 
-
 ## API Testing Setup
 
 See [API Testing with Sauce Connect Proxy](/api-testing/sauce-connect/) to learn how to start a tunnel for API Testing.
-
-

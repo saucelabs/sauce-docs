@@ -3,16 +3,16 @@ id: composer-snippets
 title: Composer Snippets
 sidebar_label: Composer Snippets
 keywords:
-    - api
-    - api-fortress
-    - composer-snippets
+- api
+- api-fortress
+- composer-snippets
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 A snippet is a fragment of test, stored in [the Vault](/api-testing/on-prem/quick-start/the-vault), that can be reused in multiple tests.
 
@@ -29,6 +29,7 @@ That is it! The fragment of the code is created and ready to be use in every tes
 ### Snippet Actions
 
 For each snippet, two actions are available:
+
 1. **Paste Snippet**: Allows you to paste the entire component inside the test, allowing you to edit as needed. The pasted components will lose any reference to the original snippet.
 2. **Invoke Snippet**: This creates a **Call** component that will invoke the snippet. If the snippet changes, all the tests containing the Call component to that snippet will inherit the changes.
 

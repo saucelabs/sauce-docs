@@ -3,25 +3,25 @@ id: keystores-for-downloader
 title: Keystores for Downloader
 sidebar_label: Keystores for Downloader
 keywords:
-    - api-testing
-    - how-to
-    - keystores
-    - downloader
+- api-testing
+- how-to
+- keystores
+- downloader
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
-The __downloader__ (aka: `RemoteDownloadAgent`) receives inbound HTTPS connections from the dashboard, encrypting everything with a self-signed certificate.
+The **downloader** (aka: `RemoteDownloadAgent`) receives inbound HTTPS connections from the dashboard, encrypting everything with a self-signed certificate.
 
 Here are the steps to install an actual certificate to a RemoteDownloadAgent.
 
 ## What You'll Need:
 
-* Java installed in your system
+- Java installed in your system
 
   :::tip
   The Downloader uses a Java Keystore to store the certificate.
@@ -41,6 +41,6 @@ Here are the steps to install an actual certificate to a RemoteDownloadAgent.
 For step 2, an example `Dockerfile` may look like the following:
 
 ```bash
-FROM apifortress/remoteDownloadAgent:latest  
+FROM apifortress/remoteDownloadAgent:latest
 COPY keystore /opt/remoteDownloadAgent/keystore
 ```

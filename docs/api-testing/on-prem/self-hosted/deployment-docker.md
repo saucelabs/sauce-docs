@@ -1,19 +1,19 @@
 ---
 id: deployment-docker
-title: "Deployment – Docker (Self-Hosted)"
-sidebar_label: "Deployment – Docker"
+title: 'Deployment – Docker (Self-Hosted)'
+sidebar_label: 'Deployment – Docker'
 keywords:
-    - api
-    - api-fortress
-    - deployment
-    - docker
+- api
+- api-fortress
+- deployment
+- docker
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -21,7 +21,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 This manual will describe a normal deployment procedure for API Fortress self-hosted/on-premises, using a Docker container. It is important to remember that the goal of this guide is to be as thorough as possible. It may seem long but the process is fairly straightforward.
 
-Also, don't fret as we can provide as much help and guidance as you need. We are just a video conference away!  
+Also, don't fret as we can provide as much help and guidance as you need. We are just a video conference away!
 
 If you do not have the following files:
 
@@ -52,6 +52,7 @@ PostgreSQL The only special configuration will be the storage on the host machin
 ```
     volumes: - /data/postgres:/var/lib/postgresql/data
 ```
+
 MongoDB As with PostgreSQL, you are required to provide a storage location and edit the volumes key accordingly. Replace the "/data/mongodb" with your location.
 
 ```
@@ -62,19 +63,19 @@ API Fortress There are a lot of configuration keys here. None of them should be 
 
 The essential keys for bootstrap (with dummy values) are:
 
-* **Admin User Creation** `adminEmail: patrick@company.com adminFullName: Patrick Poulin`
+- **Admin User Creation** `adminEmail: patrick@company.com adminFullName: Patrick Poulin`
 
-* **Company Creation** `defaultCompanyName: Your Company`
+- **Company Creation** `defaultCompanyName: Your Company`
 
-* **Base URL that will respond to HTTP requests** `grailsServerURL: http://yourcompany.com/app`
+- **Base URL that will respond to HTTP requests** `grailsServerURL: http://yourcompany.com/app`
 
 :::note
 The `/app` part is required.
 :::
 
-* **API Fortress Mailer** Refer below.
+- **API Fortress Mailer** Refer below.
 
-* **API Fortress Downloader** To be configured after the dashboard bootstrap. Refer below.
+- **API Fortress Downloader** To be configured after the dashboard bootstrap. Refer below.
 
 ## 3. Install Docker
 
@@ -86,7 +87,7 @@ Docker Compose is a utility that simplifies the deployment and management of com
 
 ## 5. Provide API Fortress your DockerHub `username`
 
-For API Fortress to grant you access to the API Fortress registries, your DockerHub username is required. If you don't have a DockerHub account, create one at  [https://hub.docker.com/](https://hub.docker.com/)
+For API Fortress to grant you access to the API Fortress registries, your DockerHub username is required. If you don't have a DockerHub account, create one at [https://hub.docker.com/](https://hub.docker.com/)
 
 ## 6. Login
 
@@ -100,9 +101,11 @@ The default API Fortress subnet is `172.18.0.0/16`. Make sure the default subnet
 
 :::caution
 Before you launch any service, we strongly recommend you to run:
+
 ```
 docker-compose pull
 ```
+
 from the "core" and "downloader" directories to download all packages and preemptively verify any possible connection issue.
 :::
 
@@ -182,20 +185,20 @@ It's important to remember that large numbers of simulated users will require la
 
 - Locate and open _config.yml._ It is located at _core-server/etc._
 - First, we have to configure the baseURL
-    - baseURL is located on line 3.
-    - If the Load Agent and the API Fortress Dashboard are located on the same server, then you can replace the baseURL with the internal address and port of the Dashboard on the server.
-    - If the Load Agent and the API Fortress Dashboard are located on different servers, you can replace the baseURL with the actual URL of the Dashboard. That is to say, the URL you would use to access it via web browser.
+  - baseURL is located on line 3.
+  - If the Load Agent and the API Fortress Dashboard are located on the same server, then you can replace the baseURL with the internal address and port of the Dashboard on the server.
+  - If the Load Agent and the API Fortress Dashboard are located on different servers, you can replace the baseURL with the actual URL of the Dashboard. That is to say, the URL you would use to access it via web browser.
 - Next, we need to provide the API Key and Secret.
-    - Open the main API Fortress dashboard and click the gear icon in the upper right corner to access the settings menu
-    - Click the "_API Keys_" option in the left sidebar.
-    - Click "_+API Key"_
+  - Open the main API Fortress dashboard and click the gear icon in the upper right corner to access the settings menu
+  - Click the "_API Keys_" option in the left sidebar.
+  - Click "_+API Key"_
 
 <img src={useBaseUrl('img/api-fortress/2018/06/CreateAPIKey-1024x640.gif')} alt="CreateAPIKey.gif"/>
 
 (Click image for GIF of procedure)
 
-- Copy the_API Key_to line 5 of _config.yml_.
-- Copy the_Secret_ to line 6 of _config.yml_.
+- Copy the*API Key_to line 5 of \_config.yml*.
+- Copy the*Secret* to line 6 of _config.yml_.
 
 ### Step 3: Add the engine
 
@@ -298,17 +301,19 @@ The API Fortress database comes free from data, but the provided package gives y
 ## Appendix: Tweaking Tomcat Configuration
 
 If you need to tweak the Tomcat configuration, you will need to mount the Tomcat conf/ directory in your system.
+
 1. Change the configuration files you need to edit in the `core/tomcat_conf/conf` directory
 2. Mount the directory by uncommenting the following lines in the `core/docker-compose.yml` file:
 
    ```yaml
    volumes:
-     - ./tomcat_conf/conf:/usr/local/tomcat/conf
+   - ./tomcat_conf/conf:/usr/local/tomcat/conf
    ```
 
 ### Dashboard over SSL
 
 To have Tomcat running over SSL:
+
 1. Copy your JKS keystore containing your certificate in the `core/tomcat_conf/conf` directory
 2. Edit the `core/tomcat_conf/conf/server.xml` file and uncomment the block:
 
@@ -326,15 +331,14 @@ To have Tomcat running over SSL:
 
    ```yaml
    volumes:
-     - ./tomcat_conf/conf:/usr/local/tomcat/conf
+   - ./tomcat_conf/conf:/usr/local/tomcat/conf
    ```
-
 
 5. In the `core/docker-compose.yml` file, change the port declaration to:
 
    ```yaml
    ports:
-     - 443:8443/tcp
+   - 443:8443/tcp
    ```
 
 ### API Fortress through an HTTPS gateway

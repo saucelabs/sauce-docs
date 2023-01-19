@@ -110,9 +110,11 @@ The **Schedules** page includes information about your scheduled tests. From thi
 </table>
 
 ## Creating a Schedule
+
 From the **Schedules** page, you can create new schedules, as well as update existing schedules.
 
 To create a new schedule:
+
 1. On the dashboard, in the left navigation, click **Execute** and then click **Schedule**.
 
 <img src={useBaseUrl('/img/dev/low-code/schedules-nav.png')} alt="Navigating to the Create Schedule window" width="300"/>
@@ -133,6 +135,7 @@ To create a new schedule:
 5. Click **Create**.
 
 To update a schedule:
+
 1. On the dashboard, in the left navigation, click **Execute** and then click **Schedule**.
 2. On the **Schedules** page, in the **Actions** column, click the more actions button and then click **Update Schedule**.
 

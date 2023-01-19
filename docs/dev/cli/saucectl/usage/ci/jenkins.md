@@ -12,12 +12,12 @@ These examples can apply to virtually any Jenkins deployment, provided that you 
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
-* [Jenkins Server](https://www.jenkins.io/doc/book/installing/)
-* The following permissions in Jenkins:
-    * Ability to create and manage credentials
-    * Ability to create and manage new pipelines
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- [Jenkins Server](https://www.jenkins.io/doc/book/installing/)
+- The following permissions in Jenkins:
+  - Ability to create and manage credentials
+  - Ability to create and manage new pipelines
 
 ### Configure Jenkins Credentials
 
@@ -29,36 +29,36 @@ The easiest way to add credentials to Jenkins is with the UI:
 2. Under **Manage Jenkins**, click **Manage Credentials**.
 3. Next to **(global)**, click **Add credentials**.
 
-    <img src={useBaseUrl('img/stt/add_credentials.png')} alt="Add Jenkins Credentials" width="500" />
+   <img src={useBaseUrl('img/stt/add_credentials.png')} alt="Add Jenkins Credentials" width="500" />
 
 4. For **Kind**, select **Secret Text**.
 5. Enter the following information:
-    * Scope: Global
-    * Secret: `your-sauce-username`
-    * ID: `sauce-username`
-    * Description: Sauce Labs Username
+   - Scope: Global
+   - Secret: `your-sauce-username`
+   - ID: `sauce-username`
+   - Description: Sauce Labs Username
 6. Repeat the above steps for your Sauce Labs Access Key.
 
-    <img src={useBaseUrl('img/stt/secrets.png')} alt="Jenkins Secrets" width="500" />
+   <img src={useBaseUrl('img/stt/secrets.png')} alt="Jenkins Secrets" width="500" />
 
-    :::note
-    For further information on how to store your Sauce Labs credentials in Jenkins, see [Handling credentials](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials).
-    :::
+   :::note
+   For further information on how to store your Sauce Labs credentials in Jenkins, see [Handling credentials](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials).
+   :::
 
 ### Configure the Jenkins Pipeline
 
 Add the `Jenkinsfile` at the root of your project directory so that Jenkins can detect changes and run `saucectl` accordingly. In the examples below, the `environment` variables are the GitHub secrets configured in Jenkins:
 
 <Tabs
-  defaultValue="cypress"
-  values={[
-    {label: 'Cypress', value: 'cypress'},
-    {label: 'Playwright', value: 'playwright'},
-    {label: 'TestCafe', value: 'testcafe'},
-    {label: 'Puppeteer', value: 'puppeteer'},
-    {label: 'Espresso', value: 'espresso'},
-    {label: 'XCUITest', value: 'xcuitest'},
-  ]}>
+defaultValue="cypress"
+values={[
+{label: 'Cypress', value: 'cypress'},
+{label: 'Playwright', value: 'playwright'},
+{label: 'TestCafe', value: 'testcafe'},
+{label: 'Puppeteer', value: 'puppeteer'},
+{label: 'Espresso', value: 'espresso'},
+{label: 'XCUITest', value: 'xcuitest'},
+]}>
 
 <TabItem value="cypress">
 
@@ -100,6 +100,7 @@ https://github.com/saucelabs/saucectl-espresso-example/blob/main/Jenkinsfile
 ```bash reference
 https://github.com/saucelabs/saucectl-xcuitest-example/blob/main/Jenkinsfile
 ```
+
 </TabItem>
 </Tabs>
 

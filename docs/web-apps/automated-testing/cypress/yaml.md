@@ -9,7 +9,7 @@ title: Configuration Version Overview
 Before switching from Cypress 9 (or below) to version 10 (or above), follow the [Cypress 10 Migration Guide](https://docs.cypress.io/guides/references/migration-guide#Migrating-to-Cypress-version-10-0).
 :::
 
-| Cypress Version      | saucectl Config Version |
-| -------------------- | ----------------------- |
-| Cypress >= 10        | [v1](v1)                |
-| Cypress <= 9         | [v1alpha](v1alpha)      |
+| Cypress Version | saucectl Config Version |
+| --------------- | ----------------------- |
+| Cypress >= 10   | [v1](v1)                |
+| Cypress <= 9    | [v1alpha](v1alpha)      |

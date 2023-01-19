@@ -4,6 +4,7 @@ title: Slack Integration with Backtrace
 sidebar_label: Slack
 description: Integrate Backtrace with Slack.
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -11,13 +12,16 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 This guide will go through the steps necessary to integrate Backtrace with Slack.
 
 There are two main steps for setting up Slack:
+
 - Set up the incoming webhook
 - Create the integration
 
 ## Set up the Incoming Webhook
+
 In order to set up integration for Slack, an Incoming WebHook must be configured in Slack - [Link to Webhook config](https://my.slack.com/services/new/incoming-webhook/). From there, follow the prompts to add the integration, then copy the Webhook URL that's generated - you will use this URL below.
 
 ## Create the Integration
+
 To set up the integration, first go to the **Project Settings** page for the project you want to add a integration for:
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />

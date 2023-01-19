@@ -4,6 +4,7 @@ title: VictorOps Integration with Backtrace
 sidebar_label: VictorOps
 description: Integrate Backtrace with VictorOps.
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -11,10 +12,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 This guide goes through the steps necessary to integrate Backtrace with VictorOps. Setting up integration with the VictorOps incident management system requires a valid VictorOps REST Endpoint for sending alerts.
 
 These are the main steps for setting up VictorOps:
+
 - Generate a REST endpoint
 - Set up the integration
 
 ## Generate a REST Endpoint
+
 Within VictorOps, click settings on the upper-left, then Integrations on the navbar at the top. In the incoming alerts section on the right, click on REST Endpoint, then on the green "Enable Integration" button.
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/victorops-add-endpoint.png')} alt="" />
@@ -22,6 +25,7 @@ Within VictorOps, click settings on the upper-left, then Integrations on the nav
 Once this is done, you'll use the Post URL that appears as the URL in the configuration below.
 
 ## Set Up the Integration
+
 To set up the integration, first go to the **Project Settings** page for the project you want to add a integration for:
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />

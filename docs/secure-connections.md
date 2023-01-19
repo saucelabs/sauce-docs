@@ -10,7 +10,6 @@ We offer two options to provide an extra layer of security to protect test data 
 
 To determine which solution is best for you, see [Overview of Sauce Labs Security Processes](https://saucelabs.com/resources/white-papers/overview-of-sauce-labs-security-processes).
 
-
 ## Sauce Connect Proxy
 
 See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview) white paper for information about optimizing your network and development environment for Sauce Connect Proxy performance.
@@ -66,9 +65,6 @@ See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/
     </div>
   </div>
 
-
-
-
 ## Sauce IPSec Proxy
 
 <p><small><span className="sauceDBlue">Enterprise Plans only</span></small></p>
@@ -99,7 +95,6 @@ Sauce IPSec Proxy establishes a VPN connection between two IPSec gateways, and a
   <p>You can share Sauce IPSec Proxy tunnel access with your entire organization or restrict access to admins only.</p>
   </div>
 </div>
-
 
 ## Choosing the Right Solution
 

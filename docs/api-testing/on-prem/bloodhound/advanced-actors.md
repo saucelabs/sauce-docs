@@ -1,6 +1,6 @@
 ---
 id: advanced-actors
-title: "Bloodhound: Advanced Actors"
+title: 'Bloodhound: Advanced Actors'
 sidebar_label: Advanced Actors
 ---
 
@@ -8,7 +8,7 @@ sidebar_label: Advanced Actors
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 ## Type: Transformers
 
@@ -37,13 +37,12 @@ The configuration looks like the following.
 
 ```yaml
 regex:
-    [label1]:
-        url: [pattern]
-        method: [method]
-    [label2]:
-        url: [pattern]
-        method: [method]
-
+[label1]:
+url: [pattern]
+method: [method]
+[label2]:
+url: [pattern]
+method: [method]
 ```
 
 - `label`: the label to assign
@@ -63,11 +62,11 @@ Alters a textual payload in a message. If the transformer is placed before an Up
 - `set`: sets the payload with the given value
 - `replace`: replaces all the substrings matching a certain regular expression with the provided string. Example:
 
-    ```yaml
-      replace:
-        regex: foo
-        value: bar
-    ```    
+  ```yaml
+  replace:
+  regex: foo
+  value: bar
+  ```
 
 ### `DeserializerActor`
 
@@ -97,7 +96,7 @@ Adds a piece of meta information in the message.
 - `value`: the value of the meta. If `evaluated` is set to `true`, it can be a dynamic expression
 - `evaluated`: true if you need the value to be evaluated
 
-* * *
+---
 
 ## Type: Filters
 
@@ -121,12 +120,12 @@ The file format looks like the following:
 
 ```yaml
 api_keys:
-  - api_key: ABC123
-    app_id: John Doe
-    enabled: true
-  - api_key: DEF456
-    app_id: Jane Doe
-    enabled: true
+- api_key: ABC123
+  app_id: John Doe
+  enabled: true
+- api_key: DEF456
+  app_id: Jane Doe
+  enabled: true
 ```
 
 ### `BasicAuthFilterActor`
@@ -159,4 +158,4 @@ Limits the number of requests/second the gateway will accept and pass through. M
 
 ## Additional Topics:
 
-* __Module Actors__: Read more about [Bloodhound Modules](/api-testing/on-prem/bloodhound/module-actors)
+- **Module Actors**: Read more about [Bloodhound Modules](/api-testing/on-prem/bloodhound/module-actors)

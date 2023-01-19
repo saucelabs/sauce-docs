@@ -1,22 +1,22 @@
 ---
 id: cloud-vs-on-premises-local
-title: "Cloud vs. On Premises (local)"
-sidebar_label: "Cloud vs. On Premises (local)"
+title: 'Cloud vs. On Premises (local)'
+sidebar_label: 'Cloud vs. On Premises (local)'
 keywords:
-    - api
-    - api-fortress
-    - cloud
-    - on-premises
+- api
+- api-fortress
+- cloud
+- on-premises
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 :::note
-Did you receive an Invalid Request message? It's possible that you are trying to reach an environment that is behind a firewall that our public cloud accounts can't reach. You may need to allowlist our IPs, or install a self-hosted/on-premises trial. Please contact support@apifortress.com to learn more, or use our chat bot._
+Did you receive an Invalid Request message? It's possible that you are trying to reach an environment that is behind a firewall that our public cloud accounts can't reach. You may need to allowlist our IPs, or install a self-hosted/on-premises trial. Please contact support@apifortress.com to learn more, or use our chat bot.\_
 :::
 
 The API Fortress platform was uniquely developed to function in our cloud, or from your own virtual private cloud or data center. This was to allow for customers that have security requirements that don't allow for use of the cloud version (like private staging environments). The entire platform can be deployed behind your own firewall using Docker, Kubernetes or OpenShift.

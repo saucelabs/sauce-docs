@@ -1,19 +1,19 @@
 ---
 id: working-with-the-response-object
-title: "Working with the Header (status code, latency, fetch)"
+title: 'Working with the Header (status code, latency, fetch)'
 sidebar_label: Working with  the Header
 keywords:
-    - api-testing
-    - test
-    - response-object
-    - headers
+- api-testing
+- test
+- response-object
+- headers
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -46,14 +46,27 @@ Furthermore, you can have the performance of the call verified as well.
 Here is what it looks like in the CODE view:
 
 ```html
-<assert-less expression="payload_response.metrics.latency" value="350" type="integer"/>
+<assert-less
+expression="payload_response.metrics.latency"
+value="350"
+type="integer"
+/>
 
-<assert-less expression="payload_response.metrics.fetch" value="350" type="integer"/>
+<assert-less
+expression="payload_response.metrics.fetch"
+value="350"
+type="integer"
+/>
 
-<assert-less expression="payload_response.metrics.overall" value="550" type="integer"/>
+<assert-less
+expression="payload_response.metrics.overall"
+value="550"
+type="integer"
+/>
 ```
 
 ## Visual Composer View
+
 Here is what it looks like in the VISUAL view:
 
 :::tip
