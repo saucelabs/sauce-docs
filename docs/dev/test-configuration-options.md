@@ -472,12 +472,12 @@ Identifies the browser to be used when automating with a mobile browser. See the
 - For Android the value needs to be `"Chrome"`.
 - For iOS, the value needs to be `"Safari"`.
 
+<!-- prettier-ignore -->
 :::note
-
 - If this capability is not provided for a virtual device, the ['app'](#app) capability needs to be set. If none is set the test will throw an error.
 - This capability can be omitted for virtual devices if the ['app'](#app) capability is set.
 - If this capability is not provided for a real device session and also the ['app'](#app) capability is not provided then a real device session will automatically default back to the default browser. This will be Chrome for Android and Safari for iOS
-  :::
+:::
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -492,12 +492,12 @@ capabilities.setCapability("browserName", "chrome");
 
 Allows you to set a path to an `.ipa`, `.apk`, `.aab` or `.zip` file containing the mobile app you want to test. This could be the location of your app in [App Storage](/mobile-apps/app-storage) (e.g., `storage:filename=myapp.zip`) or the URL to a remote location where your app is located (e.g., `http://myappurl.zip`). The remote location needs to be accessible from the web, Sauce Connect can not access your internal file system where apps are hosted.
 
+<!-- prettier-ignore -->
 :::note
-
 - If this capability is not provided for a virtual device, the ['browserName'](#browserName) capability needs to be set. If none is set the test will throw an error.
 - This capability can be omitted for virtual devices if the ['browserName'](#browserName) capability is set.
 - If this capability is not provided for a real device session and also the ['browserName'](#browserName) capability is not provided then a real device session will automatically default back to the default browser. This will be Chrome for Android and Safari for iOS.
-  :::
+:::
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -925,7 +925,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Use this capability to select only tablet devices for testing by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
+Use this capability to select only tablet devices for testing by setting it to `"true"`. For [**Dynamic Allocation**](/mobile-apps/automated-testing/appium/real-devices).
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -941,7 +941,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Use this capability to select only phone devices by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
+Use this capability to select only phone devices by setting it to `"true"`. For [**Dynamic Allocation**](/mobile-apps/automated-testing/appium/real-devices).
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -957,7 +957,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-If your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
+If your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For [**Dynamic Allocation**](/mobile-apps/automated-testing/appium/real-devices).
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -973,7 +973,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-If your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
+If your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For [**Dynamic Allocation**](/mobile-apps/automated-testing/appium/real-devices).
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -989,7 +989,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Private Devices Only</span> |</small></p>
 
-Use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For [**_Dynamic Allocation_**](/mobile-apps/automated-testing/appium/real-devices).
+Use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For [**Dynamic Allocation**](/mobile-apps/automated-testing/appium/real-devices).
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();

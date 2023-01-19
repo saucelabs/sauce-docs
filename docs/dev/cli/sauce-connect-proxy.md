@@ -257,6 +257,10 @@ Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunne
 **Environment variable**: `SAUCE_PAC_AUTH`<br/>
 **Shorthand**: n/a
 
+:::note
+Use a comma separated list when using multiple PAC settings via environment variable. Do not include spaces in this list. For example: `SAUCE_PAC_AUTH=username:password@host:port,username2:password@host2:port`
+:::
+
 ---
 
 ### `--proxy`
@@ -273,7 +277,7 @@ Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunne
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
-**Description**: Setting this to `true` supports proxying upstream requests to localhost. This includes scenarios where an [upstream proxy is hosted on localhost](/secure-connections/sauce-connect/setup-configuration/additional-proxies). By default, it is `false`. <br/>
+**Description**: Setting this to `true` supports sending requests to `localhost` through the upstream proxy. This includes scenarios where an [upstream proxy is hosted on localhost](/secure-connections/sauce-connect/setup-configuration/additional-proxies). By default, it is `false`, and requests to `localhost` are not sent through the upstream proxy.<br/>
 **Environment variable**: `SAUCE_PROXY_LOCALHOST`<br/>
 **Shorthand**: n/a
 

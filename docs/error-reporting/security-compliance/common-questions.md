@@ -48,11 +48,11 @@ Both SSO and LDAP integration are available as Enterprise features.
 
 ### Is Backtrace GDPR Compliant?
 
-Per [Article 28 of the GDPR](https://gdpr-info.eu/art-28-gdpr/), Backtrace is a processor. That is, a third party company receiving data from controllers of data, which are on the front lines collecting, managing and housing data.
+Per [Article 28 of the GDPR](https://gdpr-info.eu/art-28-gdpr/), Backtrace is a Data Processor. That is, a third party company receiving data from controllers of data, which are on the front lines collecting, managing and housing data.
 
-As a processor, Backtrace ensures end user data collected during the crash reporting process is protected, managed properly and destroyed appropriately throughout the chain of development. Backtrace customers have a host of controls to help ensure compliance with GDPR and corporate data protection policies.
+As a Data Processor, Backtrace ensures end user data collected during the crash reporting process is protected, managed properly and destroyed appropriately throughout the chain of development. Backtrace customers have a host of controls to help ensure compliance with GDPR and corporate data protection policies.
 
-Backtrace has provided a [Data Processing Addendum (DPA)](https://backtrace.io/data-processing-addendum) as part of the [Privacy Policy](https://backtrace.io/privacy-policy) and as an amendment of the [Terms of Service](https://backtrace.io/software-license-agreement). The DPA defines the agreement between Backtrace as the data processor and our customer as the Data Controller with regard to the processing of personal data.
+Sauce Labs has provided a [Supplemental EEA+ Privacy Notice](https://saucelabs.com/eea) as part of the [Privacy Policy](https://backtrace.io/privacy-policy) and as an amendment of the [Terms of Service](https://backtrace.io/software-license-agreement). The EEA+ Privacy Notice defines the agreement between Backtrace as the Data Processor and our users or customers as the Data Controller with regard to the processing of personal data.
 
 ### Is Backtrace COPPA Compliant?
 

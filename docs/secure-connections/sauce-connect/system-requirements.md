@@ -16,7 +16,7 @@ Keep in mind that these are guidelines. Most environments have their own workloa
 
 - Minimum 2 core x 8 GB Machine.
 - We recommend using the [cURL command line](https://curl.haxx.se/download.html) or an equivalent tool to ensure that any error messages you receive are precise and actionable. If you're not familiar with the tool, [review their docs here](https://curl.se/docs) and then install cURL on your local machine.
-- For Unix-based systems, you may need to increase your [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) to, at least, 64000.
+- For macOS and other Unix-based systems, set your [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) to at least 64000. See [What are the optimal open file settings?](/secure-connections/sauce-connect/faq/#what-are-the-optimal-open-file-settings).
 
 ## Supported Operating Systems
 
@@ -69,12 +69,12 @@ Keep in mind that these are guidelines. Most environments have their own workloa
   </tr>
 </table>
 
+<!-- prettier-ignore -->
 :::note macOS Catalina 10.15+ compatibility
 Enable your Mac to allow apps from the App Store and identified developers.
-
 1. Go to **System Preferences** > **Security & Privacy** > **General**.
 2. Under **Allow apps downloaded from**, select the option **App Store and identified developers**.
-   :::
+:::
 
 ### Sauce Connect v4.7.x
 
@@ -145,363 +145,89 @@ As an important step prior to downloading Sauce Connect Proxy, you or your syste
 
 ## Configuring Your System to Use Sauce Connect
 
-Select a cloud provider from the tables below to view the recommended system requirements:
+Select a cloud provider from the tables below to view the minimum and recommended system requirements:
+
+:::note These are general recommendations
+Actual system requirements will depend on the number of parallel tests, and amount of data transferred with each test.
+:::
 
 ### Amazon Web Services (AWS)
 
 <table>
   <tr>
-   <td><strong>Parallel Tests</strong>
-   </td>
-   <td><strong>Machine Type</strong>
-   </td>
-   <td><strong>Memory</strong>
-   </td>
-   <td>
-<strong>Processor</strong>
-   </td>
-   <td><strong>Bandwidth</strong>
-   </td>
-   <td><strong>Recommended SC Tunnels</strong>
-   </td>
+    <td></td>
+    <td><strong>Machine Type</strong></td>
+    <td><strong>Memory</strong></td>
+    <td><strong>Processor</strong></td>
+    <td><strong>Bandwidth</strong></td>
   </tr>
   <tr>
-   <td>0-59
-   </td>
-   <td>EC2 m4.large
-   </td>
-   <td>8 GB
-   </td>
-   <td>2
-   </td>
-   <td>450 Mbps
-   </td>
-   <td>1
-   </td>
+    <td>Minimum</td>
+    <td>EC2 m4.large</td>
+    <td>8 GB</td>
+    <td>2</td>
+    <td>450 Mbps</td>
   </tr>
   <tr>
-   <td>60-119
-   </td>
-   <td>EC2 m4.xlarge
-   </td>
-   <td>16 GB
-   </td>
-   <td>4
-   </td>
-   <td>750 Mbps
-   </td>
-   <td>2
-   </td>
-  </tr>
-  <tr>
-   <td>120-199
-   </td>
-   <td>EC2 m4.xlarge
-   </td>
-   <td>16 GB
-   </td>
-   <td>4
-   </td>
-   <td>750 Mbps
-   </td>
-   <td>3
-   </td>
-  </tr>
-  <tr>
-   <td>200-399
-   </td>
-   <td>EC2 m4.xlarge
-   </td>
-   <td>16 GB
-   </td>
-   <td>4
-   </td>
-   <td>750 Mbps
-   </td>
-   <td>4-5
-   </td>
-  </tr>
-  <tr>
-   <td>400-599
-   </td>
-   <td>EC2 m4.xlarge
-   </td>
-   <td>16 GB
-   </td>
-   <td>4
-   </td>
-   <td>750 Mbps
-   </td>
-   <td>6-7
-   </td>
-  </tr>
-  <tr>
-   <td>600-799
-   </td>
-   <td>EC2 m4.xlarge
-   </td>
-   <td>16 GB
-   </td>
-   <td>4
-   </td>
-   <td>750 Mbps
-   </td>
-   <td>8
-   </td>
-  </tr>
-  <tr>
-   <td>800+
-   </td>
-   <td>EC2 m4.xlarge
-   </td>
-   <td>16 GB
-   </td>
-   <td>4
-   </td>
-   <td>750 Mbps
-   </td>
-   <td>10
-   </td>
+    <td>Recommended</td>
+    <td>EC2 m4.xlarge</td>
+    <td>16 GB</td>
+    <td>4</td>
+    <td>750 Mbps</td>
   </tr>
 </table>
+
 
 ### Google Compute Engine (GCE)
 
 <table>
   <tr>
-   <td>
-<strong>Parallel Tests</strong>
-   </td>
-   <td><strong>Machine Type</strong>
-   </td>
-   <td><strong>Memory</strong>
-   </td>
-   <td>
-<strong>Processor</strong>
-   </td>
-   <td><strong>Bandwidth</strong>
-   </td>
-   <td><strong>Recommended SC Tunnels</strong>
-   </td>
+    <td></td>
+    <td><strong>Machine Type</strong></td>
+    <td><strong>Memory</strong></td>
+    <td><strong>Processor</strong></td>
+    <td><strong>Bandwidth</strong></td>
   </tr>
   <tr>
-   <td>0-59
-   </td>
-   <td>GCE n1-standard-2
-   </td>
-   <td>7.5 GB
-   </td>
-   <td>2
-   </td>
-   <td>450 Mbps
-   </td>
-   <td>1
-   </td>
+    <td>Minimum</td>
+    <td>GCE n1-standard-2</td>
+    <td>7.5 GB</td>
+    <td>2</td>
+    <td>450 Mbps</td>
   </tr>
   <tr>
-   <td>60-119
-   </td>
-   <td>GCE n1-standard-4
-   </td>
-   <td>15 GB
-   </td>
-   <td>4
-   </td>
-   <td>750 Mbps
-   </td>
-   <td>2
-   </td>
-  </tr>
-  <tr>
-   <td>120-199
-   </td>
-   <td>GCE n1-standard-4
-   </td>
-   <td>15 GB
-   </td>
-   <td>4
-   </td>
-   <td>750 Mbps
-   </td>
-   <td>3
-   </td>
-  </tr>
-  <tr>
-   <td>200-399
-   </td>
-   <td>GCE n1-standard-4
-   </td>
-   <td>15 GB
-   </td>
-   <td>4
-   </td>
-   <td>750 Mbps
-   </td>
-   <td>4-5
-   </td>
-  </tr>
-  <tr>
-   <td>400-599
-   </td>
-   <td>GCE n1-standard-4
-   </td>
-   <td>15 GB
-   </td>
-   <td>4
-   </td>
-   <td>750 Mbps
-   </td>
-   <td>6-7
-   </td>
-  </tr>
-  <tr>
-   <td>600-799
-   </td>
-   <td>GCE n1-standard-4
-   </td>
-   <td>15 GB
-   </td>
-   <td>4
-   </td>
-   <td>750 Mbps
-   </td>
-   <td>8
-   </td>
-  </tr>
-  <tr>
-   <td>800+
-   </td>
-   <td>GCE n1-standard-4
-   </td>
-   <td>15 GB
-   </td>
-   <td>4
-   </td>
-   <td>750 Mbps
-   </td>
-   <td>10
-   </td>
+    <td>Recommended</td>
+    <td>GCE n1-standard-4</td>
+    <td>15 GB</td>
+    <td>4</td>
+    <td>750 Mbps</td>
   </tr>
 </table>
 
 ### Microsoft Azure
 
 The below recommendations are for Linux VMs.
-
 <table>
   <tr>
-   <td>
-   <strong>Parallel Tests</strong>
-   </td>
-   <td><strong>Machine Type</strong>
-   </td>
-   <td><strong>Memory</strong>
-   </td>
-   <td>
-   <strong>Processor</strong>
-   </td>
-   <td><strong>Bandwidth</strong>
-   </td>
-   <td><strong>Recommended SC Tunnels</strong>
-   </td>
+    <td></td>
+    <td><strong>Machine Type</strong></td>
+    <td><strong>Memory</strong></td>
+    <td><strong>Processor</strong></td>
+    <td><strong>Bandwidth</strong></td>
   </tr>
   <tr>
-   <td>0-59
-   </td>
-   <td>Standard_D2a_v4
-   </td>
-   <td>8 GiB
-   </td>
-   <td>2
-   </td>
-   <td>2000 Mbps
-   </td>
-   <td>1
-   </td>
+    <td>Minimum</td>
+    <td>Standard_D2a_v4</td>
+    <td>8 GiB</td>
+    <td>2</td>
+    <td>2000 Mbps</td>
   </tr>
   <tr>
-   <td>60-119
-   </td>
-   <td>Standard_D4a_v4
-   </td>
-   <td>16 GiB
-   </td>
-   <td>4
-   </td>
-   <td>4000 Mbps
-   </td>
-   <td>2
-   </td>
-  </tr>
-  <tr>
-   <td>120-199
-   </td>
-   <td>Standard_D4a_v4
-   </td>
-   <td>16 GiB
-   </td>
-   <td>4
-   </td>
-   <td>4000 Mbps
-   </td>
-   <td>3
-   </td>
-  </tr>
-  <tr>
-   <td>200-399
-   </td>
-   <td>Standard_D4a_v4
-   </td>
-   <td>16 GiB
-   </td>
-   <td>4
-   </td>
-   <td>4000 Mbps
-   </td>
-   <td>4-5
-   </td>
-  </tr>
-  <tr>
-   <td>400-599
-   </td>
-   <td>Standard_D4a_v4
-   </td>
-   <td>16 GiB
-   </td>
-   <td>4
-   </td>
-   <td>4000 Mbps
-   </td>
-   <td>6-7
-   </td>
-  </tr>
-  <tr>
-   <td>600-799
-   </td>
-   <td>Standard_D4a_v4
-   </td>
-   <td>16 GiB
-   </td>
-   <td>4
-   </td>
-   <td>4000 Mbps
-   </td>
-   <td>8
-   </td>
-  </tr>
-  <tr>
-   <td>800+
-   </td>
-   <td>Standard_D4a_v4
-   </td>
-   <td>16 GiB
-   </td>
-   <td>4
-   </td>
-   <td>4000 Mbps
-   </td>
-   <td>10
-   </td>
+    <td>Recommended</td>
+    <td>Standard_D4a_v4</td>
+    <td>16 GiB</td>
+    <td>4</td>
+    <td>4000 Mbps</td>
   </tr>
 </table>
 
@@ -509,9 +235,46 @@ The below recommendations are for Linux VMs.
 
 - If you're running **50 or more parallel tests**, we recommend a minimum network bandwidth of 450 Mbps to support the high volume of network traffic.
 - If you're running **100 or more parallel tests**, we recommend a minimum network bandwidth of 750 Mbps to support the high volume of network traffic.
-- If you're running **100 or more parallel tests**, we recommend launching more than one tunnel and using the [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
-- When running parallel tests on Unix-based operating systems, you may need to increase your [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) (for example, `ulimit -n 64000`).
-- For best performance, stability, and security, we recommend using a dedicated server (see [Sauce Connect Proxy Network Security](/secure-connections/sauce-connect/security-authentication)).
+- For best performance, stability, and security, we recommend using a dedicated server for each tunnel (see [Sauce Connect Proxy Network Security](/secure-connections/sauce-connect/security-authentication)).
+- If you're running **60 or more parallel tests**, we recommend launching more than one tunnel and using the [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
+
+These are recommendations for the number of Sauce Connect tunnels by number of tests running in parallel:
+<table>
+  <tr>
+    <td><strong>Parallel Tests</strong></td>
+    <td><strong>Recommended SC Tunnels</strong></td>
+  </tr>
+  <tr>
+    <td>0-59</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>60-119</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>120-199</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>200-299</td>
+    <td>4-5</td>
+  </tr>
+  <tr>
+    <td>400-599</td>
+    <td>6-7</td>
+  </tr>
+  <tr>
+    <td>600-799</td>
+    <td>8-9</td>
+  </tr>
+  <tr>
+    <td>800+</td>
+    <td>10</td>
+  </tr>
+</table>
+
+
 
 ## Setting Up Sauce Connect on Your Test Device Network
 
@@ -620,12 +383,12 @@ values={[
 </TabItem>
 </Tabs>
 
+<!-- prettier-ignore -->
 :::note **Recommended Wildcard Allowlisting**
-
 `*.miso.saucelabs.com` will cover all virtual and real device cloud data centers except for Headless.
 
 - For US-West-1 (Virtual Device Cloud/Real Device Cloud + Sauce Connect): `*.miso.saucelabs.com`
-  :::
+:::
 
 <br/>
 

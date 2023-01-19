@@ -228,8 +228,6 @@ Creates a new team under the organization of the requesting account.
      <td><p><small>| BODY | REQUIRED | OBJECT |</small></p><p>The settings object specifies the concurrency allocations for the team within the organization. The available attributes are:
      <ul>
       <li><code>virtual_machines</code> - <small>INTEGER</small></li>
-      <li><code>real_devices</code> - <small>INTEGER</small></li>
-      <li><code>live_only</code> - <small>BOOLEAN</small> Defaults to <code>false</code>.</li>
     </ul>
     </p><p>The <code>settings</code> parameter is required, but you only need to include the applicable concurrency attribute(s) for the team.</p></td>
     </tr>
@@ -424,8 +422,6 @@ Replaces all values of the specified team with the new set of parameters passed 
      <td><p><small>| BODY | REQUIRED | OBJECT |</small></p><p>The updated concurrency allocations for the team. The available attributes are:
       <ul>
         <li><code>virtual_machines</code> - <small>INTEGER</small></li>
-        <li><code>real_devices</code> - <small>INTEGER</small></li>
-        <li><code>live_only</code> - <small>BOOLEAN</small> Defaults to <code>false</code>.</li>
       </ul>
       </p><p>The <code>settings</code> parameter is required, but you only need to include the applicable concurrency attribute(s) for the team.</p></td>
     </tr>
@@ -555,8 +551,6 @@ Updates one or more individual editable parameters (such as the concurrency allo
       <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>The updated concurrency allocations for the team. The available attributes are:
         <ul>
           <li><code>virtual_machines</code> - <small>INTEGER</small></li>
-          <li><code>real_devices</code> - <small>INTEGER</small></li>
-          <li><code>live_only</code> - <small>BOOLEAN</small> Defaults to <code>false</code>.</li>
         </ul></p>
       </td>
     </tr>

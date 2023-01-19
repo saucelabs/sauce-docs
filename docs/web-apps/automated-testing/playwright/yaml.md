@@ -182,7 +182,7 @@ saucectl run --ccy 5
 ### `retries`
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-Sets the number of times to retry a failed suite.
+Sets the number of times to retry a failed suite. For more settings, you can refer to [passThreshold](#passThreshold).
 
 ```yaml
   retries: 1
@@ -838,17 +838,17 @@ suites:
   shard: spec
 ```
 
+<!-- prettier-ignore-start -->
 :::tip
 To split tests in the most efficient way possible, use:
-
 - `spec` when the number of specs is less than the configured concurrency.
 - `concurrency` when the number of specs is larger than the configured concurrency.
-  :::
+:::
 
 :::caution Shard Property Exclusivity
 The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
 :::
-
+<!-- prettier-ignore-end -->
 ---
 
 ### `params`
@@ -1034,4 +1034,24 @@ Allows you to set a custom time zone for your test based on a city name. Most ma
 
 ```yaml
   timeZone: New_York
+```
+
+---
+### `passThreshold`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Specifies the minimum number of successful attempts for a suite to be considered as `passed`. It should be used along with [retries](#retries).
+
+:::note
+For example, setting `retries` to 3 and `passThreshold` to 2.
+The max attempt would be 4 times. If the test passed twice, it'd stop and be marked as `passed`. Otherwise, it'd be marked as `failed`.
+:::
+
+```yaml
+sauce:
+  retries: 3
+suite:
+  - name: My Saucy Test
+    passThreshold: 2
 ```
