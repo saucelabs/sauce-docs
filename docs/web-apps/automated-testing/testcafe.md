@@ -79,7 +79,7 @@ values={[
         <td>Chrome, Firefox, Microsoft Edge</td>
       </tr>
       <tr>
-        <td><b>iOS:</b>13.4, 14.4, 15.4, 16.0, 16.1</td>
+        <td><b>iOS:</b>13.4, 14.5, 15.4, 16.0, 16.1</td>
         <td>Safari</td>
       </tr>
     </tbody>
