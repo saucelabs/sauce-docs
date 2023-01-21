@@ -674,7 +674,7 @@ The parent property containing the details specific to the TestCafe project.
 
 ```yaml
 testcafe:
-  version: 1.14.2
+  version: 2.2.0
 ```
 
 ---
@@ -686,7 +686,7 @@ testcafe:
 The version of TestCafe that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/testcafe#supported-testing-platforms) for the list of TestCafe versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
-  version: 1.14.2
+  version: 2.2.0
 ```
 
 :::tip
