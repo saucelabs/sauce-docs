@@ -49,6 +49,7 @@ You can mark a variable as sensitive if it contains a sensitive value that you d
 
 <img src={useBaseUrl('img/api-testing/sensitive-data.png')} alt="data obfuscated in report"/>
 
+
 :::note
 Variables marked as sensitive are always excluded from Vault exports. 
 :::
