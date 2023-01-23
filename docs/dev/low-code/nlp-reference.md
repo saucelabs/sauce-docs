@@ -321,10 +321,10 @@ Blocks can be used to loop through commands as many times as required.
 
 `run...`
 
-- `run $${block_name$} for [number] times`
-- `run $${block_name$} for [number] rows`
-- `run $${block_name$} for all rows`
-- `run $${block_name$} until [text] on the screen`
+- `run ${block_name$} for [number] times`
+- `run ${block_name$} for [number] rows`
+- `run ${block_name$} for all rows`
+- `run ${block_name$} until [text] on the screen`
 
 #### Example
 
@@ -360,10 +360,10 @@ end block
 
 Flows are similar to methods or functions, in which a user can create a block of code that can be reused across test cases. Flows can also be nested inside blocks.
 
-`Run $${flow_name$}...`
+`Run ${flow_name$}...`
 
-- `Run $${flow_name$} for [number] times`
-- `Run $${flow_name$} for all rows`
+- `Run ${flow_name$} for [number] times`
+- `Run ${flow_name$} for all rows`
 
 ### Decision-Making Actions
 
