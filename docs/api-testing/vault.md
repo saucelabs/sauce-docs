@@ -45,7 +45,7 @@ If the same variable with the same name definition exists in both the **Project 
 
 ### Mark Variables as Sensitive
 
-You can mark a variable as sensitive if it contains a sensitive value that you do not want to appear in your tests and test reports. When you mark a variable as sensitive, the value is obfuscated anywhere the value appears: in Vault, test, tests reports, and the project dashboard's logs and metrics when the variable is used in the URL, path, or query. 
+You can mark a variable as sensitive if it contains a sensitive value that you do not want to appear in your test reports. When you mark a variable as sensitive, the value is obfuscated anywhere it appears: in Vault, tests reports, and the project dashboard's logs and metrics when the variable is used in the URL, path, or query. 
 
 <img src={useBaseUrl('img/api-testing/sensitive-data.png')} alt="data obfuscated in report"/>
 
