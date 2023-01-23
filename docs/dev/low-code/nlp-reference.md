@@ -291,7 +291,7 @@ Using `Assert` will cause the test case to fail and stop at the failed step. Usi
 - `Verify url is [url]`
 - `Verify variable ${var_name$} is [text]`<br/>
   **Note:** Verify if a saved variable matches with some text. Can also be used to verify the value saved for a variable.<br/>
-  **Example:** `Verify variable $${variableName$} is [someText]`
+  **Example:** `Verify variable $${variableName$} is "someText"`
 - `Verify window is exists`
 
 ## Conditional Actions
