@@ -166,7 +166,7 @@ Where:
 - `platform` is the platform the remote machine runs on (Windows or Linux).
 - `browser` is the browser on which you want to generate or execute the script.
 
-### `use custom code from [location]`
+### `use custom code from file`
 
 This variable can be used if a file is added to artifacts.
 
