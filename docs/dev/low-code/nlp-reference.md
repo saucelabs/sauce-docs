@@ -315,9 +315,7 @@ Blocks can be used to loop through commands as many times as required.
 `Begin...`
 
 - `Begin block [block_name]`
-- `Begin script _bash with $${var_name$}`
-- `Begin script _js with $${var_name$}`
-- `Begin script _py with $${var_name$}`
+
 
 `run...`
 
