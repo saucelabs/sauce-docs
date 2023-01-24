@@ -1,6 +1,5 @@
 <h1 align="center">
   <p align="center">Sauce Labs Docs</p>
-  <a href="https://docs.saucelabs.com">https://docs.saucelabs.com</a>
 </h1>
 
 <p align="center">
