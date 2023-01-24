@@ -73,29 +73,3 @@ If your apps's manifest.xml file defines `android:allowAudioPlaybackCapture="fal
 
 You will be able to capture audio from iOS 10+ up.
 You will be able to validate the sound your application is making, enable the Voiceover, and validate its output.
-
-## Accessing the Audio in Your Test Tesults for Automated Test
-
-The audio recording will be included in the video recording for automated tests, which you can play back and download from the built-in media player on the **Test Results** page.
-
-You can also download the video file with the included audio stream programmatically using the following API request:
-
-```
-curl --compressed \ -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}.saucelabs.com/v1/rdc/jobs/{JOB_ID}/video.mp4
-```
-
-## Limitations
-
-<!-- prettier-ignore -->
-:::note Limitations
-- iOS Audio capture for automated test results is supported on iOS/iPadOS 10.1 and above.
-- Android Audio capture for test results is supported on Android 10 and above.
-- When Audio streaming is enabled, we are not attaching the audio to the test results after the session ends.
-- Accessibility and TalkBack on Android are not supported.
-- Emulators and simulators are not supported.
-- Website testing is not yet available on Android.
-:::
-
-## More Information
-
-- [Test Results](/test-results/)
