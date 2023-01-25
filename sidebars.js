@@ -1243,6 +1243,18 @@ module.exports = {
         },
         {
             type: 'category',
+            label: 'Hosted Orchestration',
+            link: { type: 'doc', id: 'hosted-orchestration' },
+            collapsed: true,
+            items: [
+                'hosted-orchestration',
+                'hosted-orchestration/architecture',
+                'hosted-orchestration/building-images',
+                'hosted-orchestration/running-tests'
+            ]
+        },
+        {
+            type: 'category',
             label: 'API Testing',
             link: { type: 'doc', id: 'api-testing' },
             collapsed: true,
