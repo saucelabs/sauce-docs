@@ -122,7 +122,7 @@ Now you can choose to **Call Snippet** or **Paste Snippet** in future tests that
 
 ## Files
 
-In the **Drive** section of a project-specific **Vault**, you can upload files to use in your tests. The file size limit for an individual file is 16 MB. The total limit for the **Company Vault** is 100 MB. This means if one project-specific **Vault** is using 100 MB of storage, other projects cannot upload addtional files.
+In the **Drive** section of a project-specific **Vault**, you can upload files to use in your tests. The file size limit for an individual file is 16 MB. The total limit for the **Company Vault** is 100 MB. This means if one project-specific **Vault** is using 100 MB of storage, other projects cannot upload additional files.
 
 ### Upload a file
 
