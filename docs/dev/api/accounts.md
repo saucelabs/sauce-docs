@@ -1513,7 +1513,12 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/rest/v1.2/users/&#123;username&#125;/concurrency</code></summary>
 <p/>
 
-Returns details about the current in-use virtual machines and real devices along with the maximum allowed values.
+Returns details about the current in-use virtual machines along with the maximum allowed values.
+  
+<summary><span className="api get">GET</span> <code>/rest/v1/rdc/concurrency</code></summary>
+<p/>
+
+Returns details about the current in-use real-devices along with the maximum allowed values.
 
 #### Parameters
 
