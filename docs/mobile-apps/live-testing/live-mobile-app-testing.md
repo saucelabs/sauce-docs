@@ -97,7 +97,7 @@ On the **App Management** page, hover over the app you want to test and then cli
 The device selection page will open, with the option to test on a real device or a virtual device.
 
 :::note
-If you are testing an IOS app, the device selection will only display the type (real/virtual) configured on the app.
+If you are testing an iOS app, the device selection will only display the type (real/virtual) configured on the app.
 :::
 
 To mark a device as a favorite so you can find it easily in the future, click the pin icon next to the device name.
