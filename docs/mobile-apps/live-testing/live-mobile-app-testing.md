@@ -35,7 +35,7 @@ If you don't have an app to test, you can use the [Sauce Labs sample mobile app]
 
 Deleting an app in Sauce Labs will delete the whole app (i.e., the group of builds belonging to the same app package). Files associated with app identifiers (i.e., belonging to the same platform and accessible to the same team) are indicated by the + symbol next to the version number. Also, the version number shown is the most recently updated file, not necessarily the latest version of the app.
 
-To delete an app, on the App Management page, hover over the build and then click **Delete**.
+To delete an app, on the **App Management** page, hover over the build and then click **Delete**.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-management-delete.png')} alt="Delete an app" width="850"/>
 
