@@ -41,7 +41,7 @@ To delete an app, on the **App Management** page, hover over the app and then cl
 
 ### App Settings
 
-To view or change the app settings, on the App Management test page, hover over the app and then click **Settings**.
+To view or change the app settings, on the **App Management** page, hover over the app and then click **Settings**.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-management-settings.png')} alt="App settings" width="850"/>
 
