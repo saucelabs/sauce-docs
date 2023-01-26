@@ -780,7 +780,6 @@ suites:
   shard: spec
 ```
 
-<!-- prettier-ignore -->
 :::tip
 To split tests in the most efficient way possible, use:
 - `spec` when the number of specs is less than the configured concurrency.
