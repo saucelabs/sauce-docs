@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-With Sauce Labs, you can test your mobile apps on a variety of Android and iOS devices. If you do not have an app, consider using the Sauce Labs Swag Labs sample app for validating your account functionality as well as your tests.
+With Sauce Labs, you can test your mobile apps on a variety of Android and iOS/iPadOS devices. If you do not have an app, consider using the [Sauce Labs demo app](https://github.com/saucelabs/my-demo-app-rn) for validating your account functionality as well as your tests.
 
 ## What You'll Need
 
@@ -24,30 +24,30 @@ You can upload your app via the Sauce Labs UI or via the REST API. For informati
 
 To upload an app via the Sauce Labs UI:
 
-1. On Sauce Labs, in the left panel, click **LIVE** and then click **Mobile App**.
-2. Click **Upload App**. You can either drag and drop an app, or browse for and select the file. We currently support \*.apk Android app files, \*.aab Android App Bundle files and \*.ipa or \*.zip iOS app files (\*.zip files are parsed to determine whether a valid \*.app bundle exists). Non-app file uploads are not supported in the UI at this time, but can be uploaded through the API.
+1. On Sauce Labs, in the left panel, click **App Management**.
+2. To upload an app you can either drag and drop an app or browse for and select the file. We currently support \*.apk Android app files, \*.aab Android App Bundle files, and \*.ipa or \*.zip iOS app files (\*.zip files are parsed to determine whether a valid \*.app bundle exists). Non-app file uploads are not supported in the UI at this time, but can be uploaded through the API.
 
 If you don't have an app to test, you can use the [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile).
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-nav.png')} alt="Upload an app" width="650"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-management.png')} alt="Upload an app" width="650"/>
 
 ### Deleting an App
 
-Deleting an app in Sauce Labs will delete the whole app (i.e., the group of builds belonging to the same app package). Files associated with app identifiers (i.e., belonging to the same platform and accessible to the same team) are indicated by the + symbol next to version number. Also, the version number shown is the most recently updated file, not necessarily the latest version of the app.
+Deleting an app in Sauce Labs will delete the whole app (i.e., the group of builds belonging to the same app package). Files associated with app identifiers (i.e., belonging to the same platform and accessible to the same team) are indicated by the + symbol next to the version number. Also, the version number shown is the most recently updated file, not necessarily the latest version of the app.
 
-To delete an app, on the Mobile App test page, hover over the test and then click **Delete**.
+To delete an app, on the **App Management** page, hover over the app and then click **Delete**.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-delete.png')} alt="Delete an app" width="650"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-management-delete.png')} alt="Delete an app" width="850"/>
 
 ### App Settings
 
-To view or change the app settings, on the Mobile App test page, hover over the app and then click **Settings**.
+To view or change the app settings, on the **App Management** page, hover over the app and then click **Settings**.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-settings.png')} alt="App settings" width="650"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-management-settings.png')} alt="App settings" width="850"/>
 
 To easily copy a test's file name or ID, hover over the test and then click the clipboard icon.
 
-<img src={useBaseUrl('img/live-testing/copy-file-id.png')} alt="Copy a file name or ID" width="450"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-management-copy.png')} alt="Copy a file name or ID" width="850"/>
 
 :::note
 The app settings screen is only available for real device testing.
@@ -61,7 +61,7 @@ To view your recent configurations, click **Recents**.
 
 | Setting | Description |
 | :--- | :--- |
-| Device Language | Use the dropdown to select the device language. The language selector will tell your application that the locale of the device and region is set to the selected parameter. You wont need to change the language of the OS manually during a session inside iOS/Android settings. ([Read more about Locale here](https://developer.apple.com/documentation/foundation/locale)).  |
+| Device Language | Use the dropdown to select the device language. The language selector will tell your application that the locale of the device and region is set to the selected parameter. You won't need to change the language of the OS manually during a session inside iOS/Android settings. For more information about the locale setting, see the documentation for [iOS](https://developer.apple.com/documentation/foundation/locale) and [Android](https://developer.android.com/reference/java/util/Locale).  |
 | Device Orientation | Use the dropdown to set the device orientation (Landscape or Portrait). |
 | Proxy | Enable/disable the use of a proxy. Enter the **Hostname** and **Port** and then click **Update**. |
 | Device Passcode <br/><p><span className="sauceDBlue">Real Devices Only</span></p> | Enable/disable the device passcode for your apps. If your app requires a device passcode/screenlock to launch, you can enable this setting to run your tests on a passcode-protected device. |
@@ -78,11 +78,11 @@ Any changes you make to the app settings will affect all uploaded versions of th
 
 **Example Settings - iOS**
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-settings-ios.png')} alt="App settings - iOS" width="650"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-management-ios.png')} alt="App settings - iOS" width="750"/>
 
 **Example Settings - Android**
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-settings-android.png')} alt="App settings - Android" width="650"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-management-android.png')} alt="App settings - Android" width="780"/>
 
 Most settings update automatically, however, when you make changes to the proxy setting, click **Update** to finish.
 
@@ -90,14 +90,14 @@ Most settings update automatically, however, when you make changes to the proxy 
 
 You must select a device prior to launching a session.
 
-On the **App Selection** page, hover over the app you want to test and then click **Choose Device**.
+On the **App Management** page, hover over the app you want to test and then click **Start Test**.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-choose-device.png')} alt="Choose a device" width="650"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-management-test.png')} alt="Choose a device" width="750"/>
 
 The device selection page will open, with the option to test on a real device or a virtual device.
 
 :::note
-If you are testing an iOS app, the **Virtual Devices** tab will only appear if the app is configured for simulators.
+If you are testing an iOS app, the device selection will only display the type (real/virtual) configured on the app.
 :::
 
 To mark a device as a favorite so you can find it easily in the future, click the pin icon next to the device name.
@@ -110,13 +110,13 @@ The default sorting for the device list is **Pinned First**.
 
 On the device selection page, click the **Mobile Real** tab. Use the search box and filters to find the device you want to test on, or select the device in the grid.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-real-tab.png')} alt="Mobile Real tab" width="450"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-management-real.png')} alt="Mobile Real tab" width="750"/>
 
 #### Virtual Devices
 
-On the device selection page, click the **Mobile Virtual** tab. Use the dropdowns to select the details for the virtual device you want to test on, and then click **Start Session**.
+On the device selection page, click the **Mobile Virtual** tab. Use the dropdowns to select the details for the virtual device you want to test on, and then click **Start Test**.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-virtual-tab.png')} alt="Mobile Virtual tab" width="250"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-management-virtual.png')} alt="Mobile Virtual tab" width="550"/>
 
 #### **Public vs. Private Devices**
 
@@ -132,14 +132,14 @@ There is a distinction between **Public Devices** and **Private Devices**.
 
 You can launch a test from the following screens:
 
-- Hover over the device in the grid and then click **Launch**.
-- Hover over the device in the grid and then click **Details**. On the **Details** screen, click **Launch**.
+- Hover over the device in the grid and then click **Start Test**.
+- Hover over the device in the grid and then click **Details**. On the **Details** screen, click **Start Test**.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-launch.png')} alt="Launch a test from the Details screen" width="650"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-management-start-test.png')} alt="Launch a test from the Details screen" width="750"/>
 
 You'll see a loading screen, and then the app will launch in a live test window using the device you selected.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-test-ui.png')} alt="Mobile real device test interface" width="450"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-management-demo-app.png')} alt="Mobile real device test interface" width="550"/>
 
 #### Time Limits and Timeouts for Real Devices
 
@@ -151,7 +151,7 @@ You'll see a loading screen, and then the app will launch in a live test window 
 
 If you upload an app that is signed with an enterprise certificate, and **Instrumentation** is DISABLED in app settings, you must manually trust the certificate before it will successfully launch.
 
-1. If you receive an app installation failed error, click the **X** in the app loading screen to exit to the device home screen.
+1. If you receive an app installation failed error, click the **X** in the app loading screen to exit the device home screen.
 1. On the device home screen, navigate to **Settings** -> **General**.
 1. Under **Profiles & Device Management**, tap the app you are trying to install and test.
 1. Tap **Trust "app name"** and then tap **Trust**.
@@ -167,12 +167,13 @@ If you upload an app that is signed with an enterprise certificate, and **Instru
 | <img src={useBaseUrl('img/live-testing/share-session-icon.png')} alt="Share Session icon" width="35"/>             | Share Session       | Opens the **Share Device** window. For a sharable link to the device, click **Get Link**. <br/>Users must be logged in to be able to view the test.                                                                                                                                                                                           |
 | <img src={useBaseUrl('img/live-testing/rotate-device-icon.png')} alt="Rotate Device icon" width="35"/>             | Rotate Device       | Rotates the device between portrait and landscape.                                                                                                                                                                                                                                                                                            |
 | <img src={useBaseUrl('img/live-testing/home-icon.png')} alt="Home icon" width="35"/>                               | Home                | Opens the device home screen.                                                                                                                                                                                                                                                                                                                 |
-| <img src={useBaseUrl('img/live-testing/more-device-options-icon.png')} alt="More Device Options icon" width="35"/> | More Device Options | **Set Location** - Set the GPS location using coordinates or by dropping a pin on the map. <br/> **Camera Injection** - Opens the **Camera Injection** window. See [Camera Image Injection](/mobile-apps/features/camera-image-injection) for more information.<br/> **Biometric Injection** - Opens the **Biometric Authentication** window. |
+| <img src={useBaseUrl('img/live-testing/more-device-options-icon.png')} alt="More Device Options icon" width="35"/> | More Device Options | **Set Location** - Set the GPS location using coordinates or by dropping a pin on the map. <br/> **Camera Injection** - Opens the **Camera Injection** window. See [Camera Image Injection](/mobile-apps/features/camera-image-injection) for more information.<br/> **Biometric Injection** - Opens the [Biometric Authentication](/mobile-apps/features/biometric-authentication) window. |
 | <img src={useBaseUrl('img/live-testing/restart-app-icon.png')} alt="Restart App icon" width="35"/>                 | Restart App         | Restarts the app.                                                                                                                                                                                                                                                                                                                             |
 | <img src={useBaseUrl('img/live-testing/switch-app-version-icon.png')} alt="Switch App Version icon" width="35"/>   | Switch App Version  | Opens the **Switch App Version** window. To change the version of the app you are testing, hover over the version and then click **Choose version**.                                                                                                                                                                                          |
 | <img src={useBaseUrl('img/live-testing/clipboard-icon.png')} alt="Clipboard icon" width="35"/>                     | Clipboard           | Opens the **Paste Content Into Device** window.                                                                                                                                                                                                                                                                                               |
 | <img src={useBaseUrl('img/live-testing/install-dependency-icon.png')} alt="Install Dependency icon" width="35"/>   | Install Dependency  | Opens the **Install Dependent App** window.                                                                                                                                                                                                                                                                                                   |
 | <img src={useBaseUrl('img/live-testing/dev-options-icon.png')} alt="Developer Options icon" width="35"/>           | Developer Options   | Opens the **Developer Options** panel, which includes the **Device Log** and **Dev Tools** tabs.                                                                                                                                                                                                                                              |
+| <img src={useBaseUrl('img/live-testing/live-mobile-app-management-audio.png')} alt="Developer Options icon" width="35"/>           | Mute/Unmute  | Mutes or unmutes audio for your testing session.                                                                                                                                                                                                                                              |
 
 ### Device Log
 
@@ -193,12 +194,12 @@ Sometimes you need to conduct A/B testing, or document and validate feature pari
 
 1. On the **App Upload** page, click the +**_n_** in the **Version** column.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-versions.png')} alt="App with multiple versions" width="650"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-management-version.png')} alt="App with multiple versions" width="750"/>
 
 2. On the **Settings** page, in the versions list, hover over the version you want to launch.
-3. Click **Choose Device**.
+3. Click **Start Test**.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-version-change.png')} alt="Change the version of an app" width="650"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-management-version-start.png')} alt="Change the version of an app" width="750"/>
 
 ## Testing Apple Pay in Mobile Apps
 
