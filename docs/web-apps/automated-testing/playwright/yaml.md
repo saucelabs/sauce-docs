@@ -838,7 +838,6 @@ suites:
   shard: spec
 ```
 
-<!-- prettier-ignore-start -->
 :::tip
 To split tests in the most efficient way possible, use:
 - `spec` when the number of specs is less than the configured concurrency.
@@ -848,7 +847,7 @@ To split tests in the most efficient way possible, use:
 :::caution Shard Property Exclusivity
 The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
 :::
-<!-- prettier-ignore-end -->
+
 ---
 
 ### `params`
