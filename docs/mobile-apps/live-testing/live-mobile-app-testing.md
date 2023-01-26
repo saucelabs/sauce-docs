@@ -25,7 +25,7 @@ You can upload your app via the Sauce Labs UI or via the REST API. For informati
 To upload an app via the Sauce Labs UI:
 
 1. On Sauce Labs, in the left panel, click **App Management**.
-2. To upload an app you can either drag and drop an app or browse for and select the file. We currently support \*.apk Android app files, \*.aab Android App Bundle files and \*.ipa or \*.zip iOS app files (\*.zip files are parsed to determine whether a valid \*.app bundle exists). Non-app file uploads are not supported in the UI at this time, but can be uploaded through the API.
+2. To upload an app you can either drag and drop an app or browse for and select the file. We currently support \*.apk Android app files, \*.aab Android App Bundle files, and \*.ipa or \*.zip iOS app files (\*.zip files are parsed to determine whether a valid \*.app bundle exists). Non-app file uploads are not supported in the UI at this time, but can be uploaded through the API.
 
 If you don't have an app to test, you can use the [Sauce Labs sample mobile app](https://github.com/saucelabs/sample-app-mobile).
 
