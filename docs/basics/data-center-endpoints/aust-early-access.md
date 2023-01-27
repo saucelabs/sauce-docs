@@ -52,6 +52,10 @@ Currently, Sauce Labs does not support macOS or mobile testing for the APAC regi
 
 The APAC region currently supports all popular versions of Chrome, Firefox, and Edge. Support of Safari is TBD, based on the future support of macOS (above).
 
+## Support Selenium Client Versions
+
+Due to a bug in the Java Selenium Client that was fixed in version 4.1.1, that is the minimum required Selenium Client version if your tests are written in Java.
+
 ## Getting Help and Providing Feedback
 
 We want to be there every step of the way to ensure you are successful in this new region. We also greatly value your feedback on ways we can improve our services for you. By enrolling into this alpha program you will gain direct access to our product and engineering teams to both get help and provide feedback.
