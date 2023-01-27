@@ -38,11 +38,6 @@ If a baseline exists, a side-by-side view will be displayed with the baseline sc
 
 **Changed** UI states will include highlights of visual changes directly overlayed on the screenshots.
 
-:::tip Tips
-
-- Learn how to [ignore changes].
-- Learn how to [view change details].
-  :::
 
 ### 3. Accept or Reject
 

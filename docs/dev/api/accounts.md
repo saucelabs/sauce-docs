@@ -228,8 +228,6 @@ Creates a new team under the organization of the requesting account.
      <td><p><small>| BODY | REQUIRED | OBJECT |</small></p><p>The settings object specifies the concurrency allocations for the team within the organization. The available attributes are:
      <ul>
       <li><code>virtual_machines</code> - <small>INTEGER</small></li>
-      <li><code>real_devices</code> - <small>INTEGER</small></li>
-      <li><code>live_only</code> - <small>BOOLEAN</small> Defaults to <code>false</code>.</li>
     </ul>
     </p><p>The <code>settings</code> parameter is required, but you only need to include the applicable concurrency attribute(s) for the team.</p></td>
     </tr>
@@ -424,8 +422,6 @@ Replaces all values of the specified team with the new set of parameters passed 
      <td><p><small>| BODY | REQUIRED | OBJECT |</small></p><p>The updated concurrency allocations for the team. The available attributes are:
       <ul>
         <li><code>virtual_machines</code> - <small>INTEGER</small></li>
-        <li><code>real_devices</code> - <small>INTEGER</small></li>
-        <li><code>live_only</code> - <small>BOOLEAN</small> Defaults to <code>false</code>.</li>
       </ul>
       </p><p>The <code>settings</code> parameter is required, but you only need to include the applicable concurrency attribute(s) for the team.</p></td>
     </tr>
@@ -555,8 +551,6 @@ Updates one or more individual editable parameters (such as the concurrency allo
       <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>The updated concurrency allocations for the team. The available attributes are:
         <ul>
           <li><code>virtual_machines</code> - <small>INTEGER</small></li>
-          <li><code>real_devices</code> - <small>INTEGER</small></li>
-          <li><code>live_only</code> - <small>BOOLEAN</small> Defaults to <code>false</code>.</li>
         </ul></p>
       </td>
     </tr>
@@ -1799,7 +1793,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/membership/' \
+--request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/membership/' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "user": "<user-id>",
@@ -1812,7 +1806,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/membership/' \
+--request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/membership/' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "user": "<user-id>",

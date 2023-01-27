@@ -986,10 +986,9 @@ Selectable values: `spec` to shard by spec file, `concurrency` to shard by concu
 
 :::tip
 To split tests in the most efficient way possible, use:
-
 - `spec` when the number of specs is less than the configured concurrency.
 - `concurrency` when the number of specs is larger than the configured concurrency.
-  :::
+:::
 
 ```yaml
 suites:

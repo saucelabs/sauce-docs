@@ -32,11 +32,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 - Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
 - A Backtrace project and a submission token.
 
+<!-- prettier-ignore -->
 :::tip Generate a Submission Token
-
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
-   :::
+:::
 
 ### System Requirements
 

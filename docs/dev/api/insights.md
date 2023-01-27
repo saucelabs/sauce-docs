@@ -87,7 +87,7 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
   </tbody>
   <tbody>
     <tr>
-     <td><code>mainDocumentTransferSize</code></td>
+     <td><code>size</code></td>
      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>The maximum number of results to return.</p></td>
     </tr>
   </tbody>

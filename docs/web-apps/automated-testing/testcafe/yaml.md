@@ -676,7 +676,7 @@ The parent property containing the details specific to the TestCafe project.
 
 ```yaml
 testcafe:
-  version: 1.14.2
+  version: 2.2.0
 ```
 
 ---
@@ -688,7 +688,7 @@ testcafe:
 The version of TestCafe that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/testcafe#supported-testing-platforms) for the list of TestCafe versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
-  version: 1.14.2
+  version: 2.2.0
 ```
 
 :::tip
@@ -829,10 +829,9 @@ Selectable values: `spec` to shard by spec file, `concurrency` to shard by concu
 
 :::tip
 To split tests in the most efficient way possible, use:
-
 - `spec` when the number of specs is less than the configured concurrency.
 - `concurrency` when the number of specs is larger than the configured concurrency.
-  :::
+:::
 
 ```yaml
 suites:

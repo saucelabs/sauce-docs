@@ -23,38 +23,34 @@ Sauce Connect is required to run a local test on an app or website located behin
    :::
 2. Extract the .zip file and move the folder to your machine's [home directory](https://en.wikipedia.org/wiki/Home_directory).
 3. Open your terminal and navigate to the Sauce Connect Proxy client bin directory.
+   <Tabs
+     defaultValue="Mac/Linux"
+     values={[
+       {label: 'Mac/Linux', value: 'Mac/Linux'},
+       {label: 'Windows', value: 'Windows'},
+     ]}>
 
-<Tabs
-  defaultValue="Mac/Linux"
-  values={[
-    {label: 'Mac/Linux', value: 'Mac/Linux'},
-    {label: 'Windows', value: 'Windows'},
-  ]}>
+   <TabItem value="Mac/Linux">
 
-<TabItem value="Mac/Linux">
+   ```bash
+   cd sc-4.8.2-osx/bin
+   ```
 
-```bash
-cd sc-4.8.2-osx/bin
-```
+   </TabItem>
+   <TabItem value="Windows">
 
-</TabItem>
-<TabItem value="Windows">
+   ```bash
+   cd C:\sc-4.8.2-win32\bin
+   ```
 
-```bash
-cd C:\sc-4.8.2-win32\bin
-```
-
-</TabItem>
-</Tabs>
-
+   </TabItem>
+   </Tabs>
 4. Log in to Sauce Labs.
 5. Go to the [**Tunnel Proxies**](https://app.saucelabs.com/tunnels) page.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsPage.png')} alt="Sauce Connect Proxy Tunnels page" width="400"/>
 6. Under step 2, **Authenticate & connect**, copy the code snippet.<br/><img src={useBaseUrl('img/sauce-connect/configureAuth.png')} alt="Sauce Connect Proxy Tunnels page snippet" width="300"/>
-
-<details><summary>What is this?</summary>
-This snippet contains your authentication credentials (username and access key), selects a Sauce Labs Data Center, and applies a name to your tunnel. Optionally, you can rename your tunnel by replacing the value after the <code>--tunnel-name</code> flag.
-</details>
-
+   <details><summary>What is this?</summary>
+   This snippet contains your authentication credentials (username and access key), selects a Sauce Labs Data Center, and applies a name to your tunnel. Optionally, you can rename your tunnel by replacing the value after the <code>--tunnel-name</code> flag.
+   </details>
 7. Paste the snippet into your terminal and run it. This will launch the tunnel.
 
 ## Verify Connection

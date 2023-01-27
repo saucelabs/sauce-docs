@@ -662,7 +662,7 @@ The parent property containing the details specific to the Playwright project.
 
 ```yaml
 playwright:
-  version: 1.11.1
+  version: 1.29.2
 ```
 
 ---
@@ -674,7 +674,7 @@ playwright:
 The version of Playwright that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/playwright#supported-testing-platforms) for the list of Playwright versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
-  version: 1.11.1
+  version: 1.29.2
 ```
 
 :::tip
@@ -784,10 +784,9 @@ suites:
 
 :::tip
 To split tests in the most efficient way possible, use:
-
 - `spec` when the number of specs is less than the configured concurrency.
 - `concurrency` when the number of specs is larger than the configured concurrency.
-  :::
+:::
 
 ---
 

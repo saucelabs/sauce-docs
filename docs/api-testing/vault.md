@@ -31,7 +31,7 @@ In the **Variables** section, you can define environment variables to use in you
 
 The screenshot below shows the **Company Vault**; these variables are available across all projects.
 
-<img src={useBaseUrl('img/api-fortress/2021/04/company_vault.png')} alt="Company Vault View"/>
+<img src={useBaseUrl('img/api-testing/company_vault.png')} alt="Company Vault View"/>
 
 Define a variable at the project-specific **Vault** when you need to use the same one across multiple tests. For example, you could save a password here as a variable and reuse it in multiple tests.
 
@@ -43,6 +43,19 @@ Additionally, you can import variables from Postman. See [Importing Postman Coll
 If the same variable with the same name definition exists in both the **Project Vault** and **Company Vault**, then the value in the **Project Vault** will override the one in the **Company Vault**.
 :::
 
+### Mark Variables as Sensitive
+
+You can mark a variable as sensitive if it contains a sensitive value that you do not want to appear in your test reports. When you mark a variable as sensitive, the value is obfuscated anywhere it appears: in Vault, tests reports, and the project dashboard's logs and metrics when the variable is used in the URL, path, or query. 
+
+:::note
+Variables marked as sensitive are always excluded from Vault exports. 
+:::
+
+In the following example test report, the token variable has been marked as sensitive in Vault and appears as obfuscated in the report. 
+
+<img src={useBaseUrl('img/api-testing/sensitive-data.png')} alt="data obfuscated in report"  width="600"/>
+<img src={useBaseUrl('img/api-testing/sensitive-data2.png')} alt="data obfuscated in report"  width="600"/>
+
 ### Create a Variable
 
 1. Open a project.
@@ -50,9 +63,10 @@ If the same variable with the same name definition exists in both the **Project 
 1. Select **New Entry**.
 1. Add a Key (e.g., `domain`).
 1. Add a Value (e.g., `api.us-west-1.saucelabs.com`).
+1. Optionally, check **Sensitive**. Variables marked sensitive cannot be edited. If you need to change the value, you can delete the variable and recreate it with the new value. 
 1. Select **Confirm**.
 
-<img src={useBaseUrl('img/api-fortress/2021/04/variableEntry2.png')} alt="Domain Variables"/>
+<img src={useBaseUrl('img/api-testing/variableEntry2.png')} alt="Domain Variables"/>
 
 Then in your tests, you'd reference the variable by the `Key` using the following syntax: `${domain}`.
 
@@ -80,7 +94,7 @@ Much like with variable scope, snippets saved in a project **Vault** are only av
 
 When you save a snippet from the [**Composer**](/api-testing/composer/), it will be saved in the project **Vault**. While you cannot save a snippet from the **Composer** to the **Company Vault**, you can export there using the import/export feature (see screenshot below).<br/><img src={useBaseUrl('img/api-testing/vault_exportSnippet.png')} alt="Snippet"/>
 
-### Updating Snippet
+### Update a Snippet
 
 1. Open a project.
 1. In the left panel, click **Vault**, then click **Code Snippets**.
@@ -108,9 +122,9 @@ Now you can choose to **Call Snippet** or **Paste Snippet** in future tests that
 
 ## Files
 
-In the **Drive** section of a project-specific **Vault**, you can upload files to use in your tests. The file size limit for an individual file is 16 MB. The total limit for the **Company Vault** is 100 MB. This means if one project-specific **Vault** is using 100 MB of storage, other projects cannot upload addtional files.
+In the **Drive** section of a project-specific **Vault**, you can upload files to use in your tests. The file size limit for an individual file is 16 MB. The total limit for the **Company Vault** is 100 MB. This means if one project-specific **Vault** is using 100 MB of storage, other projects cannot upload additional files.
 
-### Uploading a file
+### Upload a file
 
 1. Open a project.
 1. In the left panel, click **Vault**, then click **Drive**.

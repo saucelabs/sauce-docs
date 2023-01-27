@@ -48,13 +48,17 @@ However, because proxy requests to a localhost address are not supported by all 
 
 See also [Supported Browsers and Ports Specification](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports).
 
-## How Can I Improve Tunnel Performance?
+## How can I improve tunnel performance?
 
 See [Improving Sauce Connect Proxy Performance](/secure-connections/sauce-connect/proxy-tunnels/#improving-sauce-connect-proxy-performance).
 
 ### Supported Browsers and Ports
 
 See [Supported Browsers and Ports Specification](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports).
+
+## What are the optimal open file settings?
+
+The [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) on macOS and other Unix-based systems limits the number of open file descriptors. Since a file descriptor is opened for each network connection, the open file limit also restricts the number of open network connections. Under normal usage, Sauce Connect Proxy can easily reach the default limit (1024 in most cases). This causes each new connection to time out, and results in failed tests. Modern systems allow much higher limits without any visible impact on memory, so we **recommend setting the open file limit to 64000** in order to ensure the open file limit is never an issue for tunneled requests.
 
 ## If we have five users, should we use five instances of Sauce Connect Proxy or set up one shared instance?
 
