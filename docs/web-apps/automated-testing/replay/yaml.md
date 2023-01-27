@@ -168,9 +168,11 @@ Alternatively, you can override the file setting at runtime by setting the concu
 ```bash
 saucectl run --ccy 5
 ```
+
 ---
 
 ### `retries`
+
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
 Sets the number of times to retry a failed suite. For more settings, you can refer to [passThreshold](#passThreshold).
@@ -614,6 +616,7 @@ suites:
 ```
 
 ---
+
 ### `passThreshold`
 
 <p><small>| OPTIONAL | INTEGER |</small></p>

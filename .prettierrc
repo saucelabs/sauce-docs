@@ -9,6 +9,7 @@
         "useTabs": false,
         "trailingComma": "none",
         "jsxSingleQuote": true,
+        "embeddedLanguageFormatting": "off",
         "singleQuote": false,
         "semi": false
       }

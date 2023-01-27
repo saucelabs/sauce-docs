@@ -1041,7 +1041,9 @@ Allows you to set a custom time zone for your test based on a city name. Most ma
 ```yaml
   timeZone: New_York
 ```
+
 ---
+
 ### `passThreshold`
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
