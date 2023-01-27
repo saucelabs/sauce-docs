@@ -329,7 +329,6 @@ module.exports = {
         {
             type: 'category',
             label: 'Low Code',
-            link: { type: 'doc', id: 'dev/low-code' },
             collapsed: true,
             collapsible: false,
             items: [
@@ -338,17 +337,12 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Plan',
-                    link: { type: 'doc', id: 'dev/low-code/plan/plan-step' },
                     collapsed: true,
                     items: [
                         'dev/low-code/plan/plan-step',
                         {
                             type: 'category',
                             label: 'Projects',
-                            link: {
-                                type: 'doc',
-                                id: 'dev/low-code/plan/projects/projects',
-                            },
                             collapsed: true,
                             items: [
                                 'dev/low-code/plan/projects/projects',
@@ -362,10 +356,6 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Execute',
-                    link: {
-                        type: 'doc',
-                        id: 'dev/low-code/execute/execute-step',
-                    },
                     collapsed: true,
                     items: [
                         'dev/low-code/execute/execute-step',
@@ -386,7 +376,6 @@ module.exports = {
         {
             type: 'category',
             label: 'Error and Crash Reporting',
-            link: { type: 'doc', id: 'error-reporting/getting-started' },
             collapsed: true,
             collapsible: false,
             items: [
@@ -395,19 +384,11 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Platform Integrations',
-                    link: {
-                        type: 'doc',
-                        id: 'error-reporting/platform-integrations/android/setup',
-                    },
                     collapsed: true,
                     items: [
                         {
                             type: 'category',
                             label: 'Android',
-                            link: {
-                                type: 'doc',
-                                id: 'error-reporting/platform-integrations/android/setup',
-                            },
                             collapsed: true,
                             items: [
                                 'error-reporting/platform-integrations/android/setup',
@@ -418,10 +399,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'iOS',
-                            link: {
-                                type: 'doc',
-                                id: 'error-reporting/platform-integrations/ios/setup',
-                            },
                             collapsed: true,
                             items: [
                                 'error-reporting/platform-integrations/ios/setup',
@@ -431,10 +408,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Unity',
-                            link: {
-                                type: 'doc',
-                                id: 'error-reporting/platform-integrations/unity/setup',
-                            },
                             collapsed: true,
                             items: [
                                 'error-reporting/platform-integrations/unity/setup',
@@ -445,10 +418,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Unreal Engine',
-                            link: {
-                                type: 'doc',
-                                id: 'error-reporting/platform-integrations/unreal/setup',
-                            },
                             collapsed: true,
                             items: [
                                 'error-reporting/platform-integrations/unreal/setup',
@@ -459,10 +428,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Real Devices',
-                            link: {
-                                type: 'doc',
-                                id: 'error-reporting/platform-integrations/real-devices/setup',
-                            },
                             collapsed: true,
                             items: [
                                 'error-reporting/platform-integrations/real-devices/setup',
@@ -473,10 +438,6 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Web Console Views',
-                    link: {
-                        type: 'doc',
-                        id: 'error-reporting/web-console/getting-started',
-                    },
                     collapsed: true,
                     items: [
                         'error-reporting/web-console/getting-started',
@@ -491,10 +452,6 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Project Settings',
-                    link: {
-                        type: 'doc',
-                        id: 'error-reporting/project-setup/attributes',
-                    },
                     collapsed: true,
                     items: [
                         'error-reporting/project-setup/attributes',
@@ -519,10 +476,6 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Organization Settings',
-                    link: {
-                        type: 'doc',
-                        id: 'error-reporting/org-settings/user-mgmnt',
-                    },
                     collapsed: true,
                     items: [
                         'error-reporting/org-settings/user-mgmnt',
@@ -533,10 +486,6 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Workflow Integrations',
-                    link: {
-                        type: 'doc',
-                        id: 'error-reporting/workflow-integrations/overview',
-                    },
                     collapsed: true,
                     items: [
                         'error-reporting/workflow-integrations/overview',
@@ -544,10 +493,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Messaging',
-                            link: {
-                                type: 'doc',
-                                id: 'error-reporting/workflow-integrations/messaging/slack',
-                            },
                             collapsed: true,
                             items: [
                                 'error-reporting/workflow-integrations/messaging/slack',
@@ -561,10 +506,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Issue Tracking',
-                            link: {
-                                type: 'doc',
-                                id: 'error-reporting/workflow-integrations/issue-tracking/jira',
-                            },
                             collapsed: true,
                             items: [
                                 'error-reporting/workflow-integrations/issue-tracking/jira',
@@ -577,10 +518,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Alerting and Operations',
-                            link: {
-                                type: 'doc',
-                                id: 'error-reporting/workflow-integrations/alerting-ops/pagerduty',
-                            },
                             collapsed: true,
                             items: [
                                 'error-reporting/workflow-integrations/alerting-ops/pagerduty',
@@ -591,10 +528,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Monitoring',
-                            link: {
-                                type: 'doc',
-                                id: 'error-reporting/workflow-integrations/monitoring/datadog',
-                            },
                             collapsed: true,
                             items: [
                                 'error-reporting/workflow-integrations/monitoring/datadog',
@@ -607,10 +540,6 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Privacy and Compliance',
-                    link: {
-                        type: 'doc',
-                        id: 'error-reporting/security-compliance/common-questions',
-                    },
                     collapsed: true,
                     items: [
                         'error-reporting/security-compliance/common-questions',
@@ -625,7 +554,6 @@ module.exports = {
         {
             type: 'category',
             label: 'API Reference',
-            link: { type: 'doc', id: 'dev/api' },
             collapsed: true,
             items: [
                 'dev/api',
@@ -644,7 +572,6 @@ module.exports = {
         {
             type: 'category',
             label: 'CLI Reference',
-            link: { type: 'doc', id: 'dev/cli' },
             collapsed: true,
             items: [
                 'dev/cli',
@@ -652,7 +579,6 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'saucectl CLI',
-                    link: { type: 'doc', id: 'dev/cli/saucectl' },
                     collapsed: true,
                     items: [
                         'dev/cli/saucectl',
@@ -660,7 +586,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Command Ref',
-                            link: { type: 'doc', id: 'dev/cli/saucectl/init' },
                             collapsed: true,
                             items: [
                                 'dev/cli/saucectl/init',
@@ -681,10 +606,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'CI Integrations',
-                            link: {
-                                type: 'doc',
-                                id: 'dev/cli/saucectl/usage/ci/circleci',
-                            },
                             collapsed: true,
                             items: [
                                 'dev/cli/saucectl/usage/ci/circleci',
@@ -696,10 +617,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'IDE Integrations',
-                            link: {
-                                type: 'doc',
-                                id: 'dev/cli/saucectl/usage/ide/intellij',
-                            },
                             collapsed: true,
                             items: [
                                 'dev/cli/saucectl/usage/ide/intellij',
@@ -711,7 +628,6 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Virtual USB CLI',
-                    link: { type: 'doc', id: 'dev/cli/virtual-usb' },
                     collapsed: true,
                     items: [
                         'dev/cli/virtual-usb',
@@ -730,14 +646,12 @@ module.exports = {
         {
             type: 'category',
             label: 'Home',
-            link: { type: 'doc', id: 'overview' },
             collapsed: true,
             items: [
                 'overview',
                 {
                     type: 'category',
                     label: 'Sauce Labs Basics',
-                    link: { type: 'doc', id: 'sauce-basics' },
                     collapsed: true,
                     items: [
                         'sauce-basics',
@@ -747,10 +661,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Account and Team Management',
-                            link: {
-                                type: 'doc',
-                                id: 'basics/acct-team-mgmt-hub',
-                            },
                             collapsed: true,
                             items: [
                                 'basics/acct-team-mgmt-hub',
@@ -758,10 +668,6 @@ module.exports = {
                                 {
                                     type: 'category',
                                     label: 'Managing Users and Accounts',
-                                    link: {
-                                        type: 'doc',
-                                        id: 'basics/acct-team-mgmt/concurrency-limits',
-                                    },
                                     collapsed: true,
                                     items: [
                                         'basics/acct-team-mgmt/concurrency-limits',
@@ -773,10 +679,6 @@ module.exports = {
                                 {
                                     type: 'category',
                                     label: 'Managing Teams',
-                                    link: {
-                                        type: 'doc',
-                                        id: 'basics/acct-team-mgmt/adding-deleting-teams',
-                                    },
                                     collapsed: true,
                                     items: [
                                         'basics/acct-team-mgmt/adding-deleting-teams',
@@ -788,10 +690,6 @@ module.exports = {
                                 {
                                     type: 'category',
                                     label: 'Billing and Subscriptions',
-                                    link: {
-                                        type: 'doc',
-                                        id: 'basics/acct-team-mgmt/managing-subscription',
-                                    },
                                     collapsed: true,
                                     items: [
                                         'basics/acct-team-mgmt/managing-subscription',
@@ -804,7 +702,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Single Sign-On',
-                            link: { type: 'doc', id: 'basics/sso-hub' },
                             collapsed: true,
                             items: [
                                 'basics/sso-hub',
@@ -816,10 +713,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Test Configuration and Annotation',
-                            link: {
-                                type: 'doc',
-                                id: 'basics/test-config-annotation/test-config',
-                            },
                             collapsed: true,
                             items: [
                                 'basics/test-config-annotation/test-config',
@@ -829,10 +722,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Data Center Endpoints',
-                            link: {
-                                type: 'doc',
-                                id: 'basics/data-center-endpoints',
-                            },
                             collapsed: true,
                             items: [
                                 'basics/data-center-endpoints',
@@ -842,20 +731,12 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Integrations',
-                            link: {
-                                type: 'doc',
-                                id: 'basics/integrations-overview',
-                            },
                             collapsed: true,
                             items: [
                                 'basics/integrations-overview',
                                 {
                                     type: 'category',
                                     label: 'CI/CD Tools',
-                                    link: {
-                                        type: 'doc',
-                                        id: 'basics/integrations/gitlab',
-                                    },
                                     collapsed: true,
                                     items: [
                                         'basics/integrations/gitlab',
@@ -868,10 +749,6 @@ module.exports = {
                                 {
                                     type: 'category',
                                     label: 'Accessibility',
-                                    link: {
-                                        type: 'doc',
-                                        id: 'basics/integrations/deque',
-                                    },
                                     collapsed: true,
                                     items: [
                                         'basics/integrations/deque',
@@ -881,20 +758,12 @@ module.exports = {
                                 {
                                     type: 'category',
                                     label: 'Defect Reporting and Management',
-                                    link: {
-                                        type: 'doc',
-                                        id: 'basics/integrations/jira',
-                                    },
                                     collapsed: true,
                                     items: ['basics/integrations/jira'],
                                 },
                                 {
                                     type: 'category',
                                     label: 'Low-Code/No-Code/Model-Based Test Case Generation',
-                                    link: {
-                                        type: 'doc',
-                                        id: 'basics/integrations/eggplant',
-                                    },
                                     collapsed: true,
                                     items: [
                                         'basics/integrations/eggplant',
@@ -916,17 +785,12 @@ module.exports = {
         {
             type: 'category',
             label: 'Sauce Trusted Connection',
-            link: { type: 'doc', id: 'secure-connections' },
             collapsed: true,
             items: [
                 'secure-connections',
                 {
                     type: 'category',
                     label: 'Sauce Connect Proxy',
-                    link: {
-                        type: 'doc',
-                        id: 'secure-connections/sauce-connect',
-                    },
                     collapsed: true,
                     items: [
                         'secure-connections/sauce-connect',
@@ -937,10 +801,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Setup and Configuration',
-                            link: {
-                                type: 'doc',
-                                id: 'secure-connections/sauce-connect/setup-configuration/basic-setup',
-                            },
                             collapsed: true,
                             items: [
                                 'secure-connections/sauce-connect/setup-configuration/basic-setup',
@@ -958,10 +818,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Advanced',
-                            link: {
-                                type: 'doc',
-                                id: 'secure-connections/sauce-connect/advanced/architecture',
-                            },
                             collapsed: true,
                             items: [
                                 'secure-connections/sauce-connect/advanced/architecture',
@@ -979,7 +835,6 @@ module.exports = {
         {
             type: 'category',
             label: 'Mobile Apps',
-            link: { type: 'doc', id: 'mobile-apps' },
             collapsed: true,
             items: [
                 'mobile-apps',
@@ -987,7 +842,6 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Supported Devices',
-                    link: { type: 'doc', id: 'mobile-apps/supported-devices' },
                     collapsed: true,
                     items: [
                         'mobile-apps/supported-devices',
@@ -997,10 +851,6 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Features',
-                    link: {
-                        type: 'doc',
-                        id: 'mobile-apps/features/bypass-screenshot',
-                    },
                     collapsed: true,
                     items: [
                         'mobile-apps/features/bypass-screenshot',
@@ -1012,10 +862,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Mobile App Diagnostics',
-                            link: {
-                                type: 'doc',
-                                id: 'mobile-apps/features/mobile-app-diagnostics/device-vitals',
-                            },
                             collapsed: true,
                             items: [
                                 'mobile-apps/features/mobile-app-diagnostics/device-vitals',
@@ -1029,28 +875,18 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Live Testing',
-                    link: {
-                        type: 'doc',
-                        id: 'mobile-apps/live-testing/live-mobile-app-testing',
-                    },
                     collapsed: true,
                     items: ['mobile-apps/live-testing/live-mobile-app-testing'],
                 },
-
                 {
                     type: 'category',
                     label: 'Automated Testing',
-                    link: { type: 'doc', id: 'mobile-apps/automated-testing' },
                     collapsed: true,
                     items: [
                         'mobile-apps/automated-testing',
                         {
                             type: 'category',
                             label: 'Appium',
-                            link: {
-                                type: 'doc',
-                                id: 'mobile-apps/automated-testing/appium',
-                            },
                             collapsed: true,
                             items: [
                                 'mobile-apps/automated-testing/appium',
@@ -1064,10 +900,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Espresso and XCUITest',
-                            link: {
-                                type: 'doc',
-                                id: 'mobile-apps/automated-testing/espresso-xcuitest',
-                            },
                             collapsed: true,
                             items: [
                                 'mobile-apps/automated-testing/espresso-xcuitest',
@@ -1077,10 +909,6 @@ module.exports = {
                                 {
                                     type: 'category',
                                     label: 'Espresso Features',
-                                    link: {
-                                        type: 'doc',
-                                        id: 'mobile-apps/automated-testing/espresso-xcuitest/espresso-capture',
-                                    },
                                     collapsed: true,
                                     items: [
                                         'mobile-apps/automated-testing/espresso-xcuitest/espresso-capture',
@@ -1098,36 +926,23 @@ module.exports = {
         {
             type: 'category',
             label: 'Web Apps',
-            link: { type: 'doc', id: 'web-apps' },
             collapsed: true,
             items: [
                 'web-apps',
                 {
                     type: 'category',
                     label: 'Live Testing',
-                    link: {
-                        type: 'doc',
-                        id: 'web-apps/live-testing/live-cross-browser-testing',
-                    },
                     collapsed: true,
                     items: ['web-apps/live-testing/live-cross-browser-testing'],
                 },
                 {
                     type: 'category',
                     label: 'Automated Testing',
-                    link: {
-                        type: 'doc',
-                        id: 'web-apps/automated-testing/selenium',
-                    },
                     collapsed: true,
                     items: [
                         {
                             type: 'category',
                             label: 'Selenium',
-                            link: {
-                                type: 'doc',
-                                id: 'web-apps/automated-testing/selenium',
-                            },
                             collapsed: true,
                             items: [
                                 'web-apps/automated-testing/selenium',
@@ -1141,10 +956,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Cypress',
-                            link: {
-                                type: 'doc',
-                                id: 'web-apps/automated-testing/cypress',
-                            },
                             collapsed: true,
                             items: [
                                 'web-apps/automated-testing/cypress',
@@ -1152,12 +963,9 @@ module.exports = {
                                 {
                                     type: 'category',
                                     label: 'YAML Configuration',
-                                    link: {
-                                        type: 'doc',
-                                        id: 'web-apps/automated-testing/cypress/yaml',
-                                    },
                                     collapsed: true,
                                     items: [
+                                        'web-apps/automated-testing/cypress/yaml',
                                         'web-apps/automated-testing/cypress/yaml/v1',
                                         'web-apps/automated-testing/cypress/yaml/v1alpha',
                                     ],
@@ -1168,10 +976,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Playwright',
-                            link: {
-                                type: 'doc',
-                                id: 'web-apps/automated-testing/playwright',
-                            },
                             collapsed: true,
                             items: [
                                 'web-apps/automated-testing/playwright',
@@ -1183,10 +987,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Cucumber.js with Playwright',
-                            link: {
-                                type: 'doc',
-                                id: 'web-apps/automated-testing/cucumberjs-playwright/quickstart',
-                            },
                             collapsed: true,
                             items: [
                                 'web-apps/automated-testing/cucumberjs-playwright/quickstart',
@@ -1197,10 +997,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'TestCafe',
-                            link: {
-                                type: 'doc',
-                                id: 'web-apps/automated-testing/testcafe',
-                            },
                             collapsed: true,
                             items: [
                                 'web-apps/automated-testing/testcafe',
@@ -1212,10 +1008,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Puppeteer',
-                            link: {
-                                type: 'doc',
-                                id: 'web-apps/automated-testing/puppeteer',
-                            },
                             collapsed: true,
                             items: [
                                 'web-apps/automated-testing/puppeteer',
@@ -1226,10 +1018,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Replay',
-                            link: {
-                                type: 'doc',
-                                id: 'web-apps/automated-testing/replay',
-                            },
                             collapsed: true,
                             items: [
                                 'web-apps/automated-testing/replay',
@@ -1244,7 +1032,6 @@ module.exports = {
         {
             type: 'category',
             label: 'API Testing',
-            link: { type: 'doc', id: 'api-testing' },
             collapsed: true,
             items: [
                 'api-testing',
@@ -1257,7 +1044,6 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Test Composer',
-                    link: { type: 'doc', id: 'api-testing/composer' },
                     collapsed: true,
                     items: [
                         'api-testing/composer',
@@ -1271,7 +1057,6 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Vaults, Variables, Environments',
-                    link: { type: 'doc', id: 'api-testing/vault' },
                     collapsed: true,
                     items: [
                         'api-testing/vault',
@@ -1282,10 +1067,6 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Integrations',
-                    link: {
-                        type: 'doc',
-                        id: 'api-testing/integrations/apifctl-cicd-integration',
-                    },
                     collapsed: true,
                     items: [
                         'api-testing/integrations/apifctl-cicd-integration',
@@ -1304,7 +1085,6 @@ module.exports = {
         {
             type: 'category',
             label: 'CI',
-            link: { type: 'doc', id: 'ci' },
             collapsed: true,
             items: [
                 'ci',
@@ -1318,7 +1098,6 @@ module.exports = {
         {
             type: 'category',
             label: 'Test Results',
-            link: { type: 'doc', id: 'test-results' },
             collapsed: true,
             items: [
                 'test-results',
@@ -1332,7 +1111,6 @@ module.exports = {
         {
             type: 'category',
             label: 'Insights',
-            link: { type: 'doc', id: 'insights' },
             collapsed: true,
             items: [
                 'insights',
@@ -1347,7 +1125,6 @@ module.exports = {
         {
             type: 'category',
             label: 'Performance',
-            link: { type: 'doc', id: 'performance' },
             collapsed: true,
             items: [
                 'performance',
@@ -1361,31 +1138,24 @@ module.exports = {
         {
             type: 'category',
             label: 'Headless',
-            link: { type: 'doc', id: 'headless' },
             collapsed: true,
             items: ['headless'],
         },
         {
             type: 'category',
             label: 'Visual',
-            link: { type: 'doc', id: 'visual' },
             collapsed: true,
             items: [
                 'visual',
                 {
                     type: 'category',
                     label: 'E2E Testing',
-                    link: { type: 'doc', id: 'visual/e2e-testing/setup' },
                     collapsed: true,
                     items: [
                         'visual/e2e-testing/setup',
                         {
                             type: 'category',
                             label: 'Integrations',
-                            link: {
-                                type: 'doc',
-                                id: 'visual/e2e-testing/integrations/continuous-integration',
-                            },
                             collapsed: true,
                             items: [
                                 'visual/e2e-testing/integrations/continuous-integration',
@@ -1396,10 +1166,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Workflow',
-                            link: {
-                                type: 'doc',
-                                id: 'visual/e2e-testing/workflow/review-workflow',
-                            },
                             collapsed: true,
                             items: [
                                 'visual/e2e-testing/workflow/review-workflow',
@@ -1418,17 +1184,12 @@ module.exports = {
                 {
                     type: 'category',
                     label: 'Component Testing',
-                    link: { type: 'doc', id: 'visual/component-testing/setup' },
                     collapsed: true,
                     items: [
                         'visual/component-testing/setup',
                         {
                             type: 'category',
                             label: 'Integrations',
-                            link: {
-                                type: 'doc',
-                                id: 'visual/component-testing/integrations/sauce-labs',
-                            },
                             collapsed: true,
                             items: [
                                 'visual/component-testing/integrations/sauce-labs',
@@ -1442,10 +1203,6 @@ module.exports = {
                         {
                             type: 'category',
                             label: 'Workflow',
-                            link: {
-                                type: 'doc',
-                                id: 'visual/component-testing/workflow/review-workflow',
-                            },
                             collapsed: true,
                             items: [
                                 'visual/component-testing/workflow/review-workflow',
@@ -1470,7 +1227,6 @@ module.exports = {
         {
             type: 'category',
             label: 'Reference',
-            link: { type: 'doc', id: 'dev/test-configuration-options' },
             collapsed: true,
             items: [
                 'dev/test-configuration-options',
@@ -1488,7 +1244,6 @@ module.exports = {
         {
             type: 'category',
             label: 'Contributing',
-            link: { type: 'doc', id: 'contributing' },
             collapsed: true,
             items: [
                 'contributing',
