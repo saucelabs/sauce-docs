@@ -1085,7 +1085,7 @@ We recommend that you avoid the use of special characters when naming your confi
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Specifies the compiler options listed in the official [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/compiler-options.html).
+Specifies the compiler options. See [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/compiler-options.html).
 
 ```yaml
     options:
