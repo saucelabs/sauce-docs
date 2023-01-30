@@ -1247,10 +1247,10 @@ module.exports = {
             link: { type: 'doc', id: 'hosted-orchestration' },
             collapsed: true,
             items: [
-                'hosted-orchestration',
-                'hosted-orchestration/architecture',
+                'hosted-orchestration',                
+                'hosted-orchestration/running-tests',
                 'hosted-orchestration/building-images',
-                'hosted-orchestration/running-tests'
+                'hosted-orchestration/private-registry'
             ]
         },
         {

@@ -4,63 +4,199 @@ title: Hosted Orchestration Running Tests
 sidebar_label: Running Tests
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+This page outlines how to run your browser and mobile tests in Hosted Test Orchestration.
+
+## What You'll Need
+
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+- The SauceCTL client installed. Read [Using the saucectl CLI](../dev/cli/saucectl) to learn more.
+- A Docker image containing your tests. Read [Building Images](./building-images) if you need help.
+
 ## Starting an Execution
 
+You can interact with Hosted Orchestration through the SauceCtl CLI. An example SauceCTL configuration is below.
+
 <Tabs
-     defaultValue="REST API"
+     defaultValue="SauceCTL"
      values={[
-       {label: 'REST API', value: 'REST API'},
        {label: 'SauceCTL', value: 'SauceCTL'},
      ]}>
+  <TabItem value="SauceCTL">
 
-   <TabItem value="REST API">
+  ```yaml
+    apiVersion: v1alpha
+    kind: htexec
+    sauce:
+      region: us-west-1
+    suites:
+      - name: run sauce test
+        image: saucelabs/sl-demo-docker-primary:0.0.1
+        imagePullAuth:
+          user: $SAUCE_IMAGE_USER
+          token: $SAUCE_IMAGE_TOKEN
+        entrypoint: "mvn test"
+        files:
+          - src: "runsauce.json"
+            dst: "/workdir/runsauce.json"
+        artifacts:
+          - "/path/inside/container/file.log"
+        env: 
+          KEY: value
+  ```
 
-   ```bash
-   curl -X POST https://api.us-west-1.saucelabs.com
-   -H "Content-Type: application/json" 
-   --user "${SAUCE_USERNAME}:${SAUCE_ACCESS_KEY}"
-   -d '{
-    "container": {
-      "name": "mikedonovan1987/hosted-execution:pr-1",
-      "auth": { 
-        "user": "",
-        "token": ""
-      }
-    },
-    "entrypoint": "mvn test -pl best-practice -Dtest=DesktopTests",
-    "env": [
-      {
-        "name": "SAUCE_ENDPOINT",
-        "value": "https://ondemand.us-west-4-i3er.saucelabs.com:443/wd/hub"
-      },
-      {
-        "name": "SAUCE_BUILD",
-        "value": "hosted-execution"
-      }
-    ],
-    "files": [
-    {
-      "path": "/tmp/sauce/the-hello.json",
-      "data": "dGhpcyBpcyBhIHNhbXBsZSBvdXRwdXQ6CiogSSdtIGRvbmUKKiBJJ20gZG9uZSB0b28KKiBwcmV0dHkgYXdlc29tZQ=="
-    }
-    ],
-    "artifacts": [
-      "/path/inside/container/file1.log",
-      "/path/inside/container/file2.log"
-    ]
-    }'
-   ```
+  Then run with
 
-   </TabItem>
-   <TabItem value="SauceCTL">
+  ```bash
+    saucectl run
+  ```
 
-   ```bash
-   saucectl hosted-execution --image=""
-   ```
+  You should receive a successful output that looks like
 
-   </TabItem>
-   </Tabs>
+  ```bash
+  ⚡  saucectl run
+     Running version 0.0.0+unknown
+     12:46:56 WRN A new version of saucectl is available (v0.120.1)
+     12:46:56 INF Launching workers. concurrency=1
+     12:46:56 INF Starting suite. image=mikedonovan1987/java-hosted-execution:pr-1 suite="run sauce test"
+     12:46:57 INF Started suite. image=mikedonovan1987/java-hosted-execution:pr-1 runID=056e38a0684a4a99b4478aa73f214e3f suite="run sauce test"
+     12:47:06 INF Suites in progress: 1
+     12:47:16 INF Suites in progress: 1
+     12:47:26 INF Suites in progress: 1
+     12:47:36 INF Suites in progress: 1
+     12:47:46 INF Suites in progress: 1
+     12:47:56 INF Suites in progress: 1
+     12:48:06 INF Suites in progress: 1
+     12:48:16 INF Suites in progress: 1
+     12:48:26 INF Suites in progress: 1
+     12:48:27 INF Suite finished. passed=true runID=056e38a0684a4a99b4478aa73f214e3f suite="run sauce test"
 
-   ## Checking Status
+       Name                              Duration    Status       Attempts
+────────────────────────────────────────────────────────────────────────────
+  ✔    run sauce test                       1m30s    Succeeded           1
+────────────────────────────────────────────────────────────────────────────
+  ✔    All suites have passed               1m30s
+  ```
+  </TabItem>
+</Tabs>
 
-   ## Getting Results
+## Configuration Details
+
+Each of the properties supported for running Hosted Orcheestration tests through `saucectl` is defined below.
+
+## `apiVersion`
+
+<p><small>| REQUIRED | STRING |</small></p>
+
+Identifies the version of the underlying configuration schema. At this time, `v1alpha` is the only supported value.
+
+```yaml
+apiVersion: v1alpha
+```
+
+---
+
+## `kind`
+
+<p><small>| REQUIRED | STRING |</small></p>
+
+Tells SauceCTL this is a Hosted Orcheastration job. `imagerunner` is the required value.
+
+```yaml
+kind: imagerunner
+```
+
+---
+
+## `image`
+
+<p><small>| REQUIRED | STRING |</small></p>
+
+The location of your Docker image. Takes the format [registry]/[image]:[tag]
+
+```yaml
+image: saucelabs/sl-demo-docker-primary:0.0.1
+```
+
+---
+
+## `imagePullAuth`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The credentials needed to access an image hosted in a private register
+
+```yaml
+imagePullAuth: 
+  user: sample_user
+  token: sample_token
+```
+
+---
+
+## `entrypoint`
+
+<p><small>| REQUIRED | STRING |</small></p>
+
+The command the execute once the container is ready.
+
+```yaml
+entrypoint: mvn test
+```
+
+---
+
+## `files`
+
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Files to be uploaded onto the container. Useful for populating test data that your scripts access.
+
+```yaml
+files:
+  - src: "runsauce.json"
+    dst: "/workdir/runsauce.json"
+```
+
+---
+
+## `env`
+
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Environment variables to be injected into the container. Useful for populating secrets used in your tests. These are not stored anywhere in Sauce Labs.
+
+```yaml
+env: 
+  KEY: value
+```
+
+---
+
+
+## Getting Results
+
+The results of the Hosted Orchestration job depend on the result of the ```entrypoint``` command.
+<table>
+  <tr>
+    <td>Result Status</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Succeeded</td>
+    <td>The <b>entrypoint</b> command returns a status code == 0, and the container is terminated successfully</td>
+  </tr>
+  <tr>
+    <td>Failed</td>
+    <td>The <b>entrypoint</b> command returns a non-zero status code, and the container is terminated successfully. A "failed" status is also returned if an error occurs on the container.</td>
+  </tr>
+</table>
+
+## Getting Logs and Artifacts
+
+Coming Soon!
+
