@@ -1089,7 +1089,7 @@ Specifies the compiler options listed in the official [TypeScript documentation]
 ```
 
 :::note
-We recommend that you avoid the use of special characters when naming your config file. It may cause issue to launch TestCafe test.
+We recommend that you avoid the use of special characters when naming your config file. It may prevent TestCafe tests from launching.
 :::
 
 ---
