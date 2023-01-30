@@ -1026,7 +1026,7 @@ Allows you to alter the test execution speed for the test suite. Tests are run a
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-This field has been deprecated as of TestCafe v1.10.0. See [TestCafe Documentation](https://testcafe.io/documentation/402638/reference/configuration-file#tsconfigpath). Please refer to [compilerOptions](#compilerOptions).
+This field has been deprecated as of TestCafe v1.10.0. See [TestCafe Documentation](https://testcafe.io/documentation/402638/reference/configuration-file#tsconfigpath). Please refer to [compilerOptions](#compileroptions).
 
 The absolute or relative path to the TypeScript configuration file. Relative paths are resolved against the current directory (the directory from which you run TestCafe).
 
