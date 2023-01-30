@@ -1026,11 +1026,71 @@ Allows you to alter the test execution speed for the test suite. Tests are run a
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
+This field has been deprecated as of TestCafe v.1.10.0. See [TestCafe Documentation](https://testcafe.io/documentation/402638/reference/configuration-file#tsconfigpath). Please refer to [compilerOptions](#compilerOptions).
+
 The absolute or relative path to the TypeScript configuration file. Relative paths are resolved against the current directory (the directory from which you run TestCafe).
 
 ```yaml
   tsConfigPath: /path/to/file
 ```
+
+---
+
+### `compilerOptions`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies test compilation settings. The current version of TestCafe can only configure the TypeScript compiler. See [TestCafe Documentation](https://testcafe.io/documentation/402638/reference/configuration-file#compileroptions).
+
+```yaml
+  compilerOptions:
+    configPath: /path/to/tsconfig.json
+    customCompilerModulePath: ../typescript@4
+```
+---
+
+#### `configPath`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+The absolute or relative path to the TypeScript configuration file. Relative paths are resolved against the current directory (the directory from which you run TestCafe).
+
+```yaml
+    configPath: /path/to/tsconfig.json
+```
+
+:::note
+We recommend that you avoid the use of special characters when naming your config file. It may cause issue to launch TestCafe test.
+:::
+
+---
+
+#### `customCompilerModulePath`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+TestCafe ships with a `typescript@3` compiler. This field is for compiling your tests with a different compiler.
+
+```yaml
+    customCompilerModulePath: ../typescript@4
+```
+
+---
+
+#### `options`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies the compiler options listed in the official [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/compiler-options.html).
+
+```yaml
+    options:
+      showConfig: true
+```
+
+:::note
+We recommend that you avoid the use of special characters when naming your config file. It may cause issue to launch TestCafe test.
+:::
 
 ---
 
