@@ -492,9 +492,14 @@ Identifies the browser to be used when automating with a mobile browser. See the
 
 <!-- prettier-ignore -->
 :::note
-- If this capability is not provided for a virtual device, the ['app'](#app) capability needs to be set. If none is set the test will throw an error.
-- This capability can be omitted for virtual devices if the ['app'](#app) capability is set.
-- If this capability is not provided for a real device session and also the ['app'](#app) capability is not provided then a real device session will automatically default back to the default browser. This will be Chrome for Android and Safari for iOS
+- If this capability is not provided for a virtual device, the [`appium:app`](#appiumapp) capability needs to be set. If none is set the test will throw an error.
+- This capability can be omitted for virtual devices if the [`appium:app`](#appiumapp) capability is set.
+- If this capability is not provided for a real device session and also the:
+  - [`appium:app`](#appiumapp)
+  - or [`appium:bundleId`](#appiumbundleid) (iOS)
+  - or [`appium:appPackage`](#appiumapppackage) and ['appium:appActivity'](appiumappactivity) (Android)
+ 
+  capability are not provided, then a real device session will automatically default back to the default browser. This will be Chrome for Android and Safari for iOS
 :::
 
 ```java
@@ -512,9 +517,15 @@ Allows you to set a path to an `.ipa`, `.apk`, `.aab` or `.zip` file containing 
 
 <!-- prettier-ignore -->
 :::note
-- If this capability is not provided for a virtual device, the ['browserName'](#browserName) capability needs to be set. If none is set the test will throw an error.
-- This capability can be omitted for virtual devices if the ['browserName'](#browserName) capability is set.
-- If this capability is not provided for a real device session and also the ['browserName'](#browserName) capability is not provided then a real device session will automatically default back to the default browser. This will be Chrome for Android and Safari for iOS.
+- If this capability is not provided for a virtual device, the [`browserName`](#browsername-1) capability needs to be set. If none is set the test will throw an error.
+- This capability can be omitted for virtual devices if the [`browserName`](#browsername-1) capability is set.
+- If this capability is not provided for a real device session and also the:
+  - [`browserName`](#browsername-1) capability
+  - or [`appium:app`](#appiumapp)
+  - or [`appium:bundleId`](#appiumbundleid) (iOS)
+  - or [`appium:appPackage`](#appiumapppackage) and ['appium:appActivity'](appiumappactivity) (Android)
+  
+ capability are not provided, then a real device session will automatically default back to the default browser. This will be Chrome for Android and Safari for iOS
 :::
 
 ```java
@@ -525,6 +536,84 @@ capabilities.setCapability("appium:app", "storage:filename=my_app.zip");
 :::tip Using Storage Id
 If your app has been uploaded to [Sauce storage](https://app.saucelabs.com/live/app-testing), you can set the `app` capability to `"storage:xxxxxxxxx-xxxxxxx-xxx"` and enter the **FILE ID** for your app. This allows you to set which specific version you uploaded. Otherwise, if you use the file name it will select the latest version uploaded with the exact same name.
 :::
+
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
+---
+
+### `appium:bundleId`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">iOS Only</span> |</small></p>
+
+Bundle identifier of the app under test, for example `com.apple.calculator`. The capability value is calculated automatically if [`appium:app`](#appiumapp) is provided. 
+
+:::note
+If neither [`appium:app`](#appiumapp), [`browserName`](#browsername-1) or `appium:bundleId` capability is provided then by default Sauce Labs will start the Safari browser for iOS.
+:::
+
+<!-- prettier-ignore -->
+:::tip
+These two posts explain how you can get the `bundleId` for iOS apps:
+- [iOS System Apps](https://github.com/joeblau/apple-bundle-identifiers)
+- [3rd party iOS Apps](https://pspdfkit.com/guides/ios/faq/finding-the-app-bundle-id/)
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:bundleId", "com.apple.calculator");
+```
+
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
+---
+
+### `appium:appPackage`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Android Only</span> |</small></p>
+
+Application package identifier to be started, for example `com.google.android.youtube`. If not provided then UiAutomator2 will try to detect it automatically from the package provided by the [`appium:app`](#appiumapp) capability. Read [How To Troubleshoot Activities Startup](https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/activity-startup.md) for more details
+
+:::note
+If neither [`appium:app`](#appiumapp), [`browserName`](#browsername-1) or `appium:appPackage` plus [`appium:appActivity`](#appiumappactivity) capability are provided then by default Sauce Labs will start the Chrome browser for Android.
+:::
+
+:::tip
+This [post](https://www.techmesto.com/find-android-app-package-name/) explains how you can get the `appPackage` for Android apps.
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:appPackage", "com.google.android.youtube");
+```
+
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
+---
+
+### `appium:appActivity`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Android Only</span> |</small></p>
+
+Main application activity identifier, for example `com.google.android.apps.youtube.app.watchwhile.WatchWhileActivity`. If not provided then UiAutomator2 will try to detect it automatically from the package provided by the [`appium:app`](#appiumapp) capability. Read [How To Troubleshoot Activities Startup](https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/activity-startup.md) for more details
+
+:::note
+If neither [`appium:app`](#appiumapp), [`browserName`](#browsername-1) or `appium:appActivity` plus [`appium:appPackage`](#appiumapppackage) capability are provided then by default Sauce Labs will start the Chrome browser for Android.
+:::
+
+:::tip
+You can get the current activity by using the Appium [`currentActivity`](https://appium.io/docs/en/commands/device/activity/current-activity/) command. (This is the Appium 1 command, but will also work with Appium 2.)
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:appActivity", "com.google.android.apps.youtube.app.watchwhile.WatchWhileActivity");
+```
 
 :::tip
 Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
