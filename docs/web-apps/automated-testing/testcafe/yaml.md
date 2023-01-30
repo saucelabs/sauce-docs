@@ -1075,6 +1075,10 @@ TestCafe ships with a `typescript@3` compiler. This field is for compiling your 
     customCompilerModulePath: ../typescript@4
 ```
 
+:::note
+We recommend that you avoid the use of special characters when naming your config file. It may prevent TestCafe tests from launching.
+:::
+
 ---
 
 #### `options`
@@ -1087,10 +1091,6 @@ Specifies the compiler options listed in the official [TypeScript documentation]
     options:
       showConfig: true
 ```
-
-:::note
-We recommend that you avoid the use of special characters when naming your config file. It may prevent TestCafe tests from launching.
-:::
 
 ---
 
