@@ -526,7 +526,7 @@ Allows you to set a path to an `.ipa`, `.apk`, `.aab` or `.zip` file containing 
   - or [`appium:bundleId`](#appiumbundleid) (iOS)
   - or [`appium:appPackage`](#appiumapppackage) and ['appium:appActivity'](#appiumappactivity) (Android)
 
-capability are not provided, then a real device session will automatically default back to the default browser. This will be Chrome for Android and Safari for iOS
+  capability are not provided, then a real device session will automatically fall back to the default browser. This will be Chrome for Android and Safari for iOS
 :::
 
 ```java
