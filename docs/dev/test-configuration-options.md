@@ -499,7 +499,7 @@ Identifies the browser to be used when automating with a mobile browser. See the
   - [`appium:app`](#appiumapp)
   - or [`appium:bundleId`](#appiumbundleid) (iOS)
   - or [`appium:appPackage`](#appiumapppackage) and ['appium:appActivity'](#appiumappactivity) (Android)
-  capability are not provided, then a real device session will automatically fallback to the default browser. This will be Chrome for Android and Safari for iOS
+  capability is not provided, then a real device session will automatically fall back to the default browser. This will be Chrome for Android and Safari for iOS
   :::
 
 ```java
