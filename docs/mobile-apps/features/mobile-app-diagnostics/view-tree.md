@@ -1,29 +1,31 @@
 ---
 id: view-tree
-title: Inspect View Tree
-sidebar_label: Inspect View Tree
+title: Explore View Tree
+sidebar_label: Explore View Tree
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Inspect View Tree is a feature that is designed to help you discover all the visible elements of your mobile application while developing your test scripts. It captures a snapshot of the user interface and allows you to navigate and inspect view objects of your native apps.
+Explore View Tree is a feature that is designed to help you discover all the visible elements of your mobile application while developing your test scripts. It captures a snapshot of the user interface and allows you to navigate and explore the view objects of your native apps.
 
-Inspect View Tree feature allows you to see, debug, analyze or determine the state of individual View components. It also informs you about global changes in the view tree.
+Explore View Tree feature allows you to see, debug, analyze or determine the state of individual View components. It also informs you about global changes in the view tree.
 
 :::note
+This feature CANNOT be used as Appium Inspector. If you wanna use Appium Inspector please visit the following link: https://github.com/saucelabs/appium-inspector-saucelabs
 Such global changes include, for example, a layout of the whole tree.
 :::
 
-The feature speeds up your debugging experience of QA SDET for automated test scripts, and expedites the debugging and validating View and UI-related issues. Finally, the Inspect feature is a critical factor for easy validation of accessibility labels.
+
+The feature speeds up your debugging experience of QA SDET for automated test scripts, and expedites the debugging and validating View and UI-related issues. Finally, the Explore feature is a critical factor for easy validation of accessibility labels.
 
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 - A native Android, iOS, or iPadOS mobile app
 
-## Using Inspect View Tree for Real Devices
+## Using Explore View Tree for Real Devices
 
-By default, the Inspect View Tree feature is enabled if the instrumentation feature is enabled.
+By default, the Explore View Tree feature is enabled if the instrumentation feature is enabled.
 
 To enable device instrumentation:
 
@@ -36,12 +38,12 @@ To enable device instrumentation:
 Now you can start your live or automated testing session. View Tree will be captured and be part of your test results.
 
 :::note
-The Inspect View Tree feature works for all the automated test framework types.
+The Explore View Tree feature works for all the automated test framework types.
 :::
 
-## Accessing Inspect View Tree
+## Accessing Explore View Tree
 
-You can access the Inspect View Tree from the [Live Test Results](/mobile-apps/live-testing/live-mobile-app-testing/) or [Automated Test Results](/mobile-apps/automated-testing/) page.
+You can access the Explore View Tree from the [Live Test Results](/mobile-apps/live-testing/live-mobile-app-testing/) or [Automated Test Results](/mobile-apps/automated-testing/) page.
 
 1. In Sauce Labs, click **LIVE** or **AUTOMATED** and then click **Test Results**.  
    <br/><img src={useBaseUrl('img/mobile-apps/DEvice-Vitals-screenshot-2.png')} alt="Mobile app settings navigation" width="200"/>
@@ -50,10 +52,10 @@ You can access the Inspect View Tree from the [Live Test Results](/mobile-apps/l
 2. Select a test result from the list.
    <br/><img src={useBaseUrl('img/mobile-apps/view-tree-screenshot-1.png')} alt="Mobile app settings navigation" width="800"/>
 
-3. Click on **Inspect** button.
+3. Click on **Explore** button.
    <br/><img src={useBaseUrl('img/mobile-apps/view-tree-screenshot-2.png')} alt="Mobile app settings navigation" width="600"/>
 
-The Inspect View Tree feature will display the captured snapshots of detectable view changes:
+The Explore View Tree feature will display the captured snapshots of detectable view changes:
 
 <br/><img src={useBaseUrl('img/mobile-apps/view-tree-screenshot-4.png')} alt="Mobile app settings navigation" width="700"/>
 
@@ -64,7 +66,7 @@ You can also download the results using the API call below:
 -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}.saucelabs.com/v1/rdc/jobs/{JOB_ID}/insights.json
 ```
 
-### Inspect View Tree Attributes
+### Explore View Tree Attributes
 
 The following table lists the available attributes:
 
@@ -83,6 +85,7 @@ The following table lists the available attributes:
 <!-- prettier-ignore -->
 :::note
 - Webviews and hybrid apps will have additional capture limitations.
+- 
 - Emulators and Simulators are not supported.
 :::
 

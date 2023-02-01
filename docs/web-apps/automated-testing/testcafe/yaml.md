@@ -674,7 +674,7 @@ The parent property containing the details specific to the TestCafe project.
 
 ```yaml
 testcafe:
-  version: 1.14.2
+  version: 2.2.0
 ```
 
 ---
@@ -686,7 +686,7 @@ testcafe:
 The version of TestCafe that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/testcafe#supported-testing-platforms) for the list of TestCafe versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
-  version: 1.14.2
+  version: 2.2.0
 ```
 
 :::tip
@@ -825,7 +825,6 @@ For sharding by concurrency, saucectl splits test files into several groups (the
 
 Selectable values: `spec` to shard by spec file, `concurrency` to shard by concurrency. Remove this field or leave it empty `""` for no sharding.
 
-<!-- prettier-ignore -->
 :::tip
 To split tests in the most efficient way possible, use:
 - `spec` when the number of specs is less than the configured concurrency.
@@ -1027,10 +1026,70 @@ Allows you to alter the test execution speed for the test suite. Tests are run a
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
+This field has been deprecated as of TestCafe v1.10.0. See [TestCafe Documentation](https://testcafe.io/documentation/402638/reference/configuration-file#tsconfigpath). Please refer to [compilerOptions](#compileroptions).
+
 The absolute or relative path to the TypeScript configuration file. Relative paths are resolved against the current directory (the directory from which you run TestCafe).
 
 ```yaml
   tsConfigPath: /path/to/file
+```
+
+---
+
+### `compilerOptions`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies test compilation settings. The current version of TestCafe can only configure the TypeScript compiler. See [TestCafe Documentation](https://testcafe.io/documentation/402638/reference/configuration-file#compileroptions).
+
+```yaml
+  compilerOptions:
+    configPath: /path/to/tsconfig.json
+    customCompilerModulePath: ../typescript@4
+```
+---
+
+#### `configPath`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+The absolute or relative path to the TypeScript configuration file. Relative paths are resolved against the current directory (the directory from which you run TestCafe).
+
+```yaml
+    configPath: /path/to/tsconfig.json
+```
+
+:::note
+We recommend that you avoid the use of special characters when naming your config file. It may prevent TestCafe tests from launching.
+:::
+
+---
+
+#### `customCompilerModulePath`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+TestCafe ships with a `typescript@3` compiler. This field is for compiling your tests with a different compiler.
+
+```yaml
+    customCompilerModulePath: ../typescript@4
+```
+
+:::note
+We recommend that you avoid the use of special characters when naming your config file. It may prevent TestCafe tests from launching.
+:::
+
+---
+
+#### `options`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies the compiler options. See [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/compiler-options.html).
+
+```yaml
+    options:
+      showConfig: true
 ```
 
 ---
