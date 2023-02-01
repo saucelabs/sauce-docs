@@ -15,7 +15,7 @@ env:
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
   NO_INDEX: true
   SAUCECTL_VERSION: "0.82.1"
-  SC_VERSION: "4.7.1"
+  SC_VERSION: "4.8.2"
   ALGOLIA_APP_ID: ${{secrets.ALGOLIA_APP_ID}}
   ALGOLIA_KEY: ${{secrets.ALGOLIA_KEY}}
 
