@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Integrate your Backtrace and Atlassian Jira accounts so that you can create and update issues in Jira for errors reported to Backtrace.
+Integrate your Backtrace and Atlassian Jira instances to create and update issues in Jira for errors reported to Backtrace.
 
 ## What You'll Need
 - A Backtrace account ([log in](https://backtrace.io/login) or [sign up](https://backtrace.io/sign-up) for a free license)
@@ -140,33 +140,48 @@ Atlassian now also offers a v3 API that is currently in Beta, at this time v3 is
 ## Jira Integration Settings
 
 ### Data Synchronization
-One-way synchronization updates from Backtrace issues to Jira, and two-way synchronization updates Backtrace issues when Jira issues are updated.
+With data synchronization, Backtrace will sync resolution Status and Assignee fields with Jira issues. The following settings are available:
+- **Data synchronization from Backtrace to Jira**: The Status and Assignee fields will be updated in Jira when issues are updated in Backtrace.
+- **Data synchronization from Jira to Backtrace**: The Status and Assignee fields will be updated in Backtrace when issues are updated in Jira.
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-two-way-sync.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-two-way-sync.png')} alt="Shows how to enable two-way sync from Backtrace and Jira." width="700" />
 
-- Backtrace can update linked Jira issues with new values for State and Assignee when those values are changed in Backtrace.
-- Jira can update the linked Backtrace fingerprints with new values for State and Assignee when those values are changed in Jira.
+We recommend that you enable both settings for two-way sync.
 
-### Resolved until behavior
-At the bottom of the **Configure connection** tab is a new beta feature to allow Jira Fix Versions to drive Backtrace's [Resolved Until](/error-reporting/web-console/triage/#reopen-criteria---mute-or-resolve-until) feature, and drive workflows for detected regressions.
+### Jira Template
+By default, the Jira template is populated with the default fields that are configured for your Jira project. You can change the values for the **Subject line**, **Issue Type**, and **Main body text field** as needed.
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-resolve-until.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-template.png')} alt="Shows how to configure the template used to create Jira issues." width="700" />
 
-### Custom Field Mapping
-Backtrace populates the default Jira description fields. If you use a customized screen where this is removed or renamed, you will need to specify alternate field name for Backtrace to use to populate with data in the **Field for Main Body Text** field.  
+#### Custom Field Mapping
+Backtrace populates the default Description field. If you use a customized template where the field removed or renamed, specify an alternate field name for Backtrace to use in the **Main body text field**.
+
+### Main Body Content
+You can specify attributes to be appended to the description in the **Main body content**.
+
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-main-body-content.png')} alt="Shows how to set the attributes to be appended in the main body text." width="700" />
 
 ### Custom Fields
-Backtrace also supports populating other custom Jira fields. This is useful when you are using a Jira screen with added custom fields that are required - if you don't populate these, then the integration will fail to create the Jira ticket.
+The **Custom fields** setting allows you specify additional fields you want to populate in your Jira issue. This is useful when you are using a Jira template with added custom fields that are required - if you don't populate these, then the integration will fail to create the Jira ticket.
 
-The Custom Fields setting is an optional list of additional fields you wish to populate within your Jira issue. You can use the value of an attribute within the text by preceding it with $ (e.g. $version). For array-type fields (such as labels), separate values with commas. If an error group has more than one value for the specified attribute, the value with the highest count will be used.
+You can use the value of an attribute within the text by preceding it with $ (e.g. $version). For array-type fields (such as labels), separate values with commas. If an error group has more than one value for the specified attribute, the value with the highest count will be used.
+
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-custom-fields.png')} alt="Shows how to configure custom fields" width="700" />
 
 You can use combinations of literal strings and attribute values. For example, you can set a field's value to "Hostname: $hostname, Version: $version" and the Jira integration will put the values of those attributes within the string, as expected.
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-custom-fields.png')} alt="" />
 
 :::note
 If you refer to an attribute within a custom field with the $attribute syntax, but are not seeing the attribute populated within the field in Jira, make sure you've added the attribute to your Project Settings configuration under Attributes. For more information, see [Attributes](/error-reporting/project-setup/attributes/).
 :::
+
+### Resolved Until Behavior
+The **Resolved until behavior** setting allows you configure the [Resolve Until](/error-reporting/web-console/triage/#reopen-criteria---mute-or-resolve-until) feature for detected regressions with versions applied in Jira issue.
+
+If a linked Jira issue is marked as resolved and the Fix Versions field is applied, Backtrace will reopen the Jira ticket if the errors reoccur in a later version.
+
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-resolve-until.png')} alt="Shows how to configure the Resolved Until behavior." width="700" />
+
+To set up this feature, the Backtrace version attribute has to be mapped to a Jira field (the default is Fix Versions). Select a version attribute in Backtrace and the Jira field that contains the version with fixes. To isolate the version number, a regex needs to be applied to remove extraneous information.
 
 ## Troubleshooting
 If you've set up a Backtrace integration with Jira, but are not receiving any new Jira issues from Backtrace, verify the following:
@@ -182,8 +197,7 @@ If you've set up a Backtrace integration with Jira, but are not receiving any ne
 ### Required Jira Fields
 Backtrace requires the following fields, and automatically populates them based on your settings. You can override the content of any of these settings by specifying their value in the appropriate Backtrace Jira config setting, or by specifying it as a Custom Field.
 
-It's important to ensure that these fields are specified properly, as the Jira API will reject any request that has invalid fields or missing required fields.
-
+It's important to ensure that these fields are specified properly, as the Jira API will reject any request that has invalid fields or missing required fields:
 - **Project Key**: This is specified by the "Project Key" setting.
 - **Summary**: This is specified by the "Subject" setting.
 - **Issue type**: This is specified by the "Issue Type" setting, set to "Bug" by default.
