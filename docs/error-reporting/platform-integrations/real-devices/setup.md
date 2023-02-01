@@ -47,11 +47,12 @@ Crashes for iOS apps are currently not supported when running real device tests 
 
 <!-- prettier-ignore -->
 :::tip Generate an API Token
+
 1. In the Backtrace Console, go to **Project settings > API tokens**.
 1. Click **New**.
 1. Select the **object:get** and **query:post** capabilities.
 1. Click **Create**.
-:::
+   :::
 
 ## Create Custom Attributes
 

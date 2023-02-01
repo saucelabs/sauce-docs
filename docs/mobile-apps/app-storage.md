@@ -97,6 +97,7 @@ To install a remote app on a real device for a test:
 ```java title="Example Java Remote App URL Capability"
 caps.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.3.0/Android.SauceLabs.Mobile.Sample.app.2.3.0.apk?raw=true");
 ```
+
 <!-- prettier-ignore -->
 :::note LIMITATIONS
 **Android:**
@@ -108,7 +109,7 @@ caps.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releas
 - The app cannot be installed on public devices due to signing.
 - The app can be installed on private devices. However, to make this work you must add the UDID of the private device to the provisioning profile for iOS (see our [resigning process](/mobile-apps/automated-testing/ipa-files/) to learn more).
 - The Instrumentation feature will not work if the app is installed from external location.
-:::
+  :::
 
 ## Accepted File Types 
 
@@ -344,9 +345,10 @@ caps.setCapability("otherApps", "storage:<fileId>")
 
 <!-- prettier-ignore -->
 :::note
+
 - Android dependent apps will not be instrumented or modified.
 - iOS dependent apps will always be resigned/modified (even when resigning is disabled for the main app) because apps can't be installed on iOS devices without resigning them. If a dependent app cannot be resigned (such as a 3rd party app), the test will not work as intended.
-:::
+  :::
 
 ### Espresso/XCUITest Configuration
 

@@ -25,52 +25,52 @@ Biometrics test support in Sauce Labs is not intended to test actual biometrics 
 
 Biometric Authentication is available for testing on all Sauce Labs Android and iOS real devices.
 
-|                                |  Supported  | Not Supported |
-| :----------------------------- | :---------: | :-----------: |
-| **Device Type **               |             |               |
-| Android real devices           | &checkmark; |               |
-| iOS real devices               | &checkmark; |               |
-| Android Emulators              |             |   &#x2715;    |
-| iOS Simulators                 |             |   &#x2715;    |
-|                                |             |               |
-| **App Type**      |             |               |
-| Flutter(iOS/Android)           |             |   &#x2715;    |
-| React Native(iOS/Android)      |             |   &#x2715;    |
-| Cordova (iOS/Android)          |             |   &#x2715;    |
-|                                |             |               |
-| **Framework Type** |             |               |
-| Appium                         | &checkmark; |               |
-| Espresso (Android)             |             |   &#x2715;    |
-| XCUITest (iOS)                 |             |   &#x2715;    |
-
+|                           |  Supported  | Not Supported |
+| :------------------------ | :---------: | :-----------: |
+| **Device Type **          |             |               |
+| Android real devices      | &checkmark; |               |
+| iOS real devices          | &checkmark; |               |
+| Android Emulators         |             |   &#x2715;    |
+| iOS Simulators            |             |   &#x2715;    |
+|                           |             |               |
+| **App Type**              |             |               |
+| Flutter(iOS/Android)      |             |   &#x2715;    |
+| React Native(iOS/Android) |             |   &#x2715;    |
+| Cordova (iOS/Android)     |             |   &#x2715;    |
+|                           |             |               |
+| **Framework Type**        |             |               |
+| Appium                    | &checkmark; |               |
+| Espresso (Android)        |             |   &#x2715;    |
+| XCUITest (iOS)            |             |   &#x2715;    |
 
 :::note Not Supported
-* Mobile browsers and pre-installed system apps.
-* Cross-platform development frameworks like Flutter, React Native, and Cordova (libraries and frameworks are not supported). 
-* Ephemeral apps.
-:::
+
+- Mobile browsers and pre-installed system apps.
+- Cross-platform development frameworks like Flutter, React Native, and Cordova (libraries and frameworks are not supported).
+- Ephemeral apps.
+  :::
 
 ### Android Biometrics
 
 For Android devices, there are multiple ways to configure biometrics. From API 28 and above we support the following:
 
-* [`BiometricManager`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager) provides APIs to query if the app can authenticate and a list of [Authenticators](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Authenticators).
-* [`BiometricPrompt`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt) provides a user interface in the form of a dialog for the user's finger touch, and the call [`BiometricPrompt.AuthenticationCallback`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt.AuthenticationCallback) provides the response of the fingerprint Authentication.
+- [`BiometricManager`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager) provides APIs to query if the app can authenticate and a list of [Authenticators](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Authenticators).
+- [`BiometricPrompt`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt) provides a user interface in the form of a dialog for the user's finger touch, and the call [`BiometricPrompt.AuthenticationCallback`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt.AuthenticationCallback) provides the response of the fingerprint Authentication.
 
 From API 23 to 28 we support the following:
-* [`FingerprintManager.authenticate()`](https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager#authenticate(android.hardware.fingerprint.FingerprintManager.CryptoObject,%20android.os.CancellationSignal,%20int,%20android.hardware.fingerprint.FingerprintManager.AuthenticationCallback,%20android.os.Handler)) triggers the authentication.
-* [`FingerprintManager.AuthenticationCallback`](https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager.AuthenticationCallback.html) provides an instant response of the fingerprint.
+
+- [`FingerprintManager.authenticate()`](<https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager#authenticate(android.hardware.fingerprint.FingerprintManager.CryptoObject,%20android.os.CancellationSignal,%20int,%20android.hardware.fingerprint.FingerprintManager.AuthenticationCallback,%20android.os.Handler)>) triggers the authentication.
+- [`FingerprintManager.AuthenticationCallback`](https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager.AuthenticationCallback.html) provides an instant response of the fingerprint.
 
 ### iOS Biometrics
 
-For iOS devices, biometrics can be configured with different outputs. We support the following instance methods: 
-* [`evaluatePolicy`](https://developer.apple.com/documentation/localauthentication/lacontext/1514176-evaluatepolicy) evaluates the specified policy. The method [`canEvaluatePolicy`](https://developer.apple.com/documentation/localauthentication/lacontext/1514149-canevaluatepolicy) checks whether the authentication can proceed for a given policy.
-* [`biometryType`](https://developer.apple.com/documentation/localauthentication/lacontext/2867583-biometrytype) determines the type of biometric authentication method supported by the device, and the method [`evaluatedPolicyDomainState`](https://developer.apple.com/documentation/localauthentication/lacontext/1514150-evaluatedpolicydomainstate) assesses the current state of the policy domain.
-* [`interactionNotAllowed`](https://developer.apple.com/documentation/localauthentication/lacontext/2873508-interactionnotallowed) indicates if the authentication can be interactive.
-* [`SecItemAdd`](https://developer.apple.com/documentation/security/1401659-secitemadd) adds one or more items to a keychain. [`SecItemCopyMatching`](https://developer.apple.com/documentation/security/1398306-secitemcopymatching) returns more keychain items that match the search query. You can delete items that match the search query by using the [`SecItemDelete`](https://developer.apple.com/documentation/security/1395547-secitemdelete) method. We support the following SecItem Classes: [`kSecClassGenericPassword`](https://developer.apple.com/documentation/security/ksecclassgenericpassword) and [`kSecClassInternetPassword`](https://developer.apple.com/documentation/security/ksecclassinternetpassword).
+For iOS devices, biometrics can be configured with different outputs. We support the following instance methods:
 
+- [`evaluatePolicy`](https://developer.apple.com/documentation/localauthentication/lacontext/1514176-evaluatepolicy) evaluates the specified policy. The method [`canEvaluatePolicy`](https://developer.apple.com/documentation/localauthentication/lacontext/1514149-canevaluatepolicy) checks whether the authentication can proceed for a given policy.
+- [`biometryType`](https://developer.apple.com/documentation/localauthentication/lacontext/2867583-biometrytype) determines the type of biometric authentication method supported by the device, and the method [`evaluatedPolicyDomainState`](https://developer.apple.com/documentation/localauthentication/lacontext/1514150-evaluatedpolicydomainstate) assesses the current state of the policy domain.
+- [`interactionNotAllowed`](https://developer.apple.com/documentation/localauthentication/lacontext/2873508-interactionnotallowed) indicates if the authentication can be interactive.
+- [`SecItemAdd`](https://developer.apple.com/documentation/security/1401659-secitemadd) adds one or more items to a keychain. [`SecItemCopyMatching`](https://developer.apple.com/documentation/security/1398306-secitemcopymatching) returns more keychain items that match the search query. You can delete items that match the search query by using the [`SecItemDelete`](https://developer.apple.com/documentation/security/1395547-secitemdelete) method. We support the following SecItem Classes: [`kSecClassGenericPassword`](https://developer.apple.com/documentation/security/ksecclassgenericpassword) and [`kSecClassInternetPassword`](https://developer.apple.com/documentation/security/ksecclassinternetpassword).
 
-  
 ## Live Testing
 
 <p><span className="sauceDBlue">Real Devices Only</span></p>
@@ -103,7 +103,7 @@ To enable fingerprint and facial recognition on iOS and Android real devices:
    Setting `allowTouchIdEnroll` does not update your app's biometric interception setting in Sauce Labs. It only sets the capability for the test in the event that the app setting in Sauce Labs is _different_ from the test script capability.
    - If biometric interception is ENABLED for the app in Sauce Labs, setting `allowTouchIdEnroll=true` or omitting it will have no effect, but setting `allowTouchIdEnroll=false` will disable the enrollment for the test, overriding the app setting.
    - The opposite is true if biometric interception is DISABLED for the app in Sauce Labs.
-   :::
+     :::
    ```js reference title="JavaScript iOS Capabilities Example"
    https://github.com/saucelabs-training/demo-js/blob/docs-1.1/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.ios.sauce.rdc.conf.ts#L33
    ```

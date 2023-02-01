@@ -19,9 +19,10 @@ If you use ProGuard to optimize and obfuscate your app, you can configure Backtr
 
 <!-- prettier-ignore -->
 :::tip Generate an Access Token
+
 1. In the Backtrace Console, go to **Project settings > Symbols > Access tokens**.
 1. Select **+**.
-:::
+   :::
 
 ## Setup
 

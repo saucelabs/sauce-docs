@@ -15,7 +15,6 @@ This feature CANNOT be used as Appium Inspector. If you wanna use Appium Inspect
 Such global changes include, for example, a layout of the whole tree.
 :::
 
-
 The feature speeds up your debugging experience of QA SDET for automated test scripts, and expedites the debugging and validating View and UI-related issues. Finally, the Explore feature is a critical factor for easy validation of accessibility labels.
 
 ## What You'll Need
@@ -84,10 +83,11 @@ The following table lists the available attributes:
 
 <!-- prettier-ignore -->
 :::note
+
 - Webviews and hybrid apps will have additional capture limitations.
-- 
+-
 - Emulators and Simulators are not supported.
-:::
+  :::
 
 ## More Information
 

@@ -166,9 +166,11 @@ Alternatively, you can override the file setting at runtime by setting the concu
 ```bash
 saucectl run --ccy 5
 ```
+
 ---
 
 ### `retries`
+
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
 Sets the number of times to retry a failed suite. For more settings, you can refer to [passThreshold](#passThreshold).
@@ -257,9 +259,11 @@ This property is only valid for tests run against emulators. It has no effect on
 sauce:
   visibility: private
 ```
+
 ---
 
 ### `launchOrder`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies the execution order for your test suites. When set to `fail rate`, test suites with the highest failure rate will execute first. If unspecified, test suites will execute in the order in which they are written in the configuration file.
@@ -268,8 +272,11 @@ Specifies the execution order for your test suites. When set to `fail rate`, tes
 sauce:
   launchOrder: fail rate
 ```
+
 ---
+
 ## `reporters`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Configures additional reporting capabilities provided by `saucectl`.
@@ -282,7 +289,9 @@ reporters:
 ```
 
 ---
+
 ### `junit`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 The JUnit reporter gathers JUnit reports from all jobs and combines them into a single report.
@@ -295,7 +304,9 @@ reporters:
 ```
 
 ---
+
 ### `json`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 The JSON reporter gathers test results from all jobs and combines them into a single report.
@@ -309,7 +320,9 @@ reporters:
 ```
 
 ---
+
 #### `enabled`
+
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Toggles the reporter on/off.
@@ -319,7 +332,9 @@ Toggles the reporter on/off.
 ```
 
 ---
+
 #### `webhookURL`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST with a JSON payload to the configured webhook URL.
@@ -329,7 +344,9 @@ Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP PO
 ```
 
 ---
+
 #### `filename`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies the report filename. Defaults to "saucectl-report.json".
@@ -339,7 +356,9 @@ Specifies the report filename. Defaults to "saucectl-report.json".
 ```
 
 ---
+
 ## `artifacts`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Specifies how to manage test output, such as logs, videos, and screenshots.
@@ -353,9 +372,11 @@ artifacts:
       - junit.xml
     directory: ./artifacts/
 ```
+
 ---
 
 ### `cleanup`
+
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
@@ -363,9 +384,11 @@ When set to `true`, all contents of the specified download directory are cleared
 ```yaml
   cleanup: true
 ```
+
 ---
 
 ### `download`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Specifies the settings related to downloading artifacts from tests run by `saucectl`.
@@ -377,24 +400,28 @@ Specifies the settings related to downloading artifacts from tests run by `sauce
       - junit.xml
     directory: ./artifacts/
 ```
+
 ---
 
 #### `when`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies when and under what circumstances to download artifacts. Valid values are:
 
-* `always`: Always download artifacts.
-* `never`: Never download artifacts.
-* `pass`: Download artifacts for passing suites only.
-* `fail`: Download artifacts for failed suites only.
+- `always`: Always download artifacts.
+- `never`: Never download artifacts.
+- `pass`: Download artifacts for passing suites only.
+- `fail`: Download artifacts for failed suites only.
 
 ```yaml
     when: always
 ```
+
 ---
 
 #### `match`
+
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
 
 Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
@@ -404,9 +431,11 @@ Specifies which artifacts to download based on whether they match the name or fi
     - junit.xml
     - "*.log"
 ```
+
 ---
 
 #### `directory`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. The name of the subdirectory will match the suite name. If a directory with the same name already exists, the new one will be suffixed by a serial number.
@@ -414,9 +443,11 @@ Specifies the path to the folder location in which to download artifacts. A sepa
 ```yaml
     directory: ./artifacts/
 ```
+
 ---
 
 ## `notifications`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Specifies how to set up automatic test result alerts.
@@ -429,9 +460,11 @@ notifications:
       - "espresso-tests"
     send: always
 ```
+
 ---
 
 ### `slack`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/basics/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
@@ -441,9 +474,11 @@ Specifies the settings related to sending tests result notifications through Sla
     channels: "saucectl-espresso-tests"
     send: always
 ```
+
 ---
 
 #### `channels`
+
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
 
 The set of Slack channels to which the test result notifications are to be sent.
@@ -455,26 +490,30 @@ The set of Slack channels to which the test result notifications are to be sent.
       - "espresso-team"
     send: always
 ```
+
 ---
 
 #### `send`
+
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies when and under what circumstances to send notifications to specified Slack channels. Valid values are:
 
-* `always`: Send notifications for all test results.
-* `never`: Do not send any test result notifications.
-* `pass`: Send notifications for passing suites only.
-* `fail`: Send notifications for failed suites only.
+- `always`: Send notifications for all test results.
+- `never`: Do not send any test result notifications.
+- `pass`: Send notifications for passing suites only.
+- `fail`: Send notifications for failed suites only.
 
 ```yaml
   slack:
     channels: "saucectl-espresso-tests"
     send: always
 ```
+
 ---
 
 ## `espresso`
+
 <p><small>| REQUIRED | OBJECT |</small></p>
 
 The parent property containing the details specific to the Espresso project.
@@ -489,14 +528,16 @@ espresso:
     - ./apps/pre-installed-app1.apk
     - ./apps/pre-installed-app2.apk
 ```
+
 ---
 
 ### `app`
+
 <p><small>| REQUIRED | STRING |</small></p>
 
 Specifies a local path, URL, or storage identifier to the app under test. This property supports expanded environment variables.
 
-When defining a local path, the default directory is `{project-root}/apps/filename.apk`. The app will be uploaded to the Sauce Labs storage service. Supports *.apk and *.aab files.
+When defining a local path, the default directory is `{project-root}/apps/filename.apk`. The app will be uploaded to the Sauce Labs storage service. Supports _.apk and _.aab files.
 
 When defining a URL to your app, it will be downloaded to a local temporary directory before being uploaded to Sauce storage.
 
@@ -544,7 +585,7 @@ Specifies description for the uploaded app.
 
 Either a local path, url, or storage identifier to the testing app. This property supports expanded environment variables.
 
-When defining a local path, the default directory is `{project-root}/apps/testfile.apk`. The app will be uploaded to the Sauce Labs storage service. Supports *.apk and *.aab files.
+When defining a local path, the default directory is `{project-root}/apps/testfile.apk`. The app will be uploaded to the Sauce Labs storage service. Supports _.apk and _.aab files.
 
 When defining a url to your test app, it will be downloaded to a local temporary directory before being uploaded to the storage service.
 
@@ -590,7 +631,7 @@ Specifies description for the uploaded testApp.
 
 <p><small>| OPTIONAL | ARRAY | REAL DEVICES ONLY |</small></p>
 
-Set of up to seven apps to pre-install for your tests. You can upload an *.apk  or *.aab app file from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.apk`), a remote url, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
+Set of up to seven apps to pre-install for your tests. You can upload an _.apk or _.aab app file from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.apk`), a remote url, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
 
 :::note
 Apps specified as `otherApps` inherit the configuration of the main app under test for [`Device Language`, `Device Orientation`, and `Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
@@ -675,6 +716,7 @@ Setting `0` reverts to the value set in `defaults`.
 ```
 
 ---
+
 ### `passThreshold`
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
@@ -693,6 +735,7 @@ suite:
   - name: My Saucy Test
     passThreshold: 2
 ```
+
 ---
 
 ### `emulators`
@@ -799,6 +842,7 @@ Find a device for this test suite that matches the device name or portion of the
 ---
 
 #### `platformVersion`
+
 <p><small>| MANDATORY <span className="sauceDBlue">for Virtual Devices</span> | OPTIONAL <span className="sauceDBlue">for Real Devices</span> | STRING |</small></p>
 
 Allows you to set the mobile OS platform version that you want to use in your test.
@@ -814,28 +858,29 @@ This is mandatory for Android Emulators and iOS Simulators. You can find the ava
 **Real Devices**
 
 This is optional for Real Devices. There are three options you can use to determine which version you want to use for your automated Appium, Espresso, or XCUITest tests:
+
 1. Don't provide a `platformVersion`, this will result in any available Android or iOS device, no matter the version.
 2. Provide a `platformVersion` that starts with your provided `platformVersion` string:
-    * **`12`:** matches all minors and patches for `platformVersion: "12"`. For example `12.1.0|12.1.1|12.2.0|...`
-    * **`12.1`:** matches all patches for `platformVersion: "12.1"`. For example `12.1.0|12.1.1`, it will **not** match `12.2.x|12.3.x` and higher
-    * **`12.1.1`:** matches all devices that have **this exact** platform version
+   - **`12`:** matches all minors and patches for `platformVersion: "12"`. For example `12.1.0|12.1.1|12.2.0|...`
+   - **`12.1`:** matches all patches for `platformVersion: "12.1"`. For example `12.1.0|12.1.1`, it will **not** match `12.2.x|12.3.x` and higher
+   - **`12.1.1`:** matches all devices that have **this exact** platform version
 3. In/exclude a specific version and or a range of versions by using a regular expression (regex). You don't need to provide the forward slashes (`/{your-regex}/`) as you would normally do with regex. Keep in mind that the regex needs to match the format `MAJOR.MINOR.PATCH`. The possibilities are endless, but here are just a few examples:
-    * **`^1[3-4|6].*`:** Will match `13`, `14` and `16`, but not 15, see [example](https://regex101.com/r/ExICgZ/1).
-    * **`^(?!15).*`:** Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1).
+   - **`^1[3-4|6].*`:** Will match `13`, `14` and `16`, but not 15, see [example](https://regex101.com/r/ExICgZ/1).
+   - **`^(?!15).*`:** Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1).
 
 :::note NOTE
-The stricter the  `platformVersions` is,  the smaller the pool of available devices will be and the longer you might need to wait for the available device. We recommend using only the major version or using the regex option to get the best results and an available device in the fastest way.
+The stricter the `platformVersions` is, the smaller the pool of available devices will be and the longer you might need to wait for the available device. We recommend using only the major version or using the regex option to get the best results and an available device in the fastest way.
 :::
 
 ```yaml title="Use complete version for Virtual and or Real Devices"
         platformVersion: 11.0
 ```
 
-```yaml title="Use dynamic platformVersion allocation. Real Devices Only"
+````yaml title="Use dynamic platformVersion allocation. Real Devices Only"
         platformVersion: '^1[3-4|6].*'
 ```yaml
         platformVersion: 8.0
-```
+````
 
 ---
 

@@ -213,6 +213,7 @@ brew install saucectl
 ```bash title="Using curl (Linux / macOS)"
 sudo sh -c 'curl -L https://saucelabs.github.io/saucectl/install | bash -s -- -b /usr/local/bin'
 ```
+
 If you would like to inspect the content of our one line installer, download it, have a look, and execute it:
 
 ```bash
@@ -234,7 +235,6 @@ Remove-Item -Force -Recurse  -Path ./saucectl,./saucectl.zip
 
 </TabItem>
 </Tabs>
-
 
 :::caution Are you using mingw?
 Mingw on Windows is known to interfere with the interactive `saucectl` commands, so Windows users should use `cmd` or `powershell` when interacting with `saucectl`.

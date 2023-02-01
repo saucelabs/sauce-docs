@@ -49,9 +49,10 @@ The ability to capture the battery status when a device is in power saving mode 
 
 <!-- prettier-ignore -->
 :::tip Generate a Submission Token
+
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
-:::
+   :::
 
 ## Install the SDK
 

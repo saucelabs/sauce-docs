@@ -69,12 +69,12 @@ Keep in mind that these are guidelines. Most environments have their own workloa
   </tr>
 </table>
 
-
 :::note macOS Catalina 10.15+ compatibility
 Enable your Mac to allow apps from the App Store and identified developers.
+
 1. Go to **System Preferences** > **Security & Privacy** > **General**.
 2. Under **Allow apps downloaded from**, select the option **App Store and identified developers**.
-:::
+   :::
 
 ### Sauce Connect v4.7.x
 
@@ -177,7 +177,6 @@ Actual system requirements will depend on the number of parallel tests, and amou
   </tr>
 </table>
 
-
 ### Google Compute Engine (GCE)
 
 <table>
@@ -207,6 +206,7 @@ Actual system requirements will depend on the number of parallel tests, and amou
 ### Microsoft Azure
 
 The below recommendations are for Linux VMs.
+
 <table>
   <tr>
     <td></td>
@@ -239,6 +239,7 @@ The below recommendations are for Linux VMs.
 - If you're running **60 or more parallel tests**, we recommend launching more than one tunnel and using the [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
 
 These are recommendations for the number of Sauce Connect tunnels by number of tests running in parallel:
+
 <table>
   <tr>
     <td><strong>Parallel Tests</strong></td>
@@ -273,8 +274,6 @@ These are recommendations for the number of Sauce Connect tunnels by number of t
     <td>10</td>
   </tr>
 </table>
-
-
 
 ## Setting Up Sauce Connect on Your Test Device Network
 
@@ -382,7 +381,6 @@ values={[
 
 </TabItem>
 </Tabs>
-
 
 :::note Recommended Wildcard Allowlisting
 `*.miso.saucelabs.com` will cover all virtual and real device cloud data centers except for Headless.<br/><br/>
