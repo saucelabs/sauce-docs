@@ -190,7 +190,3 @@ It's important to ensure that these fields are specified properly, as the Jira A
 - **Labels**: Backtrace assumes a labels-type field named "labels" and will populate this with the label "Backtrace", but you can override this by adding "labels" as a Custom Field. You can also specify an alternate name for this field with the Custom Field Mapping option.
 - **Description**: Backtrace assumes a text field named "description" and populates this with the main error information, but you can override this by adding "description" as a Custom Field (not recommended). You can also specify an alternate name for this field with the Custom Field Mapping option.
 - **Reporter**: Backtrace expects a field named "reporter", which is used to identify the user who created an issue manually from Backtrace.
-
-## Configure Alerts
-
-## Create an Issue
