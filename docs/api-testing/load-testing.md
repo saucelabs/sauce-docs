@@ -42,6 +42,10 @@ We count 1 out of every 100 load testing executions against your monthly executi
 
 2. On the **Tests** page, next to the test you want to run a load test on, click the **Load Test** icon.
 
+:::note
+Load testing only works with published tests. If you change a published test, and then run a load test without re-publishing it, the load test will be run on the published version, not the updated one.
+:::
+
 <img src={useBaseUrl('/img/api-testing/load-testing-nav.png')} alt="The Load Test icon"/>
 
 3. On the tests page, click **Create Load test**.
@@ -74,10 +78,6 @@ You can set up multiple profiles for each test, from less aggressive to very agg
 <img src={useBaseUrl('/img/api-testing/create-load-test.png')} alt="The Create Load test page"/>
 
 5. Click **Save and Run**. 
-
-:::note
-Load testing only works with published tests. If you change a published test, and then run a load test without re-publishing it, the load test will be run on the published version, not the updated one.
-:::
 
 Once you have created and saved a load test, the configuration will be saved for future use. To access the list of previously saved configurations for a specific test, click the load test icon in the test list. 
 
