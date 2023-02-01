@@ -839,7 +839,7 @@ You can narrow the results of your query using any of the following filtering pa
      <td><code>roles</code></td>
      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Limit results to users who are assigned certain roles. Valid values are:
        <ul>
-         <li><code>1</code> - Organaization Admin</li>
+         <li><code>1</code> - Organization Admin</li>
          <li><code>4</code> - Team Admin</li>
          <li><code>3</code> - Member</li>
        </ul></p><p>Specify multiple roles as comma-separated values.</p></td>
