@@ -876,11 +876,10 @@ The stricter the `platformVersions` is, the smaller the pool of available device
         platformVersion: 11.0
 ```
 
-````yaml title="Use dynamic platformVersion allocation. Real Devices Only"
+```yaml title="Use dynamic platformVersion allocation. Real Devices Only"
         platformVersion: '^1[3-4|6].*'
-```yaml
         platformVersion: 8.0
-````
+```
 
 ---
 
