@@ -79,7 +79,7 @@ You can also download the results using the API call below:
 
 - Emulators and Simulators are not supported.
 - Cross-browser testing is not available.
-  :::
+:::
 
 ## More Information
 
