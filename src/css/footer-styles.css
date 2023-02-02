@@ -2095,7 +2095,7 @@
     .footer .social-container p {
         margin-right: 1rem;
         font-size: 14px;
-        color: var(--ds-gray-400);
+        color: var(--dark-200);
     }
 }
 @media screen and (max-width: 767px) {
@@ -2134,19 +2134,19 @@
     }
 }
 .footer .link-container ul li a {
-    color: var(--ds-gray-400);
+    color: var(--dark-200);
     font-weight: 500;
     font-size: 0.75rem;
     line-height: 1.25rem;
 }
 .footer .link-container ul li a:hover {
-    color: var(--ds-white);
+    color: var(--neutral-100);
 }
 
 .footer__copyright {
     text-align: center;
     margin-top: 1rem;
-    color: var(--ds-gray-400);
+    color: var(--dark-200);
     font-size: 9px;
 }
 
@@ -2162,18 +2162,18 @@
     padding-left: 8px;
 }
 .footer a {
-    color: var(--ds-gray-400);
+    color: var(--dark-200);
 }
 .footer a:hover {
-    color: var(--ds-white);
+    color: var(--neutral-100);
 }
 .footer a svg {
-    fill: var(--ds-gray-400);
+    fill: var(--dark-200);
     margin-right: 10px;
 }
 
 .footer a:hover svg {
-    fill: var(--ds-white);
+    fill: var(--neutral-100);
 }
 
 @media screen and (min-width: 768px) {

@@ -8,33 +8,33 @@
 }
 
 .button-dark {
-    background: var(--ds-blue-700);
-    color: var(--ds-white);
+    background: var(--green-500);
+    color: var(--neutral-100);
     border-style: none;
 }
 .button-dark:hover {
-    background: var(--ds-gray-700);
+    background: var(--dark-500);
 }
 html[data-theme="dark"] .button-dark {
-    background: var(--ds-blue-200);
-    color: var(--ds-gray-900);
+    background: var(--green-300);
+    color: var(--dark-500);
 }
 html[data-theme="dark"] .button-dark:hover {
-    background: var(--ds-blue-700);
-    color: var(--ds-white);
+    background: var(--green-500);
+    color: var(--neutral-100);
 }
 
 .button-light {
     background: transparent;
-    border-color: var(--ds-blue-700);
+    border-color: var(--green-500);
     border-style: solid;
 }
 .button-light:hover {
-    border-color: var(--ds-red-600);
+    border-color: var(--coral-500);
 }
 html[data-theme="dark"] .button-light {
-    border-color: var(--ds-white);
+    border-color: var(--neutral-100);
 }
 html[data-theme="dark"] .button-light:hover {
-    border-color: var(--ds-blue-400);
+    border-color: var(--green-400);
 }
