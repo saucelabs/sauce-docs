@@ -22,7 +22,7 @@ If you use ProGuard to optimize and obfuscate your app, you can configure Backtr
 
 1. In the Backtrace Console, go to **Project settings > Symbols > Access tokens**.
 1. Select **+**.
-   :::
+:::
 
 ## Setup
 
