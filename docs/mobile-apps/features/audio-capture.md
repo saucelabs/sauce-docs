@@ -96,7 +96,7 @@ curl --compressed \ -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}
 - Accessibility and TalkBack on Android are not supported.
 - Emulators and simulators are not supported.
 - Website testing is not yet available on Android.
-  :::
+:::
 
 ## More Information
 
