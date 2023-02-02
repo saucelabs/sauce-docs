@@ -45,7 +45,7 @@ Camera Image Injection is available for testing on all Sauce Labs Android and iO
 
 :::note Not Supported
 
-- <small>Mobile browsers and pre-installed system apps.</small>
+- Mobile browsers and pre-installed system apps.
 - Cross-platform development frameworks like Flutter, React Native, and Cordova (libraries and frameworks are not supported).
 - Ephemeral apps (apps with temporary, disappearing messages and photos).
 
