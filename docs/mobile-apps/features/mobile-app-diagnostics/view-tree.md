@@ -86,7 +86,7 @@ The following table lists the available attributes:
 
 - Webviews and hybrid apps will have additional capture limitations.
 - Emulators and Simulators are not supported.
-:::
+  :::
 
 ## More Information
 
