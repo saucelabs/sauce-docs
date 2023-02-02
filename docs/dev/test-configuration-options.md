@@ -554,7 +554,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 Bundle identifier of the app under test, for example `com.apple.calculator`. The capability value is calculated automatically if [`appium:app`](#appiumapp) is provided.
 
 :::note
-If neither [`appium:app`](#appiumapp), [`browserName`](#browsername-1) or `appium:bundleId` capability is provided then by default Sauce Labs will start the Safari browser for iOS.
+If neither [`appium:app`](#appiumapp), [`browserName`](#browsername-1), or `appium:bundleId` capability is provided then by default Sauce Labs will start the Safari browser for iOS.
 :::
 
 <!-- prettier-ignore -->
