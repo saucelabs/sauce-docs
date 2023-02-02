@@ -38,7 +38,7 @@
     --ifm-code-background: var(--dark-100);
     --ifm-font-color-base: var(--dark-500);
     --ifm-link-color: var(--green-500);
-    --ifm-navbar-background-color: var(--dark-100);
+    --ifm-navbar-background-color: var(--neutral-100);
     --ifm-menu-color-active: var(--green-500);
     --ifm-tabs-color-active: var(--dark-500);
 }
