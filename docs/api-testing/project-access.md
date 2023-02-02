@@ -68,6 +68,7 @@ You can create a new project with the access you want, and then delete or rename
 3.  Then either delete the original project or rename it to indicate it has been archived.
     :::note
     Make sure to [update any test schedules](/api-testing/schedule-test/) for tests in the archived project so that tests are not run automatically.
+    :::
 
 ## Email Notifications
 
