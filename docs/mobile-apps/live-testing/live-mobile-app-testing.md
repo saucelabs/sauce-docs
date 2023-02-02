@@ -128,6 +128,10 @@ There is a distinction between **Public Devices** and **Private Devices**.
 
 - Private devices are associated with your account and are an **enterprise only** feature. Private devices are indicated by a green device icon.
 
+:::note 
+If you are interested in upgrading to an enterprise plan, contact your Sauce Labs Sales Engineer or Customer Success Manager. 
+:::
+
 ### Launching a Test
 
 You can launch a test from the following screens:
