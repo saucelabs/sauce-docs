@@ -584,7 +584,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 Application package identifier to be started, for example, `com.google.android.youtube`. If not provided, then UiAutomator2 will try to detect it automatically from the package provided by the [`appium:app`](#appiumapp) capability. Read [How To Troubleshoot Activities Startup](https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/activity-startup.md) for more details.
 
 :::note
-If neither [`appium:app`](#appiumapp), [`browserName`](#browsername-1) or `appium:appPackage` plus [`appium:appActivity`](#appiumappactivity) capability are provided then by default Sauce Labs will start the Chrome browser for Android.
+If neither [`appium:app`](#appiumapp), [`browserName`](#browsername-1), or `appium:appPackage` plus [`appium:appActivity`](#appiumappactivity) capabilities are provided then by default Sauce Labs will start the Chrome browser for Android.
 :::
 
 :::tip
