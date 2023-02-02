@@ -86,13 +86,11 @@ values={[
    :::
 1. Rename the file to `UserEngine.ini`.
 1. Open the `UserEngine.ini` file and add the following lines:
-
-```
-[CrashReportClient]
-CrashReportClientVersion=1.0
-DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
-```
-
+  ```
+  [CrashReportClient]
+  CrashReportClientVersion=1.0
+  DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
+  ```
 1. For the `DataRouterUrl`, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need).
 
 When your app or game crashes in the Unreal Editor, the Unreal Engine Crash Reporter dialog will appear and allow you to send the crash report to your Backtrace instance.
@@ -154,15 +152,13 @@ Integrate the [backtrace-android](https://github.com/backtrace-labs/backtrace-an
 1. In the directory for your Unreal Engine project, locate your app or game's `Build.cs` file.
 1. Place the `BacktraceAndroid_UPL.xml` file in the same directory with the `Build.cs` file.
 1. In the `Build.cs` file, add the following lines at the end of the `ModuleRules` class constructor:
-
-```
-if (Target.Platform == UnrealTargetPlatform.Android)
-{
-  string PluginPath = Utils.MakePathRelativeTo(ModuleDirectory, Target.RelativeEnginePath);
-  AdditionalPropertiesForReceipt.Add("AndroidPlugin", System.IO.Path.Combine(PluginPath, "BacktraceAndroid_UPL.xml"));
-}
-```
-
+  ```
+  if (Target.Platform == UnrealTargetPlatform.Android)
+  {
+    string PluginPath = Utils.MakePathRelativeTo(ModuleDirectory, Target.RelativeEnginePath);
+    AdditionalPropertiesForReceipt.Add("AndroidPlugin", System.IO.Path.Combine(PluginPath, "BacktraceAndroid_UPL.xml"));
+  }
+  ```
 1. Download the [BacktraceWrapper.h](https://gist.github.com/lysannep/6c09a572baffede96cd250dbdf01279a#file-backtracewrapper-h) header file and add it to your GameInstance.
 1. To initialize the Backtrace client, use `BacktraceIO::FInitializeBacktraceClient`.
    :::note
@@ -192,48 +188,43 @@ Integrate the [backtrace-cocoa](https://github.com/backtrace-labs/backtrace-coco
 1. Copy and paste the `Backtrace.framework.zip` and the `Backtrace_PLCrashReporter.framework.zip` folders into the directory for your Unreal Engine project.
 1. Locate your app or game's `Build.cs` file.
 1. In the `Build.cs` file, add the following lines at the end of the `ModuleRules` class constructor:
-
-```
-if (Target.Platform == UnrealTargetPlatform.IOS)
-{
-  PublicAdditionalFrameworks.AddRange(
-    new Framework[]
+  ```
+  if (Target.Platform == UnrealTargetPlatform.IOS)
   {
-    new Framework("Backtrace", "/Library/Frameworks/Backtrace.framework", "", true),
-    new Framework("Backtrace_PLCrashReporter", "/Library/Frameworks/Backtrace_PLCrashReporter.framework", "", true)
+    PublicAdditionalFrameworks.AddRange(
+      new Framework[]
+    {
+      new Framework("Backtrace", "/Library/Frameworks/Backtrace.framework", "", true),
+      new Framework("Backtrace_PLCrashReporter", "/Library/Frameworks/Backtrace_PLCrashReporter.framework", "", true)
+    }
+      );
   }
-    );
-}
-```
-
+  ```
 :::note
 Make sure to reflect the path to where you've placed both frameworks within your game project.
 :::
+1. To initialize the Backtrace client, use the following to import `Backtrace-Swift.h` from `Backtrace.framework/Headers`: 
+  ```
+  #if PLATFORM_IOS
+  #import <Backtrace/Backtrace-Swift.h>
+  #endif
 
-1. To initialize the Backtrace client, use the following to import `Backtrace-Swift.h` from `Backtrace.framework/Headers`:
+  void UYourGameInstanceBase::OnStart()
+  {
+  #if PLATFORM_IOS
 
-```
-#if PLATFORM_IOS
-#import <Backtrace/Backtrace-Swift.h>
-#endif
-
-void UYourGameInstanceBase::OnStart()
-{
-#if PLATFORM_IOS
-
-BacktraceCredentials *credentials = [[BacktraceCredentials alloc]
-        initWithSubmissionUrl: [NSURL URLWithString: @"https://submit.backtrace.io/{subdomain}/{submission-token}/plcrash"]];
-BacktraceClientConfiguration *configuration = [[BacktraceClientConfiguration alloc]
-                                                  initWithCredentials: credentials
-                                                  dbSettings: [[BacktraceDatabaseSettings alloc] init]
-                                                  reportsPerMin: 3
-                                                  allowsAttachingDebugger: NO
-                                                  detectOOM: TRUE];
-BacktraceClient.shared = [[BacktraceClient alloc] initWithConfiguration: configuration error: nil];
-#endif
-}
-```
-
+  BacktraceCredentials *credentials = [[BacktraceCredentials alloc]
+          initWithSubmissionUrl: [NSURL URLWithString: @"https://submit.backtrace.io/{subdomain}/{submission-token}/plcrash"]];
+  BacktraceClientConfiguration *configuration = [[BacktraceClientConfiguration alloc]
+                                                    initWithCredentials: credentials
+                                                    dbSettings: [[BacktraceDatabaseSettings alloc] init]
+                                                    reportsPerMin: 3
+                                                    allowsAttachingDebugger: NO
+                                                    detectOOM: TRUE];
+  BacktraceClient.shared = [[BacktraceClient alloc] initWithConfiguration: configuration error: nil];
+  #endif
+  }
+  ```
 1. For the `initWithSubmissionUrl`, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need).
 
 For information on how to change the default configuration settings for the Backtrace client, see [Configuring Backtrace for iOS](/error-reporting/platform-integrations/ios/configuration/).
