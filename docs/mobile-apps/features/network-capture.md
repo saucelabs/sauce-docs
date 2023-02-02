@@ -80,7 +80,7 @@ Alternatively, some other commonly used HAR viewers include:
 - Hybrid Applications
 - Android Chrome Browser
 - iOS Safari Browser
-:::
+  :::
 
 ### Android
 
