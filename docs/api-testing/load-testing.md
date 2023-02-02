@@ -8,9 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The Sauce Labs API Testing load testing feature allows you to stress your endpoints using an existing functional test.
 
-The load agents run within your infrastructure. We count 1 out of every 100 load testing executions against your monthly execution limit. To see how many executions you have remaining, in the left nav, click **Activity** and then click **Usage By Month**. On the **Usage By Month** page, the **Monthly Usage Status** shows the executions you have remaining for the month.
+## Run Your Load Test Agent
 
-The first step is running your load test agent. It’s up to you to run all the agents connected to the cloud. To make identifying them easier, you can group them by pool ID, assigning the same ID to more than one agent. A pool ID is an identifier of a group of workers. There’s no limit to the number of agents you can run. The only possible limitations are inherited from your infrastructure.
+The first step is running your load test agent. The load agents run within your infrastructure. It’s up to you to run all the agents connected to the cloud. To make identifying them easier, you can group them by pool ID, assigning the same ID to more than one agent. A pool ID is an identifier of a group of workers. There’s no limit to the number of agents you can run. The only possible limitations are inherited from your infrastructure.
 
 To run an agent, execute the following command:
 
@@ -30,29 +30,29 @@ Only two variables in the command are required: `SAUCE_URI` and `SAUCE_AUTH`; al
 
 If your data center is `EU Central 1`, replace `api_domain` with `api.eu-central-1.saucelabs.com`. If your data center is `US West 1`, replace `api_domain` with `api.us-west-1.saucelabs.com`.
 
-Once you have run the agents, you can continue in the API Testing platform:
+## Create and Run Load Tests in APIT 
+
+Once you have run the agents, you can create and run load tests in the API Testing platform.
+
+:::important
+We count 1 out of every 100 load testing executions against your monthly execution limit. To see how many executions you have remaining, in APIT, click **Activity** > **Usage By Month**. On the **Usage By Month** page, the **Monthly Usage Status** shows the executions you have remaining for the month.
+:::
 
 1. In Sauce Labs, click **API Testing**.
 
-<img src={useBaseUrl('/img/api-testing/api-testing-nav.png')} alt="Navigating to API Testing" width="400"/>
-
 2. On the **Tests** page, next to the test you want to run a load test on, click the **Load Test** icon.
-
-<img src={useBaseUrl('/img/api-testing/load-testing-nav.png')} alt="The Load Test icon"/>
 
 :::note
 Load testing only works with published tests. If you change a published test, and then run a load test without re-publishing it, the load test will be run on the published version, not the updated one.
 :::
 
+<img src={useBaseUrl('/img/api-testing/load-testing-nav.png')} alt="The Load Test icon"/>
+
 3. On the tests page, click **Create Load test**.
 
 <img src={useBaseUrl('/img/api-testing/create-load-test-button.png')} alt="The Create Load test button"/>
 
-4. On the **Create Load test** page, enter the relevant information and then click **Save and Run**. See [Create Load Test Fields](#create-load-test-fields) for more details.
-
-<img src={useBaseUrl('/img/api-testing/create-load-test.png')} alt="The Create Load test page"/>
-
-### Create Load Test Fields
+4. On the **Create Load test** page, enter the relevant information for your test:
 
 - Name - The name to assign to the load test profile.
 - Description - A description of the test.
@@ -75,14 +75,18 @@ Variables and snippets in the Vault (Company/Project) are used by default, witho
 
 You can set up multiple profiles for each test, from less aggressive to very aggressive, or with varying durations. The only limitations are those inherited from your infrastructure.
 
-Once you have created and saved a load test, the configuration will be saved for future use. To access the list of previously saved configurations for a specific test, click the load test icon in the test list.
+<img src={useBaseUrl('/img/api-testing/create-load-test.png')} alt="The Create Load test page"/>
 
-The execution of a load test will generate a real-time report that is updated every minute.
-To stop a report before it is complete, click **Stop**.
+5. Click **Save and Run**. 
+
+Once you have created and saved a load test, the configuration will be saved for future use. To access the list of previously saved configurations for a specific test, click the load test icon in the test list. 
+
+## Load Test Reports
+The execution of a load test will generate a real-time report that is updated every minute. To stop a report before it is complete, click **Stop**.
 
 <img src={useBaseUrl('/img/api-testing/load-test-report-details-environments.png')} alt="Load Test Report Details" width="500"/>
 
-### Load Test Report Details
+Load test reports include the following details:
 
 - Outcome - The status of the test:
   - Running - The test is running.
@@ -99,7 +103,7 @@ To stop a report before it is complete, click **Stop**.
 - Virtual Users - The number of virtual users for the execution of the test.
 - Failed Tests - The number of load test execution failures. This will only be visible if there were failures.
 
-The report contains a dropdown that shows all the endpoints the test is calling that you can use to filter to a specific one (the default value shows the data for All the endpoints). For best results, set up footprints to ensure the report is readable. For more information, see [Improving Metrics](/api-testing/composer#improving-metrics).
+The **Footprint** dropdown shows all the endpoints the test is calling, which you can use to filter to a specific endpoint. The default value shows the data for All the endpoints. For best results, set up footprints to ensure the report is readable. For more information, see [Improving Metrics](/api-testing/composer#improving-metrics).
 
 <img src={useBaseUrl('/img/api-testing/load-test-footprint.png')} alt="The Footprint dropdown" width="200"/>
 
