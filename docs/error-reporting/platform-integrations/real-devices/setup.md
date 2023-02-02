@@ -52,7 +52,7 @@ Crashes for iOS apps are currently not supported when running real device tests 
 1. Click **New**.
 1. Select the **object:get** and **query:post** capabilities.
 1. Click **Create**.
-   :::
+:::
 
 ## Create Custom Attributes
 

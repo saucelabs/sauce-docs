@@ -49,7 +49,7 @@ Offline database capabilities are currently not supported for Nintendo Switch.
 
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
-   :::
+:::
 
 ### System Requirements
 
