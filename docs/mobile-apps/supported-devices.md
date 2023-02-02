@@ -129,13 +129,13 @@ This is specifying an exact device for your test by setting `deviceName` to the 
 When using this, there's no need to specify the `platformName` and `platformVersion` because they'll be set by default (i.e., if you include these separately included in your test script, they will be ignored).
 
 <Tabs
-defaultValue="Espresso"
-values={[
-{label: 'Espresso', value: 'Espresso'},
-{label: 'XCUITest', value: 'XCUITest'},
-{label: 'Appium (Android)', value: 'Appium-android'},
-{label: 'Appium (iOS)', value: 'Appium-ios'},
-]}>
+  defaultValue="Espresso"
+  values={[
+    {label: 'Espresso', value: 'Espresso'},
+    {label: 'XCUITest', value: 'XCUITest'},
+    {label: 'Appium (Android)', value: 'Appium-android'},
+    {label: 'Appium (iOS)', value: 'Appium-ios'},
+  ]}>
 
 <TabItem value="Espresso">
 
