@@ -558,7 +558,7 @@ Specifies description for the uploaded app.
 
 <p><small>| REQUIRED | STRING |</small></p>
 
-Either a local path, url, or storage identifier to the testing app. This property supports expanded environment variables. Supports _.ipa and _.app file types.
+Either a local path, url, or storage identifier to the testing app. This property supports expanded environment variables. Supports `*.ipa` and `*.app` file types.
 
 ```yaml
   testApp: ./apps/SwagLabsMobileAppUITests-Runner.app
