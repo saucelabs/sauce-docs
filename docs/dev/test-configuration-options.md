@@ -478,7 +478,7 @@ Identifies the browser to be used when automating with a mobile browser. See the
 - If this capability is not provided for a virtual device, the ['app'](#app) capability needs to be set. If none is set the test will throw an error.
 - This capability can be omitted for virtual devices if the ['app'](#app) capability is set.
 - If this capability is not provided for a real device session and also the ['app'](#app) capability is not provided then a real device session will automatically default back to the default browser. This will be Chrome for Android and Safari for iOS
-  :::
+:::
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
