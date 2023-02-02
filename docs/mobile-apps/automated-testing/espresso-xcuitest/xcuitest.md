@@ -843,7 +843,6 @@ The stricter the `platformVersions` is, the smaller the pool of available device
         platformVersion: '^1[3-4|6].*'
 ```yaml
         platformVersion: 14.3
-````
 
 ---
 
