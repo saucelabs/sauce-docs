@@ -93,6 +93,8 @@ Identifies the name of the operating system the browser or mobile device should 
 "platformName": "macOS 10.13"
 ```
 
+---
+
 ## W3C WebDriver Browser Capabilities – Optional
 
 Optional, Sauce-compatible W3C WebDriver specification capabilities you can add to your tests. To view their descriptions, see the [W3C WebDriver Specification Capabilities](https://www.w3.org/TR/webdriver/#capabilities).
@@ -171,6 +173,8 @@ Describes the current session’s user prompt handler. The default value is `"di
 ```java
 "unhandledPromptBehavior": "ignore"
 ```
+
+---
 
 ## Desktop Browser Capabilities: Sauce-Specific – Optional
 
@@ -339,6 +343,8 @@ Sets idle test timeout in seconds. As a safety measure to prevent tests from run
 "idleTimeout": 90
 ```
 
+---
+
 ## Mobile Appium Capabilities
 
 As the W3C WebDriver Protocol is supported in Appium v1.6.5 and higher, and required for Appium v2.0 (currently in beta), we encourage and support using it for your Appium mobile app tests instead of the JSON Wire Protocol (JWP). We'll continue to support JWP in all currently supported Appium 1.X versions, but please be aware that with Appium 2.0 (currently in beta), JWP support will be fully deprecated in favor of W3C.
@@ -406,6 +412,10 @@ capabilities.setCapability("appium:platformVersion", "12.4.1");
 capabilities.setCapability("appium:platformVersion", "^(?!15).*");
 ```
 
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
 ---
 
 ### `appium:deviceName`
@@ -437,6 +447,10 @@ capabilities.setCapability("appium:deviceName", "Google Nexus 7 HD Emulator");
 capabilities.setCapability("appium:deviceName", "iPhone XS Simulator");
 ```
 
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
 ---
 
 ### `appium:automationName`
@@ -461,6 +475,10 @@ MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:automationName", "UiAutomator2");
 ```
 
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
 ---
 
 ### `browserName`
@@ -474,9 +492,13 @@ Identifies the browser to be used when automating with a mobile browser. See the
 
 
 :::note
-- If this capability is not provided for a virtual device, the ['app'](#app) capability needs to be set. If none is set the test will throw an error.
-- This capability can be omitted for virtual devices if the ['app'](#app) capability is set.
-- If this capability is not provided for a real device session and also the ['app'](#app) capability is not provided then a real device session will automatically default back to the default browser. This will be Chrome for Android and Safari for iOS.
+- If this capability is not provided for a virtual device, the [`appium:app`](#appiumapp) capability needs to be set. If none is set the test will throw an error.
+- This capability can be omitted for virtual devices if the [`appium:app`](#appiumapp) capability is set.
+- If this capability is not provided for a real device session and also the:
+  - [`appium:app`](#appiumapp)
+  - or [`appium:bundleId`](#appiumbundleid) (iOS)
+  - or [`appium:appPackage`](#appiumapppackage) and ['appium:appActivity'](#appiumappactivity) (Android)
+    capability is not provided, then a real device session will automatically fall back to the default browser. This will be Chrome for Android and Safari for iOS.
 :::
 
 ```java
@@ -493,9 +515,18 @@ capabilities.setCapability("browserName", "chrome");
 Allows you to set a path to an `.ipa`, `.apk`, `.aab` or `.zip` file containing the mobile app you want to test. This could be the location of your app in [App Storage](/mobile-apps/app-storage) (e.g., `storage:filename=myapp.zip`) or the URL to a remote location where your app is located (e.g., `http://myappurl.zip`). The remote location needs to be accessible from the web, Sauce Connect can not access your internal file system where apps are hosted.
 
 :::note
-- If this capability is not provided for a virtual device, the ['browserName'](#browserName) capability needs to be set. If none is set the test will throw an error.
-- This capability can be omitted for virtual devices if the ['browserName'](#browserName) capability is set.
-- If this capability is not provided for a real device session and also the ['browserName'](#browserName) capability is not provided then a real device session will automatically default back to the default browser. This will be Chrome for Android and Safari for iOS.
+
+- If this capability is not provided for a virtual device, the [`browserName`](#browsername-1) capability needs to be set. If none is set the test will throw an error.
+- This capability can be omitted for virtual devices if the [`browserName`](#browsername-1) capability is set.
+- If this capability is not provided for a real device session and also the:
+
+  - [`browserName`](#browsername-1) capability
+  - or [`appium:app`](#appiumapp)
+  - or [`appium:bundleId`](#appiumbundleid) (iOS)
+  - or [`appium:appPackage`](#appiumapppackage) and ['appium:appActivity'](#appiumappactivity) (Android)
+
+  capability is not provided, then a real device session will automatically fall back to the default browser. This will be Chrome for Android and Safari for iOS
+
 :::
 
 ```java
@@ -505,6 +536,90 @@ capabilities.setCapability("appium:app", "storage:filename=my_app.zip");
 
 :::tip Using Storage Id
 If your app has been uploaded to [Sauce storage](https://app.saucelabs.com/live/app-testing), you can set the `app` capability to `"storage:xxxxxxxxx-xxxxxxx-xxx"` and enter the **FILE ID** for your app. This allows you to set which specific version you uploaded. Otherwise, if you use the file name it will select the latest version uploaded with the exact same name.
+:::
+
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
+---
+
+### `appium:bundleId`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">iOS Only</span> |</small></p>
+
+Bundle identifier of the app under test, for example `com.apple.calculator`. The capability value is calculated automatically if [`appium:app`](#appiumapp) is provided.
+
+:::note
+If neither [`appium:app`](#appiumapp), [`browserName`](#browsername-1), or `appium:bundleId` capability is provided then by default Sauce Labs will start the Safari browser for iOS.
+:::
+
+<!-- prettier-ignore -->
+:::tip
+These two posts explain how you can get the `bundleId` for iOS apps:
+
+- [iOS System Apps](https://github.com/joeblau/apple-bundle-identifiers)
+- [3rd party iOS Apps](https://pspdfkit.com/guides/ios/faq/finding-the-app-bundle-id/)
+
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:bundleId", "com.apple.calculator");
+```
+
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
+---
+
+### `appium:appPackage`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Android Only</span> |</small></p>
+
+Application package identifier to be started, for example, `com.google.android.youtube`. If not provided, then UiAutomator2 will try to detect it automatically from the package provided by the [`appium:app`](#appiumapp) capability. Read [How To Troubleshoot Activities Startup](https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/activity-startup.md) for more details.
+
+:::note
+If neither [`appium:app`](#appiumapp), [`browserName`](#browsername-1), or `appium:appPackage` plus [`appium:appActivity`](#appiumappactivity) capabilities are provided then by default Sauce Labs will start the Chrome browser for Android.
+:::
+
+:::tip
+This [post](https://www.techmesto.com/find-android-app-package-name/) explains how you can get the `appPackage` for Android apps.
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:appPackage", "com.google.android.youtube");
+```
+
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
+---
+
+### `appium:appActivity`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Android Only</span> |</small></p>
+
+Main application activity identifier, for example, `com.google.android.apps.youtube.app.watchwhile.WatchWhileActivity`. If not provided then UiAutomator2 will try to detect it automatically from the package provided by the [`appium:app`](#appiumapp) capability. Read [How To Troubleshoot Activities Startup](https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/activity-startup.md) for more details.
+
+:::note
+If neither [`appium:app`](#appiumapp), [`browserName`](#browsername-1) or `appium:appActivity` plus [`appium:appPackage`](#appiumapppackage) capability are provided then by default Sauce Labs will start the Chrome browser for Android.
+:::
+
+:::tip
+You can get the current activity by using the Appium [`currentActivity`](https://appium.io/docs/en/commands/device/activity/current-activity/) command. This is the Appium 1 command, but will also work with Appium 2.
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:appActivity", "com.google.android.apps.youtube.app.watchwhile.WatchWhileActivity");
+```
+
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
 :::
 
 ---
@@ -531,6 +646,10 @@ capabilities.setCapability("appium:otherApps", ["storage:filename=app0.apk", "st
 capabilities.setCapability("appium:otherApps",  ["storage:7435ab52-1eaa-4387-a67b-4d8e265f8509","storage:9035342-f8ea-7687-a67b-4dd4365f8588"]);
 ```
 
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
 ---
 
 ### `appium:orientation`
@@ -547,6 +666,10 @@ This capability is an Appium capability that needs to be pre-fixed with `appium:
 MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:orientation", "LANDSCAPE");
 ```
+
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
 
 ---
 
@@ -581,6 +704,10 @@ MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:noReset", true);
 ```
 
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
 ---
 
 ### `appium:autoWebview`
@@ -594,6 +721,10 @@ MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:autoWebview", true);
 ```
 
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
 ---
 
 ### `appium:includeSafariInWebviews`
@@ -606,6 +737,10 @@ Add Safari web contexts to the list of contexts available during a native/webvie
 MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:includeSafariInWebviews", true);
 ```
+
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
 
 ---
 
@@ -624,6 +759,10 @@ MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:autoAcceptAlerts", true);
 ```
 
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
 ---
 
 ### `appium:autoDismissAlerts`
@@ -636,6 +775,10 @@ Dismiss all iOS alerts automatically if they pop up. This includes privacy acces
 MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:autoDismissAlerts", true);
 ```
+
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
 
 ---
 
@@ -654,6 +797,12 @@ MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:autoGrantPermissions", true);
 ```
 
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
+---
+
 ## Mobile Appium Timeout Capabilities
 
 As with Selenium Tests, Appium also supports different types of timeouts like:
@@ -667,7 +816,7 @@ These timeouts can be controlled by the driver during the test session. There ar
 
 ### `appium:newCommandTimeout`
 
-<p><small>| DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">Android and iOS</span> |</small></p>
+<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">Android and iOS</span> |</small></p>
 
 Specifies the amount of time in seconds, in which the driver waits for a new command from the client before assuming the client has stopped sending requests. If there is no response during this time, the next executed command on the Virtual/Real Device will time out. The default value is 60 seconds while the maximum allowed value is not limited for Virtual Devices and is limited to 90 seconds for Real Devices.
 
@@ -676,11 +825,15 @@ MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:newCommandTimeout", 90);
 ```
 
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
 ---
 
 ### `appium:autoWebviewTimeout`
 
-<p><small>| DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">Android only</span> |</small></p>
+<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">Android only</span> |</small></p>
 
 Set the maximum number of milliseconds to wait until a web view is available if autoWebview capability is set to true. 2000 ms by default
 
@@ -689,11 +842,15 @@ MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:autoWebviewTimeout", 30000);
 ```
 
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
 ---
 
 ### `appium:webkitResponseTimeout`
 
-<p><small>| DURATION | INTEGER | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
+<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
 
 Set the time, in milliseconds, to wait for a response from `WebKit` in a Safari session. Defaults to `5000`
 
@@ -702,11 +859,15 @@ MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:webkitResponseTimeout", 10000);
 ```
 
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
 ---
 
 ### `appium:webviewConnectTimeout`
 
-<p><small>| DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
+<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
 
 The time to wait, in milliseconds, for the initial presence of webviews in MobileSafari or hybrid apps. Defaults to 0
 
@@ -714,6 +875,12 @@ The time to wait, in milliseconds, for the initial presence of webviews in Mobil
 MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:webviewConnectTimeout", 50000);
 ```
+
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
+---
 
 ## Mobile Appium iOS `WebDriverAgent` Timeout Capabilities
 
@@ -727,7 +894,7 @@ It might be helpful to understand how the `WebDriverAgent` works before reading 
 
 ### `appium:wdaLaunchTimeout`
 
-<p><small>| DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
+<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
 
 Time, in ms, to wait for `WebDriverAgent` to be pingable. Defaults to 60000ms.
 
@@ -736,11 +903,15 @@ MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:wdaLaunchTimeout", 30000);
 ```
 
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
 ---
 
 ### `appium:wdaConnectionTimeout`
 
-<p><small>| DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
+<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
 
 Timeout, in ms, for waiting for a response from `WebDriverAgent`. Defaults to 240000ms.
 
@@ -749,11 +920,15 @@ MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:wdaConnectionTimeout", 30000);
 ```
 
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
 ---
 
 ### `appium:waitForIdleTimeout`
 
-<p><small>| DURATION | FLOAT | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
+<p><small>| OPTIONAL | DURATION | FLOAT | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
 
 The amount of time in float seconds to wait until the application under test is idling. XCTest requires the app's main thread to be idling in order to execute any action on it, so the `WebDriverAgent` might not even start/freeze if the app under test is constantly hogging the main thread. The default value is `10` (seconds). Setting it to zero disables idling checks completely (not recommended) and has the same effect as setting `waitForQuiescence` to false. Available since Appium `1.20.0`.
 
@@ -762,11 +937,15 @@ MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:waitForIdleTimeout", 60);
 ```
 
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
 ---
 
 ### `appium:commandTimeouts`
 
-<p><small>| DURATION | STRING | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
+<p><small>| OPTIONAL | DURATION | STRING | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
 
 Custom timeout(s) in milliseconds for `WebDriverAgent` backend commands execution. This might be useful if the `WebDriverAgent` backend freezes unexpectedly or requires too much time to fail and blocks automated test execution. The value is expected to be of type string and can either contain max milliseconds to wait for each `WebDriverAgent` command to be executed before terminating the session forcefully.
 
@@ -779,6 +958,12 @@ MutableCapabilities capabilities = new MutableCapabilities();
 capabilities.setCapability("appium:commandTimeouts", "120000");
 ```
 
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
+---
+
 ## More Appium specific capabilities
 
 Not all specific Appium Driver capabilities are explained here in preventing duplications. There are more capabilities which are specific for each Appium Driver. They can be found here
@@ -786,12 +971,48 @@ Not all specific Appium Driver capabilities are explained here in preventing dup
 **Android**
 
 - [UIAutomator2-Driver](https://github.com/appium/appium-uiautomator2-driver#capabilities)
-- [Espresso-Driver](https://github.com/appium/appium-espresso-driver#capabilities)
+- [Flutter-Driver](https://github.com/appium-userland/appium-flutter-driver#desired-capabilities-for-flutter-driver-only)
 
 **iOS**
 
 - [XCUITest-Driver](https://github.com/appium/appium-xcuitest-driver#capabilities)
-- [Flutter-Driver (Android and iOS)](https://github.com/appium-userland/appium-flutter-driver#desired-capabilities-for-flutter-driver-only)
+- [Flutter-Driver](https://github.com/appium-userland/appium-flutter-driver#desired-capabilities-for-flutter-driver-only)
+
+---
+
+### `appium:options`
+
+<p><small>| OPTIONAL | OBJECT | <span className="sauceDBlue">Real Devices</span> | <span className="sauceDBlue">Appium 2 Only</span> |</small></p>
+
+If you use a lot of `appium:` capabilities in your tests, it can get a little repetitive. You can combine all capabilities as an object value of a single `appium:options` capability instead, in which case you don't need to use prefixes on the capabilities inside the object. For example:
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("platformName", "iOS");
+capabilities.setCapability("browserName", "Safari");
+MutableCapabilities appiumOptions = new MutableCapabilities();
+appiumOptions.setCapability("automationName", "XCUITest");
+appiumOptions.setCapability("deviceName", "iPhone iPhone 11");
+appiumOptions.setCapability("platformVersion", "16");
+capabilities.setCapability("appium:options", appiumOptions);
+// `appium:options` will only work with Appium 2 or later
+// This can be set in the `sauce:options` block
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("appiumVersion", "2.0.0");
+sauceOptions.setCapability("build", "<your build id>");
+sauceOptions.setCapability("name", "<your test name>");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+:::note
+`appium:options` support for Virtual Devices is coming soon.
+:::
+
+:::caution
+If you include the same capabilities both inside and outside of `appium:options`, the values inside of `appium:options` take precedence.
+:::
+
+---
 
 ## Mobile App Appium Capabilities: Sauce-Specific – Optional
 
@@ -817,6 +1038,8 @@ sauceOptions.setCapability("appiumVersion", "1.22.0");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
+---
+
 #### Check on which Appium version your test ran:
 
 1. Log into Sauce Labs.
@@ -829,7 +1052,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `deviceOrientation`
 
-<p><small>|OPTIONAL | STRING| <span className="sauceDBlue">Virtual Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING| <span className="sauceDBlue">Virtual Devices Only</span> |</small></p>
 
 Specifies the orientation of the virtual skin and screen during the test. Valid values are `PORTRAIT` and `LANDSCAPE`.
 
@@ -1188,6 +1411,8 @@ MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.setCapability("systemAlertsDelayEnabled", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
+
+---
 
 ## Desktop and Mobile Capabilities: Sauce-Specific – Optional
 
@@ -1603,6 +1828,8 @@ Read the descriptions of each key below the example.
 "prerun": {
          "executable": "http://url.to/your/executable.exe",
 ```
+
+---
 
 #### `prerun` (primary key)
 
