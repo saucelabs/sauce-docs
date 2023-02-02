@@ -537,12 +537,15 @@ To enable client side unwinding, you can call the `setupNativeIntegration` metho
 ```java
 database.setupNativeIntegration(backtraceClient, credentials, true);
 ```
+
 <!-- prettier-ignore-start -->
+
 :::note
 Client-side unwinding is only available for fatal crashes. For instance, non-fatal Crashpad dumps generated with `DumpWithoutCrash` will not use client-side unwinding.
 :::
 :::note
 Client-side unwinding is only available for the following platforms:
+
 - NDK level 17 or higher (i.e: only with the Crashpad crash reporting backend).
 - SDK level 21 or higher (i.e: if the minimum SDK version is lower than 21, client-side unwinding will be disabled for 32-bit arm platforms).
 :::

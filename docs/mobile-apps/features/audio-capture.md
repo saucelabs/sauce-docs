@@ -14,14 +14,15 @@ Audio Capture is a functionality that gives you the ability to record the audio 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 - A native Android, iOS, or iPadOS mobile app.
 
-## Using Audio Capture for Automated Tests on Real Devices 
+## Using Audio Capture for Automated Tests on Real Devices
 
 To enable Audio Capture in your automated tests, you need to use the following capabilities:
 
 Click the link below that corresponds to your framework:
-   - [Espresso](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#audiocapture)
-   - [XCUITest](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#audiocapture)
-   - [Appium](/dev/test-configuration-options/#audiocapture)
+
+- [Espresso](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#audiocapture)
+- [XCUITest](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#audiocapture)
+- [Appium](/dev/test-configuration-options/#audiocapture)
 
 Now you can start your automated testing session. Your audio recording will be captured and be part of the video recording on the Test Results page.
 
@@ -31,7 +32,7 @@ Now you can start your automated testing session. Your audio recording will be c
 
 You just need to launch a Live Testing session on a real device, and the audio will be streamed automatically without any configuration.
 
-The Audio Streaming feature ensures a better digital experience by validating audio playback and testing user flows that require audio testing in the early stages of the development lifecycle. 
+The Audio Streaming feature ensures a better digital experience by validating audio playback and testing user flows that require audio testing in the early stages of the development lifecycle.
 
 With the Audio Streaming feature, you are able to hear the sound your application is making during a Live Testing session. It allows you to validate audio streams, notification sounds, and animations.
 
@@ -40,11 +41,11 @@ You will be able to mute and unmute the sound during your session by clicking on
 <br/><img src={useBaseUrl('img/audio.png')} alt="Mobile app settings navigation" width="300"/>
 :::
 
-
 ## Streaming Limitations
 
 <!-- prettier-ignore -->
 :::note Limitations
+
 - Audio Streaming is supported on iOS/iPadOS 13.2 and above.
 - Audio Streaming is supported on Android 10 and above.
 - When Audio Streaming is enabled, we are not attaching the audio to the test results after the session ends.
@@ -69,7 +70,7 @@ If your apps's manifest.xml file defines `android:allowAudioPlaybackCapture="fal
 :::
 <!-- prettier-ignore-end -->
 
-## Using Audio Capture on iOS/iPadOS 
+## Using Audio Capture on iOS/iPadOS
 
 You will be able to capture audio from iOS 10+ up.
 You will be able to validate the sound your application is making, enable the Voiceover, and validate its output.
@@ -88,6 +89,7 @@ curl --compressed \ -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}
 
 <!-- prettier-ignore -->
 :::note Limitations
+
 - iOS Audio capture for automated test results is supported on iOS/iPadOS 10.1 and above.
 - Android Audio capture for test results is supported on Android 10 and above.
 - When Audio streaming is enabled, we are not attaching the audio to the test results after the session ends.
