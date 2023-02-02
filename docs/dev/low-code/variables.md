@@ -197,7 +197,6 @@ If `var` = `"testing"`, and `var_2` = `"printing variable: testing"`:
 
 <!-- prettier-ignore -->
 :::note
-
 - Any reference to an input variable should be `aiq_1`, `aiq_2`, and so on.
 - Multiple input variables should be comma separated.
 - Only one output variable is supported.
