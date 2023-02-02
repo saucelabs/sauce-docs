@@ -1,121 +1,23 @@
-/* Regular */
-@font-face {
-    font-family: 'Proxima Nova Rg';
-    src: url('../fonts/ProximaNova-Regular.woff2') format('woff2'),
-        url('../fonts/ProximaNova-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Proxima Nova Rg';
-    src: url('../fonts/ProximaNova-RegularIt.woff2') format('woff2'),
-        url('../fonts/ProximaNova-RegularIt.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-}
+@import "../fonts/stylesheet.css";
 
-/* Thin 100 */
-@font-face {
-    font-family: 'Proxima Nova Th';
-    src: url('../fonts/ProximaNovaT-Thin.woff2') format('woff2'),
-        url('../fonts/ProximaNovaT-Thin.woff') format('woff');
-    font-weight: 100;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Proxima Nova Th';
-    src: url('../fonts/ProximaNova-ThinIt.woff2') format('woff2'),
-        url('../fonts/ProximaNova-ThinIt.woff') format('woff');
-    font-weight: 100;
-    font-style: italic;
-}
+/*
+ * Google backup
+ */
 
-/* Light 300 */
-@font-face {
-    font-family: 'Proxima Nova Lt';
-    src: url('../fonts/ProximaNova-Light.woff2') format('woff2'),
-        url('../fonts/ProximaNova-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Proxima Nova Lt';
-    src: url('../fonts/ProximaNova-LightIt.woff2') format('woff2'),
-        url('../fonts/ProximaNova-LightIt.woff') format('woff');
-    font-weight: 300;
-    font-style: italic;
-}
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-/* Semi-bold 600 */
-@font-face {
-    font-family: 'Proxima Nova Lt';
-    src: url('../fonts/ProximaNova-Semibold.woff2') format('woff2'),
-        url('../fonts/ProximaNova-Semibold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Proxima Nova Lt';
-    src: url('../fonts/ProximaNova-SemiboldIt.woff2') format('woff2'),
-        url('../fonts/ProximaNova-SemiboldIt.woff') format('woff');
-    font-weight: 600;
-    font-style: italic;
-}
-
-/* Bold */
-@font-face {
-    font-family: 'Proxima Nova Rg';
-    src: url('../fonts/ProximaNova-Bold.woff2') format('woff2'),
-        url('../fonts/ProximaNova-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Proxima Nova Rg';
-    src: url('../fonts/ProximaNova-BoldIt.woff2') format('woff2'),
-        url('../fonts/ProximaNova-BoldIt.woff') format('woff');
-    font-weight: bold;
-    font-style: italic;
-}
-
-/* Extra-bold 800 */
-@font-face {
-    font-family: 'Proxima Nova Th';
-    src: url('../fonts/ProximaNova-Extrabld.woff2') format('woff2'),
-        url('../fonts/ProximaNova-Extrabld.woff') format('woff');
-    font-weight: 800;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Proxima Nova Th';
-    src: url('../fonts/ProximaNova-ExtrabldIt.woff2') format('woff2'),
-        url('../fonts/ProximaNova-ExtrabldIt.woff') format('woff');
-    font-weight: 800;
-    font-style: italic;
-}
-
-/* Black 900 */
-@font-face {
-    font-family: 'Proxima Nova Bl';
-    src: url('../fonts/ProximaNova-Black.woff2') format('woff2'),
-        url('../fonts/ProximaNova-Black.woff') format('woff');
-    font-weight: 900;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Proxima Nova Bl';
-    src: url('../fonts/ProximaNova-BlackIt.woff2') format('woff2'),
-        url('../fonts/ProximaNova-BlackIt.woff') format('woff');
-    font-weight: 900;
-    font-style: italic;
-}
+/*
+// Google backup import as link in html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+*/
 
 :root {
-    --font-family-sans-serif: 'Proxima Nova', Arial, sans-serif;
-    --font-family-serif: Georgia, 'Times New Roman', Times, serif;
-    --font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
+    --font-family-sans-serif: "AeonikTRIAL", "DM Sans", sans-serif;
+    --font-family-serif: Georgia, "Times New Roman", Times, serif;
+    --font-family-monospace: "DM Mono", monospace;
     --font-family-base: --font-family-sans-serif;
-    --font-family-code: 'Source Code Pro', Consolas, Monaco, 'Andale Mono',
-        monospace;
+    --font-family-code: "DM Mono", monospace;
     --font-size-base: 14px;
 }
