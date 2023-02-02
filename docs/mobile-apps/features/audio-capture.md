@@ -51,7 +51,7 @@ You will be able to mute and unmute the sound during your session by clicking on
 - When Audio Streaming is enabled, we are not attaching the audio to the test results after the session ends.
 - TalkBack Audio verification on Android is not supported.
 - Website testing is not yet available on Android.
-  :::
+:::
 
 ## Using Audio Capture and Streaming on your Android device
 
