@@ -48,7 +48,7 @@ Biometric Authentication is available for testing on all Sauce Labs Android and 
 - Mobile browsers and pre-installed system apps.
 - Cross-platform development frameworks like Flutter, React Native, and Cordova (libraries and frameworks are not supported).
 - Ephemeral apps.
-  :::
+:::
 
 ### Android Biometrics
 
