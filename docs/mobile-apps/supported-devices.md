@@ -283,13 +283,13 @@ capabilities.setCapability("appium:deviceName", "^iPhone\s+(?!(5|5S)).*");
 | `"^(?!15).*"`                    | Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1). |
 
 <Tabs
-defaultValue="Espresso"
-values={[
-{label: 'Espresso', value: 'Espresso'},
-{label: 'XCUITest', value: 'XCUITest'},
-{label: 'Appium (Android)', value: 'Appium (Android)'},
-{label: 'Appium (iOS)', value: 'Appium (iOS)'},
-]}>
+  defaultValue="Espresso"
+  values={[
+    {label: 'Espresso', value: 'Espresso'},
+    {label: 'XCUITest', value: 'XCUITest'},
+    {label: 'Appium (Android)', value: 'Appium (Android)'},
+    {label: 'Appium (iOS)', value: 'Appium (iOS)'},
+  ]}>
 
 <TabItem value="Espresso">
 
