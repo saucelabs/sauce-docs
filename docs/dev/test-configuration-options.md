@@ -499,8 +499,9 @@ Identifies the browser to be used when automating with a mobile browser. See the
   - [`appium:app`](#appiumapp)
   - or [`appium:bundleId`](#appiumbundleid) (iOS)
   - or [`appium:appPackage`](#appiumapppackage) and ['appium:appActivity'](#appiumappactivity) (Android)
-  capability is not provided, then a real device session will automatically fall back to the default browser. This will be Chrome for Android and Safari for iOS
-  :::
+    capability is not provided, then a real device session will automatically fall back to the default browser. This will be Chrome for Android and Safari for iOS
+
+:::
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -521,12 +522,14 @@ Allows you to set a path to an `.ipa`, `.apk`, `.aab` or `.zip` file containing 
 - If this capability is not provided for a virtual device, the [`browserName`](#browsername-1) capability needs to be set. If none is set the test will throw an error.
 - This capability can be omitted for virtual devices if the [`browserName`](#browsername-1) capability is set.
 - If this capability is not provided for a real device session and also the:
+
   - [`browserName`](#browsername-1) capability
   - or [`appium:app`](#appiumapp)
   - or [`appium:bundleId`](#appiumbundleid) (iOS)
   - or [`appium:appPackage`](#appiumapppackage) and ['appium:appActivity'](#appiumappactivity) (Android)
 
   capability is not provided, then a real device session will automatically fall back to the default browser. This will be Chrome for Android and Safari for iOS
+
 :::
 
 ```java
@@ -560,7 +563,8 @@ These two posts explain how you can get the `bundleId` for iOS apps:
 
 - [iOS System Apps](https://github.com/joeblau/apple-bundle-identifiers)
 - [3rd party iOS Apps](https://pspdfkit.com/guides/ios/faq/finding-the-app-bundle-id/)
-  :::
+
+:::
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
