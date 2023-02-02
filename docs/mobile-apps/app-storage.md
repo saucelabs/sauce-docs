@@ -109,7 +109,7 @@ caps.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releas
 - The app cannot be installed on public devices due to signing.
 - The app can be installed on private devices. However, to make this work you must add the UDID of the private device to the provisioning profile for iOS (see our [resigning process](/mobile-apps/automated-testing/ipa-files/) to learn more).
 - The Instrumentation feature will not work if the app is installed from external location.
-  :::
+:::
 
 ## Accepted File Types 
 
