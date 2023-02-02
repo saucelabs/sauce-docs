@@ -32,6 +32,7 @@ The Logger tool helps with API call recording by facilitating complete captures 
 ### Launch Piestry via CLI
 
 6. From your CLI, launch [Piestry, our API Mocking server tool](/api-testing/mocking), by running the following code. The last line will be the `--logger` switch, followed by the URL from the previous step:
+
    ```bash
    docker run --pull always -v "$(pwd)/myspec:/specs" \
    -p 5000:5000 quay.io/saucelabs/piestry \
@@ -42,8 +43,9 @@ The Logger tool helps with API call recording by facilitating complete captures 
 7. In your CLI, make a call to any mocking endpoint (i.e., `curl localhost:5000/api/v1/release-notes`).
 
 ### Review Results
+
 8. From Sauce Labs API Testing, open the **Logger** section.
-<img src={useBaseUrl('img/api-fortress/2021/09/logger.png')} alt="Logger UI"/>
+   <img src={useBaseUrl('img/api-fortress/2021/09/logger.png')} alt="Logger UI"/>
 9. Inspect the data related to the captured request (e.g., Request and Response).
 10. From here, you can see the call in the HTTP Client by clicking the **Open** button. Optionally, you can generate a test here by clicking the **Generate Test** button.
 
@@ -53,10 +55,8 @@ The Logger tool helps with API call recording by facilitating complete captures 
 
 <img src={useBaseUrl('img/api-fortress/2021/09/logger3.png')} alt="Logger UI"/>
 
-
 ## More Information
 
 :::info Coming Soon
 The Logger is the first tool in an upcoming larger suite of API debugging tools.
 :::
-

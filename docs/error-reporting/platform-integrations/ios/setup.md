@@ -34,6 +34,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <!-- prettier-ignore -->
 :::tip Generate a Submission Token
+
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
 :::

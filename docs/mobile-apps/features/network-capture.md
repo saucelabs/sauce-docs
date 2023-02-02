@@ -74,6 +74,7 @@ Alternatively, some other commonly used HAR viewers include:
 
 <!-- prettier-ignore -->
 :::note Not Supported
+
 - Android Emulators
 - iOS Simulators
 - Hybrid Applications

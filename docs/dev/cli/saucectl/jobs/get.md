@@ -11,7 +11,6 @@ Get job details from Sauce Labs.
 ## Usage
 
 <span className="cli">$ saucectl jobs get JOB_ID [flags]</span>
- 
 
 ## Available Options
 
