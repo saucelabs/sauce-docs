@@ -606,7 +606,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 <p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Android Only</span> |</small></p>
 
-Main application activity identifier, for example `com.google.android.apps.youtube.app.watchwhile.WatchWhileActivity`. If not provided then UiAutomator2 will try to detect it automatically from the package provided by the [`appium:app`](#appiumapp) capability. Read [How To Troubleshoot Activities Startup](https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/activity-startup.md) for more details
+Main application activity identifier, for example, `com.google.android.apps.youtube.app.watchwhile.WatchWhileActivity`. If not provided then UiAutomator2 will try to detect it automatically from the package provided by the [`appium:app`](#appiumapp) capability. Read [How To Troubleshoot Activities Startup](https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/activity-startup.md) for more details.
 
 :::note
 If neither [`appium:app`](#appiumapp), [`browserName`](#browsername-1) or `appium:appActivity` plus [`appium:appPackage`](#appiumapppackage) capability are provided then by default Sauce Labs will start the Chrome browser for Android.
