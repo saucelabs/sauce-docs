@@ -499,7 +499,7 @@ Allows you to set a path to an `.ipa`, `.apk`, `.aab` or `.zip` file containing 
 - If this capability is not provided for a virtual device, the ['browserName'](#browserName) capability needs to be set. If none is set the test will throw an error.
 - This capability can be omitted for virtual devices if the ['browserName'](#browserName) capability is set.
 - If this capability is not provided for a real device session and also the ['browserName'](#browserName) capability is not provided then a real device session will automatically default back to the default browser. This will be Chrome for Android and Safari for iOS.
-  :::
+:::
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
