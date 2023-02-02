@@ -10,6 +10,7 @@ To learn more about Screener's Cross-Browser Testing, see [Visual Component Cros
 
 <!-- prettier-ignore -->
 :::note Important
+
 - Cross-Browser Testing with Sauce Labs will be slower than regular Screener visual regression tests.
 - You may want to limit cross-browser testing to certain scenarios, such as only when merging into your main branch (see example below).
 :::
