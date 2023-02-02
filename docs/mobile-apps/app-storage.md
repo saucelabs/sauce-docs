@@ -167,11 +167,11 @@ For example, let's assume you've updated a new version of your app using the `/u
 }
 ```
 
-Then the file_id would be `"id":"379c301a-199c-4b40-ad45-4a95e5f30a3a"`. If you're unsure of the id of an existing app, you can use the [Storage API](/dev/api/storage) to lookup the ID of an app in storage or look into the apps details in the [Sauce UI](https://app.saucelabs.com/live/app-testing).
+Then the file_id would be `"id":"379c301a-199c-4b40-ad45-4a95e5f30a3a"`. If you're unsure of the id of an existing app, you can use the [Storage API](/dev/api/storage) to lookup the ID of an app in storage or look into the app's details in the [Sauce UI](https://app.saucelabs.com/live/app-testing).
 
 ### File Name instead of File ID
 
-You can also use the app `name` field from the storage API in the `app` capability. This approach is particularly useful if you uploaded your build to app storage via a CI pipeline, and you either don't know the id, or you do not wish to perform JSON parsing in order to retrieve the id. The filename field also includes any supported file that can be uploaded to app storage.
+You can also use the app `name` field from the storage API in the `app` capability. This approach is particularly useful if you upload your build to app storage via a CI pipeline, and you either don't know the id, or you do not wish to perform JSON parsing to retrieve the id. The filename field also includes any supported file that can be uploaded to app storage.
 
 Example of uploading an Android .apk file:
 
@@ -225,8 +225,8 @@ caps.SetCapability("app","storage:filename=<file-name>.apk");
 #### Limitations
 
 - File names are NOT unique, therefore they will always default to the latest version.
-- Currently you cannot specify the version of the app using this feature.
-- `build` capability not supported in VDC at this time.
+- Currently, you cannot specify the version of the app using this feature.
+- `build` capability is not supported in VDC at this time.
 
 ## Updating WebDriver Capabilities
 
