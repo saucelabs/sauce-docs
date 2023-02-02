@@ -348,7 +348,7 @@ caps.setCapability("otherApps", "storage:<fileId>")
 
 - Android dependent apps will not be instrumented or modified.
 - iOS dependent apps will always be resigned/modified (even when resigning is disabled for the main app) because apps can't be installed on iOS devices without resigning them. If a dependent app cannot be resigned (such as a 3rd party app), the test will not work as intended.
-  :::
+:::
 
 ### Espresso/XCUITest Configuration
 
