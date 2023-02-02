@@ -44,7 +44,7 @@ For on-premise (self-hosted) users, the integration for Unreal Engine requires s
 
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
-   :::
+:::
 
 ### System Requirements
 
