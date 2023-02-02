@@ -613,7 +613,7 @@ If neither [`appium:app`](#appiumapp), [`browserName`](#browsername-1) or `appiu
 :::
 
 :::tip
-You can get the current activity by using the Appium [`currentActivity`](https://appium.io/docs/en/commands/device/activity/current-activity/) command. (This is the Appium 1 command, but will also work with Appium 2.)
+You can get the current activity by using the Appium [`currentActivity`](https://appium.io/docs/en/commands/device/activity/current-activity/) command. This is the Appium 1 command, but will also work with Appium 2.
 :::
 
 ```java
