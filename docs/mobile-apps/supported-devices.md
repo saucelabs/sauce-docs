@@ -200,13 +200,13 @@ The more strict you set the capabilities, the smaller the pool of available devi
 | <code>"^(?=Nokia.\*&vert;Oppo.\*&vert;Huawei.\*&vert;Xiaomi.\*).\*"</code> | Allocates **only** Nokia, Oppo, Huawei, and Xiaomi devices. See [example](https://regex101.com/r/yhQ3oy/2).                                                    |
 
 <Tabs
-defaultValue="Espresso"
-values={[
-{label: 'Espresso', value: 'Espresso'},
-{label: 'XCUITest', value: 'XCUITest'},
-{label: 'Appium (Android)', value: 'Appium (Android)'},
-{label: 'Appium (iOS)', value: 'Appium (iOS)'},
-]}>
+  defaultValue="Espresso"
+  values={[
+    {label: 'Espresso', value: 'Espresso'},
+    {label: 'XCUITest', value: 'XCUITest'},
+    {label: 'Appium (Android)', value: 'Appium (Android)'},
+    {label: 'Appium (iOS)', value: 'Appium (iOS)'},
+  ]}>
 
 <TabItem value="Espresso">
 
