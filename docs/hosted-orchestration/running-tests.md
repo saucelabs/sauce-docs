@@ -1,6 +1,6 @@
 ---
 id: running-tests
-title: Hosted Orchestration Running Tests
+title: Running Hosted Orchestration Tests
 sidebar_label: Running Tests
 ---
 
@@ -8,18 +8,18 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This page outlines how to run your browser and mobile tests in Hosted Test Orchestration.
+This page outlines how to run your browser and mobile tests in Hosted Orchestration.
 
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-- The SauceCTL client installed. Read [Using the saucectl CLI](../dev/cli/saucectl) to learn more.
-- A Docker image containing your tests. Read [Building Images](./building-images) if you need help.
+- The SauceCTL client installed. For more information, see [Using the saucectl CLI](../dev/cli/saucectl).
+- A Docker image containing your tests. For more information, see [Building Images](./building-images).
 
 ## Starting an Execution
 
-You can interact with Hosted Orchestration through the SauceCtl CLI. An example SauceCTL configuration is below.
+You can interact with Hosted Orchestration through the SauceCtl CLI. The following is an example SauceCTL configuration:
 
 <Tabs
      defaultValue="SauceCTL"
@@ -30,7 +30,7 @@ You can interact with Hosted Orchestration through the SauceCtl CLI. An example 
 
   ```yaml
     apiVersion: v1alpha
-    kind: htexec
+    kind: imagerunner
     sauce:
       region: us-west-1
     suites:
@@ -45,7 +45,7 @@ You can interact with Hosted Orchestration through the SauceCtl CLI. An example 
             dst: "/workdir/runsauce.json"
         artifacts:
           - "/path/inside/container/file.log"
-        env: 
+        env:
           KEY: value
   ```
 
@@ -55,7 +55,7 @@ You can interact with Hosted Orchestration through the SauceCtl CLI. An example 
     saucectl run
   ```
 
-  You should receive a successful output that looks like
+  You should receive a successful output that looks like:
 
   ```bash
   ⚡  saucectl run
@@ -86,9 +86,9 @@ You can interact with Hosted Orchestration through the SauceCtl CLI. An example 
 
 ## Configuration Details
 
-Each of the properties supported for running Hosted Orcheestration tests through `saucectl` is defined below.
+Each of the properties supported for running Hosted Orchestration tests through `saucectl` is defined below.
 
-## `apiVersion`
+### `apiVersion`
 
 <p><small>| REQUIRED | STRING |</small></p>
 
@@ -98,59 +98,54 @@ Identifies the version of the underlying configuration schema. At this time, `v1
 apiVersion: v1alpha
 ```
 
----
 
-## `kind`
+### `kind`
 
 <p><small>| REQUIRED | STRING |</small></p>
 
-Tells SauceCTL this is a Hosted Orcheastration job. `imagerunner` is the required value.
+Tells SauceCTL this is a Hosted Orchestration job. `imagerunner` is the required value.
 
 ```yaml
 kind: imagerunner
 ```
 
----
 
-## `image`
+### `image`
 
 <p><small>| REQUIRED | STRING |</small></p>
 
-The location of your Docker image. Takes the format [registry]/[image]:[tag]
+The location of your Docker image. Takes the format [registry]/[image]:[tag].
 
 ```yaml
 image: saucelabs/sl-demo-docker-primary:0.0.1
 ```
 
----
 
-## `imagePullAuth`
+### `imagePullAuth`
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-The credentials needed to access an image hosted in a private register
+The credentials needed to access an image hosted in a private register.
 
 ```yaml
-imagePullAuth: 
+imagePullAuth:
   user: sample_user
   token: sample_token
 ```
 
----
 
-## `entrypoint`
+### `entrypoint`
 
 <p><small>| REQUIRED | STRING |</small></p>
 
-The command the execute once the container is ready.
+The command that is executed once the container is ready.
 
 ```yaml
 entrypoint: mvn test
 ```
 
----
 
-## `files`
+### `files`
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
@@ -162,25 +157,24 @@ files:
     dst: "/workdir/runsauce.json"
 ```
 
----
 
-## `env`
+### `env`
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
 Environment variables to be injected into the container. Useful for populating secrets used in your tests. These are not stored anywhere in Sauce Labs.
 
 ```yaml
-env: 
+env:
   KEY: value
 ```
 
----
 
 
 ## Getting Results
 
-The results of the Hosted Orchestration job depend on the result of the ```entrypoint``` command.
+The results of the Hosted Orchestration job depend on the result of the `entrypoint` command.
+
 <table>
   <tr>
     <td>Result Status</td>
@@ -188,15 +182,10 @@ The results of the Hosted Orchestration job depend on the result of the ```entry
   </tr>
   <tr>
     <td>Succeeded</td>
-    <td>The <b>entrypoint</b> command returns a status code == 0, and the container is terminated successfully</td>
+    <td>The <code>entrypoint</code> command returns a status code == 0, and the container is terminated successfully.</td>
   </tr>
   <tr>
     <td>Failed</td>
-    <td>The <b>entrypoint</b> command returns a non-zero status code, and the container is terminated successfully. A "failed" status is also returned if an error occurs on the container.</td>
+    <td>The <code>entrypoint</code> command returns a non-zero status code, and the container is terminated successfully. A "failed" status is also returned if an error occurs on the container.</td>
   </tr>
 </table>
-
-## Getting Logs and Artifacts
-
-Coming Soon!
-

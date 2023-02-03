@@ -10,13 +10,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 This document describes how to authenticate with your Docker registry provider to pull images.
 
-Authenticated pulls allow access to private Docker images. We support all of the major private registries including:
+Authenticated pulls allow access to private Docker images. We support all of the major private registries.
 
 ## Registry Token
 
 The first thing you will need to do is create an authorization token from your registry. Instructions vary depending on your provider.
 
-It is highly recommended that you create a unique auth token in your registry that can only access the images necessary for running your tests. 
+It is highly recommended that you create a unique authorization token in your registry that can only access the images necessary for running your tests.
 
 ## Authenticated Pulls
 
@@ -31,7 +31,7 @@ For your Hosted Orchestration request, specify a username and access token and S
 
   ```yaml
     apiVersion: v1alpha
-    kind: htexec
+    kind: imagerunner
     sauce:
     region: us-west-1
     suites:
@@ -46,11 +46,11 @@ For your Hosted Orchestration request, specify a username and access token and S
             dst: "/workdir/runsauce.json"
         artifacts:
           - "/path/inside/container/file.log"
-        env: 
+        env:
           KEY: value
   ```
 
-  Then run with
+  Then run with:
   ```bash
     saucectl run
   ```
