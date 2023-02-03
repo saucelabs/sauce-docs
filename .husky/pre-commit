@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx lint-staged
+# npx eslint .
+# npx prettier . --check
+# we need to comment these chesk out for now until we standarize the prettier config
