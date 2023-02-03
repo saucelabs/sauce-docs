@@ -147,9 +147,9 @@ The location of the log file will vary, depending on your operating system. For 
 
 Look for the **Active Tunnel** confirmation.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsuccess-ui.png')} alt="Sauce Connect Tunnel Success" width="500"/>
 
-#### Programatically Checking for Tunnel Readiness
+#### CI/CD System
 
-There are several ways of automatically checking for [tunnel readiness](/secure-connections/sauce-connect/setup-configuration/ci-cd-integration/readiness-checks).
+If you're starting ephemeral tunnels from a CI/CD system, there are multiple ways to automatically check for [tunnel readiness](/secure-connections/sauce-connect/setup-configuration/readiness-checks/#cicd-testing).
 
 ## Stopping Tunnels
 
