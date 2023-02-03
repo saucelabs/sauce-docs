@@ -149,7 +149,7 @@ entrypoint: mvn test
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Files to be uploaded onto the container. Useful for populating test data that your scripts access.
+Files to be uploaded onto the container. Useful for populating test data that your scripts access. src and dst must be an absolute path.
 
 ```yaml
 files:
@@ -168,7 +168,6 @@ Environment variables to be injected into the container. Useful for populating s
 env:
   KEY: value
 ```
-
 
 
 ## Getting Results

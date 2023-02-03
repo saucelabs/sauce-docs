@@ -4,6 +4,7 @@ title: Hosted Orchestration Architecture
 sidebar_label: Architecture
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Architecture Components
 
