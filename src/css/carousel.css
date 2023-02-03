@@ -9,6 +9,10 @@
     padding-top: 8px;
 }
 
+.quickstart a {
+    color: var(--inline-link);
+}
+
 /* .alice-carousel__stage {
   display: flex;
   gap: 10%;
