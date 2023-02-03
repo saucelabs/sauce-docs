@@ -527,7 +527,7 @@ module.exports = {
                     items: [
                         'error-reporting/org-settings/user-mgmnt',
                         'error-reporting/org-settings/team-mgmnt',
-                        'error-reporting/org-settings/saml-sso',   
+                        'error-reporting/org-settings/saml-sso',
                     ],
                 },
                 {
@@ -1243,11 +1243,12 @@ module.exports = {
         },
         {
             type: 'category',
-            label: 'Hosted Orchestration',
+            label: 'Hosted Orchestration (Beta)',
             link: { type: 'doc', id: 'hosted-orchestration' },
             collapsed: true,
             items: [
-                'hosted-orchestration',                
+                'hosted-orchestration',
+                'hosted-orchestration/architecture',
                 'hosted-orchestration/running-tests',
                 'hosted-orchestration/building-images',
                 'hosted-orchestration/private-registry'
