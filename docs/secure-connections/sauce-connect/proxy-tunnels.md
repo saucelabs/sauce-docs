@@ -47,7 +47,7 @@ You can manage and monitor all Sauce Connect Proxy tunnel activity from the Sauc
 
 ### Verifying Tunnel Success
 
-To verify that your tunnel is up and running, there are multiple places you can check:
+To verify that your tunnel is up and running, you can check the following:
 
 #### Command-Line Interface
 
