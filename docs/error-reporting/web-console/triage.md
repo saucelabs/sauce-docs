@@ -74,7 +74,7 @@ A user can create a new issue in a 3rd party system like Jira or GitHub issues t
 
 A comment thread is available in the Details view of a fingerprint soon. Users can post and edit their comments to assist in the resolution flow. Tags can be applied to fingerprints for more ad-hoc grouping and classification.
 
-### Mute or Resolved
+### Mute or Resolve
 
 You can take explicit Mute or Resolve actions on a fingerprint. Mute a fingerprint when you don't want it to appear as Open or In Progress any more. Mark as Resolved when you think the issue is fixed. Fingerprints that have been marked as Resolved or Muted will stay in that state, to allow you to better organize the expected state of instability in your environment.
 

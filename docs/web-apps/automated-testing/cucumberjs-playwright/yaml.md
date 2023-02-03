@@ -177,9 +177,11 @@ Alternatively, you can override the file setting at runtime by setting the concu
 ```bash
 saucectl run --ccy 5
 ```
+
 ---
 
 ### `retries`
+
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
 Sets the number of times to retry a failed suite. For more settings, you can refer to [passThreshold](#passThreshold).
@@ -780,9 +782,9 @@ suites:
   shard: spec
 ```
 
-<!-- prettier-ignore -->
 :::tip
 To split tests in the most efficient way possible, use:
+
 - `spec` when the number of specs is less than the configured concurrency.
 - `concurrency` when the number of specs is larger than the configured concurrency.
 :::
@@ -823,6 +825,7 @@ There is a 300-second limit for all `preExec` commands to complete.
 ```
 
 ---
+
 ### `passThreshold`
 
 <p><small>| OPTIONAL | INTEGER |</small></p>

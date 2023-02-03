@@ -97,6 +97,7 @@ To install a remote app on a real device for a test:
 ```java title="Example Java Remote App URL Capability"
 caps.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.3.0/Android.SauceLabs.Mobile.Sample.app.2.3.0.apk?raw=true");
 ```
+
 <!-- prettier-ignore -->
 :::note LIMITATIONS
 **Android:**
@@ -167,11 +168,11 @@ For example, let's assume you've updated a new version of your app using the `/u
 }
 ```
 
-Then the file_id would be `"id":"379c301a-199c-4b40-ad45-4a95e5f30a3a"`. If you're unsure of the id of an existing app, you can use the [Storage API](/dev/api/storage) to lookup the ID of an app in storage or look into the apps details in the [Sauce UI](https://app.saucelabs.com/live/app-testing).
+Then the file_id would be `"id":"379c301a-199c-4b40-ad45-4a95e5f30a3a"`. If you're unsure of the id of an existing app, you can use the [Storage API](/dev/api/storage) to lookup the ID of an app in storage or look into the app's details in the [Sauce UI](https://app.saucelabs.com/live/app-testing).
 
 ### File Name instead of File ID
 
-You can also use the app `name` field from the storage API in the `app` capability. This approach is particularly useful if you uploaded your build to app storage via a CI pipeline, and you either don't know the id, or you do not wish to perform JSON parsing in order to retrieve the id. The filename field also includes any supported file that can be uploaded to app storage.
+You can also use the app `name` field from the storage API in the `app` capability. This approach is particularly useful if you upload your build to app storage via a CI pipeline, and you either don't know the id, or you do not wish to perform JSON parsing to retrieve the id. The filename field also includes any supported file that can be uploaded to app storage.
 
 Example of uploading an Android .apk file:
 
@@ -225,8 +226,8 @@ caps.SetCapability("app","storage:filename=<file-name>.apk");
 #### Limitations
 
 - File names are NOT unique, therefore they will always default to the latest version.
-- Currently you cannot specify the version of the app using this feature.
-- `build` capability not supported in VDC at this time.
+- Currently, you cannot specify the version of the app using this feature.
+- `build` capability is not supported in VDC at this time.
 
 ## Updating WebDriver Capabilities
 
@@ -344,6 +345,7 @@ caps.setCapability("otherApps", "storage:<fileId>")
 
 <!-- prettier-ignore -->
 :::note
+
 - Android dependent apps will not be instrumented or modified.
 - iOS dependent apps will always be resigned/modified (even when resigning is disabled for the main app) because apps can't be installed on iOS devices without resigning them. If a dependent app cannot be resigned (such as a 3rd party app), the test will not work as intended.
 :::
