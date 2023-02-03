@@ -14,7 +14,7 @@ After disconnecting a session with an Android device, [disconnect your device fr
 
 ## Usage
 
-<span className="cli">$ &lt;main class&gt; [OPTIONS] disconnect [OPTIONS]</span>
+`$ <main class> [OPTIONS] disconnect [OPTIONS]`
 
 ## Options Details
 

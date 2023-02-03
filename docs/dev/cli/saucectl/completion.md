@@ -10,7 +10,7 @@ Generate a completion script for for `bash`, `zsh`, `fish` and `powershell` shel
 
 ## Usage
 
-<span className="cli">$ saucectl completion [OPTIONS]</span>
+`$ saucectl completion [OPTIONS]`
 
 ## Options
 

@@ -10,7 +10,7 @@ Close a Virtual USB session that you launched using the [`startSession` command]
 
 ## Usage
 
-<span className="cli">$ &lt;main class&gt; [OPTIONS] deleteSession [OPTIONS]</span>
+`$ <main class> [OPTIONS] deleteSession [OPTIONS]`
 
 ## Options Details
 

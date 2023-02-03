@@ -10,9 +10,8 @@ Lists jobs from Sauce Labs.
 
 ## Usage
 
-<span className="cli">$ saucectl jobs list [flags]</span>
+`$ saucectl jobs list [flags]`
  
-
 ## Available Options
 
 <table id="table-cli">

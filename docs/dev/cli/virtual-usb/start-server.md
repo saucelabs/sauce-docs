@@ -10,7 +10,7 @@ sidebar_label: Start Server
 
 ## Usage
 
-<span className="cli">$ &lt;main class&gt; [OPTIONS] server [OPTIONS]</span>
+`$ <main class> [OPTIONS] server [OPTIONS]`
 
 ## Options Details
 

@@ -10,7 +10,7 @@ Uploads an app file to Sauce Storage and returns a unique file ID assigned to th
 
 ## Usage
 
-<span className="cli">$ saucectl storage upload filename [flags]</span>
+`$ saucectl storage upload filename [flags]`
 
 ## Available Options
 

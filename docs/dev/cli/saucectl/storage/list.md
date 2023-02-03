@@ -10,7 +10,7 @@ Returns the list of files that have been uploaded to Sauce Storage.
 
 ## Usage
 
-<span className="cli">$ saucectl storage list [flags]</span>
+`$ saucectl storage list [flags]`
 
 ## Available Options
 

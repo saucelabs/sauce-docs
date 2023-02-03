@@ -12,10 +12,6 @@ Lists artifacts for a job from Sauce Labs.
 
 `$ saucectl artifacts list jobID [flags]`
 
-```bash title="Usage Example"
-$ saucectl artifacts list jobID [flags]
-```
-
 ## Available Options
 
 <table id="table-cli">

@@ -10,7 +10,7 @@ Execute framework-agnostic tests using the [`saucectl`](/dev/cli/saucectl) test 
 
 ## Usage
 
-<span className="cli">$ saucectl run [OPTIONS]</span>
+`$ saucectl run [OPTIONS]`
 
 ## Extended Description
 

@@ -10,7 +10,7 @@ Look up the list of active Virtual USB (vUSB) device sessions available to a spe
 
 ## Usage
 
-<span className="cli">$ &lt;main class&gt; [OPTIONS] sessions [OPTIONS]</span>
+`$ <main class> [OPTIONS] sessions [OPTIONS]`
 
 ## Options Details
 
