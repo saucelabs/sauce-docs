@@ -302,7 +302,6 @@ Conditional actions are executed if certain conditions are true, and can be used
 
 - `if {xpath: “[address]”} is visible, click on [exact attribute value]`
 - `if [condition], continue`
-- `if [condition], run block [block_name]`
 - `if current url is [url], enter [text]`<br/>
   **Example:** `if current url is https://www.wikipedia.org/, click on English`
 
@@ -315,9 +314,6 @@ Blocks can be used to loop through commands as many times as required.
 `Begin...`
 
 - `Begin block [block_name]`
-- `Begin script _bash with $${var_name$}`
-- `Begin script _js with $${var_name$}`
-- `Begin script _py with $${var_name$}`
 
 `run...`
 
@@ -375,22 +371,15 @@ An `if` action is used to decide whether a certain action or block of actions wi
 
 `if...`
 
-- `if {xpath: “[address]”} is visible, click on [exact attribute value]`
-- `if [condition], continue`
-- `if [condition], run block [block_name]`
-- `if current url is [url], enter [text]`
+- `if (condition), run ${block_name}`
 
 #### Example
 
 ```
-if {xpath: “//a[@class=’page-title-action’]”} is visible, run ${Create_User} for all rows
-Begin block Create_User
-click “Add New”
-enter “Username”
-enter “First Name”
-enter “Last Name”
-click on createusersub
-end block
+if (condition), run ${block_name}
+Begin block blockname
+// Statements to execute if condition is true
+End block
 ```
 
 If the given xpath is visible, the user will be created.

@@ -41,6 +41,7 @@ For on-premise (self-hosted) users, the integration for Unreal Engine requires s
 
 <!-- prettier-ignore -->
 :::tip Generate a Submission Token
+
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
 :::
@@ -165,15 +166,15 @@ Integrate the [backtrace-android](https://github.com/backtrace-labs/backtrace-an
    :::
    :::note
    Optionally, you can specify custom attributes and file attachment paths to submit with your error reports. If you choose to specify file attachment paths, they must be specified as Android paths. For example, to specify a file attachment path for your `ProjectSavedDir()`, use:
-      ```
-      if (Target.Platform == UnrealTargetPlatform.Android)
-      #include "Misc/App.h"
-      #if PLATFORM_ANDROID
-      extern FString GFilePathBase;
-      FString FileAttachmentPath = GFilePathBase + FString("/UE4Game/") + FApp::GetName() + TEXT("/") + FApp::GetName() + TEXT("/Saved") + TEXT("MyFileName.txt");
-      #endif
-      ```
-    For more details on how to convert your Unreal Engine paths to Android paths, see the conversion functions for `FAndroidPlatformFile::PathToAndroidPaths` in the `AndroidPlatformFile.cpp` file.
+   ```
+   if (Target.Platform == UnrealTargetPlatform.Android)
+   #include "Misc/App.h"
+   #if PLATFORM_ANDROID
+   extern FString GFilePathBase;
+   FString FileAttachmentPath = GFilePathBase + FString("/UE4Game/") + FApp::GetName() + TEXT("/") + FApp::GetName() + TEXT("/Saved") + TEXT("MyFileName.txt");
+   #endif
+   ```
+   For more details on how to convert your Unreal Engine paths to Android paths, see the conversion functions for `FAndroidPlatformFile::PathToAndroidPaths` in the `AndroidPlatformFile.cpp` file.
    :::
 
 To change the default configuration settings for the Backtrace client, you can change the settings in the `BacktraceAndroid_UPL.xml` file. For more information, see [Configuring Backtrace for Android](/error-reporting/platform-integrations/android/configuration/) for the backtrace-android library.
@@ -199,10 +200,10 @@ Integrate the [backtrace-cocoa](https://github.com/backtrace-labs/backtrace-coco
       );
   }
   ```
-  :::note
-  Make sure to reflect the path to where you've placed both frameworks within your game project.
-  :::
-1. To initialize the Backtrace client, use the following to import `Backtrace-Swift.h` from `Backtrace.framework/Headers`:
+:::note
+Make sure to reflect the path to where you've placed both frameworks within your game project.
+:::
+1. To initialize the Backtrace client, use the following to import `Backtrace-Swift.h` from `Backtrace.framework/Headers`: 
   ```
   #if PLATFORM_IOS
   #import <Backtrace/Backtrace-Swift.h>
@@ -224,7 +225,6 @@ Integrate the [backtrace-cocoa](https://github.com/backtrace-labs/backtrace-coco
   #endif
   }
   ```
-
 1. For the `initWithSubmissionUrl`, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need).
 
 For information on how to change the default configuration settings for the Backtrace client, see [Configuring Backtrace for iOS](/error-reporting/platform-integrations/ios/configuration/).

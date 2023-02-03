@@ -984,9 +984,9 @@ For sharding by concurrency, saucectl splits test files into several groups (the
 
 Selectable values: `spec` to shard by spec file, `concurrency` to shard by concurrency. Remove this field or leave it empty `""` for no sharding.
 
-<!-- prettier-ignore -->
 :::tip
 To split tests in the most efficient way possible, use:
+
 - `spec` when the number of specs is less than the configured concurrency.
 - `concurrency` when the number of specs is larger than the configured concurrency.
 :::
@@ -1041,7 +1041,9 @@ Allows you to set a custom time zone for your test based on a city name. Most ma
 ```yaml
   timeZone: New_York
 ```
+
 ---
+
 ### `passThreshold`
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
