@@ -317,7 +317,7 @@ You can also launch Ephemeral tunnels from a continuous integration (CI) build s
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west --tunnel-name $TUNNEL_NAME
 ```
 
-4. Wait until the tunnel is ready using one of the options for [readiness checks](/secure-connections/sauce-connect/setup-configuration/ci-cd-integration/readiness-checks)
+4. Wait until the tunnel is ready. To verify that your tunnel is up and running, you can use one of the options in [Sauce Connect Proxy Readiness Checks](/secure-connections/sauce-connect/setup-configuration/readiness-checks).
 
 Once you've established your automated loop, you should be able to kick off builds as needed, automatically.
 
