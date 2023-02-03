@@ -2073,13 +2073,13 @@
 
 /* footer specific styles */
 .footer {
-    background: #000;
+    background: var(--dark-500);
     font-size: 0.75rem;
     line-height: 1.25rem;
 }
 
 .social-comtainer {
-    display: inline-flex;
+    /* display: inline-flex; */
 }
 
 @media screen and (max-width: 767px) {

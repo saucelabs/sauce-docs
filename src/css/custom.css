@@ -506,6 +506,7 @@ html[data-theme="dark"] .card:hover {
     padding: 1rem;
     margin: 5%;
     display: flex;
+    align-items: center;
     gap: 5%;
 }
 
@@ -716,6 +717,7 @@ div.new-search button.DocSearch.DocSearch-Button {
     border: 1px solid;
     margin: 64px 0 16px 0;
     width: 80%;
+    border-radius: 10px;
 }
 html[data-theme="dark"] div.new-search button.DocSearch.DocSearch-Button:hover {
     box-shadow: none;
@@ -723,10 +725,10 @@ html[data-theme="dark"] div.new-search button.DocSearch.DocSearch-Button:hover {
 
 /* Overrides navbar searchbar styles */
 .navbar__items .DocSearch-Button {
-    /* background: var(--green-500); */
-    border-radius: 30px;
+    border-radius: 32px;
     color: var(--dark-300);
     border: 1px solid var(--green-500);
+    /* padding: 8px 32px 8px 32px; */
 }
 
 .navbar__items .DocSearch-Button .DocSearch-Search-Icon {
@@ -747,7 +749,7 @@ html[data-theme="dark"] .hero--primary {
 .hero__title,
 .hero__subtitle,
 .hero__popular-searches {
-    color: var(--green-500);
+    color: var(--inline-link);
     font-family: var(--font-family-sans-serif);
     text-align: left;
 }
@@ -787,7 +789,7 @@ html[data-theme="dark"] .hero__popular-searches {
 }
 
 a.hero__popular-searches {
-    color: var(--ifm-link-color) !important;
+    color: var(--inline-link) !important;
 }
 html[data-theme="dark"]a.hero__popular-searches {
     color: var(--green-200);
@@ -812,7 +814,7 @@ a.hero__button {
 .main__container-quickstart {
     margin: 0 auto;
     padding: 15px 0 0 0;
-    background: var(--green-100);
+    background: var(--neutral-300);
 }
 html[data-theme="dark"] .main__container-quickstart {
     background: var(--dark-500);
@@ -1036,9 +1038,9 @@ ul.dropdown__menu li a:hover {
 }
 
 .landpage-buttons-container {
-    /* display: flex; */
+    display: flex;
+    align-items: center;
     flex-wrap: wrap;
-    align-content: flex-start;
 }
 
 .landpage-buttons-container a {
@@ -1133,6 +1135,23 @@ ul.dropdown__menu li a:hover {
     html[data-theme="dark"] .navbar-sidebar {
         background-color: var(--ifm-code-background);
     }
+}
+
+/* VISUAL ELEMENTS AS SPAN */
+
+.coral-square {
+    transition: background-color 2s ease 0s;
+    border-left: none;
+    border-right: none;
+    background-color: rgb(238, 128, 90);
+}
+
+.yellow-rounded {
+    transition: background-color 2s ease 0s;
+    border-left: none;
+    border-right: none;
+    background-color: rgb(255, 205, 72);
+    border-radius: 14px 0px 0px 14px;
 }
 
 /* For mobile (landscape) */

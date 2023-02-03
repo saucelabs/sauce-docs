@@ -55,7 +55,7 @@ const docusaurusConfig = {
             logo: {
                 alt: "Sauce Labs logo",
                 src: "/img/sl-logo-horizontal-color-dark.svg",
-                srcDark: "/img/sl-logo-horizontal-white.svg",
+                srcDark: "/img/sl-logo-horizontal-color-neutral.svg",
             },
             items: [
                 {
@@ -95,7 +95,7 @@ const docusaurusConfig = {
         footer: {
             logo: {
                 alt: "Sauce Logo",
-                src: "/img/sl-logo-horizontal-white.svg",
+                src: "/img/sl-logo-horizontal-color-neutral.svg",
                 href: "https://saucelabs.com",
             },
             style: "light",
