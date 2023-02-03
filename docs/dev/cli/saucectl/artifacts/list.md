@@ -11,7 +11,6 @@ Lists artifacts for a job from Sauce Labs.
 ## Usage
 
 <span className="cli">$ saucectl artifacts list jobID [flags]</span>
- 
 
 ## Available Options
 
