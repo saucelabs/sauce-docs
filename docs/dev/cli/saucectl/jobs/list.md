@@ -113,7 +113,7 @@ Per page for pagination. Default is 20.
 **Shorthand:** `-s <size>`
 
 ```bash
-saucectl jobs list --size 20 
+saucectl jobs list --size 20
 ```
 
 </div>

@@ -839,7 +839,7 @@ You can narrow the results of your query using any of the following filtering pa
      <td><code>roles</code></td>
      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Limit results to users who are assigned certain roles. Valid values are:
        <ul>
-         <li><code>1</code> - Organaization Admin</li>
+         <li><code>1</code> - Organization Admin</li>
          <li><code>4</code> - Team Admin</li>
          <li><code>3</code> - Member</li>
        </ul></p><p>Specify multiple roles as comma-separated values.</p></td>
@@ -1514,6 +1514,13 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <p/>
 
 Returns details about the current in-use virtual machines and real devices along with the maximum allowed values.
+  
+:::note Real Devices
+At this time, the current usage for real devices is not accurately returned in the response. As a workaround, use the following endpoint:
+```jsx
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location --request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/concurrency' --header 'Content-Type: application/json' | json_pp 
+```
+:::
 
 #### Parameters
 
@@ -1521,7 +1528,7 @@ Returns details about the current in-use virtual machines and real devices along
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the user whose concurrency you are looking up. You can look up a user's name using a variety of filtering paramters with the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the user whose concurrency you are looking up. You can look up a user's name using a variety of filtering parameters with the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1616,9 +1623,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
      <td><p>Each set of concurrency reported in the response is broken down by the following device types:
      <ul>
       <li><code>mac_vms</code> - Mac virtual machines represent any live, automated, desktop, or mobile test running in a Mac OS, which includes iOS Simulator tests.</li>
-      <li><code>rds</code> - real devices represent any live or automated mobile test running on a Sauce Labs real device.
-      <blockquote>At this time, the current usage for real devices is not accurately returned in this response.
-      Please use the following request as a workaround: <pre>curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location --request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/concurrency' --header 'Content-Type: application/json' | json_pp </pre></blockquote></li>
+      <li><code>rds</code> - Real devices represent any live or automated mobile test running on a Sauce Labs real device.</li>
       <li><code>vms</code> - Windows virtual machines represent any live, automated, desktop, or mobile test running in a Windows or Android OS, which includes Android Emulator tests.</li>
     </ul>
     </p><p>Note that <code>mac_vms</code> and <code>vms</code> are separated here, although they are typically presented as a combined total of virtual machine usage in other areas of the Sauce Labs platform.</p></td>

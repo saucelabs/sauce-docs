@@ -315,7 +315,6 @@ Blocks can be used to loop through commands as many times as required.
 
 - `Begin block [block_name]`
 
-
 `run...`
 
 - `run ${block_name$} for [number] times`

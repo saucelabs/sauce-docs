@@ -45,16 +45,16 @@ If the same variable with the same name definition exists in both the **Project 
 
 ### Mark Variables as Sensitive
 
-You can mark a variable as sensitive if it contains a sensitive value that you do not want to appear in your test reports. When you mark a variable as sensitive, the value is obfuscated anywhere it appears: in Vault, tests reports, and the project dashboard's logs and metrics when the variable is used in the URL, path, or query. 
+You can mark a variable as sensitive if it contains a sensitive value that you do not want to appear in your test reports. When you mark a variable as sensitive, the value is obfuscated anywhere it appears: in Vault, tests reports, and the project dashboard's logs and metrics when the variable is used in the URL, path, or query.
 
 :::note
-Variables marked as sensitive are always excluded from Vault exports. 
+Variables marked as sensitive are always excluded from Vault exports.
 :::
 
-In the following example test report, the token variable has been marked as sensitive in Vault and appears as obfuscated in the report. 
+In the following example test report, the token variable has been marked as sensitive in Vault and appears as obfuscated in the report.
 
-<img src={useBaseUrl('img/api-testing/sensitive-data.png')} alt="data obfuscated in report"  width="600"/>
-<img src={useBaseUrl('img/api-testing/sensitive-data2.png')} alt="data obfuscated in report"  width="600"/>
+<img src={useBaseUrl('img/api-testing/sensitive-data.png')} alt="data obfuscated in report" width="600"/>
+<img src={useBaseUrl('img/api-testing/sensitive-data2.png')} alt="data obfuscated in report" width="600"/>
 
 ### Create a Variable
 
@@ -63,7 +63,7 @@ In the following example test report, the token variable has been marked as sens
 1. Select **New Entry**.
 1. Add a Key (e.g., `domain`).
 1. Add a Value (e.g., `api.us-west-1.saucelabs.com`).
-1. Optionally, check **Sensitive**. Variables marked sensitive cannot be edited. If you need to change the value, you can delete the variable and recreate it with the new value. 
+1. Optionally, check **Sensitive**. Variables marked sensitive cannot be edited. If you need to change the value, you can delete the variable and recreate it with the new value.
 1. Select **Confirm**.
 
 <img src={useBaseUrl('img/api-testing/variableEntry2.png')} alt="Domain Variables"/>

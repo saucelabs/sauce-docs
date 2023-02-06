@@ -22,7 +22,7 @@ The results of this setting vary based on the type of testing you’re doing:
 
 ## About FLAG_SECURE
 
-The **FLAG_SECURE** flag is intended to let app developers designate sensitive screens in applications as secure. This means the designated windows can’t appear in screenshots, streaming video, or other displays deemed insecure. The actual effects of this flag depends on the Android mobile OS version:
+The **FLAG_SECURE** flag is intended to let app developers designate sensitive screens in applications as secure. This means the designated windows can’t appear in screenshots, streaming video, or other displays deemed insecure. The actual effects of this flag depend on the Android mobile OS version:
 
 - Android 7.0 and 8.0 - Video works, but you can’t take a screenshot
 - Android 9+ - You can’t see video or screenshots
@@ -38,7 +38,7 @@ Your ability to work around this setting to test will depend on a few factors:
   - If your company has built this app on top of another company’s technology, your ability to request a version of the app without this flag is limited.
 - Whether **Bypass Screenshot Restriction** is an option:
   - If your developers have created this app and they can’t provide you with an app that doesn’t use **FLAG_SECURE**, the **Bypass Screenshot Restriction** is an option.
-  - If you’re testing a scenario that includes interacting with an app owned by another company, **Bypass Screenshot Restriction** won’t work. For example if you need to use Google Pay to purchase something on your app, you won’t see video for that part of the purchase process.
+  - If you’re testing a scenario that includes interacting with an app owned by another company, **Bypass Screenshot Restriction** won’t work. For example, if you need to use Google Pay to purchase something on your app, you won’t see the video for that part of the purchase process.
   - If your app is built on another company’s technology, **Bypass Screenshot Restriction** won’t work.
 
 :::note

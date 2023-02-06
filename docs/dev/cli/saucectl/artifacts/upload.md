@@ -15,7 +15,6 @@ Uploads an artifact for a job to Sauce Labs.
 :::note
 Real Device job is not supported.
 :::
- 
 
 ## Available Options
 

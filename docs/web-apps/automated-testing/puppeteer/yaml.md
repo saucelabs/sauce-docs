@@ -850,6 +850,7 @@ If your Puppeteer tests are in TypeScript, you need to transpile your Typescript
    ```bash
    tsc --project ./tests/tsconfig.json
    ```
+
 4. Edit the `testMatch` properties for each of your test suites in `.sauce/config.yml` to call the JavaScript test files instead of the TypeScript files.
 
    ```yaml
