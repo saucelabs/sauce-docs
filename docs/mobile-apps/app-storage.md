@@ -102,7 +102,7 @@ caps.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releas
 :::note LIMITATIONS
 **Android:**
 
-- The Instrumentation feature will not work if the app is installed from external location.
+- The Instrumentation feature will not work if the app is installed from an external location.
 
 **iOS:**
 
