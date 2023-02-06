@@ -14,8 +14,10 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,md,css}": [
-      "npx prettier --check",
+    "*.{js,jsx,md,css}": [
+      "npx prettier --check"
+    ],
+    "*.{js,jsx,ts,tsx}": [
       "npx eslint ."
     ]
   },
