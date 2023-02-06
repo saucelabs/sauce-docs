@@ -13,5 +13,5 @@ Sauce Labs supports and encourages updating your code to take advantage of the [
 Using the W3C WebDriver protocol on Sauce Labs requires setting specific capabilities in your code. The syntax is different from its predecessor, JSON Wire Protocol (JWP). To learn about W3C WebDriver-compliant capability syntax, we recommend reviewing the following:
 
 * [Test Configuration Options](/dev/test-configuration-options)
-* the [Upgrading to Selenium 4 for Sauce Labs Testing guide](/docs/web-apps/selenium/selenium4),  
+* [Upgrading to Selenium 4 for Sauce Labs Testing](/web-apps/automated-testing/selenium/selenium4)
 * the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/#capabilities).
