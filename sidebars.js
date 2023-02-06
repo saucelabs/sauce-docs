@@ -811,6 +811,7 @@ module.exports = {
                                 'secure-connections/sauce-connect/setup-configuration/specialized-environments',
                                 'secure-connections/sauce-connect/setup-configuration/docker',
                                 'secure-connections/sauce-connect/setup-configuration/ci-cd-integration',
+                                'secure-connections/sauce-connect/setup-configuration/readiness-checks',
                             ],
                         },
                         'secure-connections/sauce-connect/proxy-tunnels',
