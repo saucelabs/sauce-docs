@@ -82,9 +82,9 @@ You can modify the expiration date, but you may need to update the connection mo
 
 **Create an application link in Jira**
 
-1. In Jira, go to **Settings** > **Products** > **Application Links**.
+1. In Jira, go to **Jira settings** (cog icon) > **Applications** > **Application links**.
 1. Click **Create link**.
-1. Enter any application URL, then click **Continue**. If you see a warning that the URL is invalid, ignore it and click **Continue** again.
+1. Enter an application URL, then click **Continue**. If you see a warning that the URL is invalid, ignore it and click **Continue** again.
 1. In the form, enter the following:
    - **Application Name**: Backtrace
    - **Application Type**: Generic Application
@@ -117,7 +117,7 @@ In Backtrace, you'll see a new Jira Server integration appear on the **Workflow 
 
 **Create an external application link in Jira**
 
-1. In Jira, go to **Settings** > **Products** > **Application Links**.
+1. In Jira, go to **Jira settings** (cog icon) > **Applications** > **Application links**.
 1. Click **Create link**.
 1. Select **External application** and **Incoming**, then click **Continue**.
 1. In the form, enter the following:
