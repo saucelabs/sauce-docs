@@ -2,7 +2,7 @@
 id: appium-2-migration
 title: Migrating to Appium 2.0 on Sauce Labs
 sidebar_label: Appium 2.0 Migration
-description: Learn how to migrate you Appium 1 tests to Appium 2 on Sauce Labs.
+description: Learn how to migrate your Appium 1 tests to Appium 2 on Sauce Labs.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -27,9 +27,9 @@ Before you get started with migrating your Appium 1 tests to Appium 2, read the 
 
 ### Protocol changes
 
-Appium's API is based on the [W3C WebDriver Protocol](https://www.w3.org/TR/webdriver/), and it has supported this protocol for years. Before the W3C WebDriver Protocol was designed as a web standard, several other protocols were used for both Selenium and Appium. These protocols were the "JSONWP" (JSON Wire Protocol) and "MJSONWP" (Mobile JSON Wire Protocol). The W3C Protocol differs from the (M)JSONWP protocols in a few small ways.
+Appium 2.0's API is based on the [W3C WebDriver Protocol](https://www.w3.org/TR/webdriver/), and Appium 1 has supported this protocol for years. Before the W3C WebDriver Protocol was designed as a web standard, several other protocols were used for both Selenium and Appium. These protocols were the "JSONWP" (JSON Wire Protocol) and "MJSONWP" (Mobile JSON Wire Protocol). The W3C Protocol differs from the (M)JSONWP protocols in a few small ways.
 
-Up until Appium 2.0, Appium supported both protocols, so that older Selenium/Appium clients could still communicate with newer Appium servers. Moving forward, support for older protocols will be removed.
+Up until Appium 2.0, Appium supported both protocols, so that older Selenium/Appium clients could still communicate with newer Appium servers. Moving forward, support for older protocols is removed.
 
 ### Appium capabilities
 
@@ -43,8 +43,8 @@ These standard capabilities continue to be used as-is. All other capabilities mu
 
 More information about the Appium Capabilities can be found [here](https://appium.github.io/appium/docs/en/2.0/guides/caps/).
 
-:::caution Warning
-Sauce Labs does not support the `appium:options` object value as a replacement for the repetitive `appium:`-prefix yet. Instead, you should use the `appium:` prefix for each capability.
+:::tip
+Sauce Labs now supports the [`appium:options`](/dev/test-configuration-options/#appiumoptions) object value as a replacement for the repetitive `appium:`-prefix. More information can be found [here](/dev/test-configuration-options/#appiumoptions).
 :::
 
 ### `automationName` is now required
@@ -110,6 +110,7 @@ values={[
 ]}>
 <TabItem value="android">
 
+<!-- prettier-ignore -->
 ```java
 DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -129,6 +130,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 </TabItem>
 <TabItem value="ios">
 
+<!-- prettier-ignore -->
 ```java
 DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -159,36 +161,38 @@ values={[
 ]}>
 <TabItem value="android">
 
+<!-- prettier-ignore -->
 ```js
 const capabilities = {
-platformName: 'android',
-// W3C Protocol is mandatory for Appium 2.0
-'appium:platformVersion': '12',
-'appium:deviceName': 'Google Pixel 6',
-// automationName for Appium 2.0
-'appium:automationName': 'UiAutomator2',
-'sauce:options': {
-// appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-appiumVersion: '2.0.0'
-}
+    platformName: 'android',
+    // W3C Protocol is mandatory for Appium 2.0
+    'appium:platformVersion': '12',
+    'appium:deviceName': 'Google Pixel 6',
+    // automationName for Appium 2.0
+    'appium:automationName': 'UiAutomator2',
+    'sauce:options': {
+        // appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
+        appiumVersion: '2.0.0'
+    }
 }
 ```
 
 </TabItem>
 <TabItem value="ios">
 
+<!-- prettier-ignore -->
 ```js
 const capabilities = {
-platformName: 'ios',
-// W3C Protocol is mandatory for Appium 2.0
-'appium:platformVersion': '16',
-'appium:deviceName': 'iPhone 14',
-// automationName for Appium 2.0
-'appium:automationName': 'XCUITest',
-'sauce:options': {
-// appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-appiumVersion: '2.0.0'
-}
+    platformName: 'ios',
+    // W3C Protocol is mandatory for Appium 2.0
+    'appium:platformVersion': '16',
+    'appium:deviceName': 'iPhone 14',
+    // automationName for Appium 2.0
+    'appium:automationName': 'XCUITest',
+        'sauce:options': {
+        // appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
+        appiumVersion: '2.0.0'
+    }
 }
 ```
 
@@ -207,6 +211,7 @@ values={[
 ]}>
 <TabItem value="android">
 
+<!-- prettier-ignore -->
 ```py
 capabilities = {
     "platformName" : "android",
@@ -225,6 +230,7 @@ capabilities = {
 </TabItem>
 <TabItem value="ios">
 
+<!-- prettier-ignore -->
 ```py
 capabilities = {
     "platformName" : "ios",
@@ -255,6 +261,7 @@ values={[
 ]}>
 <TabItem value="android">
 
+<!-- prettier-ignore -->
 ```ruby
 capabilities = {
     "platformName" => "android",
@@ -273,6 +280,7 @@ capabilities = {
 </TabItem>
 <TabItem value="ios">
 
+<!-- prettier-ignore -->
 ```ruby
 capabilities = {
     "platformName" => "ios",
@@ -303,6 +311,7 @@ values={[
 ]}>
 <TabItem value="android">
 
+<!-- prettier-ignore -->
 ```csharp
 AppiumOptions capabilities = new AppiumOptions();
 
@@ -322,6 +331,7 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 </TabItem>
 <TabItem value="ios">
 
+<!-- prettier-ignore -->
 ```csharp
 AppiumOptions capabilities = new AppiumOptions();
 
@@ -354,6 +364,22 @@ The following drivers are supported by Sauce Labs
 | Android  | [Flutter](https://github.com/appium-userland/appium-flutter-driver)  | <span className="sauceDBlue">Real Devices Only</span>, Virtual Devices only support Appium 1 at the moment                                     |
 | iOS      | [XCUITest](https://github.com/appium/appium-xcuitest-driver)         | <span className="sauceDBlue">Virtual and Real Devices</span>, Appium 2 for Virtual Devices on Sauce Labs is only supporting iOS 15 and higher. |
 | iOS      | [Flutter](https://github.com/appium-userland/appium-flutter-driver)  | <span className="sauceDBlue">Real Devices Only</span>, Virtual Devices only support Appium 1 at the moment                                     |
+
+<!-- prettier-ignore -->
+:::info
+Sauce Labs updates the versions of the drivers on Sauce Labs regularly. To find out which versions your Appium 2.0 tests are using, please go to the Sauce Labs UI, select your test, and check the Appium Version in the Test Details Logs tab under the Appium Logs section.
+
+Below is an example for an Appium 2.0 test running on iOS:
+
+```log
+14:34:39 V [Appium] [Appium] Attempting to find matching driver for automationName 'XCUItest' and platformName 'iOS'
+14:34:39 V [Appium] [Appium] The 'xcuitest' driver was installed and matched caps.
+14:34:39 V [Appium] [Appium] Will require it at /root/appium/appium/2.0.0/node_modules/appium-xcuitest-driver
+14:34:39 V [debug] [Appium] [Appium] Requiring driver at /root/appium/appium/2.0.0/node_modules/appium-xcuitest-driver
+14:34:39 V [AppiumDriver@dbbe] [AppiumDriver@dbbe] Appium v2.0.0-beta.53 creating new XCUITestDriver (v4.16.10) session
+```
+
+:::
 
 ### Supported Plugins
 
