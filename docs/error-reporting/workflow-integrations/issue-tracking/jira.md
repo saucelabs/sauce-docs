@@ -66,8 +66,6 @@ Your Jira Server instance might restrict the authentication method to OAuth only
    - **Auth type**: Select **Basic Auth**.
 1. Enter the **Username** and **Password** for your Jira instance.
 1. Click **Continue** to configure the integration.
-1. Configure the settings as required. For more information about the settings, see [Jira Integration Settings](#jira-integration-settings).
-1. Click **Save**.
 
 #### OAuth 1.0
 
