@@ -701,6 +701,15 @@ module.exports = {
                         },
                         {
                             type: 'category',
+                            label: 'Single Sign-On (SSO)',
+                            collapsed: true,
+                            items: [
+                                'basics/sso/setting-up-sso',
+                                'basics/sso/logging-in-via-sso',
+                            ],
+                        },
+                        {
+                            type: 'category',
                             label: 'Single Sign-On (Deprecated Flow)',
                             collapsed: true,
                             items: [
