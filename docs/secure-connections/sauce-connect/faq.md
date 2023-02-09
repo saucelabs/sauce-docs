@@ -41,10 +41,15 @@ Entering this code -- `(www.)?google-analytics.com,(www.)?googletagmanager.com,(
 - Any subdomain of `facebook.com`, but not `facebook.com`
 
 ## Can I access apps on localhost?
+Yes you can proxy connections through Sauce Connect on Virtual Desktop tests.
 
-When using Sauce Connect Proxy, local web apps running on commonly used ports are available to test at localhost URLs, just as if the Sauce Labs cloud were your local machine.
+No [you cannot proxy localhost or 127.0.0.1 connections](https://docs.saucelabs.com/secure-connections/sauce-connect/setup-configuration/specialized-environments/#testing-mobile-devices-against-localhost) through Sauce Connect on any Device, iOS or Android. 
 
-However, because proxy requests to a localhost address are not supported by all platforms, tests may perform better when using a locally defined domain name (which can be set in your [`hosts file`](http://en.wikipedia.org/wiki/Hosts_file)) rather than localhost. Using a locally defined domain name also allows access to apps on any port.
+NOTE: Without Sauce Connect yes you can access the devices localhost, for Real Devices and Virtual Devices. 
+
+When using Sauce Connect Proxy, local websites running on commonly used ports are available to test at localhost URLs, just as if the Sauce Labs cloud were your local machine. The exception is when testing on Real or Virtual Mobile Devices; Android and iOS [both require changes to the /etc/hosts file.](https://docs.saucelabs.com/secure-connections/sauce-connect/setup-configuration/specialized-environments/#testing-mobile-devices-against-localhost)
+
+However, because proxy requests to a localhost address are not supported by all platforms, tests may perform better when using a locally defined domain name (which can be set in your [`hosts file`](http://en.wikipedia.org/wiki/Hosts_file)) rather than localhost. Using a locally defined domain name also allows access to apps on any port. If you are using a parent proxy with Sauce Connect you may need the [`--proxy-localhost` flag.](https://docs.saucelabs.com/dev/cli/sauce-connect-proxy/#--proxy-localhost)
 
 See also [Supported Browsers and Ports Specification](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports).
 
@@ -92,7 +97,7 @@ Yes, you can use the same Sauce Connect Proxy tunnel and/or same machine to test
 
 ## Are there any special parameters when using a PAC file in real device tests?
 
-No, though you cannot use the `localhost` address with iOS.
+No, though you cannot use the `localhost` address with iOS and Android.
 
 ## Will Sauce Connect Proxy work with dynamic allocation of real devices?
 
