@@ -97,6 +97,7 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com, which resolve
 | ---------------------------------- |
 | 34.125.90.96/27 (from Jan 31 2023) |
 | 34.125.246.157/32                  |
+| 44.225.33.89/32                    |
 | 66.85.48.0/21                      |
 | 162.222.72.0/21                    |
 
