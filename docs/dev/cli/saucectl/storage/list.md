@@ -10,7 +10,9 @@ Returns the list of files that have been uploaded to Sauce Storage.
 
 ## Usage
 
-`$ saucectl storage list [flags]`
+```bash
+$ saucectl storage list [flags]
+```
 
 ## Available Options
 

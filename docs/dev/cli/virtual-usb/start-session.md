@@ -10,7 +10,9 @@ sidebar_label: Start Session
 
 ## Usage
 
-`$ <main class> [OPTIONS] startSession [OPTIONS]`
+```bash
+$ <main class> [OPTIONS] startSession [OPTIONS]
+```
 
 ## Options Details
 

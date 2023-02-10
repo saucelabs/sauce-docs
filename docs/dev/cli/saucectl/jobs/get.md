@@ -10,8 +10,10 @@ Get job details from Sauce Labs.
 
 ## Usage
 
-`$ saucectl jobs get JOB_ID [flags]`
- 
+```bash
+$ saucectl jobs get JOB_ID [flags]
+```
+
 ## Available Options
 
 <table id="table-cli">

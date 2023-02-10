@@ -14,7 +14,9 @@ After disconnecting a session with an Android device, [disconnect your device fr
 
 ## Usage
 
-`$ <main class> [OPTIONS] disconnect [OPTIONS]`
+```bash
+$ <main class> [OPTIONS] disconnect [OPTIONS]
+```
 
 ## Options Details
 

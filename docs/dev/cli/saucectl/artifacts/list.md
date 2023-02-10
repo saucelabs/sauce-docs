@@ -10,7 +10,9 @@ Lists artifacts for a job from Sauce Labs.
 
 ## Usage
 
-`$ saucectl artifacts list jobID [flags]`
+```bash
+$ saucectl artifacts list jobID [flags]
+```
 
 ## Available Options
 

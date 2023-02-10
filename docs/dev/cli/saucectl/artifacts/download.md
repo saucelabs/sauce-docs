@@ -10,8 +10,10 @@ Downloads artifacts for a job from Sauce Labs.
 
 ## Usage
 
-`$ saucectl artifacts download jobID globPattern [flags]`
- 
+```bash
+$ saucectl artifacts download jobID globPattern [flags]
+```
+
 ## Available Options
 
 <table id="table-cli">

@@ -10,7 +10,9 @@ Generate a credentials file with your Sauce Labs Username and Access Key.
 
 ## Usage
 
-`$ saucectl configure [OPTIONS]`
+```bash
+$ saucectl configure [OPTIONS]
+```
 
 ## Extended Description
 

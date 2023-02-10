@@ -10,7 +10,9 @@ Generate a configuration file for use in running tests through `saucectl`.
 
 ## Usage
 
-`$ saucectl init [OPTIONS]`
+```bash
+$ saucectl init [OPTIONS]
+```
 
 ## Extended Description
 

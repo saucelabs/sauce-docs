@@ -10,7 +10,9 @@ Close a Virtual USB session that you launched using the [`startSession` command]
 
 ## Usage
 
-`$ <main class> [OPTIONS] deleteSession [OPTIONS]`
+```bash
+$ <main class> [OPTIONS] deleteSession [OPTIONS]
+```
 
 ## Options Details
 

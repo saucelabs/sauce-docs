@@ -10,7 +10,9 @@ Connect to an existing Virtual USB (vUSB) session in lieu of launching a new vUS
 
 ## Usage
 
-`$ <main class> [OPTIONS] connect [OPTIONS]`
+```bash
+$ <main class> [OPTIONS] connect [OPTIONS]
+```
 
 ## Options Details
 
