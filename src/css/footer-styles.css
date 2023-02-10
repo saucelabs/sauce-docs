@@ -2078,8 +2078,11 @@
     line-height: 1.25rem;
 }
 
-.social-comtainer {
-    /* display: inline-flex; */
+.social-container {
+    display: inline-flex;
+}
+.social-container p {
+    padding-right: 8px;
 }
 
 @media screen and (max-width: 767px) {
@@ -2134,7 +2137,7 @@
     }
 }
 .footer .link-container ul li a {
-    color: var(--dark-200);
+    color: var(--dark-100);
     font-weight: 500;
     font-size: 0.75rem;
     line-height: 1.25rem;

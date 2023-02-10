@@ -1037,12 +1037,9 @@ ul.dropdown__menu li a:hover {
 
 .footer-items {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    align-content: space-between;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    padding: 8px;
     margin: 0;
 }
 
