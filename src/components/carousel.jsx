@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React from "react";
 /* package: https://www.npmjs.com/package/react-alice-carousel */
 import AliceCarousel from "react-alice-carousel";
