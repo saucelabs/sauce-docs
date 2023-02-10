@@ -37,7 +37,7 @@
     --ifm-code-font-size: 85%;
     --ifm-code-background: var(--dark-100);
     --ifm-font-color-base: var(--dark-500);
-    --ifm-link-color: var(--green-500);
+    --ifm-link-color: var(--inline-link);
     --ifm-navbar-background-color: var(--neutral-100);
     --ifm-menu-color-active: var(--green-500);
     --ifm-tabs-color-active: var(--dark-500);
@@ -227,27 +227,33 @@ html[data-theme="dark"] .navbar__link:hover {
     background-size: 1.5em 1.5em !important;
 }
 .menu__link--active:not(.menu__link--sublist) {
-    background: var(--green-100);
+    background: var(--green-500);
 }
 .menu__link--active {
-    color: var(--green-500);
+    color: var(--neutral-500);
     font-weight: 700;
 }
 .menu__link--active:hover {
-    color: var(--green-500);
+    color: var(--inline-link);
     font-weight: 700;
 }
 
+html[data-theme="dark"] .menu__link:hover {
+    color: var(--neutral-500);
+    background-color: var(--neutral-400);
+    font-weight: 700;
+}
 html[data-theme="dark"] .menu__link--active:not(.menu__link--sublist) {
     background: var(--green-500);
-    color: var(--neutral-100);
+    color: var(--inline-link);
 }
 html[data-theme="dark"] .menu__link--active {
     color: var(--neutral-100);
     font-weight: 700;
 }
 html[data-theme="dark"].menu__link--active:hover {
-    color: var(--neutral-100);
+    background: var(--green-100);
+    color: var(--inline-link);
     font-weight: 700;
 }
 
@@ -483,11 +489,13 @@ p {
 
 .card {
     transition: 0.3s;
-    border-radius: 4px;
+    border-radius: 20px;
+    background-color: var(--neutral-100);
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); */
+    background-color: var(--green-500);
 }
 
 html[data-theme="dark"] .card:hover {
@@ -763,6 +771,10 @@ html[data-theme="dark"] .hero--primary {
     padding-bottom: 0.6rem;
 }
 
+html[data-theme="dark"] .hero__popular-searches {
+    color: var(--green-300);
+}
+
 html[data-theme="dark"] .hero__title {
     color: var(--green-300);
 }
@@ -784,12 +796,9 @@ html[data-theme="dark"] .hero__subtitle {
     flex-direction: row;
     justify-content: flex-start;
 }
-html[data-theme="dark"] .hero__popular-searches {
-    color: var(--dark-100);
-}
 
 a.hero__popular-searches {
-    color: var(--inline-link) !important;
+    color: var(--inline-link);
 }
 html[data-theme="dark"]a.hero__popular-searches {
     color: var(--green-200);

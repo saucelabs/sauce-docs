@@ -20,14 +20,6 @@
     color: var(--dark-500);
     border-color: var(--dark-500);
 }
-html[data-theme="dark"] .button-dark {
-    background: var(--green-300);
-    color: var(--dark-500);
-}
-html[data-theme="dark"] .button-dark:hover {
-    background: var(--green-500);
-    color: var(--neutral-100);
-}
 
 .button-light {
     background: transparent;
@@ -35,7 +27,7 @@ html[data-theme="dark"] .button-dark:hover {
     border-style: solid;
 }
 .button-light:hover {
-    border-color: var(--inline-link);
+    color: var(--dark-500);
     background-color: var(--yellow-500);
 }
 html[data-theme="dark"] .button-light {
@@ -43,4 +35,5 @@ html[data-theme="dark"] .button-light {
 }
 html[data-theme="dark"] .button-light:hover {
     border-color: var(--green-400);
+    border-color: var(--inline-link);
 }
