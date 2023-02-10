@@ -4,6 +4,9 @@ title: Testing a Static Storybook Web App
 sidebar_label: Storybook Static Testing
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 To run Screener against a static Storybook build, instead of starting the Storybook Dev server, follow these setup instructions.
 
 ## What You'll Need
@@ -13,33 +16,48 @@ To run Screener against a static Storybook build, instead of starting the Storyb
 
 ## Run a Static Storybook Build
 
-1. Open your Storybook config file (under ".storybook/preview.js") and add the following snippet at the end:
-
-```js
-if (typeof window === 'object') {
-window.__screener_storybook__ = require('@storybook/react').getStorybook
-}
-```
-
-2. Export your Storybook project into a static web app by running:
+1. Export your Storybook project into a static web app by running:
 
 ```bash
 npm run build-storybook
 ```
 
-3. Open your "screener.config.js" file and add the `storybookStaticBuildDir` option with its value set to your own static Storybook folder:
+2. Open your "screener.config.js" file and add the `storybookStaticBuildDir` option with its value set to your own static Storybook folder:
+
+<Tabs
+defaultValue="Storybook6.4"
+values={[
+ {label: 'Storybook 6.4 or newer', value: 'Storybook6.4'},
+ {label: 'Storybook 6.3 or older', value: 'Storybook6.3'},
+]}>
+
+<TabItem value="Storybook6.4">
 
 ```js
 module.exports = {
-projectRepo: 'sb-6.1-test',
-storybookConfigDir: '.storybook',
-apiKey: process.env.SCREENER_API_KEY,
-resolution: '1024x768',
-storybookStaticBuildDir: 'storybook-static'
+ projectRepo: 'sb-6.4-test',
+ apiKey: process.env.SCREENER_API_KEY,
+ resolution: '1024x768',
+ storybookStaticBuildDir: 'storybook-static'
 }
 ```
 
-4. Run your test:
+</TabItem>
+<TabItem value="Storybook6.3">
+
+```js
+module.exports = {
+ projectRepo: 'sb-6.1-test',
+ storybookConfigDir: '.storybook',
+ apiKey: process.env.SCREENER_API_KEY,
+ resolution: '1024x768',
+ storybookStaticBuildDir: 'storybook-static'
+}
+```
+</TabItem>
+</Tabs>
+
+3. Run your test:
 
 ```bash
 npm run test-storybook
@@ -47,4 +65,4 @@ npm run test-storybook
 
 ## More Information
 
-- [Build Storybook as a Static Web App](https://storybook.js.org/docs/react/workflows/publish-storybook#build-storybook-as-a-static-web-application)
+- [Build Storybook as a Static Web App](https://storybook.js.org/docs/react/sharing/publish-storybook#build-storybook-as-a-static-web-application)

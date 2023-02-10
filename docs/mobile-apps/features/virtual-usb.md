@@ -312,6 +312,7 @@ If you've lost track of your `--sessionId`, you can recover it using the [`sessi
 ```java
 java -jar virtual-usb-client.jar disconnect --sessionId 37D274BC3A65A34BB3DA4DDF7B77E341
 ```
+
 :::
 
 ## Example Use Cases

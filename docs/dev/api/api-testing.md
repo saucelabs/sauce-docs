@@ -393,11 +393,12 @@ values={[
             "name": "$SAUCE_USERNAME"
         },
         "unit": "assertions:\n  - id: get\n    children:\n      - id: header\n        name: key\n        value: ABC123\n    url: ${protocol}${domain}${endpoint}\n    var: payload\n    mode: json\n  - id: assert-equals\n    expression: payload_response.headers['Content-Type']\n    value: application/json; charset=utf-8\nconfigs: []",
-        "input": "- id: global\n  children:\n    - id: variable\n      name: protocol\n      value: http://\n    - id: variable\n      name: domain\n      value: demoapi.apifortress.com\n    - id: variable\n      name: endpoint\n      value: /api/retail/product\n- id: sets\n  children:\n    - id: set\n      children: []\n      name: default\n",  
+        "input": "- id: global\n  children:\n    - id: variable\n      name: protocol\n      value: http://\n    - id: variable\n      name: domain\n      value: demoapi.apifortress.com\n    - id: variable\n      name: endpoint\n      value: /api/retail/product\n- id: sets\n  children:\n    - id: set\n      children: []\n      name: default\n",
         "complete": true
     }
 }
 ```
+
 </TabItem>
 
 <TabItem value="xml">
@@ -1959,7 +1960,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </TabItem>
 
 </Tabs>
-
 
 #### Responses
 
