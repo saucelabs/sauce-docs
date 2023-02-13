@@ -99,3 +99,7 @@ saucectl run
 The console displays the executing tests, distinguishing which mode is running.
 
 The results and test assets are available immediately following test completion in your [Sauce Labs account](https://app.saucelabs.com/dashboard/tests/vdc).
+
+## More Information
+
+See [saucectl YAML Configuration](/api-testing/integrations/yaml) for more configuration options. 
