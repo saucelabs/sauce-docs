@@ -1,7 +1,7 @@
 ---
 id: yaml
 title: Configuring saucectl for API Testing
-sidebar_label: YAML Configuration
+sidebar_label: saucectl YAML Configuration
 ---
 
 import Tabs from '@theme/Tabs';
