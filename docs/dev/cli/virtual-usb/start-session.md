@@ -10,7 +10,9 @@ sidebar_label: Start Session
 
 ## Usage
 
-<span className="cli">$ &lt;main class&gt; [OPTIONS] startSession [OPTIONS]</span>
+```bash
+$ <main class> [OPTIONS] startSession [OPTIONS]
+```
 
 ## Options Details
 
