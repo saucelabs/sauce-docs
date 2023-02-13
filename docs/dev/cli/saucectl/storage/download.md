@@ -10,7 +10,9 @@ Downloads an app file from Sauce Storage.
 
 ## Usage
 
-<span className="cli">$ saucectl storage download fileID [flags]</span>
+```bash
+$ saucectl storage download fileID [flags]
+```
 
 ## Available Options
 
