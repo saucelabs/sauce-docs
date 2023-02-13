@@ -1,7 +1,7 @@
 ---
-id: apifctl-cicd-integration
-title: CI/CD Platform Integration with apifctl
-sidebar_label: CI/CD Integration (apifctl)
+id: apitesting-saucectl-integration
+title: CI/CD Platform Integration with saucectl
+sidebar_label: CI/CD Integration (saucectl)
 description: 'Using Sauce Labs API Testing or CLI, you can seamlessly integrate continuous API testing into your CI/CD pipeline.'
 ---
 
@@ -9,11 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Execute API tests and interact with Sauce Labs API Testing (either locally or in a pipeline) using our API Testing CLI tool, `apifctl`.
-
-## Usage
-
-You'll need to run our Docker image as a container:<br/>`docker run --pull always quay.io/saucelabs/apifctl [COMMAND] [OPTIONS]`
+Using the [`saucectl` CLI](/dev/cli/saucectl), you can execute API tests and interact with Sauce Labs API Testing.
 
 ## What You'll Need
 
@@ -23,7 +19,7 @@ You'll need to run our Docker image as a container:<br/>`docker run --pull alway
 
 ## Creating Webhooks
 
-To utilize most `apifctl` CI/CD integration functionalities, you'll need to generate a webhook for your API Testing Project. Once generated, you add this webhook URL to your `apifctl` code to allow your third-party CI/CD app(s) to send data to Sauce Labs API Testing.
+To utilize `saucectl` functionalities, you'll need to generate a webhook for your API Testing Project. Once generated, you'll need only the name of your API Testing Project.
 
 To generate a webhook:
 
@@ -37,12 +33,7 @@ To generate a webhook:
 https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}
 ```
 
-1. Copy the URL to your clipboard and then you can use it either locally or as part of CI build.<br/>
-   <img src={useBaseUrl('img/api-fortress/2021/04/hookURL.png')} alt="sample Hook URL"/>
-
-You can then reuse this Webhook for future tests within that Project by returning to the **Webhooks** tab and copying it there. Webhooks are Project-specific.
-
-## `apifctl` Commands
+## `saucectl` Commands
 
 ### `run`
 
