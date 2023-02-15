@@ -243,13 +243,13 @@ d03a1b81-158d-4bb4-bcc9-074e43dd8465     iPhone XS         IOS      14.3    http
 localhost:-1  online
 ```
 
-After this, vUSB needs to have access to the usbmuxd socket on your computer. This is a socket that is used by XCODE (Apple's developer tools) to communicate with iOS devices. By default it is connected to your local USB port, but since we are using a remote device, vUSB need to move the socket to a different location. To be able to do this vUSB needs to have read and write access to the socket which is located at `/var/run/usbmuxd`.
+After this, vUSB needs to have access to the usbmuxd socket on your computer. This socket is used by XCODE (Apple's developer tools) to communicate with iOS devices. By default, it is connected to your local USB port, but since we are using a remote device, vUSB needs to move the socket to a different location. To do this, vUSB needs to have read and write access to the socket which is located at `/var/run/usbmuxd`.
 
-If you are running vUSB as a non-root user you will need to provide the password for the root user and an Apple system notification popup will appear:
+If you are running vUSB as a non-root user you will need to provide the password for the root user and an Apple system notification popup will appear :
 
 <img src={useBaseUrl('img/virtual-usb/vusb-usbmuxd.png')} alt="vUSB usbmuxd popup" width="370" />
 
-If you are running vUSB as a root user you will not be prompted for a password and the socket will be moved automatically. You will see the following message in your server logs:
+If you are running vUSB as a root user, you will not be prompted for a password and the socket will be moved automatically. You will see the following message in your server logs:
 
 ```bash
 11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - The socket at /var/run/usbmuxd needs to be moved
