@@ -256,7 +256,7 @@ If you are running vUSB as a root user, you will not be prompted for a password 
 11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - This will require administrator privileges!
 ```
 
-Make sure you're logged into your Sauce Labs account prior to clicking the link above. After doing so, you'll see: 1) an Apple system notification popup, where you'll need to provide Touch ID or password authentication; and 2) information returned in your server logs similar to the example below.
+Make sure you're logged into your Sauce Labs account prior to clicking the link above.
 
 </TabItem>
 
