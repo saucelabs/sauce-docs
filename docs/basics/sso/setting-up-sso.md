@@ -46,7 +46,6 @@ Here is the list of settings that are required by Sauce Labs Service Provider:
 | Recipient URL                | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp` |
 | Destination URL              | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp` |
 | Name ID format               | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`               |
-| Authentication Context Class | `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport`    |
 | Binding                      | `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`                       |
 
 ### Signature
