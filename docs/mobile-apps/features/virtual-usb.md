@@ -245,7 +245,7 @@ localhost:-1  online
 
 After this, vUSB needs to have access to the usbmuxd socket on your computer. This socket is used by XCODE (Apple's developer tools) to communicate with iOS devices. By default, it is connected to your local USB port, but since we are using a remote device, vUSB needs to move the socket to a different location. To do this, vUSB needs to have read and write access to the socket which is located at `/var/run/usbmuxd`.
 
-If you are running vUSB as a non-root user you will need to provide the password for the root user and an Apple system notification popup will appear :
+If you are running vUSB as a non-root user you will need to provide the password for the root user and an Apple system notification popup will appear:
 
 <img src={useBaseUrl('img/virtual-usb/vusb-usbmuxd.png')} alt="vUSB usbmuxd popup" width="370" />
 
