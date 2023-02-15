@@ -139,7 +139,7 @@ values={[
 {label: 'iOS', value: 'iOS'},
 ]}>
 
-<!-- prettier-ignore -->
+<!-- prettier-ignore-start -->
 <TabItem value="Android">
 
 The expected output will be a **port number**, which you'll need when you want to connect the device to ADB (see Step 7).
@@ -172,11 +172,15 @@ If you are running vUSB as a root user you will not be prompted for a password a
 
 </Tabs>
 
+<!-- prettier-ignore-end -->
+
 or
 
 #### **Method 2: Start new session with vUSB client from command line**
 
 Open a new command line terminal window and run the [`startSession`](/dev/cli/virtual-usb/start-session) command, followed by your `username`, `accessKey`, and `--deviceName`:
+
+<!-- prettier-ignore-start -->
 <Tabs
 defaultValue="Android"
 values={[
@@ -201,11 +205,15 @@ java -jar virtual-usb-client.jar startSession --username $SAUCE_USERNAME --acces
 
 </Tabs>
 
+<!-- prettier-ignore-end -->
+
 To use Sauce Connect Proxy: launch a tunnel in the Sauce Connect client, then add your [`--tunnel-identifier`](/dev/cli/virtual-usb/start-session/#--tunnelidentifier), which the vUSB client will use to retrieve and secure test data. You can also set up a device proxy using [proxy command options](/dev/cli/virtual-usb/start-session).
 
 If you require video recordings and device logs to be generated for the virtual USB session created via this method (accessible via SauceLabs account on the website), include the `--artifactsEnabled` optional flag when using the `startSession` command. Otherwise, the test report associated with this session will only contain metadata (i.e. device info, start/end timestamps, etc.).
 
 If your vUSB test session launch is successful, you'll see a success message:
+
+<!-- prettier-ignore-start -->
 <Tabs
 defaultValue="Android"
 values={[
@@ -253,6 +261,8 @@ Make sure you're logged into your Sauce Labs account prior to clicking the link 
 </TabItem>
 
 </Tabs>
+
+<!-- prettier-ignore-end -->
 
 :::note Timeout
 No timeout is triggered if the returned link is **not** opened.
