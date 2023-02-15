@@ -43,6 +43,15 @@ The name of the private device that you want to use for testing.
 
 </div>
 
+### <span className="cli">--artifactsEnabled</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Whether to generate and save artifacts for this session (device logs and video recording). The default value, if not specified, is `false`.
+
+</div>
+
 ### <span className="cli">--serverHost</span>
 
 <div className="cli-desc">
@@ -61,30 +70,12 @@ A specific vUSB server port. The default value, if not specified, is `33657`.
 
 </div>
 
-### <span className="cli">--adbPortMin</span>
-
-<div className="cli-desc">
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Specifies a vUSB server Android Debug Bridge (ADB) port. Default value: `7000`.
-
- </div>
-
-### <span className="cli">--adbPortRange</span>
-
-<div className="cli-desc">
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Specifies a vUSB server ADB port range. Default value: `100`.
-
-</div>
-
 ### <span className="cli">--proxyHost</span>
 
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the HTTP proxy host.
+Specify a proxy host to be set on the device.
 
 </div>
 
@@ -93,7 +84,7 @@ Specifies the HTTP proxy host.
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the HTTP proxy port. Default value: `0`.
+Specify a proxy port to be set on the device. Default value: `0`.
 
 </div>
 
@@ -102,7 +93,7 @@ Specifies the HTTP proxy port. Default value: `0`.
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the HTTP proxy user.
+Specify a proxy user to be set on the device.
 
 </div>
 
@@ -111,7 +102,7 @@ Specifies the HTTP proxy user.
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the HTTP proxy password.
+Specify a proxy password to be set on the device.
 
 </div>
 
