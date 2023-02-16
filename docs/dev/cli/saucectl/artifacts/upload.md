@@ -10,7 +10,9 @@ Uploads an artifact for a job to Sauce Labs.
 
 ## Usage
 
-<span className="cli">$ saucectl artifacts upload jobID fileName [flags]</span>
+```bash
+$ saucectl artifacts upload jobID fileName [flags]
+```
 
 :::note
 Real Device job is not supported.
