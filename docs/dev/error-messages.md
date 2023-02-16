@@ -260,7 +260,7 @@ The capabilities you've supplied include a URL to a mobile app to install and te
 - The verification is taking too long and timeout error appears (error code 504).
 
 :::note
-Tests that failed the validation will no longer be displayed in the failed jobs list on Sauce Labs UI, as the check is performed before the entry is created in the database, and the request is rejected as invalid.
+Tests that failed the validation will no longer be displayed in the failed jobs list in the Sauce Labs UI, as the check is performed before the entry is created in the database, and the request is rejected as invalid.
 :::
 
 **How to Resolve**
