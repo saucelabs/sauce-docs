@@ -251,11 +251,17 @@ The capabilities you've supplied include a URL to a mobile app to install and te
 
 **Cause(s)**
 
-- You've specified an app hosted in [storage](/mobile-apps/app-storage), but there is nothing stored for your account with the given name.
+- You've specified an app hosted in [App Storage](/mobile-apps/app-storage), but there is nothing stored for your account with the given name.
 - You've specified an app hosted online, but the URL you've used can't be contacted by Sauce Labs.
 - You've specified an app hosted in your corporate network which can't be accessed via the Internet.
 - You're not providing the full path to the app file itself.
 - The site serving your app requires authentication.
+- An error occurred on our platform side. Could be related to the availability of our storage platform (error code 500). In this situation try again, if the error continues contact our [Sauce Labs Support](https://saucelabs.com/training-support).
+- The verification is taking too long and timeout error appears (error code 504).
+
+:::note
+Tests that failed the validation will no longer be displayed in the failed jobs list on Sauce Labs UI, as the check is performed before the entry is created in the database, and the request is rejected as invalid.
+:::
 
 **How to Resolve**
 
@@ -268,6 +274,8 @@ If you're already using storage, check to make sure that:
 - Your uploaded app has the same MD5 hash as it does on your machine.
 - You're starting the `app` capability with `storage:filename`. There shouldn't be a leading `http`.
 - You're using the exact name you provided via the rest API, not the original filename. For example, if you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `storage:filename=new_app_name.apk`.
+- Check the access permissions for the file before retrying. If you have confirmed you have permissions to access the file and you continue to get this error, contact our [Sauce Labs Support](https://saucelabs.com/training-support).
+
 
 ### Unable to Find Device Within 90 Seconds
 
