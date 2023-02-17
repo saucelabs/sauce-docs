@@ -10,7 +10,7 @@ You can also use Vale with the [command line](https://vale.sh/docs/vale-cli/stru
 
 1. Use a package manager to install Vale. See [Installation](https://vale.sh/docs/vale-cli/installation/).
 1. (Optional) Install the [Vale](https://marketplace.visualstudio.com/items?itemName=errata-ai.vale-server) extension (errata-ai.vale-server) for Visual Studio Code.
-1. (Optional) To configure Vale in Visual Studio Code, specify the path to the project directory with the `.vale.ini` file for `vale.valeCLI.config` in the Extension Settings. For example, <span>/Users/yourname/Documents/GitHub/sauce-docs/.vale.ini.</span>.
+1. (Optional) To configure Vale in Visual Studio Code, specify the path to the project directory with the `.vale.ini` file for `vale.valeCLI.config` in the Extension Settings. For example, <span>/Users/yourname/Documents/GitHub/sauce-docs/.vale.ini</span>.
 1. Run `vale [filename.md]` from the root folder of the repo, or save/edit a file using Visual Studio Code.
 
 ## Folder Structure
