@@ -11,6 +11,8 @@ swap:
   check box: checkbox
   cli: CLI
   cypress: Cypress
+  emulator: Emulator
+  emulators: Emulators
   espresso: Espresso
   file name: filename
   Github: GitHub
@@ -29,6 +31,8 @@ swap:
   sauce labs: Sauce Labs
   selenium: Selenium
   sign into: sign in to
+  simulator: Simulator
+  simulators: Simulators
   synch: sync
   Testcafe: TestCafe
   testcafe: TestCafe
