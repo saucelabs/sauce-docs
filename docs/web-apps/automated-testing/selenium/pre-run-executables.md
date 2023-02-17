@@ -48,7 +48,9 @@ When creating your executable file, take into account the operating system you'l
 
 ### Storing a Configuration Script
 
+
 Your script can be stored in GitHub or in [App Storage](/mobile-apps/app-storage/) (for more information see [Common Error Messages](https://docs.saucelabs.com/dev/error-messages/#failed-to-download-mobile-application)). You can also use [Gist](https://gist.github.com/) to easily host your executable file. Make sure to use the link containing the raw file contents.
+
 
 ### Set the `prerun` Capability
 
@@ -61,7 +63,7 @@ desired_capabilities['prerun'] = {
 }
 ```
 
-This example accesses the same script from Sauce Storage:
+This example accesses the same script from App Storage:
 
 ```
 desired_capabilities['prerun'] = {
@@ -206,7 +208,7 @@ Editing the Host file of the virtual machine will not work if [Sauce Connect Pro
 An example of configuring a Sauce Labs virtual machine with a pre-run executable is editing the host file in the virtual machine, so when the driver tries to access a particular domain, like google.com, it will be redirected to a new IP address, for example 162.222.75.243 ([saucelabs.com](http://saucelabs.com/)). As with other `prerun` configurations, the basic steps are:
 
 1. Write a script with the URL redirect to the new IP address.
-1. Upload the script to a publicly accessible location, like GitHub or Sauce Storage
+1. Upload the script to a publicly accessible location, like GitHub or App Storage.
 1. Set the [`prerun` capability](/dev/test-configuration-options#pre-run-executables) in your test script to load the script as host file in the Sauce Labs virtual machine.
 
 ### Host File Script
