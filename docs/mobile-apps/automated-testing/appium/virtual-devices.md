@@ -19,6 +19,10 @@ OS and platform combinations with [Android Emulators](https://developer.android.
 - The native or hybrid mobile app you want to test. If you don't have one on hand and would like to test this functionality, consider using our [Sauce Labs demo mobile app](https://github.com/saucelabs/sample-app-mobile).
 - Ensure that your system fulfills the project support and requirements prior to uploading your apps or leveraging device Emulators and Simulators. Review the [Automated Mobile App Testing Admin Guide](/mobile-apps/supported-devices) for further details.
 
+:::note
+Sauce Labs does not support Android Emulators with Play Store integration. For more information contact [Sauce Labs Support](https://saucelabs.com/training-support) or use the [Sauce Labs Portal](https://portal.productboard.com/sauceprod/2-sauce-labs-portal/submit-idea).
+:::
+
 ## Upload Your App to Emulators and Simulators
 
 To begin, upload your app to a publicly available source. Accepted file types are \*.zip iOS package files for Simulators and \*.apk or \*.aab Android package files for Emulators. There are two ways you can upload your app for automated testing:
