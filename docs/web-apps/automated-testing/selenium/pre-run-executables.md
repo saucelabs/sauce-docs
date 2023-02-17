@@ -48,7 +48,7 @@ When creating your executable file, take into account the operating system you'l
 
 ### Storing a Configuration Script
 
-Your script can be stored in GitHub or in [Sauce Storage](/mobile-apps/app-storage/). You can also use [Gist](https://gist.github.com/) to easily host your executable file. Make sure to use the link containing the raw file contents.
+Your script can be stored in GitHub or in [App Storage](/mobile-apps/app-storage/) (for more information see [Common Error Messages](https://docs.saucelabs.com/dev/error-messages/#failed-to-download-mobile-application)). You can also use [Gist](https://gist.github.com/) to easily host your executable file. Make sure to use the link containing the raw file contents.
 
 ### Set the `prerun` Capability
 
