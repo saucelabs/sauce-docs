@@ -1,0 +1,9 @@
+# Checks for incorrect spacing (no spaces, or more than one space) around punctuation.
+extends: existence
+message: "Remove the extra space."
+link: https://wiki.saucelabs.com/display/PM/Technical+Documentation+Style+Guide#TechnicalDocumentationStyleGuide-SentenceSpacing
+level: error
+nonword: true
+tokens:
+  - '[a-z][.?!,][A-Z]'
+  - '[\w.?!,\(\)\-":] {2,}[\w.?!,\(\)\-":]'
