@@ -216,12 +216,12 @@ There are three ways to test Apple Pay with Sauce Labs:
 :::caution iOS Simulators
 There are important differences between the Apple Pay Real Device and Simulator flow. The Simulator has the following limitations:
 
-- It is only focussed on the front-end integration of Apple Pay, and does not test the back-end integration.
+- It is focused on the front-end integration of Apple Pay and does not test the back-end integration.
 - You **can't** add cards to the wallet, meaning:
-  - No Apple Pay Sandbox Testing cards
-  - No real credit cards
-- You **can't** test the Apple Pay in-web flow
-- You **can** test the Apple Pay in-app flow, but the Apple Pay in-app flow will not work the same as with Real Devices. It won't return a payment token and will not properly proces your payment. In addition to this, it automatically provides simulated cards for all the supported payment networks.
+  - No Apple Pay Sandbox Testing cards.
+  - No real credit cards.
+- You **can't** test the Apple Pay in-web flow.
+- You **can** test the Apple Pay in-app flow, but the Apple Pay in-app flow will not work the same as with Real Devices. It won't return a payment token and will not properly process your payment. In addition to this, it automatically provides simulated cards for all the supported payment networks.
 
 :::
 
