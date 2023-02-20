@@ -23,7 +23,7 @@ Looking to import from Postman? See [Importing Postman Collections](/api-testing
 
 1. Log in to Sauce Labs, then click **API Testing**.
 2. Go into any Project.
-3. From within a Project, click the **HTTP Client** tab.<br/><img src={useBaseUrl('img/api-testing/HTTPClient.png')} alt="HTTP Client Button" width="300"/>
+3. From within a Project, click the **HTTP Client** tab.<br/><img src={useBaseUrl('img/api-testing/http-client-nav-rebrand.png')} alt="HTTP Client Button" width="300"/>
 4. Click the **Import OpenAPI/Postman** button, then **Import OpenAPI/Postman Collection/.har** and then, select and upload your file from your local machine.<br/><img src={useBaseUrl('img/api-testing/importSpec.png')} alt="Import OpenAPI / Postman button" width="450" />
 5. Click on the folder in your **Snapshots** tree where you'd like to save your file.<br/><img src={useBaseUrl('img/api-testing/importFolder.png')} alt="Import to Snapshots folder"/>
 6. Click **Save**.<br/><img src={useBaseUrl('img/api-testing/importFolder2.png')} alt="Import file to Project"/>
