@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'AeonikFono-Air';
+    src: url('AeonikFono-Air.woff2') format('woff2'),
+        url('AeonikFono-Air.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AeonikFono-Thin';
+    src: url('AeonikFono-Thin.woff2') format('woff2'),
+        url('AeonikFono-Thin.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AeonikFono-Light';
+    src: url('AeonikFono-Light.woff2') format('woff2'),
+        url('AeonikFono-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AeonikFono-Regular';
+    src: url('AeonikFono-Regular.woff2') format('woff2'),
+        url('AeonikFono-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AeonikFono-Medium';
+    src: url('AeonikFono-Medium.woff2') format('woff2'),
+        url('AeonikFono-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AeonikFono-Bold';
+    src: url('AeonikFono-Bold.woff2') format('woff2'),
+        url('AeonikFono-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AeonikFono-Black';
+    src: url('AeonikFono-Black.woff2') format('woff2'),
+        url('AeonikFono-Black.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
