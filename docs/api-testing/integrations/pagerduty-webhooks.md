@@ -32,7 +32,7 @@ To set up this feature:
 2. Click on any Project.
 3. Within that Project, go to **Settings** > **Connectors** > **Create Connector**.
 4. Under the **Template** dropdown, select **PagerDuty**.
-5. In the **Template** section, you'll need to replace the `“routing_key"` value with your PagerDuty Integration Key, which you can find in PagerDuty by creating an App in Developer Mode. Optionally, you can also edit the other template values meet your needs.<br/><img src={useBaseUrl('img/api-testing/pagerduty_new_template.png')} alt="pagerduty-template field"/>
+5. In the **Template** section, you'll need to replace the `“routing_key"` value with your PagerDuty Integration Key, which you can find in PagerDuty by creating an App in Developer Mode. Optionally, you can also edit the other template values meet your needs.<br/><img src={useBaseUrl('img/api-testing/pagerduty_template.png')} alt="pagerduty-template field"/>
    - **URL** field is pre-populated with the PagerDuty URL (no action required).
    - **Content-Type** field will pre-populate with **application/json** (no action required).
    - **Headers** Key/Value pair fields are optional.
