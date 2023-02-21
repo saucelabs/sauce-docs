@@ -45,7 +45,7 @@ See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB
 
 1. Click below to download the latest Virtual USB client to your local machine where you have your IDE installed/set up.
 
-  <p> <a href="https://saucelabs-vusb.s3.eu-west-1.amazonaws.com/v2.0.4/virtual-usb-client-2.0.4.jar"><button class="download">Download Virtual USB 2.0.4</button></a> </p>
+  <p> <a href="https://saucelabs-vusb.s3.eu-west-1.amazonaws.com/v2.0.5/virtual-usb-client-2.0.5.jar"><button class="download">Download Virtual USB 2.0.5</button></a> </p>
 
 For Virtual USB release history, see our [changelog](https://changelog.saucelabs.com/en?category=virtual%20usb).
 
@@ -139,43 +139,48 @@ values={[
 {label: 'iOS', value: 'iOS'},
 ]}>
 
+<!-- prettier-ignore-start -->
 <TabItem value="Android">
 
-    The expected output will be a **port number**, which you'll need when you want to connect the device to ADB (see Step 7).
+The expected output will be a **port number**, which you'll need when you want to connect the device to ADB (see Step 7).
 
-    ```java
-    localhost:7000  online
-    ```
+```java
+localhost:7000  online
+```
 
 </TabItem>
 <TabItem value="iOS">
 
-    ```java
-    localhost:-1  online
-    ```
+```java
+localhost:-1  online
+```
 
-    After this, you'll see:
-    <ol>
-      <li>an Apple system notification popup, where you'll need to provide Touch ID or password authentication</li>
-      <li>information returned in your server logs similar to the example below.</li>
-    </ol>
+After this, vUSB needs to have access to the usbmuxd socket on your computer. This is a socket that is used by XCODE (Apple's developer tools) to communicate with iOS devices. By default it is connected to your local USB port, but since we are using a remote device, vUSB need to move the socket to a different location. To be able to do this vUSB needs to have read and write access to the socket which is located at `/var/run/usbmuxd`.
 
-    ```bash
-    11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - The socket at /var/run/usbmuxd needs to be moved
-    11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - This will require administrator privileges!
-    ```
+If you are running vUSB as a non-root user you will need to provide the password for the root user and an Apple system notification popup will appear:
 
-    This prepares the usbmuxd socket (`/var/usbmuxd`) so that developer tools like Xcode can interact with the remote device just like they interact with a local device. You will need to have administrator permissions to replace `/var/usbmuxd` on your computer. After doing so, you'll need to restart Xcode to be able to interact with the device.
+<img src={useBaseUrl('img/virtual-usb/vusb-usbmuxd.png')} alt="vUSB usbmuxd popup" width="370" />
+
+If you are running vUSB as a root user you will not be prompted for a password and the socket will be moved automatically. You will see the following message in your server logs:
+
+```bash
+11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - The socket at /var/run/usbmuxd needs to be moved
+11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - This will require administrator privileges!
+```
 
 </TabItem>
 
 </Tabs>
+
+<!-- prettier-ignore-end -->
 
 or
 
 #### **Method 2: Start new session with vUSB client from command line**
 
 Open a new command line terminal window and run the [`startSession`](/dev/cli/virtual-usb/start-session) command, followed by your `username`, `accessKey`, and `--deviceName`:
+
+<!-- prettier-ignore-start -->
 <Tabs
 defaultValue="Android"
 values={[
@@ -185,26 +190,30 @@ values={[
 
 <TabItem value="Android">
 
-    ```java
-    java -jar virtual-usb-client.jar startSession --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY --deviceName Motorola_Moto_Z_real
-    ```
+```java
+java -jar virtual-usb-client.jar startSession --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY --deviceName Motorola_Moto_Z_real
+```
 
 </TabItem>
 <TabItem value="iOS">
 
-    ```java
-    java -jar virtual-usb-client.jar startSession --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY --deviceName iPhone_XS
-    ```
+```java
+java -jar virtual-usb-client.jar startSession --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY --deviceName iPhone_XS
+```
 
 </TabItem>
 
 </Tabs>
+
+<!-- prettier-ignore-end -->
 
 To use Sauce Connect Proxy: launch a tunnel in the Sauce Connect client, then add your [`--tunnel-identifier`](/dev/cli/virtual-usb/start-session/#--tunnelidentifier), which the vUSB client will use to retrieve and secure test data. You can also set up a device proxy using [proxy command options](/dev/cli/virtual-usb/start-session).
 
 If you require video recordings and device logs to be generated for the virtual USB session created via this method (accessible via SauceLabs account on the website), include the `--artifactsEnabled` optional flag when using the `startSession` command. Otherwise, the test report associated with this session will only contain metadata (i.e. device info, start/end timestamps, etc.).
 
 If your vUSB test session launch is successful, you'll see a success message:
+
+<!-- prettier-ignore-start -->
 <Tabs
 defaultValue="Android"
 values={[
@@ -234,18 +243,26 @@ d03a1b81-158d-4bb4-bcc9-074e43dd8465     iPhone XS         IOS      14.3    http
 localhost:-1  online
 ```
 
-Make sure you're logged into your Sauce Labs account prior to clicking the link above. After doing so, you'll see: 1) an Apple system notification popup, where you'll need to provide Touch ID or password authentication; and 2) information returned in your server logs similar to the example below.
+After this, vUSB needs to have access to the usbmuxd socket on your computer. This socket is used by XCODE (Apple's developer tools) to communicate with iOS devices. By default, it is connected to your local USB port, but since we are using a remote device, vUSB needs to move the socket to a different location. To do this, vUSB needs to have read and write access to the socket which is located at `/var/run/usbmuxd`.
+
+If you are running vUSB as a non-root user you will need to provide the password for the root user and an Apple system notification popup will appear:
+
+<img src={useBaseUrl('img/virtual-usb/vusb-usbmuxd.png')} alt="vUSB usbmuxd popup" width="370" />
+
+If you are running vUSB as a root user, you will not be prompted for a password and the socket will be moved automatically. You will see the following message in your server logs:
 
 ```bash
-11:13:12.347 [KQueueEventLoopGroup-2-2] INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - The socket at /var/run/usbmuxd needs to be moved
-11:13:12.347 [KQueueEventLoopGroup-2-2] INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - This will require administrator privileges!
+11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - The socket at /var/run/usbmuxd needs to be moved
+11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - This will require administrator privileges!
 ```
 
-This prepares the usbmuxd socket (`/var/usbmuxd`) so that developer tools like Xcode can interact with the remote device just like they interact with a local device. You will need to have administrator permissions to replace `/var/usbmuxd` on your computer. After doing so, you'll need to restart Xcode to be able to interact with the device.
+Make sure you're logged into your Sauce Labs account prior to clicking the link above.
 
 </TabItem>
 
 </Tabs>
+
+<!-- prettier-ignore-end -->
 
 :::note Timeout
 No timeout is triggered if the returned link is **not** opened.

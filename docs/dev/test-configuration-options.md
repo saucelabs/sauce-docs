@@ -21,7 +21,7 @@ When setting up your test, you'll need to configure your script with settings ca
 
 You'll need to add these configurations to the [capabilities](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_Capabilities.html) or [options](https://www.selenium.dev/documentation/en/driver_idiosyncrasies/driver_specific_capabilities/) classes.
 
-- **W3C WebDriver Capabilities**: Required for any test using Selenium or Appium to communicate with the browser. W3C WebDriver capabilities are universal capabilities for any test, and are usually combined with additional capabilities. See [W3C WebDriver Capabilities Support](/dev/w3c-webdriver-capabilities) for more information.
+- **W3C WebDriver Capabilities**: Required for any test using Selenium or Appium to communicate with the browser. W3C WebDriver capabilities are universal capabilities for any test, and are usually combined with additional capabilities. See the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/#capabilities) for more information.
 - **Sauce Labs Capabilities**: Needed for running a test on the Sauce Labs Cloud, with different possible sets for different environments. Though there aren't any capabilities required, you will need to [configure the endpoint URL](/basics/data-center-endpoints) and should pass the test name and status as capabilities to the remote webdriver.
 - **Appium Capabilities**: Required for tests using Appium on mobile apps and Appium on mobile web browsers.
 - **Browser-Specific Capabilities**: Optional, browser-specific Sauce Labs capabilities.
@@ -490,8 +490,8 @@ Identifies the browser to be used when automating with a mobile browser. See the
 - For Android the value needs to be `"Chrome"`.
 - For iOS, the value needs to be `"Safari"`.
 
-
 :::note
+
 - If this capability is not provided for a virtual device, the [`appium:app`](#appiumapp) capability needs to be set. If none is set the test will throw an error.
 - This capability can be omitted for virtual devices if the [`appium:app`](#appiumapp) capability is set.
 - If this capability is not provided for a real device session and also the:
@@ -499,6 +499,7 @@ Identifies the browser to be used when automating with a mobile browser. See the
   - or [`appium:bundleId`](#appiumbundleid) (iOS)
   - or [`appium:appPackage`](#appiumapppackage) and ['appium:appActivity'](#appiumappactivity) (Android)
     capability is not provided, then a real device session will automatically fall back to the default browser. This will be Chrome for Android and Safari for iOS.
+
 :::
 
 ```java
@@ -1268,9 +1269,29 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `resigningEnabled`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Private Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
 
-Controls Sauce Labs default resigning (iOS) or instrumentation (Android) of mobile apps installed on our devices. By default, this property is always `true`, but it can be set to `false` for private devices to allow testing of specific behaviors that are not permitted under the Sauce Labs provisioning. See [Resigning Enablements](/mobile-apps/automated-testing/ipa-files/#sauce-resigning-enablements) for more information.
+Controls Sauce Labs default resigning (iOS) or instrumentation (Android) of mobile apps installed on our devices. By default, this property is always `true`.
+
+**iOS**
+
+When set to `true`, Sauce Labs will resign the app under test with its own signature. This is required for iOS apps to be installed on our devices, but also to support features like:
+
+- [Network Capture](#networkcapture)
+- [Image Injection](#saucelabsimageinjectionenabled)
+- [Biometrics interception](#allowtouchidenroll)
+
+And many more. This value can be set to `false` to allow testing of specific behaviors that are not permitted under the Sauce Labs provisioning. See [Resigning Enablements](/mobile-apps/automated-testing/ipa-files/#sauce-resigning-enablements) for more information. This capability can only be set to `false` for iOS private devices.
+
+**Android**
+
+When set to `true`, Sauce Labs will instrument the app under test with its own signature. This is required for Android apps if you want to use features like:
+
+- [Network Capture](#networkcapture)
+- [Image Injection](#saucelabsimageinjectionenabled)
+- [Biometrics interception](#allowtouchidenroll)
+
+and many more. This value can be set to `false` and can be used for private and public devices.
 
 :::caution AAB App Signing
 To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must sign the \*.apk using its own signature. In such cases, Sauce Labs signs both the `app` and `testApp` to ensure matching signatures, even if this capability is set to `false`. Otherwise, the app installation will fail.

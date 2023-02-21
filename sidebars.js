@@ -811,6 +811,7 @@ module.exports = {
                                 'secure-connections/sauce-connect/setup-configuration/specialized-environments',
                                 'secure-connections/sauce-connect/setup-configuration/docker',
                                 'secure-connections/sauce-connect/setup-configuration/ci-cd-integration',
+                                'secure-connections/sauce-connect/setup-configuration/readiness-checks',
                             ],
                         },
                         'secure-connections/sauce-connect/proxy-tunnels',
@@ -1028,6 +1029,19 @@ module.exports = {
                     ],
                 },
             ],
+        },
+        {
+            type: 'category',
+            label: 'Hosted Orchestration (Beta)',
+            link: { type: 'doc', id: 'hosted-orchestration' },
+            collapsed: true,
+            items: [
+                'hosted-orchestration',
+                'hosted-orchestration/architecture',
+                'hosted-orchestration/running-tests',
+                'hosted-orchestration/building-images',
+                'hosted-orchestration/private-registry'
+            ]
         },
         {
             type: 'category',

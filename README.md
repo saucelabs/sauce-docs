@@ -88,6 +88,28 @@ Welcome to the `sauce-docs`, this website contains all technical documentation a
     ```
 
     This command builds the site and serves it on your machine's host (http://localhost:3000).
+    
+## Linting
+The doc side employs two different code quality tools:
+
+* `eslint`
+* `prettier`
+
+Before each commit, a `lint-staged` task runs. If you encounter no errors feel free to push your changes to your remote branch. However if you see any `eslint` errors, or if you see any `prettier` responses like the one below, it means you have to run `eslint` and/or `prettier`
+
+```
+Forgot to run prettier?
+```
+
+Below are the following commands for both `eslint` and `prettier` that you must run:
+
+```
+#eslint
+npx eslint . --fix
+
+#prettier
+npx prettier --write
+```
 
 ## Contributing
 
