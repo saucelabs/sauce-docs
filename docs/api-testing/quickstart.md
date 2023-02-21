@@ -17,8 +17,8 @@ This Quickstart guide will get you up and running with a functional API Test. Le
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 
-:::note
-If your APIs are behind a firewall, you'll need to set up a [Sauce Connect Proxy](/secure-connections/sauce-connect/) tunnel before proceeding.
+:::note 
+If your APIs are behind a firewall, you'll need to set up a [Sauce Connect Proxy](/api-testing/sauce-connect) tunnel before proceeding.
 :::
 
 ## Create Project
