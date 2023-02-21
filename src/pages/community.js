@@ -9,7 +9,7 @@ class Community extends Component {
                 <div className='column-left'>
                     <img
                         className='landpage-community'
-                        src='img/important-links-hero.png'
+                        src='img/customer-experience-tier-1.png'
                     />
                 </div>
                 <div className='column-right'>
