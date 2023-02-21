@@ -1,0 +1,10 @@
+# Checks for the presence of semantically unhelpful words in link text.
+extends: existence
+message: "Improve SEO and accessibility by rewriting '%s' in the link text."
+link: https://wiki.saucelabs.com/display/PM/Technical+Documentation+Style+Guide#TechnicalDocumentationStyleGuide-ReadabilityandAccessibility
+level: warning
+scope: link
+ignorecase: true
+tokens:
+  - here
+  - this page
