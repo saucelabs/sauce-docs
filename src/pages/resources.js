@@ -1,55 +1,55 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import Button from "../components/button";
+import Button from '../components/button';
 
 class Resources extends Component {
     render() {
         return (
-            <div className="container-reverse">
-                <div className="column-left">
+            <div className='container-reverse'>
+                <div className='column-left'>
                     <h2>Learn the basics</h2>
                     <p>
                         Need help? We have prepared a&nbsp;
                         <a
-                            href="https://training.saucelabs.com/"
-                            target="_blank"
-                            rel="noreferrer"
+                            href='https://training.saucelabs.com/'
+                            target='_blank'
+                            rel='noreferrer'
                         >
                             training series
                         </a>
                         &nbsp;to help you along your learning curve. Check out
                         our tutorials and videos.
                     </p>
-                    <span className="landpage-buttons-container">
+                    <span className='landpage-buttons-container'>
                         <a
-                            href="https://training.saucelabs.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href='https://training.saucelabs.com/'
+                            target='_blank'
+                            rel='noopener noreferrer'
                         >
-                            <Button className="button-light" name="Tutorials" />
+                            <Button className='button-light' name='Tutorials' />
                         </a>
-                        <a href="/basics/quickstarts/">
+                        <a href='/basics/quickstarts/'>
                             <Button
-                                className="button-light"
-                                name="Sample Scripts"
+                                className='button-light'
+                                name='Sample Scripts'
                             />
                         </a>
                         <a
-                            href="https://saucelabs.com/blog"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href='https://saucelabs.com/blog'
+                            target='_blank'
+                            rel='noopener noreferrer'
                         >
                             <Button
-                                className="button-light"
-                                name="Sauce Labs Blog"
+                                className='button-light'
+                                name='Sauce Labs Blog'
                             />
                         </a>
                     </span>
                 </div>
-                <div className="column-right">
+                <div className='column-right'>
                     <img
-                        className="landpage-resources"
-                        src="img/developer-tier-1.png"
+                        className='landpage-resources'
+                        src='img/low-code-tier-1.png'
                     />
                 </div>
             </div>
