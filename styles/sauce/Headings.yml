@@ -1,0 +1,8 @@
+# Checks for sentence case capitalization in headings.
+extends: capitalization
+message: "'%s' should use title case capitalization."
+link: https://wiki.saucelabs.com/display/PM/Technical+Documentation+Style+Guide#TechnicalDocumentationStyleGuide-Capitalization
+level: warning
+scope: heading
+match: $title
+style: AP

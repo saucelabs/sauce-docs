@@ -1,0 +1,8 @@
+# Checks for exclamation marks.
+extends: existence
+message: "Avoid exclamation marks."
+link: https://wiki.saucelabs.com/display/PM/Technical+Documentation+Style+Guide#TechnicalDocumentationStyleGuide-Punctuation
+nonword: true
+level: warning
+tokens:
+  - '\w!(?:\s|$)'

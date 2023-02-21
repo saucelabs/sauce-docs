@@ -246,7 +246,7 @@ sauce:
 Sets the visibility level of test results for suites run on Sauce Labs. If unspecified or empty, `team` visibility will be applied. Valid values are:
 
 :::note
-This property is only valid for tests run against emulators. It has no effect on tests run against real devices.
+This property is only valid for tests run against Emulators. It has no effect on tests run against real devices.
 :::
 
 - `public`: Accessible to anyone.
@@ -738,7 +738,7 @@ suite:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-The parent property that defines details for running this suite on virtual devices using an emulator.
+The parent property that defines details for running this suite on virtual devices using an Emulator.
 
 ```yaml
 emulators:
@@ -1043,7 +1043,7 @@ Instructs `saucectl` to run all tests _except_ those matching a custom annotatio
 
 Sets the number of separate shards to create for the test suite. Read more about shard tests on the [Android developer site](https://developer.android.com/training/testing/junit-runner#sharding-tests).
 
-When sharding is configured, `saucectl` automatically creates the sharded jobs for each of the devices defined for the suite based on the number of shards you specify. For example, for a suite testing a single emulator version that specifies 2 shards, `saucectl` clones the suite and runs one shard index on the first suite, and the other shard index on the identical clone suite. For a suite that is testing 2 emulator version and two real devices, `saucectl` must clone the suite to run each shard index for each emulator and device, so 8 jobs in total for the suite.
+When sharding is configured, `saucectl` automatically creates the sharded jobs for each of the devices defined for the suite based on the number of shards you specify. For example, for a suite testing a single Emulator version that specifies 2 shards, `saucectl` clones the suite and runs one shard index on the first suite, and the other shard index on the identical clone suite. For a suite that is testing 2 Emulator version and two real devices, `saucectl` must clone the suite to run each shard index for each Emulator and device, so 8 jobs in total for the suite.
 
 :::note
 Espresso may not distribute tests evenly across the number of shards specified, especially if the number of shards is near or equivalent to the number of tests in the suite. In such cases, it is not unusual to see jobs with no tests at all because they were already executed in other shard jobs.
@@ -1078,7 +1078,7 @@ The flag `clearPackageData` has to be used in conjunction with `useTestOrchestra
 
 Run each of your tests in its own Instrumentation instance to remove most of the app's shared state from the device CPU and memory between tests. Use this setting in conjunction with `clearPackageData: true` to completely remove all shared state.
 
-When set, the instrumentation starts with [Test Orchestrator version 1.1.1](https://developer.android.com/training/testing/junit-runner#using-android-test-orchestrator) in use. This property applies only to real devices, not emulators.
+When set, the instrumentation starts with [Test Orchestrator version 1.1.1](https://developer.android.com/training/testing/junit-runner#using-android-test-orchestrator) in use. This property applies only to real devices, not Emulators.
 
 ```yaml
   useTestOrchestrator: true
