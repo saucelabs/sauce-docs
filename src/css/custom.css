@@ -525,11 +525,13 @@ html[data-theme="dark"] .card:hover {
 
 .column-left {
     width: 48.5%;
+    text-align: left;
 }
 
 .column-right {
     width: 48.5%;
     margin-bottom: 1rem;
+    text-align: left;
 }
 
 /* Information badges below */
@@ -757,7 +759,7 @@ html[data-theme="dark"] .hero--primary {
 .hero__title,
 .hero__subtitle,
 .hero__popular-searches {
-    color: var(--inline-link);
+    color: var(--dark-500);
     font-family: var(--font-family-sans-serif);
     text-align: left;
 }

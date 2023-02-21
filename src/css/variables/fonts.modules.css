@@ -1,4 +1,7 @@
-@import "../fonts/stylesheet.css";
+/* @import "./src/css/fonts/AeonikFono-Full-Family-Web/css/stylesheet-family-support.css";
+@import "./src/css/fonts/AeonikFono-Full-Family-Web/css/stylesheet-individual-weights.css";
+@import "./src/css/fonts/AeonikMono-Full-Family-Web/css/stylesheet-family-mono-support.css";
+@import "./src/css/fonts/AeonikMono-Full-Family-Web/css/stylesheet-individual-mono-weights.css"; */
 
 /*
  * Google backup
@@ -14,7 +17,8 @@
 */
 
 :root {
-    --font-family-sans-serif: "AeonikTRIAL", "DM Sans", sans-serif;
+    --font-family-sans-serif: "Aeonik Fono Air", "Aeonik Mono Air", "DM Sans",
+        sans-serif;
     --font-family-serif: Georgia, "Times New Roman", Times, serif;
     --font-family-monospace: "DM Mono", monospace;
     --font-family-base: --font-family-sans-serif;
