@@ -940,7 +940,7 @@ Once you've generated your tests in the Composer, you can manage them from the *
 - Pencil icon: Edit the test (opens the **Compose** tab)
 - Play icon: Run the test manually
 - Calendar icon: Open the [test scheduler](/api-testing/schedule-test)
-- load icon: Opens the load testing page
+- Gauge icon: Opens the load testing page
 - Trash icon: Delete the test
 
 ## More Information
