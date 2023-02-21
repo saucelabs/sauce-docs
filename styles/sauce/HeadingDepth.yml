@@ -1,0 +1,8 @@
+# Checks that there are no headings greater than 4 levels.
+extends: existence
+message: "Refactor the section or page to avoid headings greater than H5."
+link: https://docs.saucelabs.com/contributing/style-guide/#headers
+level: warning
+scope: raw
+raw:
+  - '(?<=\n)#{5,}\s.*'

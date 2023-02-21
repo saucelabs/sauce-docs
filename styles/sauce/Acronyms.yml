@@ -1,0 +1,65 @@
+# Checks that acronyms are spelled out on first reference.
+extends: conditional
+message: "Spell out '%s', if it's unfamiliar to the audience."
+link: https://wiki.saucelabs.com/display/PM/Technical+Documentation+Style+Guide#TechnicalDocumentationStyleGuide-Acronyms
+level: suggestion
+ignorecase: false
+# Ensures that the existence of 'first' implies the existence of 'second'.
+first: '\b([A-Z]{3,5})\b'
+second: '(?:\b[A-Z][a-z]+ )+\(([A-Z]{3,5})\)'
+# ... with the exception of these:
+exceptions:
+  - API
+  - APIF
+  - APIT
+  - CLI
+  - CPU
+  - CET
+  - CEST
+  - CSS
+  - CSV
+  - DEBUG
+  - DOM
+  - DPI
+  - FAQ
+  - GET
+  - GPU
+  - GUI
+  - HTML
+  - HTTP
+  - HTTPS
+  - IDE
+  - JAR
+  - JSON
+  - JSX
+  - LESS
+  - LLDB
+  - NET
+  - NOTE
+  - OSS
+  - PATH
+  - PDF
+  - PDT
+  - PHP
+  - POST
+  - PST
+  - RAM
+  - REPL
+  - RSA
+  - SCM
+  - SDK
+  - SQL
+  - SSH
+  - SSL
+  - SVG
+  - TBD
+  - TCP
+  - URI
+  - URL
+  - USB
+  - UTF
+  - XCUI
+  - XML
+  - XSS
+  - YAML
+  - ZIP
