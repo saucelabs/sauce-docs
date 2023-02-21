@@ -49,7 +49,7 @@ class Resources extends Component {
                 <div className='column-right'>
                     <img
                         className='landpage-resources'
-                        src='img/dev-persona.png'
+                        src='img/low-code-tier-1.png'
                     />
                 </div>
             </div>
