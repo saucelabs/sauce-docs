@@ -1,0 +1,16 @@
+# Checks for words that we don't use.
+extends: existence
+message: "Avoid usage of '%s'."
+ignorecase: true
+level: suggestion
+tokens:
+  - a.k.a.
+  - aka
+  - at this point
+  - note that
+  - please
+  - quite
+  - eventually
+  - as of this writing
+  - and so on
+  - etc.
