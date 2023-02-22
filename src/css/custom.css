@@ -81,11 +81,11 @@ html[data-theme="dark"] .breadcrumbs__item--active .breadcrumbs__link {
 }
 
 .table-of-contents__link--active {
-    color: var(--ifm-menu-color-active);
+    color: var(--inline-link);
     font-weight: 700;
 }
 .table-of-contents__link:hover {
-    color: var(--ifm-menu-color-active);
+    color: var(--inline-link);
     font-weight: 700;
 }
 
@@ -498,9 +498,13 @@ p {
     background-color: var(--green-500);
 }
 
+html[data-theme="dark"] .card {
+    background-color: var(--dark-500);
+    color: var(--neutral-100);
+}
+
 html[data-theme="dark"] .card:hover {
-    border-top: 4px solid var(--green-500);
-    transition: none;
+    background-color: var(--dark-400);
 }
 
 .container {
@@ -546,10 +550,13 @@ html[data-theme="dark"] .card:hover {
 
 .sauceDBlue {
     background: var(--green-500);
-    color: var(--dark-100);
     font-weight: 750;
     padding: 0.2rem;
     border-radius: 4px;
+}
+
+html[data-theme="dark"] .sauceDBlue {
+    color: var(--dark-500);
 }
 
 .sauceMint {
@@ -750,7 +757,7 @@ html[data-theme="dark"] div.new-search button.DocSearch.DocSearch-Button:hover {
 }
 
 .hero--primary {
-    background-color: var(--neutral-100);
+    background-color: var(--neutral-200);
 }
 html[data-theme="dark"] .hero--primary {
     background-color: var(--dark-500);
@@ -833,7 +840,7 @@ html[data-theme="dark"] .main__container-quickstart {
 
 .main__container-community {
     padding: 4px 0 4px 0;
-    background: var(--green-100);
+    background: var(--neutral-200);
 }
 html[data-theme="dark"] .main__container-community {
     background: var(--dark-500);
