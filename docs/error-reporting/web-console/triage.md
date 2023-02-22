@@ -9,7 +9,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Triage
 
 When opening the Web Console, you will default to the Triage tool for the selected project. The Triage tool displays crashes or errors grouped by fingerprint (a hash that is generated when processing crashes through Backtrace's deduplication algorithms). The fingerprint is used to signify a unique error with a common root cause. The Triage tool allows you to filter down which errors (fingerprints) you want to view, provides aggregate information about the fingerprint, and enables actions to take to support resolution of the fingerprint. The following actions are available for users to take on fingerprints:
 
@@ -68,7 +67,7 @@ The fingerprint can be assigned to a user in Backtrace to indicate there is a us
 
 ### Link to Issue
 
-A user can create a new issue in a 3rd party system like Jira or GitHub issues that is populated with some information about the fingerprint, and a link back to more details about the fingerprint in Backtrace. This action also sets the state of the fingerprint to In Progress. Find more details in [Integrating with Jira and Other Issue Tracking Software](https://support.backtrace.io/hc/en-us/articles/360040515891-Integrating-with-Jira-and-Other-Issue-Tracking-Software).
+A user can create a new issue in a 3rd party system like Jira or GitHub issues that is populated with some information about the fingerprint, and a link back to more details about the fingerprint in Backtrace. This action also sets the state of the fingerprint to In Progress.
 
 ### Comments and tags
 
