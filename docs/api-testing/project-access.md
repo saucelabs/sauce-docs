@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Project settings allow you to view the access to projects that was defined when the project was created, and configure project details such as name, description, and tags, and delete projects. You can also add email addresses to receive notifications about tests in a project.
 
-<img src={useBaseUrl('img/api-fortress/2021/12/projectSettings.png')} alt="Project settings" width="600" />
+<img src={useBaseUrl('img/api-testing/projectSettings.png')} alt="Project settings" width="400" />
 
 ## What You'll Need
 
