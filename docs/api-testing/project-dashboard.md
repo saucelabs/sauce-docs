@@ -39,15 +39,15 @@ Here's a breakdown of what each report contains:
 
 ## Dashboard
 
-The API Testing Dashboard &#8212; accessible from with a Project &#8212; displays metrics, logs, and builds, a centralized test management tool that simplifies collaboration and reporting.
+The API Testing Dashboard &#8212; accessible from within a Project &#8212; displays metrics, logs, and builds, a centralized test management tool that simplifies collaboration and reporting.
 
 ### Test Logs
 
 1. Log in to Sauce Labs, then click **API Testing**.
 2. Click on any Project.
 3. Click the **Dashboard** tab.
-4. Select the **Logs** radio button.
-5. Select desired filters to find the Test(s) you're looking for, then click **Apply**. Filters include, but are not limited to: date range, mode (Monitoring (Scheduled) Tests or On-Demand Tests), tag(s), and agent.<br/><img src={useBaseUrl('img/api-fortress/2021/02/logsFilters.png')} alt="Dashboard Logs Filters"/>
+4. Select the **Logs** tab.
+5. Select desired filters to find the Test(s) you're looking for, then click **Apply**. Filters include, but are not limited to: date range, mode (Monitoring (Scheduled) Tests or On-Demand Tests), tag(s), and agent.<br/><img src={useBaseUrl('img/api-testing/logsFilters.png')} alt="Dashboard Logs Filters"/>
 
 ### Test Metrics
 
@@ -56,8 +56,8 @@ To view Test performance metrics (latency and fetch):
 1. Log in to Sauce Labs, then click **API Testing**.
 2. Click on any Project.
 3. Click the **Dashboard** tab.
-4. Select the **Metrics** radio button.
-5. Select desired filters to find the Test(s) you're looking for, then click **Apply**. Filters include date range and footprint (the request URL).<br/><img src={useBaseUrl('img/api-fortress/2021/02/metricsFilters.png')} alt="Dashboard Metrics Filters"/>
+4. Select the **Metrics** tab.
+5. Select desired filters to find the Test(s) you're looking for, then click **Apply**. Filters include date range and footprint (the request URL).<br/><img src={useBaseUrl('img/api-testing/metricsFilters.png')} alt="Dashboard Metrics Filters"/>
 
 ### Test Build Reports
 
@@ -66,9 +66,9 @@ A _Build_ is a collection of test results and metrics associated with a given bu
 1. Log in to Sauce Labs, then click **API Testing**.
 2. Click on any Project.
 3. Click the **Dashboard** tab.
-4. Select the **Build** radio button.
-5. Set the date and/or build ID filters, if desired, to find the Test(s) you're looking for. Then click **Apply**.<br/><img src={useBaseUrl('img/api-fortress/2021/02/builds.png')} alt="Dashboard Builds" width="400"/>
-6. Click on any line item below to view a summary report for that Build.<img src={useBaseUrl('img/api-fortress/2021/02/builds1.png')} alt="Dashboard Builds"/><br/><img src={useBaseUrl('img/api-fortress/2021/02/builds2.png')} alt="Dashboard Builds"/>
+4. Select the **Build** tab.
+5. Set the date and/or build ID filters, if desired, to find the Test(s) you're looking for. Then click **Apply**.<br/><img src={useBaseUrl('img/api-testing/buildsFilters.png')} alt="Dashboard Builds" width="400"/>
+6. Click on any line item below to view a summary report for that Build.<img src={useBaseUrl('img/api-testing/builds1.png')} alt="Dashboard Builds"/><br/><img src={useBaseUrl('img/api-testing/builds2.png')} alt="Dashboard Builds"/>
    The report contains details such as the build ID, list of Tests belonging to that build, date/time, Projects involved, successful tests, and failed tests.
 7. Under the **Event Details** column, click **Open Report Document** to see the results and metrics for each specific test that has been executed in the build.<br/><img src={useBaseUrl('img/api-fortress/2021/02/builds3.png')} alt="Dashboard Builds"/>
 
