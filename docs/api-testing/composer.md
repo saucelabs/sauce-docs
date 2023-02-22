@@ -20,7 +20,7 @@ The API Testing Composer enables you to quickly generate API functional tests (n
 
 1. In Sauce Labs, click **API Testing**.
 
-<img src={useBaseUrl('/img/api-testing/api-testing-nav.png')} alt="Navigating to API Testing"/>
+<img src={useBaseUrl('/img/api-testing/apit-nav-rebrend.png')} alt="Navigating to API Testing" width="200"/>
 
 2. On the **Projects** page:
 
@@ -935,11 +935,12 @@ These buttons switch between the Input Set and Unit views.<br/>
 ## Test Options
 
 Once you've generated your tests in the Composer, you can manage them from the **Tests** tab. In your project, on the **Tests** tab, hover your mouse over the test line item. You'll see icons that allow you to edit, run, schedule, or delete a test.<br/>
-<img src={useBaseUrl('img/api-fortress/2021/02/scheduleIcons.png')} alt="Schedules Icons"/>
+<img src={useBaseUrl('img/api-testing/test-options.png')} alt="Test Options Icons"/>
 
 - Pencil icon: Edit the test (opens the **Compose** tab)
 - Play icon: Run the test manually
 - Calendar icon: Open the [test scheduler](/api-testing/schedule-test)
+- Gauge icon: Opens the load testing page
 - Trash icon: Delete the test
 
 ## More Information
