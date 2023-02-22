@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Aeonik Mono Air';
+    src: url('AeonikMono-Air.woff2') format('woff2'),
+        url('AeonikMono-Air.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik Mono Thin';
+    src: url('AeonikMono-Thin.woff2') format('woff2'),
+        url('AeonikMono-Thin.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik Mono Light';
+    src: url('AeonikMono-Light.woff2') format('woff2'),
+        url('AeonikMono-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik Mono';
+    src: url('AeonikMono-Regular.woff2') format('woff2'),
+        url('AeonikMono-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik Mono Medium';
+    src: url('AeonikMono-Medium.woff2') format('woff2'),
+        url('AeonikMono-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik Mono';
+    src: url('AeonikMono-Bold.woff2') format('woff2'),
+        url('AeonikMono-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aeonik Mono Black';
+    src: url('AeonikMono-Black.woff2') format('woff2'),
+        url('AeonikMono-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
