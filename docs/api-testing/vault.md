@@ -19,11 +19,11 @@ There are two types of API Testing vaults, the **Company Vault** and a project-s
 
 ### Company Vault
 
-The **Company Vault** is where you can store variables and test code snippets to use across all of your projects. You can access this tab from your API Testing home page, where all of your projects are listed.<br/><img src={useBaseUrl('img/api-fortress/2021/04/fromDashboard.png')} alt="Access Vault from Dashboard" width="400" />
+The **Company Vault** is where you can store variables and test code snippets to use across all of your projects. You can access this tab from your API Testing home page, where all of your projects are listed.<br/><img src={useBaseUrl('img/api-testing/companyVault.png')} alt="Access Company Vault" width="400" />
 
 ### Project Vault
 
-The project **Vault**, which you can access from within a project, is where you can store project-specific variables, test code snippets, and files.<br/><img src={useBaseUrl('img/api-fortress/2021/04/vaultFromProject.png')} alt="Access Vault from Project View" />
+The project **Vault**, which you can access from within a project, is where you can store project-specific variables, test code snippets, and files.<br/><img src={useBaseUrl('img/api-testing/projectVault.png')} alt="Access Vault from Project View" width="300"/>
 
 ## Variables
 
@@ -53,7 +53,6 @@ Variables marked as sensitive are always excluded from Vault exports.
 
 In the following example test report, the token variable has been marked as sensitive in Vault and appears as obfuscated in the report.
 
-<img src={useBaseUrl('img/api-testing/sensitive-data.png')} alt="data obfuscated in report" width="600"/>
 <img src={useBaseUrl('img/api-testing/sensitive-data2.png')} alt="data obfuscated in report" width="600"/>
 
 ### Create a Variable
