@@ -36,7 +36,7 @@ html[data-theme="dark"] .quickstart a:hover {
 
 .alice-carousel__next-btn-item {
     font-size: 2.5rem;
-    color: var(--primary-button);
+    color: var(--inline-link);
 }
 
 /* .alice-carousel__prev-btn,
@@ -61,10 +61,10 @@ html[data-theme="dark"] .alice-carousel__dots-item {
 }
 
 html[data-theme="light"] .alice-carousel__dots-item:hover {
-    background-color: var(--primary-button);
+    background-color: var(--inline-link);
 }
 html[data-theme="dark"] .alice-carousel__dots-item:hover {
-    background-color: var(--primary-button);
+    background-color: var(--inline-link);
 }
 
 /* html[data-theme="light"] .alice-carousel__dots-item:not(:active) {
@@ -75,11 +75,11 @@ html[data-theme="dark"] .alice-carousel__dots-item:not(:active) {
 } */
 
 html[data-theme="light"] .alice-carousel__next-btn [data-area]::after {
-    color: var(--primary-button);
+    color: var(--inline-link);
 }
 
 html[data-theme="light"] .alice-carousel__prev-btn [data-area]::after {
-    color: var(--primary-button);
+    color: var(--inline-link);
 }
 
 html[data-theme="dark"] .alice-carousel__next-btn [data-area]::after {
