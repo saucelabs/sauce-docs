@@ -10,5 +10,5 @@
 html[data-theme="dark"] .beamer-navbar-bell {
     /* filter: invert(100%) sepia(0%) saturate(7475%) hue-rotate(245deg)
         brightness(112%) contrast(99%); */
-    filter: var(--coral-100);
+    filter: invert(1);
 }
