@@ -711,6 +711,7 @@ module.exports = {
                                     collapsed: true,
                                     items: [
                                         'basics/sso/configuring-sso-in-onelogin',
+                                        'basics/sso/configuring-sso-in-google',
                                     ],
                                 },
                                 'basics/sso/logging-in-via-sso',
