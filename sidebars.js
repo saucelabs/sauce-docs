@@ -705,6 +705,14 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'basics/sso/setting-up-sso',
+                                {
+                                    type: 'category',
+                                    label: 'Configuring Identity Providers',
+                                    collapsed: true,
+                                    items: [
+                                        'basics/sso/configuring-sso-in-onelogin',
+                                    ],
+                                },
                                 'basics/sso/logging-in-via-sso',
                             ],
                         },
