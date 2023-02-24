@@ -1,7 +1,7 @@
 /* Callout boxes / admonition styles */
 
 .alert a {
-    color: var(--green-500);
+    color: var(--inline-link);
     text-decoration: none;
     cursor: pointer;
     font-weight: bold;
@@ -9,6 +9,10 @@
 
 .alert a:hover {
     text-decoration: underline;
+}
+
+html[data-theme="dark"] .alert a {
+    color: var(--green-500);
 }
 
 html[data-theme="dark"] .admonition-tip p a {
