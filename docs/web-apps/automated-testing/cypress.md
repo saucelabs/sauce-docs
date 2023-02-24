@@ -197,7 +197,7 @@ We recommend that you avoid the use of special characters when naming your tests
 :::
 
 :::caution Cypress 11+
-A bug impacting Cypress 11+ makes Cypress UI to display a browser which is not the one actually used.
+A bug impacting Cypress 11+ is causing the Cypress UI to display a browser that is not the one actually used.
 Edge is shown on Windows, and Webkit is shown on macOS.
 
 The browser selected in your configuration file is used, and the console log of Cypress is still correct.
