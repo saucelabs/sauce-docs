@@ -202,7 +202,7 @@ Edge is shown on Windows, and Webkit is shown on macOS.
 
 The browser selected in your configuration file is used, and the console log of Cypress is still correct.
 
-The issue has been reported to cypress.
+The issue has been reported to Cypress.
 See: https://github.com/cypress-io/cypress/issues/25755 for more information.
 :::
 
