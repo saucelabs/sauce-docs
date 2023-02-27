@@ -70,13 +70,13 @@ function Home() {
                             </a>
                             <a href='/dev/api/'>
                                 <Button
-                                    className='button-dark'
+                                    className='button-light'
                                     name='Sauce REST API'
                                 />
                             </a>
                             <a href='/dev/cli/'>
                                 <Button
-                                    className='button-dark'
+                                    className='button-light'
                                     name='Sauce CLI'
                                 />
                             </a>
@@ -85,7 +85,7 @@ function Home() {
                     <div className='column-right'>
                         <img
                             className='landpage-hero'
-                            src='img/dev-resources-hero.png'
+                            src='img/developer-tier-1.png'
                         />
                     </div>
                 </div>

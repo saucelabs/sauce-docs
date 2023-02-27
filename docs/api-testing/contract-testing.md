@@ -61,7 +61,7 @@ After you've run your tests as part of a build (i.e., as part of your CI pipelin
 
 With Sauce Labs API Testing, you'll test the API consumer (client) side in a protected, static environment, where tests are run against mocked (not live) APIs. This allows contract tests to compare isolated API responses to the contract for immediate attention if something is wrong.
 
-1. You'll first need to [generate a webhook URL](/api-testing/integrations/apifctl-cicd-integration/#creating-webhooks) for your API Testing Project, if you don't have one already.
+1. You'll first need to [generate a webhook URL](/api-testing/integrations/apitesting-saucectl-integration/#step-1-create-a-webhook) for your API Testing Project, if you don't have one already.
 
 2. From a command-line terminal, start [Piestry](/api-testing/mocking/), our API mocking server, by issuing the launch command below. The `--logger` value will be the webhook URL you generated in the previous step, appended with `/insights/events/_contract`.
 

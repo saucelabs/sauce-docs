@@ -373,9 +373,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
                     "80d69d16ebdb4c018cc9d81ea911761a"
                 ],
                 "org_ids": []
-            }
-        }
-        "count": 1,
+            },
+            "count": 1,
             "access": {...},
             "settings": {
                 "proxy": {
