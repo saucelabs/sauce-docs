@@ -4,6 +4,15 @@ title: Configuring Active Directory Federation Services (AD FS)
 sidebar_label: Configuring Active Directory Federation Services (AD FS)
 ---
 
+<p><span className="sauceGold">Deprecated</span></p>
+
+:::caution
+This SSO flow has been `deprecated`. Use this documentation only if your organization was not migrated to the new SSO.
+
+If you want to set up a new SSO integration, please use [the new SSO implementation](/basics/sso/setting-up-sso).
+:::
+<br/>
+
 These instructions are for setting up Microsoft's Active Directory Federated Service (AD FS) as an Identity Provider for Sauce Labs SSO using Windows Server 2012 R2 and ADFS 3.0. ADFS 3.0 is also supported on Windows Server 2008R2, but may require additional configuration for that operating system.
 
 ## Before You Begin
@@ -36,4 +45,4 @@ Microsoft has an extensive library of how-to and step-by-step guides for AD FS i
 18. In the **Configure Claim Rule** screen, under **Attribute Score**, select **E-mail Addresses**.
 19. In the **Configure Claim Rule** screen, under **Mapping of LDAP attributes to outgoing claim types**, select **Email addresses** for **LDAP Attribute**, and **Name ID** for **Outgoing Claim Type**, and then click **Finish**.
 
-You can now check to make sure that Sauce Labs has been added as a Relying Party Trust by going to the AD FS directory on you server, and then navigating to **Trust Relationships > Relying Party Trusts**, where you should see a listing for Sauce Labs. You can then finish configuring Sauce Labs SSO by following the instructions in [Single Sign-On Settings](/basics/acct-team-mgmt/org-settings). If you need more assistance setting up SSO, contact help@saucelabs.com.
+You can now check to make sure that Sauce Labs has been added as a Relying Party Trust by going to the AD FS directory on you server, and then navigating to **Trust Relationships > Relying Party Trusts**, where you should see a listing for Sauce Labs. You can then finish configuring Sauce Labs SSO by following the instructions in [Single Sign-On Settings (Deprecated Flow)](/basics/acct-team-mgmt/org-settings/#single-sign-on-settings-deprecated-flow). If you need more assistance setting up SSO, contact help@saucelabs.com.

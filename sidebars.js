@@ -701,13 +701,22 @@ module.exports = {
                         },
                         {
                             type: 'category',
-                            label: 'Single Sign-On',
+                            label: 'Single Sign-On (SAML SSO)',
                             collapsed: true,
                             items: [
-                                'basics/sso-hub',
-                                'basics/sso/setting-up-single-sign-on',
-                                'basics/sso/config-adfs',
-                                'basics/sso/config-okta',
+                                'basics/sso/setting-up-sso',
+                                'basics/sso/logging-in-via-sso',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'Single Sign-On (Deprecated Flow)',
+                            collapsed: true,
+                            items: [
+                                'basics/sso-deprecated/sso-hub',
+                                'basics/sso-deprecated/setting-up-single-sign-on',
+                                'basics/sso-deprecated/config-adfs',
+                                'basics/sso-deprecated/config-okta',
                             ],
                         },
                         {

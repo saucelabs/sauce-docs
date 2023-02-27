@@ -166,12 +166,20 @@ If you use any of the following and your data center is EU Central, you need to 
 
 ### Single Sign-On (SSO) Configuration
 
+<p><span className="sauceGold">Deprecated</span></p>
+
+:::caution
+This SSO flow has been `deprecated`. Use this documentation only if your organization was not migrated to the new SSO.
+
+If you want to set up a new SSO integration, please use [the new SSO implementation](/basics/sso/setting-up-sso).
+:::
+
 If you're using SSO with Sauce Labs, your data center determines the appropriate URLs for:
 
 - Signing/Encryption Certificate - This URL shows the certificate metadata you need to provide to your service provider to authenticate with Sauce Labs.
 - Entity AssertionConsumeURL - This URL is the endpoint where your service provider gets SAML assertions from Sauce Labs.
 
-For details about setting up SSO for Sauce Labs, see [Setting Up Single Sign-On](/basics/sso/setting-up-single-sign-on).
+For details about setting up SSO for Sauce Labs, see [Setting Up Single Sign-On (Deprecated Flow)](/basics/sso-deprecated/setting-up-single-sign-on).
 
 #### US West Data Center
 
