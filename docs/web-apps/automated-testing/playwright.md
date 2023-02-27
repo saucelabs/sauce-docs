@@ -70,6 +70,17 @@ values={[
     </tr>
     <tbody>
       <tr>
+        <td rowspan='2'>1.31.1</td>
+        <td><b>macOS:</b> 11.00, 12</td>
+        <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
+        <td rowspan='2'>Mar 01, 2024</td>
+      </tr>
+      <tr>
+        <td><b>Windows:</b> 10, 11</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
         <td rowspan='2'>1.29.2</td>
         <td><b>macOS:</b> 11.00, 12</td>
         <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
