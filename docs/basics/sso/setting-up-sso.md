@@ -20,17 +20,26 @@ Sauce Labs supports Identity Provider (IdP)-initiated and Service Provider (SP)-
 First, set up a new SAML application in your [Identity Provider (IdP)](#setting-up-identity-provider). Next, enable and configure SSO in [Sauce Labs Team Management Panel](#integrating-with-sauce-labs-service-provider).
 
 :::note
-SSO at Sauce Labs is global. In other words, it does not matter in which region 
-you set it up. Unlike to the [old SSO implementation](/basics/sso-deprecated/setting-up-single-sign-on), which has been deprecated.
+SSO at Sauce Labs is global. In other words, it does not matter in which region you set it up. Unlike to the [former SSO implementation](/basics/sso-deprecated/setting-up-single-sign-on), which has been deprecated.
 :::
 
 ## Setting Up Identity Provider
 
+:::tip
+We provide preconfigured SAML applications for some identity providers. They allow you to set up SSO integration with a few clicks. Choose your provider and follow the configuration steps:
+* [OneLogin](/basics/sso/configuring-sso-in-onelogin)
+:::
+
+If you use a custom identity provider or your provider does not appear in the list above, please complete the manual setup:
+
 1. Obtain SAML metadata from Sauce Labs Service Provider, which is served under [this link](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp).
-2. Log in to your IdP admin account, such as Okta, OneLogin, or Microsoft Azure Active Directory, etc.
+2. Log in to your identity provider administrator panel.
+   - For example in Okta, you log into your account and click the **Admin** button.
+      <img src={useBaseUrl('img/basics/sso/setup-sso-idp-admin-login.png')} alt="IdP Admin Login" width="900" />
+   
 3. Create a new SAML application.
    - In the IdP, go to the "Applications" or "Integrations" section and create a new SAML application.
-   - Follow the instructions from your IdP to provide the Sauce Labs SAML metadata obtained in step 1. If your IdP does not allow uploading service provider metadata, set up the integration manually using the information provided [in the paragraphs below](#service-provider-saml-requirements).
+   - Follow the instructions from your IdP to provide the Sauce Labs SAML metadata obtained in Step 1. If your IdP does not allow uploading service provider metadata, set up the integration manually using [Service Provider SAML Requirements](#service-provider-saml-requirements).
 4. Export SAML metadata of your new SAML application.
    - It will be used to set up the SSO at Sauce Labs in [Team Management Panel](#integrating-with-sauce-labs-service-provider).
 
@@ -38,15 +47,15 @@ you set it up. Unlike to the [old SSO implementation](/basics/sso-deprecated/set
 
 Here is the list of settings that are required by Sauce Labs Service Provider:
 
-| Setting                      | Value                                                                  |
-| ---------------------------- | ---------------------------------------------------------------------- |
-| Entity ID                    | `https://accounts.saucelabs.com/sp`                                    |
-| Audience URI                 | `https://accounts.saucelabs.com/sp`                                    |
-| Assertion Consumer Service   | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp` |
-| Recipient URL                | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp` |
-| Destination URL              | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp` |
-| Name ID format               | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`               |
-| Binding                      | `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`                       |
+| Setting                    | Value                                                                  |
+| -------------------------- | ---------------------------------------------------------------------- |
+| Entity ID                  | `https://accounts.saucelabs.com/sp`                                    |
+| Audience URI               | `https://accounts.saucelabs.com/sp`                                    |
+| Assertion Consumer Service | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp` |
+| Recipient URL              | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp` |
+| Destination URL            | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp` |
+| Name ID format             | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`               |
+| Binding                    | `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`                       |
 
 ### Signature
 
