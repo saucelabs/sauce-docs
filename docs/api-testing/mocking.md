@@ -88,13 +88,13 @@ In the below example, the `x-sauce-cond` extension tells the mock to take the `2
 
 ```yaml
 responses:
-'200':
-x-sauce-cond:
-op: matches
-collection: headers
-key: authorization
-value: Basic .*
-priority: 10
+  '200':
+    x-sauce-cond:
+    op: matches
+    collection: headers
+    key: authorization
+    value: Basic .*
+    priority: 10
 ```
 
 Items with no `x-sauce-cond` will be picked up last and treated as fallback.
@@ -103,34 +103,34 @@ On the examples:
 
 ```yaml
 content:
-application/json:
-schema:
-$ref: '#/components/schemas/user'
-examples:
-sample_user_1:
-x-sauce-cond:
-op: equals
-collection: uriParams
-key: id
-value: abc
-priority: 10
-externalValue: myspec_examples/sample_user_1.json
-sample_user_2:
-x-sauce-cond:
-op: equals
-collection: uriParams
-key: id
-value: def
-priority: 20
-externalValue: myspec_examples/sample_user_2.json
-sample_user_3:
-x-sauce-cond:
-op: equals
-collection: uriParams
-key: id
-value: ghi
-priority: 30
-externalValue: myspec_examples/sample_user_3.json
+  'application/json':
+    schema:
+      $ref: '#/components/schemas/user'
+    examples:
+      sample_user_1:
+        x-sauce-cond:
+          op: equals
+          collection: uriParams
+          key: id
+          value: abc
+          priority: 10
+        externalValue: myspec_examples/sample_user_1.json
+      sample_user_2:
+        x-sauce-cond:
+          op: equals
+          collection: uriParams
+          key: id
+          value: def
+          priority: 20
+        externalValue: myspec_examples/sample_user_2.json
+      sample_user_3:
+        x-sauce-cond:
+          op: equals
+          collection: uriParams
+          key: id
+          value: ghi
+          priority: 30
+        externalValue: myspec_examples/sample_user_3.json
 ```
 
 Pick one specific example based on the value of a URI param.
@@ -139,17 +139,17 @@ If you have to add multiple conditions you can use `and` and `or` conditions. Yo
 
 ```yaml
 x-sauce-cond:
-op: and
-priority: 10
-conditions:
-- op: matches
-  collection: headers
-  key: authorization
-  value: Basic .*
-- op: equals
-  collection: headers
-  key: key
-  value: ABC123
+  op: and
+  priority: 10
+  conditions:
+  - op: matches
+    collection: headers
+    key: authorization
+    value: Basic .*
+  - op: equals
+    collection: headers
+    key: key
+    value: ABC123
 ```
 
 Mind that `priority` should be at the top level instruction.
@@ -160,16 +160,16 @@ If you don't want to add examples because they're not useful to you, that's ok. 
 
 ```yaml
 releaseNotes:
-type: object
-required:
-- text
-- contact
-properties:
-text:
-type: string
-contact:
-type: string
-x-sauce-faker: internet.email
+  type: object
+  required:
+   - text
+   - contact
+  properties:
+   text:
+    type: string
+   contact:
+    type: string
+    x-sauce-faker: internet.email
 ```
 
 Learn more about the [Faker library](https://fakerjs.dev/guide/).
@@ -188,21 +188,25 @@ Run Piestry with `--validate-examples` to activate the validation of examples. O
 
 ```json
 {
-"errors": [
-{
-"argument": ["boolean"],
-"instance": "false",
-"message": "is not of a type(s) boolean",
-"name": "type",
-"path": ["is_admin"],
-"property": "instance.is_admin",
-"schema": {
-"type": "boolean"
-},
-"stack": "instance.is_admin is not of a type(s) boolean"
-}
-],
-"message": "The example does not match the schema"
+   "errors":[
+      {
+         "argument":[
+            "boolean"
+         ],
+         "instance":"false",
+         "message":"is not of a type(s) boolean",
+         "name":"type",
+         "path":[
+            "is_admin"
+         ],
+         "property":"instance.is_admin",
+         "schema":{
+            "type":"boolean"
+         },
+         "stack":"instance.is_admin is not of a type(s) boolean"
+      }
+   ],
+   "message":"The example does not match the schema"
 }
 ```
 
@@ -216,22 +220,26 @@ Run it with the `--validate-request` switch to activate the validation of inboun
 
 ```json
 {
-"collection": "queryParams",
-"errors": [
-{
-"argument": ["integer"],
-"instance": "aa",
-"message": "is not of a type(s) integer",
-"name": "type",
-"path": [],
-"property": "instance",
-"schema": {
-"type": "integer"
-},
-"stack": "instance is not of a type(s) integer"
-}
-],
-"message": "Wrong field types"
+   "collection":"queryParams",
+   "errors":[
+      {
+         "argument":[
+            "integer"
+         ],
+         "instance":"aa",
+         "message":"is not of a type(s) integer",
+         "name":"type",
+         "path":[
+            
+         ],
+         "property":"instance",
+         "schema":{
+            "type":"integer"
+         },
+         "stack":"instance is not of a type(s) integer"
+      }
+   ],
+   "message":"Wrong field types"
 }
 ```
 

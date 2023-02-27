@@ -96,7 +96,7 @@ To generate an RSA public and private key pair, run the following commands in yo
    ```bash
    openssl genrsa -out jira_privatekey.pem 1024
    ```
-1. Create an X509 certificate:
+1. Create an X.509 certificate:
    ```bash
    openssl req -newkey rsa:1024 -x509 -key jira_privatekey.pem -out jira_publickey.cer -days 365
    ```
@@ -267,6 +267,10 @@ If a linked Jira issue is marked as resolved and the Fix Versions field is appli
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-resolve-until.png')} alt="Shows how to configure the Resolved Until behavior." width="700" />
 
 To set up this feature, the Backtrace version attribute has to be mapped to a Jira field (the default is Fix Versions). Select a version attribute in Backtrace and the Jira field that contains the version with fixes. To isolate the version number, a regex needs to be applied to remove extraneous information.
+
+## Issue Based Alerts
+
+To further automate your workflow, you can configure automated actions for your Jira workflow integration with issue based alerts. Use issue based alerts to automatically generate issues in Jira based on the conditions and frequency that you specify. For more information, see [Issue Based Alerts](/error-reporting/project-setup/alerts/#issue-based-alerts).
 
 ## Troubleshooting
 

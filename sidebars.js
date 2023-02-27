@@ -701,7 +701,7 @@ module.exports = {
                         },
                         {
                             type: 'category',
-                            label: 'Single Sign-On (SSO)',
+                            label: 'Single Sign-On (SAML SSO)',
                             collapsed: true,
                             items: [
                                 'basics/sso/setting-up-sso',
@@ -1101,7 +1101,8 @@ module.exports = {
                     label: 'Integrations',
                     collapsed: true,
                     items: [
-                        'api-testing/integrations/apifctl-cicd-integration',
+                        'api-testing/integrations/apitesting-saucectl-integration',
+                        'api-testing/integrations/yaml',
                         'api-testing/integrations/pagerduty-webhooks',
                     ],
                 },

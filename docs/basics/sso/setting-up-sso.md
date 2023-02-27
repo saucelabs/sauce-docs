@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <p><span className="sauceDBlue">Enterprise Plans only</span></p>
 
-Sauce Labs supports Identity Provider (IdP)-initiated and Service Provider (SP)-initiated Single Sign-On (SSO). This feature allows your authorized employees to access Sauce Labs in a moderated fashion, as an alternative to using credentials. SSO is available to invoiced accounts, and can only be implemented by the organization admin of the account. If you are an invoice customer, the following sections will guide you on how to set up SSO.
+Sauce Labs supports Identity Provider (IdP)-initiated and Service Provider (SP)-initiated Single Sign-On (SSO) via SAML 2.0 protocol. This feature allows your authorized employees to access Sauce Labs in a moderated fashion, as an alternative to using credentials. SAML SSO is available to invoiced accounts, and can only be implemented by the organization admin of the account. If you are an invoice customer, the following sections will guide you on how to set up SAML SSO.
 
 ## What You'll Need
 
