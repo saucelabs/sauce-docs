@@ -196,6 +196,16 @@ If you would prefer to stay in Cypress, try the new [Cypress Sauce Labs Plugin](
 We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
 :::
 
+:::caution Cypress 11+
+A bug impacting Cypress 11+ is causing the Cypress UI to display a browser that is not the one actually used.
+Edge is shown on Windows, and Webkit is shown on macOS.
+
+The browser selected in your configuration file is used, and the console log of Cypress is still correct.
+
+The issue has been reported to Cypress.
+See: https://github.com/cypress-io/cypress/issues/25755 for more information.
+:::
+
 :::caution Firefox 101 + Windows
 Cypress does not currently work with Firefox 101 on Windows.
 :::

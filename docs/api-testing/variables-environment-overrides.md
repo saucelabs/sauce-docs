@@ -79,7 +79,7 @@ If the same variable exists in both in the **Globals/Input Set** and Project-spe
 
 ### Overriding Variables, Environments
 
-When you declare an overridden variable (using the API, [apifctl command line utility](/api-testing/integrations/apifctl-cicd-integration/), or the [**Schedule** tool](/api-testing/schedule-test)) its value will be injected into the test when it's executed. If the variable has already been declared in the **Vault** or the **Globals/Input Set**, it will be rewritten with the new value.
+When you declare an overridden variable (using the API, [saucectl command line utility](/api-testing/integrations/yaml/#env), or the [**Schedule** tool](/api-testing/schedule-test)) its value will be injected into the test when it's executed. If the variable has already been declared in the **Vault** or the **Globals/Input Set**, it will be rewritten with the new value.
 
 Environments are collections of overrides. You can save an environment as a preset with a name and reuse it when running a test.
 

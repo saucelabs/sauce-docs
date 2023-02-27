@@ -1,0 +1,10 @@
+# Checks for capitalization and spacing for AM/PM.
+extends: existence
+message: "Use 'AM' or 'PM' (preceded by a space)."
+link: https://wiki.saucelabs.com/display/PM/Technical+Documentation+Style+Guide#TechnicalDocumentationStyleGuide-Times
+level: warning
+nonword: true
+tokens:
+  - '\d{1,2}[AP]M'
+  - '\d{1,2} ?[ap]m'
+  - '\d{1,2} ?[aApP]\.[mM]\.'

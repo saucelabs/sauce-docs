@@ -128,8 +128,8 @@ There is a distinction between **Public Devices** and **Private Devices**.
 
 - Private devices are associated with your account and are an **enterprise only** feature. Private devices are indicated by a green device icon.
 
-:::note 
-If you are interested in upgrading to an enterprise plan, contact your Sauce Labs Sales Engineer or Customer Success Manager. 
+:::note
+If you are interested in upgrading to an enterprise plan, contact your Sauce Labs Sales Engineer or Customer Success Manager.
 :::
 
 ### Launching a Test
@@ -212,6 +212,18 @@ There are three ways to test Apple Pay with Sauce Labs:
 - Using simulators
 - Using real private devices with an Apple Pay Sandbox Testing account
 - Using real private devices with a real production account and real credit cards
+
+:::caution iOS Simulators
+There are important differences between the Apple Pay Real Device and Simulator flow. The Simulator has the following limitations:
+
+- It is focused on the front-end integration of Apple Pay and does not test the back-end integration.
+- You **can't** add cards to the wallet, meaning:
+  - No Apple Pay Sandbox Testing cards.
+  - No real credit cards.
+- You **can't** test the Apple Pay in-web flow.
+- You **can** test the Apple Pay in-app flow, but the Apple Pay in-app flow will not work the same as with Real Devices. It won't return a payment token and will not properly process your payment. In addition to this, it automatically provides simulated cards for all the supported payment networks.
+
+:::
 
 ### Requirements
 
