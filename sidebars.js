@@ -701,13 +701,31 @@ module.exports = {
                         },
                         {
                             type: 'category',
-                            label: 'Single Sign-On',
+                            label: 'Single Sign-On (SAML SSO)',
                             collapsed: true,
                             items: [
-                                'basics/sso-hub',
-                                'basics/sso/setting-up-single-sign-on',
-                                'basics/sso/config-adfs',
-                                'basics/sso/config-okta',
+                                'basics/sso/setting-up-sso',
+                                {
+                                    type: 'category',
+                                    label: 'Configuring Identity Providers',
+                                    collapsed: true,
+                                    items: [
+                                        'basics/sso/configuring-sso-in-onelogin',
+                                        'basics/sso/configuring-sso-in-google',
+                                    ],
+                                },
+                                'basics/sso/logging-in-via-sso',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'Single Sign-On (Deprecated Flow)',
+                            collapsed: true,
+                            items: [
+                                'basics/sso-deprecated/sso-hub',
+                                'basics/sso-deprecated/setting-up-single-sign-on',
+                                'basics/sso-deprecated/config-adfs',
+                                'basics/sso-deprecated/config-okta',
                             ],
                         },
                         {
@@ -1083,7 +1101,8 @@ module.exports = {
                     label: 'Integrations',
                     collapsed: true,
                     items: [
-                        'api-testing/integrations/apifctl-cicd-integration',
+                        'api-testing/integrations/apitesting-saucectl-integration',
+                        'api-testing/integrations/yaml',
                         'api-testing/integrations/pagerduty-webhooks',
                     ],
                 },

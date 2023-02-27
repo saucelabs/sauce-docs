@@ -50,12 +50,20 @@ To access Security settings:
 | Logout URL                                                                                                                 | This option allows you to run custom processes after the user logs out. You can define a secure https:// URL to redirect the user to that URL on logout or if a session times out. If this field is empty, users will be redirected to the default login page.<br></br>Should you decide to use this, you must enter a URL starting with **HTTPS** (HTTP will not work).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Reset All Access Keys                                                                                                      | All users have a unique access key that they use to authenticate to Sauce Labs, which is usually integrated into their test scripts. Clicking **Reset All Access Keys** will invalidate all access keys for your organization, and require users to update their tests scripts with new access keys.<br></br><br></br>If a user attempts to run a script containing an invalidated access key, the test and any build that contains it will fail. You should only click **Reset All Access Keys** in the event of a major security issue.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
-## Single Sign-On Settings
+## Single Sign-On Settings (Deprecated Flow)
+
+<p><span className="sauceGold">Deprecated</span></p>
+
+:::caution
+This SSO flow has been `deprecated`. Use this documentation only if your organization was not migrated to the new SSO.
+
+If you want to set up a new SSO integration, please use [the new SSO implementation](/basics/sso/setting-up-sso).
+:::
 
 When you set up SSO with Sauce Labs, you are establishing a connection between the IdP used by your organization, such as Okta or Microsoft's Active Directory, and your Sauce Labs account, that will enable users to log in to Sauce Labs with their IdP credentials.
 
 :::note
-For more detailed information about setting up SSO, see [Setting Up Single Sign-On](/basics/sso/setting-up-single-sign-on).
+For more detailed information about setting up SSO, see [Setting Up Single Sign-On (Deprecated Flow)](/basics/sso-deprecated/setting-up-single-sign-on).
 :::
 
 1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
@@ -68,7 +76,7 @@ For more detailed information about setting up SSO, see [Setting Up Single Sign-
 <img src={useBaseUrl('img/team-mgmt/sso-settings-tab.png')} alt="SSO Settings tab" width="600" />
 
 4. Enter a **unique identifier string**. The string will be applied to user names to make sure that your users will have unique names associated with your account.
-5. Upload the SAML metadata file provided by your IdP that contains the list of your SSO users. Sauce Labs SSO supports most SAML 2.0 metadata files. For more information about specific IdPs, see [Configuring Active Directory Federation Services (AD FS)](/basics/sso/config-adfs) and [Configuring Okta](/basics/sso/config-okta).
+5. Upload the SAML metadata file provided by your IdP that contains the list of your SSO users. Sauce Labs SSO supports most SAML 2.0 metadata files. For more information about specific IdPs, see [Configuring Active Directory Federation Services (AD FS)](/basics/sso-deprecated/config-adfs) and [Configuring Okta](/basics/sso-deprecated/config-okta).
 6. Under **Enable Single Sign On**, toggle the switch to **Enabled**. For more information about adding new users and SSO considerations, see [Adding and Deactivating Users](/basics/acct-team-mgmt/adding-deactivating-users).
 
 :::note
