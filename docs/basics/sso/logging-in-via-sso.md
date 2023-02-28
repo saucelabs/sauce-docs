@@ -16,7 +16,7 @@ When using SAML SSO, we have two methods for starting Single Sign-On (SSO): [SP-
 
 2. Click **SSO**.
 
-<img src={useBaseUrl('img/basics/sso/setup-sso-sso-btn.png')} alt="SSO Login Button" width="500" />
+<img src={useBaseUrl('img/basics/sso/login-sso-btn.png')} alt="SSO Login Button" width="500" />
 
 3. Enter your company email address and click **Log in**.
 
@@ -36,7 +36,7 @@ Copying and pasting links is the quickest way to share pages.
 
 If you paste a link to, for example, a test results page at Sauce Labs and you are not authenticated. You will be redirected to the Sauce Labs login page.
 
-<img src={useBaseUrl('img/basics/sso/login-sso-login-page.png')} alt="Login Page" width="500" />
+<img src={useBaseUrl('img/basics/sso/login-sso-btn.png')} alt="Login Page" width="500" />
 
 2. Follow the steps from [the SP-initiated flow](#service-provider-sp-initiated-sso):
 
