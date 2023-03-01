@@ -4,6 +4,15 @@ title: Configuring Okta
 sidebar_label: Configuring Okta
 ---
 
+<p><span className="sauceGold">Deprecated</span></p>
+
+:::caution
+This SSO flow has been `deprecated`. Use this documentation only if your organization was not migrated to the new SSO.
+
+If you want to set up a new SSO integration, please use [the new SSO implementation](/basics/sso/setting-up-sso).
+:::
+<br/>
+
 1. Log in to **Okta** with administrator credentials.
 2. On the **Applications** tab, search for and select the **Sauce Labs** application.
 3. Click **Add**.
@@ -15,7 +24,7 @@ sidebar_label: Configuring Okta
 9. On the application details page, in the **Assign** dropdown, click **Assign to People**.
 10. In the **Assign Sauce Labs to People** window, next to the users or groups you want to give SSO access to, click **Assign**.
 11. Click **Done**.
-12. Follow the instructions in [Single Sign-On Settings](/basics/acct-team-mgmt/org-settings) to complete the integration of Sauce Labs with your Okta instance.
+12. Follow the instructions in [Single Sign-On Settings (Deprecated Flow)](/basics/acct-team-mgmt/org-settings/#single-sign-on-settings-deprecated-flow) to complete the integration of Sauce Labs with your Okta instance.
 
 :::note
 The Sauce Labs app on the Okta Application Network only supports access to **us-west-1**. If you need to configure access for another data center, please follow the instructions for general setup of SSO.

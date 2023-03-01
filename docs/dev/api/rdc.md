@@ -343,6 +343,12 @@ Get a list of jobs that are actively running on real devices in the data center.
      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Limit results to those following this index number. Defaults to <code>1</code>.</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>type</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Filter results to show manual tests only with <code>LIVE</code>.</p></td>
+    </tr>
+  </tbody>
 </table>
 
 <Tabs
