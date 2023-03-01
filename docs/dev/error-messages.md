@@ -87,7 +87,13 @@ The testing session was terminated by the user.
 
 **Cause(s)**
 
+**Virtual Devices**
+
 Your test was manually interrupted using the Sauce Labs **Cancel** or **Breakpoint** buttons. Since both of these take control of the virtual machine immediately, test assets like screenshots, video, or logs that require additional execution time will not be collected and made available afterwards.
+
+**Real Devices**
+
+Your test was manually interrupted using the Sauce Labs [Real Device API](https://docs.saucelabs.com/dev/api/rdc/#stop-a-job). The usual post-processing is triggered and test assets like screenshots, video, or logs will be made available.
 
 **How to Resolve**
 
