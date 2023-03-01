@@ -345,8 +345,8 @@ Get a list of jobs that are actively running on real devices in the data center.
   </tbody>
   <tbody>
     <tr>
-     <td><code>type=LIVE</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Filter results to show tests that are only manual.</p></td>
+     <td><code>type</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Filter results to show manual tests only with <code>LIVE</code>.</p></td>
     </tr>
   </tbody>
 </table>
