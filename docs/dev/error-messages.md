@@ -241,6 +241,28 @@ This isn't always restricted to the tests, either; an app under test which consu
 
 Break out your long tests into shorter tests and/or make sure that your tests are not filling up a lot of disk space on the VM.
 
+
+### Unable to Find Device Within 15 Minutes
+
+**Description**
+
+This timeout occurs most frequently when you include a specific device in your test case and that device isn’t available within 15 minutes.
+
+**Cause(s)**
+
+Our public device pool is available to all subscribed Sauce users and (as you might imagine), some devices are more popular than others. We have over 280 device configurations and thousands of devices hosted in our data center, but sometimes a test queue will build up for the most popular devices.
+
+**How to Resolve**
+
+Instead of passing a specific `deviceName`:
+
+- When you select a device from the public pool, use `deviceName` to [select the device dynamically](/mobile-apps/supported-devices/#dynamic-device-allocation). This way you can specify the type of device (make, model, OS) instead of a specific device, which increases the likelihood of finding an appropriate device that is available for your test to execute on.
+- If you are looking for a specific OS version instead of a specific make and model, you can use the [`appium:appiumplatformversion`](/dev/test-configuration-options/#appium) option to fetch a device with that OS regardless of make and model.
+
+* When you select a device from the public pool, use `deviceName` to [select the device dynamically](/mobile-apps/supported-devices/#dynamic-device-allocation). This way you can specify the type of device (make, model, OS) instead of a specific device, which increases the likelihood of finding an appropriate device that is available for your test to execute on.
+* If you are looking for a specific OS version instead of a specific make and model, you can use the [`platformVersion`](/dev/test-configuration-options/#platformversion) option to fetch a device with that OS regardless of make and model.
+
+
 ## Mobile App Testing Only
 
 ### Failed to Download Mobile Application
@@ -276,26 +298,6 @@ If you're already using storage, check to make sure that:
 - You're using the exact name you provided via the rest API, not the original filename. For example, if you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `storage:filename=new_app_name.apk`.
 - Check the access permissions for the file before retrying. If you have confirmed you have permissions to access the file and you continue to get this error, contact our [Sauce Labs Support](https://saucelabs.com/training-support).
 
-
-### Unable to Find Device Within 90 Seconds
-
-**Description**
-
-This timeout occurs most frequently when you include a specific device in your test case and that device isn’t available within 90 seconds.
-
-**Cause(s)**
-
-Our public device pool is available to all subscribed Sauce users and (as you might imagine), some devices are more popular than others. We have over 280 device configurations and thousands of devices hosted in our data center, but sometimes a test queue will build up for the most popular devices.
-
-**How to Resolve**
-
-Instead of passing a specific `deviceName`:
-
-- When you select a device from the public pool, use `deviceName` to [select the device dynamically](/mobile-apps/supported-devices/#dynamic-device-allocation). This way you can specify the type of device (make, model, OS) instead of a specific device, which increases the likelihood of finding an appropriate device that is available for your test to execute on.
-- If you are looking for a specific OS version instead of a specific make and model, you can use the [`appium:appiumplatformversion`](/dev/test-configuration-options/#appium) option to fetch a device with that OS regardless of make and model.
-
-* When you select a device from the public pool, use `deviceName` to [select the device dynamically](/mobile-apps/supported-devices/#dynamic-device-allocation). This way you can specify the type of device (make, model, OS) instead of a specific device, which increases the likelihood of finding an appropriate device that is available for your test to execute on.
-* If you are looking for a specific OS version instead of a specific make and model, you can use the [`platformVersion`](/dev/test-configuration-options/#platformversion) option to fetch a device with that OS regardless of make and model.
 
 ## Web App Testing Only
 
