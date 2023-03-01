@@ -775,12 +775,6 @@ module.exports = {
                                 },
                                 {
                                     type: 'category',
-                                    label: 'Defect Reporting and Management',
-                                    collapsed: true,
-                                    items: ['basics/integrations/jira'],
-                                },
-                                {
-                                    type: 'category',
                                     label: 'Low-Code/No-Code/Model-Based Test Case Generation',
                                     collapsed: true,
                                     items: [
