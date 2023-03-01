@@ -2,24 +2,22 @@
 id: debug
 title: Debug
 sidebar_label: Debug
-description: Allows you to view a specific error report, including a symbolicated callstack, system and custom attributes, and other useful information.
+description: Allows you to view a specific error report, including symbolicated callstacks, system and custom attributes, and other useful information.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Web Debugger
-
-The Backtrace Web Debugger allows you to view the error or state of archived dumps from crashes or running processes in the convenience of your web browser. The information you see in the debugger is dependent on the source of the crash (a script, a minidump file, or the Backtrace proprietary format) and the data available (for example, threads, variables, memory segments, etc).
+The Debug view allows you to see the error or state of archived dumps from crashes or running processes in the convenience of your web browser. The information you see in the Debug view is dependent on the source of the crash (a script, a minidump file, or the Backtrace proprietary format) and the data available (for example, threads, variables, memory segments, etc).
 
 ## Overview
 
-Below is a screenshot of the type of data you will see in the Debugger tool.
+Below is a screenshot of the type of data you will see in the Debug view.
 
 <img src={useBaseUrl('img/error-reporting/console-views/debug-view.png')} alt="Shows the Debug view." />
 
-Depending on the type of information in the crash report, the Debugger will show different data. For example, the crash report for minidump files shows a set of callstacks from all the threads, and other details such as attributes, environment information, modules loaded, and missing symbols. The crash report for Backtrace core dump files (BTT) shows automated security and bug analysis, variables, and more.
+Depending on the type of information in the crash report, the Debug view will show different data. For example, the crash report for minidump files shows a set of callstacks from all the threads, and other details such as attributes, environment information, modules loaded, and missing symbols. The crash report for Backtrace core dump files (BTT) shows automated security and bug analysis, variables, and more.
 
 The Debug tool is organized into several sections as described below.
 
