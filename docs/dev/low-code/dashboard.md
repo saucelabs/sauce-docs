@@ -18,7 +18,7 @@ The left navigation panel, which is viewable from all screens, gives you quick a
 
 ## Display Settings
 
-Click the **Display** button to customize what you see on the Projects page, including the types of projects displayed, your preferred view, and how the projects are sorted.
+Click **Display** to customize what you see on the Projects page, including the types of projects displayed, your preferred view, and how the projects are sorted.
 
 <img src={useBaseUrl('/img/dev/low-code/dashboard-mgmt-settings.png')} alt="Display settings" width="400"/>
 
