@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-With Sauce Labs Biometric Authentication, you can simulate biometric authentication events within your app during automated testing. This feature allows you to test the app's ability to recognize and respond to biometric events, without physically testing it on a device. Biometric Authentication refers to the use of physical characteristics, such as fingerprint (Touch ID) or facial recognition (Face ID) to verify the user's identity.
+With Sauce Labs Biometric Authentication, you can simulate biometric authentication events within your app during live and automated testing. This feature allows you to test the app's ability to recognize and respond to biometric events, without physically testing it on a device. Biometric Authentication refers to the use of physical characteristics, such as fingerprint (Touch ID) or facial recognition (Face ID) to verify the user's identity.
 
 Sauce Labs provides biometrics interception for our customers to:
 
