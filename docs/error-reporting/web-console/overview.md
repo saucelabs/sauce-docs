@@ -9,7 +9,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Project Overview
 
 The Web Console’s Overview page provides an ‘at a glance’ view of your project’s health by displaying different top down views of your error / crash data. The widgets in place were designed to serve that goal by enabling a number of important use cases:
 
