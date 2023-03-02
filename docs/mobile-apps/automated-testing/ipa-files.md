@@ -121,3 +121,20 @@ If your organization requires specific entitlements, Sauce Labs gives you the op
 - `com.apple.developer.associated-domains`
 - `com.apple.security.application-groups`
 - `keychain-access-groups`
+
+
+## Common Errors
+
+#### Unable to Verify App
+
+If you are facing the issue where the app crashes with a red screen and an "Unable to Verify App" popup:
+<img src={useBaseUrl('img/mobile-apps/verify-app-error.png')} alt="Mobile app settings navigation" width="350"/>
+
+ that means your proxy might be blocking Apple's signature check for installing custom enterprise apps on iOS. Apple has recently started rolling out a new signature verification and PPQS check for new prov. profiles and our new accounts. During installation, Apple sends an initial API request to verify the signature of the app.
+
+We recommend that you try the following workaround:
+
+1. Disable the proxy for the device you are using to install the app.
+2. If the above solution does not work, please try using a different network without the proxy.
+   
+We do not have control over Apple's signature verification process. It is recommended to work with your network administrator to ensure that Apple's signature check is not blocked by the proxy.
