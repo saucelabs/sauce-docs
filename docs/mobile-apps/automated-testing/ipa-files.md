@@ -125,7 +125,7 @@ If your organization requires specific entitlements, Sauce Labs gives you the op
 
 ## Common Errors
 
-#### Unable to Verify App
+### Unable to Verify App
 
 If you are facing the issue where the app crashes with a red screen and an "Unable to Verify App" popup:
 <img src={useBaseUrl('img/mobile-apps/verify-app-error.png')} alt="Mobile app settings navigation" width="350"/>
