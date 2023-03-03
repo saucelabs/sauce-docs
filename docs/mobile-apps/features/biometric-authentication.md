@@ -16,7 +16,7 @@ Sauce Labs provides biometrics interception for our customers to:
 - Access test flows that are dependent on biometrics support, such as a mandatory security layer.
 - Verify that an app responds as expected to biometrics settings (e.g., enabled/disabled and successful/unsuccessful).
 
-:::note
+:::caution
 Biometrics test support in Sauce Labs is not intended to test actual biometrics values for authentication.
 :::
 
