@@ -135,6 +135,6 @@ If you are facing the issue where the app crashes with a red screen and an "Unab
 We recommend that you try the following workaround:
 
 1. Disable the proxy for the device you are using to install the app.
-2. If the above solution does not work, please try using a different network without the proxy.
+2. If the above solution does not work, try using a different network without the proxy.
    
 We do not have control over Apple's signature verification process. It is recommended to work with your network administrator to ensure that Apple's signature check is not blocked by the proxy.
