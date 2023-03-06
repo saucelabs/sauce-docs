@@ -15,6 +15,10 @@ When testing mobile apps, you have the option to upload your app to our app stor
 - Storing apps for up to 60 days.
 - App Storage supports app files in _.apk, _.aab, _.ipa, or _.zip format, up to 4GB.
 
+:::caution
+Please make sure you have a debuggable AND non-obfuscated version of your application uploaded to Mobile App Storage to leverage all of our capabilities like Biometrics, Image injection, Mobile App Diagnostics. 
+:::
+
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
