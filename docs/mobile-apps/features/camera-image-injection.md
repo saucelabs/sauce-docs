@@ -16,6 +16,10 @@ Camera Image Injection, also known as camera mocking, is a Sauce Labs Real Devic
 
 You employ the built-in device camera in your live and automated testing and perform test cases that require taking images with any of the device cameras. To mimic the system camera behavior during a test, you'll provide the app with an image of your choosing. Your app will access the camera and instead of getting back the picture of the device camera, it'll retrieve the uploaded image.
 
+:::caution
+Please make sure you have a debuggable AND not obfuscated version of your application uploaded to Mobile App Storage. 
+:::
+
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
