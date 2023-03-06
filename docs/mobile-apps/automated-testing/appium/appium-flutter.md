@@ -94,7 +94,7 @@ More information on how to write Appium tests for Flutter apps can be found in t
 We encourage you to use W3C capabilities for your tests. For more information on W3C capabilities, see [W3C Capabilities](/dev/test-configuration-options/#mobile-appium-capabilities).
 :::
 
-Apps that have been build with Flutter 2 can use Appium 1 and Appium 2, while apps that have been build with Flutter 3 can only use Appium 2.
+Apps that have been built with Flutter 2 can use Appium 1 and Appium 2, while apps that have been built with Flutter 3 can only use Appium 2.
 
 ### Android Emulators and iOS Simulators
 
