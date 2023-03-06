@@ -446,7 +446,7 @@ const capabilities = {
     'appium:platformVersion': '12',
     'appium:deviceName': 'Google Pixel 6',
     // Mandatory for Appium 2
-    'appium:automationName': 'xcuitest',
+    'appium:automationName': 'uiautomator2',
     'sauce:options': {
         // appiumVersion is mandatory to use Appium 2 on Sauce Labs
         appiumVersion: '2.0.0'
