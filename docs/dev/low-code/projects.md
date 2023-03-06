@@ -1,11 +1,201 @@
 ---
-id: project-details-page
-title: Project Details Page
-sidebar_label: Project Details Page
+id: projects
+title: Projects 
+sidebar_label: Projects 
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+The **Projects** page is the landing page from which you can access **Projects**, **Schedules**, and **Reports**, and view and modify your profile and account information.
+
+The **Projects** page includes detail cards that show you a snapshot of information related to your projects and tests, and provides links to the relevant pages to view, manage, and create tests.
+
+<img src={useBaseUrl('/img/dev/low-code/dashboard-nav.png')} alt="Dashboard" width="500"/>
+
+The left navigation panel, which is viewable from all screens, gives you quick access to the pages relevant to your projects. Click the menu icon to expand the menu temporarily.
+
+<img src={useBaseUrl('/img/dev/low-code/dashboard-left-nav.png')} alt="Dashboard - Left navigation panel" width="400"/>
+
+## Display Settings
+
+Click **Display** to customize what you see on the Projects page, including the types of projects displayed, your preferred view, and how the projects are sorted.
+
+<img src={useBaseUrl('/img/dev/low-code/dashboard-mgmt-settings.png')} alt="Display settings" width="400"/>
+
+## Execution Panel
+
+The <b>Execution</b> panel displays currently running test cases, as well as test cases that have already been executed, which can be filtered by status.
+
+<img src={useBaseUrl('/img/dev/low-code/execution-panel.png')} alt="The Execution panel" width="400"/>
+
+### Execution Panel Components
+
+<table>
+  <tr>
+    <td><b>Component</b>
+    </td>
+    <td><b>Description</b>
+    </td>
+  </tr>
+  <tr>
+    <td><b>Refresh</b> icon
+    </td>
+    <td>Refreshes the list of tests.
+    </td>
+  </tr>
+  <tr>
+    <td><b>Zoom In</b> icon
+    </td>
+    <td>Expands the <b>Execution</b> panel to a window.
+    </td>
+  </tr>
+  <tr>
+    <td><b>Close</b> icon
+    </td>
+    <td>Closes the <b>Execution</b> panel.
+    </td>
+  </tr>
+  <tr>
+    <td><b>Search</b> box
+    </td>
+    <td>Search the test list or click the dropdown to select a test from the list.
+    </td>
+  </tr>
+  
+  <tr>
+    <td><b>Display</b> dropdown
+    </td>
+    <td>Displays <b>All</b>, <b>Success</b>, <b>Failed</b>, <b>In Progress</b>, <b>Queued</b>, or <b>Stopped</b>> tests.
+    </td>
+  </tr>
+  <tr>
+    <td><b>Status</b> icon
+    </td>
+    <td>Execute SUCCESS
+        <br/>
+        Execute ERROR
+    </td>
+  </tr>
+  <tr>
+    <td><b>Details</b>
+    </td>
+    <td>Test name, date created, and the name of the user who created the test.
+    </td>
+  </tr>
+  <tr>
+    <td><b>Device</b>, <b>Platform</b> and <b>Browser</b> icons
+    </td>
+    <td>The device, platform, and browser (for example, Linux/Chrome, Mac/Safari, or Windows/IE) that the tests ran on.
+    </td>
+  </tr>
+  <tr>
+    <td><b>Download Report</b> button
+    </td>
+    <td>Downloads the details of the test as an .html file. The test report includes the statuses for each step of the test, as well as more thorough details about when and where the test was run.
+    </td>
+  </tr>
+</table>
+
+## Overall Health
+
+The Overall Health section gives a quick look at data that might be important to you, including the number of projects, test suites, and test cases that have passed and failed. 
+
+<img src={useBaseUrl('/img/dev/low-code/overall-health.png')} alt="Overall Health"/>
+
+<table>
+  <tr>
+    <td><b>Overall Health Section</b>
+    </td>
+    <td><b>Description</b>
+    </td>
+  </tr>
+  <tr>
+    <td><b>Projects</b>
+    </td>
+    <td>The number of projects in the last 24 hours that passed and failed, as well as the percent that passed. 
+   
+    </td>
+  </tr>
+  <tr>
+    <td><b>Test Suites</b> 
+    </td>
+    <td>The number of test suites in the last 24 hours that passed and failed, as well as the percent that passed. Clicking <b>View All</b> will take you to the <b>Test Suites</b> page. 
+    </td>
+  </tr>
+  <tr>
+    <td><b>Test Cases</b>
+    </td>
+    <td>The number of test cases in the last 24 hours that passed and failed, as well as the percent that passed. Clicking <b>View All</b> will take you to the <b>Test Cases</b> page.
+    </td>
+  </tr>
+  
+  
+</table>
+
+## Project List
+
+
+
+### Creating a New Project
+
+To create a new project:
+
+1. On the **Projects** page, click the blue plus sign button.
+
+<img src={useBaseUrl('/img/dev/low-code/create-new-project-nav.png')} alt="Navigating to the project creation screen" width="400"/>
+
+2. In the **Project** window, on the **Name and Info** tab, enter the following information:
+
+- Project name (required)
+- App URL (required)
+- Project description (optional)
+- Selector hints for testing (optional)
+
+<img src={useBaseUrl('/img/dev/low-code/project-new-name-info.png')} alt="New project Name and Info tab" width="400"/>
+
+3. Click **Next**.
+4. On the **Properties** tab, enable or disable the relevant toggles, and then click **Next**.
+
+<img src={useBaseUrl('/img/dev/low-code/project-new-properties.png')} alt="New project Properties tab" width="400"/>
+
+### Customizing the Display
+
+By default, the **Projects** page displays your projects in card format. To customize the display of your **Projects** page, click the **Display** button.
+
+<img src={useBaseUrl('/img/dev/low-code/customize-the-display.png')} alt="Customizing the display" width="400"/>
+
+### More Options
+
+The **More** button displays a dropdown of additional options for the **Project** page. You can:
+
+- Upload a project (see [Creating a New Project](#creating-a-new-project) for more information)
+- Download the project information as an .xlsx file
+
+<img src={useBaseUrl('/img/dev/low-code/project-more-button.png')} alt="Project page More button" width="400"/>
+
+### Project Cards
+
+Clicking a project card will take you to its **Project Details** page. See [Project Details Page](/dev/low-code/plan/projects/project-details-page) for more information.
+
+#### Starting a Recording
+
+Click the **Record** button to start a recording (see [Recording a Test Case](/dev/low-code/plan/projects/project-details-page#recording-a-test-case) for more information).
+
+<img src={useBaseUrl('/img/dev/low-code/start-a-recording.png')} alt="Start a recording with the camera button" width="400"/>
+
+#### More Options
+
+Click the more options button to access the dropdown. From there you can:
+
+- Add a star to the project card to easily find it on the **Projects** page.
+- View and manage the project properties.
+- Upload a test case to the project (see [Uploading a Test Case](/dev/low-code/plan/projects/project-details-page#uploading-a-test-case) for more information).
+- Download the project as a .zip file.
+- Disable the project.
+
+<img src={useBaseUrl('/img/dev/low-code/recording-more-options.png')} alt="Starting a recording -- More options" width="400"/>
+
+## Project Details Page
 The **Project Details** page displays information about the selected project, including test cases, variables, and data. From here you can also create or upload new test cases, data, variables, flows, and test suites.
 
 Click the information icon next to your test name to view the created and updated dates, and the project’s execution stats.
@@ -901,3 +1091,217 @@ For information about the **Post Action** tab, see [Post Processing](#post-proce
 ### Post Processing
 
 You can set a test suite or suites to be triggered after the completion of the parent test suite. Post processing suites can be from the same project or from different projects. Suites can be made to trigger based on different conditions. They can be also triggered at desired time intervals by using the **Delay** feature.
+
+## Test Cases
+On the **Plan -> Test Cases** page you can view, update, move, or disable a test case. In addition, you can add tags to test cases and easily access the step editor.
+
+## Test Cases Page Components
+
+<table>
+  <tr>
+    <td colspan='2'><b>Component</b>
+    </td>
+    <td><b>Description</b>
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'><b>Case</b>
+    </td>
+    <td>The name given to the test case.<br/><br/>Click the up or down arrow next to the column name to sort the table by case name.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'><b>Project</b>
+    </td>
+    <td>The project the test case is associated with.<br/><br/>Click the up or down arrow next to the column name to sort the table by project name.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'><b>Created</b>
+    </td>
+    <td>The date the test case was created.<br/><br/>Click the up or down arrow next to the column name to sort the table by created date.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'><b>Last Generated</b>
+    </td>
+    <td>The date the test case was last generated.<br/><br/>Click the up or down arrow next to the column name to sort the table by the last generated date.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'><b>Last Status</b>
+    </td>
+    <td>The most recent status of the test case.<br/><br/>Click the up or down arrow next to the column name to sort the table by last status.
+    </td>
+  </tr>
+  <tr>
+    <td rowspan='5'><b>Actions</b>
+    </td>
+    <td><b>Update Test Case</b>
+    </td>
+    <td>Update the test case details. See <a href="/dev/low-code/plan/projects/project-details-page#adding-a-test-case">Adding a Test Case</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <td><b>Move Test Case</b>
+    </td>
+    <td>Move the test case to a different project. See <a href="/dev/low-code/plan/projects/project-details-page">Project Details Page</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <td><b>View Tags</b>
+    </td>
+    <td>View the tags added to the test case.
+    </td>
+  </tr>
+  <tr>
+    <td><b>Disable Test Case</b>
+    </td>
+    <td>Disable the test case.<br/><br/>You can also disable a test case by selecting its check box and then clicking the <b>Disable Test Case</b> button.
+    </td>
+  </tr>
+  <tr>
+    <td><b>Go To Step Editor</b>
+    </td>
+    <td>Opens the step editor for the test case. See <a href="/dev/low-code/plan/projects/project-details-page#using-the-step-editor">Using the Step Editor</a> for more information.
+    </td>
+  </tr>
+</table>
+
+## Tagging a Test Case
+
+To tag a test case:
+
+1. On the dashboard, in the left navigation, click **Plan** and then click **Test Cases**.
+
+<img src={useBaseUrl('/img/dev/low-code/tag-test-case-nav.png')} alt="Navigating to the test case tagging page" width="300"/>
+
+2. Select the checkbox of the test case you want to tag, and then click the **Tag Test Case** button.
+
+<img src={useBaseUrl('/img/dev/low-code/tag-test-case-button.png')} alt="The tag test case button" width="600"/>
+
+3. In the **Create Tags** window, enter the text for the tag and then click **ADD**.
+
+<img src={useBaseUrl('/img/dev/low-code/create-tags-window.png')} alt="The Create Tags window" width="300"/>
+
+4. To view the tags added to a test case, click the **Actions** icon and then click **View Tags**.
+
+5. To remove a tag, in the **Current Tags** window, click the **x** next to the tag.
+
+## Test Suites
+On the **Plan -> Test Suites** page you can view, update, execute, clone, or delete a test suite. In addition, you can view the test cases associated with the suite, as well as quickly access the step editor.
+
+## Test Suites Page Components
+
+<table>
+  <tr>
+    <td colspan='2'><b>Component</b>
+    </td>
+    <td><b>Description</b>
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'><b>Suite</b>
+    </td>
+    <td>The name given to the test suite.<br/><br/>Click the up or down arrow next to the column name to sort the table by suite name.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'><b>Project</b>
+    </td>
+    <td>The name of the project to which the test suite belongs.<br/><br/>Click the up or down arrow next to the column name to sort the table by project name.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'><b>Created</b>
+    </td>
+    <td>The date the test suite was created.<br/><br/>Click the up or down arrow next to the column name to sort the table by created date.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'><b>Last Run</b>
+    </td>
+    <td>The date the test suite was last run.<br/><br/>Click the up or down arrow next to the column name to sort the table by last run date.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'><b>Last Status</b>
+    </td>
+    <td>The most recent status of the test suite.<br/><br/>Click the up or down arrow next to the column name to sort the table by last status.
+    </td>
+  </tr>
+  <tr>
+    <td rowspan='6'><b>Actions</b>
+    </td>
+    <td><b>Update Suite</b>
+    </td>
+    <td>Update the name and description for the test suite. See <a href="#updating-a-test-suite">Updating a Test Suite</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <td><b>Clone Suite</b>
+    </td>
+    <td>Clone the test suite. See <a href="#cloning-a-test-suite">Cloning a Test Suite</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <td><b>Execute</b>
+    </td>
+    <td>Execute the test suite. See <a href="#executing-a-test-suite">Executing a Test Suite</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <td><b>Disable Suite</b>
+    </td>
+    <td>Disable the test suite.
+    </td>
+  </tr>
+  <tr>
+    <td><b>Delete Suite</b>
+    </td>
+    <td>Delete the test suite.
+    </td>
+  </tr>
+  <tr>
+    <td><b>Go To Test Suite</b>
+    </td>
+    <td>Opens the <b>Project Details -> Suites</b> page for the test suite. See <a href="/dev/low-code/plan/projects/project-details-page#test-suites-tab">Test Suites Tab</a> for more information.
+    </td>
+  </tr>
+</table>
+
+## Updating a Test Suite
+
+To update a test suite:
+
+1. On the dashboard, in the left navigation, click **Plan** and then click **Test Suites**.
+
+<img src={useBaseUrl('/img/dev/low-code/test-suites-nav.png')} alt="Navigating to the Test Suites page" width="350"/>
+
+2. Next to the test suite you want to update, click the **Actions** icon and then click **Update Suite**.
+
+<img src={useBaseUrl('/img/dev/low-code/test-suites-update-nav.png')} alt="Navigating to the Update Suite window" width="300"/>
+
+See [Creating a Test Suite](/dev/low-code/plan/projects/project-details-page#creating-a-test-suite) for information about the tabs in the **Update Suite** window.
+
+## Cloning a Test Suite
+
+To clone a test suite:
+
+1. On the dashboard, in the left navigation, click **Plan** and then click **Test Suites**.
+2. Next to the test suite you want to clone, click the **Actions** icon and then click **Clone Suite**.
+
+<img src={useBaseUrl('/img/dev/low-code/test-suites-clone-nav.png')} alt="Navigating to the Clone Suite window" width="350"/>
+
+3. In the **Clone Suite** window, enter a name for the cloned suite, and select a project to add it to. Click **Clone**.
+
+<img src={useBaseUrl('/img/dev/low-code/test-suites-clone-window.png')} alt="The Clone Suite window" width="300"/>
+
+## Executing a Test Suite
+
+To execute a test suite:
+
+1. On the dashboard, in the left navigation, click **Plan** and then click **Test Suites**.
+2. Next to the test suite you want to clone, click the **Actions** icon and then click **Execute**.
+
+<img src={useBaseUrl('/img/dev/low-code/test-suites-execute-nav.png')} alt="Navigating to the test suite execution window" width="350"/>
