@@ -128,19 +128,13 @@ The Overall Health section gives a quick look at data that might be important to
     <td>The number of test cases in the last 24 hours that passed and failed, as well as the percent that passed. Clicking <b>View All</b> will take you to the <b>Test Cases</b> page.
     </td>
   </tr>
-  
-  
 </table>
 
-## Project List
-
-
-
-### Creating a New Project
+## Creating a New Project
 
 To create a new project:
 
-1. On the **Projects** page, click the blue plus sign button.
+1. On the **Projects** page, click the **New Project** button.
 
 <img src={useBaseUrl('/img/dev/low-code/create-new-project-nav.png')} alt="Navigating to the project creation screen" width="400"/>
 
@@ -157,12 +151,6 @@ To create a new project:
 4. On the **Properties** tab, enable or disable the relevant toggles, and then click **Next**.
 
 <img src={useBaseUrl('/img/dev/low-code/project-new-properties.png')} alt="New project Properties tab" width="400"/>
-
-### Customizing the Display
-
-By default, the **Projects** page displays your projects in card format. To customize the display of your **Projects** page, click the **Display** button.
-
-<img src={useBaseUrl('/img/dev/low-code/customize-the-display.png')} alt="Customizing the display" width="400"/>
 
 ### More Options
 
