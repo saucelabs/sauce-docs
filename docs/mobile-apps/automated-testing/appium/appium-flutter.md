@@ -79,7 +79,7 @@ After you have enabled the Flutter Driver extension, you can now build your app 
 | iOS     | Real Device | `flutter build ipa --profile`   | `{project-root}/build/ios/ipa/`                 |
 
 :::note
-More information regarding the build modes (`debug`, `release`, `profile`) for Flutter apps can be found in the [Flutter's build modes documentation](https://docs.flutter.dev/testing/build-modes).
+For more information regarding the build modes (`debug`, `release`, `profile`) for Flutter apps, see [Flutter's build modes documentation](https://docs.flutter.dev/testing/build-modes).
 :::
 
 ## Uploading your Flutter App to Sauce Labs
