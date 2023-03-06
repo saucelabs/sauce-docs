@@ -17,7 +17,7 @@ Sauce Labs provides biometrics interception for our customers to:
 - Verify that an app responds as expected to biometrics settings (e.g., enabled/disabled and successful/unsuccessful).
 
 :::caution
-Please make sure you have a debuggable AND non-obfuscated version of your application uploaded to Mobile App Storage. 
+Make sure you have a debuggable AND non-obfuscated version of your application uploaded to Mobile App Storage. 
 Biometrics test support in Sauce Labs is not intended to test actual biometrics values for authentication.
 :::
 
