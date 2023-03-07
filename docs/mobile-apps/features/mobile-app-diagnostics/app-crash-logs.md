@@ -11,7 +11,7 @@ In our latest Beta Program with App Crash Logs feature allows for the automatic 
 
 The App Crash Logs feature provides a centralized view and a wide range of app diagnostic signals to help teams speed up their debugging process and reduce the time it takes to resolve issues. Our goal is to create faster feedback loops for developers so that they can identify risks and ensure coverage early on in the development cycle. With our new capability, teams can prioritize errors, crashes, and test failures with complete data and context, focusing on the ones that matter the most.
 
-Our tool is capable of detecting and recording fatal errors (crashes) that occur during testing of iOS and Android apps. The call stack details are then stored in a crash.json file along with the test results. Additionally, all non-fatal errors and warnings originating from the native application are also made visible through our interface. This allows for easy debugging and integration with other Mobile App Diagnostics components, allowing you to identify and resolve issues more efficiently.
+Our tool is capable of detecting and recording fatal errors (crashes) that occur during testing of iOS and Android apps. The call stack details are then stored in a crash.log file along with the test results. Additionally, all non-fatal errors and warnings originating from the native application are also made visible through our interface. This allows for easy debugging and integration with other Mobile App Diagnostics components, allowing you to identify and resolve issues more efficiently.
 
 
 ## What You'll Need
