@@ -22,7 +22,7 @@ Our tool is capable of detecting and recording fatal errors (crashes) that occur
 
 ## Viewing the App Crash Logs for Real Devices​
 
-The App Crash collection feature is automatically enabled when the instrumentation feature is enabled. Whenever a crash is detected, our system will display an App Crashed label for the corresponding test result, regardless of the test's status.
+The App Crash logs feature is automatically enabled when the instrumentation feature is enabled. Whenever a crash is detected, our system will display an App Crashed label for the corresponding test result, regardless of the test's status.
 
 <br/><img src={useBaseUrl('img/mobile-apps/app-crash-scr1.png')} alt="Mobile app settings navigation" width="900"/>
 
