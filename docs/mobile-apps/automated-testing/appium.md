@@ -10,7 +10,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::warning Appium 1 End of Life
-The Appium core team does not maintain Appium 1.x anymore since the 1st of January 2022. Recent versions of all officially supported platform drivers are no longer compatible with Appium 1.x, and require Appium 2 to run.
+The Appium core team does not maintain Appium 1.x anymore since the [1st of January 2022](https://github.com/appium/appium). Recent versions of all officially supported platform drivers are no longer compatible with Appium 1.x, and require Appium 2 to run.
+
+Sauce Labs still supports Appium 1.x (check our [Platform Configurator](https://saucelabs.com/products/platform-configurator#/) to see which Appium 1 versions are available), but we recommend migrating to Appium 2.
 
 For more information on migrating to Appium 2, see [Migrating to Appium 2](/mobile-apps/automated-testing/appium/appium-2-migration). For more information on installing Appium 2, see [Installing Appium 2](https://appium.github.io/appium/docs/en/2.0/quickstart/install/).
 :::
