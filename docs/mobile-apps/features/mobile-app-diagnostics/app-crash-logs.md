@@ -30,7 +30,7 @@ When you navigate to the [Live Test Results](/mobile-apps/live-testing/live-mobi
 
 <br/><img src={useBaseUrl('img/mobile-apps/app-crash-scr2.png')} alt="Mobile app settings navigation" width="900"/>
 
-Furthermore, our new crash.json log provides detailed information on the stack trace, methods, classes, and lines of code that were being executed before the fatal error occurred. This detailed information facilitates the identification of the root cause of the crash, enabling your team to address the underlying issues in a timely and effective manner.
+The crash.json log provides detailed information on the stack trace, methods, classes, and lines of code that were being executed before the fatal error occurred. This detailed information facilitates the identification of the root cause of the crash, enabling your team to address the underlying issues in a timely and effective manner.
 
 ## Downloading the App Crash Log
 
