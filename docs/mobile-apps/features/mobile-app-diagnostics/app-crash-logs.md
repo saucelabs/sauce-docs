@@ -34,7 +34,7 @@ The crash.json log provides detailed information on the stack trace, methods, cl
 
 ## Downloading the App Crash Log
 
-You can download the device log as a text file to save and share with Sauce Labs support for further analysis. This feature allows you to keep a record of the device logs and use them for future reference or troubleshooting:
+You can download the crash log as a text file to save and share with Sauce Labs support for further analysis. This feature allows you to keep a record of the crash logs and use them for future reference or troubleshooting:
 
 <br/><img src={useBaseUrl('img/mobile-apps/app-crash-scr3.png')} alt="Mobile app settings navigation" width="700"/>
 
