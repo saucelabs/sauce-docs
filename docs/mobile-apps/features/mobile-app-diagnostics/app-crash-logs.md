@@ -42,7 +42,7 @@ You can download the device log as a text file to save and share with Sauce Labs
 You can also download the results using the API call below and send it to your development team:
 ```java
 curl --compressed \
--O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}.saucelabs.com/v1/rdc/jobs/{JOB_ID}/device.log`
+-O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}.saucelabs.com/v1/rdc/jobs/{JOB_ID}/crash.log`
 ```
 :::
 
