@@ -202,11 +202,9 @@ The **Test Cases** tab consists of a table of information about the test cases t
 
 To merge multiple test cases into a new test case:
 
-1. On the dashboard, in the **Projects** card, click **Go to Projects**.
-2. On the **Projects** page, click the project card of the project whose test cases you want to merge.
-3. On the **Project Details** page, click the three dots to the far right of the **ADD TEST CASE** button.
+1. On the **Test Cases** page, click the three dots to the far right of the **ADD TEST CASE** button, and then click **Merge Test Case**.
 
-<img src={useBaseUrl('/img/dev/low-code/merging-test-cases-add.png')} alt="Merging test cases - ADD TEST CASE button" width="400"/>
+<img src={useBaseUrl('/img/dev/low-code/merging-test-cases-add.png')} alt="Merging test cases - ADD TEST CASE button" width="600"/>
 
 4. In the **Merge Cases** window, on the **Merge** tab, enter a name for the new test case, and select or deselect the cases to merge. Click **Next**.
 
@@ -289,7 +287,7 @@ To merge multiple test cases into a new test case:
     </td>
   </tr>
   <tr>
-    <td colSpan='2'>Copy URL>
+    <td colSpan='2'>Copy URL
     </td>
     <td>Copy the URL of the test case.
     </td>
