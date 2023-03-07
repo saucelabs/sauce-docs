@@ -7,6 +7,8 @@ sidebar_label: App Crash Logs
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <p><small><span className="sauceDBlue">Beta</span></small></p>
+
+
 The App Crash Logs feature allows for the automatic capture and display of crash data during both live and automated testing on Sauce Labs' Real Device Cloud (RDC) platform, eliminating the need for integrating an SDK or connecting crash reporting tools to our system. This is a beta feature.
 
 The App Crash Logs feature provides a centralized view and a wide range of app diagnostic signals to help teams speed up their debugging process and reduce the time it takes to resolve issues. Our goal is to create faster feedback loops for developers so that they can identify risks and ensure coverage early on in the development cycle. With our new capability, teams can prioritize errors, crashes, and test failures with complete data and context, focusing on the ones that matter the most.
