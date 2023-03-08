@@ -389,7 +389,7 @@ Your account is not verified. This means that the email associated with the acco
 
 **Cause(s)**
 
-- You may have forgot to click the verification link in the email sent after signing up.
+- You may not have clicked the verification link in the email sent after signing up.
 - You may have provided the wrong email during the sign up.
 - You may have updated your email but then forgot to verify it.
 
