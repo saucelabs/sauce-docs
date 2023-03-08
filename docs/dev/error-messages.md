@@ -397,5 +397,5 @@ Your account is not verified. This means that the email associated with the acco
 
 - Check your inbox for the verification email (it should be titled "Please verify your email address" or similar). Click the link to verify your email.
 - Check your spam folder in case you couldn't find the email in your inbox.
-- Sign in into [Sauce Labs](https://app.saucelabs.com/), try to re-send the email and check your inbox/spam folder again.
+- Sign in to [Sauce Labs](https://app.saucelabs.com/), try to re-send the email and check your inbox/spam folder again.
 - Once you've done all of the above, raise a support ticket.
