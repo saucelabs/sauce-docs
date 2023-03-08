@@ -1435,6 +1435,44 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
+### `sessionCreationTimeout`
+
+<p><small>| OPTIONAL | INTEGER | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+
+Specify the amount of time (in milliseconds) that the test should be allowed to find and assign an available device before the test will fail. The default value is 900000 milliseconds (15 minutes) and the max is 1800000 milliseconds (30 minutes).
+
+:::caution
+If you set this value to a value that is less than 1 minute (60000 milliseconds), you may experience an `Unable to find available device within {sessionCreationTimeout}ms` error. This is because the device may not be ready in time for the test to start.
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+// Set it to 5 minutes (5*60*1000=300000)
+sauceOptions.setCapability("sessionCreationTimeout", 300000);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `sessionCreationRetry`
+
+<p><small>| OPTIONAL | INTEGER | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+
+Specify the amount of automatic retries that Sauce Labs will execute to find and assign an available device before the test will fail. The default value is 1 and the max is 3.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+// Set it to 5 minutes (5*60*1000=300000)
+sauceOptions.setCapability("sessionCreationRetry", 2);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
 ## Desktop and Mobile Capabilities: Sauce-Specific – Optional
 
 Optional Sauce Labs-specific capabilities that you can use for any Sauce Labs test. They must be added to the `sauce:options` block of your session creation code.
