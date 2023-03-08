@@ -180,8 +180,8 @@ Your test session was abandoned because it took longer than 45 seconds to assign
 
 **Cause**
 
-- client-side requests throttling/errors. Please check logs from your test runner for any errors.
-- see related [New Session Request was Cancelled before a Sauce Labs Virtual Machine was Found](#the-new-session-request-was-cancelled-before-a-sauce-labs-virtual-machine-was-found) error for more hints
+The main cause for this error is client-side request throttling/errors. Make sure to check the logs from your test runner for any errors.
+See the related [New Session Request was Cancelled before a Sauce Labs Virtual Machine was Found](#the-new-session-request-was-cancelled-before-a-sauce-labs-virtual-machine-was-found) error message for more information.
 
 **How to Resolve**
 
