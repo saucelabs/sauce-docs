@@ -176,7 +176,7 @@ This error has a few potential causes:
 
 **Description**
 
-Your tests start took longer to assign a Sauce Labs Virtual Machine but your test runner did not follow new session redirect before timeout.
+Your test session was abandoned because it took longer than 45 seconds to assign a Sauce Labs Virtual Machine, and your test runner did not follow the new session redirect before timeout.
 
 **Cause**
 
