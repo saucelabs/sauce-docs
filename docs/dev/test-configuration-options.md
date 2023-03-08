@@ -1108,22 +1108,6 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
-### `deviceType`
-
-<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
-
-Specifies the type of device type to emulate. Options are: `tablet` and `phone`.
-
-```java
-MutableCapabilities capabilities = new MutableCapabilities();
-//...
-MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("deviceType", "tablet");
-capabilities.setCapability("sauce:options", sauceOptions);
-```
-
----
-
 ### `setupDeviceLock`
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | </small></p>
