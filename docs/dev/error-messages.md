@@ -379,3 +379,23 @@ The combination of browser, version, and operating system you want to use in you
 - Use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to set the capabilities of your test.
 - Check [our list of supported platforms, operating systems, and browsers](https://saucelabs.com/platform/supported-browsers-devices) to make sure your selections are valid.
 - Use a higher version of Selenium in the capabilities of your test, or leave the Selenium version blank to default to the latest version.
+
+
+### Your account is not verified
+
+**Description**
+
+Your account is not verified. This means that the email associated with the account is not verified.
+
+**Cause(s)**
+
+- You may not have clicked the verification link in the email sent after signing up.
+- You may have provided the wrong email during the sign up.
+- You may have updated your email but then forgot to verify it.
+
+**How to Resolve**
+
+- Check your inbox for the verification email (it should be titled "Please verify your email address" or similar). Click the link to verify your email.
+- Check your spam folder in case you couldn't find the email in your inbox.
+- Sign in to [Sauce Labs](https://app.saucelabs.com/), try to re-send the email and check your inbox/spam folder again.
+- Once you've done all of the above, raise a support ticket.
