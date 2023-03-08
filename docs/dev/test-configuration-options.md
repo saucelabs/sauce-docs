@@ -1442,7 +1442,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 Specify the amount of time (in milliseconds) that the test should be allowed to find and assign an available device before the test will fail. The default value is 900000 milliseconds (15 minutes) and the max is 1800000 milliseconds (30 minutes).
 
 :::caution
-If you set this value to a value that is less than 1 minute (60000 milliseconds), you may experience an `Unable to find available device within {sessionCreationTimeout}ms` error. This is because the device may not be ready in time for the test to start.
+If you assign a value to this parameter that is lower than 1 minute (60000 milliseconds), you might encounter an `Unable to find available device within {sessionCreationTimeout}ms` error. This happens because the device may not be prepared in time for the test to begin.
 :::
 
 ```java
