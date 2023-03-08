@@ -172,7 +172,7 @@ This error has a few potential causes:
 - Make sure you're launching an appropriate number of jobs for your account.
 - If you see this error with iOS Simulator tests, please make sure the timeouts in your test runner/framework are set to a sufficient duration to allow iOS Simulator tests to start up. We recommend a minimum of 2 minutes.
 
-### The New Session Request Redirect not Followed Timeout
+### The New Session Request Redirect Was Not Followed Before Timeout
 
 **Description**
 
