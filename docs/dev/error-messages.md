@@ -172,6 +172,22 @@ This error has a few potential causes:
 - Make sure you're launching an appropriate number of jobs for your account.
 - If you see this error with iOS Simulator tests, please make sure the timeouts in your test runner/framework are set to a sufficient duration to allow iOS Simulator tests to start up. We recommend a minimum of 2 minutes.
 
+### The New Session Request Redirect Was Not Followed Before Timeout
+
+**Description**
+
+Your test session was abandoned because it took longer than 45 seconds to assign a Sauce Labs Virtual Machine, and your test runner did not follow the new session redirect before timeout.
+
+**Cause**
+
+The main cause for this error is client-side request throttling/errors. Make sure to check the logs from your test runner for any errors.
+See the related [New Session Request was Cancelled before a Sauce Labs Virtual Machine was Found](#the-new-session-request-was-cancelled-before-a-sauce-labs-virtual-machine-was-found) error message for more information.
+
+**How to Resolve**
+
+- Make sure your test runner is not running out of resources (CPU/Network).
+- Make sure your test runner has enough logging enabled to support troubleshooting.
+
 ### Selenium Didn't Complete Your Last Request on Time
 
 **Description**
