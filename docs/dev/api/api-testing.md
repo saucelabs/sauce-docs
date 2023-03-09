@@ -2625,11 +2625,11 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 {
     "_id": "621b48b3a9f2b52a5a896345",
     "events": [{
-        "date": 1.645995253102E12,
+        "date": 1645995253102,
         "events": [{
-            "date": 1.645995253102E12,
+            "date": 1645995253102,
             "events": [{
-                "date": 1.645995253102E12,
+                "date": 1645995253102,
                 "events": [{
                     "action": "get",
                     "expression": "https://dog.ceo/api/breed/retriever/list",
