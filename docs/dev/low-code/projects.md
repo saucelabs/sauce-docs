@@ -492,9 +492,7 @@ When you launch the recorder, it records the actions you perform and translates 
 
 To upload a test case:
 
-1. On the dashboard, in the **Projects** card, click **Go to Projects**.
-2. On the **Projects** page, click the project card of the project you want to upload a test case to.
-3. On the **Project Details** page, click **ADD TEST CASE** and then click the **Upload** button.
+1. On the **Test Cases** tab, click **ADD TEST CASE** and then click the **Upload** button.
 
 <img src={useBaseUrl('/img/dev/low-code/upload-a-test-case.png')} alt="Navigating to the Upload Test Case window" width="400"/>
 
@@ -522,9 +520,7 @@ To upload a test case:
 
 To manually add a test case:
 
-1. On the dashboard, in the **Projects** card, click **Go to Projects**.
-2. On the **Projects** page, click the project card of the project you want to upload a test case to.
-3. On the **Project Details** page, on the **Tests Cases** tab, click **ADD TEST CASE** and then click the **Create** button. See [Using the Step Editor](#using-the-step-editor) for information about the next steps.
+1. On the **Test Cases** tab, click **ADD TEST CASE** and then click the **Write** button. See [Using the Step Editor](#using-the-step-editor) for information about the next steps.
 
 <img src={useBaseUrl('/img/dev/low-code/create-test-case-manual.png')} alt="Navigating to the step editor" width="400"/>
 
@@ -532,7 +528,44 @@ To manually add a test case:
 
 The step editor utilizes Natural Language Processing (NLP) and allows you to manually enter test steps, as opposed to using the recorder. This method gives you more focused control over the actions to test, but it can also result in more errors and frustration for a less-experienced user. If you are new to AutonomIQ, or to testing in general, you can start with the recorder (see [Recording a Test Case](#recording-a-test-case) for more information).
 
-### Step Editor Page Components
+#### Creating a Step
+
+The following are the basic instructions to add a step to a test case, but the step editor is a very robust tool that can perform much more complex functions. For more detailed information about using the step editor and NLP commands, see [NLP Reference](/dev/low-code/nlp-reference).
+
+To create a new step in the step editor:
+
+1. On the dashboard, in the **Projects** card, click **Go to Projects**.
+2. On the **Projects** page, click the project card of the project you want to create a step for.
+3. On the **Cases** page, click the test case you want to create a step for. To create a new test case, see [Adding a Test Case](#adding-a-test-case).
+4. To add a new step, click the blue plus sign.
+
+<img src={useBaseUrl('/img/dev/low-code/step-editor-new-step.png')} alt="New step in the step editor - blue plus sign" width="600"/>
+
+5. In the **Action** field, enter a command and any additional details. As you type, suggestions will be displayed; you can select one or continue entering the text manually.
+
+<img src={useBaseUrl('/img/dev/low-code/step-editor-suggestions.png')} alt="Step editor - Suggested actions" width="600"/>
+
+6. In the **Data** field, you can enter any data that is required for the action.
+
+<img src={useBaseUrl('/img/dev/low-code/step-editor-data-field.png')} alt="Step editor - Data field" width="600"/>
+
+7. You can add and edit step details in the list of steps, or you can click the expand button to open the editor in a separate window.
+
+<img src={useBaseUrl('/img/dev/low-code/step-editor-window.png')} alt="Step editor - Separate window" width="600"/>
+
+8. To edit the step as code, click the **Code** button.
+
+<img src={useBaseUrl('/img/dev/low-code/step-editor-code-editor.png')} alt="Step editor - Code editor" width="600"/>
+
+9. To save the step, click the green checkmark.
+
+#### Copying Excel Data
+
+To paste copied data from an Excel spreadsheet into the step editor, on the **Step Editor** page, click the clipboard icon or use the **CTRL+V** or **command+V** keyboard shortcuts. The pasted steps will be added to the end of the list of steps.
+
+<img src={useBaseUrl('/img/dev/low-code/step-editor-excel-data.png')} alt="Step editor - Copy Excel data" width="400"/>
+
+#### Step Editor Page Components
 
 <table>
 
@@ -546,12 +579,6 @@ The step editor utilizes Natural Language Processing (NLP) and allows you to man
     <td colspan='2'>Test case name and description
     </td>
     <td>Click the pencil icon to open the <b>Update Case Name and Description</b> window.
-    </td>
-  </tr>
-  <tr>
-    <td colspan='2'><b>Create Tags</b> button
-    </td>
-    <td>Click to open the <b>Create Tags</b> window. For more information about creating tags, see <a href="/dev/low-code/plan/test-cases#tagging-a-test-case">Tagging a Test Case</a>.
     </td>
   </tr>
   <tr>
@@ -570,6 +597,18 @@ The step editor utilizes Natural Language Processing (NLP) and allows you to man
     <td colspan='2'><b>Total Steps</b>
     </td>
     <td>The number of steps in the test case.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'><b>Save</b> button
+    </td>
+    <td>Saves the test steps.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'><b>Generate</b> button
+    </td>
+    <td>Click to generate the test. For more information about generating tests, see <a href="#generating-a-test">Generating a Test</a>.
     </td>
   </tr>
   <tr>
@@ -626,24 +665,14 @@ The step editor utilizes Natural Language Processing (NLP) and allows you to man
     <td>The expected result of the action.
     </td>
   </tr>
-  <tr>
-    <td colspan='2'><b>Generate</b> button
-    </td>
-    <td>Click to generate the test. For more information about generating tests, see <a href="#generating-a-test">Generating a Test</a>.
-    </td>
-  </tr>
+  
   <tr>
     <td colspan='2'><b>Stop</b> button
     </td>
     <td>Stops the test being generated.
     </td>
   </tr>
-  <tr>
-    <td colspan='2'><b>Save</b> button
-    </td>
-    <td>Saves the test steps.
-    </td>
-  </tr>
+  
   <tr>
     <td colspan='2'><b>Undo</b> button
     </td>
@@ -716,41 +745,6 @@ The step editor utilizes Natural Language Processing (NLP) and allows you to man
   </tr>
 
 </table>
-
-#### Creating a Step
-
-The following are the basic instructions to add a step to a test case, but the step editor is a very robust tool that can perform much more complex functions. For more detailed information about using the step editor and NLP commands, see [NLP Reference](/dev/low-code/nlp-reference).
-
-To create a new step in the step editor:
-
-1. On the dashboard, in the **Projects** card, click **Go to Projects**.
-2. On the **Projects** page, click the project card of the project you want to create a step for.
-3. On the **Cases** page, click the test case you want to create a step for. To create a new test case, see [Adding a Test Case](#adding-a-test-case).
-4. To add a new step, click the blue plus sign.
-
-<img src={useBaseUrl('/img/dev/low-code/step-editor-new-step.png')} alt="New step in the step editor - blue plus sign" width="600"/>
-
-5. In the **Action** field, enter a command and any additional details. As you type, suggestions will be displayed; you can select one or continue entering the text manually.
-
-<img src={useBaseUrl('/img/dev/low-code/step-editor-suggestions.png')} alt="Step editor - Suggested actions" width="600"/>
-
-6. In the **Data** field, you can enter any data that is required for the action.
-
-<img src={useBaseUrl('/img/dev/low-code/step-editor-data-field.png')} alt="Step editor - Data field" width="600"/>
-
-7. You can add and edit step details in the list of steps, or you can click the expand button to open the editor in a separate window.
-
-<img src={useBaseUrl('/img/dev/low-code/step-editor-window.png')} alt="Step editor - Separate window" width="600"/>
-
-8. To edit the step as code, click the **Code** button.
-
-<img src={useBaseUrl('/img/dev/low-code/step-editor-code-editor.png')} alt="Step editor - Code editor" width="600"/>
-
-9. To save the step, click the green checkmark.
-
-#### Copying Excel Data
-
-To paste copied data from an Excel spreadsheet into the step editor, on the **Step Editor** page, click the clipboard icon or use the **CTRL+V** or **command+V** keyboard shortcuts. The pasted steps will be added to the end of the list of steps.
 
 ## Generating a Test
 
