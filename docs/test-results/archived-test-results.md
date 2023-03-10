@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The **Archive** page provides a handy way to manage historical information about your tests and builds. It contains all the tests and builds you have run since you opened your Sauce Labs account, and new tests and builds are automatically added to it, while the dashboard only displays the the last 50 builds or the last 25 tests you have run.
+The **Archive** page allows you to manage historical information about your tests and builds. It contains all the tests and builds you have run since you opened your Sauce Labs account, and new tests and builds are automatically added to it, while the dashboard only displays the last 50 builds or the last 25 tests you have run.
 
 :::note
 We only keep assets such as screenshots, logs, and videos for 30 days.

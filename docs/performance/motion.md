@@ -22,7 +22,7 @@ In addition to testing the efficiency of your app rendering, Sauce Labs also pro
 
 ## What is Jankiness?
 
-Web apps sometimes appear to lack smoothness when the the app isn't keeping up with the refresh, a condition sometimes referred to as jankiness.
+Web apps sometimes appear to lack smoothness when the app isn't keeping up with the refresh, a condition sometimes referred to as jankiness.
 
 According to jankfree.org:
 
