@@ -13,7 +13,7 @@ There are 4 key navigational components to help you analyze your error and crash
 
 - Project selector - Use this to switch between various projects that are reporting crashes or errors.
 - Filters - Define your working set. Specify time frames and additional criteria to indicate which errors and fingerprints to analyze.
-- Saved views - Commonly used filters for quick access and sharing for the selected project. Admin users can save a default view and bookmark it for a team's project, and users can further personalize their views with a user default.
+- Saved views - Commonly used filters for quick access and sharing for the selected project. As an administrator, you can save a view as a default and bookmark it for a team's project. You can further customize and save your own views.
 - Views and results list - The Triage, Explore, and Debug views allow you to prioritize, analyze, and debug your crashes.
 
 ## Filters
@@ -56,16 +56,16 @@ At the top of the result list, you'll see some informational text that tells you
 Depending on which view you are in, you have additional ways to manipulate the result list and continue your exploration of error data:
 
 - In the [Triage](/error-reporting/web-console/triage) view, you will see errors grouped by Fingerprint. You have various actions available to support resolving the Fingerprint, and you have the ability to open a Details view for the Fingerprint to offer more introspection into the aggregate information about the Fingerprint.
-- In the [Explore](/error-reporting/web-console/explore) view, you will be able to choose which attributes to Group By, allowing for more robust exploration of your error data. Users will commonly group by UserID (See impact by user), Host or Device ID (See impact to each host), OS Version (Identify issues encountered after an OS patch), or any custom attributes useful for their application.
+- In the [Explore](/error-reporting/web-console/explore) view, you will be able to choose which attributes to Group By, allowing for more robust exploration of your error data. You can group by UserID (See impact by user), Host or Device ID (See impact to each host), OS Version (Identify issues encountered after an OS patch), or any custom attributes for the application.
 - In the [Debug](/error-reporting/web-console/debug) view, you will be able to navigate through all individual errors that are returned based on the filter conditions. This allows you to iterate through a group of similar errors to identify additional trends or commonalities.
 
 ## Saved Views
 
-You can save your current queries for the Explore and Triage views and bookmark them for quick access. Admin users can also bookmark saved views for their team's projects.
+You can save your current queries for the Explore and Triage views and bookmark them for quick access. As as administrator, you can bookmark saved views for your team's projects.
 
 <img src={useBaseUrl('img/error-reporting/console-views/saved-views.png')} alt="Shows the list of saved views." width="300"/>
 
-By default, every project includes bookmarked views, which include fingerprints over the past week, errors by version, errors by device model, and errors by type. 
+By default, every project includes bookmarked views, which include fingerprints over the past week, errors by version, errors by device model, and errors by type.
 
 You can access the bookmarked views from the View bar.
 
@@ -74,7 +74,7 @@ You can access the bookmarked views from the View bar.
 
 ## Console Use Cases
 
-The new Web Console provides an enhanced interface and interaction model for working with Backtrace. It was developed to support the needs of team members such as Engineers and Engineering Managers, QA and Support personnel, and Business or Product leaders, as they focus on detecting and resolving issues impacting their newly developed or released software.
+The Web Console provides an enhanced interface and interaction model for working with Backtrace. It was developed to support the needs of team members such as Engineers and Engineering Managers, QA and Support personnel, and Business or Product leaders, as they focus on detecting and resolving issues impacting their newly developed or released software.
 
 - Engineering Managers - Triage the incoming errors (crashes and exceptions), and review the status of assigned errors. Explore, analyze and query the corpus of error data.
 - Engineers - Debug and resolve errors assigned to them. Possibly self-assign errors not yet assigned.
