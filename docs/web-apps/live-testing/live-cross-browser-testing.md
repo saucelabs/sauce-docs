@@ -147,15 +147,16 @@ Below are resolutions to common errors that you may experience in live cross bro
 
 This error is displayed when the ports used by manual testing relies are being blocked by a firewall on your end. This may also be caused by running apps such as Avast! antivirus software.
 
-Below are the servers and ports used by manual testing. If you plan to launch manual tests locally installed browsers, we recommend checking with your network administrator to confirm that you can make secure websocket connections to: `api.us-west-1.saucelabs.com:443` (for US-West-1 DC) or `api.eu-central-1.saucelabs.com:443` (for EU-Central-1 DC).
+Below are the servers and ports used by manual testing. If you plan to launch manual tests on locally installed browsers, we recommend checking with your network administrator to confirm that you can make secure websocket connections to: `api.us-west-1.saucelabs.com:443` (for US-West-1 DC) or `api.eu-central-1.saucelabs.com:443` (for EU-Central-1 DC).
 
 ### Your Job is Not Loading
 
 There are two common scenarios here:
 
 - Error message: "Uh oh! Some error occurred while connecting to the browser"
-- The job seems to start, but you see only a white text box in the middle of a black screen
-  Both errors indicate that your browser is having trouble displaying the VNC stream from the remote machine. Here are some steps to troubleshoot:
+- The job seems to start, but you see only a white text box in the middle of a black screen.
+
+Both errors indicate that your browser is having trouble displaying the VNC stream from the remote machine. Below are some steps to troubleshoot:
 
 #### Check the Video on Sauce
 

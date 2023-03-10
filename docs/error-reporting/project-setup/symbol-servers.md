@@ -53,7 +53,7 @@ Customers on our Enterprise plan can add new private symbol servers to connect t
 
 You will need the following information to connect:
 
-- URL - HTTPS URL to connect to the the symbol server or S3 bucket.
+- URL - HTTPS URL to connect to the symbol server or S3 bucket.
   - When using an AWS S3 bucket, use the HTTPS URL of the region the S3 bucket is hosted from.
 - Name - A friendly name for this connection.
 - Whether you want to enable Whitelist or not. Most common configuration for private symbol servers is NOT use the Whitelist, and have all symbols attempted to be downloaded on demand for any not in the blacklist or skiplist. If Whitelist is enabled, then the system will try to download ONLY the symbols specified in the whitelist (no other symbols will be downloaded).
