@@ -13,32 +13,30 @@ There are 4 key navigational components to help you analyze your error and crash
 
 - Project selector - Use this to switch between various projects that are reporting crashes or errors.
 - Filters - Define your working set. Specify time frames and additional criteria to indicate which errors and fingerprints to analyze.
-- Saved views - Commonly used filters for quick access and sharing for the selected project. Admin users can save team default view for a given project, and users can further personalize their views with a user default.
+- Saved views - Commonly used filters for quick access and sharing for the selected project. Admin users can save a default view and bookmark it for a team's project, and users can further personalize their views with a user default.
 - Views and results list - The Triage, Explore, and Debug views allow you to prioritize, analyze, and debug your crashes.
-
-<img src={useBaseUrl('img/error-reporting/console-views/getting-around.png')} alt="Getting around in the web console views." />
 
 ## Filters
 
-### Time Frame Filters
+### Time Frame
 
-On the top left, you'll see filters for Time Frame. This allows you to filter for issues that have occurred during a certain time period, or when an issue was first seen, which is useful for identifying when specifically an issue may have been introduced.
+On the top left, you'll see the Time frame filter. This allows you to filter for issues that have occurred during a certain time period or to identify when an issue has first occurred.
 
 <img src={useBaseUrl('img/error-reporting/console-views/time-frame-filters.png')} alt="Use the Time Frame filter to view errors that occurred during a certain time period or when an error was first seen." />
 
-### Filter Operators
+### Filter Bar
 
-Next, you can add filters identifying crashes from a certain version, a certain user, specific operating system, or more. Filters are available on any system or custom metadata that you provide with your crashes. You can take advantage of powerful filter operators that go beyond the normal equals or contains operators to include not-contains, regular-expression, inverse-regular-expression, at-least, or at-most, depending on the data type. See the image below for examples of the different operators available.
+You can add filters identifying crashes from a certain version, a certain user, specific operating system, or more. Filters are available on any system or custom metadata that you provide with your crashes. You can take advantage of powerful filter operators that go beyond the normal equals or contains operators to include not-contains, regular-expression, inverse-regular-expression, at-least, or at-most, depending on the data type.
 
-<img src={useBaseUrl('img/error-reporting/console-views/filter-operators.png')} alt="Shows filter operators that are available." />
+<img src={useBaseUrl('img/error-reporting/console-views/filter-bar.png')} alt="Shows how to use the filter bar to search for attributes with operators." />
 
-#### Case Insensitive Filtering
+#### Filter Operators
 
 By default, all search operators are case sensitive. If you want to search using case insensitivity, enter a regular expression or inverse regular expression within `/{your-search}/i` to invoke case insensitive search.
 
 For example, if you want to search for banana, Banana, or BaNaNa, you could enter `description regular-expression /banana/i` and any of those would be included.
 
-### Aggregation Filters
+### Aggregation
 
 Aggregation Filters allows you to apply an additional filter on the results based on an aggregation, such as a unique count, or a minimum or maximum from a series of values. Let's take a look at some example questions you can ask with this feature:
 
@@ -47,11 +45,11 @@ Aggregation Filters allows you to apply an additional filter on the results base
 - "Show me crashes that have occurred in at least 2 release channels”
 - "Show me crashes that have impacted at most 1 unique scene in the game, so we can hone in on specific scene impacting issues"
 
-## Tools and Result Lists
+## Views and Result Lists
 
 After defining your working set, choose a tool to view and manage the result list. The result list will vary depending on which tool you are in. The following shows the result list for the Triage view.
 
-<img src={useBaseUrl('img/error-reporting/console-views/triage-results-list.png')} alt="Shows the Triage view." />
+<img src={useBaseUrl('img/error-reporting/console-views/triage-results-list.png')} alt="Shows the Triage view." width="750" />
 
 At the top of the result list, you'll see some informational text that tells you how many issues are being displayed and how many in total there are. This gives you a view of how many additional crashes or errors that are identified outside the filter window.
 
@@ -60,6 +58,19 @@ Depending on which view you are in, you have additional ways to manipulate the r
 - In the [Triage](/error-reporting/web-console/triage) view, you will see errors grouped by Fingerprint. You have various actions available to support resolving the Fingerprint, and you have the ability to open a Details view for the Fingerprint to offer more introspection into the aggregate information about the Fingerprint.
 - In the [Explore](/error-reporting/web-console/explore) view, you will be able to choose which attributes to Group By, allowing for more robust exploration of your error data. Users will commonly group by UserID (See impact by user), Host or Device ID (See impact to each host), OS Version (Identify issues encountered after an OS patch), or any custom attributes useful for their application.
 - In the [Debug](/error-reporting/web-console/debug) view, you will be able to navigate through all individual errors that are returned based on the filter conditions. This allows you to iterate through a group of similar errors to identify additional trends or commonalities.
+
+## Saved Views
+
+You can save your current queries for the Explore and Triage views and bookmark them for quick access. Admin users can also bookmark saved views for their team's projects.
+
+<img src={useBaseUrl('img/error-reporting/console-views/saved-views.png')} alt="Shows the list of saved views." width="300"/>
+
+By default, every project includes bookmarked views, which include fingerprints over the past week, errors by version, errors by device model, and errors by type. 
+
+You can access the bookmarked views from the View bar.
+
+<img src={useBaseUrl('img/error-reporting/console-views/bookmarked-views.png')} alt="Shows the bookmarked views that you can quickly access from the View bar." width="750"/>
+
 
 ## Console Use Cases
 
