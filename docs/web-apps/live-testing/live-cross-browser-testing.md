@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-You can run live tests of your websites on a wide variety of operating system, browser, version, and screen resolution configurations.
+You can run live tests of your your websites on a wide variety of operating system, browser, version, and screen resolution configurations.
 
 ## What You'll Need
 
