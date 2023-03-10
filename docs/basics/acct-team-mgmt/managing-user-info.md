@@ -114,7 +114,7 @@ To access the User Settings screen, on Sauce Labs, click **ACCOUNT** and then cl
 
 ## Password Policy
 
-Sauce Labs supports two-factor authentication. See [Setting Up Single Sign-On](/basics/sso/setting-up-single-sign-on) for more information.
+Sauce Labs supports two-factor authentication. See [Setting Up Single Sign-On (Deprecated Flow)](/basics/sso-deprecated/setting-up-single-sign-on) for more information.
 
 Strong passwords are required, and must include the following:
 

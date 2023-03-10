@@ -701,13 +701,31 @@ module.exports = {
                         },
                         {
                             type: 'category',
-                            label: 'Single Sign-On',
+                            label: 'Single Sign-On (SAML SSO)',
                             collapsed: true,
                             items: [
-                                'basics/sso-hub',
-                                'basics/sso/setting-up-single-sign-on',
-                                'basics/sso/config-adfs',
-                                'basics/sso/config-okta',
+                                'basics/sso/setting-up-sso',
+                                {
+                                    type: 'category',
+                                    label: 'Configuring Identity Providers',
+                                    collapsed: true,
+                                    items: [
+                                        'basics/sso/configuring-sso-in-onelogin',
+                                        'basics/sso/configuring-sso-in-google',
+                                    ],
+                                },
+                                'basics/sso/logging-in-via-sso',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'Single Sign-On (Deprecated Flow)',
+                            collapsed: true,
+                            items: [
+                                'basics/sso-deprecated/sso-hub',
+                                'basics/sso-deprecated/setting-up-single-sign-on',
+                                'basics/sso-deprecated/config-adfs',
+                                'basics/sso-deprecated/config-okta',
                             ],
                         },
                         {
@@ -754,12 +772,6 @@ module.exports = {
                                         'basics/integrations/deque',
                                         'basics/integrations/evinced',
                                     ],
-                                },
-                                {
-                                    type: 'category',
-                                    label: 'Defect Reporting and Management',
-                                    collapsed: true,
-                                    items: ['basics/integrations/jira'],
                                 },
                                 {
                                     type: 'category',
@@ -865,6 +877,7 @@ module.exports = {
                             label: 'Mobile App Diagnostics',
                             collapsed: true,
                             items: [
+                                'mobile-apps/features/mobile-app-diagnostics/app-crash-logs',
                                 'mobile-apps/features/mobile-app-diagnostics/device-vitals',
                                 'mobile-apps/features/mobile-app-diagnostics/interactions',
                                 'mobile-apps/features/mobile-app-diagnostics/view-tree',
@@ -1083,7 +1096,8 @@ module.exports = {
                     label: 'Integrations',
                     collapsed: true,
                     items: [
-                        'api-testing/integrations/apifctl-cicd-integration',
+                        'api-testing/integrations/apitesting-saucectl-integration',
+                        'api-testing/integrations/yaml',
                         'api-testing/integrations/pagerduty-webhooks',
                     ],
                 },
