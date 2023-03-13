@@ -311,7 +311,7 @@ You can also launch Ephemeral tunnels from a continuous integration (CI) build s
 
 2. Determine the number of tunnels you'll need for your tests. For this example, we'll use one tunnel. As a rule of thumb, if you're running less than 200 parallel tests, one tunnel is fine; for 200 or more parallel tests, you'll need two tunnels. For more information, see [System and Network Requirements](/secure-connections/sauce-connect/system-requirements).
 
-3. How you start your tunnel is up to you. You can run a simple Bash shell script (or PowerShell script, if you're in Windows) that simply executes the start commands as if you were starting it locally:
+3. How you start your tunnel is up to you. You can run a Bash shell script (or PowerShell script, if you're in Windows) that executes the start commands as if you were starting it locally:
 
 ```bash
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west --tunnel-name $TUNNEL_NAME
