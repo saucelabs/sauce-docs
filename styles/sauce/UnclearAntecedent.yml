@@ -1,0 +1,16 @@
+# Checks for words that need a noun for clarity.
+extends: existence
+message: "Instead of '%s', try starting this sentence with a specific subject and verb."
+level: warning
+ignorecase: false
+tokens:
+  - 'That is'
+  - 'That was'
+  - 'These are'
+  - 'These were'
+  - 'There are'
+  - 'There were'
+  - 'This is'
+  - 'This was'
+  - 'Those are'
+  - 'Those were'

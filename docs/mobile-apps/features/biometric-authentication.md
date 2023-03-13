@@ -9,12 +9,17 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+With Sauce Labs Biometric Authentication, you can simulate biometric authentication events within your app during live and automated testing. This feature allows you to test the app's ability to recognize and respond to biometric events, without physically testing it on a device. Biometric Authentication refers to the use of physical characteristics, such as fingerprint (Touch ID) or facial recognition (Face ID) to verify the user's identity.
+
 Sauce Labs provides biometrics interception for our customers to:
 
 - Access test flows that are dependent on biometrics support, such as a mandatory security layer.
 - Verify that an app responds as expected to biometrics settings (e.g., enabled/disabled and successful/unsuccessful).
 
+:::caution
+Make sure you have a debuggable AND non-obfuscated version of your application uploaded to Mobile App Storage. 
 Biometrics test support in Sauce Labs is not intended to test actual biometrics values for authentication.
+:::
 
 ## What You'll Need
 

@@ -775,12 +775,6 @@ module.exports = {
                                 },
                                 {
                                     type: 'category',
-                                    label: 'Defect Reporting and Management',
-                                    collapsed: true,
-                                    items: ['basics/integrations/jira'],
-                                },
-                                {
-                                    type: 'category',
                                     label: 'Low-Code/No-Code/Model-Based Test Case Generation',
                                     collapsed: true,
                                     items: [
@@ -883,6 +877,7 @@ module.exports = {
                             label: 'Mobile App Diagnostics',
                             collapsed: true,
                             items: [
+                                'mobile-apps/features/mobile-app-diagnostics/app-crash-logs',
                                 'mobile-apps/features/mobile-app-diagnostics/device-vitals',
                                 'mobile-apps/features/mobile-app-diagnostics/interactions',
                                 'mobile-apps/features/mobile-app-diagnostics/view-tree',
