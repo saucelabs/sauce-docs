@@ -70,6 +70,17 @@ values={[
     </tr>
     <tbody>
       <tr>
+        <td rowspan='2'>1.31.1</td>
+        <td><b>macOS:</b> 11.00, 12</td>
+        <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
+        <td rowspan='2'>Mar 01, 2024</td>
+      </tr>
+      <tr>
+        <td><b>Windows:</b> 10, 11</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
         <td rowspan='2'>1.29.2</td>
         <td><b>macOS:</b> 11.00, 12</td>
         <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
@@ -186,6 +197,12 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 :::caution Special Characters in Test Names
 We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
 :::
+
+:::caution Playwright 1.31.1 + Webkit + Sauce-Connect
+When using Sauce-Connect, Webkit browser is unable to load any website that is hosted on the Internet.
+Local websites can still be loaded.
+:::
+
 
 :::note
 Based on current playwright test runner implementation, there is no way to run Playwright test runner with Cucumber.
