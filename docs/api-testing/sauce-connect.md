@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabling you to test and monitor both internal and public APIs. If your APIs are behind a firewall on your private network, follow the steps below to launch a secure trusted connection between your network and Sauce Labs.
 
 :::warning
-We do not support [Allow-listing static IPs](basics/data-center-endpoints/). We strongly suggest running your tests using Sauce Connect Proxy tunnel. For assistance, contact your CSM/SE or our Support Team.
+We do not support [Allow-listing static IPs](/basics/data-center-endpoints/). We strongly suggest running your tests using Sauce Connect Proxy tunnel. For assistance, contact your CSM/SE or our Support Team.
 :::
 
 ## What You'll Need
