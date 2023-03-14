@@ -597,3 +597,113 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </details>
 
 ---
+
+### Stop a Job
+
+<details><summary><span className="api put">PUT</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/stop</code></summary>
+<p/>
+
+Stops a running job described by the `job_id`.
+
+**_NOTE:_** Right now only Appium jobs can be stopped while they are actively running.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>job_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a job running on a real device in the data center. You can look up job IDs using the <a href="#get-real-device-jobs">Get Real Device Jobs</a> endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/v1/rdc/jobs/293d84fb2f634ff29a750c3f8eaee592/stop' | json_pp
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.eu-central-1.saucelabs.com/v1/rdc/jobs/48c6d12f9ef944439453b5abc6715b54/stop' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Job successfully stopped.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Session identified as 'JOB_TYPE' test. It can’t be stopped because it’s not part of the allowed test types: APPIUM</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Cannot stop test in the setup phase. Test needs to be in progress before it can be stopped</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>The test cannot be stopped because the test execution has already finished. Only tests in progress can be stopped</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Session Id is not available yet. Test needs to be in progress before it can be stopped</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Only in progress appium session can be stopped</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>500</code></td>
+    <td colSpan='2'>Session could not be closed, try again</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>500</code></td>
+    <td colSpan='2'>Failed to stop a session, Please try again</td>
+  </tr>
+</tbody>
+</table>
+
+</details>
+
+---
