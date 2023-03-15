@@ -10,6 +10,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Adding Users
 
+Here's a change to remove.
+
 If you are an organization administrator, you can add users to your organization or team by inviting them via email, or by adding them manually to the organization or team.
 
 When you add a user manually, you assign the user a user name and password. To allow a user to set their own user name and password, invite them via email.
