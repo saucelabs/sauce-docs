@@ -1053,8 +1053,8 @@ module.exports = {
                 'hosted-orchestration/architecture',
                 'hosted-orchestration/running-tests',
                 'hosted-orchestration/building-images',
-                'hosted-orchestration/private-registry'
-            ]
+                'hosted-orchestration/private-registry',
+            ],
         },
         {
             type: 'category',
@@ -1066,6 +1066,7 @@ module.exports = {
                 'api-testing/sauce-connect',
                 'api-testing/build-from-spec',
                 'api-testing/import-postman-collection',
+                'api-testing/import-har-files',
                 'api-testing/import-export-tests',
                 'api-testing/schedule-test',
                 {
