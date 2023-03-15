@@ -106,4 +106,3 @@ A common cause could be that you have provided a capability `â€œappium:languageâ
 The Fast Booted Simulators use default English settings. Every change you make to it by providing different capabilities will trigger Appium to restart the Simulator.
 
 
-
