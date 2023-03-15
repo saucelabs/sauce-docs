@@ -84,7 +84,7 @@ To make Apple Pay work on Sauce Labs real private devices:
 
    <img src={useBaseUrl('img/live-testing/apple-pay-1.png')} alt="Apple Pay setup - device list" width="650"/>
 
-   On the **Signing & Capabilities** tab, you will see that the device has not yet been added.
+   On the **Signing & Capabilities** tab you will see that the device has not yet been added.
 
    <img src={useBaseUrl('img/live-testing/apple-pay-2.png')} alt="Apple Pay setup - device not added" width="650"/>
 
