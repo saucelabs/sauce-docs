@@ -15,6 +15,10 @@ Sauce Labs supports Identity Provider (IdP)-initiated and Service Provider (SP)-
 - An enterprise license for Sauce Labs
 - Organization admin access (see [User Roles](/basics/acct-team-mgmt/managing-user-info) for more information)
 
+## Special Cases
+
+- If your company has more than one organization at Sauce Labs to be integrated with SAML SSO and your Identity Provider requires a unique entity ID for Service Providers, [see these special setup steps](/basics/sso/setting-up-sso-special-cases).
+
 ## Setup Overview
 
 First, set up a new SAML application in your [Identity Provider (IdP)](#setting-up-identity-provider). Next, enable and configure SSO in [Sauce Labs Team Management Panel](#integrating-with-sauce-labs-service-provider).
@@ -30,7 +34,7 @@ We provide preconfigured SAML applications for some identity providers. They all
 
 - [Google](/basics/sso/configuring-sso-in-google)
 - [OneLogin](/basics/sso/configuring-sso-in-onelogin)
-  :::
+:::
 
 If you use a custom identity provider or your provider does not appear in the list above, please complete the manual setup:
 
