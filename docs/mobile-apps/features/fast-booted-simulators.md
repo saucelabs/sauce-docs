@@ -103,7 +103,7 @@ The second reason could be that Appium restarted the Simulator due to specific c
 
 A common cause could be that you have provided a capability `“appium:language”` or `“appium:locale”` to change the language of the app or Simulator.
 
-The Fast Booted Simulators use default English settings. Every change you make to it by providing different capabilities will trigger Appium to restart the simulator.
+The Fast Booted Simulators use default English settings. Every change you make to it by providing different capabilities will trigger Appium to restart the Simulator.
 
 
 
