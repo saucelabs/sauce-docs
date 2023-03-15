@@ -77,7 +77,6 @@ To use a different version of Appium, you can specify it through the [sauce:opti
 
 ## FAQ
 
-
 ### How can I validate that my session used a Fast Booted Simulator?
 
 This can be done by:
