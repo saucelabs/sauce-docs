@@ -71,7 +71,7 @@ For iPad:
 This will assign a fast-booted Simulator that represents the latest/current major iOS version for the requested device by what both Apple has released and what Sauce Labs supports in our Simulator cloud. In the case of using previous_major platform version, it will represent the latest previous major iOS version for the requested device by what both Apple has released and what Sauce Labs supports in our Simulator cloud.
 
 :::note
-To use a different version of Appium, you can specify it through the [sauce:options](https://docs.saucelabs.com/dev/test-configuration-options/#appiumversion). Check our [platform configurator](https://saucelabs.com/products/platform-configurator#/) to confirm which Appium versions are supported. Note that using a different version may result in additional 20 seconds of start-up time for your iPhone/Ipad Fast Simulator.
+To use a different version of Appium, you can specify it through the [sauce:options](https://docs.saucelabs.com/dev/test-configuration-options/#appiumversion). Check our [platform configurator](https://saucelabs.com/products/platform-configurator#/) to confirm which Appium versions are supported. Using a different version may result in additional 20 seconds of start-up time for your iPhone/Ipad Fast Simulator.
 :::
 
 
