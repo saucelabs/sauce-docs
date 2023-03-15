@@ -605,7 +605,9 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 Stops a running job described by the `job_id`.
 
-**_NOTE:_** Right now only Appium jobs can be stopped while they are actively running.
+:::note
+Only Appium jobs can be stopped while they are actively running.
+:::
 
 #### Parameters
 
@@ -703,6 +705,13 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   </tr>
 </tbody>
 </table>
+
+```jsx title="Sample Response"
+{
+    "code" : "BAD_REQUEST",
+    "message" : "The test cannot be stopped because the test execution has already finished. Only tests in progress can be stopped"
+}
+```
 
 </details>
 
