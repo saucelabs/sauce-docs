@@ -1,0 +1,158 @@
+---
+id: testing-apple-pay
+title: Testing Apple Pay in Mobile Apps
+sidebar_label: Testing Apple Pay in Mobile Apps
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+Apple Pay is a mobile payment and digital wallet service developed by Apple Inc. It allows you to make payments using your Apple devices, including iPhones and iPads. However, testing Apple Pay can be challenging, especially when it comes to testing it on different devices and environments. In this regard, Sauce Labs provides three ways to test Apple Pay, including using simulators, using real private devices with an Apple Pay Sandbox Testing account, and using real private devices with a real production account and real credit cards.
+
+
+## What You'll Need
+
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- A native iOS, or iPadOS mobile app.
+
+
+## Testing Apple Pay
+
+There are three ways to test Apple Pay with Sauce Labs:
+
+- Using simulators.
+- Using real private devices with an Apple Pay Sandbox Testing account.
+- Using real private devices with a real production account and real credit cards.
+
+:::caution iOS Simulators
+There are important differences between the Apple Pay Real Device and Simulator flow. The Simulator has the following limitations:
+
+- It is focused on the front-end integration of Apple Pay and does not test the back-end integration.
+- You **can't** add cards to the wallet, meaning:
+  - No Apple Pay Sandbox Testing cards.
+  - No real credit cards.
+- You **can't** test the Apple Pay in-web flow.
+- You **can** test the Apple Pay in-app flow, but the Apple Pay in-app flow will not work the same as with Real Devices. It won't return a payment token and will not properly process your payment. In addition to this, it automatically provides simulated cards for all the supported payment networks.
+
+:::
+
+## Requirements
+
+- You need to use [Private devices](#apple-pay-on-real-private-devices).
+- [Instrumentation](#disable-instrumentation) needs to be disabled.
+- You need to add your Sauce Labs hosted Private device [UDID](#apple-pay-on-real-private-devices) to your own provisioning profile.
+- Devices need to have a physical home button (for instance, iPhone SE(2020/2022)/6 series/7 series/8 series). A physical button will require the passcode for payment confirmation.
+
+:::note
+Devices with a notch (like the iPhone X(S)/11/12/..) will ask for FaceId confirmation. As this feature is disabled, the payment will fall back to a different confirmation method. It will use a double press on the power button for the payment approval. However, this method is not supported.
+:::
+
+## Apple Certificates
+
+Apple certificates are used to ensure security in their systems, and they are much more strict about them than Android. This level of security makes certificates a very complex part of making Apple Pay work with devices in a cloud.
+
+To give you an example, Android apps can be installed without any specific signing on whatever real device you want. With Apple you have two options, or you need to add a remote device to your developer certificate and the provisioning profile, so you are allowed to install the app on that specific device. Or you need to use an enterprise certificate where the Apple device that has that certificate installed allows you to install the app. Similarly, when you install an iOS app on a device, we re-sign the app with a Sauce Labs enterprise certificate so you can install your app on all Sauce Labs public/private devices.
+
+:::note
+Apple Pay has a limitation that it cannot work with an enterprise certificate. You need to use the developer certificate where the device has been added to the provisioning profile in order to make this work. This can only be done for Sauce Labs private devices on which you have disabled the instrumentation.
+:::
+
+## Apple Pay on Real Private Devices
+
+:::note
+Our real devices are cleaned after every test session. Therefore, you need to configure your Apple Pay Sandbox Testing account, including a passcode and sandbox cards, every time you want to test Apple Pay on an iOS real device.
+:::
+
+To make Apple Pay work on Sauce Labs real private devices:
+
+1. **Follow Apple’s steps to enable Apple Pay (see [Setting Up Apple Pay Requirements](https://developer.apple.com/documentation/passkit/apple_pay/setting_up_apple_pay_requirements))**. Apple is strict about certificates, so they require you to follow very specific steps:
+1. Set up Apple Pay integration in your app.
+1. Register the Merchant ID in your Apple developer account.
+1. Set up an Apple sandbox tester account (see [Create a sandbox tester account](https://help.apple.com/app-store-connect/#/dev8b997bee1) for more information).
+1. **Build your app**. Apple Pay doesn’t work with enterprise certificates, so it will not work with Sauce Labs out of the box. The first step is to add the Sauce Labs real private devices to your Apple developer certificate before building the app. You can do that in one of the following ways:
+1. Manually adding the device and its UDID to the device list for your developer certificate.
+   :::note
+   Your device list can be found on Apple’s [Certificates, Identifiers & Profiles page](https://developer.apple.com/account/resources/) for your developer account, and you can get the UDID of your private device by contacting your Sauce Labs CSM.
+   :::
+1. Using the Sauce Labs Virtual USB solution:
+
+   1. Start a session with Virtual USB (see [Testing with Virtual USB on Real Devices](/mobile-apps/features/virtual-usb) for more information).
+   2. When the connection is established, open **XCODE**.
+   3. Select the device from the device list.
+
+   <img src={useBaseUrl('img/live-testing/apple-pay-1.png')} alt="Apple Pay setup - device list" width="650"/>
+
+   On the **Signing & Capabilities** tab, you will see that the device has not yet been added.
+
+   <img src={useBaseUrl('img/live-testing/apple-pay-2.png')} alt="Apple Pay setup - device not added" width="650"/>
+
+   4. Click **Register Device** to add the device to your developer certificate.
+
+   <img src={useBaseUrl('img/live-testing/apple-pay-3.png')} alt="Apple Pay setup - add device to certificate" width="650"/>
+
+   5. Once the UDID of the device is added to the developer certificate, you can build the app (manually or automatically):
+      1. Select your build scheme and then select **Generic iOS Device**.
+      2. To build the app, click **Product** and then click **Archive**.
+      3. Click **Distribute App**.
+      4. Distribute the app with **Ad Hoc** and **Automatically manage signing**.
+      5. Store the app on your local machine.
+
+   If the app has been built, you should not yet upload it to Sauce Labs. The device to be tested needs to be prepared. If you have already prepared the device, then you can skip to step 4.
+
+1. Prepare the device. Set up the first Sauce Labs private device to use Apple Pay with the Apple sandbox account that was created in step 1.
+
+## Passcode
+
+One of the Apple Pay requirements is having a set passcode on your phone. Without it, you won't be able to add cards to your wallet. You need to use our Device Passcode capability.
+
+## Add Apple Sandbox Test Cards
+
+Apple test cards can be found on Apple’s [Sandbox Testing](https://developer.apple.com/apple-pay/sandbox-testing/) page.
+
+1. On your device, go to **Wallet**. If you didn’t set the passcode capability, Apple will show a notification.
+
+<img src={useBaseUrl('img/live-testing/apple-pay-6.png')} alt="Apple Pay setup - passcode notification" width="250"/>
+
+2. In **Wallet**, tap the plus sign to add a new card. Use the card information on Apple’s [Sandbox Testing](https://developer.apple.com/apple-pay/sandbox-testing/) page.
+
+<img src={useBaseUrl('img/live-testing/apple-pay-7.png')} alt="Apple Pay setup - Add new card" width="250"/>
+
+3. **Prepare Sauce Labs**. As mentioned before, Sauce Labs uses an enterprise certificate to install an app on public and private devices. But Apple Pay can’t work with the enterprise certificate, so the app needs to be signed with the developer certificate. You need to instruct Sauce Labs to not re-sign the app when it is installed.
+
+## Disable Instrumentation
+
+1. On Sauce Labs, in the left navigation, click **Live** and then click **Mobile-App**.
+
+<img src={useBaseUrl('img/live-testing/apple-pay-8.png')} alt="Apple Pay setup - Sauce login" width="250"/>
+
+You will see an overview of the already uploaded apps. If no app has been uploaded, then upload the app. Once uploaded, open the app settings by hovering over the row until you see this:
+
+<img src={useBaseUrl('img/live-testing/apple-pay-9.png')} alt="Apple Pay setup - Settings" width="650"/>
+
+2. Click **Settings**.
+
+<img src={useBaseUrl('img/live-testing/apple-pay-10.png')} alt="Apple Pay setup - Settings" width="650"/>
+
+3. Under **Default settings**, toggle **Instrumentation** to **Disabled**.
+
+<img src={useBaseUrl('img/live-testing/apple-pay-11.png')} alt="Apple Pay setup - Disable instrumentation" width="350"/>
+
+Disabling this allows the app to use Apple Pay and the developer certificate and provisioning profile that you used when you built the app.
+
+:::note
+Disabling re-signing will break the installation of the app on public devices. The app will only be allowed to be installed on private devices that have been added to the developer certificate and provisioning profile.
+:::
+
+4. Once the app has been uploaded and re-signing has been disabled, you can start the device and let Sauce Labs install the app on the device.
+
+5. **Test the app**. View the Sauce Labs Demo Payments app:
+
+<img src={useBaseUrl('img/live-testing/apple-pay-12.png')} alt="Apple Pay setup - Demo app" width="250"/>
+
+<img src={useBaseUrl('img/live-testing/apple-pay-13.png')} alt="Apple Pay setup - Demo app" width="250"/>
+
+<img src={useBaseUrl('img/live-testing/apple-pay-14.png')} alt="Apple Pay setup - Demo app" width="250"/>
+
+<img src={useBaseUrl('img/live-testing/apple-pay-15.png')} alt="Apple Pay setup - Demo app" width="250"/>
