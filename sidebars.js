@@ -890,7 +890,10 @@ module.exports = {
                     type: 'category',
                     label: 'Live Testing',
                     collapsed: true,
-                    items: ['mobile-apps/live-testing/live-mobile-app-testing'],
+                    items: [
+                        'mobile-apps/live-testing/live-mobile-app-testing',
+                        'mobile-apps/live-testing/testing-apple-pay',
+                    ],
                 },
                 {
                     type: 'category',
