@@ -52,7 +52,7 @@ If you want to use the “previous_major” version, then use these values:
 
 ## Accessing Fast Booted iOS Simulator for Automated Testing with Appium
 
-To use the fast-booted simulators, specify the following device configuration capabilities:
+To use the fast-booted Simulators, specify the following device configuration capabilities:
 
 For iPhone:
 
