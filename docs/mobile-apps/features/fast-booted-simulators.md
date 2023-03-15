@@ -99,7 +99,7 @@ There are a few reasons why this could happen. The first reason is that all avai
 The second reason could be that Appium restarted the Simulator due to specific capabilities that you provided. To check it, follow the steps below:
 1. Go to **Automated** > **Test Results**.
 2. Open your session.
-3. Check the first 15 seconds of the video, if you see that the Simulator was already started from first second, or the restart of the video happens within the first 15 seconds, it means that Appium rebooted the Simulator. 
+3. Check the first 15 seconds of the video. If you see that the Simulator was already started from the first second, or the restart of the video happens in the first 15 seconds, it means that Appium rebooted the Simulator.
 
 A common cause could be that you have provided a capability `“appium:language”` or `“appium:locale”` to change the language of the app or Simulator.
 
