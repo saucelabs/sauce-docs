@@ -706,12 +706,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </tbody>
 </table>
 
-```jsx title="Sample Response"
-{
-    "code" : "BAD_REQUEST",
-    "message" : "The test cannot be stopped because the test execution has already finished. Only tests in progress can be stopped"
-}
-```
 
 </details>
 
