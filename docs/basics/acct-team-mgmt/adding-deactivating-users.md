@@ -10,8 +10,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Adding Users
 
-Here's a change to remove.
-
 If you are an organization administrator, you can add users to your organization or team by inviting them via email, or by adding them manually to the organization or team.
 
 When you add a user manually, you assign the user a user name and password. To allow a user to set their own user name and password, invite them via email.
@@ -47,7 +45,7 @@ When you add a user manually, you assign the user a user name and password. To a
 6. Click **SEND INVITE**.
 
 :::note
-If you invite a user by email, you will need to wait until they accept your invitation before you can edit the concurrency settings for their account and associate them with other accounts.  
+If you invite a user by email, you will need to wait until they accept your invitation before you can edit the concurrency settings for their account and associate them with other accounts.
 :::
 
 ### SSO Considerations
