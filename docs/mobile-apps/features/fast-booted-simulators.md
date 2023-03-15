@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 The speed of the simulator is a crucial factor that impacts the development workflow of iOS app developers. Fast booted iOS Simulators offer significant advantages over our default simulators, as they reduce the time it takes to launch the simulator to test apps. With fast booted iOS Simulators, you can quickly switch between two iOS versions and test your app in four configurations to ensure the compatibility and performance of your app. 
 
-Currently, Sauce Labs supports the following configurations: 
+Sauce Labs supports the following configurations: 
 
 - iPhone 14 Simulator with the latest iOS 16.x version (current_major).
 - iPhone 13 Simulator with the latest iOS 15.x version (previous_major).
