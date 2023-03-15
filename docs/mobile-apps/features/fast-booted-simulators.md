@@ -96,7 +96,7 @@ If you are using `“appium:deviceName”: “iPhone Fast Simulator”` or `“a
 
 There are a few reasons why this could happen. The first reason is that all available Fast Booted Simulators are already used and your session uses the default way of starting a Simulator. 
 
-The second reason could be that Appium restarted the Simulator due to specific capabilities that you provided. To check it, follow the steps below :
+The second reason could be that Appium restarted the Simulator due to specific capabilities that you provided. To check it, follow the steps below:
 1. Go to **Automated** > **Test Results**.
 2. Open your session.
 3. Check the first 15 seconds of the video, if you see that the Simulator was already started from first second, or the restart of the video happens within the first 15 seconds, it means that Appium rebooted the Simulator. 
