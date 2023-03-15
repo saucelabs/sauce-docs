@@ -44,7 +44,7 @@ If you are already using a tunnel, please note the version has been updated and 
 rest-url: 'https://api.us-west-4-i3er.saucelabs.com/rest/v1'
 user: '$SAUCE_USERNAME'
 api-key: '$SAUCE_ACCESS_KEY'
-vm-version: 'v2alpha3'
+vm-version: 'v2alpha2'
 tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
 ```
 
@@ -56,7 +56,7 @@ tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
 rest-url: 'https://api.eu-west-3-lnbf.saucelabs.com/rest/v1'
 user: '$SAUCE_USERNAME'
 api-key: '$SAUCE_ACCESS_KEY'
-vm-version: 'v2alpha3'
+vm-version: 'v2alpha2'
 tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
 ```
 
