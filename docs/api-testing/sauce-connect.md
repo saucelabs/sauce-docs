@@ -26,6 +26,10 @@ We do not support [Allow-listing static IPs](/basics/data-center-endpoints/). We
 
 1. First, you'll need to create a YAML configuration file. From a text editor or IDE, create a file called **api-config.yaml**, then copy and paste it into the template below.
 
+:::note
+If you are already using a tunnel, please note the version has been updated and the previous one **v2alpha** is no longer supported. Please update your version as per the below configuration.
+:::
+
 <Tabs
   defaultValue="US Data Center"
   values={[
@@ -40,7 +44,7 @@ We do not support [Allow-listing static IPs](/basics/data-center-endpoints/). We
 rest-url: 'https://api.us-west-4-i3er.saucelabs.com/rest/v1'
 user: '$SAUCE_USERNAME'
 api-key: '$SAUCE_ACCESS_KEY'
-vm-version: 'v2alpha'
+vm-version: 'v2alpha3'
 tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
 ```
 
@@ -52,7 +56,7 @@ tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
 rest-url: 'https://api.eu-west-3-lnbf.saucelabs.com/rest/v1'
 user: '$SAUCE_USERNAME'
 api-key: '$SAUCE_ACCESS_KEY'
-vm-version: 'v2alpha'
+vm-version: 'v2alpha3'
 tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
 ```
 
