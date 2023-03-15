@@ -22,7 +22,7 @@ Apple Pay is a mobile payment and digital wallet service developed by Apple Inc.
 
 There are three ways to test Apple Pay with Sauce Labs:
 
-- Using simulators.
+- Using Simulators.
 - Using real private devices with an Apple Pay Sandbox Testing account.
 - Using real private devices with a real production account and real credit cards.
 
