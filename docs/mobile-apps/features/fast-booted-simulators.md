@@ -94,7 +94,7 @@ If you are using `“appium:deviceName”: “iPhone Fast Simulator”` or `“a
 ### I set up a Fast Booted Simulator, but it’s still taking a long time to boot.
 
 
-There are a few reasons why this could happen. The first reason is that all available Fast Booted Simulators are already used and your session uses the default way of starting a Simulator. 
+There are a few reasons why this could happen. The first reason is that all available Fast Booted Simulators are already used and your session uses the default way of starting a Simulator.
 
 The second reason could be that Appium restarted the Simulator due to specific capabilities that you provided. To check it, follow the steps below:
 1. Go to **Automated** > **Test Results**.
