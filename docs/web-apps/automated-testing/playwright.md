@@ -183,6 +183,9 @@ When using Sauce-Connect, Webkit browser is unable to load any website that is h
 Local websites can still be loaded.
 :::
 
+:::caution macOS 11 + Playwright 1.29+ + Webkit
+Webkit is not working on macOS 11 since Playwright 1.29.0
+:::
 
 :::note
 Based on current playwright test runner implementation, there is no way to run Playwright test runner with Cucumber.
