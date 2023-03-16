@@ -57,6 +57,7 @@ For iPhone:
 
 ```java
 "appium:deviceName": "iPhone Fast Simulator"
+// You can select one of these values
 "appium:platformVersion": "latest|current_major|previous_major"
 ```
 
