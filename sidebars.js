@@ -868,6 +868,7 @@ module.exports = {
                             label: 'Mobile App Diagnostics',
                             collapsed: true,
                             items: [
+                                'mobile-apps/features/mobile-app-diagnostics/app-crash-logs',
                                 'mobile-apps/features/mobile-app-diagnostics/device-vitals',
                                 'mobile-apps/features/mobile-app-diagnostics/interactions',
                                 'mobile-apps/features/mobile-app-diagnostics/view-tree',
@@ -880,7 +881,10 @@ module.exports = {
                     type: 'category',
                     label: 'Live Testing',
                     collapsed: true,
-                    items: ['mobile-apps/live-testing/live-mobile-app-testing'],
+                    items: [
+                        'mobile-apps/live-testing/live-mobile-app-testing',
+                        'mobile-apps/live-testing/testing-apple-pay',
+                    ],
                 },
                 {
                     type: 'category',
@@ -1043,8 +1047,8 @@ module.exports = {
                 'hosted-orchestration/architecture',
                 'hosted-orchestration/running-tests',
                 'hosted-orchestration/building-images',
-                'hosted-orchestration/private-registry'
-            ]
+                'hosted-orchestration/private-registry',
+            ],
         },
         {
             type: 'category',
@@ -1056,6 +1060,7 @@ module.exports = {
                 'api-testing/sauce-connect',
                 'api-testing/build-from-spec',
                 'api-testing/import-postman-collection',
+                'api-testing/import-har-files',
                 'api-testing/import-export-tests',
                 'api-testing/schedule-test',
                 {

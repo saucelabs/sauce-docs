@@ -1,0 +1,9 @@
+# Checks for words that indicate a product or feature may change in the future.
+extends: existence
+message: "Remove '%s'. The documentation reflects the current state of the product."
+level: warning
+ignorecase: true
+tokens:
+  - as of this writing 
+  - currently
+  - eventually

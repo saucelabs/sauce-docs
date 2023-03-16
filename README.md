@@ -135,11 +135,37 @@ You can also use Vale with the [command line](https://vale.sh/docs/vale-cli/stru
 1. Use a package manager to install Vale. See [Installation](https://vale.sh/docs/vale-cli/installation/).
 1. (Optional) Install the [Vale](https://marketplace.visualstudio.com/items?itemName=errata-ai.vale-server) extension (errata-ai.vale-server) for Visual Studio Code.
 1. (Optional) To configure Vale in Visual Studio Code, specify the path to the project directory with the `.vale.ini` file for `vale.valeCLI.config` in the Extension Settings. For example, <span>/Users/yourname/Documents/GitHub/sauce-docs/.vale.ini</span>.
-1. Run `vale [filename.md]` from the root folder of the repo, or save/edit a file using Visual Studio Code.
+1. Save/edit a file using Visual Studio Code, or run `vale [filename.md]` from the root folder of the repository with the command line.
+
+#### Usage: Vale + VS Code
+
+**Detailed Problems View**
+
+Browse detailed information for each alert, including the file location, style, and rule ID.
+
+<p align="center">
+  <img src="/styles/images/DetailedProblemsView.png" />
+</p>
+
+**Go To Rule**
+
+Navigate from an in-editor alert to a rule's implementation for the `StylesPath` by clicking **View Rule**.
+
+<p align="center">
+  <img src="/styles/images/GoToRule.png" />
+</p>
+
+**Quick Fixes**
+
+Fix word usage, capitalization, and more using Quick Fixes (macOS: <kbd>cmd</kbd> + <kbd>.</kbd>, Windows/Linux: <kbd>Ctrl</kbd> + <kbd>.</kbd>). The quick fixes feature depends on the underlying rule implementing an action that VSCode can then trigger.
+
+<p align="center">
+  <img src="/styles/images/QuickFixes.png" />
+</p>
 
 #### Folder Structure
 
-The following file and folder are stored in the root directory of the [sauce-docs](https://github.com/saucelabs/sauce-docs) repo.
+The following file and folder are stored in the root directory of the [sauce-docs](https://github.com/saucelabs/sauce-docs) repository.
 
 - `.vale.ini` contains the Vale configuration settings. See [Configuration](https://vale.sh/docs/topics/config/).
 - `styles/sauce` contains the Sauce Labs style guide rules for Vale. See [Styles](https://vale.sh/docs/topics/styles/).

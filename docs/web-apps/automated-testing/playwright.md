@@ -70,6 +70,17 @@ values={[
     </tr>
     <tbody>
       <tr>
+        <td rowspan='2'>1.31.1</td>
+        <td><b>macOS:</b> 11.00, 12</td>
+        <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
+        <td rowspan='2'>Mar 01, 2024</td>
+      </tr>
+      <tr>
+        <td><b>Windows:</b> 10, 11</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
         <td rowspan='2'>1.29.2</td>
         <td><b>macOS:</b> 11.00, 12</td>
         <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
@@ -145,26 +156,6 @@ values={[
       <td><b>Windows:</b> 10, 11</td>
     </tr>
     </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='2'>1.18.1</td>
-      <td><b>macOS:</b> 11.00</td>
-      <td>Chromium, Firefox</td>
-      <td rowspan='2'>Feb 2, 2023</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10</td>
-      <td>Chromium, Firefox, Webkit</td>
-    </tr>
-    </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='1'>1.17.1</td>
-      <td><b>Windows:</b> 10</td>
-      <td>Chromium, Firefox, Webkit</td>
-      <td>Nov 29, 2022</td>
-    </tr>
-    </tbody>
   </table>
 
  </TabItem>
@@ -185,6 +176,15 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 :::caution Special Characters in Test Names
 We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
+:::
+
+:::caution Playwright 1.31.1 + Webkit + Sauce-Connect
+When using Sauce-Connect, Webkit browser is unable to load any website that is hosted on the Internet.
+Local websites can still be loaded.
+:::
+
+:::caution macOS 11 + Playwright 1.29+ + Webkit
+Webkit is not working on macOS 11 since Playwright 1.29.0
 :::
 
 :::note
