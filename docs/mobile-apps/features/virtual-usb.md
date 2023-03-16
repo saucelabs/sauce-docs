@@ -293,7 +293,7 @@ To do proper debugging, the iOS device symbols will need to be downloaded to you
 <br/>
 
 :::caution Android Limitation
-**The `adb-reverse` command is not supported.**
+**The `adb reverse` command is not supported.** Please rethink your implementation and think about using [`adb forward`](#android-port-forwarding-with-adb-forward) instead.
 :::
 <!-- prettier-ignore-end -->
 
