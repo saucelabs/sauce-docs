@@ -156,26 +156,6 @@ values={[
       <td><b>Windows:</b> 10, 11</td>
     </tr>
     </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='2'>1.18.1</td>
-      <td><b>macOS:</b> 11.00</td>
-      <td>Chromium, Firefox</td>
-      <td rowspan='2'>Feb 2, 2023</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10</td>
-      <td>Chromium, Firefox, Webkit</td>
-    </tr>
-    </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='1'>1.17.1</td>
-      <td><b>Windows:</b> 10</td>
-      <td>Chromium, Firefox, Webkit</td>
-      <td>Nov 29, 2022</td>
-    </tr>
-    </tbody>
   </table>
 
  </TabItem>

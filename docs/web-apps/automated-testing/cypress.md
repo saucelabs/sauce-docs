@@ -156,25 +156,6 @@ values={[
     </tbody>
     <tbody>
     <tr>
-      <td rowspan='2'>9.3.1</td>
-      <td><b>macOS:</b> 11.00</td>
-      <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='2'>Feb 2, 2023</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10</td>
-    </tr>
-    </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='1'>9.1.0</td>
-      <td><b>Windows:</b> 10</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='2'>Nov 29, 2022</td>
-    </tr>
-    </tbody>
-    <tbody>
-    <tr>
       <td rowspan='1'>8.6.0</td>
       <td><b>Windows:</b> 10</td>
       <td>Chrome, Firefox, Microsoft Edge</td>
