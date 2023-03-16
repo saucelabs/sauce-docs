@@ -46,7 +46,7 @@ To access the Fast Booted iOS Simulator follow the steps below, for this example
 :::note
 If you want to use the `previous_major` version, then use these values:
 - Select “iPhone 13 Simulator” for the Device
-- Select “iOS 15.4” for the OS Version
+- Select the previous major version, at the moment this is “iOS 15.4”, for the OS Version
 :::
 
 ## Accessing Fast Booted iOS Simulator for Automated Testing with Appium
