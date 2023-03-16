@@ -54,8 +54,8 @@ To connect to a Jira Server instance, enter a connection name, the Jira instance
 
 Your Jira Server instance might restrict the authentication method to OAuth only. If you require basic authentication, contact your Jira admin.
 
-:::note Network Requirements
-To connect to a Jira Server instance, external web traffic from your network must be allowed. Depending on your network configuration, your network administrator may need to add the following IP address to the allowlist for the **workflows.backtrace.io** domain: **3.94.174.222**
+:::note Allowlisting for Restricted Networks
+If your network is configured to restrict external web traffic, you may need to allowlist the following IP address for the **workflows.backtrace.io** domain: **3.94.174.222**
 :::
 
 #### Basic Auth
