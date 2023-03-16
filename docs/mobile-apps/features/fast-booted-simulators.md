@@ -91,6 +91,10 @@ This can be done by:
 If you are using `“appium:deviceName”: “iPhone Fast Simulator”` or `“appium:deviceName”: “iPad Fast Simulator”`, you should see the tag **fast-simulator**. When you use the default Appium version, you will additionally see the **fast-simulator-with-matching-appium** tag.
 <img src={useBaseUrl('img/mobile-apps/fast-sim-3.png')} alt="fast booted menu" width="750"/>
 
+:::caution
+Our tags will be overwritten when you provide your own tags.
+:::
+
 ### I set up a Fast Booted Simulator, but it’s still taking a long time to boot.
 
 
