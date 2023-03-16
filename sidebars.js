@@ -338,18 +338,18 @@ module.exports = {
                     label: 'Projects',
                     collapsed: true,
                     items: [
-                        'dev/low-code/projects/projects',
+                        'dev/low-code/projects',
                         {
                             type: 'category',
                             label: 'Project Details',
                             collapsed: true,
                             items: [
-                                'dev/low-code/projects/project-details/ptoject-details',
+                                'dev/low-code/projects/project-details/project-details',
                                 'dev/low-code/projects/project-details/test-cases',
                                 'dev/low-code/projects/project-details/data',
                                 'dev/low-code/projects/project-details/variables',
                                 'dev/low-code/projects/project-details/flows',
-                                'dev/low-code/projects/test-suites',
+                                'dev/low-code/projects/project-details/test-suites',
                                     ],
                             },
                             ],

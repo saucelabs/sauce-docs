@@ -184,40 +184,33 @@ Click the more options button to access the dropdown. From there you can:
 <img src={useBaseUrl('/img/dev/low-code/recording-more-options.png')} alt="Starting a recording -- More options" width="400"/>
 
 ### Project Details Page
-The **Project Details** page displays information about the selected project, including test cases, variables, and data. From here you can also create or upload new test cases, data, variables, flows, and test suites.
 
-Click the information icon next to your test name to view the created and updated dates, and the project’s execution stats.
-
-<img src={useBaseUrl('/img/dev/low-code/project-details-info.png')} alt="Project Details page -- Info icon" width="400"/>
-
-Click the more actions icon to view or modify the project properties, download the project details as a .xlsx file, or disable the project.
-
-<img src={useBaseUrl('/img/dev/low-code/project-details-more-actions.png')} alt="Project Details page - More actions button" width="400"/>
+The **Project Details** page displays information about the selected project, including test cases, variables, and data. From here you can also create or upload new test cases, data, variables, flows, and test suites. For more information, see [Project Details](dev/low-code/projects/project-details/project-details.md).
 
 ## Test Cases Tab
 
 
-The **Test Cases** tab consists of a table of information about the test cases that are part of the project. From this page you can also create a new test case. For more information, see [Test Cases](dev/low-code/projects/project-details/test-cases).
+The **Test Cases** tab consists of a table of information about the test cases that are part of the project. From this page you can also create a new test case. For more information, see [Test Cases](dev/low-code/projects/project-details/test-cases.md).
 
 ## Test Cases Page
-On the **Test Cases** page you can view, update, move, or disable a test case. In addition, you can add tags to test cases and easily access the step editor. For more information, see [Test Cases](dev/low-code/projects/project-details/test-cases).
+On the **Test Cases** page you can view, update, move, or disable a test case. In addition, you can add tags to test cases and easily access the step editor. For more information, see [Test Cases](dev/low-code/projects/project-details/test-cases.md).
 
 
 ## Data Tab
 
-The **Data** tab displays the data uploaded to a project, in table form. From this screen you can also upload new data, and delete and download existing data. For more information, see [Data](dev/low-code/projects/project-details/data).
+The **Data** tab displays the data uploaded to a project, in table form. From this screen you can also upload new data, and delete and download existing data. For more information, see [Data](dev/low-code/projects/project-details/data.md).
 
 ## Variables Tab
 
-For information about specific variables, see [Variables](/dev/low-code/variables). For more information about the Variables tab, see [Variables Tab](dev/low-code/projects/project-details/variables).
+For information about specific variables, see [Variables](/dev/low-code/variables). For more information about the Variables tab, see [Variables Tab](dev/low-code/projects/project-details/variables.md).
 
 ## Flows Tab
 
-A flow is a set of steps that are linked for easy re-use. The **Flows** tab displays the flows associated with a project. For more information, see [Flows](dev/low-code/projects/project-details/flows).
+A flow is a set of steps that are linked for easy re-use. The **Flows** tab displays the flows associated with a project. For more information, see [Flows](dev/low-code/projects/project-details/flows.md).
 
 ## Test Suites Tab
 
-A test suite is a collection of test cases in a project. The **Test Suites** tab displays the test suites in a project, in table form. From this screen you can also create a new test suite, and clone, download, and disable existing test suites. For more information, see [Test Suites](dev/low-code/projects/project-details/test-suites).
+A test suite is a collection of test cases in a project. The **Test Suites** tab displays the test suites in a project, in table form. From this screen you can also create a new test suite, and clone, download, and disable existing test suites. For more information, see [Test Suites](dev/low-code/projects/project-details/test-suites.md).
 
 ## Test Suites Page
-On the **Test Suites** page you can view, update, execute, clone, or delete a test suite. In addition, you can view the test cases associated with the suite, as well as quickly access the step editor. For more information, see [Test Suites](dev/low-code/projects/project-details/test-suites).
+On the **Test Suites** page you can view, update, execute, clone, or delete a test suite. In addition, you can view the test cases associated with the suite, as well as quickly access the step editor. For more information, see [Test Suites](dev/low-code/projects/project-details/test-suites.md).

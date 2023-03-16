@@ -160,7 +160,7 @@ You can set a test suite or suites to be triggered after the completion of the p
 </table>
 
 
-## Test Suites
+## Test Suites Page
 On the **Test Suites** page you can view, update, execute, clone, or delete a test suite. In addition, you can view the test cases associated with the suite, as well as quickly access the step editor.
 
 ## Test Suites Page Components
@@ -176,12 +176,6 @@ On the **Test Suites** page you can view, update, execute, clone, or delete a te
     <td colspan='2'><b>Suite</b>
     </td>
     <td>The name given to the test suite.<br/><br/>Click the up or down arrow next to the column name to sort the table by suite name.
-    </td>
-  </tr>
-  <tr>
-    <td colspan='2'><b>Project</b>
-    </td>
-    <td>The name of the project to which the test suite belongs.<br/><br/>Click the up or down arrow next to the column name to sort the table by project name.
     </td>
   </tr>
   <tr>
@@ -202,66 +196,24 @@ On the **Test Suites** page you can view, update, execute, clone, or delete a te
     <td>The most recent status of the test suite.<br/><br/>Click the up or down arrow next to the column name to sort the table by last status.
     </td>
   </tr>
+
   <tr>
-    <td rowspan='6'><b>Actions</b>
+    <td colspan='2'><b>More</b>
     </td>
-    <td><b>Update Suite</b>
-    </td>
-    <td>Update the name and description for the test suite. See <a href="#updating-a-test-suite">Updating a Test Suite</a> for more information.
-    </td>
-  </tr>
-  <tr>
-    <td><b>Clone Suite</b>
-    </td>
-    <td>Clone the test suite. See <a href="#cloning-a-test-suite">Cloning a Test Suite</a> for more information.
-    </td>
-  </tr>
-  <tr>
-    <td><b>Execute</b>
-    </td>
-    <td>Execute the test suite. See <a href="#executing-a-test-suite">Executing a Test Suite</a> for more information.
-    </td>
-  </tr>
-  <tr>
-    <td><b>Disable Suite</b>
-    </td>
-    <td>Disable the test suite.
-    </td>
-  </tr>
-  <tr>
-    <td><b>Delete Suite</b>
-    </td>
-    <td>Delete the test suite.
-    </td>
-  </tr>
-  <tr>
-    <td><b>Go To Test Suite</b>
-    </td>
-    <td>Opens the <b>Project Details -> Suites</b> page for the test suite. See <a href="/dev/low-code/plan/projects/project-details-page#test-suites-tab">Test Suites Tab</a> for more information.
+    <td><ul>
+    <li><b>Clone Suite</b></li>
+    <li><b>Disable Suite</b></li>
+    <li><b>Delete Suite</b></li>
+    </ul>
     </td>
   </tr>
 </table>
-
-## Updating a Test Suite
-
-To update a test suite:
-
-1. On the dashboard, in the left navigation, click **Plan** and then click **Test Suites**.
-
-<img src={useBaseUrl('/img/dev/low-code/test-suites-nav.png')} alt="Navigating to the Test Suites page" width="350"/>
-
-2. Next to the test suite you want to update, click the **Actions** icon and then click **Update Suite**.
-
-<img src={useBaseUrl('/img/dev/low-code/test-suites-update-nav.png')} alt="Navigating to the Update Suite window" width="300"/>
-
-See [Creating a Test Suite](/dev/low-code/plan/projects/project-details-page#creating-a-test-suite) for information about the tabs in the **Update Suite** window.
 
 ## Cloning a Test Suite
 
 To clone a test suite:
 
-1. On the dashboard, in the left navigation, click **Plan** and then click **Test Suites**.
-2. Next to the test suite you want to clone, click the **Actions** icon and then click **Clone Suite**.
+1. On the **Test Suites** tab, click the more options button and then click **Clone Suite**.
 
 <img src={useBaseUrl('/img/dev/low-code/test-suites-clone-nav.png')} alt="Navigating to the Clone Suite window" width="350"/>
 
@@ -273,7 +225,6 @@ To clone a test suite:
 
 To execute a test suite:
 
-1. On the dashboard, in the left navigation, click **Plan** and then click **Test Suites**.
-2. Next to the test suite you want to clone, click the **Actions** icon and then click **Execute**.
+1.  On the **Test Suites** tab, next to the test suite, click **Execute**.
 
 <img src={useBaseUrl('/img/dev/low-code/test-suites-execute-nav.png')} alt="Navigating to the test suite execution window" width="350"/>
