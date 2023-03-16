@@ -26,7 +26,7 @@ We do not support [Allow-listing static IPs](/basics/data-center-endpoints/). We
 
 1. First, you'll need to create a YAML configuration file. From a text editor or IDE, create a file called **api-config.yaml**, then copy and paste it into the template below.
 
-:::warning
+:::caution
 If you are already using a tunnel, please note the version has been updated and the previous one **v2alpha** is no longer supported. Please update your version as per the below configuration.
 :::
 
