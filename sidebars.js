@@ -333,13 +333,34 @@ module.exports = {
             collapsible: false,
             items: [
                 'dev/low-code',
-                'dev/low-code/projects',
-                'dev/low-code/schedules',
-                'dev/low-code/reports',
-                'dev/low-code/nlp-reference',
-                'dev/low-code/variables',
-                'dev/low-code/troubleshooting'
-            ],
+                    {
+                    type: 'category',
+                    label: 'Projects',
+                    collapsed: true,
+                    items: [
+                        'dev/low-code/projects/projects',
+                        {
+                            type: 'category',
+                            label: 'Project Details',
+                            collapsed: true,
+                            items: [
+                                'dev/low-code/projects/project-details/ptoject-details',
+                                'dev/low-code/projects/project-details/test-cases',
+                                'dev/low-code/projects/project-details/data',
+                                'dev/low-code/projects/project-details/variables',
+                                'dev/low-code/projects/project-details/flows',
+                                'dev/low-code/projects/test-suites',
+                                    ],
+                            },
+                            ],
+                    },
+                    'dev/low-code/schedules',
+                    'dev/low-code/reports',
+                    'dev/low-code/nlp-reference',
+                    'dev/low-code/variables',
+                    'dev/low-code/troubleshooting'
+                ],
+            
         },
     ],
     backtrace: [
