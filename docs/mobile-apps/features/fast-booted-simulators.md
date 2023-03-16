@@ -38,7 +38,7 @@ To access the Fast Booted iOS Simulator follow the steps below, for this example
 <img src={useBaseUrl('img/mobile-apps/fast-sim-1.png')} alt="fast booted menu" width="750"/>
 
 2. Select “Apple” as the Manufacturer.
-3. If you want to use the “current_major” version, then use these values :
+3. If you want to use the `current_major` version, then use these values :
 - Select **iPhone 14 Simulator** for the Device.
 - Select the latest available version of iOS.
 
