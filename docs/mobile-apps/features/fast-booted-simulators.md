@@ -14,7 +14,7 @@ The speed of the Simulator is a crucial factor that impacts the development work
 
 Sauce Labs supports the following configurations: 
 
-- iPhone 14 Simulator with the latest iOS 16.x version (current_major).
+- iPhone 14 Simulator with the latest iOS 16.x version (`latest|current_major`).
 - iPhone 13 Simulator with the latest iOS 15.x version (previous_major).
 - iPad (10th generation) Simulator with the latest iOS 16.x version (current_major).
 - iPad (9th generation) Simulator with the latest iOS 15.x version (previous_major).
