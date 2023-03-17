@@ -18,7 +18,6 @@ When you're making an HTTP request in the composer, you're providing a variable 
 ## Retrieving the statusCode
 
 Let's say `payload` is the name of the variable that contains the entire response payload.
-
 So by referencing the `payload_response.statusCode` expression you can access the status code. That's can be useful not only to check that a specific status code has been returned in your test but also to perform your tests for different status codes.
 
 You can also create positive and negative tests by adding multiple `if` conditions to check each possible status code. For example, if you want to check the response payload when the status codes are `200`, `400`, and `401`, here's how to do it:
