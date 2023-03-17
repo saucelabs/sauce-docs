@@ -1,7 +1,7 @@
 ---
 id: compose-body
 title: Different Ways to Compose a Request Body
-sidebar_label: How to Compose the Request Body
+sidebar_label: Composing the Request Body
 description: Different ways to compose a request body
 ---
 
