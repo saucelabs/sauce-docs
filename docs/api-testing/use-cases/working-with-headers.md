@@ -81,7 +81,7 @@ The metrics object consists of three values as shown below:
 - `fetch` is the total download time of the payload.
 - `overall` is fetch and latency combined.
 
-Therefore, you might want to write assertions to verify that the values are below a specific amount of time like the below example in code view:
+Using the values you can write assertions to verify that the values are below a specific amount of time like the below example in Code view:
 
 ```yaml
 - id: assert-less
