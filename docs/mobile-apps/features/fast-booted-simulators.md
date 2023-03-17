@@ -16,8 +16,8 @@ Sauce Labs supports the following configurations:
 
 - iPhone 14 Simulator with the latest iOS 16.x version (`latest|current_major`).
 - iPhone 13 Simulator with the latest iOS 15.x version (`previous_major`).
-- iPad (10th generation) Simulator with the latest iOS 16.x version (`latest|current_major`).
-- iPad (9th generation) Simulator with the latest iOS 15.x version (`previous_major`).
+- iPad (10th generation) Simulator with the latest iOS 16.x version (`latest|current_major`). (COMING SOON)
+- iPad (9th generation) Simulator with the latest iOS 15.x version (`previous_major`). (COMING SOON)
 
 :::note
 By using the `latest` or `current_major` version, you can test your apps in the most up-to-date environment, while the `previous_major` version provides the environment for testing apps on the previous latest major iOS version.
@@ -61,7 +61,7 @@ For iPhone:
 "appium:platformVersion": "latest|current_major|previous_major"
 ```
 
-For iPad:
+(COMING SOON) For iPad:
 
 ```java
 "appium:deviceName": "iPad Fast Simulator"
@@ -103,10 +103,14 @@ There are a few reasons why this could happen. The first reason is that all avai
 The second reason could be that Appium restarted the Simulator due to specific capabilities that you provided. To check it, follow the steps below:
 1. Go to **Automated** > **Test Results**.
 2. Open your session.
-3. Check the first 15 seconds of the video. If you see that the Simulator was already started from the first second, or the restart of the video happens in the first 15 seconds, it means that Appium rebooted the Simulator.
+3. Check the first 15 seconds of the video. If you see that the Simulator was already started from the first second, or the restart of the video happens in the first 15 seconds, it means that Appium rebooted the Simulator. See the video below for more information:
+
+
+<video controls style={{"max-width": "800px"}}>
+
+  <source src={useBaseUrl('img/mobile-apps/fast-booted-restart.mp4')} />
+</video>
 
 A common cause could be that you have provided a capability `“appium:language”` or `“appium:locale”` to change the language of the app or Simulator.
 
-The Fast Booted Simulators use default English settings. Every change you make to it by providing different capabilities will trigger Appium to restart the Simulator.
-
-
+The Fast Booted Simulators use default English settings. Every change you make to it by providing different capabilities will trigger Appium to restart the Simulator. 
