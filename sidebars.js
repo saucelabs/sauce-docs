@@ -1109,6 +1109,15 @@ module.exports = {
                 'api-testing/logger',
                 'api-testing/project-access',
                 'api-testing/legacy',
+                {
+                    type: 'category',
+                    label: 'Use Cases',
+                    collapsed: true,
+                    items: [
+                        'api-testing/use-cases/compose-body',
+                        'api-testing/use-cases/working-with-headers',
+                    ],
+                },
             ],
         },
         {
