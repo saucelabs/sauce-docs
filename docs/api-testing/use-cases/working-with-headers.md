@@ -95,7 +95,7 @@ Therefore, you might want to write assertions to verify that the values are belo
   value: 450
 ```
 
-The following is the `overall` example, but in **Visual** view:
+The following shows the `overall` example in Visual view:
 
 <img src={useBaseUrl('/img/api-testing/metrics-assert-less-visual.png')} alt="An Assert-Less component in Visual view" width="600"/>
 
