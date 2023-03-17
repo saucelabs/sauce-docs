@@ -61,7 +61,7 @@ For example, you can retrieve the `content-type` using this expression: `payload
   value: application/json; charset=utf-8
 ```
 
-You might want to also check if the response is cached, under what conditions and for how long, therefore you will use `payload_response.headers['cache-control']`.
+You might want to also check if the response is cached, under what conditions and for how long. For this check you can  use `payload_response.headers['cache-control']`.
 
 ## Retrieving the Metrics
 
