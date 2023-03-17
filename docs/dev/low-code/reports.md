@@ -1,7 +1,7 @@
 ---
-id: reports-page
-title: Reports Page
-sidebar_label: Reports Page
+id: reports
+title: Reports 
+sidebar_label: Reports 
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
