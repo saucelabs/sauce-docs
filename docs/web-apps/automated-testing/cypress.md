@@ -156,25 +156,6 @@ values={[
     </tbody>
     <tbody>
     <tr>
-      <td rowspan='2'>9.3.1</td>
-      <td><b>macOS:</b> 11.00</td>
-      <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='2'>Feb 2, 2023</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10</td>
-    </tr>
-    </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='1'>9.1.0</td>
-      <td><b>Windows:</b> 10</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='2'>Nov 29, 2022</td>
-    </tr>
-    </tbody>
-    <tbody>
-    <tr>
       <td rowspan='1'>8.6.0</td>
       <td><b>Windows:</b> 10</td>
       <td>Chrome, Firefox, Microsoft Edge</td>
@@ -224,4 +205,10 @@ Cypress does not currently work with Firefox 101 on Windows.
 :::caution Firefox 105
 Cypress does not currently work with Firefox 105.
 See https://github.com/cypress-io/cypress/issues/23897 for more information.
+:::
+
+:::caution Webkit
+Cypress 12.6.0 does not work on Windows with Webkit browser.
+
+Cypress 12+ does not work on macOS 11 with Webkit browser.
 :::

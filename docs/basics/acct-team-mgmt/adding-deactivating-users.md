@@ -45,7 +45,7 @@ When you add a user manually, you assign the user a user name and password. To a
 6. Click **SEND INVITE**.
 
 :::note
-If you invite a user by email, you will need to wait until they accept your invitation before you can edit the concurrency settings for their account and associate them with other accounts.  
+If you invite a user by email, you will need to wait until they accept your invitation before you can edit the concurrency settings for their account and associate them with other accounts.
 :::
 
 ### SSO Considerations
