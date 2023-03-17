@@ -24,7 +24,7 @@ You can also create positive and negative tests by adding multiple `if` conditio
 
 <img src={useBaseUrl('/img/api-testing/multi-if-cond.png')} alt="Using multiple if conditions" width="600"/>
 
-In code view it looks like the below:
+In Code view, it looks like this:
 
 ```yaml
 - id: if
