@@ -124,5 +124,4 @@ http://www.whereever.com/3/details
 http://www.whereever.com/4/details
 ...
 ```
-
 To produce a single endpoint for reporting from each one of these calls, you can use a [footprint](/api-testing/composer/io-components/#config).
