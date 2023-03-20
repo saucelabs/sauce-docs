@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 :::warning
 `apifctl`  has been deprecated and replaced with [saucectl](/api-testing/integrations/apitesting-saucectl-integration/).
 
-If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+If you have any questions, contact your Customer Success Manager or Sauce Labs Support.
 :::
 
 Execute API tests and interact with Sauce Labs API Testing (either locally or in a pipeline) using our API Testing CLI tool, `apifctl`.
