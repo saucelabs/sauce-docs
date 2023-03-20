@@ -114,3 +114,278 @@ The second reason could be that Appium restarted the Simulator due to specific c
 A common cause could be that you have provided a capability `“appium:language”` or `“appium:locale”` to change the language of the app or Simulator.
 
 The Fast Booted Simulators use default English settings. Every change you make to it by providing different capabilities will trigger Appium to restart the Simulator. 
+
+
+<Tabs
+groupId="capability-ex-emusim"
+defaultValue="java"
+values={[
+{label: 'Java', value: 'java'},
+{label: 'Node.js', value: 'js'},
+{label: 'Python', value: 'python'},
+{label: 'Ruby', value: 'ruby'},
+{label: 'C#', value: 'csharp'},
+]}>
+
+<TabItem value="java">
+<Tabs
+groupId="capability-java-emusim"
+defaultValue="android"
+values={[
+{label: 'Android', value: 'android'},
+{label: 'iOS', value: 'ios'},
+]}>
+<TabItem value="android">
+
+<!-- prettier-ignore -->
+```java
+DesiredCapabilities capabilities = new DesiredCapabilities();
+
+capabilities.setCapability("browserName", "chrome");
+capabilities.setCapability("platformName", "android");
+// W3C Protocol is mandatory for Appium 2
+capabilities.setCapability("appium:platformVersion", "12");
+capabilities.setCapability("appium:deviceName", "Google Pixel 6 Pro GoogleAPI Emulator");
+// Mandatory for Appium 2
+capabilities.setCapability("appium:automationName", "uiautomator2");
+
+HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
+// appiumVersion is mandatory to use Appium 2
+sauceOptions.put("appiumVersion", "2.0.0-beta56");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+</TabItem>
+<TabItem value="ios">
+
+```java
+DesiredCapabilities capabilities = new DesiredCapabilities();
+
+capabilities.setCapability("browserName", "safari");
+capabilities.setCapability("platformName", "ios");
+// W3C Protocol is mandatory for Appium 2
+capabilities.setCapability("appium:platformVersion", "15.4");
+capabilities.setCapability("appium:deviceName", "iPhone 13 Simulator");
+// Mandatory for Appium 2
+capabilities.setCapability("appium:automationName", "xcuitest");
+
+HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
+// appiumVersion is mandatory to use Appium 2
+sauceOptions.put("appiumVersion", "2.0.0-beta56");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+</TabItem>
+</Tabs>
+</TabItem>
+<TabItem value="js">
+
+<Tabs
+groupId="capability-js-emusim"
+defaultValue="android"
+values={[
+{label: 'Android', value: 'android'},
+{label: 'iOS', value: 'ios'},
+]}>
+<TabItem value="android">
+
+<!-- prettier-ignore -->
+```js
+const capabilities = {
+    browserName: 'chrome',
+    platformName: 'android',
+    // W3C Protocol is mandatory for Appium 2
+    'appium:platformVersion': '12',
+    'appium:deviceName': 'Google Pixel 6 Pro GoogleAPI Emulator',
+    // Mandatory for Appium 2
+    'appium:automationName': 'uiautomator2',
+    'sauce:options': {
+        // appiumVersion is mandatory to use Appium 2
+        appiumVersion: '2.0.0-beta56'
+    }
+}
+```
+
+</TabItem>
+<TabItem value="ios">
+
+<!-- prettier-ignore -->
+```js
+const capabilities = {
+    browserName: 'safari',
+    platformName: 'ios',
+    // W3C Protocol is mandatory for Appium 2
+    'appium:platformVersion': '15.4',
+    'appium:deviceName': 'iPhone 13 Simulator',
+    // Mandatory for Appium 2
+    'appium:automationName': 'xcuitest',
+    'sauce:options': {
+        // appiumVersion is mandatory to use Appium 2
+        appiumVersion: '2.0.0-beta56'
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="python">
+
+<Tabs
+groupId="capability-python-emusim"
+defaultValue="android"
+values={[
+{label: 'Android', value: 'android'},
+{label: 'iOS', value: 'ios'},
+]}>
+<TabItem value="android">
+
+<!-- prettier-ignore -->
+```py
+capabilities = {
+    "browserName" : "chrome",
+    "platformName" : "android",
+    # W3C Protocol is mandatory for Appium 2
+    "appium:platformVersion" : "12",
+    "appium:deviceName" : "Google Pixel 6 Pro GoogleAPI Emulator",
+    # Mandatory for Appium 2
+    'appium:automationName': 'uiautomator2',
+    "sauce:options" : {
+        # appiumVersion is mandatory to use Appium 2
+        "appiumVersion" : "2.0.0-beta56"
+    }
+}
+```
+
+</TabItem>
+<TabItem value="ios">
+
+<!-- prettier-ignore -->
+```py
+capabilities = {
+    "browserName" : "safari",
+    "platformName" : "ios",
+    # W3C Protocol is mandatory for Appium 2
+    "appium:platformVersion" : "15.4",
+    "appium:deviceName" : "iPhone 13 Simulator",
+    # Mandatory for Appium 2
+    'appium:automationName': 'xcuitest',
+    "sauce:options" : {
+        # appiumVersion is mandatory to use Appium 2
+        "appiumVersion" : "2.0.0-beta56"
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="ruby">
+
+<Tabs
+groupId="capability-ruby-emusim"
+defaultValue="android"
+values={[
+{label: 'Android', value: 'android'},
+{label: 'iOS', value: 'ios'},
+]}>
+<TabItem value="android">
+
+<!-- prettier-ignore -->
+```ruby
+capabilities = {
+    "browserName" => "chrome",
+    "platformName" => "android",
+    # W3C Protocol is mandatory for Appium 2
+    "appium:platformVersion" => "12",
+    "appium:deviceName" => "Google Pixel 6 Pro GoogleAPI Emulator",
+    # Mandatory for Appium 2
+    'appium:automationName' => 'uiautomator2',
+    "sauce:options" => {
+        # appiumVersion is mandatory to use Appium 2
+        "appiumVersion" => "2.0.0-beta56"
+    }
+}
+```
+
+</TabItem>
+<TabItem value="ios">
+
+<!-- prettier-ignore -->
+```ruby
+capabilities = {
+    "browserName" => "safari",
+    "platformName" => "ios",
+    # W3C Protocol is mandatory for Appium 2
+    "appium:platformVersion" => "15.4",
+    "appium:deviceName" => "iPhone 13 Simulator",
+    # Mandatory for Appium 2
+    'appium:automationName'=> 'xcuitest',
+    "sauce:options" => {
+        # appiumVersion is mandatory to use Appium 2
+        "appiumVersion" => "2.0.0-beta56"
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="csharp">
+
+<Tabs
+groupId="capability-csharp"
+defaultValue="android"
+values={[
+{label: 'Android', value: 'android'},
+{label: 'iOS', value: 'ios'},
+]}>
+<TabItem value="android">
+
+<!-- prettier-ignore -->
+```csharp
+AppiumOptions capabilities = new AppiumOptions();
+
+capabilities.AddAdditionalCapability("browserName", "chrome");
+capabilities.AddAdditionalCapability("platformName", "android");
+// W3C Protocol is mandatory for Appium 2
+capabilities.AddAdditionalCapability("appium:platformVersion", "12");
+capabilities.AddAdditionalCapability("appium:deviceName", "Google Pixel 6 Pro GoogleAPI Emulator");
+// Mandatory for Appium 2
+capabilities.AddAdditionalCapability("appium:automationName", "uiautomator2");
+
+HashMap<String, Object> sauceOptions = new Dictionary<string, object>();
+// appiumVersion is mandatory to use Appium 2
+sauceOptions.Add("appiumVersion", "2.0.0-beta56");
+capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
+```
+
+</TabItem>
+<TabItem value="ios">
+
+<!-- prettier-ignore -->
+```csharp
+AppiumOptions capabilities = new AppiumOptions();
+
+capabilities.AddAdditionalCapability("browserName", "safari");
+capabilities.AddAdditionalCapability("platformName", "ios");
+// W3C Protocol is mandatory for Appium 2
+capabilities.AddAdditionalCapability("appium:platformVersion", "15.4");
+capabilities.AddAdditionalCapability("appium:deviceName", "iPhone 13 Simulator");
+// Mandatory for Appium 2
+capabilities.AddAdditionalCapability("appium:automationName", "xcuitest");
+
+HashMap<String, Object> sauceOptions = new Dictionary<string, object>();
+// appiumVersion is mandatory to use Appium 2
+sauceOptions.Add("appiumVersion", "2.0.0-beta56");
+capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>
