@@ -23,7 +23,7 @@ Sauce Labs supports the following configurations:
 By using the `latest` or `current_major` version, you can test your apps in the most up-to-date environment, while the `previous_major` version provides the environment for testing apps on the previous latest major iOS version.
 :::
 
-These Simulator configurations can be used separately for automated tests, allowing you to target specific devices and iOS versions for testing. This flexibility can help you optimize the testing process and improve the compatibility and performance of your apps.
+These Simulator configurations can be used for automated tests, allowing you to target specific devices and iOS versions for testing. This flexibility can help you optimize the testing process and improve the compatibility and performance of your apps.
 
 ## What You'll Need
 
