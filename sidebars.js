@@ -890,7 +890,10 @@ module.exports = {
                     type: 'category',
                     label: 'Live Testing',
                     collapsed: true,
-                    items: ['mobile-apps/live-testing/live-mobile-app-testing'],
+                    items: [
+                        'mobile-apps/live-testing/live-mobile-app-testing',
+                        'mobile-apps/live-testing/testing-apple-pay',
+                    ],
                 },
                 {
                     type: 'category',
@@ -1053,8 +1056,8 @@ module.exports = {
                 'hosted-orchestration/architecture',
                 'hosted-orchestration/running-tests',
                 'hosted-orchestration/building-images',
-                'hosted-orchestration/private-registry'
-            ]
+                'hosted-orchestration/private-registry',
+            ],
         },
         {
             type: 'category',
@@ -1066,6 +1069,7 @@ module.exports = {
                 'api-testing/sauce-connect',
                 'api-testing/build-from-spec',
                 'api-testing/import-postman-collection',
+                'api-testing/import-har-files',
                 'api-testing/import-export-tests',
                 'api-testing/schedule-test',
                 {
@@ -1096,6 +1100,7 @@ module.exports = {
                     label: 'Integrations',
                     collapsed: true,
                     items: [
+                        'api-testing/integrations/apifctl-cicd-integration',
                         'api-testing/integrations/apitesting-saucectl-integration',
                         'api-testing/integrations/yaml',
                         'api-testing/integrations/pagerduty-webhooks',
@@ -1108,6 +1113,16 @@ module.exports = {
                 'api-testing/logger',
                 'api-testing/project-access',
                 'api-testing/legacy',
+                {
+                    type: 'category',
+                    label: 'Use Cases',
+                    collapsed: true,
+                    items: [
+                        'api-testing/use-cases/compose-body',
+                        'api-testing/use-cases/dynamic-dates',
+                        'api-testing/use-cases/working-with-headers',
+                    ],
+                },
             ],
         },
         {
