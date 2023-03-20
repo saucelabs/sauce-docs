@@ -14,7 +14,7 @@ Backtrace instances have limits on how many monthly error submissions they can a
 Admin users can control retention, compression, storage sampling, and submission rules. In addition, the delete-by-query capability allows users to take a manual action to remove objects from the system and free space.
 
 - To see how much storage was purchased and what percentage is consumed, admin users can go to the **Organization Settings** > **Subscriptions** page.
-- To see how much storage is being consumed by project, go to the **Organization Settings** > **My account** page > **Storage usage**.
+- To see how much storage is being consumed by project, go to the **Project Settings** > **Overview** page > **Storage usage** > **Attachments**
 
 Our sales team can assist in the purchase of additional storage as needed, and our support team can disable storage enforcement in critical cases.
 
@@ -63,6 +63,8 @@ To query fingerprints:
 <img src={useBaseUrl('img/error-reporting/project-settings/query-fingerprint.png')} alt="Shows how to query for fingerprints in the Explore View." />
 
 You can add additional filters or aggregations for `application.version` (or the attribute you use for the version of your game or app) to see if there are impacts on a particular version that require deletion.
+
+A 2 minute video showing how to create this view and use the Delete Group function is available at https://www.loom.com/share/a0fc2d684d3b41e399d9efed67a817e9
 
 ### Storage Sampling
 
