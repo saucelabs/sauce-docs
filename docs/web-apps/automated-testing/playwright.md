@@ -71,7 +71,7 @@ values={[
     <tbody>
       <tr>
         <td rowspan='2'>1.31.1</td>
-        <td><b>macOS:</b> 11.00, 12</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
         <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
         <td rowspan='2'>Mar 01, 2024</td>
       </tr>
@@ -82,7 +82,7 @@ values={[
     <tbody>
       <tr>
         <td rowspan='2'>1.29.2</td>
-        <td><b>macOS:</b> 11.00, 12</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
         <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
         <td rowspan='2'>Jan 15, 2024</td>
       </tr>
@@ -93,7 +93,7 @@ values={[
     <tbody>
       <tr>
         <td rowspan='2'>1.28.1</td>
-        <td><b>macOS:</b> 11.00, 12</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
         <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
         <td rowspan='2'>Nov 30, 2023</td>
       </tr>
@@ -104,7 +104,7 @@ values={[
     <tbody>
       <tr>
         <td rowspan='2'>1.27.1</td>
-        <td><b>macOS:</b> 11.00, 12</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
         <td rowspan='2'>Chromium, Firefox, Webkit</td>
         <td rowspan='2'>Oct 20, 2023</td>
       </tr>
@@ -115,7 +115,7 @@ values={[
     <tbody>
       <tr>
         <td rowspan='2'>1.25.1</td>
-        <td><b>macOS:</b> 11.00, 12</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
         <td rowspan='2'>Chromium, Firefox, Webkit</td>
         <td rowspan='2'>Sep 7, 2023</td>
       </tr>
@@ -126,7 +126,7 @@ values={[
     <tbody>
     <tr>
       <td rowspan='2'>1.24.1</td>
-      <td><b>macOS:</b> 11.00, 12</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Firefox, Webkit</td>
       <td rowspan='2'>Jul 29, 2023</td>
     </tr>
@@ -137,7 +137,7 @@ values={[
     <tbody>
     <tr>
       <td rowspan='2'>1.22.2</td>
-      <td><b>macOS:</b> 11.00, 12</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Firefox, Webkit</td>
       <td rowspan='2'>Jun 6, 2023</td>
     </tr>
@@ -148,7 +148,7 @@ values={[
     <tbody>
     <tr>
       <td rowspan='2'>1.20.2</td>
-      <td><b>macOS:</b> 11.00, 12</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Firefox, Webkit</td>
       <td rowspan='2'>Apr 16, 2023</td>
     </tr>
