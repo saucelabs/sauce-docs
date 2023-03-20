@@ -10,7 +10,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::warning
-`apifctl` tool has been dismissed and replaced with [saucectl](/api-testing/integrations/apitesting-saucectl-integration/).
+`apifctl`  has been deprecated and replaced with [saucectl](/api-testing/integrations/apitesting-saucectl-integration/).
 
 If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
 :::
