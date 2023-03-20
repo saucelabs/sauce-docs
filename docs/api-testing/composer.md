@@ -139,64 +139,6 @@ All test runs appear to the right of the Composer, under the test details and en
 
 To view your results, in the Composer, in the **Test Runs** list, click the name of the test. This will open the **Test Report Details**. For more information, see [Test Outcome Report](/api-testing/project-dashboard/#test-outcome-report).
 
-## Dynamic Dates
-
-Instead of entering dates as static values, which may need to be updated periodically, you can create dynamic dates.
-
-### Create a Future Date
-
-1. Open the Composer and add a **Set** component.
-
-2. Enter/select the following:
-
-   - Variable (the variable name) - `futureDate`
-   - Mode (the variable type) - `String`
-   - Value - `${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD')}`
-
-     <img src={useBaseUrl('/img/api-testing/create-future-date-variable.png')} alt="The SET Variable window"/>
-
-   - `D.nowMillis()` - Returns the current Unix epoch in milliseconds.
-   - `D.plusDays()` - Returns the provided milliseconds, plus the provided number of days (in the example, 35 days were added to today's date).
-   - `D.format()` - Creates a timestamp with the given format, using the current timezone (in the example, `yyyy-MM-DD`).
-
-   ```js
-   ${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD')}
-   ```
-
-3. Invoke the variable in your test.
-
-### Create a Past Date
-
-Follow the steps for [Create a Future Date](#create-a-future-date), but replace the string with the following:
-
-- `D.minusDays()` - Returns the provided milliseconds, minus the provided number of days (in the example, 35 days were subtracted from today's date).
-
-```js
-${D.format(D.minusDays(D.nowMillis(),35), 'yyyy-MM-DD')}
-```
-
-### Create a Date with a Time Zone
-
-To create a date based on a specified time zone:
-
-- `D.format()` - Creates a timestamp with the given format, based on the provided time zone ID (the example uses the same date as before, but uses `New York` as the time zone).
-
-```js
-${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD','America/New_York')}
-```
-
-### Convert a Timestamp in Unix Time in Milliseconds
-
-To convert a timestamp from a payload response to milliseconds:
-
-- `D.parse()` - Parses the provided timestamp and converts it to milliseconds.
-
-```js
-${D.parse(1649094357)}
-```
-
-For more information, see [Expression Language Extensions](/api-testing/composer/expressions/#expression-language-extensions).
-
 ## Generating Test Data
 
 If your API or test requires random names, emails, or different types of input data, you can generate those directly in Sauce Labs API Testing. You can directly reference the method in your variable, API call, or anywhere in the test where you can enter the `${F.<methodName()>}` syntax.

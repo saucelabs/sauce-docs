@@ -1118,6 +1118,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'api-testing/use-cases/compose-body',
+                        'api-testing/use-cases/dynamic-dates',
                         'api-testing/use-cases/working-with-headers',
                     ],
                 },
