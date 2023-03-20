@@ -1100,6 +1100,7 @@ module.exports = {
                     label: 'Integrations',
                     collapsed: true,
                     items: [
+                        'api-testing/integrations/apifctl-cicd-integration',
                         'api-testing/integrations/apitesting-saucectl-integration',
                         'api-testing/integrations/yaml',
                         'api-testing/integrations/pagerduty-webhooks',
