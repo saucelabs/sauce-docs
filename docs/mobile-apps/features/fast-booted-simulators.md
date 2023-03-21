@@ -106,8 +106,6 @@ capabilities.setCapability("appium:deviceName", "iPad Fast Simulator");
 capabilities.setCapability("appium:automationName", "xcuitest");
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
-// appiumVersion is mandatory to use Appium 2
-sauceOptions.put("appiumVersion", "2.0.0-beta56");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
