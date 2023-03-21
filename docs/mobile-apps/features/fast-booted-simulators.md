@@ -99,7 +99,6 @@ capabilities.setCapability("browserName", "safari");
 capabilities.setCapability("platformName", "ios");
 capabilities.setCapability("appium:platformVersion", "latest|current_major|previous_major");
 capabilities.setCapability("appium:deviceName", "iPad Fast Simulator");
-// Mandatory for Appium 2
 capabilities.setCapability("appium:automationName", "xcuitest");
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
