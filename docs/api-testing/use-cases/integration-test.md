@@ -28,29 +28,33 @@ Here's the steps to create an integration test to check the interaction between 
 
 1. Call the product listing endpoint by adding a `GET` request and assign the response to the `productsPayload` variable. The endpoint requires an Authentication header so add the Request Header component and enter `key` into the Name field and `ABC123` into the Value field.
 
-2. Add an `each` assertion and reference the `productsPayload.products` object.
+2. (Optionally) Add an assert-is component to verify that `productsPayload` is an array.
+
+3. Add an `each` component and reference the `productsPayload` object.
 
 :::note
-In a scenario in which the response contains many products, it may be useful to pick a few at random by using `pick(n)`.
+In a scenario in which the response contains many products, it may be useful to pick a few at random by using [pick(n)](/api-testing/composer/expressions/#pick).
 :::
 
-<!--  -->
+4. Test the response payload for the endpoint by adding assertions.
 
-Add a new “Set (variable)” assertion to set the “id” variable as every single “resultsPayload.product” that is returned. Notice we set the string to “${\_1.id}” The system uses \_1 automatically when recognizing a subroutine. Makes it easier when things get into many sub levels.
+5. Add a new `Set(variable)` assertion to set the `id` variable as every single `productsPayload` that is returned. In the following example, the string is `${_1.id}`. The system uses `_1` automatically when recognizing a subroutine, which makes it easier when there are multiple sub-levels.
 
-<!--  -->
+Below how your test might look like till the above step:
 
-3. Test the response payload for the endpoint.
+<img src={useBaseUrl('/img/api-testing/int-test-endpoints.png')} alt="Testing interactions between endpoints" width="600"/>
 
-4. Add a new `Set (variable)` assertion to set the `id` variable as every single `productsPayload.product` that is returned. In the following example, the string is `${_1.id}`. The system uses `_1` automatically when recognizing a subroutine, which makes it easier when there are multiple sub-levels.
+6. Create a `GET` to the product details endpoint, using the new `id` variable as the **id** parameter. The endpoint requires an Authentication header so add the Request Header component and enter `key` into the Name field and `ABC123` into the Value field.
 
-   <img src={useBaseUrl('/img/api-testing/int-test-endpoints.png')} alt="Testing interactions between endpoints" width="600"/>
+:::note
+Variables last through the entire test unless overwritten.
+:::
 
-5. Create a **`GET` request** to the product details endpoint, using the new `id` variable as the **id** parameter. Variables last through the entire test unless overwritten.
-
-6. Test the response payload for the endpoint.
+7. Test the response payload for the endpoint.
 
    <img src={useBaseUrl('/img/api-testing/int-test-response-payload.png')} alt="Testing the response payload"/>
+
+Below the final test how should look like in Code View:
 
 ```yaml
 - id: get
@@ -61,13 +65,6 @@ Add a new “Set (variable)” assertion to set the “id” variable as every s
   url: http://demoapi.apifortress.com/api/retail/product
   var: productsPayload
   mode: json
-- id: if
-  children:
-    - id: comment
-      text: endpoint is not working fine, test will be stopped
-    - id: flow
-      command: stop
-  expression: productsPayload_response.statusCode!="200"
 - id: assert-is
   expression: productsPayload
   comment: payload must be an array
@@ -149,13 +146,6 @@ Add a new “Set (variable)” assertion to set the “id” variable as every s
       url: http://demoapi.apifortress.com/api/retail/product/${id}
       var: productPayload
       mode: json
-    - id: if
-      children:
-        - id: comment
-          text: endpoint is not working fine, test will be stopped
-        - id: flow
-          command: stop
-      expression: productPayload_response.statusCode!="200"
     - id: assert-exists
       expression: productPayload
       comment: payload must exist, if not, test does not need to be executed
