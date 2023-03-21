@@ -86,6 +86,7 @@ capabilities.setCapability("appium:deviceName", "iPhone Fast Simulator");
 capabilities.setCapability("appium:automationName", "xcuitest");
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
+capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 </TabItem>
