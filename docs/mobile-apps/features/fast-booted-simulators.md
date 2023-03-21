@@ -253,7 +253,6 @@ capabilities = {
 capabilities = {
     "browserName" => "safari",
     "platformName" => "ios",
-    # W3C Protocol is mandatory for Appium 2
     "appium:platformVersion" => "latest|current_major|previous_major",
     "appium:deviceName" => "iPad Fast Simulator"",
     'appium:automationName'=> 'xcuitest',
