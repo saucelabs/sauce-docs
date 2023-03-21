@@ -135,8 +135,6 @@ const capabilities = {
     'appium:deviceName': 'iPhone Fast Simulator',
     'appium:automationName': 'xcuitest',
     'sauce:options': {
-        // appiumVersion is mandatory to use Appium 2
-        appiumVersion: '2.0.0-beta56'
     }
 }
 ```
