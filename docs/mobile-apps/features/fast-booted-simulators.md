@@ -276,7 +276,6 @@ capabilities.AddAdditionalCapability("browserName", "safari");
 capabilities.AddAdditionalCapability("platformName", "ios");
 capabilities.AddAdditionalCapability("appium:platformVersion", "latest|current_major|previous_major");
 capabilities.AddAdditionalCapability("appium:deviceName", "iPad Fast Simulator");
-// Mandatory for Appium 2
 capabilities.AddAdditionalCapability("appium:automationName", "xcuitest");
 
 HashMap<String, Object> sauceOptions = new Dictionary<string, object>();
