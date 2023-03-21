@@ -81,7 +81,6 @@ DesiredCapabilities capabilities = new DesiredCapabilities();
 
 capabilities.setCapability("browserName", "safari");
 capabilities.setCapability("platformName", "ios");
-// W3C Protocol is mandatory for Appium 2
 capabilities.setCapability("appium:platformVersion", "latest|current_major|previous_major");
 capabilities.setCapability("appium:deviceName", "iPhone Fast Simulator");
 // Mandatory for Appium 2
