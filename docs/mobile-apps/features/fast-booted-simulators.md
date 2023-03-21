@@ -85,7 +85,7 @@ capabilities.setCapability("platformName", "ios");
 capabilities.setCapability("appium:platformVersion", "latest|current_major|previous_major");
 capabilities.setCapability("appium:deviceName", "iPhone Fast Simulator");
 // Mandatory for Appium 2
-capabilities.setCapability("appium:automationName", "uiautomator2");
+capabilities.setCapability("appium:automationName", "xcuitest");
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
 // appiumVersion is mandatory to use Appium 2
