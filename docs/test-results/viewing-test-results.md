@@ -28,7 +28,7 @@ To view live test results:
 
 <img src={useBaseUrl('img/test-results/test-results-live-nav.png')} alt="Live test results navigation" width="650"/>
 
-2. On the **Test Results** page, click the **Virtual Cloud** or **Real Devices** radio button to view the relevant device results.
+2. On the **Test Results** page, select **Virtual Cloud** or **Real Devices** from the dropdown list.
 
 <img src={useBaseUrl('img/test-results/test-results-live-devices.png')} alt="Live test results - Virtual or real devices" width="650"/>
 
@@ -36,9 +36,9 @@ To view live test results:
 
 <img src={useBaseUrl('img/test-results/test-results-details-live.png')} alt="Live test results details" width="650"/>
 
-### Filtering Test Results
+### Filtering Live Test Results
 
-You can filter live test results by owner. If the **Enable Job Visibility Across Teams** organization setting is enabled, the filter dropdown will include all owners in your organization. If it is disabled, you will only see the owners on your team. For more information about this setting, see [Security Settings](https://docs.saucelabs.com/basics/acct-team-mgmt/org-settings/#security-settings).
+You can filter live test results by owner. If the **Enable Job Visibility Across Teams** organization setting is enabled, the filter dropdown list will include all owners in your organization. If it is disabled, you will only see the owners on your team. For more information about this setting, see [Security Settings](https://docs.saucelabs.com/basics/acct-team-mgmt/org-settings/#security-settings).
 
 <img src={useBaseUrl('img/test-results/test-results-live-filter.png')} alt="Filtering live test results" width="650"/>
 
@@ -47,13 +47,13 @@ You can filter live test results by owner. If the **Enable Job Visibility Across
 To view automated test results:
 
 1. On Sauce Labs, in the left panel, click **Automated** and then click **Test Results**.
-2. On the **Test Results** page, click the **Virtual Cloud** or **Real Devices** radio button to view the relevant device results.
+2. On the **Test Results** page, select **Virtual Cloud** or **Real Devices** from the dropdown list.
 3. In the **Test Results** results list, click a test to view its details. For more information, see [Screenshots, Commands, Logs, and Metadata](#screenshots-commands-logs-and-metadata).
 4. To view and manage the results of past automated tests and builds, on Sauce Labs, in the left panel, click **Automated** and then click **Archive**. Here you can use status badges on your code repository or a web page to keep track of your latest test runs (see [Status Badges and the Browser Matrix Wizard](/test-results/badges-browser-matrix) for more information). For more information about the **Archive** page, see [Archived Test Results](/test-results/archived-test-results).
 
-### Filtering Test Results
+### Filtering Automated est Results
 
-If you have set up your tests to report whether they have passed or failed, those results will be listed on the automated builds or automated test results page. Once the results have been logged to the page, you can filter the results.
+If you have set up your tests to report whether they have passed or failed, those results will be listed on the automated builds or automated test results page. Once the results have been logged to the page, you can search andfilter the results.
 
 <img src={useBaseUrl('img/test-results/test-results-auto-filters.png')} alt="Automated test results filters" width="750"/>
 
