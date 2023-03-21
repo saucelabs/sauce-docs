@@ -1118,6 +1118,7 @@ module.exports = {
                     label: 'Use Cases',
                     collapsed: true,
                     items: [
+                        'api-testing/use-cases/integration-test',
                         'api-testing/use-cases/compose-body',
                         'api-testing/use-cases/dynamic-dates',
                         'api-testing/use-cases/generate-test-data',

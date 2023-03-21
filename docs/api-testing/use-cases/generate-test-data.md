@@ -9,6 +9,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 If your API or test requires random names, emails, or different types of input data, you can generate those directly in Sauce Labs API Testing. You can directly reference the method in your variable, API call, or anywhere in the test where you can enter the `${F.<methodName()>}` syntax.
 
+## What You'll Need
+
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
+
+## Methods
+
 Some of the available methods are:
 
 - `F.fullName()` - Generates a full name
