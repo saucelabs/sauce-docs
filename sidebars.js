@@ -1079,6 +1079,7 @@ module.exports = {
                     label: 'Integrations',
                     collapsed: true,
                     items: [
+                        'api-testing/integrations/apifctl-cicd-integration',
                         'api-testing/integrations/apitesting-saucectl-integration',
                         'api-testing/integrations/yaml',
                         'api-testing/integrations/pagerduty-webhooks',
@@ -1091,6 +1092,17 @@ module.exports = {
                 'api-testing/logger',
                 'api-testing/project-access',
                 'api-testing/legacy',
+                {
+                    type: 'category',
+                    label: 'Use Cases',
+                    collapsed: true,
+                    items: [
+                        'api-testing/use-cases/compose-body',
+                        'api-testing/use-cases/dynamic-dates',
+                        'api-testing/use-cases/generate-test-data',
+                        'api-testing/use-cases/working-with-headers',
+                    ],
+                },
             ],
         },
         {
