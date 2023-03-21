@@ -38,7 +38,12 @@ In a scenario in which the response contains many products, it may be useful to 
 
 4. Test the response payload for the endpoint by adding assertions.
 
-5. Add a new `Set(variable)` assertion to set the `id` variable as every single `productsPayload` that is returned. In the following example, the string is `${_1.id}`. The system uses `_1` automatically when recognizing a subroutine, which makes it easier when there are multiple sub-levels.
+5. Add a new `Set(variable)` assertion to set the `id` variable as every single product that is returned:
+   - Variable (the variable name) - for example `id`
+   - Mode (the variable type) - for example `String`
+   - Value (the value the variable will contain) - for example `${_1.id}`
+
+The system uses `_1` automatically when recognizing a subroutine, which makes it easier when there are multiple sub-levels.
 
 Below how your test might look like till the above step:
 
