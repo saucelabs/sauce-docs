@@ -142,7 +142,6 @@ const capabilities = {
     platformName: 'ios',
     'appium:platformVersion': 'latest|current_major|previous_major',
     'appium:deviceName': 'iPad Fast Simulator',
-    // Mandatory for Appium 2
     'appium:automationName': 'xcuitest',
     'sauce:options': {
     }
