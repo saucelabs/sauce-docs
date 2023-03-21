@@ -274,7 +274,6 @@ AppiumOptions capabilities = new AppiumOptions();
 
 capabilities.AddAdditionalCapability("browserName", "safari");
 capabilities.AddAdditionalCapability("platformName", "ios");
-// W3C Protocol is mandatory for Appium 2
 capabilities.AddAdditionalCapability("appium:platformVersion", "latest|current_major|previous_major");
 capabilities.AddAdditionalCapability("appium:deviceName", "iPad Fast Simulator");
 // Mandatory for Appium 2
