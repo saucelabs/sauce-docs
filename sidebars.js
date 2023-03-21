@@ -333,43 +333,27 @@ module.exports = {
             collapsible: false,
             items: [
                 'dev/low-code',
-                'dev/low-code/dashboard',
-                {
+                    {
                     type: 'category',
-                    label: 'Plan',
+                    label: 'Projects',
                     collapsed: true,
                     items: [
-                        'dev/low-code/plan/plan-step',
-                        {
-                            type: 'category',
-                            label: 'Projects',
-                            collapsed: true,
-                            items: [
-                                'dev/low-code/plan/projects/projects',
-                                'dev/low-code/plan/projects/project-details-page',
+                        'dev/low-code/projects',
+                        'dev/low-code/projects/project-details',
+                        'dev/low-code/projects/test-cases',
+                        'dev/low-code/projects/data',
+                        'dev/low-code/projects/variables',
+                        'dev/low-code/projects/flows',
+                        'dev/low-code/projects/test-suites',
                             ],
-                        },
-                        'dev/low-code/plan/test-suites',
-                        'dev/low-code/plan/test-cases',
-                    ],
-                },
-                {
-                    type: 'category',
-                    label: 'Execute',
-                    collapsed: true,
-                    items: [
-                        'dev/low-code/execute/execute-step',
-                        'dev/low-code/execute/execution-history-page',
-                        'dev/low-code/execute/reports-page',
-                        'dev/low-code/execute/schedules-page',
-                    ],
-                },
-                'dev/low-code/analyze-step',
-                'dev/low-code/profile',
-                'dev/low-code/nlp-reference',
-                'dev/low-code/variables',
-                'dev/low-code/troubleshooting',
-            ],
+                    },
+                    'dev/low-code/schedules',
+                    'dev/low-code/reports',
+                    'dev/low-code/nlp-reference',
+                    'dev/low-code/variables',
+                    'dev/low-code/troubleshooting'
+                ],
+            
         },
     ],
     backtrace: [
@@ -1120,6 +1104,7 @@ module.exports = {
                     items: [
                         'api-testing/use-cases/compose-body',
                         'api-testing/use-cases/dynamic-dates',
+                        'api-testing/use-cases/generate-test-data',
                         'api-testing/use-cases/working-with-headers',
                     ],
                 },
