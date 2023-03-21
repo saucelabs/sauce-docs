@@ -313,8 +313,6 @@ capabilities.AddAdditionalCapability("appium:deviceName", "iPad Fast Simulator")
 capabilities.AddAdditionalCapability("appium:automationName", "xcuitest");
 
 HashMap<String, Object> sauceOptions = new Dictionary<string, object>();
-// appiumVersion is mandatory to use Appium 2
-sauceOptions.Add("appiumVersion", "2.0.0-beta56");
 capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 ```
 
