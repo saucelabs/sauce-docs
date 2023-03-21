@@ -1120,6 +1120,7 @@ module.exports = {
                     items: [
                         'api-testing/use-cases/integration-test',
                         'api-testing/use-cases/compose-body',
+                        'api-testing/use-cases/auth-token',
                         'api-testing/use-cases/dynamic-dates',
                         'api-testing/use-cases/generate-test-data',
                         'api-testing/use-cases/working-with-headers',

@@ -7,6 +7,8 @@ description: How to generate an integration test
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+Vedere https://apifortress.com/doc/introduction-to-integration-testing-new/
+
 One of the core features of the platform is the ability to create proper Integration Tests. An Integration Test is a test in which you examine a complete user flow, simulating what an API consumer would experience. Integration testing is critical for creating a strong API testing strategy. While only testing individual endpoints is a good start, this method will miss a large number of problems that occur when all services need to work together.
 
 ## What You'll Need
