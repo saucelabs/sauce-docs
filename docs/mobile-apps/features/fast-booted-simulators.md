@@ -237,7 +237,7 @@ capabilities = {
     "platformName" => "ios",
     "appium:platformVersion" => "latest|current_major|previous_major",
     "appium:deviceName" => "iPhone Fast Simulator",
-    'appium:automationName' => 'uiautomator2',
+    'appium:automationName' => 'xcuitest',
     "sauce:options" => {
     }
 }
