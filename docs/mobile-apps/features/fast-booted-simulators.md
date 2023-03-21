@@ -239,8 +239,6 @@ capabilities = {
     "appium:deviceName" => "iPhone Fast Simulator",
     'appium:automationName' => 'uiautomator2',
     "sauce:options" => {
-        # appiumVersion is mandatory to use Appium 2
-        "appiumVersion" => "2.0.0-beta56"
     }
 }
 ```
