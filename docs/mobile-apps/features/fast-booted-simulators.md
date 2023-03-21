@@ -136,7 +136,7 @@ const capabilities = {
     'appium:platformVersion': 'latest|current_major|previous_major',
     'appium:deviceName': 'Phone Fast Simulator',
     // Mandatory for Appium 2
-    'appium:automationName': 'uiautomator2',
+    'appium:automationName': 'xcuitest',
     'sauce:options': {
         // appiumVersion is mandatory to use Appium 2
         appiumVersion: '2.0.0-beta56'
