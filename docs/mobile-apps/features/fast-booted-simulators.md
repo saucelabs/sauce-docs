@@ -32,7 +32,7 @@ These Simulator configurations can be used for automated tests, allowing you to 
 
 ## Accessing Fast Booted iOS Simulator for Live Testing
 
-To access the Fast Booted iOS Simulator follow the steps below, for this example we will use the iPhone 14 with the latest iOS 16.x version (current_major):
+To access the Fast Booted iOS Simulator follow the steps below, for this example we will use the iPhone 14 with the latest iOS 16.x version (`current_major`):
 
 1. On Sauce Labs click **Live** > **Cross Browser** > **Mobile Virtual**.
 <img src={useBaseUrl('img/mobile-apps/fast-sim-1.png')} alt="fast booted menu" width="750"/>
