@@ -163,7 +163,7 @@ The **More** button displays a dropdown of additional options for the **Project*
 
 ### Project Cards
 
-Clicking a project card will take you to its **Project Details** page. See [Projects](/dev/low-code/projects/project-details) for more information.
+Clicking a project card will take you to its **Project Details** page. See [Project Details](/dev/low-code/projects/project-details) for more information.
 
 #### Starting a Recording
 

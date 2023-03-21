@@ -130,13 +130,13 @@ You can set a test suite or suites to be triggered after the completion of the p
     </td>
     <td><b>Update Test Case</b>
     </td>
-    <td>Update the test case details. See <a href="/dev/low-code/projects/test-cases.md#adding-a-test-case">Adding a Test Case</a> for more information.
+    <td>Update the test case details. See <a href="/dev/low-code/projects/test-cases/#adding-a-test-case">Adding a Test Case</a> for more information.
     </td>
   </tr>
   <tr>
     <td><b>Move Test Case</b>
     </td>
-    <td>Move the test case to a different project. See <a href="/dev/low-code/projects/project-details.md">Project Details Page</a> for more information.
+    <td>Move the test case to a different project. See <a href="/dev/low-code/projects/project-details">Project Details </a> for more information.
     </td>
   </tr>
   <tr>
@@ -154,7 +154,7 @@ You can set a test suite or suites to be triggered after the completion of the p
   <tr>
     <td><b>Go To Step Editor</b>
     </td>
-    <td>Opens the step editor for the test case. See <a href="/dev/low-code/projects/test-cases.md#using-the-step-editor">Using the Step Editor</a> for more information.
+    <td>Opens the step editor for the test case. See <a href="/dev/low-code/projects/test-cases#using-the-step-editor">Using the Step Editor</a> for more information.
     </td>
   </tr>
 </table>

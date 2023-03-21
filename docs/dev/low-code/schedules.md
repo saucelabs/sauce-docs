@@ -54,7 +54,7 @@ The **Schedules** page includes information about your scheduled tests. From thi
   <tr>
     <td colspan='3'><b>Execution History</b> button
     </td>
-    <td>Clicking the <b>Execution History</b> button opens the <b>Execution History</b> page. See <a href="/dev/low-code/execute/execution-history-page">Execution History Page</a> for more information.
+    <td>Clicking the <b>Execution History</b> button opens the <b>Execution History</b> page. See Execution History Page for more information.
     </td>
   </tr>
   <tr>

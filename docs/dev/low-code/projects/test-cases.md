@@ -157,7 +157,7 @@ If you click the **Record** icon and do not have the recorder extension installe
 
 #### Recording a Test Case
 
-When you launch the recorder, it records the actions you perform and translates them into test steps that can be managed in the step editor (see [Using the Step Editor](#using-the-step-editor) for more information). The recording happens in the background and is displayed in the **AI Test Studio** window. The recorder will start recording as soon as it is launched.
+When you launch the recorder, it records the actions you perform and translates them into test steps that can be managed in the step editor (see [Using the Step Editor](/dev/low-code/projects/test-cases/#using-the-step-editor) for more information). The recording happens in the background and is displayed in the **AI Test Studio** window. The recorder will start recording as soon as it is launched.
 
 <img src={useBaseUrl('/img/dev/low-code/using-the-recorder.png')} alt="AI Test Studio window" width="400"/>
 
@@ -448,7 +448,7 @@ To paste copied data from an Excel spreadsheet into the step editor, on the **St
   <tr>
     <td colspan='2'><b>New Flow</b> button
     </td>
-    <td>Opens the <b>New Flow</b> window. For more information about flows, see <a href="#flows-tab">Flows Tab</a>.
+    <td>Opens the <b>New Flow</b> window. For more information about flows, see Flows.
     </td>
   </tr>
   <tr>
@@ -620,7 +620,7 @@ On the **Test Cases** page you can view, update, move, or disable a test case.
   <tr>
     <td><b>Move Test Case</b>
     </td>
-    <td>Move the test case to a different project. See <a href="/dev/low-code/projects/project-details">Project Details Page</a> for more information.
+    <td>Move the test case to a different project. See <a href="/dev/low-code/projects/project-details">Project Details</a> for more information.
     </td>
   </tr>
   <tr>
