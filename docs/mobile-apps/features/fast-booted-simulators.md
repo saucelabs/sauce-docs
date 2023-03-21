@@ -283,7 +283,6 @@ capabilities.AddAdditionalCapability("platformName", "ios");
 // W3C Protocol is mandatory for Appium 2
 capabilities.AddAdditionalCapability("appium:platformVersion", "latest|current_major|previous_major");
 capabilities.AddAdditionalCapability("appium:deviceName", "iPhone Fast Simulator");
-// Mandatory for Appium 2
 capabilities.AddAdditionalCapability("appium:automationName", "uiautomator2");
 
 HashMap<String, Object> sauceOptions = new Dictionary<string, object>();
