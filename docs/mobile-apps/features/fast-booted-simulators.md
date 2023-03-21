@@ -135,7 +135,6 @@ const capabilities = {
     // W3C Protocol is mandatory for Appium 2
     'appium:platformVersion': 'latest|current_major|previous_major',
     'appium:deviceName': 'iPhone Fast Simulator',
-    // Mandatory for Appium 2
     'appium:automationName': 'xcuitest',
     'sauce:options': {
         // appiumVersion is mandatory to use Appium 2
