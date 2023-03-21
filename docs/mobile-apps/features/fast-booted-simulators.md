@@ -259,7 +259,7 @@ capabilities.AddAdditionalCapability("browserName", "safari");
 capabilities.AddAdditionalCapability("platformName", "ios");
 capabilities.AddAdditionalCapability("appium:platformVersion", "latest|current_major|previous_major");
 capabilities.AddAdditionalCapability("appium:deviceName", "iPhone Fast Simulator");
-capabilities.AddAdditionalCapability("appium:automationName", "uiautomator2");
+capabilities.AddAdditionalCapability("appium:automationName", "xcuitest");
 
 HashMap<String, Object> sauceOptions = new Dictionary<string, object>();
 capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
