@@ -15,6 +15,10 @@ Sauce Labs supports Identity Provider (IdP)-initiated and Service Provider (SP)-
 - An enterprise license for Sauce Labs
 - Organization admin access (see [User Roles](/basics/acct-team-mgmt/managing-user-info) for more information)
 
+## Special Cases
+
+- If your company has more than one organization at Sauce Labs to be integrated with SAML SSO and your Identity Provider requires a unique entity ID for Service Providers, [see these special setup steps](/basics/sso/setting-up-sso-special-cases).
+
 ## Setup Overview
 
 First, set up a new SAML application in your [Identity Provider (IdP)](#setting-up-identity-provider). Next, enable and configure SSO in [Sauce Labs Team Management Panel](#integrating-with-sauce-labs-service-provider).
@@ -27,8 +31,9 @@ SSO at Sauce Labs is global. In other words, it does not matter in which region 
 
 :::tip
 We provide preconfigured SAML applications for some identity providers. They allow you to set up SSO integration with a few clicks. Choose your provider and follow the configuration steps:
-* [Google](/basics/sso/configuring-sso-in-google)
-* [OneLogin](/basics/sso/configuring-sso-in-onelogin)
+
+- [Google](/basics/sso/configuring-sso-in-google)
+- [OneLogin](/basics/sso/configuring-sso-in-onelogin)
 :::
 
 If you use a custom identity provider or your provider does not appear in the list above, please complete the manual setup:
@@ -36,8 +41,7 @@ If you use a custom identity provider or your provider does not appear in the li
 1. Obtain SAML metadata from Sauce Labs Service Provider, which is served under [this link](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp).
 2. Log in to your identity provider administrator panel.
    - For example in Okta, you log into your account and click the **Admin** button.
-      <img src={useBaseUrl('img/basics/sso/setup-sso-idp-admin-login.png')} alt="IdP Admin Login" width="900" />
-   
+     <img src={useBaseUrl('img/basics/sso/setup-sso-idp-admin-login.png')} alt="IdP Admin Login" width="900" />
 3. Create a new SAML application.
    - In the IdP, go to the "Applications" or "Integrations" section and create a new SAML application.
    - Follow the instructions from your IdP to provide the Sauce Labs SAML metadata obtained in Step 1. If your IdP does not allow uploading service provider metadata, set up the integration manually using [Service Provider SAML Requirements](#service-provider-saml-requirements).

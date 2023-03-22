@@ -69,7 +69,7 @@ values={[
     <tbody>
       <tr>
         <td rowspan='2'>12.6.0</td>
-        <td><b>macOS:</b> 11.00, 12</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
         <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
         <td rowspan='2'>Mar 01, 2024</td>
       </tr>
@@ -80,7 +80,7 @@ values={[
     <tbody>
       <tr>
         <td rowspan='2'>12.3.0</td>
-        <td><b>macOS:</b> 11.00, 12</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
         <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
         <td rowspan='2'>Jan 15, 2024</td>
       </tr>
@@ -91,7 +91,7 @@ values={[
     <tbody>
       <tr>
         <td rowspan='2'>11.2.0</td>
-        <td><b>macOS:</b> 11.00, 12</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
         <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
         <td rowspan='2'>Nov 30, 2023</td>
       </tr>
@@ -102,7 +102,7 @@ values={[
     <tbody>
       <tr>
         <td rowspan='2'>10.10.0</td>
-        <td><b>macOS:</b> 11.00, 12</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
         <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
         <td rowspan='2'>Oct 20, 2023</td>
       </tr>
@@ -113,7 +113,7 @@ values={[
     <tbody>
       <tr>
         <td rowspan='2'>10.7.0</td>
-        <td><b>macOS:</b> 11.00, 12</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
         <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
         <td rowspan='2'>Sep 7, 2023</td>
       </tr>
@@ -124,7 +124,7 @@ values={[
     <tbody>
     <tr>
       <td rowspan='2'>10.3.1</td>
-      <td><b>macOS:</b> 11.00, 12</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='2'>Jul 29, 2023</td>
     </tr>
@@ -135,7 +135,7 @@ values={[
     <tbody>
     <tr>
       <td rowspan='2'>9.7.0</td>
-      <td><b>macOS:</b> 11.00, 12</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='2'>Jun 6, 2023</td>
     </tr>
@@ -146,7 +146,7 @@ values={[
     <tbody>
     <tr>
       <td rowspan='2'>9.5.3</td>
-      <td><b>macOS:</b> 11.00, 12</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='2'>Apr 16, 2023</td>
     </tr>
