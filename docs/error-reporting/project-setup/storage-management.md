@@ -66,7 +66,7 @@ You can add additional filters or aggregations for `application.version` (or the
 
 ### Delete Group
 
-If you have a group of errors that have been identified as not useful or relevant, you can delete the group to manage storage. This action is available only for admins and groups with fewer than 100k errors.
+If you have a group of errors that have been identified as not useful or relevant, you can delete the group to manage storage. This action is available only for admins and fingerprint groups with fewer than 100k errors.
 
 To delete a group:
 
@@ -78,7 +78,11 @@ To delete a group:
    - **Delete physical objects and metadata**: Removes all data from your Backtrace instance.
 1. To confirm the action, enter **DELETE**, then select **Delete forever**.
 
-See the [Delete Errors by Query](https://www.loom.com/share/a0fc2d684d3b41e399d9efed67a817e9) video to learn how to query fingerprints and delete the group of errors.
+#### Video: Delete Errors by Query
+
+The following video shows how to query fingerprints and delete a group of errors.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rJ4kK_KCxLo?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Storage Sampling
 
