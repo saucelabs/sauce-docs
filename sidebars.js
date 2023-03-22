@@ -689,6 +689,7 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'basics/sso/setting-up-sso',
+                                'basics/sso/setting-up-sso-special-cases',
                                 {
                                     type: 'category',
                                     label: 'Configuring Identity Providers',
