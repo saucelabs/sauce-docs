@@ -1,5 +1,6 @@
 /* Callout boxes / admonition styles */
 
+/*
 .alert a {
     color: var(--inline-link);
     text-decoration: none;
@@ -38,7 +39,7 @@ html[data-theme="dark"] .admonition-tip p a {
 
 html[data-theme="dark"] .alert--warning p,
 .alert--warning h5 {
-    color: var(--dark-500);
+    color: var(--coral-200);
 }
 
 .admonition-note {
@@ -58,7 +59,6 @@ html[data-theme="dark"] .alert--warning p,
 }
 
 .admonition-note h5 {
-    /*color: var(--dark-200);*/
     font-weight: bold;
 }
 
@@ -104,7 +104,6 @@ html[data-theme="dark"] .alert--warning p,
 }
 
 .admonition-caution h5 {
-    /*color: var(--dark-200);*/
     font-weight: bold;
 }
 
@@ -182,3 +181,5 @@ html[data-theme="dark"] .alert--warning p,
 .admonition-info pre code {
     background-color: var(--dark-200);
 }
+
+*/
