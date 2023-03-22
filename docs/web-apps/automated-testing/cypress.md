@@ -68,8 +68,19 @@ values={[
     </tr>
     <tbody>
       <tr>
+        <td rowspan='2'>12.6.0</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
+        <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
+        <td rowspan='2'>Mar 01, 2024</td>
+      </tr>
+      <tr>
+        <td><b>Windows:</b> 10, 11</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
         <td rowspan='2'>12.3.0</td>
-        <td><b>macOS:</b> 11.00, 12</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
         <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
         <td rowspan='2'>Jan 15, 2024</td>
       </tr>
@@ -80,7 +91,7 @@ values={[
     <tbody>
       <tr>
         <td rowspan='2'>11.2.0</td>
-        <td><b>macOS:</b> 11.00, 12</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
         <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
         <td rowspan='2'>Nov 30, 2023</td>
       </tr>
@@ -91,7 +102,7 @@ values={[
     <tbody>
       <tr>
         <td rowspan='2'>10.10.0</td>
-        <td><b>macOS:</b> 11.00, 12</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
         <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
         <td rowspan='2'>Oct 20, 2023</td>
       </tr>
@@ -102,7 +113,7 @@ values={[
     <tbody>
       <tr>
         <td rowspan='2'>10.7.0</td>
-        <td><b>macOS:</b> 11.00, 12</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
         <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
         <td rowspan='2'>Sep 7, 2023</td>
       </tr>
@@ -113,7 +124,7 @@ values={[
     <tbody>
     <tr>
       <td rowspan='2'>10.3.1</td>
-      <td><b>macOS:</b> 11.00, 12</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='2'>Jul 29, 2023</td>
     </tr>
@@ -124,7 +135,7 @@ values={[
     <tbody>
     <tr>
       <td rowspan='2'>9.7.0</td>
-      <td><b>macOS:</b> 11.00, 12</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='2'>Jun 6, 2023</td>
     </tr>
@@ -135,31 +146,12 @@ values={[
     <tbody>
     <tr>
       <td rowspan='2'>9.5.3</td>
-      <td><b>macOS:</b> 11.00, 12</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='2'>Apr 16, 2023</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>
-    </tr>
-    </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='2'>9.3.1</td>
-      <td><b>macOS:</b> 11.00</td>
-      <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='2'>Feb 2, 2023</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10</td>
-    </tr>
-    </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='1'>9.1.0</td>
-      <td><b>Windows:</b> 10</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='2'>Nov 29, 2022</td>
     </tr>
     </tbody>
     <tbody>
@@ -213,4 +205,10 @@ Cypress does not currently work with Firefox 101 on Windows.
 :::caution Firefox 105
 Cypress does not currently work with Firefox 105.
 See https://github.com/cypress-io/cypress/issues/23897 for more information.
+:::
+
+:::caution Webkit
+Cypress 12.6.0 does not work on Windows with Webkit browser.
+
+Cypress 12+ does not work on macOS 11 with Webkit browser.
 :::

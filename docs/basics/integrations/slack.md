@@ -61,8 +61,8 @@ Setting up automatic notifications from `saucectl` requires you to first add the
 1. In your Slack workspace, select the channel from the sidebar.
 1. Click the dropdown at the end of the channel title to access the settings menu for the channel.
    <img src={useBaseUrl('img/integrations/slack/set-channel-details.png')} alt="Set Channel Details" width="600"/>
-1. Select the **Integrations** tab, then the **Add an App** button.
-1. Click the **Add** button for the Sauce Labs app to enable notifications for the channel.
+1. Select the **Integrations** tab, then click **Add an App**.
+1. To enable notifications for the channel, click **Add** for the Sauce Labs app.
 
 ### Configure Notifications from `saucectl`
 
@@ -109,7 +109,7 @@ When test results are shared to Slack, they include the following details about 
 - The name of test suite
 - The Operating System on which the test suite ran
 - The browser on which the test suite ran (web-app tests)
-- The device or emulator on which the test suite ran (mobile-app tests)
+- The device or Emulator on which the test suite ran (mobile-app tests)
 - The duration of the test
 
-In addition, the notifications include a color-coded sidebar for a quick indication of the test result; green if all suites in the job passed, and red if any of the the suites in the job failed.
+In addition, the notifications include a color-coded sidebar for a quick indication of the test result; green if all suites in the job passed, and red if any of the suites in the job failed.

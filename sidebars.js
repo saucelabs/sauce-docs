@@ -333,43 +333,27 @@ module.exports = {
             collapsible: false,
             items: [
                 'dev/low-code',
-                'dev/low-code/dashboard',
-                {
+                    {
                     type: 'category',
-                    label: 'Plan',
+                    label: 'Projects',
                     collapsed: true,
                     items: [
-                        'dev/low-code/plan/plan-step',
-                        {
-                            type: 'category',
-                            label: 'Projects',
-                            collapsed: true,
-                            items: [
-                                'dev/low-code/plan/projects/projects',
-                                'dev/low-code/plan/projects/project-details-page',
+                        'dev/low-code/projects',
+                        'dev/low-code/projects/project-details',
+                        'dev/low-code/projects/test-cases',
+                        'dev/low-code/projects/data',
+                        'dev/low-code/projects/variables',
+                        'dev/low-code/projects/flows',
+                        'dev/low-code/projects/test-suites',
                             ],
-                        },
-                        'dev/low-code/plan/test-suites',
-                        'dev/low-code/plan/test-cases',
-                    ],
-                },
-                {
-                    type: 'category',
-                    label: 'Execute',
-                    collapsed: true,
-                    items: [
-                        'dev/low-code/execute/execute-step',
-                        'dev/low-code/execute/execution-history-page',
-                        'dev/low-code/execute/reports-page',
-                        'dev/low-code/execute/schedules-page',
-                    ],
-                },
-                'dev/low-code/analyze-step',
-                'dev/low-code/profile',
-                'dev/low-code/nlp-reference',
-                'dev/low-code/variables',
-                'dev/low-code/troubleshooting',
-            ],
+                    },
+                    'dev/low-code/schedules',
+                    'dev/low-code/reports',
+                    'dev/low-code/nlp-reference',
+                    'dev/low-code/variables',
+                    'dev/low-code/troubleshooting'
+                ],
+            
         },
     ],
     backtrace: [
@@ -890,7 +874,10 @@ module.exports = {
                     type: 'category',
                     label: 'Live Testing',
                     collapsed: true,
-                    items: ['mobile-apps/live-testing/live-mobile-app-testing'],
+                    items: [
+                        'mobile-apps/live-testing/live-mobile-app-testing',
+                        'mobile-apps/live-testing/testing-apple-pay',
+                    ],
                 },
                 {
                     type: 'category',
@@ -1053,8 +1040,8 @@ module.exports = {
                 'hosted-orchestration/architecture',
                 'hosted-orchestration/running-tests',
                 'hosted-orchestration/building-images',
-                'hosted-orchestration/private-registry'
-            ]
+                'hosted-orchestration/private-registry',
+            ],
         },
         {
             type: 'category',
@@ -1066,6 +1053,7 @@ module.exports = {
                 'api-testing/sauce-connect',
                 'api-testing/build-from-spec',
                 'api-testing/import-postman-collection',
+                'api-testing/import-har-files',
                 'api-testing/import-export-tests',
                 'api-testing/schedule-test',
                 {
@@ -1096,6 +1084,7 @@ module.exports = {
                     label: 'Integrations',
                     collapsed: true,
                     items: [
+                        'api-testing/integrations/apifctl-cicd-integration',
                         'api-testing/integrations/apitesting-saucectl-integration',
                         'api-testing/integrations/yaml',
                         'api-testing/integrations/pagerduty-webhooks',
@@ -1108,6 +1097,17 @@ module.exports = {
                 'api-testing/logger',
                 'api-testing/project-access',
                 'api-testing/legacy',
+                {
+                    type: 'category',
+                    label: 'Use Cases',
+                    collapsed: true,
+                    items: [
+                        'api-testing/use-cases/compose-body',
+                        'api-testing/use-cases/dynamic-dates',
+                        'api-testing/use-cases/generate-test-data',
+                        'api-testing/use-cases/working-with-headers',
+                    ],
+                },
             ],
         },
         {
