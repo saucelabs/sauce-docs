@@ -7,8 +7,6 @@ description: How to generate an integration test
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Vedere https://apifortress.com/doc/introduction-to-integration-testing-new/
-
 One of the core features of the platform is the ability to create proper Integration Tests. An Integration Test is a test in which you examine a complete user flow, simulating what an API consumer would experience. Integration testing is critical for creating a strong API testing strategy. While only testing individual endpoints is a good start, this method will miss a large number of problems that occur when all services need to work together.
 
 ## What You'll Need
@@ -31,6 +29,10 @@ Here's the steps to create an integration test to check the interaction between 
 1. Call the product listing endpoint by adding a `GET` request and assign the response to the `productsPayload` variable. The endpoint requires an Authentication header so add the Request Header component and enter `key` into the Name field and `ABC123` into the Value field.
 
 2. (Optionally) Add an assert-is component to verify that `productsPayload` is an array.
+
+:::tip
+You can use the Comment component and print the whole payload response inside your test report by writing ${productsPayload}
+:::
 
 3. Add an `each` component and reference the `productsPayload` object.
 

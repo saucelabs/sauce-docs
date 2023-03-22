@@ -44,12 +44,6 @@ You can use either the **Visual** composer (guides you through building componen
 
 For more information, see [Input Sets](/api-testing/composer/#input-sets) and [Visual View and Code View](/api-testing/composer/#visual-view-and-code-view).
 
-### Edit a Test
-
-To edit a test at any time, on the **Projects** page, on the **Tests** tab, hover over a test name and then click **Edit Test**.
-
-<img src={useBaseUrl('/img/api-testing/edit-test-nav.png')} alt="Navigating to the test editor" width="300"/>
-
 ### Add Test Components
 
 When test components are combined, they act as our test logic. See the following pages for more information about the components types available in API Testing:
@@ -71,9 +65,9 @@ To create a simple `GET` request and validate that response is correct:
 
 <img src={useBaseUrl('/img/api-testing/get-request-nav.png')} alt="Navigating to the GET request window"/>
 
-3. In the **GET request** window, in the **Url** field, enter `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions`.
+3. In the **GET request** window, in the **Url** field, enter `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions`. This endpoint will return a JSON response body.
 
-This endpoint will return a JSON response body. 4. In the **Variable** field, enter **payload**. This variable stores the response, so it can now be referred to as **payload**.
+4. In the **Variable** field, enter **payload**. This variable stores the response, so it can now be referred to as **payload**.
 
 <img src={useBaseUrl('/img/api-testing/get-request-window.png')} alt="Editing in the GET request window"/>
 
@@ -139,6 +133,23 @@ All test runs appear to the right of the Composer, under the test details and en
 
 To view your results, in the Composer, in the **Test Runs** list, click the name of the test. This will open the **Test Report Details**. For more information, see [Test Outcome Report](/api-testing/project-dashboard/#test-outcome-report).
 
+### Edit a Test
+
+To edit a test at any time, on the **Projects** page, on the **Tests** screen, hover over a test name and then click **Edit Test**.
+
+<img src={useBaseUrl('/img/api-testing/edit-test-icon-nav.png')} alt="Navigating to the test editor" width="300"/>
+
+## Test Options
+
+Once you've generated your tests in the Composer, you can manage them from the **Tests** screen. In your project, on the **Tests** screen, hover your mouse over the test line item. You'll see icons that allow you to edit, run, schedule, or delete a test.<br/>
+<img src={useBaseUrl('img/api-testing/test-options.png')} alt="Test Options Icons"/>
+
+- Pencil icon: Edit the test (opens the **Compose** tab)
+- Play icon: Run the test manually
+- Calendar icon: Open the [test scheduler](/api-testing/schedule-test)
+- Gauge icon: Opens the load testing page
+- Trash icon: Delete the test
+
 ## Terminology
 
 ### Visual View and Code View
@@ -159,10 +170,6 @@ This button displays all available [assertion components](/api-testing/composer/
 <img src={useBaseUrl('img/api-testing/add-component-nav.png')} alt="Add Component"/>
 
 If a component is not valid for the operation you are conducting, it will not be made available to help avoid mistakes. For instance, if you don’t add a `POST` first, you cannot add a `POST` Body or `POST` Param.
-
-:::note
-Sauce Labs free trials may not give you access to all available components.
-:::
 
 ### Component Options
 
@@ -215,17 +222,6 @@ There are two types of input data sets you can use:
 
 These buttons switch between the Input Set and Unit views.<br/>
 <img src={useBaseUrl('img/api-testing/unitView.png')} alt="Unit View"/>
-
-## Test Options
-
-Once you've generated your tests in the Composer, you can manage them from the **Tests** tab. In your project, on the **Tests** tab, hover your mouse over the test line item. You'll see icons that allow you to edit, run, schedule, or delete a test.<br/>
-<img src={useBaseUrl('img/api-testing/test-options.png')} alt="Test Options Icons"/>
-
-- Pencil icon: Edit the test (opens the **Compose** tab)
-- Play icon: Run the test manually
-- Calendar icon: Open the [test scheduler](/api-testing/schedule-test)
-- Gauge icon: Opens the load testing page
-- Trash icon: Delete the test
 
 ## More Information
 
