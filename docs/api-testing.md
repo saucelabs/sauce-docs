@@ -42,10 +42,10 @@ Create functional tests from multiple locations:
 <li>
 <a href="/api-testing/import-postman-collection">Postman collection (in the HTTP client)</a></li>
 <li>
-<a href="/api-testing/build-from-spec">OpenAPI spec file or HAR file</a>
+<a href="/api-testing/build-from-spec">OpenAPI spec file</a>
 </li>
 <li>
-<a href="/api-testing/import-postman-collection/#importing-a-har-file-rdc-and-vdc">Import from HAR file (including HAR files from RDC and VDC)</a>
+<a href="/api-testing/import-har-files/">Import from HAR file (including HAR files from RDC and VDC)</a>
 </li>
 <li>
 <a href="/api-testing/composer">Test composer</a>
