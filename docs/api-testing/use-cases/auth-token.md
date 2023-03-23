@@ -16,7 +16,7 @@ As part of good testing strategy is create end-to-end tests that resemble common
 
 
 
-### Step 1: Make the authorization call
+### Step 1: Make the Authorization Call
 
 First, make the call to retrieve the token.
 
