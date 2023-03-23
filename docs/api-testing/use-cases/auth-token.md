@@ -48,7 +48,7 @@ Given proper credentials, the authentication server will return a payload respon
 You can double-check that the response contains the correct data by adding an assertion verifying that the `user_id` provided in the Request Body is the same as in the Response Payload.
 :::
 
-### Step 2: Save the token for further calls
+### Step 2: Save the Token for Further Calls
 
 Next, assign the token to a variable. Variables are used to store data temporarily for a test, but you can use the Sauce Labs API Testing Vault for permanent variables. For more information, see [Creating Reusable Variables and Snippets with the Vault](/api-testing/vault)).
 
