@@ -50,7 +50,7 @@ You can double-check that the response contains the correct data by adding an as
 
 ### Step 2: Save the token for further calls
 
-Next, we need to assign the token to a variable. Variables are used to store data temporarily for a test, but you can use the Sauce Labs API Testing Vault for permanent variables. For more information, see [Creating Reusable Variables and Snippets with the Vault](/api-testing/vault)).
+Next, assign the token to a variable. Variables are used to store data temporarily for a test, but you can use the Sauce Labs API Testing Vault for permanent variables. For more information, see [Creating Reusable Variables and Snippets with the Vault](/api-testing/vault)).
 
 Add a `Set (variable)` component.
 
