@@ -63,7 +63,7 @@ Variables last through the entire test unless overwritten.
 
    <img src={useBaseUrl('/img/api-testing/int-test-response-payload.png')} alt="Testing the response payload"/>
 
-Below the final test how should look like in Code View:
+In Code view, the test should look like this:
 
 ```yaml
 - id: get
