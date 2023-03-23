@@ -50,7 +50,7 @@ In a scenario in which the response contains many products, it may be useful to 
 
 The system uses `_1` automatically when recognizing a subroutine, which makes it easier when there are multiple sub-levels.
 
-Below how your test might look like till the above step:
+This is how your test might look after you set the `id` variable:
 
 <img src={useBaseUrl('/img/api-testing/int-test-endpoints.png')} alt="Testing interactions between endpoints" width="600"/>
 
