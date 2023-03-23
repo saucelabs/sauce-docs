@@ -15,7 +15,6 @@ As part of good testing strategy is create end-to-end tests that resemble common
 - An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
 
-Now, we'll show how to make the authentication call, save the returned token in a variable and use it to make subsequent calls.
 
 ### Step 1: Make the authorization call
 
