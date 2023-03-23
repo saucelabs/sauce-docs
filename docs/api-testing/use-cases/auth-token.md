@@ -66,7 +66,7 @@ This step takes the `access_token` value in the `authPayload` response, and sets
 The dollar sign and brackets are necessary when referencing variables so that Sauce Labs API Testing knows to interpret what’s between the brackets instead of using it literally.
 :::
 
-### Step 3: Make a follow-up call
+### Step 3: Make a Follow-up Call
 
 Now you can call the cart function that requires the token granted by the authentication server to add items to a cart.
 
