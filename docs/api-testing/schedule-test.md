@@ -46,7 +46,7 @@ When an `override` variable is declared, its value will be injected into the tes
 Hover your mouse over the schedule name to access the **Pause**, **Edit**, and **Delete** options for a schedule.
 <img src={useBaseUrl('/img/api-testing/schedule_options.png')} alt="Test Schedule Options"/>
 
-To pause multiple test schedules, click **Pause**.
+To pause all test schedules in the same group (Single or Global), click **Pause**.
 <img src={useBaseUrl('/img/api-testing/pause_test_schedule.png')} alt="Pause Tests"/>
 
 ## More Information
