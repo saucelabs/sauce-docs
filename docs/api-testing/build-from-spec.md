@@ -13,7 +13,7 @@ Using the API Testing **HTTP Client**, you can generate tests from external endp
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 - An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/)
-- An OpenAPI Specification file (v3.0 or higher) or HAR (HTTP Archive) file
+- An OpenAPI Specification file (v3.0 or higher)
 
 :::note
 Looking to import from Postman? See [Importing Postman Collections](/api-testing/import-postman-collection/).
@@ -28,16 +28,16 @@ Looking to import from Postman? See [Importing Postman Collections](/api-testing
 5. Click on the folder in your **Snapshots** tree where you'd like to save your file.<br/><img src={useBaseUrl('img/api-testing/ImportFolder.png')} alt="Import to Snapshots folder"/>
 6. Click **Save**.<br/><img src={useBaseUrl('img/api-testing/importFolder2.png')} alt="Import file to Project"/>
 7. After saving, you'll be able to view all of your endpoints under **Snapshots**, grouped by subdirectory. Click on the name of the request you'd like to test.<br/><img src={useBaseUrl('img/api-fortress/2021/02/versions.png')} alt="Import to Snapshots folder" width="250"/><br/>
-   The URL will populate in the **Enter Request URL** field.<br/><img src={useBaseUrl('img/api-fortress/2021/02/sampleRequest.png')} alt="Sample request"/>
-8. Click **Send**. The response body will then appear.<br/><img src={useBaseUrl('img/api-fortress/2021/02/responseBody.png')} alt="Response Body"/>
 
-## Run a Test
+   The URL will populate in the **Enter Request URL** field. <br/><img src={useBaseUrl('img/api-fortress/2021/02/sampleRequest.png')} alt="Sample request"/>
 
-Follow the instructions under our Quickstart doc, starting with the [Generate Test](/api-testing/quickstart/#generate-test) step.
+   The response body will populate in the **Body** area. <br/><img src={useBaseUrl('img/api-fortress/2021/02/responseBody.png')} alt="Response Body"/>
+
+## Generate a Test
+
+See the [Quickstart guide](/api-testing/quickstart/#generate-test) for the steps to generate, run, publish, and view test results.
 
 ## More Information
 
-- [Importing Sauce Labs API Tests from Postman](/api-testing/import-postman-collection/)
-- Features coming soon:
-  - Support for additional spec file formats: RAML, API Blueprint, I/O Docs, SOAP, WSDL
-  - Ability to create a test by referencing the URL that points to your spec file
+- [Importing from Postman](/api-testing/import-postman-collection/)
+- [Importing HAR files](/api-testing/import-har-files/)
