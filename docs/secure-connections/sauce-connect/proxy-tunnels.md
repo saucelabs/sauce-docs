@@ -47,7 +47,7 @@ You can manage and monitor all Sauce Connect Proxy tunnel activity from the Sauc
 
 ### Verifying Tunnel Success
 
-To verify that your tunnel is up and running, there are two places you can check:
+To verify that your tunnel is up and running, you can check the following:
 
 #### Command-Line Interface
 
@@ -146,6 +146,10 @@ The location of the log file will vary, depending on your operating system. For 
 #### Tunnels Page
 
 Look for the **Active Tunnel** confirmation.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsuccess-ui.png')} alt="Sauce Connect Tunnel Success" width="500"/>
+
+#### CI/CD System
+
+If you're starting ephemeral tunnels from a CI/CD system, there are multiple ways to automatically check for [tunnel readiness](/secure-connections/sauce-connect/setup-configuration/readiness-checks/#cicd-testing).
 
 ## Stopping Tunnels
 
@@ -307,11 +311,13 @@ You can also launch Ephemeral tunnels from a continuous integration (CI) build s
 
 2. Determine the number of tunnels you'll need for your tests. For this example, we'll use one tunnel. As a rule of thumb, if you're running less than 200 parallel tests, one tunnel is fine; for 200 or more parallel tests, you'll need two tunnels. For more information, see [System and Network Requirements](/secure-connections/sauce-connect/system-requirements).
 
-3. How you start your tunnel is up to you. You can run a simple Bash shell script (or PowerShell script, if you're in Windows) that simply executes the start commands as if you were starting it locally:
+3. How you start your tunnel is up to you. You can run a Bash shell script (or PowerShell script, if you're in Windows) that executes the start commands as if you were starting it locally:
 
 ```bash
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west --tunnel-name $TUNNEL_NAME
 ```
+
+4. Wait until the tunnel is ready. To verify that your tunnel is up and running, you can use one of the options in [Sauce Connect Proxy Readiness Checks](/secure-connections/sauce-connect/setup-configuration/readiness-checks).
 
 Once you've established your automated loop, you should be able to kick off builds as needed, automatically.
 

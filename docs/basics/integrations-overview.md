@@ -155,17 +155,6 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
   </div>
 </div>
 
-## Defect Reporting and Management
-
-<div className="box-wrapper" markdown="1">
-  <div className="box box1 card">
-    <div className="container">
-        <a href="/basics/integrations/jira/"> <img src={useBaseUrl('img/integrations/jira.png')} alt="Jira logo" width="40" />
-        <h3>Jira</h3></a>
-    </div>
-  </div>
-</div>
-
 ## Test Reporting and Management
 
 <div className="box-wrapper" markdown="1">

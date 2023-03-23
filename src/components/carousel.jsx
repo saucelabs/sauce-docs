@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React from 'react';
 /* package: https://www.npmjs.com/package/react-alice-carousel */
 import AliceCarousel from 'react-alice-carousel';
@@ -6,6 +7,7 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 const handleDragStart = (e) => e.preventDefault();
 
 const items = [
+    // eslint-disable-next-line react/jsx-key
     <div className='quickstart' onDragStart={handleDragStart}>
         <a
             href='/mobile-apps/automated-testing/appium/quickstart/'
@@ -26,24 +28,6 @@ const items = [
     </div>,
     <div className='quickstart' onDragStart={handleDragStart}>
         <a
-            href='/mobile-apps/automated-testing/espresso-xcuitest/'
-            target='_self'
-        >
-            <img src='img/quickstart/espresso.png' alt='Espresso Logo' />
-            <h3>Espresso</h3>
-        </a>
-    </div>,
-    <div className='quickstart' onDragStart={handleDragStart}>
-        <a
-            href='/web-apps/automated-testing/playwright/quickstart/'
-            target='_self'
-        >
-            <img src='img/quickstart/playwright.png' alt='Playwright Logo' />
-            <h3>Playwright</h3>
-        </a>
-    </div>,
-    <div className='quickstart' onDragStart={handleDragStart}>
-        <a
             href='/web-apps/automated-testing/selenium/quickstart/'
             target='_self'
         >
@@ -58,6 +42,24 @@ const items = [
         >
             <img src='img/quickstart/xcuitest.png' alt='XCUITest Logo' />
             <h3>XCUITest</h3>
+        </a>
+    </div>,
+    <div className='quickstart' onDragStart={handleDragStart}>
+        <a
+            href='/mobile-apps/automated-testing/espresso-xcuitest/'
+            target='_self'
+        >
+            <img src='img/quickstart/espresso.png' alt='Espresso Logo' />
+            <h3>Espresso</h3>
+        </a>
+    </div>,
+    <div className='quickstart' onDragStart={handleDragStart}>
+        <a
+            href='/web-apps/automated-testing/playwright/quickstart/'
+            target='_self'
+        >
+            <img src='img/quickstart/playwright.png' alt='Playwright Logo' />
+            <h3>Playwright</h3>
         </a>
     </div>,
 ];

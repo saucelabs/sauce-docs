@@ -46,6 +46,7 @@ Offline database capabilities are currently not supported for Nintendo Switch.
 
 <!-- prettier-ignore -->
 :::tip Generate a Submission Token
+
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
 :::
@@ -71,7 +72,6 @@ values={[
 {label: 'OpenUPM', value: 'openupm'},
 {label: 'Unity Package Manager', value: 'unity'},
 {label: 'Git', value: 'git'},
-{label: 'Backtrace Hub', value: 'hub'}
 ]}>
 
 <TabItem value="openupm">
@@ -105,14 +105,6 @@ For more information, see the installation steps on [OpenUPM](https://openupm.co
 1. Complete the steps in [Installing from a Git URL](https://docs.unity3d.com/Manual/upm-ui-giturl.html) in the Unity Documentation.
 
 > This installation method is supported for Unity 2018.3 or higher.
-
-</TabItem>
-<TabItem value="hub">
-
-1. Download the installer for the [Backtrace Hub](https://drive.google.com/file/d/1hbSmqMSBEep00pHVLPUpTVsj5K_O8Jq6/view).
-1. Double-click to open the file.
-1. In the dialog for the Backtrace Hub Installer, click **Install Now**. <br/> After the installation is complete, you can download the Backtrace Plugin from the Backtrace Hub.
-1. From the **Backtrace Hub**, for the **Backtrace Plugin**, click **Install**.
 
 </TabItem>
 </Tabs>

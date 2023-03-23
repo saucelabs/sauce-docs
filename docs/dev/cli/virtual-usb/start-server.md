@@ -10,7 +10,9 @@ sidebar_label: Start Server
 
 ## Usage
 
-<span className="cli">$ &lt;main class&gt; [OPTIONS] server [OPTIONS]</span>
+```bash
+$ <main class> [OPTIONS] server [OPTIONS]
+```
 
 ## Options Details
 
@@ -19,7 +21,7 @@ sidebar_label: Start Server
 <div className="cli-desc">
 <p><small>| REQUIRED | ENUM |</small></p>
 
-Specifies the Sauce Labs data center where your Real Device Cloud private devices are hosted. Valid values are `EU` or `US`.
+Specifies the Sauce Labs data center where your Real Device Cloud private devices are hosted. Valid values are `EU`, `US`, `US_EAST`.
 
 </div>
 

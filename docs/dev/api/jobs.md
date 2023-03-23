@@ -468,7 +468,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api put">PUT</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;/stop</code></summary>
 <p/>
 
-Get detailed information about a specific job.
+Stop a specific job.
 
 #### Parameters
 

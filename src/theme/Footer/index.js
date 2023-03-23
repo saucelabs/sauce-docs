@@ -43,6 +43,34 @@ function Footer() {
             })}
         >
             <div className='container container-fluid'>
+                {logo && (
+                    <div className='footer__bottom text--center footer__inner'>
+                        {logo && (logo.src || logo.srcDark) && (
+                            <div className='margin-bottom--sm'>
+                                {logo.href ? (
+                                    <Link
+                                        href={logo.href}
+                                        className={styles.footerLogoLink}
+                                    >
+                                        <FooterLogo
+                                            alt={logo.alt}
+                                            sources={sources}
+                                            width={logo.width}
+                                            height={logo.height}
+                                        />
+                                    </Link>
+                                ) : (
+                                    <FooterLogo
+                                        alt={logo.alt}
+                                        sources={sources}
+                                        width={logo.width}
+                                        height={logo.height}
+                                    />
+                                )}
+                            </div>
+                        )}
+                    </div>
+                )}
                 <div className='footer-items'>
                     <h5>
                         <a href='https://saucelabs.com/'>Sauce Labs</a>
@@ -165,32 +193,9 @@ function Footer() {
                         </ul>
                     </span>
                 </div>
-                {(logo || copyright) && (
+                <div></div>
+                {copyright && (
                     <div className='footer__bottom text--center footer__inner'>
-                        {logo && (logo.src || logo.srcDark) && (
-                            <div className='margin-bottom--sm'>
-                                {logo.href ? (
-                                    <Link
-                                        href={logo.href}
-                                        className={styles.footerLogoLink}
-                                    >
-                                        <FooterLogo
-                                            alt={logo.alt}
-                                            sources={sources}
-                                            width={logo.width}
-                                            height={logo.height}
-                                        />
-                                    </Link>
-                                ) : (
-                                    <FooterLogo
-                                        alt={logo.alt}
-                                        sources={sources}
-                                        width={logo.width}
-                                        height={logo.height}
-                                    />
-                                )}
-                            </div>
-                        )}
                         {copyright ? (
                             <div
                                 className='footer__copyright' // Developer provided the HTML, so assume it's safe.

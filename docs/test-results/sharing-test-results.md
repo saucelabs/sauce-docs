@@ -32,7 +32,7 @@ You can also manually build links to Test Results pages and set authentication f
 
 ## Building Sharable Links
 
-You can generate a sharable link to your test results that limits who can view the results by requiring a login or authentication (auth) token. These links will allow recipients to view the results of that test, but the they will not appear on their dashboard.
+You can generate a sharable link to your test results that limits who can view the results by requiring a login or authentication (auth) token. These links will allow recipients to view the results of that test, but they will not appear on their dashboard.
 
 You can also change the visibility of a test (e.g., Public, Private, or Team) directly on the **Test Results** page.
 

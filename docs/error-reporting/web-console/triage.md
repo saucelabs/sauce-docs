@@ -9,9 +9,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Triage
 
-When opening the Web Console, you will default to the Triage tool for the selected project. The Triage tool displays crashes or errors grouped by fingerprint (a hash that is generated when processing crashes through Backtrace's deduplication algorithms). The fingerprint is used to signify a unique error with a common root cause. The Triage tool allows you to filter down which errors (fingerprints) you want to view, provides aggregate information about the fingerprint, and enables actions to take to support resolution of the fingerprint. The following actions are available for users to take on fingerprints:
+When opening the Web Console, you will default to the Triage view for the selected project. The Triage view displays crashes or errors grouped by fingerprint (a hash that is generated when processing crashes through Backtrace's deduplication algorithms). The fingerprint is used to signify a unique error with a common root cause.
+
+The Triage view allows you to filter errors (fingerprints) you want to view, provides aggregate information about the fingerprint, and enables actions to take to support resolution of the fingerprint. The following actions are available for users to take on fingerprints:
 
 - View and Manage by State - Use Filter Shortcuts like Open, In Progress, Muted or - Resolved to view fingerprints that are relevant to your activity in the Triage view.
 - Set Reopen Criteria - Use Resolved Until or Muted Until functionality to tell the system to reopen a fingerprint if it's seen in a future version or after a certain period of time.
@@ -25,7 +26,7 @@ When opening the Web Console, you will default to the Triage tool for the select
 
 ## View and Manage State
 
-In the Triage tool, you'll notice each fingerprint has a status of Open, Resolved, In Progress or Muted. These states help engineering managers and engineers know which crashes need analysis, which are being actively worked on, which are resolved, and which can be ignored or muted.
+In the Triage view, each fingerprint has a status of Open, Resolved, In Progress or Muted. These states help engineering managers and engineers know which crashes need analysis, which are being actively worked on, which are resolved, and which can be ignored or muted.
 
 We normally see engineering managers start with Open fingerprints so that they can make sure relevant issues are disposed of properly, by taking actions such as assigning to an engineer, linking to Jira issue, marking as Resolved or Muted).
 
@@ -34,7 +35,7 @@ We normally see engineering managers start with Open fingerprints so that they c
 For each fingerprint in the result list you can view and modify data:
 
 - View and modify the state from Open/In Progress to Resolved and Muted.
-- View the Fingerprint and hover to get actions to View the Details page or Open the Fingerprint in the Debugger.
+- View the Fingerprint and hover to get actions to View the Details page or Open the Fingerprint in the Debug view.
 - View the head of the callstack and hover to get a few more lines.
 - View the number of occurrences and number of impacted hosts or users, and activity history.
 - View system applied tags (classifiers), and manage custom tags.
@@ -46,9 +47,9 @@ A note on Open, In Progress, Resolved and Muted states:
 - Fingerprints can be marked as Resolved or Muted using the state column. Fingerprints that have been marked as Resolved or Muted will stay in that state, to allow you to better organize the expected state of instability in your environment.
 - A fingerprint is Open if there are no assignees or linked tickets (and has not been marked as Resolved or Muted). The act of assigning a fingerprint or linking it to an issue will cause the Open fingerprint to be listed as In Progress. By the same notion, a fingerprint that is In Progress and has its assignees removed and tickets unlinked will be listed as Open.
 
-## Customize the Columns Displayed in the Triage Tool
+## Customize the Columns Displayed in the Triage View
 
-A user can add additional columns to the Triage tool to help them better assess priority. A user can choose any of the system or custom attributes and an aggregation visual to see things like a Distribution of Versions or Unique number of Users impacted.
+A user can add additional columns to the Triage view to help them better assess priority. A user can choose any of the system or custom attributes and an aggregation visual to see things like a Distribution of Versions or Unique number of Users impacted.
 
 <img src={useBaseUrl('img/error-reporting/console-views/customize-columns-in-triage.png')} alt="Shows additional attributes to add as columns in the Triage view." />
 
@@ -66,15 +67,15 @@ This section will discuss the actions you can take on a fingerprint.
 
 The fingerprint can be assigned to a user in Backtrace to indicate there is a user that is responsible to resolve it. This action also sets the state of the fingerprint to In Progress.
 
-### Link to Issue
+### Link To Issue
 
-A user can create a new issue in a 3rd party system like Jira or GitHub issues that is populated with some information about the fingerprint, and a link back to more details about the fingerprint in Backtrace. This action also sets the state of the fingerprint to In Progress. Find more details in [Integrating with Jira and Other Issue Tracking Software](https://support.backtrace.io/hc/en-us/articles/360040515891-Integrating-with-Jira-and-Other-Issue-Tracking-Software).
+A user can create a new issue in a 3rd party system like Jira or GitHub issues that is populated with some information about the fingerprint, and a link back to more details about the fingerprint in Backtrace. This action also sets the state of the fingerprint to In Progress.
 
-### Comments and tags
+### Comments and Tags
 
 A comment thread is available in the Details view of a fingerprint soon. Users can post and edit their comments to assist in the resolution flow. Tags can be applied to fingerprints for more ad-hoc grouping and classification.
 
-### Mute or Resolved
+### Mute or Resolve
 
 You can take explicit Mute or Resolve actions on a fingerprint. Mute a fingerprint when you don't want it to appear as Open or In Progress any more. Mark as Resolved when you think the issue is fixed. Fingerprints that have been marked as Resolved or Muted will stay in that state, to allow you to better organize the expected state of instability in your environment.
 
@@ -98,6 +99,6 @@ By hovering over a fingerprint's callstack (in the "Description" field) it will 
 
 <img src={useBaseUrl('img/error-reporting/console-views/triage-view-copy-callstack.png')} alt="Shows the callstack for the fingerprint, which you can copy." />
 
-Note that the callstack shown in the UI on hover and the callstack you copy can be slightly different. This is because the callstack you are seeing in the UI has been normalized / deduplicated and grouped into a fingerprint by our processes, whereas the copy button grabs the raw callstack data. While the normalized callstack is great for quickly trying to understand where in your application an error has occurred, copying the callstack will give you more details (including frame + line numbers).
+The callstack shown in the UI on hover and the callstack you copy can be slightly different. This is because the callstack you are seeing in the UI has been normalized / deduplicated and grouped into a fingerprint by our processes, whereas the copy button grabs the raw callstack data. While the normalized callstack is great for quickly trying to understand where in your application an error has occurred, copying the callstack will give you more details (including frame + line numbers).
 
 For more context on the deduplication process, see [Deduplication Overview](/error-reporting/project-setup/deduplication/).

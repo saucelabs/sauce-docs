@@ -45,7 +45,7 @@ See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB
 
 1. Click below to download the latest Virtual USB client to your local machine where you have your IDE installed/set up.
 
-  <p> <a href="https://saucelabs-vusb.s3.eu-west-1.amazonaws.com/v2.0.4/virtual-usb-client-2.0.4.jar"><button class="download">Download Virtual USB 2.0.4</button></a> </p>
+  <p> <a href="https://saucelabs-vusb.s3.eu-west-1.amazonaws.com/v2.0.5/virtual-usb-client-2.0.5.jar"><button class="download">Download Virtual USB 2.0.5</button></a> </p>
 
 For Virtual USB release history, see our [changelog](https://changelog.saucelabs.com/en?category=virtual%20usb).
 
@@ -139,43 +139,48 @@ values={[
 {label: 'iOS', value: 'iOS'},
 ]}>
 
+<!-- prettier-ignore-start -->
 <TabItem value="Android">
 
-    The expected output will be a **port number**, which you'll need when you want to connect the device to ADB (see Step 7).
+The expected output will be a **port number**, which you'll need when you want to connect the device to ADB (see Step 7).
 
-    ```java
-    localhost:7000  online
-    ```
+```java
+localhost:7000  online
+```
 
 </TabItem>
 <TabItem value="iOS">
 
-    ```java
-    localhost:-1  online
-    ```
+```java
+localhost:-1  online
+```
 
-    After this, you'll see:
-    <ol>
-      <li>an Apple system notification popup, where you'll need to provide Touch ID or password authentication</li>
-      <li>information returned in your server logs similar to the example below.</li>
-    </ol>
+After this, vUSB needs to have access to the usbmuxd socket on your computer. This is a socket that is used by XCODE (Apple's developer tools) to communicate with iOS devices. By default it is connected to your local USB port, but since we are using a remote device, vUSB need to move the socket to a different location. To be able to do this vUSB needs to have read and write access to the socket which is located at `/var/run/usbmuxd`.
 
-    ```bash
-    11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - The socket at /var/run/usbmuxd needs to be moved
-    11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - This will require administrator privileges!
-    ```
+If you are running vUSB as a non-root user you will need to provide the password for the root user and an Apple system notification popup will appear:
 
-    This prepares the usbmuxd socket (`/var/usbmuxd`) so that developer tools like Xcode can interact with the remote device just like they interact with a local device. You will need to have administrator permissions to replace `/var/usbmuxd` on your computer. After doing so, you'll need to restart Xcode to be able to interact with the device.
+<img src={useBaseUrl('img/virtual-usb/vusb-usbmuxd.png')} alt="vUSB usbmuxd popup" width="370" />
+
+If you are running vUSB as a root user you will not be prompted for a password and the socket will be moved automatically. You will see the following message in your server logs:
+
+```bash
+11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - The socket at /var/run/usbmuxd needs to be moved
+11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - This will require administrator privileges!
+```
 
 </TabItem>
 
 </Tabs>
+
+<!-- prettier-ignore-end -->
 
 or
 
 #### **Method 2: Start new session with vUSB client from command line**
 
 Open a new command line terminal window and run the [`startSession`](/dev/cli/virtual-usb/start-session) command, followed by your `username`, `accessKey`, and `--deviceName`:
+
+<!-- prettier-ignore-start -->
 <Tabs
 defaultValue="Android"
 values={[
@@ -185,26 +190,30 @@ values={[
 
 <TabItem value="Android">
 
-    ```java
-    java -jar virtual-usb-client.jar startSession --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY --deviceName Motorola_Moto_Z_real
-    ```
+```java
+java -jar virtual-usb-client.jar startSession --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY --deviceName Motorola_Moto_Z_real
+```
 
 </TabItem>
 <TabItem value="iOS">
 
-    ```java
-    java -jar virtual-usb-client.jar startSession --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY --deviceName iPhone_XS
-    ```
+```java
+java -jar virtual-usb-client.jar startSession --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY --deviceName iPhone_XS
+```
 
 </TabItem>
 
 </Tabs>
+
+<!-- prettier-ignore-end -->
 
 To use Sauce Connect Proxy: launch a tunnel in the Sauce Connect client, then add your [`--tunnel-identifier`](/dev/cli/virtual-usb/start-session/#--tunnelidentifier), which the vUSB client will use to retrieve and secure test data. You can also set up a device proxy using [proxy command options](/dev/cli/virtual-usb/start-session).
 
 If you require video recordings and device logs to be generated for the virtual USB session created via this method (accessible via SauceLabs account on the website), include the `--artifactsEnabled` optional flag when using the `startSession` command. Otherwise, the test report associated with this session will only contain metadata (i.e. device info, start/end timestamps, etc.).
 
 If your vUSB test session launch is successful, you'll see a success message:
+
+<!-- prettier-ignore-start -->
 <Tabs
 defaultValue="Android"
 values={[
@@ -234,18 +243,26 @@ d03a1b81-158d-4bb4-bcc9-074e43dd8465     iPhone XS         IOS      14.3    http
 localhost:-1  online
 ```
 
-Make sure you're logged into your Sauce Labs account prior to clicking the link above. After doing so, you'll see: 1) an Apple system notification popup, where you'll need to provide Touch ID or password authentication; and 2) information returned in your server logs similar to the example below.
+After this, vUSB needs to have access to the usbmuxd socket on your computer. This socket is used by XCODE (Apple's developer tools) to communicate with iOS devices. By default, it is connected to your local USB port, but since we are using a remote device, vUSB needs to move the socket to a different location. To do this, vUSB needs to have read and write access to the socket which is located at `/var/run/usbmuxd`.
+
+If you are running vUSB as a non-root user you will need to provide the password for the root user and an Apple system notification popup will appear:
+
+<img src={useBaseUrl('img/virtual-usb/vusb-usbmuxd.png')} alt="vUSB usbmuxd popup" width="370" />
+
+If you are running vUSB as a root user, you will not be prompted for a password and the socket will be moved automatically. You will see the following message in your server logs:
 
 ```bash
-11:13:12.347 [KQueueEventLoopGroup-2-2] INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - The socket at /var/run/usbmuxd needs to be moved
-11:13:12.347 [KQueueEventLoopGroup-2-2] INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - This will require administrator privileges!
+11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - The socket at /var/run/usbmuxd needs to be moved
+11:13:12.347 INFO com.saucelabs.vusb.client.server.usbmuxd.SocketMover - This will require administrator privileges!
 ```
 
-This prepares the usbmuxd socket (`/var/usbmuxd`) so that developer tools like Xcode can interact with the remote device just like they interact with a local device. You will need to have administrator permissions to replace `/var/usbmuxd` on your computer. After doing so, you'll need to restart Xcode to be able to interact with the device.
+Make sure you're logged into your Sauce Labs account prior to clicking the link above.
 
 </TabItem>
 
 </Tabs>
+
+<!-- prettier-ignore-end -->
 
 :::note Timeout
 No timeout is triggered if the returned link is **not** opened.
@@ -276,7 +293,7 @@ To do proper debugging, the iOS device symbols will need to be downloaded to you
 <br/>
 
 :::caution Android Limitation
-**The `adb-reverse` command is not supported.**
+**The `adb reverse` command is not supported.** Please rethink your implementation and think about using [`adb forward`](#android-port-forwarding-with-adb-forward) instead.
 :::
 <!-- prettier-ignore-end -->
 
@@ -312,23 +329,70 @@ If you've lost track of your `--sessionId`, you can recover it using the [`sessi
 ```java
 java -jar virtual-usb-client.jar disconnect --sessionId 37D274BC3A65A34BB3DA4DDF7B77E341
 ```
+
 :::
 
 ## Example Use Cases
 
 ### Exploratory Testing
 
-Introduce breakpoints in your IDE and then do exploratory testing.
+Introduce breakpoints in your IDE, for example, Android Studio or XCODE, and then do exploratory testing.
 
-### Android Debugging
+### ADB commands
 
-#### Android Studio Debugging
+You can execute `adb` commands on the device connected over vUSB as you would normally also use. This is a simple example to capture a screenshot and pull it to your local machine.
+
+```bash
+#Create a temporary folder to save a screenshot.
+mkdir tmp
+#Capture a screenshot and save to /sdcard/screen.png on your Android divice.
+adb shell screencap -p /sdcard/screen.png
+
+#Grab the screenshot from /sdcard/screen.png to /tmp/screen.png on your PC.
+adb pull /sdcard/screen.png /tmp/screen.png
+
+#Delete /sdcard/screen.png.
+adb shell rm /sdcard/screen.png
+
+#open the screenshot on your PC.
+open /tmp/screen.png
+```
+
+### Android port forwarding with `adb forward`
+
+There are cases in which you want to set up arbitrary port forwarding, which forwards requests from your local machine port to a different port on the connected Android device through vUSB.
+
+:::note
+This is the [app code](https://github.com/saucelabs/my-demo-app-android) we use for the below example.
+:::
+
+The following example sets up forwarding of host port 40000 (laptop/CI) to device port 50000 (the Android device) where we change text in the app.
+
+- Start a [server](#start-server)
+- Connect to a device with for example [`startSession`](#method-2-start-new-session-with-vusb-client-from-command-line)
+- Get the app installed. Advice would be to use Android Studio and run the app on the remote device (Android Studio will automatically detect the remote device).
+- Open the shared url in your browser
+- Click on "Menu → Virtual USB". You will find two commands on the screen. They are:
+
+  ```
+  adb forward tcp:40000 tcp:50000
+  echo GOOSE | nc localhost 40000
+  ```
+
+- Execute the commands to get the following result
+
+<video controls style={{"max-width": "800px"}}>
+
+  <source src={useBaseUrl('img/virtual-usb/vusb-adb-forward.mp4')} />
+</video>
+
+### Android Studio Debugging
 
 To for example profile your Android app you can follow the instructions as mentioned [here](https://developer.android.com/studio/profile). This can result in the following data.
 
 <img src={useBaseUrl('img/virtual-usb/vusb-android-profiling.png')} alt="Virtual USB Android Studio Profiling" />
 
-#### Chrome DevTools Web Debugging
+### Chrome DevTools Web Debugging
 
 This example demonstrates how to connect your test device to Chrome Inspector and export an [Http ARchive (HAR)](<https://en.wikipedia.org/wiki/HAR_(file_format)>) file to your local machine from a live testing session. Chrome Inspector's suite of developer tools provides a powerful way to work with your web pages while leveraging our real devices.
 
@@ -373,8 +437,6 @@ If you click **Inspect**, a new window will open, displaying Chrome DevTools the
 For more tips on working with HAR Files, check out [Visualize HAR Files with the Sauce Labs React Network Viewer Component](https://opensource.saucelabs.com/blog/react_network_viewer).
 :::
 
-#### ADB commands
-
 You can execute `adb` commands on the device connected over vUSB as you would normally also use. This is a simple example to capture a screenshot and pull it to your local machine.
 
 ```bash
@@ -397,7 +459,7 @@ open /tmp/screen.png
 
 To deploy and debug your iOS apps, you can use Xcode. To debug your website, we recommend using the developer tools within Safari.
 
-#### **Xcode Debugging**
+### **Xcode Debugging**
 
 :::note
 Before debugging with Xcode, please read the known limitations under [Test and Debug](/mobile-apps/features/virtual-usb/#test-and-debug).
@@ -413,7 +475,7 @@ In this example below, **Energy Log** has been selected and recording has been s
 
 <img src={useBaseUrl('img/virtual-usb/vusb-energy-logs.png')} alt="Virtual USB Energy Logs" />
 
-#### **Safari Web Debugging**
+### **Safari Web Debugging**
 
 To debug with Safari: Open Safari > From the nav, select **Develop** > **Select your device** > **Select the view** you want to debug. In our example, we want to debug the [Sauce Swag Labs demo website](https://www.saucedemo.com).
 

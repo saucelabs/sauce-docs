@@ -23,10 +23,10 @@ Looking to import from Postman? See [Importing Postman Collections](/api-testing
 
 1. Log in to Sauce Labs, then click **API Testing**.
 2. Go into any Project.
-3. From within a Project, click the **HTTP Client** tab.<br/><img src={useBaseUrl('img/api-fortress/2021/01/HTTPClient.png')} alt="HTTP Client Button" width="400"/>
-4. Click the **Import OpenAPI/HAR/Postman** button, then select and upload your file from your local machine.<br/><img src={useBaseUrl('img/api-fortress/2021/01/importSpec.png')} alt="Import OpenAPI / Postman button" width="450" />
-5. Click on the folder in your **Snapshots** tree where you'd like to save your file.<br/><img src={useBaseUrl('img/api-fortress/2021/04/importFolder.png')} alt="Import to Snapshots folder"/>
-6. Click **Save**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/importFolder2.png')} alt="Import file to Project"/>
+3. From within a Project, click the **HTTP Client** tab.<br/><img src={useBaseUrl('img/api-testing/http-client-nav-rebrand.png')} alt="HTTP Client Button" width="300"/>
+4. Click the **Import OpenAPI/Postman** button, then **Import OpenAPI/Postman Collection/.har** and then, select and upload your file from your local machine.<br/><img src={useBaseUrl('img/api-testing/importSpec.png')} alt="Import OpenAPI / Postman button" width="450" />
+5. Click on the folder in your **Snapshots** tree where you'd like to save your file.<br/><img src={useBaseUrl('img/api-testing/ImportFolder.png')} alt="Import to Snapshots folder"/>
+6. Click **Save**.<br/><img src={useBaseUrl('img/api-testing/importFolder2.png')} alt="Import file to Project"/>
 7. After saving, you'll be able to view all of your endpoints under **Snapshots**, grouped by subdirectory. Click on the name of the request you'd like to test.<br/><img src={useBaseUrl('img/api-fortress/2021/02/versions.png')} alt="Import to Snapshots folder" width="250"/><br/>
    The URL will populate in the **Enter Request URL** field.<br/><img src={useBaseUrl('img/api-fortress/2021/02/sampleRequest.png')} alt="Sample request"/>
 8. Click **Send**. The response body will then appear.<br/><img src={useBaseUrl('img/api-fortress/2021/02/responseBody.png')} alt="Response Body"/>

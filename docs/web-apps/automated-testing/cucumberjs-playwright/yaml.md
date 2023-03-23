@@ -177,9 +177,11 @@ Alternatively, you can override the file setting at runtime by setting the concu
 ```bash
 saucectl run --ccy 5
 ```
+
 ---
 
 ### `retries`
+
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
 Sets the number of times to retry a failed suite. For more settings, you can refer to [passThreshold](#passThreshold).
@@ -660,7 +662,7 @@ The parent property containing the details specific to the Playwright project.
 
 ```yaml
 playwright:
-  version: 1.11.1
+  version: 1.29.2
 ```
 
 ---
@@ -672,7 +674,7 @@ playwright:
 The version of Playwright that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/playwright#supported-testing-platforms) for the list of Playwright versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
-  version: 1.11.1
+  version: 1.29.2
 ```
 
 :::tip
@@ -780,9 +782,9 @@ suites:
   shard: spec
 ```
 
-<!-- prettier-ignore -->
 :::tip
 To split tests in the most efficient way possible, use:
+
 - `spec` when the number of specs is less than the configured concurrency.
 - `concurrency` when the number of specs is larger than the configured concurrency.
 :::
@@ -823,6 +825,7 @@ There is a 300-second limit for all `preExec` commands to complete.
 ```
 
 ---
+
 ### `passThreshold`
 
 <p><small>| OPTIONAL | INTEGER |</small></p>

@@ -7,7 +7,7 @@ const docusaurusConfig = {
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'throw',
-    favicon: 'img/favicon.ico',
+    favicon: 'img/favicon2023.png',
     organizationName: 'saucelabs',
     projectName: 'sauce-docs',
     scripts: [
@@ -54,8 +54,8 @@ const docusaurusConfig = {
             hideOnScroll: false,
             logo: {
                 alt: 'Sauce Labs logo',
-                src: '/img/logo-saucelabs.svg',
-                srcDark: '/img/logo-saucelabs-white.svg',
+                src: '/img/sl-logo-horizontal-color-dark.svg',
+                srcDark: '/img/sl-logo-horizontal-color-neutral.svg',
             },
             items: [
                 {
@@ -95,7 +95,7 @@ const docusaurusConfig = {
         footer: {
             logo: {
                 alt: 'Sauce Logo',
-                src: '/img/logo-saucelabs-inverted.png',
+                src: '/img/sl-logo-horizontal-color-neutral.svg',
                 href: 'https://saucelabs.com',
             },
             style: 'light',

@@ -10,8 +10,9 @@ Lists jobs from Sauce Labs.
 
 ## Usage
 
-<span className="cli">$ saucectl jobs list [flags]</span>
- 
+```bash
+$ saucectl jobs list [flags]
+```
 
 ## Available Options
 
@@ -114,7 +115,7 @@ Per page for pagination. Default is 20.
 **Shorthand:** `-s <size>`
 
 ```bash
-saucectl jobs list --size 20 
+saucectl jobs list --size 20
 ```
 
 </div>

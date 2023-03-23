@@ -1,0 +1,9 @@
+# Suggests the correct way to describe a button.
+extends: existence
+message: "If possible, rewrite to remove 'button'."
+link: https://wiki.saucelabs.com/display/PM/Technical+Documentation+Style+Guide#TechnicalDocumentationStyleGuide-Formatting
+level: warning
+ignorecase: true
+scope: raw
+raw:
+  - \*\*.+?\*\* button

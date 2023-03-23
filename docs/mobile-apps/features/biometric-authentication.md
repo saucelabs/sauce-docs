@@ -9,12 +9,17 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+With Sauce Labs Biometric Authentication, you can simulate biometric authentication events within your app during live and automated testing. This feature allows you to test the app's ability to recognize and respond to biometric events, without physically testing it on a device. Biometric Authentication refers to the use of physical characteristics, such as fingerprint (Touch ID) or facial recognition (Face ID) to verify the user's identity.
+
 Sauce Labs provides biometrics interception for our customers to:
 
 - Access test flows that are dependent on biometrics support, such as a mandatory security layer.
 - Verify that an app responds as expected to biometrics settings (e.g., enabled/disabled and successful/unsuccessful).
 
+:::caution
+Make sure you have a debuggable AND non-obfuscated version of your application uploaded to Mobile App Storage. 
 Biometrics test support in Sauce Labs is not intended to test actual biometrics values for authentication.
+:::
 
 ## What You'll Need
 
@@ -25,52 +30,52 @@ Biometrics test support in Sauce Labs is not intended to test actual biometrics 
 
 Biometric Authentication is available for testing on all Sauce Labs Android and iOS real devices.
 
-|                                |  Supported  | Not Supported |
-| :----------------------------- | :---------: | :-----------: |
-| **Device Type **               |             |               |
-| Android real devices           | &checkmark; |               |
-| iOS real devices               | &checkmark; |               |
-| Android Emulators              |             |   &#x2715;    |
-| iOS Simulators                 |             |   &#x2715;    |
-|                                |             |               |
-| **App Type**      |             |               |
-| Flutter(iOS/Android)           |             |   &#x2715;    |
-| React Native(iOS/Android)      |             |   &#x2715;    |
-| Cordova (iOS/Android)          |             |   &#x2715;    |
-|                                |             |               |
-| **Framework Type** |             |               |
-| Appium                         | &checkmark; |               |
-| Espresso (Android)             |             |   &#x2715;    |
-| XCUITest (iOS)                 |             |   &#x2715;    |
-
+|                           |  Supported  | Not Supported |
+| :------------------------ | :---------: | :-----------: |
+| **Device Type **          |             |               |
+| Android real devices      | &checkmark; |               |
+| iOS real devices          | &checkmark; |               |
+| Android Emulators         |             |   &#x2715;    |
+| iOS Simulators            |             |   &#x2715;    |
+|                           |             |               |
+| **App Type**              |             |               |
+| Flutter(iOS/Android)      |             |   &#x2715;    |
+| React Native(iOS/Android) |             |   &#x2715;    |
+| Cordova (iOS/Android)     |             |   &#x2715;    |
+|                           |             |               |
+| **Framework Type**        |             |               |
+| Appium                    | &checkmark; |               |
+| Espresso (Android)        |             |   &#x2715;    |
+| XCUITest (iOS)            |             |   &#x2715;    |
 
 :::note Not Supported
-* Mobile browsers and pre-installed system apps.
-* Cross-platform development frameworks like Flutter, React Native, and Cordova (libraries and frameworks are not supported). 
-* Ephemeral apps.
+
+- Mobile browsers and pre-installed system apps.
+- Cross-platform development frameworks like Flutter, React Native, and Cordova (libraries and frameworks are not supported).
+- Ephemeral apps.
 :::
 
 ### Android Biometrics
 
 For Android devices, there are multiple ways to configure biometrics. From API 28 and above we support the following:
 
-* [`BiometricManager`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager) provides APIs to query if the app can authenticate and a list of [Authenticators](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Authenticators).
-* [`BiometricPrompt`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt) provides a user interface in the form of a dialog for the user's finger touch, and the call [`BiometricPrompt.AuthenticationCallback`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt.AuthenticationCallback) provides the response of the fingerprint Authentication.
+- [`BiometricManager`](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager) provides APIs to query if the app can authenticate and a list of [Authenticators](https://developer.android.com/reference/android/hardware/biometrics/BiometricManager.Authenticators).
+- [`BiometricPrompt`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt) provides a user interface in the form of a dialog for the user's finger touch, and the call [`BiometricPrompt.AuthenticationCallback`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt.AuthenticationCallback) provides the response of the fingerprint Authentication.
 
 From API 23 to 28 we support the following:
-* [`FingerprintManager.authenticate()`](https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager#authenticate(android.hardware.fingerprint.FingerprintManager.CryptoObject,%20android.os.CancellationSignal,%20int,%20android.hardware.fingerprint.FingerprintManager.AuthenticationCallback,%20android.os.Handler)) triggers the authentication.
-* [`FingerprintManager.AuthenticationCallback`](https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager.AuthenticationCallback.html) provides an instant response of the fingerprint.
+
+- [`FingerprintManager.authenticate()`](<https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager#authenticate(android.hardware.fingerprint.FingerprintManager.CryptoObject,%20android.os.CancellationSignal,%20int,%20android.hardware.fingerprint.FingerprintManager.AuthenticationCallback,%20android.os.Handler)>) triggers the authentication.
+- [`FingerprintManager.AuthenticationCallback`](https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager.AuthenticationCallback.html) provides an instant response of the fingerprint.
 
 ### iOS Biometrics
 
-For iOS devices, biometrics can be configured with different outputs. We support the following instance methods: 
-* [`evaluatePolicy`](https://developer.apple.com/documentation/localauthentication/lacontext/1514176-evaluatepolicy) evaluates the specified policy. The method [`canEvaluatePolicy`](https://developer.apple.com/documentation/localauthentication/lacontext/1514149-canevaluatepolicy) checks whether the authentication can proceed for a given policy.
-* [`biometryType`](https://developer.apple.com/documentation/localauthentication/lacontext/2867583-biometrytype) determines the type of biometric authentication method supported by the device, and the method [`evaluatedPolicyDomainState`](https://developer.apple.com/documentation/localauthentication/lacontext/1514150-evaluatedpolicydomainstate) assesses the current state of the policy domain.
-* [`interactionNotAllowed`](https://developer.apple.com/documentation/localauthentication/lacontext/2873508-interactionnotallowed) indicates if the authentication can be interactive.
-* [`SecItemAdd`](https://developer.apple.com/documentation/security/1401659-secitemadd) adds one or more items to a keychain. [`SecItemCopyMatching`](https://developer.apple.com/documentation/security/1398306-secitemcopymatching) returns more keychain items that match the search query. You can delete items that match the search query by using the [`SecItemDelete`](https://developer.apple.com/documentation/security/1395547-secitemdelete) method. We support the following SecItem Classes: [`kSecClassGenericPassword`](https://developer.apple.com/documentation/security/ksecclassgenericpassword) and [`kSecClassInternetPassword`](https://developer.apple.com/documentation/security/ksecclassinternetpassword).
+For iOS devices, biometrics can be configured with different outputs. We support the following instance methods:
 
+- [`evaluatePolicy`](https://developer.apple.com/documentation/localauthentication/lacontext/1514176-evaluatepolicy) evaluates the specified policy. The method [`canEvaluatePolicy`](https://developer.apple.com/documentation/localauthentication/lacontext/1514149-canevaluatepolicy) checks whether the authentication can proceed for a given policy.
+- [`biometryType`](https://developer.apple.com/documentation/localauthentication/lacontext/2867583-biometrytype) determines the type of biometric authentication method supported by the device, and the method [`evaluatedPolicyDomainState`](https://developer.apple.com/documentation/localauthentication/lacontext/1514150-evaluatedpolicydomainstate) assesses the current state of the policy domain.
+- [`interactionNotAllowed`](https://developer.apple.com/documentation/localauthentication/lacontext/2873508-interactionnotallowed) indicates if the authentication can be interactive.
+- [`SecItemAdd`](https://developer.apple.com/documentation/security/1401659-secitemadd) adds one or more items to a keychain. [`SecItemCopyMatching`](https://developer.apple.com/documentation/security/1398306-secitemcopymatching) returns more keychain items that match the search query. You can delete items that match the search query by using the [`SecItemDelete`](https://developer.apple.com/documentation/security/1395547-secitemdelete) method. We support the following SecItem Classes: [`kSecClassGenericPassword`](https://developer.apple.com/documentation/security/ksecclassgenericpassword) and [`kSecClassInternetPassword`](https://developer.apple.com/documentation/security/ksecclassinternetpassword).
 
-  
 ## Live Testing
 
 <p><span className="sauceDBlue">Real Devices Only</span></p>

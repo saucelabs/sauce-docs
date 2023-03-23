@@ -4,15 +4,18 @@
       "files": "./docs/**/*.md",
       "options": {
         "parser": "markdown",
-        "tabWidth": 0,
+        "tabWidth": 2,
+        "printWidth": 80,
         "useTabs": false,
         "trailingComma": "none",
-        "jsxSingleQuote": false,
+        "jsxSingleQuote": true,
+        "embeddedLanguageFormatting": "off",
+        "singleQuote": false,
         "semi": false
       }
     },
     {
-      "files": "./static/*.html",
+      "files": "*.html",
       "options": {
         "parser": "html",
         "tabWidth": 4,
@@ -23,7 +26,26 @@
       }
     },
     {
-      "files": "./**/css/*.css",
+      "files": "*.{yml,yaml}",
+      "options": {
+        "parser": "yaml",
+        "tabWidth": 2,
+        "useTabs": false,
+        "semi": false,
+        "singleQuote": true
+      }
+    },
+    {
+      "files": "*.json",
+      "options": {
+        "parser": "json",
+        "tabWidth": 1,
+        "useTabs": true,
+        "singleQuote": false
+      }
+    },
+    {
+      "files": "*.css",
       "options": {
         "parser": "css",
         "tabWidth": 4,
@@ -34,10 +56,11 @@
     }
   ],
   "tabWidth": 4,
+  "quoteProps": "preserve",
   "useTabs": false,
   "printWidth": 80,
   "semi": true,
   "trailingComma": "es5",
-  "jsxSingleQuote": false,
-  "singleQuote": false
+  "jsxSingleQuote": true,
+  "singleQuote": true
 }

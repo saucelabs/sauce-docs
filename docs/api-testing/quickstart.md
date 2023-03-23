@@ -17,8 +17,8 @@ This Quickstart guide will get you up and running with a functional API Test. Le
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 
-:::note
-If your APIs are behind a firewall, you'll need to set up a [Sauce Connect Proxy](/secure-connections/sauce-connect/) tunnel before proceeding.
+:::note 
+If your APIs are behind a firewall, you'll need to set up a [Sauce Connect Proxy](/api-testing/sauce-connect) tunnel before proceeding.
 :::
 
 ## Create Project
@@ -28,7 +28,7 @@ If your APIs are behind a firewall, you'll need to set up a [Sauce Connect Proxy
 2. From the list of test creation methods, click **Use HTTP Client**.<br/><img src={useBaseUrl('img/api-testing/newtestHTTP.png')} alt="Enter API URL" width="550" />
 
 :::note Returning Users
-If you're seeing an existing list of Projects instead of the landing page shown above, click **Create Project** instead.<br/><img src={useBaseUrl('img/api-fortress/2021/01/createProject.png')} alt="Create Project" width="450" />
+If you're seeing an existing list of Projects instead of the landing page shown above, click **Create Project** instead.<br/><img src={useBaseUrl('img/api-testing/createProject.png')} alt="Create Project" width="450" />
 :::
 
 3. In the **Create a New Project** window:
@@ -62,6 +62,7 @@ The JSON response &#8212; in this case, a list of dog breeds &#8212; will popula
 This will generate a series of functional tests for this specific API request.
 
 :::tip
+
 <details><summary>Viewing your test data</summary>
 
 **Visual** view shows your test as components:<br/><img src={useBaseUrl('img/api-testing/testVisual.png')} alt="Sample Test Visual View"/>
@@ -81,7 +82,7 @@ This will generate a series of functional tests for this specific API request.
 
 1. To view your test results, hover your mouse over your test line item and click **Open report document**.<br/><img src={useBaseUrl('img/api-fortress/2021/01/testResultsOpen.png')} alt="Open Test Results" width="200" />
 
-1. Your test report will open in a new browser tab. The report displays granular test information that's helpful for debugging any failures ([more info](/api-testing/project-dashboard/#test-outcome-reports)).<br/><img src={useBaseUrl('img/api-testing/testResultsPage.png')} alt="Test Results Page" width="600" />
+1. Your test report will open in a new browser tab. The report displays granular test information that's helpful for debugging any failures ([more info](/api-testing/project-dashboard/#test-outcome-reports)).<br/><img src={useBaseUrl('img/api-testing/testResultsPageRebrand.png')} alt="Test Results Page" width="600" />
 
 ## Publish Your Test
 

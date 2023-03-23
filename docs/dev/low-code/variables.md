@@ -166,7 +166,7 @@ Where:
 - `platform` is the platform the remote machine runs on (Windows or Linux).
 - `browser` is the browser on which you want to generate or execute the script.
 
-### `use custom code from [location]`
+### `use custom code from file`
 
 This variable can be used if a file is added to artifacts.
 
@@ -194,6 +194,7 @@ If `var` = `"testing"`, and `var_2` = `"printing variable: testing"`:
 `exec _py{print(‘Modified variable: ' +aiq_1)} with ${var1} returning ${var2}`
 `exec _js{return 'Modified variable: ' + aiq_1} with ${var1} returning ${var2}`
 `exec _bash(echo 'Modified variable: ' + aiq_1) with ${var1}returning ${var2}`
+
 <!-- prettier-ignore -->
 :::note
 - Any reference to an input variable should be `aiq_1`, `aiq_2`, and so on.

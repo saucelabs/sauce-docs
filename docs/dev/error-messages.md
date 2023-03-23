@@ -87,7 +87,13 @@ The testing session was terminated by the user.
 
 **Cause(s)**
 
+**Virtual Devices**
+
 Your test was manually interrupted using the Sauce Labs **Cancel** or **Breakpoint** buttons. Since both of these take control of the virtual machine immediately, test assets like screenshots, video, or logs that require additional execution time will not be collected and made available afterwards.
+
+**Real Devices**
+
+Your test was manually interrupted using the Sauce Labs [Real Device API](https://docs.saucelabs.com/dev/api/rdc/#stop-a-job). The usual post-processing is triggered and test assets like screenshots, video, or logs will be made available.
 
 **How to Resolve**
 
@@ -172,6 +178,22 @@ This error has a few potential causes:
 - Make sure you're launching an appropriate number of jobs for your account.
 - If you see this error with iOS Simulator tests, please make sure the timeouts in your test runner/framework are set to a sufficient duration to allow iOS Simulator tests to start up. We recommend a minimum of 2 minutes.
 
+### The New Session Request Redirect Was Not Followed Before Timeout
+
+**Description**
+
+Your test session was abandoned because it took longer than 45 seconds to assign a Sauce Labs Virtual Machine, and your test runner did not follow the new session redirect before timeout.
+
+**Cause**
+
+The main cause for this error is client-side request throttling/errors. Make sure to check the logs from your test runner for any errors.
+See the related [New Session Request was Cancelled before a Sauce Labs Virtual Machine was Found](#the-new-session-request-was-cancelled-before-a-sauce-labs-virtual-machine-was-found) error message for more information.
+
+**How to Resolve**
+
+- Make sure your test runner is not running out of resources (CPU/Network).
+- Make sure your test runner has enough logging enabled to support troubleshooting.
+
 ### Selenium Didn't Complete Your Last Request on Time
 
 **Description**
@@ -251,11 +273,17 @@ The capabilities you've supplied include a URL to a mobile app to install and te
 
 **Cause(s)**
 
-- You've specified an app hosted in [storage](/mobile-apps/app-storage), but there is nothing stored for your account with the given name.
+- You've specified an app hosted in [App Storage](/mobile-apps/app-storage), but there is nothing stored for your account with the given name.
 - You've specified an app hosted online, but the URL you've used can't be contacted by Sauce Labs.
 - You've specified an app hosted in your corporate network which can't be accessed via the Internet.
 - You're not providing the full path to the app file itself.
 - The site serving your app requires authentication.
+- An error occurred on our platform side. Could be related to the availability of our storage platform (error code 500). In this situation try again, if the error continues contact our [Sauce Labs Support](https://saucelabs.com/training-support).
+- The verification is taking too long and timeout error appears (error code 504).
+
+:::note
+Tests that failed the validation will no longer be displayed in the failed jobs list in the Sauce Labs UI, as the check is performed before the entry is created in the database, and the request is rejected as invalid.
+:::
 
 **How to Resolve**
 
@@ -268,6 +296,8 @@ If you're already using storage, check to make sure that:
 - Your uploaded app has the same MD5 hash as it does on your machine.
 - You're starting the `app` capability with `storage:filename`. There shouldn't be a leading `http`.
 - You're using the exact name you provided via the rest API, not the original filename. For example, if you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `storage:filename=new_app_name.apk`.
+- Check the access permissions for the file before retrying. If you have confirmed you have permissions to access the file and you continue to get this error, contact our [Sauce Labs Support](https://saucelabs.com/training-support).
+
 
 ### Unable to Find Device Within 90 Seconds
 
@@ -277,16 +307,17 @@ This timeout occurs most frequently when you include a specific device in your t
 
 **Cause(s)**
 
-Our public device pool is available to all subscribed Sauce users and (as you might imagine), some devices are more popular than others. We have over 280 device configurations and thousands of devices hosted in our data center, but sometimes a test queue will build up for the most popular devices.
+Our public device pool is available to all subscribed Sauce Labs customers and some devices are more popular than others. We have over 280 device configurations and thousands of devices hosted in our data center, but sometimes a test queue will build up for the most popular devices.
 
 **How to Resolve**
 
 Instead of passing a specific `deviceName`:
-* When you select a device from the public pool, use `deviceName` to [select the device dynamically](/mobile-apps/supported-devices/#dynamic-device-allocation). This way you can specify the type of device (make, model, OS) instead of a specific device, which increases the likelihood of finding an appropriate device that is available for your test to execute on.
-* If you are looking for a specific OS version instead of a specific make and model, you can use the [`appium:appiumplatformversion`](/dev/test-configuration-options/#appium) option to fetch a device with that OS regardless of make and model.
 
 - When you select a device from the public pool, use `deviceName` to [select the device dynamically](/mobile-apps/supported-devices/#dynamic-device-allocation). This way you can specify the type of device (make, model, OS) instead of a specific device, which increases the likelihood of finding an appropriate device that is available for your test to execute on.
-- If you are looking for a specific OS version instead of a specific make and model, you can use the [`platformVersion`](/dev/test-configuration-options/#platformversion) option to fetch a device with that OS regardless of make and model.
+- If you are looking for a specific OS version instead of a specific make and model, you can use the [`appium:appiumplatformversion`](/dev/test-configuration-options/#appium) option to fetch a device with that OS regardless of make and model.
+
+* When you select a device from the public pool, use `deviceName` to [select the device dynamically](/mobile-apps/supported-devices/#dynamic-device-allocation). This way you can specify the type of device (make, model, OS) instead of a specific device, which increases the likelihood of finding an appropriate device that is available for your test to execute on.
+* If you are looking for a specific OS version instead of a specific make and model, you can use the [`platformVersion`](/dev/test-configuration-options/#platformversion) option to fetch a device with that OS regardless of make and model.
 
 ## Web App Testing Only
 
@@ -308,7 +339,7 @@ There are a few potential causes for this error:
 
 - Make sure you have internet connectivity.
 - Make sure your script includes `driver.quit()` or `browser.stop()` to conclude the test.
-- If your test needs more than 90 seconds to send a new command to the browser, use the `idleTimeout` capability to modify Sauce's wait time for further commands. For more information, [Test Configuration Options > Timeouts section](/dev/test-configuration-options).
+- If your test needs more than 90 seconds to send a new command to the browser, use the `idleTimeout` capability to modify the wait time for further commands. For more information, [Test Configuration Options > Timeouts section](/dev/test-configuration-options).
 
 ### The Connection with Your Virtual Machine was Lost and Your Job Can't Complete
 
@@ -354,3 +385,23 @@ The combination of browser, version, and operating system you want to use in you
 - Use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to set the capabilities of your test.
 - Check [our list of supported platforms, operating systems, and browsers](https://saucelabs.com/platform/supported-browsers-devices) to make sure your selections are valid.
 - Use a higher version of Selenium in the capabilities of your test, or leave the Selenium version blank to default to the latest version.
+
+
+### Your account is not verified
+
+**Description**
+
+Your account is not verified. This means that the email associated with the account is not verified.
+
+**Cause(s)**
+
+- You may not have clicked the verification link in the email sent after signing up.
+- You may have provided the wrong email during the sign up.
+- You may have updated your email but then forgot to verify it.
+
+**How to Resolve**
+
+- Check your inbox for the verification email (it should be titled "Please verify your email address" or similar). Click the link to verify your email.
+- Check your spam folder in case you couldn't find the email in your inbox.
+- Sign in to [Sauce Labs](https://app.saucelabs.com/), try to re-send the email and check your inbox/spam folder again.
+- Once you've done all of the above, raise a support ticket.

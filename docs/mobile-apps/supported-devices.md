@@ -277,10 +277,10 @@ capabilities.setCapability("appium:deviceName", "^iPhone\s+(?!(5|5S)).*");
 
 ##### Based on platform version
 
-| Regex Input | Dynamic Allocation Action
-| :--- | :---
-| <code>"^1[3-4&vert;6].*"</code> | Will match `13`, `14` and `16`, but not 15, see [example](https://regex101.com/r/ExICgZ/1).
-| `"^(?!15).*"` | Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1).
+| Regex Input                      | Dynamic Allocation Action                                                                                                                      |
+| :------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>"^1[3-4&vert;6].\*"</code> | Will match `13`, `14` and `16`, but not 15, see [example](https://regex101.com/r/ExICgZ/1).                                                    |
+| `"^(?!15).*"`                    | Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1). |
 
 <Tabs
   defaultValue="Espresso"
@@ -337,8 +337,9 @@ capabilities.setCapability("appium:platformVersion", "^(?!15).*");
 </Tabs>
 
 :::note
-* A matching device must be present in your account in order for the test to run.
-* Regex values are not case-sensitive (i.e., `"iphone .*S"` and `"IPHONe .*s"` are the same).
+
+- A matching device must be present in your account in order for the test to run.
+- Regex values are not case-sensitive (i.e., `"iphone .*S"` and `"IPHONe .*s"` are the same).
 :::
 
 ## Additional Resources

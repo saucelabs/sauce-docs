@@ -76,6 +76,7 @@ You can also download the results using the API call below:
 
 <!-- prettier-ignore -->
 :::note
+
 - Emulators and Simulators are not supported.
 - Cross-browser testing is not available.
 :::

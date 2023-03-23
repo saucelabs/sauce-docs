@@ -71,12 +71,16 @@ After you have enabled the Flutter Driver extension, you can now build your app 
 2. Determine for which device type (Android Emulator/Real Device or iOS Simulator/Real Device) you want to build your app for.
 3. Run one of the following commands
 
-| OS      | Device Type | Build Command                 | Output Folder                   |
-| ------- | ----------- | ----------------------------- | ------------------------------- |
-| Android | Emulator    | `flutter build apk --debug`   | `build/app/outputs/flutter-apk` |
-| Android | Real Device | `flutter build apk --debug`   | `build/app/outputs/flutter-apk` |
-| iOS     | Simulator   | `flutter build ios --debug`   | `build/ios/iphoneos`            |
-| iOS     | Real Device | `flutter build ipa --profile` | `build/ios/ipa`                 |
+| OS      | Device Type | Build Command                   | Output Folder                                   |
+| ------- | ----------- | ------------------------------- | ----------------------------------------------- |
+| Android | Emulator    | `flutter build apk --debug`     | `{project-root}/build/app/outputs/flutter-apk/` |
+| Android | Real Device | `flutter build apk --debug`     | `{project-root}/build/app/outputs/flutter-apk/` |
+| iOS     | Simulator   | `flutter build ios --simulator` | `{project-root}/build/ios/iphonesimulator/`     |
+| iOS     | Real Device | `flutter build ipa --profile`   | `{project-root}/build/ios/ipa/`                 |
+
+:::note
+For more information regarding the build modes (`debug`, `release`, `profile`) for Flutter apps, see [Flutter's build modes documentation](https://docs.flutter.dev/testing/build-modes).
+:::
 
 ## Uploading your Flutter App to Sauce Labs
 
@@ -90,11 +94,7 @@ More information on how to write Appium tests for Flutter apps can be found in t
 We encourage you to use W3C capabilities for your tests. For more information on W3C capabilities, see [W3C Capabilities](/dev/test-configuration-options/#mobile-appium-capabilities).
 :::
 
-Apps that have been build with Flutter 2 can use Appium 1 and Appium 2, while apps that have been build with Flutter 3 can only use Appium 2.
-
-:::note
-The Virtual Device Cloud with Android Emulators and iOS Simulators currently only supports Flutter Apps that have been build with Flutter 2. If you need to test your Flutter 3 Apps we encourage you to use our Real Device Cloud. For the corresponding capabilities, see [Real Device Capabilities](#real-devices).
-:::
+Apps that have been built with Flutter 2 can use Appium 1 and Appium 2, while apps that have been built with Flutter 3 can only use Appium 2.
 
 ### Android Emulators and iOS Simulators
 
@@ -119,6 +119,7 @@ values={[
 ]}>
 <TabItem value="android">
 
+<!-- prettier-ignore -->
 ```java
 DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -130,9 +131,7 @@ capabilities.setCapability("appium:automationName", "flutter");
 capabilities.setCapability("appium:app", "storage:filename=flutter-counter-debug.apk");
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
-// The appium-flutter-driver for Appium 2.0 is not yet supported on Sauce Labs, please
-// check our https://saucelabs.com/platform/platform-configurator#/ for the supported Appium 1 versions
-sauceOptions.put("appiumVersion", "1.22.1");
+sauceOptions.put("appiumVersion", "2.0.0-beta56");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
@@ -150,9 +149,7 @@ capabilities.setCapability("appium:automationName", "flutter");
 capabilities.setCapability("appium:app", "storage:filename=flutter-counter-debug.zip");
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
-// The appium-flutter-driver for Appium 2.0 is not yet supported on Sauce Labs, please
-// check our https://saucelabs.com/platform/platform-configurator#/ for the supported Appium 1 versions
-sauceOptions.put("appiumVersion", "1.22.3");
+sauceOptions.put("appiumVersion", "2.0.0-beta56");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
@@ -170,38 +167,36 @@ values={[
 ]}>
 <TabItem value="android">
 
+<!-- prettier-ignore -->
 ```js
 const capabilities = {
-platformName: 'android',
-'appium:platformVersion': '12',
-'appium:deviceName': 'Google Pixel 6 Pro GoogleAPI Emulator',
-// Mandatory for using the appium-flutter-driver
-'appium:automationName': 'flutter',
-'appium:app': 'storage:filename=flutter-counter-debug.apk',
-'sauce:options': {
-// The appium-flutter-driver for Appium 2.0 is not yet supported on Sauce Labs, please
-// check our https://saucelabs.com/platform/platform-configurator#/ for the supported Appium 1 versions
-appiumVersion: '1.22.1'
-}
+    platformName: 'android',
+    'appium:platformVersion': '12',
+    'appium:deviceName': 'Google Pixel 6 Pro GoogleAPI Emulator',
+    // Mandatory for using the appium-flutter-driver
+    'appium:automationName': 'flutter',
+    'appium:app': 'storage:filename=flutter-counter-debug.apk',
+    'sauce:options': {
+        appiumVersion: '2.0.0-beta56'
+    }
 }
 ```
 
 </TabItem>
 <TabItem value="ios">
 
+<!-- prettier-ignore -->
 ```js
 const capabilities = {
-platformName: 'ios',
-'appium:platformVersion': '15.4',
-'appium:deviceName': 'iPhone 13 Simulator',
-// Mandatory for using the appium-flutter-driver
-'appium:automationName': 'flutter',
-'appium:app': 'storage:filename=flutter-counter-debug.zip',
-'sauce:options': {
-// The appium-flutter-driver for Appium 2.0 is not yet supported on Sauce Labs, please
-// check our https://saucelabs.com/platform/platform-configurator#/ for the supported Appium 1 versions
-appiumVersion: '1.22.3'
-}
+    platformName: 'ios',
+    'appium:platformVersion': '15.4',
+    'appium:deviceName': 'iPhone 13 Simulator',
+    // Mandatory for using the appium-flutter-driver
+    'appium:automationName': 'flutter',
+    'appium:app': 'storage:filename=flutter-counter-debug.zip',
+    'sauce:options': {
+        appiumVersion: '2.0.0-beta56'
+    }
 }
 ```
 
@@ -220,6 +215,7 @@ values={[
 ]}>
 <TabItem value="android">
 
+<!-- prettier-ignore -->
 ```py
 capabilities = {
     "platformName" : "android",
@@ -229,9 +225,7 @@ capabilities = {
     'appium:automationName': 'flutter',
     'appium:app': 'storage:filename=flutter-counter-debug.apk',
     "sauce:options" : {
-        # The appium-flutter-driver for Appium 2.0 is not yet supported on Sauce Labs, please
-        # check our https://saucelabs.com/platform/platform-configurator#/ for the supported Appium 1 versions
-        "appiumVersion" : "1.22.1"
+        "appiumVersion" : "2.0.0-beta56"
     }
 }
 ```
@@ -239,6 +233,7 @@ capabilities = {
 </TabItem>
 <TabItem value="ios">
 
+<!-- prettier-ignore -->
 ```py
 capabilities = {
     "platformName" : "ios",
@@ -248,9 +243,7 @@ capabilities = {
     'appium:automationName': 'flutter',
     'appium:app': 'storage:filename=flutter-counter-debug.zip',
     "sauce:options" : {
-        # The appium-flutter-driver for Appium 2.0 is not yet supported on Sauce Labs, please
-        # check our https://saucelabs.com/platform/platform-configurator#/ for the supported Appium 1 versions
-        "appiumVersion" : "1.22.3"
+        "appiumVersion" : "2.0.0-beta56"
     }
 }
 ```
@@ -270,6 +263,7 @@ values={[
 ]}>
 <TabItem value="android">
 
+<!-- prettier-ignore -->
 ```ruby
 capabilities = {
     "platformName" => "android",
@@ -279,9 +273,7 @@ capabilities = {
     'appium:automationName' => 'flutter',
     'appium:app' => 'storage:filename=flutter-counter-debug.apk',
     "sauce:options" => {
-        # The appium-flutter-driver for Appium 2.0 is not yet supported on Sauce Labs, please
-        # check our https://saucelabs.com/platform/platform-configurator#/ for the supported Appium 1 versions
-        "appiumVersion" => "1.22.1"
+        "appiumVersion" => "2.0.0-beta56"
     }
 }
 ```
@@ -289,6 +281,7 @@ capabilities = {
 </TabItem>
 <TabItem value="ios">
 
+<!-- prettier-ignore -->
 ```ruby
 capabilities = {
     "platformName" => "ios",
@@ -298,9 +291,7 @@ capabilities = {
     'appium:automationName'=> 'flutter',
     'appium:app' => 'storage:filename=flutter-counter-debug.zip',
     "sauce:options" => {
-        # The appium-flutter-driver for Appium 2.0 is not yet supported on Sauce Labs, please
-        # check our https://saucelabs.com/platform/platform-configurator#/ for the supported Appium 1 versions
-        "appiumVersion" => "1.22.3"
+        "appiumVersion" => "2.0.0-beta56"
     }
 }
 ```
@@ -320,6 +311,7 @@ values={[
 ]}>
 <TabItem value="android">
 
+<!-- prettier-ignore -->
 ```csharp
 AppiumOptions capabilities = new AppiumOptions();
 
@@ -331,15 +323,14 @@ capabilities.AddAdditionalCapability("appium:automationName", "flutter");
 capabilities.AddAdditionalCapability("appium:app", "storage:filename=flutter-counter-debug.apk");
 
 HashMap<String, Object> sauceOptions = new Dictionary<string, object>();
-// The appium-flutter-driver for Appium 2.0 is not yet supported on Sauce Labs, please
-// check our https://saucelabs.com/platform/platform-configurator#/ for the supported Appium 1 versions
-sauceOptions.Add("appiumVersion", "1.22.1");
+sauceOptions.Add("appiumVersion", "2.0.0-beta56");
 capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 ```
 
 </TabItem>
 <TabItem value="ios">
 
+<!-- prettier-ignore -->
 ```csharp
 AppiumOptions capabilities = new AppiumOptions();
 
@@ -351,9 +342,7 @@ capabilities.AddAdditionalCapability("appium:automationName", "flutter");
 capabilities.AddAdditionalCapability("appium:app", "storage:filename=flutter-counter-debug.zip");
 
 HashMap<String, Object> sauceOptions = new Dictionary<string, object>();
-// The appium-flutter-driver for Appium 2.0 is not yet supported on Sauce Labs, please
-// check our https://saucelabs.com/platform/platform-configurator#/ for the supported Appium 1 versions
-sauceOptions.Add("appiumVersion", "1.22.3");
+sauceOptions.Add("appiumVersion", "2.0.0-beta56");
 capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 ```
 
@@ -386,6 +375,7 @@ values={[
 ]}>
 <TabItem value="android">
 
+<!-- prettier-ignore -->
 ```java
 DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -406,6 +396,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 </TabItem>
 <TabItem value="ios">
 
+<!-- prettier-ignore -->
 ```java
 DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -437,38 +428,40 @@ values={[
 ]}>
 <TabItem value="android">
 
+<!-- prettier-ignore -->
 ```js
 const capabilities = {
-platformName: 'android',
-// W3C Protocol is mandatory for Appium 2.0
-'appium:platformVersion': '12',
-'appium:deviceName': 'Google Pixel 6',
-// Mandatory for Appium 2.0
-'appium:automationName': 'flutter',
-'appium:app': 'storage:filename=flutter-counter-debug.apk',
-'sauce:options': {
-// appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-appiumVersion: '2.0.0'
-}
+    platformName: 'android',
+    // W3C Protocol is mandatory for Appium 2.0
+    'appium:platformVersion': '12',
+    'appium:deviceName': 'Google Pixel 6',
+    // Mandatory for Appium 2.0
+    'appium:automationName': 'flutter',
+    'appium:app': 'storage:filename=flutter-counter-debug.apk',
+    'sauce:options': {
+        // appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
+        appiumVersion: '2.0.0'
+    }
 }
 ```
 
 </TabItem>
 <TabItem value="ios">
 
+<!-- prettier-ignore -->
 ```js
 const capabilities = {
-platformName: 'ios',
-// W3C Protocol is mandatory for Appium 2.0
-'appium:platformVersion': '16',
-'appium:deviceName': 'iPhone 14',
-// Mandatory for Appium 2.0
-'appium:automationName': 'flutter',
-'appium:app': 'storage:filename=flutter-counter-debug.ipa',
-'sauce:options': {
-// appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
-appiumVersion: '2.0.0'
-}
+    platformName: 'ios',
+    // W3C Protocol is mandatory for Appium 2.0
+    'appium:platformVersion': '16',
+    'appium:deviceName': 'iPhone 14',
+    // Mandatory for Appium 2.0
+    'appium:automationName': 'flutter',
+    'appium:app': 'storage:filename=flutter-counter-debug.ipa',
+    'sauce:options': {
+        // appiumVersion is mandatory to use Appium 2.0 on Sauce Labs
+        appiumVersion: '2.0.0'
+    }
 }
 ```
 
@@ -487,6 +480,7 @@ values={[
 ]}>
 <TabItem value="android">
 
+<!-- prettier-ignore -->
 ```py
 capabilities = {
     "platformName" : "android",
@@ -506,6 +500,7 @@ capabilities = {
 </TabItem>
 <TabItem value="ios">
 
+<!-- prettier-ignore -->
 ```py
 capabilities = {
     "platformName" : "ios",
@@ -537,6 +532,7 @@ values={[
 ]}>
 <TabItem value="android">
 
+<!-- prettier-ignore -->
 ```ruby
 capabilities = {
     "platformName" => "android",
@@ -556,6 +552,7 @@ capabilities = {
 </TabItem>
 <TabItem value="ios">
 
+<!-- prettier-ignore -->
 ```ruby
 capabilities = {
     "platformName" => "ios",
@@ -587,6 +584,7 @@ values={[
 ]}>
 <TabItem value="android">
 
+<!-- prettier-ignore -->
 ```csharp
 AppiumOptions capabilities = new AppiumOptions();
 
@@ -607,6 +605,7 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 </TabItem>
 <TabItem value="ios">
 
+<!-- prettier-ignore -->
 ```csharp
 AppiumOptions capabilities = new AppiumOptions();
 

@@ -12,7 +12,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## System Requirements
 
-You can run `saucectl` locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms)) or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention. The following reference serves as a general guide:
+You can run Cypress locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms)) or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention. The following reference serves as a general guide:
 
 <Tabs
 defaultValue="macos"
@@ -68,8 +68,30 @@ values={[
     </tr>
     <tbody>
       <tr>
+        <td rowspan='2'>12.6.0</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
+        <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
+        <td rowspan='2'>Mar 01, 2024</td>
+      </tr>
+      <tr>
+        <td><b>Windows:</b> 10, 11</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td rowspan='2'>12.3.0</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
+        <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
+        <td rowspan='2'>Jan 15, 2024</td>
+      </tr>
+      <tr>
+        <td><b>Windows:</b> 10, 11</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
         <td rowspan='2'>11.2.0</td>
-        <td><b>macOS:</b> 11.00, 12</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
         <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
         <td rowspan='2'>Nov 30, 2023</td>
       </tr>
@@ -80,7 +102,7 @@ values={[
     <tbody>
       <tr>
         <td rowspan='2'>10.10.0</td>
-        <td><b>macOS:</b> 11.00, 12</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
         <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
         <td rowspan='2'>Oct 20, 2023</td>
       </tr>
@@ -91,7 +113,7 @@ values={[
     <tbody>
       <tr>
         <td rowspan='2'>10.7.0</td>
-        <td><b>macOS:</b> 11.00, 12</td>
+        <td><b>macOS:</b> 11.00, 12, 13</td>
         <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
         <td rowspan='2'>Sep 7, 2023</td>
       </tr>
@@ -102,7 +124,7 @@ values={[
     <tbody>
     <tr>
       <td rowspan='2'>10.3.1</td>
-      <td><b>macOS:</b> 11.00, 12</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='2'>Jul 29, 2023</td>
     </tr>
@@ -113,7 +135,7 @@ values={[
     <tbody>
     <tr>
       <td rowspan='2'>9.7.0</td>
-      <td><b>macOS:</b> 11.00, 12</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='2'>Jun 6, 2023</td>
     </tr>
@@ -124,31 +146,12 @@ values={[
     <tbody>
     <tr>
       <td rowspan='2'>9.5.3</td>
-      <td><b>macOS:</b> 11.00, 12</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='2'>Apr 16, 2023</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>
-    </tr>
-    </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='2'>9.3.1</td>
-      <td><b>macOS:</b> 11.00</td>
-      <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='2'>Feb 2, 2023</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10</td>
-    </tr>
-    </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='1'>9.1.0</td>
-      <td><b>Windows:</b> 10</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='2'>Nov 29, 2022</td>
     </tr>
     </tbody>
     <tbody>
@@ -185,6 +188,16 @@ If you would prefer to stay in Cypress, try the new [Cypress Sauce Labs Plugin](
 We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
 :::
 
+:::caution Cypress 11+
+A bug impacting Cypress 11+ is causing the Cypress UI to display a browser that is not the one actually used.
+Edge is shown on Windows, and Webkit is shown on macOS.
+
+The browser selected in your configuration file is used, and the console log of Cypress is still correct.
+
+The issue has been reported to Cypress.
+See: https://github.com/cypress-io/cypress/issues/25755 for more information.
+:::
+
 :::caution Firefox 101 + Windows
 Cypress does not currently work with Firefox 101 on Windows.
 :::
@@ -192,4 +205,10 @@ Cypress does not currently work with Firefox 101 on Windows.
 :::caution Firefox 105
 Cypress does not currently work with Firefox 105.
 See https://github.com/cypress-io/cypress/issues/23897 for more information.
+:::
+
+:::caution Webkit
+Cypress 12.6.0 does not work on Windows with Webkit browser.
+
+Cypress 12+ does not work on macOS 11 with Webkit browser.
 :::

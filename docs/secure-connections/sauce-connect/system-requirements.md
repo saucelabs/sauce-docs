@@ -69,9 +69,9 @@ Keep in mind that these are guidelines. Most environments have their own workloa
   </tr>
 </table>
 
-<!-- prettier-ignore -->
 :::note macOS Catalina 10.15+ compatibility
 Enable your Mac to allow apps from the App Store and identified developers.
+
 1. Go to **System Preferences** > **Security & Privacy** > **General**.
 2. Under **Allow apps downloaded from**, select the option **App Store and identified developers**.
 :::
@@ -177,7 +177,6 @@ Actual system requirements will depend on the number of parallel tests, and amou
   </tr>
 </table>
 
-
 ### Google Compute Engine (GCE)
 
 <table>
@@ -207,6 +206,7 @@ Actual system requirements will depend on the number of parallel tests, and amou
 ### Microsoft Azure
 
 The below recommendations are for Linux VMs.
+
 <table>
   <tr>
     <td></td>
@@ -239,6 +239,7 @@ The below recommendations are for Linux VMs.
 - If you're running **60 or more parallel tests**, we recommend launching more than one tunnel and using the [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
 
 These are recommendations for the number of Sauce Connect tunnels by number of tests running in parallel:
+
 <table>
   <tr>
     <td><strong>Parallel Tests</strong></td>
@@ -274,8 +275,6 @@ These are recommendations for the number of Sauce Connect tunnels by number of t
   </tr>
 </table>
 
-
-
 ## Setting Up Sauce Connect on Your Test Device Network
 
 Sauce Connect Proxy must be set up on the same network as your test devices. It does not, however, need to be set up on the same machine as the website or app you're testing.
@@ -303,7 +302,7 @@ When your tests are running through a Sauce Connect tunnel, the client on your n
 
 If you're testing in a restricted network setting, you may need to allowlist the Sauce Labs domains below to allow outbound communication to Sauce Labs Selenium and Appium endpoints. Allowlisting for inbound traffic coming into your network is not necessary. To confirm your setup is successful, try running a test using the [basic setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
 
-You'll need to use the set of domains for your corresponding Sauce Labs data center: US data center (US West 1), European data center (EU Central 1), headless data center (Headless US-East), or Australian data center (APAC Southeast 1) . The data center you're connected to will be indicated in your navigation.<br/>
+You'll need to use the set of domains for your corresponding Sauce Labs data center: US data center (US West 1), European data center (EU Central 1), headless data center (Headless US-East), or Australian data center (APAC Southeast 1). The data center you're connected to will be indicated in your navigation.<br/>
 
 <img src={useBaseUrl('img/sauce-connect/data-center-ui.png')} alt="Sauce Connect download file contents" width="450" margin-bottom="50px"/>
 
@@ -383,11 +382,9 @@ values={[
 </TabItem>
 </Tabs>
 
-<!-- prettier-ignore -->
-:::note **Recommended Wildcard Allowlisting**
-`*.miso.saucelabs.com` will cover all virtual and real device cloud data centers except for Headless.
-
-- For US-West-1 (Virtual Device Cloud/Real Device Cloud + Sauce Connect): `*.miso.saucelabs.com`
+:::note Recommended Wildcard Allowlisting
+`*.miso.saucelabs.com` will cover all virtual and real device cloud data centers except for Headless.<br/><br/>
+For US-West-1 (Virtual Device Cloud/Real Device Cloud + Sauce Connect): `*.miso.saucelabs.com`
 :::
 
 <br/>

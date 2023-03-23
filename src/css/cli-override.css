@@ -16,22 +16,16 @@ td {
     font-family: var(--font-family-sans-serif);
     font-size: 15px;
     font-weight: bold;
-    background-color: var(--ds-gray-200);
+    background-color: var(--dark-100);
     border-bottom: 1px solid #474c55;
 }
 
 .cli {
-    color: var(--ds-blue-900);
+    color: var(--inline-link);
     font-family: "Source Code Pro";
     padding: 5px;
     padding-right: 50%;
-    background: linear-gradient(
-        to right,
-        #ededef 0%,
-        #ededef 550px,
-        transparent 50px,
-        transparent 100%
-    );
+    background: var(--neutral-200);
     background-clip: padding-box;
     background-size: cover;
 }
@@ -41,49 +35,49 @@ td {
 }
 
 .t-cli {
-    color: var(--ds-blue-900);
+    color: var(--dark-400);
     font-size: 13px;
     padding: 1px;
     border: solid 0.5px #d6d6db;
-    background-color: var(--ds-gray-100);
+    background-color: var(--neutral-300);
     border-radius: 5px;
 }
 
 .t-cli a {
-    color: var(--ds-blue-900);
+    color: var(--inline-link);
 }
 
 .t-cli a:hover {
     text-decoration: underline;
-    text-decoration-color: var(--ds-blue-900);
+    text-decoration-color: var(--inline-green);
     cursor: pointer;
 }
 
 html[data-theme="dark"] .cli {
-    background: var(--ds-gray-700);
-    color: var(--ds-gray-50);
+    background: var(--inline-link);
+    color: var(--green-500);
     border-radius: 4px;
     padding: 4px;
 }
 
 html[data-theme="dark"] .t-cli {
-    background: var(--ds-gray-700);
+    background: var(--dark-500);
     padding: 4px;
-    color: var(--ds-gray-50);
+    color: var(--dark-100);
     border: none;
     border-radius: 4px;
 }
 
 html[data-theme="dark"] .t-cli a {
-    color: var(--ds-blue-200);
+    color: var(--green-300);
 }
 
 html[data-theme="dark"] .t-cli a:hover {
     text-decoration: underline;
-    text-decoration-color: var(--ds-blue-200);
+    text-decoration-color: var(--green-300);
 }
 
 html[data-theme="dark"] #table-cli th {
-    background-color: var(--ds-gray-700);
-    color: var(--ds-white);
+    background-color: var(--dark-500);
+    color: var(--neutral-100);
 }

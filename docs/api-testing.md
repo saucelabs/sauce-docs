@@ -10,7 +10,7 @@ At its core, Sauce Labs API Testing allows you to use an HTTP client or a propri
 
 > **Documentation**<br/>You're viewing documentation for the API Testing and Monitoring cloud solution. To view the documentation for the on-premise solution see [API Fortress On-Prem (Legacy)](/api-testing/on-prem/quick-start/).
 
-<img src="/img/api-testing/API Testing Getting Started.png" width="600"/>
+<img src="/img/api-testing/APITestingGettingStarted-logo_removed.png" width="600"/>
 <div className="box-wrapper" markdown="1">
 
 <div className="box box1 card">
@@ -42,10 +42,10 @@ Create functional tests from multiple locations:
 <li>
 <a href="/api-testing/import-postman-collection">Postman collection (in the HTTP client)</a></li>
 <li>
-<a href="/api-testing/build-from-spec">OpenAPI spec file or HAR file</a>
+<a href="/api-testing/build-from-spec">OpenAPI spec file</a>
 </li>
 <li>
-<a href="/api-testing/import-postman-collection/#importing-a-har-file-rdc-and-vdc">Import from HAR file (including HAR files from RDC and VDC)</a>
+<a href="/api-testing/import-har-files/">Import from HAR file (including HAR files from RDC and VDC)</a>
 </li>
 <li>
 <a href="/api-testing/composer">Test composer</a>
