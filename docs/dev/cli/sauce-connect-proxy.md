@@ -503,11 +503,15 @@ Effective with version 4.8.0, this flag was deprecated and replaced by [`--statu
 
 ### `--verbose`
 
-<p><small>| OPTIONAL | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
+<p><small>| OPTIONAL | NUMBER | <span className="sauceRed">4.6.x</span> <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
 **Description**: Enables verbose debugging. Use this to log HTTP headers or debug Sauce Connect connection. You can also use `-vv` (very verbose), which outputs HTTP headers and KGP logs, although it's recommended for troubleshooting purposes only because it's system-resource demanding and can adversely affect Sauce Connect Proxy performance.<br/>
 **Environment variable**: `SAUCE_VERBOSE`<br/>
 **Shorthand**: `-v`
+
+:::note
+Setting the `SAUCE_VERBOSE` environment variable to `1` is equivalent to `-v` and `2` is equivalent to `-vv`.
+:::
 
 ## Other Options
 
