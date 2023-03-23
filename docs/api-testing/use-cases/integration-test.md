@@ -24,7 +24,7 @@ http://demoapi.apifortress.com/api/retail/product
 http://demoapi.apifortress.com/api/retail/product/${id}
 ```
 
-Here's the steps to create an integration test to check the interaction between the endpoints:
+To create an integration test to check the interaction between the endpoints:
 
 1. Call the product listing endpoint by adding a `GET` request and assign the response to the `productsPayload` variable. The endpoint requires an Authentication header so add the Request Header component and enter `key` into the Name field and `ABC123` into the Value field.
 
