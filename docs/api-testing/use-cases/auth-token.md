@@ -101,7 +101,7 @@ Now, you can add assertions to verify the payload response returned by the call.
 ### Step 4: Reuse the token in one more call
 
 You can reuse the token as many times as you want inside the same test.
-As last step, we are going to call the cart to view items currently into it, after the update.
+Now that you have updated the cart, you can add a `GET` request to return the items that are currently in it. 
 
 Add a `GET` request to the cart endpoint to view the items.
 
