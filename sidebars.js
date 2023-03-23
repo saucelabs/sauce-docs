@@ -333,7 +333,7 @@ module.exports = {
             collapsible: false,
             items: [
                 'dev/low-code',
-                    {
+                {
                     type: 'category',
                     label: 'Projects',
                     collapsed: true,
@@ -345,15 +345,14 @@ module.exports = {
                         'dev/low-code/projects/variables',
                         'dev/low-code/projects/flows',
                         'dev/low-code/projects/test-suites',
-                            ],
-                    },
-                    'dev/low-code/schedules',
-                    'dev/low-code/reports',
-                    'dev/low-code/nlp-reference',
-                    'dev/low-code/variables',
-                    'dev/low-code/troubleshooting'
-                ],
-            
+                    ],
+                },
+                'dev/low-code/schedules',
+                'dev/low-code/reports',
+                'dev/low-code/nlp-reference',
+                'dev/low-code/variables',
+                'dev/low-code/troubleshooting',
+            ],
         },
     ],
     backtrace: [
