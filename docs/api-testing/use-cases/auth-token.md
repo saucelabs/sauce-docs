@@ -68,7 +68,7 @@ The dollar sign and brackets are necessary when referencing variables so that Sa
 
 ### Step 3: Make a follow-up call
 
-Next, as third step we are going to call the cart function that requires the token granted by the authentication server in order to add items to a cart.
+Now you can call the cart function that requires the token granted by the authentication server to add items to a cart.
 
 Add a `PUT` request to the cart endpoint to update the cart.
 
