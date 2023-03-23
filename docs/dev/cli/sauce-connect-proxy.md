@@ -510,7 +510,7 @@ Effective with version 4.8.0, this flag was deprecated and replaced by [`--statu
 **Shorthand**: `-v`
 
 :::note
-Setting an environment variable SAUCE_VERBOSE to `1` is equivalent to `-v` and to `2` is equivalent to `-vv`.
+Setting the `SAUCE_VERBOSE` environment variable to `1` is equivalent to `-v` and `2` is equivalent to `-vv`.
 :::
 
 ## Other Options
