@@ -18,7 +18,7 @@ As part of good testing strategy is create end-to-end tests that resemble common
 
 ### Step 1: Make the authorization call
 
-As first step we need to make the call to retrive the token.
+First, make the call to retrieve the token.
 
 To get the token, make a `POST` call to the authorization server.
 
