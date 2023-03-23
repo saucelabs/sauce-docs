@@ -98,7 +98,7 @@ It also requires a JSON object as a Body that the server will recognize as item 
 
 Now, you can add assertions to verify the payload response returned by the call.
 
-### Step 4: Reuse the token in one more call
+### Step 4: Reuse the Token in a Final Call
 
 You can reuse the token as many times as you want inside the same test.
 Now that you have updated the cart, you can add a `GET` request to return the items that are currently in it. 
