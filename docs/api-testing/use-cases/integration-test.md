@@ -16,7 +16,7 @@ One of the core features of Sauce Labs API Testing is the ability to create inte
 
 ## Test Interactions between Endpoints
 
-For the purposes of this guide, will keep our example simple and work only with two API endpoints but your integration test can be longer.
+For the purposes of this guide, the example is simple and works with two API endpoints, but your integration test can be longer.
 In the following example, we'll use an API endpoint that produces an array of all the available products (http://demoapi.apifortress.com/api/retail/product) and another endpoint that shows the details of a specific product based on its ID (http://demoapi.apifortress.com/api/retail/product/${id}).
 
 ```http request
