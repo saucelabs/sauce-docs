@@ -35,7 +35,7 @@ Looking to import from Postman? See [Importing Postman Collections](/api-testing
 
 ## Generate a Test
 
-Follow the instructions under our Quickstart doc, starting with the [Generate Test](/api-testing/quickstart/#generate-test) step.
+See the [Quickstart guide](/api-testing/quickstart/#generate-test) for the steps to generate, run, publish, and view test results.
 
 ## More Information
 
