@@ -14,7 +14,6 @@ As part of good testing strategy is create end-to-end tests that resemble common
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
-## Token-based Authentication API
 
 Now, we'll show how to make the authentication call, save the returned token in a variable and use it to make subsequent calls.
 
