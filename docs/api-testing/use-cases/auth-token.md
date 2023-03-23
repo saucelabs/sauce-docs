@@ -7,7 +7,7 @@ description: How to exchange authentication tokens between API calls
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-As part of good testing strategy is create end-to-end tests that resemble common user flows. Let's consider the scenario where a company has an authentication server. This server, when given the proper user credentials, returns an authentication token. This token is required for all other calls throughout the platform's API environment. Without this first API call, none of the other API calls can work.
+A part of a good testing strategy is to create end-to-end tests that resemble common user flows. Consider a scenario where a company has an authentication server. This server, when given the proper user credentials, returns an authentication token. This token is required for all other calls throughout the company's API environment. Without this first API call, none of the other API calls can work.
 
 ## What You'll Need
 
