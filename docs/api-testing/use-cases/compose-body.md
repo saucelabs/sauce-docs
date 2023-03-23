@@ -20,7 +20,7 @@ The included examples use the **POST** method, but all examples can be applied t
 
 ## Use an Existing Body
 
-The first method we will show is when you have an existing Body to paste into the call:
+The first method is when you have an existing Body to paste into the call:
 
 1. In the Composer, add a `POST` component and enter the URL and all of the required fields.
 
@@ -50,7 +50,7 @@ The first method we will show is when you have an existing Body to paste into th
 
 ## Use Variables in the Request Body
 
-The second method we will show is by using variables in the Body.
+The second method to compose a request body is by using variables in the Body.
 
 1. In the Composer, add a `POST` component and enter the URL and all of the required fields.
 
@@ -133,7 +133,7 @@ The next way to compose a Request Body is by using a variable from another call.
 
 ## Using an Object from Another Call
 
-Using an object from another call is a more complex method. Scenarios in which you might use this method include when you need to use an object retrieved from a previous call in the body of a subsequent call.
+Using an object from another call is a more complex method to compose a request body. Scenarios in which you might use this method include when you need to use an object retrieved from a previous call in the body of a subsequent call.
 
 1. Add a `GET` method to perform the call you retrieve the object from.
 
