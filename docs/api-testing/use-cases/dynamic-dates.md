@@ -17,7 +17,7 @@ Creating a dynamic date in API Testing is a simple solution for this sort of sit
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
-### Create a Future Date
+## Create a Future Date
 
 1. Open the Composer and add a **Set** component.
 
@@ -41,7 +41,7 @@ Creating a dynamic date in API Testing is a simple solution for this sort of sit
 
 3. Now, you can invoke the variable in your test.
 
-### Create a Past Date
+## Create a Past Date
 
 In the same way, you can also create a Past Date (starting from today's date). Follow the steps for [Create a Future Date](#create-a-future-date), but replace the string `D.plusDays()` with `D.minusDays()`:
 
@@ -51,7 +51,7 @@ ${D.format(D.minusDays(D.nowMillis(),35), 'yyyy-MM-DD')}
 
 - `D.minusDays()` - Returns the provided milliseconds, minus the provided number of days (in the example, 35 days were subtracted from today's date).
 
-### Create a Date with a Time Zone
+## Create a Date with a Time Zone
 
 If you need to create a date based on a specified time zone:
 
@@ -61,7 +61,7 @@ ${D.format(D.plusDays(D.nowMillis(),35), 'yyyy-MM-DD','America/New_York')}
 
 - `D.format()` - Creates a timestamp with the given format, based on the provided time zone ID (the example uses the same date as before, but uses `New York` as the time zone).
 
-### Convert a Timestamp in Unix Time in Milliseconds
+## Convert a Timestamp in Unix Time in Milliseconds
 
 To convert a timestamp from a payload response to milliseconds:
 

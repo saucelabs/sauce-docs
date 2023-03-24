@@ -44,12 +44,6 @@ You can use either the **Visual** composer (guides you through building componen
 
 For more information, see [Input Sets](/api-testing/composer/#input-sets) and [Visual View and Code View](/api-testing/composer/#visual-view-and-code-view).
 
-### Edit a Test
-
-To edit a test at any time, on the **Projects** page, on the **Tests** tab, hover over a test name and then click **Edit Test**.
-
-<img src={useBaseUrl('/img/api-testing/edit-test-nav.png')} alt="Navigating to the test editor" width="300"/>
-
 ### Add Test Components
 
 When test components are combined, they act as our test logic. See the following pages for more information about the components types available in API Testing:
@@ -71,9 +65,9 @@ To create a simple `GET` request and validate that response is correct:
 
 <img src={useBaseUrl('/img/api-testing/get-request-nav.png')} alt="Navigating to the GET request window"/>
 
-3. In the **GET request** window, in the **Url** field, enter `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions`.
+3. In the **GET request** window, in the **Url** field, enter `https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions`. This endpoint will return a JSON response body.
 
-This endpoint will return a JSON response body. 4. In the **Variable** field, enter **payload**. This variable stores the response, so it can now be referred to as **payload**.
+4. In the **Variable** field, enter **payload**. This variable stores the response, so it can now be referred to as **payload**.
 
 <img src={useBaseUrl('/img/api-testing/get-request-window.png')} alt="Editing in the GET request window"/>
 
@@ -139,252 +133,22 @@ All test runs appear to the right of the Composer, under the test details and en
 
 To view your results, in the Composer, in the **Test Runs** list, click the name of the test. This will open the **Test Report Details**. For more information, see [Test Outcome Report](/api-testing/project-dashboard/#test-outcome-report).
 
-## Integration Tests
+### Edit a Test
 
-Integration testing is critical for creating a strong API testing strategy. An integration test allows you to create end-to-end tests that resemble common user flows. While only testing individual endpoints is a good start, this method will miss a large number of problems that occur when all services need to work together.
+To edit a test at any time, on the **Projects** page, on the **Tests** screen, hover over a test name and then click **Edit Test**.
 
-### Token-based Authentication API
+<img src={useBaseUrl('/img/api-testing/edit-test-icon-nav.png')} alt="Navigating to the test editor" width="300"/>
 
-Company A has an authentication server. This server, when given the proper user credentials, returns an authentication token. This token is required for all other calls throughout the platform’s API environment. Without this first API call, none of the other API calls can work.
+## Test Options
 
-1. To get the token, make a `POST` call to the authorization server.
+Once you've generated your tests in the Composer, you can manage them from the **Tests** screen. In your project, on the **Tests** screen, hover your mouse over the test line item. You'll see icons that allow you to edit, run, schedule, or delete a test.<br/>
+<img src={useBaseUrl('img/api-testing/test-options.png')} alt="Test Options Icons"/>
 
-<img src={useBaseUrl('/img/api-testing/int-getting-token.png')} alt="POST request to authentication server" width="600"/>
-
-The request body is the user ID and password. Given proper credentials, the authentication server will return a user token.
-
-<img src={useBaseUrl('/img/api-testing/int-token.png')} alt="The user token" width="400"/>
-
-Use this token to make further calls to the application.
-
-2. Add a `Set (variable)` component by entering/selecting the following in the Composer:
-
-   - Variable (the variable name) - `access_token`
-   - Mode (the variable type) - `String`
-   - Value - `${authPayload.access_token}`
-
-   <img src={useBaseUrl('/img/api-testing/int-assign-token.png')} alt="Setting the variable"/>
-
-This step takes the `access_token` variable in the `authPayload` response, and sets it as `access_token`; the response body from the original post call was saved to a variable called `authPayload`. The access key for the token is `access_token`, which can be found by calling `authPayload.access_token`.
-
-:::note
-The dollar sign and brackets are necessary when referencing variables so that Sauce Labs API Testing knows to interpret what’s between the brackets instead of using it literally.
-:::
-
-Variables are used to store data temporarily for a test, but you can use the Sauce Labs API Testing Vault for permanent variables. For more information, see [Creating Reusable Variables and Snippets with the Vault](/api-testing/vault)).
-
-3. Make follow-up calls.
-
-In the following example, the API has a cart function that requires a user token to add items to a cart or view items currently in the cart. Use a `PUT` request to the cart endpoint to update the cart. Use the access token granted by the authentication server to add items to a cart by setting the `token` header to `${access_token}`.
-
-<img src={useBaseUrl('/img/api-testing/int-set-token-header.png')} alt="Setting the token header"/>
-
-You can also reuse access tokens:
-
-<img src={useBaseUrl('/img/api-testing/int-reuse-tokens.png')} alt="Reusing tokens" width="600"/>
-
-### Test Interactions between Endpoints
-
-In the following example, there is an API endpoint that produces an array of all the available products and another endpoint that shows the details of a specific product based on its ID.
-
-```http request
-http://demoapi.apifortress.com/api/retail/product
-http://demoapi.apifortress.com/api/retail/product/${id}
-```
-
-To create an integration test to test the interaction between the endpoints:
-
-1. Call the product listing endpoint and assign the response to the `productsPayload` variable.
-
-2. Add an `each` assertion and reference the `productsPayload.products` object.
-
-:::note
-In a scenario in which the response contains many products, it may be useful to pick a few at random by using `pick(n)`.
-:::
-
-3. Test the response payload for the endpoint.
-
-4. Add a new `Set (variable)` assertion to set the `id` variable as every single `productsPayload.product` that is returned. In the following example, the string is `${_1.id}`. The system uses `_1` automatically when recognizing a subroutine, which makes it easier when there are multiple sub-levels.
-
-   <img src={useBaseUrl('/img/api-testing/int-test-endpoints.png')} alt="Testing interactions between endpoints" width="600"/>
-
-5. Create a **`GET` request** to the product details endpoint, using the new `id` variable as the **id** parameter. Variables last through the entire test unless overwritten.
-
-6. Test the response payload for the endpoint.
-
-   <img src={useBaseUrl('/img/api-testing/int-test-response-payload.png')} alt="Testing the response payload"/>
-
-```yaml
-- id: get
-  children:
-    - id: header
-      name: key
-      value: ABC123
-  url: http://demoapi.apifortress.com/api/retail/product
-  var: productsPayload
-  mode: json
-- id: if
-  children:
-    - id: comment
-      text: endpoint is not working fine, test will be stopped
-    - id: flow
-      command: stop
-  expression: productsPayload_response.statusCode!='200'
-- id: assert-is
-  expression: productsPayload
-  comment: payload must be an array
-  type: array
-- id: each
-  children:
-    - id: comment
-      text: "product id is: ${_1.id} and product name is: ${_1.name}"
-    - id: assert-is
-      expression: _1.id
-      comment: id must be an integer value
-      type: integer
-    - id: set
-      var: id
-      mode: string
-      value: ${_1.id}
-    - id: assert-exists
-      expression: _1.name
-      comment: name must exists
-    - id: assert-is
-      expression: _1.price
-      comment: price must be a float number
-      type: float
-    - id: assert-exists
-      expression: _1.category
-      comment: category must exists
-    - id: assert-exists
-      expression: _1.description
-      comment: description must exists
-    - id: assert-is
-      expression: _1.quantity
-      comment: quantity must be an integer value
-      type: integer
-    - id: assert-greater
-      expression: _1.quantity
-      comment: quantity must be greater than 0
-      value: 0
-    - id: assert-is
-      expression: _1.imageURL
-      comment: imageURL must be a valid url value
-      type: url
-    - id: assert-is
-      expression: _1.color
-      comment: color must be an array
-      type: array
-    - id: each
-      children:
-        - id: assert-exists
-          expression: _2
-          comment: color array should contain some values
-        - id: assert-in
-          expression: _2
-          comment: colors must be the expected one
-          value:
-            - yellow
-            - blue
-            - red
-            - green
-            - brown
-            - orange
-            - gray
-            - pink
-            - black
-            - white
-      expression: _1.color
-    - id: assert-exists
-      expression: _1.createdAt
-      comment: createdAt must exists
-    - id: assert-exists
-      expression: _1.updatedAt
-      comment: updateAt must exists
-    - id: comment
-      text: get product details
-    - id: get
-      children:
-        - id: header
-          name: key
-          value: ABC123
-      url: http://demoapi.apifortress.com/api/retail/product/${id}
-      var: productPayload
-      mode: json
-    - id: if
-      children:
-        - id: comment
-          text: endpoint is not working fine, test will be stopped
-        - id: flow
-          command: stop
-      expression: productPayload_response.statusCode!='200'
-    - id: assert-exists
-      expression: productPayload
-      comment: payload must exist, if not, test does not need to be executed
-    - id: comment
-      text: "product id is: ${productPayload.id} and product name is:
-        ${productPayload.name}"
-    - id: assert-is
-      expression: productPayload.id
-      comment: id must be an integer value
-      type: integer
-    - id: assert-exists
-      expression: productPayload.name
-      comment: name must exists
-    - id: assert-is
-      expression: productPayload.price
-      comment: price must be a float number
-      type: float
-    - id: assert-exists
-      expression: productPayload.category
-      comment: category must exists
-    - id: assert-exists
-      expression: productPayload.description
-      comment: description must exists
-    - id: assert-is
-      expression: productPayload.quantity
-      comment: quantity must be an integer value
-      type: integer
-    - id: assert-greater
-      expression: productPayload.quantity
-      comment: quantity must be greater than 0
-      value: 0
-    - id: assert-is
-      expression: productPayload.imageURL
-      comment: imageURL must be a valid url value
-      type: url
-    - id: assert-is
-      expression: productPayload.color
-      comment: color must be an array
-      type: array
-    - id: each
-      children:
-        - id: assert-exists
-          expression: _2
-          comment: color array should contain some values
-        - id: assert-in
-          expression: _2
-          comment: colors must be the expected one
-          value:
-            - yellow
-            - blue
-            - red
-            - green
-            - brown
-            - orange
-            - gray
-            - pink
-            - black
-            - white
-      expression: productPayload.color
-    - id: assert-exists
-      expression: productPayload.createdAt
-      comment: createdAt must exists
-    - id: assert-exists
-      expression: productPayload.updatedAt
-      comment: updateAt must exists
-  expression: productsPayload.pick(5)
-```
+- Pencil icon: Edit the test (opens the **Compose** tab)
+- Play icon: Run the test manually
+- Calendar icon: Open the [test scheduler](/api-testing/schedule-test)
+- Gauge icon: Opens the load testing page
+- Trash icon: Delete the test
 
 ## Terminology
 
@@ -406,10 +170,6 @@ This button displays all available [assertion components](/api-testing/composer/
 <img src={useBaseUrl('img/api-testing/add-component-nav.png')} alt="Add Component"/>
 
 If a component is not valid for the operation you are conducting, it will not be made available to help avoid mistakes. For instance, if you don’t add a `POST` first, you cannot add a `POST` Body or `POST` Param.
-
-:::note
-Sauce Labs free trials may not give you access to all available components.
-:::
 
 ### Component Options
 
@@ -462,17 +222,6 @@ There are two types of input data sets you can use:
 
 These buttons switch between the Input Set and Unit views.<br/>
 <img src={useBaseUrl('img/api-testing/unitView.png')} alt="Unit View"/>
-
-## Test Options
-
-Once you've generated your tests in the Composer, you can manage them from the **Tests** tab. In your project, on the **Tests** tab, hover your mouse over the test line item. You'll see icons that allow you to edit, run, schedule, or delete a test.<br/>
-<img src={useBaseUrl('img/api-testing/test-options.png')} alt="Test Options Icons"/>
-
-- Pencil icon: Edit the test (opens the **Compose** tab)
-- Play icon: Run the test manually
-- Calendar icon: Open the [test scheduler](/api-testing/schedule-test)
-- Gauge icon: Opens the load testing page
-- Trash icon: Delete the test
 
 ## More Information
 

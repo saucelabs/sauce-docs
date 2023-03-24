@@ -13,9 +13,14 @@ There are several ways you can compose a Request Body in Sauce Labs API Testing,
 The included examples use the **POST** method, but all examples can be applied to other REST methods.
 :::
 
-### Use an Existing Body
+## What You'll Need
 
-The first method we will show is when you have an existing Body to paste into the call:
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
+
+## Use an Existing Body
+
+The first method is when you have an existing Body to paste into the call:
 
 1. In the Composer, add a `POST` component and enter the URL and all of the required fields.
 
@@ -43,9 +48,9 @@ The first method we will show is when you have an existing Body to paste into th
 
 5. Now you can execute the call and proceed with your test.
 
-### Use Variables in the Request Body
+## Use Variables in the Request Body
 
-The second method we will show is by using variables in the Body.
+The second method to compose a request body is by using variables in the Body.
 
 1. In the Composer, add a `POST` component and enter the URL and all of the required fields.
 
@@ -73,7 +78,7 @@ In the above scenario, `user` and `password` are not directly passed in the body
 
 5. Now you can execute the call and proceed with your test.
 
-### Use a Variable from Another Call
+## Use a Variable from Another Call
 
 The next way to compose a Request Body is by using a variable from another call.
 
@@ -128,7 +133,7 @@ The next way to compose a Request Body is by using a variable from another call.
 
 ## Using an Object from Another Call
 
-Using an object from another call is a more complex method. Scenarios in which you might use this method include when you need to use an object retrieved from a previous call in the body of a subsequent call.
+Using an object from another call is a more complex method to compose a request body. Scenarios in which you might use this method include when you need to use an object retrieved from a previous call in the body of a subsequent call.
 
 1. Add a `GET` method to perform the call you retrieve the object from.
 
@@ -179,7 +184,7 @@ The response payload from the call will be:
 
 ## Creating a New Structure to Add as a Body
 
-The last scenario is yet another more complex one. In this case, we consider the scenario where we use data from a previous call to create a new structure to add as a body. 
+The last scenario is another complex one. In this case,  consider the scenario where you use data from a previous call to create a new structure to add as a body.
 
 1. Perform the call that retrieves the data you are using. In the following example, the `GET` returns an array of items.
 
