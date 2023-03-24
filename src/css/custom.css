@@ -72,6 +72,10 @@ html[data-theme="dark"] a code {
     font-weight: bold;
 }
 
+.breadcrumbs__item--active .breadcrumbs__link {
+    color: var(--inline-link);
+}
+
 html[data-theme="dark"] .breadcrumbs__item--active .breadcrumbs__link {
     color: var(--green-200);
 }

@@ -14,7 +14,7 @@ Backtrace instances have limits on how many monthly error submissions they can a
 Admin users can control retention, compression, storage sampling, and submission rules. In addition, the delete-by-query capability allows users to take a manual action to remove objects from the system and free space.
 
 - To see how much storage was purchased and what percentage is consumed, admin users can go to the **Organization Settings** > **Subscriptions** page.
-- To see how much storage is being consumed by project, go to the **Organization Settings** > **My account** page > **Storage usage**.
+- To see how much storage is being consumed by project, go to the **Project settings** > **Overview** page > under **Storage usage** > see **attachments**.
 
 Our sales team can assist in the purchase of additional storage as needed, and our support team can disable storage enforcement in critical cases.
 
@@ -50,7 +50,7 @@ We recommend the following retention policies:
 
 ## Query Fingerprints
 
-Consider querying fingerprints that are consuming a disproportionate amount of storage to decide if it makes sense to run delete functions to remove objects that are duplicates.
+You can query fingerprints that consume a disproportionate amount of storage to decide if it makes sense to run delete functions to remove objects that are duplicates.
 
 To query fingerprints:
 
@@ -64,7 +64,27 @@ To query fingerprints:
 
 You can add additional filters or aggregations for `application.version` (or the attribute you use for the version of your game or app) to see if there are impacts on a particular version that require deletion.
 
-### Storage Sampling
+### Delete Group
+
+If you have a group of errors that have been identified as not useful or relevant, you can delete the group to manage storage. This action is available only for admins and fingerprint groups with fewer than 100k errors.
+
+To delete a group:
+
+1. Go to the **Explore** view.
+1. From the **Group - fingerprint** column, select the **Group options**.
+1. Select **Delete Group**.
+1. From the **Delete selected group** dialog, select one of the following:
+   - **Delete all physical objects**: Allows you to retain metadata for aggregates and searching, but all the details of the errors will no longer be available for debugging purposes.
+   - **Delete physical objects and metadata**: Removes all data from your Backtrace instance.
+1. To confirm the action, enter **DELETE**, then select **Delete forever**.
+
+#### Video: Delete Errors by Query
+
+The following video shows how to query fingerprints and delete a group of errors.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rJ4kK_KCxLo?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Storage Sampling
 
 Storage sampling controls how the objects attached to errors are sampled out before being stored.
 
@@ -72,7 +92,7 @@ For high volume customers, storage sampling is an effective way to conserve stor
 
 You can configure storage sampling in the **Project settings** > under **Project** > **Storage sampling**. For more information, see [Storage Sampling](/error-reporting/project-setup/storage-sampling/).
 
-### Submission Actions
+## Submission Actions
 
 Consider configuring submission actions that perform automation actions to allow more granular control over the errors being submitted, such as reject submission and drop object. These submission actions are very flexible, and can have a % probability set on them so you can configure how often the rule should execute.
 

@@ -124,13 +124,13 @@ Expressions are automatically evaluated in the **Expression** field for logical 
 
 In this example, we compare the actual size of the collection with the "size" attribute, by enclosing the expression within `${ .. }`. The "type" attribute ensures the comparison will happen with a numeric comparator, rather than string.<br/><img src={useBaseUrl('img/api-testing/assert-equals-updated.png')} alt="assert Equals" />
 
-### Expression Language Extensions
+## Expression Language Extensions
 
 Our API Testing expression language is mostly used to identify a path in a payload or reference a variable. But there's more to it. A number of extensions are available to generate calculated data, determine the quality of a value and so on.
 
 These _extensions_ can be used in any field that can be evaluated, which means in all **expression** fields, and all the fields where the value is wrapped in the `${...}` brackets.
 
-#### WSUtil
+### WSUtil
 
 This is the main extension. It supports many useful functions.
 
@@ -143,9 +143,11 @@ This is the main extension. It supports many useful functions.
 
 - **isInteger(string: String) , isFloat(string: String), isUrl(string: String), isEmail(string: String), isPhoneNumber(string: String), isBoolean(string: String), isArray(object: Object), isMap(object: Object), isCreditCard(string: String) : Boolean :** evaluate the nature of a data item
 
+### pick()
+
 #### anyArray.pick(n)
 
-Given any array, you can ask the system to create a random subset of it. One typical usage is when an iterator would turn out to be huge, and you prefer to cherry-pick a few items. The code will return an array of five random elements off the _artists_ array.
+Given any array, you can ask the system to create a random subset of it. One typical usage is when an iterator would turn out to be huge, and you prefer to cherry-pick a few items. The code below will return an array of five random elements off the _artists_ array.
 
 ```js
 payload.artists.pick(5)
@@ -171,7 +173,7 @@ Similar to the `pick(n)`, this method will pick one random item off an array, an
 If you are testing XML, the pick() function must be `WSUtil.pick(array,n)`. Considering the previous example, `payload.artists.pick(5)` becomes `WSUtil.pick(payload.artists,5)`.
 :::
 
-#### N
+### N
 
 Utility functions for numbers.
 
@@ -187,7 +189,7 @@ Utility functions for numbers.
   N.random(10,30,5)
   ```
 
-#### D
+### D
 
 Plays with dates.
 
@@ -225,7 +227,74 @@ Here's the conversion map for formats:
 | `S`    | fraction of second          | millis       | 978                                |
 | `Z`    | time zone offset/id         | zone         | -0800; -08:00; America/Los_Angeles |
 
-#### WSCrypto
+### F
+
+Generates fake data.
+
+#### Addresses and Countries
+
+- `F.streetName()` - Generates a street name
+- `F.streetAddressNumber()` - Generates an address number
+- `F.streetAddress()` - Generates a street and address number. If secondary is specified, this method provides an apartment number.
+- `F.secondaryAddress()` - Generates an apartment number
+- `F.zipCode()` - Generates a ZIP code. Valid only for US states.
+- `F.streetSuffix()` - Generates a street suffix
+- `F.citySuffix()` - Generates a city suffix
+- `F.cityPrefix()` - Generates a city prefix
+- `F.city()` - Generates a city name
+- `F.state()` - Generates a state/province
+- `F.buildingNumber()` - Generates a build number
+- `F.country()` - Generates a country
+- `F.countryCode()` - Generates a country code
+- `F.countryCodeSL()` - Generates a country code in small letters
+
+#### People and Identity
+
+- `F.fullName()` - Generates a full name
+- `F.firstName()` - Generates a first name
+- `F.lastName()` - Generates a last name
+- `F.profession()` - Generates a profession
+- `F.timeZone()` - Generates a time zone
+- `F.phone()` - Generates a phone number
+- `F.mobile()` - Generates a mobile number
+
+#### Internet
+
+- `F.emailAddress()` - Generates an email address. **Note:** These email addresses are randomly generated with real domains. Please be careful if you are using this in a test as there is a chance that some of them could be real email addresses.
+- `F.domainName()` - Generates a domain name
+- `F.domainWord()` - Generates a word
+- `F.domainSuffix()` - Generates a suffix
+- `F.url()` - Generates a URL
+- `F.password(<minimumLength,maximumLength,includeUppercase,includeSpecial,includeDigit>)` - Generates a password. For example, `password(5,10,true,false, true)`.
+
+#### Credit Card
+
+- `F.creditCardNumber()` - Generates a credit card number
+- `F.creditCardExpiry()` - Generates a credit card expiration date
+- `F.creditCardType()` - Generates a credit card type
+
+#### Products
+
+- `F.productName()` - Generates a product name
+- `F.price()` - Generates a price
+- `F.promotionCode()` - Generates random promotion code
+
+#### Companies
+
+- `F.companyName()` - Generates a company name
+- `F.suffix()` - Generates a company suffix
+
+#### Random Numbers
+
+- `F.integer(<min,max>)` - Generates an integer. For example, `integer(2,20)`
+- `F.decimal(<min,max,maxdecimals>)` - Generates a decimal number. For example, `integer(0,2,2)`
+- `F.uuid()` - Generates a unique identifier
+
+#### Boolean
+
+- `F.bool()` - Generates a boolean value
+
+### WSCrypto
 
 Encryption utilities:
 

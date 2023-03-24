@@ -21,7 +21,7 @@ For information on moving tests from API Fortress (our legacy platform) to Sauce
 
 ## Importing API Tests to Sauce Labs
 
-To import a Sauce Labs API test,
+To import a Sauce Labs API test:
 
 1. Log in to Sauce Labs, then click **API Testing**.
 2. Click on one of your Projects to open it.
@@ -37,7 +37,7 @@ To import a Sauce Labs API test,
 Only **Published** tests can be exported.
 :::
 
-To export a Sauce Labs API test,
+To export a Sauce Labs API test:
 
 1. Log in to Sauce Labs, then click **API Testing**.
 2. Click on any Project.
