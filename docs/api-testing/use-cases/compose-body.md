@@ -184,7 +184,7 @@ The response payload from the call will be:
 
 ## Creating a New Structure to Add as a Body
 
-The last scenario is yet another more complex one. In this case, we consider the scenario where we use data from a previous call to create a new structure to add as a body.
+The last scenario is another complex one. In this case,  consider the scenario where you use data from a previous call to create a new structure to add as a body.
 
 1. Perform the call that retrieves the data you are using. In the following example, the `GET` returns an array of items.
 
