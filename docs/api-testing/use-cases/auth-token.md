@@ -118,7 +118,7 @@ The GET requires to pass the token granted by the authentication server as Heade
 
 Now, you can add assertions to verify the payload response returned by the call.
 
-In Code View the test could look like:
+In Code view the test could look like:
 
 ```yaml
 - id: post
