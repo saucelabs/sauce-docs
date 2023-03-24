@@ -24,7 +24,7 @@ Looking to import from a spec file? See [Building a Test from a Spec File](/api-
 1. Log in to Sauce Labs, then click **API Testing**.
 2. Click to open one of your Projects.
 3. Click the **HTTP Client** tab.<br/><img src={useBaseUrl('img/api-testing/HTTPClient_new_brand.png')} alt="HTTP Client" width="300" />
-4. Click **Import OpenAPI/Postman**, then **Import OpenAPI/Postman Collection/.har** and then, select and upload your Postman Collection file from your local machine.<br/><img src={useBaseUrl('img/api-testing/importSpecRebrand.png')} alt="Import OpenAPI / Postman button" width="250"/>
+4. Click **Import OpenAPI/Postman**, then **Import OpenAPI/Postman Collection/.har** and then, select and upload your Postman Collection file from your local machine.<br/><img src={useBaseUrl('img/api-testing/importSpecRebrand.png')} alt="Import OpenAPI / Postman button" width="400"/>
 
 :::tip
 
@@ -139,4 +139,5 @@ Your environmental variables will now be available as an Environment in your Pro
 ## More Information
 
 - [Build a Sauce Labs API Test from a Spec File](/api-testing/build-from-spec)
+- [Build a Sauce Labs API Test from a HAR File](/api-testing/import-har-files/)
 - [Importing and Exporting Data from Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#exporting-postman-data)
