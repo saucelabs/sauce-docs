@@ -38,7 +38,7 @@ The resulting environment (along with its defined variables) will now appear in 
 ### From a Project
 
 1. From within a Project, go to any of the following sections: **Tests**, **Compose**, **HTTP Client**, or **Load Test**.
-2. Click the **Environments** dropdown (defaults to **No environment**).
+2. Click the **Environments** dropdown list (defaults to **No environment**).
 3. Select **Add item**.
 4. Enter a name for your environment, then click **Confirm**.
 5. Click **Create variable**, enter **Key** and **Value** pairs, then click **Confirm**.
@@ -51,7 +51,7 @@ This new environment will be selected by default in the dropdown.
 Once you've created an environment and added your variables, you can run your Test against that environment.
 
 1. From within a Project, go to any of the following sections: **Tests**, **Compose**, **HTTP Client**, or **Load Test**.
-2. Click the **Environments** dropdown (defaults to **No environment**), then select the name of the environment you want to use.<br/><img src={useBaseUrl('img/api-fortress/2021/04/selectEnv.png')} alt="result in tests" width="300"/>
+2. Click the **Environments** drodropdown list down (defaults to **No environment**), then select the name of the environment you want to use.<br/><img src={useBaseUrl('img/api-fortress/2021/04/selectEnv.png')} alt="result in tests" width="300"/>
 
 By activating an environment here, you will be able to hit a different variable (key/value pair) in your current session without actually changing your Test.
 
