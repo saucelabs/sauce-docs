@@ -238,7 +238,7 @@ Remove-Item -Force -Recurse  -Path ./saucectl,./saucectl.zip
 <TabItem value="chocolatey">
 
 ```bash title="Using chocolatey (Windows)"
-choco install saucectl 
+choco install saucectl
 ```
 
 :::tip
