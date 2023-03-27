@@ -180,6 +180,7 @@ values={[
 {label: 'Homebrew', value: 'brew'},
 {label: 'cURL', value: 'curl'},
 {label: 'Windows Powershell', value: 'powershell'},
+{label: 'Windows Chocolatey', value: 'chocolatey'},
 ]}>
 
 <TabItem value="npm">
@@ -232,6 +233,17 @@ Expand-Archive -Force -Path ./saucectl.zip
 Move-Item -Path ./saucectl/saucectl.exe -Destination saucectl.exe
 Remove-Item -Force -Recurse  -Path ./saucectl,./saucectl.zip
 ```
+
+</TabItem>
+<TabItem value="chocolatey">
+
+```bash title="Using chocolatey (Windows)"
+choco install saucectl 
+```
+
+:::tip
+You might need to run `choco` as an Administrator to install `saucectl` by default.
+:::
 
 </TabItem>
 </Tabs>
