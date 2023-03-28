@@ -69,7 +69,7 @@ The [**Company Vault**](/api-testing/vault/#company-vault) is where you can stor
 
 The [Project **Vault**](/api-testing/vault/#project-vault) is where you can save variables and snippets that will be specific to that Project (i.e., across all tests). Its variables are injected during test execution.
 
-If the same variable exists in both in the **Company Vault** and Project-specific **Vault**, the one used in the **Project Vault** will win over the **Company Vault**.
+If the same variable exists in both in the **Company Vault** and Project-specific **Vault**, the one used in the **Project Vault** will take precedence over the **Company Vault**.
 
 ### Globals/Input Set
 
