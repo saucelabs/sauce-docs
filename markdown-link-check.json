@@ -1,0 +1,10 @@
+{
+    "ignorePatterns": [
+        {
+            "pattern": "^http://localhost:3000"
+        },
+        {
+            "pattern": "{{BASEURL}}/"
+        }
+    ]
+}
