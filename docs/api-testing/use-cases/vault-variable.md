@@ -7,7 +7,7 @@ description: 'Create a variable in the vault to use across your tests'
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Consider a scenario where a Request Header is required for all the endpoints in your test. 
+Consider a scenario where a Request Header is required for all the endpoints in your test.
 
 <img src={useBaseUrl('img/api-testing/vault-auth-header.png')} alt="Request Header"/>
 
