@@ -41,7 +41,7 @@ You can also set URL endpoints as variables, for example:
 
 <img src={useBaseUrl('img/api-testing/urlVariable.png')} alt="URL Variables"/>
 
-In this way, you can eliminate duplicate tasks by editing the **Vault** variable to instantly update all tests based on domains and url changes.
+In this way, you can eliminate duplicate tasks by editing the **Vault** variable to instantly update all tests based on `domain` and `url` changes.
 
 ### From a Request Body
 
@@ -59,7 +59,7 @@ Yes, we're using variables as expected values.
 
 ## Variable Containers
 
-Explore our variable containers from the lowest to the highest priority:
+Explore our variable containers from the _lowest_ to the _highest_ priority:
 
 ### Company Vault
 
@@ -68,6 +68,8 @@ The [**Company Vault**](/api-testing/vault/#company-vault) is where you can stor
 ### Project Vault
 
 The [Project **Vault**](/api-testing/vault/#project-vault) is where you can save variables and snippets that will be specific to that Project (i.e., across all tests). Its variables are injected during test execution.
+
+If the same variable exists in both in the **Company Vault** and Project-specific **Vault**, the one used in the **Project Vault** will take precedence over the **Company Vault**.
 
 ### Globals/Input Set
 
@@ -79,9 +81,11 @@ If the same variable exists in both in the **Globals/Input Set** and Project-spe
 
 ### Overriding Variables, Environments
 
-When you declare an overridden variable (using the API, [saucectl command line utility](/api-testing/integrations/yaml/#env), or the [**Schedule** tool](/api-testing/schedule-test)) its value will be injected into the test when it's executed. If the variable has already been declared in the **Vault** or the **Globals/Input Set**, it will be rewritten with the new value.
+When you declare a variable override (using the [API](/dev/api/api-testing/), [saucectl command line utility](/api-testing/integrations/yaml/#env), or the [**Schedule** tool](/api-testing/schedule-test)) its value will be injected into the test when it is executed.
 
-Environments are collections of overrides. You can save an environment as a preset with a name and reuse it when running a test.
+If the variable has already been declared in the **Vault** or the **Globals/Input Set**, it will be rewritten with the new value.
+
+**Environments** are collections of overrides. You can save an environment as a preset with a name and reuse it when running a test.
 
 ### `Set` Variable Component
 
@@ -93,7 +97,7 @@ From a test, go to **Compose** > Click **Add Component** (**+** icon) > Click th
 
 All variable containers have a “double evaluation” capability, meaning that a variable declaration can actually reference another variable. By doing so, you can store the actual data in the variable container that best suits your approach, and then reference it.
 
-In the following example, we are storing the actual domains in the Vault, deciding a default in the Globals, and overriding in the environment:
+In the following example, we are storing the actual domains in the Vault, deciding a default in the Globals, and overriding in the environments:
 
 ```yaml
 VAULT:
@@ -107,7 +111,8 @@ ENVIRONMENTS Name: staging
 domain: ${staging_domain}
 ```
 
-If you run without environment selection or overrides, the test will hit the production domain. If run with the staging environment, the test will hit the staging domain. The Environments will not know the actual domain, therefore the actual data management will happen within the Vault.
+- If you run a test without environments selection, the test will hit the production domain, because the default value defined in the Globals reference the production domain stored in the Vault.
+- If you run a test selecting the environments, the test will hit the staging domain. The Environments will not know the actual domain, therefore the actual data management will happen within the Vault.
 
 :::caution
 As you become acquainted with the platform, you may be tempted to use all of these features at once before you’ve achieved sufficient expertise. We should warn you that you may not be prepared for the overall complexity that may occur as a consequence, especially if you double-reference variables.
@@ -115,16 +120,13 @@ As you become acquainted with the platform, you may be tempted to use all of the
 
 ## Suggested Usage
 
-- Tests should be as self-contained as possible and should host as much information as possible &#8212; with the help of the **Vault** &#8212; to perform their operations. In other words, **Vault** + **Globals / Input set** should always generate a complete variable scope. Therefore, running a test without any Environment selection should at least lead to no syntax or runtime errors.
-- Environments and overrides should be used to change some of the values or introduce contextual values to hit a staging server instead of the production server, or run the test against a special product ID.
+- Tests should be as self-contained as possible and should host as much information as possible &#8212; with the help of the **Vault** &#8212; to perform their operations. In other words, **Vault** + **Globals / Input set** should always generate a complete variable scope. In other words, the test should be able to run without further information. Therefore, running a test without any Environment selection should at least lead to no syntax or runtime errors.
+- Environments and overrides should be used to change some of the values of the variable scope generated by the vault+global/input sets.
 - Fill the **Vault** with data that is Project-specific, such as domains, protocols, and API keys. We do not recommend introducing test-specific variables because it would produce an overhead of information that would go unused most of the time.
 - Fill the **Globals/input set** with test-specific variables, such as paths, IDs, dates, and serial numbers.
-- Make sure that the “vault + globals/input set” adds up to a complete variable scope for the test. In other words, the test should be able to run without further information.
-- Use the environments to change the values of the variable scope generated by the vault+global/input sets.
 - Don’t overdo things. Parametrize stuff that can actually change, and leave everything else as static strings. Variables are… well, variable, so an excessive and unnecessary use of them can lead to uncertainty and hard-to-track behaviors.
 
 ## More Information
 
 - [Creating Reusable Variables and Snippets with the Vault](/api-testing/vault)
 - [Creating Environments for Tests](/api-testing/environments/)
-- [API Fortress Legacy Migration Guide](/api-testing/legacy)
