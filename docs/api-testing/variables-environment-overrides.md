@@ -81,7 +81,7 @@ If the same variable exists in both in the **Globals/Input Set** and Project-spe
 
 ### Overriding Variables, Environments
 
-When you declare an overridden variable (using the [API](/dev/api/api-testing/), [saucectl command line utility](/api-testing/integrations/yaml/#env), or the [**Schedule** tool](/api-testing/schedule-test)) its value will be injected into the test when it's executed.
+When you declare an  variable override (using the [API](/dev/api/api-testing/), [saucectl command line utility](/api-testing/integrations/yaml/#env), or the [**Schedule** tool](/api-testing/schedule-test)) its value will be injected into the test when it is executed.
 
 If the variable has already been declared in the **Vault** or the **Globals/Input Set**, it will be rewritten with the new value.
 
