@@ -34,7 +34,7 @@ The very first step is uploading your file inside the Vault Drive:
 
 For this example, we are using _cities.csv_ file that contains a list of US Cities as shown in the screenshot:
 
-<img src={useBaseUrl('/img/api-testing/vault-use-cases/csv-example.png')} alt="Example csv file" width="200"/>
+<img src={useBaseUrl('/img/api-testing/vault-use-cases/csv-cities.png')} alt="Example csv file" width="200"/>
 
 ### Step 2: Creating the test
 
@@ -67,7 +67,25 @@ The subsequent step is parsing the file in order to let the system know the type
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/parseFile.png')} alt="Parse the file"/>
 
-####
+#### Cycling the array
+
+The file produces an array of items therefore you need to cycling into the items and keep one at time. The iterator would turn out to be huge, so it is preferred to cherry-pick a few items. To do so, you can use the `pick(n)` functionality to create a random subset of the array.
+
+1. Add the **Each** component.
+1. In the Expression field, enter `<variable_name>.pick(10)`.
+
+<img src={useBaseUrl('/img/api-testing/vault-use-cases/each-csv.png')} alt="Add the each component"/>
+
+### Save the value in a variable
+
+Looping in to the array will return one item at time, you need to save that value in a variable so you can use everytime you need it inside your test.
+
+1. As a child component, add the **Set(variable)** component.
+1. Enter the **Variable**.
+
+<img src={useBaseUrl('/img/api-testing/vault-use-cases/set-city.png')} alt="Save the value in a variable"/>
+
+### Add the request
 
 ## Using a File to Verify the Response Payload
 
