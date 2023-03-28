@@ -1,0 +1,74 @@
+---
+id: use-drive
+title: Using a File in your Tests
+sidebar_label: Using Vault Drive
+description: 'How to use the files from the Drive in your tests'
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+There are plenty of possibilities for how to use the Vault drive in your tests. This guide shows you some practical scenarios you can face that might require a file inside your tests.
+
+## What You'll Need
+
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
+
+## Using a File as Datasource
+
+A very common scenario where you need an external file to be used in your test is when you have to generate a lot of different inputs inside your tests. In this case, it quite impossible to add all your data inside the Input Sets because it would take a lot of time and often you might need to replace your data with a new set, therefore
+In this case, the best solution is using an external file as Datasource for your tests.
+
+Let's see, step by step, how you can accomplish this using Sauce Labs API Testing:
+
+### Step 1: Uploading the file in the Vault Drive
+
+In our example, we consider a scenario where an endpoint requires a city as parameter and returns the wheater of that city. In order to make sure the response is always the expected one, a good practice is testing with as much cities as possible. In a scenario like this, it is not feasible to enter manually a list of cities as input sets, therefore an external file is required.
+
+The very first step is uploading your file inside the Vault Drive:
+
+1. Open the project you want to create the test in.
+1. In the left panel, click **Vault**, then click **Drive**.
+1. Click **Upload file**.
+1. Upload the file using drag and drop or **Choose file**, or enter the URL, then click **Upload**.
+
+For this example, we are using _cities.csv_ file that contains a list of US Cities as shown in the screenshot:
+
+<img src={useBaseUrl('/img/api-testing/vault-use-cases/csv-example.png')} alt="Example csv file" width="200"/>
+
+### Step 2: Creating the test
+
+Once the file is on the **Drive**, you can create your test.
+
+1. In the left panel, click **Tests**.
+1. Click **Create Test**, then **From Scratch**.
+1. Enter the **Test Name**.
+1. Optionally, you can add a **Description** and/or **Tags**.
+1. Click **Create Test**
+
+### Step 3: Writing the test
+
+#### Retrieve the file from the Drive
+
+1. Add the [**File DataSource**](/api-testing/composer/io-components/#file-datasource).
+1. **Select** the file you uploaded in the **Drive**.
+1. Enter the **Variable**, then **Save Changes**.
+
+<img src={useBaseUrl('/img/api-testing/vault-use-cases/fileDataSource.png')} alt="File data source component"/>
+
+#### Parse the file
+
+The subsequent step is parsing the file in order to let the system know the type of file you are working with.
+
+1. Add the **Parse** component:
+
+   - The **Variable** must match the name you entered as Variable in the previous step.
+   - The **Adapter** must match the type of the file you have uploaded. In our example, it's a csv file.
+
+<img src={useBaseUrl('/img/api-testing/vault-use-cases/parseFile.png')} alt="Parse the file"/>
+
+####
+
+## Using a File to Verify the Response Payload
+
+## Using a File as a Request Body
