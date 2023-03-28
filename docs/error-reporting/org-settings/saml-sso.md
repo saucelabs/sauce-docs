@@ -5,6 +5,8 @@ sidebar_label: SAML Single Sign-On
 description: Configure Backtrace to allow users to authenticate with single sign-on (SSO) via a SAML identity provider.
 ---
 
+test
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Enterprise customers using a dedicated or on-premise Backtrace instance can configure Backtrace to authenticate with single sign-on (SSO) via a SAML identity provider.
