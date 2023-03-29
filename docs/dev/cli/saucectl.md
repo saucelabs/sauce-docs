@@ -191,7 +191,7 @@ npm install -g saucectl
 
 </TabItem>
 <TabItem value="binary">
-Requires Node.js v16 or higher and npm v8 or higher.
+Requires Node.js 16 or higher and npm 8 or higher.
 
 ```bash title="Using NPM and SAUCECTL_INSTALL_BINARY"
 SAUCECTL_INSTALL_BINARY=https://company.domain.com/saucectl_0.32.2_mac_64-bit.tar.gz npm install -g saucectl
