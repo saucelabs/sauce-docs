@@ -183,7 +183,7 @@ values={[
 ]}>
 
 <TabItem value="npm">
-Requires Node.js v16 or higher and npm v8 or higher.
+Requires Node.js 16 or higher and npm 8 or higher.
 
 ```bash title="Using NPM"
 npm install -g saucectl
