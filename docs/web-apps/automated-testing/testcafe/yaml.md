@@ -991,7 +991,7 @@ The property containing details about on which simulators the tests in this suit
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-A parent property containing the details about whether and how to handle screenshots for this test suite. [See Testcafe Documentation](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#screenshots).
+A parent property containing the details about whether and how to handle screenshots for this test suite. [See Testcafe Documentation](https://testcafe.io/documentation/402638/reference/configuration-file#screenshots).
 
 ```yaml
   screenshots:
@@ -1005,7 +1005,7 @@ A parent property containing the details about whether and how to handle screens
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Prevents TestCafe from taking screenshots. See [TestCafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#disablescreenshots).
+Prevents TestCafe from taking screenshots. See [TestCafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#disablescreenshots).
 
 ```yaml
   disableScreenshots: true
@@ -1102,7 +1102,7 @@ Specifies the compiler options. See [TypeScript documentation](https://www.types
 
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
 
-A list of one or more filepath values for scripts to inject into all pages visited during the test. See [TestCafe definition](https://devexpress.github.io/testcafe/documentation/reference/test-api/fixture/clientscripts.html).
+A list of one or more filepath values for scripts to inject into all pages visited during the test. See [TestCafe definition](https://testcafe.io/documentation/402783/reference/test-api/fixture/clientscripts).
 
 ```yaml
   clientScripts: ["/path/to/file1", "/path/to/file2"]
@@ -1114,7 +1114,7 @@ A list of one or more filepath values for scripts to inject into all pages visit
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Determines whether to ignore JavaScript errors on a webpage. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#skipjserrors).
+Determines whether to ignore JavaScript errors on a webpage. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#skipjserrors).
 
 ```yaml
   skipJsErrors: true
@@ -1126,7 +1126,7 @@ Determines whether to ignore JavaScript errors on a webpage. See [Testcafe defin
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Determines whether to enable quarantine mode for tests that fail. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#quarantinemode).
+Determines whether to enable quarantine mode for tests that fail. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#quarantinemode).
 
 ```yaml
   quarantineMode:
@@ -1166,7 +1166,7 @@ The number of successful attempts necessary to confirm a test’s success. See [
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Determines whether to ignores uncaught errors and unhandled promise rejections in test code. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#skipUncaughtErrors).
+Determines whether to ignores uncaught errors and unhandled promise rejections in test code. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#skipuncaughterrors).
 
 ```yaml
   skipUncaughtErrors: true
@@ -1178,7 +1178,7 @@ Determines whether to ignores uncaught errors and unhandled promise rejections i
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-Specifies the time (in milliseconds) within which selectors may attempt to return a node. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#selectorTimeout`).
+Specifies the time (in milliseconds) within which selectors may attempt to return a node. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#selectortimeout).
 
 ```yaml
   selectorTimeout: 1000
@@ -1190,7 +1190,7 @@ Specifies the time (in milliseconds) within which selectors may attempt to retur
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-Specifies the time (in milliseconds) TestCafe may attempt to successfully execute an assertion if a selector property or a client function was passed as an actual value. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#assertionTimeout).
+Specifies the time (in milliseconds) TestCafe may attempt to successfully execute an assertion if a selector property or a client function was passed as an actual value. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#assertiontimeout).
 
 ```yaml
   assertionTimeout: 1000
@@ -1202,7 +1202,7 @@ Specifies the time (in milliseconds) TestCafe may attempt to successfully execut
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-Specifies the time (in milliseconds) passed after the `DOMContentLoaded` event, within which TestCafe waits for the `window.load` event to fire. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#pageLoadTimeout).
+Specifies the time (in milliseconds) passed after the `DOMContentLoaded` event, within which TestCafe waits for the `window.load` event to fire. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#pageloadtimeout).
 
 ```yaml
   pageLoadTimeout: 1000
@@ -1214,7 +1214,7 @@ Specifies the time (in milliseconds) passed after the `DOMContentLoaded` event, 
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Determines whether to stop a test run if a test fails. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#stopOnFirstFail).
+Determines whether to stop a test run if a test fails. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#stoponfirstfail).
 
 ```yaml
   stopOnFirstFail: true
