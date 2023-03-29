@@ -69,7 +69,7 @@ The subsequent step is parsing the file in order to let the system know the type
 
 #### Cycling the array
 
-The file produces an array of items therefore you need to cycling into the items and keep one at time. The iterator would turn out to be huge, so it is preferred to cherry-pick a few items. To do so, you can use the `pick(n)` functionality to create a random subset of the array.
+The file produces an array of items therefore you need to cycling into the items and take one at time. The iterator would turn out to be huge, so it is preferred to cherry-pick a few items. To do so, you can use the `pick(n)` functionality to create a random subset of the array.
 
 1. Add the **Each** component.
 1. In the Expression field, enter `<variable_name>.pick(10)`.
@@ -78,7 +78,7 @@ The file produces an array of items therefore you need to cycling into the items
 
 #### Save the value in a variable
 
-Looping in to the array will return one item at time, you need to save that value in a variable so you can use that value everytime you need it inside your test.
+Looping in to the array will return one item at time. At this point, you have two routes: the first one is saving that value in a variable so you can use that value everytime you need it inside your test calling the Variable Name, the second one is using the value directly where you need it. For this example, we will save the value in a variable.
 
 1. As a child component, add the **Set(variable)** component:
 
@@ -192,7 +192,7 @@ userDetails.slice(1)
 
 #### Cycling the array
 
-The file produces an array of items therefore you need to cycling into the items and keep one at time. Our file contains just a few items so we can use all of them, but if the file is huge it is recommended to use `pick(n)` to cherry-pick just a few of them.
+The file produces an array of items therefore you need to cycling into the items and take one at time. Our file contains just a few items so we can use all of them, but if the file is huge it is recommended to use `pick(n)` to cherry-pick just a few of them.
 
 1. Add the **Each** component.
 1. In the Expression field, enter `<variable_name>`.
@@ -201,7 +201,7 @@ The file produces an array of items therefore you need to cycling into the items
 
 #### (Optionally) Save the value in a variable
 
-Optionally, you can save each value in a variable, in this way you can assign the variable name you prefer. This time, you need to separate every key/value pair in the row, in order to be able later to add them in the right position. To do so, you need to identify each column in the row using their index. The first column is index 0, the second one is index 1, and so on...
+Optionally, you can save each value in a variable, in this way you can assign the variable name you prefer. For this step, you need to separate every key/value pair in the row, in order to be able later to add them in the right position. To do so, you need to identify each column in the row using their index. The first column is index 0, the second one is index 1, and so on...
 
 1. As a child component, add the **Set(variable)** component:
 
@@ -211,7 +211,7 @@ Optionally, you can save each value in a variable, in this way you can assign th
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/set-userid.png')} alt="Save the value in a variable"/>
 
-For this example, we show only how to save the `userId`, if you want to save the values in a variable, you need to repeat the step for all the columns.
+For this example, we show only how to save the `userId`, if you want to save every value in a variable, you need to repeat the step for all the columns.
 
 #### Add the request
 
@@ -238,7 +238,7 @@ Next, you can add the request to the account endpoint, adding all the values in 
       "phone": "${_1[9]}"
     }
    ```
-   The above Body is valid if you do not save the values as variables. If you have saved the values as variables you need to replace all the values with the corresponded Variable Name you used (like `userId` in our example)
+   The above Body is valid if you do not save the values as variables. If you have saved the values as variables you need to replace all the values with the corresponded Variable Name you used (i.e. `userId` in our example)
 1. **Save changes**.
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/post-request.png')} alt="Add the POST request"/>
