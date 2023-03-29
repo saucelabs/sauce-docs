@@ -183,6 +183,7 @@ values={[
 ]}>
 
 <TabItem value="npm">
+Requires Node.js v16 or higher and npm v8 or higher.
 
 ```bash title="Using NPM"
 npm install -g saucectl
@@ -190,13 +191,14 @@ npm install -g saucectl
 
 </TabItem>
 <TabItem value="binary">
+Requires Node.js v16 or higher and npm v8 or higher.
 
 ```bash title="Using NPM and SAUCECTL_INSTALL_BINARY"
 SAUCECTL_INSTALL_BINARY=https://company.domain.com/saucectl_0.32.2_mac_64-bit.tar.gz npm install -g saucectl
 ```
 
 :::tip
-Use the `SAUCECTL_INSTALL_BINARY` environment variable to make `saucectl` available from a known source within your control or if you use `npx saucectl` to bypass installation.
+Use the `SAUCECTL_INSTALL_BINARY` environment variable to make `saucectl` available from a known source in your control or if you use `npx saucectl` to bypass installation.
 :::
 
 </TabItem>
@@ -250,7 +252,7 @@ To do this, run the same command you used to download `saucectl`. If you origina
 
 Once you've got `saucectl` installed, you can customize your configurations based on your testing objectives. The following sections offer some common use cases.
 
-### Associate your Credentials
+### Associate Your Credentials
 
 Your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` (available on your [User Settings](https://app.saucelabs.com/user-settings) page) are required to run tests through `saucectl`. You can pass your credentials to `saucectl` via several different methods:
 
@@ -267,7 +269,7 @@ If you set your credentials using more than one of the methods above, `saucectl`
 3. `credentials.yml` file
 :::
 
-### Check out your Framework Demo Repo
+### Check Out Your Framework Demo Repo
 
 `saucectl` provides working samples for each of its supported frameworks, so you can quickly run a sample test, or use the project as a template for your own tests.
 
@@ -293,7 +295,7 @@ If you already have tests in the framework of your choice, you can use the [`sau
 - [Espresso YAML](/mobile-apps/automated-testing/espresso-xcuitest/espresso)
 - [XCUITest YAML](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest)
 
-### Run your Tests
+### Run Your Tests
 
 When you are ready to run your tests, you can do so using the [`saucectl run`](/dev/cli/saucectl/run) command. Typically, if you have set all of your configuration properties in your `config.yml` file, you need only execute the command itself, with no options. However, most of the properties available through the file are also available as runtime options you can set at the command line.
 
@@ -301,9 +303,9 @@ When you are ready to run your tests, you can do so using the [`saucectl run`](/
 If you set conflicting configuration values in the `config.yml` file and as `saucectl run` command options, the values in set in the `run` command are applied.
 :::
 
-The CLI output includes a Results table. The Attempts column in the table displays the number of times a test suite was run, which can be configured with the `Retries` property [in your YAML specification file](/dev/cli/saucectl/#configure-saucectl-for-your-tests). 
+The CLI output includes a Results table. The Attempts column in the table displays the number of times a test suite was run, which can be configured with the `Retries` property [in your YAML specification file](/dev/cli/saucectl/#configure-saucectl-for-your-tests).
 
-### View your Test Results in Sauce Labs
+### View Your Test Results in Sauce Labs
 
 After tests complete, `saucectl` uploads test assets such as logs, test results, screenshots, and videos to your [Sauce Labs account](https://app.saucelabs.com), as long as they are in the `__Assets__` directory of your project root. Some frameworks automatically place assets in the correct directory, but other frameworks may require you to manually set the location.
 
