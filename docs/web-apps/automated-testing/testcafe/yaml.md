@@ -1210,6 +1210,66 @@ Specifies the time (in milliseconds) passed after the `DOMContentLoaded` event, 
 
 ---
 
+### `ajaxRequestTimeout`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Specifies wait time (in milliseconds) for fetch/XHR requests. If TestCafe receives no response within the specified period, it throws an error. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#ajaxrequesttimeout).
+
+```yaml
+  ajaxRequestTimeout: 40000
+```
+
+---
+
+### `pageRequestTimeout`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Specifies time (in milliseconds) to wait for HTML pages. If TestCafe does not receive a page within the specified period, it throws an error. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#pagerequesttimeout).
+
+```yaml
+  pageRequestTimeout: 8000
+```
+
+---
+
+### `browserInitTimeout`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Time (in milliseconds) for browsers to connect to TestCafe and report that they are ready to test. If one or more browsers fail to connect within the specified period, TestCafe throws an error. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#browserinittimeout).
+
+```yaml
+  browserInitTimeout: 180000
+```
+
+---
+
+### `testExecutionTimeout`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Maximum test execution time (in milliseconds). When the total execution time of a test exceeds this value, TestCafe terminates the test. This behavior occurs even if the browser is responsive. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#testexecutiontimeout).
+
+```yaml
+  testExecutionTimeout: 180000
+```
+
+---
+
+### `runExecutionTimeout`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Maximum test run execution time (in milliseconds). When the total execution time of a run exceeds this value, TestCafe terminates the test run. This behavior occurs even if one of the tests or hooks is active. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#runexecutiontimeout).
+
+```yaml
+  runExecutionTimeout: 180000
+```
+
+---
+
 ### `stopOnFirstFail`
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
