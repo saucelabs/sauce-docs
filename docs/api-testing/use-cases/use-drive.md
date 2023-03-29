@@ -95,11 +95,11 @@ Next, you can add the request to the weather endpoint, adding the variable as qu
 1. Add the **GET** component:
    - URL - for example `https://eope670ouz611xy.m.pipedream.net/weather`
    - Variable - for example `payload`
-1. **Save changes**.
+1. **Save Changes**.
 1. Add a **Query Param** as child component:
    - Name - for example `city`
    - Value - for example `${currentCity}`
-1. **Save changes**.
+1. **Save Changes**.
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/get-request.png')} alt="Add the GET request"/>
 
@@ -178,15 +178,15 @@ This files contains the Header, therefore we need to remove it before using the 
 
 1. Add the **Set(variable)** component:
 
-- Variable - for example `myUserDetails`
-- Mode - Data
-- Data -
+   - Variable - for example `myUserDetails`
+   - Mode - Data
+   - Data -
 
-```js
-userDetails.slice(1)
-```
+   ```js
+   userDetails.slice(1)
+   ```
 
-`userDetails` is the Variable name you assign in the first Set(variable)
+   `userDetails` is the Variable name you assign in the first Set(variable)
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/removeHeader.png')} alt="Remove the header"/>
 
@@ -205,9 +205,9 @@ Optionally, you can save each value in a variable, in this way you can assign th
 
 1. As a child component, add the **Set(variable)** component:
 
-- Variable - for example `userId`
-- Mode - `String`
-- Value - `${_1[0]}`
+   - Variable - for example `userId`
+   - Mode - `String`
+   - Value - `${_1[0]}`
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/set-userid.png')} alt="Save the value in a variable"/>
 
@@ -220,7 +220,7 @@ Next, you can add the request to the account endpoint, adding all the values in 
 1. Add the **POST** component:
    - URL - for example `https://eovt6kylqex64iz.m.pipedream.net/account`
    - Variable - for example `userDetailsPayload`
-1. **Save changes**.
+1. **Save Changes**.
 1. Add a **Request Body** as child component:
    - Content-Type - `application/json`
    - Body -
@@ -239,7 +239,7 @@ Next, you can add the request to the account endpoint, adding all the values in 
     }
    ```
    The above Body is valid if you do not save the values as variables. If you have saved the values as variables you need to replace all the values with the corresponded Variable Name you used (i.e. `userId` in our example)
-1. **Save changes**.
+1. **Save Changes**.
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/post-request.png')} alt="Add the POST request"/>
 
@@ -366,3 +366,138 @@ The example that saves the values in variables, it looks like this:
 ## Using a File to Verify the Response Payload
 
 The last example we consider for this is when you need to compare a fixed payload to the response you get from a call. It might happen that you need to verify that the response payload is exactly the same as the "template", and also in this scenario the Vault Drive can help.
+
+### Step 1: Uploading the file in the Vault Drive
+
+As for the other examples, the initial step is uploading your file inside the Vault Drive.
+
+You can follow the [same steps as above](/api-testing/use-cases/use-drive/#step-1-uploading-the-file-in-the-vault-drive) but, for this example, we use the following JSON that you can save as .json file and upload in the Vault Drive.
+
+```json
+{
+    "userID": "3618245e-8c91-4ffd-8309-ffeb68f45ff8",
+    "firstName": "Barry",
+    "lastName": "O'Connell",
+    "DOB": "19780806",
+    "address": "6831 Wilfrid Common",
+    "city": "Waukee",
+    "state": "Iowa",
+    "country": "United States",
+    "profession": "chemist",
+    "email": "barry.oconnel@sauer.name",
+    "phone": "016977 7695"
+}
+```
+
+### Step 2: Creating the test
+
+You can follow the same steps as in the [previous example](/api-testing/use-cases/use-drive/#step-2-creating-the-test)
+
+### Step 3: Writing the test
+
+#### Retrieve the file from the Drive
+
+1. Add the [**File DataSource**](/api-testing/composer/io-components/#file-datasource).
+1. **Select** the file you uploaded in the **Drive**.
+1. Enter the **Variable**, then **Save Changes**.
+
+<!-- <img src={useBaseUrl('/img/api-testing/vault-use-cases/fileDataSource.png')} alt="File data source component"/> -->
+
+#### Parse the file
+
+The subsequent step is parsing the file in order to let the system know the type of file you are working with.
+
+1. Add the **Parse** component:
+
+   - The **Variable** must match the name you entered as Variable in the previous step.
+   - The **Adapter** must match the type of the file you have uploaded. In our example, it's a csv file.
+
+<!-- <img src={useBaseUrl('/img/api-testing/vault-use-cases/parseFile.png')} alt="Parse the file"/> -->
+
+#### Add the request
+
+Next, you can add the request to the weather endpoint, adding the variable as query param.
+
+1. Add the **GET** component:
+   - URL - for example `https://eope670ouz611xy.m.pipedream.net/weather`
+   - Variable - for example `payload`
+1. **Save Changes**.
+1. Add a **Query Param** as child component:
+   - Name - for example `city`
+   - Value - for example `${currentCity}`
+1. **Save Changes**.
+
+<!-- <img src={useBaseUrl('/img/api-testing/vault-use-cases/get-request.png')} alt="Add the GET request"/> -->
+
+### Compare the response with the file
+
+TBD
+
+Now you can proceed with your test.
+
+In Code view, it looks like this:
+
+<!-- #### Cycling the array
+
+The file produces an array of items therefore you need to cycling into the items and take one at time. The iterator would turn out to be huge, so it is preferred to cherry-pick a few items. To do so, you can use the `pick(n)` functionality to create a random subset of the array.
+
+1. Add the **Each** component.
+1. In the Expression field, enter `<variable_name>.pick(10)`.
+
+<img src={useBaseUrl('/img/api-testing/vault-use-cases/each-csv.png')} alt="Add the each component"/>
+
+#### Save the value in a variable
+
+Looping in to the array will return one item at time. At this point, you have two routes: the first one is saving that value in a variable so you can use that value everytime you need it inside your test calling the Variable Name, the second one is using the value directly where you need it. For this example, we will save the value in a variable.
+
+1. As a child component, add the **Set(variable)** component:
+
+- Variable - for example `currentCity`
+- Mode - `String`
+- Value - `${_1}`
+
+<img src={useBaseUrl('/img/api-testing/vault-use-cases/set-city.png')} alt="Save the value in a variable"/>
+
+#### Add the request
+
+Next, you can add the request to the weather endpoint, adding the variable as query param.
+
+1. Add the **GET** component:
+   - URL - for example `https://eope670ouz611xy.m.pipedream.net/weather`
+   - Variable - for example `payload`
+1. **Save Changes**.
+1. Add a **Query Param** as child component:
+   - Name - for example `city`
+   - Value - for example `${currentCity}`
+1. **Save Changes**.
+
+<img src={useBaseUrl('/img/api-testing/vault-use-cases/get-request.png')} alt="Add the GET request"/>
+
+Now you can proceed testing the response payload from that call.
+
+
+
+```yaml
+- id: set
+  var: myDataSource
+  mode: object
+  object: DS.loadTextFile('cities.csv')
+- id: parse
+  var: myDataSource
+  adapter: csv
+- id: each
+  children:
+    - id: set
+      var: currentCity
+      mode: string
+      value: ${_1}
+    - id: get
+      children:
+        - id: queryParam
+          name: city
+          value: ${currentCity}
+      url: https://eope670ouz611xy.m.pipedream.net/weather
+      var: payload
+      mode: json
+  expression: myDataSource.pick(10)
+``` -->
