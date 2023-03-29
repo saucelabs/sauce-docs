@@ -6,11 +6,9 @@ sidebar_label: Schedules
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The **Execute** step is made up of two components: **Reports** and **Schedule**. To access these pages, in the left navigation panel, click **Execute** and then click the relevant page name.
-
-<img src={useBaseUrl('/img/dev/low-code/execute-nav.png')} alt="Navigating to the Execution page" width="300"/>
-
 The **Schedules** page includes information about your scheduled tests. From this page you can also create a new schedule (see [Creating a Schedule](#creating-a-schedule) for more information).
+
+<img src={useBaseUrl('/img/dev/low-code/schedules-page-nav.png')} alt="Navigating to the Schedules page" width="300"/>
 
 ## Schedules Page Components
 
@@ -49,6 +47,12 @@ The **Schedules** page includes information about your scheduled tests. From thi
     <td colspan='3'><b>End Date</b> column
     </td>
     <td>The scheduled end date.<br/><br/>Click the up or down arrow next to the column name to sort the table by the end date.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='3'><b>Interval</b> button
+    </td>
+    <td>The interval at which tests will be run.
     </td>
   </tr>
   <tr>
@@ -105,12 +109,6 @@ The **Schedules** page includes information about your scheduled tests. From thi
     <td>Takes you to the execution page for the test case.
     </td>
   </tr>
-  <tr>
-    <td><b>Go To Step Editor</b>
-    </td>
-    <td>Takes you to the step editor for the test case.
-    </td>
-  </tr>
 </table>
 
 ## Creating a Schedule
@@ -119,9 +117,9 @@ From the **Schedules** page, you can create new schedules, as well as update exi
 
 To create a new schedule:
 
-1. On the dashboard, in the left navigation, click **Execute** and then click **Schedule**.
+1. On the dashboard, in the left navigation, click **Schedules**.
 
-<img src={useBaseUrl('/img/dev/low-code/schedules-nav.png')} alt="Navigating to the Create Schedule window" width="300"/>
+<img src={useBaseUrl('/img/dev/low-code/schedules-page-nav.png')} alt="Navigating to the Schedules" width="300"/>
 
 2. On the **Schedules** page, click the plus sign button.
 
@@ -140,7 +138,7 @@ To create a new schedule:
 
 To update a schedule:
 
-1. On the dashboard, in the left navigation, click **Execute** and then click **Schedule**.
+1. On the dashboard, in the left navigation, click **Schedules**.
 2. On the **Schedules** page, in the **Actions** column, click the more actions button and then click **Update Schedule**.
 
 <img src={useBaseUrl('/img/dev/low-code/schedule-update-nav.png')} alt="Navigating to the Update Schedule window" width="300"/>
@@ -155,12 +153,6 @@ The **Execution History** page displays extensive information about the test tha
 ## Execution History Page Components
 
 <table>
-  <tr>
-    <td colspan='3'><b>Component</b>
-    </td>
-    <td><b>Description</b>
-    </td>
-  </tr>
   <tr>
     <td colspan='3'><b>Execution Time</b> column
     </td>
@@ -198,7 +190,7 @@ The **Execution History** page displays extensive information about the test tha
     </td>
   </tr>
   <tr>
-    <td rowspan='6'><b>Details</b> dropdown
+    <td rowspan='7'><b>Details</b> dropdown
     </td>
     <td colspan='2'><b>Case</b> column
     </td>
@@ -218,21 +210,25 @@ The **Execution History** page displays extensive information about the test tha
     </td>
   </tr>
   <tr>
-    <td rowspan='3'><b>Actions</b> column
+    <td colspan='2'><b>Retry Execution Status</b> column
     </td>
-    <td><b>Preview</b>
+    <td>
+    </td>
+  </tr>
+  <tr> 
+    <td colspan='2'><b>Preview</b>
     </td>
     <td>Generates a preview of the test, which opens in a new tab.
     </td>
   </tr>
-  <tr>
-    <td><b>Download</b>
+  <tr> 
+    <td colspan='2'><b>Download</b>
     </td>
     <td>Downloads the <b>Execution Report</b> as an .html file.<br/><br/>The <b>Execution Report</b> contains the information from the <b>Execution History</b> page, but in .html format.
     </td>
   </tr>
-  <tr>
-    <td><b>Go to Step Editor</b>
+  <tr> 
+    <td colspan='2'><b>Go to Step Editor</b>
     </td>
     <td>Opens the step editor for the test case. See <a href="/dev/low-code/projects/test-cases/#using-the-step-editor">Using the Step Editor</a> for more information.
     </td>
