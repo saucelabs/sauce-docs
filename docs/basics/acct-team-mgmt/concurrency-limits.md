@@ -6,6 +6,8 @@ sidebar_label: Concurrency Limits and Team Accounts
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+<p><span className="sauceDBlue">Enterprise Plans only</span></p>
+
 If your organization has multiple teams sharing a Sauce Labs account, it's important to monitor your concurrency limits--the number of virtual machines that you can run tests on simultaneously. You'll need to ensure that your organization's concurrency is distributed among your accounts.
 
 If you are an org admin, you can view your organization's concurrency limits:
