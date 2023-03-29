@@ -694,8 +694,9 @@ module.exports = {
                                     label: 'Configuring Identity Providers',
                                     collapsed: true,
                                     items: [
-                                        'basics/sso/configuring-sso-in-onelogin',
                                         'basics/sso/configuring-sso-in-google',
+                                        'basics/sso/configuring-sso-in-ms-azure-ad',
+                                        'basics/sso/configuring-sso-in-onelogin',
                                     ],
                                 },
                                 'basics/sso/logging-in-via-sso',
