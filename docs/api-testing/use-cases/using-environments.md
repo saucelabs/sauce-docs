@@ -99,7 +99,7 @@ The test as written above does not allow you to use it in different environments
 In the previous step, we did all the required changes to make the test suitable to run in different environments. Now we will create the `staging` environment for running the test against that.
 
 1. Click **No environments** dropdown list.
-1. Click **Add Item**
+1. Click **Add Item**.
 1. Enter the **Environment name**, for example `staging` then **Confirm**
 1. Click **Create Variable**:
    - Key - for example `domain`
