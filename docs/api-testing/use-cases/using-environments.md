@@ -108,7 +108,7 @@ In the previous step, we did all the required changes to make the test suitable 
 1. Click **Create Variable**:
    - Key - for example `apiKey`
    - Value - for example `09876543210987654321`
-1. **Confirm**
+1. **Confirm**.
 1. Click the **Cross** icon.
    :::info
    The environment you just created is selected by default in the dropdown.
