@@ -6,7 +6,7 @@ sidebar_label: App Logs
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-App Logs is functionality that provides you with a detailed view of logs for mobile devices and desktop browsers. This feature provides you with visibility into system-level events, errors, and warnings that occur during testing, making it easier to troubleshoot and diagnose issues.
+App Logs is functionality that provides you with a detailed view of logs for your mobile apps. This feature provides you with visibility into events, errors, and warnings that occur during testing, making it easier to troubleshoot and diagnose issues.
 
 
 
