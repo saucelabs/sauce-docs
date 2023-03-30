@@ -54,7 +54,7 @@ export SAUCE_ACCESS_KEY="your Sauce access key"
 
 ## Step 3: Upload the Sample App
 
-1. [Download the iOS Real Device Swag Labs App](https://github.com/saucelabs/my-demo-app-rn/releases/download/v1.3.0/iOS-Real-Device-MyRNDemoApp.1.3.0-162.ipa).
+1. [Download the iOS Real Device Swag Labs App](https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa).
 2. Upload it to your Sauce Labs account, either through the Sauce Labs UI or by calling the API.
 
 - Sauce Labs UI: From [Sauce Labs Home > LIVE > Mobile App](https://app.saucelabs.com/live/app-testing), select **Upload App** and browse to find the `iOS-Real-Device-MyRNDemoApp.1.3.0-162.ipa` file you just downloaded.
