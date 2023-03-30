@@ -62,8 +62,8 @@ export SAUCE_ACCESS_KEY="your Sauce access key"
   ```title="Example API Upload Request"
   curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   --request POST 'https://api.us-west-1.saucelabs.com/v1/storage/upload' \
-  --form 'payload=@"/Users/lindsaywalker/Git/Example_Tests/iOS-Real-Device-MyRNDemoApp.1.3.0-162.ipa"' \
-  --form 'name="iOS-Real-Device-MyRNDemoApp.1.3.0-162.ipa"'
+  --form 'payload=@"/Users/lindsaywalker/Git/Example_Tests/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
+  --form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
   ```
 
 ## Step 4: Run the Tests
