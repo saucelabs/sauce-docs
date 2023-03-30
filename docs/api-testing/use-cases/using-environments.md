@@ -111,7 +111,7 @@ In the previous step, we did all the required changes to make the test suitable 
 1. **Confirm**.
 1. Click the **Cross** icon.
    :::info
-   The environment you just created is selected by default in the dropdown.
+   The environment you just created is selected by default in the dropdown list.
    :::
 1. Run the test with the selected environment.
 
