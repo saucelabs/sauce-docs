@@ -694,8 +694,9 @@ module.exports = {
                                     label: 'Configuring Identity Providers',
                                     collapsed: true,
                                     items: [
-                                        'basics/sso/configuring-sso-in-onelogin',
                                         'basics/sso/configuring-sso-in-google',
+                                        'basics/sso/configuring-sso-in-ms-azure-ad',
+                                        'basics/sso/configuring-sso-in-onelogin',
                                     ],
                                 },
                                 'basics/sso/logging-in-via-sso',
@@ -1106,9 +1107,11 @@ module.exports = {
                     items: [
                         'api-testing/use-cases/integration-test',
                         'api-testing/use-cases/compose-body',
+                        'api-testing/use-cases/vault-snippet',
                         'api-testing/use-cases/auth-token',
                         'api-testing/use-cases/dynamic-dates',
                         'api-testing/use-cases/generate-test-data',
+                        'api-testing/use-cases/vault-variable',
                         'api-testing/use-cases/working-with-headers',
                     ],
                 },
