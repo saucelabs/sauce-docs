@@ -7,7 +7,7 @@ description: 'How to use the files from the Drive in your tests'
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-There are plenty of possibilities for how to use the Vault drive in your tests. This guide shows you some practical scenarios you can face that might require a file inside your tests.
+The possibilities for how to use the Vault drive in your tests are plenty. This guide shows you some practical scenarios you can face that might require a file inside your tests.
 
 ## What You'll Need
 
@@ -16,7 +16,7 @@ There are plenty of possibilities for how to use the Vault drive in your tests. 
 
 ## Using a File as Datasource
 
-A very common scenario where you need an external file to be used in your test is when you have to generate a lot of different inputs inside your tests. In this case, it quite impossible to add all your data inside the Input Sets because it would take a lot of time and often you might need to replace your data with a new set, therefore
+A very common scenario where you need an external file to be used in your test is when you have to generate a lot of different inputs inside your tests. In this case, it is difficult to add all your data inside the Input Sets because it would take a lot of time and often you might need to replace your data with a new set, therefore
 In this case, the best solution is using an external file as Datasource for your tests.
 
 Let's see, step by step, how you can accomplish this using Sauce Labs API Testing:
@@ -36,7 +36,7 @@ For this example, we are using _cities.csv_ file that contains a list of US Citi
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/csv-cities.png')} alt="Example csv file" width="200"/>
 
-### Step 2: Creating the test
+### Step 2: Creating the Test
 
 Once the file is on the **Drive**, you can create your test.
 
@@ -46,9 +46,9 @@ Once the file is on the **Drive**, you can create your test.
 1. Optionally, you can add a **Description** and/or **Tags**.
 1. Click **Create Test**
 
-### Step 3: Writing the test
+### Step 3: Writing the Test
 
-#### Retrieve the file from the Drive
+#### Retrieve the File From the Drive
 
 1. Add the [**File DataSource**](/api-testing/composer/io-components/#file-datasource).
 1. **Select** the file you uploaded in the **Drive**.
@@ -56,7 +56,7 @@ Once the file is on the **Drive**, you can create your test.
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/fileDataSource.png')} alt="File data source component"/>
 
-#### Parse the file
+#### Parse the File
 
 The subsequent step is parsing the file in order to let the system know the type of file you are working with.
 
@@ -67,7 +67,7 @@ The subsequent step is parsing the file in order to let the system know the type
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/parseFile.png')} alt="Parse the file"/>
 
-#### Cycling the array
+#### Cycling the Array
 
 The file produces an array of items therefore you need to cycling into the items and take one at time. The iterator would turn out to be huge, so it is preferred to cherry-pick a few items. To do so, you can use the `pick(n)` functionality to create a random subset of the array.
 
@@ -76,7 +76,7 @@ The file produces an array of items therefore you need to cycling into the items
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/each-csv.png')} alt="Add the each component"/>
 
-#### Save the value in a variable
+#### Save the Value in a Variable
 
 Looping in to the array will return one item at time. At this point, you have two routes: the first one is saving that value in a variable so you can use that value everytime you need it inside your test calling the Variable Name, the second one is using the value directly where you need it. For this example, we will save the value in a variable.
 
@@ -88,7 +88,7 @@ Looping in to the array will return one item at time. At this point, you have tw
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/set-city.png')} alt="Save the value in a variable"/>
 
-#### Add the request
+#### Add the Request
 
 Next, you can add the request to the weather endpoint, adding the variable as query param.
 
@@ -137,7 +137,7 @@ In Code view, it looks like this:
 The above example is simple because the csv file contains only one column.
 Now, consider a scenario where the csv file contains more columns and you have to use only some values of the row or you have to use all the values but not in bulk. A common scenario is when you use the file to generate the Body in your request.
 
-### Step 1: Uploading the file in the Vault Drive
+### Step 1: Uploading the File in the Vault Drive
 
 For this new example, we consider a scenario where you have to create an account and you need to provide personal data as request body. In a scenario like this, especially in development phase, it is common to have a file with some data allowed by the system.
 
@@ -147,13 +147,13 @@ This time, we are using _users.csv_ file that contains a list of user details as
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/csv-users.png')} alt="Example csv file"/>
 
-### Step 2: Creating the test
+### Step 2: Creating the Test
 
 You can follow the same steps as in the [previous example](/api-testing/use-cases/use-drive/#step-2-creating-the-test)
 
-### Step 3: Writing the test
+### Step 3: Writing the Test
 
-#### Retrieve the file from the Drive
+#### Retrieve the File From the Drive
 
 1. Add the [**File DataSource**](/api-testing/composer/io-components/#file-datasource).
 1. **Select** the file you uploaded in the **Drive**.
@@ -161,7 +161,7 @@ You can follow the same steps as in the [previous example](/api-testing/use-case
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/users-datasource.png')} alt="File data source component"/>
 
-#### Parse the file
+#### Parse the File
 
 The subsequent step is parsing the file in order to let the system know the type of file you are working with.
 
@@ -190,7 +190,7 @@ This files contains the Header, therefore we need to remove it before using the 
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/removeHeader.png')} alt="Remove the header"/>
 
-#### Cycling the array
+#### Cycling the Array
 
 The file produces an array of items therefore you need to cycling into the items and take one at time. Our file contains just a few items so we can use all of them, but if the file is huge it is recommended to use `pick(n)` to cherry-pick just a few of them.
 
@@ -199,7 +199,7 @@ The file produces an array of items therefore you need to cycling into the items
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/users-each-csv.png')} alt="Add the each component"/>
 
-#### (Optionally) Save the value in a variable
+#### (Optionally) Save the Value in a Variable
 
 Optionally, you can save each value in a variable, in this way you can assign the variable name you prefer. For this step, you need to separate every key/value pair in the row, in order to be able later to add them in the right position. To do so, you need to identify each column in the row using their index. The first column is index 0, the second one is index 1, and so on...
 
@@ -213,7 +213,7 @@ Optionally, you can save each value in a variable, in this way you can assign th
 
 For this example, we show only how to save the `userId`, if you want to save every value in a variable, you need to repeat the step for all the columns.
 
-#### Add the request
+#### Add the Request
 
 Next, you can add the request to the account endpoint, adding all the values in the request body.
 
