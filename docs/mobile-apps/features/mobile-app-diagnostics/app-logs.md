@@ -33,7 +33,7 @@ To access the App Logs, follow these steps:
 
 <br/><img src={useBaseUrl('img/mobile-apps/app-logs-3.png')} alt="App Logs" width="800"/>
 
-The App Logs feature includes different log types, such as errors, warnings, infos, and verbose Logs. Each log type provides a different view of the device logs, allowing you to filter and focus on specific types of information.
+The App Logs feature includes different log types, such as errors, warnings, infos, and verbose Logs. Each log type provides a different view of the application logs, allowing you to filter and focus on specific types of information.
 
 You can use the [regrex](https://regex101.com/) functionality to analyze your logs.
 
