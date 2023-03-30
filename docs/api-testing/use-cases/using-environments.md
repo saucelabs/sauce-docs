@@ -92,7 +92,7 @@ The test as written above does not allow you to use it in different environments
 1. In Input Set tab, add a Global Variable:
    - Name - for example `apiKey`
    - Value - for example `1234567890134567890`
-1. Run the test to confirm the changes do not break the test
+1. Run the test to confirm the changes do not break the test.
 
 ### Step 3: Creating the Staging Environment
 
