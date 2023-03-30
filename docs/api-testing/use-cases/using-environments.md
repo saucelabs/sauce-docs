@@ -23,7 +23,7 @@ In our example, we are considering an endpoint that requires an _api key_ as a q
 1. From the Composer, add a `GET` component:
    - Url - for example `https://run.mocky.io/v3/c99a075d-8e82-4f6c-904f-cac0359bf4a9/api/retail/product/shoes`
    - Variable - for example `payload`
-1. **Save Changes**
+1. **Save Changes**.
 1. Add a **QueryParam** as child component:
    - Name - for example `api_key`
    - Value - for example `12345678901234567890`
