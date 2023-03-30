@@ -121,7 +121,7 @@ This time the test has been executed against the `staging` domain with the `apiK
 
 1. Click **No environments** dropdown list.
 1. Click **Add Item**.
-1. Enter the **Environment name**, for example `production` then **Confirm**
+1. Enter the **Environment name**, for example `production` then **Confirm**.
 1. Click **Create Variable**:
    - Key - for example `domain`
    - Value - for example `run.mocky.io/v3/a232a97f-8e4d-4709-838f-b6851d738ab4`
