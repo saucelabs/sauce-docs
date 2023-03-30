@@ -115,7 +115,7 @@ In the previous step, we did all the required changes to make the test suitable 
    :::
 1. Run the test with the selected environment.
 
-This time the test has been executed against the `staging` domain with the `apiKey` for staging, instead of the default values (i.e. developer environment)
+This time the test has been executed against the `staging` domain with the `apiKey` for staging, instead of the default values (that is `developer environment`)
 
 ### Step 4: Creating the Production Environment
 
