@@ -210,7 +210,7 @@ Optionally, you can save each value in a variable, in this way you can assign th
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/set-userid.png')} alt="Save the value in a variable"/>
 
-For this example, we show only how to save the `userId`, if you want to save every value in a variable, you need to repeat the step for all the columns.
+This example saves the `userId`. If you want to save every value in a variable, you need to repeat the step for all the columns.
 
 #### Add the Request
 
