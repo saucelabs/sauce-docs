@@ -237,7 +237,7 @@ You can add the request to the account endpoint, by adding all the values in the
       "phone": "${_1[9]}"
     }
    ```
-The above Body is valid if you do not save the values as variables. If you have saved the values as variables you need to replace all the values with the corresponding Variable name you used (such as the `userId` in this  example).
+The above Body is valid if you do not save the values as variables. If you have saved the values as variables you need to replace all the values with the corresponding Variable name you used (such as the `userId` in this example).
 1. **Save Changes**.
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/post-request.png')} alt="Add the POST request"/>
