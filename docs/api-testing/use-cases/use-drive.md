@@ -283,7 +283,7 @@ The following example illustrates the response payload in Code view:
   expression: myUserDetails
 ```
 
-The example that saves the values in variables, it looks like this:
+The following example saves the values in variables:
 
 ```yaml
 - id: set
