@@ -20,11 +20,22 @@ Device Vitals is a functionality that allows you to debug and observe an app’s
 By default, Device Vitals is enabled if the instrumentation feature is enabled.
 To enable device instrumentation:
 
-1. On Sauce Labs, click **Live** > **Mobile App**.
-2. [Upload your mobile app to Sauce Labs](/mobile-apps/app-storage/) through the UI or CLI.
-3. After you’ve uploaded your app, return to the **Live** > **Mobile App** page, hover your mouse over your app, then select **Settings**. <br/><img src={useBaseUrl('img/mobile-apps/networkcapturescr.png')} alt="Mobile app settings navigation" width="600"/>
-4. Under **Default Settings**, toggle **Instrumentation** on.
-   <br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-screenshot-1.png')} alt="Mobile app settings navigation" width="600"/>
+1. On Sauce Labs, in the left navigation, click **App Mangement**.
+
+<br/><img src={useBaseUrl('img/mobile-apps/app-logs5.png')} alt="App Logs" width="300"/>
+
+2. Upload your mobile app to Sauce Labs.
+
+  <br/><img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="700"/> 
+
+3. After you’ve uploaded your app, hover your mouse over your app, then select **Settings**.
+
+<br/><img src={useBaseUrl('img/mobile-apps/app-logs-6.png')} alt="App Logs" width="700"/>
+
+
+4.  Under **Real Device Settings** toggle **Instrumentation** to **Enabled**.
+
+<br/><img src={useBaseUrl('img/mobile-apps/app-logs-7.png')} alt="App Logs" width="700"/>
 
 Now you can start your live or automated testing session. Your Device Vitals will be captured and be part of your test results.
 
