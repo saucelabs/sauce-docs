@@ -55,7 +55,7 @@ Once the file is on the **Drive**, you can create your test.
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/fileDataSource.png')} alt="File data source component"/>
 
-#### Parse the File
+#### Parsing the File
 
 The next step is parsing the file to let the system know the type of file you are working with.
 
