@@ -59,7 +59,7 @@ Once the file is on the **Drive**, you can create your test.
 
 The next step is parsing the file to let the system know the type of file you are working with.
 
-1. Add the **Parse** component:
+Add the **Parse** component:
 
    - The **Variable** must match the name you entered as Variable in the previous step.
    - The **Adapter** must match the type of the file you have uploaded. In our example, it's a csv file.
