@@ -160,7 +160,7 @@ You can follow the same steps as in the [previous example](/api-testing/use-case
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/users-datasource.png')} alt="File data source component"/>
 
-#### Parse the File
+#### Parsing the File
 
 The subsequent step is parsing the file to let the system know the type of file you are working with.
 
