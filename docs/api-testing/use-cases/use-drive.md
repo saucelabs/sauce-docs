@@ -173,7 +173,7 @@ Next is parsing the file to let the system know the type of file you are working
 
 #### Removing the Header
 
-This files contains the Header, therefore we need to remove it before using the data, so the test will contain only valid data. To do so:
+The example file contains a header that you need to remove, so that the test will contain only valid data. To remove the header:
 
 1. Add the **Set(variable)** component:
 
