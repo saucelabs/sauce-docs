@@ -198,7 +198,7 @@ The file produces an array of items therefore you need to cycling into the items
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/users-each-csv.png')} alt="Add the each component"/>
 
-#### (Optionally) Save the Value in a Variable
+#### (Optional) Saving the Value in a Variable
 
 Optionally, you can save each value in a variable, in this way you can assign the variable name you prefer. For this step, you need to separate every key/value pair in the row, to be able later to add them in the right position. To do so, you need to identify each column in the row using their index. The first column is index 0, the second one is index 1,...
 
