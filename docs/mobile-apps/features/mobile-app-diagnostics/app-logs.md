@@ -6,7 +6,7 @@ sidebar_label: App Logs
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-App Logs is functionality that provides you with a detailed view of logs for mobile devices and desktop browsers. This feature provides you with visibility into system-level events, errors, and warnings that occur during testing, making it easier to troubleshoot and diagnose issues.
+App Logs is functionality that provides you with a detailed view of logs for your mobile apps. This feature provides you with visibility into events, errors, and warnings that occur during testing, making it easier to troubleshoot and diagnose issues.
 
 
 
@@ -33,7 +33,7 @@ To access the App Logs, follow these steps:
 
 <br/><img src={useBaseUrl('img/mobile-apps/app-logs-9.png')} alt="App Logs" width="800"/>
 
-The App Logs feature includes different log types, such as errors, warnings, infos, and verbose Logs. Each log type provides a different view of the device logs, allowing you to filter and focus on specific types of information.
+The App Logs feature includes different log types, such as errors, warnings, infos, and verbose Logs. Each log type provides a different view of the application logs, allowing you to filter and focus on specific types of information.
 
 You can use the [regrex](https://regex101.com/) functionality to analyze your logs.
 
