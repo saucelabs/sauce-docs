@@ -244,7 +244,7 @@ The above Body is valid if you do not save the values as variables. If you have 
 
 Now you can proceed testing the response payload from that call.
 
-In Code view, it looks like this:
+The following example illustrates the response payload in Code view:
 
 ```yaml
 - id: set
