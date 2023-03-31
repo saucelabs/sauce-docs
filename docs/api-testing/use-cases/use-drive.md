@@ -87,7 +87,7 @@ As a child component, add the **Set(variable)** component:
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/set-city.png')} alt="Save the value in a variable"/>
 
-#### Add the Request
+#### Adding the Request
 
 Next, you can add the request to the weather endpoint, adding the variable as query param.
 
