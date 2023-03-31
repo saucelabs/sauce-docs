@@ -58,7 +58,7 @@ Once the file is on the **Drive**, you can create your test.
 
 #### Parse the File
 
-The subsequent step is parsing the file to let the system know the type of file you are working with.
+The next step is parsing the file to let the system know the type of file you are working with.
 
 1. Add the **Parse** component:
 
