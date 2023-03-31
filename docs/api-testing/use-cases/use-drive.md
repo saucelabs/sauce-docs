@@ -49,7 +49,7 @@ Once the file is on the **Drive**, you can create your test.
 
 #### Retrieving the File From the Drive
 
-1. Add the [**File DataSource**](/api-testing/composer/io-components/#file-datasource).
+1. Add the [**File DataSource**](/api-testing/composer/io-components/#file-datasource) component.
 1. **Select** the file you uploaded in the **Drive**.
 1. Enter the **Variable**, then **Save Changes**.
 
