@@ -43,7 +43,7 @@ Once the file is on the **Drive**, you can create your test.
 1. Click **Create Test**, then **From Scratch**.
 1. Enter the **Test Name**.
 1. Optionally, you can add a **Description** and/or **Tags**.
-1. Click **Create Test**
+1. Click **Create Test**.
 
 ### Step 3: Writing the Test
 
