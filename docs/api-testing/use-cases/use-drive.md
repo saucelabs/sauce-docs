@@ -175,7 +175,7 @@ Next is parsing the file to let the system know the type of file you are working
 
 The example file contains a header that you need to remove, so that the test will contain only valid data. To remove the header:
 
-1. Add the **Set(variable)** component:
+Add the **Set(variable)** component:
 
    - Variable - for example `myUserDetails`
    - Mode - Data
