@@ -7,7 +7,7 @@ description: 'How to use the files from the Drive in your tests'
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The possibilities for how to use the Vault drive in your tests are plenty. This guide shows you some practical scenarios you can face that might require a file inside your tests.
+You can use files stored in the Vault drive in your test in several ways. This guide explains how you can use files stored in the Vault drive as a data source in your tests.
 
 ## What You'll Need
 
