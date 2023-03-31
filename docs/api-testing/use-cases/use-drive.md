@@ -25,7 +25,7 @@ Let's see, step by step, how you can accomplish this using Sauce Labs API Testin
 
 In our example, we consider a scenario where an endpoint requires a city as parameter and returns the wheater of that city. In order to make sure the response is always the expected one, a good practice is testing with as much cities as possible. In a scenario like this, it is not feasible to enter manually a list of cities as input sets, therefore an external file is required.
 
-The very first step is uploading your file inside the Vault Drive:
+First upload your file in the Vault drive:
 
 1. Open the project you want to create the test in.
 1. In the left panel, click **Vault**, then click **Drive**.
