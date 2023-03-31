@@ -103,7 +103,7 @@ Next, you can add the request to the weather endpoint, adding the variable as qu
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/get-request.png')} alt="Add the GET request"/>
 
-Now you can proceed testing the response payload from that call.
+You can now proceed testing the response payload from that call.
 
 In Code view, it looks like this:
 
