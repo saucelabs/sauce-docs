@@ -143,7 +143,7 @@ For this new example, we consider a scenario where you have to create an account
 
 As with the previous example, the first step is [uploading your file in the Vault Drive](/api-testing/use-cases/use-drive/#step-1-uploading-the-file-in-the-vault-drive).
 
-This time, we are using _users.csv_ file that contains a list of user details as shown in the screenshot:
+This time, we are using _users.csv_ file that contains a list of user details as shown:
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/csv-users.png')} alt="Example csv file"/>
 
