@@ -152,7 +152,7 @@ You can follow the same steps as in the [previous example](/api-testing/use-case
 
 ### Step 3: Writing the Test
 
-#### Retrieve the File From the Drive
+#### Retrieving the File From the Drive
 
 1. Add the [**File DataSource**](/api-testing/composer/io-components/#file-datasource).
 1. **Select** the file you uploaded in the **Drive**.
