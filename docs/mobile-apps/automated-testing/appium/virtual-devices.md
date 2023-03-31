@@ -356,7 +356,3 @@ where you'll find demo scripts for a variety of use cases to get you started wit
 - [Using Build IDs and tags to differentiate and identify test runs](/basics/test-config-annotation/test-annotation)
 - [Create your own test script examples using our Platform Configurator](https://saucelabs.com/platform/platform-configurator#/)
 - [Browse our full suite of test configuration options and advanced configurations](/dev/test-configuration-options)
-
-## Training
-
-Lean how to run Appium Android tests on an Emulator in the [Automation Quickstart Course](https://training.saucelabs.com/codelabs/Module2-Quickstart/index.html?index=..%2F..quickstart#0).
