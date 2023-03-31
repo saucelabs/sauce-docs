@@ -19,7 +19,6 @@ You can use files stored in the Vault drive in your test in several ways. This g
 A very common scenario where you need an external file to be used in your test is when you have to generate a lot of different inputs inside your tests. In this case, it is difficult to add all your data inside the Input Sets because it would take a lot of time and often you might need to replace your data with a new set.
 In this case, the best solution is using an external file as Datasource for your tests.
 
-Let's see, step by step, how you can accomplish this using Sauce Labs API Testing:
 
 ### Step 1: Uploading the file in the Vault Drive
 
