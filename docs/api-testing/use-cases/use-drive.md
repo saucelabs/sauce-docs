@@ -79,7 +79,7 @@ The file produces an array of items therefore you need to cycling into the items
 
 Looping in to the array will return one item at time. Now, you have two routes: the first one is saving that value in a variable so you can use that value everytime you need it inside your test calling the Variable Name, the second one is using the value directly where you need it. For this example, we will save the value in a variable.
 
-1. As a child component, add the **Set(variable)** component:
+As a child component, add the **Set(variable)** component:
 
 - Variable - for example `currentCity`
 - Mode - `String`
