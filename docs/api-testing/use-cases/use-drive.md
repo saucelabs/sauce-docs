@@ -212,7 +212,7 @@ Optionally, you can save each value in a variable, in this way you can assign th
 
 This example saves the `userId`. If you want to save every value in a variable, you need to repeat the step for all the columns.
 
-#### Add the Request
+#### Adding the Request
 
 Next, you can add the request to the account endpoint, adding all the values in the request body.
 
