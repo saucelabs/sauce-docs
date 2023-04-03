@@ -12,6 +12,7 @@ keywords:
 - put
 - patch
 - config
+- github
 ---
 
 import Tabs from '@theme/Tabs';
@@ -112,7 +113,7 @@ Performs a `DELETE` method request. See [Request Body](#request-body), [Request 
 
 ### GitHub
 
-The GitHub component is meant to simplify the process of retrieving a file from GitHub and use it as a data source. Some examples of files to use would be CSV or JSON files. [Here is a tutorial](/api-testing/on-prem/how-to/github-for-datasets) on how to use it as part of a test.
+The GitHub component is meant to simplify the process of retrieving a file from GitHub and use it as a data source. Some examples of files to use would be CSV or JSON files. Check [Use Cases](/api-testing/use-cases/github-datasets/) out to see an example using this component.
 
 :::note
 GitHub Enterprise version or GitHub AE are not supported.

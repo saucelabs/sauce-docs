@@ -1110,6 +1110,7 @@ module.exports = {
                         'api-testing/use-cases/dynamic-dates',
                         'api-testing/use-cases/generate-test-data',
                         'api-testing/use-cases/vault-variable',
+                        'api-testing/use-cases/github-datasets',
                         'api-testing/use-cases/working-with-headers',
                     ],
                 },
