@@ -30,7 +30,7 @@ In this the endpoint requires an _api key_ as a query param, and the value is di
 1. Run the test to confirm all works fine.
 
 :::note
-For the scope of this guide, we do not focus on the assertions that should be added to the test.
+This example does not detail adding assertions to the test.
 :::
 
 <details>
