@@ -27,7 +27,7 @@ In this the endpoint requires an _api key_ as a query param, and the value is di
    - Name - for example `api_key`
    - Value - for example `12345678901234567890`
 1. Add all the necessary assertions to confirm the response is the expected one.
-1. Run the test to confirm all works fine.
+1. Run the test.
 
 :::note
 This example does not detail adding assertions to the test.
