@@ -138,7 +138,7 @@ Next, consider a scenario where the .csv file contains more columns and you have
 
 ### Step 1: Uploading the File in the Vault Drive
 
-For this new example, we consider a scenario where you have to create an account and you need to provide personal data as request body. In a scenario like this, especially in development phase, it is common to have a file with some data allowed by the system.
+For this new example, consider a scenario where you have to create an account and you need to provide personal data as request body. In a scenario like this, especially in development phase, it is common to have a file with some data allowed by the system.
 
 As with the previous example, the first step is [uploading your file in the Vault Drive](/api-testing/use-cases/use-drive/#step-1-uploading-the-file-in-the-vault-drive).
 
