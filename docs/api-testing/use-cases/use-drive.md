@@ -68,7 +68,7 @@ Add the **Parse** component:
 
 #### Cycling the Array
 
-The file produces an array of items therefore you need to cycling into the items and take one at time. The iterator would turn out to be huge, so it is preferred to cherry-pick a few items. To do so, you can use the `pick(n)` functionality to create a random subset of the array.
+Parsing the file produces an array of items. You can use the `pick(n)` functionality to create a random subset of the array.
 
 1. Add the **Each** component.
 1. In the Expression field, enter `<variable_name>.pick(10)`.
