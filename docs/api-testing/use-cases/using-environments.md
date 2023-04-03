@@ -35,7 +35,7 @@ This example does not detail adding assertions to the test.
 
 <details>
 <summary>
-Code View Example of the test with assertions
+Code View example of the test with assertions
 </summary>
 
 ```yaml
