@@ -37,7 +37,7 @@ This example uses the  _cities.csv_ file that contains a list of US cities as sh
 
 ### Step 2: Creating the Test
 
-Once the file is on the **Drive**, you can create your test.
+Once the file is in the Vault drive, you can create your test.
 
 1. In the left panel, click **Tests**.
 1. Click **Create Test**, then **From Scratch**.
