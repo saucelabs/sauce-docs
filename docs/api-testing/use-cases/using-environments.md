@@ -86,7 +86,7 @@ To use this example test in different environments, you can replace the URL and 
 1. Add a Global Variable:
    - Name - for example `endpoint`
    - Value - for example `/api/retail/product/shoes`
-1. In Unit tab, Edit **QueryParam** component:
+1. In the Unit tab, Edit **QueryParam** component:
    - Value - for example `${apiKey}`
 1. In Input Set tab, add a Global Variable:
    - Name - for example `apiKey`
