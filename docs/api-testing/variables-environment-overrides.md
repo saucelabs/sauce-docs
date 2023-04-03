@@ -95,7 +95,7 @@ From a test, go to **Compose** > Click **Add Component** (**+** icon) > Click th
 
 ### Containers Examples
 
-Below we show some practical examples about the containers priority.
+The following examples describe how container priority works.
 
 #### Scenario 1
 
