@@ -31,7 +31,7 @@ First upload your file in the Vault drive:
 1. Click **Upload file**.
 1. Upload the file using drag and drop or **Choose file**, or enter the URL, then click **Upload**.
 
-For this example, we are using _cities.csv_ file that contains a list of US Cities as shown in the screenshot:
+This example uses the  _cities.csv_ file that contains a list of US cities as shown:
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/csv-cities.png')} alt="Example csv file" width="200"/>
 
