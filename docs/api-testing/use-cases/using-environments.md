@@ -73,7 +73,7 @@ Code View example of the test with assertions
 
 ### Step 2: Converting URL into Variables
 
-The test as written above does not allow you to use it in different environments. Therefore, you need to replace the URL and any other data, that are related to the environment the test is running on, into a variable. Now we will do this:
+To use this example test in different environments, you can replace the URL and any other data related to the environment the test is running on with a variable:
 
 1. Edit **GET** component:
    - URL - for example `${protocol}${domain}${endpoint}`
