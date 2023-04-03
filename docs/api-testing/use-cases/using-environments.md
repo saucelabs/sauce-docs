@@ -97,7 +97,7 @@ To use this example test in different environments, you can replace the URL and 
 
 Now that the test is set up to run in different environments, you can create and run the test in a `staging` environment. 
 
-1. Click **No environments** dropdown list.
+1. Click **No environments**.
 1. Click **Add Item**.
 1. Enter the **Environment name**, for example `staging` then **Confirm**.
 1. Click **Create Variable**:
