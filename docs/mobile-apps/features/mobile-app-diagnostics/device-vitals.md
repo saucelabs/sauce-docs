@@ -24,7 +24,7 @@ To enable device instrumentation:
 
 <br/><img src={useBaseUrl('img/mobile-apps/app-logs5.png')} alt="App Logs" width="300"/>
 
-2. Upload your mobile app to Sauce Labs.
+2. Upload your mobile app.
 
   <br/><img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="700"/> 
 
