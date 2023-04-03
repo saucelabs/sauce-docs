@@ -118,7 +118,7 @@ This time the test has been executed against the `staging` domain with the `apiK
 
 ### Step 4: Creating the Production Environment
 
-1. Click **No environments** dropdown list.
+1. Click **No environments**.
 1. Click **Add Item**.
 1. Enter the **Environment name**, for example `production` then **Confirm**.
 1. Click **Create Variable**:
