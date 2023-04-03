@@ -62,7 +62,7 @@ The next step is parsing the file to let the system know the type of file you ar
 Add the **Parse** component:
 
    - The **Variable** must match the name you entered as Variable in the previous step.
-   - The **Adapter** must match the type of the file you have uploaded. In our example, it's a csv file.
+   - The **Adapter** must match the type of the file you have uploaded. In our example, it's a .csv file.
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/parseFile.png')} alt="Parse the file"/>
 
