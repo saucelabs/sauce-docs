@@ -93,7 +93,7 @@ The last item of the chain, the `Set` commands within a test, will introduce a r
 
 From a test, go to **Compose** > Click **Add Component** (**+** icon) > Click the **Set (variable)** component > Fill out the required fields shown > Click the checkmark icon to add to your test.
 
-### Containers Examples
+### Container Priority Examples
 
 The following examples describe how container priority works.
 
