@@ -95,7 +95,7 @@ To use this example test in different environments, you can replace the URL and 
 
 ### Step 3: Creating the Staging Environment
 
-Now that the test is set up to run in different environments, you can create and run the test in a `staging` environment. 
+Now that the test is set up to run in different environments, you can create and run the test in a `staging` environment.
 
 1. Click **No environments**.
 1. Click **Add Item**.
