@@ -134,7 +134,7 @@ OVERRIDE: foo = bar2
 (COMPAM=NY/PROJECT)VAULT: foo = bar3
 ```
 
-The variable `foo` has value `bar2` when the test runs trought the scheduler, `bar` if the test runs manually.
+The variable `foo` has value `bar2` when the test runs through the scheduler, `bar` if the test runs manually.
 
 #### Scenario 5
 
