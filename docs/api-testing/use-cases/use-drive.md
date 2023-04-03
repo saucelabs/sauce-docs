@@ -191,7 +191,7 @@ Add the **Set(variable)** component:
 
 #### Cycling the Array
 
-The file produces an array of items therefore you need to cycling into the items and take one at time. Our file contains just a few items so we can use all of them, but if the file is huge it is recommended to use `pick(n)` to cherry-pick just a few of them.
+Parsing the file produces an array of items. You can use the `pick(n)` functionality to create a random subset of the array.
 
 1. Add the **Each** component.
 1. In the Expression field, enter `<variable_name>`.
