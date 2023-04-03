@@ -138,4 +138,4 @@ As a result of the above steps, you have a test that, by default, runs against t
 
 You can create as many environments as you need for your testing requirements. 
 
-We have highlighted the scenario where you create the environments for running the test manually, if you want to do this as a [scheduled test](/api-testing/schedule-test/), you can add the variables in the Override section.
+The example focused on creating environments for running the test manually, if you want [schedule the test run](/api-testing/schedule-test/), you can add the variables in the Override section.
