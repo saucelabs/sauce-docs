@@ -77,7 +77,7 @@ To use this example test in different environments, you can replace the URL and 
 
 1. Edit **GET** component:
    - URL - for example `${protocol}${domain}${endpoint}`
-1. In Input Set tab, add a Global Variable:
+1. In the Input Set tab, add a Global Variable:
    - Name - for example `protocol`
    - Value - for example `https://`
 1. Add a Global Variable:
