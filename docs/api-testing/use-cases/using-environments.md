@@ -108,7 +108,7 @@ Now that the test is set up to run in different environments, you can create and
    - Key - for example `apiKey`
    - Value - for example `09876543210987654321`
 1. **Confirm**.
-1. Click the **Cross** icon.
+1. Close the Environment Variable window.
    :::info
    The environment you just created is selected by default in the dropdown list.
    :::
