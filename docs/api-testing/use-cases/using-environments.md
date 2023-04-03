@@ -129,7 +129,7 @@ This time the test has been executed against the `staging` domain with the `apiK
    - Key - for example `apiKey`
    - Value - for example `6789012345789012345`
 1. **Confirm**.
-1. Click the **Cross** icon.
+1. Close the Environment Variable window.
 1. Run the test with the selected environment.
 
 This time the test has been executed against the `production` domain with the `apiKey` for production.
