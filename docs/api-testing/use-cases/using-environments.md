@@ -91,7 +91,7 @@ To use this example test in different environments, you can replace the URL and 
 1. In the Input Set tab, add a Global Variable:
    - Name - for example `apiKey`
    - Value - for example `1234567890134567890`
-1. Run the test to confirm the changes do not break the test.
+1. Run the test.
 
 ### Step 3: Creating the Staging Environment
 
