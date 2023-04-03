@@ -173,7 +173,7 @@ Add the **Parse** component:
 
 #### Removing the Header
 
-The example file contains a header that you need to remove, so that the test will contain only valid data. To remove the header:
+The example file contains a header that you need to remove so that the test will contain only valid data. To remove the header:
 
 Add the **Set(variable)** component:
 
