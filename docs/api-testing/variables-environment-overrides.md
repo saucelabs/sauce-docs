@@ -105,7 +105,7 @@ PROJECT VAULT: foo = bar2
 INPUT SET: foo = bar3
 ```
 
-With this example, the variable `foo` will have the value `bar3`,  because Input Set is given priority. 
+With this example, the variable `foo` will have the value `bar3`, because Input Set is given priority.
 
 #### Scenario 2
 
