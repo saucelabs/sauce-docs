@@ -22,7 +22,7 @@ In this case, the best solution is using an external file as Datasource for your
 
 ### Step 1: Uploading the file in the Vault Drive
 
-In our example, we consider a scenario where an endpoint requires a city as parameter and returns the wheater of that city. In order to make sure the response is always the expected one, a good practice is testing with as much cities as possible. In a scenario like this, it is not feasible to enter manually a list of cities as input sets, therefore an external file is required.
+Consider a scenario where an endpoint requires a city as parameter and returns the weather of that city. To make sure the response is always the expected one, a good practice is testing with as many cities as possible. In a scenario like this, it is not feasible to enter a list of cities as input sets.
 
 First upload your file in the Vault drive:
 
