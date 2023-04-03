@@ -136,6 +136,6 @@ This time the test has been executed against the `production` domain with the `a
 
 As a result of the above steps, you have a test that, by default, runs against the `developer` environment and when required, you can choose to run it against the `staging` or `production` by selecting the proper environment.
 
-You can create as many environments as you need for your testing requirements. 
+You can create as many environments as you need for your testing requirements.
 
 The example focused on creating environments for running the test manually, if you want [schedule the test run](/api-testing/schedule-test/), you can add the variables in the Override section.
