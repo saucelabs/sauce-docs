@@ -14,7 +14,7 @@ The most common use of Environments is to override the default location value so
 
 ## Creating the Test
 
-Our example will generate a test for a _developer_ domain and then, create the proper environments to run that test against the _staging_ and the _production_ ones without needing to change the test.
+The following example generates a test for a _developer_ domain, and then creates the environments to run that test against the _staging_ and the _production_ domains.
 In our example, we are considering an endpoint that requires an _api key_ as a query param, and the value is different in every environment.
 
 ### Step 1: Create the Test
