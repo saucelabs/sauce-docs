@@ -17,7 +17,7 @@ The most common use of Environments is to override the default location value so
 The following example generates a test for a _developer_ domain, and then creates the environments to run that test against the _staging_ and the _production_ domains.
 In this the endpoint requires an _api key_ as a query param, and the value is different in every environment.
 
-### Step 1: Create the Test
+### Step 1: Creating the Test
 
 1. From the Composer, add a `GET` component:
    - Url - for example `https://run.mocky.io/v3/c99a075d-8e82-4f6c-904f-cac0359bf4a9/api/retail/product/shoes`
