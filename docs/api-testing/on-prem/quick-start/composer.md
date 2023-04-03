@@ -31,10 +31,6 @@ Begin using the Composer by selecting from two versions in terms of views. With 
 
   <img src={useBaseUrl('img/api-fortress/2019/06/CodeView.png')} alt="Test Composer Code View Pic"/>
 
-:::tip API Testing Best Practices
-For more information, visit our [Sauce School API Testing Course](https://training.saucelabs.com/apiTesting/index.html) to research best practices and find detailed guidance.
-:::
-
 ## Test Composer UI
 
 Use the following image as a reference for the numbered items listed below:
