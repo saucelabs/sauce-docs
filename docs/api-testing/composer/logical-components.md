@@ -64,7 +64,7 @@ If a collection is nested in another one, you need to refer to them as `_1`, `_2
 
 <img src={useBaseUrl('img/api-testing/nested-each.png')} alt="nested each"/>
 
-For **Each** flights collection nested in `content` item, checks if `price.amount` is an integer. Then, for **Each** legs array, a nested collection within the flights collection, checks if `vector` item is an integer value.
+For **Each** flights collection nested in `content` item, checks if `price.amount` is an integer. Then, for **Each** legs array, a nested collection in the flights collection, checks if `vector` item is an integer value.
 
 ```json title="Nested Collection Example"
 {
