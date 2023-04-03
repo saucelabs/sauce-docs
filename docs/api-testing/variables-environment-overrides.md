@@ -93,6 +93,67 @@ The last item of the chain, the `Set` commands within a test, will introduce a r
 
 From a test, go to **Compose** > Click **Add Component** (**+** icon) > Click the **Set (variable)** component > Fill out the required fields shown > Click the checkmark icon to add to your test.
 
+### Container Priority Examples
+
+The following examples describe how container priority works.
+
+#### Scenario 1
+
+```yaml
+COMPANY VAULT: foo = bar
+PROJECT VAULT: foo = bar2
+INPUT SET: foo = bar3
+```
+
+With this example, the variable `foo` will have the value `bar3`, because Input Set is given priority.
+
+#### Scenario 2
+
+```yaml
+SET(Variable): foo = bar
+INPUT SET: foo = bar2
+```
+
+With this example, the variable `foo` will have the value `bar`.
+
+#### Scenario 3
+
+```yaml
+GLOBAL VARIABLE: foo = bar
+ENVIRONMENT: foo = bar2
+PROJECT VAULT: foo = bar3
+```
+
+The variable `foo` has value `bar2` if the environment is active, `bar` if the environment is not active.
+
+#### Scenario 4
+
+```yaml
+INPUT SET: foo = bar
+OVERRIDE: foo = bar2
+(COMPAM=NY/PROJECT)VAULT: foo = bar3
+```
+
+The variable `foo` has value `bar2` when the test runs through the scheduler, `bar` if the test runs manually.
+
+#### Scenario 5
+
+```yaml
+SET (Variable): foo = bar
+OVERRIDE: foo = bar2
+```
+
+The variable `foo` has value `bar`.
+
+#### Scenario 6
+
+```yaml
+COMPANY VAULT: foo = bar
+ENVIRONMENT: foo = bar2
+```
+
+The variable `foo` has value `bar2` if the environment is active, `bar` if the environment is not active.
+
 ### Double Evaluation Capability
 
 All variable containers have a “double evaluation” capability, meaning that a variable declaration can actually reference another variable. By doing so, you can store the actual data in the variable container that best suits your approach, and then reference it.
