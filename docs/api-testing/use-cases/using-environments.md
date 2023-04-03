@@ -114,7 +114,7 @@ Now that the test is set up to run in different environments, you can create and
    :::
 1. Run the test with the selected environment.
 
-This time the test has been executed against the `staging` domain with the `apiKey` for staging, instead of the default values (that is `developer environment`)
+This time the test has been executed against the `staging` domain with the `apiKey` for staging, instead of the default value (that is `developer` environment)
 
 ### Step 4: Creating the Production Environment
 
