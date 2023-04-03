@@ -263,7 +263,7 @@ The `Contract Test` component has two child: the `Include (Contract T.)` and the
 
 ### File DataSource
 
-The **File Data Source** component allows you to use a file from the [Vault](/api-testing/vault/) as a data source.
+The **File Data Source** component allows you to use a file from the [Vault](/api-testing/vault/) as a data source. To [learn more](/api-testing/use-cases/use-drive) check the use case out.
 
 <img src={useBaseUrl('img/api-testing/filedatasource.png')} alt="File Data Source"/>
 
@@ -455,7 +455,7 @@ This refers to the **Query Param** section. Enter any params you want to add to 
 
 ### Config
 
-This component allows you to add specific configurations in your I/O Component. Using the **config** component you can set up the footprints shown in the project dashboard, you can allow a call to (not) follow a redirect or you can set the timeout.
+This component allows you to add specific configurations in your I/O Component. Using the **config** component you can set up the [footprints](/api-testing/composer/io-components/#footprint) shown in the project dashboard, you can allow a call to (not) [follow a redirect](/api-testing/composer/io-components/#follow-redirects) or you can set the [timeout](/api-testing/composer/io-components/#timeout).
 
 <details><summary><strong>Code View Example</strong></summary>
 
@@ -745,9 +745,9 @@ Enter the type of the response you want to test (must be 'json','xml', 'html',or
 
 </details>
 
-## Editing Components
+## Adding Child Components
 
-Once you've created a component and wish to edit (i.e., need to add request headers, params or a request body):
+Once you've created a component and wish to add child components (i.e., need to add request headers, params or a request body):
 
 1. Click **Add Child Component**.<br/><img src={useBaseUrl('img/api-testing/editComponent2.png')} alt="subComps.jpg" />
 2. Now you'll see the component's available sub-components for that operation.<br/><img src={useBaseUrl('img/api-testing/editComponent3.png')} alt="subComps.jpg" />
