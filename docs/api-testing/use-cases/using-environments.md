@@ -6,7 +6,6 @@ description: 'Reuse the same test for testing against different environments'
 ---
 
 The most common use of Environments is to override the default location value so that you can use the same test to test different domains.
-In this example, we will show how to achieve this.
 
 ## What You'll Need
 
