@@ -9,7 +9,7 @@ The most common use of Environments is to override the default location value so
 
 ## What You'll Need
 
-- An existing API Testing Project and Test. For details on how to create them, see [API Testing Quickstart](/api-testing/quickstart/).
+- An existing API Testing Project. For details on how to create a project as well as the basics for creating a test, see [API Testing Quickstart](/api-testing/quickstart/).
 - Recommended: review [Creating Reusable Variables and Snippets with the Vault](/api-testing/vault/)
 
 ## Creating the Test
