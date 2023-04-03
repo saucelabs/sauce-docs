@@ -133,7 +133,7 @@ In Code view, it looks like this:
 
 ## Using a File as a Request Body
 
-In the above example the csv file contains only one column.
+In the above example the .csv file contains only one column.
 Next, consider a scenario where the .csv file contains more columns and you have to use only some values from a row or you have to use all the values but not in bulk. A common scenario is when you use the file to generate the Body in your request.
 
 ### Step 1: Uploading the File in the Vault Drive
