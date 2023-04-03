@@ -114,7 +114,7 @@ SET(Variable): foo = bar
 INPUT SET: foo = bar2
 ```
 
-The variable `foo` has value `bar`.
+With this example, the variable `foo` will have the value `bar`.
 
 #### Scenario 3
 
