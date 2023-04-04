@@ -28,6 +28,15 @@ If the latest previous major released version of iOS is `15` and the latest inst
 
 When Sauce Labs releases new versions of iOS, the aliases will be updated to automatically point to the latest installed versions.
 
+:::note
+There are a few things to be aware of when using these aliases:
+
+- Apple doesn't release every version of iOS for every device. For example,
+  - iOS 16 is not released for the iPhone 7/Plus because Apple stopped support. If you use the `latest` or `current_major` aliases, Sauce Labs will automatically select the latest version of iOS that is available for the device you are testing on.
+  - Not every iOS minor version update leads to a new iOS Simulator version. New Simulator versions are released when Apple updates the underlying Xcode version. For example, iOS 15.1 is not released as a new Simulator version because it is not released with Xcode 13.1 or XCODE 13.2, which is the same Xcode version as iOS 15.0. More information about Xcode and iOS versions can be found [here](https://xcodereleases.com/?scope=release).
+
+:::
+
 ## How to use iOS Version Management
 
 :::info
@@ -289,11 +298,11 @@ The following examples use iOS 16 and 15 as the current and previous major versi
 | iPhone 14 Simulator + `latest` or `current_major`              |            16.0-16.4             |        16.0-16.4        |   16.4   |                                                                    |
 | iPhone 14 Simulator + `previous_major`                         |            16.0-16.4             |        16.0-16.4        | &#x2715; |          iPhone 14 was released with iOS 16, not with 15           |
 | iPad (10th Generation) Simulator + `latest` or `current_major` |            16.1-16.4             |        16.1-16.4        |   16.4   |                                                                    |
-| iPad (10th Generation) Simulator + `previous_major`            |            16.1-16.4             |        16.1-16.4        | &#x2715; |         iPhone 14 was released with iOS 16.1, not with 15          |
+| iPad (10th Generation) Simulator + `previous_major`            |            16.1-16.4             |        16.1-16.4        | &#x2715; |   iPad (10th Generation) was released with iOS 16.1, not with 15   |
 | iPhone 13 Simulator + `latest` or `current_major`              |            15.0-16.4             |        15.0-16.4        |   16.4   |         iPhone 13 was released with iOS 15 and supports 16         |
 | iPhone 13 Simulator + `latest` or `current_major`              |            15.0-16.4             |        15.0-16.4        |   16.4   |         iPhone 13 was released with iOS 15 and supports 16         |
 | iPhone 13 Simulator + `previous_major`                         |            15.0-16.4             |        15.0-16.4        |   15.5   |          iPhone 14 was released with iOS 16, not with 15           |
 | iPhone 7 Simulator + `latest` or `current_major`               |            10.0-15.5             |        15.0-16.4        |   15.4   | iPhone 7 was released with iOS 10 and Apple supports till iOS 15.x |
-| iPhone 7 Simulator + `previous_major`                          |            10.0-15.5             |        15.0-16.4        |   14.4   |          Apple supports 14.5, but we never released that           |
+| iPhone 7 Simulator + `previous_major`                          |            10.0-15.5             |        15.0-16.4        |   14.4   |      Apple supports 14.5, Sauce Labs only released till 14.4       |
 
 ## FAQ
