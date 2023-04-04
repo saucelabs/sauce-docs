@@ -12,3 +12,4 @@ webdriver
 *.yml
 *.json
 docs/api-testing/on-prem/
+package.json
