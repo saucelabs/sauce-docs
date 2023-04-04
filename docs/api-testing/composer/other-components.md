@@ -369,7 +369,7 @@ The Fact component should be set as high up in the test as possible. If the test
 
 <br/>
 
-Learn how to [improve the email notifications](/api-testing/use-cases/fact) by checking the example.
+Learn how to [improve the email notifications](/api-testing/use-cases/fact/#setting-alert-environments), [disable the notifications](/api-testing/use-cases/fact/#disabling-email-notifications) and [set the thresholds](/api-testing/use-cases/fact/#setting-email-notification-thresholds) by checking the examples.
 
 </details>
 

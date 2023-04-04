@@ -7,12 +7,13 @@ description: Different ways to set a variable
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<!-- A part of a good testing strategy is to create end-to-end tests that resemble common user flows. Consider a scenario where a company has an authentication server. This server, when given the proper user credentials, returns an authentication token. This token is required for all other calls throughout the company's API environment. Without this first API call, none of the other API calls can work. -->
+The **SET (Variable)** component allows you to create variables from a simple string to a payload. In this guide, we will show all the ways you can create a variable.
 
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
+- Familiarity with the [API Testing Composer](/api-testing/composer/).
 
 ## Mode: String
 
@@ -89,7 +90,7 @@ The value will be `Long Sleeve Shirt`, without changing your test.
 
 ## Mode: Data
 
-Using this mode, the variable will be evaluated (like the Expression field), therefore the variable type can be everything. The variable type will depend on the object being evaluated.
+Using this mode, the variable will be evaluated (like the [Expression](/api-testing/composer/expressions/) field), therefore the variable type can be everything. The variable type will depend on the object being evaluated.
 In the Data field, you need to enter a single line expression that returns a value.
 
 For example, you can create a new array in this way:
@@ -257,64 +258,3 @@ For example, if you need to add a new product in your database, you can create t
 ```
 
 <img src={useBaseUrl('img/api-testing/set-template.png')} alt="Set template"/>
-
-```yaml
-- id: set
-  var: product
-  mode: string
-  value: t-shirt
-```
-
-```yaml
-- id: set
-  var: product
-  mode: string
-  value: ${payload.name}
-```
-
-```yaml
-- id: set
-  var: product
-  mode: object
-  object: '["Bluetooth Headphones","Long Sleeve Shirt","Baseball Cap"]'
-```
-
-```yaml
-- id: set
-  var: product
-  mode: object
-  object: payload.filter(it=>it.name=='Bluetooth Headphones')
-```
-
-```yaml
-- id: set
-  var: jsonData
-  mode: lang
-  lang: javascript
-  body: |-
-    var pieces = token.split('.')
-    var b64payload = pieces[1]
-    var decoded = Buffer.from(b64payload,'base64').toString()
-    var json = JSON.parse(decoded)
-    return json
-```
-
-```yaml
-- id: set
-  var: new_product
-  mode: lang
-  lang: template
-  body: >-
-    {
-        "id": 4,
-        "name": "T-Shirt",
-        "price": ${price},
-        "category": "1",
-        "description": "This is product ${id}!",
-        "quantity": 5,
-        "imageURL": "http://image.com",
-        "color": ["red", "green"],
-        "createdAt": "${D.format (D.nowMillis(), 'yyyy-MM-DD')}",
-        "updatedAt": "${D.format (D.nowMillis(), 'yyyy-MM-DD')}T${D.format(D.nowMillis(), 'HH:mm:ssz')}"
-      }
-```

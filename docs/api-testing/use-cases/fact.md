@@ -7,18 +7,28 @@ description: Using Fact for Handling Email Notifications
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<!-- A part of a good testing strategy is to create end-to-end tests that resemble common user flows. Consider a scenario where a company has an authentication server. This server, when given the proper user credentials, returns an authentication token. This token is required for all other calls throughout the company's API environment. Without this first API call, none of the other API calls can work. -->
+The **Fact** component is used to control the behaviour of Email notifications, which (if enabled) alert you to test failures. It enables you to add information about the nature of the test execution.
 
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
+- Your email address already saved in the [Notifications](/api-testing/project-access/#email-notifications) section.
 
-#### Setting Alert Environments
+## Setting Alert Environments
+
+Testing activity is tracked using test ID number. This may not work if you're testing in multiple environments, as an incident could be environment-specific. When a Fact component is added to a test, it will inform our system which environment the execution relates to so that the incident signature will carry the environment as well.
+
+Assume that you are run the same test in _staging_ and _production_, you will get an email notification the first time the test fails in one of the two environments. This does not allow you to know which environment the test fails on. The same will happens when the test starts working again.
+
+By configuring a **Fact** (together with **Tag**) in the following way, you can add the environment value to the incident signature, from that moment on the signature of the incident will be `id_of_the_test` + `value_of_environment`.
+In this way, you will get a separate notification for each environment the test fails in: for example, you will receive start/end incidents for `test123` in the production environment, and start/end incidents for `test123` in the staging environment, as separate flow of events.
 
 Assume that in the variable scope of your test, you have a variable called _env_ that contains your environment string (_production, staging, qa_ etc.).
 
 By configuring a Fact in the following way, you can add the environment value to the incident signature:
+
+<img src={useBaseUrl('img/api-testing/fact.png')} alt="fact component" />
 
 ```yaml
 - id: fact
@@ -27,22 +37,121 @@ By configuring a Fact in the following way, you can add the environment value to
   value: ${env}
 ```
 
-<img src={useBaseUrl('img/api-testing/fact.png')} alt="fact.png" />
+### Example
 
-From this moment on, the signature of the incident will be `id_of_the_test` + `value_of_environment`.
+1. In the **Input Set**, set the default environment as `staging`.
 
-For example, you will receive start/end incidents for `test123` in the production environment, and start/end incidents for `test123` in the staging environment, as separate flow of events.
-
-You can use anything as a value of the environment, such as domain names and IDs.
-
-#### Disabling Email Notifications
-
-A second use case is disabling email notifications for the test from within the test:
+<img src={useBaseUrl('img/api-testing/fact-examples/set-environment.png')} alt="set environment" width="450" />
 
 ```yaml
-Fact id: disable_alerts
-label: whatever you want here
-value: true
+  - id: global
+    children:
+      - id: variable
+        name: env
+        value: staging
+```
+
+In this way, by default, the test will be executed against the `staging` environment.
+
+2. In the **Unit**, set the **Fact** component to add the environment value to the incident signature.
+
+<img src={useBaseUrl('img/api-testing/fact-examples/fact-component.png')} alt="fact component" />
+
+```yaml
+  - id: fact
+    identifier: environment
+    label: environment
+    value: ${env}
+```
+
+3. Add **Tag** component to set the environment as tag in the email notifications.
+
+<img src={useBaseUrl('img/api-testing/fact-examples/tag.png')} alt="tag component" />
+
+```yaml
+  - id: tag
+    value: ${env}
+```
+
+4. Add the **GET** request.
+
+   - Url - for example `http://demoapi.apifortress.com/api/retail/product`
+   - Variable - for example `payload`
+   - Mode - for example `json`
+
+<img src={useBaseUrl('img/api-testing/fact-examples/get.png')} alt="get request" />
+
+```yaml
+  - id: get
+    children: []
+    url: http://demoapi.apifortress.com/api/retail/product
+    var: payload
+    mode: json
+```
+
+5. **Save** the test.
+
+6. **Publish** the test.
+
+7. From the Test list, **Run** the test.
+   The test is meant to fail, so you will get the email notification with `staging` tag in the subject.
+
+8. Click the **Environments** dropdown list (defaults to **No environment**).
+
+9. Select **Add item**.
+
+10. Enter a name for your environment, for example `production`, then click **Confirm**.
+
+11. Click **Create variable**.
+    - Key - for example `env`
+    - Value - for example `production`
+
+<img src={useBaseUrl('img/api-testing/fact-examples/environment.png')} alt="set new environment" width="250"/>
+
+12. Click **Confirm**.
+
+13. **Run** again the test with the environment active.
+    You will get the email notification with `production` tag in the subject.
+
+14. Edit the test.
+
+15. Select **Add Child Component** below the GET component.
+
+16. Add **Request Header**.
+
+    - Name - for example `key`
+    - Value - for example `ABC123`
+
+    <img src={useBaseUrl('img/api-testing/fact-examples/req-header.png')} alt="request header"/>
+
+17. **Save** the test.
+
+18. **Publish** the test.
+
+19. From the Test list, **Run** the test without any environment.
+    This time the test will pass, so you will get the email notification that resolves the incident with `staging` tag in the subject.
+
+20. Select the `production` environment.
+
+21. **Run** the test.
+    The test will pass again and you will get the email notification that resolves the incident with `production` tag in the subject.
+
+:::note
+In the example, we run the test manually but it works in the same way when you schedule it:
+
+- Add one schedule without adding any variable in the override section: in this way, it will be executed with `staging` value as environment.
+- Add one schedule adding `env` as key and `production` as value in the override section: in this way, the test will be executed with `production` value as environment.
+  :::
+
+## Disabling Email Notifications
+
+A second use case with the **Fact** is disabling email notifications for the test:
+
+```yaml
+  - id: fact
+    identifier: disable_alerts
+    label: alerts disabled
+    value: "true"
 ```
 
 <img src={useBaseUrl('img/api-testing/factDisableAlert.png')} alt="factDisableAlert.png" />
@@ -53,9 +162,69 @@ As an example, you could say "IF the env is development, then disable emails for
 
 <img src={useBaseUrl('img/api-testing/factAlertDisabled.png')} alt="factAlertDisabled.png" />
 
-#### Setting Email Notification Thresholds
+:::warning Important
+`Identifier` must be equal to `disable_alerts`.
+:::
 
-Another use-case of the fact component is set an email alert threshold. If you want a test to fail more than once before an email is sent, a Fact called `mail_threshold` can be set in the test:
+### Example
+
+1. In the composer, add the **Fact** component.
+
+<img src={useBaseUrl('img/api-testing/factDisableAlert.png')} alt="factDisableAlert.png" />
+
+```yaml
+  - id: fact
+    identifier: disable_alerts
+    label: alerts disabled
+    value: "true"
+```
+
+2. Add the **GET** request.
+
+   - Url - for example `http://demoapi.apifortress.com/api/retail/product`
+   - Variable - for example `payload`
+   - Mode - for example `json`
+
+<img src={useBaseUrl('img/api-testing/fact-examples/get.png')} alt="get request" />
+
+```yaml
+  - id: get
+    children: []
+    url: http://demoapi.apifortress.com/api/retail/product
+    var: payload
+    mode: json
+```
+
+3. **Save** the test.
+
+4. **Publish** the test.
+
+5. From the Test list, **Run** the test. The notifications are disabled, so you won't receive an email notification.
+
+6. Edit the test and change the value for **Fact** from `true` to `false`.
+
+<img src={useBaseUrl('img/api-testing/fact-examples/disable-alerts-false.png')} alt="disable alerts false" />
+
+```yaml
+  - id: fact
+    identifier: disable_alerts
+    label: alerts disabled
+    value: "false"
+```
+
+7. **Save** the test.
+
+8. **Publish** the test.
+
+9. From the Test list, **Run** the test. The notifications are now activated, so you will receive an email notification.
+
+:::note
+In the example, we run the test manually but it works in the same way when you schedule it.
+:::
+
+## Setting Email Notification Thresholds
+
+Another use-case of the **Fact** component is set an email alert threshold. If you want a test to fail more than once before an email is sent, a Fact called `mail_threshold` can be set in the test:
 
 <img src={useBaseUrl('img/api-testing/factMultiFailure.png')} alt="factMultiFailure.png" />
 
@@ -65,16 +234,45 @@ Given that this can be configured within the test, it offers all the flexibility
 
 <img src={useBaseUrl('img/api-testing/factMultiFailure2.png')} alt="factMultiFailure2.png" />
 
-```yaml
-- id: fact
-  identifier: disable_alerts
-  label: alerts disabled
-  value: 'true'
-```
+### Example
+
+1. In the composer, add the **Fact** component.
+
+<img src={useBaseUrl('img/api-testing/fact-examples/threshold.png')} alt="fact threshold" />
 
 ```yaml
-- id: fact
-  identifier: mail_threshold
-  label: multi failure
-  value: '2'
+  - id: fact
+    identifier: mail_threshold
+    label: threshold
+    value: "3"
 ```
+
+2. Add the **GET** request.
+
+   - Url - for example `http://demoapi.apifortress.com/api/retail/product`
+   - Variable - for example `payload`
+   - Mode - for example `json`
+
+<img src={useBaseUrl('img/api-testing/fact-examples/get.png')} alt="get request" />
+
+```yaml
+  - id: get
+    children: []
+    url: http://demoapi.apifortress.com/api/retail/product
+    var: payload
+    mode: json
+```
+
+3. **Save** the test.
+
+4. **Publish** the test.
+
+5. From the Test list, **Run** the test twice in a row.
+   You will not receive any email notification.
+
+6. **Run** the test one more time.
+   You reached the threshold value therefore you will receive the email notification.
+
+:::note
+In the example, we run the test manually but it works in the same way when you schedule it.
+:::
