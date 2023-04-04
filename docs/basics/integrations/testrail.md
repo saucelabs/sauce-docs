@@ -2,32 +2,40 @@
 id: testrail
 title: TestRail Integration
 sidebar_label: TestRail
-description: Integrating Test Results Into TestRail
+description: Integrate your Sauce Labs test results with TestRail using the TestRail CLI.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Integrating results into TestRail
+TestRail provides a [command line interface tool](https://support.testrail.com/hc/en-us/articles/7146548750868-TestRail-CLI#Overview) to import automated test results and automatically create test cases. The TestRail CLI parses JUnit reports and sends execution data to TestRail to centralize all your test results.
 
-TestRail provides a [command line interface tool](https://support.testrail.com/hc/en-us/articles/7146548750868-TestRail-CLI#Overview) to import automated test results, and even automatically create test cases. The TestRail CLI also parses JUnit reports and sends execution data to TestRail, in order to centralize all your test results.
+As shown in the diagram below, you can use `saucectl` to run your automated tests in Sauce Labs and generate a JUnit report of your test results in XML format, which can then be imported into TestRail with the TestRail CLI.
 
-Since one tool produces a JUnit report and the other one consumes that same report, the integration between SauceLabs and TestRail becomes very simple, as per the diagram below.
+<img src={useBaseUrl('img/integrations/testrail/testrail-1.png')} alt="Shows the saucectl-TestRail Flow" width="700"/>
 
-:::info
-In case you need some sample code to quickly get hands-on, please see our [Cypress-saucectl sample project on GitHub](https://github.com/gurock/automation-frameworks-integration/tree/main/samples/javascript/cypress-saucectl).
-:::
+For more information, see the [TestRail CLI documentation](https://support.testrail.com/hc/en-us/articles/7146548750868-Overview-and-installation).
 
-<img src={useBaseUrl('img/integrations/testrail/testrail-1.png')} alt="saucectl-TestRail Flow" width="700"/>
+## What You'll Need
+
+- A Sauce Labs account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- A TestRail account (if you don't have one, start a [free trial](https://secure.gurock.com/customers/testrail/trial))
 
 ## Using the TestRail CLI
 
 :::info
-For a better understanding of the content in this section, we recommend you also read the [TestRail CLI documentation](https://support.gurock.com/hc/en-us/articles/7146548750868-TestRail-CLI).
+To get started, see the [cypress-saucectl](https://github.com/gurock/automation-frameworks-integration/tree/main/samples/javascript/cypress-saucectl) sample project on GitHub.
 :::
 
-As mentioned above, the TestRail CLI is designed to parse JUnit reports and import certain execution data by default. TestRail's CLI tool was specially designed to parse SauceLabs' test reports, including those with multiple executions in one report. In order to import SauceLabs results, when executing the TestRail CLI in your command line, you should use the option `--special-parser saucectl`. This will enable importing all test executions into separate test runs in TestRail.
+As mentioned above, the TestRail CLI is designed to parse JUnit reports and import certain execution data by default. TestRail's CLI tool was specially designed to parse Sauce Labs' test reports, including those with multiple executions in one report.
+
+To import Sauce Labs results, when running the TestRail CLI in your command line, use the `--special-parser saucectl` option, which imports all test executions into separate test runs in TestRail.
+
+### Sample Report
+
+The following sample report shows the execution of the same test cases on two different devices (Firefox and Chrome), which can be identified in the `testsuite` element names.
 
 ```xml
 <testsuites tests="8">
@@ -69,17 +77,19 @@ As mentioned above, the TestRail CLI is designed to parse JUnit reports and impo
 </testsuites>
 ```
 
-This report reflects the execution of the same test cases on two different devices - Firefox and Chrome - which can be identified on the testsuite element names, as per the image below. This means that the TestRail CLI will create two test runs in TestRail and add the corresponding test results. Each test run contains the same tests, which are `Component 2 Verify page structure` and `Component 1 Verify page structure`
+The TestRail CLI will create two test runs in TestRail and add the corresponding test results. Each test run contains the same tests, which are `Component 2 Verify page structure` and `Component 1 Verify page structure`.
 
-<img src={useBaseUrl('img/integrations/testrail/testrail-2.png')} alt="saucectl-TestRail Flow" width="700"/>
+<img src={useBaseUrl('img/integrations/testrail/testrail-2.png')} alt="Shows a sample report with two test runs for two different devices." width="700"/>
 
 TestRail will also include the `browser` and `platform` values in each test run description and the `session url` in the results of each test case.
 
 :::note
-Note that more than one test case can be executed in one SauceLabs session, so multiple test results will often have the URL to the same session.
+More than one test case can be executed in one Sauce Labs session, so multiple test results will often have the URL to the same session.
 :::
 
-In the snippet below you can find a sample of the command that parses SauceLabs reports. The difference is the inclusion of the `--special-parser saucectl` flag.
+### Sample Command
+
+In the snippet below you can find a sample of the command that parses Sauce Labs reports. The difference is the inclusion of the `--special-parser saucectl` flag.
 
 ```bash
 $ trcli -y \
@@ -93,14 +103,18 @@ $ trcli -y \
 >  "./saucelabs-report.xml"
 ```
 
-If you execute this command using the report sample above and go to your **Test Cases** page, you will see that test cases were automatically created, resulting in a test suite similar to the image below. Notice that although you have four testcase elements in the report file, they refer to the same two test cases being executed in two different browsers, so only two tests are created in TestRail.
+## Viewing Sauce Labs Test Results in TestRail
 
-<img src={useBaseUrl('img/integrations/testrail/testrail-3.png')} alt="saucectl-TestRail Flow" width="700"/>
+If you run the [sample command](#sample-command) using the [sample report](#sample-report) above and go to the **Test Cases** page in TestRail, you will see that test cases were automatically created, resulting in a test suite similar to the one shown in the image below.
 
-By opening the **Test Runs & Results page**, you will see two test runs, one for each browser, which is added to the test run title between parenthesis.
+Notice that although there are four `testcase` elements in the report file, they refer to the same two test cases being executed in two different browsers, so only two tests are created in TestRail.
 
-<img src={useBaseUrl('img/integrations/testrail/testrail-4.png')} alt="saucectl-TestRail Flow" width="700"/>
+<img src={useBaseUrl('img/integrations/testrail/testrail-3.png')} alt="Shows the Test Cases page in TestRail." width="700"/>
 
-By drilling down to the first test run, relative to the automated tests execution using Chrome, we can see the execution platform information on the test run description and the session URL in the test result. This gives you execution context, as well as links to the SauceLabs session in order to find more information about the test execution itself.
+In the **Test Runs & Results page**, you will see two test runs, one for each browser, which is added to the test run title between parenthesis.
 
-<img src={useBaseUrl('img/integrations/testrail/testrail-5.png')} alt="saucectl-TestRail Flow" width="700"/>
+<img src={useBaseUrl('img/integrations/testrail/testrail-4.png')} alt="Shows two test runs for different devices in the Test Runs & Results page in TestRail." width="700"/>
+
+By drilling down to the first test run, relative to the automated tests execution using Chrome, we can see the execution platform information on the test run description and the session URL in the test result. This gives you execution context, as well as links to the Sauce Labs session to find more information about the test execution itself.
+
+<img src={useBaseUrl('img/integrations/testrail/testrail-5.png')} alt="Shows test run details in TestRail." width="700"/>
