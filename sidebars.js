@@ -771,6 +771,7 @@ module.exports = {
                                 'basics/integrations/slack',
                                 'basics/integrations/sumo',
                                 'basics/integrations/bitbucket',
+                                'basics/integrations/wonderproxy',
                                 'basics/integrations/appdome',
                                 'basics/integrations/webhooks',
                             ],
