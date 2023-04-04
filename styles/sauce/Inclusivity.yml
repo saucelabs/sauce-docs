@@ -7,6 +7,8 @@ ignorecase: true
 action:
   name: replace
 swap:
+  abort: stop, exit, cancel, or end
+  aborted: stopped, exited, cancelled, or ended
   blacklist: denylist, reject, deny, or exclude
   dummy: placeholder or sample
   execute: run 
