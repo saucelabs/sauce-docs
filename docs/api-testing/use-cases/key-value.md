@@ -1,54 +1,232 @@
 ---
 id: key-value
 title: The Basic Key/Value Store Workflow
-sidebar_label: Key/Value Store - Basic Workflow
+sidebar_label: Basic Key/Value Store Workflow
 description: The basic key/value store workflow
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<!-- A part of a good testing strategy is to create end-to-end tests that resemble common user flows. Consider a scenario where a company has an authentication server. This server, when given the proper user credentials, returns an authentication token. This token is required for all other calls throughout the company's API environment. Without this first API call, none of the other API calls can work. -->
+The Key/Value Store allows you to create temporary key/value pairs that can be accessed across different tests in your Organization. That means, you can create a key/value pairs in `test1` in `projectA` and use the value in `test100` in `projectZ`.
 
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
-### Basic Workflow
+## Basic Workflow: Set and Load Methods
 
-Let's take a look at how this workflow works in a practical setting. The first example will be a simple set and retrieve of a value in the Key/Value Store.
+In this example you will focus on setting and retrieving a value in the Key/Value Store.
 
-1. First, we'll make a `GET` request to an endpoint.<br/><img src={useBaseUrl('img/api-testing/KVBasicWorkflow1.png')} alt="KVBasicWorkflow1.png" />
-2. Next, we'll add a K/V Store component.<br/><img src={useBaseUrl('img/api-testing/KVBasicWorkflow2.png')} alt="KVBasicWorkflow2.png" />
-3. This first K/V Store component (we're going to incorporate several) is going to set the Key/Value pair in the Store, so we're going to use **Set**<br/><img src={useBaseUrl('img/api-testing/KVBasicWorkflow3.png')} alt="KVBasicWorkflow3.png"/>
-4. In this case, we're setting the Key prods equal to `products[0].name`, which in this case evaluates to Baseball Cap.
-5. Next, we're going to retrieve this Key/Value pair from the store with the **Load** method. In the K/V Store **Load** component, we're going to assign the retrieved value to the variable `kvprods.`<br/><img src={useBaseUrl('img/api-testing/KVBasicWorkflow4.png')} alt="KVBasicWorkflow4.png"/>
-6. Finally, we'll add in a **Comment** component to ensure that the data was recovered successfully.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-1.48.01-PM1.png')} alt="Add Comment component" />
-7. When we run the test, we're presented with the following result:<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-1.48.28-PM.png')} alt="Test Results.png" />
+1. First, add the **GET** request.
 
-Success!
+   - Url - for example `http://demoapi.apifortress.com/api/retail/product`
+   - Variable - for example `products`
+   - Mode - for example `json`
 
-### Push/Pop Workflow
+   <img src={useBaseUrl('img/api-testing/kv-examples/get-request.png')} alt="get request" />
 
-Next, we're going to take a look at how **Push** and **Pop** work. **Push** and **Pop** are both array methods and behave as they normally do outside of this context. **Push** will append a value to the end of an array. **Pop** will remove the last value in an array.
+2. Click **Add Child Component**, then add the **Request Header** to the request.
 
-First, we're going to use **Push**. It should be noted that **Pop** works similarly but with the opposite result. **Pop** _also_ assigns the removed value to a variable which can be used in the context of the test, but can no longer be accessed from the Key/Value Store. We'll discuss this further when we take a look at **Pop**.
+   - Name - for example `key`
+   - Value - for example `ABC123`
 
-1. First, we're going to send a `GET` request and assign a key in the Key/Value Store to a value from the response body. In this case, we're going to use Color, which is an array.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-1.49.16-PM.png')} alt="Assign a key"/>
-2. Next, we're going to **Load** and **Comment** this key. We're doing that so we can actually see the change on the test report at the end of this workflow.
-3. The next step is to **Push** the new data on to the end of the existing array. In this case, we're pushing the integer _999_ onto the _prods_ array.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-2.43.53-PM.png')} alt="Push data" />
-4. Finally, we're going to **Load** the modified data into the test from the K/V Store.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-1.51.48-PM.png')} alt="Load data" />
-5. When we run the test, we're presented with the following test report.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-1.51.59-PM.png')} alt="Test Report" />
+3. Add the **K/V Store** component.
 
-The comments show us clearly that we have pushed the number 999 onto the array stored in the key _prods._
+   - Action - for example `Set`
+   - Key - for example `prods`
+   - Data - for example `products[0].name`
 
-Now, we've added something to the array. Let's remove it with **Pop**!
+   <img src={useBaseUrl('img/api-testing/kv-examples/kv-set.png')} alt="set method for K/V store component" />
 
-1. The first step is to introduce a **Pop** K/V Store component.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-2.31.17-PM.png')} alt="screenshot.png" />
+   With this step, you set the Key/Value pair in the store. In this case, `prods` equals to `products[0].name`, which evaluates to `Baseball Cap`.
 
-We provide the **Pop** component with the name of the key from the Key/Value Store, and the name of the variable we'd like to assign the popped value to. Remember, **Pop** removes the last value in an array and returns the value itself. In this case, we're going to assign it to a variable called Popped. 2. Next, we're going to recall the modified key from the Key/Value Store. Then, we're going to Comment both the recalled Key/Value Store value AND the previously popped value.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-2.28.58-PM.png')} alt="screenshot.png" /> 3. Review the Test Report, where you can see the full workflow, showing that we first assigned an array to the Key/Value Store with **Set**, then added to that array with **Push**, and then removed the added value with **Pop**. Each time we made a change, we used **Load** to retrieve an updated value from the Key/Value Store.<br/><img src={useBaseUrl('img/api-testing/Screen-Shot-2018-05-24-at-2.29.09-PM.png')} alt="screenshot.png" />
+4. Next, add another **K/V Store** component.
 
-The last two comments show the final state of the array in the Key/Value Store and the popped value itself. The popped value will only be available within the scope of this test run. The array in the Key/Value Store will remain retrievable and until 24 hours after it's most recent modification.
+   - Action - for example `Load`
+   - Key - for example `prods`
+   - Data - for example `kvprods`
+
+   <img src={useBaseUrl('img/api-testing/kv-examples/kv-load.png')} alt="load method for K/V store component"/>
+
+   In this step, you retrieve the Key/Value pair from the store. In this example, we assign the retrieved value to the variable `kvprods`.
+
+5. Add a **Comment** component.
+
+   - Comment - for example `${kvprods}`
+
+   This will print out the value and you can ensure that the data is recovered successfully.
+
+6. The final result looks like:
+
+   <img src={useBaseUrl('img/api-testing/kv-examples/final-result-basic.png')} alt="Final result" />
+
+   ```yaml
+   - id: get
+     children:
+       - id: header
+         name: key
+         value: ABC123
+     url: http://demoapi.apifortress.com/api/retail/product
+     var: products
+     mode: json
+   - id: kv
+     key: prods
+     action: set
+     object: products[0].name
+   - id: kv
+     key: prods
+     action: load
+     var: kvprods
+   - id: comment
+     text: ${kvprods}
+   ```
+
+7. **Run** the test.
+
+## Push/Pop Workflow
+
+In the next example, you will take a look at how **Push** and **Pop** methods work. **Push** and **Pop** are both array methods and behave as they normally do outside of this context: **Push** will append a value to the end of an array, **Pop** will remove the last value in an array.
+
+<!-- First, we're going to use **Push**. It should be noted that **Pop** works similarly but with the opposite result. **Pop** _also_ assigns the removed value to a variable which can be used in the context of the test, but can no longer be accessed from the Key/Value Store. We'll discuss this further when we take a look at **Pop**. -->
+
+### Step 1: Push
+
+In this step, you will **Push** the data onto the array.
+
+1. First, add the **GET** request.
+
+   - Url - for example `http://demoapi.apifortress.com/api/retail/product`
+   - Variable - for example `products`
+   - Mode - for example `json`
+
+   <img src={useBaseUrl('img/api-testing/kv-examples/get-request.png')} alt="get request" />
+
+2. Click **Add Child Component**, then add the **Request Header** to the request.
+
+   - Name - for example `key`
+   - Value - for example `ABC123`
+
+3. Add the **K/V Store** component.
+
+   - Action - for example `Set`
+   - Key - for example `prods`
+   - Data - for example `[products[0].color]`
+
+   <img src={useBaseUrl('img/api-testing/kv-examples/adv-kv-set.png')} alt="set the key/value store" />
+
+   With this step, you assign a key in the Key/Value Store to a value fomr the response payload. In this case, we use `color`, which is an array.
+
+4. Next, add another **K/V Store** component.
+
+   - Action - for example `Load`
+   - Key - for example `prods`
+   - Data - for example `kvprods`
+
+   <img src={useBaseUrl('img/api-testing/kv-examples/kv-load.png')} alt="load method for K/V store component"/>
+
+   In this step, you retrieve the Key/Value pair from the store. In this example, we assign the retrieved value to the variable `kvprods`.
+
+5. Add a **Comment** component.
+
+   - Comment - for example `${kvprods}`
+
+   This will print out the value so you can see the change on the test report at the end of this workflow.
+
+6. Next, add a new **K/V Store** component.
+
+   - Action - for example `Push`
+   - Key - for example `prods`
+   - Data - for example `999`
+
+   <img src={useBaseUrl('img/api-testing/kv-examples/adv-push-kv.png')} alt="push method for K/V store component"/>
+
+   In this step, you push the new data on tho the end of the existing array. In this example, you push the integer 999 onto the `prods` array.
+
+7. Add a new **K/V Store** component.
+
+   - Action - for example `Load`
+   - Key - for example `prods`
+   - Data - for example `kvprods`
+
+   <img src={useBaseUrl('img/api-testing/kv-examples/adv-load-kv.png')} alt="push method for K/V store component"/>
+
+   In this step, you load the modified data into the test from the Key/Value Store.
+
+8. Add a **Comment** component.
+
+   - Comment - for example `${kvprods}`
+
+   This will print out the value so you can see the changes on the test report.
+
+9. **Run** the test.
+
+   <img src={useBaseUrl('img/api-testing/kv-examples/report.png')} alt="Test Report" />
+
+   The test report shows that you have pushed the number 999 onto the array stored in the key `prods`.
+
+### Step 2: Pop
+
+In this step, you will remove the data with **Pop**.
+
+1. Add a new **K/V Store** component.
+
+   - Action - for example `Pop`
+   - Key - for example `prods`
+   - Data - for example `popped`
+
+   <img src={useBaseUrl('img/api-testing/kv-examples/kv-pop.png')} alt="pop method for K/V store component"/>
+
+   In this step, you provide the name of the key from the Key/Value Store (`prods`), and the name of the variable you would like to assign the popped value to (`popped`).
+
+:::warning Important
+The **Pop** method removes the last value in an array and return the value itself.
+:::
+
+2. Add a new **K/V Store** component.
+
+   - Action - for example `Load`
+   - Key - for example `prods`
+   - Data - for example `kvprods`
+
+   In this step, you recall the modified key from the Key/Value Store.
+
+3. Add a **Comment** component.
+
+   - Comment - for example `${popped}`
+
+   This will print out the value so you can see the changes on the test report.
+
+4. Add a **Comment** component.
+
+   - Comment - for example `${kvprods}`
+
+   This will print out the value so you can see the changes on the test report.
+
+5. The second part of the test looks like:
+
+   <img src={useBaseUrl('img/api-testing/kv-examples/final-second-step.png')} alt="Final result" />
+
+   ```yaml
+       - id: kv
+         key: prods
+         action: pop
+         var: popped
+       - id: kv
+         key: prods
+         action: load
+         var: popped
+       - id: comment
+         text: ${popped}
+       - id: comment
+         text: ${kvprods}
+   ```
+
+6. **Run** the test.
+
+   <img src={useBaseUrl('img/api-testing/kv-examples/final-report.png')} alt="Test Report" />
+
+   The report for the full workflow, shows that you first assigned an array to the Key/Value Store with **Set** method, then added a value to that array with **Push** and then removed the value with **Pop**. Each time there's a change, you used **Load** to retrieve an updated value from the Key/Value Store. the last two comments show the final state of the array in the Key/Value Store and the popped value itself. The popped value will only be available within the scope of this test run. The array in the Key/Value Store will remain retrievable and until 24 hours after it's most recent modification.
 
 :::note
 Use Set, Push, and Pop to reset the timer. Load does not reset the timer.

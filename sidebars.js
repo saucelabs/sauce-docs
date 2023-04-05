@@ -1104,6 +1104,7 @@ module.exports = {
                     label: 'Use Cases',
                     collapsed: true,
                     items: [
+                        'api-testing/use-cases/key-value',
                         'api-testing/use-cases/integration-test',
                         'api-testing/use-cases/compose-body',
                         'api-testing/use-cases/vault-snippet',
@@ -1111,7 +1112,6 @@ module.exports = {
                         'api-testing/use-cases/dynamic-dates',
                         'api-testing/use-cases/generate-test-data',
                         'api-testing/use-cases/fact',
-                        'api-testing/use-cases/key-value',
                         'api-testing/use-cases/vault-variable',
                         'api-testing/use-cases/saving-token-kv',
                         'api-testing/use-cases/set-variable',
