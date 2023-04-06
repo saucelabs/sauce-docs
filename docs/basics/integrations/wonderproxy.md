@@ -2,7 +2,7 @@
 id: wonderproxy
 title: WonderProxy Integration
 sidebar_label: WonderProxy
-description: Automated Testing with Sauce Labs and WonderProxy
+description: Automated Testing with Sauce Labs and WonderProxy.
 keywords:
 - automated-testing
 - mobile
@@ -17,23 +17,17 @@ keywords:
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-# Automated Testing with Sauce Labs and WonderProxy
-
-Combine WonderProxy's global network with Sauce Labs' platform for fast and effective testing.
+You can use Sauce Labs and WonderProxy's global network to test your geoIP websites and applications.
 
 ## Overview
 
-When you test your geoIP websites and applications with WonderProxy, you probably verify things on a few browsers, maybe even on more than one operating system. You're probably not testing exhaustively, though, because who has the time?
+WonderProxy provides a global network of proxy servers that you can use to ensure that your localized applications are behaving properly around the world. With Sauce Labs and WonderProxy, you can run your geoIP testing through all of the browser-operating system-hardware combinations that you care about, from all of the locales that you care about.
 
-Sauce Labs is a paid service that enables you to test applications on virtually infinite (actually >1,000) combinations of browsers, operating systems, and devices. WonderProxy provides a global network of proxy servers that you can use to ensure that your localized applications are behaving properly around the world. With Sauce Labs and WonderProxy, you can run your geoIP testing through all of the browser-operating system-hardware combinations that you care about, from all of the locales that you care about. Delightful!
+## What You'll Need
 
-In this tutorial, you will learn how to set up Sauce Labs and Playwright to work with WonderProxy and run your localized, automated tests.
-
-For the code samples and setup instructions below, we'll use a working demo, available [on Github](https://github.com/WonderNetwork/locale-testing-demo/tree/main/saucelabs/playwright), that runs sample tests against the WonderNetwork [GeoTest page](https://wondernetwork.com/geotest).
-
-## Prerequisites
-
-This tutorial requires that you have a Sauce Labs account. To use the `saucectl` command-line tool, you will also need to retrieve your Sauce Labs Access Key from the Sauce Labs **_User Settings_** page.
+- A Sauce Labs account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- A WonderProxy account
 
 :::info
 At WonderProxy, **proxy tokens** replace passwords in your server credentials. Proxy tokens are quick to generate and work instantly across the network. [Generate one (or five)](https://wonderproxy.com/my/settings#proxy-tokens), and then use them anywhere your proxy configuration asks for a password.
@@ -41,7 +35,16 @@ At WonderProxy, **proxy tokens** replace passwords in your server credentials. P
 Proxy tokens are part of our [Delegated Authentication system](https://wonderproxy.com/features/delegated-authentication).
 :::
 
-In order for the WonderProxy demo code to work, export your Sauce Labs and WonderProxy credentials as environment variables, as in the following:
+## Automated Testing with Sauce Labs and WonderProxy
+
+If you use Playwright for your automated end-to-end tests, you can use [`saucectl`](/dev/cli/saucectl/) and [WonderProxy](https://wonderproxy.com/) to add multi-platform localization tests.
+
+The code samples and setup instructions below use a [working demo](https://github.com/WonderNetwork/locale-testing-demo/tree/main/saucelabs/playwright) in GitHub that runs sample tests against the WonderNetwork [GeoTest page](https://wondernetwork.com/geotest).
+
+### Step 1: Set Up `saucectl`
+
+1. Install [`saucectl`](/dev/cli/saucectl/#installing-saucectl).
+2. Export your `SAUCE_USERNAME`, `SAUCE_ACCESS_KEY`, and WonderProxy credentials as environment variables:
 
 ```properties
 export SAUCE_USERNAME="yourSauceUsername"
@@ -50,31 +53,11 @@ export WONDERPROXY_USER="wonderProxyUsername"
 export WONDERPROXY_TOKEN="wonderProxyProxyToken"
 ```
 
-## Procedure
+### Step 2: Configure `saucectl` For Your tests
 
-`saucectl` is an orchestration tool for the Sauce Labs platform. We'll use it to upload and run our localized Playwright test suite on two platforms: Firefox on Windows, and Chrome on Mac.
+You can use WonderProxy's sample `saucectl` [configuration file](https://github.com/WonderNetwork/locale-testing-demo/blob/main/saucelabs/playwright/.sauce/config.yml) to run a localized Playwright test suite on two platforms: Firefox on Windows and Chrome on Mac.
 
-### Step 1: Set up saucectl
-
-1. [Download and install](https://docs.saucelabs.com/dev/cli/saucectl/#installing-saucectl) `saucectl` with NPM, Homebrew, Powershell, or Curl. 
-2. Make sure you exported your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables (see above).
-
-### Step 2: Configure the Sauce Labs platform to run your tests
-
-We'll borrow the same tests we used in [our Playwright example](https://wonderproxy.com/docs/devs/guides/globalize-your-testing-with-playwright). You won't need NodeJS on your own system this time, since Sauce Labs will be running the tests for us on their platform.
-
-:::info
-You can follow along with WonderProxy's working demo, available [on Github](https://github.com/WonderNetwork/locale-testing-demo/tree/main/saucelabs/playwright).
-:::
-
-We already have a `saucectl` [configuration file](https://github.com/WonderNetwork/locale-testing-demo/blob/main/saucelabs/playwright/.sauce/config.yml) set up for Playwright. If you need to [create one from scratch](https://docs.saucelabs.com/dev/cli/saucectl/#configure-saucectl-for-your-tests), `saucectl` can help you:
-
-```bash
-$ saucectl init
-```
-
-The configuration file is formatted with YAML. We specify the `kind` of tests we're writing with the kind property, and create test suites for each platform with the `suites` property:
-
+The configuration file is formatted with YAML. You can specify the type of tests to run with the `kind` property, and create test suites for each platform with the `suites` property:
 
 ```yaml
 kind: playwright
@@ -92,17 +75,23 @@ suites:
   browserName: "chromium"
 ```
 
-### Step 3: Write your tests
-We're using the same tests we used in [our regular Playwright demo](https://wonderproxy.com/docs/devs/guides/globalize-your-testing-with-playwright#step-3), with localization testing through WonderProxy locations. We don't need to add any Sauce-specific code, and we don't need NodeJS or the NPM packages to be installed on our local system!
+To create your own custom configuration, you can use [`saucectl init`](/dev/cli/saucectl/init/). For more information, see [Configure `saucectl` for your Tests](/dev/cli/saucectl/#configure-saucectl-for-your-tests).
 
-### Step 4: Run the tests
-`saucectl` will upload our tests to Sauce Labs and run them against the platforms we requested. We'll pass our WonderProxy credentials as environment variables, so they'll be available to the tests in the Sauce Labs cloud.
+### Step 3: Write Your Tests
+
+You can use the sample tests in [Step 3: Write tests](https://wonderproxy.com/docs/devs/guides/globalize-your-testing-with-playwright#step-3), with localization testing through WonderProxy locations.
+
+You don't need to add any Sauce-specific code to your test, and you also don't need to install Node.js or any npm packages on your local system.
+
+### Step 4: Run Your Tests
+
+`saucectl` will upload your tests to Sauce Labs and run them against the configured platforms. Pass your WonderProxy credentials as environment variables, so they'll be available to the tests in the Sauce Labs cloud.
 
 ```bash
 $ saucectl run --env WONDERPROXY_USER="$WONDERPROXY_USER" --env WONDERPROXY_TOKEN="$WONDERPROXY_TOKEN"
 ```
 
-Our sample code has 6 tests (2 tests per location, 3 locations). `saucectl` will track the test progress, and provide links to the [Sauce Labs testing dashboard](https://app.saucelabs.com/dashboard/tests/vdc) where we can watch live video and see our results.
+The sample code has 6 tests (2 tests per location, 3 locations). `saucectl` will track the test progress, and provide links to the [Automated Test Results](https://app.saucelabs.com/dashboard/tests/vdc) page in Sauce Labs where you can see live video and see the results.
 
 ```logcatfilter
 09:00:43 INF Starting suite. region=us-west-1 suite="Firefox on Windows 10"
