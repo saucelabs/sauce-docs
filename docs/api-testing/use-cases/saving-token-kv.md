@@ -7,7 +7,7 @@ description: Saving a Token in a Key/Value Store
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-One of the common scenarios you can face when you are working with APIs is the authentication. Most of the time you call the endpoint that lets you authenticate and then, use the token in the following calls. Sometimes, there may be cases where you can't call the endpoint every time and you need to save the token in a variable and use it more times. If you have only one test, you can reuse the same token easily. What happens if you need it in more tests inside your project or across the whole organization? The Vault is not the solution because it contains static values and you have to manually update the value every time. Here is when the Key/Value store can help.
+One of the common scenarios you can face when you are working with APIs is authentication. Most of the time you call the endpoint that lets you authenticate and then use the token in the following calls. Sometimes, there may be cases where you can't call the endpoint every time, hence you need to save the token in a variable and use it more times. If you have only one test, you can reuse the same token easily. What happens if you need it in more tests inside your project or across the whole organization? The Vault is not the solution because it contains static values and you have to manually update the value every time. Here is when the Key/Value store can help.
 
 ## What You'll Need
 
@@ -123,3 +123,16 @@ The final test looks like:
   var: profilePayload
   mode: json
 ```
+
+### Using the Key/Value in other tests
+
+To use the value in other tests in the same project or in a different project, you have to first load the value from the Key/Value Store and then use it.
+
+<img src={useBaseUrl('img/api-testing/kv-examples/token-kv-tests.png')} alt="Load the key/value in other tests" />
+
+- Action - for example `Load`
+- Key - for example `token`
+- Variable - for example `my_token`
+
+`token` is the **Key** you assigned in the [first step](/#saving-a-token-in-a-keyvalue-store) of the previous step.
+`my_token` is the variable name you will use inside the test for referencing it.
