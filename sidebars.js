@@ -773,6 +773,7 @@ module.exports = {
                                 'basics/integrations/bitbucket',
                                 'basics/integrations/wonderproxy',
                                 'basics/integrations/appdome',
+                                'basics/integrations/testrail',
                                 'basics/integrations/webhooks',
                             ],
                         },
@@ -869,7 +870,6 @@ module.exports = {
                                 'mobile-apps/features/mobile-app-diagnostics/interactions',
                                 'mobile-apps/features/mobile-app-diagnostics/view-tree',
                                 'mobile-apps/features/network-capture',
-                                
                             ],
                         },
                     ],
