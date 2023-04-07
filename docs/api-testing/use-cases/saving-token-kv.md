@@ -82,12 +82,12 @@ In this example you learn how to save a token in the Key/Value Store and then us
 
 10. Add the **Request Header** to the **POST**.
 
-- Name - for example `Authorization`
-- Value - for example `${token_var}`
+    - Name - for example `Authorization`
+    - Value - for example `${token_var}`
 
-<img src={useBaseUrl('img/api-testing/kv-examples/token-auth.png')} alt="Request Header" />
+    <img src={useBaseUrl('img/api-testing/kv-examples/token-auth.png')} alt="Request Header" />
 
-In the request header you pass the token saved in the Key/Value Store.
+    In the request header you pass the token saved in the Key/Value Store.
 
 The final test looks like:
 
@@ -126,13 +126,153 @@ The final test looks like:
 
 ### Using the Key/Value in other tests
 
-To use the value in other tests in the same project or in a different project, you have to first load the value from the Key/Value Store and then use it.
+To use the Key/Value Store in other tests in the same Organization, you have to first load the value from the Key/Value Store and then use it.
 
-<img src={useBaseUrl('img/api-testing/kv-examples/token-kv-tests.png')} alt="Load the key/value in other tests" />
+<img src={useBaseUrl('img/api-testing/kv-examples/token-kv-tests.png')} alt="Load the key/value in other tests" width="450"/>
 
 - Action - for example `Load`
 - Key - for example `token`
 - Variable - for example `my_token`
 
-`token` is the **Key** you assigned in the [first step](/#saving-a-token-in-a-keyvalue-store) of the previous step.
+`token` is the **Key** you assigned in the [first step](/#saving-a-token-in-a-keyvalue-store) of the previous example.
 `my_token` is the variable name you will use inside the test for referencing it.
+
+## Refreshing the Token
+
+The previous example shows how to save the token in the Key/Value Store but, once created, the token will be the same. In reality, tokens usually expires after a certain amount of time so you need to generate a new one. In the following example, you will see how to improve the previous example by refreshing the token.
+
+1. First, add the **Key/Value Store** component.
+
+   - Action - for example `Load`
+   - Key - for example `token`
+   - Variable - for example `token_var`
+
+   <img src={useBaseUrl('img/api-testing/kv-examples/token-kv1.png')} alt="load method in key value component" />
+
+   It loads the token: the first time you run the test, the value will be empty then, it will be the token retrieved from the call.
+
+2. **Save Changes**.
+
+3. Next, add the **Key/Value Store** component.
+
+   - Action - for example `Load`
+   - Key - for example `last_token`
+   - Variable - for example `last_token_var`
+
+   <img src={useBaseUrl('img/api-testing/kv-examples/refresh-kv1.png')} alt="load method in key value component" />
+
+   In this step, you load the date and time the token was last generated.
+
+4. **Save Changes**.
+
+5. Add the **If** component, then **Save Changes**.
+
+   - Expression - for example `!token_var || ! last_token_var || last_token_var+60000 < D.nowMillis()`
+
+   <img src={useBaseUrl('img/api-testing/kv-examples/refresh-if.png')} alt="if component" />
+
+   In this step you check if there is a token in the Key/Value store, the date is present and one minute has not passed since last token generation. If any of these conditions are not met, you generate a new one. The example refreshes the token every minute (60000ms), you can choose to refresh it differently by changing the value.
+
+6. Click **Add Child Component** inside the **If** and then, add the **GET** component.
+
+   - Url - for example `https://m2-keyvalueexample.load2.apifortress.com/token`
+   - Variable - for example `payload`
+   - Mode - for example `json`
+
+   <img src={useBaseUrl('img/api-testing/kv-examples/token-get.png')} alt="GET request" />
+
+   This step calls the endpoint that generates the token.
+
+7. **Save Changes**.
+
+8. **Add Child Component** for the **If** and then, add the **Key/Value Store** component.
+
+   - Action - for example `Set`
+   - Key - for example `token`
+   - Data - for example `payload.token`
+
+   <img src={useBaseUrl('img/api-testing/kv-examples/token-kv2.png')} alt="set method in key value component" />
+
+   In this step you add the value of the token in the Key/Value store.
+
+9. **Save Changes**.
+
+10. **Add Child Component** inside the **If** and then, add the **Key/Value Store** component.
+
+    - Action - for example `Set`
+    - Key - for example `last_token`
+    - Data - for example `D.nowMillis()`
+
+    <img src={useBaseUrl('img/api-testing/kv-examples/refresh-kv2.png')} alt="set method in key value component" />
+
+    In this step you add the date in the Key/Value Store.
+
+11. **Save Changes**.
+
+12. Outside the **If**, add **Assert Exists**.
+
+    - Expression - for example `token_var`
+
+    <img src={useBaseUrl('img/api-testing/kv-examples/token-assert.png')} alt="assert exists" />
+
+    The token will not be generated again for the next minute and the existing one will be used.
+
+13. Add the **POST** component and then, **Save Changes**.
+
+- Url - for example `https://m2-keyvalueexample.load2.apifortress.com/profile`
+- Variable - for example `profilePayload`
+- Mode - for example `json`
+
+<img src={useBaseUrl('img/api-testing/kv-examples/token-post.png')} alt="POST request" />
+
+This step calls the endpoint that requires the token for authenticate.
+
+14. Add the **Request Header** to the **POST**.
+
+    - Name - for example `Authorization`
+    - Value - for example `${token_var}`
+
+    <img src={useBaseUrl('img/api-testing/kv-examples/token-auth.png')} alt="Request Header" />
+
+    In the request header you pass the token saved in the Key/Value Store.
+
+The test looks like:
+
+```yaml
+- id: kv
+  key: token
+  action: load
+  var: token_var
+- id: kv
+  key: last_token
+  action: load
+  var: last_token_var
+- id: if
+  children:
+    - id: get
+      children: []
+      url: https://m2-keyvalueexample.load2.apifortress.com/token
+      var: payload
+      mode: json
+    - id: kv
+      key: token
+      action: set
+      object: payload.token
+    - id: kv
+      key: last_token
+      action: set
+      object: D.nowMillis()
+  expression: "!token_var || ! last_token_var || last_token_var+60000 < D.nowMillis()"
+- id: assert-exists
+  expression: token_var
+- id: post
+  children:
+    - id: header
+      name: Authorization
+      value: ${token_var}
+  url: https://m2-keyvalueexample.load2.apifortress.com/profile
+  var: profilePayload
+  mode: json
+```
+
+By running the test two times in a row (in less then 1 minute) you can notice that the first time, the test will execute the call that generates the token and the second time it will execute only the call that uses the token.
