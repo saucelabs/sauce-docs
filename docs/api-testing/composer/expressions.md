@@ -73,21 +73,18 @@ If you want to check the `size` attribute, you have to write:
 payload['@size']
 ```
 
+#### SOAP
+
 When you are working with SOAP API, the response might look something like this:
 
 ```xml
 <?xml version="1.0"?>
-
-<soap:Envelope
-xmlns:soap="http://www.w3.org/2003/05/soap-envelope/"
-soap:encodingStyle="http://www.w3.org/2003/05/soap-encoding">
-
-<soap:Body>
-  <m:GetUserResponse>
-    <m:Username>Tony Stark</m:Username>
-  </m:GetUserResponse>
-</soap:Body>
-
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope/" soap:encodingStyle="http://www.w3.org/2003/05/soap-encoding">
+	<soap:Body>
+		<m:GetUserResponse>
+			<m:Username>Tony Stark</m:Username>
+		</m:GetUserResponse>
+	</soap:Body>
 </soap:Envelope>
 ```
 
