@@ -349,6 +349,7 @@ module.exports = {
                 },
                 'dev/low-code/schedules',
                 'dev/low-code/reports',
+                'dev/low-code/databases',
                 'dev/low-code/nlp-reference',
                 'dev/low-code/variables',
                 'dev/low-code/troubleshooting',
