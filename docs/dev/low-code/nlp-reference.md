@@ -97,8 +97,19 @@ If a window is not displaying at the correct size, you can use the `Set screen s
 
 `Set...`
 
+- `Set screen to hd`
+- `Set screen to mobile phone`
+- `Set screen to tablet`
+- `Set screen to tablet landscape`
+- `Set screen to 1080`
+- `Set screen to 1080p`
+- `Set screen to 720`
+- `Set screen to 900`
+- `Set screen to Full HD`
 - `Set screen size - [width] * [height]`
 - `Set window size - [width] * [height]`
+
+**Example:** `Set screen size - 200 * 200`
 
 ## Click, Press, and Select
 
@@ -462,6 +473,38 @@ Files should be uploaded to the **Artifacts** section.
 - `Upload file to _css{“[selector]”}`
 - `Upload file to [text]`
 - `Upload file to {xpath: “[address]”}`
+
+## Date Support
+Get today's date in a given format, provided on the Data tab.
+
+{today, <format>}
+- "Enter Date" + data tab should have {today, dd/mm/yy}
+- "Enter Date" + data tab should have {today, mm/dd/yy}
+- "Enter Date" + data tab should have {today, yy/mm/dd}
+
+Relative Date support
+Support is also provided for additions of days/months/years etc. This should be provided in data
+tab in UI. In uploaded file this should be present in the test data columned
+
+For running a job which should use today's date
+● {Today, MM/dd/yyyy}
+
+2 days ago from now
+● {Today - 2{dd}, MM/dd/yyyy}undefined>2 days later from now: {Today + 2{dd}, MM/dd/yyyy}
+
+29
+
+1 month ago from now
+● {Today - 1{mm}, MM/dd/yyyy}
+
+1 month later from now
+● {Today + 1{mm}, MM/dd/yyyy}
+
+1 year ago from now
+● {Today - 1{yy}, MM/dd/yyyy}
+
+1 year later from now
+● {Today + 1{yy}, MM/dd/yyyy}
 
 ## Screenshot Actions
 
