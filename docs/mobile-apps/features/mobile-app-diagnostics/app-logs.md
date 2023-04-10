@@ -41,7 +41,7 @@ You can use the [regrex](https://regex101.com/) functionality to analyze your lo
 
 You can download the App Logs as a text file to save and share with Sauce Labs support for further analysis. This feature allows you to keep a record of the App Logs and use them for future reference or troubleshooting:
 
-<br/><img src={useBaseUrl('img/mobile-apps/app-logs-4.png')} alt="App Logs" width="700"/>
+<br/><img src={useBaseUrl('img/mobile-apps/app-logs-10.png')} alt="App Logs" width="700"/>
 
 
 You can also download the results using the API call below and send it to your development team:
