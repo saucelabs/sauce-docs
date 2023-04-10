@@ -477,10 +477,10 @@ Files should be uploaded to the **Artifacts** section.
 ## Date Support
 Get today's date in a given format, provided on the Data tab.
 
-{today, <format>}
-- "Enter Date" + data tab should have {today, dd/mm/yy}
-- "Enter Date" + data tab should have {today, mm/dd/yy}
-- "Enter Date" + data tab should have {today, yy/mm/dd}
+`{today, <format>}`
+- Enter Date + `{today, dd/mm/yy}`
+- Enter Date + `{today, mm/dd/yy}`
+- Enter Date + `{today, yy/mm/dd}`
 
 ### Relative Date support
 Support is also provided for additions of days/months/years etc. This should be provided on the Data tab. For uploaded files this information can be found in the Test Data column.
