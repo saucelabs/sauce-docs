@@ -16,10 +16,6 @@ Azure DevOps (formerly Visual Studio Team Services or VSTS) is a Microsoft produ
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 - An existing Azure DevOps pipeline
 
-:::note
-The Sauce Labs OnDemand plugin for Azure DevOps has been deprecated.
-:::
-
 ## Using Azure DevOps
 
 Follow the instructions below to integrate Sauce Labs testing into your Azure pipeline.

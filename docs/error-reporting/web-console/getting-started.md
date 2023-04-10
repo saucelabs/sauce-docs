@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-There are 4 key navigational components to help you analyze your error and crash data:
+The Backtrace web console includes 4 key navigational components to help you analyze your error and crash data:
 
 - Project selector - Use this to switch between various projects that are reporting crashes or errors.
 - Filters - Define your working set. Specify time frames and additional criteria to indicate which errors and fingerprints to analyze.
@@ -32,13 +32,25 @@ You can add filters identifying crashes from a certain version, a certain user, 
 
 #### Filter Operators
 
-By default, all search operators are case sensitive. If you want to search using case insensitivity, enter a regular expression or inverse regular expression within `/{your-search}/i` to invoke case insensitive search.
+By default, all search operators are case sensitive. If you want to search using case insensitivity, enter a regular expression or inverse regular expression with `/{your-search}/i` to invoke case insensitive search.
 
-For example, if you want to search for banana, Banana, or BaNaNa, you could enter `description regular-expression /banana/i` and any of those would be included.
+For example, to search for banana, Banana, or BaNaNa, enter `description regular-expression /banana/i`.
+
+### Query Builder
+
+The query builder provides a graphical user interface that allows you to easily create complex queries. The available attributes are grouped by category, have descriptive name, a description (if added), and also show available values.
+
+<img src={useBaseUrl('img/error-reporting/console-views/query-builder.png')} alt="Shows the Query Builder." />
+
+To use the Query builder:
+
+1. From the **Filter bar**, select **Open querybuilder**.
+1. In the Query builder, select an attribute, an operator, and a value.
+1. Select **Add**.
 
 ### Aggregation
 
-Aggregation Filters allows you to apply an additional filter on the results based on an aggregation, such as a unique count, or a minimum or maximum from a series of values. Let's take a look at some example questions you can ask with this feature:
+Aggregation Filters allow you to apply an additional filter on the results based on an aggregation, such as a unique count, or a minimum or maximum from a series of values. Let's take a look at some example questions you can ask with this feature:
 
 - "Show me crashes that have impacted at least 10 unique servers"
 - “Show me crashes that were likely introduced in version 2.1.0”
@@ -61,16 +73,38 @@ Depending on which view you are in, you have additional ways to manipulate the r
 
 ## Saved Views
 
-You can save your current queries for the Explore and Triage views and bookmark them for quick access. As as administrator, you can bookmark saved views for your team's projects.
-
-<img src={useBaseUrl('img/error-reporting/console-views/saved-views.png')} alt="Shows the list of saved views." width="300"/>
+Saved views allow you to quickly and easily access the data that is most important to you, whether you need to monitor specific error types or track errors across multiple releases.
 
 By default, every project includes bookmarked views, which include fingerprints over the past week, errors by version, errors by device model, and errors by type.
 
-You can access the bookmarked views from the View bar.
-
 <img src={useBaseUrl('img/error-reporting/console-views/bookmarked-views.png')} alt="Shows the bookmarked views that you can quickly access from the View bar." width="750"/>
 
+### Save a View
+
+You can also save your custom queries for the Explore and Triage views and bookmark them for quick access. As an administrator, you can bookmark saved views and share them across teams to collaborate more effectively.
+
+For example, you can create a view to see crashes that occurred on the Android platform and group them by device model, then save it to share with your team.
+
+To save your current view:
+
+1. From the **Triage** or **Explore** view, select **Save view**.
+1. In the **Save current view** pane, enter a descriptive name for the view.
+1. Select **Save**.
+
+<img src={useBaseUrl('img/error-reporting/console-views/save-current-view.png')} alt="Shows the Save current view pane." width="300"/>
+
+Your saved view will then appear under **My views** in the **Saved views** pane.
+
+### Access Saved Views
+
+To access saved views, from the View bar in **Triage** or **Explore** view, select **Open saved views**.
+
+From the **Saved views** pane, you can see the following:
+
+- **My views:** Shows your saved views.
+- **All:** Shows saved views created by any team member.
+
+<img src={useBaseUrl('img/error-reporting/console-views/saved-views.png')} alt="Shows the list of saved views." width="300"/>
 
 ## Console Use Cases
 
