@@ -482,29 +482,29 @@ Get today's date in a given format, provided on the Data tab.
 - "Enter Date" + data tab should have {today, mm/dd/yy}
 - "Enter Date" + data tab should have {today, yy/mm/dd}
 
-Relative Date support
-Support is also provided for additions of days/months/years etc. This should be provided in data
-tab in UI. In uploaded file this should be present in the test data columned
+### Relative Date support
+Support is also provided for additions of days/months/years etc. This should be provided on the Data tab. For uploaded files this information can be found in the Test Data column.
 
-For running a job which should use today's date
-● {Today, MM/dd/yyyy}
+Today's date:
+`{Today, MM/dd/yyyy}`
 
-2 days ago from now
-● {Today - 2{dd}, MM/dd/yyyy}undefined>2 days later from now: {Today + 2{dd}, MM/dd/yyyy}
+Two days ago:
+`{Today - 2{dd}, MM/dd/yyyy}undefined>`
 
-29
+Two days from now: 
+`{Today + 2{dd}, MM/dd/yyyy}`
 
-1 month ago from now
-● {Today - 1{mm}, MM/dd/yyyy}
+One month ago:
+`{Today - 1{mm}, MM/dd/yyyy}`
 
-1 month later from now
-● {Today + 1{mm}, MM/dd/yyyy}
+One month from now:
+`{Today + 1{mm}, MM/dd/yyyy}`
 
-1 year ago from now
-● {Today - 1{yy}, MM/dd/yyyy}
+One year ago:
+`{Today - 1{yy}, MM/dd/yyyy}`
 
-1 year later from now
-● {Today + 1{yy}, MM/dd/yyyy}
+One year from now:
+`{Today + 1{yy}, MM/dd/yyyy}`
 
 ## Screenshot Actions
 
