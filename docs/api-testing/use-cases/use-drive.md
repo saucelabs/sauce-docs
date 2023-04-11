@@ -17,7 +17,7 @@ You can use files stored in the Vault drive in your test in several ways. This g
 ## Using a File as Datasource
 
 A common scenario for using an external file in your test is when you have to generate a large number of different inputs inside your tests. In this case, it is difficult to add all your data inside the Input Sets because it would take a lot of time and often you might need to replace your data with a new set.
-In this case, the best solution is using an external file as Datasource for your tests.
+In this case, the best solution is using an external file as datasource for your tests.
 
 
 ### Step 1: Uploading the file in Vault Drive
