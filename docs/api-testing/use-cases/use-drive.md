@@ -20,7 +20,7 @@ A common scenario for using an external file in your test is when you have to ge
 In this case, the best solution is using an external file as Datasource for your tests.
 
 
-### Step 1: Uploading the file in the Vault Drive
+### Step 1: Uploading the file in Vault Drive
 
 Consider a scenario where an endpoint requires a city as parameter and returns the weather of that city. To make sure the response is always the expected one, a good practice is testing with as many cities as possible. In a scenario like this, it is not feasible to enter a list of cities as input sets.
 
