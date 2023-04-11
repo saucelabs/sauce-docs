@@ -159,7 +159,7 @@ The **Fact** component is also usable for disabling email notifications:
 
 <img src={useBaseUrl('img/api-testing/factDisableAlert.png')} alt="factDisableAlert.png" />
 
-You can use logic within the test to set the Fact component and use that to alter the email notification.
+You can use logic in the test to set the Fact component and use that to alter the email notification.
 
 As an example, you could say "IF the env is development, then disable emails for this test":
 
