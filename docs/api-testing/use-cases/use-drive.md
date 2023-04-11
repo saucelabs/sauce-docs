@@ -1,7 +1,7 @@
 ---
 id: use-drive
 title: Using a File in your Tests
-sidebar_label: Using File from Vault Drive
+sidebar_label: Using a File from Vault Drive
 description: 'How to use the files from the Drive in your tests'
 ---
 
