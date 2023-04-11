@@ -327,6 +327,15 @@ body {
 }
 
 h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family-sans-serif);
+}
+
+h1,
 .h1 {
     font-size: 42px;
     font-weight: 700;
@@ -1022,6 +1031,7 @@ table.code td:last-child {
 
 .DocSearch-Button-Placeholder {
     position: relative;
+    font-family: var(--font-family-sans-serif);
 }
 ul.dropdown__menu {
     max-height: 400px;
