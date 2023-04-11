@@ -58,3 +58,9 @@ By activating an environment here, you will be able to hit a different variable 
 ### no environment
 
 If **None** (**no environment**) is selected, the Test will run using the values written as inputs in the test and the variables saved in the **Vault**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/noEnv.png')} alt="result in tests" width="270"/>
+
+## More Information
+
+- [Using Environments](/api-testing/use-cases/using-environments/)
+- [Save a Variable in Vault](/api-testing/use-cases/vault-variable/)
+- [Schedule a Test](/api-testing/schedule-test/)
