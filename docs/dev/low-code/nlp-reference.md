@@ -336,8 +336,14 @@ Blocks can be used to loop through commands as many times as required.
 
 #### Example
 
-`begin block <block_name>{instruction1}{instruction2}...end block`
-`run ${block_name} for {number} times`
+```
+run ${block_name} for (number) times 
+begin block block_name
+enter username
+enter password
+click on login
+end block
+```
 
 To run through multiple data sets for input in each loop, use separate data files with multiple data. After uploading the data file, link it to the relevant test case. In the following example, each row of data will correspond to an iteration of the loop.
 
