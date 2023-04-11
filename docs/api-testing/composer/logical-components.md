@@ -45,7 +45,7 @@ Allows you to iterate over a collection of elements and execute the piece of cod
 
 <img src={useBaseUrl('img/api-testing/simple_each.png')} alt="one each"/>
 
-For **Each** legs collection checks if the nested `vector` item is an integer value.
+For **Each** legs collection, checks if the nested `vector` item is an integer value.
 
 ```json title="Legs Collection Example"
 {
