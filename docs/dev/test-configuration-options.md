@@ -337,6 +337,9 @@ Sets command timeout in seconds. As a safety measure to prevent Selenium crashes
 
 <p><small>| INTEGER |</small></p>
 
+<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceDBlue">Desktop</span></p>
+
+
 Sets idle test timeout in seconds. As a safety measure to prevent tests from running too long after something has gone wrong, we limit how long a browser can wait for a test to send a new command. This is set to 90 seconds by default and limited to a maximum value of 1000 seconds.
 
 ```java
