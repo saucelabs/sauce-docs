@@ -271,7 +271,7 @@ Using `Assert` will cause the test case to fail and stop at the failed step. Usi
 - `Verify {xpath: “[address]”} begins with [text] or begins with [text]`
 - `Verify {xpath: “[address]”} begins with [text] or ends with [text]`
 - `Verify {xpath: “[address]”} color is [#e01719]`<br/>
-  **Note:** Any CSS attribute value can be validated using the xpath of the element (width, height, font-family, text-align, font-size, display, color, background-color, etc.).<br/>
+  **Note:** Any CSS attribute value can be validated using the xpath of the element (width, height, font-family, text-align, font-size, display, color, or background-color).<br/>
   **Example:** `Verify {xpath: "[//img[@class='gb_Wa']"} color is [#e01719]`
 - `Verify {xpath: “[address]”} contains [text]`
 - `Verify {xpath: “[address]”} contains [text] or begins with [text]`
@@ -312,7 +312,7 @@ Conditional actions are executed if certain conditions are true, and can be used
 
 `if...`
 
-- `if {xpath: “[address]”} is visible, click on [exact attribute value]`
+- `if {xpath: “[address]”} exists, click on [exact attribute value]`
 - `if [condition], continue`
 - `if current url is [url], enter [text]`<br/>
   **Example:** `if current url is https://www.wikipedia.org/, click on English`
@@ -409,7 +409,7 @@ In an `if...else...` action, if a condition is true, a block of statements will 
 #### Example
 
 ```
-if {xpath: “//select[@id=’rolle’]”} is visible, run ${subscribe}
+if {xpath: “//select[@id=’rolle’]”} exists, run ${subscribe}
 else, run ${Help}
 Begin block Help
 click on “Help”
