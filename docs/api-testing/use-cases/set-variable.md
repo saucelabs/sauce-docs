@@ -258,3 +258,4 @@ For example, if you need to add a new product in your database, you can create t
 ```
 
 <img src={useBaseUrl('img/api-testing/set-template.png')} alt="Set template"/>
+<img src={useBaseUrl('img/api-testing/set-template-comment.png')} alt="Comment" width="700"/>

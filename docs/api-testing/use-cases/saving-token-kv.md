@@ -1,7 +1,7 @@
 ---
 id: saving-token-kv
 title: Saving a Token in a Key/Value Store
-sidebar_label: Saving Tokens in K/V Store
+sidebar_label: Saving Token in K/V Store
 description: Saving a Token in a Key/Value Store
 ---
 

@@ -408,8 +408,8 @@ These Key/Value pairs are temporary. They expire after 24 hours has elapsed sinc
 
 The Key/Value Store component has four methods available for use:
 
-- [**Set**](/api-testing/use-cases/key-value/#basic-workflow): creates a new key/value pair in the Key/Value store. The value is entered in the **Data** field.<br/><img src={useBaseUrl('img/api-testing/KeyValueSet.png')} alt="KeyValueSet.png" />
-- [**Load**](/api-testing/use-cases/key-value/#basic-workflow): recalls a value from the Key/Value store when provided with a key.<br/><img src={useBaseUrl('img/api-testing/KeyValueLoad.png')} alt="KeyValueLoad.png" />
+- [**Set**](/api-testing/use-cases/key-value/#basic-workflow-set-and-load-methods): creates a new key/value pair in the Key/Value store. The value is entered in the **Data** field.<br/><img src={useBaseUrl('img/api-testing/KeyValueSet.png')} alt="KeyValueSet.png" />
+- [**Load**](/api-testing/use-cases/key-value/#basic-workflow-set-and-load-methods): recalls a value from the Key/Value store when provided with a key.<br/><img src={useBaseUrl('img/api-testing/KeyValueLoad.png')} alt="KeyValueLoad.png" />
 - [**Push**](/api-testing/use-cases/key-value/#pushpop-workflow): adds a value to the end of an existent value **of the datatype "Array"** in the Key/Value store. If no such key exists, it will create a new array containing the passed in value.  The passed in value is entered in the **Data** field.<br/><img src={useBaseUrl('img/api-testing/KeyValuePush.png')} alt="KeyValuePush.png" />
 - [**Pop**](/api-testing/use-cases/key-value/#pushpop-workflow): removes a value from the end of an existent value **of the datatype "Array"** in the Key/Value store.<br/><img src={useBaseUrl('/img/api-testing/KeyValuePop.png')} alt="KeyValuePop.png" />
 

@@ -37,7 +37,7 @@ By configuring a Fact in the following way, you can add the environment value to
   value: ${env}
 ```
 
-### Example
+### Use Case: Setting Alert Environments
 
 1. In the **Input Set**, set the default environment as `staging`.
 
@@ -94,6 +94,7 @@ In this way, by default, the test will be executed against the `staging` environ
 6. **Publish** the test.
 
 7. From the Test list, **Run** the test.
+
    The test is meant to fail, so you will get the email notification with `staging` tag in the subject.
 
 8. Click the **Environments** dropdown list (defaults to **No environment**).
@@ -103,15 +104,15 @@ In this way, by default, the test will be executed against the `staging` environ
 10. Enter a name for your environment, for example `production`, then click **Confirm**.
 
 11. Click **Create variable**.
+
     - Key - for example `env`
     - Value - for example `production`
 
-<img src={useBaseUrl('img/api-testing/fact-examples/environment.png')} alt="set new environment" width="250"/>
+    <img src={useBaseUrl('img/api-testing/fact-examples/environment.png')} alt="set new environment" width="250"/>
 
 12. Click **Confirm**.
 
-13. **Run** again the test with the environment active.
-    You will get the email notification with `production` tag in the subject.
+13. **Run** again the test with the environment active: you will get the email notification with `production` tag in the subject.
 
 14. Edit the test.
 
@@ -129,23 +130,25 @@ In this way, by default, the test will be executed against the `staging` environ
 18. **Publish** the test.
 
 19. From the Test list, **Run** the test without any environment.
+
     This time the test will pass, so you will get the email notification that resolves the incident with `staging` tag in the subject.
 
 20. Select the `production` environment.
 
 21. **Run** the test.
+
     The test will pass again and you will get the email notification that resolves the incident with `production` tag in the subject.
 
-:::note
+:::note Schedule with Environments
 In the example, we run the test manually but it works in the same way when you schedule it:
 
 - Add one schedule without adding any variable in the override section: in this way, it will be executed with `staging` value as environment.
-- Add one schedule adding `env` as key and `production` as value in the override section: in this way, the test will be executed with `production` value as environment.
+- In the Override section, add one schedule adding `env` as key and `production` as value: in this way, the test will be executed with `production` value as environment.
   :::
 
 ## Disabling Email Notifications
 
-A second use case with the **Fact** is disabling email notifications for the test:
+The **Fact** component is also useful for disabling email notifications:
 
 ```yaml
   - id: fact
@@ -166,7 +169,7 @@ As an example, you could say "IF the env is development, then disable emails for
 `Identifier` must be equal to `disable_alerts`.
 :::
 
-### Example
+### Use Case: Disabling Email Notifications
 
 1. In the composer, add the **Fact** component.
 
@@ -224,17 +227,17 @@ In the example, we run the test manually but it works in the same way when you s
 
 ## Setting Email Notification Thresholds
 
-Another use-case of the **Fact** component is set an email alert threshold. If you want a test to fail more than once before an email is sent, a Fact called `mail_threshold` can be set in the test:
+You can use the **Fact** component to set the email alert threshold: if you want a test to fail more than once before an email is sent, a Fact called `mail_threshold` can be set in the test:
 
 <img src={useBaseUrl('img/api-testing/factMultiFailure.png')} alt="factMultiFailure.png" />
 
 This means the test will need to fail twice in a row before an email alert is sent.
 
-Given that this can be configured within the test, it offers all the flexibility provided by conditional statements, such as an IF condition on the environment the test is running upon:
+Given that this can be configured within the test, it offers all the flexibility provided by conditional statements, such as an **If** condition on the environment the test is running upon:
 
 <img src={useBaseUrl('img/api-testing/factMultiFailure2.png')} alt="factMultiFailure2.png" />
 
-### Example
+### Use Case: Setting Email Notification Thresholds
 
 1. In the composer, add the **Fact** component.
 
@@ -267,11 +270,9 @@ Given that this can be configured within the test, it offers all the flexibility
 
 4. **Publish** the test.
 
-5. From the Test list, **Run** the test twice in a row.
-   You will not receive any email notification.
+5. From the Test list, **Run** the test twice in a row: you will not receive any email notification.
 
-6. **Run** the test one more time.
-   You reached the threshold value therefore you will receive the email notification.
+6. **Run** the test one more time: you reached the threshold value therefore you will receive the email notification.
 
 :::note
 In the example, we run the test manually but it works in the same way when you schedule it.
