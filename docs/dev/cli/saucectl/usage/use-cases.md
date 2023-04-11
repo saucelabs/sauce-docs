@@ -151,7 +151,7 @@ At this time, these proxy settings are not supported for Playwright.
 Set `HTTP_PROXY` and `HTTPS_PROXY` environment variables as specified above. All requests will go through the specified proxy server.
 
 :::note
-Authenticated proxies are supported too.
+Authenticated proxies are also supported.
 :::
 
 ### Docker Proxy Considerations
