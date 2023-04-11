@@ -152,7 +152,7 @@ Use test names to customize your testing experience:
 
 - Add descriptive names to your tests to quickly identify your findings.
 - Keep track of tested steps by adding details to test names.
-- Easily rename your tests to reflect JIRA tickets or other related tasks.
+- Easily rename your tests to reflect Jira tickets or other related tasks.
 
 :::note LIMITATIONS
 This feature has a constraint on the maximum allowable length of the test name, which is limited to 255 characters. The utilization of emojis is not supported in the test name. 
