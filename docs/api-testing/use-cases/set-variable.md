@@ -196,7 +196,7 @@ This mode is the most advanced way to create your variables. There are two diffe
 
 #### Lang: Javascript
 
-In this mode you can create your variable by writing a Javascript script in the `Body` field. It can be a complete script with variable declarations or loops.
+In this mode you can create your variable by writing a JavaScript script in the `Body` field. It can be a complete script with variable declarations or loops.
 
 For example, you have a JWT token stored in the `token` variable and we need to decode it and return the JSON payload it was generated from:
 
