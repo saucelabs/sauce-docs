@@ -200,7 +200,7 @@ Parsing the file produces an array of items. You can use the `pick(n)` functiona
 
 #### (Optional) Saving the Value in a Variable
 
-Optionally, you can save each value in a variable, in this way you can assign the variable name you prefer. For this step, you need to separate every key/value pair in the row, to be able later to add them in the right position. To do so, you need to identify each column in the row using their index. The first column is index 0, the second one is index 1,...
+Optionally, you can save each value in a variable, in this way you can assign the variable name you prefer. For this step, you need to separate every key/value pair in the row so that you can later to add them in the right position. To do so, you need to identify each column in the row by its index. The first column has an index value of 0, the second column has an index of 1,  and so forth. ```
 
 As a child component, add the **Set(variable)** component:
 
