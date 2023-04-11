@@ -51,7 +51,7 @@ Once the file is in the Vault drive, you can create your test.
 
 1. Add the [**File DataSource**](/api-testing/composer/io-components/#file-datasource) component.
 1. **Select** the file you uploaded in the **Drive**.
-1. Enter the **Variable**, then **Save Changes**.
+1. Enter the **Variable**, then click **Save Changes**.
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/fileDataSource.png')} alt="File data source component"/>
 
