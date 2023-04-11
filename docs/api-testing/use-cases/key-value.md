@@ -252,7 +252,7 @@ The **Pop** method removes the last value in an array and return the value itsel
 
 <img src={useBaseUrl('img/api-testing/kv-examples/final-report.png')} alt="Test Report" />
 
-The report for the full workflow, shows that you first assigned an array to the Key/Value Store with **Set** method, then added a value to that array with **Push** and then removed the value with **Pop**. Each time there's a change, you used **Load** to retrieve an updated value from the Key/Value Store. the last two comments show the final state of the array in the Key/Value Store and the popped value itself. The popped value will only be available within the scope of this test run. The array in the Key/Value Store will remain retrievable and until 24 hours after it's most recent modification.
+The report for the full workflow, shows that you first assigned an array to the Key/Value Store with **Set** method, then added a value to that array with **Push** and then removed the value with **Pop**. Each time there's a change, you used **Load** to retrieve an updated value from the Key/Value Store. the last two comments show the final state of the array in the Key/Value Store and the popped value itself. The popped value will only be available in the scope of this test run. The array in the Key/Value Store will remain retrievable and until 24 hours after it's most recent modification.
 
 :::note
 Use Set, Push, and Pop to reset the timer. Load does not reset the timer.
