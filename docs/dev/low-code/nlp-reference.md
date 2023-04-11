@@ -74,6 +74,7 @@ When an alert window is encountered, a variable will be created win variables as
 - `Switch to alert and click on ok`
 - `Switch to alert and click on stay`
 - `Switch to alert and save message as alert_set1 and click ok`
+- `Switch to alert and enter "Please enter your name" and click on ok`
 
 `Switch to confirm...`
 
