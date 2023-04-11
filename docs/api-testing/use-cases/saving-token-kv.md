@@ -7,7 +7,7 @@ description: Saving a Token in a Key/Value Store
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-One of the common scenarios you can face when you are working with APIs is authentication. Most of the time you call the endpoint that lets you authenticate and then use the token in the following calls. Sometimes, there may be cases where you can't call the endpoint every time, hence you need to save the token in a variable and use it more times. If you have only one test, you can reuse the same token easily. What happens if you need it in more tests inside your project or across the whole organization? The Vault is not the solution because it contains static values and you have to manually update the value every time. Here is when the Key/Value store can help.
+One of the common scenarios you can face when you are working with APIs is authentication. Most of the time you call the endpoint that lets you authenticate and then use the token in the following calls. Sometimes, there may be cases where you can't call the endpoint every time, hence you need to save the token in a variable and use it more times. If you have only one test, you can reuse the same token. What happens if you need it in more tests inside your project or across the whole organization? The Vault is not the solution because it contains static values and you have to manually update the value every time. Here is when the Key/Value store can help.
 
 ## What You'll Need
 
