@@ -214,7 +214,7 @@ This example saves the `userId`. If you want to save every value in a variable, 
 
 #### Adding the Request
 
-You can add the request to the account endpoint, by adding all the values in the request body.
+You can add the request to the account endpoint by adding all the values in the request body.
 
 1. Add the **POST** component:
    - URL - for example `https://eovt6kylqex64iz.m.pipedream.net/account`
