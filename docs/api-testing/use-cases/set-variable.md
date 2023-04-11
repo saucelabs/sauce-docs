@@ -192,7 +192,7 @@ It will return the following object:
 
 ## Mode: Language
 
-This mode is the most advanced way to create your variables. There are two different options available: `Javascript` and `Template`.
+This mode is the most advanced way to create your variables. The available options are: `Javascript` and `Template`.
 
 #### Lang: Javascript
 
