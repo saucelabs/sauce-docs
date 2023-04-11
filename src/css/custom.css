@@ -423,7 +423,8 @@ p {
 .box7 img,
 .box8 img,
 .box9 img,
-.box10 img {
+.box10 img,
+.box11 img {
     margin-top: 16px;
 }
 
@@ -483,6 +484,12 @@ p {
 .box10 {
     grid-column: 2;
     grid-row: 5;
+    padding: 8px;
+}
+
+.box11 {
+    grid-column: 1;
+    grid-row: 6;
     padding: 8px;
 }
 
