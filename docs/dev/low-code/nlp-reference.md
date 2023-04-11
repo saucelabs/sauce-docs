@@ -467,13 +467,15 @@ In an `if...continue...` action, when the `if` condition is satisfied, the contr
 
 ## Upload Actions
 
-Files should be uploaded to the **Artifacts** section.
+Files should be uploaded to the **Artifacts** section and attached to the test case.
 
 `Upload...`
 
 - `Upload file to _css{“[selector]”}`
 - `Upload file to [text]`
 - `Upload file to {xpath: “[address]”}`
+
+<img src={useBaseUrl('/img/dev/low-code/upload-file-to-example.png')} alt="An example of an upload file action"/>
 
 ## Date Support
 Get today's date in a given format, provided on the Data tab.
