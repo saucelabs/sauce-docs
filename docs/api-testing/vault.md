@@ -124,3 +124,4 @@ To delete multiple files, select the checkbox next to the files, then click **De
 - [Build an Integration Test](/api-testing/use-cases/integration-test/)
 - [Save a Variable in Vault](/api-testing/use-cases/vault-variable/)
 - [Creating a Snippet](/api-testing/use-cases/vault-snippet/)
+- [Using File from the Drive](/api-testing/use-cases/use-drive/)
