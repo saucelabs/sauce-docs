@@ -98,7 +98,7 @@ Next, you can add the request to the weather endpoint, adding the variable as qu
 1. Add a **Query Param** as child component:
    - Name - for example `city`
    - Value - for example `${currentCity}`
-1. **Save Changes**.
+1. Click **Save Changes**.
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/get-request.png')} alt="Add the GET request"/>
 
