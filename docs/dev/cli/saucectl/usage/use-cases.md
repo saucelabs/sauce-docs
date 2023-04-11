@@ -148,7 +148,7 @@ At this time, these proxy settings are not supported for Playwright.
 
 `saucectl` supports going through a proxy to access Sauce Labs API.
 
-Set `HTTP_PROXY` and `HTTPS_PROXY` environment variables, then all requests will go through the specified proxy server.
+Set `HTTP_PROXY` and `HTTPS_PROXY` environment variables as specified above. All requests will go through the specified proxy server.
 
 :::note
 Authenticated proxies are supported too.
