@@ -327,25 +327,31 @@ body {
 }
 
 h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family-sans-serif);
+    font-weight: 400;
+}
+
+h1,
 .h1 {
-    font-size: 42px;
-    font-weight: 700;
+    font-size: 48px;
 }
 h2,
 .h2 {
-    font-size: 24px;
+    font-size: 44px;
     margin-top: 44px;
-    font-weight: 700;
 }
 h3,
 .h3 {
-    font-size: 20px;
-    font-weight: 900;
+    font-size: 24px;
 }
 h4,
 .h4 {
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 20px;
 }
 h5,
 .h5 {
@@ -355,12 +361,10 @@ h5,
 h6,
 .h6 {
     font-size: 14px;
-    font-weight: normal;
 }
 
 p {
-    font-size: 16px;
-    font-weight: normal;
+    font-size: 18px;
 }
 
 .cli {
@@ -502,6 +506,7 @@ p {
     transition: 0.3s;
     border-radius: 20px;
     background-color: var(--neutral-100);
+    margin-bottom: 1.5rem;
 }
 
 .card:hover {
@@ -782,6 +787,11 @@ html[data-theme="dark"] .hero--primary {
     text-align: left;
 }
 
+.hero__title {
+    font-size: 64px;
+    font-weight: 400;
+}
+
 .hero__popular-searches {
     font-size: 12px;
     font-weight: 600;
@@ -1022,6 +1032,7 @@ table.code td:last-child {
 
 .DocSearch-Button-Placeholder {
     position: relative;
+    font-family: var(--font-family-sans-serif);
 }
 ul.dropdown__menu {
     max-height: 400px;
