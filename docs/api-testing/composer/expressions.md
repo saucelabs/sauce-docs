@@ -73,7 +73,7 @@ If you want to check the `size` attribute, you have to write:
 payload['@size']
 ```
 
-#### SOAP
+#### Simple Object Access Protocol (SOAP)
 
 When you are working with SOAP API, the response might look something like this:
 
