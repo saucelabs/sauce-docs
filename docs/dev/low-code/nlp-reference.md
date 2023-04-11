@@ -312,7 +312,7 @@ Conditional actions are executed if certain conditions are true, and can be used
 
 `if...`
 
-- `if {xpath: “[address]”} is visible, click on [exact attribute value]`
+- `if {xpath: “[address]”} exists, click on [exact attribute value]`
 - `if [condition], continue`
 - `if current url is [url], enter [text]`<br/>
   **Example:** `if current url is https://www.wikipedia.org/, click on English`
@@ -403,7 +403,7 @@ In an `if...else...` action, if a condition is true, a block of statements will 
 #### Example
 
 ```
-if {xpath: “//select[@id=’rolle’]”} is visible, run ${subscribe}
+if {xpath: “//select[@id=’rolle’]”} exists, run ${subscribe}
 else, run ${Help}
 Begin block Help
 click on “Help”
