@@ -89,7 +89,7 @@ As a child component, add the **Set(variable)** component:
 
 #### Adding the Request
 
-Next, you can add the request to the weather endpoint, adding the variable as query param.
+Next, you can add the request to the weather endpoint by adding the variable as query param.
 
 1. Add the **GET** component:
    - URL - for example `https://eope670ouz611xy.m.pipedream.net/weather`
