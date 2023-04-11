@@ -118,7 +118,7 @@ This is the most advanced way to create your variables. There are two different 
 
 - #### Lang: Template
 
-  In this mode you can create your own template in the same way as it is done for Request Body, the advantage here is that you can print the variable in order to check if all is correct (Body cannot be printed).
+  In this mode you can create your own template in the same way as it is done for Request Body, the advantage here is that you can print the variable to check if all is correct (Body cannot be printed).
 
 You can learn more about this mode by checking out [the example](/api-testing/use-cases/set-variable/#mode-language).
 
