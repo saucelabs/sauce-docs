@@ -1,7 +1,7 @@
 ---
 id: vault
 title: Adding Reusable Variables, Snippets, and Files in the Vault
-sidebar_label: Vault, Variables, Snippets, Files
+sidebar_label: Variables, Snippets, Files
 description: 'The Vault allows you to store variables, code snippets, and files that can be used across an entire project.'
 ---
 
@@ -124,3 +124,4 @@ To delete multiple files, select the checkbox next to the files, then click **De
 - [Build an Integration Test](/api-testing/use-cases/integration-test/)
 - [Save a Variable in Vault](/api-testing/use-cases/vault-variable/)
 - [Creating a Snippet](/api-testing/use-cases/vault-snippet/)
+- [Using File from the Drive](/api-testing/use-cases/use-drive/)
