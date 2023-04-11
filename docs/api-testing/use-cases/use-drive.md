@@ -71,7 +71,7 @@ Add the **Parse** component:
 Parsing the file produces an array of items. You can use the `pick(n)` functionality to create a random subset of the array.
 
 1. Add the **Each** component.
-1. In the Expression field, enter `<variable_name>.pick(10)`.
+1. In **Expression**, enter `<variable_name>.pick(10)`.
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/each-csv.png')} alt="Add the each component"/>
 
