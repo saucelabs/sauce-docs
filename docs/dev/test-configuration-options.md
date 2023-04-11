@@ -335,8 +335,6 @@ Sets command timeout in seconds. As a safety measure to prevent Selenium crashes
 
 ### `idleTimeout`
 
-<p><small>| INTEGER |</small></p>
-
 <p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceDBlue">Desktop</span></p>
 
 
