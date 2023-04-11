@@ -136,7 +136,7 @@ In Code view, it looks like this:
 In the above example the .csv file contains only one column.
 Next, consider a scenario where the .csv file contains more columns and you have to use only some values from a row or you have to use all the values but not in bulk. A common scenario is when you use the file to generate the Body in your request.
 
-### Step 1: Uploading the File in the Vault Drive
+### Step 1: Uploading the File in Vault Drive
 
 For this new example, consider a scenario where you have to create an account and you need to provide personal data as request body. In a scenario like this, especially in development phase, it is common to have a file with some data allowed by the system.
 
