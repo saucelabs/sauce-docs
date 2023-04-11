@@ -262,7 +262,7 @@ Generates fake data.
 - `F.domainWord()` - Generates a word
 - `F.domainSuffix()` - Generates a suffix
 - `F.url()` - Generates a URL
-- `F.password(<minimumLength,maximumLength,includeUppercase,includeSpecial,includeDigit>)` - Generates a password. For example, `password(5,10,true,false, true)`.
+- `F.password(<minimumLength,maximumLength,includeUppercase,includeSpecial,includeDigit>)` - Generates a password. For example, `F.password(5,10,true,false, true)`.
 
 #### Credit Card
 
@@ -283,8 +283,8 @@ Generates fake data.
 
 #### Random Numbers
 
-- `F.integer(<min,max>)` - Generates an integer. For example, `integer(2,20)`
-- `F.decimal(<min,max,maxdecimals>)` - Generates a decimal number. For example, `integer(0,2,2)`
+- `F.integer(<min,max>)` - Generates an integer. For example, `F.integer(2,20)`
+- `F.decimal(<min,max,maxdecimals>)` - Generates a decimal number. For example, `F.decimal(0,2,2)`
 - `F.uuid()` - Generates a unique identifier
 
 #### Boolean
