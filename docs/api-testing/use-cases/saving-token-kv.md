@@ -124,7 +124,7 @@ The final test looks like:
   mode: json
 ```
 
-### Using the Key/Value in other tests
+### Using the Key/Value in Other Tests
 
 To use the Key/Value Store in other tests in the same Organization, you have to first load the value from the Key/Value Store and then use it.
 
