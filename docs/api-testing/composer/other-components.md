@@ -469,7 +469,7 @@ The Key/Value Store component has four methods available for use:
 ## More Information
 
 - [Setting up Variables](/api-testing/use-cases/set-variable/)
-- [Improving Email Notifications](api-testing/use-cases/fact/)
+- [Improving Email Notifications](/api-testing/use-cases/fact/)
 - [Variables, Snippets and Files](/api-testing/vault/)
 - [Basic workflow using Key/Value Store](/api-testing/use-cases/key-value/)
 - [Saving a Token in a Key/Value Store](/api-testing/use-cases/saving-token-kv/)
