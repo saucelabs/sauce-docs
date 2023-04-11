@@ -117,7 +117,7 @@ Will count the number of instances of `HotelSummary`.
 
 ### Expressions "Everywhere"
 
-Expressions are automatically evaluated in the **Expression** field for logical components, but can also be introduced in other fields, such as "value", with a specific notation.
+Expressions are automatically evaluated in the **Expression** field, but can also be introduced in other fields, such as `value`, with a specific notation.
 
 In this example, we compare the actual size of the collection with the "size" attribute, by enclosing the expression within `${ .. }`. The "type" attribute ensures the comparison will happen with a numeric comparator, rather than string.<br/><img src={useBaseUrl('img/api-testing/assert-equals-updated.png')} alt="assert Equals" />
 
@@ -134,7 +134,7 @@ This is the main extension. It supports many useful functions.
 - **exists(object : Object) : Boolean :** an XML and JSON existence state is different by definition. Use this in an "if statement" if a test should work both with JSON and XML
 - **contains(object : Object, substring : String) : Boolean :** returns true whether the string version of "object" contains the "substring" sub-string.
 
-  ```groovy
+  ```js
   WSUtil.contains(payload.fruit.name, 'banana')
   ```
 
@@ -176,13 +176,13 @@ Utility functions for numbers.
 
 - **random(min: Int, max: Int) : Int** : generates a random integer number between min and max.
 
-  ```groovy
+  ```js
   N.random(10,30)
   ```
 
 - **random(min: Int, max: Int, quantity: Int) : List :** generates a list of random numbers
 
-  ```groovy
+  ```js
   N.random(10,30,5)
   ```
 
