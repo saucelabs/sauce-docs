@@ -13,7 +13,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::caution The Sauce Labs Slack app is currently under maintenance and not available for use. We are actively working on this and looking at bringing a new Slack App experience to our customers. :::
+:::caution 
+The Sauce Labs Slack app is currently under maintenance and not available for use. We are actively working on this and looking at bringing a new Slack App experience to our customers. 
+:::
 
 The Sauce Labs Slack app allows you to easily share your test results in Slack. You can:
 
