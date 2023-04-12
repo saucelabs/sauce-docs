@@ -9,19 +9,53 @@
 
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-/*
-// Google backup import as link in html
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-*/
+@font-face {
+    font-family: "Aeonik";
+    src: url("../fonts/Aeonik-Full-Family-Web/Aeonik-Regular.woff2")
+        format("woff2");
+    font-weight: regular;
+}
+
+@font-face {
+    font-family: "Aeonik-Medium";
+    src: url("../fonts/Aeonik-Full-Family-Web/Aeonik-Medium.woff2")
+        format("woff2");
+    font-weight: medium;
+}
+
+@font-face {
+    font-family: "AeonikFono-Regular";
+    src: url("../fonts/AeonikFono-Full-Family-Web/AeonikFono-Regular.woff2")
+        format("woff2");
+    font-weight: regular;
+}
+
+@font-face {
+    font-family: "AeonikFono-Medium";
+    src: url("../fonts/AeonikFono-Full-Family-Web/AeonikFono-Medium.woff2")
+        format("woff2");
+    font-weight: medium;
+}
+
+@font-face {
+    font-family: "AeonikMono-Regular";
+    src: url("../fonts/AeonikMono-Full-Family-Web/AeonikMono-Regular.woff2")
+        format("woff2");
+    font-weight: regular;
+}
+
+@font-face {
+    font-family: "AeonikMono-Medium";
+    src: url("../fonts/AeonikMono-Full-Family-Web/AeonikMono-Medium.woff2")
+        format("woff2");
+    font-weight: medium;
+}
 
 :root {
-    --font-family-sans-serif: "Aeonik Fono Air", "Aeonik Mono Air", "DM Sans",
-        sans-serif;
+    --font-family-sans-serif: "AeonikFono-Regular", sans-serif;
     --font-family-serif: Georgia, "Times New Roman", Times, serif;
-    --font-family-monospace: "DM Mono", monospace;
-    --font-family-base: --font-family-sans-serif;
-    --font-family-code: "DM Mono", monospace;
+    --font-family-monospace: "AeonikMono-Regular", monospace;
+    --font-family-base: "Aeonik", sans-serif;
+    --font-family-code: "AeonikMono-Regular", monospace;
     --font-size-base: 14px;
 }

@@ -1118,6 +1118,7 @@ module.exports = {
                         'api-testing/use-cases/vault-variable',
                         'api-testing/use-cases/saving-token-kv',
                         'api-testing/use-cases/set-variable',
+                        'api-testing/use-cases/use-drive',
                         'api-testing/use-cases/using-environments',
                         'api-testing/use-cases/working-with-headers',
                     ],
