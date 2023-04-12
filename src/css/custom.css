@@ -323,7 +323,7 @@ html[data-theme="dark"] .navbar img {
 
 /* font */
 body {
-    font-family: var(--font-family-sans-serif);
+    font-family: var(--font-family-base);
 }
 
 h1,
