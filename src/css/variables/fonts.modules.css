@@ -10,6 +10,20 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 @font-face {
+    font-family: "Aeonik";
+    src: url("../fonts/Aeonik-Full-Family-Web/Aeonik-Regular.woff2")
+        format("woff2");
+    font-weight: regular;
+}
+
+@font-face {
+    font-family: "Aeonik-Medium";
+    src: url("../fonts/Aeonik-Full-Family-Web/Aeonik-Medium.woff2")
+        format("woff2");
+    font-weight: medium;
+}
+
+@font-face {
     font-family: "AeonikFono-Regular";
     src: url("../fonts/AeonikFono-Full-Family-Web/AeonikFono-Regular.woff2")
         format("woff2");
@@ -41,7 +55,7 @@
     --font-family-sans-serif: "AeonikFono-Regular", sans-serif;
     --font-family-serif: Georgia, "Times New Roman", Times, serif;
     --font-family-monospace: "AeonikMono-Regular", monospace;
-    --font-family-base: --font-family-sans-serif;
+    --font-family-base: "Aeonik", sans-serif;
     --font-family-code: "AeonikMono-Regular", monospace;
     --font-size-base: 14px;
 }
