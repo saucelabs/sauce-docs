@@ -122,7 +122,7 @@ values={[
 
 ### Docker Runner
 
-Below are the frameworks supported on the Docker Runner. Browser support for each framework is based on the Sauce Labs Docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available release notes.
+Below are the frameworks supported on the Docker Runner.
 
 <Tabs
 groupId="platforms"
@@ -138,14 +138,14 @@ values={[
 
 [Cypress on Sauce Docs](/web-apps/automated-testing/cypress/)
 
-Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases).
+Browser support is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [Sauce Cypress Runner release notes](https://github.com/saucelabs/sauce-cypress-runner/releases).
 
 </TabItem>
 <TabItem value="playwright">
 
 [Playwright on Sauce Docs](/web-apps/automated-testing/playwright/)
 
-Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-playwright-runner).
+Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [Sauce Playwright Runner release notes](https://github.com/saucelabs/sauce-playwright-runner).
 
 </TabItem>
 
@@ -153,7 +153,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 [Puppeteer on Sauce Docs](/web-apps/automated-testing/puppeteer/)
 
-Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases).
+Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [Sauce Puppeteer Runner release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases).
 
 </TabItem>
 
@@ -161,7 +161,7 @@ Browser support for each framework is based on the Sauce Labs docker images prov
 
 [TestCafe on Sauce Docs](/web-apps/automated-testing/testcafe/)
 
-Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases).
+Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [Sauce TestCafe Runner release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases).
 
 </TabItem>
 </Tabs>
