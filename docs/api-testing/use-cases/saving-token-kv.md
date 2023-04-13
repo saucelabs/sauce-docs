@@ -276,4 +276,4 @@ The test looks like:
   mode: json
 ```
 
-By running the test two times in a row (in less than one minute) you can notice that the first time, the test will execute the call that generates the token and the second time it will execute only the call that uses the token.
+By running the test two times in a row (in less than one minute) you can notice that the first time, the test will perform the call that generates the token and the second time it will execute only the call that uses the token.
