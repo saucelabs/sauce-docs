@@ -113,7 +113,7 @@ In this way, by default, the test will be executed against the `staging` environ
 
 12. Click **Confirm**.
 
-13. **Run** again the test with the environment active: you will get the email notification with `production` tag in the subject.
+13. **Run** the test with the environment active: you will get the email notification with the `production` tag in the subject.
 
 14. Edit the test.
 
