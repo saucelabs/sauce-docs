@@ -226,7 +226,7 @@ The **Pop** method removes the last value in an array and return the value itsel
 
    - Comment - for example `${kvprods}`
 
-   This will print out the value so you can see the changes on the test report.
+   This will print out the final state of the array in the K/V Store so you can see the changes on the test report.
 
 8. **Save Changes**.
 
