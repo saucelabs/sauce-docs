@@ -40,7 +40,7 @@ By configuring a Fact in the following way, you can add the environment value to
 
 ### Use Case: Setting Alert Environments
 
-1. From within the Composer, In the **Input Set**, set the default environment as `staging`.
+1. From inside the Composer, In the **Input Set**, set the default environment as `staging`.
 
 <img src={useBaseUrl('img/api-testing/fact-examples/set-environment.png')} alt="set environment" width="450" />
 
