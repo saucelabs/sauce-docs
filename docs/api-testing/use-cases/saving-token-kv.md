@@ -49,7 +49,7 @@ In this example, you learn how to save a token in the Key/Value Store and then u
 
    This step calls the endpoint that generates the token.
 
-5. **Save Changes**.
+5. Click **Save Changes**.
 
 6. **Add Child Component** for the **If** and then, add the **Key/Value Store** component.
 
