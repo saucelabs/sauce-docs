@@ -1113,11 +1113,12 @@ module.exports = {
                         'api-testing/use-cases/vault-snippet',
                         'api-testing/use-cases/auth-token',
                         'api-testing/use-cases/dynamic-dates',
-                        'api-testing/use-cases/generate-test-data',
+                        'api-testing/use-cases/generate-test-data'
                         'api-testing/use-cases/fact',
                         'api-testing/use-cases/vault-variable',
                         'api-testing/use-cases/saving-token-kv',
                         'api-testing/use-cases/set-variable',
+                        'api-testing/use-cases/vault-variable',
                         'api-testing/use-cases/use-drive',
                         'api-testing/use-cases/using-environments',
                         'api-testing/use-cases/working-with-headers',
