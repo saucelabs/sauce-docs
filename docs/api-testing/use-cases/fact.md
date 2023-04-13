@@ -207,7 +207,7 @@ As an example, you could say "IF the env is development, then disable emails for
     
  The notifications are disabled, so you won't receive an email notification.
 
-6. Edit the test and change the value for **Fact** from `true` to `false`.
+6. Double-click on the test to edit it and change the value for **Fact** from `true` to `false`.
 
 <img src={useBaseUrl('img/api-testing/fact-examples/disable-alerts-false.png')} alt="disable alerts false" />
 
