@@ -176,7 +176,7 @@ In this step, you load the modified data into the test from the Key/Value Store.
 
 This will print out the value so you can see the changes on the test report.
 
-15. **Save Changes**.
+15. Click **Save Changes**.
 
 16. **Run** the test.
 
