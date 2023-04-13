@@ -218,7 +218,7 @@ The **Pop** method removes the last value in an array and return the value itsel
 
    - Comment - for example `${popped}`
 
-   This will print out the value so you can see the changes on the test report.
+   This will print out the popped value so you can see it on the test report.
 
 6. **Save Changes**.
 
