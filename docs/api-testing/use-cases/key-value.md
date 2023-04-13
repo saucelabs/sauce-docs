@@ -107,7 +107,7 @@ In this step, you will **Push** the data onto the array.
 
    <img src={useBaseUrl('img/api-testing/kv-examples/get-request.png')} alt="get request" />
 
-2. **Save Changes**.
+2. Click **Save Changes**.
 
 3. Click **Add Child Component**, then add the **Request Header** to the request.
 
