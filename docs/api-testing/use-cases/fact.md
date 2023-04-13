@@ -98,7 +98,7 @@ In this way, by default, the test will be executed against the `staging` environ
 
    The test is meant to fail, so you will get the email notification with `staging` tag in the subject.
 
-8. Click the **Environments** dropdown list (defaults to **No environment**).
+8. Click **Environments** (defaults to **No environment**).
 
 9. Select **Add item**.
 
