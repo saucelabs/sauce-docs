@@ -216,7 +216,7 @@ return json
 
 <img src={useBaseUrl('img/api-testing/set-javascript.png')} alt="Set javascript"/>
 
-That’s producing the following JSON:
+That will produce the following JSON:
 
 ```json
 {
