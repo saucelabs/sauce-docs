@@ -215,7 +215,7 @@ This component allows you to parse a string into structured data, using one of t
 
 #### Examples
 
-We set a variable (which will be a plain string) as a list of colors.
+Set a variable (which will be a plain string) as a list of colors.
 
 <img src={useBaseUrl('img/api-testing/parseComponentUI_variable.png')} alt="Parse component variable"/>
 
