@@ -138,7 +138,7 @@ In this step, you will **Push** the data onto the array.
 
    In this step, you retrieve the Key/Value pair from the store. In this example, we assign the retrieved value to the variable `kvprods`.
 
-8. **Save Changes**.
+8. Click **Save Changes**.
 
 9. Add a **Comment** component.
 
