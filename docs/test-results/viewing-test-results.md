@@ -53,7 +53,7 @@ To view automated test results:
 
 ### Filtering and Searching Automated test Results
 
-If you have set up your tests to report whether they have passed or failed, those results will be listed on the automated builds or automated test results page. Once the results have been logged to the page, you can filter the results. You can also search in the job name to narrow the results.
+If you have set up your tests to report whether they have passed or failed, those results will be listed on the automated builds or automated test results page. Once the results have been logged to the page, you can filter the results. You can also search by test name to narrow the results.
 
 <img src={useBaseUrl('img/test-results/test-results-auto-filters.png')} alt="Automated test results filters" width="750"/>
 
