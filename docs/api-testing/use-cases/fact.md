@@ -172,7 +172,7 @@ As an example, you could say "IF the env is development, then disable emails for
 
 ### Use Case: Disabling Email Notifications
 
-1. In the composer, add the **Fact** component.
+1. In the Composer, add the **Fact** component.
 
 <img src={useBaseUrl('img/api-testing/factDisableAlert.png')} alt="factDisableAlert.png" />
 
