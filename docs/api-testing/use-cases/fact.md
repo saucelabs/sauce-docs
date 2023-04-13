@@ -218,7 +218,7 @@ As an example, you could say "IF the env is development, then disable emails for
     value: "false"
 ```
 
-7. **Save** the test.
+7. Click **Save**.
 
 8. **Publish** the test.
 
