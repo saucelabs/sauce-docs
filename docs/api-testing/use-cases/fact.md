@@ -242,6 +242,15 @@ Given that this can be configured in the test, it offers all the flexibility pro
 
 <img src={useBaseUrl('img/api-testing/factMultiFailure2.png')} alt="factMultiFailure2.png" />
 
+```yaml
+- id: if
+  children:
+    - id: fact
+      identifier: mail_threshold
+      label: multi failure
+      value: "2"
+  expression: env=="development"
+
 ### Use Case: Setting Email Notification Thresholds
 
 1. In the composer, add the **Fact** component.
