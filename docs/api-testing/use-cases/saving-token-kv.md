@@ -208,7 +208,7 @@ The previous example shows how to save the token in the Key/Value Store but, onc
 
     In this step, you add the date in the Key/Value Store.
 
-11. **Save Changes**.
+11. Click **Save Changes**.
 
 12. Outside the **If**, add **Assert Exists**.
 
