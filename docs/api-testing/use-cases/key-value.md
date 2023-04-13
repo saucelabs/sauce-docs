@@ -212,7 +212,7 @@ The **Pop** method removes the last value in an array and return the value itsel
 
    In this step, you load the modified key from the Key/Value Store.
 
-4. **Save Changes**.
+4. Click **Save Changes**.
 
 5. Add a **Comment** component.
 
