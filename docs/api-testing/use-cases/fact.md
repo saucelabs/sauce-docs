@@ -203,7 +203,7 @@ As an example, you could say "IF the env is development, then disable emails for
 
 4. Click **Publish**, then exit the Composer.
 
-5. From the Test list, **Run** the test. 
+5. From the Test list, **Run** the test.
     
  The notifications are disabled, so you won't receive an email notification.
 
