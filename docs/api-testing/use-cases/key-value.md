@@ -144,7 +144,7 @@ In this step, you will **Push** the data onto the array.
 
    - Comment - for example `${kvprods}`
 
-   This will print out the value so you can see the change on the test report at the end of this workflow.
+   The comment will print out the value on the test report so you can see the change at the end of this workflow.
 
 10. Next, add a new **K/V Store** component.
 
