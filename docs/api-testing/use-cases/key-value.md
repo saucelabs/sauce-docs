@@ -126,7 +126,7 @@ In this step, you will **Push** the data onto the array.
 
    This step assigns a key in the Key/Value Store to a value from the response payload. In this case, we use `color`, which is an array.
 
-6. **Save Changes**.
+6. Click **Save Changes**.
 
 7. Next, add another **K/V Store** component.
 
