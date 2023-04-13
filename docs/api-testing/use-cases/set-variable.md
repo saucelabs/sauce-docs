@@ -240,7 +240,7 @@ Then, you can retrieve all the keys as `jsonData.iat` where `jsonData` is the va
 
 In this mode you can create your own template in the same way as it is done for Request Body, the advantage here is that you can print the variable to check if all is correct (Body cannot be printed).
 
-For example, if you need to add a new product in your database, you can create the body for the (PUT) request and paste the Body in the `Body` field and print it in a `Comment`.
+For example, if you need to add a new product to your database, you can create the body for the (PUT) request and paste it in the `Body` field, and then print it out in a `Comment`.
 
 ```json
 {
