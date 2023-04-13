@@ -19,7 +19,7 @@ One of the common scenarios you can face when you are working with APIs is authe
 
 In this example, you learn how to save a token in the Key/Value Store and then use it across the Organization.
 
-1. First, add the **Key/Value Store** component.
+1. First, open the Composer and add the **Key/Value Store** component.
 
    - Action - for example `Load`
    - Key - for example `token`
