@@ -202,7 +202,7 @@ In this step, you will remove the data with **Pop**.
 The **Pop** method removes the last value in an array and return the value itself.
 :::
 
-2. **Save Changes**.
+2. Click **Save Changes**.
 
 3. Add a new **K/V Store** component.
 
