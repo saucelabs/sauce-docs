@@ -154,7 +154,7 @@ In this step, you will **Push** the data onto the array.
 
 <img src={useBaseUrl('img/api-testing/kv-examples/adv-push-kv.png')} alt="push method for K/V store component"/>
 
-In this step, you push the new data on tho the end of the existing array. In this example, you push the integer 999 onto the `prods` array.
+In this step, you push the new data onto the end of the existing array. In this example, you push the integer 999 onto the `prods` array.
 
 11. **Save Changes**.
 
