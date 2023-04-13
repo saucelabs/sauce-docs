@@ -7,7 +7,7 @@ description: The basic key/value store workflow
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The Key/Value Store allows you to create temporary key/value pairs that can be accessed across different tests in your Organization. That means, you can create a key/value pairs in `test1` in `projectA` and use the value in `test100` in `projectZ`.
+The Key/Value Store allows you to create temporary key/value pairs that can be accessed across different tests in your Organization. That means, you can create a key/value pair in `test1` in `projectA` and use the value in `test100` in `projectZ`.
 
 ## What You'll Need
 
