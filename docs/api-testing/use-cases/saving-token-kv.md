@@ -17,7 +17,7 @@ One of the common scenarios you can face when you are working with APIs is authe
 
 ## Saving a Token in a Key/Value Store
 
-In this example you learn how to save a token in the Key/Value Store and then use it across the Organization.
+In this example, you learn how to save a token in the Key/Value Store and then use it across the Organization.
 
 1. First, add the **Key/Value Store** component.
 
