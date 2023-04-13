@@ -19,7 +19,7 @@ The Key/Value Store allows you to create temporary key/value pairs that can be a
 
 In this example you will focus on setting and retrieving a value in the Key/Value Store.
 
-1. First, add the **GET** request.
+1. First, open the Composer and add the **GET** request.
 
    - Url - for example `http://demoapi.apifortress.com/api/retail/product`
    - Variable - for example `products`
