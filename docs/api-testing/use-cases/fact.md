@@ -199,7 +199,7 @@ As an example, you could say "IF the env is development, then disable emails for
     mode: json
 ```
 
-3. **Save** the test.
+3. Click **Save**.
 
 4. **Publish** the test.
 
