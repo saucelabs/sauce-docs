@@ -230,7 +230,7 @@ Run it with the `--validate-request` switch to activate the validation of inboun
          "message":"is not of a type(s) integer",
          "name":"type",
          "path":[
-            
+
          ],
          "property":"instance",
          "schema":{

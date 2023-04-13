@@ -74,6 +74,7 @@ When an alert window is encountered, a variable will be created win variables as
 - `Switch to alert and click on ok`
 - `Switch to alert and click on stay`
 - `Switch to alert and save message as alert_set1 and click ok`
+- `Switch to alert and enter "Please enter your name" and click on ok`
 
 `Switch to confirm...`
 
@@ -97,8 +98,19 @@ If a window is not displaying at the correct size, you can use the `Set screen s
 
 `Set...`
 
+- `Set screen to hd`
+- `Set screen to mobile phone`
+- `Set screen to tablet`
+- `Set screen to tablet landscape`
+- `Set screen to 1080`
+- `Set screen to 1080p`
+- `Set screen to 720`
+- `Set screen to 900`
+- `Set screen to Full HD`
 - `Set screen size - [width] * [height]`
 - `Set window size - [width] * [height]`
+
+**Example:** `Set screen size - 200 * 200`
 
 ## Click, Press, and Select
 
@@ -259,7 +271,7 @@ Using `Assert` will cause the test case to fail and stop at the failed step. Usi
 - `Verify {xpath: “[address]”} begins with [text] or begins with [text]`
 - `Verify {xpath: “[address]”} begins with [text] or ends with [text]`
 - `Verify {xpath: “[address]”} color is [#e01719]`<br/>
-  **Note:** Any CSS attribute value can be validated using the xpath of the element (width, height, font-family, text-align, font-size, display, color, background-color, etc.).<br/>
+  **Note:** Any CSS attribute value can be validated using the xpath of the element (width, height, font-family, text-align, font-size, display, color, or background-color).<br/>
   **Example:** `Verify {xpath: "[//img[@class='gb_Wa']"} color is [#e01719]`
 - `Verify {xpath: “[address]”} contains [text]`
 - `Verify {xpath: “[address]”} contains [text] or begins with [text]`
@@ -300,7 +312,7 @@ Conditional actions are executed if certain conditions are true, and can be used
 
 `if...`
 
-- `if {xpath: “[address]”} is visible, click on [exact attribute value]`
+- `if {xpath: “[address]”} exists, click on [exact attribute value]`
 - `if [condition], continue`
 - `if current url is [url], enter [text]`<br/>
   **Example:** `if current url is https://www.wikipedia.org/, click on English`
@@ -324,8 +336,14 @@ Blocks can be used to loop through commands as many times as required.
 
 #### Example
 
-`begin block <block_name>{instruction1}{instruction2}...end block`
-`run ${block_name} for {number} times`
+```
+run ${block_name} for (number) times 
+begin block block_name
+enter username
+enter password
+click on login
+end block
+```
 
 To run through multiple data sets for input in each loop, use separate data files with multiple data. After uploading the data file, link it to the relevant test case. In the following example, each row of data will correspond to an iteration of the loop.
 
@@ -391,7 +409,7 @@ In an `if...else...` action, if a condition is true, a block of statements will 
 #### Example
 
 ```
-if {xpath: “//select[@id=’rolle’]”} is visible, run ${subscribe}
+if {xpath: “//select[@id=’rolle’]”} exists, run ${subscribe}
 else, run ${Help}
 Begin block Help
 click on “Help”
@@ -455,13 +473,47 @@ In an `if...continue...` action, when the `if` condition is satisfied, the contr
 
 ## Upload Actions
 
-Files should be uploaded to the **Artifacts** section.
+Files should be uploaded to the **Artifacts** section and attached to the test case.
 
 `Upload...`
 
 - `Upload file to _css{“[selector]”}`
 - `Upload file to [text]`
 - `Upload file to {xpath: “[address]”}`
+
+<img src={useBaseUrl('/img/dev/low-code/upload-file-to-example.png')} alt="An example of an upload file action"/>
+
+## Date Support
+Get today's date in a given format, provided on the Data tab.
+
+`{today, <format>}`
+- Enter Date + `{today, dd/mm/yy}`
+- Enter Date + `{today, mm/dd/yy}`
+- Enter Date + `{today, yy/mm/dd}`
+
+### Relative Date support
+Support is also provided for additions of days/months/years etc. This should be provided on the Data tab. For uploaded files this information can be found in the Test Data column.
+
+Today's date:
+`{Today, MM/dd/yyyy}`
+
+Two days ago:
+`{Today - 2{dd}, MM/dd/yyyy}undefined>`
+
+Two days from now: 
+`{Today + 2{dd}, MM/dd/yyyy}`
+
+One month ago:
+`{Today - 1{mm}, MM/dd/yyyy}`
+
+One month from now:
+`{Today + 1{mm}, MM/dd/yyyy}`
+
+One year ago:
+`{Today - 1{yy}, MM/dd/yyyy}`
+
+One year from now:
+`{Today + 1{yy}, MM/dd/yyyy}`
 
 ## Screenshot Actions
 

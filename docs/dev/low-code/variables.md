@@ -189,7 +189,7 @@ Sauce Labs Low-Code supports execution of Python, JavaScript, Shellscript, and J
 `Exec _js/_py/_bash{script} with ${input_variable_name} returning ${output_variable_name}`
 
 **Example**
-If `var` = `"testing"`, and `var_2` = `"printing variable: testing"`:
+If `var_1` = `"testing"`, and `var_2` = `"printing variable: testing"`:
 
 `exec _py{print(‘Modified variable: ' +aiq_1)} with ${var1} returning ${var2}`
 `exec _js{return 'Modified variable: ' + aiq_1} with ${var1} returning ${var2}`

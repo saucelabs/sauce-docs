@@ -84,6 +84,21 @@ sidebar_label: Supported Browsers and OSs
   </tr>
   <tr>
    <td>
+    Windows 11
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    macOS 13
+   </td>
+   <td>
+    Ventura
+   </td>
+  </tr>
+  <tr>
+   <td>
     macOS 12
    </td>
    <td>

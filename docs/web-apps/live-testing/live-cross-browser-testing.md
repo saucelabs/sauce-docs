@@ -125,6 +125,39 @@ The default sorting for the device list is **Pinned First**.
 
 <img src={useBaseUrl('img/live-testing/mobile-virtual-test-ui.png')} alt="Mobile virtual device test interface" width="650"/>
 
+### Adding a Test Name for Your Test
+
+Sauce Labs has introduced a new feature that allows you to enter a test name for your Live Tests after cross-browser and mobile app testing. This update enhances the testing efficiency by enabling you to add more context to test descriptions and add more clarity to your test repository.
+
+Adding a test name is a straightforward process, and there are two ways to do it:
+
+1. From the end session screen:
+   - Start a Live Test session.
+   - End the Live Test Session by clicking on the **End** button from the toolbar.
+   - The end session screen will pop up, and from there, users can edit the test name:
+  <img src={useBaseUrl('img/mobile-apps/change-name-test.png')} alt="Test Name" width="550"/>
+
+1. From the test details page:
+   - Go to **Live** -> **Test results** -> Click on a test.
+   - On the test details page, click on the pencil nearby the test name to edit it:
+  <img src={useBaseUrl('img/mobile-apps/change-name-test-1.png')} alt="Test Name" width="550"/>
+   
+  
+  
+:::note
+This feature works the same way for both cross-browser testing and mobile app testing.
+:::
+
+Use test names to customize your testing experience:
+
+- Add descriptive names to your tests to quickly identify your findings.
+- Keep track of tested steps by adding details to test names.
+- Easily rename your tests to reflect Jira tickets or other related tasks.
+
+:::note LIMITATIONS
+This feature has a constraint on the maximum allowable length of the test name, which is limited to 255 characters. The utilization of emojis is not supported in the test name. 
+:::
+
 ### Live Mobile Virtual Device Test Interface
 
 | Icon                                                                                                        | Name              | Description                                                                                                                                                                                   |

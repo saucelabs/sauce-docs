@@ -72,7 +72,7 @@ docker run --pull always -v "$(pwd)/myspec:/specs" \
 --logger https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/insights/events/_contract
 ```
 
-  <details><summary>Want to run Piestry as part of a build?</summary>
+<details><summary>Want to run Piestry as part of a build?</summary>
 
 Alternatively, you can run the command as a [build](/api-testing/project-dashboard/#test-build-reports) by issuing the following launch command instead of the above:
 
