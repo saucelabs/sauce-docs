@@ -172,7 +172,7 @@ The previous example shows how to save the token in the Key/Value Store but, onc
 
    <img src={useBaseUrl('img/api-testing/kv-examples/refresh-if.png')} alt="if component" />
 
-   In this step you check if there is a token in the Key/Value store, the date is present and one minute has not passed since last token generation. If any of these conditions are not met, you generate a new one. The example refreshes the token every minute (60000ms), you can choose to refresh it differently by changing the value.
+   In this step you check if there is a token in the Key/Value store, the date is present and one minute has not passed since the last token generation. If any of these conditions are not met, you generate a new one. The example refreshes the token every minute (60000ms), you can choose to refresh it differently by changing the value.
 
 6. Click **Add Child Component** inside the **If** and then, add the **GET** component.
 
