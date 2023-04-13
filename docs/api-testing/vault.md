@@ -115,7 +115,7 @@ The file can be a .cvs or .json and the structure will be as follow:
 1. Select the .csv or .json file from your machine.
 1. Optionally, you can skip the last two steps by dragging and dropping the file.
 
-#### Rules:
+#### Rules for Updating Variables Using a File:
 
 - If the file contains a variable with the same key as one in the Vault, the variable in the Vault will be overwritten.
 - If the file contains a variable that is not saved in the Vault, the variable will be added into the Vault.
