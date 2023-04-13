@@ -164,7 +164,7 @@ The previous example shows how to save the token in the Key/Value Store but, onc
 
    In this step, you load the date and time the token was last generated.
 
-4. **Save Changes**.
+4. Click **Save Changes**.
 
 5. Add the **If** component, then **Save Changes**.
 
