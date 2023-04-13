@@ -38,7 +38,7 @@ To view live test results:
 
 ### Filtering Live Test Results
 
-You can filter live test results by owner. If the **Enable Job Visibility Across Teams** organization setting is enabled, the filter dropdown list will include all owners in your organization. If it is disabled, you will only see the owners on your team. For more information about this setting, see [Security Settings](basics/acct-team-mgmt/org-settings/#security-settings).
+You can filter live test results by owner. If the **Enable Job Visibility Across Teams** organization setting is enabled, the filter dropdown list will include all owners in your organization. If it is disabled, you will only see the owners on your team. For more information about this setting, see [Security Settings](/basics/acct-team-mgmt/org-settings/#security-settings).
 
 <img src={useBaseUrl('img/test-results/test-results-live-filter.png')} alt="Filtering live test results" width="650"/>
 
