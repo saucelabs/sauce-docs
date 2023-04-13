@@ -253,7 +253,7 @@ Given that this can be configured in the test, it offers all the flexibility pro
 
 ### Use Case: Setting Email Notification Thresholds
 
-1. In the composer, add the **Fact** component.
+1. In the Composer, add the **Fact** component.
 
 <img src={useBaseUrl('img/api-testing/fact-examples/threshold.png')} alt="fact threshold" />
 
