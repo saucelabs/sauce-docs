@@ -56,7 +56,7 @@ In this example you will focus on setting and retrieving a value in the Key/Valu
 
    In this step, you retrieve the Key/Value pair from the store. In this example, we assign the retrieved value to the variable `kvprods`.
 
-7. **Save Changes**.
+7. Click **Save Changes**.
 
 8. Add a **Comment** component and then **Save Changes**.
 
