@@ -156,7 +156,7 @@ In this step, you will **Push** the data onto the array.
 
 In this step, you push the new data onto the end of the existing array. In this example, you push the integer 999 onto the `prods` array.
 
-11. **Save Changes**.
+11. Click **Save Changes**.
 
 12. Add a new **K/V Store** component.
 
