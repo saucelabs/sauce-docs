@@ -115,7 +115,7 @@ In this way, by default, the test will be executed against the `staging` environ
 
 13. **Run** the test with the environment active: you will get the email notification with the `production` tag in the subject.
 
-14. Edit the test.
+14. Double-click on the test to edit it.
 
 15. Select **Add Child Component** below the GET component.
 
