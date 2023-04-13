@@ -93,7 +93,7 @@ In this example you will focus on setting and retrieving a value in the Key/Valu
 
 ## Push/Pop Workflow
 
-In the next example, you will take a look at how **Push** and **Pop** methods work. **Push** and **Pop** are both array methods and behave as they normally do outside of this context: **Push** will append a value to the end of an array, **Pop** will remove the last value in an array.
+In the next example, you will take a look at how **Push** and **Pop** methods work. **Push** and **Pop** are both array methods and behave as they normally do outside of this context: **Push** will append a value to the end of an array, and **Pop** will remove the last value in an array.
 
 ### Step 1: Push
 
