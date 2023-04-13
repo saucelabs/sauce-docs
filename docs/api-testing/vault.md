@@ -190,7 +190,7 @@ The file can be a .cvs or .json and the structure will be as follow:
 
 #### Rules for Updating Snippets Using a File:
 
-- If the file contains a snippet with the same key as one in the Vault, the latter will be overwritten.
+- If the file contains a snippet with the same key as one in the Vault, the snippet in the Vault will be overwritten.
 - If the file contains a snippet that is not saved in the Vault, the snippet will be added into the Vault.
 - If the snippets in the Vault are not present in the file, the snippets in the Vault will not be deleted.
 
