@@ -228,7 +228,7 @@ The **Pop** method removes the last value in an array and return the value itsel
 
    This will print out the final state of the array in the K/V Store so you can see the changes on the test report.
 
-8. **Save Changes**.
+8. Click **Save Changes**.
 
 9. The second part of the test looks like:
 
