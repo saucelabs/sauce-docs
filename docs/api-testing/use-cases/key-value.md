@@ -44,7 +44,7 @@ In this example you will focus on setting and retrieving a value in the Key/Valu
 
    <img src={useBaseUrl('img/api-testing/kv-examples/kv-set.png')} alt="set method for K/V store component" />
 
-   With this step, you set the Key/Value pair in the store. In this case, `prods` equals to `products[0].name`, which evaluates to `Baseball Cap`.
+   In this step, you set the Key/Value pair in the store. In this case, `prods` equals `products[0].name`, which evaluates to `Baseball Cap`.
 
 6. Next, add another **K/V Store** component.
 
