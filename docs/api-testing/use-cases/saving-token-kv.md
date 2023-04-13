@@ -13,6 +13,7 @@ One of the common scenarios you can face when you are working with APIs is authe
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
+- Familiarity with the [API Testing Composer](/api-testing/composer/).
 
 ## Saving a Token in a Key/Value Store
 
