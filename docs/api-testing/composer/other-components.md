@@ -219,7 +219,7 @@ Set a variable (which will be a plain string) as a list of colors.
 
 <img src={useBaseUrl('img/api-testing/parseComponentUI_variable.png')} alt="Parse component variable"/>
 
-Next, using the **Comment** component to see what happens if we print “colors[1]” before and after parsing it into JSON.
+Next, use the **Comment** component to see what happens if you print “colors[1]” before and after parsing it into JSON.
 
 <img src={useBaseUrl('img/api-testing/parseComponentUI_test.png')} alt="Parse component test"/>
 
