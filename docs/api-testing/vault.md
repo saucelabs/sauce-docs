@@ -104,7 +104,7 @@ The file can be a .cvs or .json and the structure will be as follow:
 1. Click **Import**.
 1. Click **Choose File**.
 1. Select the .csv or .json file from your machine.
-1. Optionally, you can skip the last two steps by dragging and dropping directly the file.
+1. Optionally, you can skip the last two steps by dragging and dropping the file.
 
 #### Company Vault:
 
