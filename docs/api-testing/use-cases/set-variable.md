@@ -32,7 +32,7 @@ Consider the following example:
 
 In the above example the variable `product` will always have the value `t-shirt`.
 
-If you want to make it dynamic and let the engine evaluate the value every time the test will be executed, you have to write it in ${...} brackets.
+To make it dynamic and let the engine evaluate the value every time the test will be executed, you have to write it in ${...} brackets.
 
 Consider the following response payload and let’s say it has been stored in the `payload` variable:
 
