@@ -99,7 +99,7 @@ In the next example, you will take a look at how **Push** and **Pop** methods wo
 
 In this step, you will **Push** the data onto the array.
 
-1. First, add the **GET** request.
+1. First, open the Composer and add the **GET** request.
 
    - Url - for example `http://demoapi.apifortress.com/api/retail/product`
    - Variable - for example `products`
