@@ -206,7 +206,7 @@ The previous example shows how to save the token in the Key/Value Store but, onc
 
     <img src={useBaseUrl('img/api-testing/kv-examples/refresh-kv2.png')} alt="set method in key value component" />
 
-    In this step you add the date in the Key/Value Store.
+    In this step, you add the date in the Key/Value Store.
 
 11. **Save Changes**.
 
