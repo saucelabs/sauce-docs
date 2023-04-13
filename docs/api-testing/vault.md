@@ -188,7 +188,7 @@ The file can be a .cvs or .json and the structure will be as follow:
 1. Select the .csv or .json file from your machine.
 1. Optionally, you can skip the last two steps by dragging and dropping the file.
 
-#### Rules:
+#### Rules for Updating Snippets Using a File:
 
 - If the file contains a snippet with the same key as one in the Vault, the latter will be overwritten.
 - If the file contains a snippet that is not saved in the Vault, the snippet will be added into the Vault.
