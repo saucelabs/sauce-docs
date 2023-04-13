@@ -90,7 +90,7 @@ In this way, by default, the test will be executed against the `staging` environ
     mode: json
 ```
 
-5. **Save** the test.
+5. Click **Save**.
 
 6. **Publish** the test.
 
