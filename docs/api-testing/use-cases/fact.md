@@ -22,7 +22,7 @@ Testing activity is tracked using test ID number. This may not work if you're te
 Assume that you are running the same test in _staging_ and _production_, you will get an email notification the first time the test fails in one of the two environments. This does not allow you to know which environment the test fails on. The same will happens when the test starts working again.
 
 By configuring a **Fact** (together with **Tag**), you can add the environment value to the incident signature, and from that moment on the signature of the incident will be `id_of_the_test` + `value_of_environment`.
-In this way, you will get a separate notification for each environment the test fails in: for example, you will receive start/end incidents for `test123` in the production environment, and start/end incidents for `test123` in the staging environment, as separate flow of events.
+In this way, you will get a separate notification for each environment the test fails in: for example, you will receive start/end incidents for `test123` in the production environment, and start/end incidents for `test123` in the staging environment, as a separate flow of events.
 
 Assume that in the variable scope of your test, you have a variable called _env_ that contains your environment string (_production, staging, qa_ etc.).
 
