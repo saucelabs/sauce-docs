@@ -37,7 +37,7 @@ In this example, you learn how to save a token in the Key/Value Store and then u
 
    <img src={useBaseUrl('img/api-testing/kv-examples/token-if.png')} alt="if component" />
 
-   In this step you check if there is a token in the Key/Value Store: if the token is not available will perform the call to retrieve it, otherwise the test will proceed using the already available token
+   In this step you check if there is a token in the Key/Value Store: if the token is not available will perform the call to retrieve it, otherwise, the test will proceed using the already available token.
 
 4. Click **Add Child Component** inside the **If** and then, add the **GET** component.
 
