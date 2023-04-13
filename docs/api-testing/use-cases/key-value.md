@@ -168,7 +168,7 @@ In this step, you push the new data onto the end of the existing array. In this 
 
 In this step, you load the modified data into the test from the Key/Value Store.
 
-13. **Save Changes**.
+13. Click **Save Changes**.
 
 14. Add a **Comment** component.
 
