@@ -34,7 +34,7 @@ In this example you will focus on setting and retrieving a value in the Key/Valu
    - Name - for example `key`
    - Value - for example `ABC123`
 
-4. **Save Changes**.
+4. Click **Save Changes**.
 
 5. Add the **K/V Store** component and then, **Save Changes**.
 
