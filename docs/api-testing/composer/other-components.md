@@ -227,7 +227,7 @@ Here are the results of the above test:
 
 <img src={useBaseUrl('img/api-testing/parseComponentUI_results.png')} alt="Parse component test"/>
 
-As you can see before parsing the string, the test will consider the variable `colors` as one big string so `colors[1]` will print `“` as that is the second character in the string. After parsing the string into JSON we can traverse through the variable as a JSON, so `colors[1]` will print the second element in the JSON array: `blue`.
+Before parsing the string, the test will consider the variable `colors` as one big string so `colors[1]` will print `“` as that is the second character in the string. After parsing the string into JSON the system can traverse through the variable as a JSON, so `colors[1]` will print the second element in the JSON array: `blue`.
 
 </details>
 <details><summary><strong>Code View Examples</strong></summary>
