@@ -150,7 +150,7 @@ The previous example shows how to save the token in the Key/Value Store but, onc
 
    <img src={useBaseUrl('img/api-testing/kv-examples/token-kv1.png')} alt="load method in key value component" />
 
-   It loads the token: the first time you run the test, the value will be empty then, it will be the token retrieved from the call.
+   It loads the token: the first time you run the test, the value will be empty then, it will be the token retrieved from the following call.
 
 2. **Save Changes**.
 
