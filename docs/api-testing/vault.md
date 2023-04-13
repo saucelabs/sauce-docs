@@ -71,7 +71,7 @@ In the following example test report, the token variable has been marked as sens
 
 ### Update Variables Using a File
 
-You can update the values by editing each variable manually if they are few. When you need to update all (or a lot of) the variables a file will help to make it faster.
+You can update the values by editing each variable manually. However, when you need to update many (or all) variables in the Vault, importing a file that contains the updates can speed up the process. 
 
 The file can be a .cvs or .json and the structure will be as follow:
 
