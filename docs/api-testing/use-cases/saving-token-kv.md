@@ -29,7 +29,7 @@ In this example, you learn how to save a token in the Key/Value Store and then u
 
    It loads the token: the first time you run the test, the value will be empty then, it will be the token retrieved from the following call.
 
-2. **Save Changes**.
+2. Click **Save Changes**.
 
 3. Add the **If** component, then **Save Changes**.
 
