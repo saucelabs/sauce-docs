@@ -236,6 +236,12 @@ You can use the **Fact** component to set the email alert threshold: if you want
 
 <img src={useBaseUrl('img/api-testing/factMultiFailure.png')} alt="factMultiFailure.png" />
 
+```yaml
+- id: fact
+  identifier: mail_threshold
+  label: multi failure
+  value: "2"
+
 The above example means the test will need to fail twice in a row before an email alert is sent.
 
 Given that this can be configured in the test, it offers all the flexibility provided by conditional statements, such as an **If** condition on the environment the test is running upon:
