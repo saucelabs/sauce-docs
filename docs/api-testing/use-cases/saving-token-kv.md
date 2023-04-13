@@ -140,7 +140,7 @@ To use the Key/Value Store in other tests in the same Organization, you have to 
 
 ## Refreshing the Token
 
-The previous example shows how to save the token in the Key/Value Store but, once created, the token will be the same. In reality, tokens usually expires after a certain amount of time so you need to generate a new one. In the following example, you will see how to improve the previous example by refreshing the token.
+The previous example shows how to save the token in the Key/Value Store but, once created, the token will remain the same. In reality, tokens usually expire after a certain amount of time so you need to generate a new one. In the following example, you will see how to improve the previous example by refreshing the token.
 
 1. First, add the **Key/Value Store** component.
 
