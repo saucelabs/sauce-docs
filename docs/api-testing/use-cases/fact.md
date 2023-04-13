@@ -144,7 +144,7 @@ In this way, by default, the test will be executed against the `staging` environ
 In the example, we run the test manually but it works in the same way when you schedule it:
 
 - Add one schedule without adding any variable in the **Overrides**: in this way, it will be executed with `staging` value as the environment.
-- In the Override section, add one schedule adding `env` as key and `production` as value: in this way, the test will be executed with `production` value as environment.
+- Create a second schedule adding `env` as key and `production` as value in **Overrides**: in this way, the test will be executed with `production` value as the environment.
   :::
 
 ## Disabling Email Notifications
