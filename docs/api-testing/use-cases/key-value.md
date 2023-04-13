@@ -114,7 +114,7 @@ In this step, you will **Push** the data onto the array.
    - Name - for example `key`
    - Value - for example `ABC123`
 
-4. **Save Changes**.
+4. Click **Save Changes**.
 
 5. Add the **K/V Store** component.
 
