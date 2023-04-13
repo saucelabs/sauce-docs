@@ -136,7 +136,7 @@ In this way, by default, the test will be executed against the `staging` environ
 
 20. Select the `production` environment.
 
-21. **Run** the test.
+21. Click **Run**.
 
     The test will pass again and you will get the email notification that resolves the incident with `production` tag in the subject.
 
