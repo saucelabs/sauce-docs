@@ -196,7 +196,7 @@ The previous example shows how to save the token in the Key/Value Store but, onc
 
    In this step you add the value of the token in the Key/Value store.
 
-9. **Save Changes**.
+9. Click **Save Changes**.
 
 10. **Add Child Component** inside the **If** and then, add the **Key/Value Store** component.
 
