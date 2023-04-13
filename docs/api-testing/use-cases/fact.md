@@ -138,7 +138,7 @@ In this way, by default, the test will be executed against the `staging` environ
 
 21. Click **Run**.
 
-    The test will pass again and you will get the email notification that resolves the incident with `production` tag in the subject.
+    The test will pass and you will get the email notification that resolves the incident with the `production` tag in the subject.
 
 :::note Schedule with Environments
 In the example, we run the test manually but it works in the same way when you schedule it:
