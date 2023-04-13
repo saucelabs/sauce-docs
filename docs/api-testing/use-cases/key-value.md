@@ -210,7 +210,7 @@ The **Pop** method removes the last value in an array and return the value itsel
    - Key - for example `prods`
    - Variable - for example `kvprods`
 
-   In this step, you recall the modified key from the Key/Value Store.
+   In this step, you load the modified key from the Key/Value Store.
 
 4. **Save Changes**.
 
