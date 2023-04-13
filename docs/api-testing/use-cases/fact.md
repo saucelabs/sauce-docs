@@ -14,6 +14,7 @@ The **Fact** component is used to control the behaviour of Email notifications, 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 - Your email address already saved in the [Notifications](/api-testing/project-access/#email-notifications) section.
+- Familiarity with the [API Testing Composer](/api-testing/composer/).
 
 ## Setting Alert Environments
 
