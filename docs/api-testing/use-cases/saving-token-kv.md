@@ -61,7 +61,7 @@ In this example, you learn how to save a token in the Key/Value Store and then u
 
    In this step you add the value of the token in the Key/Value store.
 
-7. **Save Changes**.
+7. Click **Save Changes**.
 
 8. Outside the **If**, add **Assert Exists**.
 
