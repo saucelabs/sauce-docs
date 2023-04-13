@@ -126,7 +126,7 @@ In this way, by default, the test will be executed against the `staging` environ
 
     <img src={useBaseUrl('img/api-testing/fact-examples/req-header.png')} alt="request header"/>
 
-17. **Save** the test.
+17. Click **Save**.
 
 18. **Publish** the test.
 
