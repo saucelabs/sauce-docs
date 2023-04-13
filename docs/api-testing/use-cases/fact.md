@@ -128,7 +128,7 @@ In this way, by default, the test will be executed against the `staging` environ
 
 17. Click **Save**.
 
-18. **Publish** the test.
+18. Click **Publish**, then exit the Composer.
 
 19. From the Test list, **Run** the test without any environment.
 
