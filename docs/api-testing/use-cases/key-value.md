@@ -13,6 +13,7 @@ The Key/Value Store allows you to create temporary key/value pairs that can be a
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
+- Familiarity with the [API Testing Composer](/api-testing/composer/).
 
 ## Basic Workflow: Set and Load Methods
 
