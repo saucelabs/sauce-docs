@@ -92,7 +92,7 @@ In this way, by default, the test will be executed against the `staging` environ
 
 5. Click **Save**.
 
-6. **Publish** the test.
+6. Click **Publish**, then exit the Composer.
 
 7. From the Test list, **Run** the test.
 
