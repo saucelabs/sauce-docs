@@ -152,7 +152,7 @@ The previous example shows how to save the token in the Key/Value Store but, onc
 
    It loads the token: the first time you run the test, the value will be empty then, it will be the token retrieved from the following call.
 
-2. **Save Changes**.
+2. Click **Save Changes**.
 
 3. Next, add the **Key/Value Store** component.
 
