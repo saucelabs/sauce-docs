@@ -289,5 +289,5 @@ Given that this can be configured in the test, it offers all the flexibility pro
 6. **Run** the test one more time: you reached the threshold value therefore you will receive the email notification.
 
 :::note
-In the example, we run the test manually but it works in the same way when you schedule it.
+The example considers a scenario where you run the test manually but can accomplish the same results by scheduling the test.
 :::
