@@ -153,7 +153,7 @@ Browser support is based on the Sauce Labs docker images provided in the `saucec
 
 [Puppeteer on Sauce Docs](/web-apps/automated-testing/puppeteer/)
 
-Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [Sauce Puppeteer Runner release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases).
+Browser support is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [Sauce Puppeteer Runner release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases).
 
 </TabItem>
 
