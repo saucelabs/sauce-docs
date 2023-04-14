@@ -145,7 +145,7 @@ Browser support is based on the Sauce Labs docker images provided in the `saucec
 
 [Playwright on Sauce Docs](/web-apps/automated-testing/playwright/)
 
-Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [Sauce Playwright Runner release notes](https://github.com/saucelabs/sauce-playwright-runner).
+Browser support is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [Sauce Playwright Runner release notes](https://github.com/saucelabs/sauce-playwright-runner).
 
 </TabItem>
 
