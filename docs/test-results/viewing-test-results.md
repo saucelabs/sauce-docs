@@ -97,7 +97,7 @@ Your test assets, including videos, screenshots, and logs, are retained for 30 d
 
 ### Appium Logs
 
-The **Appium Log** on the **Logs tab** in your test results indicates that the test ran using the Appium driver. The first line of the log provides information about the Appium version used during your test (for example, `info: Welcome to Appium v1.4.0`).
+The **Appium Log** on the **Logs** tab in your test results indicates that the test ran using the Appium driver. The first line of the log provides information about the Appium version used during your test (for example, `info: Welcome to Appium v1.4.0`).
 
 To find logging specific to your OS:
 
