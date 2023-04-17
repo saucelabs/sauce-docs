@@ -263,7 +263,7 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
     </ul></p></td>
     </tr>
   </tbody>
-   <tbody>
+  <tbody>
     <tr>
      <td><code>os</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified operating systems.</p></td>
@@ -928,6 +928,2356 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     // more errors...
   ]
 }
+```
+
+</details>
+
+---
+
+### NEW Get Filter Items
+
+<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/filters</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>source</code></td>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>[Description] Supported values are:</p><p>
+     <ul>
+      <li><code>rdc</code> - Real Device Cloud.</li>
+      <li><code>vdc</code> - Virtual Device Cloud.</li>
+    </ul></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>org_id</code></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>[Description]]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>interval</code></td>
+       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description] Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>status</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+     <ul>
+      <li><code>complete</code></li>
+      <li><code>error</code></li>
+      <li><code>passed</code></li>
+      <li><code>failed</code></li>
+    </ul></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>start</code></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>end</code></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>browser</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified browsers.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>build</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to those grouped by this build name.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>os</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified operating systems.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tag</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified tag.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified device.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>automation_backend</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>[Description].</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>user_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description].</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>group_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description].</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>team_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description].</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>must_have</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description].</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>name</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description].</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.us-west-1.saucelabs.com/v2/insights/rdc/filters?org_id=" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### [Title]
+
+<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>[var]</code></td>
+       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
 ```
 
 </details>
