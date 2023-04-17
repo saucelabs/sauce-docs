@@ -29,7 +29,7 @@ The solution is the following:
 
 1. In the **Input Set** add the different formats as variables.
 
-   <!-- <img src={useBaseUrl('img/api-fortress/2018/04/inputSets.jpg')} alt="inputSets.jpg" /> -->
+   <img src={useBaseUrl('img/api-fortress/2018/04/inputSets.jpg')} alt="inputSets.jpg" />
 
 2. Remove one call and add the format variable in the **Mode** input.
 
