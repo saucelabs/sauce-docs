@@ -110,7 +110,7 @@ values={[
 
 <!-- prettier-ignore -->
 ```java
-DesiredCapabilities capabilities = new DesiredCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 
 capabilities.setCapability("browserName", "chrome");
 capabilities.setCapability("platformName", "android");
@@ -130,7 +130,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 <TabItem value="ios">
 
 ```java
-DesiredCapabilities capabilities = new DesiredCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 
 capabilities.setCapability("browserName", "safari");
 capabilities.setCapability("platformName", "ios");
@@ -386,7 +386,7 @@ values={[
 
 <!-- prettier-ignore -->
 ```java
-DesiredCapabilities capabilities = new DesiredCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 
 capabilities.setCapability("browserName", "chrome");
 capabilities.setCapability("platformName", "android");
@@ -407,7 +407,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <!-- prettier-ignore -->
 ```java
-DesiredCapabilities capabilities = new DesiredCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 
 capabilities.setCapability("browserName", "safari");
 capabilities.setCapability("platformName", "ios");
