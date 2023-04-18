@@ -136,7 +136,7 @@ In this step, you will **Push** the data onto the array.
 
    <img src={useBaseUrl('img/api-testing/kv-examples/kv-load.png')} alt="load method for K/V store component"/>
 
-   In this step, you retrieve the Key/Value pair from the store. In this example, we assign the retrieved value to the variable `kvprods`.
+   In this step, you retrieve the Key/Value pair from the store. In this example, assign the retrieved value to the variable `kvprods`.
 
 8. Click **Save Changes**.
 
