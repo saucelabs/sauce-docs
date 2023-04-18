@@ -7,7 +7,7 @@ description: Using Fact for Handling Email Notifications
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The **Fact** component is used to control the behaviour of Email notifications, which (if enabled) alert you to test failures. It enables you to add information about the nature of the test execution.
+The **Fact** component is used to control the behavior of Email notifications, which (if enabled) alert you to test failures. It enables you to add information about the nature of the test execution.
 
 ## What You'll Need
 
