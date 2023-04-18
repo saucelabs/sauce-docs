@@ -52,7 +52,7 @@ By configuring a Fact in the following way, you can add the environment value to
         value: staging
 ```
 
-In this way, by default, the test will be executed against the `staging` environment.
+With this setting, the test will be executed against the `staging` environment by default.
 
 2. In the **Unit**, set the **Fact** component to add the environment value to the incident signature.
 
