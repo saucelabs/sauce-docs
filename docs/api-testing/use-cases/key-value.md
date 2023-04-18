@@ -124,7 +124,7 @@ In this step, you will **Push** the data onto the array.
 
    <img src={useBaseUrl('img/api-testing/kv-examples/adv-kv-set.png')} alt="set the key/value store" />
 
-   This step assigns a key in the Key/Value Store to a value from the response payload. In this case,  use `color`, which is an array.
+   This step assigns a key in the Key/Value Store to a value from the response payload. In this case, use `color`, which is an array.
 
 6. Click **Save Changes**.
 
