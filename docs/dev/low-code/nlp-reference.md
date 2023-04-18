@@ -24,6 +24,10 @@ This is usually the first step in a test case, but you can also add this step du
 
 - `Launch website`
 
+`Refresh...`
+
+- `Refresh website`
+
 `Navigate...`
 
 - `Navigate`
