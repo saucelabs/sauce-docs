@@ -226,7 +226,7 @@ As an example, you could say "IF the env is development, then disable emails for
 The notifications are now activated, so you will receive an email notification.
 
 :::note
-In the example, we run the test manually but the behavior is the same when you schedule it.
+In the example we ran the test manually, but the behavior is the same when you schedule it.
 :::
 
 ## Setting Email Notification Thresholds
