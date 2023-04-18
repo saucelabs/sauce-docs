@@ -62,7 +62,7 @@ In this example you will focus on setting and retrieving a value in the Key/Valu
 
    - Comment - for example `${kvprods}`
 
-   This will print out the value and you can ensure that the data is recovered successfully.
+   This will print the value and you can ensure that the data is recovered successfully.
 
 9. The final result looks like:
 
@@ -144,13 +144,13 @@ In this step, you will **Push** the data onto the array.
 
    - Comment - for example `${kvprods}`
 
-   The comment will print out the value on the test report so you can see the change at the end of this workflow.
+   The comment will print the value on the test report so you can see the change at the end of this workflow.
 
 10. Next, add a new **K/V Store** component.
 
-- Action - for example `Push`
-- Key - for example `prods`
-- Data - for example `999`
+    - Action - for example `Push`
+    - Key - for example `prods`
+    - Data - for example `999`
 
 <img src={useBaseUrl('img/api-testing/kv-examples/adv-push-kv.png')} alt="push method for K/V store component"/>
 
@@ -160,9 +160,9 @@ In this step, you push the new data onto the end of the existing array. In this 
 
 12. Add a new **K/V Store** component.
 
-- Action - for example `Load`
-- Key - for example `prods`
-- Variable - for example `kvprods`
+    - Action - for example `Load`
+    - Key - for example `prods`
+    - Variable - for example `kvprods`
 
 <img src={useBaseUrl('img/api-testing/kv-examples/adv-load-kv.png')} alt="push method for K/V store component"/>
 
@@ -172,9 +172,9 @@ In this step, you load the modified data into the test from the Key/Value Store.
 
 14. Add a **Comment** component.
 
-- Comment - for example `${kvprods}`
+    - Comment - for example `${kvprods}`
 
-This will print out the value so you can see the changes on the test report.
+This will print the value so you can see the changes on the test report.
 
 15. Click **Save Changes**.
 
@@ -199,7 +199,7 @@ In this step, you will remove the data with **Pop**.
    In this step, you provide the name of the key from the Key/Value Store (`prods`), and the name of the variable you would like to assign the popped value to (`popped`).
 
 :::warning Important
-The **Pop** method removes the last value in an array and return the value itself.
+The **Pop** method removes the last value in an array and returns the value itself.
 :::
 
 2. Click **Save Changes**.
@@ -218,7 +218,7 @@ The **Pop** method removes the last value in an array and return the value itsel
 
    - Comment - for example `${popped}`
 
-   This will print out the popped value so you can see it on the test report.
+   This will print the popped value so you can see it on the test report.
 
 6. Click **Save Changes**.
 
@@ -226,7 +226,7 @@ The **Pop** method removes the last value in an array and return the value itsel
 
    - Comment - for example `${kvprods}`
 
-   This will print out the final state of the array in the K/V Store so you can see the changes on the test report.
+   This will print the final state of the array in the K/V Store so you can see the changes on the test report.
 
 8. Click **Save Changes**.
 

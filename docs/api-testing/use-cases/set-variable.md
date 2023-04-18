@@ -90,7 +90,7 @@ The value will be `Long Sleeve Shirt`, without changing your test.
 
 ## Mode: Data
 
-Using this mode, the variable will be evaluated (like the [Expression](/api-testing/composer/expressions/) field), therefore the variable type can be everything. The variable type will depend on the object being evaluated.
+Using this mode, the variable will be evaluated (as an [Expression](/api-testing/composer/expressions/) field), therefore the variable type can be any type. The variable type will depend on the object being evaluated.
 In the Data field, you need to enter a single line expression that returns a value.
 
 For example, you can create a new array in this way:
@@ -104,7 +104,7 @@ For example, you can create a new array in this way:
   object: '["Bluetooth Headphones","Long Sleeve Shirt","Baseball Cap"]'
 ```
 
-Then, you can iterate over it using the `each` component or you can invoke a specific item using `${product[1]}` where the number inside the square brackets identifies the position of the item you want to reach out, starting from 0.
+Then, you can iterate over it using the `each` component, or you can invoke a specific item using `${product[1]}` where the number inside the square brackets identifies the position of the object you want to call, starting from 0.
 
 Next, consider the example below where the JSON payload is stored in the `payload` variable:
 
@@ -238,9 +238,9 @@ Then, you can retrieve all the keys as `jsonData.iat` where `jsonData` is the va
 
 #### Lang: Template
 
-In this mode you can create your own template in the same way as it is done for Request Body, the advantage here is that you can print the variable to check if all is correct (Body cannot be printed).
+In this mode, you can create your own template in the same way as it is done for Request Body, the advantage here is that you can print the variable to check if all is correct (Body cannot be printed).
 
-For example, if you need to add a new product to your database, you can create the body for the (PUT) request and paste it in the `Body` field, and then print it out in a `Comment`.
+For example, if you need to add a new product to your database, you can create the body for the (PUT) request and paste it in the `Body` field, and then print it in a `Comment`.
 
 ```json
 {
