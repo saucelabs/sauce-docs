@@ -34,7 +34,7 @@ In the above example the variable `product` will always have the value `t-shirt`
 
 If you write it in ${...} brackets, you will make it dynamic and let the engine evaluate the value every time the test will be executed.
 
-Consider the following response payload and let’s say it has been stored in the `payload` variable:
+Consider the following response payload that has been stored in the `payload` variable:
 
 ```json
 {
