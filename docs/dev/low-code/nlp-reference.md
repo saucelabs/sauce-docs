@@ -1,7 +1,7 @@
 ---
 id: nlp-reference
-title: NLP Reference
-sidebar_label: NLP Reference
+title: Step Reference
+sidebar_label: Step Reference
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
