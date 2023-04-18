@@ -6,6 +6,7 @@ hide_table_of_contents: true
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
+
 Sauce Labs Low Code lets you create automated end-to-end testing with no programming experience. Sauce Low Code learns and evolves as your applications do.
 
 The NLP engine autonomously creates test cases, scripts, and data, allowing non-technical team members to QA at scale.
