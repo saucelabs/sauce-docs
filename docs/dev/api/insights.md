@@ -939,7 +939,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/filters</code></summary>
 <p/>
 
-[Description]
+[Add Description]
 
 #### Parameters
 
@@ -947,7 +947,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>[Description] Supported values are:</p><p>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>[Add Description]. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud.</li>
       <li><code>vdc</code> - Virtual Device Cloud.</li>
@@ -957,13 +957,13 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   <tbody>
     <tr>
      <td><code>org_id</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>[Description]]</p></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>[Add Description].</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>interval</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description] Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code></p></td>
+       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description]. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1023,7 +1023,112 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   <tbody>
     <tr>
      <td><code>automation_backend</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>[Description].</p></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>[Add Description].</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>user_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Add Description].</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>group_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Add Description].</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>team_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Add Description].</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>must_have</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Add Description].</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>name</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Add Description].</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### Get Errors
+
+<details><summary><span className="api get">GET</span> <code>/v2/insights/rdc/errors</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>org_id</code></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>[Description]]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>interval</code></td>
+       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description] Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1046,101 +1151,173 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   </tbody>
   <tbody>
     <tr>
-     <td><code>must_have</code></td>
+     <td><code>build</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to those grouped by this build name.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>os</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified operating systems.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified device.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>start</code></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>end</code></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>limit</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>[Description]. Default value is <code>50</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>offset</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>[Description]. Default value is <code>0</code>.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code></code></td>
+    <td colSpan='2'></td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+
+```
+
+</details>
+
+---
+
+### Get Errors Trends
+
+<details><summary><span className="api get">GET</span> <code>/v2/insights/rdc/errors/trends</code></summary>
+<p/>
+
+[Description]
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>org_id</code></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>[Description]]</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>interval</code></td>
+       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description] Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>user_id</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description].</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>name</code></td>
+     <td><code>group_id</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description].</p></td>
     </tr>
   </tbody>
-</table>
-
-<Tabs
-groupId="dc-url"
-defaultValue="us"
-values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
-]}>
-
-<TabItem value="us">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.us-west-1.saucelabs.com/v2/insights/rdc/filters?org_id=" | json_pp
-```
-
-</TabItem>
-<TabItem value="eu">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "" | json_pp
-```
-
-</TabItem>
-</Tabs>
-
-#### Responses
-
-<table id="table-api">
-<tbody>
-  <tr>
-    <td><code>200</code></td>
-    <td colSpan='2'>Success.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code></code></td>
-    <td colSpan='2'></td>
-  </tr>
-</tbody>
-</table>
-
-```jsx title="Sample Response"
-
-```
-
-</details>
-
----
-
-### [Title]
-
-<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
-<p/>
-
-[Description]
-
-#### Parameters
-
-<table id="table-api">
   <tbody>
     <tr>
-     <td><code>[var]</code></td>
-       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+     <td><code>team_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description].</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>[var]</code></td>
-       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+     <td><code>build</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to those grouped by this build name.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>[var]</code></td>
-       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+     <td><code>os</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified operating systems.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>[var]</code></td>
-       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+     <td><code>device</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified device.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>start</code></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>end</code></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>time_zone</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description]. Default value is <code>+00:00</code>.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1196,9 +1373,9 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-### [Title]
+### Get Test Cases
 
-<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
+<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/test-cases</code></summary>
 <p/>
 
 [Description]
@@ -1208,113 +1385,126 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <table id="table-api">
   <tbody>
     <tr>
-     <td><code>[var]</code></td>
-       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+     <td><code>source</code></td>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>[Description] Supported values are:</p><p>
+     <ul>
+      <li><code>rdc</code> - Real Device Cloud.</li>
+      <li><code>vdc</code> - Virtual Device Cloud.</li>
+    </ul></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>[var]</code></td>
-       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+     <td><code>org_id</code></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>[Description]]</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>[var]</code></td>
-       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+     <td><code>interval</code></td>
+       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description] Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>[var]</code></td>
-       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
-    </tr>
-  </tbody>
-</table>
-
-<Tabs
-groupId="dc-url"
-defaultValue="us"
-values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
-]}>
-
-<TabItem value="us">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "" | json_pp
-```
-
-</TabItem>
-<TabItem value="eu">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "" | json_pp
-```
-
-</TabItem>
-</Tabs>
-
-#### Responses
-
-<table id="table-api">
-<tbody>
-  <tr>
-    <td><code>200</code></td>
-    <td colSpan='2'>Success.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code></code></td>
-    <td colSpan='2'></td>
-  </tr>
-</tbody>
-</table>
-
-```jsx title="Sample Response"
-
-```
-
-</details>
-
----
-
-### [Title]
-
-<details><summary><span className="api get">GET</span> <code>[PATH]</code></summary>
-<p/>
-
-[Description]
-
-#### Parameters
-
-<table id="table-api">
-  <tbody>
-    <tr>
-     <td><code>[var]</code></td>
-       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+     <td><code>user_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description].</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>[var]</code></td>
-       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+     <td><code>group_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description].</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>[var]</code></td>
-       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+     <td><code>team_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description].</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>[var]</code></td>
-       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+     <td><code>start</code></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>end</code></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>browser</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified browsers.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>build</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to those grouped by this build name.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified device.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>os</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified operating systems.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>status</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+     <ul>
+      <li><code>complete</code></li>
+      <li><code>error</code></li>
+      <li><code>passed</code></li>
+      <li><code>failed</code></li>
+    </ul></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>mixed_status</code></td>
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>[Description].</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tag</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified tag.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>limit</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>[Description]. Default value is <code>50</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>offset</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>[Description]. Default value is <code>0</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>sort_by</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description]. Available values are: <code>total_runs</code>, <code>name</code>, <code>complete_count</code>, <code>error_count</code>, <code>fail_count</code>, <code>pass_count</code>, <code>complete_rate</code>, <code>error_rate</code>, <code>failure_rate</code>, <code>pass_rate</code>, <code>avg_duration</code>, <code>median_duration</code>, <code>total_duration</code>. Default value is <code>total_runs</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>sort</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description]. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1382,26 +1572,74 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <table id="table-api">
   <tbody>
     <tr>
-     <td><code>[var]</code></td>
-       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+     <td><code>org_id</code></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>[Description]]</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>[var]</code></td>
-       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+     <td><code>interval</code></td>
+       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description] Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>[var]</code></td>
-       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+     <td><code>user_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description].</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>[var]</code></td>
-       <td><p><small>| QUERY/PATH | REQUIRED/OPTIONAL | TYPE |</small></p><p>[Description]</p></td>
+     <td><code>group_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description].</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>team_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Description].</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>build</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to those grouped by this build name.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>os</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified operating systems.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified device.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>start</code></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>end</code></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>limit</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>[Description]. Default value is <code>50</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>offset</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>[Description]. Default value is <code>0</code>.</p></td>
     </tr>
   </tbody>
 </table>
