@@ -204,7 +204,7 @@ As an example, you could say "IF the env is development, then disable emails for
 4. Click **Publish**, then exit the Composer.
 
 5. From the Test list, **Run** the test.
- The notifications are disabled, so you won't receive an email notification.
+   The notifications are disabled, so you won't receive an email notification.
 
 6. Double-click on the test to edit it and change the value for **Fact** from `true` to `false`.
 
@@ -240,6 +240,7 @@ You can use the **Fact** component to set the email alert threshold: if you want
   identifier: mail_threshold
   label: multi failure
   value: "2"
+```
 
 The above example means the test will need to fail twice in a row before an email alert is sent.
 
@@ -255,6 +256,7 @@ Given that this can be configured in the test, it offers all the flexibility pro
       label: multi failure
       value: "2"
   expression: env=="development"
+```
 
 ### Use Case: Setting Email Notification Thresholds
 

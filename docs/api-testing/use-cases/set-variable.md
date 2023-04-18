@@ -106,7 +106,7 @@ For example, you can create a new array in this way:
 
 Then, you can iterate over it using the `each` component or you can invoke a specific item using `${product[1]}` where the number inside the square brackets identifies the position of the item you want to reach out, starting from 0.
 
-Now, let's consider the example below and imagine we have the JSON payload stored in the `payload` variable:
+Next, consider the example below where the JSON payload is stored in the `payload` variable:
 
 ```json
 [
