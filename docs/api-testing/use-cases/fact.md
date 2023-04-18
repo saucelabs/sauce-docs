@@ -149,7 +149,7 @@ In the example, test was run manually, but it works in the same way when you sch
 
 ## Disabling Email Notifications
 
-The **Fact** component is also usable for disabling email notifications:
+The **Fact** component can also be used to disable email notifications:
 
 ```yaml
   - id: fact
