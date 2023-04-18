@@ -69,6 +69,58 @@ In the following example test report, the token variable has been marked as sens
 
 <img src={useBaseUrl('img/api-testing/sensitive-data2.png')} alt="data obfuscated in report" width="600"/>
 
+### Update Variables Using a File
+
+You can update the values by editing each variable manually. However, when you need to update many (or all) variables in the Vault, importing a file that contains the updates can speed up the process.
+
+The file can be a .cvs or .json and the structure will be as follow:
+
+```json title="Example of a json file"
+{
+  "values": [
+    {
+      "key": "var1",
+      "value": "foo"
+    },
+    {
+      "key": "var2",
+      "value": "bar"
+    },
+    {
+      "key": "var3",
+      "value": "chu"
+    }
+  ]
+}
+```
+
+<img src={useBaseUrl('img/api-testing/csv-example.png')} alt="csv example"/>
+
+#### Project Vault:
+
+1. Open a project.
+1. In the left panel, click **Vault**.
+1. Click **Variables**.
+1. Click **Import**.
+1. Click **Choose File**.
+1. Select the .csv or .json file from your machine.
+1. Optionally, you can skip the last two steps by dragging and dropping the file.
+
+#### Company Vault:
+
+1. From the Projects page, in the left panel, click **Company Vault**.
+1. Click **Variables**.
+1. Click **Import**.
+1. Click **Choose File**.
+1. Select the .csv or .json file from your machine.
+1. Optionally, you can skip the last two steps by dragging and dropping the file.
+
+#### Rules for Updating Variables Using a File:
+
+- If the file contains a variable with the same key as one in the Vault, the variable in the Vault will be overwritten.
+- If the file contains a variable that is not saved in the Vault, the variable will be added into the Vault.
+- If the variables in the Vault are not present in the file, the variables in the Vault will not be deleted.
+
 Check a common [use case](/api-testing/use-cases/vault-variable/) out of saving variables in the vault.
 
 ## Snippets
@@ -95,8 +147,52 @@ While is perfectly fine typing the code snippet directly in the area, if you are
 
 1. Open a project.
 1. In the left panel, click **Vault**, then click **Code Snippets**.
-1. Click any of the fields and begin typing to edit the details.
-1. When you have finished, click **Save Snippet**
+1. Double-click any of the fields and begin typing to edit the details.
+1. When you have finished, click **Save Snippet**.
+
+### Update Snippets Using a File
+
+You can update the code by editing each snippet manually or you can use a file.
+
+The file can be a .cvs or .json and the structure will be as follow:
+
+```json title="Example of a json file"
+{
+  "values": [
+    {
+      "key": "authentication",
+      "value": "- id: post\n  children:\n    - id: body\n      contentType: application/json\n      content: |-\n        {\n        \t\"user_id\": 4628362,\n        \t\"password\": \"abc123\"\n        }\n  url: https://m2-authentication.load2.apifortress.com/request/token\n  var: authPayload\n  mode: json\n"
+    }
+  ]
+}
+```
+
+<img src={useBaseUrl('img/api-testing/csv-example-snippet.png')} alt="csv example"/>
+
+#### Project Vault:
+
+1. Open a project.
+1. In the left panel, click **Vault**.
+1. Click **Code Snippets**.
+1. Click **Import**.
+1. Click **Choose File**.
+1. Select the .csv or .json file from your machine.
+1. Optionally, you can skip the last two steps by dragging and dropping the file.
+
+#### Company Vault:
+
+1. From the Projects page, in the left panel, click **Company Vault**.
+1. Click **Code Snippets**.
+1. Click **Import**.
+1. Click **Choose File**.
+1. Select the .csv or .json file from your machine.
+1. Optionally, you can skip the last two steps by dragging and dropping the file.
+
+#### Rules for Updating Snippets Using a File:
+
+- If the file contains a snippet with the same key as one in the Vault, the snippet in the Vault will be overwritten.
+- If the file contains a snippet that is not saved in the Vault, the snippet will be added into the Vault.
+- If the snippets in the Vault are not present in the file, the snippets in the Vault will not be deleted.
 
 Learn how you can improve your test by generating an [Authentication Snippet](/api-testing/use-cases/vault-snippet/)
 

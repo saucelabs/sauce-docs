@@ -144,6 +144,16 @@ If you need to go through a proxy server, you can set it through the following v
 At this time, these proxy settings are not supported for Playwright.
 :::
 
+### Saucectl
+
+`saucectl` supports going through a proxy to access Sauce Labs API.
+
+Set `HTTP_PROXY` and `HTTPS_PROXY` environment variables as specified above. All requests will go through the specified proxy server.
+
+:::note
+Authenticated proxies are also supported.
+:::
+
 ### Docker Proxy Considerations
 
 When running in docker-mode, `saucectl` still must reach the Sauce Labs platform get the latest docker image available or upload the test package to Sauce Cloud, and the docker container needs to access the tested website and Sauce Labs to upload results.
