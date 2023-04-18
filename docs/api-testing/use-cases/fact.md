@@ -145,7 +145,7 @@ In the example test was run manually, but it works in the same way when you sche
 
 - Add one schedule without adding any variable in the **Overrides**: the test will be executed with `staging` value as the environment.
 - Create a second schedule adding `env` as key and `production` as value in **Overrides**: the test will be executed with `production` value as the environment.
-  :::
+:::
 
 ## Disabling Email Notifications
 
