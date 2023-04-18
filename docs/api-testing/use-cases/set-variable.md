@@ -7,7 +7,7 @@ description: Different ways to set a variable
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The **SET (Variable)** component allows you to create variables from a string to a payload. In this guide, we will show all the ways you can create a variable.
+The **SET (Variable)** component allows you to create variables from a string to a payload. In this guide, you will learn about the various ways to create a variable.
 
 ## What You'll Need
 
