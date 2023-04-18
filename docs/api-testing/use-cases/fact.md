@@ -18,7 +18,7 @@ The **Fact** component is used to control the behaviour of Email notifications, 
 
 ## Setting Alert Environments
 
-Testing activity is tracked using test ID number. This may not work if you're testing in multiple environments, as an incident could be environment-specific. When a Fact component is added to a test, it will inform our system which environment the execution relates to so that the incident signature will carry the environment as well.
+Testing activity is tracked using a test ID number. This may not work if you're testing in multiple environments, as an incident could be environment-specific. When a Fact component is added to a test, it will inform our system which environment the execution relates to so that the incident signature will carry the environment as well.
 
 Assume that you are running the same test in _staging_ and _production_, you will get an email notification the first time the test fails in one of the two environments. This does not allow you to know which environment the test fails on. The same will happens when the test starts working again.
 
