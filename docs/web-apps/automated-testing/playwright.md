@@ -188,5 +188,5 @@ Webkit is not working on macOS 11 since Playwright 1.29.0
 :::
 
 :::note
-Based on current playwright test runner implementation, there is no way to run Playwright test runner with Cucumber.
+Based on current Playwright test runner implementation, there is no way to run Playwright test runner with Cucumber.
 :::
