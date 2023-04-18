@@ -20,7 +20,7 @@ The **Fact** component is used to control the behaviour of Email notifications, 
 
 Testing activity is tracked using a test ID number. This may not work if you're testing in multiple environments, as an incident could be environment-specific. When a Fact component is added to a test, it will inform our system which environment the execution relates to so that the incident signature will carry the environment as well.
 
-Assume that you are running the same test in _staging_ and _production_, you will get an email notification the first time the test fails in one of the two environments. This does not allow you to know which environment the test fails on. The same will happens when the test starts working again.
+Assume that you are running the same test in _staging_ and _production_, you will get an email notification the first time the test fails in one of the two environments. This does not allow you to know which environment the test fails in. The same will happens when the test starts working again.
 
 By configuring a **Fact** (together with **Tag**), you can add the environment value to the incident signature, and from that moment on the signature of the incident will be `id_of_the_test` + `value_of_environment`.
 In this way, you will get a separate notification for each environment the test fails in: for example, you will receive start/end incidents for `test123` in the production environment, and start/end incidents for `test123` in the staging environment, as a separate flow of events.
