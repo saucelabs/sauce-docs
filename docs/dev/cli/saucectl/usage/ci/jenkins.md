@@ -55,7 +55,6 @@ values={[
 {label: 'Cypress', value: 'cypress'},
 {label: 'Playwright', value: 'playwright'},
 {label: 'TestCafe', value: 'testcafe'},
-{label: 'Puppeteer', value: 'puppeteer'},
 {label: 'Espresso', value: 'espresso'},
 {label: 'XCUITest', value: 'xcuitest'},
 ]}>
@@ -78,13 +77,6 @@ https://github.com/saucelabs/saucectl-playwright-example/blob/main/Jenkinsfile
 
 ```bash reference
 https://github.com/saucelabs/saucectl-testcafe-example/blob/main/Jenkinsfile
-```
-
-</TabItem>
-<TabItem value="puppeteer">
-
-```bash reference
-https://github.com/saucelabs/saucectl-puppeteer-example/blob/main/Jenkinsfile
 ```
 
 </TabItem>
