@@ -23,7 +23,7 @@ These examples can apply to virtually any GitHub deployment, provided that you a
 
 1. The first order of business is to export your [Sauce Labs account credentials](https://app.saucelabs.com/user-settings) and store them as GitHub Secrets.
 
-2. Next, follow the GitHub Docs to [create the secrets for your repository](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository), and add the following:
+2. Follow the GitHub Docs to [create the secrets for your repository](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository), and add the following:
 
    Your Sauce Username:
 
