@@ -39,7 +39,7 @@ Below is a screenshot of the Symbol Servers Management UI. It is accessed under 
 
 <img src={useBaseUrl('img/error-reporting/project-settings/symbol-servers.png')} alt="" />
 
-NOTE - These default public symbols servers are scoped to your entire organization. This means that usage and statistics, allowlist, blocklist, skip list and logs will not change from project to project. Following is some brief information about each of the tabs and the data within them.
+The default public symbols servers are scoped to your entire organization. This means that usage and statistics, allowlist, blocklist, skiplist and logs will not change from project to project. Following is some brief information about each of the tabs and the data within them.
 
 - Statistics and Usage - This tab show information about how much has been data has been downloaded, and how many successful or failed downloads there have been since the Symbol Server was added to the system
 - Allowlist - If the allowlist is enabled, then only symbol files in the allowlist will be downloaded. For the public symbol servers that are seeded by default, allowlists are enabled and commonly used symbols are listed for retrieval.
@@ -49,17 +49,16 @@ NOTE - These default public symbols servers are scoped to your entire organizati
 
 ### Add or Edit New Symbol Servers
 
-Customers on our Enterprise plan can add new private symbol servers to connect to. These can be a symbol server or symbol store provided by [Microsoft Debugging tools for Windows](https://docs.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores), or a simple AWS S3 Bucket.
+Customers on our Enterprise plan can add new private symbol servers to connect to. These can be a symbol server or symbol store provided by [Microsoft Debugging tools for Windows](https://docs.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores), or an AWS S3 Bucket.
 
 You will need the following information to connect:
 
-- URL - HTTPS URL to connect to the the symbol server or S3 bucket.
-  - When using an AWS S3 bucket, use the HTTPS URL of the region the S3 bucket is hosted from.
-- Name - A friendly name for this connection.
-- Whether you want to enable Allowlist or not. Most common configuration for private symbol servers is NOT use the Allowlist, and have all symbols attempted to be downloaded on demand for any not in the blocklist or skiplist. If Allowlist is enabled, then the system will try to download ONLY the symbols specified in the allowlist (no other symbols will be downloaded).
-- Credentials - Basic Auth os S3 Authentication with bucket name, s3 key and s3 secret are supported.
-- Proxy options - If a proxy server is required.
-  Download options - How many concurrent downloads to allow, and retry options before adding a symbol to the skiplist.
+- **URL** - HTTPS URL to connect to the symbol server or S3 bucket. When using an AWS S3 bucket, use the HTTPS URL of the region the S3 bucket is hosted from.
+- **Name** - A descriptive name for this connection.
+- **Allowlist** - Whether you want to enable Allowlist or not. If Allowlist is enabled, then the system will only try to download the symbols specified in the allowlist (no other symbols will be downloaded). The most common configuration for private symbol servers is to not use the Allowlist, and instead download all symbols that are not in the blocklist or skiplist on demand.
+- **Credentials** - Basic Auth, Google Cloud Storage with service secret, or AWS S3 Authentication with bucket name, S3 key, and S3 secret are supported.
+- **Proxy Options**- If a proxy server is required, these options define the proxy credentials, host, and port.
+- **Download Options** - How many concurrent downloads to allow, and retry options before adding a symbol to the skiplist.
 
 See a screenshot of the Add Symbol Server UI below:
 
@@ -67,13 +66,15 @@ See a screenshot of the Add Symbol Server UI below:
 
 When an admin adds a new symbol server, symbold will validate connection. By doing that we will avoid a situation when defined symbol server doesn’t work because of connection problems.
 
-As an admin user, you can disable symbol server - if you have problems with your symbol server or your symbol server won’t be available for some reason, you can disable/enable symbol server.
+As an admin user, you can disable the symbol server if you have problems with your symbol server or your symbol server won’t be available for some reason.
 
 After you add a symbol server, you can Edit or Delete it using the context menu on the entry.
 
 <img src={useBaseUrl('img/error-reporting/project-settings/edit-delete-symbol-server.png')} alt="" />
 
-Note: Deleting a symbol server does not delete the debug symbols that were downloaded.
+:::note
+Deleting a symbol server does not delete the debug symbols that were downloaded.
+:::
 
 ### View Statistics and Usage
 
@@ -99,14 +100,14 @@ Entries can be deleted from the allowlist or blocklist by hovering over row and 
 
 Following is a screenshot to show the allowlist entries and a dialog to enter more items to the allowlist, as well as a delete icon for one of the items in the list to show how it can be removed.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/whitelist-symbols.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/allowlist-symbols.png')} alt="" />
 
-### View Skiplist & Logs
+### View Skiplist and Logs
 
-Skiplist - Items appear in the skiplist when they cannot be fetched after multiple retries. The administrator can specify the retry information in the main configuration for the symbol server. Items in the skiplist will be skipped during subsequent download attempts so as to not cause further download issues. Items can be removed from the skiplist using the delete icon if you want to retry download for them.
+Items appear in the skiplist when they cannot be fetched after multiple retries. The administrator can specify the retry information in the main configuration for the symbol server. Items in the skiplist will be skipped during subsequent download attempts so as to not cause further download issues. Items can be removed from the skiplist using the delete icon if you want to retry download for them.
 
 <img src={useBaseUrl('img/error-reporting/project-settings/symbols-skiplist.png')} alt="" />
 
-The Logs tab shows successful and failed attempts at downloading, receiving, or retrying, amongst other. This is useful to understand how the symbol server connection has been behaving.
+The Logs tab shows successful and failed attempts at downloading, receiving, or retrying, amongst other. You can use the logs to understand how the symbol server connection has been behaving.
 
 <img src={useBaseUrl('img/error-reporting/project-settings/symbols-logs.png')} alt="" />
