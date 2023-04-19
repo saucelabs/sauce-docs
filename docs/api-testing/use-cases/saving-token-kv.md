@@ -129,7 +129,7 @@ The final test looks like:
 
 To use the Key/Value Store in other tests in the same Organization, you have to first load the value from the Key/Value Store and then use it.
 
-<img src={useBaseUrl('img/api-testing/kv-examples/token-kv-tests.png')} alt="Load the key/value in other tests" width="450"/>
+<img src={useBaseUrl('img/api-testing/kv-examples/token-kv-tests.png')} alt="Load the key/value in other tests"/>
 
 - Action - for example `Load`
 - Key - for example `token`

@@ -42,37 +42,37 @@ By configuring a Fact in the following way, you can add the environment value to
 
 1. In Composer, in the **Input Set**, set the default environment as `staging`.
 
-<img src={useBaseUrl('img/api-testing/fact-examples/set-environment.png')} alt="set environment" width="450" />
+   <img src={useBaseUrl('img/api-testing/fact-examples/set-environment.png')} alt="set environment" width="450" />
 
-```yaml
-  - id: global
-    children:
-      - id: variable
-        name: env
-        value: staging
-```
+   ```yaml
+     - id: global
+       children:
+         - id: variable
+           name: env
+           value: staging
+   ```
 
-With this setting, the test will be executed against the `staging` environment by default.
+   With this setting, the test will be executed against the `staging` environment by default.
 
 2. In the **Unit**, set the **Fact** component to add the environment value to the incident signature.
 
-<img src={useBaseUrl('img/api-testing/fact-examples/fact-component.png')} alt="fact component" />
+   <img src={useBaseUrl('img/api-testing/fact-examples/fact-component.png')} alt="fact component" />
 
-```yaml
-  - id: fact
-    identifier: environment
-    label: environment
-    value: ${env}
-```
+   ```yaml
+     - id: fact
+       identifier: environment
+       label: environment
+       value: ${env}
+   ```
 
 3. Add **Tag** component to set the environment as tag in the email notifications.
 
-<img src={useBaseUrl('img/api-testing/fact-examples/tag.png')} alt="tag component" />
+   <img src={useBaseUrl('img/api-testing/fact-examples/tag.png')} alt="tag component" />
 
-```yaml
-  - id: tag
-    value: ${env}
-```
+   ```yaml
+     - id: tag
+       value: ${env}
+   ```
 
 4. Add the **GET** request.
 
@@ -80,15 +80,15 @@ With this setting, the test will be executed against the `staging` environment b
    - Variable - for example `payload`
    - Mode - for example `json`
 
-<img src={useBaseUrl('img/api-testing/fact-examples/get.png')} alt="get request" />
+   <img src={useBaseUrl('img/api-testing/fact-examples/get.png')} alt="get request" />
 
-```yaml
-  - id: get
-    children: []
-    url: http://demoapi.apifortress.com/api/retail/product
-    var: payload
-    mode: json
-```
+   ```yaml
+     - id: get
+       children: []
+       url: http://demoapi.apifortress.com/api/retail/product
+       var: payload
+       mode: json
+   ```
 
 5. Click **Save**.
 
@@ -109,7 +109,7 @@ With this setting, the test will be executed against the `staging` environment b
     - Key - for example `env`
     - Value - for example `production`
 
-    <img src={useBaseUrl('img/api-testing/fact-examples/environment.png')} alt="set new environment" width="250"/>
+    <img src={useBaseUrl('img/api-testing/fact-examples/environment2.png')} alt="set new environment"/>
 
 12. Click **Confirm**.
 
@@ -145,7 +145,7 @@ In the example test was run manually, but it works in the same way when you sche
 
 - Add one schedule without adding any variable in the **Overrides**: the test will be executed with `staging` value as the environment.
 - Create a second schedule adding `env` as key and `production` as value in **Overrides**: the test will be executed with `production` value as the environment.
-:::
+  :::
 
 ## Disabling Email Notifications
 
@@ -174,14 +174,14 @@ As an example, you could say "IF the env is development, then disable emails for
 
 1. In Composer, add the **Fact** component.
 
-<img src={useBaseUrl('img/api-testing/factDisableAlert.png')} alt="factDisableAlert.png" />
+   <img src={useBaseUrl('img/api-testing/factDisableAlert.png')} alt="factDisableAlert.png" />
 
-```yaml
-  - id: fact
-    identifier: disable_alerts
-    label: alerts disabled
-    value: "true"
-```
+   ```yaml
+     - id: fact
+       identifier: disable_alerts
+       label: alerts disabled
+       value: "true"
+   ```
 
 2. Add the **GET** request.
 
@@ -189,15 +189,15 @@ As an example, you could say "IF the env is development, then disable emails for
    - Variable - for example `payload`
    - Mode - for example `json`
 
-<img src={useBaseUrl('img/api-testing/fact-examples/get.png')} alt="get request" />
+   <img src={useBaseUrl('img/api-testing/fact-examples/get.png')} alt="get request" />
 
-```yaml
-  - id: get
-    children: []
-    url: http://demoapi.apifortress.com/api/retail/product
-    var: payload
-    mode: json
-```
+   ```yaml
+     - id: get
+       children: []
+       url: http://demoapi.apifortress.com/api/retail/product
+       var: payload
+       mode: json
+   ```
 
 3. Click **Save**.
 
@@ -208,14 +208,14 @@ As an example, you could say "IF the env is development, then disable emails for
 
 6. Double-click on the test to edit it and change the value for **Fact** from `true` to `false`.
 
-<img src={useBaseUrl('img/api-testing/fact-examples/disable-alerts-false.png')} alt="disable alerts false" />
+   <img src={useBaseUrl('img/api-testing/fact-examples/disable-alerts-false.png')} alt="disable alerts false" />
 
-```yaml
-  - id: fact
-    identifier: disable_alerts
-    label: alerts disabled
-    value: "false"
-```
+   ```yaml
+     - id: fact
+       identifier: disable_alerts
+       label: alerts disabled
+       value: "false"
+   ```
 
 7. Click **Save**.
 
@@ -262,14 +262,14 @@ Given that this can be configured in the test, it offers all the flexibility pro
 
 1. In the Composer, add the **Fact** component.
 
-<img src={useBaseUrl('img/api-testing/fact-examples/threshold.png')} alt="fact threshold" />
+   <img src={useBaseUrl('img/api-testing/fact-examples/threshold.png')} alt="fact threshold" />
 
-```yaml
-  - id: fact
-    identifier: mail_threshold
-    label: threshold
-    value: "3"
-```
+   ```yaml
+     - id: fact
+       identifier: mail_threshold
+       label: threshold
+       value: "3"
+   ```
 
 2. Add the **GET** request.
 
@@ -277,15 +277,15 @@ Given that this can be configured in the test, it offers all the flexibility pro
    - Variable - for example `payload`
    - Mode - for example `json`
 
-<img src={useBaseUrl('img/api-testing/fact-examples/get.png')} alt="get request" />
+   <img src={useBaseUrl('img/api-testing/fact-examples/get.png')} alt="get request" />
 
-```yaml
-  - id: get
-    children: []
-    url: http://demoapi.apifortress.com/api/retail/product
-    var: payload
-    mode: json
-```
+   ```yaml
+     - id: get
+       children: []
+       url: http://demoapi.apifortress.com/api/retail/product
+       var: payload
+       mode: json
+   ```
 
 3. Click **Save**.
 

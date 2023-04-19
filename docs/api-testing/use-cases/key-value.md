@@ -152,7 +152,7 @@ In this step, you will **Push** the data onto the array.
     - Key - for example `prods`
     - Data - for example `999`
 
-<img src={useBaseUrl('img/api-testing/kv-examples/adv-push-kv.png')} alt="push method for K/V store component"/>
+    <img src={useBaseUrl('img/api-testing/kv-examples/adv-push-kv.png')} alt="push method for K/V store component"/>
 
 In this step, you push the new data onto the end of the existing array. In this example, you push the integer 999 onto the `prods` array.
 
@@ -164,7 +164,7 @@ In this step, you push the new data onto the end of the existing array. In this 
     - Key - for example `prods`
     - Variable - for example `kvprods`
 
-<img src={useBaseUrl('img/api-testing/kv-examples/adv-load-kv.png')} alt="push method for K/V store component"/>
+    <img src={useBaseUrl('img/api-testing/kv-examples/adv-load-kv.png')} alt="push method for K/V store component"/>
 
 In this step, you load the modified data into the test from the Key/Value Store.
 
@@ -180,7 +180,7 @@ This will print the value so you can see the changes on the test report.
 
 16. **Run** the test.
 
-<img src={useBaseUrl('img/api-testing/kv-examples/report.png')} alt="Test Report" />
+    <img src={useBaseUrl('img/api-testing/kv-examples/report.png')} alt="Test Report" />
 
 The test report shows that you have pushed the number 999 onto the array stored in the key `prods`.
 
@@ -251,7 +251,7 @@ The **Pop** method removes the last value in an array and returns the value itse
 
 10. **Run** the test.
 
-<img src={useBaseUrl('img/api-testing/kv-examples/final-report.png')} alt="Test Report" />
+    <img src={useBaseUrl('img/api-testing/kv-examples/final-report.png')} alt="Test Report" />
 
 The report for the full workflow shows that you first assigned an array to the Key/Value Store with the **Set** method, then added a value to that array with **Push**, and then removed the value with **Pop**. Each time there's a change, you used **Load** to retrieve an updated value from the Key/Value Store. The last two comments show the final state of the array in the Key/Value Store and the popped value itself. The popped value will only be available in the scope of this test run. The array in the Key/Value Store will remain retrievable until 24 hours after its most recent modification.
 
