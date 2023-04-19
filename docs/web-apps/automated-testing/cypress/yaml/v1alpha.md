@@ -84,7 +84,6 @@ Specifies any default settings for the project.
 
 ```yaml
 defaults:
-  mode: sauce
   timeout: 15m
 ```
 
