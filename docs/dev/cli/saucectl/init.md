@@ -28,7 +28,6 @@ In either case, the command generates a `.sauce/config.yml` folder and file in t
   - [Cypress YAML](/web-apps/automated-testing/cypress/yaml)
   - [Playwright YAML](/web-apps/automated-testing/playwright/yaml)
   - [TestCafe YAML](/web-apps/automated-testing/testcafe/yaml)
-  - [Puppeteer YAML](/web-apps/automated-testing/puppeteer/yaml)
   - [Espresso YAML](/mobile-apps/automated-testing/espresso-xcuitest/espresso)
   - [XCUITest YAML](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest)
 
@@ -304,7 +303,6 @@ $ saucectl init
 ? Select framework:  [Use arrows to move, type to filter]
 > cypress
  playwright
- puppeteer
  testcafe
  espresso
  xcuitest
