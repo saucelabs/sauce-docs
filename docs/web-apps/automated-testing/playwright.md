@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-[Playwright](https://github.com/microsoft/playwright) is a testing framework that you can use to test your web apps &#8212; remotely on Sauce Labs Cloud &#8212; using the [`saucectl` CLI](/dev/cli/saucectl).
+[Playwright](https://github.com/microsoft/playwright) is a testing framework that you can use to test your web apps remotely on Sauce Labs Cloud using the [`saucectl` CLI](/dev/cli/saucectl).
 
 ## Supported Languages
 

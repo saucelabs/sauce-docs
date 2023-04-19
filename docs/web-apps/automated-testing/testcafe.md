@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-[TestCafe](https://github.com/DevExpress/testcafe) is a testing framework that you can use to test your web apps &#8212; remotely on Sauce Labs cloud &#8212; using the [`saucectl` CLI](/dev/cli/saucectl).
+[TestCafe](https://github.com/DevExpress/testcafe) is a testing framework that you can use to test your web apps remotely on Sauce Labs cloud using the [`saucectl` CLI](/dev/cli/saucectl).
 
 ## System Requirements
 
