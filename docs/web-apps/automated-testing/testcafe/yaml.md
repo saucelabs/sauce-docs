@@ -103,7 +103,6 @@ The parent property containing all settings related to how tests are run and ide
 sauce:
   region: eu-central-1
   metadata:
-    name: Testing TestCafe Support
     tags:
       - e2e
       - release team

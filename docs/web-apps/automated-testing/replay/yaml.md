@@ -104,7 +104,6 @@ The parent property containing all settings related to how Jobs are run and iden
 sauce:
   region: us-west-1
   metadata:
-    name: Testing Replay Support
     tags:
       - e2e
       - release team
