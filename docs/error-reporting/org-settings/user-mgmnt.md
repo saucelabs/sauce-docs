@@ -27,9 +27,9 @@ For example, if you supply a domain of backtrace.io, then anyone with a backtrac
 
 To add a permitted domain:
 
-1. Under **Configure self signup**, select **Allow signups from whitelisted domains**.
+1. Under **Configure self signup**, select **Allow signups from allowlisted domains**.
 1. Click **+ Add domain**.
-1. In the Add whitelisted domain dialog:
+1. In the Add allowlisted domain dialog:
    - Enter the name of the domain.
    - Select a default authentication method. Options are:
      - **password** (recommended): The user is required to set a password.
