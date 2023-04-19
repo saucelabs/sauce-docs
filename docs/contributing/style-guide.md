@@ -576,7 +576,7 @@ technology.
 ```html
 <p><span class="highlight cypress">Cypress</span></p>
 <p><span class="highlight playwright">Playwright version >= 1.12</span></p>
-<p><span class="highlight testcafe">Testcafe</span></p>
+<p><span class="highlight testcafe">TestCafe</span></p>
 ```
 
 </td>
@@ -590,7 +590,7 @@ technology.
       <td>
         <p><span class="highlight cypress">Cypress</span></p>
         <p><span class="highlight playwright">Playwright version >= 1.12</span></p>
-        <p><span class="highlight testcafe">Testcafe</span></p>
+        <p><span class="highlight testcafe">TestCafe</span></p>
       </td>
     </tr>
   </tbody>
