@@ -1014,16 +1014,6 @@ module.exports = {
                         },
                         {
                             type: 'category',
-                            label: 'Puppeteer',
-                            collapsed: true,
-                            items: [
-                                'web-apps/automated-testing/puppeteer',
-                                'web-apps/automated-testing/puppeteer/quickstart',
-                                'web-apps/automated-testing/puppeteer/yaml',
-                            ],
-                        },
-                        {
-                            type: 'category',
                             label: 'Replay',
                             collapsed: true,
                             items: [
