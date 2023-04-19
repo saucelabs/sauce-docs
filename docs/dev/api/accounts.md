@@ -1814,7 +1814,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <table id="table-api">
 <tbody>
   <tr>
-    <td><code>200</code></td>
+    <td><code>201</code></td>
     <td colSpan='2'>Success. User assigned Org Admin role.</td>
   </tr>
 </tbody>

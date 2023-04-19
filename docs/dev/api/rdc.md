@@ -597,3 +597,335 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </details>
 
 ---
+
+### Stop a Job
+
+<details><summary><span className="api put">PUT</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/stop</code></summary>
+<p/>
+
+Stops a running job described by the `job_id`.
+
+:::note
+Only Appium jobs can be stopped while they are actively running.
+:::
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>job_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a job running on a real device in the data center. You can look up job IDs using the <a href="#get-real-device-jobs">Get Real Device Jobs</a> endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/v1/rdc/jobs/293d84fb2f634ff29a750c3f8eaee592/stop' | json_pp
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.eu-central-1.saucelabs.com/v1/rdc/jobs/48c6d12f9ef944439453b5abc6715b54/stop'
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Job successfully stopped.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Session identified as 'JOB_TYPE' test. It can’t be stopped because it’s not part of the allowed test types: APPIUM</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Cannot stop test in the setup phase. Test needs to be in progress before it can be stopped</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>The test cannot be stopped because the test execution has already finished. Only tests in progress can be stopped</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Session Id is not available yet. Test needs to be in progress before it can be stopped</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Only in progress appium session can be stopped</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>500</code></td>
+    <td colSpan='2'>Session could not be closed, try again</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>500</code></td>
+    <td colSpan='2'>Failed to stop a session, Please try again</td>
+  </tr>
+</tbody>
+</table>
+
+</details>
+
+---
+
+### Update a Job
+
+<details><summary><span className="api put">PUT</span> <code>/v1/rdc/jobs/&#123;job_id&#125;</code></summary>
+<p/>
+
+Edit job attributes based on parameters passed in the request, including setting the status and name of the job. Any parameter for which a new value is provided in the request will replace the existing value. For example, if you provide a set of tags, they will not be added to the current tags; they will replace them, so make sure you pass the entire set you wish to assign.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>job_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The Sauce Labs identifier of the job to be updated. You can look up job IDs using the <a href="#get-jobs">Get Jobs</a> endpoint.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>name</code></td>
+       <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A new name for the job.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>build</code></td>
+       <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>Assign the job to a build. You can specify an existing build name or create a new one.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>passed</code></td>
+       <td><p><small>| BODY | OPTIONAL | BOOLEAN |</small></p><p>Asserts whether the job passed (<code>true</code>) or not (<code>false</code>).</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tags</code></td>
+       <td><p><small>| BODY | OPTIONAL | ARRAY |</small></p><p>The set of distinguishing tags to apply to the job.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/v1/rdc/jobs/a2f60bf3ea5f43fa90126f82c0ba2cf6' \
+--header 'Content-Type: application/json'
+--data-raw '{
+    "name": "New Test Name",
+    "tags": [
+        "e2e",
+        "release_team",
+        "other_tag"
+    ],
+    "build": "build-2023-02-15T10:44:10Z"
+}'
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.eu-central-1.saucelabs.com/v1/rdc/jobs/a2f60bf3ea5f43fa90126f82c0ba2cf6' \
+--header 'Content-Type: application/json'
+--data-raw '{
+    "name": "New Test Name",
+    "tags": [
+        "e2e",
+        "release_team",
+        "other_tag",
+    ],
+    "build": "build-2023-02-15T10:44:10Z"
+}'
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Bad Request.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+    "application_summary": {
+        "appStorageId": "b5e4fde9-a45b-485d-9bc6-92204f97adf3",
+        "groupId": 827303,
+        "filename": "iosHttpRequest.ipa",
+        "name": "httpRequest",
+        "packageName": "com.saucelabs.httpRequest",
+        "version": "1",
+        "versionCode": null,
+        "shortVersion": "1.0",
+        "minSdkLevel": null,
+        "targetSdkLevel": null,
+        "minOsVersion": "11.4",
+        "targetOsVersion": "15.5"
+    },
+    "assigned_tunnel_id": null,
+    "device_type": "real_device",
+    "owner_sauce": "sauce-rdc-us-staging-tests",
+    "automation_backend": "xcuitest",
+    "base_config": {},
+    "build": "a5daf4aff92a43ed9b8b1ff9ba7afa4e",
+    "collects_automator_log": true,
+    "consolidated_status": "passed",
+    "creation_time": 1676034279072,
+    "device_descriptor": {
+        "abiType": "arm64",
+        "apiLevel": 0,
+        "cpuCores": 2,
+        "cpuFrequency": 3200,
+        "defaultOrientation": "PORTRAIT",
+        "dpi": 460,
+        "hasOnScreenButtons": true,
+        "id": "iPhone_13_real_us",
+        "internalOrientation": "PORTRAIT",
+        "internalStorageSize": 13312,
+        "isArm": true,
+        "isKeyGuardDisabled": false,
+        "isPrivate": false,
+        "isRooted": false,
+        "isTablet": false,
+        "manufacturer": [
+            "Apple"
+        ],
+        "modelNumber": "iPhone14,5",
+        "name": "iPhone 13",
+        "os": "IOS",
+        "osVersion": "15.4",
+        "pixelsPerPoint": 3,
+        "ramSize": 4096,
+        "resolutionHeight": 2532,
+        "resolutionWidth": 1170,
+        "screenSize": 6.1,
+        "sdCardSize": 0,
+        "supportsAppiumWebAppTesting": true,
+        "supportsGlobalProxy": false,
+        "supportsMinicapSocketConnection": true,
+        "supportsMockLocations": true,
+        "cpuType": "ARM",
+        "deviceFamily": "IPHONE",
+        "dpiName": "xxhdpi",
+        "isAlternativeIoEnabled": true,
+        "supportsManualWebTesting": true,
+        "supportsMultiTouch": true,
+        "supportsXcuiTest": true
+    },
+    "end_time": 1676034310292,
+    "error": null,
+    "id": "a5daf4aff92a43ed9b8b1ff9ba7afa4e",
+    "framework_log_url": "https://api.staging.saucelabs.net/v1/rdc/jobs/a5daf4aff92a43ed9b8b1ff9ba7afa4e/xcuitestLogs",
+    "device_log_url": "https://api.staging.saucelabs.net/v1/rdc/jobs/a5daf4aff92a43ed9b8b1ff9ba7afa4e/deviceLogs",
+    "requests_url": null,
+    "test_cases_url": "https://api.staging.saucelabs.net/v1/rdc/jobs/a5daf4aff92a43ed9b8b1ff9ba7afa4e/testCases",
+    "junit_log_url": "https://api.staging.saucelabs.net/v1/rdc/jobs/a5daf4aff92a43ed9b8b1ff9ba7afa4e/junit.xml",
+    "manual": false,
+    "modification_time": 1676034310292,
+    "name": "New Test Name",
+    "os": "iOS",
+    "os_version": "15.4",
+    "device_name": "iPhone 13",
+    "passed": true,
+    "proxied": false,
+    "record_screenshots": true,
+    "screenshots": [],
+    "record_video": true,
+    "start_time": 1676034300063,
+    "status": "passed",
+    "tags": [
+        "e2e",
+        "xcuitest",
+        "team"
+    ],
+    "video_url": "https://api.staging.saucelabs.net/v1/rdc/jobs/a5daf4aff92a43ed9b8b1ff9ba7afa4e/video.mp4",
+    "remote_app_file_url": null,
+    "appium_session_id": null,
+    "device_session_id": null,
+    "client": "saucectl/0.117.1",
+    "network_log_url": null,
+    "testfairy_log_url": null,
+    "crash_log_url": null,
+    "test_report_type": "XCUITEST"
+}
+```
+
+</details>
+
+---

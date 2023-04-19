@@ -4,13 +4,12 @@ message: "Avoid usage of '%s'."
 ignorecase: true
 level: suggestion
 tokens:
+  - and so on
   - a.k.a.
   - aka
   - at this point
+  - etc.
   - note that
   - please
   - quite
-  - eventually
-  - as of this writing
-  - and so on
-  - etc.
+
