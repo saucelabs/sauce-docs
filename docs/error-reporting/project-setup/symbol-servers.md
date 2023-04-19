@@ -66,7 +66,7 @@ See a screenshot of the Add Symbol Server UI below:
 
 When an admin adds a new symbol server, symbold will validate connection. By doing that we will avoid a situation when defined symbol server doesn’t work because of connection problems.
 
-As an admin user, you can disable the symbol server if you have problems with your symbol server or your symbol server won’t be available for some reason.
+As an administrator, you can disable the symbol server if you have problems with your symbol server or your symbol server won’t be available for some reason.
 
 After you add a symbol server, you can Edit or Delete it using the context menu on the entry.
 
