@@ -21,50 +21,77 @@ Returns run data for all tests that match the request criteria.
 
 #### Parameters
 
-:::note
-This call requires <code>start</code> and <code>end</code> parameters OR the <code>time_range</code> parameter.
-:::
-
 <table id="table-api">
   <tbody>
     <tr>
-     <td><code>start</code></td>
-       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+     <td><code>build</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to those grouped by this build name.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>build_missing</code></td>
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>[Add Description]. Default value is <code>false</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>descending</code></td>
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>[Add Description]. Default value is <code>true</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>end</code></td>
-       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>time_range</code></td>
-       <td><p><small>| QUERY | REQUIRED | DURATION + UNIT |</small></p><p>The amount of time backward from the current time representing the period during which the test runs executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
+     <td><code>error</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those that threw this error message.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>scope</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies the scope of the <code>owner</code> parameter. Supported values are:</p><p>
-     <ul>
-      <li><code>me</code> - owner is the logged-in requestor.</li>
-      <li><code>organization</code> - owner is all users the logged-in requestor's organization.</li>
-      <li><code>single</code> - owner is one or more users in logged-in requestor's organization. Setting this value makes the <code>owner</code> parameter required.</li>
-    </ul></p></td>
+     <td><code>name</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Add Description].</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>from</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Begin results list from this record number. Default value is <code>0</code></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>owner</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>The name of one or more users in the requestor's organization who executed the requested tests. This parameter is required if the <code>scope</code> parameter is set to <code>single</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Add Description].</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>scope</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Add Description]. </p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>size</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>The maximum number of results to return. Default value is <code>10</code></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>start</code></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
      <ul>
       <li><code>passed</code></li>
       <li><code>errored</code></li>
@@ -75,44 +102,8 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
   </tbody>
   <tbody>
     <tr>
-     <td><code>build</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to those grouped by this build name.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>from</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Begin results list from this record number.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>size</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>The maximum number of results to return.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>missing_build</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INCLUDE |</small></p><p>Requires no value. If this parameter is included in the query string, results will only include tests with no assigned build.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>query</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with this test name.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>desc</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Set to <code>true</code> to sort results in descending order by creation time. Default value is <code>false</code>.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>error</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those that threw this error message.</p></td>
+     <td><code>time_range</code></td>
+       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Add Description].</p></td>
     </tr>
   </tbody>
 </table>
@@ -129,7 +120,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.us-west-1.saucelabs.com/v1/analytics/tests?start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z&size=10&from=10&build=build-123" | json_pp
+--request GET "https://api.us-west-1.saucelabs.com/v1/analytics/tests" | json_pp
 ```
 
 </TabItem>
@@ -137,7 +128,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.eu-central-1.saucelabs.com/v1/analytics/tests?start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z&size=10&from=10&build=build-123" | json_pp
+--request GET "https://api.eu-central-1.saucelabs.com/v1/analytics/tests" | json_pp
 ```
 
 </TabItem>
@@ -154,41 +145,38 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </tbody>
 <tbody>
   <tr>
-    <td><code>400</code></td>
-    <td colSpan='2'>Bad Request. May include additional error message, such as "start and end parameters are required."</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>404</code></td>
-    <td colSpan='2'>Not found.</td>
+    <td><code>422</code></td>
+    <td colSpan='2'>Validation Error.</td>
   </tr>
 </tbody>
 </table>
 
 ```jsx title="Sample Response"
 {
-  "meta": {
-    "status": 200
-  },
+  "has_more": true,
   "items": [
     {
-      "id": "50fdd2369eer3031ad912kib57b12440",
-      "owner": "USERNAME",
-      "ancestor": "USERNAME",
-      "name": "TestGet",
-      "build": "build-123",
-      "creation_time": "2017-03-01T12:13:39Z",
-      "end_time": "2017-03-01T12:16:22Z",
-      "status": "complete",
-      "error": "",
-      "os": "OS X El Capitan (10.11)",
-      "browser": "iPhone 10.0",
-      "details_url": "https://saucelabs.com/rest/v1.1/a-team/jobs/50fdd2369eer3031ad912kib57b12440"
-    },
-    // 9 more tests
+      "ancestor": "<ancestor>",
+      "browser": "<broswer>",
+      "browser_normalized": "<browser>",
+      "build": "build123",
+      "creation_time": "2023-04-19T10:01:44.785Z",
+      "details_url": "<url>",
+      "duration": 5,
+      "end_time": "2023-04-19T10:01:44.785Z",
+      "error": "<error>",
+      "id": "123",
+      "name": "<name>",
+      "os": "<os>",
+      "os_normalized": "<os>",
+      "owner": "<owner>",
+      "start_time": "2023-04-19T10:01:44.785Z",
+      "status": "complete"
+    }
   ],
-  "has_more": true
+  "meta": {
+    "status": 200
+  }
 }
 ```
 
@@ -393,50 +381,59 @@ Returns a set of data "buckets" representing tests that were run in each time in
 
 #### Parameters
 
-:::note
-This call requires <code>start</code> and <code>end</code> parameters OR the <code>time_range</code> parameter.
-:::
-
 <table id="table-api">
   <tbody>
     <tr>
-     <td><code>start</code></td>
-       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+     <td><code>scope</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Add Description]. Default value is <code>organization</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>end</code></td>
-       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+     <td><code>interval</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Add Description].</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>time_range</code></td>
-       <td><p><small>| QUERY | REQUIRED | DURATION + UNIT |</small></p><p>The amount of time backward from the current time representing the period during which the test runs executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
-    </tr>
-  </tbody>
-   <tbody>
-    <tr>
-     <td><code>interval</code></td>
-     <td><p><small>| QUERY | REQUIRED | DURATION + UNIT |</small></p><p>The amount of time representing the boundary of each data bucket. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
+       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Add Description].</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>scope</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies the scope of the <code>owner</code> parameter. Supported values are:</p><p>
-     <ul>
-      <li><code>me</code> - owner is the logged-in requestor.</li>
-      <li><code>organization</code> - owner is all users the logged-in requestor's organization.</li>
-      <li><code>single</code> - owner is one or more users in logged-in requestor's organization. Setting this value makes the <code>owner</code> parameter required.</li>
-    </ul></p></td>
+     <td><code>start</code></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>owner</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>The name of one or more users in the requestor's organization who executed the requested tests. This parameter is required if the <code>scope</code> parameter is set to <code>single</code>.</p></td>
+     <td><code>end</code></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>browser</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified browsers.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>build</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to those grouped by this build name.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified device.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>os</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified operating systems.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -453,14 +450,14 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
   </tbody>
   <tbody>
     <tr>
-     <td><code>os</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified operating systems.</p></td>
+     <td><code>tag</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified tag.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>browser</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified browsers.</p></td>
+     <td><code>tag_filter_mode</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Add Description]. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
     </tr>
   </tbody>
 </table>
@@ -477,7 +474,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.us-west-1.saucelabs.com/v1/analytics/trends/tests?interval=1h&start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z&os=Linux" | json_pp
+--request GET "https://api.us-west-1.saucelabs.com/v1/analytics/trends/tests" | json_pp
 ```
 
 </TabItem>
@@ -485,7 +482,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.eu-central-1.saucelabs.com/v1/analytics/trends/tests?interval=1h&start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z&os=Linux" | json_pp
+--request GET "https://api.eu-central-1.saucelabs.com/v1/analytics/trends/tests" | json_pp
 ```
 
 </TabItem>
@@ -502,14 +499,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </tbody>
 <tbody>
   <tr>
-    <td><code>400</code></td>
-    <td colSpan='2'>Bad Request. May include additional error message, such as "start and end parameters are required."</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>404</code></td>
-    <td colSpan='2'>Not found.</td>
+    <td><code>422</code></td>
+    <td colSpan='2'>Validation Error.</td>
   </tr>
 </tbody>
 </table>
@@ -517,69 +508,122 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Response"
 {
   "meta": {
-    "status": 200
+    "status": "complete"
   },
   "buckets": [
     {
-      "timestamp": "2017-03-09T12:00:00.000Z",
-      "count": 204,
+      "timestamp": 1681844306,
+      "datetime": "2023-04-19T11:03:28.158Z",
+      "count": 3,
       "aggs": {
+        "browser": [
+          {
+            "name": "<browser>",
+            "count": 3
+          }
+        ],
+        "browserError": [
+          {
+            "name": "<broswer>",
+            "count": 6
+          }
+        ],
+        "browserFail": [
+          {
+            "name": "<browser>",
+            "count": 1
+          }
+        ],
+        "device": [
+          {
+            "name": "<device>",
+            "count": 2
+          }
+        ],
+        "deviceError": [
+          {
+            "name": "<device>",
+            "count": 4
+          }
+        ],
+        "deviceFail": [
+          {
+            "name": "<device>",
+            "count": 3
+          }
+        ],
+        "errorMessage": [
+          {
+            "name": "<error>",
+            "count": 6
+          }
+        ],
+        "framework": [
+          {
+            "name": "<framework>",
+            "count": 7
+          }
+        ],
+        "frameworkError": [
+          {
+            "name": "<framework>",
+            "count": 4
+          }
+        ],
+        "frameworkFail": [
+          {
+            "name": "<framework>",
+            "count": 1
+          }
+        ],
         "os": [
           {
-            "name": "OS X El Capitan (10.11)",
-            "count": 98
-          },
+            "name": "<os>",
+            "count": 2
+          }
+        ],
+        "osError": [
           {
-            "name": "Windows 7",
-            "count": 65
-          },
+            "name": "<os>",
+            "count": 5
+          }
+        ],
+        "osFail": [
           {
-            "name": "Linux",
-            "count": 41
+            "name": "<os>",
+            "count": 3
           }
         ],
         "owner": [
           {
-            "name": "a-team",
-            "count": 204
+            "name": "<owner>",
+            "count": 4
           }
         ],
         "status": [
           {
             "name": "complete",
-            "count": 133
-          },
-          {
-            "name": "passed",
-            "count": 58
-          },
-          {
-            "name": "failed",
-            "count": 12
-          },
-          {
-            "name": "errored",
-            "count": 1
+            "count": 2
           }
         ]
       }
-    },
-    // more buckets...
+    }
   ],
   "metrics": {
-    "os": {
-      "Linux": 163,
-      "OS X El Capitan (10.11)": 356,
-      "Windows 7": 229
+    "additionalProp1": {
+      "additionalProp1": 1,
+      "additionalProp2": 4,
+      "additionalProp3": 6
     },
-    "owner": {
-      "a-team": 748
+    "additionalProp2": {
+      "additionalProp1": 2,
+      "additionalProp2": 4,
+      "additionalProp3": 4
     },
-    "status": {
-      "complete": 496,
-      "errored": 2,
-      "failed": 44,
-      "passed": 206
+    "additionalProp3": {
+      "additionalProp1": 2,
+      "additionalProp2": 3,
+      "additionalProp3": 4
     }
   }
 }
