@@ -30,7 +30,7 @@ Only two variables in the command are required: `SAUCE_URI` and `SAUCE_AUTH`; al
 
 If your data center is `EU Central 1`, replace `api_domain` with `api.eu-central-1.saucelabs.com`. If your data center is `US West 1`, replace `api_domain` with `api.us-west-1.saucelabs.com`.
 
-## Create and Run Load Tests in APIT 
+## Create and Run Load Tests in APIT
 
 Once you have run the agents, you can create and run load tests in the API Testing platform.
 
@@ -41,12 +41,11 @@ We count 1 out of every 100 load testing executions against your monthly executi
 1. In Sauce Labs, click **API Testing**.
 
 2. On the **Tests** page, next to the test you want to run a load test on, click the **Load Test** icon.
+   <img src={useBaseUrl('/img/api-testing/load-testing-nav-rebrand.png')} alt="The Load Test icon"/>
 
 :::note
 Load testing only works with published tests. If you change a published test, and then run a load test without re-publishing it, the load test will be run on the published version, not the updated one.
 :::
-
-<img src={useBaseUrl('/img/api-testing/load-testing-nav-rebrand.png')} alt="The Load Test icon"/>
 
 3. On the tests page, click **Create Load test**.
 
@@ -61,9 +60,9 @@ Load testing only works with published tests. If you change a published test, an
 - **Intensity map** - Here you can set up the aggressiveness of the virtual users. Each virtual user will repeatedly execute the provided test. At intensity 100, it will relentlessly start a new cycle right after a cycle is completed. As you lower the intensity, the virtual users will take breaks between cycles. As not all virtual users will complete a cycle at the same time, the breaks will create a more distributed, lower intensity, but same complexity volume of requests.
 - **Agents** - The available agents (pools/workers) and the max virtual users you can set up for each one. This is the only mandatory field without any default, so you need to manually select the agents you want to set up. If these are not set up you will not be able to save or run the test.
 
-  If you have saved a load test with an agent that is currently offline, you will see an alert and the system will prevent you from running the test with it. You will see the same alert if you are trying to use the same agent for more tests but there are no virtual users available.
+If you have saved a load test with an agent that is currently offline, you will see an alert and the system will prevent you from running the test with it. You will see the same alert if you are trying to use the same agent for more tests but there are no virtual users available.
 
-  <img src={useBaseUrl('/img/api-testing/load-test-agents-offline.png')} alt="Alert that agents are offline" width="400"/>
+<img src={useBaseUrl('/img/api-testing/load-test-agents-offline.png')} alt="Alert that agents are offline" width="400"/>
 
 - **Virtual users** - The number of active users per agent you want to simulate. The value can be any value that is less than or equal to the max virtual users available for that agent. If more than one agent is selected, the lesser virtual users value is the max number of virtual users you can set up. If you try to set more agents than the available you will see an error message.
 - **Environments** - The environment dropdown allows you to select an environment to run the load test with or, if you haven't one already, you can create a new one.
@@ -77,11 +76,12 @@ You can set up multiple profiles for each test, from less aggressive to very agg
 
 <img src={useBaseUrl('/img/api-testing/create-load-test-rebrand.png')} alt="The Create Load test page"/>
 
-5. Click **Save and Run**. 
+5. Click **Save and Run**.
 
-Once you have created and saved a load test, the configuration will be saved for future use. To access the list of previously saved configurations for a specific test, click the load test icon in the test list. 
+Once you have created and saved a load test, the configuration will be saved for future use. To access the list of previously saved configurations for a specific test, click the load test icon in the test list.
 
 ## Load Test Reports
+
 The execution of a load test will generate a real-time report that is updated every minute. To stop a report before it is complete, click **Stop**.
 
 <img src={useBaseUrl('/img/api-testing/load-test-report-details-environments.png')} alt="Load Test Report Details" width="600"/>

@@ -293,7 +293,7 @@ To do proper debugging, the iOS device symbols will need to be downloaded to you
 <br/>
 
 :::caution Android Limitation
-**The `adb-reverse` command is not supported.**
+**The `adb reverse` command is not supported.** Please rethink your implementation and think about using [`adb forward`](#android-port-forwarding-with-adb-forward) instead.
 :::
 <!-- prettier-ignore-end -->
 
@@ -336,17 +336,63 @@ java -jar virtual-usb-client.jar disconnect --sessionId 37D274BC3A65A34BB3DA4DDF
 
 ### Exploratory Testing
 
-Introduce breakpoints in your IDE and then do exploratory testing.
+Introduce breakpoints in your IDE, for example, Android Studio or XCODE, and then do exploratory testing.
 
-### Android Debugging
+### ADB commands
 
-#### Android Studio Debugging
+You can execute `adb` commands on the device connected over vUSB as you would normally also use. This is a simple example to capture a screenshot and pull it to your local machine.
+
+```bash
+#Create a temporary folder to save a screenshot.
+mkdir tmp
+#Capture a screenshot and save to /sdcard/screen.png on your Android divice.
+adb shell screencap -p /sdcard/screen.png
+
+#Grab the screenshot from /sdcard/screen.png to /tmp/screen.png on your PC.
+adb pull /sdcard/screen.png /tmp/screen.png
+
+#Delete /sdcard/screen.png.
+adb shell rm /sdcard/screen.png
+
+#open the screenshot on your PC.
+open /tmp/screen.png
+```
+
+### Android port forwarding with `adb forward`
+
+There are cases in which you want to set up arbitrary port forwarding, which forwards requests from your local machine port to a different port on the connected Android device through vUSB.
+
+:::note
+This is the [app code](https://github.com/saucelabs/my-demo-app-android) we use for the below example.
+:::
+
+The following example sets up forwarding of host port 40000 (laptop/CI) to device port 50000 (the Android device) where we change text in the app.
+
+- Start a [server](#start-server)
+- Connect to a device with for example [`startSession`](#method-2-start-new-session-with-vusb-client-from-command-line)
+- Get the app installed. Advice would be to use Android Studio and run the app on the remote device (Android Studio will automatically detect the remote device).
+- Open the shared url in your browser
+- Click on "Menu → Virtual USB". You will find two commands on the screen. They are:
+
+  ```
+  adb forward tcp:40000 tcp:50000
+  echo GOOSE | nc localhost 40000
+  ```
+
+- Execute the commands to get the following result
+
+<video controls style={{"max-width": "800px"}}>
+
+  <source src={useBaseUrl('img/virtual-usb/vusb-adb-forward.mp4')} />
+</video>
+
+### Android Studio Debugging
 
 To for example profile your Android app you can follow the instructions as mentioned [here](https://developer.android.com/studio/profile). This can result in the following data.
 
 <img src={useBaseUrl('img/virtual-usb/vusb-android-profiling.png')} alt="Virtual USB Android Studio Profiling" />
 
-#### Chrome DevTools Web Debugging
+### Chrome DevTools Web Debugging
 
 This example demonstrates how to connect your test device to Chrome Inspector and export an [Http ARchive (HAR)](<https://en.wikipedia.org/wiki/HAR_(file_format)>) file to your local machine from a live testing session. Chrome Inspector's suite of developer tools provides a powerful way to work with your web pages while leveraging our real devices.
 
@@ -391,8 +437,6 @@ If you click **Inspect**, a new window will open, displaying Chrome DevTools the
 For more tips on working with HAR Files, check out [Visualize HAR Files with the Sauce Labs React Network Viewer Component](https://opensource.saucelabs.com/blog/react_network_viewer).
 :::
 
-#### ADB commands
-
 You can execute `adb` commands on the device connected over vUSB as you would normally also use. This is a simple example to capture a screenshot and pull it to your local machine.
 
 ```bash
@@ -415,7 +459,7 @@ open /tmp/screen.png
 
 To deploy and debug your iOS apps, you can use Xcode. To debug your website, we recommend using the developer tools within Safari.
 
-#### **Xcode Debugging**
+### **Xcode Debugging**
 
 :::note
 Before debugging with Xcode, please read the known limitations under [Test and Debug](/mobile-apps/features/virtual-usb/#test-and-debug).
@@ -431,7 +475,7 @@ In this example below, **Energy Log** has been selected and recording has been s
 
 <img src={useBaseUrl('img/virtual-usb/vusb-energy-logs.png')} alt="Virtual USB Energy Logs" />
 
-#### **Safari Web Debugging**
+### **Safari Web Debugging**
 
 To debug with Safari: Open Safari > From the nav, select **Develop** > **Select your device** > **Select the view** you want to debug. In our example, we want to debug the [Sauce Swag Labs demo website](https://www.saucedemo.com).
 

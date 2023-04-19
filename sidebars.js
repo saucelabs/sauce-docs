@@ -333,39 +333,24 @@ module.exports = {
             collapsible: false,
             items: [
                 'dev/low-code',
-                'dev/low-code/dashboard',
                 {
                     type: 'category',
-                    label: 'Plan',
+                    label: 'Projects',
                     collapsed: true,
                     items: [
-                        'dev/low-code/plan/plan-step',
-                        {
-                            type: 'category',
-                            label: 'Projects',
-                            collapsed: true,
-                            items: [
-                                'dev/low-code/plan/projects/projects',
-                                'dev/low-code/plan/projects/project-details-page',
-                            ],
-                        },
-                        'dev/low-code/plan/test-suites',
-                        'dev/low-code/plan/test-cases',
+                        'dev/low-code/projects',
+                        'dev/low-code/projects/project-details',
+                        'dev/low-code/projects/test-cases',
+                        'dev/low-code/projects/data',
+                        'dev/low-code/projects/variables',
+                        'dev/low-code/projects/flows',
+                        'dev/low-code/projects/test-suites',
                     ],
                 },
-                {
-                    type: 'category',
-                    label: 'Execute',
-                    collapsed: true,
-                    items: [
-                        'dev/low-code/execute/execute-step',
-                        'dev/low-code/execute/execution-history-page',
-                        'dev/low-code/execute/reports-page',
-                        'dev/low-code/execute/schedules-page',
-                    ],
-                },
-                'dev/low-code/analyze-step',
-                'dev/low-code/profile',
+                'dev/low-code/schedules',
+                'dev/low-code/reports',
+                'dev/low-code/databases',
+                'dev/low-code/executions',
                 'dev/low-code/nlp-reference',
                 'dev/low-code/variables',
                 'dev/low-code/troubleshooting',
@@ -705,13 +690,15 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'basics/sso/setting-up-sso',
+                                'basics/sso/setting-up-sso-special-cases',
                                 {
                                     type: 'category',
                                     label: 'Configuring Identity Providers',
                                     collapsed: true,
                                     items: [
-                                        'basics/sso/configuring-sso-in-onelogin',
                                         'basics/sso/configuring-sso-in-google',
+                                        'basics/sso/configuring-sso-in-ms-azure-ad',
+                                        'basics/sso/configuring-sso-in-onelogin',
                                     ],
                                 },
                                 'basics/sso/logging-in-via-sso',
@@ -786,7 +773,9 @@ module.exports = {
                                 'basics/integrations/slack',
                                 'basics/integrations/sumo',
                                 'basics/integrations/bitbucket',
+                                'basics/integrations/wonderproxy',
                                 'basics/integrations/appdome',
+                                'basics/integrations/testrail',
                                 'basics/integrations/webhooks',
                             ],
                         },
@@ -877,6 +866,7 @@ module.exports = {
                             label: 'Mobile App Diagnostics',
                             collapsed: true,
                             items: [
+                                'mobile-apps/features/mobile-app-diagnostics/app-logs',
                                 'mobile-apps/features/mobile-app-diagnostics/app-crash-logs',
                                 'mobile-apps/features/mobile-app-diagnostics/device-vitals',
                                 'mobile-apps/features/mobile-app-diagnostics/interactions',
@@ -890,7 +880,10 @@ module.exports = {
                     type: 'category',
                     label: 'Live Testing',
                     collapsed: true,
-                    items: ['mobile-apps/live-testing/live-mobile-app-testing'],
+                    items: [
+                        'mobile-apps/live-testing/live-mobile-app-testing',
+                        'mobile-apps/live-testing/testing-apple-pay',
+                    ],
                 },
                 {
                     type: 'category',
@@ -1053,8 +1046,8 @@ module.exports = {
                 'hosted-orchestration/architecture',
                 'hosted-orchestration/running-tests',
                 'hosted-orchestration/building-images',
-                'hosted-orchestration/private-registry'
-            ]
+                'hosted-orchestration/private-registry',
+            ],
         },
         {
             type: 'category',
@@ -1066,6 +1059,7 @@ module.exports = {
                 'api-testing/sauce-connect',
                 'api-testing/build-from-spec',
                 'api-testing/import-postman-collection',
+                'api-testing/import-har-files',
                 'api-testing/import-export-tests',
                 'api-testing/schedule-test',
                 {
@@ -1096,6 +1090,7 @@ module.exports = {
                     label: 'Integrations',
                     collapsed: true,
                     items: [
+                        'api-testing/integrations/apifctl-cicd-integration',
                         'api-testing/integrations/apitesting-saucectl-integration',
                         'api-testing/integrations/yaml',
                         'api-testing/integrations/pagerduty-webhooks',
@@ -1108,6 +1103,27 @@ module.exports = {
                 'api-testing/logger',
                 'api-testing/project-access',
                 'api-testing/legacy',
+                {
+                    type: 'category',
+                    label: 'Use Cases',
+                    collapsed: true,
+                    items: [
+                        'api-testing/use-cases/key-value',
+                        'api-testing/use-cases/integration-test',
+                        'api-testing/use-cases/compose-body',
+                        'api-testing/use-cases/vault-snippet',
+                        'api-testing/use-cases/auth-token',
+                        'api-testing/use-cases/dynamic-dates',
+                        'api-testing/use-cases/generate-test-data',
+                        'api-testing/use-cases/fact',
+                        'api-testing/use-cases/vault-variable',
+                        'api-testing/use-cases/saving-token-kv',
+                        'api-testing/use-cases/set-variable',
+                        'api-testing/use-cases/use-drive',
+                        'api-testing/use-cases/using-environments',
+                        'api-testing/use-cases/working-with-headers',
+                    ],
+                },
             ],
         },
         {

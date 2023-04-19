@@ -734,6 +734,42 @@ suite:
 
 ---
 
+### `smartRetry`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies the retry strategy to apply for that suite. It should be used along with [retries](#retries).
+
+```yaml
+sauce:
+  retries: 3
+suite:
+  - name: My Saucy Test
+    smartRetry:
+      failedClassesOnly: true
+```
+
+---
+
+#### `failedClassOnly`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When set to `true`, the retry will test only the classes that failed during the previous try.
+
+:::info NOTE
+`failedClassOnly` is effective only when targetting Real Devices.
+:::
+
+```yaml
+suite:
+  - name: My Saucy Test
+    smartRetry:
+      failedClassesOnly: true
+```
+
+---
+
 ### `emulators`
 
 <p><small>| OPTIONAL | OBJECT |</small></p>

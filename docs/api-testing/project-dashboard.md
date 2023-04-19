@@ -75,3 +75,4 @@ A _Build_ is a collection of test results and metrics associated with a given bu
 ## More Information
 
 - [Composing Tests](/api-testing/composer/)
+- [Load Test Reports](/api-testing/load-testing/#load-test-reports)

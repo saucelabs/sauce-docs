@@ -87,7 +87,13 @@ The testing session was terminated by the user.
 
 **Cause(s)**
 
+**Virtual Devices**
+
 Your test was manually interrupted using the Sauce Labs **Cancel** or **Breakpoint** buttons. Since both of these take control of the virtual machine immediately, test assets like screenshots, video, or logs that require additional execution time will not be collected and made available afterwards.
+
+**Real Devices**
+
+Your test was manually interrupted using the Sauce Labs [Real Device API](https://docs.saucelabs.com/dev/api/rdc/#stop-a-job). The usual post-processing is triggered and test assets like screenshots, video, or logs will be made available.
 
 **How to Resolve**
 
@@ -301,17 +307,15 @@ This timeout occurs most frequently when you include a specific device in your t
 
 **Cause(s)**
 
-Our public device pool is available to all subscribed Sauce users and (as you might imagine), some devices are more popular than others. We have over 280 device configurations and thousands of devices hosted in our data center, but sometimes a test queue will build up for the most popular devices.
+Our public device pool is available to all subscribed Sauce Labs customers and some devices are more popular than others. We have over 280 device configurations and thousands of devices hosted in our data center, but sometimes a test queue will build up for the most popular devices.
 
 **How to Resolve**
 
 Instead of passing a specific `deviceName`:
 
 - When you select a device from the public pool, use `deviceName` to [select the device dynamically](/mobile-apps/supported-devices/#dynamic-device-allocation). This way you can specify the type of device (make, model, OS) instead of a specific device, which increases the likelihood of finding an appropriate device that is available for your test to execute on.
-- If you are looking for a specific OS version instead of a specific make and model, you can use the [`appium:appiumplatformversion`](/dev/test-configuration-options/#appium) option to fetch a device with that OS regardless of make and model.
+- If you are looking for a specific OS version instead of a specific make and model, you can use the [`appium:platformVersion`](/dev/test-configuration-options/#appiumplatformversion) option to fetch a device with that OS regardless of make and model.
 
-* When you select a device from the public pool, use `deviceName` to [select the device dynamically](/mobile-apps/supported-devices/#dynamic-device-allocation). This way you can specify the type of device (make, model, OS) instead of a specific device, which increases the likelihood of finding an appropriate device that is available for your test to execute on.
-* If you are looking for a specific OS version instead of a specific make and model, you can use the [`platformVersion`](/dev/test-configuration-options/#platformversion) option to fetch a device with that OS regardless of make and model.
 
 ## Web App Testing Only
 
@@ -333,7 +337,7 @@ There are a few potential causes for this error:
 
 - Make sure you have internet connectivity.
 - Make sure your script includes `driver.quit()` or `browser.stop()` to conclude the test.
-- If your test needs more than 90 seconds to send a new command to the browser, use the `idleTimeout` capability to modify Sauce's wait time for further commands. For more information, [Test Configuration Options > Timeouts section](/dev/test-configuration-options).
+- If your test needs more than 90 seconds to send a new command to the browser, use the `idleTimeout` capability to modify the wait time for further commands. For more information, [Test Configuration Options > Timeouts section](/dev/test-configuration-options).
 
 ### The Connection with Your Virtual Machine was Lost and Your Job Can't Complete
 
