@@ -220,11 +220,11 @@ The previous example shows how to save the token in the Key/Value Store but, onc
 
 13. Add the **POST** component and then, **Save Changes**.
 
-- Url - for example `https://m2-keyvalueexample.load2.apifortress.com/profile`
-- Variable - for example `profilePayload`
-- Mode - for example `json`
+    - Url - for example `https://m2-keyvalueexample.load2.apifortress.com/profile`
+    - Variable - for example `profilePayload`
+    - Mode - for example `json`
 
-<img src={useBaseUrl('img/api-testing/kv-examples/token-post.png')} alt="POST request" />
+    <img src={useBaseUrl('img/api-testing/kv-examples/token-post.png')} alt="POST request" />
 
 This step calls the endpoint that requires the token for authenticate.
 
