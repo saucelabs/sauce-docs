@@ -51,38 +51,17 @@ https://github.com/saucelabs/saucectl-cypress-example/blob/main/.github/workflow
 
 ## Create the Test Job
 
-In the examples below, we illustrate the two different `saucectl` run modes, which will determine where your tests will run:
-
-- **Docker mode** refers to executing tests locally in a container
-- **Sauce Cloud mode** refers to executing tests on Sauce Cloud (i.e., Sauce Labs infrastructure)
-  - If you're testing on the Sauce Cloud, you will likely require a tunnel back to where your app is running. A tunnel enables the remote browser to access your local network. For this, you'll need to use [Sauce Connect](/secure-connections/sauce-connect).
+In the examples below, we illustrate how `saucectl` executing tests on Sauce Cloud (i.e., Sauce Labs infrastructure).
+You will likely require a tunnel back to where your app is running. A tunnel enables the remote browser to access your local network. For this, you'll need to use [Sauce Connect](/secure-connections/sauce-connect).
 
 :::note
 For more detailed information on setting event-driven actions and jobs, visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).
 :::
 
-<Tabs
-defaultValue="Docker"
-values={[
-{label: 'Docker', value: 'Docker'},
-{label: 'Sauce Cloud', value: 'Sauce Cloud'},
-]}>
-
-<TabItem value="Docker">
-
-```yaml reference
-https://github.com/saucelabs/saucectl-cypress-example/blob/main/.github/workflows/test-v1.yml#L21-L25
-```
-
-</TabItem>
-<TabItem value="Sauce Cloud">
 
 ```yaml reference
 https://github.com/saucelabs/saucectl-cypress-example/blob/main/.github/workflows/test-v1.yml#L27-L31
 ```
-
-</TabItem>
-</Tabs>
 
 :::note
 You can reference our example workflows [in the `saucectl` Cypress example repository](https://github.com/saucelabs/saucectl-cypress-example/tree/main/.github/workflows).

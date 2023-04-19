@@ -256,10 +256,6 @@ Usage information for the `init` command.
 
 A specific operating system and version on which to run the specified browser and test suite.
 
-:::note
-You can optionally specify `docker` here as the platform.
-:::
-
 **Shorthand:** `-p `
 
 </div>
