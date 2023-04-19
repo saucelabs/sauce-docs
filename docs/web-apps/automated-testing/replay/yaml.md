@@ -104,7 +104,6 @@ The parent property containing all settings related to how Jobs are run and iden
 sauce:
   region: us-west-1
   metadata:
-    name: Testing Replay Support
     tags:
       - e2e
       - release team
@@ -137,7 +136,6 @@ The set of properties that allows you to provide additional information about yo
 ```yaml
 sauce:
   metadata:
-    name: Testing Replay Support
     build: RC 10.4.a
     tags:
       - e2e
