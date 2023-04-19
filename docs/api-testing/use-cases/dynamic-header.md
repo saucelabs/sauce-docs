@@ -19,7 +19,7 @@ Sauce Labs API Testing allows you to test both, using the same test for almost a
 
 ## Example: Sending Different Header Based on the Response Type
 
-Consider a scenario where you need to pass in the Header the Accept value that is `application/json` if you are testing the JSON and `application/xml` if you are testing the XML. Usually in this case, you should make two different calls, to be able to pass the different values in the header.
+Consider a scenario where you need to pass the Accept value in the Header that is `application/json` if you are testing the JSON and `application/xml` if you are testing the XML. Usually in this case, you should make two different calls, to be able to pass the different values in the header.
 
 The image shows the above scenario which requires setting up two separate calls. This solution is not particularly adherent to the Don't Repeat Yourself (DRY) rule of programming.
 
