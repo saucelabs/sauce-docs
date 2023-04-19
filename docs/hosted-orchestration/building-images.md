@@ -72,7 +72,7 @@ docker build <path-to-dockerfile>
 ```
 
 :::note
-Sauce Labs Hosted Orchestration only supports images built on the `AMD64` architecture. If you are building your docker image on a machine with a different architecture, use the [--platform flag](https://docs.docker.com/build/building/multi-platform/#building-multi-platform-images) to build a multi-platform image compatible with our test runners. For example, users building from Apple silicon machines should use `--platform linux/amd64` to ensure compatibility.
+Sauce Labs Hosted Orchestration only supports images built on the `amd64` architecture. If you are building your docker image on a machine with a different architecture, use the [--platform flag](https://docs.docker.com/build/building/multi-platform/#building-multi-platform-images) targeting `linux/amd64` to build an image compatible with our test runners.
 :::
 
 You’ll see how all commands specified in the Dockerfile are executed. If there are any errors they’ll be displayed and you’ll need to fix them before continuing. If the build is successful you’ll have something like this at the very end:
