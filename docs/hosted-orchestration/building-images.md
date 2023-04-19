@@ -182,5 +182,5 @@ The Sauce Labs demo repos contain GitHub Action code for building images.
 
 - [Java](https://github.com/saucelabs-training/demo-java)
 - [Python](https://github.com/saucelabs-training/demo-python)
-- [Javascript](https://github.com/saucelabs-training/demo-js)
+- [JavaScript](https://github.com/saucelabs-training/demo-js)
 - [Ruby](https://github.com/saucelabs-training/demo-ruby)
