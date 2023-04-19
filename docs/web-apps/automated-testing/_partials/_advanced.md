@@ -162,7 +162,7 @@ Nested assets are stored **flat** in Sauce Labs. A test asset like `__assets__/m
 Please keep that in mind when creating custom assets, as examples like `__assets__/mylogs/log.txt` and `__assets__/myotherlogs/log.txt` would eventually collide when persisted.
 :::
 
-### Setting up a Proxy
+## Setting up a Proxy
 
 If you need to go through a proxy server, you can set it through the following variables:
 
