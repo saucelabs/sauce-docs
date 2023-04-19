@@ -90,18 +90,6 @@ defaults:
 
 ---
 
-### `mode`
-
-<p><small>| OPTIONAL | STRING/ENUM |</small></p>
-
-Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally on `docker`. You can override this setting for individual suites using the `mode` setting within the [`suites`](#suites) object. If not set, the default value is `sauce`.
-
-```yaml
-  mode: sauce
-```
-
----
-
 ### `timeout`
 
 <p><small>| OPTIONAL | DURATION |</small></p>
@@ -306,52 +294,6 @@ A property containing one or more environment variables that are global for all 
 
 :::caution
 Since environment variables are provided to Cypress directly, avoid using `CYPRESS_` as a prefix.
-:::
-
----
-
-## `docker`
-
-<p><small>| OPTIONAL | OBJECT | <span class="highlight docker">Docker only</span> |</small></p>
-
-The set of properties defining the specific Docker image and type your are using, if you are running any tests locally.
-
-```yaml
-docker:
-  fileTransfer: mount
-  image: saucelabs/stt-cypress-mocha-node:vX.X.X
-```
-
----
-
-### `fileTransfer`
-
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Method in which to transfer test files into the docker container. Valid values are:
-
-- `mount`: (Default) Mounts files and folders into the docker container. Changes to these files and folders will be reflected on the host (and vice a versa).
-- `copy`: Copies files and folders into the docker container. If you run into permission issues, either due to docker or host settings, `copy` is the advised use case. See the [Docker documentation](https://docs.docker.com/engine/reference/builder/#copy) for more about the copy convention.
-
-```yaml
-  fileTransfer: < mount | copy >
-```
-
----
-
-### `image`
-
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Specifies which docker image and version to use when running tests. Valid values are in the format:
-`saucelabs/<framework-node>:<vX.X.X>`. See [Supported Testing Platforms](/web-apps/automated-testing/cypress#supported-testing-platforms) for Docker release notes related to Cypress.
-
-```yaml
-  image: saucelabs/< stt-cypress-mocha-node | stt-playwright-node | stt-testcafe-node >:< vX.X.X >
-```
-
-:::caution
-Avoid using the `latest` tag for docker images, as advised in [this article](https://vsupalov.com/docker-latest-tag/#:~:text=You%20should%20avoid%20using%20the,apart%20from%20the%20image%20ID.).
 :::
 
 ---
@@ -835,7 +777,7 @@ The name of the test suite, which will be reflected in the results and related a
 <p><small>| REQUIRED | STRING |</small></p>
 
 The name of the browser in which to run this test suite.
-Available browser names: `chrome`, `firefox`, `microsoftedge`(only for sauce mode) and `electron`(only for docker mode).
+Available browser names: `chrome`, `firefox`, `microsoftedge`.
 
 ```yaml
     browser: "chrome"
@@ -875,18 +817,6 @@ Specifies a browser window screen resolution, which may be useful if you are att
 
 ```yaml
     screenResolution: "1920x1080"
-```
-
----
-
-### `mode`
-
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Specifies whether the individual suite will run on `docker` or `sauce`, potentially overriding the default project mode setting.
-
-```yaml
-  mode: "sauce"
 ```
 
 ---
