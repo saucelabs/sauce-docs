@@ -978,7 +978,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-### Get Activity For Users
+### Get Activity for Users
 
 <details><summary><span className="api get">GET</span> <code>/rest/v1/users_activity</code></summary>
 <p/>
