@@ -1,7 +1,7 @@
 ---
 id: dynamic-header
 title: Creating Dynamic Header
-sidebar_label: Creating Dynamic Header
+sidebar_label: Creating Dynamic Headers
 description: How to generate a dynamic header
 ---
 
