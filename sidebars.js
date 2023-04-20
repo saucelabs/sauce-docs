@@ -1014,16 +1014,6 @@ module.exports = {
                         },
                         {
                             type: 'category',
-                            label: 'Puppeteer',
-                            collapsed: true,
-                            items: [
-                                'web-apps/automated-testing/puppeteer',
-                                'web-apps/automated-testing/puppeteer/quickstart',
-                                'web-apps/automated-testing/puppeteer/yaml',
-                            ],
-                        },
-                        {
-                            type: 'category',
                             label: 'Replay',
                             collapsed: true,
                             items: [
@@ -1112,6 +1102,7 @@ module.exports = {
                         'api-testing/use-cases/integration-test',
                         'api-testing/use-cases/compose-body',
                         'api-testing/use-cases/vault-snippet',
+                        'api-testing/use-cases/dynamic-header',
                         'api-testing/use-cases/auth-token',
                         'api-testing/use-cases/dynamic-dates',
                         'api-testing/use-cases/generate-test-data',

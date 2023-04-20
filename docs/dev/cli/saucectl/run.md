@@ -211,7 +211,7 @@ saucectl run --artifacts.download.when always
 ### <span className="cli">--async</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Sauce Cloud Only</span></small></p>
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Allows you to launch tests without waiting for results of the preceding tests. This option can be helpful when relying on a CI tool to automatically launch tests. This option does not require a value; including it inline sets it to `true`.
 
@@ -269,7 +269,7 @@ While you can use multiple files of different names or locations to specify your
 ### <span className="cli">--dry-run</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Sauce Cloud Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Simulate a test run without actually running any tests. This option does not require a value; including it inline sets it to `true`.
 
@@ -283,7 +283,7 @@ saucectl run --dry-run
 
 <div className="cli-desc">
 <p><small>| OPTIONAL | KEY=VALUE |</small></p>
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Sauce Cloud Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
 An environment variable key value pair that may be referenced in the tests executed by this command. Expanded environment variables are supported.
 
 ```bash
@@ -295,7 +295,7 @@ saucectl run --env <key1>=<value1> --env <key2>=<value2> ...
 ### <span className="cli">--fail-fast</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Sauce Cloud Only</span></small></p>
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Stops suites after the first failure. This will not interrupt suites that have been started already. This option does not require a value; including it inline sets it to true.
 
@@ -346,7 +346,7 @@ saucectl run --region use-west-1
 ### <span className="cli">--retries</span>
 
 <div className="cli-desc">
-<p><small>| REQUIRED | INTEGER | <span className="sauceDBlue">Sauce Cloud Only</span> |</small></p>
+<p><small>| REQUIRED | INTEGER |</small></p>
 
 Instructs `saucectl` to rerun failed tests this many times.
 
@@ -434,7 +434,7 @@ saucectl run --uploadTimeout 30m
 ### <span className="cli">--tunnel-name</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Sauce Cloud Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies an active [Sauce Connect](/secure-connections/sauce-connect/proxy-tunnels/) tunnel to establish a secure connection to run this test on Sauce Labs.
 
@@ -451,7 +451,7 @@ saucectl run --tunnel-name my-tunnel
 ### <span className="cli">--tunnel-owner</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Sauce Cloud Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING |</small></p>
 
 Identifies the Sauce Labs user who created the specified tunnel, which is required if the user running the tests did not create the tunnel.
 
