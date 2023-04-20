@@ -2,7 +2,7 @@
 id: dynamic-header
 title: Creating Dynamic Header
 sidebar_label: Creating Dynamic Header
-description: How to generate a dynamic header 
+description: How to generate a dynamic header
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
