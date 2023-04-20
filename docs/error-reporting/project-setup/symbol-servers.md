@@ -62,7 +62,7 @@ You will need the following information to connect:
 
 See a screenshot of the Add Symbol Server UI below:
 
-<img src={useBaseUrl('img/error-reporting/project-settings/add-symbol-server.png')} alt="Shows the settings required in the Add symbol server dialog." />
+<img src={useBaseUrl('img/error-reporting/project-settings/add-symbol-server.png')} alt="Shows the settings required in the Add symbol server dialog." width="500"/>
 
 When an admin adds a new symbol server, symbold will validate connection. By doing that we will avoid a situation when defined symbol server doesn’t work because of connection problems.
 
@@ -70,7 +70,7 @@ As an administrator, you can disable the symbol server if you have problems with
 
 After you add a symbol server, you can Edit or Delete it using the context menu on the entry.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/edit-delete-symbol-server.png')} alt="Shows how to edit or delete a symbol server from the Symbol servers page." />
+<img src={useBaseUrl('img/error-reporting/project-settings/edit-delete-symbol-server.png')} alt="Shows how to edit or delete a symbol server from the Symbol servers page." width="500" />
 
 :::note
 Deleting a symbol server does not delete the debug symbols that were downloaded.
@@ -86,7 +86,7 @@ For each selected symbol server, you can view usage and download statistics. Thi
 
 This information is valid since the item was added as a symbol server to symbold. See a screenshot with this information below:
 
-<img src={useBaseUrl('img/error-reporting/project-settings/symbol-server-stats-usage.png')} alt="Shows the Statistics and Usage tab for a symbol server." />
+<img src={useBaseUrl('img/error-reporting/project-settings/symbol-server-stats-usage.png')} alt="Shows the Statistics and Usage tab for a symbol server." width="600" />
 
 ### Manage Allowlist and Blocklist
 
@@ -100,14 +100,14 @@ Entries can be deleted from the allowlist or blocklist by hovering over row and 
 
 Following is a screenshot to show the allowlist entries and a dialog to enter more items to the allowlist, as well as a delete icon for one of the items in the list to show how it can be removed.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/allowlist-symbols.png')} alt="Shows the Allowlist and Blocklist tabs for a symbol server." />
+<img src={useBaseUrl('img/error-reporting/project-settings/allowlist-symbols.png')} alt="Shows the Allowlist and Blocklist tabs for a symbol server." width="600" />
 
 ### View Skip List and Logs
 
 Items appear in the skip list when they cannot be fetched after multiple retries. The administrator can specify the retry information in the main configuration for the symbol server. Items in the skip list will be skipped during subsequent download attempts so as to not cause further download issues. Items can be removed from the skip list using the delete icon if you want to retry download for them.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/symbols-skiplist.png')} alt="Shows the Skip list tab for a symbol server." />
+<img src={useBaseUrl('img/error-reporting/project-settings/symbols-skiplist.png')} alt="Shows the Skip list tab for a symbol server." width="600"/>
 
 The Logs tab shows successful and failed attempts at downloading, receiving, or retrying, amongst other. You can use the logs to understand how the symbol server connection has been behaving.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/symbols-logs.png')} alt="Shows the Logs tab for a symbol server." />
+<img src={useBaseUrl('img/error-reporting/project-settings/symbols-logs.png')} alt="Shows the Logs tab for a symbol server." width="600"/>
