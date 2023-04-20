@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Most APIs have only one response format, either JSON or XML. But what should you do when an API endpoint can return either JSON or XML? You could write two different tests, one for each response type, but you would be repeating a good amount of code in both tests.
 
-Sauce Labs API Testing allows you to test both, using the same test for almost all test cases. Only in some cases, you will need to add extra logic to allow the platform to distinguish between the two formats.
+Sauce Labs API Testing allows you to test both, using the same test for almost all test cases. There are a few cases where you will need to add extra logic to allow the platform to distinguish between the two formats. 
 
 ## What You'll Need
 
