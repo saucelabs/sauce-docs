@@ -35,7 +35,7 @@ The solution is the following:
 
    <img src={useBaseUrl('img/api-testing/use-cases/varFormat.png')} alt="mode is dynamic" />
 
-3. The header is still static at this point. You need to turn it into a dynamic one that changes to suit the data type of the API you are testing. Above the I/O operation, add the **Set (Variable)** component that will return the appropriate value.
+3. The header is still static. You need to turn it into a dynamic one that changes to suit the data type of the API you are testing. Above the I/O operation, add the **Set (Variable)** component that will return the appropriate value.
 
    ```js
    if (format == 'xml')
