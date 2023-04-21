@@ -28,7 +28,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
     <ul>
         <li><a href="/web-apps/automated-testing/selenium">Selenium</a> and <a href="/mobile-apps/automated-testing/appium">Appium</a></li>
         <li><a href="/mobile-apps/automated-testing/espresso-xcuitest">Espresso and XCUITest</a></li>
-        <li><a href="/web-apps/automated-testing/cypress">Cypress</a>, <a href="/web-apps/automated-testing/puppeteer">Puppeteer</a>, <a href="/web-apps/automated-testing/testcafe">TestCafe</a>, or <a href="/web-apps/automated-testing/playwright">Playwright</a></li>
+        <li><a href="/web-apps/automated-testing/cypress">Cypress</a>, <a href="/web-apps/automated-testing/testcafe">TestCafe</a>, or <a href="/web-apps/automated-testing/playwright">Playwright</a></li>
     </ul>
     </div>
   </div>

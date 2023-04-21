@@ -43,9 +43,9 @@ Backtrace uses a dynamic system that intelligently determines which portions of 
 
 ### Group By First Application Frame
 
-Some systems will group according to the first application frame. This quickly starts to fall apart for many reasons including internal application error handling, faults in external libraries and more. More likely than not, such a system is too coarse-grained to be useful. Users are unable to distinguish
+Some systems will group according to the first application frame. This quickly starts to fall apart for many reasons including internal application error handling, faults in external libraries and more. More likely than not, such a system is too coarse-grained to be useful.
 
-Take the following example for a program called `program.exe`. The callstack of the crashing thread is `abort → application_abort → a → b` where `application_abort` is the first application frame. Competing systems will group by `application_abort`. This function is invoked in almost all cases where the application is explicitly aborting, leading to grossly ineffective deduplication.
+Take the following example for a program called `program.exe`. The callstack of the crashing thread is `abort → application_abort → a → b` where `application_abort` is the first application frame. Competing systems will group by `application_abort`. This function is invoked in almost all cases where the application is explicitly aborted, leading to grossly ineffective deduplication.
 
 This mechanism breaks down for any commonly-used functions, not just error handling functions. For example, let's say a bug was introduced that leads to a fault in a commonly called utility function. These systems would group these faults by the utility function rather than the caller.
 
