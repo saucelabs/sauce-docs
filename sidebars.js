@@ -910,6 +910,7 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'mobile-apps/automated-testing/espresso-xcuitest',
+                                'mobile-apps/automated-testing/espresso-xcuitest/xcuitest-introduction',
                                 'mobile-apps/automated-testing/espresso-xcuitest/espresso',
                                 'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
 
