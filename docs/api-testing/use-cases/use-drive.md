@@ -19,7 +19,6 @@ You can use files stored in the Vault drive in your test in several ways. This g
 A common scenario for using an external file in your test is when you have to generate a large number of different inputs inside your tests. In this case, it is difficult to add all your data inside the Input Sets because it would take a lot of time and often you might need to replace your data with a new set.
 In this case, the best solution is using an external file as datasource for your tests.
 
-
 ### Step 1: Uploading the file in Vault Drive
 
 Consider a scenario where an endpoint requires a city as parameter and returns the weather of that city. To make sure the response is always the expected one, a good practice is testing with as many cities as possible. In a scenario like this, it is not feasible to enter a list of cities as input sets.
@@ -31,7 +30,7 @@ First upload your file in the Vault drive:
 1. Click **Upload file**.
 1. Upload the file using drag and drop or **Choose file**, or enter the URL, then click **Upload**.
 
-This example uses the  _cities.csv_ file that contains a list of US cities as shown:
+This example uses the _cities.csv_ file that contains a list of US cities as shown:
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/csv-cities.png')} alt="Example csv file" width="200"/>
 
@@ -61,8 +60,8 @@ The next step is parsing the file to let the system know the type of file you ar
 
 Add the **Parse** component:
 
-   - The **Variable** must match the name you entered as Variable in the previous step.
-   - The **Adapter** must match the type of the file you have uploaded. In our example, it's a .csv file.
+- The **Variable** must match the name you entered as Variable in the previous step.
+- The **Adapter** must match the type of the file you have uploaded. In our example, it's a .csv file.
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/parseFile.png')} alt="Parse the file"/>
 
@@ -166,8 +165,8 @@ The next step is parsing the file to let the system know the type of file you ar
 
 Add the **Parse** component:
 
-   - The **Variable** must match the name you entered as Variable in the previous step.
-   - The **Adapter** must match the type of the file you have uploaded. In our example, it's a csv file.
+- The **Variable** must match the name you entered as Variable in the previous step.
+- The **Adapter** must match the type of the file you have uploaded. In our example, it's a csv file.
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/parseUsersFile.png')} alt="Parse the file"/>
 
@@ -177,15 +176,15 @@ The example file contains a header that you need to remove so that the test will
 
 Add the **Set(variable)** component:
 
-   - Variable - for example `myUserDetails`
-   - Mode - Data
-   - Data -
+- Variable - for example `myUserDetails`
+- Mode - Data
+- Data -
 
-   ```js
-   userDetails.slice(1)
-   ```
+```js
+userDetails.slice(1)
+```
 
-   `userDetails` is the Variable name you assign in the first Set(variable)
+`userDetails` is the Variable name you assign in the first Set(variable)
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/removeHeader.png')} alt="Remove the header"/>
 
@@ -204,9 +203,9 @@ Optionally, you can save each value in a variable, in this way you can assign th
 
 As a child component, add the **Set(variable)** component:
 
-   - Variable - for example `userId`
-   - Mode - `String`
-   - Value - `${_1[0]}`
+- Variable - for example `userId`
+- Mode - `String`
+- Value - `${_1[0]}`
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/set-userid.png')} alt="Save the value in a variable"/>
 
@@ -237,7 +236,7 @@ You can add the request to the account endpoint by adding all the values in the 
       "phone": "${_1[9]}"
     }
    ```
-The above Body is valid if you do not save the values as variables. If you have saved the values as variables you need to replace all the values with the corresponding Variable name you used (such as the `userId` in this example).
+   The above Body is valid if you do not save the values as variables. If you have saved the values as variables you need to replace all the values with the corresponding Variable name you used (such as the `userId` in this example).
 1. Click **Save Changes**.
 
 <img src={useBaseUrl('/img/api-testing/vault-use-cases/post-request.png')} alt="Add the POST request"/>
@@ -360,4 +359,87 @@ The following example saves the values in variables:
       var: userDetailsPayload
       mode: json
   expression: myUserDetails
+```
+
+## Comparing the Response to a File
+
+Introduction TBD
+
+### Step 1: Uploading the File in Vault Drive
+
+Description TBD
+
+<!-- For this new example, consider a scenario where you have to create an account and you need to provide personal data as request body. In a scenario like this, especially in development phase, it is common to have a file with some data allowed by the system.
+
+As with the previous example, the first step is [uploading your file in the Vault Drive](/api-testing/use-cases/use-drive/#step-1-uploading-the-file-in-the-vault-drive).
+
+This time, we are using _users.csv_ file that contains a list of user details as shown: -->
+
+<img src={useBaseUrl('/img/api-testing/vault-use-cases/csv-users.png')} alt="Example csv file"/>
+
+### Step 2: Creating the Test
+
+You can follow the same steps as in the [previous example](/api-testing/use-cases/use-drive/#step-2-creating-the-test)
+
+### Step 3: Writing the Test
+
+#### Retrieving the File From the Drive
+
+1. Add the [**File DataSource**](/api-testing/composer/io-components/#file-datasource).
+1. **Select** the file you uploaded in the **Drive**.
+1. Enter the **Variable**, then **Save Changes**.
+
+<img src={useBaseUrl('/img/api-testing/vault-use-cases/users-datasource.png')} alt="File data source component"/>
+
+#### Parsing the File
+
+The next step is parsing the file to let the system know the type of file you are working with.
+
+Add the **Parse** component:
+
+- The **Variable** must match the name you entered as Variable in the previous step.
+- The **Adapter** must match the type of the file you have uploaded. In our example, it's a csv file.
+
+<img src={useBaseUrl('/img/api-testing/vault-use-cases/parseUsersFile.png')} alt="Parse the file"/>
+
+#### Adding the Request
+
+You can add the request to the account endpoint by adding all the values in the request body.
+
+1. Add the **POST** component:
+   - URL - for example `https://eovt6kylqex64iz.m.pipedream.net/account`
+   - Variable - for example `userDetailsPayload`
+1. **Save Changes**.
+1. Add a **Request Body** as child component:
+   - Content-Type - `application/json`
+   - Body -
+   ```json
+    {
+      "userID": "${_1[0]}",
+      "lastName": "${_1[1]}",
+      "DOB": "${_1[2]}",
+      "address": "${_1[3]}",
+      "city": "${_1[4]}",
+      "state": "${_1[5]}",
+      "country": "${_1[6]}",
+      "profession": "${_1[7]}",
+      "email": "${_1[8]}",
+      "phone": "${_1[9]}"
+    }
+   ```
+   The above Body is valid if you do not save the values as variables. If you have saved the values as variables you need to replace all the values with the corresponding Variable name you used (such as the `userId` in this example).
+1. Click **Save Changes**.
+
+<img src={useBaseUrl('/img/api-testing/vault-use-cases/post-request.png')} alt="Add the POST request"/>
+
+#### Comparing the File to the Response
+
+Steps TBD
+
+Now you can proceed testing the response payload from that call.
+
+The following example illustrates the response payload in Code view:
+
+```yaml
+
 ```
