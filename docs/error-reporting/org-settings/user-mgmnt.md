@@ -39,12 +39,12 @@ To add an allowlisted domain:
 
 ## Invite a User
 
-You can invite a user to create an account in your Backtrace instance. The user will be sent an e-mail with a private invitation link. It is also possible to Copy Invite Link if you would like to provide a link directly to the user.
+You can invite a user to create an account in your Backtrace instance. The user will be sent an email with a private invitation link. It is also possible to Copy Invite Link if you would like to provide a link directly to the user.
 
 Once a user has accepted an invitation, they will appear in the **Users** list and the invitation will be removed.
 
 :::note
-To send account-related e-mail messages, you must specify an SMTP server in the Server settings. The Server settings are available for admin user roles.
+To send account-related email messages, you must specify an SMTP server in the Server settings. The Server settings are available for admin user roles.
 :::
 
 To invite a new user:
@@ -62,7 +62,7 @@ To invite a new user:
 
 ### Pending Invitations
 
-If an e-mail invitation fails to send, or if a user hasn't yet accepted an invitation, it will appear as a pending invitation. You can either resend the invitation or delete it.
+If an email invitation fails to send, or if a user hasn't yet accepted an invitation, it will appear as a pending invitation. You can either resend the invitation or delete it.
 
 1. Under **Manage invitations**, click **Pending Invitations**.
 1. Click **⋮**, then select either **Resend** or **Delete**.
@@ -70,19 +70,19 @@ If an e-mail invitation fails to send, or if a user hasn't yet accepted an invit
 
 ## Remove a User
 
-1. Under **Users**, select the user you want to remove.
+1. Under **Users**, select the user accounts you want to remove.
 1. Click **⋮**, then select **Delete user**.
 
-Any configuration objects created by the user are presented before deletion. If a user owns any configuration objects (such as projects or tokens), deletion will fail. You are required to migrate ownership of all the user's projects and tokens in order for the deletion to succeed.
+Any configuration objects created by the user are presented before deletion. If a user owns any configuration objects (such as projects or tokens), deletion will fail. You must either delete the dependent objects or transfer ownership in order for the deletion to succeed.
 
 ## User Roles
 
-There are three user roles available:
+The following user roles are available:
 
-- **admin**: Able to manage users, domain sign-up and projects within the tenant.
-- **member**: Able to create and manage their own projects within the tenant. Able to send invitations.
+- **admin**: Able to manage users, domain sign-up and projects in the tenant.
+- **member**: Able to create and manage their own projects in the tenant. Able to send invitations.
 - **guest**: Only able to view and manage their own user and settings. Unable to send invitations, modify existing configurations or create new projects.
 
-In addition to the main user roles, there is also a superuser role that can be granted to users (go to the user page and modify the Access Control dropdown). The superuser role may only be granted by other users with the superuser role.
+In addition to the main user roles, there is also a superuser role that can be granted to users (go to the user page and modify the Access Control dropdown list). The superuser role may only be granted by other users with the superuser role.
 
 The superuser role is required to modify organization-wide settings, create new tenants, delete tenants, modify SSL settings, modify server-wide SMTP settings, and modify listener configuration (the network ports for receiving crashes and receiving user requests).
