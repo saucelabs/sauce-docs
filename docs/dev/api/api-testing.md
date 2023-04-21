@@ -13,9 +13,9 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ## What You'll Need
 
-- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
-- An existing API test. To learn how to create one, see the [Quickstart](/api-testing/quickstart/).
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+- An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
 ## Project Methods
 
@@ -275,7 +275,7 @@ Uploads a new test, which you need to provide in the Request Body, to the Sauce 
 <tbody>
   <tr>
    <td><code>unit</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>Must contain the unit of the test you want to upload to the cloud. You can obtain this by going into a Test > <strong>Compose*</strong>section > toggle <strong>Code View</strong>.</p></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>Must contain the unit of the test you want to upload to the cloud. You can obtain this by going into a Test > <strong>Compose</strong>section > toggle <strong>Code View</strong>.</p></td>
   </tr>
 </tbody>
 </table>
@@ -1282,13 +1282,13 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
          "retrievers"
       ],
       "criticalFailures":[
-         
+
       ],
       "httpFailures":[
-         
+
       ],
       "facts":{
-         
+
       },
       "date":1645949450067,
       "test":{
@@ -1798,13 +1798,13 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
          "retrievers"
       ],
       "criticalFailures":[
-         
+
       ],
       "httpFailures":[
-         
+
       ],
       "facts":{
-         
+
       },
       "date":1645952352117,
       "test":{
@@ -2391,13 +2391,13 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
          "retrievers"
       ],
       "criticalFailures":[
-         
+
       ],
       "httpFailures":[
-         
+
       ],
       "facts":{
-         
+
       },
       "date":1646122845539,
       "test":{

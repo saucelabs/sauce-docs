@@ -45,7 +45,7 @@ Entering this code -- `(www.)?google-analytics.com,(www.)?googletagmanager.com,(
 You can proxy connections through Sauce Connect on Virtual Desktop tests. However, you cannot proxy `localhost` or 127.0.0.1 connections through Sauce Connect on any iOS or Android device.
 
 :::note
-Without Sauce Connect, you can access apps on `localhost` for Real Devices and Virtual Devices.
+Without Sauce Connect, you can NOT access apps on `localhost` for Real Devices and Virtual Devices.
 :::
 
 When using Sauce Connect Proxy, local websites running on commonly used ports are available to test at `localhost` URLs, just as if the Sauce Labs cloud were your local machine. The exception is when testing on Real or Virtual Mobile Devices; Android and iOS both require changes to the `/etc/hosts` file. For more information, see [Testing Mobile Devices Against `localhost`](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#testing-mobile-devices-against-localhost).
