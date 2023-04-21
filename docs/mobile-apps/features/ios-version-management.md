@@ -31,7 +31,7 @@ When Sauce Labs releases new versions of iOS, the aliases will be updated to aut
 ## How to use iOS Version Management
 
 :::info
-The following examples will use an `iPhone Simulator` or `iPad Simulator` to test on a Safari browser. You can use the same approach to test your web or native app on any iOS Simulator. To see also possible configurations please visit our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) tool.
+The following examples will use an `iPhone Simulator` or `iPad Simulator` to test on a Safari browser. You can use the same approach to test your web or native app on any iOS Simulator. To see also possible configurations visit our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) tool.
 :::
 
 <Tabs
