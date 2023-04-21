@@ -154,5 +154,5 @@ $ saucectl run
 
 ### Pipeline Setup
 We also provide some examples for pipeline setup.
-* [Github](https://github.com/saucelabs/saucectl-xcuitest-example/blob/main/.github/workflows/test.yml)
+* [GitHub](https://github.com/saucelabs/saucectl-xcuitest-example/blob/main/.github/workflows/test.yml)
 * [Circle CI](https://github.com/saucelabs/saucectl-xcuitest-example/blob/main/.circleci/config.yml)
