@@ -152,7 +152,7 @@ $ saucectl run
 ```
 `saucectl` uploads `DemoApp.ipa` and `DemoAppUITests-Runner.ipa` to Sauce VM and executes XCUITest. You can review test results on Sauce UI.
 
-### Pipeline setup
+### Pipeline Setup
 We also provide some examples for pipeline setup.
 * [Github](https://github.com/saucelabs/saucectl-xcuitest-example/blob/main/.github/workflows/test.yml)
 * [Circle CI](https://github.com/saucelabs/saucectl-xcuitest-example/blob/main/.circleci/config.yml)
