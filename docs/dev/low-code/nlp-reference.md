@@ -1,7 +1,7 @@
 ---
 id: nlp-reference
-title: NLP Reference
-sidebar_label: NLP Reference
+title: Step Reference
+sidebar_label: Step Reference
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -23,6 +23,10 @@ This is usually the first step in a test case, but you can also add this step du
 `Launch...`
 
 - `Launch website`
+
+`Refresh...`
+
+- `Refresh website`
 
 `Navigate...`
 

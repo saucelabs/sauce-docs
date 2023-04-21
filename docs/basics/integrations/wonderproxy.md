@@ -68,7 +68,6 @@ suites:
   params:
   browserName: "firefox"
 - name: "Chromium on Mac 11"
-  mode: sauce
   platformName: "mac 11.00"
   testMatch: ['.*.js']
   params:
