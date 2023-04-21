@@ -51,7 +51,7 @@ The alias `iPhone Instant Simulator` or `iPad Instant Simulator` will only work 
 
 ```
 Error: Failed to create session.
-Invalid platform version specified for instant simulators: iPhone Instant Simulator. Must be one of ['previous_major', 'current_major', 'latest']
+Invalid platform version specified for instant Simulators: iPhone Instant Simulator. Must be one of ['previous_major', 'current_major', 'latest']
 ```
 
 :::
@@ -65,14 +65,14 @@ There are two advantages of using the aliases
 The following examples use iOS 16 and 15 as the current and previous major versions of iOS, respectively.
 :::
 
-| Device Name              | Platform Version                                |              Result              |   Instant Booted   | Note                                                                                                                                                                        |
-| :----------------------- | :---------------------------------------------- | :------------------------------: | :----------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Device Name              | Platform Version                                |              Result              |   Instant Booted   | Note                                                                                                                                                                         |
+| :----------------------- | :---------------------------------------------- | :------------------------------: | :----------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | iPhone Instant Simulator | latest/current_major                            |       iPhone 14 with 16.2        | :white_check_mark: | The requested instant-booted device alias, requested OS version, and latest OS version installed in our cloud match. This means an instant-booted Simulator will be started. |
-| iPad Instant Simulator   | latest/current_major                            | iPad (10th Generation) with 16.2 | :white_check_mark: |                                                                                                                                                                             |
-| iPhone Instant Simulator | previous_major                                  |       iPhone 13 with 16.2        | :white_check_mark: |                                                                                                                                                                             |
-| iPad Instant Simulator   | previous_major                                  | iPad (9th Generation) with 15.5  | :white_check_mark: |                                                                                                                                                                             |
-| iPhone Instant Simulator | A fixed iOS version, for example, 16.2, or 15.5 |                -                 |        :x:         | The combination is invalid. The device name alias **CAN ONLY** be combined with platform version aliases                                                                    |
-| iPad Instant Simulator   | A fixed iOS version, for example, 16.2, or 15.5 |                -                 |        :x:         |                                                                                                                                                                             |
+| iPad Instant Simulator   | latest/current_major                            | iPad (10th Generation) with 16.2 | :white_check_mark: |                                                                                                                                                                              |
+| iPhone Instant Simulator | previous_major                                  |       iPhone 13 with 16.2        | :white_check_mark: |                                                                                                                                                                              |
+| iPad Instant Simulator   | previous_major                                  | iPad (9th Generation) with 15.5  | :white_check_mark: |                                                                                                                                                                              |
+| iPhone Instant Simulator | A fixed iOS version, for example, 16.2, or 15.5 |                -                 |        :x:         | The combination is invalid. The device name alias **CAN ONLY** be combined with platform version aliases                                                                     |
+| iPad Instant Simulator   | A fixed iOS version, for example, 16.2, or 15.5 |                -                 |        :x:         |                                                                                                                                                                              |
 
 ### Using explicit capabilities
 
@@ -367,7 +367,7 @@ This can be done by:
 <img src={useBaseUrl('img/mobile-apps/instant-sim-2.png')} alt="instant booted menu" width="750"/>
 
 - Opening the Metadata tab, as Sauce Labs automatically add tags.
-  If you are using `“appium:deviceName”: “iPhone Instant Simulator”` or `“appium:deviceName”: “iPad Instant Simulator”`, you should see the tag **sl-instant-simulato**. When you use the default Appium version, you will additionally see the **sl-instant-simulator-with-matching-appium** tag.
+  If you are using `“appium:deviceName”: “iPhone Instant Simulator”` or `“appium:deviceName”: “iPad Instant Simulator”`, you should see the tag **sl-instant-simulator**. When you use the default Appium version, you will additionally see the **sl-instant-simulator-with-matching-appium** tag.
 
 <img src={useBaseUrl('img/mobile-apps/instant-sims-tags.jpg')} alt="instant booted tags" width="750"/>
 
