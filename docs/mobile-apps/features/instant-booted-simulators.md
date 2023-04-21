@@ -78,7 +78,7 @@ The following examples use iOS 16 and 15 as the current and previous major versi
 
 You can also use explicit capabilities to access the Instant Booted iOS Simulators. This is not recommended as it is more likely to land on a normal booted Simulator when Apple releases a new minor or major version of iOS. This means that you will not automatically get access to the latest device and or iOS version for your tests and will be testing your app on what is most likely not the most popular device and or iOS version used by your users.
 
-If you want to use explicit capabilities, then you you can use the following combinations
+If you want to use explicit capabilities, then you you can use the following combinations:
 
 :::info
 The following examples use iOS 16 and 15 as the current and previous major versions of iOS, respectively. The examples don't always reflect the actual versions of iOS that are supported by Sauce Labs and Apple on Simulators. See our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) tool for the most up-to-date information.
