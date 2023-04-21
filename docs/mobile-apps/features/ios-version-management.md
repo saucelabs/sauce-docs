@@ -281,7 +281,7 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 ## Examples
 
 :::info
-The following examples use iOS 16 and 15 as the current and previous major versions of iOS, respectively. The examples don't always reflect the actual versions of iOS that are supported by Sauce Labs and Apple on simulators. For the most up-to-date information, see our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) tool.
+The following examples use iOS 16 and 15 as the current and previous major versions of iOS, respectively. The examples don't always reflect the actual versions of iOS that are supported by Sauce Labs and Apple on Simulators. See our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) tool for the most up-to-date information.
 :::
 
 | Configuration                                                  | Supported by Apple on Simulators | Supported by Sauce Labs | Land On  |                                Note                                |
