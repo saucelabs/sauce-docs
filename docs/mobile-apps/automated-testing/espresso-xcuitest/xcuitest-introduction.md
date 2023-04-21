@@ -135,7 +135,7 @@ $ cp -r DemoAppUITests-Runner.app Payload/
 $ zip --symlinks -r DemoAppUITests-Runner.ipa Payload
 ```
 
-### Running XCUITest using `saucectl`
+### Running XCUITest Using `saucectl`
 To run a XCUITest, set `app` and `testApp` fields in the example [.sauce/config](https://github.com/saucelabs/saucectl-xcuitest-example/blob/main/.sauce/config.yml) file.
 ```
 xcuitest:
