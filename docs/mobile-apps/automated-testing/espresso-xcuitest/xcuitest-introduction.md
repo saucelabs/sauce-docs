@@ -68,7 +68,7 @@ final class DemoAppUITests: XCTestCase {
 }
 ```
 
-### Building the project
+### Building the Project
 To run XCUITest on Sauce VM, you need to create the [`.ipa` files](https://docs.saucelabs.com/mobile-apps/automated-testing/ipa-files/#creating-an-xcuitest-package) package.
 
 #### Using Xcode
