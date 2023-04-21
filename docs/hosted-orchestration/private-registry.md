@@ -33,9 +33,10 @@ For your Hosted Orchestration request, specify a username and access token and S
     apiVersion: v1alpha
     kind: imagerunner
     sauce:
-    region: us-west-1
+      region: us-west-1
     suites:
       - name: run sauce test
+        workload: other
         image: saucelabs/sl-demo-docker-primary:0.0.1
         imagePullAuth:
           user: $SAUCE_IMAGE_USER
