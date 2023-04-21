@@ -66,7 +66,7 @@ values={[
 
 <!-- prettier-ignore -->
 ```java
-DesiredCapabilities capabilities = new DesiredCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 
 capabilities.setCapability("browserName", "safari");
 capabilities.setCapability("platformName", "ios");
@@ -83,7 +83,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 <TabItem value="ipad">
 
 ```java
-DesiredCapabilities capabilities = new DesiredCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 
 capabilities.setCapability("browserName", "safari");
 capabilities.setCapability("platformName", "ios");
@@ -293,16 +293,30 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 The following examples use iOS 16 and 15 as the current and previous major versions of iOS, respectively. The examples don't always reflect the actual versions of iOS that are supported by Sauce Labs and Apple on simulators. For the most up-to-date information, see our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) tool.
 :::
 
-| Configuration                                                  | Supported by Apple on Simulators | Supported by Sauce Labs | Land On  |                                Note                                |
-| :------------------------------------------------------------- | :------------------------------: | :---------------------: | :------: | :----------------------------------------------------------------: |
-| iPhone 14 Simulator + `latest` or `current_major`              |            16.0-16.4             |        16.0-16.4        |   16.4   |                                                                    |
-| iPhone 14 Simulator + `previous_major`                         |            16.0-16.4             |        16.0-16.4        | &#x2715; |          iPhone 14 was released with iOS 16, not with 15           |
-| iPad (10th Generation) Simulator + `latest` or `current_major` |            16.1-16.4             |        16.1-16.4        |   16.4   |                                                                    |
-| iPad (10th Generation) Simulator + `previous_major`            |            16.1-16.4             |        16.1-16.4        | &#x2715; |   iPad (10th Generation) was released with iOS 16.1, not with 15   |
-| iPhone 13 Simulator + `latest` or `current_major`              |            15.0-16.4             |        15.0-16.4        |   16.4   |         iPhone 13 was released with iOS 15 and supports 16         |
-| iPhone 13 Simulator + `latest` or `current_major`              |            15.0-16.4             |        15.0-16.4        |   16.4   |         iPhone 13 was released with iOS 15 and supports 16         |
-| iPhone 13 Simulator + `previous_major`                         |            15.0-16.4             |        15.0-16.4        |   15.5   |          iPhone 14 was released with iOS 16, not with 15           |
-| iPhone 7 Simulator + `latest` or `current_major`               |            10.0-15.5             |        15.0-16.4        |   15.4   | iPhone 7 was released with iOS 10 and Apple supports till iOS 15.x |
-| iPhone 7 Simulator + `previous_major`                          |            10.0-15.5             |        15.0-16.4        |   14.4   |      Apple supports 14.5, Sauce Labs only released till 14.4       |
+| Configuration                                                  | Supported by Apple on Simulators | Supported by Sauce Labs | Land On  | Note                                                                                                                                                                                                   |
+| :------------------------------------------------------------- | :------------------------------: | :---------------------: | :------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| iPhone 14 Simulator + `latest` or `current_major`              |            16.0-16.4             |        16.0-16.4        |   16.4   |                                                                                                                                                                                                        |
+| iPhone 14 Simulator + `previous_major`                         |            16.0-16.4             |        16.0-16.4        | &#x2715; | <pre>Error: Failed to create session. <br/>Invalid platform version specified for simulator:<br/>iPhone 14 Simulator</pre> iPhone 14 was released with iOS 16, not with 15                             |
+| iPad (10th Generation) Simulator + `latest` or `current_major` |            16.1-16.4             |        16.1-16.4        |   16.4   |                                                                                                                                                                                                        |
+| iPad (10th Generation) Simulator + `previous_major`            |            16.1-16.4             |        16.1-16.4        | &#x2715; | <pre>Error: Failed to create session. <br/>Invalid platform version specified for simulator:<br/>iPad (10th Generation) Simulator</pre> iPad (10th Generation) was released with iOS 16.1, not with 15 |
+| iPhone 13 Simulator + `latest` or `current_major`              |            15.0-16.4             |        15.0-16.4        |   16.4   | iPhone 13 was released with iOS 15 and supports 16                                                                                                                                                     |
+| iPhone 13 Simulator + `latest` or `current_major`              |            15.0-16.4             |        15.0-16.4        |   16.4   | iPhone 13 was released with iOS 15 and supports 16                                                                                                                                                     |
+| iPhone 13 Simulator + `previous_major`                         |            15.0-16.4             |        15.0-16.4        |   15.5   | iPhone 13 was released with iOS 15, the current is higher, so `previous_major` will result in iOS 15                                                                                                   |
+| iPhone 7 Simulator + `latest` or `current_major`               |            10.0-15.5             |        15.0-16.4        |   15.4   | iPhone 7 was released with iOS 10 and Apple supports till iOS 15.x                                                                                                                                     |
+| iPhone 7 Simulator + `previous_major`                          |            10.0-15.5             |        15.0-16.4        |   14.4   | Apple supports 14.5, Sauce Labs only released till 14.4                                                                                                                                                |
 
 ## FAQ
+
+### I'm getting the error `Invalid platform version specified for simulator: <selected Simulator>`
+
+This error means that the platform version you specified is not supported by Apple on simulators. For example, if you specify `previous_major` for an iPhone 14 Simulator when it has just been released (it was released with iOS 16), you'll get this error because Apple doesn't support iOS 15 on this Simulator. You can use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) tool to see which versions of iOS are supported by Apple and Sauce Labs on simulators.
+
+You can start using `previous_major` once Apple has released a new major version of iOS (for example iOS 17) and Sauce Labs has released a new version of the Simulator for that major version.
+
+### I want to test on the latest version of iOS for an iPhone 7, but it lands on iOS 15.x instead of 16.x
+
+This is because Apple doesn't support iOS 16 on the iPhone 7 Simulator. You can use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) tool to see which versions of iOS are supported by Apple and Sauce Labs on simulators.
+
+### I want to test on a specific version of iOS, how can I do that?
+
+You can use the `appium:platformVersion` capability to specify the version of iOS you want to test on. You can use [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) tool to see how to construct your capabilities for your preferred language.
