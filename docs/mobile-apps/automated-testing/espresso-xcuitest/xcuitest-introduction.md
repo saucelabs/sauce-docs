@@ -18,7 +18,7 @@ XCUITest is a test automation framework used for UI testing of mobile apps and w
   
 - [saucectl](https://docs.saucelabs.com/dev/cli/saucectl/) to orchestrates XCUITest.
 
-## Building and testing your XCUITest on Sauce Labs
+## Building and Testing your XCUITest on Sauce Labs
   
 
 The first step is to write an XCUITest for an iOS app. Let's take this [example](https://github.com/saucelabs/saucectl-xcuitest-example/tree/main/DemoApp) to demonstrate the test workflow, you can clone the repository and use the [`DemoApp`](https://github.com/saucelabs/saucectl-xcuitest-example/tree/main/DemoApp/DemoApp).
