@@ -310,7 +310,7 @@ You can start using `previous_major` once Apple has released a new major version
 
 ### I want to test on the latest version of iOS for an iPhone 7, but it lands on iOS 15.x instead of 16.x
 
-The reason is that Apple doesn't support iOS 16 on the iPhone 7 Simulator. You can use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) tool to see which versions of iOS are supported by Apple and Sauce Labs on simulators.
+The reason is that Apple doesn't support iOS 16 on the iPhone 7 Simulator. You can use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) tool to see which versions of iOS are supported by Apple and Sauce Labs on Simulators.
 
 ### I want to test on a specific version of iOS, how can I do that?
 
