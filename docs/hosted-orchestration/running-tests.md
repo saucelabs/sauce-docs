@@ -114,7 +114,7 @@ kind: imagerunner
 
 <p><small>| REQUIRED | STRING |</small></p>
 
-The workload type of your Docker image. Accepter values: `webdriver`, `other`.
+The workload type of your Docker image. Accepted values: `webdriver`, `other`.
 
 ```yaml
 workload: other
