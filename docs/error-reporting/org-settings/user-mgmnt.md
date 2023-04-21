@@ -21,15 +21,15 @@ On the Users page, the following sections are available:
 
 ## Configure Self Sign Up
 
-You can allow your team members to sign up to your Backtrace instance without an invitation by adding a permitted domain.
+You can allow your team members to sign up to your Backtrace instance without an invitation by adding an allowlisted domain.
 
 For example, if you supply a domain of backtrace.io, then anyone with a backtrace.io email address will be able to sign up from the login page.
 
-To add a permitted domain:
+To add an allowlisted domain:
 
-1. Under **Configure self signup**, select **Allow signups from whitelisted domains**.
+1. Under **Configure self signup**, select **Allow signups from allowlisted domains**.
 1. Click **+ Add domain**.
-1. In the Add whitelisted domain dialog:
+1. In the Add allowlisted domain dialog:
    - Enter the name of the domain.
    - Select a default authentication method. Options are:
      - **password** (recommended): The user is required to set a password.
