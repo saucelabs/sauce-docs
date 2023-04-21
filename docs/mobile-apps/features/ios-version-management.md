@@ -9,9 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::info
-This feature is only available for iOS Simulators.
-:::
+<p><small><span className="sauceDBlue">iOS Simulators Only</span></small></p>
 
 With every major iOS release (for example iOS 15 to iOS 16) it takes 4-6 months for 80% of the end-users to fully adopt a new major version. To help you test your app on the latest versions of iOS, Sauce Labs provides iOS Version Management based on aliases. These aliases allow you to test your app on the latest versions of iOS without having to update your capabilities every time a new version is released.
 
@@ -22,16 +20,14 @@ Sauce Labs provides the following aliases for iOS Simulators:
 - `latest` or `current_major` - The latest installed version of the current major version.
 - `previous_major` - The latest installed version of the previous major version.
 
-For example, if the latest major released version of iOS is `16` and the latest installed version in the Sauce Labs cloud is `16.4`, then `latest` and `current_major` will both point to `16.4`.
+If the latest major released version of iOS is `16` and the latest installed version in the Sauce Labs cloud is `16.4`, then `latest` and `current_major` will both point to `16.4`.
 
 If the latest previous major released version of iOS is `15` and the latest installed version in the Sauce Labs cloud is `15.5`, then `previous_major` will point to `15.5`.
 
 When Sauce Labs releases new versions of iOS, the aliases will be updated to automatically point to the latest installed versions.
 
 :::note
-There are a few things to be aware of when using these aliases:
-
-- Apple doesn't release every version of iOS for every device. For example,
+Apple doesn't release every version of iOS for every device. For example:
   - iOS 16 is not released for the iPhone 7/Plus because Apple stopped support. If you use the `latest` or `current_major` aliases, Sauce Labs will automatically select the latest version of iOS that is available for the device you are testing on.
   - Not every iOS minor version update leads to a new iOS Simulator version. New Simulator versions are released when Apple updates the underlying Xcode version. For example, iOS 15.1 is not released as a new Simulator version because it is not released with Xcode 13.1 or XCODE 13.2, which is the same Xcode version as iOS 15.0. More information about Xcode and iOS versions can be found [here](https://xcodereleases.com/?scope=release).
 
@@ -40,7 +36,7 @@ There are a few things to be aware of when using these aliases:
 ## How to use iOS Version Management
 
 :::info
-The following examples will use an `iPhone Simulator` or `iPad Simulator` to test on a Safari browser. You can use the same approach to test your web or native app on any iOS Simulator. To see also possible configurations please visit our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) tool.
+The following examples will use an `iPhone Simulator` or `iPad Simulator` to test on a Safari browser. You can use the same approach to test your web or native app on any iOS Simulator. To learn about possible configurations please visit our [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) tool for more information.
 :::
 
 <Tabs
@@ -308,13 +304,13 @@ The following examples use iOS 16 and 15 as the current and previous major versi
 
 ### I'm getting the error `Invalid platform version specified for simulator: <selected Simulator>`
 
-This error means that the platform version you specified is not supported by Apple on simulators. For example, if you specify `previous_major` for an iPhone 14 Simulator when it has just been released (it was released with iOS 16), you'll get this error because Apple doesn't support iOS 15 on this Simulator. You can use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) tool to see which versions of iOS are supported by Apple and Sauce Labs on simulators.
+This error means that the platform version you specified is not supported by Apple on Simulators. For example, if you specify `previous_major` for an iPhone 14 Simulator when it has just been released (it was released with iOS 16), you'll get this error because Apple doesn't support iOS 15 on this Simulator. You can use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) tool to check which versions of iOS are supported by Apple and Sauce Labs.
 
 You can start using `previous_major` once Apple has released a new major version of iOS (for example iOS 17) and Sauce Labs has released a new version of the Simulator for that major version.
 
 ### I want to test on the latest version of iOS for an iPhone 7, but it lands on iOS 15.x instead of 16.x
 
-This is because Apple doesn't support iOS 16 on the iPhone 7 Simulator. You can use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) tool to see which versions of iOS are supported by Apple and Sauce Labs on simulators.
+The reason is that Apple doesn't support iOS 16 on the iPhone 7 Simulator. You can use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) tool to see which versions of iOS are supported by Apple and Sauce Labs on simulators.
 
 ### I want to test on a specific version of iOS, how can I do that?
 
