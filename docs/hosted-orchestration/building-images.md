@@ -148,7 +148,7 @@ sauce:
 region: us-west-1
 suites:
   - name: run sauce test
-    workload: other
+    workload: webdriver
     image: saucelabs/sl-demo-docker-primary:0.0.1
     entrypoint: "mvn test"
     files:
