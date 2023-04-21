@@ -35,6 +35,7 @@ You can interact with Hosted Orchestration through the SauceCtl CLI. The followi
       region: us-west-1
     suites:
       - name: run sauce test
+        workload: webdriver
         image: saucelabs/sl-demo-docker-primary:0.0.1
         imagePullAuth:
           user: $SAUCE_IMAGE_USER
@@ -109,6 +110,16 @@ Tells SauceCTL this is a Hosted Orchestration job. `imagerunner` is the required
 kind: imagerunner
 ```
 
+### `workload`
+
+<p><small>| REQUIRED | STRING |</small></p>
+
+The workload type of your Docker image. Accepted values: `webdriver`, `other`.
+
+```yaml
+workload: webdriver
+```
+
 
 ### `image`
 
@@ -119,7 +130,6 @@ The location of your Docker image. Takes the format [registry]/[image]:[tag].
 ```yaml
 image: saucelabs/sl-demo-docker-primary:0.0.1
 ```
-
 
 ### `imagePullAuth`
 
