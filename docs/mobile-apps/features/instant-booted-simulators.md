@@ -77,7 +77,7 @@ The following examples use iOS 16 and 15 as the current and previous major versi
 
 ### Using explicit capabilities
 
-You can also use explicit capabilities to access the Instant Booted iOS Simulators. This is not recommended as it is more likely to land on a normal booted Simulator when Apple releases a new minor or major version of iOS. This means that you will not automatically get access to the latest device and or iOS version for your tests and will be testing your app on what is most likely not the most popular device and or iOS version used by your users.
+You can use explicit capabilities to access the Instant Booted iOS Simulators. However, this is not recommended because you're more likely to end up on a normally booted simulator when Apple releases a new minor or major version of iOS. As a result, you won't automatically gain access to the latest device or iOS version for your tests, and you'll likely be testing your app on a less popular device or iOS version that is not commonly used by your users.
 
 If you want to use explicit capabilities, then you you can use the following combinations:
 
