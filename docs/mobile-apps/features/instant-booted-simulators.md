@@ -58,8 +58,9 @@ Invalid platform version specified for instant Simulators: iPhone Instant Simula
 
 There are two advantages of using the aliases
 
-1. When Apple releases a new major version of iOS they always release a new iPhone or iPad. Sauce Labs will automatically assign this model to the aliases `iPhone Instant Simulator` or `iPad Instant Simulator` so you will automatically get access to the new device without having to change your capabilities. This means that you will automatically use the latest device for your tests and will be testing your app on what will most likely be the most popular device used by your users.
-2. When Apple releases a new minor or major iOS version and Sauce Labs adds this to their cloud, then you will automatically get access to the new version without having to change your capabilities. This means that you will automatically use the latest iOS version for your tests and will be testing your app on what is most likely the most popular iOS version used by your users.
+1. Whenever Apple releases a new major version of iOS, they usually launch a new iPhone or iPad model. Sauce Labs assigns these models to the aliases `iPhone Instant Simulator` or `iPad Instant Simulator`, which means you can access the new device automatically without having to change your capabilities. Consequently, you'll be using the latest device for your tests and will be testing your app on what will most likely be the most popular device used by your users.
+
+2. If Apple releases a new minor or major iOS version and Sauce Labs incorporates it into their cloud, you'll get automatic access to the new version without having to alter your capabilities. This means that you'll be using the latest iOS version for your tests and will be testing your app on what is most likely the most popular iOS version used by your users.
 
 :::info
 The following examples use iOS 16 and 15 as the current and previous major versions of iOS, respectively.
