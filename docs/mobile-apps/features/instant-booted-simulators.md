@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 The speed of the Simulator is a crucial factor that impacts the development workflow of iOS app developers. Instant booted iOS Simulators offer significant advantages over our default Simulators, as they reduce the time it takes to launch the Simulator to test apps to almost zero seconds.
 
-With Instant Booted iOS Simulators, you can quickly switch between two iOS versions and test your app in four configurations to ensure the compatibility and performance of your app.
+With Instant Booted iOS Simulators, you can quickly switch between two iOS versions and test your app in four configurations to ensure its compatibility and performance.
 
 Sauce Labs supports the following configurations:
 
