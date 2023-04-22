@@ -39,7 +39,7 @@ To ensure that your capabilities remain consistent and you always have access to
 - `iPhone Instant Simulator`
 - `iPad Instant Simulator`
 
-We also introduced iOS Version Management, see [iOS Version Management](#), which add three new platform version aliases. These are
+We also introduced iOS Version Management, see [iOS Version Management](/mobile-apps/features/ios-version-management/), which add three new platform version aliases. These are
 
 - `latest|current_major`
 - `previous_major`
@@ -354,7 +354,7 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 This will assign an instant-booted Simulator that represents the `latest`/`current_major` iOS version for the requested device by what both Apple has released and what Sauce Labs supports in our Simulator cloud. In the case of using `previous_major` platform version, it will represent the latest previous major iOS version for the requested device by what both Apple has released and what Sauce Labs supports in our Simulator cloud.
 
 :::note
-To use a different version of Appium, you can specify it through the [sauce:options](https://docs.saucelabs.com/dev/test-configuration-options/#appiumversion). Check our [platform configurator](https://saucelabs.com/products/platform-configurator#/) to confirm which Appium versions are supported. Using a different version may result in additional 20 seconds of start-up time for your iPhone/iPad Instant Simulator.
+To use a different version of Appium, you can specify it through the [sauce:options](/dev/test-configuration-options/#appiumversion). Check our [platform configurator](https://saucelabs.com/products/platform-configurator#/) to confirm which Appium versions are supported. Using a different version may result in additional 20 seconds of start-up time for your iPhone/iPad Instant Simulator.
 :::
 
 ## FAQ
