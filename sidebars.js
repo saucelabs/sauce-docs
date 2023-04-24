@@ -836,15 +836,16 @@ module.exports = {
         {
             type: 'category',
             label: 'Sauce Orchestrate',
-            link: { type: 'doc', id: 'hosted-orchestration' },
+            link: { type: 'doc', id: 'orchestrate' },
             collapsed: true,
             items: [
-                'hosted-orchestration',
-                'hosted-orchestration/getting-started',
-                'hosted-orchestration/saucectl-configuration',
-                'hosted-orchestration/building-images',
-                'hosted-orchestration/private-registry',
-                'hosted-orchestration/architecture',
+                'orchestrate/getting-started',
+                'orchestrate/saucectl-configuration',
+                'orchestrate/building-images',
+                'orchestrate/private-registry',
+                'orchestrate/best-practices',
+                'orchestrate/faq',
+                'orchestrate/architecture',
             ],
         },
         {

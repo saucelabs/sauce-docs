@@ -1,5 +1,5 @@
 ---
-id: hosted-orchestration
+id: orchestrate
 title: Sauce Orchestrate
 sidebar_label: Overview
 ---
@@ -27,25 +27,25 @@ Reduce unpredictable network issues and help developers focus their time on inno
 <div className="box-wrapper" markdown="1">
 <div className="box box1 card">
   <div className="container">
-  <h3><a href="/sauce-orchestate/sauce-connect">Getting Started</a></h3>
+  <h3><a href="/orchestrate/getting-started">Getting Started</a></h3>
   <p>Get up and running with Sauce Orhestrate in minutes.</p>
   </div>
 </div>
 <div className="box box2 card">
   <div className="container">
-  <h3><a href="/secure-connections/sauce-connect/quickstart/">Building Images</a></h3>
+  <h3><a href="/orchestrate/building-images">Building Images</a></h3>
   <p>Learn how to build your first Docker Image.</p>
   </div>
 </div>
 <div className="box box3 card">
   <div className="container">
-  <h3><a href="/secure-connections/sauce-connect/quickstart/">Best Practices</a></h3>
+  <h3><a href="/orchestrate/best-practices">Best Practices</a></h3>
   <p>Learn about the best practices using Sauce Orchestrate.</p>
   </div>
 </div>
 <div className="box box4 card">
   <div className="container">
-  <h3><a href="/secure-connections/sauce-connect/quickstart/">FAQ</a></h3>
+  <h3><a href="/orchestrate/faq">FAQ</a></h3>
   <p>Get answers to your frequently asked questions.</p>
   </div>
 </div>

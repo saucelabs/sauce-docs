@@ -15,7 +15,8 @@ This page outlines how to run your browser and mobile tests in Sauce Orchestrate
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 - The SauceCTL client installed. For more information, see [Using the saucectl CLI](/dev/cli/saucectl).
-- A Docker image containing your tests. For more information, see [Building Images](/hosted-orchestration/building-images).
+- A Docker image containing your tests. More information about building Docker images is found below and in [Building Images](/hosted-orchestration/building-images).
+- Access to a Docker registry. Our examples will use [DockerHub](https://hub.docker.com).
 
 ## How It Works
 
