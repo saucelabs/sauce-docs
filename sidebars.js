@@ -855,6 +855,7 @@ module.exports = {
                     label: 'Features',
                     collapsed: true,
                     items: [
+                        'mobile-apps/features/ios-version-management',
                         'mobile-apps/features/bypass-screenshot',
                         'mobile-apps/features/virtual-usb',
                         'mobile-apps/features/biometric-authentication',
