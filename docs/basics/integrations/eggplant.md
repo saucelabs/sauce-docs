@@ -100,6 +100,10 @@ For example, `epgw vnc chrome --vncPort 5901 --webDriverPort 5001`.
 
 You can use the Eggplant Gateway for the Sauce Labs Real Device Cloud to run Eggplant Functional and Eggplant DAI tests on public and private devices running in the Sauce Labs Real Device Cloud (RDC).
 
+:::note
+Eggplant Functional 22.3 (or later) has built-in support for Sauce Labs devices. You do not need to use the Eggplant Gateway to connect to Sauce Labs devices using these versions of Eggplant Functional. See the [Connecting to Sauce Labs Devices and Browsers](https://docs.eggplantsoftware.com/studio/epf-connecting-to-sauce-labs-devices-and-browsers/) for more information.
+:::
+
 ### What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
