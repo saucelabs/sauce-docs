@@ -28,7 +28,6 @@ In either case, the command generates a `.sauce/config.yml` folder and file in t
   - [Cypress YAML](/web-apps/automated-testing/cypress/yaml)
   - [Playwright YAML](/web-apps/automated-testing/playwright/yaml)
   - [TestCafe YAML](/web-apps/automated-testing/testcafe/yaml)
-  - [Puppeteer YAML](/web-apps/automated-testing/puppeteer/yaml)
   - [Espresso YAML](/mobile-apps/automated-testing/espresso-xcuitest/espresso)
   - [XCUITest YAML](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest)
 
@@ -256,10 +255,6 @@ Usage information for the `init` command.
 
 A specific operating system and version on which to run the specified browser and test suite.
 
-:::note
-You can optionally specify `docker` here as the platform.
-:::
-
 **Shorthand:** `-p `
 
 </div>
@@ -308,7 +303,6 @@ $ saucectl init
 ? Select framework:  [Use arrows to move, type to filter]
 > cypress
  playwright
- puppeteer
  testcafe
  espresso
  xcuitest
