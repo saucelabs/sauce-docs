@@ -1,15 +1,52 @@
 ---
 id: hosted-orchestration
-title: Hosted Orchestration (Beta)
-sidebar_label: Getting Started
+title: Sauce Orchestrate
+sidebar_label: Overview
 ---
 
-:::info
-Hosted Orchestration is currently in Limited Beta. If you would like to participate please visit our [Product Portal](https://portal.productboard.com/sauceprod/2-sauce-labs-portal/c/32-hosted-test-orchestration).
-:::
+## Fast and reliable test orchestration for mobile and web apps, at scale.
 
-Hosted Orchestration runs mobile and browser tests up to 70% faster, from within the Sauce Labs grid via our container execution environment. All you need to do is package your test code as a Docker image and grant us access.
+Sauce Orchestrate is a new and unique approach to web and mobile application testing that increases test execution speed and enables end-to-end test orchestration. The beneifts include:
 
-Hosted Orchestration is different from traditional remote grid execution because it removes a large portion of  network traffic, which drastically increases the amount of time to execute a test suite from your environment. 
+<b>Test up to 70% faster, from anywhere</b>
 
+Sauce Orchestrate decreases network overhead and reduces the latency between the test and the device or browser.
 
+<b>Reduce costs and optimize CI/CD pipelines</b>
+
+Orchestrate multiple CI builds and reduce the maintenance burden on your resource-constrained CI by offloading the compute cycles to Sauce Labs for test execution.
+
+<b>Accelerate development velocity</b>
+
+Improve development velocity and significantly reduce feedback time by running the same test suite locally early in the development cycle, and at scale in your CI.
+
+<b>Improve reliability</b>
+
+Reduce unpredictable network issues and help developers focus their time on innovation by eliminating the need to troubleshoot errors caused by the heavy network overhead of a remote grid.
+
+<div className="box-wrapper" markdown="1">
+<div className="box box1 card">
+  <div className="container">
+  <h3><a href="/sauce-orchestate/sauce-connect">Getting Started</a></h3>
+  <p>Get up and running with Sauce Orhestrate in minutes.</p>
+  </div>
+</div>
+<div className="box box2 card">
+  <div className="container">
+  <h3><a href="/secure-connections/sauce-connect/quickstart/">Building Images</a></h3>
+  <p>Learn how to build your first Docker Image.</p>
+  </div>
+</div>
+<div className="box box3 card">
+  <div className="container">
+  <h3><a href="/secure-connections/sauce-connect/quickstart/">Best Practices</a></h3>
+  <p>Learn about the best practices using Sauce Orchestrate.</p>
+  </div>
+</div>
+<div className="box box4 card">
+  <div className="container">
+  <h3><a href="/secure-connections/sauce-connect/quickstart/">FAQ</a></h3>
+  <p>Get answers to your frequently asked questions.</p>
+  </div>
+</div>
+</div>
