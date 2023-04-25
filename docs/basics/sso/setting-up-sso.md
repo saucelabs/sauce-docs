@@ -6,7 +6,7 @@ sidebar_label: Setting Up SSO
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><span className="sauceDBlue">Enterprise Plans only</span></p>
+<p><span className="sauceGreen">Enterprise Plans only</span></p>
 
 Sauce Labs supports Identity Provider (IdP)-initiated and Service Provider (SP)-initiated Single Sign-On (SSO) via SAML 2.0 protocol. This feature allows your authorized employees to access Sauce Labs in a moderated fashion, as an alternative to using credentials. SAML SSO is available to invoiced accounts, and can only be implemented by the organization admin of the account. If you are an invoice customer, the following sections will guide you on how to set up SAML SSO.
 
@@ -43,7 +43,7 @@ We provide preconfigured SAML applications for some identity providers. They all
 - [Microsoft Azure Active Directory](/basics/sso/configuring-sso-in-ms-azure-ad)
 - [Okta](/basics/sso/configuring-sso-in-okta)
 - [OneLogin](/basics/sso/configuring-sso-in-onelogin)
-:::
+  :::
 
 If you use a custom identity provider or your provider does not appear in the list above, please complete the manual setup:
 

@@ -6,7 +6,7 @@ sidebar_label: Setting Up SSO - Special Cases
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><span className="sauceDBlue">Enterprise Plans only</span></p>
+<p><span className="sauceGreen">Enterprise Plans only</span></p>
 
 ## Single Identity Provider and Multiple Organizations at Sauce Labs
 

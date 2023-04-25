@@ -64,13 +64,13 @@ To view your recent configurations, click **Recents**.
 | Device Language                                                                            | Use the dropdown to select the device language. The language selector will tell your application that the locale of the device and region is set to the selected parameter. You won't need to change the language of the OS manually during a session inside iOS/Android settings. For more information about the locale setting, see the documentation for [iOS](https://developer.apple.com/documentation/foundation/locale) and [Android](https://developer.android.com/reference/java/util/Locale).                                                                                     |
 | Device Orientation                                                                         | Use the dropdown to set the device orientation (Landscape or Portrait).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Proxy                                                                                      | Enable/disable the use of a proxy. Enter the **Hostname** and **Port** and then click **Update**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Device Passcode <br/><p><span className="sauceDBlue">Real Devices Only</span></p>          | Enable/disable the device passcode for your apps. If your app requires a device passcode/screenlock to launch, you can enable this setting to run your tests on a passcode-protected device.                                                                                                                                                                                                                                                                                                                                                                                                |
+| Device Passcode <br/><p><span className="sauceGreen">Real Devices Only</span></p>          | Enable/disable the device passcode for your apps. If your app requires a device passcode/screenlock to launch, you can enable this setting to run your tests on a passcode-protected device.                                                                                                                                                                                                                                                                                                                                                                                                |
 | Instrumentation                                                                            | Enable/disable device instrumentation. Enabling allows you to use advanced features when testing your app in the real device cloud, like image injection and taking screenshots of secure views.                                                                                                                                                                                                                                                                                                                                                                                            |
 | Image Injection                                                                            | Enable/disable image injection. Image injection allows you to mimic camera behavior when testing apps by letting you upload an image and present it to the app as if it were read by the device camera.                                                                                                                                                                                                                                                                                                                                                                                     |
-| Bypass Screenshot Restriction <br/><p><span className="sauceDBlue">Android Only</span></p> | Enable/disable Bypass Screenshot Restriction (not supported on apps uploaded to the legacy sauce storage). If you're testing Android mobile apps on Sauce Labs and see a black screen in your live testing session, you might need to enable the <b>Bypass Screenshot Restriction</b>. This allows Sauce Labs to work around a setting on those apps that prevents screenshots or videos from being taken. However, there are other details to keep in mind. To effectively test apps that have this setting, see [Bypass Screenshot Restriction](/mobile-apps/features/bypass-screenshot). |
-| System Alerts Display <br/><p><span className="sauceDBlue">iOS Only</span></p>             | Enable/disable a system alerts delay. Enabling delays alerts, such as asking for permission to access the camera, to prevent app crashes at startup.                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Bypass Screenshot Restriction <br/><p><span className="sauceGreen">Android Only</span></p> | Enable/disable Bypass Screenshot Restriction (not supported on apps uploaded to the legacy sauce storage). If you're testing Android mobile apps on Sauce Labs and see a black screen in your live testing session, you might need to enable the <b>Bypass Screenshot Restriction</b>. This allows Sauce Labs to work around a setting on those apps that prevents screenshots or videos from being taken. However, there are other details to keep in mind. To effectively test apps that have this setting, see [Bypass Screenshot Restriction](/mobile-apps/features/bypass-screenshot). |
+| System Alerts Display <br/><p><span className="sauceGreen">iOS Only</span></p>             | Enable/disable a system alerts delay. Enabling delays alerts, such as asking for permission to access the camera, to prevent app crashes at startup.                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Biometrics Interception                                                                    | Enable/disable biometrics. Enabling allows you to choose authentication options if your mobile app requires a biometric authentication, such as fingerprint or face recognition on Android, and Face ID or Touch ID on iOS.<br/> This setting is disabled by default for iOS apps.                                                                                                                                                                                                                                                                                                          |
-| Group Folder Redirect <br/><p><span className="sauceDBlue">iOS Only</span></p>             | Enable/disable a group directory redirect. Enabling allows you to use your app's private app container directory instead of the shared app group container directory. When your app gets resigned, the shared directory is not accessible.                                                                                                                                                                                                                                                                                                                                                  |
+| Group Folder Redirect <br/><p><span className="sauceGreen">iOS Only</span></p>             | Enable/disable a group directory redirect. Enabling allows you to use your app's private app container directory instead of the shared app group container directory. When your app gets resigned, the shared directory is not accessible.                                                                                                                                                                                                                                                                                                                                                  |
 
 :::note
 Any changes you make to the app settings will affect all uploaded versions of the app.
@@ -160,7 +160,7 @@ If you upload an app that is signed with an enterprise certificate, and **Instru
 1. Under **Profiles & Device Management**, tap the app you are trying to install and test.
 1. Tap **Trust "app name"** and then tap **Trust**.
 1. Reopen the app to continue the test.
-   
+
 ### Adding a Test Name for Your Test
 
 Sauce Labs has introduced a new feature that allows you to enter a test name for your Live Tests after cross-browser and mobile app testing. This update enhances the testing efficiency by enabling you to add more context to test descriptions and add more clarity to your test repository.
@@ -168,18 +168,17 @@ Sauce Labs has introduced a new feature that allows you to enter a test name for
 Adding a test name is a straightforward process, and there are two ways to do it:
 
 1. From the end session screen:
+
    - Start a Live Test session.
    - End the Live Test Session by clicking on the **End** button from the toolbar.
    - The end session screen will pop up, and from there, users can edit the test name:
-  <img src={useBaseUrl('img/mobile-apps/change-name-test.png')} alt="Test Name" width="550"/>
+     <img src={useBaseUrl('img/mobile-apps/change-name-test.png')} alt="Test Name" width="550"/>
 
 1. From the test details page:
    - Go to **Live** -> **Test results** -> Click on a test.
    - On the test details page, click on the pencil nearby the test name to edit it:
-  <img src={useBaseUrl('img/mobile-apps/change-name-test-1.png')} alt="Test Name" width="550"/>
-   
-  
-  
+     <img src={useBaseUrl('img/mobile-apps/change-name-test-1.png')} alt="Test Name" width="550"/>
+
 :::note
 This feature works the same way for both cross-browser testing and mobile app testing.
 :::
@@ -191,13 +190,8 @@ Use test names to customize your testing experience:
 - Easily rename your tests to reflect JIRA tickets or other related tasks.
 
 :::note LIMITATIONS
-This feature has a constraint on the maximum allowable length of the test name, which is limited to 255 characters. The utilization of emojis is not supported in the test name. 
+This feature has a constraint on the maximum allowable length of the test name, which is limited to 255 characters. The utilization of emojis is not supported in the test name.
 :::
-
-
-
-
-
 
 ## Live Test Interface
 

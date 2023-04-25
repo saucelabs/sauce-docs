@@ -20,20 +20,19 @@ Device Vitals is a functionality that allows you to debug and observe an app’s
 By default, Device Vitals is enabled if the instrumentation feature is enabled.
 To enable device instrumentation:
 
-1. In Sauce Labs, from the left navigation, click **App Mangement**.
+1. In Sauce Labs, from the left navigation, click **App Management**.
 
 <br/><img src={useBaseUrl('img/mobile-apps/app-logs5.png')} alt="App Logs" width="300"/>
 
 2. Upload your mobile app.
 
-  <br/><img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="700"/> 
+<br/><img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="700"/>
 
 3. After you’ve uploaded your app, hover your mouse over your app, then select **Settings**.
 
 <br/><img src={useBaseUrl('img/mobile-apps/app-logs-6.png')} alt="App Logs" width="700"/>
 
-
-4.  Under **Real Device Settings** toggle **Instrumentation** to **Enabled**.
+4. Under **Real Device Settings** toggle **Instrumentation** to **Enabled**.
 
 <br/><img src={useBaseUrl('img/mobile-apps/app-logs-7.png')} alt="App Logs" width="700"/>
 
@@ -45,7 +44,7 @@ When enabled, Device Vitals functionality uses metrics to monitor resources and 
 
 - CPU Performance
 - Memory Performance
-- Responsivenes <span className="sauceDBlue">Android Only</span>
+- Responsiveness <span className="sauceGreen">Android Only</span>
 
 ### CPU Performance
 
@@ -61,7 +60,7 @@ This metric determines the amount of physical memory allocated to the app’s pr
 
 ### Responsiveness
 
-<span className="sauceDBlue">Android Only</span>
+<span className="sauceGreen">Android Only</span>
 
 The Responsiveness metric allows you to quickly assess the app’s health by tracking how long it takes for an app to respond to action and monitoring the delay of the app’s UI responsiveness. Currently, this metric is only available for Android devices.
 
@@ -90,7 +89,7 @@ You can also download the results using the API call below:
 
 - Emulators and Simulators are not supported.
 - Cross-browser testing is not available.
-:::
+  :::
 
 ## More Information
 

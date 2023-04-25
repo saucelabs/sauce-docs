@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<span className="sauceDBlue">Real Devices Only</span>
+<span className="sauceGreen">Real Devices Only</span>
 
 `saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your XCUITest tests, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running XCUITest tests.
 
@@ -838,7 +838,7 @@ Find a device for this test suite that matches the device name or portion of the
 
 #### `platformVersion`
 
-<p><small>| MANDATORY <span className="sauceDBlue">for Virtual Devices</span> | OPTIONAL <span className="sauceDBlue">for Real Devices</span> | STRING |</small></p>
+<p><small>| MANDATORY <span className="sauceGreen">for Virtual Devices</span> | OPTIONAL <span className="sauceGreen">for Real Devices</span> | STRING |</small></p>
 
 Allows you to set the mobile OS platform version that you want to use in your test.
 
@@ -871,7 +871,7 @@ The stricter the `platformVersions` is, the smaller the pool of available device
         platformVersion: 11.0
 ```
 
-```yaml title="Use dynamic platformVersion allocation. Real Devices Only"
+````yaml title="Use dynamic platformVersion allocation. Real Devices Only"
         platformVersion: '^1[3-4|6].*'
 ```yaml
         platformVersion: 14.3
@@ -895,7 +895,7 @@ Request that the matching device is also connected to a cellular network.
 ```yaml
   options:
       carrierConnectivity: true
-```
+````
 
 ---
 

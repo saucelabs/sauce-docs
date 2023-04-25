@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<p><small><span className="sauceDBlue">iOS Simulators Only</span></small></p>
+<p><small><span className="sauceGreen">iOS Simulators Only</span></small></p>
 
 With every major iOS release (for example iOS 15 to iOS 16) it takes 4-6 months for 80% of the end-users to fully adopt a new major version. To help you test your app on the latest versions of iOS, Sauce Labs provides iOS Version Management based on aliases. These aliases allow you to test your app on the latest versions of iOS without having to update your capabilities every time a new version is released.
 
@@ -28,8 +28,9 @@ When Sauce Labs releases new versions of iOS, the aliases will be updated to aut
 
 :::note
 Apple doesn't release every version of iOS for every device. For example:
-  - iOS 16 is not released for the iPhone 7/Plus because Apple stopped support. If you use the `latest` or `current_major` aliases, Sauce Labs will automatically select the latest version of iOS that is available for the device you are testing on.
-  - Not every iOS minor version update leads to a new iOS Simulator version. New Simulator versions are released when Apple updates the underlying Xcode version. For example, iOS 15.1 is not released as a new Simulator version because it is not released with Xcode 13.1 or XCODE 13.2, which is the same Xcode version as iOS 15.0. More information about Xcode and iOS versions can be found [here](https://xcodereleases.com/?scope=release).
+
+- iOS 16 is not released for the iPhone 7/Plus because Apple stopped support. If you use the `latest` or `current_major` aliases, Sauce Labs will automatically select the latest version of iOS that is available for the device you are testing on.
+- Not every iOS minor version update leads to a new iOS Simulator version. New Simulator versions are released when Apple updates the underlying Xcode version. For example, iOS 15.1 is not released as a new Simulator version because it is not released with Xcode 13.1 or XCODE 13.2, which is the same Xcode version as iOS 15.0. More information about Xcode and iOS versions can be found [here](https://xcodereleases.com/?scope=release).
 
 :::
 
