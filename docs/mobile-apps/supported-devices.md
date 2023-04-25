@@ -339,7 +339,8 @@ capabilities.setCapability("appium:platformVersion", "^(?!15).*");
 
 - A matching device must be present in your account in order for the test to run.
 - Regex values are not case-sensitive (i.e., `"iphone .*S"` and `"IPHONe .*s"` are the same).
-  :::
+
+:::
 
 ## Additional Resources
 
