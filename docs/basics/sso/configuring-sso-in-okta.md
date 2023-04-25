@@ -8,6 +8,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <p><span className="sauceDBlue">Enterprise Plans only</span></p>
 
+Sauce Labs app from the Okta catalog supports the following features:
+
+- [SP-initiated SSO](/basics/sso/logging-in-via-sso/#service-provider-sp-initiated-sso).
+- [IdP-initiated SSO](/basics/sso/logging-in-via-sso/#identity-provider-idp-initiated-sso).
+- [JIT (Just-In-Time) Provisioning](/basics/sso/setting-up-sso/#just-in-time-jit-provisioning).
+- [Force authentication](/basics/sso/setting-up-sso/#enforce-saml-sso).
+
+Complete the following steps to set up SAML SSO integration between Okta and Sauce Labs:
+
 1. Log into **Okta** administrator panel, go to **Applications** and click **Browse App Catalog**.
    <img src={useBaseUrl('img/basics/sso/idp-config/okta/browse-app-catalog.png')} alt="Browse App Catalog" width="850" />
 
