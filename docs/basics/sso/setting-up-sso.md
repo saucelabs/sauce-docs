@@ -37,13 +37,15 @@ SSO at Sauce Labs is global. In other words, it does not matter in which region 
 ## Setting Up Identity Provider
 
 :::tip
+
 We provide preconfigured SAML applications for some identity providers. They allow you to set up SSO integration with a few clicks. Choose your provider and follow the configuration steps:
 
 - [Google](/basics/sso/configuring-sso-in-google)
 - [Microsoft Azure Active Directory](/basics/sso/configuring-sso-in-ms-azure-ad)
 - [Okta](/basics/sso/configuring-sso-in-okta)
 - [OneLogin](/basics/sso/configuring-sso-in-onelogin)
-  :::
+
+:::
 
 If you use a custom identity provider or your provider does not appear in the list above, please complete the manual setup:
 

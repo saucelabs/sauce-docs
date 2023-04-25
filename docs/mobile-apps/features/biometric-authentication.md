@@ -53,7 +53,8 @@ Biometric Authentication is available for testing on all Sauce Labs Android and 
 - Mobile browsers and pre-installed system apps.
 - Cross-platform development frameworks like Flutter, React Native, and Cordova (libraries and frameworks are not supported).
 - Ephemeral apps.
-  :::
+
+:::
 
 ### Android Biometrics
 
@@ -105,13 +106,18 @@ To enable fingerprint and facial recognition on iOS and Android real devices:
 
 1. Add the `allowTouchIdEnroll` capability to your test configuration and set it to `true`.
    :::note
+
    Setting `allowTouchIdEnroll` does not update your app's biometric interception setting in Sauce Labs. It only sets the capability for the test in the event that the app setting in Sauce Labs is _different_ from the test script capability.
+
    - If biometric interception is ENABLED for the app in Sauce Labs, setting `allowTouchIdEnroll=true` or omitting it will have no effect, but setting `allowTouchIdEnroll=false` will disable the enrollment for the test, overriding the app setting.
    - The opposite is true if biometric interception is DISABLED for the app in Sauce Labs.
-     :::
+
+   :::
+
    ```js reference title="JavaScript iOS Capabilities Example"
    https://github.com/saucelabs-training/demo-js/blob/docs-1.1/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.ios.sauce.rdc.conf.ts#L33
    ```
+
 2. Use the following commands to trigger a successful or failed authentication in response to a biometric prompt:
    - `driver.execute('sauce:biometrics-authenticate=true');` passes a successful authentication to the prompt.
    - `driver.execute('sauce:biometrics-authenticate=false');` passes a failed authentication to the prompt.

@@ -168,14 +168,12 @@ Sauce Labs has introduced a new feature that allows you to enter a test name for
 Adding a test name is a straightforward process, and there are two ways to do it:
 
 1. From the end session screen:
-
    - Start a Live Test session.
    - End the Live Test Session by clicking on the **End** button from the toolbar.
-   - The end session screen will pop up, and from there, users can edit the test name:
+   - The end session screen will pop up, and from there, you can edit the test name:
      <img src={useBaseUrl('img/mobile-apps/change-name-test.png')} alt="Test Name" width="550"/>
-
 1. From the test details page:
-   - Go to **Live** -> **Test results** -> Click on a test.
+   - Go to **Live** -> **Test results** -> click on a test.
    - On the test details page, click on the pencil nearby the test name to edit it:
      <img src={useBaseUrl('img/mobile-apps/change-name-test-1.png')} alt="Test Name" width="550"/>
 
@@ -187,7 +185,7 @@ Use test names to customize your testing experience:
 
 - Add descriptive names to your tests to quickly identify your findings.
 - Keep track of tested steps by adding details to test names.
-- Easily rename your tests to reflect JIRA tickets or other related tasks.
+- Easily rename your tests to reflect Jira tickets or other related tasks.
 
 :::note LIMITATIONS
 This feature has a constraint on the maximum allowable length of the test name, which is limited to 255 characters. The utilization of emojis is not supported in the test name.
@@ -228,11 +226,8 @@ This feature has a constraint on the maximum allowable length of the test name, 
 
 Sometimes you need to conduct A/B testing, or document and validate feature parity between different versions of the same app. You can change the app version, as well as the real device, and launch a new test session.
 
-1. On the **App Upload** page, click the +**_n_** in the **Version** column.
-
-<img src={useBaseUrl('img/live-testing/live-mobile-app-management-version.png')} alt="App with multiple versions" width="750"/>
-
+1. On the **App Upload** page, click **+_#_** in the **Version** column.
+   <img src={useBaseUrl('img/live-testing/live-mobile-app-management-version.png')} alt="App with multiple versions" width="750"/>
 2. On the **Settings** page, in the versions list, hover over the version you want to launch.
 3. Click **Start Test**.
-
-<img src={useBaseUrl('img/live-testing/live-mobile-app-management-version-start.png')} alt="Change the version of an app" width="750"/>
+   <img src={useBaseUrl('img/live-testing/live-mobile-app-management-version-start.png')} alt="Change the version of an app" width="750"/>

@@ -147,7 +147,6 @@ devices:
 ```
 
 </TabItem>
-
 <TabItem value="XCUITest">
 
 Static allocation example — exact device names are provided.
@@ -183,7 +182,7 @@ capabilities.setCapability("appium:deviceName", "iPhone_11_13_5_real_us");
 
 This is specifying basic parameters for the device name or platform version of the device you want to use in your tests using [regular expressions (regex)](https://en.wikipedia.org/wiki/Regular_expression) to dynamically allocate a device. A device(s) with your specifications will be selected from the real device pool.
 
-:::note NOTE
+:::note
 The more strict you set the capabilities, the smaller the pool of available devices will be and the longer you might need to wait for an available device.
 :::
 

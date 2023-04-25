@@ -842,7 +842,7 @@ Find a device for this test suite that matches the device name or portion of the
 
 Allows you to set the mobile OS platform version that you want to use in your test.
 
-:::info NOTE
+:::note
 Android and iOS platform versions are based on [Semantic Versioning](https://semver.org/), also known as SEMVER. This means that the versions will have the format `MAJOR.MINOR.PATCH`.
 :::
 
@@ -863,18 +863,17 @@ This is optional for Real Devices. There are three options you can use to determ
    - **`^1[3-4|6].*`:** Will match `13`, `14` and `16`, but not 15, see [example](https://regex101.com/r/ExICgZ/1).
    - **`^(?!15).*`:** Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1).
 
-:::note NOTE
+:::note
 The stricter the `platformVersions` is, the smaller the pool of available devices will be and the longer you might need to wait for the available device. We recommend using only the major version or using the regex option to get the best results and an available device in the fastest way.
 :::
 
 ```yaml title="Use complete version for Virtual and or Real Devices"
-        platformVersion: 11.0
+        platformVersion: 14.3
 ```
 
-````yaml title="Use dynamic platformVersion allocation. Real Devices Only"
+```yaml title="Use dynamic platformVersion allocation. Real Devices Only"
         platformVersion: '^1[3-4|6].*'
-```yaml
-        platformVersion: 14.3
+```
 
 ---
 
@@ -895,7 +894,7 @@ Request that the matching device is also connected to a cellular network.
 ```yaml
   options:
       carrierConnectivity: true
-````
+```
 
 ---
 
