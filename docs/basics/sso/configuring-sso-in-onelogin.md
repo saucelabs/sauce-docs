@@ -15,14 +15,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 3. Click **Add App**.
    <img src={useBaseUrl('img/basics/sso/idp-config/onelogin/add-app.png')} alt="Add App" width="250" />
 
-4. Type **Sauce Labs** in the search box and choose the app **Sauce Labs (New) - SAML 2.0**.
+4. Enter **Sauce Labs** in the search box and choose the app **Sauce Labs (New) - SAML 2.0**.
    <img src={useBaseUrl('img/basics/sso/idp-config/onelogin/search-app.png')} alt="Search App" width="800" />
 
 5. Click **Save**.
-6. In the **More actions** menu click **SAML Metadata**. You will download identity provider metadata which will be used to set up the SSO at Sauce Labs in [Team Management Panel](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider).
+6. In the **More actions** menu, click **SAML Metadata**. You will download identity provider metadata.
    <img src={useBaseUrl('img/basics/sso/idp-config/onelogin/download-metadata.png')} alt="Download Metadata" width="250" />
 
-7. Next, you assign users to this application:
+7. Use the metadata file from the previous step and set up the SSO integration at Sauce Labs in [Team Management Panel](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider).
+8. Next, you assign users to the application in Auth0:
 
    1. In the **Users** menu select **Users**.
       <img src={useBaseUrl('img/basics/sso/idp-config/onelogin/menu-users.png')} alt="Menu Users" width="300" />
@@ -35,4 +36,4 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
    5. You can modify **Name ID** (it has to be an email address), first name, or last name, and then click **Save**.
       <img src={useBaseUrl('img/basics/sso/idp-config/onelogin/assign-user-to-app.png')} alt="Assign User to App" width="500" />
 
-8. Test the integration using the [IdP-initiated and the SP-initiated login](/basics/sso/logging-in-via-sso).
+9. Test the integration using the [IdP-initiated and the SP-initiated login](/basics/sso/logging-in-via-sso).
