@@ -367,7 +367,7 @@ For this last example consider a case where you need to compare the response fro
 
 ### Step 1: Uploading the File in Vault Drive
 
-The first thing is uploading the file into the Vault. You can follow the [same steps as in the first example](#step-1-uploading-the-file-in-vault-drive), but this time you will use the following payload, saved as _user.json_:
+First, upload file in the Vault. You can follow the [same steps as in the first example](#step-1-uploading-the-file-in-vault-drive), but this time you will use the following payload, saved as _user.json_:
 
 ```json
 {
