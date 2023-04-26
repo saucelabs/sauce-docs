@@ -3079,7 +3079,7 @@ Return information about tests coverage for the specified `coverage_field` in a 
   </tbody>
   <tbody>
     <tr>
-     <td><code>automation_backend</code></td> 
+     <td><code>automation_backend</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Return results only for the specified framework used to run the test.</p></td>
     </tr>
   </tbody>
