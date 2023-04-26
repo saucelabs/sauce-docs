@@ -476,5 +476,5 @@ The final result of the test looks like this:
 ```
 
 :::note Text Mode
-When you need to compare a string such as an Authorization token, or an ID (not necessarily from a file) the correct **Mode** to set up is `text`.
+When you need to compare a string such as an Authorization token, or an ID (not necessarily from a file) you 1text1 **Mode**.
 :::
