@@ -17,7 +17,7 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 <details><summary><span className="api get">GET</span> <code>/v1/analytics/tests</code></summary>
 <p/>
 
-Returns run data for all tests that match the request criteria.
+Return run data for all tests that match the request criteria.
 
 #### Parameters
 
@@ -31,7 +31,7 @@ Returns run data for all tests that match the request criteria.
   <tbody>
     <tr>
      <td><code>build_missing</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Limit results to those without build name provided. Default value is <code>false</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Limit results to those without the build name provided. Default value is <code>false</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -49,13 +49,13 @@ Returns run data for all tests that match the request criteria.
   <tbody>
     <tr>
      <td><code>error</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those that threw this error message.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those that threw the specified error message.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>name</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those that has this name.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with the specified name.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -67,7 +67,7 @@ Returns run data for all tests that match the request criteria.
   <tbody>
     <tr>
      <td><code>owner</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to provided owner (username).</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to the provided owner (username).</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -78,7 +78,7 @@ Returns run data for all tests that match the request criteria.
      <ul>
       <li><code>me</code> - owner is the logged-in requestor.</li>
       <li><code>organization</code> - owner is all users the logged-in requestor's organization.</li>
-      <li><code>single</code> - owner is one or more users in logged-in requestor's organization. Setting this value makes the <code>owner</code> parameter required.</li>
+      <li><code>single</code> - owner is one or more users in the logged-in requestor's organization. Setting this value makes the <code>owner</code> parameter required.</li>
     </ul>
      </p></td>
     </tr>
@@ -111,7 +111,7 @@ Returns run data for all tests that match the request criteria.
     <tr>
      <td><code>time_range</code></td>
        <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-       The amount of time backward from the current time representing the period during which the test runs executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).
+       The amount of time backward from the current time that represents the period during which the test runs are executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).
        </p></td>
     </tr>
   </tbody>
@@ -193,12 +193,12 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-### Get Summary of Test Metrics
+### Get a Summary of Test Metrics
 
 <details><summary><span className="api get">GET</span> <code>/v1/analytics/insights/test-metrics</code></summary>
 <p/>
 
-Returns an aggregate of metric values for runs of a specified test during the specified time period.
+Return an aggregate of metric values for runs of a specified test during the specified period.
 
 #### Parameters
 
@@ -222,7 +222,7 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
   <tbody>
     <tr>
      <td><code>time_range</code></td>
-       <td><p><small>| QUERY | REQUIRED | DURATION + UNIT |</small></p><p>The amount of time backward from the current time representing the period during which the test runs executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
+       <td><p><small>| QUERY | REQUIRED | DURATION + UNIT |</small></p><p>The amount of time backward from the current time that represents the period during which the test runs are executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
     </tr>
   </tbody>
    <tbody>
@@ -238,7 +238,7 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
      <ul>
       <li><code>me</code> - owner is the logged-in requestor.</li>
       <li><code>organization</code> - owner is all users the logged-in requestor's organization.</li>
-      <li><code>single</code> - owner is one or more users in logged-in requestor's organization. Setting this value makes the <code>owner</code> parameter required.</li>
+      <li><code>single</code> - owner is one or more users in the logged-in requestor's organization. Setting this value makes the <code>owner</code> parameter required.</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -312,7 +312,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>400</code></td>
-    <td colSpan='2'>Bad Request. May include additional error message, such as "start and end parameters are required."</td>
+    <td colSpan='2'>Bad Request. May include additional error messages, such as "start and end parameters are required."</td>
   </tr>
 </tbody>
 <tbody>
@@ -386,7 +386,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v1/analytics/trends/tests</code></summary>
 <p/>
 
-Returns a set of data "buckets" representing tests that were run in each time interval defined by the request parameters.
+Return a set of data "buckets" representing tests that were run in each time interval defined by the request parameters.
 
 #### Parameters
 
@@ -399,7 +399,7 @@ Returns a set of data "buckets" representing tests that were run in each time in
      <ul>
       <li><code>me</code> - owner is the logged-in requestor.</li>
       <li><code>organization</code> - owner is all users the logged-in requestor's organization.</li>
-      <li><code>single</code> - owner is one or more users in logged-in requestor's organization. Setting this value makes the <code>owner</code> parameter required.</li>
+      <li><code>single</code> - owner is one or more users in the logged-in requestor's organization. Setting this value makes the <code>owner</code> parameter required.</li>
     </ul>
      </p></td>
     </tr>
@@ -415,7 +415,7 @@ Returns a set of data "buckets" representing tests that were run in each time in
   <tbody>
     <tr>
      <td><code>time_range</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The amount of time backward from the current time representing the period during which the test runs executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
+       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The amount of time backward from the current time that represents the period during which the test runs are executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -475,7 +475,7 @@ Returns a set of data "buckets" representing tests that were run in each time in
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Changes the default behaviour of <code>tag</code> filters. When multiple <code>tag</code> filters are added, default behaviour is <code>or</code>, when <code>tag_filter_mode=and</code> is provided, results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
     </tr>
   </tbody>
 </table>
@@ -656,7 +656,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v1/analytics/trends/builds_tests</code></summary>
 <p/>
 
-Returns the set of all tests run within the specified time period, grouped by whether each test was part of a build or not.
+Return the set of all tests run in the specified period, grouped by whether each test was part of a build or not.
 
 #### Parameters
 
@@ -680,7 +680,7 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
   <tbody>
     <tr>
      <td><code>time_range</code></td>
-       <td><p><small>| QUERY | REQUIRED | DURATION + UNIT |</small></p><p>The amount of time backward from the current time representing the period during which the test runs executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
+       <td><p><small>| QUERY | REQUIRED | DURATION + UNIT |</small></p><p>The amount of time backward from the current time that represents the period during which the test runs are executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -690,7 +690,7 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
      <ul>
       <li><code>me</code> - owner is the logged-in requestor.</li>
       <li><code>organization</code> - owner is all users the logged-in requestor's organization.</li>
-      <li><code>single</code> - owner is one or more users in logged-in requestor's organization. Setting this value makes the <code>owner</code> parameter required.</li>
+      <li><code>single</code> - owner is one or more users in the logged-in requestor's organization. Setting this value makes the <code>owner</code> parameter required.</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -764,7 +764,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>400</code></td>
-    <td colSpan='2'>Bad Request. May include additional error message, such as "start and end parameters are required."</td>
+    <td colSpan='2'>Bad Request. May include additional error messages, such as "start and end parameters are required."</td>
   </tr>
 </tbody>
 <tbody>
@@ -842,7 +842,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v1/analytics/trends/errors</code></summary>
 <p/>
 
-Returns an array of errors that occurred on all tests run within the specified time period.
+Return an array of errors that occurred on all tests run in the specified period.
 
 #### Parameters
 
@@ -866,7 +866,7 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
   <tbody>
     <tr>
      <td><code>time_range</code></td>
-       <td><p><small>| QUERY | REQUIRED | DURATION + UNIT |</small></p><p>The amount of time backward from the current time representing the period during which the test runs executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
+       <td><p><small>| QUERY | REQUIRED | DURATION + UNIT |</small></p><p>The amount of time backward from the current time that represents the period during which the test runs are executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -876,7 +876,7 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
      <ul>
       <li><code>me</code> - owner is the logged-in requestor.</li>
       <li><code>organization</code> - owner is all users the logged-in requestor's organization.</li>
-      <li><code>single</code> - owner is one or more users in logged-in requestor's organization. Setting this value makes the <code>owner</code> parameter required.</li>
+      <li><code>single</code> - owner is one or more users in the logged-in requestor's organization. Setting this value makes the <code>owner</code> parameter required.</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -950,7 +950,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <tbody>
   <tr>
     <td><code>400</code></td>
-    <td colSpan='2'>Bad Request. May include additional error message, such as "start and end parameters are required."</td>
+    <td colSpan='2'>Bad Request. May include additional error messages, such as "start and end parameters are required."</td>
   </tr>
 </tbody>
 <tbody>
@@ -1001,7 +1001,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/rest/v1/users_activity</code></summary>
 <p/>
 
-Returns daily statistics about test results and concurrency usage.
+Return daily statistics about test results and concurrency usage.
 
 #### Parameters
 
@@ -1009,19 +1009,19 @@ Returns daily statistics about test results and concurrency usage.
   <tbody>
     <tr>
      <td><code>users</code></td>
-       <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to crertain users.</p></td>
+       <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to specific users.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>since</code></td>
-       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>Return only jobs that ran on or after this Unix timestamp.</p></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>Return only jobs ran from the provided Unix timestamp on.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>until</code></td>
-       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>Return only jobs that ran on or before this Unix timestamp.</p></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>Return only jobs ran until the provided Unix timestamp.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1134,7 +1134,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/rest/v1/users/&#123;user_id&#125;/activity</code></summary>
 <p/>
 
-Returns daily statistics about test results and concurrency usage for a given <code>user_id</code>.
+Return daily statistics about test results and concurrency usage for the specified <code>user_id</code>.
 
 #### Parameters
 
@@ -1142,19 +1142,19 @@ Returns daily statistics about test results and concurrency usage for a given <c
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return only jobs that belongs to user with provided <code>user_id</code></p></td>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>since</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that ran on or after this Unix timestamp.</p></td>
+       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs ran from the provided Unix timestamp on.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>until</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING|</small></p><p>Return only jobs that ran on or before this Unix timestamp.</p></td>
+       <td><p><small>| QUERY | OPTIONAL | STRING|</small></p><p>Return only jobs ran until the provided Unix timestamp.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1239,7 +1239,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/rest/v1/activity/teams</code></summary>
 <p/>
 
-Returns daily statistics about test results and concurrency usage for teams.
+Return daily statistics about test results and concurrency usage for teams.
 
 #### Parameters
 
@@ -1247,19 +1247,19 @@ Returns daily statistics about test results and concurrency usage for teams.
   <tbody>
     <tr>
      <td><code>id</code></td>
-       <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Return results for teams with given <code>id</code>.</p></td>
+       <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Return results for the specified team <code>id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>since</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that ran on or after this Unix timestamp.</p></td>
+       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs ran from the provided Unix timestamp on.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>until</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING|</small></p><p>Return only jobs that ran on or before this Unix timestamp.</p></td>
+       <td><p><small>| QUERY | OPTIONAL | STRING|</small></p><p>Return only jobs ran until the provided Unix timestamp.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1372,7 +1372,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/rest/v1/activity/organization</code></summary>
 <p/>
 
-Returns daily statistics about test results and concurrency usage for organization.
+Return daily statistics about test results and concurrency usage for organization.
 
 #### Parameters
 
@@ -1380,13 +1380,13 @@ Returns daily statistics about test results and concurrency usage for organizati
   <tbody>
     <tr>
      <td><code>since</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that ran on or after this Unix timestamp.</p></td>
+       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs ran from the provided Unix timestamp on.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>until</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING|</small></p><p>Return only jobs that ran on or before this Unix timestamp.</p></td>
+       <td><p><small>| QUERY | OPTIONAL | STRING|</small></p><p>Return only jobs ran until the provided Unix timestamp.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1507,7 +1507,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or in real device clound. Supported values are:</p><p>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud.</li>
       <li><code>vdc</code> - Virtual Device Cloud.</li>
@@ -1585,13 +1585,13 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   <tbody>
     <tr>
      <td><code>automation_backend</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run using the specified framework.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Return results only for the given framework used to run the test.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given user id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1609,7 +1609,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   <tbody>
     <tr>
      <td><code>name</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with the scpecified test name.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with the specified name.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1704,10 +1704,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Errors
 
-<details><summary><span className="api get">GET</span> <code> </code></summary>
+<details><summary><span className="api get">GET</span><code>/v2/insights/rdc/errors</code></summary>
 <p/>
 
-Returns an array of errors with occurance count on all tests run within the specified time period.
+Return an array of errors with occurrence count on all tests run in the specified period.
 
 #### Parameters
 
@@ -1715,31 +1715,33 @@ Returns an array of errors with occurance count on all tests run within the spec
   <tbody>
     <tr>
      <td><code>org_id</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for given organization id.</p></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>interval</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     </p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given user id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>group_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given group id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>group_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given team id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>team_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1775,13 +1777,13 @@ Returns an array of errors with occurance count on all tests run within the spec
   <tbody>
     <tr>
      <td><code>limit</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Limits the results to a given value. Default value is <code>50</code>.</p></td>
-    </tr>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Identifies the number of records to return. Default value is <code>50</code>.</p></td>
+    </tr> 
   </tbody>
   <tbody>
     <tr>
      <td><code>offset</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Sets the position in the dataset from which the data will be received. Default value is <code>0</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Specifies the number of items to be skipped from the beginning of the list. Default value is <code>0</code>.</p></td> 
     </tr>
   </tbody>
 </table>
@@ -1851,7 +1853,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v2/insights/rdc/errors/trends</code></summary>
 <p/>
 
-Returns past and current data about errors for comparison.
+Return past and current data about errors for comparison.
 
 #### Parameters
 
@@ -1859,33 +1861,33 @@ Returns past and current data about errors for comparison.
   <tbody>
     <tr>
      <td><code>org_id</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for given organization id.</p></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>interval</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-       Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
-       </p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     </p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given user id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>group_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given group id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>group_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given team id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>team_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1921,7 +1923,7 @@ Returns past and current data about errors for comparison.
   <tbody>
     <tr>
      <td><code>time_zone</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sets specific time zone. Default value is <code>+00:00</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the time zone. Default value is <code>+00:00</code>.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1994,7 +1996,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/test-cases</code></summary>
 <p/>
 
-Returns an array of test cases (tests grouped by name) with statistical details.
+Return an array of test cases (grouped by name) with statistical details.
 
 #### Parameters
 
@@ -2002,7 +2004,7 @@ Returns an array of test cases (tests grouped by name) with statistical details.
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or in real device clound. Supported values are:</p><p>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud.</li>
       <li><code>vdc</code> - Virtual Device Cloud.</li>
@@ -2012,33 +2014,33 @@ Returns an array of test cases (tests grouped by name) with statistical details.
   <tbody>
     <tr>
      <td><code>org_id</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for given organization id.</p></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>interval</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-       Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
-       </p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     </p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given user id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>group_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given group id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>group_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given team id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>team_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2098,25 +2100,25 @@ Returns an array of test cases (tests grouped by name) with statistical details.
   <tbody>
     <tr>
      <td><code>limit</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Limits the results to a given value. Default value is <code>50</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Identifies the number of records to return. Default value is <code>50</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>offset</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Sets the position in the dataset from which the data will be received. Default value is <code>0</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Specifies the number of items to be skipped from the beginning of the list. Default value is <code>0</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>sort_by</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sorts the dataset by a given field. Available values are: <code>total_runs</code>, <code>name</code>, <code>complete_count</code>, <code>error_count</code>, <code>fail_count</code>, <code>pass_count</code>, <code>complete_rate</code>, <code>error_rate</code>, <code>failure_rate</code>, <code>pass_rate</code>, <code>avg_duration</code>, <code>median_duration</code>, <code>total_duration</code>. Default value is <code>total_runs</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <code>total_runs</code>, <code>name</code>, <code>complete_count</code>, <code>error_count</code>, <code>fail_count</code>, <code>pass_count</code>, <code>complete_rate</code>, <code>error_rate</code>, <code>failure_rate</code>, <code>pass_rate</code>, <code>avg_duration</code>, <code>median_duration</code>, <code>total_duration</code>. Default value is <code>total_runs</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>sort</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sorts dataset. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2203,7 +2205,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/test-cases/csv</code></summary>
 <p/>
 
-Returns an array of test cases (tests grouped by name) with statistical details as a CSV file.
+Return an array of test cases (grouped by name) with statistical details as a CSV file.
 
 #### Parameters
 
@@ -2211,7 +2213,7 @@ Returns an array of test cases (tests grouped by name) with statistical details 
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or in real device clound. Supported values are:</p><p>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud.</li>
       <li><code>vdc</code> - Virtual Device Cloud.</li>
@@ -2221,33 +2223,33 @@ Returns an array of test cases (tests grouped by name) with statistical details 
   <tbody>
     <tr>
      <td><code>org_id</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for given organization id.</p></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>interval</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-       Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
-       </p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     </p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given user id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>group_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given group id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>group_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given team id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>team_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2307,13 +2309,13 @@ Returns an array of test cases (tests grouped by name) with statistical details 
   <tbody>
     <tr>
      <td><code>sort_by</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sorts the dataset by a given field. Available values are: <code>total_runs</code>, <code>name</code>, <code>complete_count</code>, <code>error_count</code>, <code>fail_count</code>, <code>pass_count</code>, <code>complete_rate</code>, <code>error_rate</code>, <code>failure_rate</code>, <code>pass_rate</code>, <code>avg_duration</code>, <code>median_duration</code>, <code>total_duration</code>. Default value is <code>total_runs</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <code>total_runs</code>, <code>name</code>, <code>complete_count</code>, <code>error_count</code>, <code>fail_count</code>, <code>pass_count</code>, <code>complete_rate</code>, <code>error_rate</code>, <code>failure_rate</code>, <code>pass_rate</code>, <code>avg_duration</code>, <code>median_duration</code>, <code>total_duration</code>. Default value is <code>total_runs</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>sort</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sorts dataset. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2374,7 +2376,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/test-cases/stats</code></summary>
 <p/>
 
-Returns an array of test cases (tests grouped by name) with statistical details.
+Return an array of test cases (grouped by name) with statistical details.
 
 #### Parameters
 
@@ -2382,7 +2384,7 @@ Returns an array of test cases (tests grouped by name) with statistical details.
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or in real device clound. Supported values are:</p><p>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud.</li>
       <li><code>vdc</code> - Virtual Device Cloud.</li>
@@ -2392,33 +2394,33 @@ Returns an array of test cases (tests grouped by name) with statistical details.
   <tbody>
     <tr>
      <td><code>org_id</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for given organization id.</p></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given user id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>group_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given group id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>group_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given team id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>team_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>interval</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-       Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
-       </p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     </p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2540,7 +2542,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/tests</code></summary>
 <p/>
 
-Returns an array of tests with details.
+Return an array of tests with details.
 
 #### Parameters
 
@@ -2548,7 +2550,7 @@ Returns an array of tests with details.
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or in real device clound. Supported values are:</p><p>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud.</li>
       <li><code>vdc</code> - Virtual Device Cloud.</li>
@@ -2558,25 +2560,25 @@ Returns an array of tests with details.
   <tbody>
     <tr>
      <td><code>org_id</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for given organization id.</p></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given user id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>group_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given group id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>group_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given team id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>team_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2612,13 +2614,13 @@ Returns an array of tests with details.
   <tbody>
     <tr>
      <td><code>error</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those that resulted with specified error</p></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those that threw the specified error message.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>name</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with specified name.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with the specified name.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2636,25 +2638,25 @@ Returns an array of tests with details.
   <tbody>
     <tr>
      <td><code>limit</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Limits the results to a given value. Default value is <code>50</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Identifies the number of records to return. Default value is <code>50</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>offset</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Sets the position in the dataset from which the data will be received. Default value is <code>0</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Specifies the number of items to be skipped from the beginning of the list. Default value is <code>0</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>sort_by</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sorts the dataset by a given field. Available values are: <code>duration</code>, <code>creation_time</code>. Default value is <code>creation_time</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <code>duration</code>, <code>creation_time</code>. Default value is <code>creation_time</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>sort</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sorts dataset. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2751,10 +2753,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Max Concurrency Report CSV
 
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/councurrency/max/csv</code></summary>
+<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/concurrency/max/csv</code></summary>
 <p/>
 
-Returns information about concurrency usage in a CSV format.
+Return information about concurrency usage in a CSV format.
 
 #### Parameters
 
@@ -2762,7 +2764,7 @@ Returns information about concurrency usage in a CSV format.
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or in real device clound. Supported values are:</p><p>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud.</li>
       <li><code>vdc</code> - Virtual Device Cloud.</li>
@@ -2772,7 +2774,7 @@ Returns information about concurrency usage in a CSV format.
   <tbody>
     <tr>
      <td><code>org_id</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for given organization id.</p></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2842,10 +2844,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Max Concurrency Report JSON
 
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/councurrency/max/json</code></summary>
+<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/concurrency/max/json</code></summary>
 <p/>
 
-Returns information about concurrency usage.
+Return information about concurrency usage.
 
 #### Parameters
 
@@ -2853,7 +2855,7 @@ Returns information about concurrency usage.
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or in real device clound. Supported values are:</p><p>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud.</li>
       <li><code>vdc</code> - Virtual Device Cloud.</li>
@@ -2863,7 +2865,7 @@ Returns information about concurrency usage.
   <tbody>
     <tr>
      <td><code>org_id</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for given organization id.</p></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2936,7 +2938,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/coverage/&#123;coverage_field&#125;</code></summary>
 <p/>
 
-Returns an information about tests coverage for a given <code>coverage_field</code>
+Return information about tests coverage for the specified <code>coverage_field</code>.
 
 #### Parameters
 
@@ -2944,7 +2946,7 @@ Returns an information about tests coverage for a given <code>coverage_field</co
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or in real device clound. Supported values are:</p><p>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud.</li>
       <li><code>vdc</code> - Virtual Device Cloud.</li>
@@ -2961,15 +2963,15 @@ Returns an information about tests coverage for a given <code>coverage_field</co
   <tbody>
     <tr>
      <td><code>automation_backend</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Return results only for given framework used to run the test.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Return results only for the specified framework used to run the test.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>interval</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-       Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
-       </p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     </p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2987,37 +2989,37 @@ Returns an information about tests coverage for a given <code>coverage_field</co
   <tbody>
     <tr>
      <td><code>org_id</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for given organization id.</p></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given team id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>team_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given user id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>device_group</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given device group. Available values are: <code>private</code>, <code>public</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified device group. Available values are: <code>private</code>, <code>public</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>sort_by</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sorts the dataset by a given field. Available values are: <code>name</code>, <code>count</code>, <code>total_duration</code>. Default value is <code>count</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <code>name</code>, <code>count</code>, <code>total_duration</code>. Default value is <code>count</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>sort</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sorts dataset. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
     </tr>
   </tbody>
 </table>
@@ -3087,7 +3089,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/coverage/&#123;coverage_field&#125;/csv</code></summary>
 <p/>
 
-Returns an information about tests coverage for a given <code>coverage_field</code> in a CSV format.
+Return information about tests coverage for the specified `coverage_field` in a CSV format.
 
 #### Parameters
 
@@ -3095,7 +3097,7 @@ Returns an information about tests coverage for a given <code>coverage_field</co
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or in real device clound. Supported values are:</p><p>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud.</li>
       <li><code>vdc</code> - Virtual Device Cloud.</li>
@@ -3111,16 +3113,16 @@ Returns an information about tests coverage for a given <code>coverage_field</co
   </tbody>
   <tbody>
     <tr>
-     <td><code>automation_backend</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Return results only for given framework used to run the test.</p></td>
+     <td><code>automation_backend</code></td> 
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Return results only for the specified framework used to run the test.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>interval</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-       Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
-       </p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     </p></td>
     </tr>
   </tbody>
   <tbody>
@@ -3138,25 +3140,25 @@ Returns an information about tests coverage for a given <code>coverage_field</co
   <tbody>
     <tr>
      <td><code>org_id</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for given organization id.</p></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given team id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>team_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given user id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>device_group</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given device group. Available values are: <code>private</code>, <code>public</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified device group. Available values are: <code>private</code>, <code>public</code>.</p></td>
     </tr>
   </tbody>
 </table>
@@ -3217,7 +3219,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/test-cases/trends</code></summary>
 <p/>
 
-Returns data in a form of a histogram with test statises details grouped by specific time period.
+Return a histogram with test statistic details grouped by specific period.
 
 #### Parameters
 
@@ -3225,7 +3227,7 @@ Returns data in a form of a histogram with test statises details grouped by spec
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or in real device clound. Supported values are:</p><p>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud.</li>
       <li><code>vdc</code> - Virtual Device Cloud.</li>
@@ -3241,7 +3243,7 @@ Returns data in a form of a histogram with test statises details grouped by spec
   <tbody>
     <tr>
      <td><code>org_id</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for given organization id.</p></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -3259,19 +3261,19 @@ Returns data in a form of a histogram with test statises details grouped by spec
   <tbody>
     <tr>
      <td><code>time_zone</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sets specific time zone. Default value is <code>+00:00</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the time zone. Default value is <code>+00:00</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given team id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>team_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given user id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -3307,7 +3309,7 @@ Returns data in a form of a histogram with test statises details grouped by spec
   <tbody>
     <tr>
      <td><code>name</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with provided test name.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with the specified name.</p></td>
     </tr>
   </tbody>
 </table>
@@ -3379,7 +3381,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/trends/tests</code></summary>
 <p/>
 
-Returns an array of buckets with aggregations, e.g. number of tests run on a specific browser or device.
+Return an array of buckets with aggregations, for example number of tests run on a specific browser or device.
 
 #### Parameters
 
@@ -3387,7 +3389,7 @@ Returns an array of buckets with aggregations, e.g. number of tests run on a spe
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or in real device clound. Supported values are:</p><p>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud.</li>
       <li><code>vdc</code> - Virtual Device Cloud.</li>
@@ -3397,39 +3399,39 @@ Returns an array of buckets with aggregations, e.g. number of tests run on a spe
   <tbody>
     <tr>
      <td><code>org_id</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for given organization id.</p></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>interval</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-       Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
-       </p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     </p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>time_zone</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sets specific time zone. Default value is <code>+00:00</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the time zone. Default value is <code>+00:00</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given user id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>group_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given group id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>group_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given team id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>team_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -3664,7 +3666,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/trends/errors</code></summary>
 <p/>
 
-Returns statistics for errors that occurred on tests run within the specified time period.
+Return statistics for errors that occurred on tests run in the specified period.
 
 #### Parameters
 
@@ -3672,7 +3674,7 @@ Returns statistics for errors that occurred on tests run within the specified ti
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or in real device clound. Supported values are:</p><p>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud.</li>
       <li><code>vdc</code> - Virtual Device Cloud.</li>
@@ -3682,33 +3684,33 @@ Returns statistics for errors that occurred on tests run within the specified ti
   <tbody>
     <tr>
      <td><code>org_id</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for given organization id.</p></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>interval</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-       Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
-       </p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     </p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given user id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>group_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given group id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>group_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given team id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>team_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -3768,7 +3770,7 @@ Returns statistics for errors that occurred on tests run within the specified ti
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Changes the default behaviour of <code>tag</code> filters. When multiple <code>tag</code> filters are added, default behaviour is <code>or</code>, when <code>tag_filter_mode=and</code> is provided, results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
     </tr>
   </tbody>
 </table>
@@ -3861,7 +3863,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/trends/builds_tests</code></summary>
 <p/>
 
-Returns information about builds and tests run within those builds. Also, provides information about tests without build name.
+Return information about builds and tests run included in the build. Also, provides information about tests without build names.
 
 #### Parameters
 
@@ -3869,7 +3871,7 @@ Returns information about builds and tests run within those builds. Also, provid
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or in real device clound. Supported values are:</p><p>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud.</li>
       <li><code>vdc</code> - Virtual Device Cloud.</li>
@@ -3879,33 +3881,33 @@ Returns information about builds and tests run within those builds. Also, provid
   <tbody>
     <tr>
      <td><code>org_id</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for given organization id.</p></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>interval</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-       Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
-       </p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     </p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given user id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>group_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given group id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>group_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given team id.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>team_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -3965,7 +3967,7 @@ Returns information about builds and tests run within those builds. Also, provid
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Changes the default behaviour of <code>tag</code> filters. When multiple <code>tag</code> filters are added, default behaviour is <code>or</code>, when <code>tag_filter_mode=and</code> is provided, results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
     </tr>
   </tbody>
 </table>
