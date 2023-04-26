@@ -380,6 +380,10 @@ Android and iOS platform versions are based on [Semantic Versioning](https://sem
 
 This is mandatory for Android Emulators and iOS Simulators. You can find the available versions in our [Platform Configurator](https://saucelabs.com/platform/platform-configurator).
 
+:::info Info
+iOS Simulators now support the values `latest`, `current_major`, or `previous_major` as the `appium:platformVersion`. These values will automatically use the latest, current major, or previous major version of iOS for your specified Simulator. See [iOS Version Management](/mobile-apps/features/ios-version-management) for more information.
+:::
+
 **Real Devices**
 
 This is optional for Real Devices. There are three options you can use to determine which version you want to use for your automated Appium, Espresso, or XCUITest tests:

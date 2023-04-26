@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-[Playwright](https://github.com/microsoft/playwright) is a testing framework that you can use to test your web apps &#8212; either locally in Docker or remotely on Sauce Labs Cloud &#8212; using the [`saucectl` CLI](/dev/cli/saucectl). This gives you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
+[Playwright](https://github.com/microsoft/playwright) is a testing framework that you can use to test your web apps remotely on Sauce Labs Cloud using the [`saucectl` CLI](/dev/cli/saucectl).
 
 ## Supported Languages
 
@@ -17,154 +17,111 @@ Cucumber.js is not directly supported by Playwright. However, Playwright can be 
 
 ## System Requirements
 
-You can run Playwright locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms)) or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention. The following reference serves as a general guide:
-
-<Tabs
-defaultValue="macos"
-values={[
-{label: 'macOS', value: 'macos'},
-{label: 'Linux', value: 'linux'},
-{label: 'Windows', value: 'windows'},
-]}>
-
-<TabItem value="macos">
-
-- OS: 10.14+ (Mojave, Catalina, or Big Sur)
-- Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
-
-</TabItem>
-<TabItem value="linux">
-
-- OS/Distros: [CentOS](https://docs.docker.com/engine/install/centos/), [Debian](https://docs.docker.com/engine/install/debian/), [Fedora](https://docs.docker.com/engine/install/fedora/), [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-- Docker: [Server](https://docs.docker.com/engine/install/#server)
-
-</TabItem>
-<TabItem value="windows">
-
-- OS: Windows 10 or 11 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
-- Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
-
-</TabItem>
-</Tabs>
+Supported OS:
+- Windows 10 / Windows 11
+- macOS 10.14+
+- Linux
 
 ## Supported Testing Platforms
 
 Sauce Labs supports the following test configurations for Playwright:
 
-<Tabs
-groupId="platforms"
-defaultValue="sauce"
-values={[
-{label: 'Sauce Labs', value: 'sauce'},
-{label: 'Docker', value: 'docker'},
-]}>
-
-<TabItem value="sauce">
-
-  <table id="table-fw">
+<table id="table-fw">
+  <tr>
+    <th>Playwright Version</th>
+    <th>Supported Platforms</th>
+    <th>Supported Browsers</th>
+    <th>End of Life</th>
+  </tr>
+  <tbody>
     <tr>
-      <th>Playwright Version</th>
-      <th>Supported Platforms</th>
-      <th>Supported Browsers</th>
-      <th>End of Life</th>
-    </tr>
-    <tbody>
-      <tr>
-        <td rowspan='2'>1.31.1</td>
-        <td><b>macOS:</b> 11.00, 12, 13</td>
-        <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
-        <td rowspan='2'>Mar 01, 2024</td>
-      </tr>
-      <tr>
-        <td><b>Windows:</b> 10, 11</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td rowspan='2'>1.29.2</td>
-        <td><b>macOS:</b> 11.00, 12, 13</td>
-        <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
-        <td rowspan='2'>Jan 15, 2024</td>
-      </tr>
-      <tr>
-        <td><b>Windows:</b> 10, 11</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td rowspan='2'>1.28.1</td>
-        <td><b>macOS:</b> 11.00, 12, 13</td>
-        <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
-        <td rowspan='2'>Nov 30, 2023</td>
-      </tr>
-      <tr>
-        <td><b>Windows:</b> 10, 11</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td rowspan='2'>1.27.1</td>
-        <td><b>macOS:</b> 11.00, 12, 13</td>
-        <td rowspan='2'>Chromium, Firefox, Webkit</td>
-        <td rowspan='2'>Oct 20, 2023</td>
-      </tr>
-      <tr>
-        <td><b>Windows:</b> 10, 11</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <td rowspan='2'>1.25.1</td>
-        <td><b>macOS:</b> 11.00, 12, 13</td>
-        <td rowspan='2'>Chromium, Firefox, Webkit</td>
-        <td rowspan='2'>Sep 7, 2023</td>
-      </tr>
-      <tr>
-        <td><b>Windows:</b> 10, 11</td>
-      </tr>
-    </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='2'>1.24.1</td>
+      <td rowspan='2'>1.31.1</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td rowspan='2'>Chromium, Firefox, Webkit</td>
-      <td rowspan='2'>Jul 29, 2023</td>
+      <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
+      <td rowspan='2'>Mar 01, 2024</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>
     </tr>
-    </tbody>
-    <tbody>
+  </tbody>
+  <tbody>
     <tr>
-      <td rowspan='2'>1.22.2</td>
+      <td rowspan='2'>1.29.2</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td rowspan='2'>Chromium, Firefox, Webkit</td>
-      <td rowspan='2'>Jun 6, 2023</td>
+      <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
+      <td rowspan='2'>Jan 15, 2024</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>
     </tr>
-    </tbody>
-    <tbody>
+  </tbody>
+  <tbody>
     <tr>
-      <td rowspan='2'>1.20.2</td>
+      <td rowspan='2'>1.28.1</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td rowspan='2'>Chromium, Firefox, Webkit</td>
-      <td rowspan='2'>Apr 16, 2023</td>
+      <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
+      <td rowspan='2'>Nov 30, 2023</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>
     </tr>
-    </tbody>
-  </table>
-
- </TabItem>
- <TabItem value="docker">
-
-Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-playwright-runner).
-
-</TabItem>
-</Tabs>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='2'>1.27.1</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td rowspan='2'>Chromium, Firefox, Webkit</td>
+      <td rowspan='2'>Oct 20, 2023</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='2'>1.25.1</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td rowspan='2'>Chromium, Firefox, Webkit</td>
+      <td rowspan='2'>Sep 7, 2023</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+  <tr>
+    <td rowspan='2'>1.24.1</td>
+    <td><b>macOS:</b> 11.00, 12, 13</td>
+    <td rowspan='2'>Chromium, Firefox, Webkit</td>
+    <td rowspan='2'>Jul 29, 2023</td>
+  </tr>
+  <tr>
+    <td><b>Windows:</b> 10, 11</td>
+  </tr>
+  </tbody>
+  <tbody>
+  <tr>
+    <td rowspan='2'>1.22.2</td>
+    <td><b>macOS:</b> 11.00, 12, 13</td>
+    <td rowspan='2'>Chromium, Firefox, Webkit</td>
+    <td rowspan='2'>Jun 6, 2023</td>
+  </tr>
+  <tr>
+    <td><b>Windows:</b> 10, 11</td>
+  </tr>
+  </tbody>
+  <tbody>
+  <tr>
+    <td rowspan='2'>1.20.2</td>
+    <td><b>macOS:</b> 11.00, 12, 13</td>
+    <td rowspan='2'>Chromium, Firefox, Webkit</td>
+    <td rowspan='2'>Apr 16, 2023</td>
+  </tr>
+  <tr>
+    <td><b>Windows:</b> 10, 11</td>
+  </tr>
+  </tbody>
+</table>
 
 ## How to Get Started
 
