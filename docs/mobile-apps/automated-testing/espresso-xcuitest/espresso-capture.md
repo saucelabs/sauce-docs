@@ -6,7 +6,7 @@ sidebar_label: Espresso Screenshot Capture
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><small><span className="sauceDBlue">Real Devices Only</span></small></p>
+<p><small><span className="sauceGreen">Real Devices Only</span></small></p>
 
 The Espresso Screenshot Capture functionality allows you to take screenshots of errors to support the visual verification of your debugging process.
 
