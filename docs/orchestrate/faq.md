@@ -20,5 +20,5 @@ We also provide many additional security mechanisms to keep your data safe.
 
 - We provide many secure mechanisms for [Handling Sensitive Data](./best-practices#sensitive-data)
 - Each running container is created and destroyed as part of your request
-- We do not store or acess your image outside of some local cahces to improve performance
+- We do not store or access your image outside of some local cahces to improve performance
 - Your running container is sandboxed from a networking perspective from any other containers

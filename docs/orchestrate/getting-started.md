@@ -15,7 +15,7 @@ This page outlines how to run your browser and mobile tests in Sauce Orchestrate
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 - The SauceCTL client installed. For more information, see [Using the saucectl CLI](/dev/cli/saucectl).
-- A Docker image containing your tests. More information about building Docker images is found below and in [Building Images](/hosted-orchestration/building-images).
+- A container image containing your tests. More information about building container images is found below and in [Building Images](/orchestrate/building-images).
 - Access to a Docker registry. Our examples will use [DockerHub](https://hub.docker.com).
 
 ## How It Works
@@ -24,16 +24,16 @@ Sauce Orchestrate utilizes container technology to package and run your tests wi
 
 <b>There are 3 high level steps to using Sauce Orchestrate:</b>
 
-1. Package your test scripts and dependencies within a Docker Image [Go There](#step-1)
+1. Package your test scripts and dependencies within a container Image [Go There](#step-1)
 2. Push that image to a remote registry accessible by Sauce Labs [Go There](#step-2)
 3. Configure SauceCTL to run your image [Go There](#step-4)
 4. Use SauceCtl to run your tests within Sauce Orchestrate [Go There](#step-4)
 
 We will be using the [Sauce Labs Demo Java project](https://github.com/saucelabs-training/demo-java) to help walk through the steps.
 
-## 1. Create a Docker Image of Your Tests {#step-1}
+## 1. Create a Container Image of Your Tests {#step-1}
 
-If you are already familiar with creating Docker images then there is nothing special about doing it for Sauce Orchestrate! However, if you are unfamiliar or would like a detailed walkthrough then visit our [Building Images](./building-images.md) page for a comprehensive guide on how to build an image.
+If you are already familiar with creating container images then there is nothing special about doing it for Sauce Orchestrate! However, if you are unfamiliar or would like a detailed walkthrough then visit our [Building Images](./building-images.md) page for a comprehensive guide on how to build an image.
 
 Within the demo-java project you will find a sample Dockerfile, which is a file used to define the contents of your image:
 
@@ -62,7 +62,7 @@ Note - you will need to replace `[docker_user]` with your registry username.
 
 ## 2. Push Image to a Docker Registry {#step-2}
 
-In order for Sauce Labs to access your Docker image it must be accessible in a Docker registry. There are many available registries to choose from and Sauce Labs supports any registry using the standard Docker API. For this example we will use [DockerHub](https://hub.docker.com).
+In order for Sauce Labs to access your container image it must be accessible in a Docker registry. There are many available registries to choose from and Sauce Labs supports any registry using the standard Docker API. For this example we will use [DockerHub](https://hub.docker.com).
 
 This example pushes the image to a public registry for simplicity. We advise you use a private registry for any proprietary code.
 
@@ -82,7 +82,7 @@ In order for SauceCTL to understand how to run your project you must create a fi
 apiVersion: v1alpha
 kind: imagerunner
 sauce:
-region: us-west-1
+  region: us-west-1
 suites:
 - name: Desktop Tests
   workload: webdriver
@@ -100,7 +100,7 @@ download:
   directory: ./artifacts
 ```
 
-The most important configuration options to take note of are the `impage` and `entrypoint`. These tell Sauce Orchestrate the location of your image and which command should be used to run your tests respectively. For more information about the SauceCTL configuration options see [Configuring SauceCTL for Sauce Orchestrate](./configuring-saucectl).
+The most important configuration options to take note of are the `image` and `entrypoint`. These tell Sauce Orchestrate the location of your image and which command should be used to run your tests respectively. For more information about the SauceCTL configuration options see [Configuring SauceCTL for Sauce Orchestrate](./configuring-saucectl).
 
 ## 4. Run Tests Using SauceCTL {#step-4}
 

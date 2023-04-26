@@ -4,7 +4,7 @@ title: Best Practices
 sidebar_label: Best Practices
 ---
 
-This page describes best practices for using Docker Images within Sauce Orchestrate.
+This page describes best practices for using container images within Sauce Orchestrate.
 
 ## Building Efficient Java Images
 
@@ -32,7 +32,7 @@ OS name: "mac os x", version: "10.16", arch: "x86_64", family: "mac"
 
 ### Bundle all Dependencies in Your Image
 
-A major benefit of using Docker images is that all dependencies can be included in the image. This means your tests can run faster because they do not need to include the step of downloading dependencies. This can also be important if you have dependencies located within a private maven repository.
+A major benefit of using container images is that all dependencies can be included in the image. This means your tests can run faster because they do not need to include the step of downloading dependencies. This can also be important if you have dependencies located within a private maven repository.
 
 In order to download all dependencies as part of building your image add the following lines to the end of your Dockerfile
 
@@ -49,7 +49,7 @@ To realize the performance gain from doing this, in your `entrypoint` command co
 
 ### Add Maven settings.xml file
 
-Maven includes support for a global settings file. This is normally used to configure global dependencies and registry locations. If your project requires the global settings.xml file be present then you must ensure that file exists within your docker image.
+Maven includes support for a global settings file. This is normally used to configure global dependencies and registry locations. If your project requires the global settings.xml file be present then you must ensure that file exists within your container image.
 
 The maven settings.xml file is generaly found within the home directory of your local dev environment. In order to copy the settings.xml file located in your home directory you need to update your Dockerfile and where you run the ```docker build``` command from.
 

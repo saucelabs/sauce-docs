@@ -50,7 +50,7 @@ kind: imagerunner
 
 <p><small>| REQUIRED | STRING |</small></p>
 
-The location of your Docker image. Takes the format [registry]/[image]:[tag].
+The location of your container image. Takes the format [registry]/[image]:[tag].
 
 ```yaml
 image: saucelabs/sl-demo-docker-primary:0.0.1
@@ -118,7 +118,7 @@ suites:
 Then you must tell SauceCTL to download the artifacts to your machine.
 
 ```yaml
-# declared at the top level of your confi.yml
+# declared at the top level of your config.yml
 artifacts:
   download:
     when: always
@@ -128,7 +128,7 @@ artifacts:
 ```
 
 :::note
-The following limitations are in effect:
+The following limitations are in effect for artifact downloads. They do not apply to files uploaded:
 
 - Must specify an absolute path (starting at the root `/`)
 - Max requested volume for parent dir is 10M

@@ -1,14 +1,14 @@
 ---
-id: private-registry
-title: Private Registry
-sidebar_label: Private Registry
+id: authenticated-pulls
+title: Using Authenticated Pulls
+sidebar_label: Authenticated Pulls
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This document describes how to push a Docker image to an authenticated registry and then subsequently use that image in Sauce Orchestrate.
+This document describes how to push a container image to an authenticated registry and then subsequently use that image in Sauce Orchestrate.
 
 ## Registry Token
 
@@ -46,7 +46,7 @@ To use your private image in Sauce Orchestrate, update your SauceCTL config file
   apiVersion: v1alpha
 kind: imagerunner
 sauce:
-region: us-west-1
+  region: us-west-1
 suites:
 - name: Desktop Tests
   workload: webdriver

@@ -1,6 +1,6 @@
 ---
 id: building-images
-title: Building Docker Images
+title: Building Container Images
 sidebar_label: Building Images
 ---
 
@@ -10,7 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Overview
 
-Sauce Labs supports Docker images, providing you with a powerful way to orchestrate tests. In order to use Hosted Orchestration you will need to package your test code and all of its dependencies as a Docker image and publish it to a Docker container registry so that your tests can be run in the Sauce Labs infrastructure.
+Sauce Labs supports container runtime, such as Docker or containerd, providing you with a powerful way to orchestrate tests. In order to use Sauce Orchestrate you will need to package your test code and all of its dependencies as a container image and publish it to a Docker container registry so that your tests can be run in the Sauce Labs infrastructure.
 
 ## System Requirements
 
@@ -88,7 +88,7 @@ Congratulations, you’ve just built your first image! Now we need to store it s
 To allow Sauce Labs to use your custom image, store it in a public Docker Registry. The easiest mechanism is to create an account on Docker Hub because Docker Hub allows you to store unlimited public images for free. If your organization is already using Docker Hub, you can use your existing account.
 
 :::note
-To use an image with the Sauce Labs Hosted Orchestration you must have a public repository. If you want to keep your image private, refer to the Using Docker Authenticated Pulls document for instructions.
+To use an image with Sauce Labs Orchestrate you must have a public repository. If you want to keep your image private, refer to the Using Docker Authenticated Pulls document for instructions.
 :::
 
 The example uses Docker Hub, but it is possible to use different registries, if you prefer. Adapt the example based on the registry you are using.
@@ -128,7 +128,7 @@ First, we use docker login to authenticate in Docker Hub. If you use a registry 
 
 ### Using your Image in Sauce Labs
 
-After the image is successfully pushed, it is available for use in Hosted Orchestration. Create a SauceCTL configuration like the one below. For more information on running tests see [Running Tests](/hosted-orchestration/running-tests).
+After the image is successfully pushed, it is available for use in Sauce Orchestrate. Create a SauceCTL configuration like the one below. For more information on the SauceCTL configuration for Orchestrate see [SauceCTL Configuration](./saucectl-configuration.md).
 
 <Tabs
   defaultValue="SauceCTL"
@@ -141,7 +141,7 @@ After the image is successfully pushed, it is available for use in Hosted Orches
 apiVersion: v1alpha
 kind: imagerunner
 sauce:
-region: us-west-1
+  region: us-west-1
 suites:
   - name: run sauce test
     image: saucelabs/sl-demo-docker-primary:0.0.1

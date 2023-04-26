@@ -842,7 +842,7 @@ module.exports = {
                 'orchestrate/getting-started',
                 'orchestrate/saucectl-configuration',
                 'orchestrate/building-images',
-                'orchestrate/private-registry',
+                'orchestrate/authenticated-pulls',
                 'orchestrate/best-practices',
                 'orchestrate/faq',
                 'orchestrate/architecture',
