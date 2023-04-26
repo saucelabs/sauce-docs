@@ -6,7 +6,7 @@ sidebar_label: Configuring MS Azure AD
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><span className="sauceDBlue">Enterprise Plans only</span></p>
+<p><span className="sauceGreen">Enterprise Plans only</span></p>
 
 1. Log into **Azure** administrator panel and go to **Active Directory**.
 2. In the menu click **Enterprise Applications**.
@@ -60,7 +60,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 16. Test the integration using the [IdP-initiated and the SP-initiated login](/basics/sso/logging-in-via-sso).
 
-    1. The IdP-initiated flow can be eaisly tested from the **Single sign-on** tab.
+    1. The IdP-initiated flow can be tested from the **Single sign-on** tab.
 
        <img src={useBaseUrl('img/basics/sso/idp-config/azure/menu-single-sign-on.png')} alt="Menu: Single sign-on" width="250" />
 

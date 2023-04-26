@@ -295,7 +295,7 @@ Jenkins populates the `SELENIUM_PLATFORM`, `SELENIUM_VERSION`, `SELENIUM_BROWSER
 
 ## Reporting between Sauce Labs and Jenkins
 
-<p><span className="sauceDBlue">VIRTUAL CLOUD ONLY</span></p>
+<p><span className="sauceGreen">VIRTUAL CLOUD ONLY</span></p>
 
 The following sections describe how to share information about your Sauce Labs tests in both the Sauce Labs site and your Jenkins dashboard.
 

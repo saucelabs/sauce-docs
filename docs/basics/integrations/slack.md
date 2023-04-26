@@ -34,7 +34,7 @@ The Slack integration is supported for a single workspace. If your organization 
 
 ## Install the Sauce Slack App for Your Organization
 
-<p><span className="sauceDBlue">Org Admin Required</span></p>
+<p><span className="sauceGreen">Org Admin Required</span></p>
 
 Before the Sauce Slack app can be used by members of the organization, an Org Admin must install it for whole the organization and associate it with your Slack workspace. If you are an Org Admin, you can do this by:
 
