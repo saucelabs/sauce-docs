@@ -363,7 +363,7 @@ The following example saves the values in variables:
 
 ## Comparing the Response to a File
 
-For this last example consider a case where you need to compare the response from a call to a "template" to verify that they are the same.  You can  save the template in the Vault Drive and compare it with the response.
+For this last example, consider a case where you need to compare the response from a call to a "template" to verify that they are the same.  You can save the template in the Vault Drive and compare it with the response.
 
 ### Step 1: Uploading the File in Vault Drive
 
