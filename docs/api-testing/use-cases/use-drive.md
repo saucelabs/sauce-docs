@@ -434,7 +434,7 @@ Next, you can compare the file to the response using the **Assert compares** com
    - Strict - for example `No`
 
    In **Expression 1** and **Expression 2**, enter the variable names you have entered for the file and the call.
-   Mode `structure` means you will compare the JSON structure of the template and the response
+   Mode `structure` means you will compare the JSON structure of the template and the response.
    Set strict to `Yes` if you want to include data types in the comparison.
 
 1. Add the **Assert Compares** component and set **Mode** to `values` to compare the values in the file and the ones in the call.
