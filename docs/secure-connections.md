@@ -67,7 +67,7 @@ See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/
 
 ## Sauce IPSec Proxy
 
-<p><small><span className="sauceDBlue">Enterprise Plans only</span></small></p>
+<p><small><span className="sauceGreen">Enterprise Plans only</span></small></p>
 
 Sauce IPSec Proxy establishes a VPN connection between two IPSec gateways, and a tunnel gateway that allows only your authorized test VMs to connect. For more information, see our [Sauce IPSec Proxy Overview](https://saucelabs.com/resources/white-papers/sauce-ipsec-proxy-overview) white paper or contact your Customer Success Manager or Sauce Labs Sales Engineer.
 

@@ -6,7 +6,7 @@ sidebar_label: Adding and Deactivating Users
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><span className="sauceDBlue">Enterprise Plans only</span></p>
+<p><span className="sauceGreen">Enterprise Plans only</span></p>
 
 ## Adding Users
 

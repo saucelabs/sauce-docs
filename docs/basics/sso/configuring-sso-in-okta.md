@@ -6,7 +6,7 @@ sidebar_label: Configuring Okta
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><span className="sauceDBlue">Enterprise Plans only</span></p>
+<p><span className="sauceGreen">Enterprise Plans only</span></p>
 
 Sauce Labs app from the Okta catalog supports the following features:
 
