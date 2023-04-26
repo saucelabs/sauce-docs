@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This page describes each SauceCTL configuration option and useful commands to use when interacting with Sauce Orchestrate. If you are looking for information about getting started with Sauce Orchestrate see [Getting Started](./getting-started)
+This page describes each SauceCTL configuration option and useful commands to use when interacting with Sauce Orchestrate. If you are looking for information about getting started with Sauce Orchestrate see [Getting Started](./getting-started.md)
 
 ## Configuration Options
 
