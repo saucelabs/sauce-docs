@@ -433,7 +433,7 @@ Next, you can compare the file to the response using the **Assert compares** com
    - Mode - for example `structure`
    - Strict - for example `No`
 
-   In **Expression 1** and **Expression 2**, you have to enter the variable names you have entered for the file and the call.
+   In **Expression 1** and **Expression 2**, enter the variable names you have entered for the file and the call.
    Mode `structure` means you will compare the structure of the two json.
    Set strict to `Yes` if you want to include data types in the comparison.
 
