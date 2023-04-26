@@ -143,7 +143,7 @@ var driver = new RemoteWebDriver(new Uri(SauceURL), capabilities);
 
 ### Remote WebDriverBuilder
 
-<p><span className="sauceDBlue"><small>Java only</small></span></p>
+<p><span className="sauceGreen"><small>Java only</small></span></p>
 
 An alternative way to start your session in Java is with the `RemoteWebDriverBuilder`. This class has a few advantages for Sauce Labs users, including automatic driver augmentation (this is required for several of the new features below), and the ability to set HTTP Client settings like read timeouts.
 
@@ -462,7 +462,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 ### Network Conditions
 
-<p><span className="sauceDBlue"><small>Chrome and Edge only</small></span></p>
+<p><span className="sauceGreen"><small>Chrome and Edge only</small></span></p>
 
 Selenium 4 provides a set of parameters to modify network conditions, such as:
 
@@ -524,7 +524,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 ### Full-Page Screenshots
 
-<p><span className="sauceDBlue"><small>Firefox only</small></span></p>
+<p><span className="sauceGreen"><small>Firefox only</small></span></p>
 
 Features like "infinite scroll" make it impossible to explicitly define what a "full page" entails for a W3C specification. As such, the default screenshot method in Selenium 3 only returns what is visible in the Viewport. For Selenium 4, Mozilla implemented a separate method to allow for a full-page screenshot in Firefox.
 
@@ -569,7 +569,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 ### Install and Uninstall Add-ons
 
-<p><span className="sauceDBlue"><small>Firefox only</small></span></p>
+<p><span className="sauceGreen"><small>Firefox only</small></span></p>
 
 All other browser drivers except for Firefox allow you to install extensions with the Browser Options class. For Firefox, you'll need to install a separate method after the browser has been started.
 
@@ -621,7 +621,7 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 
 ### Change Preferences During Session
 
-<p><span className="sauceDBlue"><small>Firefox only</small></span></p>
+<p><span className="sauceGreen"><small>Firefox only</small></span></p>
 
 In Selenium 3, you can only set preferences in the Capabilities at the beginning of a test. Firefox has provided a way in Selenium 4 to update things whenever you want during a session. This is done by toggling the _context_ between "chrome" and "content".
 
@@ -825,7 +825,7 @@ Below are code examples that can help resolve deprecation messages you might enc
 
 #### Find Element(s) Utility Methods
 
-<p><span className="sauceDBlue"><small>Java only</small></span></p>
+<p><span className="sauceGreen"><small>Java only</small></span></p>
 
 `FindsBy` interfaces, utility methods to find elements in the Java bindings, have been removed, as they were meant for internal use only. In Example 2, you'll see that all the `findElements*` have been removed as well.
 
@@ -910,7 +910,7 @@ driver.findElementsByXPath("xPath");
 
 #### Timeout Parameters
 
-<p><span className="sauceDBlue"><small>Java only</small></span></p>
+<p><span className="sauceGreen"><small>Java only</small></span></p>
 
 The parameters received in `Timeout` have switched from expecting (long time, `TimeUnit` unit) to expect (`Duration` duration).
 
@@ -1066,7 +1066,7 @@ capabilities.setCapability("browserName", BrowserType.FIREFOX);
 
 #### AddAdditionalOption
 
-<p><span className="sauceDBlue"><small>C# only</small></span></p>
+<p><span className="sauceGreen"><small>C# only</small></span></p>
 
 The [`AddAdditionalCapability` capability](https://www.selenium.dev/selenium/docs/api/dotnet/html/M_OpenQA_Selenium_DriverOptions_AddAdditionalCapability.htm) is deprecated in Selenium 4. Instead, we recommend using `AddAdditionalOption`.
 
