@@ -1576,7 +1576,7 @@ Return an array of errors with occurrence count on all tests run in the specifie
     <tr>
      <td><code>limit</code></td>
      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Identifies the number of records to return. Default value is <code>50</code>.</p></td>
-    </tr> 
+    </tr>
   </tbody>
   <tbody>
     <tr>
