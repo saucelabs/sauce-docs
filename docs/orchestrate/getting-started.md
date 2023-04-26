@@ -100,7 +100,7 @@ download:
   directory: ./artifacts
 ```
 
-The most important configuration options to take note of are the `image` and `entrypoint`. These tell Sauce Orchestrate the location of your image and which command should be used to run your tests respectively. For more information about the SauceCTL configuration options see [Configuring SauceCTL for Sauce Orchestrate](./configuring-saucectl).
+The most important configuration options to take note of are the `image` and `entrypoint`. These tell Sauce Orchestrate the location of your image and which command should be used to run your tests respectively. For more information about the SauceCTL configuration options see [Configuring SauceCTL for Sauce Orchestrate](./saucectl-configuration.md).
 
 ## 4. Run Tests Using SauceCTL {#step-4}
 

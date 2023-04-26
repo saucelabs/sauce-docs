@@ -18,7 +18,7 @@ As part of our standard annual SOC 2 Type II audit ISO 27001 re-certification au
 
 We also provide many additional security mechanisms to keep your data safe.
 
-- We provide many secure mechanisms for [Handling Sensitive Data](./best-practices#sensitive-data)
+- We provide many secure mechanisms for [Handling Sensitive Data](./best-practices.md#sensitive-data)
 - Each running container is created and destroyed as part of your request
 - We do not store or access your image outside of some local cahces to improve performance
 - Your running container is sandboxed from a networking perspective from any other containers
