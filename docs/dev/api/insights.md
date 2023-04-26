@@ -12,6 +12,8 @@ Use the Insights API methods to retrieve analytics data about your Sauce Labs jo
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
+## Analytics Methods
+
 ### Get Test Results
 
 <details><summary><span className="api get">GET</span> <code>/v1/analytics/tests</code></summary>
@@ -996,6 +998,113 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
+## Activity Methods
+
+### Get Activity
+
+<details><summary><span className="api get">GET</span> <code>/rest/v1/users/&#123;user_id&#125;/activity</code></summary>
+<p/>
+
+Return daily statistics about test results and concurrency usage for the specified <code>user_id</code>.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>user_id</code></td>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>since</code></td>
+       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs ran from the provided Unix timestamp on.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>until</code></td>
+       <td><p><small>| QUERY | OPTIONAL | STRING|</small></p><p>Return only jobs ran until the provided Unix timestamp.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>level</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+     Specifies the ownership level. Supported values are: <code>user</code>, <code>organization</code>
+     </p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.us-west-1.saucelabs.com/rest/v1/users/<user_id>/activity" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.eu-central-1.saucelabs.com/rest/v1/users/<user_id>/activity" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>422</code></td>
+    <td colSpan='2'>Validation Error.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+  "ccy_exec_mean": [
+    0
+  ],
+  "ccy_exec_peak": [
+    0
+  ],
+  "datestamp": [
+    "2023-04-18"
+  ],
+  "jobs": [
+    0
+  ],
+  "minutes": [
+    0
+  ]
+}
+```
+
+</details>
+
+---
+
 ### Get Activity for Users
 
 <details><summary><span className="api get">GET</span> <code>/rest/v1/users_activity</code></summary>
@@ -1122,111 +1231,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
       0
     ]
   }
-}
-```
-
-</details>
-
----
-
-### Get Activity
-
-<details><summary><span className="api get">GET</span> <code>/rest/v1/users/&#123;user_id&#125;/activity</code></summary>
-<p/>
-
-Return daily statistics about test results and concurrency usage for the specified <code>user_id</code>.
-
-#### Parameters
-
-<table id="table-api">
-  <tbody>
-    <tr>
-     <td><code>user_id</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>since</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs ran from the provided Unix timestamp on.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>until</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING|</small></p><p>Return only jobs ran until the provided Unix timestamp.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>level</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-     Specifies the ownership level. Supported values are: <code>user</code>, <code>organization</code>
-     </p></td>
-    </tr>
-  </tbody>
-</table>
-
-<Tabs
-groupId="dc-url"
-defaultValue="us"
-values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
-]}>
-
-<TabItem value="us">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.us-west-1.saucelabs.com/rest/v1/users/<user_id>/activity" | json_pp
-```
-
-</TabItem>
-<TabItem value="eu">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.eu-central-1.saucelabs.com/rest/v1/users/<user_id>/activity" | json_pp
-```
-
-</TabItem>
-</Tabs>
-
-#### Responses
-
-<table id="table-api">
-<tbody>
-  <tr>
-    <td><code>200</code></td>
-    <td colSpan='2'>Success.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>422</code></td>
-    <td colSpan='2'>Validation Error.</td>
-  </tr>
-</tbody>
-</table>
-
-```jsx title="Sample Response"
-{
-  "ccy_exec_mean": [
-    0
-  ],
-  "ccy_exec_peak": [
-    0
-  ],
-  "datestamp": [
-    "2023-04-18"
-  ],
-  "jobs": [
-    0
-  ],
-  "minutes": [
-    0
-  ]
 }
 ```
 
@@ -1494,213 +1498,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-### Get Filter Items
-
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/filters</code></summary>
-<p/>
-
-[IMHO THIS ENDPOINT SHOULDNT BE IN PUBLUC DOCS]
-
-#### Parameters
-
-<table id="table-api">
-  <tbody>
-    <tr>
-     <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
-     <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
-    </ul></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>org_id</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for given organization id.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>interval</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-       Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
-       </p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
-     <ul>
-      <li><code>complete</code></li>
-      <li><code>error</code></li>
-      <li><code>passed</code></li>
-      <li><code>failed</code></li>
-    </ul></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>start</code></td>
-       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>end</code></td>
-       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>browser</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified browsers.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>build</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to those grouped by this build name.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>os</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified operating systems.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>tag</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified tag.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>device</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified device.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>automation_backend</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Return results only for the given framework used to run the test.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>user_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>group_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given group id.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>team_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given team id.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>name</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with the specified name.</p></td>
-    </tr>
-  </tbody>
-</table>
-
-<Tabs
-groupId="dc-url"
-defaultValue="us"
-values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
-]}>
-
-<TabItem value="us">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.us-west-1.saucelabs.com/v2/insights/<source>/filters?org_id=<org_id>" | json_pp
-```
-
-</TabItem>
-<TabItem value="eu">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.eu-central-1.saucelabs.com/v2/insights/<source>/filters?org_id=<org_id>" | json_pp
-```
-
-</TabItem>
-</Tabs>
-
-#### Responses
-
-<table id="table-api">
-<tbody>
-  <tr>
-    <td><code>200</code></td>
-    <td colSpan='2'>Success.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>422</code></td>
-    <td colSpan='2'>Validation Error.</td>
-  </tr>
-</tbody>
-</table>
-
-```jsx title="Sample Response"
-{
-  "automation_backend": [
-    {
-      "name": "test123",
-      "count": 1
-    }
-  ],
-  "browser": [
-    {
-      "name": "Chrome",
-      "count": 0
-    }
-  ],
-  "build": [
-    {
-      "name": "build123",
-      "count": 2
-    }
-  ],
-  "os": [
-    {
-      "name": "Ventura13.3",
-      "count": 1
-    }
-  ],
-  "device": [
-    {
-      "name": "iPhone 14",
-      "count": 3
-    }
-  ],
-  "tag": [
-    {
-      "name": "abc123",
-      "count": 5
-    }
-  ]
-}
-```
-
-</details>
-
----
+## Errors Methods
 
 ### Get Errors
 
@@ -1984,6 +1782,222 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "past": 4,
     "tests_count": 7
   }
+}
+```
+
+</details>
+
+---
+
+## Test Cases Methods
+
+### Get Tests
+
+<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/tests</code></summary>
+<p/>
+
+Return an array of tests with details.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>source</code></td>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+     <ul>
+      <li><code>rdc</code> - Real Device Cloud.</li>
+      <li><code>vdc</code> - Virtual Device Cloud.</li>
+    </ul></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>org_id</code></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>user_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>group_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>group_id</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>team_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>team_id</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>build</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to those grouped by this build name.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>os</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified operating systems.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified device.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>browser</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified browsers.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tag</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified tag.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>error</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those that threw the specified error message.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>name</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with the specified name.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>start</code></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>end</code></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>limit</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Identifies the number of records to return. Default value is <code>50</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>offset</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Specifies the number of items to be skipped from the beginning of the list. Default value is <code>0</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>sort_by</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <code>duration</code>, <code>creation_time</code>. Default value is <code>creation_time</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>sort</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.us-west-1.saucelabs.com/v2/insights/<source>/tests?org_id=<org_id>" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.eu-central-1.saucelabs.com/v2/insights/<source>/tests?org_id=<org_id>" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>422</code></td>
+    <td colSpan='2'>Validation Error.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+  "items": [
+    {
+      "id": "abc123",
+      "name": "test1",
+      "status": "complete",
+      "creation_time": "2017-03-01T12:13:39Z",
+      "modification_time": "2017-03-03T14:23:25Z",
+      "error": "<error>",
+      "passed": true,
+      "browser_normalized": "<browser_normalized>",
+      "os_normalized": "<os_normalized>",
+      "device_name": "<device_name>",
+      "device_group": "<device_group>",
+      "build": "abcd1234",
+      "automation_backend": "<automation_backend>",
+      "duration": 15,
+      "tags": [
+        "build_abcd1234"
+      ],
+      "owner": "<owner>",
+      "ancestor": "<ancestor>",
+      "user_id": "<user_id>",
+      "team_id": "<team_id>",
+      "group_id": "<group_id>",
+      "org_id": "<org_id>",
+      "start_time": "2023-04-18T17:51:14.654Z",
+      "end_time": "2023-04-18T17:51:14.654Z",
+      "deletion_time": "2023-04-18T17:51:14.654Z",
+      "is_expired": true
+    }
+  ],
+  "total": 3,
+  "statuses": {
+    "additionalProp1": 2,
+    "additionalProp2": 5,
+    "additionalProp3": 7
+  },
+  "max_duration": 10
 }
 ```
 
@@ -2537,12 +2551,12 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-### Get Tests
+### Get Status Trend
 
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/tests</code></summary>
+<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/test-cases/trends</code></summary>
 <p/>
 
-Return an array of tests with details.
+Return a histogram with test statistic details grouped by specific period.
 
 #### Parameters
 
@@ -2559,20 +2573,32 @@ Return an array of tests with details.
   </tbody>
   <tbody>
     <tr>
+     <td><code>groupby</code></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Time period for grouping. Available values are: <code>1h</code>, <code>1d</code>, <code>7d</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
      <td><code>org_id</code></td>
        <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>user_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
+     <td><code>start</code></td>
+       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>group_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>group_id</code>.</p></td>
+     <td><code>end</code></td>
+       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>time_zone</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the time zone. Default value is <code>+00:00</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2583,20 +2609,8 @@ Return an array of tests with details.
   </tbody>
   <tbody>
     <tr>
-     <td><code>build</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to those grouped by this build name.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>os</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified operating systems.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>device</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified device.</p></td>
+     <td><code>user_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2607,56 +2621,32 @@ Return an array of tests with details.
   </tbody>
   <tbody>
     <tr>
+     <td><code>build</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to those grouped by this build name.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified device.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>os</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified operating systems.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
      <td><code>tag</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified tag.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>error</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those that threw the specified error message.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
      <td><code>name</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with the specified name.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>start</code></td>
-       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>end</code></td>
-       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>limit</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Identifies the number of records to return. Default value is <code>50</code>.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>offset</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Specifies the number of items to be skipped from the beginning of the list. Default value is <code>0</code>.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>sort_by</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <code>duration</code>, <code>creation_time</code>. Default value is <code>creation_time</code>.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>sort</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2673,7 +2663,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.us-west-1.saucelabs.com/v2/insights/<source>/tests?org_id=<org_id>" | json_pp
+--request GET "https://api.us-west-1.saucelabs.com/v2/insights/<source>/test-cases/trends?groupby=<groupby>&org_id=<org_id>&start=<start>&end=<end>" | json_pp
 ```
 
 </TabItem>
@@ -2681,7 +2671,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.eu-central-1.saucelabs.com/v2/insights/<source>/tests?org_id=<org_id>" | json_pp
+--request GET "https://api.eu-central-1.saucelabs.com/v2/insights/<source>/test-cases/trends?groupby=<groupby>&org_id=<org_id>&start=<start>&end=<end>" | json_pp
 ```
 
 </TabItem>
@@ -2706,50 +2696,24 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Response"
 {
-  "items": [
+  "histogram": [
     {
-      "id": "abc123",
-      "name": "test1",
-      "status": "complete",
-      "creation_time": "2017-03-01T12:13:39Z",
-      "modification_time": "2017-03-03T14:23:25Z",
-      "error": "<error>",
-      "passed": true,
-      "browser_normalized": "<browser_normalized>",
-      "os_normalized": "<os_normalized>",
-      "device_name": "<device_name>",
-      "device_group": "<device_group>",
-      "build": "abcd1234",
-      "automation_backend": "<automation_backend>",
-      "duration": 15,
-      "tags": [
-        "build_abcd1234"
-      ],
-      "owner": "<owner>",
-      "ancestor": "<ancestor>",
-      "user_id": "<user_id>",
-      "team_id": "<team_id>",
-      "group_id": "<group_id>",
-      "org_id": "<org_id>",
-      "start_time": "2023-04-18T17:51:14.654Z",
-      "end_time": "2023-04-18T17:51:14.654Z",
-      "deletion_time": "2023-04-18T17:51:14.654Z",
-      "is_expired": true
+      "timestamp_s": 1,
+      "timestamp_ms": 60,
+      "complete": 10,
+      "error": 2,
+      "failed": 3,
+      "passed": 5
     }
-  ],
-  "total": 3,
-  "statuses": {
-    "additionalProp1": 2,
-    "additionalProp2": 5,
-    "additionalProp3": 7
-  },
-  "max_duration": 10
+  ]
 }
 ```
 
 </details>
 
 ---
+
+## Concurrency Methods
 
 ### Get Max Concurrency Report CSV
 
@@ -2932,6 +2896,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </details>
 
 ---
+
+## Coverage Methods
 
 ### Get Coverage
 
@@ -3214,167 +3180,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-### Get Status Trend
-
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/test-cases/trends</code></summary>
-<p/>
-
-Return a histogram with test statistic details grouped by specific period.
-
-#### Parameters
-
-<table id="table-api">
-  <tbody>
-    <tr>
-     <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
-     <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
-    </ul></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>groupby</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Time period for grouping. Available values are: <code>1h</code>, <code>1d</code>, <code>7d</code>.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>org_id</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>start</code></td>
-       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>end</code></td>
-       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>time_zone</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the time zone. Default value is <code>+00:00</code>.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>team_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>team_id</code>.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>user_id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>browser</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified browsers.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>build</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to those grouped by this build name.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>device</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified device.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>os</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified operating systems.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>tag</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified tag.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>name</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with the specified name.</p></td>
-    </tr>
-  </tbody>
-</table>
-
-<Tabs
-groupId="dc-url"
-defaultValue="us"
-values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
-]}>
-
-<TabItem value="us">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.us-west-1.saucelabs.com/v2/insights/<source>/test-cases/trends?groupby=<groupby>&org_id=<org_id>&start=<start>&end=<end>" | json_pp
-```
-
-</TabItem>
-<TabItem value="eu">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.eu-central-1.saucelabs.com/v2/insights/<source>/test-cases/trends?groupby=<groupby>&org_id=<org_id>&start=<start>&end=<end>" | json_pp
-```
-
-</TabItem>
-</Tabs>
-
-#### Responses
-
-<table id="table-api">
-<tbody>
-  <tr>
-    <td><code>200</code></td>
-    <td colSpan='2'>Success.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>422</code></td>
-    <td colSpan='2'>Validation Error.</td>
-  </tr>
-</tbody>
-</table>
-
-```jsx title="Sample Response"
-{
-  "histogram": [
-    {
-      "timestamp_s": 1,
-      "timestamp_ms": 60,
-      "complete": 10,
-      "error": 2,
-      "failed": 3,
-      "passed": 5
-    }
-  ]
-}
-```
-
-</details>
-
----
+## Trends Methods
 
 ### Get Trends Tests
 
