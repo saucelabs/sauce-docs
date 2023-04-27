@@ -168,7 +168,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   "items": [
     {
       "ancestor": "<ancestor>",
-      "browser": "<broswer>",
+      "browser": "<browser>",
       "browser_normalized": "<browser>",
       "build": "build123",
       "creation_time": "2023-04-19T10:01:44.785Z",
