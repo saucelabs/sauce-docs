@@ -3887,7 +3887,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         "error": "<error>",
         "os": "<os>",
         "os_normalized": "<os>",
-        "browser": "<broswer>",
+        "browser": "<browser>",
         "browser_normalized": "<browser>",
         "details_url": "<url>",
         "is_expired": true
