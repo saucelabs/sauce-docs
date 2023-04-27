@@ -740,7 +740,7 @@ suite:
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-`failedClassesOnly` has been deprecated. Use `failedOnly` instead.
+`failedClassesOnly` is deprecated. Use `failedOnly` instead.
 
 ---
 
