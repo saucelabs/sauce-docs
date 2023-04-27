@@ -774,6 +774,37 @@ suite:
 
 ---
 
+### `smartRetry`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies the retry strategy to apply for that suite. It should be used along with [retries](#retries).
+
+```yaml
+sauce:
+  retries: 3
+suite:
+  - name: My Saucy Test
+    smartRetry:
+      failedOnly: true
+```
+
+---
+
+#### `failedOnly`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When set to `true`, the retry will test only the spec files that failed during the previous try.
+
+```yaml
+suite:
+  - name: My Saucy Test
+    smartRetry:
+      failedOnly: true
+```
+---
+
 ### `options`
 
 <p><small>| REQUIRED | OBJECT |</small></p>
