@@ -544,7 +544,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         ],
         "browserError": [
           {
-            "name": "<broswer>",
+            "name": "<browser>",
             "count": 6
           }
         ],
