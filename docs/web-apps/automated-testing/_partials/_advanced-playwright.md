@@ -39,7 +39,7 @@ A limitation on Sauce Labs exists with playwright 1.27.1 or below, where the use
 
 ## Emulation
 
-Playwright can test your app on any browser as well as emulate a real device such as a mobile phone or tablet. Check more details in [Playwright docs](https://playwright.dev/docs/emulation).
+You can use Playwright to test your app on any browser and emulate a real device such as a mobile phone or tablet. See the [Playwright docs](https://playwright.dev/docs/emulation) for more details.
 
 :::note
 It is not a real Emulator or Simulator. Playwright just simulates the browser behavior such as `userAgent`, `screenSize`, `viewport` and etc.
