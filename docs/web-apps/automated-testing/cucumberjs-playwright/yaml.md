@@ -795,7 +795,7 @@ suite:
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-When set to `true`, the retry will test only the spec files that failed during the previous try.
+When set to `true`, only the spec files that failed during the previous attempt are retried.
 
 ```yaml
 suite:
