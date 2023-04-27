@@ -39,6 +39,10 @@ The Trends section of the Insights feature provides a variety of data visualizat
   </tr>
 </table>
 
+The above sections are available for Virtual Cloud (VDC) and Real Device (RDC).
+
+You can also filter the results by **Owner**, **Build**, **Operating System (OS)**, **Browser** (in VDC) or **Device** (in RDC), **Tag** and **Date Range**. The Date Range is set by default to 7 days, but options are also available: 15 minutes, 1 hour, 6 hours, 12 hours, 1 day, and 30 days, or you can define the Start and End Dates.
+
 ## Drilling Down on Visualizations
 
 The visualizations shown in the **Trends** section are interactive; you can hover over any of the bars to view a statistics overview for that increment, or you can click-drag across the bars to redraw the graph for a narrower time period. The latter action updates the time period filter at the top of the page accordingly.
