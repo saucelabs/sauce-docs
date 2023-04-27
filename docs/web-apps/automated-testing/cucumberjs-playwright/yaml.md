@@ -778,7 +778,7 @@ suite:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Specifies the retry strategy to apply for that suite. It should be used along with [retries](#retries).
+Specifies the retry strategy to apply for that suite. Requires [retries](#retries) to be >= 1.
 
 ```yaml
 sauce:
