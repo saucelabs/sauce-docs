@@ -1250,7 +1250,7 @@ suite:
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-When set to `true`, the retry will test only the tests that failed during the previous try.
+When set to `true`, only the tests that failed during the previous attempt are retried.
 
 ```yaml
 suite:
