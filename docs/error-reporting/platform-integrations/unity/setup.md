@@ -35,7 +35,7 @@ The Backtrace Unity SDK reports on the following types of errors:
 | Game Consoles       | PlayStation 4, PlayStation 5, Xbox One, Xbox Series X, Nintendo Switch.               |
 
 :::note
-Native Crashes on Playstation and Nintendo Switch are captured via Backtrace Data Sources, which connect to the vendor provided crash reporting server. Native Crashes on Xbox can be captured by installing an additional .DLL for Backtrace-Unity. Please reach out to your Xbox partner manager to verify developer status with Sauce Labs Backtrace. 
+Native Crashes on PlayStation and Nintendo Switch are captured via Backtrace Data Sources, which connect to the vendor provided crash reporting server. Native Crashes on Xbox can be captured by installing an additional .DLL for Backtrace-Unity. Please reach out to your Xbox partner manager to verify developer status with Sauce Labs Backtrace. 
 :::
 
 :::note
