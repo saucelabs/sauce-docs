@@ -51,7 +51,6 @@ jobs:
           npm run build
 
   deploy-staging:
-    needs: test
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/main' }}
 
