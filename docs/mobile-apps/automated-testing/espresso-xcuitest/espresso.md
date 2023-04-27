@@ -764,7 +764,7 @@ suite:
       failedOnly: true
 ```
 :::info NOTE
--`failedOnly` is effective only when targetting Real Devices.
+`failedOnly` is effective only when targeting Real Devices.
 -:::
 
 ---
