@@ -1,6 +1,6 @@
 ---
 id: accounts
-title: Account Management API Methods
+title: Account Management API Endpoints
 sidebar_label: Accounts
 description: Manage all aspects of your Sauce Labs organization, team, and member accounts.
 ---
@@ -12,7 +12,7 @@ The Accounts API exposes the following methods related to individual and team ac
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
-## Team Methods
+## Team
 
 ### Lookup Teams
 
@@ -789,7 +789,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-## User Methods
+## User
 
 ### Lookup Users
 
@@ -1501,12 +1501,14 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <p/>
 
 Returns details about the current in-use virtual machines and real devices along with the maximum allowed values.
-  
+
 :::note Real Devices
 At this time, the current usage for real devices is not accurately returned in the response. As a workaround, use the following endpoint:
+
 ```jsx
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location --request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/concurrency' --header 'Content-Type: application/json' | json_pp 
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location --request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/concurrency' --header 'Content-Type: application/json' | json_pp
 ```
+
 :::
 
 #### Parameters
