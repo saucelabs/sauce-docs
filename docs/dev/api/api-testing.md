@@ -503,7 +503,7 @@ Runs a single test on Sauce Labs API Testing, creates a Log in your Dashboard, a
   <tbody>
     <tr>
      <td><code>tunnelOwner</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is raccomended when using unnamed tunnels.</strong></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is recommended when using unnamed tunnels.</strong></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -622,7 +622,7 @@ Runs all tests in a project.
   <tbody>
     <tr>
      <td><code>tunnelOwner</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is raccomended when using unnamed tunnels.</strong></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is recommended when using unnamed tunnels.</strong></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -747,7 +747,7 @@ Runs all tests in a project matching a tag.
   <tbody>
     <tr>
      <td><code>tunnelOwner</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is raccomended when using unnamed tunnels.</strong></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is recommended when using unnamed tunnels.</strong></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -896,7 +896,7 @@ Executes the test you send in the request body and saves the results into the cl
   <tbody>
     <tr>
      <td><code>tunnelOwner</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is raccomended when using unnamed tunnels.</strong></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is recommended when using unnamed tunnels.</strong></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1025,7 +1025,7 @@ Runs a single test synchronously.
   <tbody>
     <tr>
      <td><code>tunnelOwner</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is raccomended when using unnamed tunnels.</strong></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is recommended when using unnamed tunnels.</strong></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1264,7 +1264,7 @@ Runs all tests in a project synchronously.
   <tbody>
     <tr>
      <td><code>tunnelOwner</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is raccomended when using unnamed tunnels.</strong></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is recommended when using unnamed tunnels.</strong></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1553,7 +1553,7 @@ Runs all tests in a project matching a tag synchronously.
   <tbody>
     <tr>
      <td><code>tunnelOwner</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is raccomended when using unnamed tunnels.</strong></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is recommended when using unnamed tunnels.</strong></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1816,7 +1816,7 @@ Executes synchronously the test you send in the request body and saves the resul
   <tbody>
     <tr>
      <td><code>tunnelOwner</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is raccomended when using unnamed tunnels.</strong></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is recommended when using unnamed tunnels.</strong></p></td>
     </tr>
   </tbody>
   <tbody>
