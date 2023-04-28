@@ -10,7 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Overview
 
-Sauce Labs supports container runtime, such as Docker or containerd, providing you with a powerful way to orchestrate tests. In order to use Sauce Orchestrate you will need to package your test code and all of its dependencies as a container image and publish it to a Docker container registry so that your tests can be run in the Sauce Labs infrastructure.
+Sauce Labs supports container runtime, such as Docker or containerd, providing you with a powerful way to orchestrate tests. In order to use Sauce Orchestrate you will need to package your test code and all of its dependencies as a container image and publish it to a container registry so that your tests can be run in the Sauce Labs infrastructure.
 
 ## System Requirements
 
