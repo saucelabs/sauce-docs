@@ -12,12 +12,14 @@ exceptions:
   - API
   - APIF
   - APIT
+  - ARRAY
   - CLI
   - CPU
   - CET
   - CEST
   - CSS
   - CSV
+  - DATE
   - DEBUG
   - DOM
   - DPI
@@ -43,6 +45,7 @@ exceptions:
   - PHP
   - POST
   - PST
+  - QUERY
   - RAM
   - REPL
   - RSA
@@ -50,6 +53,7 @@ exceptions:
   - SDK
   - SQL
   - SSH
+  - SSO
   - SSL
   - SVG
   - TBD
@@ -57,6 +61,7 @@ exceptions:
   - URI
   - URL
   - USB
+  - UTC
   - UTF
   - XCUI
   - XML

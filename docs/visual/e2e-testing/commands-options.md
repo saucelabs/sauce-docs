@@ -651,7 +651,7 @@ Below are the available options that you can define with the [`sauce:visual`](/v
   </tr>
   <tr>
    <td>
-    <code>iframes</code> <span className="sauceDBlue">Beta</span>
+    <code>iframes</code> <span className="sauceGreen">Beta</span>
    </td>
    <td>
     Boolean
@@ -668,7 +668,7 @@ Below are the available options that you can define with the [`sauce:visual`](/v
   </tr>
   <tr>
    <td>
-    <code>iframesOptions</code> <span className="sauceDBlue">Beta</span>
+    <code>iframesOptions</code> <span className="sauceGreen">Beta</span>
    </td>
    <td>
     Object

@@ -147,12 +147,6 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
         <h3>Playwright</h3></a>
     </div>
   </div>
-  <div className="box box8 card">
-    <div className="container">
-        <a href="/web-apps/automated-testing/puppeteer/quickstart/"> <img src={useBaseUrl('img/integrations/puppeteer.webp')} alt=" logo" width="40" />
-        <h3>Puppeteer</h3></a>
-    </div>
-  </div>
 </div>
 
 ## Test Reporting and Management

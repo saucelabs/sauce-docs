@@ -12,13 +12,11 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Labs welcomes your contributions to our documentation!
-This document describes the options available for creating content for the site,
-along with some guidelines and conventions.
+Sauce Labs welcomes your contributions to our documentation. This document describes the options available for creating content for the site, along with some guidelines and conventions.
 
 ## Markdown
 
-This site uses Docusaurus version 2 Beta. Docusaurus uses the
+This site uses Docusaurus version 2. Docusaurus uses the
 [remarkable Markdown processor](https://github.com/jonschlinkert/remarkable) to convert
 [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/) into HTML.
 [Docusaurus Markdown](https://docusaurus.io/docs/markdown-features) supports
@@ -507,14 +505,13 @@ You are about to do something dangerous!
 
 ## Context Limited
 
-There are two ways to provide context for users for when special conditions or limitations apply to
-designated information.
+There are two ways to provide context for users for when special conditions or limitations apply to designated information.
 
 ### Badges
 
-Badges are color-coded images that apply to entire pages or large sections of documentation:
+Badges are color-coded images that apply to entire pages or large sections of documentation.
 
-Blue badges are used for everything except for deprecated information, which is indicated with a Gold badge.
+Green badges are used for everything except for deprecated information, which is indicated with a Gold badge.
 
 <table class="code">
   <tbody>
@@ -527,12 +524,11 @@ Blue badges are used for everything except for deprecated information, which is 
       <td>
 
 ```html
-<p><span className="sauceDBlue">Beta</span></p>
-<p><span className="sauceDBlue">Enterprise Only</span></p>
-<p><span className="sauceDBlue">iOS Only</span></p>
-<p><span className="sauceDBlue">Live Testing Only</span></p>
-<p><span className="sauceDBlue">Early Access</span></p>
-
+<p><span className="sauceGreen">Beta</span></p>
+<p><span className="sauceGreen">Enterprise Only</span></p>
+<p><span className="sauceGreen">iOS Only</span></p>
+<p><span className="sauceGreen">Live Testing Only</span></p>
+<p><span className="sauceGreen">Early Access</span></p>
 <p><span className="sauceGold">Deprecated</span></p>
 ```
 
@@ -545,11 +541,11 @@ Blue badges are used for everything except for deprecated information, which is 
 
 </td>
       <td>
-<p><span className="sauceDBlue">Beta</span></p>
-<p><span className="sauceDBlue">Enterprise Only</span></p>
-<p><span className="sauceDBlue">iOS Only</span></p>
-<p><span className="sauceDBlue">Live Testing Only</span></p>
-<p><span className="sauceDBlue">Early Access</span></p>
+<p><span className="sauceGreen">Beta</span></p>
+<p><span className="sauceGreen">Enterprise Only</span></p>
+<p><span className="sauceGreen">iOS Only</span></p>
+<p><span className="sauceGreen">Live Testing Only</span></p>
+<p><span className="sauceGreen">Early Access</span></p>
 
 <p><span className="sauceGold">Deprecated</span></p>
 </td>
@@ -574,12 +570,9 @@ technology.
       <td>
 
 ```html
-<p><span class="highlight sauce-cloud">Sauce Cloud only</span></p>
-<p><span class="highlight docker">Docker only</span></p>
 <p><span class="highlight cypress">Cypress</span></p>
 <p><span class="highlight playwright">Playwright version >= 1.12</span></p>
-<p><span class="highlight testcafe">Testcafe</span></p>
-<p><span class="highlight puppeteer">Puppeteer only</span></p>
+<p><span class="highlight testcafe">TestCafe</span></p>
 ```
 
 </td>
@@ -591,13 +584,10 @@ technology.
 
 </td>
       <td>
-<p><span class="highlight sauce-cloud">Sauce Cloud only</span></p>
-<p><span class="highlight docker">Docker only</span></p>
-<p><span class="highlight cypress">Cypress</span></p>
-<p><span class="highlight playwright">Playwright version >= 1.12</span></p>
-<p><span class="highlight testcafe">Testcafe</span></p>
-<p><span class="highlight puppeteer">Puppeteer only</span></p>
-</td>
+        <p><span class="highlight cypress">Cypress</span></p>
+        <p><span class="highlight playwright">Playwright version >= 1.12</span></p>
+        <p><span class="highlight testcafe">TestCafe</span></p>
+      </td>
     </tr>
   </tbody>
 </table>
