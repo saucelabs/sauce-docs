@@ -2724,6 +2724,30 @@ Returns the list of builds.
      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Your project's hook ID, which you can create and/or retrieve from your project's <strong>Webhooks</strong> tab.</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>start</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Identifies the start date, in <code>YYYY-MM-DD</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+      <tr>
+      <td><code>end</code></td>
+      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Identifies the end date, in <code>YYYY-MM-DD</code> (UTC) format. The default value is current date.</p></td>
+      </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>limit</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Identifies the number of records to return. The default value is 10 and the max value is 50.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>offset</code></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Specifies the number of events to be skipped from the beginning of the list. Needs to be used in combination with the limit.</p></td>
+    </tr>
+  </tbody>
 </table>
 
 <Tabs
@@ -2775,7 +2799,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         "failures": 7
     },
     {
-        "id": "build345",
+        "id": "build456",
         "createdAt": "2023-04-28T09:08:54Z",
         "updatedAt": "2023-04-28T09:08:54Z",
         "totalEvents": 20,
