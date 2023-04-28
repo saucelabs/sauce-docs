@@ -2725,7 +2725,6 @@ Updates the content of the project vault.
      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Your project's hook ID, which you can create and/or retrieve from your project's <strong>Webhooks</strong> tab.</p></td>
     </tr>
   </tbody>
-
   <tbody>
     <tr>
      <td><code>variables</code></td>
@@ -2735,19 +2734,7 @@ Updates the content of the project vault.
   <tbody>
     <tr>
      <td><code>snippets</code></td>
-     <td><p><small>| BODY | REQUIRED | OBJECT |</small></p><p>The object containing the snippets you want to update/add. The object contains the key/value pairs: snippet_name:snippet</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>hookId</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Your project's hook ID, which you can create and/or retrieve from your project's <strong>Webhooks</strong> tab.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>hookId</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Your project's hook ID, which you can create and/or retrieve from your project's <strong>Webhooks</strong> tab.</p></td>
+     <td><p><small>| BODY | REQUIRED | OBJECT |</small></p><p>The object containing the snippets you want to update/add. The object contains the key/value pairs: snippet_name:snippet. It can be empty.</p></td>
     </tr>
   </tbody>
 </table>
@@ -3180,17 +3167,16 @@ Returns metrics for all tests in a project.
      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Specifies the number of events to be skipped from the beginning of the list. Needs to be used in combination with the limit.</p></td>
     </tr>
   </tbody>
-
   <tbody>
     <tr>
      <td><code>failuresOnly</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Specifies the number of events to be skipped from the beginning of the list. Needs to be used in combination with the limit.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Filter the metrics to include only the tests that completed with failure(s).</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>footprint</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Specifies the number of events to be skipped from the beginning of the list. Needs to be used in combination with the limit.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Filter the metrics based on the footprint.</p></td>
     </tr>
   </tbody>
   <tbody>
