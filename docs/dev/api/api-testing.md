@@ -502,27 +502,20 @@ Runs a single test on Sauce Labs API Testing, creates a Log in your Dashboard, a
   </tbody>
   <tbody>
     <tr>
+     <td><code>tunnelOwner</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is raccomended when using unnamed tunnels.</strong></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
     <td><code>params</code></td>
       <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>Specifies the environment variables you want to use in your test as key-value pairs. </p></td>
-    </tr>
-  </tbody>
-
-  <tbody>
-    <tr>
-     <td><code>taskId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>waitTime</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>format</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the data format returned. Available values are <code>json</code> and <code>junit</code>. The default value is <code>json</code></p></td>
     </tr>
   </tbody>
 </table>
@@ -628,27 +621,20 @@ Runs all tests in a project.
   </tbody>
   <tbody>
     <tr>
+     <td><code>tunnelOwner</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is raccomended when using unnamed tunnels.</strong></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
     <td><code>params</code></td>
       <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>Specifies the environment variables you want to use in your test as key-value pairs. </p></td>
-    </tr>
-  </tbody>
-
-  <tbody>
-    <tr>
-     <td><code>taskId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>waitTime</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>format</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the data format returned. Available values are <code>json</code> and <code>junit</code>. The default value is <code>json</code></p></td>
     </tr>
   </tbody>
 </table>
@@ -760,27 +746,20 @@ Runs all tests in a project matching a tag.
   </tbody>
   <tbody>
     <tr>
+     <td><code>tunnelOwner</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is raccomended when using unnamed tunnels.</strong></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
     <td><code>params</code></td>
       <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>Specifies the environment variables you want to use in your test as key-value pairs. </p></td>
-    </tr>
-  </tbody>
-
-  <tbody>
-    <tr>
-     <td><code>taskId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>waitTime</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>format</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the data format returned. Available values are <code>json</code> and <code>junit</code>. The default value is <code>json</code></p></td>
     </tr>
   </tbody>
 </table>
@@ -914,23 +893,16 @@ Executes the test you send in the request body and saves the results into the cl
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
     </tr>
   </tbody>
-
   <tbody>
     <tr>
-     <td><code>taskId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>waitTime</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
+     <td><code>tunnelOwner</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is raccomended when using unnamed tunnels.</strong></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>format</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the data format returned. Available values are <code>json</code> and <code>junit</code>. The default value is <code>json</code></p></td>
     </tr>
   </tbody>
 </table>
@@ -1035,7 +1007,7 @@ Runs a single test synchronously.
   <tbody>
     <tr>
      <td><code>format</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Use this to set a response format. Possible values are <code>json</code> and <code>junit</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the data format returned. Available values are <code>json</code> and <code>junit</code>. The default value is <code>json</code></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1052,27 +1024,14 @@ Runs a single test synchronously.
   </tbody>
   <tbody>
     <tr>
+     <td><code>tunnelOwner</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is raccomended when using unnamed tunnels.</strong></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
     <td><code>params</code></td>
       <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>Specifies the environment variables you want to use in your test as key-value pairs. </p></td>
-    </tr>
-  </tbody>
-
-  <tbody>
-    <tr>
-     <td><code>taskId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>waitTime</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>format</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
     </tr>
   </tbody>
 </table>
@@ -1286,8 +1245,8 @@ Runs all tests in a project synchronously.
   </tbody>
   <tbody>
     <tr>
-    <td><code>format</code></td>
-    <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Use this to set a response format. Possible values are <code>json</code> and <code>junit</code>.</p></td>
+     <td><code>format</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the data format returned. Available values are <code>json</code> and <code>junit</code>. The default value is <code>json</code></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1304,27 +1263,14 @@ Runs all tests in a project synchronously.
   </tbody>
   <tbody>
     <tr>
+     <td><code>tunnelOwner</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is raccomended when using unnamed tunnels.</strong></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
     <td><code>params</code></td>
       <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>Specifies the environment variables you want to use in your test as key-value pairs. </p></td>
-    </tr>
-  </tbody>
-
-  <tbody>
-    <tr>
-     <td><code>taskId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>waitTime</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>format</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
     </tr>
   </tbody>
 </table>
@@ -1589,7 +1535,7 @@ Runs all tests in a project matching a tag synchronously.
   <tbody>
     <tr>
      <td><code>format</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Use this to set a response format. Possible values are <code>json</code> and <code>junit</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the data format returned. Available values are <code>json</code> and <code>junit</code>. The default value is <code>json</code></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1606,27 +1552,14 @@ Runs all tests in a project matching a tag synchronously.
   </tbody>
   <tbody>
     <tr>
+     <td><code>tunnelOwner</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is raccomended when using unnamed tunnels.</strong></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
     <td><code>params</code></td>
       <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>Specifies the environment variables you want to use in your test as key-value pairs. </p></td>
-    </tr>
-  </tbody>
-
-  <tbody>
-    <tr>
-     <td><code>taskId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>waitTime</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>format</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
     </tr>
   </tbody>
 </table>
@@ -1880,23 +1813,16 @@ Executes synchronously the test you send in the request body and saves the resul
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
     </tr>
   </tbody>
-
   <tbody>
     <tr>
-     <td><code>taskId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>waitTime</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
+     <td><code>tunnelOwner</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is raccomended when using unnamed tunnels.</strong></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>format</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel ID for running tests using <strong>Sauce Connect Proxy.</strong></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the data format returned. Available values are <code>json</code> and <code>junit</code>. The default value is <code>json</code></p></td>
     </tr>
   </tbody>
 </table>
