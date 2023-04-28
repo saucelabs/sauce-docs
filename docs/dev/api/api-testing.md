@@ -275,7 +275,7 @@ Uploads a new test, which you need to provide in the Request Body, to the Sauce 
 <tbody>
   <tr>
    <td><code>unit</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>Must contain the unit of the test you want to upload to the cloud. You can obtain this by going into a Test > <strong>Compose</strong>section > toggle <strong>Code View</strong>.</p></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>Must contain the unit of the test you want to upload to the cloud. You can obtain this by going into a Test > <strong>Compose </strong>section > toggle <strong>Code View</strong>.</p></td>
   </tr>
 </tbody>
 </table>
@@ -2601,7 +2601,31 @@ Creates or updates a build.
   <tbody>
     <tr>
      <td><code>hookId</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Your project's hook ID, which you can create and/or retrieve from your project's <strong>Webhooks</strong> tab.</p></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>Your project's hook ID, which you can create and/or retrieve from your project's <strong>Webhooks</strong> tab.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>id</code></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The buildId you want to create/update.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>environment</code></td>
+     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The environment you want to assign the build to.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>branch</code></td>
+     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The branch the build belongs to.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>issue</code></td>
+     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The issue the build belongs to.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2618,7 +2642,16 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId>/builds' | json_pp
+--request PUT 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId>/builds' \
+-H 'Content-Type: application/json' \
+-d '{
+      "id": "<buildId>",
+      "metadata": {
+        "environment": "<environment>",
+        "branch": "<branch>",
+        "issue": "<issue>"
+      }
+    }'
 ```
 
 </TabItem>
@@ -2627,7 +2660,16 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/<hookId>/builds' | json_pp
+--request PUT 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/<hookId>/builds'  \
+-H 'Content-Type: application/json' \
+-d '{
+      "id": "<buildId>",
+      "metadata": {
+        "environment": "<environment>",
+        "branch": "<branch>",
+        "issue": "<issue>"
+      }
+    }'
 ```
 
 </TabItem>
@@ -2645,24 +2687,21 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </table>
 
 ```jsx title="Sample Response"
-[
-    {
-        "id": "build123",
-        "createdAt": "2023-04-28T09:12:02Z",
-        "updatedAt": "2023-04-28T09:12:02Z",
-        "totalEvents": 22,
-        "successes": 15,
-        "failures": 7
-    },
-    {
-        "id": "build345",
-        "createdAt": "2023-04-28T09:08:54Z",
-        "updatedAt": "2023-04-28T09:08:54Z",
-        "totalEvents": 20,
-        "successes": 20,
-        "failures": 0
+{
+    "id": "<buildId>",
+    "companyId": "<companyId>",
+    "createdAt": "2023-04-28T13:33:29Z",
+    "updatedAt": "2023-04-28T13:33:29Z",
+    "projects": [],
+    "totalEvents": 0,
+    "successes": 0,
+    "failures": 0,
+    "metadata": {
+        "environment": "<environment>",
+        "branch": "<branch>",
+        "issue": "<issue>"
     }
-]
+}
 ```
 
 </details>
