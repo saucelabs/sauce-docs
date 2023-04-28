@@ -1,6 +1,6 @@
 ---
 id: connect
-title: Sauce Connect API Methods
+title: Sauce Connect API Endpoints
 sidebar_label: Sauce Connect
 description: Retrieve information about or close your Sauce Connect tunnels.
 ---

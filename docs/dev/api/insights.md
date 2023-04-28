@@ -1,6 +1,6 @@
 ---
 id: insights
-title: Insights API Methods
+title: Insights API Endpoints
 sidebar_label: Insights
 description: Retrieve Sauce Labs raw analytics data.
 ---
@@ -12,7 +12,7 @@ Use the Insights API methods to retrieve analytics data about your Sauce Labs jo
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
-## Analytics Methods
+## Analytics
 
 ### Get Test Results
 
@@ -998,7 +998,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-## Activity Methods
+## Activity
 
 ### Get Activity
 
@@ -1498,7 +1498,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-## Errors Methods
+## Errors
 
 ### Get Errors
 
@@ -1789,7 +1789,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-## Test Cases Methods
+## Test Cases
 
 ### Get Tests
 
@@ -2713,7 +2713,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-## Concurrency Methods
+## Concurrency
 
 ### Get Max Concurrency Report CSV
 
@@ -2897,7 +2897,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-## Coverage Methods
+## Coverage
 
 ### Get Coverage
 
@@ -3180,7 +3180,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-## Trends Methods
+## Trends
 
 ### Get Trends Tests
 

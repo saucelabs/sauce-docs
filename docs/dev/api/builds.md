@@ -1,6 +1,6 @@
 ---
 id: builds
-title: Builds API Methods
+title: Builds API Endpoints
 sidebar_label: Builds
 description: Retrieve information about the Sauce Labs tests that have been grouped together in builds.
 ---
