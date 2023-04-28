@@ -1,6 +1,6 @@
 ---
 id: api-testing
-title: API Testing API Endpoints 
+title: API Testing API Endpoints
 sidebar_label: API Testing
 ---
 
@@ -2337,7 +2337,7 @@ Creates or updates a build.
   <tbody>
     <tr>
      <td><code>hookId</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>Your project's hook ID, which you can create and/or retrieve from your project's <strong>Webhooks</strong> tab.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Your project's hook ID, which you can create and/or retrieve from your project's <strong>Webhooks</strong> tab.</p></td>
     </tr>
   </tbody>
   <tbody>
