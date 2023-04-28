@@ -838,6 +838,20 @@ module.exports = {
         },
         {
             type: 'category',
+            collapsed: true,
+            items: [
+                'orchestrate',
+                'orchestrate/getting-started',
+                'orchestrate/saucectl-configuration',
+                'orchestrate/building-images',
+                'orchestrate/authenticated-pulls',
+                'orchestrate/best-practices',
+                'orchestrate/faq',
+                'orchestrate/architecture',
+            ],
+        },
+        {
+            type: 'category',
             label: 'Mobile Apps',
             collapsed: true,
             items: [
@@ -1028,19 +1042,6 @@ module.exports = {
                         },
                     ],
                 },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Hosted Orchestration (Beta)',
-            link: { type: 'doc', id: 'hosted-orchestration' },
-            collapsed: true,
-            items: [
-                'hosted-orchestration',
-                'hosted-orchestration/architecture',
-                'hosted-orchestration/running-tests',
-                'hosted-orchestration/building-images',
-                'hosted-orchestration/private-registry',
             ],
         },
         {
