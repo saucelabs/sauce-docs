@@ -88,7 +88,7 @@ Congratulations, you’ve just built your first image! Now we need to store it s
 To allow Sauce Labs to use your custom image, store it in a public Docker Registry. The easiest mechanism is to create an account on Docker Hub because Docker Hub allows you to store unlimited public images for free. If your organization is already using Docker Hub, you can use your existing account.
 
 :::note
-To use an image with Sauce Labs Orchestrate you must have a public repository. If you want to keep your image private, refer to the Using Docker Authenticated Pulls document for instructions.
+To use an image with Sauce Orchestrate you must have a public repository. If you want to keep your image private, refer to the Using Docker Authenticated Pulls document for instructions.
 :::
 
 The example uses Docker Hub, but it is possible to use different registries, if you prefer. Adapt the example based on the registry you are using.
