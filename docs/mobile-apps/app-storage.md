@@ -15,6 +15,10 @@ When testing mobile apps, you have the option to upload your app to our app stor
 - Storing apps for up to 60 days.
 - App Storage supports app files in _.apk, _.aab, _.ipa, or _.zip format, up to 4GB.
 
+:::note Limitation
+Executable files (.exe) are not supported.
+:::
+
 :::caution
 Make sure you have a debuggable AND non-obfuscated version of your application uploaded to Mobile App Storage to leverage all of our capabilities like Biometrics, Image injection, or Mobile App Diagnostics.
 :::
