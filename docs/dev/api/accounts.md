@@ -8,7 +8,7 @@ description: Manage all aspects of your Sauce Labs organization, team, and membe
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Accounts API exposes the following methods related to individual and team account configuration and monitoring.
+The Accounts API exposes the following endpoints related to individual and team account configuration and monitoring.
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
@@ -1503,6 +1503,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 Returns details about the current in-use virtual machines and real devices along with the maximum allowed values.
 
 :::note Real Devices
+
 At this time, the current usage for real devices is not accurately returned in the response. As a workaround, use the following endpoint:
 
 ```jsx
