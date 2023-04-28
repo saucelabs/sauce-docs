@@ -145,6 +145,7 @@ sauce:
 suites:
   - name: run sauce test
     image: saucelabs/sl-demo-docker-primary:0.0.1
+    workload: webdriver
     entrypoint: "mvn test"
     files:
       - src: "runsauce.json"
