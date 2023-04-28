@@ -148,4 +148,4 @@ This command will start a container based on your specified image with a shell o
 It is highly recommended to not hardcode your Sauce Credentials within your test scripts. For convenience purposes we automatically inject your Sauce Credentials into the running Suace Orchestrate container under the following environment variable names:
 
 - `SAUCE_USERNAME`
-- `SAUCE_ACCESSKEY`
+- `SAUCE_ACCESS_KEY`
