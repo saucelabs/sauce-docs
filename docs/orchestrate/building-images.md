@@ -123,7 +123,7 @@ First, we use docker login to authenticate in Docker Hub. If you use a registry 
 :::
 
 ### Using your Image in Sauce Labs
-After the image is successfully pushed, it is available for use in Hosted Orchestration. Create a SauceCTL configuration like the one below. For more information on running tests see [Running Tests](/hosted-orchestration/running-tests).
+After the image is successfully pushed, it is available for use in Hosted Orchestration. Create a SauceCTL configuration like the one below. For more information, see [SauceCTL Configuration](/orchestrate/saucectl-configuration).
 
 <Tabs
      defaultValue="SauceCTL"
