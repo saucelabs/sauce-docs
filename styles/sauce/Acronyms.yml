@@ -53,6 +53,7 @@ exceptions:
   - SDK
   - SQL
   - SSH
+  - SSO
   - SSL
   - SVG
   - TBD
