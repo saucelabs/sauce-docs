@@ -7,7 +7,7 @@ sidebar_label: API Testing
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-These API methods allow you to interact with Sauce Labs API Testing functionality. You can execute tests, view analytics, retrieve project information, and more.
+These API endpoints allow you to interact with Sauce Labs API Testing functionality. You can execute tests, view analytics, retrieve project information, and more.
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
