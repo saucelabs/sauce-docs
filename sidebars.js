@@ -691,6 +691,7 @@ module.exports = {
                             items: [
                                 'basics/sso/setting-up-sso',
                                 'basics/sso/setting-up-sso-special-cases',
+                                'basics/sso/migration-from-deprecated-sso',
                                 {
                                     type: 'category',
                                     label: 'Configuring Identity Providers',
@@ -713,6 +714,7 @@ module.exports = {
                             items: [
                                 'basics/sso-deprecated/sso-hub',
                                 'basics/sso-deprecated/setting-up-single-sign-on',
+                                'basics/sso/migration-from-deprecated-sso',
                                 'basics/sso-deprecated/config-adfs',
                                 'basics/sso-deprecated/config-okta',
                             ],
