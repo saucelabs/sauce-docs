@@ -1246,7 +1246,7 @@ Runs all tests in a project synchronously.
   <tbody>
     <tr>
      <td><code>format</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the data format returned. Available values are <code>json</code> and <code>junit</code>. The default value is <code>json</code></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies the data format returned. Available values are <code>json</code> and <code>junit</code>. The default value is <code>json</code></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1535,7 +1535,7 @@ Runs all tests in a project matching a tag synchronously.
   <tbody>
     <tr>
      <td><code>format</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the data format returned. Available values are <code>json</code> and <code>junit</code>. The default value is <code>json</code></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies the data format returned. Available values are <code>json</code> and <code>junit</code>. The default value is <code>json</code></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1822,7 +1822,7 @@ Executes synchronously the test you send in the request body and saves the resul
   <tbody>
     <tr>
      <td><code>format</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the data format returned. Available values are <code>json</code> and <code>junit</code>. The default value is <code>json</code></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies the data format returned. Available values are <code>json</code> and <code>junit</code>. The default value is <code>json</code></p></td>
     </tr>
   </tbody>
 </table>
@@ -2343,7 +2343,7 @@ Creates or updates a build.
   <tbody>
     <tr>
      <td><code>id</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The buildId you want to create/update.</p></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The buildId you want to create or update.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -3170,13 +3170,13 @@ Returns metrics for all tests in a project.
   <tbody>
     <tr>
      <td><code>failuresOnly</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Filter the metrics to include only the tests that completed with failure(s).</p></td>
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Filters the metrics to include only the tests that completed with failure(s).</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>footprint</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Filter the metrics based on the footprint.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Filters the metrics based on the footprint.</p></td>
     </tr>
   </tbody>
   <tbody>
