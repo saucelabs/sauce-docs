@@ -838,6 +838,7 @@ module.exports = {
         },
         {
             type: 'category',
+            label: 'Orchestrate',
             collapsed: true,
             items: [
                 'orchestrate',
