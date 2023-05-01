@@ -50,13 +50,14 @@ You can install the SDK with Swift Package Manager (SPM) or CocoaPods. The SPM p
 <Tabs>
   <TabItem value="xcode" label="Xcode" default>
    <ol>
-   <li>In Xcode, select <b>File > Add Packages</b>, then search for https://<span>github.com/backtrace-labs/backtrace-cocoa.git</span>.</li>
-   <li>In the <b>Dependency Rule</b> list, specify the Branch as <b>SwiftPM</b>, then select <b>Add Package</b>.</li>
-   <li>Verify your project Package Dependencies list backtrace-cocoa.</li>
+   <li>In <b>Xcode</b> select <b>File > Add Packages</b>, then search for <b>backtrace-cocoa</b>.</li>
+   <li>For the <b>Dependency Rule</b>, select <b>Branch</b> and enter <b>SPM</b> as the branch name.</li>
+   <li>Select <b>Add Package</b>.</li>
+   <li>Verify your project Package Dependencies list for backtrace-cocoa.</li>
    <li>Add Backtrace to your target’s Frameworks, Libraries, and Embedded Content.</li>
    </ol>
   </TabItem>
-  <TabItem value="swift" label="Swift">
+  <TabItem value="SPM" label="Swift Package Manager">
    Add the following dependency to your <code>Package.swift</code> file:
 
 ```
