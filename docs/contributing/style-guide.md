@@ -205,24 +205,13 @@ and then use the tabs as follows:
       <td>
 
 ```markdown
-<Tabs
-groupId="lang-ex"
-defaultValue="java"
-values={[
-{label: 'Java', value: 'java'},
-{label: 'Node.js', value: 'js'},
-]}>
-
-<TabItem value="java">
-
-This would include information or examples for Java
-
-</TabItem>
-<TabItem value="js">
-
-This would include information or examples for JavaScript
-
-</TabItem>
+<Tabs groupId="lang-ex">
+  <TabItem value="java" label="Java" default>
+    This would include information or examples for Java
+  </TabItem>
+  <TabItem value="js" label="Node.js">
+    This would include information or examples for Node.js
+  </TabItem>
 </Tabs>
 ```
 
@@ -236,24 +225,13 @@ This would include information or examples for JavaScript
 </td>
       <td>
 
-<Tabs
-groupId="lang-ex"
-defaultValue="java"
-values={[
-{label: 'Java', value: 'java'},
-{label: 'Node.js', value: 'js'},
-]}>
-
-<TabItem value="java">
-
-This would include information or examples for Java
-
-</TabItem>
-<TabItem value="js">
-
-This would include information or examples for JavaScript
-
-</TabItem>
+<Tabs groupId="lang-ex">
+  <TabItem value="java" label="Java" default>
+    This would include information or examples for Java
+  </TabItem>
+  <TabItem value="js" label="Node.js">
+    This would include information or examples for Node.js
+  </TabItem>
 </Tabs>
 
 </td>
@@ -263,7 +241,7 @@ This would include information or examples for JavaScript
 
 ## Inline Code
 
-To refer to a single class or method name within a sentence, place single backticks around the name.
+To refer to a single class or method name in a sentence, place single backticks around the name.
 
 <table class="code">
   <tbody>
