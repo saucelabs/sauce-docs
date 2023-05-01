@@ -349,7 +349,7 @@ To create a new step in the step editor:
 1. On the **Test Cases** tab, click the test case you want to create a step for. To create a new test case, see [Adding a Test Case](#adding-a-test-case).
 2. To add a new step, click the blue plus sign.
 
-<img src={useBaseUrl('/img/dev/low-code/step-editor-new-step.png')} alt="New step in the step editor - blue plus sign" width="600"/>
+<img src={useBaseUrl('/img/dev/low-code/step-editor-new-step.png')} alt="New step in the step editor - blue plus sign" width="300"/>
 
 3. In the **Action** field, enter a command and any additional details. As you type, suggestions will be displayed; you can select one or continue entering the text manually.
 
@@ -361,11 +361,11 @@ To create a new step in the step editor:
 
 5. You can add and edit step details in the list of steps, or you can click the expand button to open the editor in a separate window.
 
-<img src={useBaseUrl('/img/dev/low-code/step-editor-window.png')} alt="Step editor - Separate window" width="600"/>
+<img src={useBaseUrl('/img/dev/low-code/step-editor-window.png')} alt="Step editor - Separate window" width="300"/>
 
 6. To edit the step as code, click the **Code** button.
 
-<img src={useBaseUrl('/img/dev/low-code/step-editor-code-editor.png')} alt="Step editor - Code editor" width="600"/>
+<img src={useBaseUrl('/img/dev/low-code/step-editor-code-editor.png')} alt="Step editor - Code editor" width="300"/>
 
 7. To save the step, click the green checkmark.
 
