@@ -66,9 +66,9 @@ You can install the SDK with Swift Package Manager (SPM) or CocoaPods. The SPM p
 
   </TabItem>
   <TabItem value="cocoapods" label="CocoaPods">
-   In your <code>Podfile</code>:
+   Add the following to your <code>Podfile</code>:
    <ol>
-   <li>Specify <code>use_frameworks!</code></li>
+   <li>Specify <code>use_frameworks!</code>.</li>
    <li>Add the <code>Backtrace</code> pod:
 
 ```
