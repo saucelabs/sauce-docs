@@ -32,11 +32,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 - Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
 - A Backtrace project and a submission token.
 
-<!-- prettier-ignore -->
 :::tip Generate a Submission Token
 
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
+
 :::
 
 ### System Requirements
@@ -44,30 +44,40 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 - Xcode 10 or above
 
 ## Install the SDK
-You can use this SDK through either Swift Package Manager or CocoaPods. The SPM package can be integrated directly within Xcode or by editing your package's Package.swift file.<br>
-Choose one of the following integration methods.
 
-### Via Xcode
-1. In Xcode File > Add Packages, search for `https://github.com/backtrace-labs/backtrace-cocoa.git`
-1. In the Dependency Rule list specify the Branch as `SwiftPM`, then click Add Package.
-1. Verify your project Package Dependencies list backtrace-cocoa.
-1. Be sure to add Backtrace to your target’s Frameworks, Libraries, and Embedded Content.
+You can install the SDK with Swift Package Manager (SPM) or CocoaPods. The SPM package can be integrated directly in Xcode or by editing your package's `Package.swift` file.
 
-### Via Package.swift
-Add this dependency to your `Package.swift` file:
+<Tabs>
+  <TabItem value="xcode" label="Xcode" default>
+   <ol>
+   <li>In Xcode, select <b>File > Add Packages</b>, then search for https://<span>github.com/backtrace-labs/backtrace-cocoa.git</span>.</li>
+   <li>In the <b>Dependency Rule</b> list, specify the Branch as <b>SwiftPM</b>, then select <b>Add Package</b>.</li>
+   <li>Verify your project Package Dependencies list backtrace-cocoa.</li>
+   <li>Add Backtrace to your target’s Frameworks, Libraries, and Embedded Content.</li>
+   </ol>
+  </TabItem>
+  <TabItem value="swift" label="Swift">
+   Add the following dependency to your <code>Package.swift</code> file:
+
 ```
 .package(url: "https://github.com/backtrace-labs/backtrace-cocoa.git, branch: "feature/SwiftPM")
 ```
 
-### Via CocoaPods
-Add the Backtrace pod to your `Podfile`:
+  </TabItem>
+  <TabItem value="cocoapods" label="CocoaPods">
+   In your <code>Podfile</code>:
+   <ol>
+   <li>Specify <code>use_frameworks!</code></li>
+   <li>Add the <code>Backtrace</code> pod:
+
 ```
 pod 'Backtrace'
 ```
 
-:::note
-Make sure to specify `use_frameworks!` in your `Podfile`.
-:::
+   </li>
+   </ol>
+  </TabItem>
+</Tabs>
 
 ## Initialize the Backtrace Client
 
