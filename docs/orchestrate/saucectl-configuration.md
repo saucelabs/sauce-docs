@@ -1,19 +1,19 @@
 ---
 id: saucectl-configuration
-title: SauceCTL Configuration
-sidebar_label: SauceCTL Configuration
+title: saucectl Configuration
+sidebar_label: saucectl Configuration
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This page describes each SauceCTL configuration option and useful commands to use when interacting with Sauce Orchestrate. If you are looking for information about getting started with Sauce Orchestrate see [Getting Started](./getting-started.md)
+This page describes each `saucectl` configuration option and useful commands to use when interacting with Sauce Orchestrate. To get started with Sauce Orchestrate, see [Getting Started](/orchestrate/getting-started/).
 
 ## Configuration Options
 
 :::note
-Not all SauceCTL configuration options are detailed below, only those that pertain to Sauce Orchestrate. For the full list of options see the [SauceCTL Documentation](../dev/cli/saucectl.md)
+Only the `saucectl` configuration options for Sauce Orchestrate are listed below. For the full list of options, see [Using the saucectl CLI](/dev/cli/saucectl/).
 :::
 
 ### `apiVersion`
@@ -30,7 +30,7 @@ apiVersion: v1alpha
 
 <p><small>| REQUIRED | STRING |</small></p>
 
-Tells SauceCTL this is a Sauce Orchestrate configuration. `imagerunner` is the required value for Sauce Orchestrate.
+Tells `saucectl` this is a Sauce Orchestrate configuration. `imagerunner` is the required value for Sauce Orchestrate.
 
 ```yaml
 kind: imagerunner
@@ -60,7 +60,7 @@ image: saucelabs/sl-demo-docker-primary:0.0.1
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-The credentials needed to access an image hosted in a private registry. It is highly recommend to not hardcode credentials in your SauceCTL cnofig. Use environment variables instead.
+The credentials needed to access an image hosted in a private registry. It is highly recommend to not hardcode credentials in your `saucectl` config. Use environment variables instead.
 
 ```yaml
 imagePullAuth:
@@ -105,7 +105,7 @@ env:
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-In order for SauceCTL to download files from the Sauce Orchestrate container two configurations are needed. The first is to tell Orchestrate which files to upload from the container once your entrypoint command finishes.
+In order for `saucectl` to download files from the Sauce Orchestrate container two configurations are needed. The first is to tell Orchestrate which files to upload from the container once your entrypoint command finishes.
 
 ```yaml
 # declared within your suites definition
@@ -115,7 +115,7 @@ suites:
     - "/workdir/best-practice/target/surefire-reports/*"
 ```
 
-Then you must tell SauceCTL to download the artifacts to your machine.
+Then you must tell `saucectl` to download the artifacts to your machine.
 
 ```yaml
 # declared at the top level of your config.yml
@@ -135,13 +135,13 @@ The following limitations are in effect for artifact downloads. They do not appl
 - You can only specify up to 10 paths
   :::
 
-## SauceCtl Commands
+## saucectl Commands
 
-The following commands are useful when interacting with Sauce Orchestrate
+The following commands are useful when interacting with Sauce Orchestrate.
 
 ### `saucectl run`
 
-The main command to run a Sauce Orchestrate job. Must be executed at the root level of your project. Your project must contain a configuration file located in `.sauce/config.yml`
+The main command to run a Sauce Orchestrate job. Must be executed at the root level of your project. Your project must contain a configuration file located in `.sauce/config.yml`.
 
 ```bash
 saucectl run
@@ -149,7 +149,7 @@ saucectl run
 
 ### `saucectl imagerunner logs`
 
-Get logs of the container from a Sauce Orchestrate run
+Get logs of the container from a Sauce Orchestrate run.
 
 ```bash
 saucectl imagerunner logs <runID>
@@ -160,5 +160,5 @@ saucectl imagerunner logs <runID>
 Get artifacts/files of the container from a Sauce Orchestrate run. Only the files specified in `artifacts` configuration will be downloaded.
 
 ```bash
-saucectl imagerunner artifacts <runId>`
+saucectl imagerunner artifacts <runID>
 ```

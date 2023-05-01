@@ -14,26 +14,26 @@ This page outlines how to run your browser and mobile tests in Sauce Orchestrate
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-- The SauceCTL client installed. For more information, see [Using the saucectl CLI](/dev/cli/saucectl).
+- The `saucectl` client installed. For more information, see [Using the saucectl CLI](/dev/cli/saucectl).
 - A container image containing your tests. More information about building container images is found below and in [Building Images](/orchestrate/building-images).
 - Access to a Docker registry. Our examples will use [DockerHub](https://hub.docker.com).
 
 ## How It Works
 
-Sauce Orchestrate utilizes container technology to package and run your tests within the Sauce Labs cloud.
+Sauce Orchestrate utilizes container technology to package and run your tests in the Sauce Labs cloud.
 
-<b>There are 3 high level steps to using Sauce Orchestrate:</b>
+To use Sauce Orchestrate:
 
-1. Package your test scripts and dependencies within a container Image [Go There](#step-1)
-2. Push that image to a remote registry accessible by Sauce Labs [Go There](#step-2)
-3. Configure SauceCTL to run your image [Go There](#step-4)
-4. Use SauceCtl to run your tests within Sauce Orchestrate [Go There](#step-4)
+1. Package your test scripts and dependencies in a container Image. For more information, see [Create a Container Image of Your Tests](#1-create-a-container-image-of-your-tests).
+2. Push that image to a remote registry accessible by Sauce Labs. For more information, see [Push Image to a Docker Registry](#2-push-image-to-a-docker-registry).
+3. Configure `saucectl` to run your image. For more information, see [Configure saucectl](#3-configure-saucectl).
+4. Use `saucectl` to run your tests in Sauce Orchestrate. For more information, see [Run Tests Using saucectl](#4-run-tests-using-saucectl).
 
 We will be using the [Sauce Labs Demo Java project](https://github.com/saucelabs-training/demo-java) to help walk through the steps.
 
-## 1. Create a Container Image of Your Tests {#step-1}
+## 1. Create a Container Image of Your Tests
 
-If you are already familiar with creating container images then there is nothing special about doing it for Sauce Orchestrate! However, if you are unfamiliar or would like a detailed walkthrough then visit our [Building Images](./building-images.md) page for a comprehensive guide on how to build an image.
+If you are already familiar with creating container images then there is nothing special about doing it for Sauce Orchestrate. However, if you are unfamiliar or would like a detailed walkthrough, see [Building Docker Images](/orchestrate/building-images/) page for a comprehensive guide on how to build an image.
 
 Within the demo-java project you will find a sample Dockerfile, which is a file used to define the contents of your image:
 
@@ -58,9 +58,11 @@ With this Dockerfile created you can now tell Docker to build it.
 docker build [docker_user]/demo-java-orchestrate-tutorial:0.0.1 .
 ```
 
-Note - you will need to replace `[docker_user]` with your registry username.
+:::note
+You will need to replace `[docker_user]` with your registry username.
+:::
 
-## 2. Push Image to a Docker Registry {#step-2}
+## 2. Push Image to a Docker Registry
 
 In order for Sauce Labs to access your container image it must be accessible in a Docker registry. There are many available registries to choose from and Sauce Labs supports any registry using the standard Docker API. For this example we will use [DockerHub](https://hub.docker.com).
 
@@ -70,13 +72,15 @@ This example pushes the image to a public registry for simplicity. We advise you
 docker push [docker_user]/demo-java-orchestrate-tutorial:0.0.1
 ```
 
-Note - you will need to replace `[docker_user]` with your registry username.
+:::note
+You will need to replace `[docker_user]` with your registry username.
+:::
 
-## 3. Configure SauceCTL {#step-3}
+## 3. Configure saucectl
 
-To run your tests on Sauce Orchestrate using the image you just created, you will use our developer friendly CLI tool called SauceCTL. If you do not have SauceCTL installed please read our [SauceCTL documentation](/dev/cli/saucectl) first. SauceCTL version 0.136 or later is required to run Sauce Orchestrate.
+To run your tests on Sauce Orchestrate using the image you just created, you will use our developer friendly CLI tool called `saucectl`. If you do not have `saucectl` installed, see [Using the saucectl CLI](/dev/cli/saucectl). `saucectl` version 0.136 or later is required to run Sauce Orchestrate.
 
-In order for SauceCTL to understand how to run your project you must create a file called `config.yml` within a `.sauce` located at the root of your project. The sample configuration for the demo java project is located below.
+In order for `saucectl` to understand how to run your project you must create a file called `config.yml` in `.sauce` located at the root of your project. The sample configuration for the demo java project is located below.
 
 ```yaml showLineNumbers
 apiVersion: v1alpha
@@ -100,19 +104,19 @@ download:
   directory: ./artifacts
 ```
 
-The most important configuration options to take note of are the `image` and `entrypoint`. These tell Sauce Orchestrate the location of your image and which command should be used to run your tests respectively. For more information about the SauceCTL configuration options see [Configuring SauceCTL for Sauce Orchestrate](./saucectl-configuration.md).
+The most important configuration options to take note of are the `image` and `entrypoint`. These tell Sauce Orchestrate the location of your image and which command should be used to run your tests respectively. For more information about the `saucectl` configuration options see [saucectl Configuration](/orchestrate/saucectl-configuration/).
 
-## 4. Run Tests Using SauceCTL {#step-4}
+## 4. Run Tests Using saucectl
 
-Then run the following command at the root of your project
+Run the following command at the root of your project:
 
 ```bash
   saucectl run
 ```
 
-You should then see SauceCTL output the status of your job in the command prompt. During the running of your tests you will see some important log statements.
+You should then see `saucectl` output the status of your job in the command prompt. During the running of your tests you will see some important log statements.
 
-You will see information about the version of SauceCTL, the name of the image being run, the unique identifier (`runID`) for this job, and the status update (`Created` -> `Running`).
+You will see information about the version of `saucectl`, the name of the image being run, the unique identifier (`runID`) for this job, and the status update (`Created` -> `Running`).
 
 ```
 Running version 0.136.0
@@ -124,13 +128,13 @@ Running version 0.136.0
 09:47:00 INF Status change. new=Running old=Created runID=19595a78706f411abe3dad4dc7608d5f
 ```
 
-From there SauceCTL will wait for your tests to complete. At this point you can check the Sauce Labs UI to see running tests as well. While your tests are running SauceCTL will output the following every couple of seconds
+`saucectl` will wait for your tests to complete. You can check the Sauce Labs UI to see running tests as well. While your tests are running `saucectl` will output the following every couple of seconds
 
 ```
 09:47:30 INF Suites in progress: 1
 ```
 
-After your entrypoint command has finished SauceCTL will output the command logs from Sauce Orchestrate and download any artifacts from the container that you configured. The following is an example output.
+After your entrypoint command has finished `saucectl` will output the command logs from Sauce Orchestrate and download any artifacts from the container that you configured. The following is an example output.
 
 ```
 ...
@@ -156,4 +160,4 @@ After your entrypoint command has finished SauceCTL will output the command logs
   ✔    All suites have passed               1m20s
 ```
 
-Depending on the return code of your entrypoint command SauceCTL will finish with either a status `Succeeded` or `Failure`. Your test framework most likely already handles this for you but SauceCTL will fail if your entrypoint command returns with a non-zero exit code.
+Depending on the return code of your entrypoint command `saucectl` will finish with either a status `Succeeded` or `Failure`. Your test framework most likely already handles this for you but `saucectl` will fail if your entrypoint command returns with a non-zero exit code.
