@@ -717,12 +717,12 @@ sauce:
 suite:
   - name: My Saucy Test
     smartRetry:
-      failedClassesOnly: true
+      failedOnly: true
 ```
 
 ---
 
-#### `failedClassOnly`
+#### `failedOnly`
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
@@ -732,8 +732,15 @@ When set to `true`, the retry will test only the classes that failed during the 
 suite:
   - name: My Saucy Test
     smartRetry:
-      failedClassesOnly: true
+      failedOnly: true
 ```
+---
+
+#### `failedClassesOnly`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+`failedClassesOnly` is deprecated. Use `failedOnly` instead.
 
 ---
 
