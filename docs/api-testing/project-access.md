@@ -16,7 +16,7 @@ Project settings allow you to view the access to projects that was defined when 
 - An understanding of [Team Management](/basics/acct-team-mgmt/managing-user-info/) if you are an organization admin configuring team access to projects.
 
 :::note
-Sauce Labs Team Management features are available for <span className="sauceDBlue">Enterprise Plans only</span>.
+Sauce Labs Team Management features are available for <span className="sauceGreen">Enterprise Plans only</span>.
 :::
 
 ## Project Access Levels and User Scenarios

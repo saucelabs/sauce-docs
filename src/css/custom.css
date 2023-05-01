@@ -468,14 +468,14 @@ html[data-theme="dark"] .card:hover {
     border-radius: 4px;
 }
 
-.sauceDBlue {
+.sauceGreen {
     background: var(--green-500);
     font-weight: 750;
     padding: 0.2rem;
     border-radius: 4px;
 }
 
-html[data-theme="dark"] .sauceDBlue {
+html[data-theme="dark"] .sauceGreen {
     color: var(--dark-500);
 }
 
@@ -491,6 +491,7 @@ html[data-theme="dark"] .sauceDBlue {
     color: var(--dark-500);
     padding: 0.2rem;
     font-weight: 750;
+    border-radius: 4px;
 }
 
 .sauceOrange {

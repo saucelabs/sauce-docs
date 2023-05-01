@@ -7,8 +7,8 @@
   <a href="https://docs.saucelabs.com/contributing/"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
   <a href="https://github.com/saucelabs/sauce-docs/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
   <a href="https://gitpod.io/#https://github.com/saucelabs/sauce-docs"><img src="https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod" alt="Gitpod Ready-to-Code"/></a>
-  <a href="https://github.com/saucelabs/sauce-docs/actions/workflows/deploy.yml"><img src="https://github.com/saucelabs/sauce-docs/actions/workflows/deploy.yml/badge.svg" alt= "Sauce Labs Pipeline Browser Tests"/></a>
-  <a href="https://github.com/saucelabs/sauce-docs/actions/workflows/post-build-tests.yml"><img src="https://github.com/saucelabs/sauce-docs/actions/workflows/post-build-tests.yml/badge.svg" alt= "Post Build Sauce Labs Tests"/>
+  <a href="https://github.com/saucelabs/sauce-docs/actions/workflows/deploy-to-production.yml"><img src="https://github.com/saucelabs/sauce-docs/actions/workflows/deploy-to-production.yml/badge.svg" alt= "Deploy to Production"/></a>
+  <a href="https://github.com/saucelabs/sauce-docs/actions/workflows/link-checker.yml"><img src="https://github.com/saucelabs/sauce-docs/actions/workflows/link-checker.yml/badge.svg" alt= "Sauce Docs Link Checker"/>
 </p>
 
 <p align="center">

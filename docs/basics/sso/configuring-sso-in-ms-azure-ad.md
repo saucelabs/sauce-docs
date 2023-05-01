@@ -6,7 +6,7 @@ sidebar_label: Configuring MS Azure AD
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><span className="sauceDBlue">Enterprise Plans only</span></p>
+<p><span className="sauceGreen">Enterprise Plans only</span></p>
 
 1. Log into **Azure** administrator panel and go to **Active Directory**.
 2. In the menu click **Enterprise Applications**.

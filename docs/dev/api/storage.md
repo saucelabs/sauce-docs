@@ -1,6 +1,6 @@
 ---
 id: storage
-title: File Storage API Methods
+title: File Storage API Endpoints
 sidebar_label: Storage
 description: Upload and manage files in Sauce Storage.
 ---
