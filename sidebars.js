@@ -848,6 +848,7 @@ module.exports = {
                 'orchestrate/authenticated-pulls',
                 'orchestrate/best-practices',
                 'orchestrate/faq',
+                'orchestrate/showcase',
                 'orchestrate/architecture',
             ],
         },
