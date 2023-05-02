@@ -6,14 +6,21 @@ sidebar_label: Setting Up SSO
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><span className="sauceDBlue">Enterprise Plans only</span></p>
+<p><span className="sauceGreen">Enterprise Plans only</span></p>
 
 Sauce Labs supports Identity Provider (IdP)-initiated and Service Provider (SP)-initiated Single Sign-On (SSO) via SAML 2.0 protocol. This feature allows your authorized employees to access Sauce Labs in a moderated fashion, as an alternative to using credentials. SAML SSO is available to invoiced accounts, and can only be implemented by the organization admin of the account. If you are an invoice customer, the following sections will guide you on how to set up SAML SSO.
 
+Sauce Labs supports the following features:
+
+- [SP-initiated SSO](/basics/sso/logging-in-via-sso/#service-provider-sp-initiated-sso).
+- [IdP-initiated SSO](/basics/sso/logging-in-via-sso/#identity-provider-idp-initiated-sso).
+- [JIT (Just-In-Time) Provisioning](/basics/sso/setting-up-sso/#just-in-time-jit-provisioning).
+- [Force authentication](/basics/sso/setting-up-sso/#enforce-saml-sso).
+
 ## What You'll Need
 
-- An enterprise license for Sauce Labs
-- Organization admin access (see [User Roles](/basics/acct-team-mgmt/managing-user-info) for more information)
+- An enterprise license for Sauce Labs.
+- Organization admin access (see [User Roles](/basics/acct-team-mgmt/managing-user-info) for more information).
 
 ## Special Cases
 
@@ -30,11 +37,15 @@ SSO at Sauce Labs is global. In other words, it does not matter in which region 
 ## Setting Up Identity Provider
 
 :::tip
+
 We provide preconfigured SAML applications for some identity providers. They allow you to set up SSO integration with a few clicks. Choose your provider and follow the configuration steps:
 
+- [Auth0](/basics/sso/configuring-sso-in-auth0)
 - [Google](/basics/sso/configuring-sso-in-google)
 - [Microsoft Azure Active Directory](/basics/sso/configuring-sso-in-ms-azure-ad)
+- [Okta](/basics/sso/configuring-sso-in-okta)
 - [OneLogin](/basics/sso/configuring-sso-in-onelogin)
+
 :::
 
 If you use a custom identity provider or your provider does not appear in the list above, please complete the manual setup:
@@ -157,6 +168,10 @@ You can toggle this setting in SSO settings:
 Organization admins do not have to manually create accounts at Sauce Labs for new SSO users. JIT makes the onboarding process much more efficient.
 
 New users can sign up via SP or IdP-initiated SSO and the new accounts at Sauce Labs will be created automatically.
+
+:::tip
+Make sure that you assign your [company email domains](/basics/sso/setting-up-sso/#email-domains) to your SSO integration at Sauce Labs so that new accounts can be provisioning via the SP-initiated flow.
+::::
 
 #### Team placement
 

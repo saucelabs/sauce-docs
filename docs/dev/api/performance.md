@@ -1,6 +1,6 @@
 ---
 id: performance
-title: Performance API Methods
+title: Performance API Endpoints
 sidebar_label: Performance
 description: View and  manage front-end performance test data.
 ---

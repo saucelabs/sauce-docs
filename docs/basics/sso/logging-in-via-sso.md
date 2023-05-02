@@ -6,7 +6,7 @@ sidebar_label: Logging In via SSO
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><span className="sauceDBlue">Enterprise Plans only</span></p>
+<p><span className="sauceGreen">Enterprise Plans only</span></p>
 
 When using SAML SSO, we have two methods for starting Single Sign-On (SSO): [SP-initiated](#service-provider-sp-initiated-sso) or [IdP-initiated](#identity-provider-idp-initiated-sso).
 

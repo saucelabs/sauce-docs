@@ -350,6 +350,7 @@ module.exports = {
                 'dev/low-code/schedules',
                 'dev/low-code/reports',
                 'dev/low-code/databases',
+                'dev/low-code/executions',
                 'dev/low-code/nlp-reference',
                 'dev/low-code/variables',
                 'dev/low-code/troubleshooting',
@@ -695,8 +696,10 @@ module.exports = {
                                     label: 'Configuring Identity Providers',
                                     collapsed: true,
                                     items: [
+                                        'basics/sso/configuring-sso-in-auth0',
                                         'basics/sso/configuring-sso-in-google',
                                         'basics/sso/configuring-sso-in-ms-azure-ad',
+                                        'basics/sso/configuring-sso-in-okta',
                                         'basics/sso/configuring-sso-in-onelogin',
                                     ],
                                 },
@@ -835,6 +838,21 @@ module.exports = {
         },
         {
             type: 'category',
+            label: 'Orchestrate',
+            collapsed: true,
+            items: [
+                'orchestrate',
+                'orchestrate/getting-started',
+                'orchestrate/saucectl-configuration',
+                'orchestrate/building-images',
+                'orchestrate/authenticated-pulls',
+                'orchestrate/best-practices',
+                'orchestrate/faq',
+                'orchestrate/architecture',
+            ],
+        },
+        {
+            type: 'category',
             label: 'Mobile Apps',
             collapsed: true,
             items: [
@@ -854,6 +872,7 @@ module.exports = {
                     label: 'Features',
                     collapsed: true,
                     items: [
+                        'mobile-apps/features/ios-version-management',
                         'mobile-apps/features/bypass-screenshot',
                         'mobile-apps/features/virtual-usb',
                         'mobile-apps/features/biometric-authentication',
@@ -909,6 +928,7 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'mobile-apps/automated-testing/espresso-xcuitest',
+                                'mobile-apps/automated-testing/espresso-xcuitest/xcuitest-introduction',
                                 'mobile-apps/automated-testing/espresso-xcuitest/espresso',
                                 'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
 
@@ -1013,16 +1033,6 @@ module.exports = {
                         },
                         {
                             type: 'category',
-                            label: 'Puppeteer',
-                            collapsed: true,
-                            items: [
-                                'web-apps/automated-testing/puppeteer',
-                                'web-apps/automated-testing/puppeteer/quickstart',
-                                'web-apps/automated-testing/puppeteer/yaml',
-                            ],
-                        },
-                        {
-                            type: 'category',
                             label: 'Replay',
                             collapsed: true,
                             items: [
@@ -1033,19 +1043,6 @@ module.exports = {
                         },
                     ],
                 },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Hosted Orchestration (Beta)',
-            link: { type: 'doc', id: 'hosted-orchestration' },
-            collapsed: true,
-            items: [
-                'hosted-orchestration',
-                'hosted-orchestration/architecture',
-                'hosted-orchestration/running-tests',
-                'hosted-orchestration/building-images',
-                'hosted-orchestration/private-registry',
             ],
         },
         {
@@ -1107,14 +1104,19 @@ module.exports = {
                     label: 'Use Cases',
                     collapsed: true,
                     items: [
+                        'api-testing/use-cases/key-value',
                         'api-testing/use-cases/integration-test',
                         'api-testing/use-cases/compose-body',
                         'api-testing/use-cases/vault-snippet',
+                        'api-testing/use-cases/dynamic-header',
                         'api-testing/use-cases/auth-token',
                         'api-testing/use-cases/dynamic-dates',
                         'api-testing/use-cases/generate-test-data',
-                        'api-testing/use-cases/use-drive',
+                        'api-testing/use-cases/fact',
                         'api-testing/use-cases/vault-variable',
+                        'api-testing/use-cases/saving-token-kv',
+                        'api-testing/use-cases/set-variable',
+                        'api-testing/use-cases/use-drive',
                         'api-testing/use-cases/using-environments',
                         'api-testing/use-cases/working-with-headers',
                     ],

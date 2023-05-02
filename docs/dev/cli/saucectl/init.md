@@ -28,7 +28,6 @@ In either case, the command generates a `.sauce/config.yml` folder and file in t
   - [Cypress YAML](/web-apps/automated-testing/cypress/yaml)
   - [Playwright YAML](/web-apps/automated-testing/playwright/yaml)
   - [TestCafe YAML](/web-apps/automated-testing/testcafe/yaml)
-  - [Puppeteer YAML](/web-apps/automated-testing/puppeteer/yaml)
   - [Espresso YAML](/mobile-apps/automated-testing/espresso-xcuitest/espresso)
   - [XCUITest YAML](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest)
 
@@ -132,7 +131,7 @@ The authentication access key associated with the Sauce Labs user account making
 ### <span className="cli">--app</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Espresso/XCUITest Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Espresso/XCUITest Only</span> |</small></p>
 
 The path to a valid mobile application to test.
 
@@ -155,7 +154,7 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 ### <span className="cli">--browserName</span>
 
 <div className="cli-desc">
-<p><small>| REQUIRED | STRING | <span className="sauceDBlue">Web-app Only</span> |</small></p>
+<p><small>| REQUIRED | STRING | <span className="sauceGreen">Web-app Only</span> |</small></p>
 
 The name of the browser in which to run tests.
 
@@ -166,7 +165,7 @@ The name of the browser in which to run tests.
 ### <span className="cli">--cypress.config</span>
 
 <div className="cli-desc">
-<p><small>| REQUIRED | STRING | <span className="sauceDBlue">Cypress Only</span> |</small></p>
+<p><small>| REQUIRED | STRING | <span className="sauceGreen">Cypress Only</span> |</small></p>
 
 The file path to the Cypress configuration file (typically `cypress.json`).
 
@@ -175,7 +174,7 @@ The file path to the Cypress configuration file (typically `cypress.json`).
 ### <span className="cli">--device</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Espresso/XCUITest Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Espresso/XCUITest Only</span> |</small></p>
 
 Find a real device for this test by matching a set of one or more device characteristics:
 
@@ -199,7 +198,7 @@ You can specify a combination of device characteristics within this flag:
 ### <span className="cli">--emulator</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Espresso Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Espresso Only</span> |</small></p>
 
 Specify a virtual device for the test by matching a set of one or more emulator characteristics.
 
@@ -231,7 +230,7 @@ The framework for which this configuration is intended.
 ### <span className="cli">--frameworkVersion</span>
 
 <div className="cli-desc">
-<p><small>| REQUIRED | STRING | <span className="sauceDBlue">Web-app Only</span> |</small></p>
+<p><small>| REQUIRED | STRING | <span className="sauceGreen">Web-app Only</span> |</small></p>
 
 The version of the framework that is compatible with the tests defined in this configuration.
 
@@ -252,13 +251,9 @@ Usage information for the `init` command.
 ### <span className="cli">--platformName</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Web-app Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Web-app Only</span> |</small></p>
 
 A specific operating system and version on which to run the specified browser and test suite.
-
-:::note
-You can optionally specify `docker` here as the platform.
-:::
 
 **Shorthand:** `-p `
 
@@ -278,7 +273,7 @@ Specifies the Sauce Labs data center through which tests will run. Valid values 
 ### <span className="cli">--testApp</span>
 
 <div className="cli-desc">
-<p><small>| REQUIRED | STRING | <span className="sauceDBlue">Espresso/XCUITest Only</span> |</small></p>
+<p><small>| REQUIRED | STRING | <span className="sauceGreen">Espresso/XCUITest Only</span> |</small></p>
 
 The path to the mobile testing application.
 
@@ -308,7 +303,6 @@ $ saucectl init
 ? Select framework:  [Use arrows to move, type to filter]
 > cypress
  playwright
- puppeteer
  testcafe
  espresso
  xcuitest

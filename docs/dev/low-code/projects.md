@@ -10,11 +10,11 @@ The **Projects** page is the landing page from which you can access **Projects**
 
 The **Projects** page includes detail cards that show you a snapshot of information related to your projects and tests, and provides links to the relevant pages to view, manage, and create tests.
 
-<img src={useBaseUrl('/img/dev/low-code/dashboard-nav.png')} alt="Dashboard" width="500"/>
+<img src={useBaseUrl('/img/dev/low-code/dashboard-nav.png')} alt="Dashboard" width="700"/>
 
 The left navigation panel, which is viewable from all screens, gives you quick access to the pages relevant to your projects. Click the menu icon to expand the menu temporarily.
 
-<img src={useBaseUrl('/img/dev/low-code/dashboard-left-nav.png')} alt="Dashboard - Left navigation panel" width="400"/>
+<img src={useBaseUrl('/img/dev/low-code/dashboard-left-nav.png')} alt="Dashboard - Left navigation panel" width="300"/>
 
 ### Display Settings
 
@@ -159,7 +159,7 @@ The **More** button displays a dropdown of additional options for the **Project*
 - Upload a project (see [Creating a New Project](#creating-a-new-project) for more information)
 - Download the project information as an .xlsx file
 
-<img src={useBaseUrl('/img/dev/low-code/project-more-button.png')} alt="Project page More button" width="400"/>
+<img src={useBaseUrl('/img/dev/low-code/project-more-button.png')} alt="Project page More button" width="300"/>
 
 ### Project Cards
 
