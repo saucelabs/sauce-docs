@@ -11,7 +11,7 @@ The **Project Details** page displays information about the selected project, in
 
 Click the information icon next to your test name to view the created and updated dates, and the project’s execution stats.
 
-<img src={useBaseUrl('/img/dev/low-code/project-details-info.png')} alt="Project Details page -- Info icon" width="400"/>
+<img src={useBaseUrl('/img/dev/low-code/project-details-info.png')} alt="Project Details page -- Info icon" width="300"/>
 
 Click the more actions icon to view or modify the project properties, download the project details as a .xlsx file, or disable the project.
 
