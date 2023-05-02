@@ -1107,7 +1107,6 @@ module.exports = {
                         'api-testing/use-cases/key-value',
                         'api-testing/use-cases/integration-test',
                         'api-testing/use-cases/compose-body',
-                        'api-testing/use-cases/contract-test',
                         'api-testing/use-cases/vault-snippet',
                         'api-testing/use-cases/dynamic-header',
                         'api-testing/use-cases/auth-token',

@@ -113,7 +113,7 @@ Performs a `DELETE` method request. See [Request Body](#request-body), [Request 
 
 ### GitHub
 
-The GitHub component is meant to simplify the process of retrieving a file from GitHub and use it as a data source. Some examples of files to use would be CSV or JSON files. Check [Use Cases](/api-testing/use-cases/github-datasets/) out to see an example using this component.
+The GitHub component is meant to simplify the process of retrieving a file from GitHub and using it as a data source. Some examples of files to use would be CSV or JSON files. Check [Use Cases](/api-testing/use-cases/github-datasets/) out to see an example using this component.
 
 :::note
 GitHub Enterprise version or GitHub AE are not supported.
@@ -263,7 +263,7 @@ The `Contract Test` component has two child: the `Include (Contract T.)` and the
 
 ### File DataSource
 
-The **File Data Source** component allows you to use a file from the [Vault](/api-testing/vault/) as a data source. To [learn more](/api-testing/use-cases/use-drive) check the use case out.
+The **File Data Source** component allows you to use a file from the [Vault](/api-testing/vault/#files) as a data source. To [learn more](/api-testing/use-cases/use-drive) check the use case out.
 
 <img src={useBaseUrl('img/api-testing/filedatasource.png')} alt="File Data Source"/>
 
