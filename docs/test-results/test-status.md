@@ -122,7 +122,7 @@ https://github.com/saucelabs-training/demo-ruby/blob/docs-1.0/intro/spec/spec_he
 ## Updating Test Status After Completion
 
 If you did not use the JavaScript Executor to update the status of your test as an assertion in the test code,
-you can still use the [Sauce Labs REST API](https://docs.saucelabs.com/dev/api/) to update the test status.
+you can still use the [Sauce Labs REST API](/dev/api/) to update the test status.
 
 ## What You'll Need
 
