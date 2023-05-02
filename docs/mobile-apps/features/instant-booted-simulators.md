@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<p><small><span className="sauceDBlue">Beta</span></small></p>
+<p><small><span className="sauceGreen">Beta</span></small></p>
 
 The speed of the Simulator is a crucial factor that impacts the development workflow of iOS app developers. Instant booted iOS Simulators offer significant advantages over our default Simulators, as they reduce the time it takes to launch the Simulator to test apps to almost zero seconds.
 

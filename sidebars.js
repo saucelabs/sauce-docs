@@ -696,8 +696,10 @@ module.exports = {
                                     label: 'Configuring Identity Providers',
                                     collapsed: true,
                                     items: [
+                                        'basics/sso/configuring-sso-in-auth0',
                                         'basics/sso/configuring-sso-in-google',
                                         'basics/sso/configuring-sso-in-ms-azure-ad',
+                                        'basics/sso/configuring-sso-in-okta',
                                         'basics/sso/configuring-sso-in-onelogin',
                                     ],
                                 },
@@ -832,6 +834,21 @@ module.exports = {
                     ],
                 },
                 'secure-connections/ipsec-vpn',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Orchestrate',
+            collapsed: true,
+            items: [
+                'orchestrate',
+                'orchestrate/getting-started',
+                'orchestrate/saucectl-configuration',
+                'orchestrate/building-images',
+                'orchestrate/authenticated-pulls',
+                'orchestrate/best-practices',
+                'orchestrate/faq',
+                'orchestrate/architecture',
             ],
         },
         {
@@ -1026,19 +1043,6 @@ module.exports = {
                         },
                     ],
                 },
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Hosted Orchestration (Beta)',
-            link: { type: 'doc', id: 'hosted-orchestration' },
-            collapsed: true,
-            items: [
-                'hosted-orchestration',
-                'hosted-orchestration/architecture',
-                'hosted-orchestration/running-tests',
-                'hosted-orchestration/building-images',
-                'hosted-orchestration/private-registry',
             ],
         },
         {

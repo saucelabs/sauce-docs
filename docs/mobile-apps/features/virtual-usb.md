@@ -18,7 +18,7 @@ Virtual USB (vUSB) is a mobile (app) debugging tool that simulates connecting a 
 
 ## What You'll Need
 
-<small><span className="sauceDBlue">Enterprise Plans Only</span></small>
+<small><span className="sauceGreen">Enterprise Plans Only</span></small>
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)

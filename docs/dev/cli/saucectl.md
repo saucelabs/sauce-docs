@@ -18,15 +18,14 @@ The `saucectl` command line interface orchestrates the relationship between your
 ## System Requirements
 
 Supported OS:
+
 - Windows 10 / Windows 11
 - macOS 10.14+
 - Linux
 
 ## Supported Frameworks and Browsers
 
-### Sauce Labs Cloud
-
-Below are the frameworks supported on the Sauce Labs Cloud.
+Below are the frameworks supported.
 
 <Tabs
 groupId="platforms"
