@@ -746,27 +746,34 @@ sauce:
 suite:
   - name: My Saucy Test
     smartRetry:
-      failedClassesOnly: true
+      failedOnly: true
 ```
 
 ---
 
-#### `failedClassOnly`
+#### `failedOnly`
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 When set to `true`, the retry will test only the classes that failed during the previous try.
 
-:::info NOTE
-`failedClassOnly` is effective only when targetting Real Devices.
-:::
-
 ```yaml
 suite:
   - name: My Saucy Test
     smartRetry:
-      failedClassesOnly: true
+      failedOnly: true
 ```
+:::info NOTE
+`failedOnly` is effective only when targeting Real Devices.
+:::
+
+---
+
+#### `failedClassesOnly`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+`failedClassesOnly` is deprecated. Use `failedOnly` instead.
 
 ---
 
