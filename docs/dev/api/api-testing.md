@@ -512,12 +512,6 @@ Runs a single test on Sauce Labs API Testing, creates a Log in your Dashboard, a
       <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>Specifies the environment variables you want to use in your test as key-value pairs. </p></td>
     </tr>
   </tbody>
-  <tbody>
-    <tr>
-     <td><code>format</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the data format returned. Available values are <code>json</code> and <code>junit</code>. The default value is <code>json</code></p></td>
-    </tr>
-  </tbody>
 </table>
 
 <Tabs
@@ -629,12 +623,6 @@ Runs all tests in a project.
     <tr>
     <td><code>params</code></td>
       <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>Specifies the environment variables you want to use in your test as key-value pairs. </p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>format</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the data format returned. Available values are <code>json</code> and <code>junit</code>. The default value is <code>json</code></p></td>
     </tr>
   </tbody>
 </table>
@@ -754,12 +742,6 @@ Runs all tests in a project matching a tag.
     <tr>
     <td><code>params</code></td>
       <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>Specifies the environment variables you want to use in your test as key-value pairs. </p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>format</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the data format returned. Available values are <code>json</code> and <code>junit</code>. The default value is <code>json</code></p></td>
     </tr>
   </tbody>
 </table>
@@ -897,12 +879,6 @@ Executes the test you send in the request body and saves the results into the cl
     <tr>
      <td><code>tunnelOwner</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies your tunnel owner for running tests using <strong>Sauce Connect Proxy. It is recommended when using unnamed tunnels.</strong></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>format</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the data format returned. Available values are <code>json</code> and <code>junit</code>. The default value is <code>json</code></p></td>
     </tr>
   </tbody>
 </table>
