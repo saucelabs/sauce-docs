@@ -36,3 +36,11 @@ const config: PlaywrightTestConfig = {
 :::caution
 A limitation on Sauce Labs exists with playwright 1.27.1 or below, where the user defined reporter is only honored when defined as an array: `reporter: [['./fancy.reporter.ts']]`. Using a string like `reporter: './fancy.reporter.ts'` would therefore always be ignored.
 :::
+
+## Emulation
+
+You can use Playwright to test your app on any browser and emulate a real device such as a mobile phone or tablet. See the [Playwright docs](https://playwright.dev/docs/emulation) for more details.
+
+:::note
+Playwright is not a real Emulator or Simulator. It just emulates the browser behavior such as `userAgent`, `screenSize`, `viewport` and etc.
+:::

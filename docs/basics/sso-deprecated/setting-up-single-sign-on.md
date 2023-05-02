@@ -13,7 +13,7 @@ If you want to set up a new SSO integration, please use [the new SSO implementat
 :::
 <br/>
 
-<p><span className="sauceDBlue">Enterprise Plans only</span></p>
+<p><span className="sauceGreen">Enterprise Plans only</span></p>
 Sauce Labs supports Identity Provider (Idp)-initiated Single Sign-On (SSO). This feature allows your authorized employees to access Sauce Labs in a moderated fashion, as an alternative to using credentials. SSO is available to invoiced accounts, and can only be implemented by the organization admin of the account. If you are an invoice customer, the following sections will guide you on how to set up SSO.
 
 ## What You'll Need

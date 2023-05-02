@@ -16,7 +16,7 @@ The OnDemand plugin allows you to easily manage your Sauce Labs testing from [Je
 - How to install and configure the Sauce OnDemand Plugin for Jenkins
 - How to configure Sauce Connect to enable testing on private networks
 - How to run parallel tests in Jenkins
-- How to set up reporting between Sauce Labs & Jenkins
+- How to set up reporting between Sauce Labs and Jenkins
 - How to implement the OnDemand plugin into your Jenkins pipeline
 
 ## What You'll Need
@@ -181,7 +181,7 @@ Project specific settings will always override the global value for the same set
     </tr>
     <tr>
       <td><b>Clean up jobs and uniquely generated tunnels instead of waiting for timeouts</b></td>
-      <td>If <b>Create a new unique Sauce Connect tunnel per build</b> in enabled in the Advanced Options section, checking this option ensures that aborted builds do not tie up tunnels unnecessarily.</td>
+      <td>If <b>Create a new unique Sauce Connect tunnel per build</b> in enabled in the Advanced Options section, checking this option ensures that cancelled builds do not tie up tunnels unnecessarily.</td>
     </tr>
   </table>
 1. Scroll to the **Sauce Connect Advanced Options** section, and click **Advanced** to display additional options described in the following table as needed.
@@ -295,7 +295,7 @@ Jenkins populates the `SELENIUM_PLATFORM`, `SELENIUM_VERSION`, `SELENIUM_BROWSER
 
 ## Reporting between Sauce Labs and Jenkins
 
-<p><span className="sauceDBlue">VIRTUAL CLOUD ONLY</span></p>
+<p><span className="sauceGreen">VIRTUAL CLOUD ONLY</span></p>
 
 The following sections describe how to share information about your Sauce Labs tests in both the Sauce Labs site and your Jenkins dashboard.
 

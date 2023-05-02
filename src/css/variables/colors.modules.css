@@ -29,4 +29,41 @@
 
     --inline-link: #18583a;
     --primary-button: #66de91;
+
+    /*ifm is docusaurus default styles,
+  check https://docusaurus.io/docs/styling-layout#theme-class-names*/
+    --ifm-color-primary: var(--green-500);
+    --ifm-color-primary-dark: var(--inline-link);
+    --ifm-color-primary-light: var(--green-400);
+    --ifm-color-primary-lighter: var(--green-300);
+    --ifm-color-primary-lightest: var(--green-100);
+    --ifm-footer-background-color: var(--inline-link);
+    --ifm-footer-link-color: var(--neutral-100);
+    --ifm-footer-title-color: var(--neutral-100);
+    --ifm-footer-color: var(--neutral-100);
+    --ifm-code-font-size: 85%;
+    --ifm-code-background: var(--dark-100);
+    --ifm-font-color-base: var(--dark-500);
+    --ifm-link-color: var(--inline-link);
+    --ifm-navbar-background-color: var(--neutral-100);
+    --ifm-menu-color-active: var(--inline-link);
+    --ifm-tabs-color-active: var(--dark-500);
+}
+
+html[data-theme="dark"] {
+    --ifm-color-primary-dark: var(--coral-500);
+    --ifm-font-color-base: var(--neutral-100);
+    --ifm-blockquote-color: var(--dark-100);
+    --ifm-code-background: var(--dark-500);
+    --ifm-link-color: var(--green-300);
+    --ifm-menu-color-active: var(--green-300);
+    --ifm-alert-color: var(--dark-100);
+    --ifm-navbar-link-color: var(--dark-500);
+    --ifm-navbar-background-color-dark: var(--dark-500);
+    --docsearch-muted-color: var(--dark-300);
+    --docsearch-searchbox-background: #ebedf0;
+    --docsearch-text-color: var(--neutral-100);
+    --ifm-color-secondary: var(--dark-100);
+    --ra-admonition-color: var(--neutral-100);
+    --ra-admonition-icon-color: var(--neutral-100);
 }
