@@ -29,7 +29,7 @@ Review the [Basic Setup](/secure-connections/sauce-connect/setup-configuration/b
 
 There are several different ways to set up Sauce Connect Proxy to use a proxy server that is on your network, depending on the desired behavior. There are three types of network traffic that are relevant to using proxy servers with Sauce Connect Proxy:
 
-- **REST API Traffic:** The Sauce Connect client running on your network maintains a lightweight connection to our REST API that simply tells our servers basic information about the status of Sauce Connect's status (e.g., starting up, ready, stopping)
+- **REST API Traffic:** The Sauce Connect client running on your network maintains a lightweight connection to our REST API that simply tells our servers basic information about the status of Sauce Connect's status (for example, starting up, ready, stopping)
 - **SUT Traffic:** The Sauce Connect client communicates with the Site Under Test (SUT) running in your network
 - **Tunnel Traffic:** The Sauce Connect client makes a connection to the actual tunnel virtual machine (VM) in the Sauce Labs cloud, created for your Sauce Connect instance
   The configuration options described below will cause the REST API and SUT traffic to be routed through your proxy. While it is technically possible to route the tunnel traffic through your proxy, it is **not** recommended because this traffic is already TLS-secured. Also, routing tunnel traffic through your proxy will significantly degrade test performance. This option should only be used if your network does not allow outbound communication over `port 443`.
@@ -72,7 +72,7 @@ If automatic proxy configuration fails, you will need to override the settings o
 | `-p (--proxy <host:port>)`                                 | Proxy host and port that Sauce Connect Proxy should use to connect to the Sauce Labs REST API and SUT traffic. Can be used on its own or combined with `-w -pac`.                                                                                                    |
 | `-p (--proxy <host:port>) -w (--proxy-userpwd <user:pwd>)` | Requires username and password sent via basic authentication to access the proxy specified with `-p`. Can be combined with `-pac`. <br /> **Note**: Do not use this `-p -w` combination with more than one proxy. Multiple proxies requiring auth are not supported. |
 | `-p (-–proxy <host:port>) -T (--proxy-tunnel)`             | Reroutes all tunnel traffic through the proxy specified with `-p`. This should only be used as a last resort if the machine running Sauce Connect Proxy cannot send outgoing connections from `port 443`. Cannot be combined with `--pac`.                           |
-| `--pac url`                                                | Proxy auto-configuration (can be a http(s) or local file: //URL). Absolute paths are required when specifying a local PAC file (e.g., `file:///Users/Andrew/Desktop/MyPac.pac`). Can be used on its own or combined with `-p -w`.                                    |
+| `--pac url`                                                | Proxy auto-configuration (can be a http(s) or local `file://URL`). Absolute paths are required when specifying a local PAC file (for example, `file://Users/JohnSmith/Desktop/MyPac.pac`). Can be used on its own or combined with `-p -w`.                          |
 | `--proxy-localhost`                                        | If the upstream proxy is hosted on `localhost`, add this flag to correctly proxy traffic. By default, any traffic to `localhost` is not sent to an upstream proxy.                                                                                                   |
 
 #### Command Line Configuration Using `-p (-–proxy <host:port>)` and `-w (--proxy-userpwd <user:pwd>`)
@@ -144,7 +144,7 @@ values={[
 Your IT organization may have a PAC file that is used to specify how your own internal proxy servers should be configured.
 
 To have Sauce Connect Proxy with your PAC file, use the [--pac url](/dev/cli/sauce-connect-proxy#--pac) command line option when starting Sauce Connect Proxy.
-The url argument can be an http(s) or local file: //URL. Absolute paths are required when specifying a local PAC file (e.g., `file:///Users/JohnSmith/Desktop/MyPac.pac`).
+The URL argument can be an http(s) or local `file://URL`. Absolute paths are required when specifying a local PAC file (for example, `file://Users/JohnSmith/Desktop/MyPac.pac`).
 
 If your PAC file contains multiple proxies, in addition to `-pac`, you'll need to specify the `-p` option to designate which proxy will receive the username and password.
 
@@ -277,7 +277,7 @@ function FindProxyForURL(url, host) {
 
 5. Start **Charles Proxy**.
 
-6. To change to an open port, in Charles Proxy, click **Proxy** and then click **Proxy Settings**. Under **HTTP Proxy**, enter an open port (e.g., `port 8890`) and then click **OK**.
+6. To change to an open port, in Charles Proxy, click **Proxy** and then click **Proxy Settings**. Under **HTTP Proxy**, enter an open port (for example, `port 8890`) and then click **OK**.
 
 <img src={useBaseUrl('img/sauce-connect/charles-proxy-settings.png')} alt="Charles Proxy settings navigation" width="800"/>
 
