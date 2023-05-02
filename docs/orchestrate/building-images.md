@@ -50,7 +50,7 @@ FROM golang:1.8.0
 
 ### Installing Additional Tools
 
-To install any additional tools or execute other commands, use the RUN instruction.
+To install any additional tools or run other commands, use the RUN instruction.
 
 ```
 RUN apt-get update && apt-get install -y netcat

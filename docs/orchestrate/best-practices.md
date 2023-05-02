@@ -14,7 +14,7 @@ Java is one of the most popular programming languages available and is widely us
 
 ### Ensure Proper Base Image
 
-The best practice for creating a container image is to start with a base image. When building Java images you will want to choose a base image that contains the proper JDK and Maven version your project requires. There are many available base images to choose from. In our sample java repo you can see we have chosen `FROM maven:3.6.3-jdk-8`. This means we will use JDK 8 and Maven 3.6.3.
+The best practice for creating a container image is to start with a base image. When building Java images you will want to choose a base image that contains the proper JDK and Maven version your project requires. There are many available base images to choose from. In our sample java repository you can see we have chosen `FROM maven:3.6.3-jdk-8`. This means we will use JDK 8 and Maven 3.6.3.
 
 In order to know which JDK and Maven version to choose run the following commands on your local environment where you know your tests run successfully.
 
