@@ -48,6 +48,7 @@ exceptions:
   - QUERY
   - RAM
   - REPL
+  - REST
   - RSA
   - SCM
   - SDK
