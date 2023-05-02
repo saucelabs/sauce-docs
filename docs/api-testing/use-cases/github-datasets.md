@@ -7,14 +7,14 @@ description: How to use GitHub as a datasource in your tests
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Github is a valuable platform to use when you want to pull files and use them as a datasource. Some examples are CSVs and JSON files. This guide explains how you can use files stored in your GithHub repository as a data source in your tests.
+GitHub is a valuable platform to use when you want to pull files and use them as a data source. Some examples are CSVs and JSON files. This guide explains how you can use files stored in your GitHub repository as a data source in your tests.
 
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
-## Step 1: Setting up GitHub
+## Step 1: Setting Up GitHub
 
 1. Create a new access token associated to your GitHub profile by accessing [https://github.com/settings/tokens](https://github.com/settings/tokens).
 
@@ -34,7 +34,7 @@ When creating the token make sure you're selecting the **`public_repo`** subcate
 
 3. Commit and push a data source file. It can be a CSV, JSON or XML file. The example is based on the [bypopulation.csv](https://github.com/LoryApiFortress/examples/blob/7f03771e2d728da4546fcbc218b31642c5d9265a/bypopulation.csv) file.
 
-## Step 2: Creating a Simple Test
+## Step 2: Creating a Basic Test
 
 1. Go to Sauce Labs API Testing and create a new test.
 
@@ -67,7 +67,7 @@ As result of the above settings, the system will retrieve the file, parse it as 
 This will iterate over a subset of 5 randomly selected items.
 
 :::tip Suggestion
-To help you identify which item you are looking at for debugging purposes, you should add a comment that prints out the current item, within each iteration. (like `ID: ${_1[0]}`)
+To help you identify which item you are looking at for debugging purposes, you should add a comment that prints out the current item in each iteration. (like `ID: ${_1[0]}`)
 :::
 
 6. Use the data to perform your request. For example, in a **POST Body**:

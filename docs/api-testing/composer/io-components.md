@@ -747,7 +747,7 @@ Enter the type of the response you want to test (must be 'json','xml', 'html',or
 
 ## Adding Child Components
 
-Once you've created a component and wish to add child components (i.e., need to add request headers, params or a request body):
+Once you've created a component and wish to add child components (that is., need to add request headers, params, or a request body):
 
 1. Click **Add Child Component**.<br/><img src={useBaseUrl('img/api-testing/editComponent2.png')} alt="subComps.jpg" />
 2. Now you'll see the component's available sub-components for that operation.<br/><img src={useBaseUrl('img/api-testing/editComponent3.png')} alt="subComps.jpg" />
