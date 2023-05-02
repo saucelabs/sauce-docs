@@ -38,7 +38,7 @@ When creating the token make sure you're selecting the **`public_repo`** subcate
 
 1. Go to Sauce Labs API Testing and create a new test.
 
-2. Add the **GitHub** component and configure it accordingly:
+2. Add the **GitHub** component and configure it as follow:
 
    - **Account** is your GitHub username
    - **Repository** is the name of the repository that your data file is pushed to.
