@@ -491,7 +491,7 @@ Runs a single test on Sauce Labs API Testing, creates a Log in your Dashboard, a
   <tbody>
     <tr>
      <td><code>buildId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated with a build, the ID of the build should be provided so that all resources can be associated to it.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated with a build, provide the build ID so that all resources can be associated to it.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -610,7 +610,7 @@ Runs all tests in a project.
   <tbody>
     <tr>
      <td><code>buildId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated with a build, the ID of the build should be provided so that all resources can be associated to it.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated with a build, provide the build ID so that all resources can be associated to it.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -735,7 +735,7 @@ Runs all tests in a project matching a tag.
   <tbody>
     <tr>
      <td><code>buildId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated with a build, the ID of the build should be provided so that all resources can be associated to it.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated with a build, provide the build ID so that all resources can be associated to it.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -884,7 +884,7 @@ Executes the test you send in the request body and saves the results into the cl
   <tbody>
     <tr>
      <td><code>buildId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated with a build, the ID of the build should be provided so that all resources can be associated to it.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated with a build, provide the build ID so that all resources can be associated to it.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1013,7 +1013,7 @@ Runs a single test synchronously.
   <tbody>
     <tr>
      <td><code>buildId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated with a build, the ID of the build should be provided so that all resources can be associated to it.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated with a build, provide the build ID so that all resources can be associated to it.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1252,7 +1252,7 @@ Runs all tests in a project synchronously.
   <tbody>
     <tr>
      <td><code>buildId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated with a build, the ID of the build should be provided so that all resources can be associated to it.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated with a build, provide the build ID so that all resources can be associated to it.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1541,7 +1541,7 @@ Runs all tests in a project matching a tag synchronously.
   <tbody>
     <tr>
      <td><code>buildId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated with a build, the ID of the build should be provided so that all resources can be associated to it.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated with a build, provide the build ID so that all resources can be associated to it.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1804,7 +1804,7 @@ Executes synchronously the test you send in the request body and saves the resul
   <tbody>
     <tr>
      <td><code>buildId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated with a build, the ID of the build should be provided so that all resources can be associated to it.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated with a build, provide the build ID so that all resources can be associated to it.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2481,7 +2481,7 @@ Returns the list of builds.
   <tbody>
     <tr>
      <td><code>offset</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Specifies the number of events to be skipped from the beginning of the list. Needs to be used in combination with the limit.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Specifies the number of records to be skipped from the beginning of the list. Must be used in combination with the limit parameter.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2875,7 +2875,7 @@ Lists all events in a project.
   <tbody>
     <tr>
      <td><code>offset</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Specifies the number of events to be skipped from the beginning of the list. Needs to be used in combination with the limit.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Specifies the number of records to be skipped from the beginning of the list. Must be used in combination with the limit parameter.</p></td>
     </tr>
   </tbody>
 </table>
@@ -3164,7 +3164,7 @@ Returns metrics for all tests in a project.
   <tbody>
     <tr>
      <td><code>offset</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Specifies the number of events to be skipped from the beginning of the list. Needs to be used in combination with the limit.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Specifies the number of records to be skipped from the beginning of the list. Must be used in combination with the limit parameter.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -3182,7 +3182,7 @@ Returns metrics for all tests in a project.
   <tbody>
     <tr>
      <td><code>buildId</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated with a build, the ID of the build should be provided so that all resources can be associated to it.</p></td>
+    <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If this execution is associated with a build, provide the build ID so that all resources can be associated to it.</p></td>
     </tr>
   </tbody>
 </table>
