@@ -112,6 +112,9 @@ The `-t` key specifies the name and tag of the new image:
 - saucelabs - The account in Docker Hub
 - sl-demo-docker-primary - The repository name
 - 0.0.1 - The tag (version) of the image. Always update the tag if you change something in a Dockerfile, or you might have unpredictable results.
+- saucelabs - The account in Docker Hub
+- sl-demo-docker-primary - The repository name
+- 0.0.1 - The tag (version) of the image. Always update the tag if you change something in a Dockerfile, or you might have unpredictable results.
 
 ### Pushing the Image to the Registry
 
@@ -157,11 +160,17 @@ suites:
 ```
 
 Then run with
+Then run with
 
 ```bash
   saucectl run
 ```
 
+```bash
+  saucectl run
+```
+
+This only works if the config name follows a specific pattern and resides in a subfolder, for example `.sauce/config.yml`.
 This only works if the config name follows a specific pattern and resides in a subfolder, for example `.sauce/config.yml`.
 
 If the config name does not follow that pattern, you have to point to the config file explicitly, for example `saucectl run -c myconfig.yml`.
@@ -173,7 +182,7 @@ If the config name does not follow that pattern, you have to point to the config
 
 The recommended approach for building images is to integrate this as a step in your existing CI pipelines. Below are examples for various CI providers you can reference.
 
-### Github Actions
+### GitHub Actions
 
 The Sauce Labs demo repos contain GitHub Action code for building images.
 

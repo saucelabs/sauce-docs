@@ -40,7 +40,7 @@ Note - you will need to replace `[docker_user]` with your registry username.
 
 ## Using Your Private Image
 
-To use your private image in Sauce Orchestrate, update your SauceCTL config file, specifying a username and access token, and Sauce Labs will attempt to access your image. If we are unable to access your image you will receive an error response explaining what happened.
+To use your private image in Sauce Orchestrate, update your saucectl config file, specifying a username and access token, and Sauce Labs will attempt to access your image. If we are unable to access your image you will receive an error response explaining what happened.
 
 ```yaml showLineNumbers
   apiVersion: v1alpha
