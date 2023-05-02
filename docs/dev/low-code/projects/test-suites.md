@@ -64,7 +64,7 @@ To create a test suite:
 
 1. On the **Test Suites** tab, click the **CREATE TEST SUITE** button.
 
-<img src={useBaseUrl('/img/dev/low-code/create-test-suite-nav.png')} alt="Navigating to the New Test Suite window" width="400"/>
+<img src={useBaseUrl('/img/dev/low-code/create-test-suite-nav.png')} alt="Navigating to the New Test Suite window" width="800"/>
 
 2. In the **New Test Suite** window, on the **Name and Info** tab, enter a name for the test suite and an email to send reports to. Click **Next**.
 
