@@ -8,11 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 If you're new to Sauce Orchestrate, this list of frequently asked questions can help you with what you need to know.
 
-## Will Sauce Connect continue to work?
+## Will Sauce Connect Continue to Work?
 
 Yes, Sauce Connect will continue to work. Sauce Orchestrate is all about running your test scripts from in the Sauce Labs grid and does not change anything about the connection between the underlying Virtual Machine or Real Device and your Application Under Test (AUT).
 
-## How secure is Sauce Orchestrate?
+## How Secure Is Sauce Orchestrate?
 
 Sauce Orchestrate is a different way of repurposing existing technology available in Sauce Labs today. Most importantly, this means it falls in the Sauce Labs SOC 2 Type II and ISO 27001 certifications.
 
@@ -33,7 +33,7 @@ Sauce Orchestrate is framework and programming language agnostic - it means it i
 
 As far as concurrent sessions are concerned with Browsers and Real Devices, the same concurrency limits apply no matter how tests are run. However, there is an initial limit of 10 Orchestrate sessions available to run at a given time but this can be increased upon request.
 
-## Can I Integrate Sauce Orchestrate with my Existing Testing Framework?
+## Can I Integrate Sauce Orchestrate With my Existing Testing Framework?
 
 Yes. If you are already familiar with container technology, Sauce Orchestrate is designed specifically to be used with your existing testing framework.
 
