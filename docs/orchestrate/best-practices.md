@@ -10,11 +10,11 @@ This page describes best practices for using container images in Sauce Orchestra
 
 ## Building Efficient Java Images
 
-Java is one of the most popular programming languages available and is widely used for Selenium and Appium test projects. Here are some tips and tricks to get your Java project working with Sauce Orchestrate.
+Java is one of the most popular programming languages available and is widely used for Selenium and Appium test projects. Here are some tips and tricks to get your Java project working with Sauce Orchestrate. For this documentation page we will assume that Docker is being used.
 
 ### Ensure Proper Base Image
 
-The first part of any Dockerfile is the base image to choose from. When building Java images you will want to choose a base image that contains the proper JDK and Maven version your project requires. There are many available base images to choose from. In our sample Java repository you can see we have chosen `FROM maven:3.6.3-jdk-8`. This means we will use JDK 8 and Maven 3.6.3.
+The best practice for creating a container image is to start with a base image. When building Java images you will want to choose a base image that contains the proper JDK and Maven version your project requires. There are many available base images to choose from. In our sample java repository you can see we have chosen `FROM maven:3.6.3-jdk-8`. This means we will use JDK 8 and Maven 3.6.3.
 
 In order to know which JDK and Maven version to choose run the following commands on your local environment where you know your tests run successfully.
 

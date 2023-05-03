@@ -24,3 +24,31 @@ We also provide many additional security mechanisms to keep your data safe:
 - Each running container is created and destroyed as part of your request.
 - We do not store or access your image outside of some local caches to improve performance.
 - Your running container is sandboxed from a networking perspective from any other containers.
+
+## What Programming Languages and Frameworks are Supported by Sauce Orchestrate?
+
+Sauce Orchestrate is framework and programming language agnostic - it means it is flexible and adaptable, enabling development teams to use any framework or programming language they choose.
+
+## How Many Concurrent Sessions Can I Run with Sauce Orchestrate?
+
+As far as concurrent sessions are concerned with Browsers and Real Devices, the same concurrency limits apply no matter how tests are run. However, there is an initial limit of 10 Orchestrate sessions available to run at a given time but this can be increased upon request.
+
+## Can I Integrate Sauce Orchestrate with my Existing Testing Framework?
+
+Yes. If you are already familiar with container technology, Sauce Orchestrate is designed specifically to be used with your existing testing framework.
+
+## Can I use Sauce Orchestrate to Test My Website on Different Browsers and Devices?
+
+Yes you can because Sauce Orchestrate is language, framework, location, OS/ browser, device agnostic.
+
+## Can I Schedule Tests to Run Automatically Using Sauce Orchestrate?
+
+Yes, with Sauce Labs Orchestrate you can automate your testing process, freeing up your time to focus on other critical tasks. By scheduling tests to run at regular intervals, you can also catch issues early in the development process, minimizing the risk of bugs making it to production.
+
+## Does Sauce Orchestrate Support Debugging and Troubleshooting?
+
+Yes, Sauce Orchestrate provides several debugging and troubleshooting features to help users identify and resolve issues with their tests.
+
+## Can I Customize the Testing Environment When Using Sauce Orchestrate?
+
+Yes, Sauce Orchestrate provides a high degree of customization options to its users. The tool allows users to configure the testing environment based on their specific requirements, including browser versions, operating systems, and device types. Users can also specify the testing framework and programming language they prefer to use for their test automation.
