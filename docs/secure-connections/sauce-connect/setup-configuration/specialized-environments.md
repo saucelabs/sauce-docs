@@ -64,6 +64,18 @@ In this example, we'll [set our credentials (username/access key) as environment
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west --tunnel-name rdc-on-sauce-tunnel-us
 ```
 
+:::warning Note for Android Devices
+If you would set up the tunnel for Android Devices you have to start Sauce Connect Proxy with the extra flag `-B all`:
+
+```bash
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DATA_CENTER --tunnel-name $TUNNEL_NAME -B all
+```
+
+You need the extra flag because, by default, traffic on Sauce Connect is re-encrypted using Sauce Labs' self-signed certificates. While this can be trusted on Sauce Labs Virtual Cloud and Sauce Labs iOS devices, due to security specifications by Google, the same can't be done on Android.
+
+If you add `-B`, Sauce Labs will use your server certificates, and if the certificate is self-signed, you will face the same issue again. For native applications, the workaround is injecting your self-signed certificate into the app. You can learn more on [Network Security Configuration in the Android Developers documentation](https://developer.android.com/training/articles/security-config).
+:::
+
 2. In your device testing script, specify the tunnel name with `tunnelName` in your capabilities, as shown in this Java example:
 
 ```java
