@@ -24,7 +24,6 @@
   "dependencies": {
     "@algolia/client-search": "4.10.3",
     "@docusaurus/core": "^2.0.1",
-    "@docusaurus/plugin-ideal-image": "^2.0.1",
     "@docusaurus/preset-classic": "^2.0.1",
     "@mdx-js/react": "^1.6.21",
     "@saucelabs/theme-github-codeblock": "0.1.1",

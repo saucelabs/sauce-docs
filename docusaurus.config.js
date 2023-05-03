@@ -137,7 +137,7 @@ const docusaurusConfig = {
         ],
     ],
     themes: ['@saucelabs/theme-github-codeblock'],
-    plugins: ['./src/plugins/beamer', '@docusaurus/plugin-ideal-image'],
+    plugins: ['./src/plugins/beamer'],
 };
 
 if (!process.env.SAUCE_DOCS_DEV) {
