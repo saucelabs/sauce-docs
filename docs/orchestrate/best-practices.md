@@ -53,7 +53,7 @@ To realize the performance gain from doing this, in your `entrypoint` command co
 
 Maven includes support for a global settings file. This is normally used to configure global dependencies and registry locations. If your project requires the global settings.xml file be present then you must ensure that file exists in your container image.
 
-The maven settings.xml file is generally found in the home directory of your local dev environment. In order to copy the settings.xml file located in your home directory you need to update your Dockerfile and where you run the `docker build` command from.
+The Maven settings.xml file is generally found in the home directory of your local dev environment. In order to copy the settings.xml file located in your home directory you need to update your Dockerfile and where you run the `docker build` command from.
 
 Add the following to your Dockerfile:
 
