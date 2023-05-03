@@ -10,7 +10,7 @@ This page describes best practices for using container images in Sauce Orchestra
 
 ## Building Efficient Java Images
 
-Java is one of the most popular programming languages available and is widely used for Selenium and Appium test projects. Here are some tips and tricks to get your Java prjoect working with Sauce Orchestrate. For this documentation page we will assume that Docker is being used.
+Java is one of the most popular programming languages available and is widely used for Selenium and Appium test projects. Here are some tips and tricks to get your Java project working with Sauce Orchestrate. For this documentation page we will assume that Docker is being used.
 
 ### Ensure Proper Base Image
 
