@@ -1,51 +1,43 @@
 ---
 id: dev-tools
-title: DevTools and WebInspector for iOS and Android
+title: Dev Tools
+sidebar_label: Dev Tools
+description: Leverage the power of Chrome DevTools and Safari Web Inspector to test your mobile iOS and Android web apps and websites in real-time with our Real Devices cloud.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Access and leverage the power of DevTools and WebInspector for your mobile web apps and website real time in our Real Devices cloud on iOS and Android! 
-Debug CSS/JS issues on our real devices! Debug and diagnose issues quickly, validate and edit DOM element real time! 
-Validate and test your changes within seconds in iOS Safari and Android Chrome browser on a Real Device! 
-No additional configuration is needed, get access to these developer tools within a click during a Live Testing Session! 
+Leverage the power of [Chrome DevTools](https://developer.chrome.com/docs/devtools/) and Safari [Web Inspector](https://developer.apple.com/safari/tools/#current) to test your mobile iOS and Android web apps and websites in real-time with our Real Devices cloud.
+
+You can use Dev Tools to:
+
+- Debug and diagnose CSS and JavaScript issues quickly.
+- View and edit DOM elements.
+- Analyze network requests, responses, and timings to optimize your network.
+- Identify performance issues to improve load times and responsiveness.
+
+<img src={useBaseUrl('img/live-web-apps/dev-tools-elements.png')} alt="Shows the Dev Tools tab used to inspect elements in the Developer Options for a live mobile test." width="800"/>
 
 ## What You'll Need
-To enable DevTools for iOS and Android during Cross-browser testing
 
-1. On Sauce Labs, click **Live** > **Cross Browser**.
-2. Add the web application/URL you want to test in the URL field
-3. Launch a Real Device (iOS 13+, Android 9+)
-4. After your session has been started, click on Developer Options on the Toolbar on the right side
-5. Select the new Dev Tools Tab
-6. You are good to go to interact with DevTool/WebInspector components! 
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+- A Google Chrome or Microsoft Edge browser (for Windows or macOS).
+- An iOS or Android Real Device with version:
+  - iOS/iPadOS 13 and above
+  - Android 9 and above
 
-## DevTools/WebInspector
+## Cross Browser Testing with Development Tools
 
-DevTools and WebInspector enables you to:
-- Debug JS/CSS errors
-- Modify and find issues in your DOM
-- In the JS Console: observe and debug issues your faster.
-- Attach debugger to your Javascript code. 
+To enable DevTools for iOS and Android during cross-browser testing:
 
-<img width="1512" alt="image" src="https://user-images.githubusercontent.com/68342451/235945847-550a871a-6acd-4af8-9b20-1d56fdcc4282.png">
-<img width="1512" alt="image" src="https://user-images.githubusercontent.com/68342451/235945918-0ea9c774-7333-4c1b-960b-d7a0f5dfea2e.png">
+1. In Sauce Labs, go to **Live** > **Cross Browser**.
+2. In the **URL** field, enter the web application or the URL you want to test.
+3. Launch a test on a Real Device (iOS 13+, Android 9+).
+4. After your session has been started, select **Developer Options** from the toolbar on the right of the screen.
+5. Select the new **Dev Tools** tab.
 
+<img src={useBaseUrl('img/live-web-apps/dev-tools-sources.png')} alt="Shows the Dev Tools tab used to inspect sources in the Developer Options for a live mobile test." width="800"/>
 
-You can read more about the power of DevTools for Chrome on Android here: https://developer.chrome.com/docs/devtools/
-You can read more about Safari WebInspector for Safari on iOS here: https://developer.apple.com/safari/tools/
-
-## Limitations
-
-<!-- prettier-ignore -->
-:::note Not Supported
-
-- When you open app.saucelabs.com, works with Chrome and Microsoft Edge browsers (Windows and MacOS)
-
-On Real Devices, you can inspect the following device and OS combinations:
-- Android 9 and above
-- iOS/iPadOS 13 and above
-:::
-
+You can now interact with the DevTool/WebInspector components.
