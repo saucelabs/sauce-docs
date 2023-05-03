@@ -42,11 +42,11 @@ Entering this code -- `(www.)?google-analytics.com,(www.)?googletagmanager.com,(
 
 ## Can I access apps on localhost?
 
-You can access localhost through Sauce Connect on Virtual Desktop Browser tests. However, you cannot proxy `localhost` or 127.0.0.1 connections to any Mobile tests, be they Emulators, Simulators, or Real Devices.
+You can access `localhost` through Sauce Connect on Virtual Desktop Browser tests. However, you cannot proxy `localhost` or 127.0.0.1 connections on any Mobile tests, whether they are Emulators, Simulators, or Real Devices.
 
 When using Sauce Connect Proxy, local websites running on commonly used ports are available to test at `localhost` or 127.0.0.1 URLs. The exception is when testing on Real or Virtual Mobile Devices. Real and Virtual Mobile tests require changes to the `/etc/hosts` file where Sauce Connect Proxy is hosted. For more information, see [Testing Mobile Devices Against localhost](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#testing-mobile-devices-against-localhost).
 
-For all platforms tests may perform better when using a locally defined domain name (which can be set in your [`hosts` file](http://en.wikipedia.org/wiki/Hosts_file)) rather than `localhost`. Using a locally defined domain name also allows access to apps on any port. If you are using a parent proxy with Sauce Connect, you may need the [`--proxy-localhost` flag](/dev/cli/sauce-connect-proxy/#--proxy-localhost).
+For all platforms, tests may perform better when using a locally defined domain name (which can be set in your [`hosts` file](http://en.wikipedia.org/wiki/Hosts_file)) rather than `localhost`. Using a locally defined domain name also allows access to apps on any port. If you are using a parent proxy with Sauce Connect, you may need the [`--proxy-localhost` flag](/dev/cli/sauce-connect-proxy/#--proxy-localhost).
 
 See also [Supported Browsers and Ports Specification](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports).
 
