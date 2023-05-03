@@ -57,10 +57,12 @@ If you have set up your tests to report whether they have passed or failed, thos
 
 <img src={useBaseUrl('img/test-results/test-results-auto-filters.png')} alt="Automated test results filters" width="750"/>
 
-| Filter | Description                                                                                                                                                                             |
-| :----- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Owner  | Filter test results by: <ul><li>Tests that you have run</li><li>All the tests for your organization</li><li>Tests run by one of your selected sub-accounts</li></ul>                    |
-| Status | Filter tests by: <ul><li>Passed</li><li>Failed</li><li>Complete (the test completed but was not assigned a Pass/Fail status)</li><li>In Progress</li><li>Error</li><li>Queued</li></ul> |
+| Filter   | Description                                                                                                                                                                             |
+| :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Owner    | Filter test results by: <ul><li>Tests that you have run</li><li>All the tests for your organization</li><li>Tests run by one of your selected sub-accounts</li></ul>                    |
+| Status   | Filter tests by: <ul><li>Passed</li><li>Failed</li><li>Complete (the test completed but was not assigned a Pass/Fail status)</li><li>In Progress</li><li>Error</li><li>Queued</li></ul> |
+| Build    | Filter tests results by tests that belong to a specific build                                                                                                                           |
+| Platform | Filter tests results by tests that ran on one or multiple operating systems                                                                                                             |
 
 ## Automated Build Results
 
