@@ -43,7 +43,7 @@ ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 RUN mvn clean test; exit 0
 ```
 
-To realize the performance gain from doing this, in your `entrypoint` command configuration in saucectl make sure to run maven in offline mode.
+To realize the performance gain from doing this, in your `entrypoint` command configuration in saucectl make sure to run Maven in offline mode.
 
 ```yaml
   entrypoint: mvn test -o
