@@ -16,7 +16,7 @@ You can use CSV, JSON, or XML files that are stored in a GitHub repository as a 
 
 ## Step 1: Setting Up GitHub
 
-1. Create a new access token associated to your GitHub profile by accessing [https://github.com/settings/tokens](https://github.com/settings/tokens).
+1. Create a new access token associated to your GitHub profile by accessing [https://github.com/settings/tokens](https://github.com/settings/tokens). GitHub will show you the token only once, so make sure you’re copying and pasting it somewhere safe and accessible.
 
    <img src={useBaseUrl('img/api-testing/io-components/github-token.png')} alt="GitHub token settings"/>
 
@@ -63,7 +63,7 @@ The system uses these component settings to retrieve the bypopulation.csv file, 
 This iterates over a subset of five randomly selected items.
 
 :::tip Suggestion
-To help you identify an item in a comment for debugging purposes, you can add a comment that prints out the current item in each iteration. (like `ID: ${_1[0]}`)
+To help you identify an item for debugging purposes, you can add a comment that prints out the current item in each iteration. (like `ID: ${_1[0]}`)
 :::
 
 6. Use the data to perform your request. For example, in a **POST Body**:
