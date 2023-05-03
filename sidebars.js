@@ -959,7 +959,10 @@ module.exports = {
                     type: 'category',
                     label: 'Live Testing',
                     collapsed: true,
-                    items: ['web-apps/live-testing/live-cross-browser-testing'],
+                    items: [
+                        'web-apps/live-testing/live-cross-browser-testing',
+                        'web-apps/live-testing/dev-tools',
+                    ],
                 },
                 {
                     type: 'category',

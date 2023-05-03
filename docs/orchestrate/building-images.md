@@ -8,7 +8,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Sauce Labs supports Docker images, providing you with a powerful way to orchestrate tests. To use Sauce Orchestrate you will need to package your test code and all of its dependencies as a Docker image and publish it to a Docker container registry so that your tests can be run in the Sauce Labs infrastructure.
+## Overview
+
+Sauce Labs supports Docker images, providing you with a powerful way to orchestrate tests. In order to use Sauce Labs Orchestrate you will need to package your test code and all of its dependencies as a Docker image and publish it to a Docker container registry so that your tests can be run in the Sauce Labs infrastructure.
 
 ## System Requirements
 
@@ -86,7 +88,7 @@ Congratulations, you’ve just built your first image! Now we need to store it s
 To allow Sauce Labs to use your custom image, store it in a public Docker Registry. The easiest mechanism is to create an account on Docker Hub because Docker Hub allows you to store unlimited public images for free. If your organization is already using Docker Hub, you can use your existing account.
 
 :::note
-To use an image with Sauce Orchestrate, you must have a public repository. If you want to keep your image private, refer to the Using Docker Authenticated Pulls document for instructions.
+To use an image with the Sauce Labs Orchestrate you must have a public repository. If you want to keep your image private, refer to the Using Docker Authenticated Pulls document for instructions.
 :::
 
 The example uses Docker Hub, but it is possible to use different registries, if you prefer. Adapt the example based on the registry you are using.
@@ -110,6 +112,9 @@ The `-t` key specifies the name and tag of the new image:
 - saucelabs - The account in Docker Hub
 - sl-demo-docker-primary - The repository name
 - 0.0.1 - The tag (version) of the image. Always update the tag if you change something in a Dockerfile, or you might have unpredictable results.
+- saucelabs - The account in Docker Hub
+- sl-demo-docker-primary - The repository name
+- 0.0.1 - The tag (version) of the image. Always update the tag if you change something in a Dockerfile, or you might have unpredictable results.
 
 ### Pushing the Image to the Registry
 
@@ -126,7 +131,14 @@ First, we use docker login to authenticate in Docker Hub. If you use a registry 
 
 ### Using your Image in Sauce Labs
 
-After the image is successfully pushed, it is available for use in Sauce Orchestrate. Create a `saucectl` configuration like the one below. For more information, see [saucectl Configuration](/orchestrate/saucectl-configuration).
+After the image is successfully pushed, it is available for use in Sauce Orchestrate. Create a SauceCTL configuration like the one below. For more information, see [SauceCTL Configuration](/orchestrate/saucectl-configuration).
+
+<Tabs
+  defaultValue="SauceCTL"
+  values={[
+    {label: 'SauceCTL', value: 'SauceCTL'},
+  ]}>
+<TabItem value="SauceCTL">
 
 ```yaml
 apiVersion: v1alpha
@@ -136,6 +148,7 @@ region: us-west-1
 suites:
   - name: run sauce test
     image: saucelabs/sl-demo-docker-primary:0.0.1
+    workload: webdriver
     entrypoint: "mvn test"
     files:
       - src: "runsauce.json"
@@ -147,14 +160,23 @@ suites:
 ```
 
 Then run with
+Then run with
+
+```bash
+  saucectl run
+```
 
 ```bash
   saucectl run
 ```
 
 This only works if the config name follows a specific pattern and resides in a subfolder, for example `.sauce/config.yml`.
+This only works if the config name follows a specific pattern and resides in a subfolder, for example `.sauce/config.yml`.
 
 If the config name does not follow that pattern, you have to point to the config file explicitly, for example `saucectl run -c myconfig.yml`.
+
+  </TabItem>
+</Tabs>
 
 ## CI Integrations
 
@@ -166,5 +188,5 @@ The Sauce Labs demo repos contain GitHub Action code for building images.
 
 - [Java](https://github.com/saucelabs-training/demo-java)
 - [Python](https://github.com/saucelabs-training/demo-python)
-- [JavaScript](https://github.com/saucelabs-training/demo-js)
+- [Javascript](https://github.com/saucelabs-training/demo-js)
 - [Ruby](https://github.com/saucelabs-training/demo-ruby)
