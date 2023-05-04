@@ -14,7 +14,7 @@ This document describes how to push a container image to an authenticated regist
 
 The first thing you will need to do is create an authorization token from your registry. Instructions vary depending on your provider. For this example we will use DockerHub.
 
-Please refer to their documentation about [Creating and Managing Access Tokens](https://docs.docker.com/docker-hub/access-tokens/).
+For more information, see [Creating and Managing Access Tokens](https://docs.docker.com/docker-hub/access-tokens/) in the Docker documentation.
 
 It is highly recommended that you create a unique authorization token in your registry that can only access the images necessary for running your tests.
 
