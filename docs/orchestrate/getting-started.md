@@ -80,7 +80,7 @@ You will need to replace `[docker_user]` with your registry username.
 
 To run your tests on Sauce Orchestrate using the image you just created, you will use our developer friendly CLI tool called `saucectl`. If you do not have `saucectl` installed, see [Using the saucectl CLI](/dev/cli/saucectl). `saucectl` version 0.136 or later is required to run Sauce Orchestrate.
 
-In order for `saucectl` to understand how to run your project you must create a file called `config.yml` in `.sauce` located at the root of your project. The sample configuration for the demo java project is located below.
+In order for `saucectl` to understand how to run your project you must create a file called `config.yml` in `.sauce` located at the root of your project. The sample configuration for the demo Java project is located below.
 
 ```yaml showLineNumbers
 apiVersion: v1alpha
