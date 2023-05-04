@@ -35,7 +35,7 @@ To enable DevTools for iOS and Android during cross-browser testing:
 1. In Sauce Labs, go to **Live** > **Cross Browser**.
 2. In the **URL** field, enter the web application or the URL you want to test.
 3. Launch a test on a Real Device (iOS 13+, Android 9+).
-4. After your sessions starts, select **Developer Options** from the toolbar on the right of the screen.
+4. After your session starts, select **Developer Options** from the toolbar on the right of the screen.
 5. Select the new **Dev Tools** tab.
 
 <img src={useBaseUrl('img/live-web-apps/dev-tools-sources.png')} alt="Shows the Dev Tools tab used to inspect sources in the Developer Options for a live mobile test." width="800"/>
