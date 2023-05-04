@@ -242,7 +242,7 @@ This isn't always restricted to the tests, either; an app under test which consu
 Break out your long tests into shorter tests and/or make sure that your tests are not filling up a lot of disk space on the VM.
 
 
-### Unable to Find Device Within 15 Minutes
+### Unable to Find Device Within 900000ms
 
 **Description**
 
