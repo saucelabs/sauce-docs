@@ -594,7 +594,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
       },
       "linux-arm64" : {
          "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz",
-         "sha1" : "fd782a658f4d28b9792ed<hash>af9df730a87ae797cba"
+         "sha1" : "<hash>"
       },
       "osx" : {
          "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
