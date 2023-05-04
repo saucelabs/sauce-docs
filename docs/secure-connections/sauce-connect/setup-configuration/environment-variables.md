@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 The standard way to launch a Sauce Connect Proxy tunnel is to execute a single command line comprised of all [required flags](/dev/cli/sauce-connect-proxy/#main) and any [optional flags](/dev/cli/sauce-connect-proxy/) you want to use to customize tunnel behavior.
 It's also possible to pass the same command-line arguments through a [YAML config file](/secure-connections/sauce-connect/setup-configuration/yaml-config/), and as environment variables.
-When the same argument is passed through multiple methods, the order of precedence is as follows (from highest to lowest):
+If you pass the same argument through multiple methods, the order of precedence is as follows (from highest to lowest):
 
 - command-line option
 - environment variable
@@ -20,7 +20,7 @@ When the same argument is passed through multiple methods, the order of preceden
 Sauce Connect Proxy environment variables can be divided into 3 groups:
 
 - User credentials
-- All command line options as envirment variables
+- All command line options as environment variables
 - Proxy environment variables
 
 ## User Credentials Environment Variables
@@ -39,7 +39,7 @@ We recommend configuring credentials via environment variables in the following 
 
 ## Command Line Options Environment Variables
 
-Almost all Sauce Connect Proxy [command-line options](/dev/cli/sauce-connect-proxy) can be set via environment variables.
+You can set via environment variables almost all Sauce Connect Proxy [command-line options](/dev/cli/sauce-connect-proxy).
 Each option description includes the corresponding environment variable.
 
 ### Use Cases
@@ -47,7 +47,7 @@ Each option description includes the corresponding environment variable.
 We recommend configuring options via environment variables in the following scenarios.
 
 - Sauce Connect Proxy command is too long and not easily readable.
-- Sauce Connect Proxy runs in docker container and CI system (such as Gitlab) allows a simple way to set environment variables.
+- Sauce Connect Proxy runs in a docker container and CI system (such as GitLab) allows a simple way to set environment variables.
 
 ## Proxy Environment Variables
 
@@ -88,7 +88,7 @@ export SAUCE_ACCESS_KEY="your Sauce access key"
 sc --region us-west
 ```
 
-Alternatively, Sauce Connect Proxy environment variables may be added to one of the user environment configuration files, such as `~/.bash_profile`.
+Alternatively, you may add Sauce Connect Proxy environment variables to one of the user environment configuration files, such as `~/.bash_profile`.
 
 1. To make environment variables always available, open `~/.bash_profile` in your prefered text editor.
 2. Add the variables, for example:
