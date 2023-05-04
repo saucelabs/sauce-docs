@@ -133,7 +133,7 @@ The following limitations are in effect for artifact downloads. They do not appl
 - Must specify an absolute path (starting at the root `/`)
 - Max requested volume for parent dir is 10M
 - You can only specify up to 10 paths
-  :::
+:::
 
 ## saucectl Commands
 
