@@ -203,7 +203,7 @@ HTTP Header Injection is disabled for all HTTPS domains passed to the `--no-ssl-
 
 <p><small>| OPTIONAL | </small></p>
 
-**Description**: Prevents the removal of colliding tunnels (i.e., tunnels with the same name). <br/>
+**Description**: Prevents the removal of colliding tunnels (that is, tunnels with the same name). <br/>
 **Environment variable**: n/a <br/>
 **Shorthand**: n/a
 
@@ -595,7 +595,7 @@ Here are some guidelines to follow when formatting domains:
   - Example, `mydomain.com,saucelabs.com,mysite.com`
 - Prefix domain names with a dot `.` to match all its subdomains.
   - Example: You could refer to `docs.saucelabs.com` and `my.saucelabs.com` as "`*.saucelabs.com"` or` ".saucelabs.com"`. Enclose the argument in quotes to prevent shell expansion of asterisk.
-- If you don't want any domains to be SSL re-encrypted, you can specify `all` with the argument (i.e., `-B all` or `--no-ssl-bump-domains all`)
+- If you don't want any domains to be SSL re-encrypted, you can specify `all` with the argument (that is, `-B all` or `--no-ssl-bump-domains all`)
 - WebSockets domains are not compatible with SSL bumping, so you'll need to [disable SSL Bumping](#--no-ssl-bump-domains) for those.
 
 ## Additional Resources
