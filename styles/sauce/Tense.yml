@@ -1,0 +1,16 @@
+# Checks for verbs that are not in present tense.
+extends: existence
+message: "Instead of '%s', try writing this sentence with a present tense verb (for example, 'is' or 'are')."
+level: suggestion
+ignorecase: false
+tokens:
+  - 'will'
+  - 'was'
+  - 'were'
+  - 'should'
+  - 'could'
+  - 'would'
+  - 'has been'
+  - 'have been'
+  - 'had been'
+  

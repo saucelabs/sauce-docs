@@ -10,11 +10,11 @@ This page describes best practices for using container images in Sauce Orchestra
 
 ## Building Efficient Java Images
 
-Java is one of the most popular programming languages available and is widely used for Selenium and Appium test projects. Here are some tips and tricks to get your Java project working with Sauce Orchestrate.
+Java is one of the most popular programming languages available and is widely used for Selenium and Appium test projects. Here are some tips and tricks to get your Java project working with Sauce Orchestrate. For this documentation page we will assume that Docker is being used.
 
 ### Ensure Proper Base Image
 
-The first part of any Dockerfile is the base image to choose from. When building Java images you will want to choose a base image that contains the proper JDK and Maven version your project requires. There are many available base images to choose from. In our sample Java repository you can see we have chosen `FROM maven:3.6.3-jdk-8`. This means we will use JDK 8 and Maven 3.6.3.
+The best practice for creating a container image is to start with a base image. When building Java images you will want to choose a base image that contains the proper JDK and Maven version your project requires. There are many available base images to choose from. In our sample Java repository you can see we have chosen `FROM maven:3.6.3-jdk-8`. This means we will use JDK 8 and Maven 3.6.3.
 
 In order to know which JDK and Maven version to choose run the following commands on your local environment where you know your tests run successfully.
 
@@ -43,25 +43,25 @@ ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 RUN mvn clean test; exit 0
 ```
 
-To realize the performance gain from doing this, in your `entrypoint` command configuration in saucectl make sure to run maven in offline mode.
+To realize the performance gain from doing this, in your `entrypoint` command configuration in saucectl make sure to run Maven in offline mode.
 
-````yaml
-#   entrypoint: mvn test -o
-# ```
+```yaml
+  entrypoint: mvn test -o
+```
 
 ### Add Maven settings.xml file
 
-Maven includes support for a global settings file. This is normally used to configure global dependencies and registry locations. If your project requires the global settings.xml file be present then you must ensure that file exists within your container image.
+Maven includes support for a global settings file. This is normally used to configure global dependencies and registry locations. If your project requires the global settings.xml file be present then you must ensure that file exists in your container image.
 
-The maven settings.xml file is generally found within the home directory of your local dev environment. In order to copy the settings.xml file located in your home directory you need to update your Dockerfile and where you run the ```docker build``` command from.
+The Maven settings.xml file is generally found in the home directory of your local dev environment. In order to copy the settings.xml file located in your home directory you need to update your Dockerfile and where you run the `docker build` command from.
 
-Add the following to your Dockerfile
+Add the following to your Dockerfile:
 
 ```yaml showLineNumbers
 COPY ~/.m2/settings.xml ~/.m2
-````
+```
 
-Then you must run `docker build` from your home directory
+Then run `docker build` from your home directory:
 
 ```bash
 cd ~
@@ -151,7 +151,7 @@ This command will start a container based on your specified image with a shell o
 
 ## Sauce Credentials
 
-It is highly recommended to not hardcode your Sauce Credentials in your test scripts. For convenience purposes we automatically inject your Sauce Credentials into the running Suace Orchestrate container under the following environment variable names:
+It is highly recommended to not hardcode your Sauce Credentials in your test scripts. For convenience purposes we automatically inject your Sauce Credentials into the running Sauce Orchestrate container under the following environment variable names:
 
 - `SAUCE_USERNAME`
 - `SAUCE_ACCESSKEY`
