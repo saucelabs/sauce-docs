@@ -287,12 +287,12 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-### Get Tunnel Versions Information
+### Get Tunnel Version Downloads
 
 <details><summary><span className="api get">GET</span> <code>/rest/v1/public/tunnels/info/versions</code></summary>
 <p/>
 
-Returns tunnel version information.
+Returns tunnel version download information.
 
 #### Parameters
 
@@ -300,15 +300,15 @@ Returns tunnel version information.
   <tbody>
     <tr>
      <td><code>client_version</code></td>
-    <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The Sauce Connect client version (For example, <code>4.7.1</code>).</p></td>
+    <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns download information for the specified Sauce Connect client version (For example, <code>4.7.1</code>).</p></td>
     </tr>
     <tr>
      <td><code>client_host</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The Sauce Connect host OS and CPU Architecture (For example, <code>darwin-amd64</code>). </p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns download information for Sauce Connect Proxy version with the specified host OS and CPU Architecture (For example, <code>darwin-amd64</code>). </p></td>
     </tr>
     <tr>
      <td><code>all</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>The response will contain download info for all the available SC Proxy versions.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Set to `true` to return download information for all available Sauce Connect Proxy versions. Defaults to `false`.</p></td>
     </tr>
   </tbody>
 </table>
