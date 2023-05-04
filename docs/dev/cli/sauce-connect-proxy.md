@@ -63,8 +63,7 @@ You can view the entire list of CLI options by running the `--help` flag.
 
 <p><small>| OPTIONAL | STRING |  <span className="sauceGreen">4.7.x</span> <span className="sauceGreen">4.8.x</span>| </small></p>
 
-**Description**: Sets your Sauce Labs [data center endpoint](/basics/data-center-endpoints/#data-center-endpoints) (e.g., `us-west`, `eu-central`, `apac-southeast`).<br/>
-**Default**: If you don't specify a data center, Sauce Connect will default to `us-west`. <br/>
+**Description**: Sets your Sauce Labs [data center endpoint](/basics/data-center-endpoints/#data-center-endpoints) (e.g., `us-west`, `eu-central`, `apac-southeast`). Default: If you don't specify a data center, the default value is `us-west`.<br/>
 **Environment variable**: `SAUCE_REGION`<br/>
 **Shorthand**: `-r`
 
@@ -78,6 +77,31 @@ You can view the entire list of CLI options by running the `--help` flag.
 #APAC-Southeast-1
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region apac-southeast
 ```
+
+---
+
+### `--rest-url`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">4.7.x</span> <span className="sauceGreen">4.8.x</span>| </small></p>
+
+**Description**: Sets the URL for the [data center endpoint](/basics/data-center-endpoints) of the location where the device you're testing on is hosted.<br/>
+**Environment variable**: `SAUCE_REST_URL`<br/>
+**Shorthand**: `-x`
+
+```bash
+#US-West-1
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://api.us-west-1.saucelabs.com/rest/v1
+
+#EU-Central-1
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://api.eu-central-1.saucelabs.com/rest/v1
+
+#APAC-Southeast-1
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://api.apac-southeast-1.saucelabs.com/rest/v1
+```
+
+:::note
+Effective with version 4.7.0, this flag was deprecated and replaced by [`--region`](/dev/cli/sauce-connect-proxy/#--region).
+:::
 
 ---
 
@@ -175,41 +199,29 @@ HTTP Header Injection is disabled for all HTTPS domains passed to the `--no-ssl-
 
 ---
 
-### `--rest-url`
-
-<p><small>| OPTIONAL | STRING | <span className="sauceGreen">4.7.x</span> <span className="sauceGreen">4.8.x</span>| </small></p>
-
-**Description**: Sets the URL for the [data center endpoint](/basics/data-center-endpoints) of the location where the device you're testing on is hosted.<br/>
-**Environment variable**: `SAUCE_REST_URL`<br/>
-**Shorthand**: `-x`
-
-```bash
-#US-West-1
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://api.us-west-1.saucelabs.com/rest/v1
-
-#EU-Central-1
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://api.eu-central-1.saucelabs.com/rest/v1
-
-#APAC-Southeast-1
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://api.apac-southeast-1.saucelabs.com/rest/v1
-```
-
-:::note
-Effective with version 4.7.0, this flag was deprecated and replaced by [`--region`](/dev/cli/sauce-connect-proxy/#--region).
-:::
-
----
-
 ### `--no-remove-colliding-tunnels`
 
 <p><small>| OPTIONAL | </small></p>
 
 **Description**: Prevents the removal of colliding tunnels (i.e., tunnels with the same name). <br/>
-**Environment variable**: n/a
+**Environment variable**: n/a <br/>
+**Shorthand**: n/a
 
 :::note
 Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-pool`](#--tunnel-pool).
 :::
+
+---
+
+### `--extra-info`
+
+<p><small>| OPTIONAL | </small></p>
+
+**Description**: Returns a JSON string that contains an advanced tunnel configuration. <br/>
+**Environment variable**: n/a<br/>
+**Shorthand**: n/a
+
+---
 
 ## External Proxy Configuration
 
@@ -369,6 +381,16 @@ Use `--logfile -` to print your log to the console window (stdout) instead of th
 
 ---
 
+### `--status-address`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">4.8.x</span>| </small></p>
+
+**Description**: Use this option to define the host:port for the internal web server used to expose the Sauce Connect Proxy runtime info. See the [Sauce Connect Proxy Monitoring](/secure-connections/sauce-connect/proxy-tunnels/#sauce-connect-proxy-monitoring) for more info. Disabled by default.<br/>
+**Environment variable**: `SAUCE_STATUS_ADDRESS`<br/>
+**Shorthand**: n/a
+
+---
+
 ### `--se-port`
 
 <p><small>| OPTIONAL | NUMBER | <span className="sauceGreen">4.7.x</span> <span className="sauceGreen">4.8.x</span>| </small></p>
@@ -488,16 +510,6 @@ This flag will only send the header Authorization with a type of "Basic." If a r
 :::note
 Effective with version 4.8.0, this flag was deprecated and replaced by [`--status-address`](#--status-address).
 :::
-
----
-
-### `--status-address`
-
-<p><small>| OPTIONAL | STRING | <span className="sauceGreen">4.8.x</span>| </small></p>
-
-**Description**: Use this option to define the host:port for the internal web server used to expose the Sauce Connect Proxy runtime info. See the [Sauce Connect Proxy Monitoring](/secure-connections/sauce-connect/proxy-tunnels/#sauce-connect-proxy-monitoring) for more info. Disabled by default.<br/>
-**Environment variable**: `SAUCE_STATUS_ADDRESS`<br/>
-**Shorthand**: n/a
 
 ---
 
