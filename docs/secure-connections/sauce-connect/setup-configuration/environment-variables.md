@@ -47,7 +47,7 @@ Each option description includes the corresponding environment variable.
 We recommend configuring options via environment variables in the following scenarios.
 
 - Sauce Connect Proxy command is too long and not easily readable.
-- Sauce Connect Proxy runs in a docker container and CI system (such as GitLab) allows a simple way to set environment variables.
+- Sauce Connect Proxy runs in a docker container, and CI system (such as GitLab) allows an easy way to set environment variables.
 
 ## Proxy Environment Variables
 
