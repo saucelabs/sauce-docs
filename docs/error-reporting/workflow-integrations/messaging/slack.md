@@ -16,7 +16,7 @@ You can integrate Backtrace with the app for Slack to see the errors that matter
 An Incoming Webhook must be configured in Slack. To set up the Incoming Webhook, follow the on-screen instructions on the [Incoming WebHooks](https://my.slack.com/services/new/incoming-webhook/) page:
 
 1. In the **Post to Channel** section, select the channel you want to post messages to, then select **Add Incoming WebHooks integration**.
-1. After the Incoming Webhook integration is added, from the** Setup Instructions**, copy the **Webhook URL**. The Webhook URL is used to create the integration for Slack in Backtrace.
+1. After the Incoming Webhook integration is added, from the **Setup Instructions**, copy the **Webhook URL**. The Webhook URL is used to create the integration for Slack in Backtrace.
 
 ## Create the Integration
 
