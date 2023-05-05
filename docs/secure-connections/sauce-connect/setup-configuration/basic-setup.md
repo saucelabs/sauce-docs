@@ -287,6 +287,9 @@ The tunnel should now be established between the Sauce Connect Client and the Tu
 
 1. Selenium/Appium test code sends an HTTPS request to the VM or Real Device that was created for this test (e.g., `GET www.saucedemo.com`).
 2. Test VM or Device sends this request to Tunnel VM in order to access SUT.
+   :::note
+   The tunnel assigned depends on the [tunnel-identifier](/dev/cli/sauce-connect-proxy/#--tunnel-identifier) or [tunnel-name](/dev/cli/sauce-connect-proxy/#--tunnel-name) that tells Sauce Labs what tunnel to serve.
+   :::
 3. Tunnel VM forwards this request to Sauce Connect Proxy client via the secure tunnel.
 4. Sauce Connect Proxy client forwards the request to Site Under Test (SUT).
 5. Site Under Test returns response to Sauce Connect Proxy client.
