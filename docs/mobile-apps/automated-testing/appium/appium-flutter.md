@@ -121,7 +121,7 @@ values={[
 
 <!-- prettier-ignore -->
 ```java
-DesiredCapabilities capabilities = new DesiredCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 
 capabilities.setCapability("platformName", "android");
 capabilities.setCapability("appium:platformVersion", "12");
@@ -139,7 +139,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 <TabItem value="ios">
 
 ```java
-DesiredCapabilities capabilities = new DesiredCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 
 capabilities.setCapability("platformName", "ios");
 capabilities.setCapability("appium:platformVersion", "15.4");
@@ -377,7 +377,7 @@ values={[
 
 <!-- prettier-ignore -->
 ```java
-DesiredCapabilities capabilities = new DesiredCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 
 capabilities.setCapability("platformName", "android");
 // W3C Protocol is mandatory for Appium 2.0
@@ -398,7 +398,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <!-- prettier-ignore -->
 ```java
-DesiredCapabilities capabilities = new DesiredCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 
 capabilities.setCapability("platformName", "ios");
 // W3C Protocol is mandatory for Appium 2.0
