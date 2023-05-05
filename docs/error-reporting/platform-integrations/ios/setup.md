@@ -22,9 +22,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Supported Platforms
 
-- iOS 10+
-- macOS 10.10+
-- tvOS 10+
+- iOS 11+
+- macOS 10.13+
+- tvOS 11+
 
 ## What You'll Need
 
@@ -50,11 +50,9 @@ You can install the SDK with Swift Package Manager (SPM) or CocoaPods. The SPM p
 <Tabs>
   <TabItem value="xcode" label="Xcode" default>
    <ol>
-   <li>In <b>Xcode</b> select <b>File > Add Packages</b>, then search for <b>backtrace-cocoa</b>.</li>
-   <li>For the <b>Dependency Rule</b>, select <b>Branch</b> and enter <b>feature/SwiftPM</b> as the branch name.</li>
-   <li>Select <b>Add Package</b>.</li>
-   <li>Verify your project Package Dependencies list for backtrace-cocoa.</li>
-   <li>Add Backtrace to your target’s Frameworks, Libraries, and Embedded Content.</li>
+   <li>In <b>Xcode</b> select <b>File > Add Packages</b>, then search for and add <code>https://github.com/backtrace-labs/backtrace-cocoa.git</code>.</li>
+   <li>Verify your project <b>Package Dependencies</b> list for backtrace-cocoa.</li>
+   <li>Add Backtrace to your target’s <b>Frameworks, Libraries, and Embedded Content</b>.</li>
    </ol>
   </TabItem>
   <TabItem value="SPM" label="Swift Package Manager">
