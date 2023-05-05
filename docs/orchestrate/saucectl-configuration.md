@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This page describes each `saucectl` configuration option and useful commands to use when interacting with Sauce Orchestrate. To get started with Sauce Orchestrate, see [Getting Started](/orchestrate/getting-started/).
+This page describes each `saucectl` configuration option and commands to use when interacting with Sauce Orchestrate. To get started with Sauce Orchestrate, see [Getting Started](/orchestrate/getting-started/).
 
 ## Configuration Options
 
@@ -40,7 +40,7 @@ kind: imagerunner
 
 <p><small>| REQUIRED | STRING |</small></p>
 
-Tell Sauce Orchestrate what kind of entrypoint process you will running. This is important for security monitoring. Options are `webdriver` or `other`. For most configurations `webdriver` will be required.
+Tell Sauce Orchestrate what kind of entrypoint process you are running. `workload` is important for security monitoring. Options are `webdriver` or `other`. For most configurations `webdriver` is required.
 
 ```yaml
 kind: imagerunner
@@ -72,7 +72,7 @@ imagePullAuth:
 
 <p><small>| REQUIRED | STRING |</small></p>
 
-The command that is executed once the container is ready.
+The command that is executed after the container is ready.
 
 ```yaml
 entrypoint: mvn test
@@ -82,7 +82,7 @@ entrypoint: mvn test
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Files to be uploaded onto the container. Useful for populating test data that your scripts access. src and dst must be an absolute path.
+Files to be uploaded onto the container. Can be used for populating test data that your scripts access. src and dst must be an absolute path.
 
 ```yaml
 files:
@@ -94,7 +94,7 @@ files:
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Environment variables to be injected into the container. Useful for populating secrets used in your tests. These are not stored anywhere in Sauce Labs.
+Environment variables to be injected into the container. Can be used for populating secrets used in your tests. These environment variables are not stored anywhere in Sauce Labs.
 
 ```yaml
 env:
@@ -133,11 +133,11 @@ The following limitations are in effect for artifact downloads. They do not appl
 - Must specify an absolute path (starting at the root `/`)
 - Max requested volume for parent dir is 10M
 - You can only specify up to 10 paths
-  :::
+:::
 
 ## saucectl Commands
 
-The following commands are useful when interacting with Sauce Orchestrate.
+The following are some common `saucectl` commands for interacting with Sauce Orchestrate.
 
 ### `saucectl run`
 
@@ -157,7 +157,7 @@ saucectl imagerunner logs <runID>
 
 ### `saucectl imagerunner artifacts`
 
-Get artifacts/files of the container from a Sauce Orchestrate run. Only the files specified in `artifacts` configuration will be downloaded.
+Get artifacts/files of the container from a Sauce Orchestrate run. Only the files specified in `artifacts` configuration are downloaded.
 
 ```bash
 saucectl imagerunner artifacts <runID>
