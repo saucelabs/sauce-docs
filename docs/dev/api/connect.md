@@ -304,7 +304,7 @@ Returns tunnel version download information.
     </tr>
     <tr>
      <td><code>client_host</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns download information for Sauce Connect Proxy version with the specified host OS and CPU Architecture (For example, <code>darwin-amd64</code>). </p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns download information for the Sauce Connect Proxy version with the specified host OS and CPU Architecture (For example, <code>darwin-amd64</code>). </p></td>
     </tr>
     <tr>
      <td><code>all</code></td>
