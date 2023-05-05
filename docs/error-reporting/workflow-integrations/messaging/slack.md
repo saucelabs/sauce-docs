@@ -20,28 +20,14 @@ An Incoming Webhook must be configured in Slack. To set up the Incoming Webhook,
 
 ## Create the Integration
 
-To set up the integration, first go to the **Project Settings** page for the project you want to add a integration for:
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />
-
-Click **Integrations** in the left-hand menu, then **+** to create a new integration:
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/add-wf-integration.png')} alt="" />
-
-Select **Slack** and fill in the required settings (name, webhook URL you generated above, and one or more channels/users to send the message to).
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/configure-slack-integration.png')} alt="" />
-
-Next, customize the payload to include the content best suited for your team.
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/slack-customize-payload.png')} alt="" />
-
-Then, configure options for when the notifications should fire.
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/slack-setup-actions.png')} alt="" />
-
-Finally, add any rules to route notifications to certain channels or users based on crash attribute values.
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/slack-setup-additonal-rules.png')} alt="" />
-
-Select Submit.
+1. Go to the **Project Settings** page for the project you want to add a integration for.
+1. Click **Integrations** in the left-hand menu, then **+** to create a new integration.
+1. Select **Slack** and fill in the required settings (name, webhook URL you generated above, and one or more channels/users to send the message to).
+   <img src={useBaseUrl('img/error-reporting/workflow-integrations/configure-slack-integration.png')} alt="" />
+1. Customize the payload to include the content best suited for your team.
+   <img src={useBaseUrl('img/error-reporting/workflow-integrations/slack-customize-payload.png')} alt="" />
+1. Configure options for when the notifications should fire.
+   <img src={useBaseUrl('img/error-reporting/workflow-integrations/slack-setup-actions.png')} alt="" />
+1. Add any rules to route notifications to certain channels or users based on crash attribute values.
+   <img src={useBaseUrl('img/error-reporting/workflow-integrations/slack-setup-additonal-rules.png')} alt="" />
+1. Click **Submit**.
