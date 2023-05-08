@@ -22,9 +22,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Supported Platforms
 
-- iOS 10+
-- macOS 10.10+
-- tvOS 10+
+- iOS 11+
+- macOS 10.13+
+- tvOS 11+
 
 ## What You'll Need
 
@@ -32,11 +32,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 - Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
 - A Backtrace project and a submission token.
 
-<!-- prettier-ignore -->
 :::tip Generate a Submission Token
 
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
+
 :::
 
 ### System Requirements
@@ -45,15 +45,38 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Install the SDK
 
-Use [CocoaPods](https://cocoapods.org/) to install the latest version of the reporting library. To use CocoaPods, add the [Backtrace pod](https://cocoapods.org/pods/Backtrace) to your `Podfile`:
+You can install the SDK with Swift Package Manager (SPM) or CocoaPods. The SPM package can be integrated directly in Xcode or by editing your package's `Package.swift` file.
+
+<Tabs>
+  <TabItem value="xcode" label="Xcode" default>
+   <ol>
+   <li>In <b>Xcode</b> select <b>File > Add Packages</b>, then search for and add <code>https://github.com/backtrace-labs/backtrace-cocoa.git</code>.</li>
+   <li>Verify your project <b>Package Dependencies</b> list for backtrace-cocoa.</li>
+   <li>Add Backtrace to your target’s <b>Frameworks, Libraries, and Embedded Content</b>.</li>
+   </ol>
+  </TabItem>
+  <TabItem value="SPM" label="Swift Package Manager">
+   Add the following dependency to your <code>Package.swift</code> file:
+
+```
+.package(url: "https://github.com/backtrace-labs/backtrace-cocoa.git, branch: "feature/SwiftPM")
+```
+
+  </TabItem>
+  <TabItem value="cocoapods" label="CocoaPods">
+   Add the following to your <code>Podfile</code>:
+   <ol>
+   <li>Specify <code>use_frameworks!</code>.</li>
+   <li>Add the <code>Backtrace</code> pod:
 
 ```
 pod 'Backtrace'
 ```
 
-:::note
-Make sure to specify `use_frameworks!` in your `Podfile`.
-:::
+   </li>
+   </ol>
+  </TabItem>
+</Tabs>
 
 ## Initialize the Backtrace Client
 
