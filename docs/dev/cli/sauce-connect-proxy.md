@@ -197,32 +197,6 @@ HTTP Header Injection is disabled for all HTTPS domains passed to the `--no-ssl-
 **Environment variable**: `SAUCE_TUNNEL_DOMAINS`<br/>
 **Shorthand**: `-t`
 
----
-
-### `--no-remove-colliding-tunnels`
-
-<p><small>| OPTIONAL | </small></p>
-
-**Description**: Prevents the removal of colliding tunnels (that is, tunnels with the same name). <br/>
-**Environment variable**: n/a <br/>
-**Shorthand**: n/a
-
-:::note
-Effective with version 4.7.0, this flag was deprecated and replaced by [`--tunnel-pool`](#--tunnel-pool).
-:::
-
----
-
-### `--extra-info`
-
-<p><small>| OPTIONAL | </small></p>
-
-**Description**: Returns a JSON string that contains an advanced tunnel configuration. <br/>
-**Environment variable**: n/a<br/>
-**Shorthand**: n/a
-
----
-
 ## External Proxy Configuration
 
 ---
@@ -464,26 +438,6 @@ This flag will only send the header Authorization with a type of "Basic." If a r
 :::note
 `--ocsp strict` may fail if a certificate in the chain does not support OCSP. We recommend leaving it as the default "log-only" mode.
 :::
-
----
-
-### `--tunnel-capath`
-
-<p><small>| OPTIONAL | </small></p>
-
-**Description**: Directory of CA certificates to use for verifying tunnel connections.<br/>
-**Environment variable**: n/a <br/>
-**Shorthand**: n/a
-
----
-
-### `--capath`
-
-<p><small>| OPTIONAL | </small></p>
-
-**Description**: Defines a directory of CA certs to use for verifying connections to Sauce Labs REST API.<br/>
-**Environment variable**: n/a <br/>
-**Shorthand**: n/a
 
 ## Troubleshooting and Debugging
 
