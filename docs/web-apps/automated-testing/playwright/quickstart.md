@@ -77,7 +77,7 @@ git clone git@github.com:saucelabs/saucectl-playwright-example.git
 
 ## Step 4: Run Tests
 
-Navigate to the Playwright example in the project you just cloned, then use the `run` command to execute the sample tests.
+Navigate to the Playwright example in the project you just cloned, then use the `run` command to run the sample tests.
 
 ```
 cd saucectl-playwright-example
