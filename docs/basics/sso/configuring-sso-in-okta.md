@@ -25,14 +25,11 @@ Complete the following steps to set up SAML SSO integration between Okta and Sau
 3. Click **Add Integration**.
    <img src={useBaseUrl('img/basics/sso/idp-config/okta/add-integration.png')} alt="Add Integration" width="700" />
 
-4. Leave the default name or rename it and click **Next**.
-   <img src={useBaseUrl('img/basics/sso/idp-config/okta/general-settings.png')} alt="General Settings" width="800" />
+4. Enter the required information under **General Settings**, and then click **Next**.
 
-5. Click the link **Identity Provider metadata**. The metadata will open in a new tab. Copy it and save as an XML file. Use this metadata file to set up the SSO integration at Sauce Labs in [Team Management Panel](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider).
-   <img src={useBaseUrl('img/basics/sso/idp-config/okta/download-metadata.png')} alt="Download Metadata" width="600" />
+5. On the **Sign On Options** page, in the **Metadata details** section you can find the Identity Provider Metadata URL. Open it in a new tab, copy the content, and save it as an XML file. You can use this metadata file to set up the SSO Integration at Sauce Labs in the [Team Management Panel](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider).
 
-6. In the **Credentials Details** section make sure that the value **Application username format** is a [valid email address](/basics/sso/setting-up-sso/#name-id). The default format for **Okta username** is email address, unless it was changed in Okta Admin Console.
-   <img src={useBaseUrl('img/basics/sso/idp-config/okta/app-username-format.png')} alt="Application Username Format" width="650" />
+6. On the **Sign On Options** page in Okta, in the **Credentials Details** section, ensure that the value for **Application username format** is a [valid email address](/basics/sso/setting-up-sso/#name-id). The default format for **Okta username** is an email address, unless it has been changed in Okta Admin Console.
 
 7. Click **Done** to create the integration.
 
