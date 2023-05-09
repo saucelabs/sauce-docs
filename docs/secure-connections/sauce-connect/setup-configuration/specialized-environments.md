@@ -64,7 +64,7 @@ In this example, we'll [set our credentials (username/access key) as environment
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west --tunnel-name rdc-on-sauce-tunnel-us
 ```
 
-:::warning Note for Android Devices
+:::note Note for Android Devices
 If you set up the tunnel for Android Devices, you must start Sauce Connect Proxy with the `-B all` flag:
 
 ```bash
