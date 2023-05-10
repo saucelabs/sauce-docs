@@ -56,7 +56,7 @@ git clone git@github.com:saucelabs/saucectl-imagerunner-example.git
 `saucectl` requires access to a valid Sauce Labs account.
 
 :::tip Use Environment Variables
-`saucectl` detects your Sauce Labs credentials [environment variables](/basics/environment-variables) and prioritizes them over values in the `credentials.yml` file when both are present. **If you have set them, you may skip this step.** Not sure if you have them set? Run the following command to check:
+`saucectl` uses your Sauce Labs credentials as [environment variables](/basics/environment-variables) and prioritizes them over values in the `credentials.yml` file when both are present. **If you have set them, you may skip this step.** Not sure if you have them set? Run the following command to check:
 
 ```
 echo $SAUCE_USERNAME
