@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This page explains how to run your [Playwright](/docs/web-apps/automated-testing/playwright.md) tests in Sauce Orchestrate with `saucectl`.
+This page explains how to run your [Playwright](/docs/web-apps/automated-testing/playwright) tests in Sauce Orchestrate with `saucectl`.
 
 ## What You'll Need
 
