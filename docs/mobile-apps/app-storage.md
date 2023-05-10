@@ -138,7 +138,7 @@ You can also upload and store other file types for generic use, such as a pre-ru
 - \*.bat
 
 :::note
-Sauce Labs only supports a valid .zip files that can be extracted by standard unzip tools.
+Sauce Labs only supports valid .zip files that can be extracted by standard unzip tools.
 :::
 
 ## Team Management Sync
