@@ -382,10 +382,7 @@ The second reason could be that Appium restarted the Simulator due to specific c
 2. Open your session.
 3. Check the first 15 seconds of the video. If you see that the Simulator was already started from the first second, or the restart of the video happens in the first 15 seconds, it means that Appium rebooted the Simulator. See the video below for more information:
 
-<video controls style={{"max-width": "800px"}}>
-
-  <source src={useBaseUrl('img/mobile-apps/instant-booted-restart.mp4')} />
-</video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GF8q9kHgRrw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 A common cause could be that you have provided a capability `“appium:language”` or `“appium:locale”` to change the language of the app or Simulator.
 
