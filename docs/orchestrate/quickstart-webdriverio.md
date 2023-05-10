@@ -1,5 +1,5 @@
 ---
-id: webdriverio-orchestrate-quickstart
+id: quickstart-webdriverio
 title: WebdriverIO Quickstart
 sidebar_label: WebdriverIO Quickstart
 ---
