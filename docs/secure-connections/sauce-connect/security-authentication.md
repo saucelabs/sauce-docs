@@ -117,7 +117,6 @@ When securing Sauce Connect Proxy, be sure to allowlist these sites so that the 
 
 - **OCSP:** http://gp.symcd.com
 - **OCSP Servers for VDC/RDC clouds:** http://ocsp.digicert.com, http://status.geotrust.com
-- **OCSP Servers for Headless:** http://ocsp.int-x3.letsencrypt.org,  http://isrg.trustid.ocsp.identrust.com
 
 Sauce Connect Proxy will try to resolve the entire certificate chain at runtime and check if it can reach the OCSP servers in the entire chain. Because the chain is resolved during runtime and certificates change and are constantly renewed, it's possible that the OCSP sites listed in the certification check might change over time as well.
 
