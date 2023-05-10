@@ -22,9 +22,9 @@ This page explains how to run your WebdriverIO tests in Sauce Orchestrate with `
 
 ## How Orchestrate Works
 
-Sauce Orchestrate uses container technology to package and run your tests in the Sauce Labs cloud. See [How it Works](/docs/orchestrate/getting-started/#how-it-works) for more details.
+Sauce Orchestrate uses container technology to package and run your tests in the Sauce Labs cloud. See [How it Works](/orchestrate/getting-started/#how-it-works) for more details.
 
-The following example uses a project with a `saucectl` configuration file that is set up to run in Orchestrate. See [`saucectl` Configuration](/docs/orchestrate/saucectl-configuration) for more information about the configuration and run options available. The example also has a Dockerfile for building the container image. See [Building Images](/docs/orchestrate/building-images) for more information about creating your own container images.
+The following example uses a project with a `saucectl` configuration file that is set up to run in Orchestrate. See [`saucectl` Configuration](/orchestrate/saucectl-configuration) for more information about the configuration and run options available. The example also has a Dockerfile for building the container image. See [Building Images](/orchestrate/building-images) for more information about creating your own container images.
 
 ## Step 1: Clone the Project
 
