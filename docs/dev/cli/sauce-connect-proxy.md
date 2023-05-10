@@ -63,7 +63,7 @@ You can view the entire list of CLI options by running the `--help` flag.
 
 <p><small>| OPTIONAL | STRING |  <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
-**Description**: Sets your Sauce Labs [data center endpoint](/basics/data-center-endpoints/#data-center-endpoints) (e.g., `us-west`, `eu-central`).<br/>
+**Description**: Sets your Sauce Labs [data center endpoint](/basics/data-center-endpoints/#data-center-endpoints) (for example., `us-west`, `eu-central`).<br/>
 **Default**: If you don't specify a data center, Sauce Connect will default to `us-west`. <br/>
 **Environment variable**: `SAUCE_REGION`<br/>
 **Shorthand**: `-r`
