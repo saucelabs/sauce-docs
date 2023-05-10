@@ -317,7 +317,7 @@ groupId="dc-url"
 defaultValue="US-West-1"
 values={[
 {label: 'US-West-1', value: 'US-West-1'},
-{label: 'EU-Central-1', value: 'EU-Central-1'}
+{label: 'EU-Central-1', value: 'EU-Central-1'},
 ]}>
 
 <TabItem value="US-West-1">
