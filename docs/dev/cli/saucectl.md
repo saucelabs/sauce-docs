@@ -7,55 +7,25 @@ sidebar_label: Using saucectl
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The `saucectl` command line interface orchestrates the relationship between your tests in your framework, and the rich parallelization, test history filtering, and analytics of Sauce Labs. `saucectl` performs the underlying business logic to access the tests in your existing framework, runs them (either in the Sauce Labs Cloud or locally in a Docker image), then securely transmits the test assets to the Sauce Labs platform, where you can review, share, and evaluate your test outcomes at scale.
+The `saucectl` command line interface orchestrates the relationship between your tests in your framework, and the rich parallelization, test history filtering, and analytics of Sauce Labs. `saucectl` performs the underlying business logic to access the tests in your existing framework, runs them in the Sauce Labs Cloud, then securely transmits the test assets to the Sauce Labs platform, where you can review, share, and evaluate your test outcomes at scale.
 
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
-- [Docker](https://docs.docker.com/get-docker/), if you plan to run tests locally
-  :::note
-  Ensure the [Docker daemon](https://docs.docker.com/config/daemon/) is running (e.g., `docker info` works in your terminal / command prompt).
-  :::
 - Know which test framework and browser versions you plan to run tests against
 
 ## System Requirements
 
-Since you can run `saucectl` locally via Docker or remotely via the Sauce Labs cloud, system requirements vary depending on your intention. The following reference serves as a general guide:
+Supported OS:
 
-<Tabs
-defaultValue="macos"
-values={[
-{label: 'macOS', value: 'macos'},
-{label: 'Linux', value: 'linux'},
-{label: 'Windows', value: 'windows'},
-]}>
-
-<TabItem value="macos">
-
-- OS: 10.14+ (Mojave, Catalina, or Big Sur)
-- Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
-
-</TabItem>
-<TabItem value="linux">
-
-- OS/Distros: [CentOS](https://docs.docker.com/engine/install/centos/), [Debian](https://docs.docker.com/engine/install/debian/), [Fedora](https://docs.docker.com/engine/install/fedora/), [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-- Docker: [Server](https://docs.docker.com/engine/install/#server)
-
-</TabItem>
-<TabItem value="windows">
-
-- OS: Windows 10 or 11 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
-- Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
-
-</TabItem>
-</Tabs>
+- Windows 10 / Windows 11
+- macOS 10.14+
+- Linux
 
 ## Supported Frameworks and Browsers
 
-### Sauce Labs Cloud
-
-Below are the frameworks supported on the Sauce Labs Cloud.
+Below are the frameworks supported.
 
 <Tabs
 groupId="platforms"
@@ -120,52 +90,6 @@ values={[
 </TabItem>
 </Tabs>
 
-### Docker Runner
-
-Below are the frameworks supported on the Docker Runner. Browser support for each framework is based on the Sauce Labs Docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available release notes.
-
-<Tabs
-groupId="platforms"
-defaultValue="cypress"
-values={[
-{label: 'Cypress', value: 'cypress'},
-{label: 'Playwright', value: 'playwright'},
-{label: 'TestCafe', value: 'testcafe'},
-{label: 'Puppeteer', value: 'puppeteer'},
-]}>
-
-<TabItem value="cypress">
-
-[Cypress on Sauce Docs](/web-apps/automated-testing/cypress/)
-
-Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-cypress-runner/releases).
-
-</TabItem>
-<TabItem value="playwright">
-
-[Playwright on Sauce Docs](/web-apps/automated-testing/playwright/)
-
-Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-playwright-runner).
-
-</TabItem>
-
-<TabItem value="puppeteer">
-
-[Puppeteer on Sauce Docs](/web-apps/automated-testing/puppeteer/)
-
-Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-puppeteer-runner/releases).
-
-</TabItem>
-
-<TabItem value="testcafe">
-
-[TestCafe on Sauce Docs](/web-apps/automated-testing/testcafe/)
-
-Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases).
-
-</TabItem>
-</Tabs>
-
 ## Installing `saucectl`
 
 `saucectl` binaries are attached to [GitHub releases](https://github.com/saucelabs/saucectl/releases/latest).
@@ -183,6 +107,7 @@ values={[
 ]}>
 
 <TabItem value="npm">
+Requires Node.js 16 or higher and npm 8 or higher.
 
 ```bash title="Using NPM"
 npm install -g saucectl
@@ -190,13 +115,14 @@ npm install -g saucectl
 
 </TabItem>
 <TabItem value="binary">
+Requires Node.js 16 or higher and npm 8 or higher.
 
 ```bash title="Using NPM and SAUCECTL_INSTALL_BINARY"
 SAUCECTL_INSTALL_BINARY=https://company.domain.com/saucectl_0.32.2_mac_64-bit.tar.gz npm install -g saucectl
 ```
 
 :::tip
-Use the `SAUCECTL_INSTALL_BINARY` environment variable to make `saucectl` available from a known source within your control or if you use `npx saucectl` to bypass installation.
+Use the `SAUCECTL_INSTALL_BINARY` environment variable to make `saucectl` available from a known source in your control or if you use `npx saucectl` to bypass installation.
 :::
 
 </TabItem>
@@ -250,7 +176,7 @@ To do this, run the same command you used to download `saucectl`. If you origina
 
 Once you've got `saucectl` installed, you can customize your configurations based on your testing objectives. The following sections offer some common use cases.
 
-### Associate your Credentials
+### Associate Your Credentials
 
 Your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` (available on your [User Settings](https://app.saucelabs.com/user-settings) page) are required to run tests through `saucectl`. You can pass your credentials to `saucectl` via several different methods:
 
@@ -267,7 +193,7 @@ If you set your credentials using more than one of the methods above, `saucectl`
 3. `credentials.yml` file
 :::
 
-### Check out your Framework Demo Repo
+### Check Out Your Framework Demo Repo
 
 `saucectl` provides working samples for each of its supported frameworks, so you can quickly run a sample test, or use the project as a template for your own tests.
 
@@ -276,7 +202,6 @@ If you set your credentials using more than one of the methods above, `saucectl`
 - [Cucumber.js with Playwright Demo](https://github.com/saucelabs/saucectl-playwright-example/tree/main/examples/cucumber)
 - [TestCafe Demo](https://github.com/saucelabs/saucectl-testcafe-example)
 - [Replay Demo](https://github.com/saucelabs/saucectl-replay-example)
-- [Puppeteer Demo](https://github.com/saucelabs/saucectl-puppeteer-example)
 - [Espresso Demo](https://github.com/saucelabs/saucectl-espresso-example)
 - [XCUITest Demo](https://github.com/saucelabs/saucectl-xcuitest-example)
 
@@ -289,11 +214,10 @@ If you already have tests in the framework of your choice, you can use the [`sau
 - [Cucumber.js with Playwright YAML](/web-apps/automated-testing/cucumberjs-playwright/yaml)
 - [TestCafe YAML](/web-apps/automated-testing/testcafe/yaml)
 - [Replay YAML](/web-apps/automated-testing/replay/yaml)
-- [Puppeteer YAML](/web-apps/automated-testing/puppeteer/yaml)
 - [Espresso YAML](/mobile-apps/automated-testing/espresso-xcuitest/espresso)
 - [XCUITest YAML](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest)
 
-### Run your Tests
+### Run Your Tests
 
 When you are ready to run your tests, you can do so using the [`saucectl run`](/dev/cli/saucectl/run) command. Typically, if you have set all of your configuration properties in your `config.yml` file, you need only execute the command itself, with no options. However, most of the properties available through the file are also available as runtime options you can set at the command line.
 
@@ -301,11 +225,11 @@ When you are ready to run your tests, you can do so using the [`saucectl run`](/
 If you set conflicting configuration values in the `config.yml` file and as `saucectl run` command options, the values in set in the `run` command are applied.
 :::
 
-The CLI output includes a Results table. The Attempts column in the table displays the number of times a test suite was run, which can be configured with the `Retries` property [in your YAML specification file](/dev/cli/saucectl/#configure-saucectl-for-your-tests). 
+The CLI output includes a Results table. The Attempts column in the table displays the number of times a test suite was run, which can be configured with the `Retries` property [in your YAML specification file](/dev/cli/saucectl/#configure-saucectl-for-your-tests).
 
-### View your Test Results in Sauce Labs
+### View Your Test Results in Sauce Labs
 
-After tests complete, `saucectl` uploads test assets such as logs, test results, screenshots, and videos to your [Sauce Labs account](https://app.saucelabs.com), as long as they are in the `__Assets__` directory of your project root. Some frameworks automatically place assets in the correct directory, but other frameworks may require you to manually set the location.
+After tests complete, `saucectl` uploads test assets such as logs, test results, screenshots, and videos to your [Sauce Labs account](https://app.saucelabs.com), as long as they are in the `__assets__` directory of your project root. Some frameworks automatically place assets in the correct directory, but other frameworks may require you to manually set the location.
 
 The CLI output includes a link to the job test results page in Sauce Labs:
 

@@ -17,63 +17,64 @@ symbold is the name of the service in Backtrace that is responsible to gather sy
 
 ## Feature Overview
 
-Customers on our Enterprise plan can manage whitelists and blacklists for the default public symbol servers, and can add their own private symbol servers to simplify configuration and speed up debugging time by making sure every callstack is human readable. Specific features we will review in this guide include:
+Customers on our Enterprise plan can manage allowlists and blocklists for the default public symbol servers, and can add their own private symbol servers to simplify configuration and speed up debugging time by making sure every callstack is human readable. Specific features we will review in this guide include:
 
-- View statistics and information about default public symbol servers configured by Backtrace, and manage whitelist / blacklists for them.
+- View statistics and information about default public symbol servers configured by Backtrace, and manage allowlist / blocklists for them.
 - Add one or more private symbol servers for use by your project.
   -View statistics and usage of your private symbol servers.
-- Manage whitelists and blacklists.
+- Manage allowlists and blocklists.
 - View skipped lists and log files to better diagnose issues with symbol retrieval and conversion.
 
 ## Feature Details
 
-Symbol Servers can be accessed under Project Settings.
+Symbol Servers can be accessed in the Project settings.
 
 ### Default Public Symbol Servers configured by Backtrace
 
 For each project, you can view information about the default public symbol servers configured by Backtrace. These include symbols servers for msdl.microsoft.com, symbols.mozilla.org, electron-symbols.githubapp.com, and download.amd.com.
 
-If you are on an Enterprise plan and dedicated or on-prem host, you can self manage connections, retries, blacklist, and whitelists for these default public symbol servers configured by Backtrace. If you are on a shared deployment (non-enterprise), you will share public symbol server configurations with all other organizations on your shared host. As such, you can view shared information such as the stats and usage, whitelist, blacklist, skiplist and logs, but you can not edit these.
+If you are on an Enterprise plan and dedicated or on-prem host, you can self manage connections, retries, blocklist, and allowlists for these default public symbol servers configured by Backtrace. If you are on a shared deployment (non-enterprise), you will share public symbol server configurations with all other organizations on your shared host. As such, you can view shared information such as the stats and usage, allowlist, blocklist, skip list and logs, but you can not edit these.
 
 Below is a screenshot of the Symbol Servers Management UI. It is accessed under **Project Settings > Symbols > Symbol Servers**.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/symbol-servers.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/symbol-servers.png')} alt="Shows the Symbol servers page used to configure the symbol servers for debug symbols." />
 
-NOTE - These default public symbols servers are scoped to your entire organization. This means that usage and statistics, whitelist, blacklist, skip list and logs will not change from project to project. Following is some brief information about each of the tabs and the data within them.
+The default public symbols servers are scoped to your entire organization. This means that usage and statistics, allowlist, blocklist, skip list and logs will not change from project to project. Following is some brief information about each of the tabs and the data within them.
 
 - Statistics and Usage - This tab show information about how much has been data has been downloaded, and how many successful or failed downloads there have been since the Symbol Server was added to the system
-- Whitelist - If the whitelist is enabled, then only symbol files in the whitelist will be downloaded. For the public symbol servers that are seeded by default, whitelists are enabled and commonly used symbols are listed for retrieval.
-- Blacklist - Items in the blacklist will never try to be downloaded from symbol server. Admin would add items to the blacklist if they won't change anything on their stack trace information, won't add any additional debugging information, or might cause only networking problems (i.e files too big, they change too often).
-- Skiplist - Items are automatically added to the skiplist if they cannot be downloaded from the symbol server in the specified number of retries. Symbols in the skiplist will not try to be downloaded on subsequent times.
+- Allowlist - If the allowlist is enabled, then only symbol files in the allowlist will be downloaded. For the public symbol servers that are seeded by default, allowlists are enabled and commonly used symbols are listed for retrieval.
+- Blocklist - Items in the blocklist will never try to be downloaded from symbol server. Admin would add items to the blocklist if they won't change anything on their stack trace information, won't add any additional debugging information, or might cause only networking problems (i.e files too big, they change too often).
+- Skip list - Items are automatically added to the skip list if they cannot be downloaded from the symbol server in the specified number of retries. Symbols in the skip list will not try to be downloaded on subsequent times.
 - Logs - Log information about successful and unsuccessful download and conversion attempts.
 
 ### Add or Edit New Symbol Servers
 
-Customers on our Enterprise plan can add new private symbol servers to connect to. These can be a symbol server or symbol store provided by [Microsoft Debugging tools for Windows](https://docs.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores), or a simple AWS S3 Bucket.
+Customers on our Enterprise plan can add new private symbol servers to connect to. These can be a symbol server or symbol store provided by [Microsoft Debugging tools for Windows](https://docs.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores), or an AWS S3 Bucket.
 
 You will need the following information to connect:
 
-- URL - HTTPS URL to connect to the symbol server or S3 bucket.
-  - When using an AWS S3 bucket, use the HTTPS URL of the region the S3 bucket is hosted from.
-- Name - A friendly name for this connection.
-- Whether you want to enable Whitelist or not. Most common configuration for private symbol servers is NOT use the Whitelist, and have all symbols attempted to be downloaded on demand for any not in the blacklist or skiplist. If Whitelist is enabled, then the system will try to download ONLY the symbols specified in the whitelist (no other symbols will be downloaded).
-- Credentials - Basic Auth os S3 Authentication with bucket name, s3 key and s3 secret are supported.
-- Proxy options - If a proxy server is required.
-  Download options - How many concurrent downloads to allow, and retry options before adding a symbol to the skiplist.
+- **URL** - HTTPS URL to connect to the symbol server or S3 bucket. When using an AWS S3 bucket, use the HTTPS URL of the region the S3 bucket is hosted from.
+- **Name** - A descriptive name for this connection.
+- **Allowlist** - Whether you want to enable Allowlist or not. If Allowlist is enabled, then the system will only try to download the symbols specified in the allowlist (no other symbols will be downloaded). The most common configuration for private symbol servers is to not use the Allowlist, and instead download all symbols that are not in the blocklist or skip list on demand.
+- **Credentials** - Basic Auth, Google Cloud Storage with service secret, or AWS S3 Authentication with bucket name, S3 key, and S3 secret are supported.
+- **Proxy Options**- If a proxy server is required, these options define the proxy credentials, host, and port.
+- **Download Options** - How many concurrent downloads to allow, and retry options before adding a symbol to the skip list.
 
 See a screenshot of the Add Symbol Server UI below:
 
-<img src={useBaseUrl('img/error-reporting/project-settings/add-symbol-server.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/add-symbol-server.png')} alt="Shows the settings required in the Add symbol server dialog." width="500"/>
 
 When an admin adds a new symbol server, symbold will validate connection. By doing that we will avoid a situation when defined symbol server doesn’t work because of connection problems.
 
-As an admin user, you can disable symbol server - if you have problems with your symbol server or your symbol server won’t be available for some reason, you can disable/enable symbol server.
+As an administrator, you can disable the symbol server if you have problems with your symbol server or your symbol server won’t be available for some reason.
 
 After you add a symbol server, you can Edit or Delete it using the context menu on the entry.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/edit-delete-symbol-server.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/edit-delete-symbol-server.png')} alt="Shows how to edit or delete a symbol server from the Symbol servers page." width="500" />
 
-Note: Deleting a symbol server does not delete the debug symbols that were downloaded.
+:::note
+Deleting a symbol server does not delete the debug symbols that were downloaded.
+:::
 
 ### View Statistics and Usage
 
@@ -85,28 +86,28 @@ For each selected symbol server, you can view usage and download statistics. Thi
 
 This information is valid since the item was added as a symbol server to symbold. See a screenshot with this information below:
 
-<img src={useBaseUrl('img/error-reporting/project-settings/symbol-server-stats-usage.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/symbol-server-stats-usage.png')} alt="Shows the Statistics and Usage tab for a symbol server." width="600" />
 
-### Manage Whitelist and Blacklist
+### Manage Allowlist and Blocklist
 
-For each server, you can manage a whitelist and a blacklist.
+For each server, you can manage a allowlist and a blocklist.
 
-It is most common to configure the blacklist for any symbols that you don't want to download from the symbol server. User would set these if they won't change anything on their stack trace information, won't add any additional debugging information, might cause only networking problems (i.e files too big, they change too often).
+It is most common to configure the blocklist for any symbols that you don't want to download from the symbol server. User would set these if they won't change anything on their stack trace information, won't add any additional debugging information, might cause only networking problems (i.e files too big, they change too often).
 
-Items in the whitelist will be fetched if the server itself has toggled whitelist mode on.
+Items in the allowlist will be fetched if the server itself has toggled allowlist mode on.
 
-Entries can be deleted from the whitelist or blacklist by hovering over row and choosing the delete icon.
+Entries can be deleted from the allowlist or blocklist by hovering over row and choosing the delete icon.
 
-Following is a screenshot to show the whitelist entries and a dialog to enter more items to the whitelist, as well as a delete icon for one of the items in the list to show how it can be removed.
+Following is a screenshot to show the allowlist entries and a dialog to enter more items to the allowlist, as well as a delete icon for one of the items in the list to show how it can be removed.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/whitelist-symbols.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/allowlist-symbols.png')} alt="Shows the Allowlist and Blocklist tabs for a symbol server." width="600" />
 
-### View Skiplist & Logs
+### View Skip List and Logs
 
-Skiplist - Items appear in the skiplist when they cannot be fetched after multiple retries. The administrator can specify the retry information in the main configuration for the symbol server. Items in the skiplist will be skipped during subsequent download attempts so as to not cause further download issues. Items can be removed from the skiplist using the delete icon if you want to retry download for them.
+Items appear in the skip list when they cannot be fetched after multiple retries. The administrator can specify the retry information in the main configuration for the symbol server. Items in the skip list will be skipped during subsequent download attempts so as to not cause further download issues. Items can be removed from the skip list using the delete icon if you want to retry download for them.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/symbols-skiplist.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/symbols-skiplist.png')} alt="Shows the Skip list tab for a symbol server." width="600"/>
 
-The Logs tab shows successful and failed attempts at downloading, receiving, or retrying, amongst other. This is useful to understand how the symbol server connection has been behaving.
+The Logs tab shows successful and failed attempts at downloading, receiving, or retrying, amongst other. You can use the logs to understand how the symbol server connection has been behaving.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/symbols-logs.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/symbols-logs.png')} alt="Shows the Logs tab for a symbol server." width="600"/>

@@ -1,6 +1,6 @@
 ---
 id: connect
-title: Sauce Connect API Methods
+title: Sauce Connect API Endpoints
 sidebar_label: Sauce Connect
 description: Retrieve information about or close your Sauce Connect tunnels.
 ---
@@ -119,7 +119,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </table>
 
 ```jsx title="Sample Response to the default request"
-;['28e7c8133ede4588a891666dd35af1f8']
+['28e7c8133ede4588a891666dd35af1f8']
 ```
 
 ```jsx title="Sample Response to the request with an optional parameter full=true"
@@ -280,6 +280,365 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "last_connected": 1618346660,
     "launch_time": 1618345940,
     "tunnel_identifier": "jim.smith_tunnel_id"
+}
+```
+
+</details>
+
+---
+
+### Get Tunnel Version Downloads
+
+<details><summary><span className="api get">GET</span> <code>/rest/v1/public/tunnels/info/versions</code></summary>
+<p/>
+
+Returns tunnel version download information.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>client_version</code></td>
+    <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns download information for the specified Sauce Connect client version (For example, <code>4.7.1</code>).</p></td>
+    </tr>
+    <tr>
+     <td><code>client_host</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns download information for the Sauce Connect Proxy version with the specified host OS and CPU Architecture (For example, <code>darwin-amd64</code>). </p></td>
+    </tr>
+    <tr>
+     <td><code>all</code></td>
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Set to `true` to return download information for all available Sauce Connect Proxy versions. Defaults to `false`.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="US-West"
+values={[
+{label: 'US-West', value: 'US-West'},
+{label: 'US-East', value: 'US-East'},
+{label: 'EU-Central', value: 'EU-Central'},
+{label: 'APAC-Southeast', value: 'APAC-Southeast'},
+]}>
+
+<TabItem value="US-West">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions' | json_pp
+```
+
+</TabItem>
+<TabItem value="US-East">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-east-1.saucelabs.com/rest/v1/public/tunnels/info/versions' | json_pp
+```
+
+</TabItem>
+<TabItem value="EU-Central">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/public/tunnels/info/versions' | json_pp
+```
+
+</TabItem>
+<TabItem value="APAC-Southeast">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.apac-southeast1.saucelabs.com/rest/v1/public/tunnels/info/versions' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response to the default request"
+{
+   "downloads" : {
+      "linux" : {
+         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz",
+         "sha1" : "<hash>"
+      },
+      "linux-arm64" : {
+         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz",
+         "sha1" : "<hash>"
+      },
+      "osx" : {
+         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
+         "sha1" : "<hash>"
+      },
+      "win32" : {
+         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-win32.zip",
+         "sha1" : "<hash>"
+      }
+   },
+   "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
+   "latest_version" : "4.8.2",
+   "warning" : [
+      "Client host platform is not specified, the download URL cannot be determined"
+   ]
+}
+```
+
+```jsx title="Sample Response to the request with an optional parameter all=true"
+{
+   "all_downloads" : {
+      "4.6.1" : {
+         "linux" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.6.1-linux.tar.gz",
+            "sha1" : "<hash>"
+         },
+         "osx" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.6.1-osx.zip",
+            "sha1" : "<hash>"
+         },
+         "win32" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.6.1-win32.zip",
+            "sha1" : "<hash>"
+         }
+      },
+      "4.6.2" : {
+         "linux" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.6.2-linux.tar.gz",
+            "sha1" : "<hash>"
+         },
+         "osx" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.6.2-osx.zip",
+            "sha1" : "<hash>"
+         },
+         "win32" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.6.2-win32.zip",
+            "sha1" : "<hash>"
+         }
+      },
+      "4.6.3" : {
+         "linux" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.6.3-linux.tar.gz",
+            "sha1" : "<hash>"
+         },
+         "osx" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.6.3-osx.zip",
+            "sha1" : "<hash>"
+         },
+         "win32" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.6.3-win32.zip",
+            "sha1" : "<hash>"
+         }
+      },
+      "4.6.4" : {
+         "linux" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.6.4-linux.tar.gz",
+            "sha1" : "<hash>"
+         },
+         "osx" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.6.4-osx.zip",
+            "sha1" : "<hash>"
+         },
+         "win32" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.6.4-win32.zip",
+            "sha1" : "<hash>"
+         }
+      },
+      "4.6.5" : {
+         "linux" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.6.5-linux.tar.gz",
+            "sha1" : "<hash>"
+         },
+         "osx" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.6.5-osx.zip",
+            "sha1" : "<hash>"
+         },
+         "win32" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.6.5-win32.zip",
+            "sha1" : "<hash>"
+         }
+      },
+      "4.7.0" : {
+         "linux" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.7.0-linux.tar.gz",
+            "sha1" : "<hash>"
+         },
+         "osx" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.7.0-osx.zip",
+            "sha1" : "<hash>"
+         }
+      },
+      "4.7.1" : {
+         "linux" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz",
+            "sha1" : "<hash>"
+         },
+         "linux-arm64" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.7.1-linux-arm64.tar.gz",
+            "sha1" : "<hash>"
+         },
+         "osx" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.7.1-osx.zip",
+            "sha1" : "<hash>"
+         },
+         "win32" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.7.1-win32.zip",
+            "sha1" : "<hash>"
+         }
+      },
+      "4.8.0" : {
+         "linux" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz",
+            "sha1" : "<hash>"
+         },
+         "linux-arm64" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.8.0-linux-arm64.tar.gz",
+            "sha1" : "<hash>"
+         },
+         "osx" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.8.0-osx.zip",
+            "sha1" : "<hash>"
+         },
+         "win32" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.8.0-win32.zip",
+            "sha1" : "<hash>"
+         }
+      },
+      "4.8.1" : {
+         "linux" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.8.1-linux.tar.gz",
+            "sha1" : "<hash>"
+         },
+         "linux-arm64" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.8.1-linux-arm64.tar.gz",
+            "sha1" : "<hash>"
+         },
+         "osx" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.8.1-osx.zip",
+            "sha1" : "<hash>"
+         },
+         "win32" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.8.1-win32.zip",
+            "sha1" : "<hash>"
+         }
+      },
+      "4.8.2" : {
+         "linux" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz",
+            "sha1" : "<hash>"
+         },
+         "linux-arm64" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz",
+            "sha1" : "<hash>"
+         },
+         "osx" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
+            "sha1" : "<hash>"
+         },
+         "win32" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-win32.zip",
+            "sha1" : "<hash>"
+         }
+      }
+   },
+   "downloads" : {
+      "linux" : {
+         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz",
+         "sha1" : "<hash>"
+      },
+      "linux-arm64" : {
+         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz",
+         "sha1" : "<hash>"
+      },
+      "osx" : {
+         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
+         "sha1" : "<hash>"
+      },
+      "win32" : {
+         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-win32.zip",
+         "sha1" : "<hash>"
+      }
+   },
+   "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
+   "latest_version" : "4.8.2",
+   "warning" : [
+      "Client host platform is not specified, the download URL cannot be determined"
+   ]
+}
+```
+
+```jsx title="Sample Response to the request with an optional parameter client_host=darwin-amd64"
+{
+   "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
+   "downloads" : {
+      "linux" : {
+         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz",
+         "sha1" : "<hash>"
+      },
+      "linux-arm64" : {
+         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz",
+         "sha1" : "<hash>"
+      },
+      "osx" : {
+         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
+         "sha1" : "<hash>"
+      },
+      "win32" : {
+         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-win32.zip",
+         "sha1" : "<hash>"
+      }
+   },
+   "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
+   "latest_version" : "4.8.2",
+   "sha1" : "<hash>"
+}
+
+```
+
+```jsx title="Sample Response to the request with an optional parameter client_version=4.7.1"
+{
+   "client_version" : "4.7.1",
+   "downloads" : {
+      "linux" : {
+         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz",
+         "sha1" : "<hash>"
+      },
+      "linux-arm64" : {
+         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz",
+         "sha1" : "<hash>"
+      },
+      "osx" : {
+         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
+         "sha1" : "<hash>"
+      },
+      "win32" : {
+         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-win32.zip",
+         "sha1" : "<hash>"
+      }
+   },
+   "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
+   "latest_version" : "4.8.2",
+   "status" : "UPGRADE",
+   "warning" : [
+      "Client host platform is not specified, the download URL cannot be determined"
+   ]
 }
 ```
 

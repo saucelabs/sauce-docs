@@ -110,7 +110,7 @@ values={[
 
 <!-- prettier-ignore -->
 ```java
-DesiredCapabilities capabilities = new DesiredCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 
 capabilities.setCapability("browserName", "chrome");
 capabilities.setCapability("platformName", "android");
@@ -130,7 +130,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 <TabItem value="ios">
 
 ```java
-DesiredCapabilities capabilities = new DesiredCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 
 capabilities.setCapability("browserName", "safari");
 capabilities.setCapability("platformName", "ios");
@@ -386,7 +386,7 @@ values={[
 
 <!-- prettier-ignore -->
 ```java
-DesiredCapabilities capabilities = new DesiredCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 
 capabilities.setCapability("browserName", "chrome");
 capabilities.setCapability("platformName", "android");
@@ -407,7 +407,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <!-- prettier-ignore -->
 ```java
-DesiredCapabilities capabilities = new DesiredCapabilities();
+MutableCapabilities capabilities = new MutableCapabilities();
 
 capabilities.setCapability("browserName", "safari");
 capabilities.setCapability("platformName", "ios");
@@ -644,11 +644,11 @@ The following drivers are supported by Sauce Labs
 
 | Platform | Driver                                                               | Appium 1                                                                                | Appium 2                                                                                |
 | -------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| Android  | [UiAutomator2](https://github.com/appium/appium-uiautomator2-driver) | <span className="sauceDBlue">Virtual and Real Devices</span><br/>Android 5.1 and higher | <span className="sauceDBlue">Virtual and Real Devices</span><br/>Android 6.0 and higher |
-| Android  | [Flutter](https://github.com/appium-userland/appium-flutter-driver)  | <span className="sauceDBlue">Virtual and Real Devices</span><br/>Android 5.1 and higher | <span className="sauceDBlue">Virtual and Real Devices</span><br/>Android 6.0 and higher |
-| Android  | [Espresso\*](https://github.com/appium/appium-espresso-driver)       | -                                                                                       | <span className="sauceDBlue">Android Emulators</span><br/>Android 7.0 and higher        |
-| iOS      | [XCUITest](https://github.com/appium/appium-xcuitest-driver)         | <span className="sauceDBlue">Virtual and Real Devices</span><br/>iOS 10.3 and higher    | <span className="sauceDBlue">Virtual and Real Devices</span><br/>iOS 12.2 and higher    |
-| iOS      | [Flutter](https://github.com/appium-userland/appium-flutter-driver)  | <span className="sauceDBlue">Virtual and Real Devices</span><br/>iOS 10.3 and higher    | <span className="sauceDBlue">Virtual and Real Devices</span><br/>iOS 12.2 and higher    |
+| Android  | [UiAutomator2](https://github.com/appium/appium-uiautomator2-driver) | <span className="sauceGreen">Virtual and Real Devices</span><br/>Android 5.1 and higher | <span className="sauceGreen">Virtual and Real Devices</span><br/>Android 6.0 and higher |
+| Android  | [Flutter](https://github.com/appium-userland/appium-flutter-driver)  | <span className="sauceGreen">Virtual and Real Devices</span><br/>Android 5.1 and higher | <span className="sauceGreen">Virtual and Real Devices</span><br/>Android 6.0 and higher |
+| Android  | [Espresso\*](https://github.com/appium/appium-espresso-driver)       | -                                                                                       | <span className="sauceGreen">Android Emulators</span><br/>Android 7.0 and higher        |
+| iOS      | [XCUITest](https://github.com/appium/appium-xcuitest-driver)         | <span className="sauceGreen">Virtual and Real Devices</span><br/>iOS 10.3 and higher    | <span className="sauceGreen">Virtual and Real Devices</span><br/>iOS 12.2 and higher    |
+| iOS      | [Flutter](https://github.com/appium-userland/appium-flutter-driver)  | <span className="sauceGreen">Virtual and Real Devices</span><br/>iOS 10.3 and higher    | <span className="sauceGreen">Virtual and Real Devices</span><br/>iOS 12.2 and higher    |
 
 :::caution \*Espresso Driver
 Before the sessions starts, the Espresso driver needs to build and install an Espresso Test Server on the Emulator. This Espresso server is build based on the current app under test, building needs to happen for each new session and will add 30-60 seconds extra time to starting the session.

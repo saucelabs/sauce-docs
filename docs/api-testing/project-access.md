@@ -16,7 +16,7 @@ Project settings allow you to view the access to projects that was defined when 
 - An understanding of [Team Management](/basics/acct-team-mgmt/managing-user-info/) if you are an organization admin configuring team access to projects.
 
 :::note
-Sauce Labs Team Management features are available for <span className="sauceDBlue">Enterprise Plans only</span>.
+Sauce Labs Team Management features are available for <span className="sauceGreen">Enterprise Plans only</span>.
 :::
 
 ## Project Access Levels and User Scenarios
@@ -85,7 +85,7 @@ To enable email notifications:
    <br/><img src={useBaseUrl('img/api-testing/notifications.png')} alt="Dashboard Pic 1.5"/>
 
 :::tip
-Use the Fact component in your API tests to control the behavior of email notifications. This can be useful if you're testing in multiple environments. For more information, see [Fact](/api-testing/composer/other-components/#fact).
+Use the Fact component in your API tests to control the behavior of email notifications. It can be beneficial when you're testing in multiple environments. For more information, see [Fact](/api-testing/composer/other-components/#fact) and [Use Cases](/api-testing/use-cases/fact/).
 :::
 
 ## Connectors

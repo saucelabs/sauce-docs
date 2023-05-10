@@ -3,17 +3,16 @@
 </h1>
 
 <p align="center">
-  <a href="https://twitter.com/saucelabs"><img src="https://img.shields.io/twitter/follow/saucelabs.svg?style=social" align="right" alt="Twitter Follow"/></a>
-  <a href="./docs/contributing.md"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
-  <a href="#license"><img src="https://img.shields.io/github/license/sourcerer-io/hall-of-fame.svg?colorB=ff0000"></a>
+  <a href="https://twitter.com/saucelabs"><img src="https://img.shields.io/twitter/follow/saucelabs.svg?style=social" alt="Follow Sauce Labs on Twitter"/></a>
+  <a href="https://docs.saucelabs.com/contributing/"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
+  <a href="https://github.com/saucelabs/sauce-docs/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
   <a href="https://gitpod.io/#https://github.com/saucelabs/sauce-docs"><img src="https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod" alt="Gitpod Ready-to-Code"/></a>
-  <a href="https://github.com/saucelabs/sauce-docs/workflows/Sauce%20Pipeline%20Browser%20Tests"><img src="https://github.com/saucelabs/sauce-docs/workflows/Sauce%20Pipeline%20Browser%20Tests/badge.svg" alt= "Sauce Pipeline Browser Tests"/></a>
-  <img src="https://app.saucelabs.com/buildstatus/saucy-docs?auth=495eb49379a16a1e211eb5d27444fa76" alt= "Sauce Test Status"/>
-
+  <a href="https://github.com/saucelabs/sauce-docs/actions/workflows/deploy-to-production.yml"><img src="https://github.com/saucelabs/sauce-docs/actions/workflows/deploy-to-production.yml/badge.svg" alt= "Deploy to Production"/></a>
+  <a href="https://github.com/saucelabs/sauce-docs/actions/workflows/link-checker.yml"><img src="https://github.com/saucelabs/sauce-docs/actions/workflows/link-checker.yml/badge.svg" alt= "Sauce Docs Link Checker"/>
 </p>
 
 <p align="center">
-	<img src="https://app.saucelabs.com/browser-matrix/saucy-docs.svg?auth=495eb49379a16a1e211eb5d27444fa76" alt= "Sauce Browser Matrix"/>
+    <img src="https://app.saucelabs.com/browser-matrix/saucy-docs.svg?auth=495eb49379a16a1e211eb5d27444fa76" alt= "Sauce Labs Browser Matrix"/>
 </p>
 
 Welcome to the `sauce-docs`, this website contains all technical documentation about Sauce Labs and its products. This site uses [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
@@ -28,6 +27,9 @@ Welcome to the `sauce-docs`, this website contains all technical documentation a
     1. [ESLint and Prettier](#eslint-and-prettier)
     2. [Vale](#vale)
 5. [Contributing](#contributing)
+    1. [Contributing Guide](#contributing-guide)
+    2. [Style Guide](#style-guide)
+    3. [Code of Conduct](#code-of-conduct)
 
 ## Prerequisites
 
@@ -96,15 +98,15 @@ Welcome to the `sauce-docs`, this website contains all technical documentation a
 
 To help ensure code quality and improve the content added to documentation, we use the following linters:
 
-- [ESLint and Prettier](#eslint-and-prettier)
-- [Vale](#vale)
+-   [ESLint and Prettier](#eslint-and-prettier)
+-   [Vale](#vale)
 
 ### ESLint and Prettier
 
 The doc site employs two different code quality tools:
 
-* `eslint`
-* `prettier`
+-   `eslint`
+-   `prettier`
 
 Before each commit, a `lint-staged` task runs. If you encounter no errors feel free to push your changes to your remote branch. However if you see any `eslint` errors, or if you see any `prettier` responses like the one below, it means you have to run `eslint` and/or `prettier`
 
@@ -167,21 +169,31 @@ Fix word usage, capitalization, and more using Quick Fixes (macOS: <kbd>cmd</kbd
 
 The following file and folder are stored in the root directory of the [sauce-docs](https://github.com/saucelabs/sauce-docs) repository.
 
-- `.vale.ini` contains the Vale configuration settings. See [Configuration](https://vale.sh/docs/topics/config/).
-- `styles/sauce` contains the Sauce Labs style guide rules for Vale. See [Styles](https://vale.sh/docs/topics/styles/).
+-   `.vale.ini` contains the Vale configuration settings. See [Configuration](https://vale.sh/docs/topics/config/).
+-   `styles/sauce` contains the Sauce Labs style guide rules for Vale. See [Styles](https://vale.sh/docs/topics/styles/).
 
 #### Vale Result Types
 
 Vale returns three types of results:
 
-- **Error** - For branding guidelines, trademark guidelines, and anything that causes content on the documentation site to render incorrectly.
-- **Warning** - For general style guide rules, tenets, and best practices.
-- **Suggestion** - For technical writing style preferences that may require refactoring of documentation or updates to an exceptions list.
+-   **Error** - For branding guidelines, trademark guidelines, and anything that causes content on the documentation site to render incorrectly.
+-   **Warning** - For general style guide rules, tenets, and best practices.
+-   **Suggestion** - For technical writing style preferences that may require refactoring of documentation or updates to an exceptions list.
 
 ## Contributing
 
-Before you edit the docs, review the [style guide](https://docs.saucelabs.com/contributing/style-guide/) to see
-how to get the most out of your markdown and to ensure you are following our conventions.
-Also, before submitting an issue or PR in GitHub, please review the
-[code of conduct](https://docs.saucelabs.com/contributing/code-of-conduct) and or
-[contribution guide](https://docs.saucelabs.com/contributing) for further details.
+The Sauce Labs `sauce-docs` repo is an open source project. Your contributions are highly welcomed.
+
+Before you submit an issue or PR in GitHub, please read the following.
+
+### Contributing Guide
+
+Read our [Contributing Guide](https://docs.saucelabs.com/contributing/) to learn about our development process, how to propose bug fixes and improvements, and how to build and test your changes.
+
+### Style Guide
+
+Review our [Style Guide](https://docs.saucelabs.com/contributing/style-guide/) to learn how to get the most out of your markdown and to ensure you are following our guidelines and conventions.
+
+### Code of Conduct
+
+Sauce Labs has adopted a [Code of Conduct](https://docs.saucelabs.com/contributing/code-of-conduct/) that we expect project participants to adhere to. Please read the full text so that you can understand what actions will and will not be tolerated.

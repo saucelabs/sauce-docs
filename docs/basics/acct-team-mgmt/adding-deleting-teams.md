@@ -6,7 +6,7 @@ sidebar_label: Adding and Deleting Teams
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><span className="sauceDBlue">Enterprise Plans only</span></p>
+<p><span className="sauceGreen">Enterprise Plans only</span></p>
 If you are an organization admin, you can create and delete teams and assign concurrency limits to each team.
 
 ## Adding Teams
@@ -35,5 +35,5 @@ If you are an organization admin, you can create and delete teams and assign con
 
 <img src={useBaseUrl('img/team-mgmt/delete-team.jpg')} alt="Delete team"/>
 
-4. In the **Confirm Delete** box, select the team that you want to transfer the members of the deleted team to. If you don't select a a new team, the team members will be moved to the default team.
+4. In the **Confirm Delete** box, select the team that you want to transfer the members of the deleted team to. If you don't select a new team, the team members will be moved to the default team.
 5. Click **Yes, Remove**.

@@ -73,21 +73,18 @@ If you want to check the `size` attribute, you have to write:
 payload['@size']
 ```
 
+#### Simple Object Access Protocol (SOAP)
+
 When you are working with SOAP API, the response might look something like this:
 
 ```xml
 <?xml version="1.0"?>
-
-<soap:Envelope
-xmlns:soap="http://www.w3.org/2003/05/soap-envelope/"
-soap:encodingStyle="http://www.w3.org/2003/05/soap-encoding">
-
-<soap:Body>
-  <m:GetUserResponse>
-    <m:Username>Tony Stark</m:Username>
-  </m:GetUserResponse>
-</soap:Body>
-
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope/" soap:encodingStyle="http://www.w3.org/2003/05/soap-encoding">
+	<soap:Body>
+		<m:GetUserResponse>
+			<m:Username>Tony Stark</m:Username>
+		</m:GetUserResponse>
+	</soap:Body>
 </soap:Envelope>
 ```
 
@@ -120,7 +117,7 @@ Will count the number of instances of `HotelSummary`.
 
 ### Expressions "Everywhere"
 
-Expressions are automatically evaluated in the **Expression** field for logical components, but can also be introduced in other fields, such as "value", with a specific notation.
+Expressions are automatically evaluated in the **Expression** field, but can also be introduced in other fields, such as `value`, with a specific notation.
 
 In this example, we compare the actual size of the collection with the "size" attribute, by enclosing the expression within `${ .. }`. The "type" attribute ensures the comparison will happen with a numeric comparator, rather than string.<br/><img src={useBaseUrl('img/api-testing/assert-equals-updated.png')} alt="assert Equals" />
 
@@ -137,7 +134,7 @@ This is the main extension. It supports many useful functions.
 - **exists(object : Object) : Boolean :** an XML and JSON existence state is different by definition. Use this in an "if statement" if a test should work both with JSON and XML
 - **contains(object : Object, substring : String) : Boolean :** returns true whether the string version of "object" contains the "substring" sub-string.
 
-  ```groovy
+  ```js
   WSUtil.contains(payload.fruit.name, 'banana')
   ```
 
@@ -179,13 +176,13 @@ Utility functions for numbers.
 
 - **random(min: Int, max: Int) : Int** : generates a random integer number between min and max.
 
-  ```groovy
+  ```js
   N.random(10,30)
   ```
 
 - **random(min: Int, max: Int, quantity: Int) : List :** generates a list of random numbers
 
-  ```groovy
+  ```js
   N.random(10,30,5)
   ```
 
@@ -265,7 +262,7 @@ Generates fake data.
 - `F.domainWord()` - Generates a word
 - `F.domainSuffix()` - Generates a suffix
 - `F.url()` - Generates a URL
-- `F.password(<minimumLength,maximumLength,includeUppercase,includeSpecial,includeDigit>)` - Generates a password. For example, `password(5,10,true,false, true)`.
+- `F.password(<minimumLength,maximumLength,includeUppercase,includeSpecial,includeDigit>)` - Generates a password. For example, `F.password(5,10,true,false, true)`.
 
 #### Credit Card
 
@@ -286,8 +283,8 @@ Generates fake data.
 
 #### Random Numbers
 
-- `F.integer(<min,max>)` - Generates an integer. For example, `integer(2,20)`
-- `F.decimal(<min,max,maxdecimals>)` - Generates a decimal number. For example, `integer(0,2,2)`
+- `F.integer(<min,max>)` - Generates an integer. For example, `F.integer(2,20)`
+- `F.decimal(<min,max,maxdecimals>)` - Generates a decimal number. For example, `F.decimal(0,2,2)`
 - `F.uuid()` - Generates a unique identifier
 
 #### Boolean
