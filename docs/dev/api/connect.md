@@ -60,7 +60,6 @@ values={[
 {label: 'US-West', value: 'US-West'},
 {label: 'US-East', value: 'US-East'},
 {label: 'EU-Central', value: 'EU-Central'},
-{label: 'APAC-Southeast', value: 'APAC-Southeast'},
 ]}>
 
 <TabItem value="US-West">
@@ -86,15 +85,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels' \
---header 'Content-Type: application/json' | json_pp
-```
-
-</TabItem>
-<TabItem value="APAC-Southeast">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.apac-southeast1.saucelabs.com/rest/v1/jim.smith/tunnels' \
 --header 'Content-Type: application/json' | json_pp
 ```
 
@@ -199,7 +189,6 @@ values={[
 {label: 'US-West', value: 'US-West'},
 {label: 'US-East', value: 'US-East'},
 {label: 'EU-Central', value: 'EU-Central'},
-{label: 'APAC-Southeast', value: 'APAC-Southeast'},
 ]}>
 
 <TabItem value="US-West">
@@ -225,15 +214,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
---header 'Content-Type: application/json' | json_pp
-```
-
-</TabItem>
-<TabItem value="APAC-Southeast">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.apac-southeast1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
 --header 'Content-Type: application/json' | json_pp
 ```
 
@@ -320,7 +300,6 @@ values={[
 {label: 'US-West', value: 'US-West'},
 {label: 'US-East', value: 'US-East'},
 {label: 'EU-Central', value: 'EU-Central'},
-{label: 'APAC-Southeast', value: 'APAC-Southeast'},
 ]}>
 
 <TabItem value="US-West">
@@ -344,14 +323,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/public/tunnels/info/versions' | json_pp
-```
-
-</TabItem>
-<TabItem value="APAC-Southeast">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.apac-southeast1.saucelabs.com/rest/v1/public/tunnels/info/versions' | json_pp
 ```
 
 </TabItem>
@@ -677,7 +648,6 @@ values={[
 {label: 'US-West', value: 'US-West'},
 {label: 'US-East', value: 'US-East'},
 {label: 'EU-Central', value: 'EU-Central'},
-{label: 'APAC-Southeast', value: 'APAC-Southeast'},
 ]}>
 
 <TabItem value="US-West">
@@ -703,15 +673,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8/num_jobs' \
---header 'Content-Type: application/json' | json_pp
-```
-
-</TabItem>
-<TabItem value="APAC-Southeast">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.apac-southeast1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8/num_jobs' \
 --header 'Content-Type: application/json' | json_pp
 ```
 
@@ -777,7 +738,6 @@ values={[
 {label: 'US-West', value: 'US-West'},
 {label: 'US-East', value: 'US-East'},
 {label: 'EU-Central', value: 'EU-Central'},
-{label: 'APAC-Southeast', value: 'APAC-Southeast'},
 ]}>
 
 <TabItem value="US-West">
@@ -803,15 +763,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
---header 'Content-Type: application/json' | json_pp
-```
-
-</TabItem>
-<TabItem value="APAC-Southeast">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.apac-southeast1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
 --header 'Content-Type: application/json' | json_pp
 ```
 

@@ -63,7 +63,7 @@ You can view the entire list of CLI options by running the `--help` flag.
 
 <p><small>| OPTIONAL | STRING |  <span className="sauceRed">4.7.x</span> <span className="sauceRed">4.8.x</span>| </small></p>
 
-**Description**: Sets your Sauce Labs [data center endpoint](/basics/data-center-endpoints/#data-center-endpoints) (e.g., `us-west`, `eu-central`, `apac-southeast`).<br/>
+**Description**: Sets your Sauce Labs [data center endpoint](/basics/data-center-endpoints/#data-center-endpoints) (e.g., `us-west`, `eu-central`).<br/>
 **Default**: If you don't specify a data center, Sauce Connect will default to `us-west`. <br/>
 **Environment variable**: `SAUCE_REGION`<br/>
 **Shorthand**: `-r`
@@ -74,9 +74,6 @@ You can view the entire list of CLI options by running the `--help` flag.
 
 #EU-Central-1
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region eu-central
-
-#APAC-Southeast-1
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region apac-southeast
 ```
 
 ---
@@ -189,9 +186,6 @@ HTTP Header Injection is disabled for all HTTPS domains passed to the `--no-ssl-
 
 #EU-Central-1
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://api.eu-central-1.saucelabs.com/rest/v1
-
-#APAC-Southeast-1
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://api.apac-southeast-1.saucelabs.com/rest/v1
 ```
 
 :::note
