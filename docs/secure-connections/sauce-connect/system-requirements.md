@@ -302,7 +302,7 @@ When your tests are running through a Sauce Connect tunnel, the client on your n
 
 If you're testing in a restricted network setting, you may need to allowlist the Sauce Labs domains below to allow outbound communication to Sauce Labs Selenium and Appium endpoints. Allowlisting for inbound traffic coming into your network is not necessary. To confirm your setup is successful, try running a test using the [basic setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
 
-You'll need to use the set of domains for your corresponding Sauce Labs data center: US data center (US West 1), European data center (EU Central 1), or Australian data center (APAC Southeast 1). The data center you're connected to will be indicated in your navigation.<br/>
+You need to use the set of domains for your corresponding Sauce Labs data center: US data center (US West 1), European data center (EU Central 1), or Australian data center (APAC Southeast 1). The data center you're connected to is indicated in your navigation.<br/>
 
 <img src={useBaseUrl('img/sauce-connect/data-center-ui.png')} alt="Sauce Connect download file contents" width="450" margin-bottom="50px"/>
 
