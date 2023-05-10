@@ -1,5 +1,5 @@
 ---
-id: playwright-orchestrate-quickstart
+id: quickstart-playwright
 title: Playwright Quickstart
 sidebar_label: Playwright Quickstart
 ---
