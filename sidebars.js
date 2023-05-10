@@ -843,7 +843,7 @@ module.exports = {
             items: [
                 'orchestrate',
                 'orchestrate/getting-started',
-                'orchestrate/playwright-orchestrate-quickstart',
+                'orchestrate/quickstart-playwright',
                 'orchestrate/webdriverio-orchestrate-quickstart',
                 'orchestrate/saucectl-configuration',
                 'orchestrate/building-images',
