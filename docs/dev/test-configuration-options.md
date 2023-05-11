@@ -754,7 +754,9 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">iOS Only</span> |</small></p>
 
-Accept all iOS alerts automatically if they pop up. This includes privacy access permission alerts (e.g., location, contacts, photos). Default is `false`.
+Accept all iOS alerts automatically if they pop up. This includes privacy access permission alerts (e.g., location, contacts, photos). 
+
+The default is `true`.
 
 :::note
 The Android equivalent is [`appium:autoGrantPermissions`](#appiumautograntpermissions).
@@ -762,7 +764,8 @@ The Android equivalent is [`appium:autoGrantPermissions`](#appiumautograntpermis
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
-capabilities.setCapability("appium:autoAcceptAlerts", true);
+// Disable auto grantting permissions. This means your automationscript needs to handle them.
+capabilities.setCapability("appium:autoAcceptAlerts", false);
 ```
 
 :::tip
