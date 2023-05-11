@@ -38,7 +38,7 @@ For example, to search for banana, Banana, or BaNaNa, enter `description regular
 
 ### Query Builder
 
-The Query Builder provides a graphical user interface that allows you to create complex queries. The available attributes are grouped by category, have descriptive name, a description (if added), and also show available values. The last five used attributes are saved and displayed in the Suggested tab.
+The Query Builder provides a graphical user interface that allows you to create complex queries. The available attributes are grouped by category, have a descriptive name, a description (if added), and also show available values. The last five used attributes are saved and displayed in the Suggested tab.
 
 <img src={useBaseUrl('img/error-reporting/console-views/query-builder.png')} alt="Shows the Query Builder." />
 
