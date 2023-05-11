@@ -97,11 +97,11 @@ suites:
     - "/workdir/best-practice/target/surefire-reports/*"
 
 artifacts:
-download:
-  when: always
-  match:
-    - "*"
-  directory: ./artifacts
+  download:
+    when: always
+    match:
+      - "*"
+    directory: ./artifacts
 ```
 
 The most important configuration options to take note of are the `image` and `entrypoint`. These tell Sauce Orchestrate the location of your image and which command should be used to run your tests respectively. For more information about the `saucectl` configuration options see [saucectl Configuration](/orchestrate/saucectl-configuration/).
