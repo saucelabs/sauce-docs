@@ -20,13 +20,29 @@ For a list of Sauce Connect Proxy environment variables, see [Environment Variab
 ## Setting Up Environment Variables
 
 <Tabs
-    defaultValue="Mac/Linux"
+    defaultValue="Mac"
     values={[
-      {label: 'Mac/Linux', value: 'Mac/Linux'},
+      {label: 'Mac', value: 'Mac'},
+      {label: 'Linux/MacPre10.15', value: 'Linux/MacOS pre-10.15'},
       {label: 'Windows', value: 'Windows'},
     ]}>
+<TabItem value="Mac">
 
-<TabItem value="Mac/Linux">
+Sauce Connect Proxy enviroment variables may be added to one of the user environment configuration files, such as `~/.zshrc`.
+
+1. Open `~/.zshrc` in your prefered text editor.
+2. Add the variables
+
+```zsh
+export SAUCE_USERNAME="your Sauce username"
+export SAUCE_ACCESS_KEY="your Sauce access key"
+```
+
+3. Start a new shell or a new terminal.
+4. Confirm that your environment variables have been set by typing `echo $SAUCE_USERNAME` in your terminal. The response should be your username value.
+
+</TabItem>
+<TabItem value="Linux/MacPre10.15">
 
 Sauce Connect Proxy enviroment variables may be added to one of the user environment configuration files, such as `~/.bash_profile`.
 
