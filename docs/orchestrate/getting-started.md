@@ -1,7 +1,7 @@
 ---
 id: getting-started
-title: Getting Started
-sidebar_label: Getting Started
+title: Getting Started with Orchestrate
+sidebar_label: Getting Started with Orchestrate
 ---
 
 import Tabs from '@theme/Tabs';

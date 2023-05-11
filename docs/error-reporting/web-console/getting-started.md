@@ -38,14 +38,14 @@ For example, to search for banana, Banana, or BaNaNa, enter `description regular
 
 ### Query Builder
 
-The query builder provides a graphical user interface that allows you to easily create complex queries. The available attributes are grouped by category, have descriptive name, a description (if added), and also show available values.
+The Query Builder provides a graphical user interface that allows you to create complex queries. The available attributes are grouped by category, have a descriptive name, a description (if added), and also show available values. The last five used attributes are saved and displayed in the Suggested tab.
 
 <img src={useBaseUrl('img/error-reporting/console-views/query-builder.png')} alt="Shows the Query Builder." />
 
 To use the Query builder:
 
-1. From the **Filter bar**, select **Open querybuilder**.
-1. In the Query builder, select an attribute, an operator, and a value.
+1. From the **Filter bar**, select **Open Query Builder**.
+1. In the Query Builder, select an attribute, an operator, and a value.
 1. Select **Add**.
 
 ### Aggregation
@@ -73,7 +73,7 @@ Depending on which view you are in, you have additional ways to manipulate the r
 
 ## Saved Views
 
-Saved views allow you to quickly and easily access the data that is most important to you, whether you need to monitor specific error types or track errors across multiple releases.
+Saved views allow you to quickly access the data that is most important to you, whether you need to monitor specific error types or track errors across multiple releases.
 
 By default, every project includes bookmarked views, which include fingerprints over the past week, errors by version, errors by device model, and errors by type.
 
