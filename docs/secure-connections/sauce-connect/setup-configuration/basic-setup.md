@@ -42,23 +42,25 @@ See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstar
     {label: 'Windows', value: 'Windows'},
   ]}>
 
-<TabItem value="Mac/Linux">
+  <TabItem value="Mac/Linux">
 
 ```bash
 cd sc-4.8.2-osx/bin
 ```
 
-</TabItem>
-<TabItem value="Windows">
+  </TabItem>
+  <TabItem value="Windows">
 
 ```bash
 cd sc-4.8.2-win32/bin
 ```
 
-</TabItem>
-</Tabs>
+  </TabItem>
+  </Tabs>
 
-2. From your command line terminal, launch a tunnel with the below commands. You can also find this snippet on Sauce Labs, with your credentials populated. Go to the **Tunnels** page > Skip to **STEP 3: Configure & Authenticate**.
+2. From your command line terminal, launch a tunnel with the below commands.
+
+You can also find the code snippet with your credentials populated from the [**Tunnel Proxies**](https://app.saucelabs.com/tunnels) page, under **2: Authenticate & connect**.
 
 <Tabs
 defaultValue="Mac/Linux"
@@ -67,23 +69,25 @@ values={[
 {label: 'Windows', value: 'Windows'},
 ]}>
 
-<TabItem value="Mac/Linux">
+  <TabItem value="Mac/Linux">
 
 ```bash
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region $SAUCE_DC --tunnel-name $TUNNEL_NAME
 ```
 
-</TabItem>
-<TabItem value="Windows">
+  </TabItem>
+  <TabItem value="Windows">
 
 ```bash
 .\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region %SAUCE_DC% --tunnel-name $TUNNEL_NAME
 ```
 
-</TabItem>
-</Tabs>
+  </TabItem>
+  </Tabs>
 
-[`-u (--user)`](/dev/cli/sauce-connect-proxy/#--user) and [`-k (--api-key)`](/dev/cli/sauce-connect-proxy/#--api-key) are required. While the [`-r` (`--region`)](/dev/cli/sauce-connect-proxy/#--region) and [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) flags are technically not required, we strongly recommend them for best performance. 3. Select an appropriate test script. Options might include:
+[`-u (--user)`](/dev/cli/sauce-connect-proxy/#--user) and [`-k (--api-key)`](/dev/cli/sauce-connect-proxy/#--api-key) are required. While the [`-r` (`--region`)](/dev/cli/sauce-connect-proxy/#--region) and [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) flags are technically not required, we strongly recommend them for best performance.
+
+3. Select an appropriate test script. Options might include:
 
 - An existing test, if available.
 - Create a new test using an example from [Sauce Labs Demonstration Scripts](https://github.com/saucelabs-training). Follow those instructions to configure the test before proceeding to the next step.
@@ -100,42 +104,42 @@ values={[
 {label: 'Ruby', value: 'Ruby'},
 ]}>
 
-<TabItem value="Java">
+  <TabItem value="Java">
 
 ```java
 caps.SetCapability("tunnelName", "TUNNEL_NAME");
 ```
 
-</TabItem>
-<TabItem value="Node.js">
+  </TabItem>
+  <TabItem value="Node.js">
 
 ```javascript
 'tunnelName': 'TUNNEL_NAME'
 ```
 
-</TabItem>
-<TabItem value="C#">
+  </TabItem>
+  <TabItem value="C#">
 
 ```csharp
 caps.SetCapability("tunnelName", "TUNNEL_NAME");
 ```
 
-</TabItem>
-<TabItem value="Python">
+  </TabItem>
+  <TabItem value="Python">
 
 ```py
 'tunnelName': 'TUNNEL_NAME'
 ```
 
-</TabItem>
-<TabItem value="Ruby">
+  </TabItem>
+  <TabItem value="Ruby">
 
 ```rb
 'tunnelName': 'TUNNEL_NAME'
 ```
 
-</TabItem>
-</Tabs>
+  </TabItem>
+  </Tabs>
 
 5. When you see `connected`, [verify that your tunnel is active](/secure-connections/sauce-connect/quickstart/#verifying-a-tunnel).
 

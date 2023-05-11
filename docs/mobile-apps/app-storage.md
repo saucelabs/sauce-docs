@@ -137,6 +137,10 @@ You can also upload and store other file types for generic use, such as a pre-ru
 - \*.sh
 - \*.bat
 
+:::note
+Sauce Labs only supports valid .zip files that can be extracted by standard unzip tools.
+:::
+
 ## Team Management Sync
 
 All uploaded files are shared with the same team. Members can only access files that are shared with the team where you contribute/participate. Organization admins have access to all files in your organization.
