@@ -408,120 +408,120 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
       "4.7.0" : {
          "linux" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.7.0-linux.tar.gz",
-            "sha1" : "f0bf8e35894e9b35bf9fae8f4f34e83845b4bb6b"
+            "sha1" : "<hash>"
          },
          "osx" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.7.0-osx.zip",
-            "sha1" : "8e41a471bdf4cfeed7cd06d6af9dd081b9aa028d"
+            "sha1" : "<hash>"
          }
       },
       "4.7.1" : {
          "linux" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz",
-            "sha1" : "e5d7f82ad98251a653d1b0537f1103e49eda5e11"
+            "sha1" : "<hash>"
          },
          "linux-arm64" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.7.1-linux-arm64.tar.gz",
-            "sha1" : "d07c8f62ec64168f9cc80d73a59976764f2c62b4"
+            "sha1" : "<hash>"
          },
          "osx" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.7.1-osx.zip",
-            "sha1" : "1f18defa14a5cc4b663bf07213411f6bdd535b6d"
+            "sha1" : "<hash>"
          },
          "win32" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.7.1-win32.zip",
-            "sha1" : "9c91e5adbd023973efe0eb14d2d427d2c0ef3c25"
+            "sha1" : "<hash>"
          }
       },
       "4.8.0" : {
          "linux" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz",
-            "sha1" : "a6bcfeab41b245e503c1f2aad382bfa8956893a1"
+            "sha1" : "<hash>"
          },
          "linux-arm64" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.8.0-linux-arm64.tar.gz",
-            "sha1" : "8ce9b5a740710e6eef1be70b1b1d347df938d46a"
+            "sha1" : "<hash>"
          },
          "osx" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.8.0-osx.zip",
-            "sha1" : "8c4c7de20c68b704cffddcaddea44a6773b05746"
+            "sha1" : "<hash>"
          },
          "win32" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.8.0-win32.zip",
-            "sha1" : "48382adec66130d96148ccaff46894088366ed90"
+            "sha1" : "<hash>"
          }
       },
       "4.8.1" : {
          "linux" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.8.1-linux.tar.gz",
-            "sha1" : "9c16682e4c9716734432789884f868212f95f563"
+            "sha1" : "<hash>"
          },
          "linux-arm64" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.8.1-linux-arm64.tar.gz",
-            "sha1" : "2a6a5fd0ad90c1d776048e4f9fd60a1a8a26c3a2"
+            "sha1" : "<hash>"
          },
          "osx" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.8.1-osx.zip",
-            "sha1" : "4c5b8b570994a76396c75858455032bfdbb83589"
+            "sha1" : "<hash>"
          },
          "win32" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.8.1-win32.zip",
-            "sha1" : "f3df33f01bf8d9585cfcda084b54300089266159"
+            "sha1" : "<hash>"
          }
       },
       "4.8.2" : {
          "linux" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz",
-            "sha1" : "e65e77e849a80d1eb1de03ba56abf5a4d51cf1c5"
+            "sha1" : "<hash>"
          },
          "linux-arm64" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz",
-            "sha1" : "fd782a658f4d28b9792edaf9df730a87ae797cba"
+            "sha1" : "<hash>"
          },
          "osx" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
-            "sha1" : "5c2f81f6b0f246a641384d33df5c091ca0174730"
+            "sha1" : "<hash>"
          },
          "win32" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-win32.zip",
-            "sha1" : "1c81cbe9d1b25b8f8483cc1163d54d94191f7665"
+            "sha1" : "<hash>"
          }
       },
       "4.9.0" : {
          "linux" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-linux.tar.gz",
-            "sha1" : "f263177c700ebc29a0c5772a04e9b04bc1487c91"
+            "sha1" : "<hash>"
          },
          "linux-arm64" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-linux-arm64.tar.gz",
-            "sha1" : "04f697d585bdc7d95d7663dea52f5b895628b0ba"
+            "sha1" : "<hash>"
          },
          "osx" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-osx.zip",
-            "sha1" : "f3080fbd76a3847c9c19dae6131f93a1c3abb008"
+            "sha1" : "<hash>"
          },
          "win32" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-win32.zip",
-            "sha1" : "fe35f66126ddd6e8d043790906206c2999d69f1a"
+            "sha1" : "<hash>"
          }
       }
    },
    "downloads" : {
       "linux" : {
          "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz",
-         "sha1" : "e65e77e849a80d1eb1de03ba56abf5a4d51cf1c5"
+         "sha1" : "<hash>"
       },
       "linux-arm64" : {
          "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz",
-         "sha1" : "fd782a658f4d28b9792edaf9df730a87ae797cba"
+         "sha1" : "<hash>"
       },
       "osx" : {
          "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
-         "sha1" : "5c2f81f6b0f246a641384d33df5c091ca0174730"
+         "sha1" : "<hash>"
       },
       "win32" : {
          "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-win32.zip",
-         "sha1" : "1c81cbe9d1b25b8f8483cc1163d54d94191f7665"
+         "sha1" : "<hash>"
       }
    },
    "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
