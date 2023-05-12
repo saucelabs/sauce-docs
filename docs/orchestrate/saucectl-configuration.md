@@ -59,6 +59,7 @@ sauce:
 Specifies through which Sauce Labs data center tests will run. Valid values are: `us-west-1` or `eu-central-1`.
 
 ```yaml
+sauce:
   region: eu-central-1
 ```
 
