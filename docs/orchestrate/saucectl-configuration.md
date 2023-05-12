@@ -280,6 +280,7 @@ The following limitations are in effect for artifact downloads. They do not appl
 When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
 
 ```yaml
+artifacts:
   cleanup: true
 ```
 
