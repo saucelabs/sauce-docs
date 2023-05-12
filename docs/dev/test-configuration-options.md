@@ -792,7 +792,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">Android Only</span> |</small></p>
 
-Whether to grant all the requested application permissions automatically when a test starts (`true`).
+Whether to grant all the requested application permissions automatically when a test starts.
 
 The default value is `true`.
 
