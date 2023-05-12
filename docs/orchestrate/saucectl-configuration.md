@@ -43,7 +43,7 @@ kind: imagerunner
 Tell Sauce Orchestrate what kind of entrypoint process you are running. `workload` is important for security monitoring. Options are `webdriver` or `other`. For most configurations `webdriver` is required.
 
 ```yaml
-kind: imagerunner
+workload: webdriver
 ```
 
 ### `image`
