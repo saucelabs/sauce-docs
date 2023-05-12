@@ -84,26 +84,26 @@ To upload files onto the container use the `files` configuration option in your 
 apiVersion: v1alpha
 kind: imagerunner
 sauce:
-region: us-west-1
+  region: us-west-1
 suites:
-- name: Desktop Tests
-  workload: webdriver
-  image: [docker_user]/demo-java-orchestrate-tutorial:0.0.1
-  # the command to run your tests
-  entrypoint: mvn -o test -pl best-practice -Dtest=DesktopTests
-  # files to be injected into the running container
-  files:
-    - src: "~/.aws/credentials"
-      dst: "/root/.aws"
-  artifacts:
-    - "/workdir/best-practice/target/surefire-reports/*"
+  - name: Desktop Tests
+    workload: webdriver
+    image: [docker_user]/demo-java-orchestrate-tutorial:0.0.1
+    # the command to run your tests
+    entrypoint: mvn -o test -pl best-practice -Dtest=DesktopTests
+    # files to be injected into the running container
+    files:
+      - src: "~/.aws/credentials"
+        dst: "/root/.aws"
+    artifacts:
+      - "/workdir/best-practice/target/surefire-reports/*"
 
 artifacts:
-download:
-  when: always
-  match:
-    - "*"
-  directory: ./artifacts
+  download:
+    when: always
+    match:
+      - "*"
+    directory: ./artifacts
 ```
 
 Another way to handle sensitive data is through the `env` configuration option. This inserts environment variables into the running container.
@@ -114,25 +114,25 @@ To insert environment variables use the `env` configuration option in your sauce
 apiVersion: v1alpha
 kind: imagerunner
 sauce:
-region: us-west-1
+  region: us-west-1
 suites:
-- name: Desktop Tests
-  workload: webdriver
-  image: [docker_user]/demo-java-orchestrate-tutorial:0.0.1
-  # the command to run your tests
-  entrypoint: mvn -o test -pl best-practice -Dtest=DesktopTests
-  # environment variables to be injected
-  env:
-    KEY: val
-  artifacts:
-    - "/workdir/best-practice/target/surefire-reports/*"
+  - name: Desktop Tests
+    workload: webdriver
+    image: [docker_user]/demo-java-orchestrate-tutorial:0.0.1
+    # the command to run your tests
+    entrypoint: mvn -o test -pl best-practice -Dtest=DesktopTests
+    # environment variables to be injected
+    env:
+      KEY: val
+    artifacts:
+      - "/workdir/best-practice/target/surefire-reports/*"
 
 artifacts:
-download:
-  when: always
-  match:
-    - "*"
-  directory: ./artifacts
+  download:
+    when: always
+    match:
+      - "*"
+    directory: ./artifacts
 ```
 
 ## Troubleshooting Issues Locally
