@@ -36,6 +36,142 @@ Tells `saucectl` this is a Sauce Orchestrate configuration. `imagerunner` is the
 kind: imagerunner
 ```
 
+---
+
+## `sauce`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The parent property containing all settings related to how tests are run and identified in the Sauce Labs platform.
+
+```yaml
+sauce:
+  region: eu-central-1
+  concurrency: 10
+```
+
+---
+
+### `region`
+
+<p><small>| OPTIONAL | STRING/ENUM |</small></p>
+
+Specifies through which Sauce Labs data center tests will run. Valid values are: `us-west-1` or `eu-central-1`.
+
+```yaml
+  region: eu-central-1
+```
+
+---
+
+### `concurrency`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Sets the maximum number of suites to execute at the same time. If the test defines more suites than the max, excess suites are queued and run in order as each suite completes.
+
+```yaml
+  concurrency: 3
+```
+
+Alternatively, you can override the file setting at runtime by setting the concurrency flag as an inline parameter of the `saucectl run` command:
+
+```bash
+saucectl run --ccy 5
+```
+
+---
+
+### `retries`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Sets the number of times to retry a failed suite. For more settings, you can refer to [passThreshold](#passThreshold).
+
+```yaml
+  retries: 1
+```
+
+Alternatively, you can override the file setting at runtime by setting the retries flag as an inline parameter of the `saucectl run` command:
+
+```bash
+saucectl run --retries 1
+```
+
+---
+
+### `tunnel`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect/proxy-tunnels/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
+
+```yaml
+sauce:
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
+```
+
+---
+
+#### `name`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Identifies an active Sauce Connect tunnel to use for secure connectivity to the Sauce Labs cloud.
+
+:::note
+This property replaces the former `id` property, which is deprecated.
+:::
+
+```yaml
+sauce:
+  tunnel:
+    name: your_tunnel_name
+```
+
+---
+
+#### `owner`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Identifies the Sauce Labs user who created the specified tunnel, which is required if the user running the tests did not create the tunnel.
+
+:::note
+This property replaces the former `parent` property, which is deprecated.
+:::
+
+```yaml
+sauce:
+  tunnel:
+    name: your_tunnel_name
+    owner: tunnel_owner_username
+```
+
+---
+
+## `suites`
+
+<p><small>| REQUIRED | OBJECT |</small></p>
+
+The set of properties providing details about the test suites to run. May contain multiple suite definitions. See the full [example config](#example-configuration) for an illustration of multiple suite definitions.
+
+---
+
+### `name`
+
+<p><small>| REQUIRED | STRING |</small></p>
+
+The name of the test suite, which will be reflected in the results and related artifacts.
+
+```yaml
+  - name: "saucy test"
+```
+
+---
+
 ### `workload`
 
 <p><small>| REQUIRED | STRING |</small></p>
@@ -101,7 +237,7 @@ env:
   KEY: value
 ```
 
-### `artifacts`
+## `artifacts`
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
@@ -134,6 +270,77 @@ The following limitations are in effect for artifact downloads. They do not appl
 - Max requested volume for parent dir is 10M
 - You can only specify up to 10 paths
 :::
+
+### `cleanup`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
+
+```yaml
+  cleanup: true
+```
+
+---
+
+### `download`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies the settings related to downloading artifacts from tests run by `saucectl`.
+
+```yaml
+  download:
+    when: always
+    match:
+      - junit.xml
+    directory: ./artifacts/
+```
+
+---
+
+#### `when`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies when and under what circumstances to download artifacts. Valid values are:
+
+- `always`: Always download artifacts.
+- `never`: Never download artifacts.
+- `pass`: Download artifacts for passing suites only.
+- `fail`: Download artifacts for failed suites only.
+
+```yaml
+    when: always
+```
+
+---
+
+#### `match`
+
+<p><small>| OPTIONAL | STRING/ARRAY |</small></p>
+
+Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
+
+```yaml
+  match:
+    - junit.xml
+    - "*.log"
+```
+
+---
+
+#### `directory`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. The name of the subdirectory will match the suite name. If a directory with the same name already exists, the new one will be suffixed by a serial number.
+
+```yaml
+    directory: ./artifacts/
+```
+
+---
 
 ## saucectl Commands
 
