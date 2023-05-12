@@ -54,16 +54,17 @@ export SAUCE_ACCESS_KEY="your Sauce access key"
 
 ## Step 3: Upload the Sample App
 
-1. [Download the iOS Real Device Swag Labs App](https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa).
-2. Upload it to your Sauce Labs account, either through the Sauce Labs UI or by calling the API.
+1. Download the iOS Real Device Swag Labs App from [here](https://github.com/saucelabs/my-demo-app-rn/releases/).
+2. Rename the app from: `iOS-Real-Device-MyRNDemoApp.*.*.*-*.ipa` to: `iOS-Real-Device-MyRNDemoApp.ipa`
+3. Upload it to your Sauce Labs account, either through the Sauce Labs UI or by calling the API.
 
-- Sauce Labs UI: From [Sauce Labs > App Management](https://app.saucelabs.com/app-management), select **Upload App** and browse to find the `iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa` file you just downloaded.
+- Sauce Labs UI: From [Sauce Labs > App Management](https://app.saucelabs.com/app-management), select **Upload App** and browse to find the `iOS-Real-Device-MyRNDemoApp.ipa` file you just downloaded and rename.
 - API: Use the [Upload File to App Storage](/dev/api/storage/#upload-file-to-app-storage) API request to upload the sample app to your account.
   ```title="Example API Upload Request"
   curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   --request POST 'https://api.us-west-1.saucelabs.com/v1/storage/upload' \
-  --form 'payload=@"/Users/lindsaywalker/Git/Example_Tests/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"' \
-  --form 'name="iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa"'
+  --form 'payload=@"<path to the iOS file>/iOS-Real-Device-MyRNDemoApp.ipa"' \
+  --form 'name="iOS-Real-Device-MyRNDemoApp.ipa"'
   ```
 
 ## Step 4: Run the Tests
