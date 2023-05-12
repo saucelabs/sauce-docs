@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<p><small><span className="sauceDBlue">Beta</span></small></p>
+<p><small><span className="sauceGreen">Beta</span></small></p>
 
 The speed of the Simulator is a crucial factor that impacts the development workflow of iOS app developers. Instant booted iOS Simulators offer significant advantages over our default Simulators, as they reduce the time it takes to launch the Simulator to test apps to almost zero seconds.
 
@@ -388,10 +388,7 @@ To check this, follow the steps below:
 2. Open your session.
 3. Check the first 15 seconds of the video. If you see that the Simulator was already started from the first second, or the restart of the video happens in the first 15 seconds, it means that Appium rebooted the Simulator. See the video below for more information:
 
-<video controls style={{"max-width": "800px"}}>
-
-  <source src={useBaseUrl('img/mobile-apps/instant-booted-restart.mp4')} />
-</video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GF8q9kHgRrw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 A common cause could be that you have provided a capability `“appium:language”` or `“appium:locale”` to change the language of the app or Simulator.
 

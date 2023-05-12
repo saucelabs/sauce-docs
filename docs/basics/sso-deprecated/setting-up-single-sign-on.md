@@ -4,16 +4,38 @@ title: Setting Up Single Sign-On (Deprecated Flow)
 sidebar_label: Setting Up Single Sign-On
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 <p><span className="sauceGold">Deprecated</span></p>
+<p><span className="sauceGreen">Enterprise Plans only</span></p>
 
 :::caution
 This SSO flow has been `deprecated`. Use this documentation only if your organization was not migrated to the new SSO.
 
-If you want to set up a new SSO integration, please use [the new SSO implementation](/basics/sso/setting-up-sso).
+If you do not have any SSO integrations set up at Sauce Labs and you wish to establish a new integration, see [Setting Up SSO](/basics/sso/setting-up-sso) to get started.
+
+If you have previously implemented the deprecated SSO integration and wish to migrate to the new SSO implementation, see the [step-by-step migration guide](/basics/sso/migration-from-deprecated-sso/).
 :::
 <br/>
 
-<p><span className="sauceDBlue">Enterprise Plans only</span></p>
+:::tip
+
+### How Do I Know If My Organization Uses The Deprecated SSO Integration?
+
+- The Service Provider entity ID (Issuer) in your Identity Provider configuration is set to either `https://saucelabs.com/sso/metadata` or `https://eu-central-1.saucelabs.com/sso/metadata`.
+- The Assertion Consumer Service (ACS) URL in your Identity Provider configuration is set to one of the following values:
+  - `https://app.saucelabs.com/sso/acs`
+  - `https://saucelabs.com/sso/acs`
+  - `https://app.eu-central-1.saucelabs.com/sso/acs`
+  - `https://eu-central-1.saucelabs.com/sso/acs`
+- The configuration panel for the deprecated SSO is different from the new one. [The deprecated one](/basics/acct-team-mgmt/org-settings/#single-sign-on-settings-deprecated-flow) looks as following:
+  <img src={useBaseUrl('img/basics/sso-deprecated/deprecated-sso-config-panel.png')} alt="Deprecated SSO Config Panel" width="900" />
+  While the configuration panel of the new SSO looks as following:
+  <img src={useBaseUrl('img/basics/sso-deprecated/new-sso-config-panel.png')} alt="New SSO Config Panel" width="900" />
+
+:::
+<br/>
+
 Sauce Labs supports Identity Provider (Idp)-initiated Single Sign-On (SSO). This feature allows your authorized employees to access Sauce Labs in a moderated fashion, as an alternative to using credentials. SSO is available to invoiced accounts, and can only be implemented by the organization admin of the account. If you are an invoice customer, the following sections will guide you on how to set up SSO.
 
 ## What You'll Need

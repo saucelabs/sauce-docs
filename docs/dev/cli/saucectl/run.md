@@ -165,7 +165,7 @@ saucectl run --artifacts.cleanup true
 ### <span className="cli">--artifacts.download.directory</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | PATH | <span className="sauceDBlue">RDC Only</span> |</small></p>
+<p><small>| OPTIONAL | PATH | <span className="sauceGreen">RDC Only</span> |</small></p>
 
 Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. Must be set in conjunction with `--artifacts.download.match` and `--artifacts.download.when`.
 
@@ -220,7 +220,7 @@ Allows you to launch tests without waiting for results of the preceding tests. T
 ### <span className="cli">--build</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">VDC Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">VDC Only</span> |</small></p>
 
 Associates the tests with a build to support easy filtering of related test results in the Sauce Labs UI. This option is not yet supported for mobile real device tests.
 
@@ -389,7 +389,7 @@ saucectl run --show-console-log
 ### <span className="cli">--tags</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | LIST | <span className="sauceDBlue">VDC Only</span> |</small></p>
+<p><small>| OPTIONAL | LIST | <span className="sauceGreen">VDC Only</span> |</small></p>
 
 A keyword that may help you distinguish the test in Sauce Labs, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you. This option is not yet supported for mobile real device tests.
 

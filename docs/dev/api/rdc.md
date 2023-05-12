@@ -1,6 +1,6 @@
 ---
 id: rdc
-title: Real Device API Methods
+title: Real Device API Endpoints
 sidebar_label: Real Devices
 description: Retrieve information related to real device availability, device/platform/browser combinations, and currently running tests.
 ---
@@ -589,6 +589,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
    "test_cases_url" : null,
    "test_report_type" : "LIVE",
    "testfairy_log_url" : "https://api.eu-central-1.saucelabs.com/v1/rdc/jobs/51873a114a6141239c933042e948aa54/insights.json",
+   "crash_log_url": "https://api.us-west-1.saucelabs.com/v1/rdc/jobs/c6dd70531df5454290e110514dc7ca8b/crash.json",
    "used_cached_device" : null,
    "video_url" : "https://api.eu-central-1.saucelabs.com/v1/rdc/jobs/51873a114a6141239c933042e948aa54/video.mp4"
 }

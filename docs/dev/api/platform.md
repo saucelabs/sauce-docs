@@ -1,6 +1,6 @@
 ---
 id: platform
-title: Sauce Platform API Methods
+title: Sauce Platform API Endpoints
 sidebar_label: Platform
 description: Retrieve information about the Sauce Labs supported automation environments and platform status.
 ---

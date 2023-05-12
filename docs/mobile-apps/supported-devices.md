@@ -72,7 +72,7 @@ Our public cloud, available to all users regardless of pricing plan, contains a 
 
 ### Private Device Cloud
 
-<p><span className="sauceDBlue">Enterprise Only</span></p>
+<p><span className="sauceGreen">Enterprise Only</span></p>
 
 This is dedicated pool of devices just for your organization. On the mobile device selection screen, your private devices are marked with a [green device icon](/mobile-apps/live-testing/live-mobile-app-testing/#public-vs-private-devices). Here are some use cases:
 
@@ -129,13 +129,13 @@ This is specifying an exact device for your test by setting `deviceName` to the 
 When using this, there's no need to specify the `platformName` and `platformVersion` because they'll be set by default (i.e., if you include these separately included in your test script, they will be ignored).
 
 <Tabs
-  defaultValue="Espresso"
-  values={[
-    {label: 'Espresso', value: 'Espresso'},
-    {label: 'XCUITest', value: 'XCUITest'},
-    {label: 'Appium (Android)', value: 'Appium-android'},
-    {label: 'Appium (iOS)', value: 'Appium-ios'},
-  ]}>
+defaultValue="Espresso"
+values={[
+{label: 'Espresso', value: 'Espresso'},
+{label: 'XCUITest', value: 'XCUITest'},
+{label: 'Appium (Android)', value: 'Appium-android'},
+{label: 'Appium (iOS)', value: 'Appium-ios'},
+]}>
 
 <TabItem value="Espresso">
 
@@ -147,7 +147,6 @@ devices:
 ```
 
 </TabItem>
-
 <TabItem value="XCUITest">
 
 Static allocation example — exact device names are provided.
@@ -183,7 +182,7 @@ capabilities.setCapability("appium:deviceName", "iPhone_11_13_5_real_us");
 
 This is specifying basic parameters for the device name or platform version of the device you want to use in your tests using [regular expressions (regex)](https://en.wikipedia.org/wiki/Regular_expression) to dynamically allocate a device. A device(s) with your specifications will be selected from the real device pool.
 
-:::note NOTE
+:::note
 The more strict you set the capabilities, the smaller the pool of available devices will be and the longer you might need to wait for an available device.
 :::
 
@@ -200,13 +199,13 @@ The more strict you set the capabilities, the smaller the pool of available devi
 | <code>"^(?=Nokia.\*&vert;Oppo.\*&vert;Huawei.\*&vert;Xiaomi.\*).\*"</code> | Allocates **only** Nokia, Oppo, Huawei, and Xiaomi devices. See [example](https://regex101.com/r/yhQ3oy/2).                                                    |
 
 <Tabs
-  defaultValue="Espresso"
-  values={[
-    {label: 'Espresso', value: 'Espresso'},
-    {label: 'XCUITest', value: 'XCUITest'},
-    {label: 'Appium (Android)', value: 'Appium (Android)'},
-    {label: 'Appium (iOS)', value: 'Appium (iOS)'},
-  ]}>
+defaultValue="Espresso"
+values={[
+{label: 'Espresso', value: 'Espresso'},
+{label: 'XCUITest', value: 'XCUITest'},
+{label: 'Appium (Android)', value: 'Appium (Android)'},
+{label: 'Appium (iOS)', value: 'Appium (iOS)'},
+]}>
 
 <TabItem value="Espresso">
 
@@ -283,13 +282,13 @@ capabilities.setCapability("appium:deviceName", "^iPhone\s+(?!(5|5S)).*");
 | `"^(?!15).*"`                    | Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1). |
 
 <Tabs
-  defaultValue="Espresso"
-  values={[
-    {label: 'Espresso', value: 'Espresso'},
-    {label: 'XCUITest', value: 'XCUITest'},
-    {label: 'Appium (Android)', value: 'Appium (Android)'},
-    {label: 'Appium (iOS)', value: 'Appium (iOS)'},
-  ]}>
+defaultValue="Espresso"
+values={[
+{label: 'Espresso', value: 'Espresso'},
+{label: 'XCUITest', value: 'XCUITest'},
+{label: 'Appium (Android)', value: 'Appium (Android)'},
+{label: 'Appium (iOS)', value: 'Appium (iOS)'},
+]}>
 
 <TabItem value="Espresso">
 
@@ -340,6 +339,7 @@ capabilities.setCapability("appium:platformVersion", "^(?!15).*");
 
 - A matching device must be present in your account in order for the test to run.
 - Regex values are not case-sensitive (i.e., `"iphone .*S"` and `"IPHONe .*s"` are the same).
+
 :::
 
 ## Additional Resources

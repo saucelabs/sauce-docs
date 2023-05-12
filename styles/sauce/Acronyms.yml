@@ -48,11 +48,13 @@ exceptions:
   - QUERY
   - RAM
   - REPL
+  - REST
   - RSA
   - SCM
   - SDK
   - SQL
   - SSH
+  - SSO
   - SSL
   - SVG
   - TBD
