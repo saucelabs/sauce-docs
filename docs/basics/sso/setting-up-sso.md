@@ -8,6 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <p><span className="sauceGreen">Enterprise Plans only</span></p>
 
+:::caution
+If you have previously implemented the [deprecated SSO integration](/basics/sso-deprecated/setting-up-single-sign-on/) and wish to migrate to the new SSO implementation, follow our [step-by-step migration tutorial](/basics/sso/migration-from-deprecated-sso/).
+:::
+<br/>
+
 Sauce Labs supports Identity Provider (IdP)-initiated and Service Provider (SP)-initiated Single Sign-On (SSO) via SAML 2.0 protocol. This feature allows your authorized employees to access Sauce Labs in a moderated fashion, as an alternative to using credentials. SAML SSO is available to invoiced accounts, and can only be implemented by the organization admin of the account. If you are an invoice customer, the following sections will guide you on how to set up SAML SSO.
 
 Sauce Labs supports the following features:
