@@ -691,6 +691,7 @@ module.exports = {
                             items: [
                                 'basics/sso/setting-up-sso',
                                 'basics/sso/setting-up-sso-special-cases',
+                                'basics/sso/migration-from-deprecated-sso',
                                 {
                                     type: 'category',
                                     label: 'Configuring Identity Providers',
@@ -713,6 +714,7 @@ module.exports = {
                             items: [
                                 'basics/sso-deprecated/sso-hub',
                                 'basics/sso-deprecated/setting-up-single-sign-on',
+                                'basics/sso/migration-from-deprecated-sso',
                                 'basics/sso-deprecated/config-adfs',
                                 'basics/sso-deprecated/config-okta',
                             ],
@@ -843,6 +845,8 @@ module.exports = {
             items: [
                 'orchestrate',
                 'orchestrate/getting-started',
+                'orchestrate/quickstart-playwright',
+                'orchestrate/quickstart-webdriverio',
                 'orchestrate/saucectl-configuration',
                 'orchestrate/building-images',
                 'orchestrate/authenticated-pulls',
@@ -1115,7 +1119,6 @@ module.exports = {
                         'api-testing/use-cases/auth-token',
                         'api-testing/use-cases/dynamic-dates',
                         'api-testing/use-cases/generate-test-data',
-                        'api-testing/use-cases/vault-variable',
                         'api-testing/use-cases/fact',
                         'api-testing/use-cases/vault-variable',
                         'api-testing/use-cases/saving-token-kv',

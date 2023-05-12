@@ -6,7 +6,7 @@ sidebar_label: Configuring Auth0
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<p><span className="sauceDBlue">Enterprise Plans only</span></p>
+<p><span className="sauceGreen">Enterprise Plans only</span></p>
 
 1. Log into **Auth0** administrator panel.
 2. In the **Applications** menu, click **SSO Integrations**.
