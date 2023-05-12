@@ -72,6 +72,7 @@ sauce:
 Sets the maximum number of suites to run at the same time. If the test defines more suites than the max, excess suites are queued and run in order as each suite completes.
 
 ```yaml
+sauce:
   concurrency: 3
 ```
 
