@@ -197,6 +197,28 @@ HTTP Header Injection is disabled for all HTTPS domains passed to the `--no-ssl-
 **Environment variable**: `SAUCE_TUNNEL_DOMAINS`<br/>
 **Shorthand**: `-t`
 
+---
+
+### `--extra-info`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">4.7.x</span> <span className="sauceGreen">4.8.x</span>| </small></p>
+
+**Description**: JSON string that contains an advanced tunnel configuration.<br/>
+
+| Option                 | Description                                                          | Example                                           |
+| ---------------------- | -------------------------------------------------------------------- | ------------------------------------------------- |
+| `inject-forwarded-for` | Do not remove X-FORWARDED-FOR header from the proxied HTTP requests. | `--extra-info '{"inject-forwarded-for": true}'`   |
+| `reply_body_max_size`  | Set limit to the reply body size (the default is 500 MB).            | `--extra-info '{"reply_body_max_size": "30 MB"}'` |
+
+You can specify a combination of several options. For example:
+
+```bash
+--extra-info '{"inject-forwarded-for": true, "reply_body_max_size": "300 MB"}'
+```
+
+**Environment variable**: `SAUCE_EXTRA_INFO`<br/>
+**Shorthand**: n/a
+
 ## External Proxy Configuration
 
 ---
@@ -515,28 +537,6 @@ Setting the `SAUCE_VERBOSE` environment variable to `1` is equivalent to `-v` an
 | `no-proxy` | Use the previous generation scproxy.          | `--experimental no-proxy` |
 
 **Environment variable**: `SAUCE_EXPERIMENTAL`<br/>
-**Shorthand**: n/a
-
----
-
-### `--extra-info`
-
-<p><small>| OPTIONAL | STRING | <span className="sauceGreen">4.7.x</span> <span className="sauceGreen">4.8.x</span>| </small></p>
-
-**Description**: JSON string that contains an advanced tunnel configuration.<br/>
-
-| Option                 | Description                                                          | Example                                           |
-| ---------------------- | -------------------------------------------------------------------- | ------------------------------------------------- |
-| `inject-forwarded-for` | Do not remove X-FORWARDED-FOR header from the proxied HTTP requests. | `--extra-info '{"inject-forwarded-for": true}'`   |
-| `reply_body_max_size`  | Set limit to the reply body size (the default is 500 MB).            | `--extra-info '{"reply_body_max_size": "30 MB"}'` |
-
-You can specify a combination of several options. For example:
-
-```bash
---extra-info '{"inject-forwarded-for": true, "reply_body_max_size": "300 MB"}'
-```
-
-**Environment variable**: `SAUCE_EXTRA_INFO`<br/>
 **Shorthand**: n/a
 
 ## Formatting Domains
