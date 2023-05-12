@@ -39,7 +39,7 @@ Here's a breakdown of what each report contains:
 
 ## Dashboard
 
-The API Testing Dashboard &#8212; accessible from within a Project &#8212; displays metrics, logs, builds, and load tests, a centralized test management tool that simplifies collaboration and reporting.
+The API Testing Dashboard &#8212; accessible from a Project &#8212; displays metrics, logs, builds, and load tests, a centralized test management tool that simplifies collaboration and reporting.
 
 ### Test Logs
 
