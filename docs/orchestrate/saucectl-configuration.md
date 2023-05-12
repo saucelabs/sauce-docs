@@ -294,6 +294,7 @@ artifacts:
 Specifies the settings related to downloading artifacts from tests run by `saucectl`.
 
 ```yaml
+artifacts:
   download:
     when: always
     match:
