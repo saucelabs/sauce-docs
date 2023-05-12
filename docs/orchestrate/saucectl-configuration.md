@@ -73,7 +73,6 @@ Sets the maximum number of suites to run at the same time. If the test defines m
 
 ```yaml
 sauce:
-sauce:
   concurrency: 3
 ```
 
