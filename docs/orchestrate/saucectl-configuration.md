@@ -68,7 +68,7 @@ Specifies through which Sauce Labs data center tests will run. Valid values are:
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-Sets the maximum number of suites to execute at the same time. If the test defines more suites than the max, excess suites are queued and run in order as each suite completes.
+Sets the maximum number of suites to run at the same time. If the test defines more suites than the max, excess suites are queued and run in order as each suite completes.
 
 ```yaml
   concurrency: 3
