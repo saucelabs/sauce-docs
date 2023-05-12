@@ -330,7 +330,9 @@ artifacts:
 Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
 
 ```yaml
-  match:
+artifacts:
+  download:
+    match:
     - junit.xml
     - "*.log"
 ```
