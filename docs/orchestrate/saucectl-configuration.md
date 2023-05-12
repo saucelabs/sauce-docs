@@ -92,6 +92,7 @@ saucectl run --ccy 5
 Sets the number of times to retry a failed suite. For more settings, you can refer to [passThreshold](#passThreshold).
 
 ```yaml
+sauce:
   retries: 1
 ```
 
