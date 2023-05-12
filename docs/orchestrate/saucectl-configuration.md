@@ -316,6 +316,8 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 - `fail`: Download artifacts for failed suites only.
 
 ```yaml
+artifacts:
+  download:
     when: always
 ```
 
