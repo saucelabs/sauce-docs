@@ -39,7 +39,7 @@ Here's a breakdown of what each report contains:
 
 ## Dashboard
 
-The API Testing Dashboard &#8212; accessible from within a Project &#8212; displays metrics, logs, and builds, a centralized test management tool that simplifies collaboration and reporting.
+The API Testing Dashboard &#8212; accessible from within a Project &#8212; displays metrics, logs, builds, and load tests, a centralized test management tool that simplifies collaboration and reporting.
 
 ### Test Logs
 
@@ -47,7 +47,18 @@ The API Testing Dashboard &#8212; accessible from within a Project &#8212; displ
 2. Click on any Project.
 3. Click the **Dashboard** tab.
 4. Select the **Logs** tab.
-5. Select desired filters to find the Test(s) you're looking for, then click **Apply**. Filters include, but are not limited to: date range, mode (Monitoring (Scheduled) Tests or On-Demand Tests), tag(s), and agent.<br/><img src={useBaseUrl('img/api-testing/logsFilters.png')} alt="Dashboard Logs Filters"/>
+5. Select desired filters to find the Test(s) you're looking for, then click **Apply**.<br/>
+   <img src={useBaseUrl('img/api-testing/logsFilters.png')} alt="Dashboard Logs Filters"/>
+
+| Filter   | Description                                                                                                                                                                                                                      |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Date     | Filter tests results by: <ul><li>Today</li><li>Yesterday</li><li>Last 3 days</li><li>Last 7 days</li><li>This Week</li><li>Previous week</li><li>Last 14 days</li><li>Last 30 days</li><li>Specific start and end date</li></ul> |
+| Test     | Filter tests results by a specific test                                                                                                                                                                                          |
+| Modes    | Filter tests results by tests that are scheduled (monitoring) or executed manually (on-Demand)                                                                                                                                   |
+| Events   | Filter tests results by all tests or only the ones that failed                                                                                                                                                                   |
+| Tags     | Filter tests results by tests that contain one or more specific tag(s)                                                                                                                                                           |
+| Build id | Filter tests results by tests that belong to a specific build                                                                                                                                                                    |
+| Agent    | Filter tests results by the agent that executed the test: `wstestjs` if the test is executed manually, scheduled, or by API; `piestry` if the test is executed via the [mocking tool](/api-testing/mocking/)                     |
 
 ### Test Metrics
 
@@ -57,7 +68,16 @@ To view Test performance metrics (latency and fetch):
 2. Click on any Project.
 3. Click the **Dashboard** tab.
 4. Select the **Metrics** tab.
-5. Select desired filters to find the Test(s) you're looking for, then click **Apply**. Filters include date range and footprint (the request URL).<br/><img src={useBaseUrl('img/api-testing/metricsFilters.png')} alt="Dashboard Metrics Filters"/>
+5. Select desired filters to find the Test(s) you're looking for, then click **Apply**.<br/>
+   <img src={useBaseUrl('img/api-testing/metricsFilters.png')} alt="Dashboard Metrics Filters"/>
+
+| Filter    | Description                                                                                                                                                                                                                      |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Date      | Filter tests results by: <ul><li>Today</li><li>Yesterday</li><li>Last 3 days</li><li>Last 7 days</li><li>This Week</li><li>Previous week</li><li>Last 14 days</li><li>Last 30 days</li><li>Specific start and end date</li></ul> |
+| Test      | Filter tests results by a specific test                                                                                                                                                                                          |
+| Metrics   | Filter tests results by all tests or only the ones that failed                                                                                                                                                                   |
+| Footprint | Filter tests results by a specific request URL                                                                                                                                                                                   |
+| Build id  | Filter tests results by tests that belong to a specific build                                                                                                                                                                    |
 
 ### Test Build Reports
 
@@ -68,6 +88,12 @@ A _Build_ is a collection of test results and metrics associated with a given bu
 3. Click the **Dashboard** tab.
 4. Select the **Build** tab.
 5. Set the date and/or build ID filters, if desired, to find the Test(s) you're looking for. Then click **Apply**.<br/><img src={useBaseUrl('img/api-testing/buildsFilters.png')} alt="Dashboard Builds" width="400"/>
+
+| Filter   | Description                                                                                                                                                                                                                      |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Date     | Filter tests results by: <ul><li>Today</li><li>Yesterday</li><li>Last 3 days</li><li>Last 7 days</li><li>This Week</li><li>Previous week</li><li>Last 14 days</li><li>Last 30 days</li><li>Specific start and end date</li></ul> |
+| Build id | Filter tests results by tests that belong to a specific build                                                                                                                                                                    |
+
 6. Click on any line item below to view a summary report for that Build.<img src={useBaseUrl('img/api-testing/builds1.png')} alt="Dashboard Builds"/><br/><img src={useBaseUrl('img/api-testing/builds2.png')} alt="Dashboard Builds"/>
    The report contains details such as the build ID, list of Tests belonging to that build, date/time, Projects involved, successful tests, and failed tests.
 7. Under the **Event Details** column, click **Open Report Document** to see the results and metrics for each specific test that has been executed in the build.<br/><img src={useBaseUrl('img/api-fortress/2021/02/builds3.png')} alt="Dashboard Builds"/>
