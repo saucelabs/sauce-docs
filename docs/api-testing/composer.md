@@ -204,8 +204,10 @@ Displays the Input Set view where you can store input data sets to reuse within 
 
 There are two types of input data sets you can use:
 
-- Global Parameters - Variables that are available within a test, valid for that specific test only.
+- Global Parameters - Variables that are specific to the test but are not related to a specific scenario (for example, api key).
 - Input Set - Group of input variables representing a scenario, valid for that specific test only. The test will be executed once for each input set, overriding the variable values into your test.
+
+If you define a variable in both the Global Parameters and Input Set sections, the value used in the test is what you specified in the Input Set.
 
 <table>
 <tr>
