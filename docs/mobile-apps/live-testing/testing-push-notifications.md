@@ -18,7 +18,7 @@ Testing push notifications is essential to deliver a satisfactory mobile experie
 - **iOS Only**: You will need to use private devices due to signing requirements. 
 
 
-## Disabling Instrumentation
+## Disabling Instrumentation for iOS Apps
 
 1. On Sauce Labs, in the left navigation, click **App Mangement**.
 
