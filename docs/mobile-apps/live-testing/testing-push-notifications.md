@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Testing push notifications thoroughly is essential to deliver a satisfactory mobile experience. With Sauce Labs' Real Device Cloud, you can test push notifications on Android and iOS devices. These notifications, delivered as pop-up messages initiated by the application and sent to the user's device, offer numerous benefits for app publishers. By utilizing push notifications, you can deliver relevant and timely messages, provide personalized content, re-engage users, and geo-target them based on their location.
+Testing push notifications is essential to deliver a satisfactory mobile experience. With Sauce Labs' Real Device Cloud, you can test push notifications on Android and iOS devices. These notifications, delivered as pop-up messages initiated by the application and sent to the user's device, offer numerous benefits for app publishers. By utilizing push notifications, you can deliver relevant and timely messages, provide personalized content, re-engage users, and geo-target them based on their location.
 
 ## What You'll Need
 
