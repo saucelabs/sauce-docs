@@ -691,13 +691,16 @@ module.exports = {
                             items: [
                                 'basics/sso/setting-up-sso',
                                 'basics/sso/setting-up-sso-special-cases',
+                                'basics/sso/migration-from-deprecated-sso',
                                 {
                                     type: 'category',
                                     label: 'Configuring Identity Providers',
                                     collapsed: true,
                                     items: [
+                                        'basics/sso/configuring-sso-in-auth0',
                                         'basics/sso/configuring-sso-in-google',
                                         'basics/sso/configuring-sso-in-ms-azure-ad',
+                                        'basics/sso/configuring-sso-in-okta',
                                         'basics/sso/configuring-sso-in-onelogin',
                                     ],
                                 },
@@ -711,6 +714,7 @@ module.exports = {
                             items: [
                                 'basics/sso-deprecated/sso-hub',
                                 'basics/sso-deprecated/setting-up-single-sign-on',
+                                'basics/sso/migration-from-deprecated-sso',
                                 'basics/sso-deprecated/config-adfs',
                                 'basics/sso-deprecated/config-okta',
                             ],
@@ -836,6 +840,23 @@ module.exports = {
         },
         {
             type: 'category',
+            label: 'Orchestrate',
+            collapsed: true,
+            items: [
+                'orchestrate',
+                'orchestrate/getting-started',
+                'orchestrate/quickstart-playwright',
+                'orchestrate/quickstart-webdriverio',
+                'orchestrate/saucectl-configuration',
+                'orchestrate/building-images',
+                'orchestrate/authenticated-pulls',
+                'orchestrate/best-practices',
+                'orchestrate/faq',
+                'orchestrate/architecture',
+            ],
+        },
+        {
+            type: 'category',
             label: 'Mobile Apps',
             collapsed: true,
             items: [
@@ -942,7 +963,10 @@ module.exports = {
                     type: 'category',
                     label: 'Live Testing',
                     collapsed: true,
-                    items: ['web-apps/live-testing/live-cross-browser-testing'],
+                    items: [
+                        'web-apps/live-testing/live-cross-browser-testing',
+                        'web-apps/live-testing/dev-tools',
+                    ],
                 },
                 {
                     type: 'category',
@@ -1030,19 +1054,6 @@ module.exports = {
         },
         {
             type: 'category',
-            label: 'Hosted Orchestration (Beta)',
-            link: { type: 'doc', id: 'hosted-orchestration' },
-            collapsed: true,
-            items: [
-                'hosted-orchestration',
-                'hosted-orchestration/architecture',
-                'hosted-orchestration/running-tests',
-                'hosted-orchestration/building-images',
-                'hosted-orchestration/private-registry',
-            ],
-        },
-        {
-            type: 'category',
             label: 'API Testing',
             collapsed: true,
             items: [
@@ -1114,6 +1125,7 @@ module.exports = {
                         'api-testing/use-cases/set-variable',
                         'api-testing/use-cases/use-drive',
                         'api-testing/use-cases/using-environments',
+                        'api-testing/use-cases/github-datasets',
                         'api-testing/use-cases/working-with-headers',
                     ],
                 },

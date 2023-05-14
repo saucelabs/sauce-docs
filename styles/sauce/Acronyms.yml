@@ -25,6 +25,7 @@ exceptions:
   - DPI
   - FAQ
   - GET
+  - GPS
   - GPU
   - GUI
   - HTML
@@ -48,11 +49,13 @@ exceptions:
   - QUERY
   - RAM
   - REPL
+  - REST
   - RSA
   - SCM
   - SDK
   - SQL
   - SSH
+  - SSO
   - SSL
   - SVG
   - TBD
@@ -62,6 +65,7 @@ exceptions:
   - USB
   - UTC
   - UTF
+  - VPN
   - XCUI
   - XML
   - XSS

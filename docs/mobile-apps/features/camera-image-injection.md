@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<p><small><span className="sauceDBlue">Real Devices Only</span></small></p>
+<p><small><span className="sauceGreen">Real Devices Only</span></small></p>
 
 Do you have a mobile app with the ability to take images on the device camera, then process or store them within the app (e.g., scanning/depositing a check in a banking app)?
 
@@ -17,7 +17,7 @@ Camera Image Injection, also known as camera mocking, is a Sauce Labs Real Devic
 You employ the built-in device camera in your live and automated testing and perform test cases that require taking images with any of the device cameras. To mimic the system camera behavior during a test, you'll provide the app with an image of your choosing. Your app will access the camera and instead of getting back the picture of the device camera, it'll retrieve the uploaded image.
 
 :::caution
-Make sure you have a debuggable AND not obfuscated version of your application uploaded to Mobile App Storage. 
+Make sure you have a debuggable AND not obfuscated version of your application uploaded to Mobile App Storage.
 :::
 
 ## What You'll Need

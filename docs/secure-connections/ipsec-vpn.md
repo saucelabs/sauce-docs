@@ -11,11 +11,17 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
+<p><span className="sauceGreen">Enterprise Only</span></p>
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Internet Protocol Security VPN (IPSec VPN) is a technology that connects two private networks securely over the public internet. If your organization has firewall rules that limit your ability to run tests on Sauce Labs, you can use Sauce IPSec Proxy to connect to Sauce Labs without exposing your organization's IT infrastructure to security risks.
 
 Sauce IPSec Proxy is an enterprise-grade IPSec VPN solution that provides a secure, static connection between apps hosted on your private network (or local machine) and devices on the Sauce Labs cloud.
+
+:::note Add-on feature
+Sauce IPSec Proxy is available as an add-on for Enterprise plans only. If you want to upgrade your Enterprise plan to use Sauce IPSec Proxy, contact your Sauce Labs account executive.
+:::
 
 ## What You'll Learn
 
@@ -24,8 +30,6 @@ Sauce IPSec Proxy is an enterprise-grade IPSec VPN solution that provides a secu
 - How to run tests using Sauce IPSec Proxy
 
 ## What You'll Need
-
-<p> <Highlight color="#013a70">Enterprise Plans only</Highlight> </p>
 
 - Sauce IPSec Proxy is an enterprise-only feature that must be configured by our Support Team prior to use. Contact your Sauce Labs Sales Engineer or Customer Success Manager to learn more about how this solution can meet your business needs.
 - Authorization to use your organization's Sauce IPSec Proxy tunnel. You can verify this by going to the **Tunnels** page, where you should see the tunnel name displayed. If you don't see it, contact the organization admin for your Sauce Labs account to request access.
@@ -139,9 +143,9 @@ If you're working in Espresso or XCUITest, you'll need to use [`saucectl`](/dev/
 2. Next, you'll need to assign your Sauce IPSec Proxy tunnel to your job. There are two ways to do this:
    - Specify the applicable [`tunnel`](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#tunnel) settings in your YAML configuration file; or
    - Use the [`--tunnel-name`](/dev/cli/saucectl/run/#--tunnel-name) and [`--tunnel-owner`](/dev/cli/saucectl/run/#--tunnel-owner) flags in conjunction with the `saucectl` run command at test runtime.
-   ```bash
-   saucectl run --tunnel-name not-my-tunnel --tunnel-owner another.sauce.username
-   ```
+     ```bash
+     saucectl run --tunnel-name not-my-tunnel --tunnel-owner another.sauce.username
+     ```
 
 ### Live Testing
 

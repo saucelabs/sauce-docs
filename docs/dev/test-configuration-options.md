@@ -335,7 +335,8 @@ Sets command timeout in seconds. As a safety measure to prevent Selenium crashes
 
 ### `idleTimeout`
 
-<p><small>| INTEGER |</small></p>
+<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceGreen">Desktop Only</span> | </small></p>
+
 
 Sets idle test timeout in seconds. As a safety measure to prevent tests from running too long after something has gone wrong, we limit how long a browser can wait for a test to send a new command. This is set to 90 seconds by default and limited to a maximum value of 1000 seconds.
 
@@ -355,7 +356,7 @@ The capabilities defined here assume the W3C WebDriver Protocol. See [Appium Rea
 
 ### `platformName`
 
-<p><small>| MANDATORY <span className="sauceDBlue">for Virtual and Real Devices</span> | STRING |</small></p>
+<p><small>| MANDATORY <span className="sauceGreen">for Virtual and Real Devices</span> | STRING |</small></p>
 
 Identifies the name of the operating system the mobile device should be running on. Values are not case-sensitive (i.e., `"ios"` is the same as `"iOS"`). Valid values are `Android` and `iOS`. See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-platform-name) for more information.
 
@@ -368,11 +369,11 @@ capabilities.setCapability("platformName", "Android");
 
 ### `appium:platformVersion`
 
-<p><small>| MANDATORY <span className="sauceDBlue">for Virtual Devices</span> | OPTIONAL <span className="sauceDBlue">for Real Devices</span> | STRING |</small></p>
+<p><small>| MANDATORY <span className="sauceGreen">for Virtual Devices</span> | OPTIONAL <span className="sauceGreen">for Real Devices</span> | STRING |</small></p>
 
 Allows you to set the mobile OS platform version that you want to use in your test.
 
-:::info NOTE
+:::note
 Android and iOS platform versions are based on [Semantic Versioning](https://semver.org/), also known as SEMVER. This means that the versions will have the format `MAJOR.MINOR.PATCH`.
 :::
 
@@ -380,7 +381,7 @@ Android and iOS platform versions are based on [Semantic Versioning](https://sem
 
 This is mandatory for Android Emulators and iOS Simulators. You can find the available versions in our [Platform Configurator](https://saucelabs.com/platform/platform-configurator).
 
-:::info Info
+:::note
 iOS Simulators now support the values `latest`, `current_major`, or `previous_major` as the `appium:platformVersion`. These values will automatically use the latest, current major, or previous major version of iOS for your specified Simulator. See [iOS Version Management](/mobile-apps/features/ios-version-management) for more information.
 :::
 
@@ -424,7 +425,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:deviceName`
 
-<p><small>| MANDATORY for <span className="sauceDBlue">Virtual Devices</span> | OPTIONAL for <span className="sauceDBlue">Real Devices</span> | STRING |</small></p>
+<p><small>| MANDATORY for <span className="sauceGreen">Virtual Devices</span> | OPTIONAL for <span className="sauceGreen">Real Devices</span> | STRING |</small></p>
 
 Allows you to set the name of the simulator, emulator, or real device you want to use in the test.
 
@@ -459,7 +460,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:automationName`
 
-<p><small>| OPTIONAL for  <span className="sauceDBlue">Appium 1.x (JWP)</span> | MANDATORY for  <span className="sauceDBlue">Appium 2.0 (W3C)</span> | STRING  |</small></p>
+<p><small>| OPTIONAL for  <span className="sauceGreen">Appium 1.x (JWP)</span> | MANDATORY for  <span className="sauceGreen">Appium 2.0 (W3C)</span> | STRING  |</small></p>
 
 Allows you to set the automation engine that will be used.
 Possible values are:
@@ -487,7 +488,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `browserName`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Virtual and Real Devices</span> |</small></p>
 
 Identifies the browser to be used when automating with a mobile browser. See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-browser-name) for more information. This capability is case-insensitive
 
@@ -515,7 +516,7 @@ capabilities.setCapability("browserName", "chrome");
 
 ### `appium:app`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Virtual and Real Devices</span> |</small></p>
 
 Allows you to set a path to an `.ipa`, `.apk`, `.aab` or `.zip` file containing the mobile app you want to test. This could be the location of your app in [App Storage](/mobile-apps/app-storage) (e.g., `storage:filename=myapp.zip`) or the URL to a remote location where your app is located (e.g., `http://myappurl.zip`). The remote location needs to be accessible from the web, Sauce Connect can not access your internal file system where apps are hosted.
 
@@ -551,7 +552,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:bundleId`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">iOS Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">iOS Only</span> |</small></p>
 
 Bundle identifier of the app under test, for example `com.apple.calculator`. The capability value is calculated automatically if [`appium:app`](#appiumapp) is provided.
 
@@ -581,7 +582,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:appPackage`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Android Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">Android Only</span> |</small></p>
 
 Application package identifier to be started, for example, `com.google.android.youtube`. If not provided, then UiAutomator2 will try to detect it automatically from the package provided by the [`appium:app`](#appiumapp) capability. Read [How To Troubleshoot Activities Startup](https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/activity-startup.md) for more details.
 
@@ -606,7 +607,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:appActivity`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Android Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">Android Only</span> |</small></p>
 
 Main application activity identifier, for example, `com.google.android.apps.youtube.app.watchwhile.WatchWhileActivity`. If not provided then UiAutomator2 will try to detect it automatically from the package provided by the [`appium:app`](#appiumapp) capability. Read [How To Troubleshoot Activities Startup](https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/activity-startup.md) for more details.
 
@@ -631,7 +632,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:otherApps`
 
-<p><small>| OPTIONAL | STRING or LIST | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING or LIST | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 A dependent app that has already been uploaded to [App Storage](/mobile-apps/app-storage) will be pre-installed on the device during the testing of the main app. You can specify the app using its `storage:<fileId>` or `storage:filename=<filename>` reference.
 
@@ -659,7 +660,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:orientation`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Virtual and Real Devices</span> |</small></p>
 
 Specifies the orientation of the screen during the test. Valid values are `PORTRAIT` and `LANDSCAPE`.
 
@@ -680,7 +681,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:noReset`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Virtual and Real Devices</span> |</small></p>
 
 If set to `true` it prevents the device from resetting before the session startup. This means the application under test will not be terminated or its data cleaned. This capability behaves differently across virtual and real devices.
 
@@ -717,7 +718,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:autoWebview`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Virtual and Real Devices</span> |</small></p>
 
 Move directly into Webview context if available. This can come in handy when you need to automate a Hybrid app and the first screen in your app is a Hybrid screen. Default `false`.
 
@@ -734,7 +735,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:includeSafariInWebviews`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">iOS Only</span> |</small></p>
 
 Add Safari web contexts to the list of contexts available during a native/webview app test. This is useful if the test starts with an app and you eventually need to open Safari to be able to interact with it. Defaults to `false`.
 
@@ -751,7 +752,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:autoAcceptAlerts`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">iOS Only</span> |</small></p>
 
 Accept all iOS alerts automatically if they pop up. This includes privacy access permission alerts (e.g., location, contacts, photos). Default is `false`.
 
@@ -772,7 +773,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:autoDismissAlerts`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">iOS Only</span> |</small></p>
 
 Dismiss all iOS alerts automatically if they pop up. This includes privacy access permission alerts (e.g., location, contacts, photos). Default is `false`.
 
@@ -789,9 +790,11 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:autoGrantPermissions`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">Android Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">Android Only</span> |</small></p>
 
-Whether to grant all the requested application permissions automatically when a test starts(`true`). `false` by default.
+Whether to grant all the requested application permissions automatically when a test starts.
+
+The default value is `true`.
 
 :::note
 The iOS equivalent is [`appium:autoAcceptAlerts`](#appiumautoacceptalerts).
@@ -799,7 +802,8 @@ The iOS equivalent is [`appium:autoAcceptAlerts`](#appiumautoacceptalerts).
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
-capabilities.setCapability("appium:autoGrantPermissions", true);
+// Handle all requested application permissions "yourself"
+capabilities.setCapability("appium:autoGrantPermissions", false);
 ```
 
 :::tip
@@ -821,7 +825,7 @@ These timeouts can be controlled by the driver during the test session. There ar
 
 ### `appium:newCommandTimeout`
 
-<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">Android and iOS</span> |</small></p>
+<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">Android and iOS</span> |</small></p>
 
 Specifies the amount of time in seconds, in which the driver waits for a new command from the client before assuming the client has stopped sending requests. If there is no response during this time, the next executed command on the Virtual/Real Device will time out. The default value is 60 seconds while the maximum allowed value is not limited for Virtual Devices and is limited to 90 seconds for Real Devices.
 
@@ -838,7 +842,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:autoWebviewTimeout`
 
-<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">Android only</span> |</small></p>
+<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">Android only</span> |</small></p>
 
 Set the maximum number of milliseconds to wait until a web view is available if autoWebview capability is set to true. 2000 ms by default
 
@@ -855,7 +859,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:webkitResponseTimeout`
 
-<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
+<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">iOS only</span> |</small></p>
 
 Set the time, in milliseconds, to wait for a response from `WebKit` in a Safari session. Defaults to `5000`
 
@@ -872,7 +876,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:webviewConnectTimeout`
 
-<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
+<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">iOS only</span> |</small></p>
 
 The time to wait, in milliseconds, for the initial presence of webviews in MobileSafari or hybrid apps. Defaults to 0
 
@@ -899,7 +903,7 @@ It might be helpful to understand how the `WebDriverAgent` works before reading 
 
 ### `appium:wdaLaunchTimeout`
 
-<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
+<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">iOS only</span> |</small></p>
 
 Time, in ms, to wait for `WebDriverAgent` to be pingable. Defaults to 60000ms.
 
@@ -916,7 +920,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:wdaConnectionTimeout`
 
-<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
+<p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">iOS only</span> |</small></p>
 
 Timeout, in ms, for waiting for a response from `WebDriverAgent`. Defaults to 240000ms.
 
@@ -933,7 +937,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:waitForIdleTimeout`
 
-<p><small>| OPTIONAL | DURATION | FLOAT | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
+<p><small>| OPTIONAL | DURATION | FLOAT | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">iOS only</span> |</small></p>
 
 The amount of time in float seconds to wait until the application under test is idling. XCTest requires the app's main thread to be idling in order to execute any action on it, so the `WebDriverAgent` might not even start/freeze if the app under test is constantly hogging the main thread. The default value is `10` (seconds). Setting it to zero disables idling checks completely (not recommended) and has the same effect as setting `waitForQuiescence` to false. Available since Appium `1.20.0`.
 
@@ -950,7 +954,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ### `appium:commandTimeouts`
 
-<p><small>| OPTIONAL | DURATION | STRING | <span className="sauceDBlue">Virtual and Real Devices</span> | <span className="sauceDBlue">iOS only</span> |</small></p>
+<p><small>| OPTIONAL | DURATION | STRING | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">iOS only</span> |</small></p>
 
 Custom timeout(s) in milliseconds for `WebDriverAgent` backend commands execution. This might be useful if the `WebDriverAgent` backend freezes unexpectedly or requires too much time to fail and blocks automated test execution. The value is expected to be of type string and can either contain max milliseconds to wait for each `WebDriverAgent` command to be executed before terminating the session forcefully.
 
@@ -987,7 +991,7 @@ Not all specific Appium Driver capabilities are explained here in preventing dup
 
 ### `appium:options`
 
-<p><small>| OPTIONAL | OBJECT | <span className="sauceDBlue">Real Devices</span> | <span className="sauceDBlue">Appium 2 Only</span> |</small></p>
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices</span> | <span className="sauceGreen">Appium 2 Only</span> |</small></p>
 
 If you use a lot of `appium:` capabilities in your tests, it can get a little repetitive. You can combine all capabilities as an object value of a single `appium:options` capability instead, in which case you don't need to use prefixes on the capabilities inside the object. For example:
 
@@ -1027,7 +1031,7 @@ Optional, Sauce-specific capabilities that you can use in your Appium tests. The
 
 ### `appiumVersion`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Virtual and Real Devices</span> |</small></p>
 
 Specifies the Appium driver version you want to use. For most use cases, setting the `appiumVersion` is unnecessary because Sauce Labs defaults to the version that supports the broadest number of device combinations. Sauce Labs advises against setting this property unless you need to test a particular Appium feature or patch.
 
@@ -1057,7 +1061,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `deviceOrientation`
 
-<p><small>| OPTIONAL | STRING| <span className="sauceDBlue">Virtual Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING| <span className="sauceGreen">Virtual Devices Only</span> |</small></p>
 
 Specifies the orientation of the virtual skin and screen during the test. Valid values are `PORTRAIT` and `LANDSCAPE`.
 
@@ -1073,7 +1077,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `customLogFiles`
 
-<p><small>| OPTIONAL | LIST | <span className="sauceDBlue">Virtual Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | LIST | <span className="sauceGreen">Virtual Devices Only</span> |</small></p>
 
 If your app creates an extra log then you can use the `customLogFiles` to store those additional logs in the "Logs" tab of the executed automated session. It is created in the form of a list of search filters that enumerate after an app test to locate text files to upload as logs. Files are uploaded with the `.log` extension appended. The search paths are rooted at the application under test:
 
@@ -1114,7 +1118,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `setupDeviceLock`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | </small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> | </small></p>
 
 Sets up the device pin code for the automated test session. Valid values are `true` and `false`.
 This capability sets your device in the state required for your application to launch successfully.
@@ -1135,7 +1139,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `tabletOnly`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 Use this capability to select only tablet devices for testing by setting it to `"true"`. For [**Dynamic Allocation**](/mobile-apps/automated-testing/appium/real-devices).
 
@@ -1151,7 +1155,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `phoneOnly`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 Use this capability to select only phone devices by setting it to `"true"`. For [**Dynamic Allocation**](/mobile-apps/automated-testing/appium/real-devices).
 
@@ -1167,7 +1171,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `privateDevicesOnly`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 If your pricing plan includes both private and public devices, use this capability to request allocation of private devices only by setting it to `"true"`. For [**Dynamic Allocation**](/mobile-apps/automated-testing/appium/real-devices).
 
@@ -1183,7 +1187,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `publicDevicesOnly`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 If your pricing plan includes both private and public devices, use this capability to request allocation of public devices only by setting it to `"true"`. For [**Dynamic Allocation**](/mobile-apps/automated-testing/appium/real-devices).
 
@@ -1199,7 +1203,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `carrierConnectivityOnly`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Private Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">Private Devices Only</span> |</small></p>
 
 Use this capability to allocate only devices connected to a carrier network by setting it to `"true"`. For [**Dynamic Allocation**](/mobile-apps/automated-testing/appium/real-devices).
 
@@ -1215,7 +1219,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `cacheId`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 Keeps the device allocated to you between test sessions and bypasses the device cleaning process and session exit that occurs by default after each test completes. Normally, you'd need to start over and reopen another device. You'll need to launch your next test within 10 seconds of your previous test ending to ensure that the same device will be allocated for the test (not cleaned or reset).
 
@@ -1257,7 +1261,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `resigningEnabled`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 Controls Sauce Labs default resigning (iOS) or instrumentation (Android) of mobile apps installed on our devices. By default, this property is always `true`.
 
@@ -1297,7 +1301,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `sauceLabsImageInjectionEnabled`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 Enables the [camera image injection](/mobile-apps/features/camera-image-injection) feature. [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
 
@@ -1313,7 +1317,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `sauceLabsBypassScreenshotRestriction`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> | <span className="sauceDBlue">Android Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">Android Only</span> |</small></p>
 
 Bypasses the restriction on taking screenshots for secure screens (i.e., secure text entry). [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
 
@@ -1329,7 +1333,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `allowTouchIdEnroll`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 Enables the interception of biometric input, allowing the test to simulate Touch ID interactions (not a Sauce Labs-specific capability). [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
 
@@ -1345,7 +1349,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `audioCapture`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> |</p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span></small> |</p>
 
 Enables audio recording in your iOS and Android native mobile app tests. The audio will be part of the **Test Results** page video file, which you can play back and download in our built-in media player. The default value is `false`.
 
@@ -1361,7 +1365,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `networkCapture`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> |</p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span></small> |</p>
 
 Enables mobile app instrumentation (Android or iOS) and recording of HTTP/HTTPS network traffic for debugging purposes. API calls are collected into a HAR file, which you can view and download from your **Test Results** > **Network** tab console. The default value is `false`.
 
@@ -1377,7 +1381,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `groupFolderRedirectEnabled`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span></small> | <small><span className="sauceGreen">iOS Only</span> | </small></p>
 
 Enables the use of the app's private app container directory instead of the shared app group container directory. For testing on the Real Device Cloud, the app gets resigned, which is why the shared directory is not accessible.
 
@@ -1393,7 +1397,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `enableAnimations`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">Android Only</span> | </small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span></small> | <small><span className="sauceGreen">Android Only</span> | </small></p>
 
 Use this capability to enable animations for Android real devices by setting it to `true`. By default, animations are disabled.
 
@@ -1409,7 +1413,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `systemAlertsDelayEnabled`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceDBlue">Real Devices Only</span></small> | <small><span className="sauceDBlue">iOS Only</span> | </small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span></small> | <small><span className="sauceGreen">iOS Only</span> | </small></p>
 
 Delays system alerts, such as alerts asking for permission to access the camera, to prevent app crashes at startup. [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
 
@@ -1425,7 +1429,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `sessionCreationTimeout`
 
-<p><small>| OPTIONAL | INTEGER | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | INTEGER | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 Specify the amount of time (in milliseconds) that the test should be allowed to find and assign an available device before the test will fail. The default value is 900000 milliseconds (15 minutes) and the max is 1800000 milliseconds (30 minutes).
 
@@ -1446,7 +1450,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `sessionCreationRetry`
 
-<p><small>| OPTIONAL | INTEGER | <span className="sauceDBlue">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | INTEGER | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 Specify the amount of automatic retries that Sauce Labs will execute to find and assign an available device before the test will fail. The default value is 1 and the max is 3.
 
@@ -1501,7 +1505,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `tags`
 
-<p><small>| OPTIONAL | LIST | <span className="sauceDBlue">Virtual and Real Devices</span> |</small></p>
+<p><small>| OPTIONAL | LIST | <span className="sauceGreen">Virtual and Real Devices</span> |</small></p>
 
 User-defined tags for grouping and filtering jobs on the **Test Results** dashboard and **Archive** view. Tags can facilitate team collaboration.
 
@@ -1569,7 +1573,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `custom-data`
 
-<p><small>| OPTIONAL | OBJECT | <span className="sauceDBlue">Desktop and Virtual Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Desktop and Virtual Devices Only</span> |</small></p>
 
 User-defined custom data that will accept any valid JSON object, limited to 64KB in size.
 
@@ -1585,7 +1589,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `public`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Desktop and Virtual Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Desktop and Virtual Devices Only</span> |</small></p>
 
 We support several test/job result visibility levels, which control who can view the test details. The visibility level for a test can be set manually from the test results page, but also programmatically when starting a test or with our REST API. For more information about sharing test results, see the topics under [Sharing the Results of Sauce Labs Tests](/test-results/sharing-test-results).
 
@@ -1785,7 +1789,7 @@ The following are Sauce Labs-specific options that apply only to virtual devices
 
 ### `maxDuration`
 
-<p><small>| OPTIONAL | INTEGER | <span className="sauceDBlue">Desktop and Virtual Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | INTEGER | <span className="sauceGreen">Desktop and Virtual Devices Only</span> |</small></p>
 
 Sets maximum test duration in seconds. As a safety measure to prevent tests from running indefinitely, the default is 1,800 seconds (30 minutes) and the maximum is 10,800 seconds (three hours).
 
@@ -1808,7 +1812,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `priority`
 
-<p><small>| OPTIONAL | INTEGER | <span className="sauceDBlue">Desktop and Virtual Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | INTEGER | <span className="sauceGreen">Desktop and Virtual Devices Only</span> |</small></p>
 
 Setting to prioritize jobs. If you have multiple new jobs waiting to start (i.e., across a collection of sub-accounts), jobs with a lower priority number take precedence over jobs with a higher number.
 
@@ -1828,7 +1832,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `timeZone`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceDBlue">Desktop and Virtual Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Desktop and Virtual Devices Only</span> |</small></p>
 
 Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
 
@@ -1860,7 +1864,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### Pre-Run Executables
 
-<p><small>| OPTIONAL | <span className="sauceDBlue">Desktop and Virtual Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | <span className="sauceGreen">Desktop and Virtual Devices Only</span> |</small></p>
 
 Pre-run executables have a primary key ([`prerun`](#prerun-primary-key)) and four secondary keys:
 

@@ -171,7 +171,9 @@ If you use any of the following and your data center is EU Central, you need to 
 :::caution
 This SSO flow has been `deprecated`. Use this documentation only if your organization was not migrated to the new SSO.
 
-If you want to set up a new SSO integration, please use [the new SSO implementation](/basics/sso/setting-up-sso).
+If you do not have any SSO integrations set up at Sauce Labs and you wish to establish a new integration, see [Setting Up SSO](/basics/sso/setting-up-sso) to get started.
+
+If you have previously implemented the deprecated SSO integration and wish to migrate to the new SSO implementation, see the [step-by-step migration guide](/basics/sso/migration-from-deprecated-sso/).
 :::
 
 If you're using SSO with Sauce Labs, your data center determines the appropriate URLs for:

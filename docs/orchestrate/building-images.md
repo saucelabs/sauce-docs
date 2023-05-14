@@ -8,9 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Overview
-
-Sauce Labs supports Docker images, providing you with a powerful way to orchestrate tests. In order to use Hosted Orchestration you will need to package your test code and all of its dependencies as a Docker image and publish it to a Docker container registry so that your tests can be run in the Sauce Labs infrastructure.
+Sauce Labs supports Docker images, providing you with a powerful way to orchestrate tests. In order to use Sauce Labs Orchestrate you will need to package your test code and all of its dependencies as a Docker image and publish it to a Docker container registry so that your tests can be run in the Sauce Labs infrastructure.
 
 ## System Requirements
 
@@ -50,7 +48,7 @@ FROM golang:1.8.0
 
 ### Installing Additional Tools
 
-To install any additional tools or execute other commands, use the RUN instruction.
+To install any additional tools or run other commands, use the RUN instruction.
 
 ```
 RUN apt-get update && apt-get install -y netcat
@@ -74,10 +72,6 @@ After all of the required tools are specified in the Dockerfile it is possible t
 docker build <path-to-dockerfile>
 ```
 
-:::note
-Sauce Labs Hosted Orchestration only supports images built on the `amd64` architecture. If you are building your docker image on a machine with a different architecture, use the [--platform flag](https://docs.docker.com/build/building/multi-platform/#building-multi-platform-images) targeting `linux/amd64` to build an image compatible with our test runners.
-:::
-
 You’ll see how all commands specified in the Dockerfile are executed. If there are any errors they’ll be displayed and you’ll need to fix them before continuing. If the build is successful you’ll have something like this at the very end:
 
 ```
@@ -85,14 +79,14 @@ You’ll see how all commands specified in the Dockerfile are executed. If there
 Successfully built e32703162dd4
 ```
 
-Congratulations, you’ve just built your first image! Now we need to store it somewhere to make it available for Sauce Labs.
+Congratulations, you’ve just built your first image. Now we need to store it somewhere to make it available for Sauce Labs.
 
 ## Pushing to a Registry
 
 To allow Sauce Labs to use your custom image, store it in a public Docker Registry. The easiest mechanism is to create an account on Docker Hub because Docker Hub allows you to store unlimited public images for free. If your organization is already using Docker Hub, you can use your existing account.
 
 :::note
-To use an image with the Sauce Labs Hosted Orchestration you must have a public repository. If you want to keep your image private, refer to the Using Docker Authenticated Pulls document for instructions.
+To use an image with Sauce Labs Orchestrate you must have a public repository. If you want to keep your image private, refer to the Using Docker Authenticated Pulls document for instructions.
 :::
 
 The example uses Docker Hub, but it is possible to use different registries, if you prefer. Adapt the example based on the registry you are using.
@@ -119,7 +113,7 @@ The `-t` key specifies the name and tag of the new image:
 
 ### Pushing the Image to the Registry
 
-Push the image to Docker Hub:
+To push the image to Docker Hub:
 
 ```
 $ docker login
@@ -132,24 +126,17 @@ First, we use docker login to authenticate in Docker Hub. If you use a registry 
 
 ### Using your Image in Sauce Labs
 
-After the image is successfully pushed, it is available for use in Hosted Orchestration. Create a SauceCTL configuration like the one below. For more information on running tests see [Running Tests](/hosted-orchestration/running-tests).
-
-<Tabs
-  defaultValue="SauceCTL"
-  values={[
-    {label: 'SauceCTL', value: 'SauceCTL'},
-  ]}>
-<TabItem value="SauceCTL">
+After the image is successfully pushed, it is available for use in Sauce Orchestrate. Create a saucectl configuration like the one below. For more information, see [saucectl Configuration](/orchestrate/saucectl-configuration).
 
 ```yaml
 apiVersion: v1alpha
 kind: imagerunner
 sauce:
-region: us-west-1
+  region: us-west-1
 suites:
   - name: run sauce test
-    workload: webdriver
     image: saucelabs/sl-demo-docker-primary:0.0.1
+    workload: webdriver
     entrypoint: "mvn test"
     files:
       - src: "runsauce.json"
@@ -160,7 +147,7 @@ suites:
       KEY: value
 ```
 
-Then run with
+Then run the following:
 
 ```bash
   saucectl run
@@ -170,14 +157,11 @@ This only works if the config name follows a specific pattern and resides in a s
 
 If the config name does not follow that pattern, you have to point to the config file explicitly, for example `saucectl run -c myconfig.yml`.
 
-  </TabItem>
-</Tabs>
-
 ## CI Integrations
 
 The recommended approach for building images is to integrate this as a step in your existing CI pipelines. Below are examples for various CI providers you can reference.
 
-### Github Actions
+### GitHub Actions
 
 The Sauce Labs demo repos contain GitHub Action code for building images.
 
