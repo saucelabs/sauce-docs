@@ -42,7 +42,7 @@ Push notifications function differently on iOS and Android. Understanding these 
 
 **Android**:
 - Testing push notifications on Android devices in the Sauce Labs Real Device Cloud is straightforward. No specific build or additional steps are required.
-- After building your Android app, you can install it on an emulator or a real device provided by Sauce Labs for comprehensive testing of push notifications.
+- After building your Android app, you can install it on an Emulator or a real device provided by Sauce Labs for comprehensive testing of push notifications.
 
 
 **iOS**:
