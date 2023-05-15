@@ -32,7 +32,6 @@ Testing push notifications is essential to deliver a satisfactory mobile experie
 
 <br/><img src={useBaseUrl('img/mobile-apps/app-logs-6.png')} alt="App Logs" width="700"/>
 
-
 4. Under **Real Device Settings**, toggle **Instrumentation** to **Disabled**.
 
 <br/><img src={useBaseUrl('img/mobile-apps/push-notifications-scrn1.png')} alt="App Logs" width="700"/>
