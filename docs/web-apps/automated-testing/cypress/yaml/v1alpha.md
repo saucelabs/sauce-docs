@@ -887,6 +887,19 @@ Excludes test files to skip the tests. Regex values are supported to indicate al
 :::
 
 ---
+### `headless`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Controls whether or not tests are run in headless mode.
+
+```yaml
+  suites:
+    - name: "Hello"
+      headless: true
+```
+
+---
 
 ### `shard`
 
