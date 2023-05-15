@@ -642,6 +642,7 @@ module.exports = {
                         'sauce-basics',
                         'basics/quickstarts',
                         'basics/platform-configurator',
+                        'basics/data-center-endpoints',
                         'basics/environment-variables',
                         {
                             type: 'category',
@@ -731,10 +732,7 @@ module.exports = {
                             type: 'category',
                             label: 'Data Center Endpoints',
                             collapsed: true,
-                            items: [
-                                'basics/data-center-endpoints',
-                                'basics/data-center-endpoints/aust-early-access',
-                            ],
+                            items: ['basics/data-center-endpoints'],
                         },
                         {
                             type: 'category',
