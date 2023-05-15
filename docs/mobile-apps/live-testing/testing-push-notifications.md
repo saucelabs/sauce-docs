@@ -51,6 +51,6 @@ Push notifications function differently on iOS and Android. Understanding these 
 
 ## Video Tutorial 
 
-We understand that visual demonstrations can greatly assist in understanding and implementing push notifications for  Android and iOS apps effectively. By watching the video, you will gain an understanding of the distinct capabilities used by Apple to enable push notifications and explore proven methods to overcome any challenges that may arise during the process.
+We understand that visual demonstrations can help with understanding and implementing push notifications for  Android and iOS apps effectively. Watch the video to learn the capabilities used by Apple to enable push notifications and explore proven methods to overcome any challenges that may arise during the process.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/RIseDgjB4ZQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
