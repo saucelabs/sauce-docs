@@ -58,7 +58,7 @@ export SAUCE_ACCESS_KEY="your Sauce access key"
 2. Rename the app from `iOS-Real-Device-MyRNDemoApp.*.*.*-*.ipa` to `iOS-Real-Device-MyRNDemoApp.ipa` .
 3. Upload it to your Sauce Labs account, either through the Sauce Labs UI or by calling the API.
 
-- Sauce Labs UI: From [Sauce Labs > App Management](https://app.saucelabs.com/app-management), select **Upload App** and browse to find the `iOS-Real-Device-MyRNDemoApp.ipa` file you just downloaded and rename.
+- Sauce Labs UI: From [Sauce Labs > App Management](https://app.saucelabs.com/app-management), select **Upload App** and browse to find the `iOS-Real-Device-MyRNDemoApp.ipa` file you just downloaded and renamed.
 - API: Use the [Upload File to App Storage](/dev/api/storage/#upload-file-to-app-storage) API request to upload the sample app to your account.
   ```title="Example API Upload Request"
   curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
