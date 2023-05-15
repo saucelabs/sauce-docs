@@ -45,7 +45,7 @@ Push notifications function differently on iOS and Android. Understanding these 
 
 
 **iOS**:
-- Testing push notifications on iOS devices requires additional steps due to the signing process for app installation.
+- Due to the signing process for app installation, additional steps are required to test push notifications on iOS devices.
 - Sauce Labs offers support for various signing methods, including guidance on using developer certificates. Refer to our detailed documentation or interactive demo video for step-by-step instructions.
 
 ## Video Tutorial 
