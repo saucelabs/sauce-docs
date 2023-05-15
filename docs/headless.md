@@ -4,6 +4,10 @@ title: Sauce Headless Testing in the Cross-Browser Cloud
 sidebar_label: Using Headless
 ---
 
+<head>
+  <meta name="robots" content="noindex" />
+</head>
+
 export const Highlight = ({children, color}) => ( <span style={{
       backgroundColor: color,
       borderRadius: '2px',
