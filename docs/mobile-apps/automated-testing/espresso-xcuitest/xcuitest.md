@@ -981,12 +981,12 @@ Instructs `saucectl` to run all classes for the suite _except_ those specified h
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-When shard is configured as concurrency, saucectl automatically splits the tests by concurrency so that they can easily run in parallel.
+When shard is configured as concurrency, saucectl automatically splits the tests by concurrency so that they can run in parallel.
 
 Selectable values: `concurrency` to shard by concurrency. Remove this field or leave it empty `""` for no sharding.
 
 :::note
-When shard is set for a suite, the [class](#class) setting would be automatically ignored. 
+When shard is set for a suite, the [class](#class) setting is automatically ignored.
 :::
 
 ```yaml
@@ -1000,7 +1000,7 @@ suites:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-The file containing tests will be used in sharding by concurrency.
+The file containing tests is used in sharding by concurrency.
 
 ---
 
