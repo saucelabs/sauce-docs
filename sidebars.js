@@ -1183,12 +1183,7 @@ module.exports = {
                 'performance/analyze',
             ],
         },
-        {
-            type: 'category',
-            label: 'Headless',
-            collapsed: true,
-            items: ['headless'],
-        },
+
         {
             type: 'category',
             label: 'Visual',
