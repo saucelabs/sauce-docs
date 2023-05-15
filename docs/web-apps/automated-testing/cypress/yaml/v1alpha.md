@@ -893,11 +893,9 @@ Excludes test files to skip the tests. Regex values are supported to indicate al
 
 Controls whether or not tests are run in headless mode.
 
-```yaml
-  suites:
-    - name: "Hello"
-      headless: true
-```
+suites:
+- name: 'Hello'
+  headless: true
 
 ---
 
