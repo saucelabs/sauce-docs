@@ -123,7 +123,7 @@ Regardless of the test frameworks you're using (Appium, Espresso, XCUITest), you
 
 #### Static Device Allocation
 
-This is specifying an exact device for your test by setting `deviceName` to the Device ID, which you can find this under **Live** > **Mobile-App** > **Choose device** > Find Your Device > **Details** > **ID**.
+This is specifying an exact device for your test by setting `deviceName` to the Device ID, which you can find under **Live** > **Mobile-App** > **Choose device** > Find Your Device > **Details** > **ID**.
 <img src={useBaseUrl('img/mobile-apps/static-allocation-data.jpg')} alt="Sauce Labs Static Allocation data" width="750"/>
 
 When using this, there's no need to specify the `platformName` and `platformVersion` because they'll be set by default (i.e., if you include these separately included in your test script, they will be ignored).
