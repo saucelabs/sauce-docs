@@ -28,7 +28,7 @@ Testing push notifications is essential to deliver a satisfactory mobile experie
 
   <br/><img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="700"/> 
 
-3. After you’ve uploaded your app, hover your mouse over your app, then select **Settings**.
+3. Hover over the app, then select **Settings**.
 
 <br/><img src={useBaseUrl('img/mobile-apps/app-logs-6.png')} alt="App Logs" width="700"/>
 
