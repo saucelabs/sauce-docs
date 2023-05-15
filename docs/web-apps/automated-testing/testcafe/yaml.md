@@ -709,6 +709,17 @@ Pass flags to configure how TestCafe launches the selected browser. Review suppo
 
 ---
 
+### `headless`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Determines whether to run the test suite in headless mode.
+
+```yaml
+  headless: true
+```
+---
+
 ### `platformName`
 
 <p><small>| OPTIONAL | STRING |</small></p>
