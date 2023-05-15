@@ -709,18 +709,6 @@ Pass flags to configure how TestCafe launches the selected browser. Review suppo
 
 ---
 
-### `headless`
-
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
-
-Determines whether to run the test suite in [headless](/headless) mode.
-
-```yaml
-  headless: true
-```
-
----
-
 ### `platformName`
 
 <p><small>| OPTIONAL | STRING |</small></p>
@@ -759,7 +747,7 @@ To split tests in the most efficient way possible, use:
 
 - `spec` when the number of specs is less than the configured concurrency.
 - `concurrency` when the number of specs is larger than the configured concurrency.
-:::
+  :::
 
 ```yaml
 suites:

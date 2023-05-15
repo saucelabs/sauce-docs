@@ -772,7 +772,7 @@ To split tests in the most efficient way possible, use:
 
 - `spec` when the number of specs is less than the configured concurrency.
 - `concurrency` when the number of specs is larger than the configured concurrency.
-:::
+  :::
 
 :::caution Shard Property Exclusivity
 The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
@@ -789,7 +789,6 @@ A parent property that details any additional parameters you wish to set for the
 ```yaml
     params:
       browserName: "firefox"
-      headless: true
       slowMo: 1000
       project: "project name"
       grep: "should include"
@@ -810,18 +809,6 @@ Available browser names: `chromium`, `firefox`, `webkit`, and `chrome`.
 :::note
 `chromium`, `firefox`, and `webkit` are bundled with Playwright. `chrome` is provided by the sauce VM. For more information, see [Playwright Browsers](https://playwright.dev/docs/browsers).
 :::
-
----
-
-#### `headless`
-
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
-
-Determines whether to run the test suite in [headless](/headless) mode.
-
-```yaml
-    headless: true
-```
 
 ---
 
