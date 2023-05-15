@@ -20,7 +20,7 @@ Testing push notifications is essential to deliver a satisfactory mobile experie
 
 ## Disabling Instrumentation for iOS Apps
 
-1. On Sauce Labs, in the left navigation, click **App Mangement**.
+1. On Sauce Labs, in the left navigation, click **App Management**.
 
 <br/><img src={useBaseUrl('img/mobile-apps/app-logs5.png')} alt="App Logs" width="300"/>
 
