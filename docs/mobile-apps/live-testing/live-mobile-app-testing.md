@@ -171,7 +171,6 @@ Adding a test name is a straightforward process, and there are two ways to do it
    - Start a Live Test session.
    - End the Live Test Session by clicking on the **End** button from the toolbar.
    - The end session screen will pop up, and from there, you can edit the test name and select test outcome status:
-    
      <img src={useBaseUrl('img/mobile-apps/mobile-live-failed-passed.png')} alt="Test Name" width="550"/>
 1. From the test details page:
    - Go to **Live** -> **Test results** -> click on a test.
