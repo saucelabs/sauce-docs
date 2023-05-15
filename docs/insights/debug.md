@@ -68,10 +68,6 @@ For more information and additional examples, see our
 
 When a test with extended debugging enabled completes, you can access the logs and files through Sauce Labs or with the REST API.
 
-:::note
-Extended Debugging is not supported for Headless test scripts.
-:::
-
 ### Edit Your Firefox Profile
 
 If you're testing on a Firefox browser, edit the Firefox `about:config` file to configure your profile as follows to allow Extended Debugging:
