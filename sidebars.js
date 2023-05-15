@@ -730,12 +730,6 @@ module.exports = {
                         },
                         {
                             type: 'category',
-                            label: 'Data Center Endpoints',
-                            collapsed: true,
-                            items: ['basics/data-center-endpoints'],
-                        },
-                        {
-                            type: 'category',
                             label: 'Integrations',
                             collapsed: true,
                             items: [
