@@ -977,6 +977,33 @@ Instructs `saucectl` to run all classes for the suite _except_ those specified h
 
 ---
 
+### `shard`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+When shard is configured as concurrency, saucectl automatically splits the tests by concurrency so that they can easily run in parallel.
+
+Selectable values: `concurrency` to shard by concurrency. Remove this field or leave it empty `""` for no sharding.
+
+:::note
+When shard is set for a suite, the [class](#class) setting would be automatically ignored. 
+:::
+
+```yaml
+suites:
+  - name: "I am sharded"
+    shard: concurrency
+```
+---
+
+### `testListFile`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+The file containing tests will be used in sharding by concurrency.
+
+---
+
 ## Advanced Configuration Considerations
 
 The configuration file is flexible enough to allow for any customizations and definitions that are required for any of the supported frameworks. The following sections describe some of the most common configurations.
