@@ -15,7 +15,7 @@ Testing push notifications is essential to deliver a satisfactory mobile experie
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - An Android or iOS mobile application that includes push notification functionality.
 - **iOS Only**: Instrumentation disabled.
-- **iOS Only**: You will need to use private devices due to signing requirements. 
+- **iOS Only**: You must use private devices due to signing requirements. 
 
 
 ## Disabling Instrumentation for iOS Apps
