@@ -161,17 +161,17 @@ If you upload an app that is signed with an enterprise certificate, and **Instru
 1. Tap **Trust "app name"** and then tap **Trust**.
 1. Reopen the app to continue the test.
 
-### Adding a Test Name for Your Test
+### Adding a Test Name and Outcome for Your Test
 
-Sauce Labs has introduced a new feature that allows you to enter a test name for your Live Tests after cross-browser and mobile app testing. This update enhances the testing efficiency by enabling you to add more context to test descriptions and add more clarity to your test repository.
+Sauce Labs has introduced a new feature that allows you to enter a test name and test status (passed/failed) for your Live Tests after cross-browser and mobile app testing. This update enhances the testing efficiency by enabling you to add more context to test descriptions and add more clarity to your test repository.
 
 Adding a test name is a straightforward process, and there are two ways to do it:
 
 1. From the end session screen:
    - Start a Live Test session.
-   - End the Live Test Session by clicking on the **End** button from the toolbar.
-   - The end session screen will pop up, and from there, you can edit the test name:
-     <img src={useBaseUrl('img/mobile-apps/change-name-test.png')} alt="Test Name" width="550"/>
+   - End the Live Test Session by clicking on the **End** button from the toolbar. The end session screen will pop up, and from there, you can edit the test name and select test outcome status:
+   
+     <img src={useBaseUrl('img/mobile-apps/mobile-live-failed-passed.png')} alt="Test Name" width="550"/>
 1. From the test details page:
    - Go to **Live** -> **Test results** -> click on a test.
    - On the test details page, click on the pencil nearby the test name to edit it:

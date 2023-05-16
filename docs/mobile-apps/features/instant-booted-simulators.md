@@ -374,18 +374,21 @@ This can be done by:
 
 ### I set up an Instant Booted Simulator, but it’s still taking a long time to boot.
 
-There are a few reasons why this could happen. The first reason is that all available Instant Booted Simulators are already used and your session uses the default way of starting a Simulator.
+There are a few reasons why this could happen.
 
-The second reason could be that Appium restarted the Simulator due to specific capabilities that you provided. To check it, follow the steps below:
+#### All available Instant Booted Simulators are used
+
+Instant Booted Simulators are subject to availability. We keep monitoring our pool of Instant Booted Simulators on a daily basis to determine the ideal number of Instant Booted Simulators to keep available. In case all available Instant Booted Simulators are used then your session will fall back to the default way of starting a Simulator.
+
+#### Appium restarted the Simulator due to specific capabilities that you provided.
+
+To check this, follow the steps below:
 
 1. Go to **Automated** > **Test Results**.
 2. Open your session.
 3. Check the first 15 seconds of the video. If you see that the Simulator was already started from the first second, or the restart of the video happens in the first 15 seconds, it means that Appium rebooted the Simulator. See the video below for more information:
 
-<video controls style={{"max-width": "800px"}}>
-
-  <source src={useBaseUrl('img/mobile-apps/instant-booted-restart.mp4')} />
-</video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GF8q9kHgRrw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 A common cause could be that you have provided a capability `“appium:language”` or `“appium:locale”` to change the language of the app or Simulator.
 
