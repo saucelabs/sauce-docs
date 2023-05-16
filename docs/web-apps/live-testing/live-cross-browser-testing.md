@@ -125,6 +125,39 @@ The default sorting for the device list is **Pinned First**.
 
 <img src={useBaseUrl('img/live-testing/mobile-virtual-test-ui.png')} alt="Mobile virtual device test interface" width="650"/>
 
+### Adding a Test Name for Your Test
+
+Sauce Labs has introduced a new feature that allows you to enter a test name for your Live Tests after cross-browser and mobile app testing. This update enhances the testing efficiency by enabling you to add more context to test descriptions and add more clarity to your test repository.
+
+Adding a test name is a straightforward process, and there are two ways to do it:
+
+1. From the end session screen:
+   - Start a Live Test session.
+   - End the Live Test Session by clicking on the **End** button from the toolbar.
+   - The end session screen will pop up, and from there, users can edit the test name:
+  <img src={useBaseUrl('img/mobile-apps/change-name-test.png')} alt="Test Name" width="550"/>
+
+1. From the test details page:
+   - Go to **Live** -> **Test results** -> Click on a test.
+   - On the test details page, click on the pencil nearby the test name to edit it:
+  <img src={useBaseUrl('img/mobile-apps/change-name-test-1.png')} alt="Test Name" width="550"/>
+   
+  
+  
+:::note
+This feature works the same way for both cross-browser testing and mobile app testing.
+:::
+
+Use test names to customize your testing experience:
+
+- Add descriptive names to your tests to quickly identify your findings.
+- Keep track of tested steps by adding details to test names.
+- Easily rename your tests to reflect Jira tickets or other related tasks.
+
+:::note LIMITATIONS
+This feature has a constraint on the maximum allowable length of the test name, which is limited to 255 characters. The utilization of emojis is not supported in the test name. 
+:::
+
 ### Live Mobile Virtual Device Test Interface
 
 | Icon                                                                                                        | Name              | Description                                                                                                                                                                                   |
@@ -147,15 +180,16 @@ Below are resolutions to common errors that you may experience in live cross bro
 
 This error is displayed when the ports used by manual testing relies are being blocked by a firewall on your end. This may also be caused by running apps such as Avast! antivirus software.
 
-Below are the servers and ports used by manual testing. If you plan to launch manual tests locally installed browsers, we recommend checking with your network administrator to confirm that you can make secure websocket connections to: `api.us-west-1.saucelabs.com:443` (for US-West-1 DC) or `api.eu-central-1.saucelabs.com:443` (for EU-Central-1 DC).
+Below are the servers and ports used by manual testing. If you plan to launch manual tests on locally installed browsers, we recommend checking with your network administrator to confirm that you can make secure websocket connections to: `api.us-west-1.saucelabs.com:443` (for US-West-1 DC) or `api.eu-central-1.saucelabs.com:443` (for EU-Central-1 DC).
 
 ### Your Job is Not Loading
 
 There are two common scenarios here:
 
 - Error message: "Uh oh! Some error occurred while connecting to the browser"
-- The job seems to start, but you see only a white text box in the middle of a black screen
-  Both errors indicate that your browser is having trouble displaying the VNC stream from the remote machine. Here are some steps to troubleshoot:
+- The job seems to start, but you see only a white text box in the middle of a black screen.
+
+Both errors indicate that your browser is having trouble displaying the VNC stream from the remote machine. Below are some steps to troubleshoot:
 
 #### Check the Video on Sauce
 

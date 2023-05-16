@@ -76,20 +76,7 @@ Specifies any default settings for the project.
 
 ```yaml
 defaults:
-  mode: sauce
   timeout: 15m
-```
-
----
-
-### `mode`
-
-<p><small>| OPTIONAL | STRING/ENUM |</small></p>
-
-Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally on `docker`. You can override this setting for individual suites using the `mode` setting within the [`suites`](#suites) object. If not set, the default value is `sauce`.
-
-```yaml
-  mode: "sauce"
 ```
 
 ---
@@ -116,7 +103,6 @@ The parent property containing all settings related to how tests are run and ide
 sauce:
   region: eu-central-1
   metadata:
-    name: Testing TestCafe Support
     tags:
       - e2e
       - release team
@@ -147,7 +133,6 @@ The set of properties that allows you to provide additional information about yo
 
 ```yaml
 metadata:
-  name: Testing TestCafe Support
   build: RC 10.4.a
   tags:
     - e2e
@@ -293,52 +278,6 @@ A property containing one or more environment variables that are global for all 
     hello: world
     my_var: $MY_VAR  # You can also pass through existing environment variables through parameter expansion
 ```
-
----
-
-## `docker`
-
-<p><small>| OPTIONAL | OBJECT | <span class="highlight docker">Docker only</span> |</small></p>
-
-The set of properties defining the specific Docker image and type your are using, if you are running any tests locally.
-
-```yaml
-docker:
-  fileTransfer: copy
-  image: saucelabs/stt-testcafe-node:vX.X.X
-```
-
----
-
-### `fileTransfer`
-
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Method in which to transfer test files into the docker container. Valid values are:
-
-- `mount`: (Default) Mounts files and folders into the docker container. Changes to these files and folders will be reflected on the host (and vice a versa).
-- `copy`: Copies files and folders into the docker container. If you run into permission issues, either due to docker or host settings, `copy` is the advised use case. See the [Docker documentation](https://docs.docker.com/engine/reference/builder/#copy) for more about the copy convention.
-
-```yaml
-  fileTransfer: < mount | copy >
-```
-
----
-
-### `image`
-
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Specifies which docker image and version to use when running tests. Valid values are in the format:
-`saucelabs/<framework-node>:<vX.X.X>`. See [Supported Testing Platforms](/web-apps/automated-testing/testcafe#supported-testing-platforms) for Docker release notes related to TestCafe.
-
-```yaml
-  image: saucelabs/< stt-cypress-mocha-node | stt-playwright-node | stt-testcafe-node >:< vX.X.X >
-```
-
-:::caution
-Avoid using the `latest` tag for docker images, as advised in [this article](https://vsupalov.com/docker-latest-tag/#:~:text=You%20should%20avoid%20using%20the,apart%20from%20the%20image%20ID.).
-:::
 
 ---
 
@@ -774,12 +713,11 @@ Pass flags to configure how TestCafe launches the selected browser. Review suppo
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Determines whether to run the test suite in [headless](/headless) mode.
+Determines whether to run the test suite in headless mode.
 
 ```yaml
   headless: true
 ```
-
 ---
 
 ### `platformName`
@@ -796,24 +734,12 @@ A specific operating system and version on which to run the specified browser an
 
 ### `screenResolution`
 
-<p><small>| OPTIONAL | STRING | <span class="highlight sauce-cloud">Sauce Cloud only</span>|</small></p>
+<p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies a browser window screen resolution, which may be useful if you are attempting to simulate a browser on a particular device type. See [Test Configurations](/basics/test-config-annotation/test-config) for a list of available resolution values.
 
 ```yaml
     screenResolution: "1920x1080"
-```
-
----
-
-### `mode`
-
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Specifies whether the individual suite will run on `docker` or `sauce`, potentially overriding the default project mode setting.
-
-```yaml
-  mode: "sauce"
 ```
 
 ---
@@ -973,7 +899,7 @@ filter:
 
 ### `simulators`
 
-<p><small>| OPTIONAL | OBJECT | <span class="highlight sauce-cloud">Sauce Cloud only</span>|</small></p>
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
 The property containing details about on which simulators the tests in this suite will run. This property can include multiple device definitions.
 
@@ -991,7 +917,7 @@ The property containing details about on which simulators the tests in this suit
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-A parent property containing the details about whether and how to handle screenshots for this test suite. [See Testcafe Documentation](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#screenshots).
+A parent property containing the details about whether and how to handle screenshots for this test suite. [See Testcafe Documentation](https://testcafe.io/documentation/402638/reference/configuration-file#screenshots).
 
 ```yaml
   screenshots:
@@ -1005,7 +931,7 @@ A parent property containing the details about whether and how to handle screens
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Prevents TestCafe from taking screenshots. See [TestCafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#disablescreenshots).
+Prevents TestCafe from taking screenshots. See [TestCafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#disablescreenshots).
 
 ```yaml
   disableScreenshots: true
@@ -1102,7 +1028,7 @@ Specifies the compiler options. See [TypeScript documentation](https://www.types
 
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
 
-A list of one or more filepath values for scripts to inject into all pages visited during the test. See [TestCafe definition](https://devexpress.github.io/testcafe/documentation/reference/test-api/fixture/clientscripts.html).
+A list of one or more filepath values for scripts to inject into all pages visited during the test. See [TestCafe definition](https://testcafe.io/documentation/402783/reference/test-api/fixture/clientscripts).
 
 ```yaml
   clientScripts: ["/path/to/file1", "/path/to/file2"]
@@ -1114,7 +1040,7 @@ A list of one or more filepath values for scripts to inject into all pages visit
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Determines whether to ignore JavaScript errors on a webpage. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#skipjserrors).
+Determines whether to ignore JavaScript errors on a webpage. See [TestCafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#skipjserrors).
 
 ```yaml
   skipJsErrors: true
@@ -1126,7 +1052,7 @@ Determines whether to ignore JavaScript errors on a webpage. See [Testcafe defin
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Determines whether to enable quarantine mode for tests that fail. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#quarantinemode).
+Determines whether to enable quarantine mode for tests that fail. See [TestCafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#quarantinemode).
 
 ```yaml
   quarantineMode:
@@ -1140,7 +1066,7 @@ Determines whether to enable quarantine mode for tests that fail. See [Testcafe 
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-The maximum number of test execution attempts. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#quarantinemodeattemptlimit).
+The maximum number of test execution attempts. See [TestCafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#quarantinemodeattemptlimit).
 
 ```yaml
   quarantineMode:
@@ -1153,7 +1079,7 @@ The maximum number of test execution attempts. See [Testcafe definition](https:/
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-The number of successful attempts necessary to confirm a test’s success. See [Testcafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#quarantinemodesuccessthreshold).
+The number of successful attempts necessary to confirm a test’s success. See [TestCafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#quarantinemodesuccessthreshold).
 
 ```yaml
   quarantineMode:
@@ -1166,7 +1092,7 @@ The number of successful attempts necessary to confirm a test’s success. See [
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Determines whether to ignores uncaught errors and unhandled promise rejections in test code. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#skipUncaughtErrors).
+Determines whether to ignores uncaught errors and unhandled promise rejections in test code. See [TestCafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#skipuncaughterrors).
 
 ```yaml
   skipUncaughtErrors: true
@@ -1178,7 +1104,7 @@ Determines whether to ignores uncaught errors and unhandled promise rejections i
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-Specifies the time (in milliseconds) within which selectors may attempt to return a node. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#selectorTimeout`).
+Specifies the time (in milliseconds) within which selectors may attempt to return a node. See [TestCafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#selectortimeout).
 
 ```yaml
   selectorTimeout: 1000
@@ -1190,7 +1116,7 @@ Specifies the time (in milliseconds) within which selectors may attempt to retur
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-Specifies the time (in milliseconds) TestCafe may attempt to successfully execute an assertion if a selector property or a client function was passed as an actual value. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#assertionTimeout).
+Specifies the time (in milliseconds) TestCafe may attempt to successfully execute an assertion if a selector property or a client function was passed as an actual value. See [TestCafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#assertiontimeout).
 
 ```yaml
   assertionTimeout: 1000
@@ -1202,10 +1128,70 @@ Specifies the time (in milliseconds) TestCafe may attempt to successfully execut
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-Specifies the time (in milliseconds) passed after the `DOMContentLoaded` event, within which TestCafe waits for the `window.load` event to fire. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#pageLoadTimeout).
+Specifies the time (in milliseconds) passed after the `DOMContentLoaded` event, within which TestCafe waits for the `window.load` event to fire. See [TestCafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#pageloadtimeout).
 
 ```yaml
   pageLoadTimeout: 1000
+```
+
+---
+
+### `ajaxRequestTimeout`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Specifies wait time (in milliseconds) for fetch/XHR requests. If TestCafe receives no response within the specified period, it throws an error. See [TestCafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#ajaxrequesttimeout).
+
+```yaml
+  ajaxRequestTimeout: 40000
+```
+
+---
+
+### `pageRequestTimeout`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Specifies time (in milliseconds) to wait for HTML pages. If TestCafe does not receive a page within the specified period, it throws an error. See [TestCafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#pagerequesttimeout).
+
+```yaml
+  pageRequestTimeout: 8000
+```
+
+---
+
+### `browserInitTimeout`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Time (in milliseconds) for browsers to connect to TestCafe and report that they are ready to test. If one or more browsers fail to connect within the specified period, TestCafe throws an error. See [TestCafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#browserinittimeout).
+
+```yaml
+  browserInitTimeout: 180000
+```
+
+---
+
+### `testExecutionTimeout`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Maximum test execution time (in milliseconds). When the total execution time of a test exceeds this value, TestCafe terminates the test. This behavior occurs even if the browser is responsive. See [TestCafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#testexecutiontimeout).
+
+```yaml
+  testExecutionTimeout: 180000
+```
+
+---
+
+### `runExecutionTimeout`
+
+<p><small>| OPTIONAL | INTEGER |</small></p>
+
+Maximum test run execution time (in milliseconds). When the total execution time of a run exceeds this value, TestCafe terminates the test run. This behavior occurs even if one of the tests or hooks is active. See [TestCafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#runexecutiontimeout).
+
+```yaml
+  runExecutionTimeout: 180000
 ```
 
 ---
@@ -1214,7 +1200,7 @@ Specifies the time (in milliseconds) passed after the `DOMContentLoaded` event, 
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Determines whether to stop a test run if a test fails. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#stopOnFirstFail).
+Determines whether to stop a test run if a test fails. See [TestCafe definition](https://testcafe.io/documentation/402638/reference/configuration-file#stoponfirstfail).
 
 ```yaml
   stopOnFirstFail: true
@@ -1226,7 +1212,7 @@ Determines whether to stop a test run if a test fails. See [Testcafe definition]
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Determines whether to prevent the browser from caching page content. See [Testcafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#disablePageCaching).
+Determines whether to prevent the browser from caching page content. See [TestCafe definition](https://devexpress.github.io/testcafe/documentation/reference/configuration-file.html#disablePageCaching).
 
 ```yaml
   disablePageCaching: true
@@ -1298,4 +1284,36 @@ sauce:
 suite:
   - name: My Saucy Test
     passThreshold: 2
+```
+
+---
+
+### `smartRetry`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies the retry strategy to apply for that suite. Requires [retries](#retries) to be >= 1.
+
+```yaml
+sauce:
+  retries: 3
+suite:
+  - name: My Saucy Test
+    smartRetry:
+      failedOnly: true
+```
+
+---
+
+#### `failedOnly`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When set to `true`, only the tests that failed during the previous attempt are retried.
+
+```yaml
+suite:
+  - name: My Saucy Test
+    smartRetry:
+      failedOnly: true
 ```

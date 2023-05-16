@@ -734,6 +734,49 @@ suite:
 
 ---
 
+### `smartRetry`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies the retry strategy to apply for that suite. It should be used along with [retries](#retries).
+
+```yaml
+sauce:
+  retries: 3
+suite:
+  - name: My Saucy Test
+    smartRetry:
+      failedOnly: true
+```
+
+---
+
+#### `failedOnly`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When set to `true`, the retry will test only the classes that failed during the previous try.
+
+```yaml
+suite:
+  - name: My Saucy Test
+    smartRetry:
+      failedOnly: true
+```
+:::info NOTE
+`failedOnly` is effective only when targeting Real Devices.
+:::
+
+---
+
+#### `failedClassesOnly`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+`failedClassesOnly` is deprecated. Use `failedOnly` instead.
+
+---
+
 ### `emulators`
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
@@ -839,7 +882,7 @@ Find a device for this test suite that matches the device name or portion of the
 
 #### `platformVersion`
 
-<p><small>| MANDATORY <span className="sauceDBlue">for Virtual Devices</span> | OPTIONAL <span className="sauceDBlue">for Real Devices</span> | STRING |</small></p>
+<p><small>| MANDATORY <span className="sauceGreen">for Virtual Devices</span> | OPTIONAL <span className="sauceGreen">for Real Devices</span> | STRING |</small></p>
 
 Allows you to set the mobile OS platform version that you want to use in your test.
 

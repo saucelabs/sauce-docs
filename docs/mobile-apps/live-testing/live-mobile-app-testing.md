@@ -64,13 +64,13 @@ To view your recent configurations, click **Recents**.
 | Device Language                                                                            | Use the dropdown to select the device language. The language selector will tell your application that the locale of the device and region is set to the selected parameter. You won't need to change the language of the OS manually during a session inside iOS/Android settings. For more information about the locale setting, see the documentation for [iOS](https://developer.apple.com/documentation/foundation/locale) and [Android](https://developer.android.com/reference/java/util/Locale).                                                                                     |
 | Device Orientation                                                                         | Use the dropdown to set the device orientation (Landscape or Portrait).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Proxy                                                                                      | Enable/disable the use of a proxy. Enter the **Hostname** and **Port** and then click **Update**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Device Passcode <br/><p><span className="sauceDBlue">Real Devices Only</span></p>          | Enable/disable the device passcode for your apps. If your app requires a device passcode/screenlock to launch, you can enable this setting to run your tests on a passcode-protected device.                                                                                                                                                                                                                                                                                                                                                                                                |
+| Device Passcode <br/><p><span className="sauceGreen">Real Devices Only</span></p>          | Enable/disable the device passcode for your apps. If your app requires a device passcode/screenlock to launch, you can enable this setting to run your tests on a passcode-protected device.                                                                                                                                                                                                                                                                                                                                                                                                |
 | Instrumentation                                                                            | Enable/disable device instrumentation. Enabling allows you to use advanced features when testing your app in the real device cloud, like image injection and taking screenshots of secure views.                                                                                                                                                                                                                                                                                                                                                                                            |
 | Image Injection                                                                            | Enable/disable image injection. Image injection allows you to mimic camera behavior when testing apps by letting you upload an image and present it to the app as if it were read by the device camera.                                                                                                                                                                                                                                                                                                                                                                                     |
-| Bypass Screenshot Restriction <br/><p><span className="sauceDBlue">Android Only</span></p> | Enable/disable Bypass Screenshot Restriction (not supported on apps uploaded to the legacy sauce storage). If you're testing Android mobile apps on Sauce Labs and see a black screen in your live testing session, you might need to enable the <b>Bypass Screenshot Restriction</b>. This allows Sauce Labs to work around a setting on those apps that prevents screenshots or videos from being taken. However, there are other details to keep in mind. To effectively test apps that have this setting, see [Bypass Screenshot Restriction](/mobile-apps/features/bypass-screenshot). |
-| System Alerts Display <br/><p><span className="sauceDBlue">iOS Only</span></p>             | Enable/disable a system alerts delay. Enabling delays alerts, such as asking for permission to access the camera, to prevent app crashes at startup.                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Bypass Screenshot Restriction <br/><p><span className="sauceGreen">Android Only</span></p> | Enable/disable Bypass Screenshot Restriction (not supported on apps uploaded to the legacy sauce storage). If you're testing Android mobile apps on Sauce Labs and see a black screen in your live testing session, you might need to enable the <b>Bypass Screenshot Restriction</b>. This allows Sauce Labs to work around a setting on those apps that prevents screenshots or videos from being taken. However, there are other details to keep in mind. To effectively test apps that have this setting, see [Bypass Screenshot Restriction](/mobile-apps/features/bypass-screenshot). |
+| System Alerts Display <br/><p><span className="sauceGreen">iOS Only</span></p>             | Enable/disable a system alerts delay. Enabling delays alerts, such as asking for permission to access the camera, to prevent app crashes at startup.                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Biometrics Interception                                                                    | Enable/disable biometrics. Enabling allows you to choose authentication options if your mobile app requires a biometric authentication, such as fingerprint or face recognition on Android, and Face ID or Touch ID on iOS.<br/> This setting is disabled by default for iOS apps.                                                                                                                                                                                                                                                                                                          |
-| Group Folder Redirect <br/><p><span className="sauceDBlue">iOS Only</span></p>             | Enable/disable a group directory redirect. Enabling allows you to use your app's private app container directory instead of the shared app group container directory. When your app gets resigned, the shared directory is not accessible.                                                                                                                                                                                                                                                                                                                                                  |
+| Group Folder Redirect <br/><p><span className="sauceGreen">iOS Only</span></p>             | Enable/disable a group directory redirect. Enabling allows you to use your app's private app container directory instead of the shared app group container directory. When your app gets resigned, the shared directory is not accessible.                                                                                                                                                                                                                                                                                                                                                  |
 
 :::note
 Any changes you make to the app settings will affect all uploaded versions of the app.
@@ -161,6 +161,36 @@ If you upload an app that is signed with an enterprise certificate, and **Instru
 1. Tap **Trust "app name"** and then tap **Trust**.
 1. Reopen the app to continue the test.
 
+### Adding a Test Name and Outcome for Your Test
+
+Sauce Labs has introduced a new feature that allows you to enter a test name and test status (passed/failed) for your Live Tests after cross-browser and mobile app testing. This update enhances the testing efficiency by enabling you to add more context to test descriptions and add more clarity to your test repository.
+
+Adding a test name is a straightforward process, and there are two ways to do it:
+
+1. From the end session screen:
+   - Start a Live Test session.
+   - End the Live Test Session by clicking on the **End** button from the toolbar. The end session screen will pop up, and from there, you can edit the test name and select test outcome status:
+   
+     <img src={useBaseUrl('img/mobile-apps/mobile-live-failed-passed.png')} alt="Test Name" width="550"/>
+1. From the test details page:
+   - Go to **Live** -> **Test results** -> click on a test.
+   - On the test details page, click on the pencil nearby the test name to edit it:
+     <img src={useBaseUrl('img/mobile-apps/change-name-test-1.png')} alt="Test Name" width="550"/>
+
+:::note
+This feature works the same way for both cross-browser testing and mobile app testing.
+:::
+
+Use test names to customize your testing experience:
+
+- Add descriptive names to your tests to quickly identify your findings.
+- Keep track of tested steps by adding details to test names.
+- Easily rename your tests to reflect Jira tickets or other related tasks.
+
+:::note LIMITATIONS
+This feature has a constraint on the maximum allowable length of the test name, which is limited to 255 characters. The utilization of emojis is not supported in the test name.
+:::
+
 ## Live Test Interface
 
 | Icon                                                                                                                     | Name                | Description                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -196,150 +226,8 @@ If you upload an app that is signed with an enterprise certificate, and **Instru
 
 Sometimes you need to conduct A/B testing, or document and validate feature parity between different versions of the same app. You can change the app version, as well as the real device, and launch a new test session.
 
-1. On the **App Upload** page, click the +**_n_** in the **Version** column.
-
-<img src={useBaseUrl('img/live-testing/live-mobile-app-management-version.png')} alt="App with multiple versions" width="750"/>
-
+1. On the **App Upload** page, click **+_#_** in the **Version** column.
+   <img src={useBaseUrl('img/live-testing/live-mobile-app-management-version.png')} alt="App with multiple versions" width="750"/>
 2. On the **Settings** page, in the versions list, hover over the version you want to launch.
 3. Click **Start Test**.
-
-<img src={useBaseUrl('img/live-testing/live-mobile-app-management-version-start.png')} alt="Change the version of an app" width="750"/>
-
-## Testing Apple Pay in Mobile Apps
-
-There are three ways to test Apple Pay with Sauce Labs:
-
-- Using simulators
-- Using real private devices with an Apple Pay Sandbox Testing account
-- Using real private devices with a real production account and real credit cards
-
-:::caution iOS Simulators
-There are important differences between the Apple Pay Real Device and Simulator flow. The Simulator has the following limitations:
-
-- It is focused on the front-end integration of Apple Pay and does not test the back-end integration.
-- You **can't** add cards to the wallet, meaning:
-  - No Apple Pay Sandbox Testing cards.
-  - No real credit cards.
-- You **can't** test the Apple Pay in-web flow.
-- You **can** test the Apple Pay in-app flow, but the Apple Pay in-app flow will not work the same as with Real Devices. It won't return a payment token and will not properly process your payment. In addition to this, it automatically provides simulated cards for all the supported payment networks.
-
-:::
-
-### Requirements
-
-- You need to use [Private devices](#apple-pay-on-real-private-devices).
-- [Instrumentation](#disable-instrumentation) needs to be disabled.
-- You need to add your Sauce Labs hosted Private device [UDID](#apple-pay-on-real-private-devices) to your own provisioning profile.
-- Devices need to have a physical home button (for instance, iPhone SE(2020/2022)/6 series/7 series/8 series). A physical button will require the passcode for payment confirmation.
-
-:::note
-Devices with a notch (like the iPhone X(S)/11/12/..) will ask for FaceId confirmation. As this feature is disabled, the payment will fall back to a different confirmation method. It will use a double press on the power button for the payment approval. However, this method is not supported.
-:::
-
-### Apple Certificates
-
-Apple certificates are used to ensure security in their systems, and they are much more strict about them than Android. This level of security makes certificates a very complex part of making Apple Pay work with devices in a cloud.
-
-To give you an example, Android apps can be installed without any specific signing on whatever real device you want. With Apple you have two options, or you need to add a remote device to your developer certificate and the provisioning profile, so you are allowed to install the app on that specific device. Or you need to use an enterprise certificate where the Apple device that has that certificate installed allows you to install the app. Similarly, when you install an iOS app on a device, we re-sign the app with a Sauce Labs enterprise certificate so you can install your app on all Sauce Labs public/private devices.
-
-:::note
-Apple Pay has a limitation that it cannot work with an enterprise certificate. You need to use the developer certificate where the device has been added to the provisioning profile in order to make this work. This can only be done for Sauce Labs private devices on which you have disabled the instrumentation.
-:::
-
-### Apple Pay on Real Private Devices
-
-:::note
-Our real devices are cleaned after every test session. Therefore, you need to configure your Apple Pay Sandbox Testing account, including a passcode and sandbox cards, every time you want to test Apple Pay on an iOS real device.
-:::
-
-To make Apple Pay work on Sauce Labs real private devices:
-
-1. **Follow Apple’s steps to enable Apple Pay (see [Setting Up Apple Pay Requirements](https://developer.apple.com/documentation/passkit/apple_pay/setting_up_apple_pay_requirements))**. Apple is strict about certificates, so they require you to follow very specific steps:
-1. Set up Apple Pay integration in your app.
-1. Register the Merchant ID in your Apple developer account.
-1. Set up an Apple sandbox tester account (see [Create a sandbox tester account](https://help.apple.com/app-store-connect/#/dev8b997bee1) for more information).
-1. **Build your app**. Apple Pay doesn’t work with enterprise certificates, so it will not work with Sauce Labs out of the box. The first step is to add the Sauce Labs real private devices to your Apple developer certificate before building the app. You can do that in one of the following ways:
-1. Manually adding the device and its UDID to the device list for your developer certificate.
-   :::note
-   Your device list can be found on Apple’s [Certificates, Identifiers & Profiles page](https://developer.apple.com/account/resources/) for your developer account, and you can get the UDID of your private device by contacting your Sauce Labs CSM.
-   :::
-1. Using the Sauce Labs Virtual USB solution:
-
-   1. Start a session with Virtual USB (see [Testing with Virtual USB on Real Devices](/mobile-apps/features/virtual-usb) for more information).
-   2. When the connection is established, open **XCODE**.
-   3. Select the device from the device list.
-
-   <img src={useBaseUrl('img/live-testing/apple-pay-1.png')} alt="Apple Pay setup - device list" width="650"/>
-
-   On the **Signing & Capabilities** tab, you will see that the device has not yet been added.
-
-   <img src={useBaseUrl('img/live-testing/apple-pay-2.png')} alt="Apple Pay setup - device not added" width="650"/>
-
-   4. Click **Register Device** to add the device to your developer certificate.
-
-   <img src={useBaseUrl('img/live-testing/apple-pay-3.png')} alt="Apple Pay setup - add device to certificate" width="650"/>
-
-   5. Once the UDID of the device is added to the developer certificate, you can build the app (manually or automatically):
-      1. Select your build scheme and then select **Generic iOS Device**.
-      2. To build the app, click **Product** and then click **Archive**.
-      3. Click **Distribute App**.
-      4. Distribute the app with **Ad Hoc** and **Automatically manage signing**.
-      5. Store the app on your local machine.
-
-   If the app has been built, you should not yet upload it to Sauce Labs. The device to be tested needs to be prepared. If you have already prepared the device, then you can skip to step 4.
-
-1. Prepare the device. Set up the first Sauce Labs private device to use Apple Pay with the Apple sandbox account that was created in step 1.
-
-### Passcode
-
-One of the Apple Pay requirements is having a set passcode on your phone. Without it, you won't be able to add cards to your wallet. You need to use our Device Passcode capability.
-
-### Add Apple Sandbox Test Cards
-
-Apple test cards can be found on Apple’s [Sandbox Testing](https://developer.apple.com/apple-pay/sandbox-testing/) page.
-
-1. On your device, go to **Wallet**. If you didn’t set the passcode capability, Apple will show a notification.
-
-<img src={useBaseUrl('img/live-testing/apple-pay-6.png')} alt="Apple Pay setup - passcode notification" width="250"/>
-
-2. In **Wallet**, tap the plus sign to add a new card. Use the card information on Apple’s [Sandbox Testing](https://developer.apple.com/apple-pay/sandbox-testing/) page.
-
-<img src={useBaseUrl('img/live-testing/apple-pay-7.png')} alt="Apple Pay setup - Add new card" width="250"/>
-
-3. **Prepare Sauce Labs**. As mentioned before, Sauce Labs uses an enterprise certificate to install an app on public and private devices. But Apple Pay can’t work with the enterprise certificate, so the app needs to be signed with the developer certificate. You need to instruct Sauce Labs to not re-sign the app when it is installed.
-
-### Disable Instrumentation
-
-1. On Sauce Labs, in the left navigation, click **Live** and then click **Mobile-App**.
-
-<img src={useBaseUrl('img/live-testing/apple-pay-8.png')} alt="Apple Pay setup - Sauce login" width="250"/>
-
-You will see an overview of the already uploaded apps. If no app has been uploaded, then upload the app. Once uploaded, open the app settings by hovering over the row until you see this:
-
-<img src={useBaseUrl('img/live-testing/apple-pay-9.png')} alt="Apple Pay setup - Settings" width="650"/>
-
-2. Click **Settings**.
-
-<img src={useBaseUrl('img/live-testing/apple-pay-10.png')} alt="Apple Pay setup - Settings" width="650"/>
-
-3. Under **Default settings**, toggle **Instrumentation** to **Disabled**.
-
-<img src={useBaseUrl('img/live-testing/apple-pay-11.png')} alt="Apple Pay setup - Disable instrumentation" width="350"/>
-
-Disabling this allows the app to use Apple Pay and the developer certificate and provisioning profile that you used when you built the app.
-
-:::note
-Disabling re-signing will break the installation of the app on public devices. The app will only be allowed to be installed on private devices that have been added to the developer certificate and provisioning profile.
-:::
-
-4. Once the app has been uploaded and re-signing has been disabled, you can start the device and let Sauce Labs install the app on the device.
-
-5. **Test the app**. View the Sauce Labs Demo Payments app:
-
-<img src={useBaseUrl('img/live-testing/apple-pay-12.png')} alt="Apple Pay setup - Demo app" width="250"/>
-
-<img src={useBaseUrl('img/live-testing/apple-pay-13.png')} alt="Apple Pay setup - Demo app" width="250"/>
-
-<img src={useBaseUrl('img/live-testing/apple-pay-14.png')} alt="Apple Pay setup - Demo app" width="250"/>
-
-<img src={useBaseUrl('img/live-testing/apple-pay-15.png')} alt="Apple Pay setup - Demo app" width="250"/>
+   <img src={useBaseUrl('img/live-testing/live-mobile-app-management-version-start.png')} alt="Change the version of an app" width="750"/>

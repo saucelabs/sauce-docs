@@ -84,20 +84,7 @@ Specifies any default settings for the project.
 
 ```yaml
 defaults:
-  mode: sauce
   timeout: 15m
-```
-
----
-
-### `mode`
-
-<p><small>| OPTIONAL | STRING/ENUM |</small></p>
-
-Instructs `saucectl` run tests remotely through Sauce Labs (`sauce`) or locally on `docker`. You can override this setting for individual suites using the `mode` setting within the [`suites`](#suites) object. If not set, the default value is `sauce`.
-
-```yaml
-  mode: sauce
 ```
 
 ---
@@ -126,7 +113,6 @@ The parent property containing all settings related to how tests are run and ide
 sauce:
   region: eu-central-1
   metadata:
-    name: Testing Cypress Support
     tags:
       - e2e
       - release team
@@ -157,7 +143,6 @@ The set of properties that allows you to provide additional information about yo
 
 ```yaml
 metadata:
-  name: Testing Cypress Support
   build: RC 10.4.a
   tags:
     - e2e
@@ -306,52 +291,6 @@ A property containing one or more environment variables that are global for all 
 
 :::caution
 Since environment variables are provided to Cypress directly, avoid using `CYPRESS_` as a prefix.
-:::
-
----
-
-## `docker`
-
-<p><small>| OPTIONAL | OBJECT | <span class="highlight docker">Docker only</span> |</small></p>
-
-The set of properties defining the specific Docker image and type your are using, if you are running any tests locally.
-
-```yaml
-docker:
-  fileTransfer: mount
-  image: saucelabs/stt-cypress-mocha-node:vX.X.X
-```
-
----
-
-### `fileTransfer`
-
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Method in which to transfer test files into the docker container. Valid values are:
-
-- `mount`: (Default) Mounts files and folders into the docker container. Changes to these files and folders will be reflected on the host (and vice a versa).
-- `copy`: Copies files and folders into the docker container. If you run into permission issues, either due to docker or host settings, `copy` is the advised use case. See the [Docker documentation](https://docs.docker.com/engine/reference/builder/#copy) for more about the copy convention.
-
-```yaml
-  fileTransfer: < mount | copy >
-```
-
----
-
-### `image`
-
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Specifies which docker image and version to use when running tests. Valid values are in the format:
-`saucelabs/<framework-node>:<vX.X.X>`. See [Supported Testing Platforms](/web-apps/automated-testing/cypress#supported-testing-platforms) for Docker release notes related to Cypress.
-
-```yaml
-  image: saucelabs/< stt-cypress-mocha-node | stt-playwright-node | stt-testcafe-node >:< vX.X.X >
-```
-
-:::caution
-Avoid using the `latest` tag for docker images, as advised in [this article](https://vsupalov.com/docker-latest-tag/#:~:text=You%20should%20avoid%20using%20the,apart%20from%20the%20image%20ID.).
 :::
 
 ---
@@ -835,7 +774,7 @@ The name of the test suite, which will be reflected in the results and related a
 <p><small>| REQUIRED | STRING |</small></p>
 
 The name of the browser in which to run this test suite.
-Available browser names: `chrome`, `firefox`, `microsoftedge`(only for sauce mode) and `electron`(only for docker mode).
+Available browser names: `chrome`, `firefox`, `microsoftedge`.
 
 ```yaml
     browser: "chrome"
@@ -857,7 +796,7 @@ The version of the browser to use for this test suite.
 
 ### `platformName`
 
-<p><small>| OPTIONAL | STRING | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
+<p><small>| OPTIONAL | STRING |</small></p>
 
 A specific operating system and version on which to run the specified browser and test suite. Defaults to a platform that is supported by `saucectl` for the chosen browser.
 
@@ -869,24 +808,12 @@ A specific operating system and version on which to run the specified browser an
 
 ### `screenResolution`
 
-<p><small>| OPTIONAL | STRING | <span class="highlight sauce-cloud">Sauce Cloud only</span> |</small></p>
+<p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies a browser window screen resolution, which may be useful if you are attempting to simulate a browser on a particular device type. See [Test Configurations](/basics/test-config-annotation/test-config) for a list of available resolution values.
 
 ```yaml
     screenResolution: "1920x1080"
-```
-
----
-
-### `mode`
-
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Specifies whether the individual suite will run on `docker` or `sauce`, potentially overriding the default project mode setting.
-
-```yaml
-  mode: "sauce"
 ```
 
 ---
@@ -968,9 +895,9 @@ Excludes test files to skip the tests. Regex values are supported to indicate al
 Controls whether or not tests are run in headless mode.
 
 ```yaml
-  suites:
-    - name: "Hello"
-      headless: true
+suites:
+- name: 'Hello'
+  headless: true
 ```
 
 ---
@@ -1061,4 +988,36 @@ sauce:
 suite:
   - name: My Saucy Test
     passThreshold: 2
+```
+
+---
+
+### `smartRetry`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies the retry strategy to apply for that suite. Requires [retries](#retries) to be >= 1.
+
+```yaml
+sauce:
+  retries: 3
+suite:
+  - name: My Saucy Test
+    smartRetry:
+      failedOnly: true
+```
+
+---
+
+#### `failedOnly`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When set to `true`, only the tests that failed during the previous attempt are retried.
+
+```yaml
+suite:
+  - name: My Saucy Test
+    smartRetry:
+      failedOnly: true
 ```

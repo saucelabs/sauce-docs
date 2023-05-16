@@ -87,7 +87,7 @@ Specifies through which Sauce Labs data center tests will run. Valid values are:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect/proxy-tunnels/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
+`saucectl` supports using [Sauce Connect](/api-testing/sauce-connect/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
 
 ```yaml
 sauce:
@@ -121,7 +121,6 @@ sauce:
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Identifies the Sauce Labs user who created the specified tunnel, which is required if the user running the tests did not create the tunnel.
-
 
 ```yaml
 sauce:
@@ -163,7 +162,7 @@ A property containing one or more environment variables that are global for all 
 
 <p><small>| REQUIRED | OBJECT |</small></p>
 
-The directory where tests will be looked for. 
+The directory where tests will be looked for.
 
 ```yaml
   rootDir: "./" # Use the current directory
@@ -242,4 +241,3 @@ One or more paths to the API Testing folders to run for this suite. Regex values
 ```yaml
     testMatch: ["01 Basic Request"]
 ```
-

@@ -13,6 +13,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::caution
+The Sauce Labs Slack app is currently under maintenance and not available for use. We are actively working on this and looking at bringing a new Slack App experience to our customers.
+:::
+
 The Sauce Labs Slack app allows you to easily share your test results in Slack. You can:
 
 - Share a test result link in Slack, and it automatically expands to show the test summary
@@ -30,7 +34,7 @@ The Slack integration is supported for a single workspace. If your organization 
 
 ## Install the Sauce Slack App for Your Organization
 
-<p><span className="sauceDBlue">Org Admin Required</span></p>
+<p><span className="sauceGreen">Org Admin Required</span></p>
 
 Before the Sauce Slack app can be used by members of the organization, an Org Admin must install it for whole the organization and associate it with your Slack workspace. If you are an Org Admin, you can do this by:
 
@@ -61,8 +65,8 @@ Setting up automatic notifications from `saucectl` requires you to first add the
 1. In your Slack workspace, select the channel from the sidebar.
 1. Click the dropdown at the end of the channel title to access the settings menu for the channel.
    <img src={useBaseUrl('img/integrations/slack/set-channel-details.png')} alt="Set Channel Details" width="600"/>
-1. Select the **Integrations** tab, then the **Add an App** button.
-1. Click the **Add** button for the Sauce Labs app to enable notifications for the channel.
+1. Select the **Integrations** tab, then click **Add an App**.
+1. To enable notifications for the channel, click **Add** for the Sauce Labs app.
 
 ### Configure Notifications from `saucectl`
 
@@ -109,7 +113,7 @@ When test results are shared to Slack, they include the following details about 
 - The name of test suite
 - The Operating System on which the test suite ran
 - The browser on which the test suite ran (web-app tests)
-- The device or emulator on which the test suite ran (mobile-app tests)
+- The device or Emulator on which the test suite ran (mobile-app tests)
 - The duration of the test
 
-In addition, the notifications include a color-coded sidebar for a quick indication of the test result; green if all suites in the job passed, and red if any of the the suites in the job failed.
+In addition, the notifications include a color-coded sidebar for a quick indication of the test result; green if all suites in the job passed, and red if any of the suites in the job failed.

@@ -16,7 +16,7 @@ The OnDemand plugin allows you to easily manage your Sauce Labs testing from [Je
 - How to install and configure the Sauce OnDemand Plugin for Jenkins
 - How to configure Sauce Connect to enable testing on private networks
 - How to run parallel tests in Jenkins
-- How to set up reporting between Sauce Labs & Jenkins
+- How to set up reporting between Sauce Labs and Jenkins
 - How to implement the OnDemand plugin into your Jenkins pipeline
 
 ## What You'll Need
@@ -181,7 +181,7 @@ Project specific settings will always override the global value for the same set
     </tr>
     <tr>
       <td><b>Clean up jobs and uniquely generated tunnels instead of waiting for timeouts</b></td>
-      <td>If <b>Create a new unique Sauce Connect tunnel per build</b> in enabled in the Advanced Options section, checking this option ensures that aborted builds do not tie up tunnels unnecessarily.</td>
+      <td>If <b>Create a new unique Sauce Connect tunnel per build</b> in enabled in the Advanced Options section, checking this option ensures that cancelled builds do not tie up tunnels unnecessarily.</td>
     </tr>
   </table>
 1. Scroll to the **Sauce Connect Advanced Options** section, and click **Advanced** to display additional options described in the following table as needed.
@@ -218,7 +218,7 @@ Project specific settings will always override the global value for the same set
      </tr>
      <tr>
        <td><b>Create a new unique Sauce Connect tunnel per build</b></td>
-       <td>Generates a unique tunnel identifier for each build in this project and populates a <code>TUNNEL_IDENTIFIER</code> environment variable. You must then reference this variable in the capabilities for your tests.</td>
+       <td>Generates a unique tunnel identifier for each build in this project and populates a <code>TUNNEL_NAME</code> environment variable. You must then reference this variable in the capabilities for your tests.</td>
      </tr>
      <tr>
        <td><b>Sauce Connect Binary Location</b></td>
@@ -257,7 +257,8 @@ The following environment variables are relevant for Sauce Labs tests running in
 | `SAUCE_ACCESS_KEY`            | The access key of the Sauce Labs account on which tests in this project are run.                                                              | Populated by the `Access Key` value of the authentication credential associated with the project.                                                                                                     |
 | `SELENIUM_STARTING_URL`       | The value of the Starting URL field.                                                                                                          | This value is not populated by any configuration setting.                                                                                                                                             |
 | `SAUCE_ONDEMAND_BROWSERS`     | A JSON-formatted string containing a set of attributes for multiple operating system and browser combinations.                                | Populated when you select more than one **WebDriver** or **Appium** value during project configuration.                                                                                               |
-| `TUNNEL_IDENTIFIER`           | The unique tunnel identifier used when Sauce Connect is launched.                                                                             | Populated when the **Create a new unique Sauce Connect tunnel per build** option is selected during project configuration.                                                                            |
+|`TUNNEL_IDENTIFIER or TUNNEL_NAME (as of v1.207)`|The unique tunnel identifier used when Sauce Connect is launched.| Populated when the **Create a new unique Sauce Connect tunnel per build** option is selected during project configuration.|
+
 | `JENKINS_BUILD_NUMBER`        | The ID of the build the Sauce OnDemand plugin will use when showing results that are not in the logs.                                         | Populated when the `buildName` capability is set for the test.                                                                                                                                        |
 | `SAUCE_BUILD_NAME`            | The name of the build the Sauce OnDemand plugin will use when showing test results.                                                           | The plugin automatically populates this this value at run-time with `${JOB_NAME}_${BUILD_NUMBER}`.                                                                                                    |
 
@@ -295,7 +296,7 @@ Jenkins populates the `SELENIUM_PLATFORM`, `SELENIUM_VERSION`, `SELENIUM_BROWSER
 
 ## Reporting between Sauce Labs and Jenkins
 
-<p><span className="sauceDBlue">VIRTUAL CLOUD ONLY</span></p>
+<p><span className="sauceGreen">VIRTUAL CLOUD ONLY</span></p>
 
 The following sections describe how to share information about your Sauce Labs tests in both the Sauce Labs site and your Jenkins dashboard.
 

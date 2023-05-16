@@ -9,12 +9,17 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+With Sauce Labs Biometric Authentication, you can simulate biometric authentication events within your app during live and automated testing. This feature allows you to test the app's ability to recognize and respond to biometric events, without physically testing it on a device. Biometric Authentication refers to the use of physical characteristics, such as fingerprint (Touch ID) or facial recognition (Face ID) to verify the user's identity.
+
 Sauce Labs provides biometrics interception for our customers to:
 
 - Access test flows that are dependent on biometrics support, such as a mandatory security layer.
 - Verify that an app responds as expected to biometrics settings (e.g., enabled/disabled and successful/unsuccessful).
 
+:::caution
+Make sure you have a debuggable AND non-obfuscated version of your application uploaded to Mobile App Storage.
 Biometrics test support in Sauce Labs is not intended to test actual biometrics values for authentication.
+:::
 
 ## What You'll Need
 
@@ -48,6 +53,7 @@ Biometric Authentication is available for testing on all Sauce Labs Android and 
 - Mobile browsers and pre-installed system apps.
 - Cross-platform development frameworks like Flutter, React Native, and Cordova (libraries and frameworks are not supported).
 - Ephemeral apps.
+
 :::
 
 ### Android Biometrics
@@ -73,7 +79,7 @@ For iOS devices, biometrics can be configured with different outputs. We support
 
 ## Live Testing
 
-<p><span className="sauceDBlue">Real Devices Only</span></p>
+<p><span className="sauceGreen">Real Devices Only</span></p>
 
 To use biometric interception in a live mobile app test, you must ensure that the functionality is enabled for your app both through Sauce Labs AND through your app before you can mock the result as passing or failing.
 
@@ -100,13 +106,18 @@ To enable fingerprint and facial recognition on iOS and Android real devices:
 
 1. Add the `allowTouchIdEnroll` capability to your test configuration and set it to `true`.
    :::note
+
    Setting `allowTouchIdEnroll` does not update your app's biometric interception setting in Sauce Labs. It only sets the capability for the test in the event that the app setting in Sauce Labs is _different_ from the test script capability.
+
    - If biometric interception is ENABLED for the app in Sauce Labs, setting `allowTouchIdEnroll=true` or omitting it will have no effect, but setting `allowTouchIdEnroll=false` will disable the enrollment for the test, overriding the app setting.
    - The opposite is true if biometric interception is DISABLED for the app in Sauce Labs.
+
    :::
+
    ```js reference title="JavaScript iOS Capabilities Example"
    https://github.com/saucelabs-training/demo-js/blob/docs-1.1/webdriverio/appium-app/examples/biometric-login/test/configs/wdio.ios.sauce.rdc.conf.ts#L33
    ```
+
 2. Use the following commands to trigger a successful or failed authentication in response to a biometric prompt:
    - `driver.execute('sauce:biometrics-authenticate=true');` passes a successful authentication to the prompt.
    - `driver.execute('sauce:biometrics-authenticate=false');` passes a failed authentication to the prompt.

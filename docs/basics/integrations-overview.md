@@ -77,6 +77,12 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
         <h3>TeamCity</h3></a>
     </div>
   </div>
+  <div className="box box11 card">
+    <div className="container">
+        <a href="https://developer.harness.io/tutorials/build-code/ci-saucelabs-background-step/"><img src={useBaseUrl('img/integrations/harness-logo.png')} alt="Harness logo" width="50" />
+        <h3>Harness</h3></a>
+    </div>
+  </div>
 </div>
 
 ## Accessibility
@@ -141,23 +147,6 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
         <h3>Playwright</h3></a>
     </div>
   </div>
-  <div className="box box8 card">
-    <div className="container">
-        <a href="/web-apps/automated-testing/puppeteer/quickstart/"> <img src={useBaseUrl('img/integrations/puppeteer.webp')} alt=" logo" width="40" />
-        <h3>Puppeteer</h3></a>
-    </div>
-  </div>
-</div>
-
-## Defect Reporting and Management
-
-<div className="box-wrapper" markdown="1">
-  <div className="box box1 card">
-    <div className="container">
-        <a href="/basics/integrations/jira/"> <img src={useBaseUrl('img/integrations/jira.png')} alt="Jira logo" width="40" />
-        <h3>Jira</h3></a>
-    </div>
-  </div>
 </div>
 
 ## Test Reporting and Management
@@ -165,7 +154,7 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">
-        <a href="https://reportportal.io/docs/Sauce-Labs"> <img src={useBaseUrl('img/integrations/epam.png')} alt="EPAM logo" width="60" />
+        <a href="https://reportportal.io/docs/plugins/SauceLabs/"> <img src={useBaseUrl('img/integrations/epam.png')} alt="EPAM logo" width="60" />
         <h3>ReportPortal</h3></a>
     </div>
   </div>

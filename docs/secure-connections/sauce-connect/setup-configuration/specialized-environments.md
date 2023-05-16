@@ -38,13 +38,15 @@ Once the setting is enabled, all users across your organization can run live and
 
 Testing with the address `localhost` (or the IP address `127.0.0.1`) is not supported with iOS or Android real devices in Sauce Connect Proxy.
 
-To work around this, you'll need to edit your hosts file on the machine on which you are running Sauce Connect Proxy. Add an entry for a dummy hostname (such as `localtestsite`) and the IP address `127.0.0.1`. Requests for `localtestsite` in your tests will then be sent through your Sauce Connect Proxy tunnel to `localhost`, which is the machine on which you are running Sauce Connect Proxy.
+To work around this, you'll need to edit your `hosts` file on the machine on which you are running Sauce Connect Proxy. Add an entry for a placeholder hostname (such as `localtestsite`) and the IP address `127.0.0.1`. Requests for `localtestsite` in your tests will then be sent through your Sauce Connect Proxy tunnel to `localhost`, which is the machine on which you are running Sauce Connect Proxy.
 
-For tips on editing your hosts file, see [How To Edit Hosts File In Linux, Windows, or Mac](https://phoenixnap.com/kb/how-to-edit-hosts-file-in-windows-mac-or-linux).
+For example, adding `127.0.0.1   mockserver` to your `/etc/hosts` file, then starting a server on `localhost:3333` will route mockserver:3333 HTTP calls to your local server. Mobile tests using Sauce Connect will then be able to find your local server regardless of the nature of your test.
+
+For tips on how to edit your `hosts` file, see [How to Edit Hosts File in Linux, Windows, or Mac](https://phoenixnap.com/kb/how-to-edit-hosts-file-in-windows-mac-or-linux).
 
 #### SSL Bumping
 
-While rare, there are some test cases that will require you to disable SSL Bumping when using Sauce Connect Proxy in order to avoid certificate issues. For more information, see [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication).
+While rare, there are some test cases that will require you to disable SSL Bumping when using Sauce Connect Proxy to avoid certificate issues. For more information, see [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication).
 
 ### Selecting the Tunnel to Use
 
@@ -61,6 +63,18 @@ In this example, we'll [set our credentials (username/access key) as environment
 ```bash
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west --tunnel-name rdc-on-sauce-tunnel-us
 ```
+
+:::note Note for Android Devices
+If you set up the tunnel for Android Devices, you must start Sauce Connect Proxy with the `-B all` flag:
+
+```bash
+./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DATA_CENTER --tunnel-name $TUNNEL_NAME -B all
+```
+
+You need to include the -B all flag because, by default, traffic on Sauce Connect is re-encrypted using Sauce Labs' self-signed certificates. While this can be trusted on Sauce Labs Virtual Cloud and Sauce Labs iOS devices, due to security specifications by Google, the same can't be done on Android.
+
+If you add `-B`, Sauce Labs uses your server certificates, and if the certificate is self-signed, you face the same issue again. For native applications, the workaround is injecting your self-signed certificate into the app. You can learn more on [Network Security Configuration in the Android Developers documentation](https://developer.android.com/training/articles/security-config).
+:::
 
 2. In your device testing script, specify the tunnel name with `tunnelName` in your capabilities, as shown in this Java example:
 

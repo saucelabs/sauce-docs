@@ -32,7 +32,7 @@ You can also manually build links to Test Results pages and set authentication f
 
 ## Building Sharable Links
 
-You can generate a sharable link to your test results that limits who can view the results by requiring a login or authentication (auth) token. These links will allow recipients to view the results of that test, but the they will not appear on their dashboard.
+You can generate a sharable link to your test results that limits who can view the results by requiring a login or authentication (auth) token. These links will allow recipients to view the results of that test, but they will not appear on their dashboard.
 
 You can also change the visibility of a test (e.g., Public, Private, or Team) directly on the **Test Results** page.
 
@@ -239,23 +239,9 @@ Both of these configurations will only work for browsers logged in using your ac
 https://app.saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
 ```
 
-### Embedding Pages for EU DC and Headless DC
+### Embedding Pages for EU DC
 
 To embed the page for EU DC test, you need to use the `app.eu-central-1.saucelabs.com` domain.
-
-```js
-https://app.[eu-central-1|us-east-1].saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
-```
-
-```js
-https://app.saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
-```
-
-### Embedding Pages for EU DC and Headless DC
-
-```js
-https://app.saucelabs.com/job-embed/YOUR_JOB_ID.js
-```
 
 ```js
 https://app.[eu-central-1|us-east-1].saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN

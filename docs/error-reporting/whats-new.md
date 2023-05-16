@@ -5,6 +5,10 @@ sidebar_label: What's New
 description: See what's new with the Backtrace Console, including new features and improvements.
 ---
 
+:::note Page Deprecated
+This page is now deprecated and will be removed. To see what's new for Error Reporting, see the [Sauce Labs Product Announcements](https://changelog.saucelabs.com/en?category=error%20reporting).
+:::
+
 ## View Users' Last Login (2022-12-02)
 
 As an admin, you can now check when a user last logged in to their account.

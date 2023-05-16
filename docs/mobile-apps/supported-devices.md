@@ -72,7 +72,7 @@ Our public cloud, available to all users regardless of pricing plan, contains a 
 
 ### Private Device Cloud
 
-<p><span className="sauceDBlue">Enterprise Only</span></p>
+<p><span className="sauceGreen">Enterprise Only</span></p>
 
 This is dedicated pool of devices just for your organization. On the mobile device selection screen, your private devices are marked with a [green device icon](/mobile-apps/live-testing/live-mobile-app-testing/#public-vs-private-devices). Here are some use cases:
 
@@ -123,19 +123,19 @@ Regardless of the test frameworks you're using (Appium, Espresso, XCUITest), you
 
 #### Static Device Allocation
 
-This is specifying an exact device for your test by setting `deviceName` to the Device ID, which you can find under **Live** > **Mobile-App** > **Choose device** > Find Your Device > **Details**.
-<img src={useBaseUrl('img/mobile-apps/samsung-galaxyA10.jpg')} alt="Sauce Labs Device ID example" width="450"/>
+This is specifying an exact device for your test by setting `deviceName` to the Device ID, which you can find under **Live** > **Mobile-App** > **Choose device** > Find Your Device > **Details** > **ID**.
+<img src={useBaseUrl('img/mobile-apps/static-allocation-data.jpg')} alt="Sauce Labs Static Allocation data" width="750"/>
 
 When using this, there's no need to specify the `platformName` and `platformVersion` because they'll be set by default (i.e., if you include these separately included in your test script, they will be ignored).
 
 <Tabs
-  defaultValue="Espresso"
-  values={[
-    {label: 'Espresso', value: 'Espresso'},
-    {label: 'XCUITest', value: 'XCUITest'},
-    {label: 'Appium (Android)', value: 'Appium-android'},
-    {label: 'Appium (iOS)', value: 'Appium-ios'},
-  ]}>
+defaultValue="Appium-android"
+values={[
+{label: 'Appium (Android)', value: 'Appium-android'},
+{label: 'Appium (iOS)', value: 'Appium-ios'},
+{label: 'Espresso', value: 'Espresso'},
+{label: 'XCUITest', value: 'XCUITest'},
+]}>
 
 <TabItem value="Espresso">
 
@@ -143,11 +143,10 @@ Static allocation example — exact device names are provided.
 
 ```yml
 devices:
-  - id: Google_Pixel_2_real_us
+  - id: Google_Pixel_7_Pro_real_us
 ```
 
 </TabItem>
-
 <TabItem value="XCUITest">
 
 Static allocation example — exact device names are provided.
@@ -163,7 +162,7 @@ devices:
 Static allocation examples — exact device name are provided.
 
 ```java
-capabilities.setCapability("appium:deviceName", "Google_Pixel_4");
+capabilities.setCapability("appium:deviceName", "Google_Pixel_7_Pro_real_us");
 ```
 
 </TabItem>
@@ -181,13 +180,17 @@ capabilities.setCapability("appium:deviceName", "iPhone_11_13_5_real_us");
 
 #### Dynamic Device Allocation
 
-This is specifying basic parameters for the device name or platform version of the device you want to use in your tests using [regular expressions (regex)](https://en.wikipedia.org/wiki/Regular_expression) to dynamically allocate a device. A device(s) with your specifications will be selected from the real device pool.
+This is specifying basic parameters for your test by setting `deviceName` to the Display Name and or `platformVersion` to the OS Version by [regular expressions (regex)](https://en.wikipedia.org/wiki/Regular_expression) to dynamically allocate a device. (If you want to use the OS Version you need to remove the `Android` or `iOS` prefix from the OS version). A device(s) with your specifications will be selected from the real device pool.
 
-:::note NOTE
+You can find the Display Name or OS Version under **Live** > **Mobile-App** > **Choose device** > Find Your Device > **Details** > **Title|OS**.
+
+<img src={useBaseUrl('img/mobile-apps/dynamic-allocation-data.jpg')} alt="Sauce Labs Dynamic Allocation data" width="750"/>
+
+:::note
 The more strict you set the capabilities, the smaller the pool of available devices will be and the longer you might need to wait for an available device.
 :::
 
-##### Based on device name
+##### Based on Display Name
 
 | Regex Input                                                                | Dynamic Allocation Action                                                                                                                                      |
 | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -200,13 +203,13 @@ The more strict you set the capabilities, the smaller the pool of available devi
 | <code>"^(?=Nokia.\*&vert;Oppo.\*&vert;Huawei.\*&vert;Xiaomi.\*).\*"</code> | Allocates **only** Nokia, Oppo, Huawei, and Xiaomi devices. See [example](https://regex101.com/r/yhQ3oy/2).                                                    |
 
 <Tabs
-  defaultValue="Espresso"
-  values={[
-    {label: 'Espresso', value: 'Espresso'},
-    {label: 'XCUITest', value: 'XCUITest'},
-    {label: 'Appium (Android)', value: 'Appium (Android)'},
-    {label: 'Appium (iOS)', value: 'Appium (iOS)'},
-  ]}>
+defaultValue="Appium-android"
+values={[
+{label: 'Appium (Android)', value: 'Appium-android'},
+{label: 'Appium (iOS)', value: 'Appium-ios'},
+{label: 'Espresso', value: 'Espresso'},
+{label: 'XCUITest', value: 'XCUITest'},
+]}>
 
 <TabItem value="Espresso">
 
@@ -243,7 +246,7 @@ devices:
 ```
 
 </TabItem>
-<TabItem value="Appium (Android)">
+<TabItem value="Appium-android">
 
 Dynamic allocation example - finds any device that starts with the display name "Google".
 
@@ -258,7 +261,7 @@ capabilities.setCapability("appium:deviceName", "^(?!Oppo).*");
 ```
 
 </TabItem>
-<TabItem value="Appium (iOS)">
+<TabItem value="Appium-ios">
 
 Dynamic allocation example - finds any device that starts with the display name "iPhone".
 
@@ -283,13 +286,13 @@ capabilities.setCapability("appium:deviceName", "^iPhone\s+(?!(5|5S)).*");
 | `"^(?!15).*"`                    | Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1). |
 
 <Tabs
-  defaultValue="Espresso"
-  values={[
-    {label: 'Espresso', value: 'Espresso'},
-    {label: 'XCUITest', value: 'XCUITest'},
-    {label: 'Appium (Android)', value: 'Appium (Android)'},
-    {label: 'Appium (iOS)', value: 'Appium (iOS)'},
-  ]}>
+defaultValue="Appium-android"
+values={[
+{label: 'Appium (Android)', value: 'Appium-android'},
+{label: 'Appium (iOS)', value: 'Appium-ios'},
+{label: 'Espresso', value: 'Espresso'},
+{label: 'XCUITest', value: 'XCUITest'},
+]}>
 
 <TabItem value="Espresso">
 
@@ -314,7 +317,7 @@ devices:
 ```
 
 </TabItem>
-<TabItem value="Appium (Android)">
+<TabItem value="Appium-android">
 
 Dynamic allocation example - finds any device that starts with the display name "Google" and uses Android 11, 12 or 13.
 
@@ -324,7 +327,7 @@ capabilities.setCapability("appium:platformVersion", "^1[1-3].*");
 ```
 
 </TabItem>
-<TabItem value="Appium (iOS)">
+<TabItem value="Appium-ios">
 
 Dynamic allocation example - finds any device that starts with the display name "iPhone" and does not have iOS 15.
 
@@ -340,6 +343,7 @@ capabilities.setCapability("appium:platformVersion", "^(?!15).*");
 
 - A matching device must be present in your account in order for the test to run.
 - Regex values are not case-sensitive (i.e., `"iphone .*S"` and `"IPHONe .*s"` are the same).
+
 :::
 
 ## Additional Resources

@@ -1,6 +1,6 @@
 ---
 id: jobs
-title: Jobs API Methods
+title: Jobs API Endpoints
 sidebar_label: Jobs
 description: View and manage jobs and builds running on Sauce Labs.
 ---
@@ -21,7 +21,7 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 
-## Jobs Methods
+## Jobs
 
 The set of methods defined in this section are applicable to tests that are not associated with builds.
 
@@ -468,7 +468,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api put">PUT</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;/stop</code></summary>
 <p/>
 
-Get detailed information about a specific job.
+Stop a specific job.
 
 #### Parameters
 
@@ -1132,7 +1132,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-## Builds Methods
+## Builds
 
 <p><span className="sauceGold">DEPRECATED</span></p>
 

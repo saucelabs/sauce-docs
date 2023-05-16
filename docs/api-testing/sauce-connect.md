@@ -11,6 +11,10 @@ import TabItem from '@theme/TabItem';
 
 Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabling you to test and monitor both internal and public APIs. If your APIs are behind a firewall on your private network, follow the steps below to launch a secure trusted connection between your network and Sauce Labs.
 
+:::warning
+We do not support [Allow-listing static IPs](/basics/data-center-endpoints/). We strongly suggest running your tests using Sauce Connect Proxy tunnel. For assistance, contact your CSM/SE or our Support Team.
+:::
+
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
@@ -20,7 +24,11 @@ Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabli
 
 ## Start API-Specific Tunnel
 
-1. First, you'll need to create a YAML configuration file. From a text editor or IDE, create a file called **api-config.yaml**, then copy and paste in the template below.
+1. First, you'll need to create a YAML configuration file. From a text editor or IDE, create a file called **api-config.yaml**, then copy and paste it into the template below.
+
+:::caution Important
+If you are already using a tunnel, note that the version has been updated, and the previous version **v2alpha** is deprecated and will be dismissed by July 31st. Update your version as per the configuration below.
+:::
 
 <Tabs
   defaultValue="US Data Center"
@@ -36,7 +44,7 @@ Sauce Labs API Testing fully integrates with Sauce Connect Proxy tunnels, enabli
 rest-url: 'https://api.us-west-4-i3er.saucelabs.com/rest/v1'
 user: '$SAUCE_USERNAME'
 api-key: '$SAUCE_ACCESS_KEY'
-vm-version: 'v2alpha'
+vm-version: 'v2alpha2'
 tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
 ```
 
@@ -48,7 +56,7 @@ tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
 rest-url: 'https://api.eu-west-3-lnbf.saucelabs.com/rest/v1'
 user: '$SAUCE_USERNAME'
 api-key: '$SAUCE_ACCESS_KEY'
-vm-version: 'v2alpha'
+vm-version: 'v2alpha2'
 tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
 ```
 
