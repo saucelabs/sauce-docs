@@ -217,7 +217,6 @@ echo "$UNIQUE_CLASS_NAMES"
 echo ""
 echo "Test class list has been created at: ${OUTPUT_FILE}"
 ```
-For the steps also see the below image
 ![add-build-script.png](/img/xcuitest/add-build-script.png)
 
 5. The script can be triggered with
