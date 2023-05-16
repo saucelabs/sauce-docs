@@ -25,6 +25,7 @@ exceptions:
   - DPI
   - FAQ
   - GET
+  - GPS
   - GPU
   - GUI
   - HTML
@@ -64,6 +65,7 @@ exceptions:
   - USB
   - UTC
   - UTF
+  - VPN
   - XCUI
   - XML
   - XSS

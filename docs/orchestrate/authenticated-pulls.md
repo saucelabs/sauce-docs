@@ -43,27 +43,27 @@ Note - you will need to replace `[docker_user]` with your registry username.
 To use your private image in Sauce Orchestrate, update your saucectl config file, specifying a username and access token, and Sauce Labs will attempt to access your image. If we are unable to access your image you will receive an error response explaining what happened.
 
 ```yaml showLineNumbers
-  apiVersion: v1alpha
+apiVersion: v1alpha
 kind: imagerunner
 sauce:
   region: us-west-1
 suites:
-- name: Desktop Tests
-  workload: webdriver
-  image: [docker_user]/demo-java-orchestrate-tutorial:0.0.1
-  # your docker hub credentials go here
-  imagePullAuth:
-    user: $SAUCE_IMAGE_USER
-    token: $SAUCE_IMAGE_TOKEN
-  # the command to run your tests
-  entrypoint: mvn -o test -pl best-practice -Dtest=DesktopTests
-  artifacts:
-    - "/workdir/best-practice/target/surefire-reports/*"
+  - name: Desktop Tests
+    workload: webdriver
+    image: [docker_user]/demo-java-orchestrate-tutorial:0.0.1
+    # your docker hub credentials go here
+    imagePullAuth:
+      user: $SAUCE_IMAGE_USER
+      token: $SAUCE_IMAGE_TOKEN
+    # the command to run your tests
+    entrypoint: mvn -o test -pl best-practice -Dtest=DesktopTests
+    artifacts:
+      - "/workdir/best-practice/target/surefire-reports/*"
 
 artifacts:
-download:
-  when: always
-  match:
-    - "*"
-  directory: ./artifacts
+  download:
+    when: always
+    match:
+      - "*"
+    directory: ./artifacts
 ```
