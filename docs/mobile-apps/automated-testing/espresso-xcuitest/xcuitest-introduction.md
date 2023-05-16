@@ -220,11 +220,11 @@ echo "Test class list has been created at: ${OUTPUT_FILE}"
 ![add-build-script.png](/img/xcuitest/add-build-script.png)
 
 5. The script can be triggered with
-    * XCODE by:
+    * by XCODE:
         * Going to `Product` > `Build For` > `Testing`
             ![trigger-build-script.png](/img/xcuitest/trigger-build-script.png)
         * Or triggering a Testing build by using `Command + Shift + U`
-    * Or through running this command
+    * by running this command
 ```
 xcodebuild \
   CODE_SIGN_IDENTITY="" \
