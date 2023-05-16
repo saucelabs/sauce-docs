@@ -268,17 +268,17 @@ Break out your long tests into shorter tests and/or make sure that your tests ar
 
 **Description**
 
-This timeout occurs most frequently when you include a specific device in your test case and that device isn’t available within 15 minutes.
+This timeout occurs most frequently when you include a specific device in your test case and that device isn’t available in 15 minutes.
 
 **Cause(s)**
 
-Our device pool is available to all subscribed Sauce users and (as you might imagine), some devices are more popular than others. We have over 280 device configurations and thousands of devices hosted in our data center, but sometimes a test queue will build up for the most popular devices.
+Our device pool is available to all subscribed Sauce users and (as you might imagine), some devices are more popular than others. We have hundreds of device configurations and thousands of devices hosted in our data center, but sometimes a test queue is built up for the most popular devices.
 
 **How to Resolve**
 
 Instead of passing a specific `deviceName`:
 
-- When you select a device from the pool, use `appium:deviceName` to [select the device dynamically](/mobile-apps/supported-devices/#dynamic-device-allocation). This way you can specify the type of device (make, model, OS) instead of a specific device, which increases the likelihood of finding an appropriate device that is available for your test to execute on.
+- When you select a device from the pool, use `appium:deviceName` to [select the device dynamically](/mobile-apps/supported-devices/#dynamic-device-allocation). This way you can specify the type of device (make, model, OS) instead of a specific device, which increases the likelihood of finding an appropriate device that is available for your test to run on.
 - If you are looking for a specific OS version instead of a specific make and model, you can use the [`appium:platformversion`](/dev/test-configuration-options/#appium) option to fetch a device with that OS regardless of make and model.
 
 
