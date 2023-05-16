@@ -981,7 +981,7 @@ Instructs `saucectl` to run all classes for the suite _except_ those specified h
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-When shard is configured as concurrency, saucectl automatically splits the tests by concurrency so that they can run in parallel.
+When shard is configured as `concurrency`, saucectl automatically splits the tests into several groups (the number of groups is determined by the concurrency setting). Each group will then run as an individual job.
 
 Selectable values: `concurrency` to shard by concurrency. Remove this field or leave it empty `""` for no sharding.
 
