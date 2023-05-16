@@ -164,7 +164,7 @@ $ saucectl run
 
 #### Sharding XCUITest
 
-`saucectl` supports running tests in parallel. To tests in parallel, configure `saucectl` as follows. For more details, see [yaml configuration](./xcuitest.md#shard).
+`saucectl` supports running tests in parallel. To tests in parallel, configure `saucectl` as follows. See [yaml configuration](./xcuitest.md#shard) for more details.
 
 ```
 suites:
