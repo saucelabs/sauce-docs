@@ -235,7 +235,7 @@ xcodebuild \
   -sdk iphoneos
 ```
 
-The generated `test_classes.txt` can be found here.
+The generated `test_classes.txt` can be found here:
 
 ![generated-file.png](/img/xcuitest/generated-file.png)
 
