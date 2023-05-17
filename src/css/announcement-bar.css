@@ -1,8 +1,5 @@
 div[class^="announcementBarContent"] {
     alignment: center;
-    background-color: #0d65be;
-    color: #f0f0f0;
-    /*box-shadow: inset 0 -1px 0 #0E75DD !important;*/
     font-size: 17px;
     line-height: 16px;
     margin-left: -5px;

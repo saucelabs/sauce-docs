@@ -27,6 +27,13 @@ const docusaurusConfig = {
         },
     ],
     themeConfig: {
+        announcementBar: {
+            id: 'site_announcement', // Any value that will identify this message.
+            content: `<a target="_blank" rel="noopener noreferrer" href="https://saucelabs.com/resources/community/slack">\n' + Have a question? Join our <img alt="slack.png" src="/img/slack.png" width="17" height="17" /> Slack Community Workspace!'</a>`,
+            backgroundColor: '#ffcd47', // Defaults to `#fff`.
+            textColor: '#000000', // Defaults to `#000`.
+            isCloseable: true, // Defaults to `true`.
+        },
         beamer: {
             product_id: `'WyhkZHOU27797'`,
             display: `'popup'`,
@@ -122,14 +129,6 @@ const docusaurusConfig = {
                 googleAnalytics: {
                     trackingID: 'UA-6735579-1',
                 },
-                // announcementBar: {
-                //   id: 'site_announcement', // Any value that will identify this message.
-                //   content:
-                //   '<button class="announcementBarBadge">NEW</button> Our improved documentation is here! <a target="_blank" rel="noopener noreferrer" href="mailto:docsfeedback@saucelabs.com"><button class="announcementBar">Tell us what you think</button></a>',
-                //   backgroundColor: '#0D65BE', // Defaults to `#fff`.
-                //   textColor: '#F0F0F0', // Defaults to `#000`.
-                //   isCloseable: true, // Defaults to `true`.
-                // },
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),
                 },
