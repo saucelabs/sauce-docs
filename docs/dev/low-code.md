@@ -11,7 +11,7 @@ Sauce Labs Low Code lets you create automated end-to-end testing with no program
 
 The NLP engine autonomously creates test cases, scripts, and data, allowing non-technical team members to QA at scale.
 
-For more information about using Sauce Labs Low Code, see <a href="https://www.youtube.com/watch?v=We20yocI4j4">Low-code Automated Web Testing with Sauce Labs</a>
+For more information about using Sauce Labs Low Code, see <a href="https://www.youtube.com/watch?v=We20yocI4j4">Low-code Automated Web Testing with Sauce Labs.</a>
 
 
 <div>
