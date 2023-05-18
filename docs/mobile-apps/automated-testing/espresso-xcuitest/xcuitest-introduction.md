@@ -191,7 +191,7 @@ https://github.com/saucelabs/my-demo-app-ios/blob/1.6.1/scripts/methods.sh
 
 ![add-build-script.png](/img/xcuitest/add-build-script.png)
 
-5. The script can be triggered with
+5. The script can be triggered,
    - by Xcode:
      - Going to `Product` > `Build For` > `Testing`
        ![trigger-build-script.png](/img/xcuitest/trigger-build-script.png)
