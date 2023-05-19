@@ -195,7 +195,9 @@ This field sets the CPU and memory limits for the container. The format for spec
 The larger the level value, the higher the allocated CPU and memory resources. The default value is set to c1m1.
 
 ```yaml
-resourceProfile: c2m2
+suites:
+ - name: "saucy test"
+    resourceProfile: c2m2
 ```
 ---
 
