@@ -700,7 +700,6 @@ module.exports = {
                                         'basics/sso/configuring-sso-in-auth0',
                                         'basics/sso/configuring-sso-in-google',
                                         'basics/sso/configuring-sso-in-ms-azure-ad',
-                                        'basics/sso/configuring-sso-in-okta',
                                         'basics/sso/configuring-sso-in-onelogin',
                                     ],
                                 },
@@ -904,6 +903,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'mobile-apps/live-testing/live-mobile-app-testing',
+                        'mobile-apps/live-testing/testing-push-notifications',
                         'mobile-apps/live-testing/testing-apple-pay',
                     ],
                 },
@@ -1184,12 +1184,7 @@ module.exports = {
                 'performance/analyze',
             ],
         },
-        {
-            type: 'category',
-            label: 'Headless',
-            collapsed: true,
-            items: ['headless'],
-        },
+
         {
             type: 'category',
             label: 'Visual',

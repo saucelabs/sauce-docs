@@ -812,12 +812,11 @@ Available browser names: `chromium`, `firefox`, `webkit`, and `chrome`.
 :::
 
 ---
-
 #### `headless`
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Determines whether to run the test suite in [headless](/headless) mode.
+Determines whether to run the test suite in headless mode.
 
 ```yaml
     headless: true
