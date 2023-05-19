@@ -192,7 +192,7 @@ workload: webdriver
 
 This field sets the CPU and memory limits for the container. The format for specifying the limits is as follows: `<CPU><level><memory><level>`.
 
-The larger the level value, the higher the allocated CPU and memory resources. The default value is set to c1m1.
+The larger the level value, the higher the allocated CPU and memory resources. Avaiable options are: `c1m1`, `c2m2` and `c3m3`. The default value is set to `c1m1`.
 
 ```yaml
 suites:
