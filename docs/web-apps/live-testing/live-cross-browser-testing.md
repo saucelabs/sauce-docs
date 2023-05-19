@@ -19,18 +19,18 @@ You can run live tests of your websites on a wide variety of operating system, b
 1. On Sauce Labs, in the left navigation panel, click **LIVE**, and then click **Cross Browser**.
 2. Click the **Desktop** tab.
 
-<img src={useBaseUrl('img/live-testing/desktop-test-nav.png')} alt="Live desktop test navigation" width="450"/>
+<img src={useBaseUrl('img/live-testing/desktop-test-nav.png')} alt="Live desktop test navigation" width="650"/>
 
 3. In the **URL** field, enter the URL of the website you want to test.
 4. If you use Sauce Connect Proxy to test apps on a local host or behind a firewall, select the tunnel from the **SAUCE CONNECT PROXY** dropdown list.
 5. Under **BROWSER SELECTION**, select the browser version and screen resolution you want to use in your test.
 6. In the **OS VERSION** dropdown list, select the OS version you want to use.
 
-<img src={useBaseUrl('img/live-testing/desktop-test-setup.png')} alt="Desktop test setup" width="550"/>
+<img src={useBaseUrl('img/live-testing/desktop-test-setup.png')} alt="Desktop test setup" width="650"/>
 
 7. To view your recent configurations, click **Recents**.
 
-<img src={useBaseUrl('img/live-testing/live-testing-recent-tests-nav.png')} alt="Recent tests" width="550"/>
+<img src={useBaseUrl('img/live-testing/live-testing-recent-tests-nav.png')} alt="Recent tests" width="650"/>
 
 8. Click **Start Test**.
    A loading screen appears, and then the app launces in a live test window using the configuration you selected.
