@@ -895,6 +895,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'mobile-apps/live-testing/live-mobile-app-testing',
+                        'mobile-apps/live-testing/testing-push-notifications',
                         'mobile-apps/live-testing/testing-apple-pay',
                     ],
                 },

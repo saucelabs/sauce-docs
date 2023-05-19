@@ -55,7 +55,7 @@ With this Dockerfile created you can now tell Docker to build it.
 
 ```
 # execute this command within the root of your project
-docker build [docker_user]/demo-java-orchestrate-tutorial:0.0.1 .
+docker build -t [docker_user]/demo-java-orchestrate-tutorial:0.0.1 .
 ```
 
 :::note
