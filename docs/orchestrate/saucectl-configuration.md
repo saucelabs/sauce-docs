@@ -196,8 +196,8 @@ The larger the level value, the higher the allocated CPU and memory resources. A
 
 ```yaml
 suites:
- - name: "saucy test"
-  resourceProfile: c2m2
+  - name: "saucy test"
+    resourceProfile: c2m2
 ```
 ---
 
