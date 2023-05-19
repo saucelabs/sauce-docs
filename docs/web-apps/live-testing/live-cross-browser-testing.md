@@ -217,6 +217,6 @@ We've streamlined our service to provide the best possible load times. If you're
 
 ### Links Opening in New Tabs Instead of New Windows
 
-It's possible for the manual testing VNC client to have a modifier key "stuck" down, causing any clicked links to open in new tabs. This happens if the client loses focus while a key is held down (for example., when using Alt-Tab to switch app windows). In this case, VNC never receives the keyUp event.
+It's possible for the manual testing VNC client to have a modifier key "stuck" down, causing any clicked links to open in new tabs. This happens if the client loses focus while a key is held down (for example, when using Alt-Tab to switch app windows). In this case, VNC never receives the keyUp event.
 
 To prevent this from happening: every time you focus back on the manual testing window, click in the middle of the page, then press and release all the modifier keys (that is, Alt, Control, Command, and Shift).
