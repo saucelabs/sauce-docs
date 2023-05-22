@@ -2670,15 +2670,26 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Response"
 {
-  "variables": [
-    {
-      "name": "<variable_name>",
-      "value": "<value>",
-      "type": "variable"
-    }
-  ],
-  "snippets": {}
-}
+   "snippets" : {
+      "temp" : "- id: get\n  children:\n    - id: header\n      name: key\n      value: ABC123\n  url: http://demoapi.apifortress.com/api/retail/product\n  var: payload\n  mode: json"
+   },
+   "variables" : [
+      {
+         "name" : "var1",
+         "type" : "variable",
+         "value" : "foo"
+      },
+      {
+         "name" : "var2",
+         "type" : "variable",
+         "value" : "bar"
+      },
+      {
+         "name" : "var3",
+         "type" : "variable",
+         "value" : "chu"
+      }
+   ]
 ```
 
 </details>
@@ -2704,7 +2715,7 @@ Updates the content of the project vault.
   <tbody>
     <tr>
      <td><code>variables</code></td>
-     <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>The array contains the variable object you want to update/add to the project vault. Each object contains the key/value pairs: <code>name</code> (the name of the variable you want to update/add), <code>value</code> (the value of the variable you want to update/add), <code>type</code> the value is <code>variable</code>. It can be empty.</p></td>
+     <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>The array contains the variable object you want to update/add to the project vault and it can be empty. Each object contains the key/value pairs: <code>name</code> (the name of the variable you want to update/add), <code>value</code> (the value of the variable you want to update/add), <code>type</code> the value can be <code>variable</code> or <code>sensitive</code>. If the type is <code>sensitive</code> the value is <a href="/api-testing/vault/#mark-variables-as-sensitive">obfuscated</a> and cannot be seen by anyone.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2732,12 +2743,14 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 -d '{
       "variables": [
         {
-          "name": "string",
-          "value": "string",
-          "type": "string"
+          "name": "var3",
+          "value": "chu",
+          "type": "variable"
         }
       ],
-      "snippets": {}
+      "snippets": {
+        "test": "- id: get\n  url: http://demoapi.apifortress.com/api/retail/product\n  var: payload\n  mode: json"
+      }
     }'
 ```
 
@@ -2752,12 +2765,14 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 -d '{
       "variables": [
         {
-          "name": "string",
-          "value": "string",
-          "type": "string"
+          "name": "var3",
+          "value": "chu",
+          "type": "variable"
         }
       ],
-      "snippets": {}
+      "snippets": {
+        "test": "- id: get\n  url: http://demoapi.apifortress.com/api/retail/product\n  var: payload\n  mode: json"
+      }
     }'
 ```
 
@@ -2776,36 +2791,28 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </table>
 
 ```jsx title="Sample Response"
-[{
-    "_id": "621b3d4f9c65ec457f73d1a6",
-    "url": "https://dog.ceo/api/breed/retriever/list",
-    "path": "/api/breed/retriever/list",
-    "footprint": "dog.ceo/api/breed/retriever/list",
-    "query": "",
-    "method": "get",
-    "latency": 349,
-    "fetch": 1,
-    "time": "2022-02-27T08:58:55Z",
-    "projectId": "621ad1466b9fa36aa4b8b044",
-    "success": true,
-    "code": 200,
-    "buildId": ""
-}, {
-    "_id": "621b3d19b3d3e6cfb2fe902b",
-    "url": "https://dog.ceo/api/breeds/list/all",
-    "path": "/api/breeds/list/all",
-    "footprint": "dog.ceo/api/breeds/list/all",
-    "query": "",
-    "method": "get",
-    "latency": 326,
-    "fetch": 1,
-    "time": "2022-02-27T08:58:01Z",
-    "projectId": "621ad1466b1fa36aa4m8b044",
-    "success": true,
-    "code": 200,
-    "buildId": ""
-    },
-}]
+{
+   "snippets" : {
+      "snippet1" : "- id: get\n  children:\n    - id: header\n      name: key\n      value: ABC123\n  url: http://demoapi.apifortress.com/api/retail/product\n  var: payload\n  mode: json"
+   },
+   "variables" : [
+      {
+         "name" : "var1",
+         "type" : "variable",
+         "value" : "foo"
+      },
+      {
+         "name" : "var2",
+         "type" : "variable",
+         "value" : "bar"
+      },
+      {
+         "name" : "var3",
+         "type" : "variable",
+         "value" : "chu"
+      }
+   ]
+}
 ```
 
 </details>
