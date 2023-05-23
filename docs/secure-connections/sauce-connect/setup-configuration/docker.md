@@ -33,15 +33,15 @@ Here are some benefits/use cases:
     </details>
 2. To run the Sauce Connect Proxy Docker image, run the script below.
 
-```bash
-$ export SAUCE_USERNAME="my-user"
-$ export SAUCE_ACCESS_KEY="my-access-key"
-docker run \
-    -e SAUCE_USERNAME=${SAUCE_USERNAME} \
-    -e SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} \
-    --network="host" \
-    -it saucelabs/sauce-connect
-```
+   ```bash
+   $ export SAUCE_USERNAME="my-user"
+   $ export SAUCE_ACCESS_KEY="my-access-key"
+   docker run \
+       -e SAUCE_USERNAME=${SAUCE_USERNAME} \
+       -e SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} \
+       --network="host" \
+       -it saucelabs/sauce-connect
+   ```
 
 If desired, you can specify any additional [SC CLI arguments](/dev/cli/sauce-connect-proxy/).
 
