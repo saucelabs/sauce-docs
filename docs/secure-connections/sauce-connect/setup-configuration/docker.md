@@ -157,7 +157,11 @@ $ cat /tmp/sc.ready | jq .
 
 ## Running the Sauce Connect Docker in the nginx Server
 
-Below the `docker-compose.yaml` file that shows how to run Sauce Connect Docker in the nginx server.
+The `docker-compose.yaml` file below shows how to run Sauce Connect Docker in the nginx server.
+
+The Sauce Connect Proxy sits adjacent to the `nginx:latest` instance: you can reach the nginx service from Sauce Labs by going to nginx (if you run it as is). You can also provide a name to the container with [container_name](https://docs.docker.com/compose/compose-file/compose-file-v3/#container_name).
+
+`container_name: mockserver` would be reachable from any app or website that tried to hit mockserver via HTTP: this is due to the nature of [how docker resolves container names](https://docs.docker.com/config/containers/container-networking/#:~:text=In%20the%20same,on%20that%20network) for any valid entries on that docker network.
 
 ```yaml
 version: "3"
@@ -172,78 +176,49 @@ services:
 
   nginx:
     image: "nginx:latest"
-    container_name: "consider-this-is-an-application"
+    container_name: "some-app"
     ports:
-      - "8080:80"
+      - "3333:80"
 ```
 
 ## Running the Sauce Connect Proxy Indefinitely
 
-If you need a Sauce Connect Proxy to stay up indefinitely, only going down to restart and release resources, below you can see the `docker-compose.yaml` to do so.
+If you need a Sauce Connect Proxy to stay up indefinitely, the `docker-compose.yaml` below shows how to set up a set of shared Sauce Connect Pools that automatically restart when they go down.
 
 ```yaml
-version: "3"
+version: "3.9"
 services:
-  sauce-connect-volume:
-    restart: on-failure:2
+  sauce-connect-eu:
+    deploy:
+      replicas: 2
+      restart_policy:
+        delay: 30s
+        max_attempts: 5
+        condition: on-failure
+        window: 60s
     image: "saucelabs/sauce-connect:latest"
-    container_name: "persistent-proxy1-volume"
-    volumes:
-      - sc-logs:/tmp
     environment:
       SAUCE_USERNAME: ${SAUCE_USERNAME}
       SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
       SAUCE_OUTPUT_FORMAT: "text"
       SAUCE_LOGFILE: /tmp/persistent-eu-proxy1.log
-    command: "-i persistent1-docker-sc -r eu-central -v"
+    command: "-i eu-pool -r eu-central --tunnel-pool"
 
   sauce-connect-us:
     image: "saucelabs/sauce-connect:latest"
     restart: on-failure:2
     deploy:
-      replicas: 4
+      replicas: 2
+      restart_policy:
+        delay: 30s
+        max_attempts: 5
+        condition: on-failure
+        window: 60s
     environment:
       SAUCE_USERNAME: ${SAUCE_USERNAME}
       SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
       SAUCE_OUTPUT_FORMAT: "text"
-    command: "-i composed-docker-sc -r us-west"
-
-  sauce-connect-stdout:
-    restart: on-failure:2
-    image: "saucelabs/sauce-connect:latest"
-    container_name: "persistent-proxy2-stdout"
-    environment:
-      SAUCE_USERNAME: ${SAUCE_USERNAME}
-      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
-      SAUCE_OUTPUT_FORMAT: "text"
-    command: "-i persistent1-docker-sc -r eu-central -l - -v"
-
-volumes:
-  sc-logs:
-```
-
-## Running the Sauce Connect Proxy in two Regions
-
-In the `docker-compose.yaml` below you can see how to open two Sauce Connect proxies in two regions (that is, us-west-1 and eu-central-1), using the same account and user and making possible for both Sauce Labs regions to reach the example application under test (`mockserver` container).
-
-The primary takeaway is that the `container_name` value is essentially being used to resolve the application's IP address. (that is, you don't have to rely on localhost or changing the /etc/hosts file of your machine(s)).
-
-```yaml
-version: "3"
-services:
-  sauce-connect-eu:
-    image: "saucelabs/sauce-connect:latest"
-    environment:
-      SAUCE_USERNAME: ${SAUCE_USERNAME}
-      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
-      SAUCE_OUTPUT_FORMAT: "text"
-    command: "-i composed-docker-sc -r eu-central"
-
-  app-server:
-    image: "mock-server"
-    container_name: "mockserver"
-    ports:
-      - "3333:1080"
+    command: "-i us-pool -i docker-sc -r us-west --tunnel-pool"
 ```
 
 ## Additional Resources
