@@ -184,6 +184,22 @@ Tell Sauce Orchestrate what kind of entrypoint process you are running. `workloa
 ```yaml
 workload: webdriver
 ```
+---
+
+### `resourceProfile`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Sets the CPU and memory limits for the container. The format for specifying the limits is as follows: `<CPU><level><memory><level>`.
+
+The larger the level value, the higher the allocated CPU and memory resources. Available options are: `c1m1`, `c2m2`, and `c3m3`. The default value is set to `c1m1`.
+
+```yaml
+suites:
+  - name: "saucy test"
+    resourceProfile: c2m2
+```
+---
 
 ### `image`
 
