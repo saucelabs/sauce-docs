@@ -201,8 +201,6 @@ See also: _[non-functional testing](#non-functional-testing)_.
 
 A browser or browser simulation without a UI. It's considered by developers to be a lightweight and scalable option if you want to test and collect pass/fail data earlier in the development lifecycle. Available only for Chrome and Firefox.
 
-See also: _[sauce headless testing](#sauce-headless-testing)_.
-
 ### HTTP Client
 
 A Sauce Labs API Testing tool and workspace where you can:
@@ -403,10 +401,6 @@ The process of gracefully shutting down and decommissioning a Sauce Connect Prox
 ### saucectl
 
 The Sauce Labs framework agnostic test orchestrator CLI (command line interface). [saucectl](/dev/cli/saucectl).
-
-### Sauce Headless Testing
-
-An environment to execute tests against headless Chrome and Firefox on Linux containers, allowing developers to receive fast feedback on early pipeline component, sanity and pull request tests. Basic pass/fail data (screenshots, logs, and metadata) is provided to ensure that bugs are identified and fixed earlier in the development lifecycle. Considered a complementary solution to the Sauce Cross Browser Testing platform. More information: [Getting Started with Sauce Headless](/headless).
 
 ### Sauce Labs Access Key
 

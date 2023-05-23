@@ -642,6 +642,7 @@ module.exports = {
                         'sauce-basics',
                         'basics/quickstarts',
                         'basics/platform-configurator',
+                        'basics/data-center-endpoints',
                         'basics/environment-variables',
                         {
                             type: 'category',
@@ -725,15 +726,6 @@ module.exports = {
                             items: [
                                 'basics/test-config-annotation/test-config',
                                 'basics/test-config-annotation/test-annotation',
-                            ],
-                        },
-                        {
-                            type: 'category',
-                            label: 'Data Center Endpoints',
-                            collapsed: true,
-                            items: [
-                                'basics/data-center-endpoints',
-                                'basics/data-center-endpoints/aust-early-access',
                             ],
                         },
                         {
@@ -903,6 +895,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'mobile-apps/live-testing/live-mobile-app-testing',
+                        'mobile-apps/live-testing/testing-push-notifications',
                         'mobile-apps/live-testing/testing-apple-pay',
                     ],
                 },
@@ -1183,12 +1176,7 @@ module.exports = {
                 'performance/analyze',
             ],
         },
-        {
-            type: 'category',
-            label: 'Headless',
-            collapsed: true,
-            items: ['headless'],
-        },
+
         {
             type: 'category',
             label: 'Visual',
