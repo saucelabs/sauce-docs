@@ -128,7 +128,7 @@ done
 echo "SC ready"
 ```
 
-1. Run Sauce Connect Docker container using the script below. It is important that you mount a temp folder (that is, `-v /tmp:/tmp`) so that `wait-for-sc.sh` can detect when Sauce Connect is ready.
+1. Run Sauce Connect Docker container using the script below. You must mount a temporary folder (`-v /tmp:/tmp`) so that `wait-for-sc.sh` can detect when Sauce Connect is ready.
 
 ```bash
 $ docker run \
