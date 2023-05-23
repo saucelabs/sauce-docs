@@ -29,7 +29,7 @@ const docusaurusConfig = {
     themeConfig: {
         announcementBar: {
             id: 'site_announcement', // Any value that will identify this message.
-            content: `<a target="_blank" rel="noopener noreferrer" href="https://saucelabs.com/resources/community/slack">\n + Have a question? Join our <img alt="slack.png" src="/img/slack.png" width="17" height="17" /> Slack Community Workspace!</a>`,
+            content: `<a target="_blank" rel="noopener noreferrer" href="https://saucelabs.com/resources/community/slack"><img alt="slack.png" src="/img/slack.png" width="17" height="17" /> Have a question? Join us on Slack!</a>`,
             backgroundColor: '#ffcd47', // Defaults to `#fff`.
             textColor: '#000000', // Defaults to `#000`.
             isCloseable: true, // Defaults to `true`.
