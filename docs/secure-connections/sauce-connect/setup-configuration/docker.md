@@ -46,7 +46,7 @@ docker run \
 If desired, you can specify any additional [SC CLI arguments](/dev/cli/sauce-connect-proxy/).
 
 :::note
-The example above uses `--network="host"` docker option to allow Sauce Connect in the Docker container to access your local services in the host machine. This option does not work on MacOS and Windows. See [Connect from a container to a service on the macOS host](https://docs.docker.com/desktop/networking/#use-cases-and-workarounds)for more details.
+The example above uses `--network="host"` docker option to allow Sauce Connect in the Docker container to access your local services in the host machine. This option does not work on MacOS and Windows. See [Connect from a container to a service on the macOS host](https://docs.docker.com/desktop/networking/#use-cases-and-workarounds) for more details.
 :::
 
 ## Configuring Sauce Connect Proxy Using Environment Variables
