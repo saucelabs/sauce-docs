@@ -34,7 +34,7 @@ Set up Bitbucket Pipelines to upload your build artifacts (IPA or APK) directly 
 
 **NOTE:** Do not forget to replace `MyApplicationFile.apk` with path to your APK or IPA files.
 
-Additional optional parameters such as `testers-groups`, `notify` and `comment` can be added to this line. Please refer to the [TestFairy Upload API reference guide](/test-fairy/api-reference/upload-api) for more information and examples.
+Additional optional parameters such as `testers-groups`, `notify` and `comment` can be added to this line. Please refer to the [Upload API reference guide](/test-fairy/api-reference/upload-api) for more information and examples.
 
 Here, for example, is a screenshot of a sample `bitbucket-pipelines.yml` file:
 
