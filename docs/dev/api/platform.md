@@ -82,7 +82,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Supported Platforms
 
-<details><summary><span className="api get">GET</span> <code>rest/v1/info/platforms/&#123;automation_api&#125;/</code></summary>
+<details><summary><span className="api get">GET</span> <code>rest/v1/info/platforms/&#123;automation_api&#125;</code></summary>
 <p/>
 
 Returns the set of supported operating system and browser combinations for the specified automation framework.
