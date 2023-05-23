@@ -1,5 +1,5 @@
 ---
-id:log-network  
+id: log-network  
 title: Log Network
 sidebar_label: Log Network
 ---
