@@ -10,4 +10,4 @@ import TabItem from '@theme/TabItem';
 
 /Integrations/Coralogix.html
 
-https://github.com/testfairy/docs/blob/master/docs/052_Integrations/600_Centercode.md
+https://github.com/testfairy/docs/blob/master/docs/052_Integrations/700_Coralogix.md
