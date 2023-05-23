@@ -642,6 +642,7 @@ module.exports = {
                         'sauce-basics',
                         'basics/quickstarts',
                         'basics/platform-configurator',
+                        'basics/data-center-endpoints',
                         'basics/environment-variables',
                         {
                             type: 'category',
@@ -691,6 +692,7 @@ module.exports = {
                             items: [
                                 'basics/sso/setting-up-sso',
                                 'basics/sso/setting-up-sso-special-cases',
+                                'basics/sso/migration-from-deprecated-sso',
                                 {
                                     type: 'category',
                                     label: 'Configuring Identity Providers',
@@ -699,7 +701,6 @@ module.exports = {
                                         'basics/sso/configuring-sso-in-auth0',
                                         'basics/sso/configuring-sso-in-google',
                                         'basics/sso/configuring-sso-in-ms-azure-ad',
-                                        'basics/sso/configuring-sso-in-okta',
                                         'basics/sso/configuring-sso-in-onelogin',
                                     ],
                                 },
@@ -713,6 +714,7 @@ module.exports = {
                             items: [
                                 'basics/sso-deprecated/sso-hub',
                                 'basics/sso-deprecated/setting-up-single-sign-on',
+                                'basics/sso/migration-from-deprecated-sso',
                                 'basics/sso-deprecated/config-adfs',
                                 'basics/sso-deprecated/config-okta',
                             ],
@@ -724,15 +726,6 @@ module.exports = {
                             items: [
                                 'basics/test-config-annotation/test-config',
                                 'basics/test-config-annotation/test-annotation',
-                            ],
-                        },
-                        {
-                            type: 'category',
-                            label: 'Data Center Endpoints',
-                            collapsed: true,
-                            items: [
-                                'basics/data-center-endpoints',
-                                'basics/data-center-endpoints/aust-early-access',
                             ],
                         },
                         {
@@ -843,6 +836,8 @@ module.exports = {
             items: [
                 'orchestrate',
                 'orchestrate/getting-started',
+                'orchestrate/quickstart-playwright',
+                'orchestrate/quickstart-webdriverio',
                 'orchestrate/saucectl-configuration',
                 'orchestrate/building-images',
                 'orchestrate/authenticated-pulls',
@@ -900,6 +895,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'mobile-apps/live-testing/live-mobile-app-testing',
+                        'mobile-apps/live-testing/testing-push-notifications',
                         'mobile-apps/live-testing/testing-apple-pay',
                     ],
                 },
@@ -1115,7 +1111,6 @@ module.exports = {
                         'api-testing/use-cases/auth-token',
                         'api-testing/use-cases/dynamic-dates',
                         'api-testing/use-cases/generate-test-data',
-                        'api-testing/use-cases/vault-variable',
                         'api-testing/use-cases/fact',
                         'api-testing/use-cases/vault-variable',
                         'api-testing/use-cases/saving-token-kv',
@@ -1181,12 +1176,7 @@ module.exports = {
                 'performance/analyze',
             ],
         },
-        {
-            type: 'category',
-            label: 'Headless',
-            collapsed: true,
-            items: ['headless'],
-        },
+
         {
             type: 'category',
             label: 'Visual',

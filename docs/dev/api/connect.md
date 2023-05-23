@@ -60,7 +60,6 @@ values={[
 {label: 'US-West', value: 'US-West'},
 {label: 'US-East', value: 'US-East'},
 {label: 'EU-Central', value: 'EU-Central'},
-{label: 'APAC-Southeast', value: 'APAC-Southeast'},
 ]}>
 
 <TabItem value="US-West">
@@ -86,15 +85,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels' \
---header 'Content-Type: application/json' | json_pp
-```
-
-</TabItem>
-<TabItem value="APAC-Southeast">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.apac-southeast1.saucelabs.com/rest/v1/jim.smith/tunnels' \
 --header 'Content-Type: application/json' | json_pp
 ```
 
@@ -199,7 +189,6 @@ values={[
 {label: 'US-West', value: 'US-West'},
 {label: 'US-East', value: 'US-East'},
 {label: 'EU-Central', value: 'EU-Central'},
-{label: 'APAC-Southeast', value: 'APAC-Southeast'},
 ]}>
 
 <TabItem value="US-West">
@@ -225,15 +214,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
---header 'Content-Type: application/json' | json_pp
-```
-
-</TabItem>
-<TabItem value="APAC-Southeast">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.apac-southeast1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
 --header 'Content-Type: application/json' | json_pp
 ```
 
@@ -320,7 +300,6 @@ values={[
 {label: 'US-West', value: 'US-West'},
 {label: 'US-East', value: 'US-East'},
 {label: 'EU-Central', value: 'EU-Central'},
-{label: 'APAC-Southeast', value: 'APAC-Southeast'},
 ]}>
 
 <TabItem value="US-West">
@@ -344,14 +323,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/public/tunnels/info/versions' | json_pp
-```
-
-</TabItem>
-<TabItem value="APAC-Southeast">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.apac-southeast1.saucelabs.com/rest/v1/public/tunnels/info/versions' | json_pp
 ```
 
 </TabItem>
@@ -405,76 +376,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Response to the request with an optional parameter all=true"
 {
    "all_downloads" : {
-      "4.6.1" : {
-         "linux" : {
-            "download_url" : "https://saucelabs.com/downloads/sc-4.6.1-linux.tar.gz",
-            "sha1" : "<hash>"
-         },
-         "osx" : {
-            "download_url" : "https://saucelabs.com/downloads/sc-4.6.1-osx.zip",
-            "sha1" : "<hash>"
-         },
-         "win32" : {
-            "download_url" : "https://saucelabs.com/downloads/sc-4.6.1-win32.zip",
-            "sha1" : "<hash>"
-         }
-      },
-      "4.6.2" : {
-         "linux" : {
-            "download_url" : "https://saucelabs.com/downloads/sc-4.6.2-linux.tar.gz",
-            "sha1" : "<hash>"
-         },
-         "osx" : {
-            "download_url" : "https://saucelabs.com/downloads/sc-4.6.2-osx.zip",
-            "sha1" : "<hash>"
-         },
-         "win32" : {
-            "download_url" : "https://saucelabs.com/downloads/sc-4.6.2-win32.zip",
-            "sha1" : "<hash>"
-         }
-      },
-      "4.6.3" : {
-         "linux" : {
-            "download_url" : "https://saucelabs.com/downloads/sc-4.6.3-linux.tar.gz",
-            "sha1" : "<hash>"
-         },
-         "osx" : {
-            "download_url" : "https://saucelabs.com/downloads/sc-4.6.3-osx.zip",
-            "sha1" : "<hash>"
-         },
-         "win32" : {
-            "download_url" : "https://saucelabs.com/downloads/sc-4.6.3-win32.zip",
-            "sha1" : "<hash>"
-         }
-      },
-      "4.6.4" : {
-         "linux" : {
-            "download_url" : "https://saucelabs.com/downloads/sc-4.6.4-linux.tar.gz",
-            "sha1" : "<hash>"
-         },
-         "osx" : {
-            "download_url" : "https://saucelabs.com/downloads/sc-4.6.4-osx.zip",
-            "sha1" : "<hash>"
-         },
-         "win32" : {
-            "download_url" : "https://saucelabs.com/downloads/sc-4.6.4-win32.zip",
-            "sha1" : "<hash>"
-         }
-      },
-      "4.6.5" : {
-         "linux" : {
-            "download_url" : "https://saucelabs.com/downloads/sc-4.6.5-linux.tar.gz",
-            "sha1" : "<hash>"
-         },
-         "osx" : {
-            "download_url" : "https://saucelabs.com/downloads/sc-4.6.5-osx.zip",
-            "sha1" : "<hash>"
-         },
-         "win32" : {
-            "download_url" : "https://saucelabs.com/downloads/sc-4.6.5-win32.zip",
-            "sha1" : "<hash>"
-         }
-      },
       "4.7.0" : {
          "linux" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.7.0-linux.tar.gz",
@@ -554,6 +455,24 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
          },
          "win32" : {
             "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-win32.zip",
+            "sha1" : "<hash>"
+         }
+      },
+      "4.9.0" : {
+         "linux" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-linux.tar.gz",
+            "sha1" : "<hash>"
+         },
+         "linux-arm64" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-linux-arm64.tar.gz",
+            "sha1" : "<hash>"
+         },
+         "osx" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-osx.zip",
+            "sha1" : "<hash>"
+         },
+         "win32" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-win32.zip",
             "sha1" : "<hash>"
          }
       }
@@ -677,7 +596,6 @@ values={[
 {label: 'US-West', value: 'US-West'},
 {label: 'US-East', value: 'US-East'},
 {label: 'EU-Central', value: 'EU-Central'},
-{label: 'APAC-Southeast', value: 'APAC-Southeast'},
 ]}>
 
 <TabItem value="US-West">
@@ -703,15 +621,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8/num_jobs' \
---header 'Content-Type: application/json' | json_pp
-```
-
-</TabItem>
-<TabItem value="APAC-Southeast">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.apac-southeast1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8/num_jobs' \
 --header 'Content-Type: application/json' | json_pp
 ```
 
@@ -777,7 +686,6 @@ values={[
 {label: 'US-West', value: 'US-West'},
 {label: 'US-East', value: 'US-East'},
 {label: 'EU-Central', value: 'EU-Central'},
-{label: 'APAC-Southeast', value: 'APAC-Southeast'},
 ]}>
 
 <TabItem value="US-West">
@@ -803,15 +711,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
---header 'Content-Type: application/json' | json_pp
-```
-
-</TabItem>
-<TabItem value="APAC-Southeast">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.apac-southeast1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
 --header 'Content-Type: application/json' | json_pp
 ```
 

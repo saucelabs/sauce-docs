@@ -239,23 +239,9 @@ Both of these configurations will only work for browsers logged in using your ac
 https://app.saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
 ```
 
-### Embedding Pages for EU DC and Headless DC
+### Embedding Pages for EU DC
 
 To embed the page for EU DC test, you need to use the `app.eu-central-1.saucelabs.com` domain.
-
-```js
-https://app.[eu-central-1|us-east-1].saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
-```
-
-```js
-https://app.saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
-```
-
-### Embedding Pages for EU DC and Headless DC
-
-```js
-https://app.saucelabs.com/job-embed/YOUR_JOB_ID.js
-```
 
 ```js
 https://app.[eu-central-1|us-east-1].saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN

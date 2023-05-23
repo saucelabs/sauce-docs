@@ -1,7 +1,7 @@
 ---
 id: getting-started
-title: Getting Started
-sidebar_label: Getting Started
+title: Getting Started with Orchestrate
+sidebar_label: Getting Started with Orchestrate
 ---
 
 import Tabs from '@theme/Tabs';
@@ -55,7 +55,7 @@ With this Dockerfile created you can now tell Docker to build it.
 
 ```
 # execute this command within the root of your project
-docker build [docker_user]/demo-java-orchestrate-tutorial:0.0.1 .
+docker build -t [docker_user]/demo-java-orchestrate-tutorial:0.0.1 .
 ```
 
 :::note
@@ -97,11 +97,11 @@ suites:
     - "/workdir/best-practice/target/surefire-reports/*"
 
 artifacts:
-download:
-  when: always
-  match:
-    - "*"
-  directory: ./artifacts
+  download:
+    when: always
+    match:
+      - "*"
+    directory: ./artifacts
 ```
 
 The most important configuration options to take note of are the `image` and `entrypoint`. These tell Sauce Orchestrate the location of your image and which command should be used to run your tests respectively. For more information about the `saucectl` configuration options see [saucectl Configuration](/orchestrate/saucectl-configuration/).
