@@ -607,7 +607,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 Stops a running job described by the `job_id`.
 
 :::note
-Only Appium jobs can be stopped while they are actively running.
+This API can be used to stop actively running Appium, Espresso and XCUITest jobs.
 :::
 
 #### Parameters
