@@ -53,7 +53,7 @@ The example above uses `--network="host"` docker option to allow Sauce Connect i
 
 It is convenient to configure Sauce Connect Proxy Docker via [environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/#command-line-options-environment-variables) when it is used as a Gitlab service or [GitHub Action](https://github.com/saucelabs/sauce-connect-action).
 
-Below an example on how to configure Sauce Connect Proxy using environment variables. Note that the example uses 4.8.x specific options that could not work with the previous versions.
+Below is an example of configuring Sauce Connect Proxy using environment variables. The example uses 4.8.x specific options that could not work with the previous versions.
 
 ```bash
 $ cat /tmp/sc.env
@@ -161,7 +161,7 @@ The `docker-compose.yaml` file below shows how to run Sauce Connect Docker in th
 
 The Sauce Connect Proxy sits adjacent to the `nginx:latest` instance: you can reach the nginx service from Sauce Labs by going to nginx (if you run it as is). You can also provide a name to the container with [container_name](https://docs.docker.com/compose/compose-file/compose-file-v3/#container_name).
 
-`container_name: mockserver` would be reachable from any app or website that tried to hit mockserver via HTTP: this is due to the nature of [how docker resolves container names](https://docs.docker.com/config/containers/container-networking/#:~:text=In%20the%20same,on%20that%20network) for any valid entries on that docker network.
+`container_name: mockserver` is reachable from any app or website that tried to hit mockserver via HTTP: this is due to the nature of [how docker resolves container names](https://docs.docker.com/config/containers/container-networking/#:~:text=In%20the%20same,on%20that%20network) for any valid entries on that docker network.
 
 ```yaml
 version: "3"
