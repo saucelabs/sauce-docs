@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Streamline your build process and upload APKs or IPAs directly to TestFairy.
 
-## Usage
+### Usage
 
 [Command line uploader](https://github.com/testfairy/command-line-uploader/blob/master/testfairy-uploader.sh)
 
@@ -40,47 +40,107 @@ Travis CI https://docs.testfairy.com/Continuous_Integration/Travis_CI.html
 
 [Lumberyard](/test-fairy/platforms/lumberyard)
 
-## Method
+### Upload API
 
-`POST https://upload.testfairy.com/api/upload/`
+<details><summary><span className="api post">POST</span><code>https://upload.testfairy.com/api/upload/</code></summary>
+<p></p>
 
-### Parameters
+#### Parameters
 
-| Name                | Required? | Description                                                                                                                                                                                                                                                                                     |
-| :------------------ | :-------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| api_key             | Required  | Your API application key. See https://app.testfairy.com/settings for details.                                                                                                                                                                                                                   |
-| file                | Required  | APK (Android), AAB (Android App Bundle), IPA (iOS) or ZIP (MacOS) file data.                                                                                                                                                                                                                    |
-| symbols_file        | Optional  | Symbols mapping file. For iOS this should be a path to the **zipped** symbols file. For Android, this is the path to the mappings.txt file                                                                                                                                                      |
-| groups              | Optional  | Comma-separated list of tester groups that will get permission to download this app.                                                                                                                                                                                                            |
-| notify              | Optional  | Send email to all users in 'groups'. Can be "on" or "off". Default is "off".                                                                                                                                                                                                                    |
-| release_notes       | Optional  | Release notes for this upload. This text will be added to emails and landing pages.                                                                                                                                                                                                             |
-| auto_update         | Optional  | Allows an easy upgrade of all users to the current version. Can be "on" or "off". Default is "off".                                                                                                                                                                                             |
-| tags                | Optional  | Set of comma-separated tags to be displayed and search upon.                                                                                                                                                                                                                                    |
-| folder_name         | Optional  | Name of the dashboard folder that will contain this app.                                                                                                                                                                                                                                        |
-| landing_page_mode   | Optional  | Landing page mode. Can be "open" or "closed". Default is "open".                                                                                                                                                                                                                                |
-| upload_to_saucelabs | Optional  | Upload file directly to Sauce Labs. Can be "on" or "off". Default is "off".                                                                                                                                                                                                                     |
-| platform            | Optional  | In case app is not iOS or Android, which are detected automatically, use this to mark an app for specific desktop or console platforms. Values can be "xbox", "playstation", "switch", "windows", "macos". This feature is not enabled by default, please contact support for more information. |
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>api_key</code></td>
+     <td><p><small>| REQUIRED |</small></p><p>Your API application key. See https://app.testfairy.com/settings for details.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>file</code></td>
+     <td><p><small>| REQUIRED |</small></p><p>APK (Android), AAB (Android App Bundle), IPA (iOS) or ZIP (MacOS) file data.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>symbols_file</code></td>
+     <td><p><small>| OPTIONAL |</small></p><p>Symbols mapping file. For iOS this should be a path to the <strong>zipped</strong> symbols file. For Android, this is the path to the mappings.txt file</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>groups</code></td>
+     <td><p><small>| OPTIONAL |</small></p><p>Comma-separated list of tester groups that will get permission to download this app.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>notify</code></td>
+     <td><p><small>| OPTIONAL |</small></p><p>Send email to all users in 'groups'. Can be "on" or "off". Default is "off".</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>release_notes</code></td>
+     <td><p><small>| OPTIONAL |</small></p><p>Release notes for this upload. This text will be added to emails and landing pages.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>auto_update</code></td>
+     <td><p><small>| OPTIONAL |</small></p><p>Allows an easy upgrade of all users to the current version. Can be "on" or "off". Default is "off".</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tags</code></td>
+     <td><p><small>| OPTIONAL |</small></p><p>Set of comma-separated tags to be displayed and search upon.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>folder_name</code></td>
+     <td><p><small>| OPTIONAL |</small></p><p>Name of the dashboard folder that will contain this app</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>landing_page_mode</code></td>
+     <td><p><small>| OPTIONAL |</small></p><p>Landing page mode. Can be "open" or "closed". Default is "open".</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>upload_to_saucelabs</code></td>
+     <td><p><small>| OPTIONAL |</small></p><p>Upload file directly to Sauce Labs. Can be "on" or "off". Default is "off".</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>platform</code></td>
+     <td><p><small>| OPTIONAL |</small></p><p>In case app is not iOS or Android, which are detected automatically, use this to mark an app for specific desktop or console platforms. Values can be "xbox", "playstation", "switch", "windows", "macos". This feature is not enabled by default, please contact support for more information.</p></td>
+    </tr>
+  </tbody>
+</table>
 
-### Error Codes
+<Tabs
+groupId="params"
+defaultValue="required"
+values={[
+{label: 'Required Params', value: 'required'},
+{label: 'Optional Params', value: 'optional'},
+]}>
 
-In the case of an error, TestFairy will return a JSON with `status` => `fail` and `code` with one of the values
-listed below. An additional human-readable error message is supplied to detail the cause of the specific error.
+<TabItem value="required">
 
-| Error Code | Reason                     |
-| ---------: | :------------------------- |
-|          1 | Parameter 'xxx' is missing |
-|          5 | Invalid API key            |
-|        105 | Invalid file               |
-
-#### Example 1: (CURL)
-
-```bash
+```bash title="Sample Request with Required Params"
 curl https://upload.testfairy.com/api/upload -F api_key='your_api_key' -F file=@sample.apk
 ```
 
-#### Example 2:
+</TabItem>
 
-```bash
+<TabItem value="optional">
+
+```bash title="Sample Request with Optional Params"
 curl https://upload.testfairy.com/api/upload \
 	-F api_key='your_api_key' \
 	-F file=@sample.apk \
@@ -91,9 +151,42 @@ curl https://upload.testfairy.com/api/upload \
 	-F tags='production, english'
 ```
 
-#### Example Response:
+</TabItem>
+</Tabs>
 
-```bash
+#### Responses
+
+In the case of an error, TestFairy will return a JSON with `status` => `fail` and `code` with one of the values listed below. An additional human-readable error message is supplied to detail the cause of the specific error.
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td><code>1</code></td>
+			<td colSpan='2'>Parameter 'xxx' is missing.</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td><code>5</code></td>
+			<td colSpan='2'>Invalid API key.</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td><code>105</code></td>
+			<td colSpan='2'>Invalid file.</td>
+		</tr>
+	</tbody>
+	
+</table>
+
+```json title="Sample Response"
 {
 	"status": "ok",
 	"app_name": "Jigsaw Puzzlers",
@@ -103,19 +196,21 @@ curl https://upload.testfairy.com/api/upload \
 }
 ```
 
-## Where can I find my API Key?
+</details>
+
+### Where can I find my API Key?
 
 In order to get your API KEY, open your account preferences at https://app.testfairy.com/settings/ and click on **Upload API Key**.
 
-## How can I create a new API Key?
+### How can I create a new API Key?
 
 In order to create a new API KEY just click on **Regenerate API Key** in your account preferences page.
 
-## Why is my API Key empty?
+### Why is my API Key empty?
 
 In cases where we identify that your API KEY was used by mistake to initialize the SDK instead of using your APP TOKEN, we automatically reset the API KEY in order to protect your privacy. In this case, please change the SDK initialization to use the APP TOKEN and create a new API KEY.
 
-## Can I add custom metadata?
+### Can I add custom metadata?
 
 Yes. Any POST parameter that its name is prefixed with "metadata." will be considered custom data and stored along with the upload. For example, consider this command:
 

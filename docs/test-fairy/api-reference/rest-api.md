@@ -24,751 +24,844 @@ In the example above, you can see that our user is `john@example.com` and the AP
 
 **Your API key is private**, please do not share it or post it on public code repositories or forums. To find your API key, please refer to [your preferences page](https://app.testfairy.com/settings).
 
-<!--
-<a name="projects"></a>
-#### [api/1/projects](#)
+## Projects
 
-<div class="method">
-	<span>
-		<button class="expand">▶</button> Get all projects
-	</span>
-	<code>GET /api/1/projects/</code>
-</div>
-<div class="method-description hidden">
-	Returns a list of all projects (iOS and Android apps) in this account.<br />
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
+### Get All Projects
+
+<details><summary><span className="api get">GET</span><code>/api/1/projects/</code></summary>
+<p></p>
+
+Returns a list of all projects (iOS and Android apps) in this account.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
 {
-	"status": "ok",
-	"projects": [
-		{
-			"id": "19-groupshot",
-			"self": "/projects/19-groupshot",
-			"name":"GroupShot",
-			"packageName":"com.groupshot",
-			"platform":"Android",
-			"icon":"[URL TO APP ICON]"
-		}
-	]
-}</pre>
-</div>
-
-<hr />
-
-<a name="builds"></a>
-#### [api/1/projects/{project-id}/builds/](#)
-
-<div class="method">
-	<span>
-		<button class="expand">▶</button> Get all builds in a project
-	</span>
-	<code>GET /api/1/projects/{project-id}/builds/</code>
-</div>
-<div class="method-description hidden">
-	Get all builds in a specific project. Each build is a distinct version that was either uploaded, or created by the TestFairy SDK.<br />
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
-{
-	"status": "ok",
-	"builds": [
-		{
-			"id":8830728,
-			"self":"/projects/6806100-myapplication/builds/8830728",
-			"projectId":"6806100",
-			"appName":"My Application",
-			"appVersion":"DemoApp",
-			"appVersionCode":"20",
-			"appDisplayName":"My Application - DemoApp (20)",
-			"iconUrl":"[APP ICON URL]",
-			"appUrl":"[URL TO APK OR IPA FILE]",
-			"sessions":6,
-			"crashes":0,
-			"testers":0,
-			"feedbacks":0,
-			"downloads":1,
-			"uploadedAt":"2019-04-04 16:03:15",
-			"uploadedVia":"[UPLOAD DETAILS]",
-			"hasTestFairySdk":true,
-			"insightsEnabled":true,
-			"videoEnabled":true
-		}
-	]
+    "status": "ok",
+    "projects": [
+        {
+            "id": "19-groupshot",
+            "self": "/projects/19-groupshot",
+            "name":"GroupShot",
+            "packageName":"com.groupshot",
+            "platform":"Android",
+            "icon":"[URL TO APP ICON]"
+        }
+    ]
 }
-</pre>
-</div>
+```
 
-<hr />
+</details>
 
-#### [api/1/projects/{project-id}/builds/{build-id}](#)
+## Builds
 
-<div class="method">
-	<span>
-		<button class="expand">▶</button> Get metadata for a specific build
-	</span>
-	<code>GET /api/1/projects/{project-id}/builds/{build-id}</code>
-</div>
-<div class="method-description hidden">
-	Get a specific build of a specific project. Query the /api/1/projects/{project-id} API for a list of available builds.<br />
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
+### Get All Builds in a Project
+
+<details><summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/</code></summary>
+<p></p>
+
+Get all builds in a specific project. Each build is a distinct version that was either uploaded, or created by the TestFairy SDK.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
 {
-	"status": "ok",
-	"build": {
-		"id":8830728,
-		"self":"/projects/6806100-myapplication/builds/8830728",
-		"projectId":"6806100",
-		"appName":"My Application",
-		"appVersion":"DemoApp",
-		"appVersionCode":"20",
-		"appDisplayName":"My Application - DemoApp (20)",
-		"iconUrl":"[APP ICON URL]",
-		"appUrl":"[URL TO APK OR IPA FILE]",
-		"sessions":6,
-		"crashes":0,
-		"testers":0,
-		"feedbacks":0,
-		"downloads":1,
-		"uploadedAt":"2019-04-04 16:03:15",
-		"uploadedVia":"[UPLOAD DETAILS]",
-		"hasTestFairySdk":true,
-		"insightsEnabled":true,
-		"videoEnabled":true
-	}
+    "status": "ok",
+    "builds": [
+        {
+            "id":8830728,
+            "self":"/projects/6806100-myapplication/builds/8830728",
+            "projectId":"6806100",
+            "appName":"My Application",
+            "appVersion":"DemoApp",
+            "appVersionCode":"20",
+            "appDisplayName":"My Application - DemoApp (20)",
+            "iconUrl":"[APP ICON URL]",
+            "appUrl":"[URL TO APK OR IPA FILE]",
+            "sessions":6,
+            "crashes":0,
+            "testers":0,
+            "feedbacks":0,
+            "downloads":1,
+            "uploadedAt":"2019-04-04 16:03:15",
+            "uploadedVia":"[UPLOAD DETAILS]",
+            "hasTestFairySdk":true,
+            "insightsEnabled":true,
+            "videoEnabled":true
+        }
+    ]
 }
-</pre>
-</div>
+```
 
-<div class="method">
-	<span>
-		<button class="expand">▶</button> Delete a specific build.
-	</span>
-	<code>DELETE /api/1/projects/{project-id}/builds/{build-id}</code>
-</div>
-<div class="method-description hidden">
-	Delete a specific build. When all builds of a project have been deleted, the project itself is removed from /api/1/projects API.<br />
-	When deleting a build, all of its artifacts (IPA/APK files), recorded sessions and crashes are also deleted. <br />
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
+</details>
+
+---
+
+### Get Metadata for a Specific Build
+
+<details><summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;</code></summary>
+<p></p>
+
+Get a specific build of a specific project. Query the /api/1/projects/&#123;project-id&#125; API for a list of available builds.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
 {
-	"status": "ok"
+    "status": "ok",
+    "build": {
+        "id":8830728,
+        "self":"/projects/6806100-myapplication/builds/8830728",
+        "projectId":"6806100",
+        "appName":"My Application",
+        "appVersion":"DemoApp",
+        "appVersionCode":"20",
+        "appDisplayName":"My Application - DemoApp (20)",
+        "iconUrl":"[APP ICON URL]",
+        "appUrl":"[URL TO APK OR IPA FILE]",
+        "sessions":6,
+        "crashes":0,
+        "testers":0,
+        "feedbacks":0,
+        "downloads":1,
+        "uploadedAt":"2019-04-04 16:03:15",
+        "uploadedVia":"[UPLOAD DETAILS]",
+        "hasTestFairySdk":true,
+        "insightsEnabled":true,
+        "videoEnabled":true
+    }
 }
-</pre>
-</div>
+```
 
-<hr />
+</details>
 
-<a name="download build"></a>
-#### [api/1/projects/{project-id}/builds/{build-id}/download/](#)
+---
 
-<div class="method">
-	<span>
-		<button class="expand">▶</button> Download the uploaded artifact
-	</span>
-	<code>GET /api/1/projects/{project-id}/builds/{build-id}/download/</code>
-</div>
-<div class="method-description hidden">
-	Downloads the binary file uploaded to TestFairy
-</div>
+### Delete a Specific Build
 
-<hr />
+<details><summary><span className="api delete">DELETE</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;</code></summary>
+<p></p>
 
-<a name="sessions"></a>
-#### [api/1/projects/{project-id}/builds/{build-id}/sessions/](#)
+Delete a specific build. When all builds of a project have been deleted, the project itself is removed from /api/1/projects API. When deleting a build, all of its artifcats (IPA/APK files), recorded sessions and crashes are also deleted.
 
-<div class="method">
-	<span>
-		<button class="expand">▶</button> List all recorded sessions in build
-	</span>
-	<code>GET /api/1/projects/{project-id}/builds/{build-id}/sessions/</code>
-</div>
-<div class="method-description hidden">
-	Get metadata for all sessions recorded for a specific build.<br />
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
 {
-	"status": "ok",
-	"sessions": [
-		{
-			"id": 1,
-			"self": "/projects/2197059-demoapp/builds/4867553/sessions/1",
-			"startTime": "2017-01-22 16:42:40",
-			"duration": "15:01",
-			"testerEmail": "john@testfairy.com",
-			"device": "Samsung - Samsung Galaxy S8",
-			"ipAddress": "23.100.122.175",
-			"crashed": false,
-			"countryName": "United States",
-			"countryCode": "us"
-		}
-	]
+    "status": "ok"
 }
+```
 
+</details>
 
-</pre>
-</div>
+---
 
-<hr />
+### Download the Uploaded Artifact
 
-#### [api/1/projects/{project-id}/builds/{build-id}/sessions/{session-id}/](#)
+<details><summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/download/</code></summary>
+<p></p>
 
-<div class="method">
-	<span>
-		<button class="expand">▶</button> Get session data, events and logs
-	</span>
-	<code>GET /api/1/projects/{project-id}/builds/{build-id}/sessions/{session-id}/</code>
-</div>
-<div class="method-description hidden">
-	Get metadata (and optionally data) for a specific session.<br />
+Downloads the binary file uploaded to TestFairy.
 
-	<table>
-	<tr>
-		<th style="width: 160px;"><b>parameter</b></th>
-		<th style="width: 100px;"><b>type</b></th>
-		<th><b>description</b></th>
-	</tr>
-	<tr>
-		<td>fields</td>
-		<td><em>string</em></td>
-		<td>
-			Possible values: "meta", "logs", "events"<br />
-			Default value: "meta" <br/>
-			Use "events" to load all events, screenshots, touches and other metrices. Use "logs" to fetch
-			only logs. When loading logs, response will be application/text.
-		</td>
-	</tr>
-	</table>
+#### Responses
 
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+</details>
+
+---
+
+### List All Recorded Sessions in Build
+
+<details><summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/sessions/</code></summary>
+<p></p>
+
+Get metadata for all sessions recorded for a specific build.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
 {
-	"status": "ok",
-	"session": {
-		"id":4426273741,
-		"sessionStartTime":"2019-05-20 09:05:30",
-		"duration":"00:27",
-		"testerEmail":"blabla@ex.com",
-		"device":"Xiaomi - Redmi S2",
-		"ipAddress":"84.94.200.136",
-		"crashed":false,
-		"identity":{
-			"correlationId":"blabla@ex.com",
-			"attr3":"three",
-			"attr4":"four",
-			"attr1":"High",
-			"attr2":"1.0",
-			"attr5":"Version 1.0"
-	}
+    "status": "ok",
+    "sessions": [
+        {
+            "id": 1,
+            "self": "/projects/2197059-demoapp/builds/4867553/sessions/1",
+            "startTime": "2017-01-22 16:42:40",
+            "duration": "15:01",
+            "testerEmail": "john@testfairy.com",
+            "device": "Samsung - Samsung Galaxy S8",
+            "ipAddress": "23.100.122.175",
+            "crashed": false,
+            "countryName": "United States",
+            "countryCode": "us"
+        }
+    ]
 }
-</pre>
-</div>
+```
 
-<hr />
+</details>
 
-<a name="testers"></a>
-#### [api/1/testers/](#)
+---
 
-<div class="method">
-	<span>
-		<button class="expand">▶</button> List all testers
-	</span>
-	<code>GET /api/1/testers/</code>
-</div>
-<div class="method-description hidden">
-	List all testers in this account.<br />
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
+### Get Session Data, Events and Logs
+
+<details><summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/sessions/&#123;session-id&#125;</code></summary>
+<p></p>
+
+Get metadata (and optionally data) for a specific session.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+   <tr>
+    <td><code>fields</code></td>
+    <td><p><small>| OPTIONAL | STRING |</small></p><p>Possible values: <code>meta</code>, <code>logs</code>, <code>events</code>. Default value is <code>meta</code>. Use <code>events</code> to load all events, screenshots, touches and other metrices. Use <code>logs</code> to fetch only logs. When loading logs, response will be application/text.</p></td>
+  </tr>
+</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
 {
-	"status": "ok",
-	"testers": [
-		{
-			"email":"james@example.com",
-			"groups":[{
-				id: 100,
-				name: "friends"
-			}]
-		},
-		{
-			"email":"alice@testfairy.com",
-			"groups":[{
-				id: 100,
-				name: "friends"
-			}, {
-				id: 200,
-				name: "family"
-			}]
-		}
-	]
+    "status": "ok",
+    "session": {
+        "id":4426273741,
+        "sessionStartTime":"2019-05-20 09:05:30",
+        "duration":"00:27",
+        "testerEmail":"blabla@ex.com",
+        "device":"Xiaomi - Redmi S2",
+        "ipAddress":"84.94.200.136",
+        "crashed":false,
+        "identity":{
+            "correlationId":"blabla@ex.com",
+            "attr3":"three",
+            "attr4":"four",
+            "attr1":"High",
+            "attr2":"1.0",
+            "attr5":"Version 1.0"
+    }
 }
-</pre>
-</div>
+```
 
-<div class="method">
-	<span>
-		<button class="expand">▶</button> Add a new tester
-	</span>
-	<code>POST /api/1/testers/</code>
-</div>
-<div class="method-description hidden">
-	Add a new tester to account. Optionally can add them to a group.<br />
+</details>
 
-	<table>
-	<tr>
-		<th style="width: 160px;"><b>parameter</b></th>
-		<th style="width: 100px;"><b>type</b></th>
-		<th><b>description</b></th>
-	</tr>
-	<tr>
-		<td>email</td>
-		<td><em>string</em></td>
-		<td>
-			One or more emails, separated by commas, to add to your account.
-		</td>
-        </tr>
-	<tr>
-		<td>group</td>
-		<td><em>string</em></td>
-		<td>
-			Assign tester or testers to this tester-group. Will create one if no such group exists.
-			Default value: none<br />
-		</td>
-	</tr>
-	<tr>
-		<td>notify</td>
-		<td><em>string</em></td>
-		<td>
-			Pass "notify=on" to send out a welcome email when inviting this tester. The email sent is
-			the `Tester Welcome Email` template and can be configured.
-			Default value: off<br />
-		</td>
-	</tr>
-	</table>
+## Testers
 
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
+### List All Testers
+
+<details><summary><span className="api get">GET</span><code>/api/1/testers</code></summary>
+<p></p>
+
+List all testers in this account.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
 {
-	"status": "ok"
+    "status": "ok",
+    "testers": [
+        {
+            "email":"james@example.com",
+            "groups":[{
+                id: 100,
+                name: "friends"
+            }]
+        },
+        {
+            "email":"alice@testfairy.com",
+            "groups":[{
+                id: 100,
+                name: "friends"
+            }, {
+                id: 200,
+                name: "family"
+            }]
+        }
+    ]
 }
-</pre>
-</div>
+```
 
-<!---- -->
+</details>
 
-<!-- <div class="method">
-	<span>
-		<button class="expand">▶</button> Block a tester
-	</span>
-	<code>POST /api/1/testers/{tester-id}/block/</code>
-</div>
-<div class="method-description hidden">
-	Blocks a single tester. They cannot download the apps they were invited to. However, the data
-	stays. You can later unblock this tester, or delete them completely.
+---
 
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
+### Add a New Tester
+
+<details><summary><span className="api post">POST</span><code>/api/1/testers/</code></summary>
+<p></p>
+
+Add a new tester to account. Optionally can add them to a group.
+
+#### Parameters
+
+<table id="table-api">
+  	<tbody>
+		<tr>
+			<td><code>email</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>One or more emails, separated by commas, to add to your account.</p></td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td><code>group</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Assign tester or testers to this tester-group. Will create one if no such group exists. Default value: none.</p></td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td><code>notify</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Pass <code>notify=on</code> to send out a welcome email when inviting this tester. The email sent is the "Tester Welcome Email" template and can be configured. Default value is <code>off</code>.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
 {
-	"status": "ok"
+    "status": "ok"
 }
-</pre>
-</div>
+```
 
-<!--- --->
+</details>
 
-<!-- <div class="method">
-	<span>
-		<button class="expand">▶</button> Unblock a tester
-	</span>
-	<code>DELETE /api/1/testers/{tester-id}/block/</code>
-</div>
-<div class="method-description hidden">
-	Unblocks a single tester. Their invitations are restored. If the user is already unblocked, then
-	nothing happens.
+---
 
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
+### Block a Tester
+
+<details><summary><span className="api post">POST</span><code>/api/1/testers/&#123;tester-id&#125;/block/</code></summary>
+<p></p>
+
+Blocks a single tester. They cannot download the apps they were invited to. However, the data stays. You can later unblock this tester, or delete them completely.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
 {
-	"status": "ok"
+    "status": "ok"
 }
-</pre>
-</div> -->
+```
 
-<!--- -->
+</details>
 
-<!-- <div class="method">
-	<span>
-		<button class="expand">▶</button> Delete a tester
-	</span>
-	<code>DELETE /api/1/testers/{tester-id}</code>
-</div>
-<div class="method-description hidden">
-	Delete a single tester, remove them from any tester-groups they might be in, and invalidate
-	all invitations that were sent.<br />
+---
 
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
+### Unblock a tester
+
+<details><summary><span className="api delete">DELETE</span><code>/api/1/testers/&#123;tester-id&#125;/block/</code></summary>
+<p></p>
+
+Unblock a single tester. Their invitations are restored. If the user is already unblocked, then nothing happens.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
 {
-	"status": "ok"
+    "status": "ok"
 }
-</pre>
-</div>
+```
 
-<hr />
+</details>
 
-<a name="feedbacks"></a>
-#### [api/1/feedbacks/](#)
+---
 
-<div class="method">
-	<span>
-		<button class="expand">▶</button> Get latest recorded feedbacks
-	</span>
-	<code>GET /api/1/feedbacks/</code>
-</div>
-<div class="method-description hidden">
-	Get metadata for 100 of the latest feedbacks recorded. <br />
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
+### Delete a Tester
+
+<details><summary><span className="api delete">DELETE</span><code>/api/1/testers/&#123;tester-id&#125;</code></summary>
+<p></p>
+
+Delete a single tester, remove them from any tester-groups they might be in, and invalidate all invitations that were sent.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
 {
-	"status": "ok",
-	"feedbacks": [
-		{
-			"recorded_at": "2018-08-01 04:14:46",
-			"text": "Feedback working",
-			"feedbackId": "54321",
-			"screenshotUrl": "https://s3.amazonaws.com/feedback.jpg",
-			"buildId": "1234",
-			"projectId": "23456",
-			"recordedAt":"2018-08-01 14:14:46",
-			"source": "shake",
-			"reported_by": "john@testfairy.com",
-			"session_id": "8765432"
-		}
-	]
+    "status": "ok"
 }
-	</pre>
-</div>
+```
 
-<hr />
+</details>
 
-#### [api/1/audits/](#)
+## Feedbacks
 
-<div class="method">
-	<span>
-		<button class="expand">▶</button> Get recent audit trail items
-	</span>
-	<code>GET /api/1/audits/</code>
-</div>
-<div class="method-description hidden">
-	Get recent audit trail items<br />
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
+### Get Latest Recorded Feedbacks
+
+<details><summary><span className="api get">GET</span><code>/api/1/feedbacks/</code></summary>
+<p></p>
+
+Get metadata for 100 of the latest feedbacks recorded.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
 {
-	"status": "ok",
-	"audits": [
-		{
-			"id": 23534603,
-			"timestamp": "2020-04-21 02:31:54",
-			"ipAddress": "54.235.41.91",
-			"eventType": "download_app",
-			"eventData": {
-				"projectId": 6833287,
-				"buildId": 9087976,
-				"appName": "MyApp",
-				"appVersion": "1.0 (10)",
-				"testerEmail": "john@example.com",
-				"filesize": 31348
-			}
-		}
-	]
+    "status": "ok",
+    "feedbacks": [
+        {
+            "recorded_at": "2018-08-01 04:14:46",
+            "text": "Feedback working",
+            "feedbackId": "54321",
+            "screenshotUrl": "https://s3.amazonaws.com/feedback.jpg",
+            "buildId": "1234",
+            "projectId": "23456",
+            "recordedAt":"2018-08-01 14:14:46",
+            "source": "shake",
+            "reported_by": "john@testfairy.com",
+            "session_id": "8765432"
+        }
+    ]
 }
-	</pre>
-</div>
+```
 
-<hr />
+</details>
 
-<a name="permissions"></a>
-#### [api/1/cpanel/permissions/](#)
+## Audits
 
-<div class="method">
-	<span>
-		<button class="expand">▶</button> Get the list of admins and their permissions
-	</span>
-	<code>GET /api/1/cpanel/permissions/</code>
-</div>
-<div class="method-description hidden">
-	Get the list of admins in the account and their permissions. <br />
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
+### Get Recent Audit Trail Items
+
+<details><summary><span className="api get">GET</span><code>/api/1/audits</code></summary>
+<p></p>
+
+Get recent audit trail items.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
 {
-	"status": "ok",
-	admins:
-	[
-		{
-			email: "joe@example.com",
-			role: "account-owner",
-			permissions: [
-				"*:rw"
-			]
-		},
-		{
-			email: "bob@example.com",
-			role: "account-manager",
-			permissions: [
-				"*:rw"
-			]
-		},
-		{
-			email: "alice@example.com",
-			role: "admin",
-			permissions: [
-				"*:rw"
-			]
-		},
-		{
-			email: "michael@example.com",
-			role: "admin",
-			permissions: [
-				"16527:rw",
-				"16517:rw",
-				"69237:r"
-			]
-		},
-	]
+    "status": "ok",
+    "audits": [
+        {
+            "id": 23534603,
+            "timestamp": "2020-04-21 02:31:54",
+            "ipAddress": "54.235.41.91",
+            "eventType": "download_app",
+            "eventData": {
+                "projectId": 6833287,
+                "buildId": 9087976,
+                "appName": "MyApp",
+                "appVersion": "1.0 (10)",
+                "testerEmail": "john@example.com",
+                "filesize": 31348
+            }
+        }
+    ]
 }
-	</pre>
-</div>
+```
 
-<hr />
+</details>
 
-<a name="webhooks"></a>
-#### [api/1/webhooks/](#)
+## Permissions
 
-<div class="method">
-	<span>
-		<button class="expand">▶</button> List all webhooks
-	</span>
-	<code>GET /api/1/webhooks/</code>
-</div>
-<div class="method-description hidden">
-	List all webhooks in this account.<br />
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
+### Get the List of Admins and Their Permissions
+
+<details><summary><span className="api get">GET</span><code>/api/1/cpanel/permissions/</code></summary>
+<p></p>
+
+Get the list of admins in the account and their permissions.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
 {
-	"status":"ok",
-	"webhooks":[
-		{
-			"id":12,
-			"status":"0",
-			"name":"Slack Webhook @vijay",
-			"url":"https://hooks.slack.com/services/",
-			"actions":"crash,feedback,upload,new-udid",
-			"projectIds":"12345,45643"
-		}
-	]
+    "status": "ok",
+    admins:
+    [
+        {
+            email: "joe@example.com",
+            role: "account-owner",
+            permissions: [
+                "*:rw"
+            ]
+        },
+        {
+            email: "bob@example.com",
+            role: "account-manager",
+            permissions: [
+                "*:rw"
+            ]
+        },
+        {
+            email: "alice@example.com",
+            role: "admin",
+            permissions: [
+                "*:rw"
+            ]
+        },
+        {
+            email: "michael@example.com",
+            role: "admin",
+            permissions: [
+                "16527:rw",
+                "16517:rw",
+                "69237:r"
+            ]
+        },
+    ]
 }
-</pre>
-</div>
+```
 
-<div class="method">
-	<span>
-		<button class="expand">▶</button> Add a new webhook
-	</span>
-	<code>POST /api/1/webhook/</code>
-</div>
-<div class="method-description hidden">
-	Add a new webhook to account.<br />
+</details>
 
-	<table>
-	<tr>
-		<th style="width: 160px;"><b>parameter</b></th>
-		<th style="width: 100px;"><b>type</b></th>
-		<th><b>description</b></th>
-	</tr>
-	<tr>
-		<td>webhook-name</td>
-		<td><em>string</em></td>
-		<td>
-			Required. The name of the webhook.
-		</td>
-	</tr>
-	<tr>
-		<td>webhook-url</td>
-		<td><em>string</em></td>
-		<td>
-			Required. The url for the webhook.
-		</td>
-	</tr>
-	<tr>
-		<td>webhook-status</td>
-		<td><em>string</em></td>
-		<td>
-			Enables or disables the webhook, true or false.<br>
-			Default value: false
-		</td>
-	</tr>
-	<tr>
-		<td>actions</td>
-		<td><em>string</em></td>
-		<td>
-			Comma separated list of actions. options include
-			<ul>
-				<li>crash</li>
-				<li>feedback</li>
-				<li>upload</li>
-				<li>new-udid</li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td>webhook-project-ids</td>
-		<td><em>string</em></td>
-		<td>
-			Optional. Comma separated list of project IDs.
-		</td>
-	</tr>
-	</table>
+## Webhooks
 
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
+### List All Webhooks
+
+<details><summary><span className="api get">GET</span><code>/api/1/webhooks/</code></summary>
+<p></p>
+
+List all webhooks in this account.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
 {
-	"status": "ok"
+    "status":"ok",
+    "webhooks":[
+        {
+            "id":12,
+            "status":"0",
+            "name":"Slack Webhook @vijay",
+            "url":"https://hooks.slack.com/services/",
+            "actions":"crash,feedback,upload,new-udid",
+            "projectIds":"12345,45643"
+        }
+    ]
 }
-</pre>
-</div> -->
+```
 
-<!---- -->
+</details>
 
-<!-- <div class="method">
-	<span>
-		<button class="expand">▶</button> GET a single webhook
-	</span>
-	<code>GET /api/1/webhhook/{webhook-id}/</code>
-</div>
-<div class="method-description hidden">
-	Returns a single webhook.
+---
 
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
+### Add a New Webhook
+
+<details><summary><span className="api post">POST</span><code>/api/1/webhook/</code></summary>
+<p></p>
+
+Add a new webhook to the account.
+
+#### Parameters
+
+<table id="table-api">
+  	<tbody>
+		<tr>
+			<td><code>webhook-name</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>The name of the webhook.</p></td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td><code>webhook-url</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>The url for the webhook.</p></td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td><code>webhook-status</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Enables or disables the webhook. The values are: <code>true</code>, <code>false</code>. Default value is <code>false</code>.</p></td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td><code>actions</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Comma separated list of actions. Options include: <code>crash</code>, <code>feedback</code>, <code>upload</code>, <code>new-udid</code>.</p></td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td><code>webhook-project-ids</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Comma separated list of project IDs.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
 {
-	"status": "ok",
-	"webhook": {
-		"id":12,
-		"status":"0",
-		"name":"Slack Webhook @vijay",
-		"url":"https://hooks.slack.com/services/",
-		"actions":"crash,feedback,upload,new-udid",
-		"projectIds":"12345,45643"
-	}
+    "status": "ok"
 }
-</pre>
-</div> -->
+```
 
-<!--- --->
+</details>
 
-<!-- <div class="method">
-	<span>
-		<button class="expand">▶</button> MODIFY a webhook
-	</span>
-	<code>POST /api/1/webhhook/{webhook-id}/</code>
-</div>
-<div class="method-description hidden">
-	Modifies a single webhook.
+---
 
-<table>
-	<tr>
-		<th style="width: 160px;"><b>parameter</b></th>
-		<th style="width: 100px;"><b>type</b></th>
-		<th><b>description</b></th>
-	</tr>
-	<tr>
-		<td>webhook-name</td>
-		<td><em>string</em></td>
-		<td>
-			Required. The name of the webhook.
-		</td>
-	</tr>
-	<tr>
-		<td>webhook-url</td>
-		<td><em>string</em></td>
-		<td>
-			Required. The url for the webhook.
-		</td>
-	</tr>
-	<tr>
-		<td>webhook-status</td>
-		<td><em>string</em></td>
-		<td>
-			Enables or disables the webhook, true or false.<br>
-			Default value: false
-		</td>
-	</tr>
-	<tr>
-		<td>actions</td>
-		<td><em>string</em></td>
-		<td>
-			Comma separated list of actions. options include
-			<ul>
-				<li>crash</li>
-				<li>feedback</li>
-				<li>upload</li>
-				<li>new-udid</li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td>webhook-project-ids</td>
-		<td><em>string</em></td>
-		<td>
-			Optional. Comma separated list of project IDs.
-		</td>
-	</tr>
-	</table>
+### Get a Single Webhook
 
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
+<details><summary><span className="api get">GET</span><code>/api/1/webhook/&#123;webhook-id&#125;/</code></summary>
+<p></p>
+
+Returns a single webhook.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
 {
-	"status": "ok"
+    "status": "ok",
+    "webhook": {
+        "id":12,
+        "status":"0",
+        "name":"Slack Webhook @vijay",
+        "url":"https://hooks.slack.com/services/",
+        "actions":"crash,feedback,upload,new-udid",
+        "projectIds":"12345,45643"
+    }
 }
-</pre>
-</div>
+```
 
+</details>
 
-<!--- -->
+---
 
-<!-- <div class="method">
-	<span>
-		<button class="expand">▶</button> Delete a webhook
-	</span>
-	<code>DELETE /api/1/webhhook/{webhook-id}/</code>
-</div>
-<div class="method-description hidden">
-	Delete a single webhook.<br />
+### Modify a Webhook
 
-	<span class="responses">Responses</span><br />
-	<span class="status-green">STATUS 200</span> OK<br />
-	<pre>
+<details><summary><span className="api post">POST</span><code>/api/1/webhook/&#123;webhook-id&#125;/</code></summary>
+<p></p>
+
+Modifies a single webhook.
+
+#### Parameters
+
+<table id="table-api">
+  	<tbody>
+		<tr>
+			<td><code>webhook-name</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>The name of the webhook.</p></td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td><code>webhook-url</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>The url for the webhook.</p></td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td><code>webhook-status</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Enables or disables the webhook. The values are: <code>true</code>, <code>false</code>. Default value is <code>false</code>.</p></td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td><code>actions</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Comma separated list of actions. Options include: <code>crash</code>, <code>feedback</code>, <code>upload</code>, <code>new-udid</code>.</p></td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td><code>webhook-project-ids</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Comma separated list of project IDs.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
 {
-	"status": "ok"
+    "status": "ok"
 }
-</pre>
-</div>
+```
 
-<hr />
+</details>
 
-<style>h4 {margin-bottom: 30px;}</style> -->
+---
+
+### Delete a Webhook
+
+<details><summary><span className="api delete">DELETE</span><code>/api/1/webhook/&#123;webhook-id&#125;/</code></summary>
+<p></p>
+
+Deletes a single webhook.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok"
+}
+```
+
+</details>
