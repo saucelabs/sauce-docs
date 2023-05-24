@@ -203,7 +203,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
       "automation_backend":"appium",
       "os":"Mac 10.13"
    }
-]```
+]
+```
 
 </details>
 
