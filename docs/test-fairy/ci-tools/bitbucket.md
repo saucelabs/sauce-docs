@@ -12,7 +12,7 @@ Set up Bitbucket Pipelines to upload your build artifacts (IPA or APK) directly 
 
 ## Setting up
 
-1. Open your Bitbucket repository, and select _Settings_ -> _Pipelines_ -> _Environment Variables_
+1. Open your Bitbucket repository, and select **Settings** > **Pipelines** > **Environment Variables**
 
    <img src={useBaseUrl('/img/test-fairy/ci-tools/bitbucket-pipelines-0.png')} alt="screenshot of Bitbucket pipelines"/>
 
@@ -22,7 +22,7 @@ Set up Bitbucket Pipelines to upload your build artifacts (IPA or APK) directly 
    - **Value**: _Your API application key. See https://app.testfairy.com/settings for details._
    - **Secured**: Y
 
-   When done, click the _Add_ button.
+   When done, click **Add**.
 
    <img src={useBaseUrl('/img/test-fairy/ci-tools/bitbucket-pipelines-1.png')} alt="screenshot of Bitbucket pipelines"/>
 
@@ -32,7 +32,9 @@ Set up Bitbucket Pipelines to upload your build artifacts (IPA or APK) directly 
    curl https://app.testfairy.com/api/upload -F api_key=${TESTFAIRY_API_KEY} -F file=@MyApplicationFile.apk -F format=readable
    ```
 
-**NOTE:** Do not forget to replace `MyApplicationFile.apk` with path to your APK or IPA files.
+:::note
+Do not forget to replace `MyApplicationFile.apk` with path to your APK or IPA files.
+:::
 
 Additional optional parameters such as `testers-groups`, `notify` and `comment` can be added to this line. Please refer to the [Upload API reference guide](/test-fairy/api-reference/upload-api) for more information and examples.
 

@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Streamline your build process and upload APKs or IPAs directly to TestFairy.
 
-### Usage
+## Usage
 
 [Command line uploader](https://github.com/testfairy/command-line-uploader/blob/master/testfairy-uploader.sh)
 
@@ -40,7 +40,7 @@ Travis CI https://docs.testfairy.com/Continuous_Integration/Travis_CI.html
 
 [Lumberyard](/test-fairy/platforms/lumberyard)
 
-### Method
+## Method
 
 `POST https://upload.testfairy.com/api/upload/`
 
@@ -72,13 +72,13 @@ listed below. An additional human-readable error message is supplied to detail t
 |          5 | Invalid API key            |
 |        105 | Invalid file               |
 
-### Example 1: (CURL)
+#### Example 1: (CURL)
 
 ```bash
 curl https://upload.testfairy.com/api/upload -F api_key='your_api_key' -F file=@sample.apk
 ```
 
-### Example 2:
+#### Example 2:
 
 ```bash
 curl https://upload.testfairy.com/api/upload \
@@ -91,7 +91,7 @@ curl https://upload.testfairy.com/api/upload \
 	-F tags='production, english'
 ```
 
-### Example Response:
+#### Example Response:
 
 ```bash
 {
@@ -103,19 +103,19 @@ curl https://upload.testfairy.com/api/upload \
 }
 ```
 
-### Where can I find my API Key?
+## Where can I find my API Key?
 
-In order to get your API KEY, open your account preferences at https://app.testfairy.com/settings/ and click on "Upload API Key".
+In order to get your API KEY, open your account preferences at https://app.testfairy.com/settings/ and click on **Upload API Key**.
 
-### How can I create a new API Key?
+## How can I create a new API Key?
 
-In order to create a new API KEY just click on "Regenerate API Key" in your account preferences page.
+In order to create a new API KEY just click on **Regenerate API Key** in your account preferences page.
 
-### Why is my API Key empty?
+## Why is my API Key empty?
 
 In cases where we identify that your API KEY was used by mistake to initialize the SDK instead of using your APP TOKEN, we automatically reset the API KEY in order to protect your privacy. In this case, please change the SDK initialization to use the APP TOKEN and create a new API KEY.
 
-### Can I add custom metadata?
+## Can I add custom metadata?
 
 Yes. Any POST parameter that its name is prefixed with "metadata." will be considered custom data and stored along with the upload. For example, consider this command:
 

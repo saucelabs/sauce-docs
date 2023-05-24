@@ -10,7 +10,9 @@ import TabItem from '@theme/TabItem';
 
 Auto-update allows developers to push new app versions automatically, to make sure that all users are on the latest version of an app. When a new version is set to auto-update, all users with older versions will see a notification next time they use the app, prompting them to update.
 
-**Note:** Auto-update cannot be used in production.
+:::note
+Auto-update cannot be used in production.
+:::
 
 ## Configuring Auto-Update
 
@@ -69,9 +71,8 @@ Occasionally you will want all testers of an app to only test the latest version
 
 The classes used are:
 
-<!-- The links below are not shown in the spreadsheet -->
-<!-- * Android - [`sessionStateListener`](https://docs.testfairy.com/reference/android/com/testfairy/SessionStateListener.html#SessionStateListener--) → `onAutoUpdateDismissed`
-* iOS - [`testFairySessionStateDelagate`](https://app.testfairy.com/reference/ios/Protocols/TestFairySessionStateDelegate.html) → `autoUpdateDismissed` -->
+- Android - `sessionStateListener` https://docs.testfairy.com/reference/android/com/testfairy/SessionStateListener.html#SessionStateListener → `onAutoUpdateDismissed`
+- iOS - `testFairySessionStateDelagate` https://app.testfairy.com/reference/ios/Protocols/TestFairySessionStateDelegate.html → `autoUpdateDismissed`
 
 ### Downgrading an App
 

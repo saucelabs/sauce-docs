@@ -18,7 +18,7 @@ The app name used on the dashboard is the **Display Name** in your iOS xcode pro
 
 <img src={useBaseUrl('/img/test-fairy/app-distribution/xcode-ios-app-display-name.png')} alt="xcode"/>
 
-**In Android Studio**
+**In Android Studio:**
 
 <img src={useBaseUrl('/img/test-fairy/app-distribution/android-studio-app-name.png')} alt="android studio"/>
 
