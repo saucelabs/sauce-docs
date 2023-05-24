@@ -27,7 +27,7 @@ You can view the entire list of CLI options by running the `--help` flag.
 
 ### `--user`
 
-<p><small>| REQUIRED | STRING | <span className="sauceGreen">4.7.x</span> <span className="sauceGreen">4.8.x</span> <span className="sauceGreen">4.9.x</span> <span className="sauceGreen">4.9.x</span> | </small></p>
+<p><small>| REQUIRED | STRING | <span className="sauceGreen">4.7.x</span> <span className="sauceGreen">4.8.x</span> <span className="sauceGreen">4.9.x</span> | </small></p>
 
 **Description**: Sets your Sauce Labs username. For additional security, you can set this as an [environment variable](/secure-connections/sauce-connect/setup-configuration/environment-variables/).<br/>
 **Environment variable**: `SAUCE_USERNAME` or `SAUCE_USER`<br/>
