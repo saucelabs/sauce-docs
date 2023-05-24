@@ -48,6 +48,7 @@ We provide preconfigured SAML applications for some identity providers. They all
 - [Auth0](/basics/sso/configuring-sso-in-auth0)
 - [Google](/basics/sso/configuring-sso-in-google)
 - [Microsoft Azure Active Directory](/basics/sso/configuring-sso-in-ms-azure-ad)
+- [Okta](/basics/sso/configuring-sso-in-okta)
 - [OneLogin](/basics/sso/configuring-sso-in-onelogin)
 
 :::
