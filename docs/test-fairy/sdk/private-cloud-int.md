@@ -24,7 +24,7 @@ values={[
 {label: 'iOS', value: 'ios'},
 {label: 'Cordova', value: 'cordova'},
 {label: 'React Native', value: 'react'},
-{label: 'Native Script', value: 'native'},
+{label: 'Nativescript', value: 'native'},
 {label: 'Xamarin', value: 'xamarin'},
 {label: 'Unity', value: 'unity'},
 {label: 'Adobe Air', value: 'adobe'},
