@@ -29,7 +29,7 @@ values={[
 <TabItem value="android">
 
 ```js
-TestFairy.setServerEndpoint("<your private cloud url here>");
+TestFairy.log("<tag>", "<message>");
 ```
 
 Example
@@ -38,16 +38,16 @@ Example
 // Be sure to import TestFairy
 import com.testfairy.TestFairy;
 
-TestFairy.setServerEndpoint("my-subdomain.testfairy.com");
-TestFairy.begin(context, "<your app token here>");
+TestFairy.log("Tag", "Hello, TestFairy!");
 ```
 
 </TabItem>
 
-<TabItem value="ios">
+<TabItem value="iosC">
 
 ```js
-[TestFairy setServerEndpoint:@"<your private cloud url here>"];
+TFLog(@"<message with format>", <arguments>);
+[TestFairy log:@"<message>"];
 ```
 
 Example
@@ -56,132 +56,72 @@ Example
 // Be sure to import TestFairy
 #import "TestFairy.h"
 
-[TestFairy setServerEndpoint:@"my-subdomain.testfairy.com"];
-[TestFairy begin:@"<your app token here>"];
+TFLog(@"Hello, %@", @"TestFairy!");
+[TestFairy log:@"Hello, TestFairy!"];
 ```
+
+We recommend sending all calls to <code>NSLog</code> to TestFairy so you can continue to use <code>NSLog</code> and see all your log statements in your session.<br/>
+To enable sending logs to TestFairy, you will have to redefine <code>NSLog</code> using a macro with the following lines. This macro allows you to continue using <code>NSLog</code> in your code, while also adding the logs to the matching session in TestFairy).
+
+### Changing Your Prefix Header
+
+```js
+#import "TestFairy.h"
+#define NSLog(s, ...) do { NSLog(s, ##__VA_ARGS__); TFLog(s, ##__VA_ARGS__); } while (0)
+```
+
+1. Add the above line to a global header in your project, accessible to every class file.
+2. Update or create a Prefix Header (.pch) for your project. If you do not have a PCH file in your project, you can follow the steps in the next section.
+
+### Creating a New Prefix Header
+
+If your project doesn’t already include a Prefix Header (.pch):<br/>
+
+1. Create a new file under iOS &gt; Other &gt; PCH File.
+2. Name your file “PCH file”.
+3. Add these lines of code to the file:
+   ```js
+   #import "TestFairy.h"
+   #define NSLog(s, ...) do { NSLog(s, ##__VA_ARGS__); TFLog(s, ##__VA_ARGS__); } while (0)
+   ```
+4. From the **Project Navigator**, select your project and the corresponding target.
+5. Project &gt; Build Settings &gt; Search: "Prefix Header".
+6. Under **Apple LLVM 7.0** you will get the Prefix Header key.
+7. Type the path of the file, for example: "$(SRCROOT)/$(PROJECT_NAME)/ProjectName-Prefix.pch". Please note that your file may be at a different location.
+8. Make sure the option "Precompile Prefix Header" is set to YES.
+9. Clean your project, and rebuild.
+
+</TabItem>
+
+<TabItem value="iosS">
 
 </TabItem>
 
 <TabItem value="cordova">
 
-```js
-TestFairy.setServerEndpoint("<your private cloud url here>");
-```
-
-Example
-
-```js
-TestFairy.setServerEndpoint("my-subdomain.testfairy.com");
-TestFairy.begin("<your app token here>");
-```
-
 </TabItem>
 
 <TabItem value="react">
-
-```js
-TestFairy.setServerEndpoint("<your private cloud url here>");
-```
-
-Example
-
-```js
-// Be sure to import TestFairy
-const TestFairy = require('react-native-testfairy');
-
-TestFairy.setServerEndpoint("my-subdomain.testfairy.com");
-TestFairy.begin("<your app token here>");
-```
 
 </TabItem>
 
 <TabItem value="native">
 
-```js
-TestFairySDK.setServerEndpoint("<your private cloud url here>");
-```
-
-Example
-
-```js
-// Be sure to import TestFairy
-import { TestFairySDK } from 'nativescript-testfairy';
-
-TestFairySDK.setServerEndpoint("my-subdomain.testfairy.com");
-TestFairySDK.begin("<your app token here>");
-```
-
 </TabItem>
 
 <TabItem value="xamarin">
-
-```js
-TestFairy.SetServerEndpoint ("<your private cloud url here>");
-```
-
-Example
-
-```js
-// Be sure to import TestFairy
-using TestFairyLib;
-
-TestFairy.SetServerEndpoint ("my-subdomain.testfairy.com");
-TestFairy.Begin ("<your app token here>");
-```
 
 </TabItem>
 
 <TabItem value="unity">
 
-```js
-TestFairy.setServerEndpoint("<your private cloud url here>");
-```
-
-Example
-
-```js
-// Be sure to import TestFairy
-using TestFairyUnity;
-
-TestFairy.setServerEndpoint("my-subdomain.testfairy.com");
-TestFairy.begin("<your app token here>");
-```
-
 </TabItem>
 
 <TabItem value="adobe">
 
-```js
-AirTestFairy.setServerEndpoint("<your private cloud url here>");
-```
-
-Example
-
-```js
-// Be sure to import TestFairy
-import com.testfairy.AirTestFairy;
-
-AirTestFairy.setServerEndpoint("my-subdomain.testfairy.com");
-AirTestFairy.begin("<your app token here>");
-```
-
 </TabItem>
 
 <TabItem value="titanium">
-
-```js
-TiTestFairy.setServerEndpoint("<your private cloud url here>");
-```
-
-Example
-
-```js
-// Be sure to import TestFairy
-var TiTestFairy = require('com.testfairy.titestfairy');
-
-TiTestFairy.setServerEndpoint("my-subdomain.testfairy.com");
-TiTestFairy.begin("<your app token here>");
-```
 
 </TabItem>
 
