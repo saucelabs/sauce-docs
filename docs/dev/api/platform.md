@@ -162,7 +162,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
    },
    {
       "deprecated_backend_versions":[
-         
       ],
       "short_version":"11.3",
       "long_name":"iPad Simulator",
@@ -190,7 +189,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
    },
    {
       "deprecated_backend_versions":[
-         
       ],
       "short_version":"12.0",
       "long_name":"iPad Simulator",
