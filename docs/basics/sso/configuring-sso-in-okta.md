@@ -1,6 +1,6 @@
 ---
 id: configuring-sso-in-okta
-title: Configuring SSO in Okta 
+title: Configuring SSO in Okta
 sidebar_label: Configuring Okta
 ---
 
@@ -21,19 +21,24 @@ Complete the following steps to set up SAML SSO integration between Okta and Sau
    <img src={useBaseUrl('img/basics/sso/idp-config/okta/browse-app-catalog.png')} alt="Browse App Catalog" width="850" />
 
 2. Enter **Sauce Labs** in the search box and choose the app **Sauce Labs**.
+   <img src={useBaseUrl('img/basics/sso/idp-config/okta/search-app.png')} alt="Search For Sauce Labs" width="800" />
 
 3. Click **Add Integration**.
-   <img src={useBaseUrl('img/basics/sso/idp-config/okta/add-integration.png')} alt="Add Integration" width="700" />
+   <img src={useBaseUrl('img/basics/sso/idp-config/okta/add-integration.png')} alt="Add Integration" width="600" />
 
-4. Enter the required information under **General Settings**, and then click **Next**.
+4. Change the name of the application or leave the default value and click **Done**.
+   <img src={useBaseUrl('img/basics/sso/idp-config/okta/rename-app.png')} alt="Rename App" width="800" />
 
-5. On the **Sign On Options** page, in the **Metadata details** section you can find the Identity Provider Metadata URL. Open it in a new tab, copy the content, and save it as an XML file. You can use this metadata file to set up the SSO Integration at Sauce Labs in the [Team Management Panel](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider).
-
-6. On the **Sign On Options** page in Okta, in the **Credentials Details** section, ensure that the value for **Application username format** is a [valid email address](/basics/sso/setting-up-sso/#name-id). The default format for **Okta username** is an email address, unless it has been changed in Okta Admin Console.
-
-7. Click **Done** to create the integration.
-
-8. Next, assign users to this application. Click **Assign** and assign specific accounts or groups.
+5. Next, assign users to this application. Click **Assign** and assign specific accounts or groups.
    <img src={useBaseUrl('img/basics/sso/idp-config/okta/assign-people-groups.png')} alt="Assign People or Groups" width="650" />
+
+6. Open the **Sign On** tab.
+   <img src={useBaseUrl('img/basics/sso/idp-config/okta/sign-on-tab.png')} alt="Sign On Tab" width="450" />
+
+7. In the **Credentials Details** section, ensure that the value for **Application username format** is a [valid email address](/basics/sso/setting-up-sso/#name-id). The default format for **Okta username** is an email address, unless it has been changed in Okta Admin Console.
+   <img src={useBaseUrl('img/basics/sso/idp-config/okta/username-format.png')} alt="Username Format" width="650" />
+
+8. In the **SAML Signing Certificates** section, click **Actions**, and then **View IdP metadata**. A new tab opens. Copy the content, and save it as an XML file. Use this metadata file to set up the SSO Integration at Sauce Labs in the [Team Management Panel](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider).
+   <img src={useBaseUrl('img/basics/sso/idp-config/okta/metadata.png')} alt="Metadata" width="650" />
 
 9. Test the integration using the [IdP-initiated and the SP-initiated login](/basics/sso/logging-in-via-sso).
