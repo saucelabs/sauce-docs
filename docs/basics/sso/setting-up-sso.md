@@ -176,7 +176,7 @@ New users can sign up via SP or IdP-initiated SSO and the new accounts at Sauce 
 
 :::tip
 Make sure that you assign your [company email domains](/basics/sso/setting-up-sso/#email-domains) to your SSO integration at Sauce Labs so that new accounts can be provisioning via the SP-initiated flow.
-::::
+:::
 
 #### Team placement
 
