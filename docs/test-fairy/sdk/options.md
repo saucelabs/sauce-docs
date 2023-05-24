@@ -8,6 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-/SDK/Begin_with_options.html
+TestFairy requires that you call `begin` in order to start recording your sessions. However, developers have the option to override the build settings to determine what is enabled during a session recording.
 
-https://github.com/testfairy/docs/blob/master/docs/021_SDK/29_Begin_with_options.md
+Some commonly used options:
+
+- [Crash Reporting](#crash-reporting)
+- [Video Recording](#video-recording)
+- [Recorded Metrics](#recorded-metrics)
+- [Max session Length](#max-session-length)

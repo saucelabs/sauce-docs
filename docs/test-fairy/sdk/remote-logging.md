@@ -8,6 +8,4 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-/SDK/Remote_Logging.html
-
-https://github.com/testfairy/docs/blob/master/docs/021_SDK/80_Remote_Logging.md
+TestFairy allows developers to log items with a session, without logging to the console output. In some cases, there are workarounds that allow you to wrap the TestFairy remote logging method in a way that will both log to the console and to the session.
