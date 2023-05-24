@@ -14,7 +14,7 @@ Sauce Labs supports testing Flutter apps on Android and iOS virtual and real dev
 ## What You'll Need
 
 - Familiarity with creating, signing and building [Flutter apps](https://docs.flutter.dev/).
-- Familiarity writing and running [Appium tests](/mobile-apps/automated-testing/appium/).
+- Familiarity writing and running Appium tests.
 
 ## Preprocessing your Flutter App
 

@@ -74,7 +74,7 @@ Sauce Connect Proxy offers some options for high availability that enable multip
 
 ## Does Sauce Connect Proxy support running XCUITest and Espresso tests?
 
-Yes. More information: [Mobile Testing Frameworks](/mobile-apps/automated-testing/appium).
+Yes. More information: [Mobile Testing Frameworks](/mobile-apps/automated-testing/appium/quickstart).
 
 ## How many Sauce Connect Proxy tunnels can I keep open simultaneously?
 

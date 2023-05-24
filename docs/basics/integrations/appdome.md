@@ -37,7 +37,7 @@ Learn how to test Appdome-secured Android and iOS apps with Sauce Labs' automati
 7. When your test is done, click **End**. <br/>
    You can now view your test results.
 
-If you want to test using Appium, see [Appium on Sauce Labs](/mobile-apps/automated-testing/appium/).
+If you want to test using Appium, see [Appium on Sauce Labs](/mobile-apps/automated-testing/appium/quickstart).
 
 ## Troubleshooting Tips
 
