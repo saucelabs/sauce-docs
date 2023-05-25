@@ -15,10 +15,10 @@ When SSO is configured into your account, the login page is replaced with a simp
 
 There are several SAML / SSO providers that you can create integrations with:
 
-|                                                                                                                    |                                                       |
-| :----------------------------------------------------------------------------------------------------------------: | ----------------------------------------------------- |
-|           <img src={useBaseUrl('/img/test-fairy/acct-mgmt/Okta_Logo.png')} alt="OKTA logo" width="100"/>           | [OKTA](OKTA.html)                                     |
-|             <img src={useBaseUrl('/img/test-fairy/acct-mgmt/onelogin-logo.png')} alt="onelogin logo"/>             | [OneLogin](OneLogin.html)                             |
-| <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-logo.png')} alt="Azure active directory logo" width="200" /> | [Azure Active Directory](Azure_Active_Directory.html) |
-|    <img src={useBaseUrl('/img/test-fairy/acct-mgmt/google-apps-logo.png')} alt="google apps logo" width="200"/>    | [Google Apps](Google.html)                            |
-|  <img src={useBaseUrl('/img/test-fairy/acct-mgmt/pingidentity-logo.png')} alt="pingidentity logo" width="100" />   | [Ping Identity](Ping_Identity.html)                   |
+|                                                                                                                    |                                                           |
+| :----------------------------------------------------------------------------------------------------------------: | --------------------------------------------------------- |
+|           <img src={useBaseUrl('/img/test-fairy/acct-mgmt/Okta_Logo.png')} alt="OKTA logo" width="100"/>           | [OKTA](/test-fairy/acct-mgmt/sso/okta)                    |
+|             <img src={useBaseUrl('/img/test-fairy/acct-mgmt/onelogin-logo.png')} alt="onelogin logo"/>             | [OneLogin](/test-fairy/acct-mgmt/sso/onelogin)            |
+| <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-logo.png')} alt="Azure active directory logo" width="200" /> | [Azure Active Directory](/test-fairy/acct-mgmt/sso/azure) |
+|    <img src={useBaseUrl('/img/test-fairy/acct-mgmt/google-apps-logo.png')} alt="google apps logo" width="200"/>    | [Google Apps](/test-fairy/acct-mgmt/sso/google)           |
+|  <img src={useBaseUrl('/img/test-fairy/acct-mgmt/pingidentity-logo.png')} alt="pingidentity logo" width="100" />   | [Ping Identity](/test-fairy/acct-mgmt/sso/ping-id)        |
