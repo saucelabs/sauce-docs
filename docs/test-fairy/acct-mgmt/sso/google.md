@@ -21,7 +21,7 @@ Sections:
 
 <a name="installation"></a>
 
-#### Setting up Login With Google in your account
+## Setting up Login With Google in your account
 
 1. Login to Google Apps as admin, go to the admin console and select **Apps**, click on **SAML apps**, and click on **Add**.
    <img src={useBaseUrl('/img/test-fairy/acct-mgmt/google-1.png')} alt=""/>
@@ -63,7 +63,7 @@ Entity ID: `https://acme.testfairy.com`
 
 Now, please log out and make sure you can see the "Login with Google" button.
 
-#### Troubleshooting
+## Troubleshooting
 
 - `Error: app_not_configured_for_user`. If you are seeing this error message on Google, then it means that you:
   - Didn't enable this app for the current user or for all users. Please see in installation section above, how to enable the newly created app for all users.

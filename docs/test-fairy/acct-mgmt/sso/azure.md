@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-### Setting up Azure Active Directory in your account
+## Setting up Azure Active Directory in your account
 
 Single Sign-on enables you to manage users and testers outside of TestFairy.
 A list of permitted users and testers, as well as their passwords, is stored in Azure Active Directory.
@@ -19,76 +19,61 @@ When SSO is configured into your account, the login page is replaced with a simp
 
 Talk to us! Request a demo at [https://testfairy.com/products/solutions/enterprise#request-a-demo](https://testfairy.com/products/solutions/enterprise#request-a-demo)
 
-#### Adding an enterprise app
+### Adding an enterprise app
 
-- In your Home screen press the **Azure Active Directory** icon to open the **Directory overview**.
+1. In your Home screen click **Azure Active Directory** to open the **Directory overview**.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-ad-1.png')} alt=""/>
 
-  <!-- ![](/img/sso/azure/azure-ad-1.png) -->
+1. From the menu options select the **Enterprise Application**.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-ad-2.png')} alt=""/>
 
-- From the menu options select the **`Enterprise Application`** option.
+1. Click **+Add application**.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-ad-3.png')} alt=""/>
 
-  <!-- ![](/img/sso/azure/azure-ad-2.png) -->
+1. Select **Non-gallery application**, add an app name (TestFairy) and click **Add**.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-ad-4.png')} alt=""/>
 
-- Press the **`+Add application`** button.
+### Adding an SSO login option
 
-  <!-- ![](/img/sso/azure/azure-ad-3.png) -->
+1. Go back to the menu and select the **Single sign-on**.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-ad-5.png')} alt=""/>
 
-- Select the **Non-gallery application**, add an app name (TestFairy) and press the **`Add`** button.
+1. Select **SAML**.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-ad-6.png')} alt=""/>
 
-  <!-- ![](/img/sso/azure/azure-ad-4.png) -->
+1. Click the pencil icon to edit **Basic SAML Configuration** - `Identifier` and `Reply URL` fields.
+   Add `https://acme.testfairy.com/` to the `Identifier` field and `https://acme.testfairy.com/login/sso` to the `Reply URL`.
 
-#### Adding an SSO login option
+Change `acme` to your own **TestFairy** subdomain.
 
-- Go back to the menu and select the **`Single sign-on`** menu option.
+1. Now download the XML file in the `Federation Data`. You will need it later for uploading to your [TestFairy Dashboard Security settings](https://app.testfairy.com/settings/security/).
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-ad-17.png')} alt=""/>
 
-  <!-- ![](/img/sso/azure/azure-ad-5.png) -->
-
-- Select the **`SAML`** option.
-
-  <!-- ![](/img/sso/azure/azure-ad-6.png) -->
-
-- Press the pencil icon to edit the **`Basic SAML Configuration`** - `Identifier` and `Reply URL` fields.
-  Add `https://acme.testfairy.com/` to the `Identifier` field and `https://acme.testfairy.com/login/sso` to the `Reply URL`.
-
-  Change `acme` to your own **TestFairy** subdomain.
-
-  Now download the XML file in the `Federation Data`. You will need it later for uploading to your [TestFairy Dashboard Security settings](https://app.testfairy.com/settings/security/).
-
-  <!-- ![](/img/sso/azure/azure-ad-17.png)   -->
-
-#### Adding users to the application
+### Adding users to the application
 
 Now lets add an Azure AD user to your application.
 
-- Go to **`Users and Groups`** and press the `+Add User` button.
+1. Go to **Users and Groups** and click **+Add User**.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-ad-8.png')} alt=""/>
 
-  <!-- ![](/img/sso/azure/azure-ad-8.png) -->
+1. In **Add assignment** click the `Users and groups` line and select the user/users you want to add from the **Users and groups**.
+   Once all users are added to the **Selected items** click **Select**.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-ad-9.png')} alt=""/>
 
-- In the **`Add assignment`** column press the `Users and groups` line and select the user/users you want to add from the **`Users and groups`** column.
+1. To finish the action click **Assign**.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-ad-10.png')} alt=""/>
 
-  Once all users are added to the **`Selected items`** press the `Select` Button.
+1. The users are all now part of the application.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-ad-11.png')} alt=""/>
 
-  <!-- ![](/img/sso/azure/azure-ad-9.png) -->
+### Adding the SAML details to TestFairy
 
-- To finish the action press the **`Assign`** button.
+1. Now, go to your TestFairy account preferences, and select **Security**.
+1. Open the XML file previously saved and copy its content to the **ID Provider metadata** field.
+1. Click on **Update SAML ID Provider Metadata** when done.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-tf-1.png')} alt=""/>
 
-  <!-- ![](/img/sso/azure/azure-ad-10.png) -->
-
-- The users are all now part of the application.
-
-  <!-- ![](/img/sso/azure/azure-ad-11.png) -->
-
-#### Adding the SAML details to TestFairy
-
-- Now, please go to your TestFairy account preferences, and select the Security menu item.
-  Open the XML file previously saved and copy its content to the **ID Provider metadata** field.
-
-  Click on `Update SAML ID Provider Metadata` when done.
-
-<!-- ![](/img/sso/azure/azure-tf-1.png) -->
-
-- After configuration has been saved, you will see a success message.
-
- <!-- ![](/img/sso/azure/azure-tf-2.png) -->
+1. After configuration has been saved, you will see a success message.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-tf-2.png')} alt=""/>
 
 Now, please log out and make sure you can see the `Login with Azure` button when trying to log in to the [TestFairy Dashboard](https://app.testfairy.com)
