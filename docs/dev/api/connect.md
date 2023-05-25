@@ -349,24 +349,24 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 {
    "downloads" : {
       "linux" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-linux.tar.gz",
          "sha1" : "<hash>"
       },
       "linux-arm64" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-linux-arm64.tar.gz",
          "sha1" : "<hash>"
       },
       "osx" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-osx.zip",
          "sha1" : "<hash>"
       },
       "win32" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-win32.zip",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-win32.zip",
          "sha1" : "<hash>"
       }
    },
    "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
-   "latest_version" : "4.8.2",
+   "latest_version" : "4.9.0",
    "warning" : [
       "Client host platform is not specified, the download URL cannot be determined"
    ]
@@ -479,24 +479,24 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
    },
    "downloads" : {
       "linux" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-linux.tar.gz",
          "sha1" : "<hash>"
       },
       "linux-arm64" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-linux-arm64.tar.gz",
          "sha1" : "<hash>"
       },
       "osx" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-osx.zip",
          "sha1" : "<hash>"
       },
       "win32" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-win32.zip",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-win32.zip",
          "sha1" : "<hash>"
       }
    },
    "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
-   "latest_version" : "4.8.2",
+   "latest_version" : "4.9.0",
    "warning" : [
       "Client host platform is not specified, the download URL cannot be determined"
    ]
@@ -505,27 +505,27 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Response to the request with an optional parameter client_host=darwin-amd64"
 {
-   "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
+   "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-osx.zip",
    "downloads" : {
       "linux" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-linux.tar.gz",
          "sha1" : "<hash>"
       },
       "linux-arm64" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-linux-arm64.tar.gz",
          "sha1" : "<hash>"
       },
       "osx" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-osx.zip",
          "sha1" : "<hash>"
       },
       "win32" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-win32.zip",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-win32.zip",
          "sha1" : "<hash>"
       }
    },
    "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
-   "latest_version" : "4.8.2",
+   "latest_version" : "4.9.0",
    "sha1" : "<hash>"
 }
 
@@ -536,24 +536,24 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
    "client_version" : "4.7.1",
    "downloads" : {
       "linux" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-linux.tar.gz",
          "sha1" : "<hash>"
       },
       "linux-arm64" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-linux-arm64.tar.gz",
          "sha1" : "<hash>"
       },
       "osx" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-osx.zip",
          "sha1" : "<hash>"
       },
       "win32" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-win32.zip",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-win32.zip",
          "sha1" : "<hash>"
       }
    },
    "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
-   "latest_version" : "4.8.2",
+   "latest_version" : "4.9.0",
    "status" : "UPGRADE",
    "warning" : [
       "Client host platform is not specified, the download URL cannot be determined"
