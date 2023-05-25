@@ -63,7 +63,7 @@ You can view the entire list of CLI options by running the `--help` flag.
 
 <p><small>| OPTIONAL | STRING |  <span className="sauceGreen">4.7.x</span> <span className="sauceGreen">4.8.x</span> | </small></p>
 
-**Description**: Sets your Sauce Labs [data center endpoint](/basics/data-center-endpoints/#data-center-endpoints) (for example, `us-west`, `eu-central`, `apac-southeast`). Default: If you don't specify a data center, the default value is `us-west`.<br/>
+**Description**: Sets your Sauce Labs [data center endpoint](/basics/data-center-endpoints/#data-center-endpoints) (for example, `us-west` or `eu-central`). Default: If you don't specify a data center, the default value is `us-west`.<br/>
 **Environment variable**: `SAUCE_REGION`<br/>
 **Shorthand**: `-r`
 
@@ -74,8 +74,6 @@ You can view the entire list of CLI options by running the `--help` flag.
 #EU-Central-1
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region eu-central
 
-#APAC-Southeast-1
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region apac-southeast
 ```
 
 ---
@@ -95,8 +93,6 @@ You can view the entire list of CLI options by running the `--help` flag.
 #EU-Central-1
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://api.eu-central-1.saucelabs.com/rest/v1
 
-#APAC-Southeast-1
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -x https://api.apac-southeast-1.saucelabs.com/rest/v1
 ```
 
 :::note
