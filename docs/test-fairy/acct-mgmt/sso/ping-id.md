@@ -14,37 +14,43 @@ When SSO is configured into your account, the login page is replaced with a simp
 
 Talk to us! Request a demo at https://testfairy.com/products/solutions/enterprise#request-a-demo
 
-#### Setting up Ping Identity in your account
+## Setting up Ping Identity in your account
 
-- Login to Ping Identity's admin dashboard. Click on 'Add Application' and select 'Search Application Catalog':
-  ![](https://docs.testfairy.com/img/sso/pingidentity/ping-identity-1.png)
+1. Login to Ping Identity's admin dashboard. Click on **Add Application** and select **Search Application Catalog**.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/ping-identity-1.png')} alt=""/>
 
-- Type "TestFairy" into the search box, and select the application. Click on the "expand" arrow.
-  ![](https://docs.testfairy.com/img/sso/pingidentity/ping-identity-2.png)
+2. Type `TestFairy` into the search box, and select the application. Click on the "expand" arrow.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/ping-identity-2.png')} alt=""/>
 
-- Click on 'Setup'. There is no need to change configuration:
-  ![](https://docs.testfairy.com/img/sso/pingidentity/ping-identity-3.png)
-- Click on "Continue to Next Step"
-  ![](https://docs.testfairy.com/img/sso/pingidentity/ping-identity-4.png)
-- Type in the ACS URL and Entity ID. For _ACS URL_, please use the following format `https://acme.testfairy.com/login/sso`, and replace 'acme' with your own subdomain.
+3. Click on **Setup**. There is no need to change configuration.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/ping-identity-3.png')} alt=""/>
 
-For _Entity ID_, please use the same format `https://acme.testfairy.com`. and again, replace 'acme' with your own subdomain.
-![](https://docs.testfairy.com/img/sso/pingidentity/ping-identity-5.png)
+4. Click on **Continue to Next Step**.  
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/ping-identity-4.png')} alt=""/>
 
-- Click on "Continue to Next Step", no other configuration need to be changed.
-  ![](https://docs.testfairy.com/img/sso/pingidentity/ping-identity-6.png)
-  ![](https://docs.testfairy.com/img/sso/pingidentity/ping-identity-7.png)
-- Click on "Save & Publish", and then click on "Finish"
-  ![](https://docs.testfairy.com/img/sso/pingidentity/ping-identity-8.png)
-  ![](https://docs.testfairy.com/img/sso/pingidentity/ping-identity-9.png)
+5. Type in the ACS URL and Entity ID. For `ACS URL`, please use the following format `https://acme.testfairy.com/login/sso`, and replace 'acme' with your own subdomain.
 
-- Next, download "SAML Metadata".
-  ![](https://docs.testfairy.com/img/sso/pingidentity/ping-identity-10.png)
-- Now login to TestFairy, and select Preferences.
-  ![](https://docs.testfairy.com/img/sso/pingidentity/ping-identity-11.png)
-- Copy the contents of the file you just downloaded, and paste it into the textbox. Click on "Update":
-  ![](https://docs.testfairy.com/img/sso/pingidentity/ping-identity-12.png)
-- TestFairy-side configuration is now done!
-  ![](https://docs.testfairy.com/img/sso/pingidentity/ping-identity-13.png)
+For `Entity ID`, please use the same format `https://acme.testfairy.com`, and again, replace 'acme' with your own subdomain.
+<img src={useBaseUrl('/img/test-fairy/acct-mgmt/ping-identity-5.png')} alt=""/>
 
-Now please logout, and makre sure you see the "Login with SSO" button.
+6. Click on **Continue to Next Step**, no other configuration need to be changed.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/ping-identity-6.png')} alt=""/>  
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/ping-identity-7.png')} alt=""/>
+
+7. Click on **Save & Publish**, and then click on **Finish**.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/ping-identity-8.png')} alt=""/>  
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/ping-identity-9.png')} alt=""/>
+
+8. Next, download `SAML Metadata`.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/ping-identity-10.png')} alt=""/>
+
+9. Now login to TestFairy, and select **Preferences**.
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/ping-identity-11.png')} alt=""/>
+
+10. Copy the contents of the file you just downloaded, and paste it into the textbox. Click on **Update**:
+    <img src={useBaseUrl('/img/test-fairy/acct-mgmt/ping-identity-12.png')} alt=""/>
+
+11. TestFairy-side configuration is now done!
+    <img src={useBaseUrl('/img/test-fairy/acct-mgmt/ping-identity-13.png')} alt=""/>
+
+Now please logout, and make sure you see the "Login with SSO" button.
