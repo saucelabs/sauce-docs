@@ -51,7 +51,7 @@ Yes, Sauce Orchestrate provides several debugging and troubleshooting features t
 
 ## Can everyone use Sauce Orchestrate?
 
-No, Sauce Orchestrate is a paid add-on that is available to all customers. Please reach out to help@saucelabs.com for further assistance or request a demo!
+No, Sauce Orchestrate is a paid add-on that is available to all customers. Contact help@saucelabs.com for further assistance or to request a demo.
 
 ## Can I Customize the Testing Environment When Using Sauce Orchestrate?
 
