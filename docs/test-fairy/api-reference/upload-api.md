@@ -63,13 +63,13 @@ Travis CI https://docs.testfairy.com/Continuous_Integration/Travis_CI.html
   <tbody>
     <tr>
      <td><code>symbols_file</code></td>
-     <td><p><small>| OPTIONAL |</small></p><p>Symbols mapping file. For iOS this should be a path to the <strong>zipped</strong> symbols file. For Android, this is the path to the mappings.txt file</p></td>
+     <td><p><small>| OPTIONAL |</small></p><p>Symbols mapping file. For iOS this is a path to the <strong>zipped</strong> symbols file. For Android, this is the path to the mappings.txt file</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>groups</code></td>
-     <td><p><small>| OPTIONAL |</small></p><p>Comma-separated list of tester groups that will get permission to download this app.</p></td>
+     <td><p><small>| OPTIONAL |</small></p><p>Comma-separated list of tester groups that get permission to download this app.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -81,13 +81,13 @@ Travis CI https://docs.testfairy.com/Continuous_Integration/Travis_CI.html
   <tbody>
     <tr>
      <td><code>release_notes</code></td>
-     <td><p><small>| OPTIONAL |</small></p><p>Release notes for this upload. This text will be added to emails and landing pages.</p></td>
+     <td><p><small>| OPTIONAL |</small></p><p>Release notes for this upload. This text is added to emails and landing pages.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>auto_update</code></td>
-     <td><p><small>| OPTIONAL |</small></p><p>Allows an easy upgrade of all users to the current version. Can be "on" or "off". Default is "off".</p></td>
+     <td><p><small>| OPTIONAL |</small></p><p>Allows to upgrade of all users to the current version. It can be "on" or "off". Default is "off".</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -99,7 +99,7 @@ Travis CI https://docs.testfairy.com/Continuous_Integration/Travis_CI.html
   <tbody>
     <tr>
      <td><code>folder_name</code></td>
-     <td><p><small>| OPTIONAL |</small></p><p>Name of the dashboard folder that will contain this app</p></td>
+     <td><p><small>| OPTIONAL |</small></p><p>Name of the dashboard folder that contains this app</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -117,7 +117,7 @@ Travis CI https://docs.testfairy.com/Continuous_Integration/Travis_CI.html
   <tbody>
     <tr>
      <td><code>platform</code></td>
-     <td><p><small>| OPTIONAL |</small></p><p>In case app is not iOS or Android, which are detected automatically, use this to mark an app for specific desktop or console platforms. Values can be "xbox", "playstation", "switch", "windows", "macos". This feature is not enabled by default, please contact support for more information.</p></td>
+     <td><p><small>| OPTIONAL |</small></p><p>In case app is not iOS or Android, which are detected automatically, use this to mark an app for specific desktop or console platforms. Values can be "Xbox", "PlayStation", "switch", "windows", "macos". This feature is not enabled by default. Contact support for more information.</p></td>
     </tr>
   </tbody>
 </table>
@@ -156,7 +156,7 @@ curl https://upload.testfairy.com/api/upload \
 
 #### Responses
 
-In the case of an error, TestFairy will return a JSON with `status` => `fail` and `code` with one of the values listed below. An additional human-readable error message is supplied to detail the cause of the specific error.
+In the case of an error, TestFairy returns a JSON with `status` => `fail` and `code` with one of the values listed below. An additional human-readable error message is supplied to detail the cause of the specific error.
 
 <table id="table-api">
 	<tbody>
@@ -198,21 +198,21 @@ In the case of an error, TestFairy will return a JSON with `status` => `fail` an
 
 </details>
 
-### Where can I find my API Key?
+### Where Can I Find my API Key?
 
 In order to get your API KEY, open your account preferences at https://app.testfairy.com/settings/ and click on **Upload API Key**.
 
-### How can I create a new API Key?
+### How Can I Create a New API Key?
 
 In order to create a new API KEY just click on **Regenerate API Key** in your account preferences page.
 
-### Why is my API Key empty?
+### Why Is My API Key Empty?
 
-In cases where we identify that your API KEY was used by mistake to initialize the SDK instead of using your APP TOKEN, we automatically reset the API KEY in order to protect your privacy. In this case, please change the SDK initialization to use the APP TOKEN and create a new API KEY.
+In cases where we identify that your API KEY was used by mistake to initialize the SDK instead of using your APP TOKEN, we automatically reset the API KEY to protect your privacy. In this case, change the SDK initialization to use the APP TOKEN and create a new API KEY.
 
-### Can I add custom metadata?
+### Can I Add Custom Metadata?
 
-Yes. Any POST parameter that its name is prefixed with "metadata." will be considered custom data and stored along with the upload. For example, consider this command:
+Yes. Any POST parameter whose name is prefixed with "metadata." is considered custom data and stored along with the upload. For example, consider this command:
 
 ```bash
 curl https://upload.testfairy.com/api/upload \
