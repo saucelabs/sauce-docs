@@ -5,6 +5,8 @@ sidebar_label: What's New
 description: See what's new with the Backtrace Console, including new features and improvements.
 ---
 
+test
+
 :::note Page Deprecated
 This page is now deprecated and will be removed. To see what's new for Error Reporting, see the [Sauce Labs Product Announcements](https://changelog.saucelabs.com/en?category=error%20reporting).
 :::
