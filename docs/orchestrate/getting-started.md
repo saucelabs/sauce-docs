@@ -12,7 +12,7 @@ This page outlines how to run your browser and mobile tests in Sauce Orchestrate
 
 ## What You'll Need
 
-:::note 
+:::note
 Make sure your organization is enrolled to use Sauce Orchestrate, otherwise you will encounter an error. If you are not enrolled, contact your Customer Success Manager or Support at help@saucelabs.com. 
 :::
 
