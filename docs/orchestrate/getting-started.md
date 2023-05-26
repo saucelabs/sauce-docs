@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 This page outlines how to run your browser and mobile tests in Sauce Orchestrate.
 
 ## What You'll Need
-:::caution Please ensure your organization is enrolled to use Sauce Orchestrate otherwise you will encounter and error. :::
+:::caution Please ensure your organization is enrolled to use Sauce Orchestrate otherwise you will encounter an error. If you are not enrolled, please feel free to reach out to your Customer Success Manager or Support at help@saucelabs.com :::
 
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
