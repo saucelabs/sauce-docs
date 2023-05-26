@@ -12,7 +12,7 @@ This is the reference document for the TestFairy REST API. This API allows the d
 
 ## Getting Started
 
-Getting started with the REST API is easy, and can be done via command line with any programming language. Let's begin with a simple example. We will start by listing all our projects.
+Getting started with the REST API can be done via the command line with any programming language. Let's begin with a simple example. We start by listing all our projects.
 
 A project is either an iOS app or an Android app (two apps with the same package name but on different platforms are considered two projects.)
 
@@ -22,7 +22,7 @@ curl -u "john@example.com:00001234cafecafe" "https://api.testfairy.com/api/1/pro
 
 In the example above, you can see that our user is `john@example.com` and the API key is `0001234cafecafe`. This user authentication token is required for all requests to the REST server.
 
-**Your API key is private**, please do not share it or post it on public code repositories or forums. To find your API key, please refer to [your preferences page](https://app.testfairy.com/settings).
+**Your API key is private**, do not share it or post it on public code repositories or forums. To find your API key, refer to [your preferences page](https://app.testfairy.com/settings).
 
 ## Projects
 
@@ -69,7 +69,7 @@ Returns a list of all projects (iOS and Android apps) in this account.
 <details><summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/</code></summary>
 <p></p>
 
-Get all builds in a specific project. Each build is a distinct version that was either uploaded, or created by the TestFairy SDK.
+Get all builds in a specific project. Each build is a distinct version that is either uploaded or created by the TestFairy SDK.
 
 #### Responses
 
@@ -169,7 +169,7 @@ Get a specific build of a specific project. Query the /api/1/projects/&#123;proj
 <details><summary><span className="api delete">DELETE</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;</code></summary>
 <p></p>
 
-Delete a specific build. When all builds of a project have been deleted, the project itself is removed from /api/1/projects API. When deleting a build, all of its artifcats (IPA/APK files), recorded sessions and crashes are also deleted.
+Delete a specific build. When all builds of a project are deleted, the project itself is removed from /api/1/projects API. When deleting a build, all of its artifacts (IPA/APK files), recorded sessions, and crashes are also deleted.
 
 #### Responses
 
@@ -269,7 +269,7 @@ Get metadata (and optionally data) for a specific session.
   <tbody>
    <tr>
     <td><code>fields</code></td>
-    <td><p><small>| OPTIONAL | STRING |</small></p><p>Possible values: <code>meta</code>, <code>logs</code>, <code>events</code>. Default value is <code>meta</code>. Use <code>events</code> to load all events, screenshots, touches and other metrices. Use <code>logs</code> to fetch only logs. When loading logs, response will be application/text.</p></td>
+    <td><p><small>| OPTIONAL | STRING |</small></p><p>Possible values: <code>meta</code>, <code>logs</code>, <code>events</code>. The default value is <code>meta</code>. Use <code>events</code> to load all events, screenshots, touches, and other metrics. Use <code>logs</code> to fetch only logs. When loading logs, the response is application/text.</p></td>
   </tr>
 </tbody>
 </table>
@@ -414,7 +414,7 @@ Add a new tester to account. Optionally can add them to a group.
 <details><summary><span className="api post">POST</span><code>/api/1/testers/&#123;tester-id&#125;/block/</code></summary>
 <p></p>
 
-Blocks a single tester. They cannot download the apps they were invited to. However, the data stays. You can later unblock this tester, or delete them completely.
+Blocks a single tester. They cannot download the apps they are invited to. However, the data stays. You can later unblock this tester or delete them completely.
 
 #### Responses
 
@@ -437,7 +437,7 @@ Blocks a single tester. They cannot download the apps they were invited to. Howe
 
 ---
 
-### Unblock a tester
+### Unblock a Tester
 
 <details><summary><span className="api delete">DELETE</span><code>/api/1/testers/&#123;tester-id&#125;/block/</code></summary>
 <p></p>
@@ -470,7 +470,7 @@ Unblock a single tester. Their invitations are restored. If the user is already 
 <details><summary><span className="api delete">DELETE</span><code>/api/1/testers/&#123;tester-id&#125;</code></summary>
 <p></p>
 
-Delete a single tester, remove them from any tester-groups they might be in, and invalidate all invitations that were sent.
+Delete a single tester, remove them from any tester-groups they might be in, and invalidate all invitations that are sent.
 
 #### Responses
 

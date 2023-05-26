@@ -42,4 +42,4 @@ GitLab can automatically deploy your Android or iOS Apps to [TestFairy](https://
 Be sure to replace the `-F file=@android.apk` argument with a path to your own APK or IPA.
 :::
 
-For a complete list of available options, please visit the [Upload API reference guide](/test-fairy/api-reference/upload-api)
+For a complete list of available options, visit the [Upload API reference guide](/test-fairy/api-reference/upload-api)
