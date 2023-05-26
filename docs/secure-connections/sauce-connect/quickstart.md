@@ -33,14 +33,14 @@ Sauce Connect is required to run a local test on an app or website located behin
    <TabItem value="Mac/Linux">
 
    ```bash
-   cd sc-4.8.2-osx/bin
+   cd sc-4.9.0-osx/bin
    ```
 
    </TabItem>
    <TabItem value="Windows">
 
    ```bash
-   cd C:\sc-4.8.2-win32\bin
+   cd C:\sc-4.9.0-win32\bin
    ```
 
    </TabItem>

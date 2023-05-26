@@ -155,9 +155,9 @@ $ cat /tmp/sc.ready | jq .
 }
 ```
 
-## Running the Sauce Connect Docker in the nginx Server
+## Running the Sauce Connect Docker with a nginx Server
 
-The `docker-compose.yaml` file below shows how to run Sauce Connect Docker in the nginx server.
+The `docker-compose.yaml` file below shows how to run Sauce Connect Docker in the nginx server. The example configuration allows you to use a tunnel while launching a Desktop or Web Mobile test, then go to the 'nginx' URL. The Sauce Connect Proxy then routes you to the nginx container.
 
 The Sauce Connect Proxy sits adjacent to the `nginx:latest` instance: you can reach the nginx service from Sauce Labs by going to nginx (if you run it as is). You can also provide a name to the container with [container_name](https://docs.docker.com/compose/compose-file/compose-file-v3/#container_name).
 
