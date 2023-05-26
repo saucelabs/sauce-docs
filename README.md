@@ -9,7 +9,7 @@
   <a href="https://gitpod.io/#https://github.com/saucelabs/sauce-docs"><img src="https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod" alt="Gitpod Ready-to-Code"/></a>
   <a href="https://github.com/saucelabs/sauce-docs/actions/workflows/deploy-to-production.yml"><img src="https://github.com/saucelabs/sauce-docs/actions/workflows/deploy-to-production.yml/badge.svg" alt= "Deploy to Production"/></a>
   <a href="https://github.com/saucelabs/sauce-docs/actions/workflows/link-checker.yml"><img src="https://github.com/saucelabs/sauce-docs/actions/workflows/link-checker.yml/badge.svg" alt= "Sauce Docs Link Checker"/>
-  <a href="https://api.netlify.com/api/v1/badges/3c169122-6c6b-4d33-9d4c-115a639b93ee/deploy-status"><img src="https://app.netlify.com/sites/sauce-docs/deploys" alt= "Netlify Status"/>
+  <a href="https://app.netlify.com/sites/sauce-docs/deploys"><img src="https://api.netlify.com/api/v1/badges/3c169122-6c6b-4d33-9d4c-115a639b93ee/deploy-status" alt= "Netlify Status"/>
 </p>
 
 <p align="center">
