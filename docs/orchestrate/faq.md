@@ -49,7 +49,7 @@ Yes, with Sauce Labs Orchestrate you can automate your testing process, freeing 
 
 Yes, Sauce Orchestrate provides several debugging and troubleshooting features to help users identify and resolve issues with their tests.
 
-## Can everyone use Sauce Orchestrate?
+## Is Sauce Orchestrate Free?
 
 No, Sauce Orchestrate is a paid add-on that is available to all customers. Contact help@saucelabs.com for further assistance or to request a demo.
 
