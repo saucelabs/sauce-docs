@@ -9,11 +9,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Single Sign-on enables you to manage users and testers outside of TestFairy.
-TestFairy supports SAML and is fully compatible with Okta, OneLogin, Ping, Oracle, IBM and Azure ADFS.
+TestFairy supports SAML and is fully compatible with Okta, OneLogin, Ping, Oracle, IBM, and Azure ADFS.
 
-When SSO is configured into your account, the login page is replaced with a simple login with an sso button.
+When SSO is configured into your account, the login page is replaced with a simple login with an SSO button.
 
-There are several SAML / SSO providers that you can create integrations with:
+There are several SAML / SSO providers that you can create integrations:
 
 |                                                                                                                    |                                                           |
 | :----------------------------------------------------------------------------------------------------------------: | --------------------------------------------------------- |

@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy requires that you call `begin` in order to start recording your sessions. However, developers have the option to override the build settings to determine what is enabled during a session recording.
+TestFairy requires that you call `begin` to start recording your sessions. However, developers can override the build settings to determine what is enabled during a session recording.
 
 Some commonly used options:
 
@@ -49,21 +49,21 @@ In the following example, the TestFairy crash handler will be disabled.
 import com.testfairy.TestFairy;
 
 public class MyApplication extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
+ @Override
+ public void onCreate() {
+ super.onCreate();
 
-        TestFairy.disableCrashHandler();
-        TestFairy.begin(this, "<app token>");
-    }
+ TestFairy.disableCrashHandler();
+ TestFairy.begin(this, "<app token>");
+ }
 }
 ```
 
-Your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken) once logged in.
+Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
 
 ### Video Recording
 
-TestFairy provides an option to enable or disable video recording, and to control the parameters of the recording. Invoke `disableVideo`, or `enableVideo` before `begin`.
+TestFairy provides an option to enable or disable video recording and control the recording parameters. Invoke `disableVideo` or `enableVideo` before `begin`.
 
 #### Syntax
 
@@ -72,36 +72,36 @@ TestFairy.disableVideo();
 TestFairy.enableVideo("<policy>", "<quality>", <frames per second>);
 ```
 
-Refer to the [Class Reference](https://app.testfairy.com/reference/android/index.html) for more information on values for `policy` and `quality`.
+Refer to the [Class Reference](https://app.testfairy.com/reference/android/index.html) for more information on `policy` and `quality` values.
 
 #### Code Example
 
-In the following example, video will only be recorded when wifi is available. A high quality video will be recorded every 2 seconds.
+In the following example, video only records when wifi is available. A high-quality video is recorded every 2 seconds.
 
 ```java
 import com.testfairy.TestFairy;
 
 public class MyApplication extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
+ @Override
+ public void onCreate() {
+ super.onCreate();
 
-        TestFairy.enableVideo("wifi", "high", 2.0);
-        TestFairy.begin(this, "<app token>");
-    }
+ TestFairy.enableVideo("wifi", "high", 2.0);
+ TestFairy.begin(this, "<app token>");
+ }
 }
 ```
 
-Your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken) once logged in.
+Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
 
 ### Recorded Metrics
 
-TestFairy can collect a number of different metrics from your app. Developers can choose to override the metrics defined in their app's build settings.
+TestFairy can collect several different metrics from your app. Developers can override the metrics defined in their app's build settings.
 
 Developers can call `enableMetric` or `disableMetric` before invoking `begin` with the metric they wish to enable or disable recording.
 
 :::note
-Any metric that is enabled or disabled will override the settings set in your app's build settings.
+Any metric that is enabled or disabled override the settings set in your app's build settings.
 :::
 
 #### Syntax
@@ -121,22 +121,22 @@ In the following snippet, the CPU metric will be recorded, and the Memory metric
 import com.testfairy.TestFairy;
 
 public class MyApplication extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
+ @Override
+ public void onCreate() {
+ super.onCreate();
 
-        TestFairy.enableMetric("cpu");
-        TestFairy.disableMetric("memory");
-        TestFairy.begin(this, "<app token>");
-    }
+ TestFairy.enableMetric("cpu");
+ TestFairy.disableMetric("memory");
+ TestFairy.begin(this, "<app token>");
+ }
 }
 ```
 
-Your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken) once logged in.
+Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
 
 ### Max Session Length
 
-TestFairy only records for a fixed period of time. Developers can override the maximum recording period by calling `setMaxSessionLength` before calling `begin`.
+TestFairy only records for a fixed period. Developers can override the maximum recording period by calling `setMaxSessionLength` before calling `begin`.
 
 :::note
 The value passed into this method must be less than or equal to the value defined in the build settings. A value larger than the one in the build settings will be ignored.
@@ -154,21 +154,21 @@ TestFairy.setMaxSessionLength(<session length in seconds>);
 import com.testfairy.TestFairy;
 
 public class MyApplication extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
+ @Override
+ public void onCreate() {
+ super.onCreate();
 
-        TestFairy.setMaxSessionLength(10 * 60); // Record for 10 minutes
-        TestFairy.begin(this, "<app token>");
-    }
+ TestFairy.setMaxSessionLength(10 * 60); // Record for 10 minutes
+ TestFairy.begin(this, "<app token>");
+ }
 }
 ```
 
-Your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken) once logged in.
+Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
 
 ### Feedback Form
 
-TestFairy provides an option to enable or disable feedback collection. Invoke `disableFeedbackForm`, or `enableFeedbackForm` before `begin`.
+TestFairy provides an option to enable or disable feedback collection. Invoke `disableFeedbackForm` or `enableFeedbackForm` before `begin`.
 
 #### Syntax
 
@@ -181,23 +181,23 @@ Refer to the [Class Reference](https://app.testfairy.com/reference/android/index
 
 #### Code Example
 
-In the following example, feedback will be enabled when the device is shook.
+In the following example, feedback will be enabled when the device is shaken.
 
 ```java
 import com.testfairy.TestFairy;
 
 public class MyApplication extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
+ @Override
+ public void onCreate() {
+ super.onCreate();
 
-        TestFairy.enableFeedbackForm("shake");
-        TestFairy.begin(this, "<app token>");
-    }
+ TestFairy.enableFeedbackForm("shake");
+ TestFairy.begin(this, "<app token>");
+ }
 }
 ```
 
-Your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken) once logged in.
+Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
 
 </TabItem>
 
@@ -224,16 +224,16 @@ In the following example, the TestFairy crash handler will be disabled.
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [TestFairy disableCrashHandler];
-    [TestFairy begin:@"<app token>"];
+ [TestFairy disableCrashHandler];
+ [TestFairy begin:@"<app token>"];
 }
 ```
 
-Your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken) once logged in.
+Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
 
 ### Video Recording
 
-TestFairy provides an option to enable or disable video recording, and to control the parameters of the recording. Invoke `disableVideo`, or `enableVideo` before `begin`.
+TestFairy provides an option to enable or disable video recording and control the recording parameters. Invoke `disableVideo` or `enableVideo` before `begin`.
 
 #### Syntax
 
@@ -242,26 +242,26 @@ TestFairy provides an option to enable or disable video recording, and to contro
 [TestFairy enableVideo:@"<policy>" quality:@"<quality>" framesPerSecond:<frames per second>];
 ```
 
-Refer to the [Class Reference](https://app.testfairy.com/reference/ios/Classes/TestFairy.html) for more information on values for `policy` and `quality`.
+Refer to the [Class Reference](https://app.testfairy.com/reference/ios/Classes/TestFairy.html) for more information on `policy` and `quality` values.
 
 #### Code Example
 
-In the following example, video will only be recorded when wifi is available. A high quality video will be recorded every 2 seconds.
+In the following example, the video will only be recorded when wifi is available. A high-quality video will be recorded every 2 seconds.
 
 ```java
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [TestFairy enableVideo:@"wifi" quality:@"high" framesPerSecond:2.0];
-    [TestFairy begin: @"<app token>"];
+ [TestFairy enableVideo:@"wifi" quality:@"high" framesPerSecond:2.0];
+ [TestFairy begin: @"<app token>"];
 }
 ```
 
-Your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken) once logged in.
+Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
 
 ### Recorded Metrics
 
-TestFairy can collect a number of different metrics from your app. Developers can choose to override the metrics defined in their app's build settings.
+TestFairy can collect several different metrics from your app. Developers can override the metrics defined in their app's build settings.
 
 Developers can call `enableMetric` or `disableMetric` before invoking `begin` with the metric they wish to enable or disable recording.
 
@@ -286,18 +286,18 @@ In the following snippet, the CPU metric will be recorded, and the Memory metric
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [TestFairy enableMetric:@"cpu"];
-    [TestFairy disableMetric:@"memory"];
-    [TestFairy begin: @"<app token>"];
-    // ...
+ [TestFairy enableMetric:@"cpu"];
+ [TestFairy disableMetric:@"memory"];
+ [TestFairy begin: @"<app token>"];
+ // ...
 }
 ```
 
-Your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken) once logged in.
+Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
 
 ### Max Session Length
 
-TestFairy only records for a fixed period of time. Developers can override the maximum recording period by calling `setMaxSessionLength` before calling `begin`.
+TestFairy only records for a fixed period. Developers can override the maximum recording period by calling `setMaxSessionLength` before calling `begin`.
 
 :::note
 The value passed into this method must be less than or equal to the value defined in the build settings. A value larger than the one in the build settings will be ignored.
@@ -315,16 +315,16 @@ The value passed into this method must be less than or equal to the value define
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [TestFairy setMaxSessionLength:(10 * 60)]; // Record for 10 minutes
-    [TestFairy begin:@"<app token>"];
+ [TestFairy setMaxSessionLength:(10 * 60)]; // Record for 10 minutes
+ [TestFairy begin:@"<app token>"];
 }
 ```
 
-Your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken) once logged in.
+Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
 
 ### Feedback Form
 
-TestFairy provides an option to enable or disable feedback collection. Invoke `disableFeedbackForm`, or `enableFeedbackForm` before `begin`.
+TestFairy provides an option to enable or disable feedback collection. Invoke `disableFeedbackForm` or `enableFeedbackForm` before `begin`.
 
 #### Syntax
 
@@ -337,18 +337,18 @@ Refer to the [Class Reference](https://app.testfairy.com/reference/ios/Classes/T
 
 #### Code Example
 
-In the following example, feedback will be enabled when the device is shook.
+In the following example, feedback will be enabled when the device is shaken.
 
 ```java
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [TestFairy enableFeedbackForm:@"shake|screenshot"];
-    [TestFairy begin: @"<app token>"];
+ [TestFairy enableFeedbackForm:@"shake|screenshot"];
+ [TestFairy begin: @"<app token>"];
 }
 ```
 
-Your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken) once logged in.
+Once logged in, your app token is available from your [account preferences](https://app.testfairy.com/settings#apptoken).
 
 </TabItem>
 </Tabs>
