@@ -35,7 +35,7 @@ public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 
 ## Usage
 
-### Identifying your users
+### Identifying Your Users
 
 See the [SDK Documentation](/test-fairy/sdk/identifying-users#xamarin) for more information.
 
