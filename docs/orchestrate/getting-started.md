@@ -8,14 +8,15 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+<p><span className="sauceGreen">Paid Add-On</span></p>
+
 This page outlines how to run your browser and mobile tests in Sauce Orchestrate.
 
 ## What You'll Need
 
-:::note
-Make sure your organization is enrolled to use Sauce Orchestrate, otherwise you will encounter an error. If you are not enrolled, contact your Customer Success Manager or Support at help@saucelabs.com. 
+:::caution
+Make sure your organization is enrolled to use Sauce Orchestrate, otherwise you will encounter an error. If you are not enrolled, contact your Customer Success Manager or Support at help@saucelabs.com.
 :::
-
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
