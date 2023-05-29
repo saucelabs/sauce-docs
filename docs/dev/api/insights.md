@@ -1867,6 +1867,12 @@ Return an array of tests with details.
   </tbody>
   <tbody>
     <tr>
+     <td><code>tag_filter_mode</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
      <td><code>error</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those that threw the specified error message.</p></td>
     </tr>
@@ -2113,6 +2119,12 @@ Return an array of test cases (grouped by name) with statistical details.
   </tbody>
   <tbody>
     <tr>
+     <td><code>tag_filter_mode</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
      <td><code>limit</code></td>
      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Identifies the number of records to return. Default value is <code>50</code>.</p></td>
     </tr>
@@ -2322,6 +2334,12 @@ Return an array of test cases (grouped by name) with statistical details as a CS
   </tbody>
   <tbody>
     <tr>
+     <td><code>tag_filter_mode</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
      <td><code>sort_by</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <code>total_runs</code>, <code>name</code>, <code>complete_count</code>, <code>error_count</code>, <code>fail_count</code>, <code>pass_count</code>, <code>complete_rate</code>, <code>error_rate</code>, <code>failure_rate</code>, <code>pass_rate</code>, <code>avg_duration</code>, <code>median_duration</code>, <code>total_duration</code>. Default value is <code>total_runs</code>.</p></td>
     </tr>
@@ -2491,6 +2509,12 @@ Return an array of test cases (grouped by name) with statistical details.
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified tag.</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>tag_filter_mode</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+    </tr>
+  </tbody>
 </table>
 
 <Tabs
@@ -2641,6 +2665,12 @@ Return a histogram with test statistic details grouped by specific period.
     <tr>
      <td><code>tag</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified tag.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tag_filter_mode</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -3292,6 +3322,12 @@ Return an array of buckets with aggregations, for example number of tests run on
     <tr>
      <td><code>tag</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified tag.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tag_filter_mode</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
     </tr>
   </tbody>
 </table>
