@@ -14,7 +14,7 @@ If you are developing your app in Flutter, you can find the instructions to add 
 
 Use this package as a library.
 
-### 1. Depend on it
+### 1. Depend On It
 
 Add this to your package's `pubspec.yaml`.
 
@@ -23,7 +23,7 @@ dependencies:
   testfairy_flutter: any
 ```
 
-### 2. Install it
+### 2. Install It
 
 You can install packages from the command line:
 
@@ -33,7 +33,7 @@ $ flutter packages get
 
 Alternatively, your editor might support Flutter packages get. Check the docs for your editor to learn more.
 
-### 3. Import it
+### 3. Import It
 
 Now in your Dart code, you can use the following:
 
@@ -101,9 +101,9 @@ void main() {
 
 To use TestFairy with the latest **stable** Flutter channel, you must set the minimum version for the plugin as 2.1.0.
 
-To use TestFairy with the latest **unstable** Flutter channel, you must clone this repo and use it as an offline dependency instead of the published version in pub.
+To use TestFairy with the latest **unstable** Flutter channel, you must clone this repository and use it as an offline dependency instead of the published version in pub.
 
-1. Clone this [repo](https://github.com/testfairy/testfairy-flutter).
+1. Clone this [repository](https://github.com/testfairy/testfairy-flutter).
 
 2. Use the following code to include the clone as an offline dependency (assuming both projects reside in the same directory as siblings).
 
@@ -115,7 +115,7 @@ To use TestFairy with the latest **unstable** Flutter channel, you must clone th
 
 3. Checkout **testfairy-flutter** to your VCS without including its **.git** directory.
 
-4. When there is a new update in this repo, delete **testfairy-flutter** and retry the steps.
+4. When there is a new update in this repository, delete **testfairy-flutter** and retry the steps.
 
 ## Troubleshoot
 
@@ -176,7 +176,7 @@ To use TestFairy with the latest **unstable** Flutter channel, you must clone th
 
 - **I see `Automatically assigning platform ios with version 8.0` when I build.**
 
-  TestFairy supports iOS 9.0 and above. Please change the build target accordingly in your Xcode project.
+  TestFairy supports iOS 9.0 and above. Change the build target accordingly in your Xcode project.
 
 - **I see `Looks like TestFairy has an upgrade to do... 1.X.Y+hotfixZ is the latest stable branch` or errors related to Jetifier in the logs when I call an SDK method.**
 
@@ -184,7 +184,7 @@ To use TestFairy with the latest **unstable** Flutter channel, you must clone th
 
 - **I see `Undefined symbols for architecture` error during compilation.**
 
-  You must use frameworks and specify a platform version of at least `9.0` in your generated iOS project's Podfile. Please make the following changes in _ios/Podfile_ and rebuild.
+  You must use frameworks and specify a platform version of at least `9.0` in your generated iOS project's Podfile. Make the following changes in _ios/Podfile_ and rebuild.
 
   ```bash
   target 'Runner' do

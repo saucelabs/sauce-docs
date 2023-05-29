@@ -53,7 +53,7 @@ See the [SDK Documentation](/test-fairy/sdk/session-attributes#cordova) for more
 
 See the [SDK Documentation](/test-fairy/sdk/remote-logging#cordova) for more information.
 
-## Support for ARM architecture vs. x86
+## Support for ARM Architecture vs. x86
 
 ```bash
 ERROR ITMS-90087: "Unsupported Architectures. The executable TestFairy.framework contains unsupported architectures '[x86_64, i386]'
@@ -97,10 +97,10 @@ You must only run this script during **only when installing**. The image below s
 
 <img src={useBaseUrl('/img/test-fairy/platform/only-when-installing.png')} alt="only when installing"/>
 
-## Where to go from here?
+## Where To Go From Here?
 
-Congratulations! You've successfully integrated TestFairy into your Cordova project! Visit your [dashboard](http://app.testfairy.com/), where you should see your app listed.
+Congratulations. You've successfully integrated TestFairy into your Cordova project. Visit your [dashboard](http://app.testfairy.com/), to see your app listed.
 
 - Have a look at the [API documentation](https://github.com/testfairy/testfairy-cordova-plugin/blob/master/www/testfairy.js) for other calls you can make to the TestFairy plugin
 
-- Follow the project on [GitHub](https://github.com/testfairy/testfairy-cordova-plugin) for updates, bug reports, or to contribute to the project!
+- Follow the project on [GitHub](https://github.com/testfairy/testfairy-cordova-plugin) for updates, bug reports, or to contribute to the project.

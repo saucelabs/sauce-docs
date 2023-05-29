@@ -68,7 +68,7 @@ export class MyApp {
 ```
 
 :::note
-We currently do not support plugin mocking or browser development. During your development phase, we recommend checking for the existence of `TestFairy` on the `window` object before invoking any methods on the TestFairy object, e.g.
+We do not support plugin mocking or browser development. During your development phase, we recommend checking for the existence of `TestFairy` on the `window` object before invoking any methods on the TestFairy object, for example
 
 ```js
 // Check if TestFairy is available (will be undefined in browser)
@@ -93,7 +93,7 @@ See the [SDK Documentation](/test-fairy/sdk/remote-logging#cordova) for more inf
 
 ## Where To Go From Here?
 
-Congratulations! You've successfully integrated TestFairy into your Ionic project! Visit your [dashboard](http://app.testfairy.com/), where you should see your app listed.
+Congratulations. You've successfully integrated TestFairy into your Ionic project. Visit your [dashboard](http://app.testfairy.com/), to see your app listed.
 
 - Look at the [API documentation](https://github.com/testfairy/testfairy-cordova-plugin/blob/master/www/testfairy.js) for other calls to the TestFairy plugin.
 
