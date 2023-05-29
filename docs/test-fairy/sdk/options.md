@@ -32,7 +32,7 @@ values={[
 
 TestFairy provides a means of capturing and recording stack traces if your application crashes. Stack traces can be vital to understanding any underlying bugs in your app. However, some apps may want to disable TestFairy's crash handling. Invoke `enableCrashHandler` or `disableCrashHandler` before calling `begin`.
 
-Once the TestFairy crash handler has been enabled, it cannot be disabled unless the app is restarted.
+Once you enable the TestFairy crash handler, it cannot be disabled unless the app is restarted.
 
 #### Syntax
 
@@ -207,7 +207,7 @@ Once logged in, your app token is available from your [account preferences](http
 
 TestFairy provides a means of capturing and recording stack traces if your application crashes. Stack traces can be vital to understanding any underlying bugs in your app. However, some apps may want to disable TestFairy's crash handling. Invoke `enableCrashHandler` or `disableCrashHandler` before calling `begin`.
 
-Once the TestFairy crash handler has been enabled, it cannot be disabled unless the app is restarted.
+Once you enable the TestFairy crash handler, it cannot be disabled unless the app is restarted.
 
 #### Syntax
 
