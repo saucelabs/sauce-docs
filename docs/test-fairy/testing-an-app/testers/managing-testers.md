@@ -24,7 +24,7 @@ You can add testers manually or [import lists of testers](https://app.testfairy.
 
 :::note Only for iOS
 If you are **not** using an [iOS Enterprise certificate](https://developer.apple.com/programs/ios/enterprise/), you must get the UDIDs of your testers' devices before sending them your app.
-When you invite new testers by email, your testers will get an email asking them to register their device. Once they click on the registration link, you will get an email with their UDID, and their device details will be added to your [testers page](https://app.testfairy.com/testers).
+When you invite new testers by email, your testers get an email asking them to register their device. Once they click on the registration link, you get an email with their UDID, and their device details will be added to your [testers page](https://app.testfairy.com/testers).
 For more information about how to add UDIDs to provisioning profiles, read [this guide](/test-fairy/sdk/ios/adding-udids).
 :::
 
@@ -34,7 +34,7 @@ For more information about how to add UDIDs to provisioning profiles, read [this
 
 You can also divide testers into **groups** to add more structure and organize your testing efforts.
 To create a group, click in the GROUPS text box and then on `Create new group...`
-Choose a group name and click OK. The tester you clicked in his group will be assigned the group you created.
+Choose a group name and click OK. The tester you clicked in their group will be assigned the group you created.
 
 <img src={useBaseUrl('/img/test-fairy/testing-an-app/tester-groups-1.png')} alt="alt tester group"/>
 

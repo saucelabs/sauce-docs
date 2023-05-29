@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The [Testers Dashboard](https://my.testfairy.com/) displays the apps a tester was invited to test, and is viewable by all testers in the system.
+The [Testers Dashboard](https://my.testfairy.com/) displays the apps a tester is invited to test and is viewable by all testers in the system.
 
 Developers can switch from this view to the full dashboard by using the **View as Developer** menu item.
 

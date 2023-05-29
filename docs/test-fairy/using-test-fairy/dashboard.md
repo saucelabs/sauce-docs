@@ -51,4 +51,4 @@ Each crash is aggregated after symbolication (if possible) and appears on a sepa
 
 The **USER FEEDBACK** tab displays user feedback submitted using the shake-to-report feature. The feedback is linked to the session in which it was created and contains: - A screenshot. - The text the user entered. - The reporter's email (which can be different from the user identified in the session).
 
-Each issue can be linked to a bug tracking system by clicking the **CREATE BUG** button in the **ISSUE** column. Apps already connected to a bug-tracking system will display the issue link/number inside the button.
+Each issue can be linked to a bug tracking system by clicking the **CREATE BUG** in the **ISSUE** column. Apps already connected to a bug-tracking system will display the issue link/number inside the button.

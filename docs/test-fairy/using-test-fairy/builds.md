@@ -22,7 +22,7 @@ The **Builds** page displays a list of all the builds for the app. For each buil
 
 - **FEEDBACKS** - The amount of feedback received for the build. The number is linked to the **FEEDBACK** tab.
 
-- **UPLOADED** - When the was build uploaded.
+- **UPLOADED** - When the build is uploaded.
 
 - **TAGS** - Tags can be edited in the build settings menu and are searchable.
 
@@ -55,6 +55,6 @@ The metadata format is **metadata.key=value** (for example, `metadata.branch=mas
 
 ### Deleting Builds and Apps
 
-To delete a build from the system, select the checkbox and, in the **More Actions…** dropdown, click **Delete Build**.
+To delete a build from the system, select the checkbox and, in the **More Actions…** dropdown list, click **Delete Build**.
 
-To delete an app, select all of its builds and, in the **More Actions…** dropdown, click **Delete Build**.
+To delete an app, select all of its builds and, in the **More Actions…** dropdown list, click **Delete Build**.
