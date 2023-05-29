@@ -19,7 +19,7 @@ When SSO is configured into your account, the login page is replaced with the `l
 
 [Request a demo](https://testfairy.com/products/solutions/enterprise#request-a-demo).
 
-### Adding An Enterprise App
+### Adding an Enterprise App
 
 1. In your Home screen click **Azure Active Directory** to open the **Directory overview**.
    <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-ad-1.png')} alt="Azure Active Directory"/>
@@ -33,7 +33,7 @@ When SSO is configured into your account, the login page is replaced with the `l
 1. Select **Non-gallery application**, add an app name (TestFairy) and click **Add**.
    <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-ad-4.png')} alt="Non-gallery application and Add button"/>
 
-### Adding An SSO Login Option
+### Adding an SSO Login Option
 
 1. Return to the menu and select the **Single sign-on**.
    <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-ad-5.png')} alt="Single sign-o"/>
@@ -47,7 +47,7 @@ When SSO is configured into your account, the login page is replaced with the `l
 1. Now download the XML file in the `Federation Data`. You need it later for uploading to your [TestFairy Dashboard Security settings](https://app.testfairy.com/settings/security/).
    <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-ad-17.png')} alt="Federation Data"/>
 
-### Adding Users To The Application
+### Adding Users to the Application
 
 Now let's add an Azure AD user to your application.
 

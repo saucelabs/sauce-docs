@@ -31,7 +31,7 @@ When SSO is configured into your account, the login page is replaced with the `l
 5. Type in the ACS URL and Entity ID. For `ACS URL`, use the following format `https://acme.testfairy.com/login/sso`, and replace 'acme' with your subdomain.
 
    For `Entity ID`, use the same format, `https://acme.testfairy.com`, and again, replace 'acme' with your subdomain.
-   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/ping-identity-5.png')} alt="acs url and entity id"/>
+   <img src={useBaseUrl('/img/test-fairy/acct-mgmt/ping-identity-5.png')} alt="ACS URL and entity id"/>
 
 6. Click on **Continue to Next Step**, no other configuration need to be changed.
    <img src={useBaseUrl('/img/test-fairy/acct-mgmt/ping-identity-6.png')} alt="continue to next step"/>
