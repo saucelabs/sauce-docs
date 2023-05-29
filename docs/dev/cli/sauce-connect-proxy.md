@@ -501,34 +501,14 @@ Setting the `SAUCE_VERBOSE` environment variable to `1` is equivalent to `-v` an
 
 ---
 
-### `--scproxy-read-limit`
-
-<p><small>| OPTIONAL | NUMBER | <span className="sauceGreen">4.7.x</span> <span className="sauceGreen">4.8.x</span> <span className="sauceGreen">4.9.x</span> | </small></p>
-
-**Description**: Rates limit reads in scproxy to the number of bytes per second that you specify. This option can be used to adjust local network transfer rate to prevent overloading the tunnel connection.<br/>
-**Environment variable**: `SAUCE_SCPROXY_READ_LIMIT`<br/>
-**Shorthand**: n/a
-
----
-
-### `--scproxy-write-limit`
-
-<p><small>| OPTIONAL | NUMBER | <span className="sauceGreen">4.7.x</span> <span className="sauceGreen">4.8.x</span> <span className="sauceGreen">4.9.x</span> | </small></p>
-
-**Description**: Rates limit writes in scproxy to the number of bytes per second that you specify. This option can be used to adjust local network transfer rate to prevent overloading the tunnel connection.<br/>
-**Environment variable**: `SAUCE_SCPROXY_WRITE_LIMIT`<br/>
-**Shorthand**: n/a
-
----
-
 ### `--experimental`
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">4.8.x</span> <span className="sauceGreen">4.9.x</span> | </small></p>
 
 **Description**: Enable or disable experimental features. This flag allows controlled replacement of the components. It should only be used if the default feature configuration exhibits undesired behavior.<br/>
 
-| Option     | Description                                   | Example                   | Available in Versions |
-| ---------- | --------------------------------------------- | ------------------------- | -------- |
+| Option     | Description                                   | Example                   | Available in Versions                     |
+| ---------- | --------------------------------------------- | ------------------------- | ----------------------------------------- |
 | `proxy`    | Use the new scproxy implementation (default). | `--experimental proxy`    | <span className="sauceGreen">4.8.x</span> |
 | `no-proxy` | Use the previous generation scproxy.          | `--experimental no-proxy` | <span className="sauceGreen">4.8.x</span> |
 
