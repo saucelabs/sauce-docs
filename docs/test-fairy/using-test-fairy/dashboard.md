@@ -8,21 +8,21 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The TestFairy dashboard is where you can view the information about your uploaded apps. The dashboard includes a list of all uploaded apps, with their own app definitions, as well as the latest sessions recorded in your account, and separate tabs for crashes, feedback, and insights.
+The TestFairy dashboard lets you view the information about your uploaded apps. The dashboard includes a list of all uploaded apps, their app definitions, the latest sessions recorded in your account, and separate tabs for crashes, feedback, and insights.
 
-From the dashboard you can also upload apps using the **NEW UPLOAD**, and manage your users and account preferences.
+You can also upload apps from the dashboard using the **NEW UPLOAD** and manage your users and account preferences.
 
 ### DASHBOARD Tab
 
 <img src={useBaseUrl('/img/test-fairy/using-tf/dashboard-general.png')} alt="dashboard general"/>
 
-The **DASHBOARD** tab displays information such as the number of test sessions, crashes, apps, testers, and users.
+The **DASHBOARD** tab displays the number of test sessions, crashes, apps, testers, and users.
 
 #### Apps Table
 
 The **Apps** table lists all the apps loaded into the system.
 
-The table displays information such as the app name and bundle ID, platform, latest version name and number, and details about the number of sessions, builds, crashes, and issues. You can also view the date the last build was uploaded, and the date the latest session was logged.
+The table displays information such as the app name and bundle ID, platform, latest version name and number, and details about the number of sessions, builds, crashes, and issues. You can also view the date the last build was uploaded and the date the latest session was logged.
 
 Clicking a row will open the **Builds** table (see [Builds](/test-fairy/using-test-fairy/builds) for more information).
 
@@ -43,12 +43,12 @@ The **TESTERS** tab displays your testers and assigned apps. See [Managing Teste
 <img src={useBaseUrl('/img/test-fairy/using-tf/dashboard-crashes.png')} alt="dashboard crashes"/>
 
 The **CRASHES** tab displays crashes aggregated by stack trace. You can filter the list by app, version, and timeframe.
-Each crash is aggregated after symbolication (if possible) and appears on a separate line. It is possible that unsymbolicated crashes will appear in separate lines, one for each crash.
+Each crash is aggregated after symbolication (if possible) and appears on a separate line. Unsymbolicated crashes may appear in different lines, one for each crash.
 
 ### **USER FEEDBACK** Tab
 
 <img src={useBaseUrl('/img/test-fairy/using-tf/dashboard-feedbacks.png')} alt="dashboard feedbacks"/>
 
-The **USER FEEDBACK** tab displays user feedback submitted using the shake to report feature. The feedback is linked to the session in which it was created, and contains a screenshot, the text the user entered, and the reporter's email (which can be different from the user identified in the session).
+The **USER FEEDBACK** tab displays user feedback submitted using the shake-to-report feature. The feedback is linked to the session in which it was created and contains: - A screenshot. - The text the user entered. - The reporter's email (which can be different from the user identified in the session).
 
-Each issue can be linked to a bug tracking system by clicking the **CREATE BUG** button in the **ISSUE** column. Apps that are already connected to a bug tracking system will display the issue link/number inside the button.
+Each issue can be linked to a bug tracking system by clicking the **CREATE BUG** button in the **ISSUE** column. Apps already connected to a bug-tracking system will display the issue link/number inside the button.

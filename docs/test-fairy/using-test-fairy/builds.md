@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The **Builds** page displays a list of all the builds for the app. For each build you can view the following information:
+The **Builds** page displays a list of all the builds for the app. For each build, you can view the following information:
 
 <img src={useBaseUrl('/img/test-fairy/using-tf/builds-table.png')} alt="builds table"/>
 
@@ -45,13 +45,13 @@ Builds that are starred (<img src={useBaseUrl('/img/test-fairy/using-tf/star-yel
 
 Tags are labels attached to builds for identification that provide additional searchable information. Tag text may contain spaces and more than one word.
 
-You can add tags to a build during upload using the Upload API, or edit them in the **Build Settings** menu. They are searchable in the `Search` box at the top of the **Builds** page.
+You can add tags to a build during upload using the Upload API or edit them in the **Build Settings** menu. They are searchable in the `Search` box at the top of the **Builds** page.
 
 ### Metadata
 
-Metadata is specific information about a build. It is defined when the build is uploaded via Upload API and cannot be changed after the build is uploaded.
+Metadata is specific information about a build. It is defined when the build is uploaded via Upload API and cannot be changed after it is uploaded.
 
-The format of the metadata is **metadata.key=value** (for example, `metadata.branch=master`). Only the value is searchable in the `Search` box at the top of the **Builds** table.
+The metadata format is **metadata.key=value** (for example, `metadata.branch=master`). Only the value is searchable in the `Search` box at the top of the **Builds** table.
 
 ### Deleting Builds and Apps
 
