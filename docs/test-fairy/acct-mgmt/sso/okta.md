@@ -47,7 +47,7 @@ Single Sign-on enables you to manage users and testers outside of TestFairy. A l
 1. TestFairy-side configuration is done.
    <img src={useBaseUrl('/img/test-fairy/acct-mgmt/okta-11.png')} alt="success"/>
 
-Now, log out, and if SSO is configured into your account, the login page is replaced with a simple `Login with OKTA`.
+Now, log out, and if SSO is configured into your account, the login page is replaced with the `Login with OKTA`.
 
 <img src={useBaseUrl('/img/test-fairy/acct-mgmt/sso-login-screenshot.png')} alt="Login with OKTA button"/>
 
@@ -84,13 +84,13 @@ Yes.
 
 ### Can TestFairy Reference IdP Metadata URL?
 
-Yes, however, this would be done manually by our support team.
+Yes, however, this is done manually by our support team.
 
 ### How Does TestFairy Map Group/Role Memberships?
 
 Mapping is one to many. A TestFairy user can belong to multiple groups.
 
-### What Attributes Need To Be Included In The SAML Assertion?
+### What Attributes Need to be Included in the SAML Assertion?
 
 Email is required. Groups are optional; see "importing groups from OKTA" on this page.
 

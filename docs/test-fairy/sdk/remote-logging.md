@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy allows developers to log items with a session without logging into the console output. In some cases, there are workarounds that allow you to wrap the TestFairy remote logging method in a way that will both log to the console and to the session.
+TestFairy allows developers to log items with a session without logging into the console output. In some cases, workarounds allow you to wrap the TestFairy remote logging method in a way that both log to the console and the session.
 
 <Tabs
 groupId="sdk"
@@ -61,7 +61,7 @@ TFLog(@"Hello, %@", @"TestFairy!");
 ```
 
 We recommend sending all calls to <code>NSLog</code> to TestFairy so you can continue to use <code>NSLog</code> and see all your log statements in your session.<br/>
-To enable sending logs to TestFairy, you will have to redefine <code>NSLog</code> using a macro with the following lines. This macro allows you to continue using <code>NSLog</code> in your code while also adding the logs to the matching session in TestFairy).
+To enable sending logs to TestFairy, you have to redefine <code>NSLog</code> using a macro with the following lines. This macro allows you to continue using <code>NSLog</code> in your code while also adding the logs to the matching session in TestFairy).
 
 ### Changing Your Prefix Header
 
@@ -88,8 +88,8 @@ If your project doesn’t already include a Prefix Header (.pch):<br/>
 
 4. From the **Project Navigator**, select your project and the corresponding target.
 5. Project &gt; Build Settings &gt; Search: "Prefix Header".
-6. Under **Apple LLVM 7.0**, you will get the Prefix Header key.
-7. Type the path of the file, for example: `$(SRCROOT)/$(PROJECT_NAME)/ProjectName-Prefix.pch`. Please note that your file may be at a different location.
+6. Under **Apple LLVM 7.0**, you get the Prefix Header key.
+7. Type the file's path, for example: `$(SRCROOT)/$(PROJECT_NAME)/ProjectName-Prefix.pch`. Your file may be at a different location.
 8. Make sure the option `Precompile Prefix Header` is set to YES.
 9. Clean your project, and rebuild.
 
