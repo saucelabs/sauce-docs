@@ -57,7 +57,7 @@ Travis CI https://docs.testfairy.com/Continuous_Integration/Travis_CI.html
  <tbody>
  <tr>
  <td><code>file</code></td>
- <td><p><small>| REQUIRED |</small></p><p>APK (Android), AAB (Android App Bundle), IPA (iOS), or ZIP (MacOS) file data.</p></td>
+ <td><p><small>| REQUIRED |</small></p><p>Android Package Kit (APK), Android App Bundle (AAB), iOS package App Store (IPA), or ZIP (MacOS) file data.</p></td>
  </tr>
  </tbody>
  <tbody>
