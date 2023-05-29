@@ -10,7 +10,7 @@ Sauce Connect is a proxy server that opens a secure connection between a Sauce L
 
 ## Getting Started
 
-Prior getting started, you'll need to validate that your local machine meets our system requirements and confirm that your firewall rules allow for outbound traffic.
+Prior to getting started, you'll need to validate that your local machine meets our system requirements and confirm that your firewall rules allow for outbound traffic.
 
 From there, install the Sauce Connect Proxy client on your local network. Should you encounter issues when starting or using the client, we recommend consulting your network administrator. They may need to update firewall rules or help configure Sauce Connect Proxy to use a network proxy.
 
