@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Adding the TestFairy plugin to your Ionic project is simple. The following instructions are for Ionic 3.
+Below are the instructions to add the TestFairy plugin to your Ionic 3 project.
 
 ## Installation
 
@@ -26,7 +26,7 @@ ionic cordova plugin add https://github.com/testfairy/testfairy-cordova-plugin
 
 ## Upgrading
 
-To upgrade your plugin, please run:
+To upgrade your plugin, run the following:
 
 ```bash
 ionic cordova plugin update com.testfairy.cordova-plugin
@@ -36,7 +36,7 @@ ionic cordova plugin update com.testfairy.cordova-plugin
 
 Initialize TestFairy with your [App Token](https://app.testfairy.com/settings/#apptoken) by calling `TestFairy.begin`. Your **APP TOKEN** is available at `https://app.testfairy.com/settings/#apptoken`.
 
-We recommend to invoking `TestFairy.begin` from `platform.ready()` in `src/app/app.component.ts`. Also, be sure to declare `TestFairy` at the top of the file.
+We recommend invoking `TestFairy.begin` from `platform.ready()` in `src/app/app.component.ts`. Also, declare `TestFairy` at the top of the file.
 
 ```js
 import { Component } from '@angular/core';
@@ -57,7 +57,7 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
-			TestFairy.begin(APP TOKEN);
+            TestFairy.begin(APP TOKEN);
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
@@ -73,28 +73,28 @@ We currently do not support plugin mocking or browser development. During your d
 ```js
 // Check if TestFairy is available (will be undefined in browser)
 if ((<any>window).TestFairy) {
-	TestFairy.begin(APP TOKEN);
+    TestFairy.begin(APP TOKEN);
 }
 ```
 
 :::
 
-### Identifying your users
+## Identifying Your Users
 
 See the [SDK Documentation](/test-fairy/sdk/identifying-users#cordova) for more information.
 
-### Session Attributes
+## Session Attributes
 
 See the [SDK Documentation](/test-fairy/sdk/session-attributes#cordova) for more information.
 
-### Remote Logging
+## Remote Logging
 
 See the [SDK Documentation](/test-fairy/sdk/remote-logging#cordova) for more information.
 
-## Where to go from here?
+## Where To Go From Here?
 
 Congratulations! You've successfully integrated TestFairy into your Ionic project! Visit your [dashboard](http://app.testfairy.com/), where you should see your app listed.
 
-- Have a look at the [API documentation](https://github.com/testfairy/testfairy-cordova-plugin/blob/master/www/testfairy.js) for other calls you can make to the TestFairy plugin
+- Look at the [API documentation](https://github.com/testfairy/testfairy-cordova-plugin/blob/master/www/testfairy.js) for other calls to the TestFairy plugin.
 
-- Follow the project on [GitHub](https://github.com/testfairy/testfairy-cordova-plugin) for updates, bug reports, or to contribute to the project!
+- Follow the project on [GitHub](https://github.com/testfairy/testfairy-cordova-plugin) for updates, bug reports, or to contribute to the project.

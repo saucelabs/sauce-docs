@@ -8,13 +8,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The TestFairy enterprise suite can be installed on a private cloud on any AWS location in the US, Europe, Asia, or South America. Servers can be protected by custom firewall rules allowing access only from your offices, according to your security policy.
+You can install the TestFairy enterprise suite on a private cloud on any AWS location in the US, Europe, Asia, or South America. According to your security policy, servers can be protected by custom firewall rules allowing access only from your offices.
 
-With this installation, all data is stored privately using your own resources.
+With this installation, all data is stored privately using your resources.
 
 ## Setting Your Endpoint
 
-Once you've got your private cloud setup, make sure to get the URL endpoint your app will direct all of its data towards. This URL must be passed into the SDK before the `begin` method is called.
+Once your private cloud is set up, get the URL endpoint your app will direct all of its data towards. This URL must be passed into the SDK before the `begin` method is called.
 
 <Tabs
 groupId="sdk"

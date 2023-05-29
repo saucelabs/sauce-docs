@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-If you are developing your app in flutter here are the instructions to add the TestFairy sdk.
+If you are developing your app in Flutter, you can find the instructions to add the TestFairy sdk in this document.
 
 ## Installing
 
@@ -31,32 +31,31 @@ You can install packages from the command line:
 $ flutter packages get
 ```
 
-Alternatively, your editor might support flutter packages get. Check the docs for your editor to learn more.
+Alternatively, your editor might support Flutter packages get. Check the docs for your editor to learn more.
 
 ### 3. Import it
 
-Now in your Dart code, you can use:
+Now in your Dart code, you can use the following:
 
 ```dart
 import 'package:testfairy_flutter/testfairy_flutter.dart';
 
 void main() {
-  TestFairy.begin("SDK-myToken");
-  runApp(MyApp());
+ TestFairy.begin("SDK-myToken");
+ runApp(MyApp());
 }
 ```
 
-### Quick Start
+## Quick Start
 
 Include the library and run your main app like this.
 
 Make sure your project is [AndroidX](https://flutter.dev/docs/development/androidx-migration) compatible.
 
-Minimum supported iOS target is 9.0.
+The minimum supported iOS target is 9.0.
 
 ```yaml
 # inside pubspec.yaml
-
 dependencies:
   testfairy_flutter: any
 ```
@@ -98,33 +97,33 @@ void main() {
 }
 ```
 
-### How to compile with latest Flutter and null-safe Dart?
+## How to Compile With the Latest Flutter and null-safe Dart?
 
-In order to use TestFairy with the latest **stable** Flutter channel, you must set the minimum version for the plugin as 2.1.0.
+To use TestFairy with the latest **stable** Flutter channel, you must set the minimum version for the plugin as 2.1.0.
 
-In order to use TestFairy with the latest **unstable** Flutter channel, you must clone this repo and use it as an offline dependency instead of the published version in pub.
+To use TestFairy with the latest **unstable** Flutter channel, you must clone this repo and use it as an offline dependency instead of the published version in pub.
 
 1. Clone this [repo](https://github.com/testfairy/testfairy-flutter).
 
 2. Use the following code to include the clone as an offline dependency (assuming both projects reside in the same directory as siblings).
 
-```yaml
-dependencies:
-  testfairy_flutter:
-    path: ../testfairy-flutter # or "./testfairy-flutter" if you cloned it inside your main project as a child directory
-```
+   ```yaml
+   dependencies:
+     testfairy_flutter:
+     path: ../testfairy-flutter # or "./testfairy-flutter" if you cloned it inside your main project as a child directory
+   ```
 
 3. Checkout **testfairy-flutter** to your VCS without including its **.git** directory.
 
 4. When there is a new update in this repo, delete **testfairy-flutter** and retry the steps.
 
-### Troubleshoot
+## Troubleshoot
 
 - **I see `warning: None of the architectures in ARCHS (x86_64) are valid` when I build an iOS app.**
 
   Launch your Runner workspace and add `x86_64` to `VALID_ARCHS` under **Build Settings**.
 
-- **I see `Specs satisfying the TestFairy dependency were found, but they required a higher minimum deployment target.` when I build and iOS app.**
+- **I see `Specs satisfying the TestFairy dependency were found, but they required a higher minimum deployment target.` when I build an iOS app.**
 
   You have to update the native SDK alongside with CocoaPods repository.
 
@@ -132,13 +131,13 @@ dependencies:
 
 - **I have my own `HttpOverrides.global` setup. How can I make it work with TestFairy?**
 
-  Copy [this](https://github.com/testfairy/testfairy-flutter/blob/master/lib/src/network_logging.dart) file to your project. Add the necessary functionality and assign to `HttpOverrides.global` an instance from your new implementation.
+  Copy [this](https://github.com/testfairy/testfairy-flutter/blob/master/lib/src/network_logging.dart) file to your project. Add the necessary functionality and assign an instance from your new implementation to `HttpOverrides.global`.
 
 - **I see `Errno::ENOENT - No such file or directory @ rb_sysopen - ./ios/Pods/Local Podspecs/testfairy.podspec.json` when I build an iOS app.**
 
-  This happens due to a pod misconfiguration bug on the Flutter side. We have [a blog post](https://blog.testfairy.com/errnoenoent-fix-for-flutter-ios/) explaining the fix.
+  This error happens due to a pod misconfiguration bug on the Flutter side. We have [a blog post](https://blog.testfairy.com/errnoenoent-fix-for-flutter-ios/) explaining the fix.
 
-  Clean your project, remove _ios/Podfile_ and Xcode workspace file entirely. (make sure you have backups just in case)
+  Clean your project, and remove _ios/Podfile_ and Xcode workspace files. (make sure you have backups, just in case)
 
   ```bash
   flutter clean
@@ -173,7 +172,7 @@ dependencies:
 
   Retry your build.
 
-  Once your build is successful, you can update cocoapods back to its latest version. If the error reoccurs, you will have to revert back to 1.7.5 and retry the steps.
+  Once your build succeeds, you can update cocoapods to its latest version. If the error reoccurs, you must revert to 1.7.5 and retry the steps.
 
 - **I see `Automatically assigning platform ios with version 8.0` when I build.**
 
@@ -192,31 +191,31 @@ dependencies:
   platform :ios, '9.0'   ####################################### <--- add this and specify at least 9.0
 
   use_frameworks!        ####################################### <--- add this, and try building if there is
-                          #######################################      no Swift code or plugin in the project.
-                          #######################################      If there is Swift code, please also add
-                          #######################################      the marked line below
+                        #######################################      no Swift code or plugin in the project.
+                        #######################################      If there is Swift code, please also add
+                        #######################################      the marked line below
 
   ...
   end
 
   post_install do |installer|
   installer.pods_project.targets.each do |target|
-      target.build_configurations.each do |config|
+    target.build_configurations.each do |config|
       config.build_settings['ENABLE_BITCODE'] = 'NO'
       config.build_settings['SWIFT_VERSION'] = '3.2'  ########## <--- add this, change the version to what's being
                                                       ##########      used in the project, remove if there is none
-      end
-  end
+    end
+   end
   end
   ```
 
 - **CocoaPods could not find compatible versions for pod "TestFairy".**
 
-  This is an old bug in the plugin pubspec file. First, run `flutter clean` in your root directory.
+  This error is an old bug in the plugin pubspec file. First, run `flutter clean` in your root directory.
 
-  Please move _ios/Podfile.lock_ into a temporary place before running `pod repo update; pod install` in your _ios_ directory.
+  Move _ios/Podfile.lock_ into a temporary place before running `pod repo update; pod install` in your _ios_ directory.
 
-  If some of the libraries you use need to be at specific versions, copy the necessary lines from your backed up _Podfile.lock_ into the newly created one. Please keep the lines related to TestFairy (note the title case in the name) untouched.
+  If some of the libraries you use need to be at specific versions, copy the necessary lines from your backed-up _Podfile.lock_ into the newly created one. Keep the lines related to TestFairy (note the title case in the name) untouched.
 
   Finally, run `pod repo update; pod install; pod update TestFairy` again to re-download libraries from the replaced lines.
 
@@ -228,4 +227,4 @@ dependencies:
 
 ### API Reference
 
-You can find a detailed documentation of the latest Dart interface [here](https://pub.dartlang.org/documentation/testfairy_flutter/latest/).
+Check the latest [Dart interface documentation](https://pub.dartlang.org/documentation/testfairy_flutter/latest/).

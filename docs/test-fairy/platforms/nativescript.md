@@ -77,10 +77,10 @@ See the [SDK Documentation](/test-fairy/sdk/identifying-users#nativescript) for 
 
 See the [SDK Documentation](/test-fairy/sdk/remote-logging#nativescript) for more information.
 
-### Hiding views
+### Hiding Views
 
 See the [SDK Documentation](/test-fairy/sdk/identifying-users#nativescript) for more information.
 
-### Where to go from here?
+### Where To Go From Here?
 
-- Follow the project on [GitHub](https://github.com/testfairy/nativescript-testfairy) for updates, bug reports, or to contribute to the project!
+- Follow the project on [GitHub](https://github.com/testfairy/nativescript-testfairy) for updates, bug reports, or to contribute to the project.

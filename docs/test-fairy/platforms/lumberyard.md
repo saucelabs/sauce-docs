@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 - Lumberyard and Android SDK installed on Windows 10
 
-### Step 1 - Download Android SDK Components
+## Step 1 - Download Android SDK Components
 
 Use Android's **SDK Manager** to download the following components:
 
@@ -21,7 +21,7 @@ Use Android's **SDK Manager** to download the following components:
 - Android SDK Platform-Tools
 - Android SDK Tools
 
-### Step 2 - Download and Setup Lumberyard Components
+## Step 2 - Download and Setup Lumberyard Components
 
 Run Lumberyard's **Setup Assistant**.
 
@@ -40,7 +40,7 @@ On the **Required Software** section, install and configure paths for the follow
 - Android Software Development Kit (SDK) Tools
 - Java SE Development Kit (JDK) - Make sure you use the [official Java SE 8 from Oracle](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) or [Java SE 8 OpenJDK reference implementation](https://jdk.java.net/java-se-ri/8). Other JDK releases won't work and you will have WAF errors during clean builds.
 
-### Step 3 - Enable OpenGL ES 3.X for Lumberyard
+## Step 3 - Enable OpenGL ES 3.X for Lumberyard
 
 Close the editor and all of its componenets. Then, open **lumberyard_version\dev\AssetProcessorPlatformConfig.ini** in a text editor to make the following changes.
 
@@ -54,7 +54,7 @@ Close the editor and all of its componenets. Then, open **lumberyard_version\dev
   ;osx_gl=enabled
   ```
 
-### Step 4 - Generate Android Studio Project
+## Step 4 - Generate Android Studio Project
 
 1. Run **Project Configurator** to activate your current project.
 
@@ -70,9 +70,9 @@ Close the editor and all of its componenets. Then, open **lumberyard_version\dev
 
 3. Once you complete exploring all included levels, close the app.
 
-4. Embed the shader PAK files into your app or put them in a remotely accessible location where your app can access later. PAK files are located in **lumberyard_version\dev\Build\es3\game_project_name** folder. For more details, please refer to [this](https://docs.aws.amazon.com/lumberyard/latest/userguide/android-shaders-building.html).
+4. Embed the shader PAK files into your app or put them in a remotely accessible location where your app can access later. PAK files are located in **lumberyard_version\dev\Build\es3\game_project_name** folder. For more details, refer to [this](https://docs.aws.amazon.com/lumberyard/latest/userguide/android-shaders-building.html).
 
-### Step 6 - Build
+## Step 6 - Build
 
 1. Using a command line app or terminal, navigate to **lumberyard_version\dev** folder.
 
@@ -88,7 +88,7 @@ Close the editor and all of its componenets. Then, open **lumberyard_version\dev
    lmbr_waf.bat -p all build_android_armv8_clang_release --package-projects-automatically=True
    ```
 
-### Step 7 - Upload to TestFairy
+## Step 7 - Upload to TestFairy
 
 Once your APK is built, you can choose your favourite upload method to finalize distribution. Make sure the correct CPU architecture is set for the project binaries path.
 

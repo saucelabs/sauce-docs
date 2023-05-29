@@ -12,7 +12,7 @@ The TiTestFairy Module extends the Appcelerator Titanium Mobile framework, with 
 
 ## Installation
 
-1. Simply add the following lines to your `tiapp.xml` file:
+1. Add the following lines to your `tiapp.xml` file:
 
    ```xml
    <modules>
@@ -44,7 +44,7 @@ For more detailed code examples take a look at our [example app](https://github.
 
 ## Usage
 
-### Identifying your users
+### Identifying Your Users
 
 See the [SDK Documentation](/test-fairy/sdk/identifying-users#titanium) for more information.
 
