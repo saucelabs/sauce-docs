@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This is the reference document for the TestFairy REST API. This API allows the developer to access and interact with TestFairy data remotely.
+In this document you can find the reference for the TestFairy REST API. This API allows the developer to access and interact with TestFairy data remotely.
 
 ## Getting Started
 
