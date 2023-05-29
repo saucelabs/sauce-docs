@@ -1,3 +1,13 @@
+---
+id: cordova
+title: Cordova
+sidebar_label: Cordova
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Adding the TestFairy plugin to your Cordova or Phonegap project is simple.
 
 Check out the [Ionic](/test-fairy/platforms/ionic) documentation for Ionic applications.
