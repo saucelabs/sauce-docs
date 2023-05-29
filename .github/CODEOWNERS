@@ -1,8 +1,9 @@
 # This is a comment.
 # Each line is a file pattern followed by one or more owners.
-*        @spider-sauce @lauramthomas @lysannep @discombobulateme @aoleszyn @aliciakrebs
-/docs/ @lauramthomas @lysannep @aoleszyn @aliciakrebs
-/docs/api-testing @lauramthomas @lysannep @aoleszyn @aliciakrebs @LoryApiFortress
-/docs/web-apps @lauramthomas @lysannep @aliciakrebs @aoleszyn @saucelabs/devx
-/docs/dev/cli @lauramthomas @lysannep @aliciakrebs @aoleszyn @saucelabs/devx
-Dockerfile @spider-sauce @alexplischke @dpgraham
+*        @lauramthomas @lysannep @discombobulateme @aoleszyn
+/docs/ @lauramthomas @lysannep @aoleszyn @LoryApiFortress
+/docs/api-testing @lauramthomas @lysannep @aoleszyn @LoryApiFortress
+/docs/secure-connections @lauramthomas @lysannep @aoleszyn @LoryApiFortress
+/docs/web-apps @lauramthomas @lysannep @aoleszyn @LoryApiFortress @saucelabs/devx
+/docs/dev/cli @lauramthomas @lysannep @aoleszyn @LoryApiFortress @saucelabs/devx
+Dockerfile @alexplischke @dpgraham @lysannep
