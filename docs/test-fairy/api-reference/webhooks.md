@@ -10,11 +10,11 @@ import TabItem from '@theme/TabItem';
 
 Webhooks allow integration between TestFairy and your backend. Using these webhooks, you can subscribe for specific events and receive an HTTP POST request whenever such an event occurs.
 
-You can use the webhooks when, for example, you'd like to receive a notification when a new build has been uploaded and send it to the development team. Another example may be that you'd like to save the feedback received in your database or backend.
+You can use the webhooks when, for example, you'd like to receive a notification when a new build is uploaded and send it to the development team. Another example may be that you'd like to save the feedback received in your database or backend.
 
 To configure webhooks, open the Webhooks tab in your [User Preferences](https://app.testfairy.com/settings/) page. You can configure more than one webhook, and each webhook applies to selected projects and selected events.
 
-TestFairy will automatically detect Slack endpoints and send an appropriate payload. Follow the [Slack integration guide](/Integrations/Slack.html).
+TestFairy automatically detects Slack endpoints and send an appropriate payload. Follow the [Slack integration guide](/Integrations/Slack.html).
 
 ## Supported Events
 

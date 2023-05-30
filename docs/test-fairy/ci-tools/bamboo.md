@@ -18,7 +18,7 @@ Continuous integration with Bamboo is straightforward to set up and, when ready,
 
 <img src={useBaseUrl('/img/test-fairy/ci-tools/bamboo_00.png')} alt="TestFairy Uploader"/>
 
-Now that you have the add-on installed on your server, we will configure it with our `upload API key`. You can find this API key in your **Preferences Page** at [https://app.testfairy.com/settings/](https://app.testfairy.com/settings/).
+Now that you have the add-on installed on your server, you can configure it with our `upload API key`. You can find this API key in your **Preferences Page** at [https://app.testfairy.com/settings/](https://app.testfairy.com/settings/).
 
 Create a new task in your Android or iOS job, and pick `TestFairy Uploader` from the **Deployment** category.
 <img src={useBaseUrl('/img/test-fairy/ci-tools/bamboo_01.png')} alt="task types"/>

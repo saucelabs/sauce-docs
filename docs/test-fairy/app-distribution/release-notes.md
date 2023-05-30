@@ -53,7 +53,7 @@ By default, the [Jenkins plugin](https://wiki.jenkins.io/display/JENKINS/TestFai
 $JENKINS_HOME/jobs/$JOB_NAME/builds/$BUILD_ID/testfairy_change_log
 ```
 
-The content of this file will override the default changelog.
+The content of this file overrides the default changelog.
 
 ## Stylizing Release Notes
 

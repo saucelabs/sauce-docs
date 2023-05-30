@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 [CircleCI](https://circleci.com) is a cloud-based CI/CD service that helps developers automate their development process with CI hosted in the cloud or on a private server.
 
-TestFairy has a CircleCI "ORB", allowing you to upload builds to TestFairy easily.
+TestFairy has a CircleCI "ORB", allowing you to upload builds to TestFairy smoothly.
 
 To use the ORB, add the following line to the `orbs` section of your `.circleci/config.yml`:
 

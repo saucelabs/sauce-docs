@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To upload apps from Microsoft App Center to TestFairy, please do the following:
+To upload apps from Microsoft App Center to TestFairy, do the following:
 
 ### 1. Create an Upload Script
 
@@ -34,6 +34,6 @@ fi
 
 ### 2. Verify a Post Build Step Exists
 
-App-center will use this file as a `post build script` for your project, so your app gets uploaded automatically.
+App-center uses this file as a `post build script` for your project, so your app gets uploaded automatically.
 
 <img src={useBaseUrl('/img/test-fairy/ci-tools/appcntr-1.png')} alt="post build script"/>
