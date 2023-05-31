@@ -167,7 +167,7 @@ See https://github.com/cypress-io/cypress/issues/23897 for more information.
 :::
 
 :::caution Webkit
-Cypress currently only supports launching Webkit with a fixed resolution of 1280x720.
+Cypress only supports launching Webkit with a fixed resolution of 1280x720.
 
 Cypress 12.6.0 does not work on Windows with Webkit browser.
 
