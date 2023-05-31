@@ -22,7 +22,7 @@ Go to [settings](https://app.testfairy.com/settings/integrations), and select **
 You need to upload credentials from Google Play to upload apps. You can get the service account credentials by entering your Google Play Console and Setup > API access. There is a Service account listed in that section. You need to use the same account and generate JSON Credentials for this account from Google Cloud
 <img src={useBaseUrl('/img/test-fairy/integrations/google-play/01.png')} alt="API access"/>
 
-Once you have the JSON credentials, return to the settings page, and upload the JSON file. 
+Once you have the JSON credentials, return to the settings page, and upload the JSON file.
 <img src={useBaseUrl('/img/test-fairy/integrations/google-play/04.png')} alt="Google Play Store integration"/>
 
 Once uploaded, you can see the associated Project ID and Service account on the integration page. Verify the account matches the one in Google Play Console.

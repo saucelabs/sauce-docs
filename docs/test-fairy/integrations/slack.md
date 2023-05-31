@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## One-click Integration
+## One-Click Integration
 
 TestFairy integrates with Slack seamlessly, providing human-readable, real-time notifications for your selected events.
 
