@@ -8,6 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-/Integrations/Zendesk.html
+1. Login to Zendesk, go to [SUBDOMAIN](https://zendesk.com/agent/admin/api/settings/tokens) and create an API KEY.
 
-https://github.com/testfairy/docs/blob/master/docs/052_Integrations/500_Zendesk.md
+2. Login to TestFairy > Preferences > Integrations > Zendesk and enter your Zendesk info.
+   <img src={useBaseUrl('/img/test-fairy/integrations/zendesk-integration-01.png')} alt="Zendesk integration"/>
+
+3. (Optional) Install the [TestFairy Chrome Extension](https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee)
