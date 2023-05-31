@@ -22,13 +22,13 @@ Go to [settings](https://app.testfairy.com/settings/integrations), and select **
 You need to upload credentials from Google Play to upload apps. You can get the service account credentials by going into your Google Play Console and into Setup > API access. There should be a Service account listed in that section. You will need to use the same account and generate JSON Credentials for this account from Google Cloud
 <img src={useBaseUrl('/img/test-fairy/integrations/google-play/01.png')} alt="API access"/>
 
-Once you have the JSON credentials, return to the settings page, and upload the JSON file. Once the
+Once you have the JSON credentials, return to the settings page, and upload the JSON file. 
 <img src={useBaseUrl('/img/test-fairy/integrations/google-play/04.png')} alt="Google Play Store integration"/>
 
-Once uploaded, you should see the associated Project ID and Service account on the integration page. Verify the account matches the one in Google Play Console.
+Once uploaded, you can see the associated Project ID and Service account on the integration page. Verify the account matches the one in Google Play Console.
 <img src={useBaseUrl('/img/test-fairy/integrations/google-play/05.png')} alt="confirm account"/>
 
-At this point, you have configured the integration for upload.
+You have configured the integration for upload.
 
 ## Uploading
 
@@ -39,10 +39,10 @@ You see an upload dialog summarizing what will be uploaded to Google Play Store.
 <img src={useBaseUrl('/img/test-fairy/integrations/google-play/08.png')} alt="Google Play Store summary"/>
 
 :::caution
-TestFairy will not publish your app publically; it only uploads the build to the store in a draft state. The app owner in Google must publish the app itself publically.
+TestFairy does not publish your app publically; it only uploads the build to the store in a draft state. The app owner in Google must publish the app itself publically.
 :::
 
-After uploading, the dialog will display the uploaded state of the app.
+After uploading, the dialog displays the uploaded state of the app.
 <img src={useBaseUrl('/img/test-fairy/integrations/google-play/10.png')} alt="uploaded state"/>
 
 If you go into Google Play Console, your app is listed on the Release Overview page.

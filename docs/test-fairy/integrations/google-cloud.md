@@ -39,10 +39,10 @@ Go to [settings](https://app.testfairy.com/settings/integrations), and select **
 With the bucket name and JSON credentials in hand, upload the JSON file and fill in the field for the bucket name.
 <img src={useBaseUrl('/img/test-fairy/integrations/google-cloud-storage/03.png')} alt="bucket name"/>
 
-Once uploaded, TestFairy will test the provided credentials before saving.
+Once uploaded, TestFairy tests the provided credentials before saving.
 <img src={useBaseUrl('/img/test-fairy/integrations/google-cloud-storage/04.png')} alt="test the credentials"/>
 
-The associated Project ID and Service account should be on the integration page. Verify the account matches the one in Google Cloud Console.
+The associated Project ID and Service account are on the integration page. Verify the account matches the one in Google Cloud Console.
 <img src={useBaseUrl('/img/test-fairy/integrations/google-cloud-storage/05.png')} alt="verify account"/>
 
-At this point, you have configured the integration. Google Storage bucket stores all assets collected by TestFairy, including feedback, session data, crash reports, and uploaded assets.
+You have configured the integration. Google Storage bucket stores all assets collected by TestFairy, including feedback, session data, crash reports, and uploaded assets.

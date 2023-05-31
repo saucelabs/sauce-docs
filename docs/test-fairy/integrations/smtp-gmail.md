@@ -8,9 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Connect your TestFairy account to your SMTP, G-suite Gmail service, or private Gmail account to increase deliverability and open rates of email messages sent to system users.
+Connect your TestFairy account to your Simple Mail Transfer Protocol (SMTP), G-suite Gmail service, or private Gmail account to increase deliverability and open rates of email messages sent to system users.
 
-This way, your users will get emails from a familiar email address and can reply directly to you. In addition, you will be able to track outgoing messages by checking your `Sent Items` folder in your email account.
+This way, your users get emails from a familiar email address and can reply directly to you. In addition, you are able to track outgoing messages by checking your `Sent Items` folder in your email account.
 
 This option is recommended for all users and is _included in all packages_.
 <img src={useBaseUrl('/img/test-fairy/integrations/smtp-gmail/account-settings-4.png')} alt="account settings"/>
@@ -36,10 +36,10 @@ To integrate your Gmail or SMTP Email account, follow the below steps.
 4. **Allow** TestFairy access to the account:
    <img src={useBaseUrl('/img/test-fairy/integrations/smtp-gmail/gmail-3.png')} alt="allow access"/>
 
-   You will get a **confirmation message** instead of the **Authorize Google Apps (Gmail API)** for successful integration.
+   You get a **confirmation message** instead of the **Authorize Google Apps (Gmail API)** for successful integration.
 
-   Clicking **revoke** will disconnect the integration.
+   Clicking **revoke** disconnects the integration.
    <img src={useBaseUrl('/img/test-fairy/integrations/smtp-gmail/gmail-4.png')} alt="confirmation message"/>
 
-5. In the main screen, you will see the new Gmail integration in the Active Integrations table:
+5. In the main screen, you see the new Gmail integration in the Active Integrations table:
    <img src={useBaseUrl('/img/test-fairy/integrations/smtp-gmail/gmail-5.png')} alt="gmail integration"/>

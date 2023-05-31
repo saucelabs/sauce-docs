@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## One-click integration
+## One-click Integration
 
 TestFairy integrates with Slack seamlessly, providing human-readable, real-time notifications for your selected events.
 
@@ -21,10 +21,10 @@ TestFairy integrates with Slack seamlessly, providing human-readable, real-time 
 1. Enter the domain of your Slack account:
    <img src={useBaseUrl('/img/test-fairy/integrations/slack/slack-domain-1.png')} alt="slack domain"/>
 
-1. This determines where your notifications will appear. You may select an existing channel or create a new channel. Choose your channel and select **Authorize**.
+1. It determines where your notifications appear. You may select an existing channel or create a new channel. Choose your channel and select **Authorize**.
    <img src={useBaseUrl('/img/test-fairy/integrations/slack/slack-1c.png')} alt="authorize channel"/>
 
-1. You will be returned to your TestFairy page with the `URL` and `Events` already filled in and selected.
+1. You are returned to your TestFairy page with the `URL` and `Events` already filled in and selected.
 
    - Click **Test URL** to test the webhook.
    - Select **Save webhook** to add and confirm the Slack integration.

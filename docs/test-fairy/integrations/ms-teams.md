@@ -19,7 +19,7 @@ TestFairy integrates with Microsoft Teams seamlessly, providing human-readable, 
 1. Select **Configure** or **Add** the **Incoming Webhook** from the dialog.
    <img src={useBaseUrl('/img/test-fairy/integrations/ms-teams/03-select-incoming-webhook.png')} alt="select incoming webhook"/>
 
-1. Give the webhook a name; in this case, the webhook will be named `TestFairy Webhook`. You can also give the webhook an image.
+1. Give the webhook a name; in this case, the webhook is named `TestFairy Webhook`. You can also give the webhook an image.
    <img src={useBaseUrl('/img/test-fairy/integrations/ms-teams/04-name-webhook.png')} alt="name the webhook"/>
 
 1. Copy the webhook endpoint from the dialog.

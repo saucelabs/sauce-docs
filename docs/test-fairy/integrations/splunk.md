@@ -23,9 +23,9 @@ testfairy-fetch-sessions --endpoint "acme.testfairy.com" --user "john@example.co
 The logs are downloaded to a folder named `testfairy-sessions` with a directory structure as follows.
 <img src={useBaseUrl('/img/test-fairy/integrations/splunk/splunk-1.png')} alt="directory structure"/>
 
-Note that the directory which contains the `session.log` file is also the session identifier. You can use this value to set the `Host` value later.
+The directory which contains the `session.log` file is also the session identifier. You can use this value to set the `Host` value later.
 
-## Importing Logs into Splunk
+## Importing Logs Into Splunk
 
 1. Under **Settings**, select **Add Data** in your Splunk forwarder.
    <img src={useBaseUrl('/img/test-fairy/integrations/splunk/splunk-2.png')} alt="add data"/>
@@ -33,8 +33,8 @@ Note that the directory which contains the `session.log` file is also the sessio
 2. Select **Monitor**.
    <img src={useBaseUrl('/img/test-fairy/integrations/splunk/splunk-3.png')} alt="select monitor"/>
 
-3. Select **Files & Directories**.  
-   <img src={useBaseUrl('/img/test-fairy/integrations/splunk/splunk-4.png')} alt=""/>
+3. Select **Files & Directories**.
+   <img src={useBaseUrl('/img/test-fairy/integrations/splunk/splunk-4.png')} alt="files and directories"/>
 
 4. Browse to the directory where the log files are downloaded. It's best to point to the top-level `testfairy-sessions` if you have multiple projects you'd like to monitor.
    <img src={useBaseUrl('/img/test-fairy/integrations/splunk/splunk-5.png')} alt="browse directory"/>
@@ -42,7 +42,7 @@ Note that the directory which contains the `session.log` file is also the sessio
 5. After clicking **Next**, on the Input Settings page, set the **Host** using the **Segment in path**. Use the directory segment which contains the `session.log` file.
    <img src={useBaseUrl('/img/test-fairy/integrations/splunk/splunk-6.png')} alt="set the host"/>
 
-   It will help you search and create queries based on a specific session.
+   It helps you search and create queries based on a specific session.
 
 6. Create a query where the `host=<session id>` to see logs related to a given session.
    <img src={useBaseUrl('/img/test-fairy/integrations/splunk/splunk-7.png')} alt="query"/>

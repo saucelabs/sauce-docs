@@ -27,11 +27,11 @@ You have to create credentials from Apple iTunesConnect to upload apps. You can 
 Once you have the Issuer ID, Key ID, and the private key (.p8), go back to the settings page, fill in the form with the necessary keys, and upload the private key.
 <img src={useBaseUrl('/img/test-fairy/integrations/05.png')} alt="Apple App Store Integration"/>
 
-Once uploaded, you should see the associated `Issuer ID` and `Key ID` on the integration page. Verify the account matches the one in App Store Connect.
+Once uploaded, you see the associated `Issuer ID` and `Key ID` on the integration page. Verify the account matches the one in App Store Connect.
 
 <img src={useBaseUrl('/img/test-fairy/integrations/06.png')} alt="confirm account"/>
 
-At this point, you have configured the integration for upload.
+You have configured the integration for upload.
 
 ## Uploading
 
