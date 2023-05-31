@@ -726,7 +726,7 @@ suite:
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-When set to `true`, the retry will test only the classes that failed during the previous try.
+When set to `true`, `saucectl` collects any failed tests from the previous run and performs an automatic retry on them.
 
 ```yaml
 suite:
