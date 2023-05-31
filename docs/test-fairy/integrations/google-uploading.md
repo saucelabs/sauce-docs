@@ -19,7 +19,7 @@ TestFairy allows you to upload your production app directory to the Google Play 
 Go to [settings](https://app.testfairy.com/settings/integrations), and select **Google Play Store**.
 <img src={useBaseUrl('/img/test-fairy/integrations/google-play/03.png')} alt="google play store"/>
 
-You need to upload credentials from Google Play to upload apps. You can get the service account credentials by going into your Google Play Console and into Setup > API access. There should be a Service account listed in that section. You will need to use the same account and generate JSON Credentials for this account from Google Cloud
+You need to upload credentials from Google Play to upload apps. You can get the service account credentials by entering your Google Play Console and Setup > API access. There is a Service account listed in that section. You need to use the same account and generate JSON Credentials for this account from Google Cloud
 <img src={useBaseUrl('/img/test-fairy/integrations/google-play/01.png')} alt="API access"/>
 
 Once you have the JSON credentials, return to the settings page, and upload the JSON file. 
