@@ -90,11 +90,11 @@ In the below example, the `x-sauce-cond` extension tells the mock to take the `2
 responses:
   '200':
     x-sauce-cond:
-    op: matches
-    collection: headers
-    key: authorization
-    value: Basic .*
-    priority: 10
+      op: matches
+      collection: headers
+      key: authorization
+      value: Basic .*
+      priority: 10
 ```
 
 Items with no `x-sauce-cond` will be picked up last and treated as fallback.

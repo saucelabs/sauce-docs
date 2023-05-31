@@ -12,7 +12,6 @@ The data center you use with Sauce Labs determines:
 
 - The location of the servers where your tests are run
 - Where related artifacts are stored
-- Your ability to run headless tests, which are tests run on a browser that do not have a user interface
 
 ## What You'll Need
 
@@ -30,8 +29,6 @@ To see your data center, check the upper-right corner of the Sauce Labs user int
 
 - US West
 - EU Central
-- APAC Southeast
-- Headless US East
 
 ## Data Center Endpoints
 
@@ -63,22 +60,6 @@ Depending on the framework or driver you use, you might need to make additional 
 | REST API                     | api-eu-central-1.saucelabs.com                     |
 | Sauce Connect Tunnel Servers | maki\*.eu-central-1.miso.saucelabs.com:443         |
 
-### APAC Southeast Data Center
-
-| Description                  | Endpoint                                               |
-| ---------------------------- | ------------------------------------------------------ |
-| OnDemand Endpoint            | https://ondemand.apac-southeast-1.saucelabs.com/wd/hub |
-| REST API                     | api-apac-southeast-1.saucelabs.com                     |
-| Sauce Connect Tunnel Servers | tunnel-\*.tunnels.apac-southeast-1.saucelabs.com:443   |
-
-### Headless US East Data Center
-
-| Description                  | Endpoint                                        |
-| ---------------------------- | ----------------------------------------------- |
-| OnDemand Endpoint            | https://ondemand.us-east-1.saucelabs.com/wd/hub |
-| REST API                     | api-us-east-1.saucelabs.com                     |
-| Sauce Connect Tunnel Servers | tunnel-\*.tunnels.us-east-1.saucelabs.com:443   |
-
 ## IP Address Ranges - Outgoing
 
 To set up an IP-address-based allowlist for outgoing connections, rather than using hostnames, see the following table for the relevant IP ranges.
@@ -109,19 +90,6 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com, which resolve
 | 34.141.28.96/32                    |
 | 162.222.79.0/27                    |
 | 185.94.24.0/22                     |
-
-### APAC Southeast Data Center
-
-| Endpoints       |
-| --------------- |
-| 34.87.212.99/32 |
-| 34.87.251.80/28 |
-
-### Headless US East Data Center
-
-| Endpoint        |
-| --------------- |
-| 34.73.48.119/32 |
 
 ## Real Devices
 
@@ -171,7 +139,9 @@ If you use any of the following and your data center is EU Central, you need to 
 :::caution
 This SSO flow has been `deprecated`. Use this documentation only if your organization was not migrated to the new SSO.
 
-If you want to set up a new SSO integration, please use [the new SSO implementation](/basics/sso/setting-up-sso).
+If you do not have any SSO integrations set up at Sauce Labs and you wish to establish a new integration, see [Setting Up SSO](/basics/sso/setting-up-sso) to get started.
+
+If you have previously implemented the deprecated SSO integration and wish to migrate to the new SSO implementation, see the [step-by-step migration guide](/basics/sso/migration-from-deprecated-sso/).
 :::
 
 If you're using SSO with Sauce Labs, your data center determines the appropriate URLs for:
