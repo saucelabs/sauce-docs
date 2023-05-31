@@ -20,7 +20,7 @@ Go to [Settings](https://app.testfairy.com/settings/integrations), and select **
 
 <img src={useBaseUrl('/img/test-fairy/integrations/03.png')} alt="Apple App Store"/>
 
-You have to create credentials from Apple iTunesConnect to upload apps. You can get the credentials by going to the [User and Access](appstoreconnect.apple.com/access/api), selecting the **Keys** tab, and then choosing **App Store Connect API**. Click '+' to add a new set of keys. Be sure to download the .p8 file used to sign API requests, and take note of the `Issuer ID` and the `Key ID`. You have to give **Admin access** to these keys to upload an app from TestFairy to the Apple App Store.
+You have to create credentials from Apple iTunesConnect to upload apps. You can get the credentials by going to the [User and Access](http://appstoreconnect.apple.com/access/api), selecting the **Keys** tab, and then choosing **App Store Connect API**. Click '+' to add a new set of keys. Be sure to download the .p8 file used to sign API requests, and take note of the `Issuer ID` and the `Key ID`. You have to give **Admin access** to these keys to upload an app from TestFairy to the Apple App Store.
 
 <img src={useBaseUrl('/img/test-fairy/integrations/01.png')} alt="Test Keys"/>
 
