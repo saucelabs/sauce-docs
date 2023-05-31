@@ -2828,7 +2828,6 @@ Return information about concurrency usage in a CSV format.
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
@@ -2919,7 +2918,6 @@ Return information about concurrency usage.
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
