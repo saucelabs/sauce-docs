@@ -132,7 +132,7 @@ After the image is successfully pushed, it is available for use in Sauce Orchest
 apiVersion: v1alpha
 kind: imagerunner
 sauce:
-region: us-west-1
+  region: us-west-1
 suites:
   - name: run sauce test
     image: saucelabs/sl-demo-docker-primary:0.0.1
