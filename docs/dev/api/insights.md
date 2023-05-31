@@ -1521,8 +1521,8 @@ Return an array of errors with occurrence count on all tests run in the specifie
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -1683,8 +1683,8 @@ Return past and current data about errors for comparison.
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -1844,8 +1844,8 @@ Return an array of tests with details.
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -2070,8 +2070,8 @@ Return an array of test cases (grouped by name) with statistical details.
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -2291,8 +2291,8 @@ Return an array of test cases (grouped by name) with statistical details as a CS
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -2474,8 +2474,8 @@ Return an array of test cases (grouped by name) with statistical details.
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -2652,8 +2652,8 @@ Return a histogram with test statistic details grouped by specific period.
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -2828,8 +2828,8 @@ Return information about concurrency usage in a CSV format.
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -2919,8 +2919,8 @@ Return information about concurrency usage.
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -3012,8 +3012,8 @@ Return information about tests coverage for the specified <code>coverage_field</
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -3169,8 +3169,8 @@ Return information about tests coverage for the specified `coverage_field` in a 
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -3307,8 +3307,8 @@ Return an array of buckets with aggregations, for example number of tests run on
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -3604,8 +3604,8 @@ Return statistics for errors that occurred on tests run in the specified period.
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -3807,8 +3807,8 @@ Return information about builds and tests run included in the build. Also, provi
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
