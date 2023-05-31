@@ -22,7 +22,7 @@ For a list of Sauce Connect Proxy environment variables, see [Environment Variab
 <Tabs>
 <TabItem value="macOS/Linux" label="macOS and Linux" default>
 
-Sauce Connect Proxy environment variables may be added to one of your user environment configuration files, such as `.bash_profile` or `.zsh_profile`.
+You can persist Sauce Connect Proxy environment variables by adding them to one of your user environment configuration files, such as `.bash_profile` or `.zsh_profile`.
 
 1. Open `~/.bash_profile` or `~/.zsh_profile` in your preferred text editor.
 2. Add the variables
@@ -48,7 +48,7 @@ Sauce Connect Proxy environment variables may be added to one of your user envir
 
 ## Referencing Environment Variables in Test Scripts
 
-Once you've set up the environment variables for your credentials, you need to reference them in the test scripts that you want to run on Sauce. You can find examples of test scripts that use environment variables for authentication in the demo directory for each language in the [Sauce Labs Training repo](https://github.com/saucelabs-training) on GitHub.
+Once you've set up the environment variables for your credentials, you need to reference them in the test scripts that you want to run on Sauce. You can find examples of test scripts that use environment variables for authentication in the demo directory for each language in the [Sauce Labs Training repository](https://github.com/saucelabs-training) on GitHub.
 
 Below are examples of how to set environment variables in a given language/framework:
 
