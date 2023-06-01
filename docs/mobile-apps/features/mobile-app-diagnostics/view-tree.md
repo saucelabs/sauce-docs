@@ -11,7 +11,7 @@ Explore View Tree is a feature that is designed to help you discover all the vis
 Explore View Tree feature allows you to see, debug, analyze or determine the state of individual View components. It also informs you about global changes in the view tree.
 
 :::note
-This feature CANNOT be used as Appium Inspector. If you wanna use Appium Inspector please visit the following link: https://github.com/saucelabs/appium-inspector-saucelabs
+This feature CANNOT be used as Appium Inspector. If you want to use Appium Inspector with Sauce, see the [Appium Inspector project](https://github.com/saucelabs/appium-inspector-saucelabs) in GitHub.
 Such global changes include, for example, a layout of the whole tree.
 :::
 
