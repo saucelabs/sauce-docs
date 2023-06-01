@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The standard way to launch a Sauce Connect Proxy tunnel is to execute a single command line comprised of all [required flags](/dev/cli/sauce-connect-proxy/#main) and any [optional flags](/dev/cli/sauce-connect-proxy/) you want to use to customize tunnel behavior.
+The standard way to launch a Sauce Connect Proxy tunnel is to run a single command line comprised of all [required flags](/dev/cli/sauce-connect-proxy/#main) and any [optional flags](/dev/cli/sauce-connect-proxy/) you want to use to customize tunnel behavior.
 It's also possible to pass the same command-line arguments through a [YAML config file](/secure-connections/sauce-connect/setup-configuration/yaml-config/), and as environment variables.
 If you pass the same argument through multiple methods, the order of precedence is as follows (from highest to lowest):
 
@@ -64,50 +64,38 @@ Sauce Connect Proxy supports the following [proxy auto-configuration](/secure-co
 
 ## Running Sauce Connect Proxy With Environment Variables
 
-<Tabs
-    defaultValue="Mac/Linux"
-    values={[
-      {label: 'Mac/Linux', value: 'Mac/Linux'},
-      {label: 'Windows', value: 'Windows'},
-    ]}>
+<Tabs>
+<TabItem value="macOS/Linux" label="macOS and Linux" default>
 
-<TabItem value="Mac/Linux">
-
-Follow the steps below to configure Sauce Connect Proxy using environment variables in the current terminal.
+Follow the steps below to configure Sauce Connect Proxy using environment variables in your terminal.
 
 1. In your terminal window, set the following environment variables
+   ```bash
+   export SAUCE_USERNAME="your Sauce username"
+   export SAUCE_ACCESS_KEY="your Sauce access key"
+   ```
+2. Starting a new Sauce Connect Proxy does not require adding `--api-key` or `--user` flags.
+   ```bash
+   sc --region us-west
+   ```
 
-```bash
-export SAUCE_USERNAME="your Sauce username"
-export SAUCE_ACCESS_KEY="your Sauce access key"
-```
+Alternatively, you can persist Sauce Connect Proxy environment variables by adding them to one of your user environment configuration files, such as `.bash_profile` or `.zshrc`.
 
-2. Starting a new Sauce Connect Proxy will not require adding `--api-key` or `--user` flags.
-
-```bash
-sc --region us-west
-```
-
-Alternatively, you may add Sauce Connect Proxy environment variables to one of the user environment configuration files, such as `~/.bash_profile`.
-
-1. To make environment variables always available, open `~/.bash_profile` in your prefered text editor.
-2. Add the variables, for example:
-
-```bash
-export SAUCE_USERNAME="your Sauce username"
-export SAUCE_ACCESS_KEY="your Sauce access key"
-```
-
+1. Open `~/.bash_profile` or `~/.zshrc` in your preferred text editor.
+2. Add the variables
+   ```zsh
+   export SAUCE_USERNAME="your Sauce username"
+   export SAUCE_ACCESS_KEY="your Sauce access key"
+   ```
 3. Start a new shell or a new terminal.
-4. Confirm that your environment variables have been set by typing `echo $SAUCE_USERNAME` in your terminal. The response should be your username value.
-5. Just as above, starting a new Sauce Connect Proxy will not require adding `--api-key` or `--user` flags.
-
-```bash
-sc --region us-west
-```
+4. To confirm that your environment variables are set, enter `echo $SAUCE_USERNAME` in your terminal. The expected response is your username value.
+5. Just as above, starting a new Sauce Connect Proxy does not require adding `--api-key` or `--user` flags.
+   ```bash
+   sc --region us-west
+   ```
 
 </TabItem>
-<TabItem value="Windows">
+<TabItem value="Windows" label="Windows">
 
 1. Open the Control Panel and click the System icon to open the **System Properties** dialog.
 2. Click **Environment Variables** to open the **Environment Variables** dialog.
@@ -116,10 +104,9 @@ sc --region us-west
 5. Repeat 3-4 to set up the **SAUCE_ACCESS_KEY** or any other environment variable.
 6. Confirm that your environment variables have been set by typing `echo %SAUCE_USERNAME%` in your terminal. The response should be your username value. Then do the same for your access key.
 7. Starting a new Sauce Connect Proxy will not require adding `--api-key` or `--user` flags.
-
-```bash
-sc.exe --region us-west
-```
+   ```bash
+   sc.exe --region us-west
+   ```
 
 </TabItem>
 </Tabs>
