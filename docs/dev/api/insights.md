@@ -726,6 +726,12 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified browsers.</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>automation_backend </code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
+    </tr>
+  </tbody>
 </table>
 
 <Tabs
@@ -1502,7 +1508,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Errors
 
-<details><summary><span className="api get">GET</span><code>/v2/insights/rdc/errors</code></summary>
+<details><summary><span className="api get">GET</span><code>/v2/insights/&#123;source&#125;/errors</code></summary>
 <p/>
 
 Return an array of errors with occurrence count on all tests run in the specified period.
@@ -1510,6 +1516,16 @@ Return an array of errors with occurrence count on all tests run in the specifie
 #### Parameters
 
 <table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>source</code></td>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+     <ul>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
+    </ul></p></td>
+    </tr>
+  </tbody>
   <tbody>
     <tr>
      <td><code>org_id</code></td>
@@ -1584,6 +1600,12 @@ Return an array of errors with occurrence count on all tests run in the specifie
      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Specifies the number of items to be skipped from the beginning of the list. Default value is <code>0</code>.</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>automation_backend</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
+    </tr>
+  </tbody>
 </table>
 
 <Tabs
@@ -1648,7 +1670,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Errors Trends
 
-<details><summary><span className="api get">GET</span> <code>/v2/insights/rdc/errors/trends</code></summary>
+<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/errors/trends</code></summary>
 <p/>
 
 Return past and current data about errors for comparison.
@@ -1656,6 +1678,16 @@ Return past and current data about errors for comparison.
 #### Parameters
 
 <table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>source</code></td>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+     <ul>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
+    </ul></p></td>
+    </tr>
+  </tbody>
   <tbody>
     <tr>
      <td><code>org_id</code></td>
@@ -1722,6 +1754,12 @@ Return past and current data about errors for comparison.
     <tr>
      <td><code>time_zone</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specified the time zone. Default value is <code>+00:00</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>automation_backend</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1806,8 +1844,8 @@ Return an array of tests with details.
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -1867,6 +1905,12 @@ Return an array of tests with details.
   </tbody>
   <tbody>
     <tr>
+     <td><code>tag_filter_mode</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
      <td><code>error</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those that threw the specified error message.</p></td>
     </tr>
@@ -1911,6 +1955,12 @@ Return an array of tests with details.
     <tr>
      <td><code>sort</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>automation_backend</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2020,8 +2070,8 @@ Return an array of test cases (grouped by name) with statistical details.
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -2113,6 +2163,12 @@ Return an array of test cases (grouped by name) with statistical details.
   </tbody>
   <tbody>
     <tr>
+     <td><code>tag_filter_mode</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
      <td><code>limit</code></td>
      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Identifies the number of records to return. Default value is <code>50</code>.</p></td>
     </tr>
@@ -2133,6 +2189,12 @@ Return an array of test cases (grouped by name) with statistical details.
     <tr>
      <td><code>sort</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>automation_backend</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2229,8 +2291,8 @@ Return an array of test cases (grouped by name) with statistical details as a CS
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -2322,6 +2384,12 @@ Return an array of test cases (grouped by name) with statistical details as a CS
   </tbody>
   <tbody>
     <tr>
+     <td><code>tag_filter_mode</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
      <td><code>sort_by</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <code>total_runs</code>, <code>name</code>, <code>complete_count</code>, <code>error_count</code>, <code>fail_count</code>, <code>pass_count</code>, <code>complete_rate</code>, <code>error_rate</code>, <code>failure_rate</code>, <code>pass_rate</code>, <code>avg_duration</code>, <code>median_duration</code>, <code>total_duration</code>. Default value is <code>total_runs</code>.</p></td>
     </tr>
@@ -2330,6 +2398,12 @@ Return an array of test cases (grouped by name) with statistical details as a CS
     <tr>
      <td><code>sort</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>automation_backend</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2400,8 +2474,8 @@ Return an array of test cases (grouped by name) with statistical details.
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -2489,6 +2563,18 @@ Return an array of test cases (grouped by name) with statistical details.
     <tr>
      <td><code>tag</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified tag.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tag_filter_mode</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>automation_backend</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2566,8 +2652,8 @@ Return a histogram with test statistic details grouped by specific period.
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -2645,8 +2731,20 @@ Return a histogram with test statistic details grouped by specific period.
   </tbody>
   <tbody>
     <tr>
+     <td><code>tag_filter_mode</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
      <td><code>name</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with the specified name.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>automation_backend</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
     </tr>
   </tbody>
 </table>
@@ -2728,10 +2826,9 @@ Return information about concurrency usage in a CSV format.
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -2819,10 +2916,9 @@ Return information about concurrency usage.
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -2914,8 +3010,8 @@ Return information about tests coverage for the specified <code>coverage_field</
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -2986,6 +3082,12 @@ Return information about tests coverage for the specified <code>coverage_field</
     <tr>
      <td><code>sort</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>automation_backend</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
     </tr>
   </tbody>
 </table>
@@ -3065,8 +3167,8 @@ Return information about tests coverage for the specified `coverage_field` in a 
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -3125,6 +3227,12 @@ Return information about tests coverage for the specified `coverage_field` in a 
     <tr>
      <td><code>device_group</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified device group. Available values are: <code>private</code>, <code>public</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>automation_backend</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
     </tr>
   </tbody>
 </table>
@@ -3197,8 +3305,8 @@ Return an array of buckets with aggregations, for example number of tests run on
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -3292,6 +3400,18 @@ Return an array of buckets with aggregations, for example number of tests run on
     <tr>
      <td><code>tag</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified tag.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tag_filter_mode</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>automation_backend</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
     </tr>
   </tbody>
 </table>
@@ -3482,8 +3602,8 @@ Return statistics for errors that occurred on tests run in the specified period.
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -3577,6 +3697,12 @@ Return statistics for errors that occurred on tests run in the specified period.
     <tr>
      <td><code>tag_filter_mode</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>automation_backend</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
     </tr>
   </tbody>
 </table>
@@ -3679,8 +3805,8 @@ Return information about builds and tests run included in the build. Also, provi
      <td><code>source</code></td>
        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
-      <li><code>rdc</code> - Real Device Cloud.</li>
-      <li><code>vdc</code> - Virtual Device Cloud.</li>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
     </tr>
   </tbody>
@@ -3774,6 +3900,12 @@ Return information about builds and tests run included in the build. Also, provi
     <tr>
      <td><code>tag_filter_mode</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>automation_backend</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
     </tr>
   </tbody>
 </table>
