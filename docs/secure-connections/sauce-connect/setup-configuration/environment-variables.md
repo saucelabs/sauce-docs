@@ -79,11 +79,11 @@ Follow the steps below to configure Sauce Connect Proxy using environment variab
    sc --region us-west
    ```
 
-Alternatively, you can persist Sauce Connect Proxy environment variables by adding them to one of your user environment configuration files, such as `.bash_profile` or `.zsh_profile`.
+Alternatively, you can persist Sauce Connect Proxy environment variables by adding them to one of your user environment configuration files, such as `.bash_profile` or `.zshrc`.
 
-1. Open `~/.bash_profile` or `~/.zsh_profile` in your preferred text editor.
+1. Open `~/.bash_profile` or `~/.zshrc` in your preferred text editor.
 2. Add the variables
-   ```
+   ```zsh
    export SAUCE_USERNAME="your Sauce username"
    export SAUCE_ACCESS_KEY="your Sauce access key"
    ```
