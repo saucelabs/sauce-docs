@@ -280,7 +280,7 @@ For example, you can create a rule for each development environment and version 
 
 ## Issue Based Alerts
 
-To further automate your workflow, you can configure automated actions for your Jira workflow integration with issue based alerts. Use issue based alerts to automatically generate issues in Jira based on the conditions and frequency that you specify. For more information, see [Issue Based Alerts](/error-reporting/project-setup/alerts/#issue-based-alertz).
+To further automate your workflow, you can configure automated actions for your Jira workflow integration with issue based alerts. Use issue based alerts to automatically generate issues in Jira based on the conditions and frequency that you specify. For more information, see [Issue Based Alerts](/error-reporting/project-setup/alerts/#issue-based-alerts).
 
 ## Troubleshooting
 
