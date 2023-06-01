@@ -67,6 +67,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           msg: |
-            Deploy preview ready!
-            https://docs.dev.saucelabs.net/preview/${{ github.event.number }}
+            Deploy preview ready for ${{ github.event.number }}!
+            https://docs.dev.saucelabs.net
             built from ${{ github.sha }}
