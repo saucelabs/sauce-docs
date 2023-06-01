@@ -167,8 +167,4 @@ Check the list of [Global Flags](#global-flags) you can use.
 
 ### Run
 
-You can refer to the [saucectl run command reference](/dev/cli/saucectl/run/).
-
-## More Information
-
-See [saucectl YAML Configuration](/api-testing/integrations/yaml) for more configuration options.
+You can refer to the [Command Reference](/dev/cli/saucectl/run/) for run command and [saucectl YAML Configuration](/api-testing/integrations/yaml) for more configuration options.
