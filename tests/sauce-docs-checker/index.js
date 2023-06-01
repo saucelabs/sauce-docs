@@ -170,8 +170,7 @@ function get_links(map,title) {
 }
 
 async function parse_wiki_map() {
-  let API_BASE_URL = `https://gist.githubusercontent.com/tackcity/`;
-  let url = API_BASE_URL+`833de80d2f240683adcc2c0f49e8e19f/raw/be45564ebdc7edf1c2448d4021845e754e9a3fd0/map.conf`;
+  let url = `https://github.com/saucelabs/sauce-docs/blob/main/tests/sauce-docs-checker/map.conf`;
   let res = await axios.get(url);
   let text = res.data;
   // console.log(text);
