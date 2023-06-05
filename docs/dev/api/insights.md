@@ -3820,7 +3820,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/insights/v2/coverage/&#123;coverage_field&#125;</code></summary>
 <p/>
 
-Return information, from all sources, about tests coverage for the specified <code>coverage_field</code>.
+Return information, from all sources, about test coverage for the specified <code>coverage_field</code>.
 
 #### Parameters
 
@@ -4094,7 +4094,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/insights/v2/coverage/&#123;coverage_field&#125;/csv</code></summary>
 <p/>
 
-Return information, from all sources, about tests coverage for the specified `coverage_field` in a CSV format.
+Return information, from all sources, about test coverage for the specified `coverage_field` in a CSV format.
 
 #### Parameters
 
@@ -4514,7 +4514,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/insights/v2/trends/tests</code></summary>
 <p/>
 
-Return an array of buckets with aggregations, for example number of tests, from all sources, run on a specific browser or device.
+Return an array of buckets with aggregations, for example, the number of tests from all sources, run on a specific browser or device.
 
 #### Parameters
 
@@ -5143,7 +5143,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.us-west-1.saucelabs.com/v2/insights/<source>/trends/errors?org_id=<org_id>" | json_pp
+--request GET "https://api.us-west-1.saucelabs.com/insights/v2/trends/errors?org_id=<org_id>" | json_pp
 ```
 
 </TabItem>
@@ -5151,7 +5151,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.eu-central-1.saucelabs.com/v2/insights/<source>/trends/errors?org_id=<org_id>" | json_pp
+--request GET "https://api.eu-central-1.saucelabs.com/insights/v2/trends/errors?org_id=<org_id>" | json_pp
 ```
 
 </TabItem>
@@ -5219,7 +5219,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/trends/builds_tests</code></summary>
 <p/>
 
-Return information about builds and tests run included in the build. Also, provides information about tests without build names.
+Return information about builds and tests run included in the build. Also, it provides information about tests without build names.
 
 #### Parameters
 
@@ -5458,3 +5458,246 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </details>
 
 ---
+
+### Get Trends Builds Tests from All Sources
+
+<details><summary><span className="api get">GET</span> <code>/insights/v2/trends/builds-tests</code></summary>
+<p/>
+
+Return information, from all sources, about builds and tests run included in the build. Also, it provides information about tests without build names.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>org_id</code></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>user_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs that belongs to the specified <code>user_id</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>group_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>group_id</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>team_id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified <code>team_id</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>start</code></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>end</code></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>automation_backend</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>browser</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified browsers.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>build</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to those grouped by this build name.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified device.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device_group</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified device group. Available values are: <code>private</code>, <code>public</code>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>os</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified operating systems.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>source</code></td>
+       <td><p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+     <ul>
+      <li><code>rdc</code> - Real Device Cloud</li>
+      <li><code>vdc</code> - Virtual Device Cloud</li>
+    </ul></p>Default value is: <code>["vdc", "rdc"]</code>
+    </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>status</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+     <ul>
+      <li><code>passed</code></li>
+      <li><code>error</code></li>
+      <li><code>failed</code></li>
+      <li><code>complete</code></li>
+    </ul></p>Default value is: <code>["error", "failed", "passed", "complete"]</code>
+    </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tag</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified tag.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tag_filter_mode</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.us-west-1.saucelabs.com/insights/v2/trends/builds-tests?org_id=<org_id>" | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET "https://api.eu-central-1.saucelabs.com/insights/v2/trends/builds-tests?org_id=<org_id>" | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>422</code></td>
+    <td colSpan='2'>Validation Error.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+  "meta": {
+    "status": "passed"
+  },
+  "builds": {
+    "items": [
+      {
+        "name": "<name>",
+        "tests_count": 5,
+        "owner": "<owner>",
+        "duration": 4,
+        "duration_absolute": 6,
+        "duration_test_max": 9,
+        "start_time": "2023-04-18T21:32:45.153Z",
+        "end_time": "2023-04-18T21:32:45.153Z",
+        "tests": [
+          {
+            "id": "abc123",
+            "owner": "<owner>",
+            "ancestor": "<ancestor>",
+            "name": "<name>",
+            "build": "build123",
+            "creation_time": "2023-04-18T21:32:45.153Z",
+            "start_time": "2023-04-18T21:32:45.153Z",
+            "end_time": "2023-04-18T21:32:45.153Z",
+            "duration": 9,
+            "status": "passed",
+            "error": "<error>",
+            "os": "<os>",
+            "os_normalized": "<os>",
+            "browser": "<browser>",
+            "browser_normalized": "<browser>",
+            "details_url": "<url>",
+            "is_expired": true
+          }
+        ],
+        "aggs": {
+          "status": [
+            {
+              "name": "passed",
+              "count": 8
+            }
+          ]
+        }
+      }
+    ],
+    "has_more": true,
+    "total": 10
+  },
+  "tests_missing_build": {
+    "items": [
+      {
+        "id": "def456",
+        "owner": "<owner>",
+        "ancestor": "<ancestor>",
+        "name": "<name>",
+        "build": "build456",
+        "creation_time": "2023-04-18T21:32:45.153Z",
+        "start_time": "2023-04-18T21:32:45.153Z",
+        "end_time": "2023-04-18T21:32:45.153Z",
+        "duration": 10,
+        "status": "failed",
+        "error": "<error>",
+        "os": "<os>",
+        "os_normalized": "<os>",
+        "browser": "<browser>",
+        "browser_normalized": "<browser>",
+        "details_url": "<url>",
+        "is_expired": true
+      }
+    ],
+    "has_more": true,
+    "total": 0
+  }
+}
+```
+
+</details>
