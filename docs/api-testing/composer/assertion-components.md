@@ -5,8 +5,6 @@ sidebar_label: Assertion Components
 description: Learn to write test assertions in the Sauce Labs API Testing Composer.
 ---
 
-test
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
