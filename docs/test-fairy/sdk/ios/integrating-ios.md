@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs groupId="sdk">
-  <TabItem value="swift" label="Swift Package Manager" default>
+  <TabItem value="swift" label="Swift Package Manager">
     <p><b>Note:</b> Requires Xcode 12+. Screenshots taken from Xcode 13.1</p>
       <p>
         <ul>
@@ -59,7 +59,7 @@ import TabItem from '@theme/TabItem';
   </TabItem>
   <TabItem value="manual" label="Manual">
     <ol>
-      <li>Download the framework from our <a href="https://app.testfairy.com/sdk/ios/" target="_blank">Download page</a>.</li>
+      <li>Download the framework from our Download page.</li>
       <li>
         <p>Unzip files and drag them into your project tree.</p>
         <p>Make sure <b>Copy items if needed</b> is checked when dragging files to your project.</p>
@@ -82,4 +82,3 @@ import TabItem from '@theme/TabItem';
       </ol>
   </TabItem>
 </Tabs>
-
