@@ -11,31 +11,23 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sdk">
   <TabItem value="swift" label="Swift Package Manager">
     <p><b>Note:</b> Requires Xcode 12+. Screenshots taken from Xcode 13.1</p>
-      <p>
-        <ul>
-          <li>
             <p>
               <ol>
                 <li>Select your project from the Xcode navigator to open your project's configuration</li>
                 <li>Make sure your project is selected from Project and Target list.</li>
                 <li>Click the "Package Dependencies" Toolbar item</li>
                 <li>Click the '+' icon to add a package</li>
-                <li>In the newly opened dialog search for the TestFairy package repository using the URL: <span style="font-weight: 1000;">https://github.com/testfairy/testfairy-ios-sdk-swift-package</span> in the top right search bar</li>
+                <li>In the newly opened dialog search for the TestFairy package repository using the URL: github.com/testfairy/testfairy-ios-sdk-swift-package in the top right search bar</li>
                 <li>Click the "Add Pacakge" button</li>
                 <li>After the package has been downloaded, in the newly opened dialog, make sure the TestFairy package is selcted in the "Package Product" column</li>
                 <li>Make sure the right target is selected in the "Add to target" column</li>
-                <li>Click the "Add Pacakge" button</li>
+                <li>Click the "Add Package" button</li>
               </ol>
             </p> 
-          </li>
-        </ul>
-      </p>
   </TabItem>
   <TabItem value="cocoapods" label="Cocoapods">
     <p>Add the <b>TestFairy</b> pod to your Podfile by inserting the following line where applicable:</p>
-      <pre>
-				<code class=" hljs bash">pod <span class="hljs-string">'TestFairy'</span></code>
-			</pre>
+				<code>pod 'TestFairy'</code>
 			<p>Run the <b>$ pod install</b> command to install the <b>TestFairy</b> dependency.</p>
   </TabItem>
   <TabItem value="carthage" label="Carthage">
@@ -49,11 +41,11 @@ import TabItem from '@theme/TabItem';
     <ol>
       <li>
         <p>On your application targets’ “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script in which you specify your shell (ex: <code>bin/sh</code>), add the following contents to the script area below the shell:</p>
-        <pre><code class="language-sh hljs perl">/usr/<span class="hljs-keyword">local</span>/bin/carthage copy-frameworks
-				</code></pre>
+        <code>/usr/local/bin/carthage copy-frameworks
+				</code>
         <p>and add the paths to the TestFairySDK frameworks under “Input Files”, e.g.:</p>
-        <pre><code class=" hljs bash"><span class="hljs-variable">${SRCROOT}</span>/Carthage/Build/iOS/TestFairySDK.framework
-				</code></pre>
+        <code>${SRCROOT}/Carthage/Build/iOS/TestFairySDK.framework
+				</code>
       </li>
     </ol>
   </TabItem>
@@ -75,10 +67,12 @@ import TabItem from '@theme/TabItem';
             <li>Select the “Build Phases” tab, and click the small triangle next to “Link Binary With Libraries” to view all of the frameworks in your application.</li>
           </ul>
         </p>
+        <p>
           <ul>
             <li><code>SystemConfiguration.framework</code></li>
           </ul>
-        </li>
+        </p>
+      </li>
       </ol>
   </TabItem>
 </Tabs>
