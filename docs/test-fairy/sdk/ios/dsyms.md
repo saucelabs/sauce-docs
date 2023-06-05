@@ -24,48 +24,36 @@ In order to upload symbols to TestFairy, you'll need to have your UPLOAD_API_KEY
 
 <Tabs groupId="tf-symbols">
   <TabItem value="xcode" label="Xcode" default>
-    <p>A simple Build Phase script can automatically upload the compressed .dSYM file for future symbolication</p>
+    A simple Build Phase script can automatically upload the compressed .dSYM file for future symbolication
 		<ol>
 			<li>
-				<div>
-				    In Xcode, click on your project in the left sidebar, then click on <strong>Build Phases</strong>.
-				</div>
+				In Xcode, click on your project in the left sidebar, then click on <bg>Build Phases</b>.
 			</li>
 			<li>
-				<div>
-				    Click on <strong><em>plus sign</em></strong> on the left and select <strong>New Run Script Build Phase</strong>
-				</div>
+				Click on <b>plus sign</b> on the left and select <b>New Run Script Build Phase</b>
 			</li>
 			<li>
-				<div>
-					<div>
-						Open the newly added <strong>Run Script</strong> and add this line at the bottom:
-					</div>
-					<code>sh "${SRCROOT}/TestFairy/upload-dsym.sh" UPLOAD_API_KEY
-					</code>
-					<p>If you're using <strong>Cocoapods</strong>, you will have to use a different path to <code>upload-dsym.sh</code> You can use either:</p>
-					<code>sh "${SRCROOT}/Pods/TestFairy/upload-dsym.sh" UPLOAD_API_KEY</code>
-					<p>or</p>
-					<code>sh "${PODS_ROOT}/TestFairy/upload-dsym.sh" UPLOAD_API_KEY
-					</code>
-					<p>If you're using <strong>Carthage</strong>, you will have to use a different path to <code>upload-dsym.sh</code></p>
-				    <code>sh "${SRCROOT}/Carthage/Build/iOS/TestFairySDK.framework/upload-dsym.sh" UPLOAD_API_KEY
-					</code>
-					<p>If you're using <strong>Swift Package Manager</strong>, you will have to use a different path to <code>upload-dsym.sh</code></p>
-					<code>sh "${TARGET_BUILD_DIR}/TestFairy.framework/upload-dsym.sh" UPLOAD_API_KEY
-					</code>
-					<div>
-						<p>Make sure the specified path includes the upload-dsym.sh file.</p>
-						<p>Make sure to replace <strong>UPLOAD_API_KEY</strong> with the your secret upload API key, found on the <strong>Settings</strong> page.</p>
-					</div>
-				</div>
+				Open the newly added <b>Run Script</b> and add this line at the bottom:
+				<code>sh "${SRCROOT}/TestFairy/upload-dsym.sh" UPLOAD_API_KEY</code>
+				If you're using <b>Cocoapods</b>, you will have to use a different path to <code>upload-dsym.sh</code> You can use either:
+				<code>sh "${SRCROOT}/Pods/TestFairy/upload-dsym.sh" UPLOAD_API_KEY</code>
+				or
+				<code>sh "${PODS_ROOT}/TestFairy/upload-dsym.sh" UPLOAD_API_KEY
+				</code>
+				If you're using <b>Carthage</b>, you will have to use a different path to <code>upload-dsym.sh</code>
+				<code>sh "${SRCROOT}/Carthage/Build/iOS/TestFairySDK.framework/upload-dsym.sh" UPLOAD_API_KEY
+				</code>
+				If you're using <b>Swift Package Manager</b>, you will have to use a different path to <code>upload-dsym.sh</code>
+				<code>sh "${TARGET_BUILD_DIR}/TestFairy.framework/upload-dsym.sh" UPLOAD_API_KEY
+				</code>
+				Make sure the specified path includes the upload-dsym.sh file.
+				Make sure to replace <b>UPLOAD_API_KEY</b> with the your secret upload API key, found on the <b>Settings</b> page.
 			</li>
 		</ol>
   </TabItem>
   <TabItem value="upload-api" label="Upload API">
-    <p>We recommend uploading dSYM files together with the app build files.<br/>
-		Use our upload API and add the dSYM files when the app is ready for distribution and testing.<br/>
-	</p>
+    We recommend uploading dSYM files together with the app build files.
+	Use our upload API and add the dSYM files when the app is ready for distribution and testing.
 		<ol>
 			<li>
 				<p>Create a zip file from the contents of your symbols directory. The best way to locate this path can be found here.</p>
@@ -86,7 +74,7 @@ In order to upload symbols to TestFairy, you'll need to have your UPLOAD_API_KEY
 		</ol>
   </TabItem>
   <TabItem value="upload-script" label="Upload Script">
-    <p>If you are not planning to upload your app to TestFairy and you are not using Xcode, follow these instrucitons to upload your debug symbols:<br/></p>
+    <p>If you are not planning to upload your app to TestFairy and you are not using Xcode, follow these instrucitons to upload your debug symbols:</p>
 		<ol>
 			<li>
 				<p>Locate your DSYM_PATH directory. The best way to locate this path can be found here.</p>
@@ -129,29 +117,22 @@ In order to upload symbols to TestFairy, you'll need to have your UPLOAD_API_KEY
     <p>If you have never used the TestFairy Jenkins plugin before, see https://wiki.jenkins-ci.org/display/JENKINS/TestFairy+Plugin. Once set up, Xcode will build your app on the Jenkins server, and upload the app's symbols.</p>
 		<ol>
 			<li>
-				<div>
-					Open Xcode on the machine that runs on Jenkins, click on your project in the left sidebar, then click on <strong>Build Phases</strong>.
-				</div>
+				Open Xcode on the machine that runs on Jenkins, click on your project in the left sidebar, then click on <b>Build Phases</b>.
 			</li>
 			<li>
-				<div>
-					Click on <strong><em>plus sign</em></strong> on the left and select <strong>New Run Script Build Phase</strong>
-				</div>
+				Click on <b>plus sign</b> on the left and select <b>New Run Script Build Phase</b>
 			</li>
 			<li>
-				<div>
-					Open the newly added <strong>Run Script</strong> and add this line at the bottom:
-				    <code>sh "$SRCROOT/TestFairy/upload-dsym.sh" UPLOAD_API_KEY</code>
-					<div>
-						<p>Make sure the specified path includes the upload-dsym.sh file.</p>
-						<p>Make sure to replace <strong>UPLOAD_API_KEY</strong> with the your secret upload API key, found on the Settings page.</p>
-					</div>
-				</div>
+				Open the newly added <b>Run Script</b> and add this line at the bottom:
+				<code>sh "$SRCROOT/TestFairy/upload-dsym.sh" UPLOAD_API_KEY</code>
+				<p>Make sure the specified path includes the upload-dsym.sh file.</p>
+				<p>Make sure to replace <b>UPLOAD_API_KEY</b> with the your secret upload API key, found on the Settings page.
+				</p>
 			</li>
 		</ol>
   </TabItem>
   <TabItem value="xamarin-studio" label="Xamarin Studio">
-    <p>If you are using Xamarin, please refer to instructions in <a href="/platforms/xamarin.html">this page</a>.</p>
+    If you are using Xamarin, please refer to instructions in <a href="/platforms/xamarin.html">this page</a>.
   </TabItem>
 </Tabs>
 
