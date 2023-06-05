@@ -32,11 +32,11 @@ import TabItem from '@theme/TabItem';
       </p>
   </TabItem>
   <TabItem value="cocoapods" label="Cocoapods">
-    <p>Add the <em>TestFairy</em> pod to your Podfile by inserting the following line where applicable:</p>
+    <p>Add the <b>TestFairy</b> pod to your Podfile by inserting the following line where applicable:</p>
       <pre>
 				<code class=" hljs bash">pod <span class="hljs-string">'TestFairy'</span></code>
 			</pre>
-			<p>Run the <em>$ pod install</em> command to install the <em>TestFairy</em> dependency.</p>
+			<p>Run the <b>$ pod install</b> command to install the <b>TestFairy</b> dependency.</p>
   </TabItem>
   <TabItem value="carthage" label="Carthage">
     <p>Once you have Carthage installed, you can begin adding frameworks to your project. Note that Carthage only supports dynamic frameworks, which are only available on iOS 8 or later (or any version of OS X).
@@ -62,7 +62,7 @@ import TabItem from '@theme/TabItem';
       <li>Download the framework from our <a href="https://app.testfairy.com/sdk/ios/" target="_blank">Download page</a>.</li>
       <li>
         <p>Unzip files and drag them into your project tree.</p>
-        <p>Make sure <strong>Copy items if needed</strong> is checked when dragging files to your project.</p>
+        <p>Make sure <b>Copy items if needed</b> is checked when dragging files to your project.</p>
       </li>
       <li>
         <p>Add the following framework:
