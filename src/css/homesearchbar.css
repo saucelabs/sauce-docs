@@ -1,3 +1,62 @@
+.DocSearch-Container .DocSearch-Modal,
+.DocSearch-Container .DocSearch-Form,
+.DocSearch-Container .DocSearch-Hit-source {
+    background: var(--dark-500);
+}
+
+.DocSearch-Container .DocSearch-Form {
+    box-shadow: none;
+}
+
+.DocSearch-Container .DocSearch-Input {
+    color: var(--neutral-100);
+}
+
+.DocSearch-Container .DocSearch-Hit-source {
+    color: var(--neutral-100);
+}
+
+.DocSearch-Container .DocSearch-Hits mark {
+    color: var(--dark-500);
+    font-weight: bold;
+    background: var(--yellow-500);
+}
+
+.DocSearch-Container .DocSearch-Hits a {
+    background: none;
+    border: 1px solid var(--neutral-300);
+    box-shadow: none;
+    color: var(--neutral-100);
+    margin-bottom: 0.5rem;
+}
+
+.DocSearch-Container .DocSearch-Hits a:hover,
+.DocSearch-Container .DocSearch-Hit[aria-selected="true"] a {
+    background: var(--dark-400);
+    border: 1px solid var(--neutral-300);
+    box-shadow: none;
+}
+
+.DocSearch-Container .DocSearch-Hit-title {
+    color: var(--neutral-100);
+}
+
+.DocSearch-Container .DocSearch-Hit-title:hover {
+    color: var(--dark-500);
+}
+
+.DocSearch-Container .DocSearch-Container .DocSearch-Hit-path {
+    color: var(--neutral-200);
+}
+
+.DocSearch-Container .DocSearch-Container .DocSearch-Hit-path:hover {
+    color: var(--dark-500);
+}
+
+.DocSearch-Container .DocSearch-Footer {
+    background: var(--dark-500);
+}
+
 div.new-search button.DocSearch.DocSearch-Button {
     border-radius: 4px;
     background-color: var(--neutral-100);
