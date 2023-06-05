@@ -132,7 +132,7 @@ Sauce Labs supports the following test configurations for Playwright:
 - [Run your tests in Orchestrate](/orchestrate/quickstart-playwright): Use `saucectl` to run tests with a containerized test runner.
 
 ## Playwright Reporter for Sauce Labs
-If you would prefer to stay in Playwright, try the [Playwrigth Sauce Labs Reporter](https://github.com/saucelabs/sauce-playwright-reporter). Connect to your Sauce Labs account from within your Playwright project to configure and run your tests directly from Playwright.
+If you prefer to stay in Playwright, try the [Playwrigth Sauce Labs Reporter](https://github.com/saucelabs/sauce-playwright-reporter). Connect to your Sauce Labs account from within your Playwright project to configure and run your tests directly from Playwright.
 
 ## Limitations
 
