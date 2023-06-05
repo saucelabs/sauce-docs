@@ -26,20 +26,22 @@ To utilize `saucectl` functionalities, you'll need to generate a webhook for you
 To generate a webhook:
 
 1. Log in to Sauce Labs, then click **API Testing**.
-1. Navigate to your Project and select the **WebHooks** tab.<br/><img src={useBaseUrl('img/api-testing/webhook_tab.png')} alt="webhook screenshot" width="200"/>
+1. Navigate to your Project and select the **WebHooks** tab.<br/>
+   <img src={useBaseUrl('img/api-testing/webhook_tab.png')} alt="webhook screenshot" width="200"/>
 1. Select **Create Hook**.<br/><img src={useBaseUrl('img/api-testing/createHook.png')} alt="Create New WebHook" width="300"/>
-1. Enter a **Hook Name** for your webhook (**Description** is optional), then click **Save**.<br/><img src={useBaseUrl('img/api-testing/sampleHook.png')} alt="sample webhook details" width="300" />
+1. Enter a **Hook Name** for your webhook (**Description** is optional), then click **Save**.<br/>
+   <img src={useBaseUrl('img/api-testing/sampleHook.png')} alt="sample webhook details" width="300" />
 1. The generated **Hook URL** will then appear.
 
 ### Step 2: Install `saucectl`
 
-In a terminal shell, run the install command from your chosen `saucectl` home directory.
+Run the install command from your chosen `saucectl` home directory in a terminal shell.
 
 ```bash title="Example with npm"
 npm install -g saucectl
 ```
 
-Check the [full list of available installation option](/dev/cli/saucectl/#installing-saucectl).
+Check the [complete list of available installation options](/dev/cli/saucectl/#installing-saucectl).
 
 ### Step 3: Link Your Sauce Labs Account
 
@@ -48,17 +50,17 @@ Check the [full list of available installation option](/dev/cli/saucectl/#instal
 :::tip Use Environment Variables
 `saucectl` detects your Sauce Labs credentials [environment variables](/basics/environment-variables) and prioritizes them over values in the `credentials.yml` file when both are present. **If you have set them, you may skip this step.** Not sure if you have them set? Run the following command to check:
 
-```
+```bash
 echo $SAUCE_USERNAME
 echo $SAUCE_ACCESS_KEY
 ```
 
-If a value is returned for both variables, they are set.
+If you get a value for both variables, they are set.
 :::
 
 1. Run the `configure` command:
 
-   ```
+   ```bash
    saucectl configure
    ```
 
@@ -66,7 +68,7 @@ If a value is returned for both variables, they are set.
 
 ### (Optional) Step 4: Clone the API Testing Project
 
-If you want to try using existing tests you can clone the GitHub repository as shown below.
+If you want to try using existing tests, you can clone the GitHub repository, as shown below.
 
 <Tabs
 defaultValue="https"
@@ -99,7 +101,7 @@ Commands for interacting with API Testing project vaults.
 
 #### Get Vault
 
-Prints the vault content as json to standard output stream (stdout). Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
+It prints the vault content as json to the standard output stream (stdout). Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
 
 ```bash
 saucectl apit vault get --project "project_name" [flags]
@@ -119,6 +121,8 @@ saucectl apit vault get-snippet "snippet_name" --project "project_name" [flags]
 
 Check the list of [Global Flags](#global-flags) you can use.
 
+---
+
 #### Get Variable
 
 Get a variable value from a project's vault. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
@@ -129,9 +133,11 @@ saucectl apit vault get-variable "variable_name" --project "project_name" [flags
 
 Check the list of [Global Flags](#global-flags) you can use.
 
+---
+
 #### Set Snippet
 
-Set/update a snippet in a project's vault. If a `snippet_name` is already in the vault, the value will be updated, otherwise a new snippet will be added. You can set a snippet's value by providing a path to a file defining the snippet or use "-" to read from standard input stream (stdin). Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
+Set/update a snippet in a project's vault. If a `snippet_name` is already in the vault, it is updated with the new one; otherwise, it adds a new snippet. You can set a snippet's value by providing a path to a file defining the snippet or using "-" to read from the standard input stream (stdin). Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
 
 ```bash
 saucectl apit vault set-snippet "variable_name" FILE_NAME --project "project_name" [flags] # from a file
@@ -145,15 +151,19 @@ cat "file_name" | saucectl apit vault set-snippet "variable_name" - --project "p
 
 Check the list of [Global Flags](#global-flags) you can use.
 
+---
+
 #### Set Variable
 
-Set/update a variable in a project's vault. If a `variable_name` is already in the vault, the value will be updated, otherwise a new variable will be added. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
+Set/update a variable in a project's vault. If a `variable_name` is already in the vault, it is updated with the new one; otherwise, it adds a new variable. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
 
 ```bash
 saucectl apit vault set-variable "variable_name" "variable_value" --project "project_name" [flags]
 ```
 
 Check the list of [Global Flags](#global-flags) you can use.
+
+---
 
 #### Global Flags
 
@@ -167,4 +177,10 @@ Check the list of [Global Flags](#global-flags) you can use.
 
 ### Run
 
-You can refer to the [Command Reference](/dev/cli/saucectl/run/) for run command and [saucectl YAML Configuration](/api-testing/integrations/yaml) for more configuration options.
+Use the `run` command to execute the tests. The console displays the executing tests, distinguishing which mode is running. The results are available immediately following test completion in your [Sauce Labs account](https://app.saucelabs.com/api-testing/).
+
+```bash
+saucectl run
+```
+
+You can refer to the [Command Reference](/dev/cli/saucectl/run/) for the complete list of options for the `run` command and [saucectl YAML Configuration](/api-testing/integrations/yaml) for more configuration options.
