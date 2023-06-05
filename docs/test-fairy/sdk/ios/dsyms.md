@@ -27,7 +27,7 @@ In order to upload symbols to TestFairy, you'll need to have your UPLOAD_API_KEY
     A simple Build Phase script can automatically upload the compressed .dSYM file for future symbolication
 		<ol>
 			<li>
-				In Xcode, click on your project in the left sidebar, then click on <bg>Build Phases</b>.
+				In Xcode, click on your project in the left sidebar, then click on <b>Build Phases</b>.
 			</li>
 			<li>
 				Click on <b>plus sign</b> on the left and select <b>New Run Script Build Phase</b>
