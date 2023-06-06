@@ -1450,13 +1450,13 @@ Return daily statistics about test results and concurrency usage for the specifi
   <tbody>
     <tr>
      <td><code>since</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs ran from the provided Unix timestamp on.</p></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>Return only jobs ran from the provided Unix timestamp on.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>until</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING|</small></p><p>Return only jobs ran until the provided Unix timestamp.</p></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>Return only jobs ran until the provided Unix timestamp.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1688,13 +1688,13 @@ Return daily statistics about test results and concurrency usage for teams.
   <tbody>
     <tr>
      <td><code>since</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs ran from the provided Unix timestamp on.</p></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>Return only jobs ran from the provided Unix timestamp on.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>until</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING|</small></p><p>Return only jobs ran until the provided Unix timestamp.</p></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>Return only jobs ran until the provided Unix timestamp.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1815,13 +1815,13 @@ Return daily statistics about test results and concurrency usage for organizatio
   <tbody>
     <tr>
      <td><code>since</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return only jobs ran from the provided Unix timestamp on.</p></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>Return only jobs ran from the provided Unix timestamp on.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>until</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING|</small></p><p>Return only jobs ran until the provided Unix timestamp.</p></td>
+       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>Return only jobs ran until the provided Unix timestamp.</p></td>
     </tr>
   </tbody>
 </table>
