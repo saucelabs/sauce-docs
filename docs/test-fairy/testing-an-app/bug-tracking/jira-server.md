@@ -39,7 +39,7 @@ $ testfairy-connect configure
 - **What is the type of Jira issues to be created using TestFairy Connect?**
   Choose the appropriate issue type used in your JIRA. JIRA uses `Bug` by default, but it varies on project type. Other examples are `Defect` or `Task`.
 
-- **JIRA username:**
+- **Jira username:**
   Enter your JIRA login username.
 
 - **JIRA password:**
