@@ -25,7 +25,7 @@ import TabItem from '@theme/TabItem';
 6. Press **Save** to save the configuration.
    <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/ALM-3.png')} alt="Save configuration"/>
 
-7. Scroll down and press **Actviate** for the app you want to connect to a workspace.
+7. Scroll down and press **Activate** for the app you want to connect to a workspace.
 
 8. In the window, select the target workspace for your issues in the `Project Key` field and **Save Changes**.
    <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/ALM-4.png')} alt="Select project key"/>

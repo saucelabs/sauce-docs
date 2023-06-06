@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## 1. Creating a JIRA API Token
+## 1. Creating a Jira API Token
 
 1. Log in to [https://id.atlassian.com/manage/api-tokens#](https://id.atlassian.com/manage/api-tokens#) and click on **Create API token**.
    <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-create-api.png')} alt="Create Jira API Token"/>
@@ -19,28 +19,28 @@ import TabItem from '@theme/TabItem';
 1. Copy the API Token.
    <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-token.png')} alt="Copy the API Token"/>
 
-## 2. Configuring JIRA in Your TestFairy Settings
+## 2. Configuring Jira in Your TestFairy Settings
 
 1. Open your TestFairy account Preferences .
    <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-cloud-1.png')} alt="Open TestFairy preferences"/>
 
-2. Choose **Integrations**, scroll to JIRA and press **Add integration**.
+2. Choose **Integrations**, scroll to Jira and press **Add integration**.
    <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-cloud-1-1.png')} alt="Jira cloud"/>
 
-3. In the next screen, enter your JIRA Username, API Token, and JIRA URL and press **Update Jira Settings**.
+3. Enter your Jira Username, API Token, and JIRA URL in the next screen and press **Update Jira Settings**.
    <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-cloud-2.png')} alt="Configure Jira Cloud"/>
 
 ## 3. (Optional) Installing the TestFairy Chrome Extension
 
-The TestFairy Chrome Extension is available at [https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee](https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee). With this Chrome extension, every JIRA issue that has a link to a TestFairy session will contain the proper TestFairy session, timeline, logs, and crash reports embedded in the JIRA issue.
+The TestFairy Chrome Extension is available at [https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee](https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee). With this Chrome extension, every JIRA issue that has a link to a TestFairy session will contain the proper TestFairy session, timeline, logs, and crash reports embedded in the Jira issue.
 
-## 4. (Optional) Adding the TestFairy JIRA Add-on to Your Jira Account
+## 4. (Optional) Adding the TestFairy Jira Add-on to Your Jira Account
 
 If you didn't install the Chrome extension, you could add the TestFairy Jira Add-on to add TestFairy videos to Jira issues.
 
 To install it, follow these steps:
 
-1. Open **JIRA Settings**.
+1. Open **Jira Settings**.
    <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-settings.png')} alt="Open Jira Settings"/>
 
 2. Open **Apps**.
@@ -61,31 +61,31 @@ To install it, follow these steps:
    <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira5b.png')} alt="Jira popup"/>
    <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira6c.png')} alt="Application logs"/>
 
-## 5. (Optional) Mapping JIRA Custom Fields
+## 5. (Optional) Mapping Jira Custom Fields
 
 <p><span className="sauceGreen">Highly Recommended</span></p>
 
-The TestFairy JIRA integration allows you to automatically populate any field in JIRA when creating a new issue.
+The TestFairy Jira integration allows you to automatically populate any field in Jira when creating a new issue.
 You can do that with standard TestFairy data like app name, version, user, device, etc., or your session attributes, key, and value you push to our SDK in real-time.<br/>
 
 To map Jira custom field follow the steps below:
 
-1. First, you need to connect a JIRA account. Follow the [instructions](#1-creating-a-jira-api-token) above.
+1. First, you need to connect a Jira account. Follow the [instructions](#1-creating-a-jira-api-token) above.
 
 2. Choose one of the apps you want to connect to and press **Activate**.
    <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-connect-proj-map1.png')} alt="Activate apps"/>
 
-   You can configure the JIRA fields:
+   You can configure the Jira fields:
    <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-proj-fileds-config.png')} alt="Configure Jira fields"/>
 
-3. In the JIRA configuration screen, choose the **Project Key** you want to connect.
+3. In the Jira configuration screen, choose the **Project Key** you want to connect.
    <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-project-select.png')} alt="Connect project"/>
 
 4. Next, select the issue type you want to configure.
    <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/issue-type-select.png')} alt="Configure issue type"/>
 
    :::tip
-   If you want first to test the connection to the JIRA project, you can press **TEST** to validate the JIRA issue creation. You will get a pop-up window with the response. Make sure you get a valid JIRA link.
+   If you want first to test the connection to the Jira project, you can press **TEST** to validate the Jira issue creation. You will get a pop-up window with the response. Make sure you get a valid Jira link.
    In case you get a **PENDING** response, check the connection configuration.
    <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-connect-test-ok.png')} alt="Connection configuration"/>
    :::
@@ -123,7 +123,7 @@ To use these values, add them to the `Dynamic value` field that opens when you s
 
 - You can add attributes defined in your app's code to the `Dynamic value` field. The structure of a dynamic field is as follows:
   `{attr.[attribute_name]||[default_value]}`.
-- `attribute_name` - is the name of the Teasfairy attribute set in the code by the `TestFairy.setAttribute` function. What passes to the JIRA is the value of this attribute.
-- `default_value` - for each attribute, you can set a default value so that if you receive a null or wrong attribute value from the code (not possible in this field in JIRA), the default value will be passed to JIRA instead.
+- `attribute_name` - is the name of the Teasfairy attribute set in the code by the `TestFairy.setAttribute` function. What passes to the Jira is the value of this attribute.
+- `default_value` - for each attribute, you can set a default value so that if you receive a null or wrong attribute value from the code (impossible in this field in Jira), the default value will be passed to Jira instead.
 
 <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-dynamic-attr-setattr.png')} alt="Attribute Setting"/>

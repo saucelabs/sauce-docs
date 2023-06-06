@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy Connect is a proxy server installed on-premise, designed to help companies connect their bug-tracking systems behind a firewall (JIRA Server) with the TestFairy cloud.
+TestFairy Connect is a proxy server installed on-premise, designed to help companies connect their bug-tracking systems behind a firewall (Jira Server) with the TestFairy cloud.
 
 You can install Test Fairy Connect via a Docker image.
 
@@ -39,8 +39,8 @@ To configure TestFairy Connect, you will need the following data:
 
 - TestFairy API key. You can find at https://[your-subdomain].testfairy.com/settings/api-key/.
 - The URL to your bug system.
-- In the case of a JIRA basic authentication - valid credentials (`Username` and `API Token`) for the Jira user.
-- In the case of a JIRA OAuth authentication - admin access to Jira/the ability to manage Application Links (as described in the configuration wizard script).
+- In the case of a Jira basic authentication - valid credentials (`Username` and `API Token`) for the Jira user.
+- In the case of a Jira OAuth authentication - admin access to Jira/the ability to manage Application Links (as described in the configuration wizard script).
 
 By default, your configuration file `config.json` is saved to `.testfairy-connect` under the Dockers Image home directory: `~/.testfairy-connect/config.json`.
 
