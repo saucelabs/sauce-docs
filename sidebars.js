@@ -916,6 +916,7 @@ module.exports = {
                                 'mobile-apps/automated-testing/appium/quickstart',
                                 'mobile-apps/automated-testing/appium/real-devices',
                                 'mobile-apps/automated-testing/appium/virtual-devices',
+                                'mobile-apps/automated-testing/appium/test-app-upgrades-mid-session-app-installations',
                                 'mobile-apps/automated-testing/appium/appium-flutter',
                             ],
                         },
