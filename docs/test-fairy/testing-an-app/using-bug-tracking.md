@@ -12,9 +12,9 @@ Before we start, make sure to connect TestFairy to your bug-tracking account:
 
 - [Connect TestFairy to JIRA Cloud](/test-fairy/testing-an-app/bug-tracking/jira-cloud)
 - [Connect TestFairy to JIRA Server](/test-fairy/testing-an-app/bug-tracking/jira-server)
-- [Connect TestFairy to Github](/test-fairy/testing-an-app/bug-tracking/github)
+- [Connect TestFairy to GitHub](/test-fairy/testing-an-app/bug-tracking/github)
 - [Connect TestFairy to Trello](/test-fairy/testing-an-app/bug-tracking/trello)
-- [Connect to TFC (TestFairy Connect)](/test-fairy/testing-an-app/bug-tracking/tf-connect)
+- [Connect to TestFairy Connect (TFC)](/test-fairy/testing-an-app/bug-tracking/tf-connect)
 - [Connect TestFairy to Micro Focus ALM Octane](/test-fairy/testing-an-app/bug-tracking/micro-focus)
 
 ## Shake to Feedback
@@ -25,7 +25,7 @@ When using your app with "In-app Feedback" enabled, users can post comprehensive
 An email will pop up on the screen, ready for filling in a report. It also comes with an attached screenshot your tester can scribble on.
 Once they send this email, a feedback message is sent to all the relevant destinations (such as your developer's dashboard, JIRA, Slack, etc.) along with their input, the video recording of the session, and all the data collected throughout it.
 
-### Enabling Shake to Feedback in your Build Settings
+### Enabling Shake to Feedback in Your Build Settings
 
 1. Choose the app and Build in which you'd like to enable Shake to Feedback
    <img src={useBaseUrl('/img/test-fairy/testing-an-app/build-settings.png')} alt="Setting"/>
