@@ -100,7 +100,7 @@ To map Jira custom field follow the steps below:
 
 When defining fields in the Configure Fields window, follow the below conventions:
 
-- When you choose a field from a drop-down list, this field as is (text) will be populated in the corresponding JIRA field in the issue opened.
+- When you choose a field from a drop-down list, this field as is (text) will be populated in the corresponding Jira field in the issue opened.
   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-values-drop-down.png')} alt="Values drop down"/>
 
 - You can also choose from the fixed predefined values in the list below:

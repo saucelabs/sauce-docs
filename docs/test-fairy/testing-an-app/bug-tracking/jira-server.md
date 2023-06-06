@@ -31,7 +31,7 @@ $ testfairy-connect configure
   Choose `JIRA`.
 
 - **What is your Jira URL (for example, https://example.atlassian.net)?**
-  Provide the URL address of your JIRA server. Remember to include the `http://` or `https://` prefix.
+  Provide the URL address of your Jira server. Remember to include the `http://` or `https://` prefix.
 
 - **How shall TestFairy Connect authenticate to JIRA?**
   Choose `basic`.
@@ -42,7 +42,7 @@ $ testfairy-connect configure
 - **Jira username:**
   Enter your JIRA login username.
 
-- **JIRA password:**
+- **Jira password:**
   And your JIRA login password
 
 - Sometimes, depending on your user definitions in Jira, you may need to use an API token as your password. You can create one here at [https://id.atlassian.com/manage/api-tokens](https://id.atlassian.com/manage/api-tokens)
