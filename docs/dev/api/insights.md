@@ -1463,7 +1463,7 @@ Return daily statistics about test results and concurrency usage for the specifi
     <tr>
      <td><code>level</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-     Specifies the ownership level. Supported values are: 
+     Specifies the ownership level. Supported values are:
       <ul>
         <li><code>user</code></li>
         <li><code>organization</code></li>
@@ -4105,9 +4105,9 @@ Return information from all sources about test coverage for the specified `cover
 <table id="table-api">
   <tbody>
     <tr>
-     <td><code>coverage_field</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<ul><li><code>device</code></li><li><code>browser</code></li><li><code>os</code></li></ul></p>
-     </p></td>
+      <td><code>coverage_field</code></td>
+        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<ul><li><code>device</code></li><li><code>browser</code></li><li><code>os</code></li></ul></p>
+      </td>
     </tr>
   </tbody>
   <tbody>
