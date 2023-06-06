@@ -1082,7 +1082,7 @@ Return data for all tests that match the request criteria.
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul> Default value is <code>or</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1222,7 +1222,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/insights/v2/filters</code></summary>
 <p/>
 
-Return data, from all sources, for all tests that match the request criteria.
+Return data from all sources for all tests that match the request criteria.
 
 #### Parameters
 
@@ -1236,7 +1236,7 @@ Return data, from all sources, for all tests that match the request criteria.
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
      <ul>
       <li><code>passed</code></li>
       <li><code>error</code></li>
@@ -1285,7 +1285,7 @@ Return data, from all sources, for all tests that match the request criteria.
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul> Default value is <code>or</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1463,7 +1463,7 @@ Return daily statistics about test results and concurrency usage for the specifi
     <tr>
      <td><code>level</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-     Specifies the ownership level. Supported values are: <code>user</code>, <code>organization</code>
+     Specifies the ownership level. Supported values are: <ul><li><code>user</code></li></li><code>organization</code></li></ul>
      </p></td>
     </tr>
   </tbody>
@@ -1549,7 +1549,7 @@ Return daily statistics about test results and concurrency usage.
   <tbody>
     <tr>
      <td><code>users</code></td>
-       <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to specific users.</p></td>
+       <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to specific users.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2548,7 +2548,7 @@ Return an array of tests with details.
   <tbody>
     <tr>
      <td><code>device_group</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified device group. Available values are: <code>private</code>, <code>public</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2566,7 +2566,7 @@ Return an array of tests with details.
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul> Default value is <code>or</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2608,13 +2608,13 @@ Return an array of tests with details.
   <tbody>
     <tr>
      <td><code>sort_by</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <code>duration</code>, <code>creation_time</code>. Default value is <code>creation_time</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <ul><li><code>duration</code></li><li><code>creation_time</code></li></ul> Default value is <code>creation_time</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>sort</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <ul><li><code>asc</code></li><li><code>desc</code></li></ul> Default value is <code>desc</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -3820,7 +3820,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/insights/v2/coverage/&#123;coverage_field&#125;</code></summary>
 <p/>
 
-Return information, from all sources, about test coverage for the specified <code>coverage_field</code>.
+Return information from all sources about test coverage for the specified <code>coverage_field</code>.
 
 #### Parameters
 
@@ -3828,8 +3828,8 @@ Return information, from all sources, about test coverage for the specified <cod
   <tbody>
     <tr>
      <td><code>coverage_field</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<code>device</code>, <code>browser</code>, <code>os</code>.</p><p>
-     </p></td>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<ul><li><code>device</code></li><li><code>browser</code></li><li><code>os</code></li></ul></p>
+     </td>
     </tr>
   </tbody>
   <tbody>
@@ -3871,19 +3871,19 @@ Return information, from all sources, about test coverage for the specified <cod
   <tbody>
     <tr>
      <td><code>device_group</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified device group. Available values are: <code>private</code>, <code>public</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>sort_by</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <code>name</code>, <code>count</code>, <code>total_duration</code>. Default value is <code>count</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <ul><li><code>name</code></li><li><code>count</code></li><li><code>total_duration</code></li></ul> Default value is <code>count</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>sort</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <ul><li><code>asc</code></li><li><code>desc</code></li></ul> Default value is <code>desc</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -4094,7 +4094,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/insights/v2/coverage/&#123;coverage_field&#125;/csv</code></summary>
 <p/>
 
-Return information, from all sources, about test coverage for the specified `coverage_field` in a CSV format.
+Return information from all sources about test coverage for the specified `coverage_field` in a CSV format.
 
 #### Parameters
 
@@ -4102,7 +4102,7 @@ Return information, from all sources, about test coverage for the specified `cov
   <tbody>
     <tr>
      <td><code>coverage_field</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<code>device</code>, <code>browser</code>, <code>os</code>.</p><p>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<ul><li><code>device</code></li><li><code>browser</code></li><li><code>os</code></li></ul></p>
      </p></td>
     </tr>
   </tbody>
@@ -4145,7 +4145,7 @@ Return information, from all sources, about test coverage for the specified `cov
   <tbody>
     <tr>
      <td><code>device_group</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified device group. Available values are: <code>private</code>, <code>public</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -4217,7 +4217,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/trends/tests</code></summary>
 <p/>
 
-Return an array of buckets with aggregations, for example number of tests run on a specific browser or device.
+Return an array of buckets with aggregations, such as number of tests run on a specific browser or device.
 
 #### Parameters
 
@@ -4327,7 +4327,7 @@ Return an array of buckets with aggregations, for example number of tests run on
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul> Default value is <code>or</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -4514,7 +4514,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/insights/v2/trends/tests</code></summary>
 <p/>
 
-Return an array of buckets with aggregations, for example, the number of tests from all sources, run on a specific browser or device.
+Return an array of buckets with aggregations, such as the number of tests from all sources run on a specific browser or device.
 
 #### Parameters
 
@@ -4596,7 +4596,7 @@ Return an array of buckets with aggregations, for example, the number of tests f
   <tbody>
     <tr>
      <td><code>device_group</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified device group. Available values are: <code>private</code>, <code>public</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -4638,7 +4638,7 @@ Return an array of buckets with aggregations, for example, the number of tests f
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul> Default value is <code>or</code>.</p></td>
     </tr>
   </tbody>
 </table>
@@ -4819,7 +4819,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/trends/errors</code></summary>
 <p/>
 
-Return statistics for errors that occurred on tests run in the specified period.
+Return statistics for errors that occurred in tests run in the specified period.
 
 #### Parameters
 
@@ -5022,7 +5022,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/insights/v2/trends/errors</code></summary>
 <p/>
 
-Return statistics, from all sources, for errors that occurred on tests run in the specified period.
+Return statistics from all sources for errors that occurred on tests run in the specified period.
 
 #### Parameters
 
@@ -5126,7 +5126,7 @@ Return statistics, from all sources, for errors that occurred on tests run in th
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul> Default value is <code>or</code>.</p></td>
     </tr>
   </tbody>
 </table>
@@ -5464,7 +5464,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/insights/v2/trends/builds-tests</code></summary>
 <p/>
 
-Return information, from all sources, about builds and tests run included in the build. Also, it provides information about tests without build names.
+Return information from all sources about builds and tests run included in the build. Also, it provides information about tests without build names.
 
 #### Parameters
 
@@ -5532,7 +5532,7 @@ Return information, from all sources, about builds and tests run included in the
   <tbody>
     <tr>
      <td><code>device_group</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified device group. Available values are: <code>private</code>, <code>public</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
     </tr>
   </tbody>
   <tbody>
