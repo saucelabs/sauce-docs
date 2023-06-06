@@ -91,7 +91,7 @@ To install an app on a device using Xcode
 
 Accessing raw logs on an iOS device requires hooking up that device via a USB cable to a computer. System logs often help a lot in debugging vague problems around app installation.
 
-Many times, the error displayed on an iOS device screen is too generic, but the system logs explain more thoroughly the reason for the problem. In order to get the logs, complete the following:
+The error displayed on an iOS device screen is often too generic, but the system logs explain more thoroughly the reason for the problem. To get the logs, complete the following:
 
 - Open Xcode.
 - Open menu Window -> Devices.
