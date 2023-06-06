@@ -85,7 +85,7 @@ To install an app on a device using Xcode
 
 4. In the dialog that appears, choose the iOS App file and click Open.
 
-5. The app is now added to the list of installed app end is installed n the device.
+5. The app is now added to the list of installed apps and installed in the device.
 
 ## Accessing Logs from Xcode
 
