@@ -2,7 +2,7 @@
 extends: substitution
 message: "Use '%s' instead of '%s'."
 level: warning
-ignorecase: false
+ignorecase: true
 action:
   name: replace
 swap:
@@ -25,14 +25,12 @@ swap:
   in order to: to
   IOS: iOS
   javascript: JavaScript
-  Javascript: JavaScript
   k8s: Kubernetes
   log into: log in to
   once that: after that
   once the: after the
   once you: after you
   open-source: open source
-  Playstation: PlayStation
   playstation: PlayStation
   playwright: Playwright
   puppeteer: Puppeteer
@@ -45,10 +43,8 @@ swap:
   simulator: Simulator
   simulators: Simulators
   synch: sync
-  Testcafe: TestCafe
   testcafe: TestCafe
   typescript: TypeScript
-  Typescript: TypeScript
   url:  URL
   vs\.: versus
   within: in
