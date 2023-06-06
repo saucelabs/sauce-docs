@@ -51,7 +51,7 @@ Choose **Product** --> **Archive**.
 
 The Archives organizer appears and displays the new archive.
 
-Xcode runs preliminary validation tests on the archive. To create an IPA file press the `Distribute App` button.
+Xcode runs preliminary validation tests on the archive. To create an IPA file press the **Distribute App**.
 
 ## Exporting Your App to an IPA (**Ad Hoc** provisioning profile)
 
