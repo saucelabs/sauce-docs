@@ -1463,7 +1463,11 @@ Return daily statistics about test results and concurrency usage for the specifi
     <tr>
      <td><code>level</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-     Specifies the ownership level. Supported values are: <ul><li><code>user</code></li></li><code>organization</code></li></ul>
+     Specifies the ownership level. Supported values are: 
+      <ul>
+        <li><code>user</code></li>
+        <li><code>organization</code></li>
+      </ul>
      </p></td>
     </tr>
   </tbody>
