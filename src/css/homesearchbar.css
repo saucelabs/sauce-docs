@@ -1,6 +1,7 @@
 .DocSearch-Container .DocSearch-Modal,
 .DocSearch-Container .DocSearch-Form,
-.DocSearch-Container .DocSearch-Hit-source {
+.DocSearch-Container .DocSearch-Hit-source,
+.DocSearch-Container .DocSearch-Footer {
     background: var(--dark-500);
 }
 
@@ -8,12 +9,16 @@
     box-shadow: none;
 }
 
+.DocSearch-Container .DocSearch-Search-Icon {
+    color: var(--dark-200);
+}
+
 .DocSearch-Container .DocSearch-Input {
     color: var(--neutral-100);
 }
 
 .DocSearch-Container .DocSearch-Hit-source {
-    color: var(--neutral-100);
+    color: var(--green-200);
 }
 
 .DocSearch-Container .DocSearch-Hits mark {
@@ -24,17 +29,27 @@
 
 .DocSearch-Container .DocSearch-Hits a {
     background: none;
-    border: 1px solid var(--neutral-300);
+    border-bottom: 1px solid var(--dark-300);
     box-shadow: none;
     color: var(--neutral-100);
     margin-bottom: 0.5rem;
 }
 
+.DocSearch-Container .DocSearch-Hit a {
+    border-radius: 0px;
+    box-shadow: none;
+}
+
 .DocSearch-Container .DocSearch-Hits a:hover,
 .DocSearch-Container .DocSearch-Hit[aria-selected="true"] a {
-    background: var(--dark-400);
-    border: 1px solid var(--neutral-300);
+    border-bottom: 2px solid var(--yellow-500);
+    background: var(--dark-500);
     box-shadow: none;
+}
+
+.DocSearch-Container .DocSearch-Hit[aria-selected="true"] mark {
+    color: var(--dark-500) !important;
+    text-decoration: none;
 }
 
 .DocSearch-Container .DocSearch-Hit-title {
@@ -51,42 +66,6 @@
 
 .DocSearch-Container .DocSearch-Container .DocSearch-Hit-path:hover {
     color: var(--dark-500);
-}
-
-.DocSearch-Container .DocSearch-Footer {
-    background: var(--dark-500);
-}
-
-div.new-search button.DocSearch.DocSearch-Button {
-    border-radius: 4px;
-    background-color: var(--neutral-100);
-    width: 30%;
-    font-size: 12px;
-    margin: auto;
-}
-div.new-search svg.DocSearch-Search-Icon {
-    visibility: visible;
-    color: var(--dark-300);
-}
-div.new-search .DocSearch-Button-Placeholder {
-    display: inherit;
-}
-
-div.new-search span.DocSearch-Button-Placeholder {
-    color: var(--dark-300);
-}
-
-html[data-theme="dark"] div.new-search svg.DocSearch-Search-Icon {
-    visibility: visible;
-    color: rgb(204, 205, 207); /* ---ifm-color-primary-light */
-}
-
-html[data-theme="dark"] div.new-search button.DocSearch-Button {
-    background: black;
-}
-
-html[data-theme="dark"] span.DocSearch-Button-Placeholder {
-    color: rgb(204, 205, 207); /* ---ifm-color-primary-light */
 }
 
 /* mobile overrides */
