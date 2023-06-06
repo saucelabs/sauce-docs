@@ -1118,7 +1118,7 @@ Return data for all tests that match the request criteria.
   <tbody>
     <tr>
      <td><code>must_have</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Add description]. Available value is: <code>exception</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It supports <code>error</code> as a value. When you set <code>must_have=error</code>, jobs took to calculate the response must have ended with an error.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1321,7 +1321,7 @@ Return data from all sources for all tests that match the request criteria.
   <tbody>
     <tr>
      <td><code>must_have</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>[Add description]. Available value is: <code>exception</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It supports <code>error</code> as a value. When you set <code>must_have=error</code>, jobs took to calculate the response must have ended with an error.</p></td>
     </tr>
   </tbody>
   <tbody>
