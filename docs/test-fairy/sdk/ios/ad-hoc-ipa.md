@@ -94,7 +94,7 @@ Accessing raw logs on an iOS device requires hooking up that device via a USB ca
 The error displayed on an iOS device screen is often too generic, but the system logs explain more thoroughly the reason for the problem. To get the logs, complete the following:
 
 - Open Xcode.
-- Open menu Window -> Devices.
+- Open menu Window > Devices.
 - Select the device which you want to inspect.
 - Click on the `View Device Logs` button.
 - A new window will open up with up-to-date logs from the device.
