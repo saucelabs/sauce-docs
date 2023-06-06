@@ -96,5 +96,5 @@ The error displayed on an iOS device screen is often too generic, but the system
 - Open Xcode.
 - Open menu Window > Devices.
 - Select the device which you want to inspect.
-- Click on the `View Device Logs` button.
+- Click on the **View Device Logs**.
 - A new window will open up with up-to-date logs from the device.
