@@ -39,6 +39,7 @@ exceptions:
   - LLDB
   - NET
   - NOTE
+  - NPM
   - OSS
   - PATH
   - PDF
