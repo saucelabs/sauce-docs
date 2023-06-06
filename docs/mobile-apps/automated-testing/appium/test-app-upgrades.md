@@ -98,15 +98,16 @@ driver.ExecuteScript("mobile: installApp", new Dictionary<string, string> { { "a
 </TabItem>
 </Tabs>
 
-:::note Important
 When installing apps mid-session, the app is not automatically launched. You will need to launch the app manually using the followings commands after installation.
 
 - **iOS:** `mobile: launchApp`
 - **Android:** `mobile: startActivity`
 
-:::
+For clarity we added two extra text lines in the Appium Commands list in the Sauce Labs UI to indicate that the app has been installed and needs to be launched manually.
 
-These commands will launch the newly installed app. Remember to replace the `bundleId` or `intent` with your specific application's identifier or main activity, respectively.
+<img src={useBaseUrl('img/mobile-apps/appium-mid-session-logs.jpg')} alt="Mid session install logs" width="800" />
+
+The following commands will launch the newly installed app. Remember to replace the `bundleId` or `intent` with your specific application's identifier or main activity, respectively.
 
 <Tabs
 groupId="start-app"
@@ -188,9 +189,13 @@ This is an example test execution that installs an app mid-session, launches it 
 
 ## Supported Scenarios and Limitations
 
-While this feature provides a great deal of flexibility, there are certain limitations for the sake of maintaining the integrity and security of the testing environment. Notably, only apps stored in our internal storage can be installed; installations from external locations are not permitted and will throw an error, see [FAQ](#faq).
+While this feature provides a great deal of flexibility, there are certain limitations to ensure the integrity and security of the testing environment. Firstly, only apps uploaded to our Sauce Storage can be installed; installations from external locations are not permitted, see [FAQ](#faq).
 
-Moreover, we support specific scenarios which include upgrading apps to newer versions and installing additional apps or dependencies necessary for testing your main application. However, it is important to remember that app downgrades are not supported.
+In the context of the scenarios we support, these include upgrading apps to newer versions and installing additional apps or dependencies necessary for testing your main application. However, it's important to note that app downgrades are not a supported process.
+
+Another important consideration is logging. Upon the installation of a new app or dependency, we do not capture or provide logs for this newly installed entity. This includes network logs, device vitals, and crash logs. This is primarily because our logging system is designed to track the main app under test and adding additional apps mid-session could potentially muddle the clarity and focus of the logging data.
+
+Despite these limitations, the ability to install additional apps or upgrades mid-session significantly expands the scope and effectiveness of your testing process. It allows you to mimic real-world user behavior more accurately and test the resilience of your app in a broader set of scenarios.
 
 ## FAQ
 
