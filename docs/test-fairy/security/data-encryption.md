@@ -56,7 +56,7 @@ It's crucial that you keep the private key safe. If lost, these sessions cannot 
 
 :::
 
-## Technical details (How does it work?)
+## Technical Details (How Does It Work?)
 
 As a developer who wants to encrypt their sessions, you generate a private key and derive a public key from it.
 
