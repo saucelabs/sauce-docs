@@ -12,7 +12,7 @@ The EU General Data Protection Regulation (GDPR) was designed to harmonize data 
 
 Following these regulations, here are some answers to your questions:
 
-## Can TestFairy provide a GDPR Compliant service?
+## Can TestFairy Provide a GDPR-Compliant Service?
 
 Yes. TestFairy can provide a GDPR-compliant service to customers on a Private Cloud or On-Premise installations. Contact us for more details.
 
@@ -20,16 +20,16 @@ Yes. TestFairy can provide a GDPR-compliant service to customers on a Private Cl
 
 Yes. TestFairy end-users are ensured that their data is only used by TestFairy for legitimate purposes, meaning for the purpose intended by the developers who use our platform. We do not and will never sell, transfer or otherwise harm your data, and we make sure it is only used via our services.
 
-## Can TestFairy end-users see their sessions?
+## Can TestFairy End-Users See Their Sessions?
 
 Yes. On a Private cloud or on an on-prem installation, companies can allow their end-users to see their recorded sessions. The developer must identify the sessions using the SDK function [setUserId](/test-fairy/sdk/identifying-users).
 Users can only see their sessions by logging into TestFairy via their desktop browser. At the moment, mobile view is not supported.
 
-## Can TestFairy Users request to delete their sessions?
+## Can TestFairy Users Request to Delete Their Sessions?
 
 Yes. On a Private cloud or on an on-prem installation, it is possible for companies to allow their end end-users to request to delete their sessions. A deletion request is done by clicking on the delete button at the top right corner of every session.
 The deletion request will be sent to the account owner, who will confirm the deletion.
-It is essential to mention that the account owner deletes data under his responsibility.
+It is essential to mention that the account owner deletes data under their responsibility.
 
 <img src={useBaseUrl('/img/test-fairy/security/delete-btn.png')} alt="Create bug"/>
 
