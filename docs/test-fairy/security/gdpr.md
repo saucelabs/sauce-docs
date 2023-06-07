@@ -33,15 +33,15 @@ It is essential to mention that the account owner deletes data under their respo
 
 <img src={useBaseUrl('/img/test-fairy/security/delete-btn.png')} alt="Create bug"/>
 
-## Can TestFairy end-users see a notification explaining what is going to be recorded?
+## Can TestFairy End-Users See a Notification Explaining What Is Going To Be Recorded?
 
-TestFairy requires customers to notify users that they are recorded. It can be done in the app TOS that must be easily accessible and easy to read and understand, and also possible to display a visual dialog (pop-up) when the app starts, explaining to the user that they are recorded for quality assurance purposes and how they can request to delete their data.
+TestFairy requires customers to notify users that they are recorded. It can be done in the app TOS that must be straightforwardly accessible and effortless to read and understand, and also possible to display a visual dialog (pop-up) when the app starts, explaining to the user that they are recorded for quality assurance purposes and how they can request to delete their data.
 In case of showing a visual disclaimer, this should be done before calling the function TestFairy.begin.
 
-## Can TestFairy data can be automatically deleted after 30 days?
+## Can TestFairy Data Be Automatically Deleted After 30 Days?
 
 Yes. TestFairy can automatically delete sessions over 30 days or any period your company requires. Deletion is permanent and can not be undone.
 
-## Can the service be hosted in Europe?
+## Can the Service Be Hosted in Europe?
 
 Yes. In addition to the US, Private Clouds can also be hosted on AWS in the UK, Germany, and France.

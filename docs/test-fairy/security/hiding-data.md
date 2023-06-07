@@ -89,7 +89,7 @@ Example
 
 <TabItem value="react">
 
-In order to hide views from your recorded session, you will need to pass a reference to a view to TestFairy. First, give the element to be hidden a ref attribute. For example:
+To hide views from your recorded session, you must pass a reference to a view to TestFairy. First, give the element to be hidden as a ref attribute. For example:
 
 ```xml
 <Text ref="instructions">This will be hidden</Text>
