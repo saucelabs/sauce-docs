@@ -46,7 +46,7 @@ Enable end-to-end encryption for your iOS apps by calling `setPublicKey` before 
 [TestFairy begin:@"<APP TOKEN>"];
 ```
 
-## Viewing encrypted sessions
+## Viewing Encrypted Sessions
 
 Since the data is encrypted using RSA, viewing a session requires the private key. Visiting a recorded session will prompt a dialog for entry of the RSA Private Key. Just paste the private key text and click "OK". Your private keys are never sent to the server and are only kept in the browser session.
 
