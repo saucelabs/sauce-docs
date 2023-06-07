@@ -40,7 +40,7 @@ You can define your build settings during the upload process:
 
 -- **Custom Comments** - Use this section to add release notes, describe the updates/changes, and anything else you want your testers to know.
 
-**Note:** These settings are relevant only if you added the SDK to your app.
+**Note:** These settings are relevant only if you add the SDK to your app.
 
 More build settings are available on the Account Settings page.
 
