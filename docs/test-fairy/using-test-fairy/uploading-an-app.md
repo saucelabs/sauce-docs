@@ -20,7 +20,7 @@ The code of our command line uploader, Jenkins plugin, and Gradle plugin is open
 
 ## Manual Upload
 
-### Supported Plaforms
+### Supported Platforms
 
 - **Android**: TestFairy supports uploading and distributing Android Applications. In order to distribute Android apps with TestFairy, they must be packaged as an `.apk` or `.aab` file.
 - **iOS**: TestFairy supports uploading and distributing iOS applications. iOS apps can be signed with AdHoc, Development, or Enterprise certificates. To distribute iOS apps with TestFairy, they must be packaged as an `.ipa` file.
