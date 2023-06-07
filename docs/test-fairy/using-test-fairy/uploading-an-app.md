@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## Uploading an Application
 
-Once your account is created and verified, you are ready to upload your app.
+Once your account is created and verified, you can upload your app.
 
 Click **New Upload** to upload an app.
 
