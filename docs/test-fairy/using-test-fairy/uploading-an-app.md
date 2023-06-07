@@ -46,7 +46,7 @@ More build settings are available on the Account Settings page.
 
 ### Updating an App
 
-To update a build, upload the same file again (i.e., the same build with the same version). The new build file will override the old build without creating a new app version.
+To update a build, upload the same file again (that is., the same build with the same version). The new build file will override the old build without creating a new app version.
 
 ### Uploading a New Version
 
