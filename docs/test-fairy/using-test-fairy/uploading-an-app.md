@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 Once your account is created and verified, you are ready to upload your app.
 
-To upload an app, in the top menu, click **New Upload**.
+Click **New Upload** to upload an app.
 
 We recommend using the Upload API method to enable the Jenkins plugin, Gradle plugin, or Command line uploader.
 
