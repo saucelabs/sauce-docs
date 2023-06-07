@@ -1,7 +1,6 @@
 # Checks that acronyms are spelled out on first reference.
 extends: conditional
 message: "Spell out '%s', if it's unfamiliar to the audience."
-link: https://wiki.saucelabs.com/display/PM/Technical+Documentation+Style+Guide#TechnicalDocumentationStyleGuide-Acronyms
 level: suggestion
 ignorecase: false
 # Ensures that the existence of 'first' implies the existence of 'second'.
@@ -39,6 +38,7 @@ exceptions:
   - LLDB
   - NET
   - NOTE
+  - NPM
   - OSS
   - PATH
   - PDF
