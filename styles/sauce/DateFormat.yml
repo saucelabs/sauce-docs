@@ -1,7 +1,6 @@
 # Checks for the correct date format.
 extends: existence
 message: "Use 'July 31, 2016' format, not '%s'."
-link: https://wiki.saucelabs.com/display/PM/Technical+Documentation+Style+Guide#TechnicalDocumentationStyleGuide-Dates
 ignorecase: true
 level: warning
 nonword: true
