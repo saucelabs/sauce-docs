@@ -144,7 +144,8 @@ MutableCapabilities capabilities = new MutableCapabilities();
 
 capabilities.setCapability("browserName", "safari");
 capabilities.setCapability("platformName", "ios");
-capabilities.setCapability("appium:platformVersion", "latest|current_major|previous_major");
+// Possible values: "latest", "current_major", "previous_major"
+capabilities.setCapability("appium:platformVersion", "current_major");
 capabilities.setCapability("appium:deviceName", "iPhone Instant Simulator");
 capabilities.setCapability("appium:automationName", "xcuitest");
 
