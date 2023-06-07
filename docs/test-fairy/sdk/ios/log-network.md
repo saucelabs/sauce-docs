@@ -1,5 +1,5 @@
 ---
-id: log-network 
+id: log-network
 title: Log Network
 sidebar_label: Log Network
 ---
@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-With TestFairy, you can log all your network requests. It gives you an easy way to monitor the network access your app is doing.
+With TestFairy, you can log all your network requests. It gives you an effortless way to monitor the network access your app is doing.
 
 A common issue our users discovered while monitoring their apps is **slow** requests or **4xx** error codes. These problems are usually complex to find manually. TestFairy will list all network requests on the session page. Fixing these issues will significantly improve the experience for your users.
 

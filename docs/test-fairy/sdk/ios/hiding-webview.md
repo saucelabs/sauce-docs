@@ -8,9 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy enables developers to hide specific HTML elements from a recorded video in any `UIWebView` or `WKWebView` within their application. As the developer, you may hide one or more elements from the video for security and privacy reasons.
+TestFairy enables developers to hide specific HTML elements from a recorded video in any `UIWebView` or `WKWebView` in their application. As the developer, you may hide one or more elements from the video for security and privacy reasons.
 
-For example, you should prevent all information related to credit card data from appearing in the session.
+For example, you may prevent all information related to credit card data from appearing in the session.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ To hide an element from video, all you need to do is call the static instance me
 [TestFairy hideWebViewElements:@".col-12,h1 .header"];
 ```
 
-TestFairy will find any `UIWebView` or `WKWebView` in the view hierarchy and hide a given HTML element based on a valid CSS selector.
+TestFairy finds any `UIWebView` or `WKWebView` in the view hierarchy and hides a given HTML element based on a valid CSS selector.
 
-### Sample video
+### Example
 
 Below is a screen taken from a demo video: on the left, you can see what an app usually looks like; on the right is a screenshot taken with the HTML elements hidden.
 
