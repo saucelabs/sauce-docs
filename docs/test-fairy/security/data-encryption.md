@@ -26,7 +26,7 @@ It will create two files called `testfairy-private-key.pem` and `testfairy-publi
 
 The file `testfairy-private-key.pem` is sensitive and should not be shared with anyone outside your team.
 
-The content of `testfairy-public-key.txt` will be used to initialize the SDK. Please paste this value into the first parameter of `TestFairy.setPublicKey` method.
+The content of `testfairy-public-key.txt` will be used to initialize the SDK. Paste this value into the first parameter of `TestFairy.setPublicKey` method.
 
 ## Using Android
 
