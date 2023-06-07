@@ -22,12 +22,12 @@ But app upgrades aren't the only scenario where you might need to install apps d
 This document will guide you through the process of installing apps mid-session in Appium, mimicking the user behavior when apps are being installed or upgraded from the App Store or Play Store.
 
 :::caution Impotant
-Note that downgrading apps is not a flow supported by Sauce Labs due to the fact that this is not a supported flow by the App Store or Play Store.
+Note that downgrading apps is not a flow supported by Sauce Labs due to the fact that this is not a supported flow by the Apple and Google ecosystem.
 :::
 
 ## Usage
 
-Before running your test execution, the first step involves uploading the app that is intended for upgrade (the newer version) or any dependent app. You can accomplish this task using our [REST API](/dev/api/storage/#upload-file-to-app-storage) or manually through our [Sauce Labs UI](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app). This process is similar to how you would handle your app under test.
+Before running your test execution, the first step involves uploading the app that is intended for upgrade (the newer version) or any dependent app. You can accomplish this task using our [REST API](/dev/api/storage/#upload-file-to-app-storage). This process is similar to how you would handle your app under test.
 After uploading, you can use the following command to install apps mid-session using Appium
 
 <Tabs
