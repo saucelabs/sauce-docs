@@ -12,9 +12,9 @@ User/Tester's feedback can contain vital and highly relevant information when te
 
 It can improve your app user experience and make it easier for your testers to communicate with you their thoughts on how to make your app better.
 
-### Using in-app feedback as is
+### Using In-app Feedback as is
 
-TestFairy provides an easy way to collect this feedback.
+TestFairy provides an effortless way to collect this feedback.
 
 If you [added the TestFairy SDK](https://docs.testfairy.com/SDK/Adding_The_SDK_To_Your_App.html) to your app, then all you need to do is enable the **In-App Bug Reporting** feature in your build settings in the TestFairy dashboard, and you can start collection feedbacks from your users with `"shake to report"`:
 
@@ -24,13 +24,13 @@ Users or testers will be prompted to report feedback when they shake their devic
 
 This feedback will be added to the existing app session they are currently running.
 
-All feedback includes a screenshot, device information, submitter email, and text comments added. The feedback is added to the event timeline so you can easily find it.
+All feedback includes a screenshot, device information, submitter email, and text comments added. The feedback is added to the event timeline so you can find it without difficulty.
 
-### Customizing In-app feedback
+### Customizing In-app Feedback
 
 If you wish to use the TestFairy feedback form without having the user shake their device, you can invoke the feedback form programmatically and call the method you choose. You can do it with any gesture or button click in your app if the user opens the help menu or even gets an error message they didn't expect.
 
-Please note that if you choose to invoke the feedback form programmatically, it will be shown regardless if the in-app feedback is disabled in your build settings.
+Note that if you choose to invoke the feedback form programmatically, it will be shown regardless if the in-app feedback is disabled in your build settings.
 
 <Tabs
 groupId="sdk"
