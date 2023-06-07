@@ -36,7 +36,7 @@ You can define your build settings during the upload process:
 
 -- **In-app reporting** - Check this box to enable/disable the "shake to report" feature in your app. When enabled, users can shake their device to send a feedback report, along with a video recording, screenshots, logs, and metrics of their test.
 
--- **Auto-Update** - When auto update is enabled, users using previous versions of this app will get a notification about the new version next time they open up the app. The new version will be downloaded automatically, so the user doesn't have to manually download it. Please note that in this case no email notification will be sent to the testers.
+-- **Auto-Update** - When auto-update is enabled, users using previous versions of this app will get a notification about the new version the next time they open up the app. The latest version will be downloaded automatically, so the user doesn't have to download it manually. Note that no email notification will be sent to the testers in this case.
 
 -- **Custom Comments** - Use this section to add release notes, describe the updates/changes, and anything else you would like your testers to be aware of.
 
