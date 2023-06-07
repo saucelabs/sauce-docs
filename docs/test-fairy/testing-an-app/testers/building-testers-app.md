@@ -8,17 +8,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-/FAQ/How_to_Build_the_Testers_App.html
+TestFairy provides customers who run the service on a [private cloud](/test-fairy/sdk/private-cloud-int) to build their own TestFairy Testers App.
 
-https://github.com/testfairy/docs/blob/master/docs/800_FAQ/250_How_to_Build_the_Testers_App.md
+This way, you can customize and brand it as you wish.
 
-TestFairy provides customers who run the service on a [private cloud](https://docs.testfairy.com/SDK/Private_Cloud_Integration.html) to build their own TestFairy Testers App.
+To do that, do the following:
 
-This way, you can cusomtize and brand it as you wish.
-
-In order to get do that please do the following:
-
-# Android
+## Android
 
 ### Source Code
 
@@ -28,11 +24,11 @@ Fork this project: [https://github.com/testfairy/testers-app-android](https://gi
 
 Change [Base_URL](https://github.com/testfairy/testers-app-android/blob/master/TestFairyApp/src/main/java/com/testfairy/app/MainActivity.java#L49)
 
-```
+```java
 private static final String BASE_URL = "https://<YOUR_SUBDOMAIN_HERE>.testfairy.com";
 ```
 
-# iOS
+## iOS
 
 ### Source Code
 
@@ -42,6 +38,6 @@ Fork this project: [https://github.com/testfairy/testers-app-ios](https://github
 
 Change [ViewController.swift](https://github.com/testfairy/testers-app-ios/blob/master/TestFairy/ViewController.swift#L9)
 
-```
+```js
 let TESTFAIRY_URL = "https://<YOUR_SUBDOMAIN_HERE>.testfairy.com"
 ```
