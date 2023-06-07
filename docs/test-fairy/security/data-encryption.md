@@ -13,7 +13,7 @@ To use this capability, you will need to create a public key and a private key. 
 
 This encryption is done with a randomly generated 256-bit AES key. This AES key is random and is only used in a single session recording. The AES key is then protected with an RSA key, where the public key is provided when constructing the SDK.
 
-## Generating public/private key pair
+## Generating Public/Private Key Pair
 
 Generating a pair is done using `openssl` tool:
 
