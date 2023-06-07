@@ -50,4 +50,4 @@ To update a build, upload the same file again (that is., the same build with the
 
 ### Uploading a New Version
 
-To upload a new build (a new version of the same app), upload the new version in the exact same way you uploaded the old version. TestFairy will identify that both apps have the same package name (bundle identifier) and group them together in the same project.
+To upload a new build (a new version of the same app), upload the new version as you uploaded the old version. TestFairy identifies that both apps have the same package name (bundle identifier) and group them together in the same project.
