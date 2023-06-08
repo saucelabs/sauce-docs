@@ -12,7 +12,7 @@ User/Tester's feedback can contain vital and highly relevant information when te
 
 It can improve your app user experience and make it easier for your testers to communicate with you their thoughts on how to make your app better.
 
-### Using In-app Feedback as is
+### Using In-app Feedback
 
 TestFairy provides an effortless way to collect this feedback.
 
