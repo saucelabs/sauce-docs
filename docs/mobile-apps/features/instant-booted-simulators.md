@@ -298,7 +298,7 @@ capabilities = {
 capabilities = {
     "browserName" => "safari",
     "platformName" => "ios",
-    // Possible values: "latest", "current_major", "previous_major"
+    # Possible values: "latest", "current_major", "previous_major"
     "appium:platformVersion" => "current_major",
     "appium:deviceName" => "iPad Instant Simulator"",
     'appium:automationName'=> 'xcuitest',
