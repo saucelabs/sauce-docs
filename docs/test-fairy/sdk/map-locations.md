@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
 <TabItem value="ios">
 
-To record locations, all you need to do is call the static instance method `updateLocation` in the TestFairy class, passing in a collection of `CLLocations`.
+To record locations, call the static instance method `updateLocation` in the `TestFairy` class, passing in a collection of `CLLocations`.
 
 ```js
 NSArray<CLLocation *> *locations = ...

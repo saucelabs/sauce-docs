@@ -26,7 +26,7 @@ To add the TestFairy SDK to your app, see the instructions for the relevant deve
 - [iOS](/test-fairy/sdk/ios/integrating-ios)
 - [Cordova and PhoneGap](/test-fairy/platforms/cordova)
 - [Ionic](/test-fairy/platforms/ionic)
-- [ReactNative](/test-fairy/platforms/react-native)
+- [React Native](/test-fairy/platforms/react-native)
 - [Unity](/test-fairy/platforms/unity)
 - [Xamarin](/test-fairy/platforms/xamarin)
 - [Titanium](/test-fairy/platforms/titanium)
@@ -115,7 +115,7 @@ TestFairy allows developers to attach files to sessions. As a developer, you can
 
 Be sure to check the device logs for any problems uploading files. Only file extensions .jpeg, .jpg, .png, .txt, and .sqlite are supported.
 
-To attach a file to a session, all you need to do is call the static instance method `attachFile` in the TestFairy class:
+To attach a file to a session, call the static instance method `attachFile` in the `TestFairy` class:
 
 <Tabs
 groupId="sdk"
