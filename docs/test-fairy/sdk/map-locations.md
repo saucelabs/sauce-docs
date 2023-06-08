@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 The TestFairy SDK does not require location permissions and does track location out of the box.
 
-In cases where developers wish to send location information to TestFairy, they will need to add location permissions to their app and use the code below to call TestFairy.updateLocation. After doing that, the location will be presented on a map as part of the session page.
+To send location information to TestFairy, add location permissions to your app and use the code below to call `TestFairy.updateLocation`. The location will then be presented on a map as part of the session page.
 
 <Tabs
 groupId="sdk"
