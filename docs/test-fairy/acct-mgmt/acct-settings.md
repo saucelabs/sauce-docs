@@ -36,7 +36,7 @@ With the notifications options, you can define what type of messages you want to
 
 You can integrate your TestFairy account with different services to customize and streamline your work processes.
 
-- Simple Mail Transfer Protocol (SMTP) and Gmail - See [SMTP and Gmail](/test-fairy/integrations/smtp-gmail) for information about connecting your SMTP email server or Gmail account. This ensures the emails you send from your TestFairy account will be sent from the email account you used to register.
+- Simple Mail Transfer Protocol (SMTP) and Gmail - See [SMTP and Gmail](/test-fairy/integrations/smtp-gmail) for information about connecting your SMTP email server or Gmail account. This ensures you send the emails from the same account you used to register.
 
 - Slack - See [Slack](/test-fairy/integrations/slack) for information about integrating your Slack account with TestFairy.
 
@@ -68,7 +68,7 @@ The email is HTML based and can use custom tags.
 
 #### SAML/Single Sign-On
 
-Add the [SSO](/test-fairy/acct-mgmt/sso/sso-intro) metadata definitions file here. When you add SAML/Single Sign-On, the file will contain your ID, URL, and x509 certificate.
+Add the [SSO](/test-fairy/acct-mgmt/sso/sso-intro) metadata definitions file here. When you add SAML/Single Sign-On, the file contains your ID, URL, and X.509 certificate.
 
 <br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-8.png')} alt="Account Settings" width="600"/>
 
