@@ -766,7 +766,6 @@ module.exports = {
                                         'basics/integrations/uipath',
                                     ],
                                 },
-                                'basics/integrations/slack',
                                 'basics/integrations/sumo',
                                 'basics/integrations/bitbucket',
                                 'basics/integrations/wonderproxy',
