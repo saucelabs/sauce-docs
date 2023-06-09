@@ -12,7 +12,7 @@ The **INSIGHTS** tab displays information about recorded crashes and sessions.
 
 ## Preset Filters
 
-The **Preset Segments** column contains three preset filters: 
+The **Preset Segments** column contains three preset filters:
 - Crashes: All crashes in the last month
 - Slow Session: All slow sessions in the last month
 - Received Feedback: All sessions with feedback in the last month
