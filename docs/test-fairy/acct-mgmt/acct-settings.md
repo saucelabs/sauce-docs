@@ -42,13 +42,13 @@ You can integrate your TestFairy account with different services to customize an
 
 - Zendesk - See [ZenDesk](/test-fairy/integrations/zendesk) for information about integrating your Zendesk account with TestFairy.
 
-- Webhooks - You can use TestFairy webhooks to connect to services. See [Microsoft Teams](h/test-fairy/integrations/ms-teams) for more information.
+- Webhooks - You can use TestFairy webhooks to connect to services. See [Microsoft Teams](/test-fairy/integrations/ms-teams) for more information.
 
 <br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-5.png')} alt="Account Settings" width="600"/>
 
 ### Bug Systems
 
-You can connect your bug system to TestFairy to report bugs directly to your [Jira Cloud](/test-fairy/testing-an-app/bug-tracking/jira-cloud), [GitHub](docs/test-fairy/testing-an-app/bug-tracking/github), or [Trello](docs/test-fairy/testing-an-app/bug-tracking/trello) account.
+You can connect your bug system to TestFairy to report bugs directly to your [Jira Cloud](/test-fairy/testing-an-app/bug-tracking/jira-cloud), [GitHub](/test-fairy/testing-an-app/bug-tracking/github), or [Trello](/test-fairy/testing-an-app/bug-tracking/trello) account.
 
 <br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-6.png')} alt="Account Settings" width="600"/>
 
