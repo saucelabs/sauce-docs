@@ -144,7 +144,8 @@ MutableCapabilities capabilities = new MutableCapabilities();
 
 capabilities.setCapability("browserName", "safari");
 capabilities.setCapability("platformName", "ios");
-capabilities.setCapability("appium:platformVersion", "latest|current_major|previous_major");
+// Possible values: "latest", "current_major", "previous_major"
+capabilities.setCapability("appium:platformVersion", "current_major");
 capabilities.setCapability("appium:deviceName", "iPhone Instant Simulator");
 capabilities.setCapability("appium:automationName", "xcuitest");
 
@@ -160,7 +161,8 @@ MutableCapabilities capabilities = new MutableCapabilities();
 
 capabilities.setCapability("browserName", "safari");
 capabilities.setCapability("platformName", "ios");
-capabilities.setCapability("appium:platformVersion", "latest|current_major|previous_major");
+// Possible values: "latest", "current_major", "previous_major"
+capabilities.setCapability("appium:platformVersion", "current_major");
 capabilities.setCapability("appium:deviceName", "iPad Instant Simulator");
 capabilities.setCapability("appium:automationName", "xcuitest");
 
@@ -187,7 +189,8 @@ values={[
 const capabilities = {
     browserName: 'safari',
     platformName: 'ios',
-    'appium:platformVersion': 'latest|current_major|previous_major',
+     // Possible values: "latest", "current_major", "previous_major"
+    'appium:platformVersion': 'current_major',
     'appium:deviceName': 'iPhone Instant Simulator',
     'appium:automationName': 'xcuitest',
     'sauce:options': {
@@ -203,7 +206,8 @@ const capabilities = {
 const capabilities = {
     browserName: 'safari',
     platformName: 'ios',
-    'appium:platformVersion': 'latest|current_major|previous_major',
+     // Possible values: "latest", "current_major", "previous_major"
+    'appium:platformVersion': 'current_major',
     'appium:deviceName': 'iPad Instant Simulator',
     'appium:automationName': 'xcuitest',
     'sauce:options': {
@@ -231,7 +235,8 @@ values={[
 capabilities = {
     "browserName" : "safari",
     "platformName" : "ios",
-    "appium:platformVersion" : "latest|current_major|previous_major",
+    # Possible values: "latest", "current_major", "previous_major"
+    "appium:platformVersion" : "current_major",
     "appium:deviceName" : "iPhone Instant Simulator",
     'appium:automationName': 'xcuitest',
     "sauce:options" : {
@@ -247,7 +252,8 @@ capabilities = {
 capabilities = {
     "browserName" : "safari",
     "platformName" : "ios",
-    "appium:platformVersion" : "latest|current_major|previous_major",
+    # Possible values: "latest", "current_major", "previous_major"
+    "appium:platformVersion" : "current_major",
     "appium:deviceName" : "iPad Instant Simulator",
     'appium:automationName': 'xcuitest',
     "sauce:options" : {
@@ -275,7 +281,8 @@ values={[
 capabilities = {
     "browserName" => "safari",
     "platformName" => "ios",
-    "appium:platformVersion" => "latest|current_major|previous_major",
+    # Possible values: "latest", "current_major", "previous_major"
+    "appium:platformVersion" => "current_major",
     "appium:deviceName" => "iPhone Instant Simulator",
     'appium:automationName' => 'xcuitest',
     "sauce:options" => {
@@ -291,7 +298,8 @@ capabilities = {
 capabilities = {
     "browserName" => "safari",
     "platformName" => "ios",
-    "appium:platformVersion" => "latest|current_major|previous_major",
+    # Possible values: "latest", "current_major", "previous_major"
+    "appium:platformVersion" => "current_major",
     "appium:deviceName" => "iPad Instant Simulator"",
     'appium:automationName'=> 'xcuitest',
     "sauce:options" => {
@@ -320,7 +328,8 @@ AppiumOptions capabilities = new AppiumOptions();
 
 capabilities.AddAdditionalCapability("browserName", "safari");
 capabilities.AddAdditionalCapability("platformName", "ios");
-capabilities.AddAdditionalCapability("appium:platformVersion", "latest|current_major|previous_major");
+// Possible values: "latest", "current_major", "previous_major"   
+capabilities.AddAdditionalCapability("appium:platformVersion", "current_major");
 capabilities.AddAdditionalCapability("appium:deviceName", "iPhone Instant Simulator");
 capabilities.AddAdditionalCapability("appium:automationName", "xcuitest");
 
@@ -337,7 +346,8 @@ AppiumOptions capabilities = new AppiumOptions();
 
 capabilities.AddAdditionalCapability("browserName", "safari");
 capabilities.AddAdditionalCapability("platformName", "ios");
-capabilities.AddAdditionalCapability("appium:platformVersion", "latest|current_major|previous_major");
+// Possible values: "latest", "current_major", "previous_major"   
+capabilities.AddAdditionalCapability("appium:platformVersion", "current_major");
 capabilities.AddAdditionalCapability("appium:deviceName", "iPad Instant Simulator");
 capabilities.AddAdditionalCapability("appium:automationName", "xcuitest");
 
