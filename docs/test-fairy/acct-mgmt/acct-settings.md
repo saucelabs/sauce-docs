@@ -100,9 +100,9 @@ Allows recording of specific users instead of recording all user sessions. It he
 
 Use the Team page to manage your team members:
 
-<br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-12.png')} alt="Account Settings" width="600"/>
+<br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-12.png')} alt="Account Settings" width="500"/>
 
-To add admins to your account, visit [Sauce Labs Team Management](https://docs.saucelabs.com/basics/acct-team-mgmt-hub/).
+To add admins to your account, see [Sauce Labs Team Management](/basics/acct-team-mgmt-hub).
 
 ### Deleting Your Account
 
@@ -113,7 +113,7 @@ If you are a developer, please continue reading.
 
 If you are a **tester**, get in touch with the developer who invited you to their project and ask to be removed.
 
-#### How to Delete Your Developer Account
+#### Delete Your Developer Account
 
 To delete your TestFairy account, follow these steps:
 
