@@ -338,7 +338,7 @@ Specifies the Sauce Labs data center through which tests will run. Valid values 
 **Shorthand:** `-r`
 
 ```bash
-saucectl run --region use-west-1
+saucectl run --region us-west-1
 ```
 
 </div>
