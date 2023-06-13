@@ -1,5 +1,5 @@
 ---
-id: test-app-upgrades-mid-session-app-installations
+id: test-app-upgrades
 title: Test App Upgrades/Mid-Session App Installations
 sidebar_label: Test App Upgrades
 description: Learn how to test app upgrades or mid-session app installations.
@@ -9,26 +9,22 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::note
-Installing apps mid-session from the Sauce Storage is only supported in our Real Device Cloud.
-:::
-
-## Introduction
 
 As app developers, we often release newer versions of our applications to customers on a regular basis. In these instances, users are typically upgrading from an older version rather than installing the app from scratch. This transition may involve the migration of existing user data for the application to function correctly, which makes the testing of app upgrades a crucial step in the development process. By testing app upgrades, we can ensure that our application continues to operate as expected even following an upgrade.
 
 But app upgrades aren't the only scenario where you might need to install apps during a running session. Sometimes, your app's functionality might rely on other dependent applications. In such cases, testing your app's interplay with these dependencies becomes essential. For instance, if your application pulls data from or interacts with another app, you'd want to ensure that this interaction remains smooth even after an upgrade. This makes the ability to install dependent apps during a run an invaluable feature for comprehensive testing.
 
-This document will guide you through the process of installing apps mid-session in Appium, mimicking the user behavior when apps are being installed or upgraded from the App Store or Play Store.
 
-:::caution Impotant
-Note that downgrading apps is not a flow supported by Sauce Labs due to the fact that this is not a supported flow by the Apple and Google ecosystem.
+
+:::caution Important
+Installing apps mid-session from the Sauce Storage is only supported in our Real Device Cloud.
 :::
 
-## Usage
+## Installing App Mid-Session
 
 Before running your test execution, the first step involves uploading the app that is intended for upgrade (the newer version) or any dependent app. You can accomplish this task using our [REST API](/dev/api/storage/#upload-file-to-app-storage). This process is similar to how you would handle your app under test.
-After uploading, you can use the following command to install apps mid-session using Appium
+
+After uploading, you can use the following command to install apps mid-session using Appium:
 
 <Tabs
 groupId="install-app"
@@ -98,12 +94,12 @@ driver.ExecuteScript("mobile: installApp", new Dictionary<string, string> { { "a
 </TabItem>
 </Tabs>
 
-When installing apps mid-session, the app is not automatically launched. You will need to launch the app manually using the followings commands after installation.
+When installing apps mid-session, the app is not automatically launched. You will need to launch the app manually using the followings commands after installation:
 
 - **iOS:** `mobile: launchApp`
 - **Android:** `mobile: startActivity`
 
-For clarity we added two extra text lines in the Appium Commands list in the Sauce Labs UI to indicate that the app has been installed and needs to be launched manually.
+For clarity, we added two extra text lines in the Appium Commands list in the Sauce Labs UI to indicate that the app has been installed and needs to be launched manually.
 
 <img src={useBaseUrl('img/mobile-apps/appium-mid-session-logs.jpg')} alt="Mid session install logs" width="800" />
 
@@ -177,33 +173,34 @@ driver.ExecuteScript("mobile: launchApp", new Dictionary<string, string> { { "bu
 </TabItem>
 </Tabs>
 
-This is an example test execution that installs an app mid-session, launches it and:
+This is an example test execution that installs an app mid-session, launches it, and:
 
-- validates that the version has been upgraded
-- validates that the user data from the previous version has been retained
+- Validates that the version has been upgraded.
+- Validates that the user data from the previous version has been retained.
 
 <video controls style={{"max-width": "800px"}}>
 
   <source src={useBaseUrl('img/mobile-apps/mid-session-app-upgrade.mp4')} />
 </video>
 
-## Supported Scenarios and Limitations
 
-While this feature provides a great deal of flexibility, there are certain limitations to ensure the integrity and security of the testing environment. Firstly, only apps uploaded to our Sauce Storage can be installed; installations from external locations are not permitted, see [FAQ](#faq).
+## Limitations
 
-In the context of the scenarios we support, these include upgrading apps to newer versions and installing additional apps or dependencies necessary for testing your main application. However, it's important to note that app downgrades are not a supported process.
+While this feature provides a great deal of flexibility, there are certain limitations to ensure the integrity and security of the testing environment:
 
-Another important consideration is logging. Upon the installation of a new app or dependency, we do not capture or provide logs for this newly installed entity. This includes network logs, device vitals, and crash logs. This is primarily because our logging system is designed to track the main app under test and adding additional apps mid-session could potentially muddle the clarity and focus of the logging data.
+- Only apps uploaded to our Sauce Storage can be installed. Installations from external locations are not permitted, see [FAQ](#faq).
+- Downgrading apps is not supported by Sauce Labs due to the fact that this is not a supported flow by the Apple and Google ecosystem. Sauce Labs supports only upgrading apps to newer versions and installing additional apps or dependencies necessary for testing your main application. 
+- We do **not** capture or provide logs for the newly installed app upgrade. This includes network logs, device vitals, and crash logs. This is primarily because our logging system is designed to track the main app under test and adding additional apps mid-session could potentially muddle the clarity and focus of the logging data.
 
 Despite these limitations, the ability to install additional apps or upgrades mid-session significantly expands the scope and effectiveness of your testing process. It allows you to mimic real-world user behavior more accurately and test the resilience of your app in a broader set of scenarios.
 
 ## FAQ
 
-### I'm getting the error `Failed to install the app from Sauce Storage.`
+#### I'm getting the error `Failed to install the app from Sauce Storage.`
 
 This message indicates that there's been a problem installing the application from our storage. Ensure the file name, file ID, and storage access are correct.
 
-### I'm getting the error `Only apps from Sauce Storage are supported.`
+#### I'm getting the error `Only apps from Sauce Storage are supported.`
 
 This error message appears when there's an attempt to install an app from an external location, which is not supported. Make sure to upload your app to our storage first.
 
