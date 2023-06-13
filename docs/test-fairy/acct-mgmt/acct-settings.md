@@ -8,31 +8,29 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-You can manage the global account settings on the **Preferences** page.
+To access the Settings page, click **Account** and then click **TestFairy Settings**.
 
-<br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-1.png')} alt="Account Settings" width="600"/>
+<img src={useBaseUrl('img/test-fairy/acct-settings-nav.png')} alt="Accessing Settings page" width="350"/>
 
-The first two menu items are your SDK and API app tokens.
+## SDK App Token
 
-### SDK Token
+<img src={useBaseUrl('img/test-fairy/acct-settings-sdk-token.png')} alt="SDK App Token page" width="700"/>
 
-<br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-2.png')} alt="Account Settings" width="600"/>
+Your app token initializes the TestFairy SDK. See [Adding the TestFairy SDK to your App](/test-fairy/sdk/adding-tf-sdk) for more information.
 
-Your app token initializes the [TestFairy SDK](https://docs.testfairy.com/SDK/Adding_The_Testfairy_SDK_To_Your_App.html).
+## TestFairy Access Key
 
-### API Key
-
-<br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-3.png')} alt="Account Settings" width="600"/>
+<img src={useBaseUrl('img/test-fairy/acct-settings-tf-access-key.png')} alt="TestFairy Access Key page" width="700"/>
 
 You can use the TestFairy API to upload builds and invite testers directly. For more information, see [Upload API](/test-fairy/api-reference/upload-api).
 
-### Notifications
+## Notifications
 
-With the notifications options, you can define what type of messages you want to receive about new builds, crashes, and user feedback.
+On the Notifications page, you can define what types of messages you want to receive about new builds, crashes, and user feedback.
 
-<br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-4.png')} alt="Account Settings" width="600"/>
+<img src={useBaseUrl('img/test-fairy/acct-settings-notifications.png')} alt="Notifications page" width="700"/>
 
-### Integrations
+## Integrations
 
 You can integrate your TestFairy account with different services to customize and streamline your work processes.
 
@@ -44,9 +42,9 @@ You can integrate your TestFairy account with different services to customize an
 
 - Webhooks - You can use TestFairy webhooks to connect to services. See [Microsoft Teams](/test-fairy/integrations/ms-teams) for more information.
 
-<br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-5.png')} alt="Account Settings" width="600"/>
+<img src={useBaseUrl('img/test-fairy/acct-settings-integrations.png')} alt="Integrations page" width="700"/>
 
-### Bug Systems
+## Bug Systems
 
 You can connect your bug system to TestFairy to report bugs directly to your [Jira Cloud](/test-fairy/testing-an-app/bug-tracking/jira-cloud), [GitHub](/test-fairy/testing-an-app/bug-tracking/github), or [Trello](/test-fairy/testing-an-app/bug-tracking/trello) account.
 
