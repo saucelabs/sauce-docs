@@ -60,7 +60,7 @@ Returns the set of files that have been uploaded to Sauce Storage by the request
   <tbody>
     <tr>
      <td><code>icon_repr</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Either 'base64', which is the default value, or 'hash'. If set to 'hash' then only 'icon_hash' field will be populated in files metadata, while 'icon' field would be always 'null'. This helps to significantly reduce the overall size of the JSON response.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Available values are: <ul><li><code>base64</code></li><li><code>hash</code></li>. The default value is <code>base64</code>. If set to <code>hash</code>, then only the <code>icon_hash</code> field will be populated in the file metadata, while the <code>icon</code> field will always be <code>null</code>. This helps to reduce the overall size of the JSON response significantly.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -287,7 +287,7 @@ Returns an array of groups (apps containing multiple files) currently in storage
   <tbody>
     <tr>
      <td><code>icon_repr</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Either 'base64', which is the default value, or 'hash'. If set to 'hash' then only 'icon_hash' field will be populated in files metadata, while 'icon' field would be always 'null'. This helps to significantly reduce the overall size of the JSON response.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Available values are: <ul><li><code>base64</code></li><li><code>hash</code></li>. The default value is <code>base64</code>. If set to <code>hash</code>, then only the <code>icon_hash</code> field will be populated in the file metadata, while the <code>icon</code> field will always be <code>null</code>. This helps to reduce the overall size of the JSON response significantly.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1139,7 +1139,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/icons/1234567890abcd' --output icon.png
+--request GET 'https://api.us-west-1.saucelabs.com/v1/icons/<icon_hash>' --output icon.png
 ```
 
 </TabItem>
@@ -1147,7 +1147,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/icons/1234567890abcd' --output icon.png
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/icons/<icon_hash>' --output icon.png
 ```
 
 </TabItem>
