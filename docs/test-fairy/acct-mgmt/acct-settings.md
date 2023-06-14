@@ -60,7 +60,7 @@ The email is HTML based and can use custom tags.
 
 ## Security
 
-To ensure testers first login to their tester accounts prior to downloading your app, select the **Require user login before app download** checkbox.
+To ensure testers first login to their tester accounts before downloading your app, select the **Require user login before app download**.
 
 <img src={useBaseUrl('img/test-fairy/acct-settings-security.png')} alt="Security page" width="700"/>
 
