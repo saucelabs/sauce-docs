@@ -60,7 +60,7 @@ Returns the set of files that have been uploaded to Sauce Storage by the request
   <tbody>
     <tr>
      <td><code>icon_repr</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Available values are: <ul><li><code>base64</code></li><li><code>hash</code></li>. The default value is <code>base64</code>. If set to <code>hash</code>, then only the <code>icon_hash</code> field will be populated in the file metadata, while the <code>icon</code> field will always be <code>null</code>. This helps to reduce the overall size of the JSON response significantly.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Available values are: <ul><li><code>base64</code></li><li><code>hash</code></li></ul>. The default value is <code>base64</code>. If set to <code>hash</code>, then only the <code>icon_hash</code> field will be populated in the file metadata, while the <code>icon</code> field will always be <code>null</code>. This helps to reduce the overall size of the JSON response significantly.</p></td>
     </tr>
   </tbody>
   <tbody>
