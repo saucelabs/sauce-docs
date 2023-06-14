@@ -104,19 +104,7 @@ Commands for interacting with API Testing project vaults.
 It prints the vault content as json to the standard output stream (stdout). Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
 
 ```bash
-saucectl apit vault get --project "project_name" [flags]
-```
-
-Check the list of [Global Flags](#global-flags) you can use.
-
----
-
-#### Get Snippet
-
-Get a snippet from a project's vault. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
-
-```bash
-saucectl apit vault get-snippet "snippet_name" --project "project_name" [flags]
+saucectl apit vault get [--project "project_name"] [flags]
 ```
 
 Check the list of [Global Flags](#global-flags) you can use.
@@ -128,25 +116,7 @@ Check the list of [Global Flags](#global-flags) you can use.
 Get a variable value from a project's vault. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
 
 ```bash
-saucectl apit vault get-variable "variable_name" --project "project_name" [flags]
-```
-
-Check the list of [Global Flags](#global-flags) you can use.
-
----
-
-#### Set Snippet
-
-Set/update a snippet in a project's vault. If a `snippet_name` is already in the vault, it is updated with the new one; otherwise, it adds a new snippet. You can set a snippet's value by providing a path to a file defining the snippet or using "-" to read from the standard input stream (stdin). Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
-
-```bash
-saucectl apit vault set-snippet "variable_name" FILE_NAME --project "project_name" [flags] # from a file
-```
-
-or
-
-```bash
-cat "file_name" | saucectl apit vault set-snippet "variable_name" - --project "project_name" [flags] #from stdin
+saucectl apit vault get-variable "variable_name" [--project "project_name"] [flags]
 ```
 
 Check the list of [Global Flags](#global-flags) you can use.
@@ -158,7 +128,85 @@ Check the list of [Global Flags](#global-flags) you can use.
 Set/update a variable in a project's vault. If a `variable_name` is already in the vault, it is updated with the new one; otherwise, it adds a new variable. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
 
 ```bash
-saucectl apit vault set-variable "variable_name" "variable_value" --project "project_name" [flags]
+saucectl apit vault set-variable "variable_name" "variable_value" [--project "project_name" ][flags]
+```
+
+Check the list of [Global Flags](#global-flags) you can use.
+
+---
+
+#### Get Snippet
+
+Get a snippet from a project's vault. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
+
+```bash
+saucectl apit vault get-snippet "snippet_name" [--project "project_name"] [flags]
+```
+
+Check the list of [Global Flags](#global-flags) you can use.
+
+---
+
+#### Set Snippet
+
+Set/update a snippet in a project's vault. If a `snippet_name` is already in the vault, it is updated with the new one; otherwise, it adds a new snippet. You can set a snippet's value by providing a path to a file defining the snippet or using "-" to read from the standard input stream (stdin). Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
+
+```bash
+saucectl apit vault set-snippet "variable_name" FILE_NAME [--project "project_name"] [flags] # from a file
+```
+
+or
+
+```bash
+cat "file_name" | saucectl apit vault set-snippet "variable_name" - [--project "project_name"] [flags] #from stdin
+```
+
+Check the list of [Global Flags](#global-flags) you can use.
+
+---
+
+#### List Files
+
+Get a list of files from a project's vault drive. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
+
+```bash
+saucectl apit vault list-files [--project "project_name"] [flags]
+```
+
+Check the list of [Global Flags](#global-flags) you can use.
+
+---
+
+#### Upload File
+
+Upload a file in a project's vault drive. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
+
+```bash
+saucectl apit vault upload-file "filename" [--project "project_name"] [flags]
+```
+
+Check the list of [Global Flags](#global-flags) you can use.
+
+---
+
+#### Download File
+
+Download a file from a project's vault drive. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
+
+```bash
+saucectl apit vault download-file "filename" [--project "project_name"] [flags]
+```
+
+Check the list of [Global Flags](#global-flags) you can use.
+
+---
+
+#### Delete File
+
+Delete a file in a project's vault drive. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
+
+```bash
+saucectl apit vault delete-file "filename" [--project "project_name"] [flags]
 ```
 
 Check the list of [Global Flags](#global-flags) you can use.
