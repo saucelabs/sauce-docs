@@ -24,6 +24,12 @@ Your app token initializes the TestFairy SDK. See [Adding the TestFairy SDK to y
 
 You can use the TestFairy API to upload builds and invite testers directly. For more information, see [Upload API](/test-fairy/api-reference/upload-api).
 
+## App Distribution
+
+On the App Distribution page you can access the **Rename version number if file already exists** setting.
+
+<img src={useBaseUrl('img/test-fairy/acct-settings-app-distribution.png')} alt="App Distribution page" width="450"/>
+
 ## Notifications
 
 On the Notifications page, you can define what types of messages you want to receive about new builds, crashes, and user feedback.
