@@ -59,6 +59,12 @@ Returns the set of files that have been uploaded to Sauce Storage by the request
   </tbody>
   <tbody>
     <tr>
+     <td><code>icon_repr</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Either 'base64', which is the default value, or 'hash'. If set to 'hash' then only 'icon_hash' field will be populated in files metadata, while 'icon' field would be always 'null'. This helps to significantly reduce the overall size of the JSON response.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
      <td><code>team_id</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>One or more IDs of teams with which the files are shared.</p></td>
     </tr>
@@ -148,6 +154,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
                 "version": "162",
                 "is_test_runner": false,
                 "icon": "...",
+                "icon_hash": "...",
                 "short_version": "1.3.0",
                 "is_simulator": true,
                 "min_os": "12.0",
@@ -184,6 +191,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
                 "version": "162",
                 "is_test_runner": false,
                 "icon": "...",
+                "icon_hash": "...",
                 "short_version": "1.3.0",
                 "is_simulator": true,
                 "min_os": "12.0",
@@ -220,6 +228,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
                 "version": "162",
                 "is_test_runner": false,
                 "icon": "...",
+                "icon_hash": "...",
                 "short_version": "1.3.0",
                 "is_simulator": true,
                 "min_os": "12.0",
@@ -279,6 +288,12 @@ Returns an array of groups (apps containing multiple files) currently in storage
     <tr>
      <td><code>group_id</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>One or more specific IDs of the groups to return.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>icon_repr</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Either 'base64', which is the default value, or 'hash'. If set to 'hash' then only 'icon_hash' field will be populated in files metadata, while 'icon' field would be always 'null'. This helps to significantly reduce the overall size of the JSON response.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -362,11 +377,13 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
                     "version": "12",
                     "is_test_runner": false,
                     "icon": "...",
-                "short_version": "2.7.1",
-                "is_simulator": false,
-                "min_os": "10.0",
-                "target_os": "14.2",
-                "test_runner_plugin_path": null
+                    "icon_hash": "...",
+                    "short_version": "2.7.1",
+                    "is_simulator": false,
+                    "min_os": "10.0",
+                    "target_os": "14.2",
+                    "test_runner_plugin_path": null
+                }
             },
             "access": {
                 "team_ids": [
@@ -725,6 +742,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
             "version": "12",
             "is_test_runner": false,
             "icon": "...",
+            "icon_hash": "...",
             "short_version": "2.7.1",
             "is_simulator": false,
             "min_os": "10.0",
@@ -918,6 +936,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
             "version": "12",
             "is_test_runner": false,
             "icon": "...",
+            "icon_hash": "...",
             "short_version": "2.7.1",
             "is_simulator": false,
             "min_os": "10.0",
@@ -1015,6 +1034,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
             "version": "12",
             "is_test_runner": false,
             "icon": "...",
+            "icon_hash": "...",
             "short_version": "2.7.1",
             "is_simulator": false,
             "min_os": "10.0",
@@ -1098,6 +1118,70 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "detail": "The group identified by \"64612\" does not exist or is not accessible (Request ID: nancy.swee__delete_group__35803e43)"
 }
 ```
+
+</details>
+
+---
+
+### Get File Icon
+
+<details><summary><span className="api get">GET</span> <code>/v1/storage/icons/&#123;icon_hash&#125;</code></summary>
+<p/>
+
+Returns the actual payload for the given icon hash. All icons are stored in .png format. This endpoint supports caching.
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>icon_hash</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Hash string of the particular icon. You can look up icon hashes using the <a href="#get-app-storage-files">Get App Storage Files</a> endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/v1/icons/1234567890abcd'
+-o icon.png
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/icons/1234567890abcd' -o icon.png
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
 
 </details>
 
