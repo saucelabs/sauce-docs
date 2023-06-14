@@ -167,6 +167,8 @@ Check the list of [Global Flags](#global-flags) you can use.
 
 #### List Files
 
+<p><span className="sauceGreen">From version 0.147.0</span></p>
+
 Get a list of files from a project's vault drive. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
 
 ```bash
@@ -178,6 +180,8 @@ Check the list of [Global Flags](#global-flags) you can use.
 ---
 
 #### Upload File
+
+<p><span className="sauceGreen">From version 0.147.0</span></p>
 
 Upload a file in a project's vault drive. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
 
@@ -191,6 +195,8 @@ Check the list of [Global Flags](#global-flags) you can use.
 
 #### Download File
 
+<p><span className="sauceGreen">From version 0.147.0</span></p>
+
 Download a file from a project's vault drive. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
 
 ```bash
@@ -202,6 +208,8 @@ Check the list of [Global Flags](#global-flags) you can use.
 ---
 
 #### Delete File
+
+<p><span className="sauceGreen">From version 0.147.0</span></p>
 
 Delete a file in a project's vault drive. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
 
