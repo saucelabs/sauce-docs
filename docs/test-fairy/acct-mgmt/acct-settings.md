@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 To access the Settings page, click **Account** and then click **TestFairy Settings**.
 
-<img src={useBaseUrl('img/test-fairy/acct-settings-nav.png')} alt="Accessing Settings page" width="350"/>
+<img src={useBaseUrl('img/test-fairy/acct-settings-nav.png')} alt="Accessing Settings page" width="250"/>
 
 ## SDK App Token
 
@@ -44,98 +44,36 @@ You can integrate your TestFairy account with different services to customize an
 
 <img src={useBaseUrl('img/test-fairy/acct-settings-integrations.png')} alt="Integrations page" width="700"/>
 
-## Bug Systems
+## Email Templates
 
-You can connect your bug system to TestFairy to report bugs directly to your [Jira Cloud](/test-fairy/testing-an-app/bug-tracking/jira-cloud), [GitHub](/test-fairy/testing-an-app/bug-tracking/github), or [Trello](/test-fairy/testing-an-app/bug-tracking/trello) account.
-
-<br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-6.png')} alt="Account Settings" width="600"/>
-
-### Email Templates
-
-TestFairy lets you customize the invitation emails it sends. This feature is available only if you use a custom email server (see [SMTP and Gmail](/test-fairy/integrations/smtp-gmail) for more information).
+TestFairy lets you customize the invitation emails it sends. This feature is available only if you use a custom email server. See [SMTP and Gmail](/test-fairy/integrations/smtp-gmail) for more information.
 
 The email is HTML based and can use custom tags.
 
-<br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-7.png')} alt="Account Settings" width="600"/>
+<img src={useBaseUrl('img/test-fairy/acct-settings-email-templates.png')} alt="Email templates page" width="700"/>
 
-### Security
+## Security
 
-- **Require user login before app download** - If you want testers to first login to their tester account prior to downloading your app.
-- **Require [Google] Sign on for all users** - Users must sign in using a Google email address.
-- `[after adding SAML/Single Sign-on]` (optional) - Grants access to all apps to testers who sign in with SSO.
+To ensure testers first login to their tester accounts prior to downloading your app, select the **Require user login before app download** checkbox.
 
-#### SAML/Single Sign-On
+<img src={useBaseUrl('img/test-fairy/acct-settings-security.png')} alt="Security page" width="700"/>
 
-Add the [SSO](/test-fairy/acct-mgmt/sso/sso-intro) metadata definitions file here. When you add SAML/Single Sign-On, the file contains your ID, URL, and X.509 certificate.
+### SAML/Single Sign-On
 
-<br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-8.png')} alt="Account Settings" width="600"/>
+Add the SSO metadata definitions file here. When you add SAML/Single Sign-On, the file contains your ID, URL, and X.509 certificate. See [SSO](/test-fairy/acct-mgmt/sso/sso-intro) for more information.
 
-### Account
+## Account
 
-The **Account** menu provides access to the following settings:
+On the **Account** page you can access the following settings:
 
-- First and last name
-- Company name
-- Subdomain
-- User name and password
-- Timezone
+- Change Timezone
+- Data Retention
+- Session Quota
 
-<br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-9.png')} alt="Account Settings" width="600"/>
+<img src={useBaseUrl('img/test-fairy/acct-settings-account.png')} alt="Account page" width="700"/>
 
-### Billing
+## Users Allowlist
 
-Here you see your account invoices.
+Allows recording of specific users instead of recording all user sessions. This can help in cases in which customer support teams want to record users who are having issues.
 
-<br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-10.png')} alt="Account Settings" width="600"/>
-
-### Users Allowlist
-
-Allows recording of specific users instead of recording all user sessions. It helps in cases in which customer support teams want to record users who are having issues.
-
-<br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-11.png')} alt="Account Settings" width="600"/>
-
-## Adding and Managing Users
-
-Use the Team page to manage your team members:
-
-<br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-12.png')} alt="Account Settings" width="500"/>
-
-To add admins to your account, see [Sauce Labs Team Management](/basics/acct-team-mgmt-hub).
-
-### Deleting Your Account
-
-At TestFairy, we understand that you may want to delete your data. We are sad to see you leaving us, but we will help you make it happen.
-
-First, this document is for **developers**, users who uploaded apps to TestFairy, added the TestFairy SDK to their app, and invited testers to their project.
-If you are a developer, please continue reading.
-
-If you are a **tester**, get in touch with the developer who invited you to their project and ask to be removed.
-
-#### Delete Your Developer Account
-
-To delete your TestFairy account, follow these steps:
-
-1. Start by removing all the other admins from your account. Log in, go to the [Team](https://app.testfairy.com/settings/cpanel/) menu, select all admins in the account, and remove them:
-
-<br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-13.png')} alt="Account Settings" width="600"/>
-
-2. Once all admins are removed, go to your [Account Preferences](https://app.testfairy.com/settings/account/) > Account and press **Delete my account**.
-
-<br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-14.png')} alt="Account Settings" width="600"/>
-
-<br/><img src={useBaseUrl('img/test-fairy/acc-settings/acc-set-15.png')} alt="Account Settings" width="600"/>
-
-Your account is now deleted.
-
-#### How to Delete the Data of a Specific Tester
-
-TestFairy helps developers record videos showing how users use their apps.
-To track the sessions of a specific user, you must call **setUserId()** with a unique identifier that can help you locate the particular session(s).
-
-If one of your testers asked you to delete their data, do the following.
-
-1. Remove the tester from your [testers list](https://app.testfairy.com/testers)
-
-2. Search for the [sessions](https://app.testfairy.com/search) of this user and delete them one by one.
-
-If you did not call `setUserId()` or have no other way to locate the specific sessions that need to be deleted, delete the builds that the user used.
+<img src={useBaseUrl('img/test-fairy/acct-settings-allowlist.png')} alt="Users Allowlist page" width="700"/>
