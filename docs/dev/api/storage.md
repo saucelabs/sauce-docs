@@ -124,12 +124,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     <td colSpan='2'>Success.</td>
   </tr>
 </tbody>
-<tbody>
-  <tr>
-    <td><code>404</code></td>
-    <td colSpan='2'>Not found.</td>
-  </tr>
-</tbody>
 </table>
 
 ```jsx title="Sample Response"
@@ -1103,12 +1097,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     <td colSpan='2'>Success.</td>
   </tr>
 </tbody>
-<tbody>
-  <tr>
-    <td><code>404</code></td>
-    <td colSpan='2'>Not found.</td>
-  </tr>
-</tbody>
 </table>
 
 ```jsx title="Sample Response"
@@ -1151,8 +1139,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/icons/1234567890abcd'
--o icon.png
+--request GET 'https://api.us-west-1.saucelabs.com/v1/icons/1234567890abcd' --output icon.png
 ```
 
 </TabItem>
@@ -1160,7 +1147,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/icons/1234567890abcd' -o icon.png
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/icons/1234567890abcd' --output icon.png
 ```
 
 </TabItem>
