@@ -18,8 +18,6 @@ These examples can apply to virtually any Azure DevOps deployment, provided that
 
 ## Add Secret Variables 
 
-In order for CircleCI to communicate with Sauce Labs you need to authenticate with project environment variables.
-
 In order to run tests on Sauce Labs from Azure DevOps, you need to make your Sauce Labs credentials available to your Pipelines. We'll set a secret variable in the UI.
 
 1. Log in to Azure DevOps.
