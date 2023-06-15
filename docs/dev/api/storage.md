@@ -1264,7 +1264,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "links": {
         "prev": null,
         "next": null,
-        "self": "?q=162&page=1&per_page=25"
+        "self": "?page=1&per_page=25"
     },
     "page": 1,
     "per_page": 25,
