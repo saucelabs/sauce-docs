@@ -8,8 +8,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-
 Running TestFairy in production offers numerous benefits, such as gaining valuable insights into user behavior, detecting and resolving issues promptly, and continuously improving your app's performance. With TestFairy, you can proactively monitor your production environment, gather valuable data, and make informed decisions to deliver a superior app to your users.
 
 ## Running TestFairy in Production
@@ -19,38 +17,36 @@ When running TestFairy in production, you may record sensitive data such as medi
 Therefore it is important to follow these guidelines:
 
 1. On iOS, you **must** request explicit user consent before recording start.
-Please read carefully the [Apple guidelines](https://developer.apple.com/app-store/review/guidelines/) and pay special attention to section 2.5.14
+   Please read carefully the [Apple guidelines](https://developer.apple.com/app-store/review/guidelines/) and pay special attention to section 2.5.14
 
 1. On Android, please call disableAutoUpdate() in order to comply with [Play Store Developer Distribution Agreement](https://play.google.com/about/developer-distribution-agreement.html).
 
-2. When recording sensitive data you **must** use TestFairy's [end-to-end encryption](/test-fairy/security/data-encryption) with your own private keys, so that only your team will be able to see your sessions.
+1. When recording sensitive data you **must** use TestFairy's [end-to-end encryption](/security/data-encryption) with your own private keys, so that only your team will be able to see your sessions.
 
-3. You **must** [hide sensitive data](test-fairy/security/hiding-data) such as credit card numbers, passwords, or other PII, so that this info will not be uploaded to the server.
+1. You **must** [hide sensitive data](/security/hiding-data) such as credit card numbers, passwords, or other PII, so that this info will not be uploaded to the server.
 
-4. In case you are using TestFairy for customer support to better understand your users in case of a technical issue,
-it is recomended to add a button to your app menu (call it "advanced support"?) and have that button call `TestFairy.begin()`.
-Before calling `begin()` ask the user if this is ok to record their screen for quality assurance purposes.
-When doing that, make sure that session duration is set to 2-3 minutes, just enough to identify the cause of a problem.
+1. In case you are using TestFairy for customer support to better understand your users in case of a technical issue,
+   it is recomended to add a button to your app menu (call it "advanced support"?) and have that button call `TestFairy.begin()`.
+   Before calling `begin()` ask the user if this is ok to record their screen for quality assurance purposes.
+   When doing that, make sure that session duration is set to 2-3 minutes, just enough to identify the cause of a problem.
 
 1. You **must** include a proper disclaimer in your app terms of service document.
-You must explain exactly what data you collect, and how to request deletion of that data.
+   You must explain exactly what data you collect, and how to request deletion of that data.
 
 1. Please make sure never to use TestFairy Auto-update with apps that are shipped to production. This is a clear violation of both Apple and Google's terms.
 
-
-
-## Disabling Test Fairy in Production 
+## Disabling Test Fairy in Production
 
 When it comes to using TestFairy in a production environment, there may be instances where you need to disable TestFairy's functionality temporarily or permanently. Disabling TestFairy in production can be necessary for a variety of reasons, such as complying with platform guidelines or eliminating potential performance impacts.. The SDK is very modular and is built to handle the your and your company's needs.
 
-
-### iOS 
+### iOS
 
 #### Option 1: Calling [TestFairy begin] only in DEBUG
 
 Without a call to [TestFairy begin], the SDK is not initialized. An uninitialized SDK won't consume any memory, won't open sockets, and won't catch uncaught exceptions. Even though it does not impact your app in any way, the SDK is still linked with your app. This is the easiest option.
 
 ##### Objective-C
+
 ```
 #ifdef DEBUG
 [TestFairy begin:@"APP_TOKEN"];
@@ -58,6 +54,7 @@ Without a call to [TestFairy begin], the SDK is not initialized. An uninitialize
 ```
 
 ##### Swift
+
 ```
 #if DEBUG
 TestFairy.begin("APP_TOKEN")
@@ -69,6 +66,7 @@ If your publishing workflow has multiple build schemes or you plan to implement 
 We suggest defining a compiler flag for each scheme you have to enable the SDK for schemes relevant to testing like below.
 
 ##### Objective-C
+
 ```
 #if defined(DEBUG)
 [TestFairy begin:@"APP_TOKEN"];
@@ -82,6 +80,7 @@ We suggest defining a compiler flag for each scheme you have to enable the SDK f
 ```
 
 ##### Swift
+
 ```
 #if DEBUG
 TestFairy.begin("APP_TOKEN")
@@ -109,17 +108,18 @@ Navigate to project build settings and locate **Excluded Source File Name** opti
 Try building your project. If the compilation fails, locate the lines where TestFairy is used and wrap them with `#ifdef` or `#if` directives explained in Option 1.
 
 <a name="ios-noop"></a>
+
 ### Option 3: No-op SDK
 
 Similar to Option #2, you're required to have multiple schemes in your project, but **does not** require the use of `#ifdef` or `#if`.
 
 1. Download the [TestFairy iOS No-Op SDK](https://github.com/testfairy/testfairy-ios-sdk-noop)
-2. Add `TestFairy.m` to your project's *Production* or *App Store* scheme. (Note, that the `.m` file needs to be put in a place where it can find the `TestFairy.h` file).
+2. Add `TestFairy.m` to your project's _Production_ or _App Store_ scheme. (Note, that the `.m` file needs to be put in a place where it can find the `TestFairy.h` file).
 3. Navigate to project build settings and locate **Excluded Source File Name** option. Expand the list and find the build scheme you want to exclude TestFairy from. Double click the row add an entry to the excluded file list for the **libTestFairy.a** file.
 
-This will allow you to keep all your calls to `TestFairy` as-is, but replaced with empty implementations. 
+This will allow you to keep all your calls to `TestFairy` as-is, but replaced with empty implementations.
 
-### Android 
+### Android
 
 #### Option 1: Calling TestFairy.begin() only in Debug mode.
 
@@ -129,10 +129,11 @@ If you are not used to working with build variants, refer to [this post](https:/
 
 In order for ProGuard to fully crop the TestFairy SDK from the final binary, you may use a wrapper class that differs in each of your flavors.
 
-* Create a new Java folder for your **release** variant.
-* Create a Java class somewhere in the shared (main) variant.
-* Create the same package structure and Java class in the **release** variant as well.
-* Put the code below into the Java class under **main/java**.
+- Create a new Java folder for your **release** variant.
+- Create a Java class somewhere in the shared (main) variant.
+- Create the same package structure and Java class in the **release** variant as well.
+- Put the code below into the Java class under **main/java**.
+
 ```
 public class TestFairyWrapper {
   public static void begin(Activity activity, String apikey) {
@@ -140,7 +141,9 @@ public class TestFairyWrapper {
   }
 }
 ```
-* Put the code below into the Java class under **release/java**.
+
+- Put the code below into the Java class under **release/java**.
+
 ```
 public class TestFairyWrapper {
   public static void begin(Activity activity, String apikey) {
@@ -148,7 +151,8 @@ public class TestFairyWrapper {
   }
 }
 ```
-* Call `TestFairyWrapper.begin()` in your main activity.
+
+- Call `TestFairyWrapper.begin()` in your main activity.
 
 Without any calls to any of the TestFairy SDK, Proguard will eventually remove the entire compiled code from the result `classes.dex` and the final APK.
 
