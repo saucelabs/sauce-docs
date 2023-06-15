@@ -867,25 +867,21 @@ module.exports = {
                     label: 'Account and Management',
                     collapsed: true,
                     items: [
-                    'test-fairy/acct-mgmt/acct-settings',
-                    'test-fairy/acct-mgmt/app-build-settings',
-                    {
-                        type: 'category',
-                        label: 'Single Sign On',
-                        collapsed: true,
-                        items: [
-                            'test-fairy/acct-mgmt/sso/azure',
-                            'test-fairy/acct-mgmt/sso/google',
-                            'test-fairy/acct-mgmt/sso/okta',
-                            'test-fairy/acct-mgmt/sso/onelogin',
-                            'test-fairy/acct-mgmt/sso/ping-id',
-                            'test-fairy/acct-mgmt/sso/sso-intro',
-                            
-    
-                        ],
-                        
-                    },
-                ]
+                        'test-fairy/acct-mgmt/acct-settings',
+                        {
+                            type: 'category',
+                            label: 'Single Sign On',
+                            collapsed: true,
+                            items: [
+                                'test-fairy/acct-mgmt/sso/azure',
+                                'test-fairy/acct-mgmt/sso/google',
+                                'test-fairy/acct-mgmt/sso/okta',
+                                'test-fairy/acct-mgmt/sso/onelogin',
+                                'test-fairy/acct-mgmt/sso/ping-id',
+                                'test-fairy/acct-mgmt/sso/sso-intro',
+                            ],
+                        },
+                    ],
                 },
                 {
                     type: 'category',
@@ -908,10 +904,7 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'test-fairy/sdk/android/integrating-android',
- 
-        
                             ],
-                            
                         },
                         {
                             type: 'category',
@@ -925,10 +918,7 @@ module.exports = {
                                 'test-fairy/sdk/ios/hiding-webview',
                                 'test-fairy/sdk/ios/integrating-ios',
                                 'test-fairy/sdk/ios/log-network',
- 
-        
                             ],
-                            
                         },
                         'test-fairy/sdk/adding-tf-sdk',
                         'test-fairy/sdk/options',
@@ -941,9 +931,6 @@ module.exports = {
                         'test-fairy/sdk/supported-platforms',
                         'test-fairy/sdk/tf-crash-handler',
                         'test-fairy/sdk/map-locations',
-
-
-                        
                     ],
                 },
                 {
@@ -957,7 +944,6 @@ module.exports = {
                         'test-fairy/app-distribution/auto-update',
                         'test-fairy/app-distribution/release-notes',
                         'test-fairy/app-distribution/tags',
-
                     ],
                 },
                 {
@@ -976,10 +962,7 @@ module.exports = {
                                 'test-fairy/testing-an-app/testers/reg-ios-device',
                                 'test-fairy/testing-an-app/testers/user-feedback',
                                 'test-fairy/testing-an-app/testers/testers-dashboard',
- 
-        
                             ],
-                            
                         },
                         {
                             type: 'category',
@@ -993,14 +976,9 @@ module.exports = {
                                 'test-fairy/testing-an-app/bug-tracking/micro-focus',
                                 'test-fairy/testing-an-app/bug-tracking/tf-connect',
                                 'test-fairy/testing-an-app/bug-tracking/trello',
-                                
- 
-        
                             ],
-                            
                         },
                         'test-fairy/testing-an-app/feedback',
-
                     ],
                 },
                 {
@@ -1019,8 +997,6 @@ module.exports = {
                         'test-fairy/platforms/titanium',
                         'test-fairy/platforms/unity',
                         'test-fairy/platforms/xamarin',
-
-
                     ],
                 },
                 {
@@ -1039,7 +1015,6 @@ module.exports = {
                         'test-fairy/integrations/google-cloud',
                         'test-fairy/integrations/apple-uploading',
                         'test-fairy/integrations/google-uploading',
-
                     ],
                 },
                 {
@@ -1064,7 +1039,6 @@ module.exports = {
                         'test-fairy/api-reference/rest-api',
                         'test-fairy/api-reference/upload-api',
                         'test-fairy/api-reference/webhooks',
-
                     ],
                 },
             ],
