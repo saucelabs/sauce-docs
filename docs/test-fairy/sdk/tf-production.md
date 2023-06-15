@@ -23,7 +23,7 @@ Therefore it is important to follow these guidelines:
 
 1. When recording sensitive data you **must** use TestFairy's end-to-end encryption with your own private keys, so that only your team will be able to see your sessions.
 
-1. You **must** [hide sensitive data](/security/hiding-data.md) such as credit card numbers, passwords, or other PII, so that this info will not be uploaded to the server.
+1. You **must** hide sensitive data such as credit card numbers, passwords, or other PII, so that this info will not be uploaded to the server.
 
 1. In case you are using TestFairy for customer support to better understand your users in case of a technical issue,
    it is recomended to add a button to your app menu (call it "advanced support"?) and have that button call `TestFairy.begin()`.
