@@ -8,7 +8,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Uploading an Application
 
 Once your account is created and verified, you can upload your app.
 
