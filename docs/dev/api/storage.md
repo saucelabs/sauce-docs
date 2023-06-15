@@ -65,6 +65,12 @@ Returns the set of files that have been uploaded to Sauce Storage by the request
   </tbody>
   <tbody>
     <tr>
+     <td><code>tag</code></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>One or more tags to only include files having these tags assigned into the resulting JSON. AND condition is applied if more than one tag is provided</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
      <td><code>team_id</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>One or more IDs of teams with which the files are shared.</p></td>
     </tr>
