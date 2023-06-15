@@ -108,7 +108,16 @@ The value of the attribute NameID in SAML Response must be **a valid email addre
 
 Sauce Labs Service Provider does not require any extra attributes in the SAML Response.
 
-### Certificate rotation
+### Identity Provider Certificate Rotation
+
+SAML certificates have a predetermined expiration date. It is possible that your identity provider will notify you in advance or provide an alert regarding the certificate's expiry.
+
+If the certificate for the Sauce Labs app from your identity provider is nearing expiration or has already expired, follow these steps:
+
+1. Generate a new certificate for the Sauce Labs app within your identity provider. This new certificate will replace the expired one and will be reflected in the identity provider metadata.
+2. Export or copy the updated metadata file from your identity provider. Then, proceed to upload it in Sauce Labs by following [these steps](/basics/sso/setting-up-sso/#integrating-with-sauce-labs-service-provider).
+
+### Sauce Labs Certificate Rotation
 
 :::note
 This section is relevant only for identity providers that enabled encryption of SAML Assertions.
