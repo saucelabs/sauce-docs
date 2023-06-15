@@ -672,7 +672,7 @@ Uploads an app file to Sauce Storage for the purpose of mobile app testing and r
   <tbody>
     <tr>
      <td><code>tags</code></td>
-     <td><p><small>| FORM-TEXT | OPTIONAL | STRING |</small></p><p>An optional list of comma-separated tag names assigned to the uploaded file. Each tag name length must be between 1 and 16 characters. Tag names must only consist of latin uppercase (A-Z), latin lowercase (a-z), digits (0-9), underscore ("_"), hyphen ("-") and dot (".") characters. Tag names are case-sensitive. It is allowed to assign up to 10 tags to a single file.</p></td>
+     <td><p><small>| FORM-TEXT | OPTIONAL | STRING |</small></p><p>An optional list of comma-separated tag names assigned to the uploaded file. Each tag name length must be between 1 and 16 characters. Tag names must only consist of uppercase (A-Z), lowercase (a-z), digits (0-9), underscore ("_"), hyphen ("-"), and dot (".") characters. Tag names are case-sensitive. It is allowed to assign up to 10 tags to a single file.</p></td>
     </tr>
   </tbody>
 </table>
@@ -861,13 +861,13 @@ Adds or updates various attributes of the specified file.
   <tbody>
     <tr>
      <td><code>description</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A description to more clearly distinguish the stored file within the Sauce Labs system.</p></td>
+     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A description to more clearly distinguish the stored file in the Sauce Labs system.</p></td>
     </tr>
   </tbody>
     <tbody>
     <tr>
      <td><code>tags</code></td>
-     <td><p><small>| BODY| OPTIONAL | STRING |</small></p><p>An optional list of comma-separated tag names assigned to the uploaded file. Each tag name length must be between 1 and 16 characters. Tag names must only consist of latin uppercase (A-Z), latin lowercase (a-z), digits (0-9), underscore ("_"), hyphen ("-") and dot (".") characters. Tag names are case-sensitive. It is allowed to assign up to 10 tags to a single file. The value overrides the previously set tags.</p></td>
+     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>An optional list of comma-separated tag names assigned to the uploaded file. Each tag name length must be between 1 and 16 characters. Tag names must only consist of uppercase (A-Z), lowercase (a-z), digits (0-9), underscore ("_"), hyphen ("-"), and dot (".") characters. Tag names are case-sensitive. It is allowed to assign up to 10 tags to a single file. The value overrides the previously set tags.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1203,10 +1203,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### List Tags
 
-<details><summary><span className="api get">GET</span> <code>/v1/storage/tags</code></summary>
+<details><summary><span className="api get">GET</span><code>/v1/storage/tags</code></summary>
 <p/>
 
-Returns the list of tags available for your team sorted alphabetically. Each tag name is only returned if it is assigned to at least one file.
+Returns the list of tags available for your team sorted alphabetically. Each tag name is only returned if assigned to at least one file.
 
 <table id="table-api">
   <tbody>
