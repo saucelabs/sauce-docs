@@ -21,9 +21,9 @@ Therefore it is important to follow these guidelines:
 
 1. On Android, please call disableAutoUpdate() in order to comply with [Play Store Developer Distribution Agreement](https://play.google.com/about/developer-distribution-agreement.html).
 
-1. When recording sensitive data you **must** use TestFairy's [end-to-end encryption](/security/data-encryption) with your own private keys, so that only your team will be able to see your sessions.
+1. When recording sensitive data you **must** use TestFairy's [end-to-end encryption](/security/data-encryption.md) with your own private keys, so that only your team will be able to see your sessions.
 
-1. You **must** [hide sensitive data](/security/hiding-data) such as credit card numbers, passwords, or other PII, so that this info will not be uploaded to the server.
+1. You **must** [hide sensitive data](/security/hiding-data.md) such as credit card numbers, passwords, or other PII, so that this info will not be uploaded to the server.
 
 1. In case you are using TestFairy for customer support to better understand your users in case of a technical issue,
    it is recomended to add a button to your app menu (call it "advanced support"?) and have that button call `TestFairy.begin()`.
