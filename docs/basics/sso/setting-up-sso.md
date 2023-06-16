@@ -131,7 +131,7 @@ During the rotation period, the Sauce Labs metadata contains two valid certifica
 
 To convert the certificate from the metadata into the PEM format required by most identity providers, you can use the [online tool provided by OneLogin](https://www.samltool.com/format_x509cert.php). Follow these steps:
 
-1. Copy the content of the `<ds:X509Certificate>` tag and paste it into the **X.509 cert** text box. Click **FORMAT X.509 CERTIFICATE**.
+1. Copy the content of the `<ds:X509Certificate>` tag, paste it into the **X.509 cert** text box, then click **FORMAT X.509 CERTIFICATE**.
 2. Copy the content of the **X.509 cert with header** textbox and save it in a text file, for example `saucelabs-sso.pem`.
 3. Finally, upload the new certificate in your IdP.
 
