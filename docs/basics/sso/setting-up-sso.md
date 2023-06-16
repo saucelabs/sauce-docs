@@ -129,7 +129,7 @@ The certificate is valid for one year. **120 days** before the expiration date t
 
 During the rotation period, the Sauce Labs metadata contains two valid certificates. If you are unsure which certificate to upload, copy the content of the `<ds:X509Certificate>` tag and paste it into a [certificate decoder](https://www.sslshopper.com/certificate-decoder.html). Then, select the certificate that has a longer validity period.
 
-To convert the certificate from the metadata into the PEM format required by most identity providers, you can utilize the [online tool provided by OneLogin](https://www.samltool.com/format_x509cert.php). Follow these steps:
+To convert the certificate from the metadata into the PEM format required by most identity providers, you can use the [online tool provided by OneLogin](https://www.samltool.com/format_x509cert.php). Follow these steps:
 
 1. Copy the content of the `<ds:X509Certificate>` tag and paste it into the **X.509 cert** text box. Click **FORMAT X.509 CERTIFICATE**.
 2. Copy the content of the **X.509 cert with header** textbox and save it in a text file, for example `saucelabs-sso.pem`.
