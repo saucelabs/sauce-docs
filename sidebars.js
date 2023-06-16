@@ -597,6 +597,7 @@ module.exports = {
                                 'dev/cli/saucectl/usage/ci/github-actions',
                                 'dev/cli/saucectl/usage/ci/gitlab',
                                 'dev/cli/saucectl/usage/ci/jenkins',
+                                'dev/cli/saucectl/usage/ci/azure',
                             ],
                         },
                         {
