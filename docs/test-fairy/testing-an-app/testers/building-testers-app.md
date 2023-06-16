@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy provides customers who run the service on a [private cloud](/test-fairy/sdk/private-cloud-int) to build their own TestFairy Testers App.
+TestFairy provides customers who run the service on a private cloud to build their own TestFairy Testers App.
 
 This way, you can customize and brand it as you wish.
 
