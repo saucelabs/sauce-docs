@@ -1,6 +1,6 @@
 ## Using a tunnel with Cucumber for Playwright
 
-When using a tunnel with Cucumber for Playwright, you need to explicitely tell Playwright to use it.
+When using a tunnel with Cucumber for Playwright, you need to explicitly tell Playwright to use it.
 Its value is stored in the `HTTP_PROXY` env var.
 
 Example:
