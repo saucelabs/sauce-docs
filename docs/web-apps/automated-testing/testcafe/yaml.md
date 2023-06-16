@@ -700,6 +700,10 @@ suites:
     shard: spec
 ```
 
+:::warning
+When `shard` is enabled and `filter` is in effect, all specs that don't have any test matching the conditions will be failing.
+:::
+
 ---
 
 ### `src`
