@@ -127,7 +127,7 @@ If you enabled encryption of SAML Assertions in your IdP, you must upload the ce
 
 The certificate is valid for one year. **120 days** before the expiration date the new certificate will be available in Sauce Labs [metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp).
 
-During the rotation period the Sauce Labs metadata contain two valid certificates. If you are unsure which certificate to upload, copy the content of the `<ds:X509Certificate>` tag and paste it into [one of the oneline x.509 certificate decoders](https://www.sslshopper.com/certificate-decoder.html). Then, choose the certificate that has a longer validity period.
+During the rotation period, the Sauce Labs metadata contains two valid certificates. If you are unsure which certificate to upload, copy the content of the `<ds:X509Certificate>` tag and paste it into a [certificate decoder](https://www.sslshopper.com/certificate-decoder.html). Then, select the certificate that has a longer validity period.
 
 To convert the certificate from the metadata into the PEM format required by most identity providers, you can utilize the [online tool provided by OneLogin](https://www.samltool.com/format_x509cert.php). Follow these steps:
 
