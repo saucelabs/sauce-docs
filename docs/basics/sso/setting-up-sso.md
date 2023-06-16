@@ -133,7 +133,7 @@ To convert the certificate from the metadata into the PEM format required by mos
 
 1. Copy the content of the `<ds:X509Certificate>` tag, paste it into the **X.509 cert** text box, then click **FORMAT X.509 CERTIFICATE**.
 2. Copy the content of the **X.509 cert with header** textbox and save it in a text file, for example `saucelabs-sso.pem`.
-3. Finally, upload the new certificate in your IdP.
+3. Upload the new certificate in your IdP.
 
 If you encounter any issues during the certificate rotation, you can safely go back to the old certificate (until the expiration date). Both certificates will work.
 
