@@ -891,6 +891,8 @@ module.exports = {
                         'test-fairy/security/data-encryption',
                         'test-fairy/security/gdpr',
                         'test-fairy/security/hiding-data',
+                        'test-fairy/security/private-cloud-int',
+
                     ],
                 },
                 {
