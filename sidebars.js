@@ -874,12 +874,13 @@ module.exports = {
                             label: 'Single Sign On',
                             collapsed: true,
                             items: [
+                                'test-fairy/acct-mgmt/sso/sso-intro',
                                 'test-fairy/acct-mgmt/sso/azure',
                                 'test-fairy/acct-mgmt/sso/google',
                                 'test-fairy/acct-mgmt/sso/okta',
                                 'test-fairy/acct-mgmt/sso/onelogin',
                                 'test-fairy/acct-mgmt/sso/ping-id',
-                                'test-fairy/acct-mgmt/sso/sso-intro',
+                                
                             ],
                         },
                     ],
