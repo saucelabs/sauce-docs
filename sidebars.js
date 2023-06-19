@@ -424,8 +424,10 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'error-reporting/platform-integrations/minidump/configuration',
-                                'error-reporting/platform-integrations/unreal/attributes',
-                                'error-reporting/platform-integrations/unreal/troubleshooting',
+                                'error-reporting/platform-integrations/minidump/breakpad',
+                                'error-reporting/platform-integrations/minidump/crashpad',
+                                'error-reporting/platform-integrations/minidump/electron',
+                                'error-reporting/platform-integrations/minidump/http-submission',
                             ],
                         },
                     ],
