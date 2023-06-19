@@ -23,7 +23,8 @@ Backtrace has first-class support for the crash dump format of Electron apps, mi
 
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
-   :::
+
+:::
 
 ## Requirements Summary
 

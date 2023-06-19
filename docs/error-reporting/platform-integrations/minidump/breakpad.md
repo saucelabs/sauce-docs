@@ -21,7 +21,8 @@ Breakpad is an open-source library initially developed by Google for cross-platf
 
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
-   :::
+
+:::
 
 ## Initial Integration
 

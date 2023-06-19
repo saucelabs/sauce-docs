@@ -418,6 +418,16 @@ module.exports = {
                                 'error-reporting/platform-integrations/real-devices/setup',
                             ],
                         },
+                        {
+                            type: 'category',
+                            label: 'Minidump',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/platform-integrations/minidump/configuration',
+                                'error-reporting/platform-integrations/unreal/attributes',
+                                'error-reporting/platform-integrations/unreal/troubleshooting',
+                            ],
+                        },
                     ],
                 },
                 {

@@ -23,7 +23,8 @@ This article indexes the mechanisms to integrate minidump submission into your B
 
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
-   :::
+
+:::
 
 ## Breakpad
 

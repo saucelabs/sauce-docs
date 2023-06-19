@@ -25,7 +25,8 @@ For new users, Backtrace has prepared an enhanced fork of Crashpad, allowing eas
 
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
-   :::
+
+:::
 
 ## Initial Integration
 
