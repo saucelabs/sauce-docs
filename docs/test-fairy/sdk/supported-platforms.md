@@ -13,7 +13,6 @@ Along with native Android and iOS development, TestFairy supports a number of ot
 ## Cordova / PhoneGap
 
 - [Adding the SDK to your App](/test-fairy/platforms/cordova)
-- [Private Cloud Integration](/test-fairy/sdk/private-cloud-int)
 - [Identifying your Users](/test-fairy/sdk/identifying-users)
 - [Session Attributes](/test-fairy/sdk/session-attributes)
 - [Remote Logging](/test-fairy/sdk/remote-logging)
@@ -21,7 +20,6 @@ Along with native Android and iOS development, TestFairy supports a number of ot
 ## Ionic
 
 - [Adding the SDK to your App](/test-fairy/platforms/ionic)
-- [Private Cloud Integration](/test-fairy/sdk/private-cloud-int)
 - [Identifying your Users](/test-fairy/sdk/identifying-users)
 - [Session Attributes](/test-fairy/sdk/session-attributes)
 - [Remote Logging](/test-fairy/sdk/remote-logging)
@@ -30,7 +28,6 @@ Along with native Android and iOS development, TestFairy supports a number of ot
 
 - [Adding the SDK to your App](/test-fairy/platforms/react-native)
 - [Hiding Sensitive Data](/test-fairy/security/hiding-data)
-- [Private Cloud Integration](/test-fairy/sdk/private-cloud-int)
 - [Identifying your Users](/test-fairy/sdk/identifying-users)
 - [Session Attributes](/test-fairy/sdk/session-attributes)
 - [Remote Logging](/test-fairy/sdk/remote-logging)
@@ -39,7 +36,6 @@ Along with native Android and iOS development, TestFairy supports a number of ot
 
 - [Adding the SDK to your App](/test-fairy/platforms/nativescript)
 - [Hiding Sensitive Data](/test-fairy/security/hiding-data)
-- [Private Cloud Integration](/test-fairy/sdk/private-cloud-int)
 - [Identifying your Users](/test-fairy/sdk/identifying-users)
 - [Session Attributes](/test-fairy/sdk/session-attributes)
 - [Remote Logging](/test-fairy/sdk/remote-logging)
@@ -47,7 +43,6 @@ Along with native Android and iOS development, TestFairy supports a number of ot
 ## Unity
 
 - [Adding the SDK to your App](/test-fairy/platforms/unity)
-- [Private Cloud Integration](/test-fairy/sdk/private-cloud-int)
 - [Identifying your Users](/test-fairy/sdk/identifying-users)
 - [Session Attributes](/test-fairy/sdk/session-attributes)
 - [Remote Logging](/test-fairy/sdk/remote-logging)
@@ -56,14 +51,12 @@ Along with native Android and iOS development, TestFairy supports a number of ot
 
 - [Adding the SDK to your App](/test-fairy/platforms/xamarin)
 - [Hiding Sensitive Data](/test-fairy/security/hiding-data)
-- [Private Cloud Integration](/test-fairy/sdk/private-cloud-int)
 - [Identifying your Users](/test-fairy/sdk/identifying-users)
 - [Session Attributes](/test-fairy/sdk/session-attributes)
 - [Remote Logging](/test-fairy/sdk/remote-logging)
 
 ## Adobe Air
 
-- [Private Cloud Integration](/test-fairy/sdk/private-cloud-int)
 - [Identifying your Users](/test-fairy/sdk/identifying-users)
 - [Session Attributes](/test-fairy/sdk/session-attributes)
 - [Remote Logging](/test-fairy/sdk/remote-logging)
@@ -71,7 +64,6 @@ Along with native Android and iOS development, TestFairy supports a number of ot
 ## Titanium
 
 - [Adding the SDK to your App](/test-fairy/platforms/titanium)
-- [Private Cloud Integration](/test-fairy/sdk/private-cloud-int)
 - [Identifying your Users](/test-fairy/sdk/identifying-users)
 - [Session Attributes](/test-fairy/sdk/session-attributes)
 - [Remote Logging](/test-fairy/sdk/remote-logging)
