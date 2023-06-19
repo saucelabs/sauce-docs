@@ -30,9 +30,9 @@ For new users, Backtrace has prepared an enhanced fork of Crashpad, allowing eas
 
 ## Initial Integration
 
-If you are a Windows and Visual Studio user, please review the [Backtrace Visual Studio Extension Guide](https://support.backtrace.io/hc/en-us/articles/360040515951) to simplify the integration of Crashpad into your new application. If you are a Windows and Visual Studio user with an existing application, you can use manual instructions in the Visual Studio section of that guide for a step-by-step guide to integrating with Visual Studio.
+If you are a Windows and Visual Studio user, review the [Backtrace Visual Studio Extension Guide](https://support.backtrace.io/hc/en-us/articles/360040515951) to simplify the integration of Crashpad into your new application. If you are a Windows and Visual Studio user with an existing application, you can use manual instructions in the Visual Studio section of that guide for a step-by-step guide to integrating with Visual Studio.
 
-Advanced instructions are available at [the Crashpad home page](https://chromium.googlesource.com/crashpad/crashpad/+/HEAD/doc/developing.md) if you can't find what you're looking for or prefer to build Crashpad from the source. Backtrace's fork of Crashpad is available [on Github](https://github.com/backtrace-labs/crashpad/tree/backtrace), which contains easy [CMake](https://cmake.org/) build instructions and also hosts [daily binary builds for Android, Linux, Windows, Mac and more](https://github.com/backtrace-labs/crashpad/actions). If you would like additional assistance, please don't hesitate to contact support@backtrace.io.
+Advanced instructions are available at [the Crashpad home page](https://chromium.googlesource.com/crashpad/crashpad/+/HEAD/doc/developing.md) if you can't find what you're looking for or prefer to build Crashpad from the source. Backtrace's fork of Crashpad is available [on Github](https://github.com/backtrace-labs/crashpad/tree/backtrace), which contains easy [CMake](https://cmake.org/) build instructions and also hosts [daily binary builds for Android, Linux, Windows, Mac and more](https://github.com/backtrace-labs/crashpad/actions). If you would like additional assistance, don't hesitate to contact support@saucelabs.com.
 
 ### Update Your Application
 
@@ -236,4 +236,4 @@ Windows Registry Editor Version 5.00
 
 Additional documentation is available at the [Crashpad Website](https://chromium.googlesource.com/crashpad/crashpad/). For more information on the `crashpad_handler`, see [crashpad_handler.md](https://chromium.googlesource.com/crashpad/crashpad/+/HEAD/handler/crashpad_handler.md).
 
-If you're still encountering issues, contact us at support@backtrace.io.
+If you're still encountering issues, contact us at support@saucelabs.com.

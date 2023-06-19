@@ -27,7 +27,7 @@ Breakpad is an open-source library initially developed by Google for cross-platf
 ## Initial Integration
 
 If you have yet to integrate Breakpad into your application, we recommend incorporating [Crashpad](/error-reporting/platform-integrations/minidump/crashpad). Crashpad is the successor to Breakpad, with many improvements and up-to-date integration instructions.
-You can check [Breakpad's official integration instructions](https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting_started_with_breakpad.md#Integration-overview) for more information. If you would like additional assistance, you can reach out to us at support@backtrace.io
+You can check [Breakpad's official integration instructions](https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting_started_with_breakpad.md#Integration-overview) for more information. If you would like additional assistance, you can reach out to us at support@saucelabs.com.
 
 ## Upload Methods
 
@@ -105,8 +105,6 @@ The URL parameter for the methods above follows the format:
 <protocol>://<instance_url>:<port>/post?format=minidump&token=<project_token>
 ```
 
-Instructions on retrieving your project token can be found [here](https://documentation.backtrace.io/coronerd_setup/#tokens).
-
 For example, if Backtrace is hosting your instance at `team.sp.backtrace.io` and your project token is `7c102b2432f6c57eb879db2008820a88031fefc08d8e7faccabc23a917e7db08` then set the `url` argument to:
 
 ```
@@ -125,7 +123,7 @@ Some example attributes are:
 - resolution
 - operating_system
 
-Parameters must contain only printable ASCII characters and may not contain a quote `"` character. To have your attributes searchable by the Backtrace object store, please refer to [the product guide](https://support.backtrace.io/hc/en-us/articles/360040517191-Project-Settings-Indexing-Attributes).
+Parameters must contain only printable ASCII characters and may not contain a quote `"` character. To have your attributes searchable by the Backtrace object store, refer to [the product guide](https://support.backtrace.io/hc/en-us/articles/360040517191-Project-Settings-Indexing-Attributes).
 
 The methods above all use a multipart POST request. Parameters are pushed as input forms.
 
@@ -186,4 +184,4 @@ dumpCallback(const google_breakpad::MinidumpDescriptor& descriptor,
 
 You must upload symbols to have Backtrace determine the source-code mapping of incoming crashes, including source file and line number. For Backtrace to effectively group and analyze your incoming crashes, you must provide application debug symbols.
 
-To learn more about how to upload and manage symbols with Backtrace, please see the [symbolication guide](https://support.backtrace.io/hc/en-us/articles/360040517071-Symbolication-Overview).
+To learn more about how to upload and manage symbols with Backtrace, see the [symbolication guide](https://support.backtrace.io/hc/en-us/articles/360040517071-Symbolication-Overview).

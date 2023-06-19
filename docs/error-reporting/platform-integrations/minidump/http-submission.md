@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-You may have a pre-existing crash reporting facility or generate dump files using MiniDumpWriteDump on Windows; this guide shows you how to submit these over HTTP or HTTPS. If you use a supported crash reporting library, please use their preferred submission mechanisms.
+You may have a pre-existing crash reporting facility or generate dump files using MiniDumpWriteDump on Windows; this guide shows you how to submit these over HTTP or HTTPS. If you use a supported crash reporting library, use their preferred submission mechanisms.
 
 ## What You'll Need
 
