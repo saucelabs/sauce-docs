@@ -1317,7 +1317,7 @@ Returns an alphabetically sorted list of projects available for your team. Each 
   <tbody>
     <tr>
      <td><code>per_page</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The number of results (max. 100) to be shown per page.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The number of results (max 100) to be shown per page.</p></td>
     </tr>
   </tbody>
 </table>
