@@ -685,7 +685,7 @@ Uploads an app file to Sauce Storage for the purpose of mobile app testing and r
   <tbody>
     <tr>
      <td><code>project_name</code></td>
-     <td><p><small>| FORM-TEXT | OPTIONAL | STRING |</small></p><p>An optional name for the project you want the file (group) to assigned to. If the project doesn't exist, it will be created. Project names can only constist of alphanumeric (uppercase and lowercase) characters, along with underscores ("_"), hyphens ("-"), periods ("."), and spaces (" "). Project names are case-sensitive and can be max. 64 characters long.</p></td>
+     <td><p><small>| FORM-TEXT | OPTIONAL | STRING |</small></p><p>An optional name for the project you want the file (group) to be assigned to. If the project doesn't exist, it will be created. Project names can only consist of alphanumeric (uppercase and lowercase) characters, along with underscores ("_"), hyphens ("-"), periods ("."), and spaces (" "). Project names are case-sensitive and can be max 64 characters long.</p></td>
     </tr>
   </tbody>
 </table>
