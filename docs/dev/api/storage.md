@@ -1305,7 +1305,7 @@ Returns an alphabetically sorted list of projects available for your team. Each 
 <tbody>
     <tr>
      <td><code>kind</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The app type associated with the project(s), such as <code>android</code>, <code>ios</code> or <code>other</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The app type associated with the project(s), such as <ul><li><code>android</code></li>, <li><code>ios</code></li> or <li><code>other</code></li></ul>.</p></td>
     </tr>
   </tbody>
   <tbody>
