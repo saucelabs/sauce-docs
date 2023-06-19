@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Breakpad is an open-source library initially developed by Google for cross-platform C/C++ crash reporting. It is used in popular software such as Google Chrome and by companies such as Valve. For existing users of Breakpad, Backtrace has plug-and-play support.
+Breakpad is an open source library initially developed by Google for cross-platform C/C++ crash reporting. It is used in popular software such as Google Chrome and by companies such as Valve. For existing users of Breakpad, Backtrace has plug-and-play support.
 
 ## What You'll Need
 

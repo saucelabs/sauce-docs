@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The minidump format is the standard crash format for Windows. With the help of open-source libraries such as [Breakpad](https://chromium.googlesource.com/breakpad/breakpad/) or [Crashpad](https://chromium.googlesource.com/crashpad/crashpad/), it is possible to generate crash reports in the minidump format for Mac OS, Android, and iOS.
+The minidump format is the standard crash format for Windows. With the help of open source libraries such as [Breakpad](https://chromium.googlesource.com/breakpad/breakpad/) or [Crashpad](https://chromium.googlesource.com/crashpad/crashpad/), it is possible to generate crash reports in the minidump format for Mac OS, Android, and iOS.
 
 This article indexes the mechanisms to integrate minidump submission into your Backtrace instance.
 
@@ -28,15 +28,15 @@ This article indexes the mechanisms to integrate minidump submission into your B
 
 ## Breakpad
 
-Firefox and a wide variety of desktop applications use the popular open-source crash reporting framework. See the [Integration Guide](/error-reporting/platform-integrations/minidump/breakpad) for more information.
+Firefox and a wide variety of desktop applications use the popular open source crash reporting framework. See the [Integration Guide](/error-reporting/platform-integrations/minidump/breakpad) for more information.
 
 ## Crashpad
 
-The popular open-source crash reporting framework used by Chrome, Slack, and more. It is the successor to Breakpad. See the [Integration Guide](/error-reporting/platform-integrations/minidump/crashpad) for more information.
+The popular open source crash reporting framework used by Chrome, Slack, and more. It is the successor to Breakpad. See the [Integration Guide](/error-reporting/platform-integrations/minidump/crashpad) for more information.
 
 ## Electron
 
-This popular framework allows you to build cross-platform desktop applications with Javascript and HTML. Discord, Visual Studio, Slack, and more use it. See the [Integration Guide](/error-reporting/platform-integrations/minidump/electron) for more information.
+This popular framework allows you to build cross-platform desktop applications with JavaScript and HTML. Discord, Visual Studio, Slack, and more use it. See the [Integration Guide](/error-reporting/platform-integrations/minidump/electron) for more information.
 
 ## HTTP
 

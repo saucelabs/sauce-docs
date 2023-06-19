@@ -75,7 +75,7 @@ For more information on attributes, see [here](https://support.backtrace.io/hc/e
 
 ### Multipart POST
 
-A submission where the `test.json` attachment is included with the initial crash submission. You will need to modify the following to submit to a project within your account successfully:
+A submission where the `test.json` attachment is included with the initial crash submission. You will need to modify the following to submit to a project in your account successfully:
 
 - `<Path_to_your_file>`: Location of file containing crash data to send
 - `<Path_to_your_attachment>`: Location of the file to be attached to the crash
@@ -119,7 +119,7 @@ A suitably formatted upload submission should return a response like this:
 {"response":"ok","\_rxid":"ce000000-0000-0000-0000-000000000000","attachment_name": "test.json","attachment_id": "28","object":"ce"}
 ```
 
-The response should tell you that the file was attached to the specified object within your Backtrace project. You will still get the 200/ok response, but the `_rxid` will look slightly different. As no crash was submitted, it will not send a new unique id. This time it sends the `id` attribute/Error identifier within the debug view used to identify the specific crash report.
+The response should tell you that the file was attached to the specified object in your Backtrace project. You will still get the 200/ok response, but the `_rxid` will look slightly different. As no crash was submitted, it will not send a new unique id. This time it sends the `id` attribute/Error identifier in the debug view used to identify the specific crash report.
 
 ## Listener Layer
 

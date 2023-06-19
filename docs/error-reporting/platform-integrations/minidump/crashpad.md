@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Crashpad is an open-source library initially developed by Google as a successor to the Google Breakpad library. It is used in popular software such as Google Chrome and by companies such as Slack and Spotify.
+Crashpad is an open source library initially developed by Google as a successor to the Google Breakpad library. It is used in popular software such as Google Chrome and by companies such as Slack and Spotify.
 
 For existing users of Crashpad, Backtrace has plug-and-play support. It has a robust architecture designed to allow for high customizability and stability even in the face of the most obscure software crashes.
 
@@ -36,7 +36,7 @@ Advanced instructions are available at [the Crashpad home page](https://chromium
 
 ### Update Your Application
 
-Once Crashpad has been integrated into your application, using CMake or using prebuilt binaries, you'll need to specify the right options to `StartHandler` to start it up, as you can see in the example app code for [Windows](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples/windows/demo/demo.cpp), [MacOS](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples/macos/demo/demo.cpp), [Android](https://github.com/backtrace-labs/backtrace-android/blob/cf9d827bada51bf4332e2904b0ea06d39b99db8a/backtrace-library/src/main/cpp/backends/crashpad-backend.cpp#L124) and [Linux](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples/linux/demo/demo.cpp).
+After Crashpad has been integrated into your application, using CMake or using prebuilt binaries, you'll need to specify the right options to `StartHandler` to start it up, as you can see in the example app code for [Windows](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples/windows/demo/demo.cpp), [MacOS](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples/macos/demo/demo.cpp), [Android](https://github.com/backtrace-labs/backtrace-android/blob/cf9d827bada51bf4332e2904b0ea06d39b99db8a/backtrace-library/src/main/cpp/backends/crashpad-backend.cpp#L124) and [Linux](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples/linux/demo/demo.cpp).
 
 ### Set the URL Parameter
 
@@ -74,7 +74,7 @@ arguments.push_back(
 
 `handler` is a path to an external program responsible for generating and uploading dumps; we recommend it for uploading crashes. Look for `bin/crashpad_handler.exe` on Windows, which is suitable as a default crash handler. See below for a complete example.
 
-`handler` is executed once the application crashes, so it should be available under the specified path during its execution. That means the handler should be bundled with the application if delivered to the end-users, and its path should be relative or dynamically generated.
+`handler` is executed after the application crashes, so it should be available under the specified path during its execution. That means the handler should be bundled with the application if delivered to the end-users, and its path should be relative or dynamically generated.
 
 ### Example Code
 
@@ -129,7 +129,7 @@ Backtrace provides builds of Crashpad. We recommend using the stable version. Th
 
 ### Integrate Crashpad
 
-Once you have built Crashpad or downloaded the pre-built libraries, you must integrate the library into your application. The library is statically linked to your project, so you will not need to distribute additional projects.
+After you have built Crashpad or downloaded the pre-built libraries, you must integrate the library into your application. The library is statically linked to your project, so you will not need to distribute additional projects.
 
 There are two versions of `Crashpad` provided in the Backtrace archive.
 
@@ -157,7 +157,7 @@ Next, you'll need to add the relevant release path (see the table above) to your
 
 <img src={useBaseUrl('/img/error-reporting/minidump/library-static-linking.png')} alt="library directories"/>
 
-Once that is done, you'll need to add the actual set of static libraries for `Crashpad`. Navigate to your linker input settings (Project > Properties > Linker > Input), and add `client.lib;util.lib;base.lib` as additional dependencies. See the screenshot below for an example.
+After that is done, you'll need to add the actual set of static libraries for `Crashpad`. Navigate to your linker input settings (Project > Properties > Linker > Input), and add `client.lib;util.lib;base.lib` as additional dependencies. See the screenshot below for an example.
 
 <img src={useBaseUrl('/img/error-reporting/minidump/additional-dependencies.png')} alt="additional dependencies"/>
 
@@ -195,7 +195,7 @@ Go to Project > Properties > Linker and update the `Generate Debug Info` setting
 
 <img src={useBaseUrl('/img/error-reporting/minidump/general-debug-info.png')} alt="debug mode"/>
 
-This setting generates a `.pdb` file for your application in the build output directory. You can manually upload `.sym`, `.pdb`, and archive files containing `.pdb` or `.sym` files into Backtrace or through the command line. It is also possible to hook up Visual Studio to automatically upload symbols as they are generated. You should be able to send crash reports at this point. Ensure you've uploaded your symbols (click on **Symbols** under the Project Configuration page).
+This setting generates a `.pdb` file for your application in the build output directory. You can manually upload `.sym`, `.pdb`, and archive files containing `.pdb` or `.sym` files into Backtrace or through the command line. It is also possible to hook up Visual Studio to automatically upload symbols as they are generated. Now, you should be able to send crash reports. Ensure you've uploaded your symbols (click on **Symbols** under the Project Configuration page).
 
 For more details, refer to the [symbolication guide](https://support.backtrace.io/hc/en-us/articles/360040517071).
 
@@ -205,7 +205,7 @@ Now you're ready to integrate Crashpad into your application. Add the code from 
 
 ### Finish
 
-At this point, crashes should be automatically submitted into Backtrace. As crashes generate, refresh the Project page of the associated project to see faults in real-time.
+Crashes should be automatically submitted into Backtrace. As crashes generate, refresh the Project page of the associated project to see faults in real-time.
 
 ### Additional Features of Backtrace Fork
 
