@@ -13,7 +13,7 @@ You may have a pre-existing crash reporting facility or generate dump files usin
 
 ## What You'll Need
 
-- A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
+- A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
 - Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
 - A Backtrace project and a submission token.
 
@@ -21,82 +21,110 @@ You may have a pre-existing crash reporting facility or generate dump files usin
 
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
-   :::
 
-## Ensure submission token exists
+:::
 
-First step is to ensure you have a submission token created. Learn more about submission tokens here.
+## Submit a Dump File
 
-## Note on curl usage
+For this example, let us assume that our submission token is `abcdef0123456789`. An HTTP POST is used to submit a dump file. The example below shows a curl invocation.
 
-For large files, include the header flag -H "Expect:" to override some default curl behavior which can cause issues when uploading to Backtrace. The examples below include this flag.
+:::note
 
-## Submit a dump file
+For large files, include the header flag `-H "Expect:"` to override some default curl behavior which can cause issues when uploading to Backtrace.
 
-For this example, let us assume that our submission token is abcdef0123456789 . An HTTP POST is used to submit a dump file. See below for an example curl invocation.
+:::
 
+```bash
 curl -v --data-binary @example_minidump.dmp -H "Expect:" "https://submit.backtrace.io/<universeName>/<errorSubmissionToken>/minidump"
-This can be achieved through HTTP multipart as well:
+```
 
+You can do the same through HTTP multipart:
+
+```bash
 curl -v -F "upload_file_minidump=@example_minidump.dmp" -H "Expect:" "https://submit.backtrace.io/<universeName>/<errorSubmissionToken>/minidump"
+```
 
 ## Attaching Attributes
 
-User-defined attributes can also be passed as:
+You can pass user-defined attributes as:
 
-query string parameter
-multipart form data parameter
-You can mix both (some in the query string, some in the multipart form data).
+- query string parameter
+- multipart form data parameter
 
-### Query string parameter
+You can mix them and use some in the query string and some in the multipart form data.
 
-For example, let's say that we wanted to submit a minidump and set the version attribute associated with it to 1.0:
+### Query String Parameter
 
+For example, let's say that we wanted to submit a minidump and set the `version` attribute associated with it to `1.0`:
+
+```bash
 curl -v -F "upload_file_minidump=@example_minidump.dmp" -H "Expect:" "https://submit.backtrace.io/<universeName>/<errorSubmissionToken>/minidump&version=1.0"
-See the end of the URL.
+```
 
-### Multipart form data parameter
+### Multipart Form Data Parameter
 
-For example, let's say that we wanted to submit a minidump and set the version attribute associated with it to 1.0.
+For example, let's say you wanted to submit a minidump and set the `version` attribute associated with it to `1.0`.
 
+```bash
 curl -v -F "version=1.0" -F "upload_file_minidump=@example_minidump.dmp" -H "Expect:" "https://submit.backtrace.io/<universeName>/<errorSubmissionToken>/minidump"
-For more information on attributes, see here.
+```
+
+For more information on attributes, see [here](https://support.backtrace.io/hc/en-us/articles/360040517191).
 
 ## Attaching Files
 
 ### Multipart POST
 
-A submission where the test.json attachment is included with the initial crash submission. You will need to modify the following to successfully submit to a project within your account:
+A submission where the `test.json` attachment is included with the initial crash submission. You will need to modify the following to submit to a project within your account successfully:
 
-<Path_to_your_file> : Location of file containing crash data to send
-<Path_to_your_attachment> : Location of file to be attached to the crash
-<universe> : First part of the URL used to access your Backtrace account
-<error-token> : An error token for the project you want to submit crash data to
+- `<Path_to_your_file>`: Location of file containing crash data to send
+- `<Path_to_your_attachment>`: Location of the file to be attached to the crash
+- `<universe>`: First part of the URL used to access your Backtrace account
+- `<error-token>`: An error token for the project you want to submit crash data to
+
+```bash
 curl -v -F "upload_file=@<Path_to_your_file>/example_minidump.dmp" -H "Expect:" -F "attachment_test.json=@<Path_to_your_file>/test.json; type=application/json" "<backtrace submission url>"
+```
 
-### Attach a file to an existing crash report
+### Attach a File to an Existing Crash Report
 
-For this method you will need the \_rxid value assigned to a submitted crash report. This value will be returned after a submitting a properly formatted request. The first curl command is the submission of the crash report. The second is the attachment of a file to the first.
+This method requires the `_rxid` value to be assigned to a submitted crash report. This value will be returned after submitting a properly formatted request. The first curl command is the submission of the crash report. The second is the attachment of a file to the first.
 
+```bash
 curl -d <Path_to_your_file>/example_minidump.dmp -H "Expect:" "<backtrace submission url>"
-<Path_to_your_file> : Location of file containing crash data to send
-<universe> : First part of the URL used to access your Backtrace account
-<error-token> : An error token for the project you want to submit crash data to
-A properly formatted crash report submission should return a response like:
+```
 
-{"response":"ok","\_rxid":"56000000-8be7-5806-0000-000000000000"}
-To attach a file to this object you will need to copy the \_rxid returned.
+- `<Path_to_your_file>`: Location of file containing crash data to send
+- `<universe>`: First part of the URL used to access your Backtrace account
+- `<error-token>`: An error token for the project you want to submit crash data to
 
+A properly formatted crash report submission should return a response like this:
+
+```json
+{"response":"ok","_rxid":"56000000-8be7-5806-0000-000000000000"}
+```
+
+To attach a file to this object, copy the `_rxid` returned.
+
+```bash
 curl -v --data-binary "upload_file=@<your_file_path>/test.json" -H "Expect:" -H "Content-Type:application/json" "<backtrace submission url>?object=<\_rxid>&attachment_name=<Path_to_your_attachment>"
-&object=<\_rxid> : value returned from first http submission
-&attachment_name=<Path_to_your_attachment> : Location of file to be attached to the crash
-A properly formatted upload submission should return a response like:
+```
 
+- `&object=<_rxid> `: value returned from first http submission
+- `&attachment_name=<Path_to_your_attachment>`: Location of the file to be attached to the crash
+
+A suitably formatted upload submission should return a response like this:
+
+```json
 {"response":"ok","\_rxid":"ce000000-0000-0000-0000-000000000000","attachment_name": "test.json","attachment_id": "28","object":"ce"}
-The response should tell you that the file was attached to the specified object within your Backtrace project. You will still get the 200/ok response but the \_rxid is going to look a bit different. As there was not a crash submitted it will not send a new unique id. This time it is actually sending the id attribute/Error identifier within the debug view used to identify the specific crash report.
+```
 
-## Listener layer
+The response should tell you that the file was attached to the specified object within your Backtrace project. You will still get the 200/ok response, but the `_rxid` will look slightly different. As no crash was submitted, it will not send a new unique id. This time it sends the `id` attribute/Error identifier within the debug view used to identify the specific crash report.
 
-It is also possible to submit directly to the listener on your instance. First step is to ensure that a listener exists for submitting crash data. Look for listeners with the http/writerlabel. Listener settings are found under the Configuration Organization menu item.
+## Listener Layer
 
-In the above example, if the server is hosted at testing.company.com, then we are able to submit dump files to either http://testing.company.com:6097/post?format=minidump&token=<abcdef0123456789> or https://testing.company.com:6098/post?format=minidump&token=<abcdef0123456789>. These are the first two entries in the above screenshot, with the http/writer labels.
+It is also possible to submit directly to the listener on your instance. The first step is ensuring a listener exists for submitting crash data. Look for listeners with the `http/writerlabel`. You can find Listener settings under the **Configuration Organization**.
+
+<img src={useBaseUrl('/img/error-reporting/minidump/listener_02.png')} alt="listeners"/>
+
+In the above example, if the server is hosted at `testing.company.com`, then we can submit dump files to either `http://testing.company.com:6097/post?format=minidump&token=<abcdef0123456789>` or `https://testing.company.com:6098/post?format=minidump&token=<abcdef0123456789>`. These are the first two entries in the above screenshot, with the `http/writer` labels.
