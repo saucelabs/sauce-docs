@@ -116,7 +116,7 @@ curl -v --data-binary "upload_file=@<your_file_path>/test.json" -H "Expect:" -H 
 A suitably formatted upload submission should return a response like this:
 
 ```json
-{"response":"ok","\_rxid":"ce000000-0000-0000-0000-000000000000","attachment_name": "test.json","attachment_id": "28","object":"ce"}
+{"response":"ok","_rxid":"ce000000-0000-0000-0000-000000000000","attachment_name": "test.json","attachment_id": "28","object":"ce"}
 ```
 
 The response should tell you that the file was attached to the specified object in your Backtrace project. You will still get the 200/ok response, but the `_rxid` will look slightly different. As no crash was submitted, it will not send a new unique id. This time it sends the `id` attribute/Error identifier in the debug view used to identify the specific crash report.
@@ -127,4 +127,4 @@ It is also possible to submit directly to the listener on your instance. The fir
 
 <img src={useBaseUrl('/img/error-reporting/minidump/listener_02.png')} alt="listeners"/>
 
-In the above example, if the server is hosted at `testing.company.com`, then we can submit dump files to either `http://testing.company.com:6097/post?format=minidump&token=<abcdef0123456789>` or `https://testing.company.com:6098/post?format=minidump&token=<abcdef0123456789>`. These are the first two entries in the above screenshot, with the `http/writer` labels.
+In the above example, if the server is hosted at `testing.company.com`, then we can submit dump files to either `http://testing.company.com:6097/post?format=minidump&token=<abcdef0123456789>` or `https://testing.company.com:6098/post?format=minidump&token=<abcdef0123456789>`. They are the first two entries in the above screenshot, with the `http/writer` labels.
