@@ -19,20 +19,20 @@ const items = [
     </div>,
     <div className='quickstart' onDragStart={handleDragStart}>
         <a
-            href='/web-apps/automated-testing/cypress/quickstart/'
-            target='_self'
-        >
-            <img src='img/quickstart/cypress.svg' alt='Cypress Logo' />
-            <h3>Cypress</h3>
-        </a>
-    </div>,
-    <div className='quickstart' onDragStart={handleDragStart}>
-        <a
             href='/web-apps/automated-testing/selenium/quickstart/'
             target='_self'
         >
             <img src='img/quickstart/selenium.svg' alt='Selenium Logo' />
             <h3>Selenium</h3>
+        </a>
+    </div>,
+    <div className='quickstart' onDragStart={handleDragStart}>
+        <a
+            href='/mobile-apps/automated-testing/espresso-xcuitest/'
+            target='_self'
+        >
+            <img src='img/quickstart/espresso.png' alt='Espresso Logo' />
+            <h3>Espresso</h3>
         </a>
     </div>,
     <div className='quickstart' onDragStart={handleDragStart}>
@@ -46,11 +46,20 @@ const items = [
     </div>,
     <div className='quickstart' onDragStart={handleDragStart}>
         <a
-            href='/mobile-apps/automated-testing/espresso-xcuitest/'
+            href='/web-apps/automated-testing/cypress/quickstart/'
             target='_self'
         >
-            <img src='img/quickstart/espresso.png' alt='Espresso Logo' />
-            <h3>Espresso</h3>
+            <img src='img/quickstart/cypress.svg' alt='Cypress Logo' />
+            <h3>Cypress</h3>
+        </a>
+    </div>,
+    <div className='quickstart' onDragStart={handleDragStart}>
+        <a
+            href='/web-apps/automated-testing/testcafe/quickstart/'
+            target='_self'
+        >
+            <img src='img/quickstart/testcafe.svg' alt='TestCafe Logo' />
+            <h3>TestCafe</h3>
         </a>
     </div>,
     <div className='quickstart' onDragStart={handleDragStart}>
@@ -67,7 +76,7 @@ const items = [
 const responsive = {
     0: { items: 1 },
     568: { items: 3 },
-    1024: { items: 5 },
+    1024: { items: 4 },
 };
 
 const Carousel = () => {

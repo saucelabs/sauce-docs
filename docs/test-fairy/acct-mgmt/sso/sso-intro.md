@@ -8,12 +8,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Single Sign-on enables you to manage users and testers outside of TestFairy.
-TestFairy supports SAML and is fully compatible with Okta, OneLogin, Ping, Oracle, IBM, and Azure ADFS.
+Single Sign-on (SSO) enables you to manage users and testers outside of TestFairy, providing enhanced security and a streamlined user experience. With TestFairy's SAML support, you can seamlessly integrate with popular SSO providers such as Okta, OneLogin, Ping, Oracle, IBM, and Azure ADFS.
 
-When SSO is configured into your account, the login page is replaced with the login with an SSO button.
 
-You can create integrations with several SAML/SSO providers:
+
+
+## Integrating TestFairy
+
+To integrate TestFairy with your preferred SAML/SSO provider, refer to our integration guides for each supported provider below. These guides provide detailed instructions on configuring TestFairy with Okta, OneLogin, Ping, Oracle, IBM, and Azure ADFS, respectively :
 
 |                                                                                                                    |                                                           |
 | :----------------------------------------------------------------------------------------------------------------: | --------------------------------------------------------- |
@@ -22,3 +24,6 @@ You can create integrations with several SAML/SSO providers:
 | <img src={useBaseUrl('/img/test-fairy/acct-mgmt/azure-logo.png')} alt="Azure active directory logo" width="200" /> | [Azure Active Directory](/test-fairy/acct-mgmt/sso/azure) |
 |    <img src={useBaseUrl('/img/test-fairy/acct-mgmt/google-apps-logo.png')} alt="google apps logo" width="200"/>    | [Google Apps](/test-fairy/acct-mgmt/sso/google)           |
 |  <img src={useBaseUrl('/img/test-fairy/acct-mgmt/pingidentity-logo.png')} alt="pingidentity logo" width="100" />   | [Ping Identity](/test-fairy/acct-mgmt/sso/ping-id)        |
+
+
+Once SSO is properly configured, the TestFairy login page will be replaced with a **Login with SSO** button. This button serves as the entry point to authenticate via your SSO provider and gain access to TestFairy.
