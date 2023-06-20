@@ -137,8 +137,8 @@ The launch of Sauce Connect 4.9.1 makes it the officially supported version of t
    <td colspan="4" ><strong>Full Support</strong>
    </td>
   </tr>
-    <tr>
-   <td rowspan="2" >4.9
+  <tr>
+   <td rowspan="1" >4.9
    </td>
    <td>4.9.1
    </td>
@@ -154,7 +154,18 @@ The launch of Sauce Connect 4.9.1 makes it the officially supported version of t
    <td colspan="4" ><strong>Security & Major Bug Fixes only</strong>
    </td>
   </tr>
-    <tr>
+  <tr>
+   <td>4.9
+   </td>
+   <td>4.9.0
+   </td>
+   <td>
+    <a href="https://saucelabs.com/downloads/sc-4.9.0-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.9.0-linux-arm64.tar.gz">Linux ARM64</a>, <a href="https://saucelabs.com/downloads/sc-4.9.0-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.9.0-win32.zip">Windows</a>
+   </td>
+   <td rowspan="3" >Feb. 29, 2024
+   </td>
+  </tr>
+  <tr>
    <td rowspan="3" >4.8
    </td>
    <td>4.8.2
