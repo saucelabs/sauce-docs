@@ -162,7 +162,7 @@ The launch of Sauce Connect 4.9.1 makes it the officially supported version of t
    <td>
     <a href="https://saucelabs.com/downloads/sc-4.9.0-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.9.0-linux-arm64.tar.gz">Linux ARM64</a>, <a href="https://saucelabs.com/downloads/sc-4.9.0-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.9.0-win32.zip">Windows</a>
    </td>
-   <td rowspan="3" >Feb. 29, 2024
+   <td>Feb. 29, 2024
    </td>
   </tr>
   <tr>
