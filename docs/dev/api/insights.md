@@ -2881,6 +2881,12 @@ Return an array of test cases (grouped by name) with statistical details.
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>device_group</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If <code>source</code> is <code>rdc</code>, return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
+    </tr>
+  </tbody>
 </table>
 
 <Tabs
@@ -3091,6 +3097,12 @@ Return an array of test cases (grouped by name) with statistical details as a CS
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>device_group</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If <code>source</code> is <code>rdc</code>, return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
+    </tr>
+  </tbody>
 </table>
 
 <Tabs
@@ -3263,6 +3275,12 @@ Return an array of test cases (grouped by name) with statistical details.
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>device_group</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If <code>source</code> is <code>rdc</code>, return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
+    </tr>
+  </tbody>
 </table>
 
 <Tabs
@@ -3432,6 +3450,12 @@ Return a histogram with test statistic details grouped by specific period.
     <tr>
      <td><code>automation_backend</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device_group</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If <code>source</code> is <code>rdc</code>, return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
     </tr>
   </tbody>
 </table>
@@ -4350,6 +4374,12 @@ Return an array of buckets with aggregations, such as number of tests run on a s
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>device_group</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If <code>source</code> is <code>rdc</code>, return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
+    </tr>
+  </tbody>
 </table>
 
 <Tabs
@@ -4947,6 +4977,12 @@ Return statistics for errors that occurred in tests run in the specified period.
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>device_group</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If <code>source</code> is <code>rdc</code>, return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
+    </tr>
+  </tbody>
 </table>
 
 <Tabs
@@ -5346,6 +5382,12 @@ Return information about builds and tests run included in the build. Also, it pr
     <tr>
      <td><code>automation_backend</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device_group</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If <code>source</code> is <code>rdc</code>, return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
     </tr>
   </tbody>
 </table>
