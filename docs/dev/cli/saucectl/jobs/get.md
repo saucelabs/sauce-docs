@@ -4,8 +4,6 @@ title: saucectl jobs get
 sidebar_label: saucectl jobs get
 ---
 
-## Description
-
 Get job details from Sauce Labs.
 
 ## Usage
