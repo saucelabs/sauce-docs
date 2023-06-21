@@ -24,8 +24,9 @@ Here are some benefits/use cases:
    $ docker pull saucelabs/sauce-connect:4.8.0
    ```
     <details><summary>Supported tags</summary>
+      - 4.9.1, 4.9.1-ubuntu-22.04, 4.9.1-alpine-glibc, latest<br/>
       - 4.9.0, 4.9.0-ubuntu-22.04, 4.9.0-alpine-glibc<br/>
-      - 4.8.2, 4.8.2-ubuntu-22.04, 4.8.2-alpine-glibc, latest<br/>
+      - 4.8.2, 4.8.2-ubuntu-22.04, 4.8.2-alpine-glibc<br/>
       - 4.8.1, 4.8.1-ubuntu-22.04, 4.8.1-alpine-glibc<br/>
       - 4.8.0, 4.8.0-alpine-glibc<br/>
       - 4.7.1, 4.7.1-alpine-glibc<br/>
@@ -70,7 +71,7 @@ $ docker run \
     --env-file /tmp/sc.env \
     --network="host" \
     -v /tmp:/tmp \
-    -t saucelabs/sauce-connect:4.9.0
+    -t saucelabs/sauce-connect:4.9.1
 ```
 
 ## Running the Sauce Connect Docker Container with a CI/CD Pipeline
