@@ -4,7 +4,6 @@ title: saucectl configure list
 sidebar_label: saucectl configure list
 ---
 
-## Description
 
 Display the origin of the credentials, which can be collected from environment variables or a configuration file.
 
