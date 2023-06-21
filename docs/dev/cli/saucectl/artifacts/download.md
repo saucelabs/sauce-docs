@@ -4,8 +4,6 @@ title: saucectl artifacts download
 sidebar_label: saucectl artifacts download
 ---
 
-## Description
-
 Downloads artifacts for a job from Sauce Labs.
 
 ## Usage
