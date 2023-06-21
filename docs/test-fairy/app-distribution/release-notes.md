@@ -8,12 +8,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-You can update release notes:
+Release notes provide important information about app updates or new builds to users and stakeholders. You can update release notes using various methods, depending on your preferred workflow and tools. Here are the available options:
 
-- [During upload](#during-upload)
-- [In build settings](#in-build-settings)
+- [During Upload](#during-upload)
+- [In Build Settings](#in-build-settings)
 - [Via Upload API](#via-upload-api)
 - [Using Jenkins](#using-jenkins)
+- [Stylizing Release Notes](#stylizing-release-notes)
 
 ## During Upload
 
@@ -29,7 +30,7 @@ After an app or new build is uploaded, open the build settings and modify the re
 
 ## Via Upload API
 
-The recommended way to upload apps is to use the upload API (see [Upload API](/test-fairy/api-reference/upload-api) for more information).
+The recommended method for uploading apps is through the upload API.  (see [Upload API](/test-fairy/api-reference/upload-api) for more information).
 
 To add release notes, use the `comment` field.
 
@@ -57,4 +58,4 @@ The content of this file overrides the default changelog.
 
 ## Stylizing Release Notes
 
-Builds can include Markdown in the release notes and in the app description that appears in email invitations, landing pages, and testers' dashboard tooltips.
+You can use Markdown syntax to stylize the release notes and the app description. Markdown is supported in the release notes section, as well as in the app description displayed in email invitations, landing pages, and testers' dashboard tooltips.
