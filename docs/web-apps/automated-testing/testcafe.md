@@ -34,7 +34,23 @@ Sauce Labs supports the following test configurations for TestCafe:
   </tr>
   <tbody>
     <tr>
-      <td rowspan='3'>2.5.5</td>
+      <td rowspan='3'>2.6.2</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
+      <td rowspan='3'>June 16, 2024</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.5, 15.4, 16.0, 16.1</td>
+      <td>Safari</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='3'>2.5.0</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td>Safari, Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='3'>May 11, 2024</td>
@@ -134,22 +150,6 @@ Sauce Labs supports the following test configurations for TestCafe:
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td>Safari, Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='3'>Jul 29, 2023</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-    </tr>
-    <tr>
-      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-      <td>Safari</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='3'>1.19.0</td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='3'>Jun 6, 2023</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>
