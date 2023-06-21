@@ -4,8 +4,6 @@ title: 'Virtual USB CLI: Connect to Existing Session'
 sidebar_label: Connect to Session
 ---
 
-## Description
-
 Connect to an existing Virtual USB (vUSB) session in lieu of launching a new vUSB session.
 
 ## Usage
