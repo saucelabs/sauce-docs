@@ -209,7 +209,7 @@ Usernames for new accounts provisioned via SSO are generated according to the fo
 sso-<USERNAME_FROM_EMAIL_ADDRESS>-<EMAIL_HASH>
 ```
 
-For example, if a new user has an email address `johndoe@example.com`, their generated username would be:
+For example, if a new user has `johndoe@example.com` as their email address, their generated username would be:
 
 ```
 sso-johndoe-4a74a9a
