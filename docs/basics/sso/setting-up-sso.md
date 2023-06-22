@@ -215,7 +215,7 @@ For example, if a new user has `johndoe@example.com` as their email address, the
 sso-johndoe-4a74a9a
 ```
 
-The inclusion of a random suffix is essential to guarantee the uniqueness of usernames in the Sauce Labs database.
+Including a random suffix is essential to guarantee the uniqueness of usernames in the Sauce Labs database.
 
 ## Unsupported features
 
