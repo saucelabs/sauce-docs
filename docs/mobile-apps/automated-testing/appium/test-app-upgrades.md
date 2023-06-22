@@ -133,7 +133,7 @@ By default, Appium will not automatically launch the app after a mid-session ins
 - **iOS:** `mobile: launchApp`
 - **Android:** `mobile: startActivity`
 
-For clarity, we added two extra text lines in the Appium Commands list in the Sauce Labs UI to indicate that the app has been installed and needs to be launched manually. You will also see that that the command `GET /timeouts` is called. This is a "heartbeat" to keep the session alive when installing the app takes longer than the default timeout of 60 seconds. It will ensure that the Appium session will not timeout before the app is installed and is set to a maximum of 5 minutes.
+We added two extra text lines in the Appium Commands list in the Sauce Labs UI to indicate that the app has been installed and needs to be launched manually. Additionally, you will notice the execution of the command `GET /timeouts`. This command acts as a "heartbeat" to keep the session active when installation takes longer than the default timeout of 60 seconds.  By setting a maximum timeout of 5 minutes, the Appium session will remain active until the app is successfully installed, ensuring that it doesn't expire prematurely. 
 
 <img src={useBaseUrl('img/mobile-apps/appium-mid-session-logs.jpg')} alt="Mid session install logs" width="800" />
 
