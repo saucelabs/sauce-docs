@@ -4,8 +4,6 @@ title: saucectl init
 sidebar_label: saucectl init
 ---
 
-## Description
-
 Generate a configuration file for use in running tests through `saucectl`.
 
 ## Usage

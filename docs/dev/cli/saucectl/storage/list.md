@@ -4,8 +4,6 @@ title: saucectl storage list
 sidebar_label: saucectl storage list
 ---
 
-## Description
-
 Returns the list of files that have been uploaded to Sauce Storage.
 
 ## Usage

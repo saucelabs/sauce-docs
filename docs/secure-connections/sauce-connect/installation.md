@@ -33,36 +33,36 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
 <td>Linux
   </td>
    <td>
- <a href="https://saucelabs.com/downloads/sc-4.9.0-linux.tar.gz">https://saucelabs.com/downloads/sc-4.9.0-linux.tar.gz</a>
+ <a href="https://saucelabs.com/downloads/sc-4.9.1-linux.tar.gz">https://saucelabs.com/downloads/sc-4.9.1-linux.tar.gz</a>
   </td>
-  <td><small>f263177c700ebc29a0c5772a04e9b04bc1487c91</small>
+  <td><small>9310bc860f7870a1f872b11c4dc6073a1ad34e5e</small>
   </td>
  </tr>
    <tr>
 <td>Linux ARM64
   </td>
    <td>
- <a href="https://saucelabs.com/downloads/sc-4.9.0-linux-arm64.tar.gz">https://saucelabs.com/downloads/sc-4.9.0-linux-arm64.tar.gz</a>
+ <a href="https://saucelabs.com/downloads/sc-4.9.1-linux-arm64.tar.gz">https://saucelabs.com/downloads/sc-4.9.1-linux-arm64.tar.gz</a>
   </td>
-  <td><small>04f697d585bdc7d95d7663dea52f5b895628b0ba</small>
+  <td><small>535e6c9edcc0ca94cac7c9f800f910dcea808cbf</small>
   </td>
  </tr>
  <tr>
   <td>macOS
   </td>
   <td>
- <a href="https://saucelabs.com/downloads/sc-4.9.0-osx.zip">https://saucelabs.com/downloads/sc-4.9.0-osx.zip</a>
+ <a href="https://saucelabs.com/downloads/sc-4.9.1-osx.zip">https://saucelabs.com/downloads/sc-4.9.1-osx.zip</a>
   </td>
-  <td><small>f3080fbd76a3847c9c19dae6131f93a1c3abb008</small>
+  <td><small>64f9c1bac5d4f5b9acb6fbb629b6df0f5671b4c8</small>
   </td>
   </tr>
  <tr>
 <td>Windows
     </td>
   <td>
-   <a href="https://saucelabs.com/downloads/sc-4.9.0-win32.zip">https://saucelabs.com/downloads/sc-4.9.0-win32.zip</a>
+   <a href="https://saucelabs.com/downloads/sc-4.9.1-win32.zip">https://saucelabs.com/downloads/sc-4.9.1-win32.zip</a>
   </td>
-  <td><small>fe35f66126ddd6e8d043790906206c2999d69f1a</small>
+  <td><small>63858695eb6840306921607a97af0083c0697bf3</small>
   </td>
  </tr>
  </table>
@@ -74,8 +74,8 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
 #### Sauce Connect folder contents
 
 ```bash
-$ tree sc-4.9.0-osx/
-  sc-4.9.0-osx/
+$ tree sc-4.9.1-osx/
+  sc-4.9.1-osx/
   ├── COPYRIGHT.md
   ├── bin
   │   └── sc
@@ -113,14 +113,14 @@ $ tree sc-4.9.0-osx/
 
 ```bash
 cd $HOME
-curl -LO https://saucelabs.com/downloads/sc-4.9.0-linux.tar.gz
-tar xvf ./sc-4.9.0-linux.tar.gz
-export PATH="$HOME/sc-4.9.0-linux/bin:$PATH"
+curl -LO https://saucelabs.com/downloads/sc-4.9.1-linux.tar.gz
+tar xvf ./sc-4.9.1-linux.tar.gz
+export PATH="$HOME/sc-4.9.1-linux/bin:$PATH"
 ```
 
 ### Version Lifecycle Information
 
-The launch of Sauce Connect 4.9.0 makes it the officially supported version of the Sauce Connect client. All previous versions are in maintenance mode, with the oldest versions nearing the end of their support life.
+The launch of Sauce Connect 4.9.1 makes it the officially supported version of the Sauce Connect client. All previous versions are in maintenance mode, with the oldest versions nearing the end of their support life.
 
 <table>
   <tr>
@@ -137,10 +137,10 @@ The launch of Sauce Connect 4.9.0 makes it the officially supported version of t
    <td colspan="4" ><strong>Full Support</strong>
    </td>
   </tr>
-    <tr>
-   <td rowspan="2" >4.9
+  <tr>
+   <td rowspan="1" >4.9
    </td>
-   <td>4.9.0
+   <td>4.9.1
    </td>
    <td>
     <a href="#downloading-sauce-connect-proxy">See latest version</a>
@@ -154,7 +154,18 @@ The launch of Sauce Connect 4.9.0 makes it the officially supported version of t
    <td colspan="4" ><strong>Security & Major Bug Fixes only</strong>
    </td>
   </tr>
-    <tr>
+  <tr>
+   <td>4.9
+   </td>
+   <td>4.9.0
+   </td>
+   <td>
+    <a href="https://saucelabs.com/downloads/sc-4.9.0-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.9.0-linux-arm64.tar.gz">Linux ARM64</a>, <a href="https://saucelabs.com/downloads/sc-4.9.0-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.9.0-win32.zip">Windows</a>
+   </td>
+   <td>Feb. 29, 2024
+   </td>
+  </tr>
+  <tr>
    <td rowspan="3" >4.8
    </td>
    <td>4.8.2

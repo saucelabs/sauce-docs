@@ -81,14 +81,14 @@ tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
   <TabItem value="Mac/Linux">
 
 ```bash
-cd sc-4.9.0-osx
+cd sc-4.9.1-osx
 ```
 
   </TabItem>
   <TabItem value="Windows">
 
 ```bash
-cd C:\sc-4.9.0-win32
+cd C:\sc-4.9.1-win32
 ```
 
   </TabItem>

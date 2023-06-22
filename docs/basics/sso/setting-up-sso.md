@@ -108,7 +108,16 @@ The value of the attribute NameID in SAML Response must be **a valid email addre
 
 Sauce Labs Service Provider does not require any extra attributes in the SAML Response.
 
-### Certificate rotation
+### Identity Provider Certificate Rotation
+
+SAML certificates have a predetermined expiration date. It is possible that your identity provider will notify you in advance or provide an alert regarding the certificate's expiry.
+
+If the certificate for the Sauce Labs app from your identity provider is nearing expiration or has already expired, follow these steps:
+
+1. Generate a new certificate for the Sauce Labs app within your identity provider. This new certificate will replace the expired one and will be reflected in the identity provider metadata.
+2. Export or copy the updated metadata file from your identity provider, then upload it to Sauce Labs. For information on how to upload the metadata file, see [Integrating With Sauce Labs Service Provider](/basics/sso/setting-up-sso/#integrating-with-sauce-labs-service-provider).
+
+### Sauce Labs Certificate Rotation
 
 :::note
 This section is relevant only for identity providers that enabled encryption of SAML Assertions.
@@ -116,7 +125,15 @@ This section is relevant only for identity providers that enabled encryption of 
 
 If you enabled encryption of SAML Assertions in your IdP, you must upload the certificate that is provided in Sauce Labs [metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp).
 
-The certificate is valid for one year. **120 days** before the expiration date the new certificate will be available in Sauce Labs [metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp). Upload the new certificate in your IdP.
+The certificate is valid for one year. **120 days** before the expiration date the new certificate will be available in Sauce Labs [metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp).
+
+During the rotation period, the Sauce Labs metadata contains two valid certificates. If you are unsure which certificate to upload, copy the content of the `<ds:X509Certificate>` tag and paste it into a [certificate decoder](https://www.sslshopper.com/certificate-decoder.html). Then, select the certificate that has a longer validity period.
+
+To convert the certificate from the metadata into the PEM format required by most identity providers, you can use the [online tool provided by OneLogin](https://www.samltool.com/format_x509cert.php). Follow these steps:
+
+1. Copy the content of the `<ds:X509Certificate>` tag, paste it into the **X.509 cert** text box, then click **FORMAT X.509 CERTIFICATE**.
+2. Copy the content of the **X.509 cert with header** textbox and save it in a text file, for example `saucelabs-sso.pem`.
+3. Upload the new certificate in your IdP.
 
 If you encounter any issues during the certificate rotation, you can safely go back to the old certificate (until the expiration date). Both certificates will work.
 
@@ -183,6 +200,22 @@ Make sure that you assign your [company email domains](/basics/sso/setting-up-ss
 Users who are created via SSO are placed into the default team.
 
 Organization admins can [assign users to other teams](/basics/acct-team-mgmt/assigning-removing-users-teams).
+
+#### Usernames
+
+Usernames for new accounts provisioned via SSO are generated according to the following pattern:
+
+```
+sso-<USERNAME_FROM_EMAIL_ADDRESS>-<EMAIL_HASH>
+```
+
+For example, if a new user has `johndoe@example.com` as their email address, their generated username would be:
+
+```
+sso-johndoe-4a74a9a
+```
+
+Including a random suffix is essential to guarantee the uniqueness of usernames in the Sauce Labs database.
 
 ## Unsupported features
 
