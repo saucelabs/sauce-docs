@@ -4,8 +4,6 @@ title: 'Virtual USB CLI: Start Test Session'
 sidebar_label: Start Session
 ---
 
-### Description
-
 [Launch a Virtual USB (vUSB) session](/mobile-apps/features/virtual-usb#start-test-session) between your local machine and a Sauce Labs device. Alternatively, you can [connect to an existing vUSB session](/dev/cli/virtual-usb/connect-session).
 
 ## Usage

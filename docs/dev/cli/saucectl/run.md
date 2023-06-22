@@ -4,8 +4,6 @@ title: saucectl run
 sidebar_label: saucectl run
 ---
 
-## Description
-
 Execute framework-agnostic tests using the [`saucectl`](/dev/cli/saucectl) test orchestrator.
 
 ## Usage
