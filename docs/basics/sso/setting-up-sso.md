@@ -201,6 +201,22 @@ Users who are created via SSO are placed into the default team.
 
 Organization admins can [assign users to other teams](/basics/acct-team-mgmt/assigning-removing-users-teams).
 
+#### Usernames
+
+Usernames for new accounts provisioned via SSO are generated according to the following pattern:
+
+```
+sso-<USERNAME_FROM_EMAIL_ADDRESS>-<EMAIL_HASH>
+```
+
+For example, if a new user has an email address `johndoe@example.com`, their generated username would be:
+
+```
+sso-johndoe-4a74a9a
+```
+
+The inclusion of a random suffix is essential to guarantee the uniqueness of usernames in the Sauce Labs database.
+
 ## Unsupported features
 
 The following SSO-related features are currently not supported:
