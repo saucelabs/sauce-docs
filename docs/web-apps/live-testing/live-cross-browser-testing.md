@@ -35,6 +35,12 @@ You can run live tests of your websites on a wide variety of operating system, b
 8. Click **Start Test**.
    A loading screen appears, and then the app launces in a live test window using the configuration you selected.
 
+:::caution
+
+If you have issues starting Live tests, check your IT infrastructure and make sure you are not blocking WebSockets.
+
+:::
+
 <img src={useBaseUrl('img/live-testing/desktop-test-running.png')} alt="Desktop test running" width="650"/>
 
 9. Once your session launches, you can use your mouse cursor and keyboard to interact with the website under test.
@@ -65,7 +71,7 @@ Know if your app is designed to run on internal or otherwise restricted networks
 
 ### Real Device
 
-1. On Sauce Labs, in the left panel, click **Live*, and then click **Cross Browser**.
+1. On Sauce Labs, in the left panel, click **Live\*, and then click **Cross Browser\*\*.
 2. Click the **Mobile Real** tab.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-real-nav.png')} alt="Live mobile real device test navigation" width="650"/>
