@@ -735,6 +735,7 @@ Filtering relies on the value that are set for `grep` and `grepInvert`.
 suites:
   - name: "I am sharded"
     shard: spec
+    shardGrepEnabled: true
     params:
       grep: "@smoke"
       grepInvert: "@slow"
