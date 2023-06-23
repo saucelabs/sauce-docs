@@ -880,7 +880,6 @@ module.exports = {
                                 'test-fairy/acct-mgmt/sso/okta',
                                 'test-fairy/acct-mgmt/sso/onelogin',
                                 'test-fairy/acct-mgmt/sso/ping-id',
-                                
                             ],
                         },
                     ],
@@ -894,7 +893,6 @@ module.exports = {
                         'test-fairy/security/gdpr',
                         'test-fairy/security/hiding-data',
                         'test-fairy/security/private-cloud-int',
-
                     ],
                 },
                 {
@@ -1396,7 +1394,6 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'visual/e2e-testing/integrations/continuous-integration',
-                                'visual/e2e-testing/integrations/slack',
                                 'visual/e2e-testing/integrations/webhooks',
                             ],
                         },
