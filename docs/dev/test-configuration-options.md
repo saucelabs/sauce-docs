@@ -337,7 +337,6 @@ Sets command timeout in seconds. As a safety measure to prevent Selenium crashes
 
 <p><small>| OPTIONAL | DURATION | INTEGER | <span className="sauceGreen">Desktop Only</span> | </small></p>
 
-
 Sets idle test timeout in seconds. As a safety measure to prevent tests from running too long after something has gone wrong, we limit how long a browser can wait for a test to send a new command. This is set to 90 seconds by default and limited to a maximum value of 1000 seconds.
 
 ```java
@@ -1760,6 +1759,22 @@ MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.setCapability("recordScreenshots", false);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `captureHtml`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+In the same way Sauce Labs captures step-by-step screenshots, we can capture the HTML source at each step of the test. This feature is disabled by default, but you can turn it on any time and find the HTML source captures on you test result page.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("captureHtml", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
