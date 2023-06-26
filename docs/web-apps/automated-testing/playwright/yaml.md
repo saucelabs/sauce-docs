@@ -714,6 +714,34 @@ The `numShards` and `shard` properties are mutually exclusive within each suite.
 
 ---
 
+---
+
+### `shardGrepEnabled`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When sharding is configured and used in conjunction with `grep`/`grepInvert`, some spec files may be allocated to VMs, just to be skipped by Playwright in accordance with the `grep`/`grepInvert` filters, thus wasting VM allocations.
+
+With `shardGrepEnabled: true`, saucectl will ensure that every spec to be allocated contains at least one test matching the `grep`/`grepInvert` filters.
+
+:::tip
+Filtering relies on the value set for `grep` and `grepInvert`.
+
+- `grep` to match with test name or filename.
+- `grepInvert` to exclude any match with name or filename.
+:::
+
+```yaml
+suites:
+  - name: "I am sharded"
+    shard: spec
+    shardGrepEnabled: true
+    params:
+      grep: "@smoke"
+      grepInvert: "@slow"
+```
+
+
 ### `params`
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
