@@ -23,11 +23,11 @@ You can change the layout of the **Archive** page by changing which columns are 
 1. On the **Archive** page, click **Show Columns**.
 2. Select or deselect the columns you want to display.
 
-<img src={useBaseUrl('img/test-results/test-results-archive-columns.png')} alt="Archive page columns" width="400"/>
+<img src={useBaseUrl('img/test-results/test-results-archive-columns-updated.png')} alt="Archive page columns" width="400"/>
 
 3. Click **Sort By** to change the display of your results based on search score or ascending or descending dates.
 
-<img src={useBaseUrl('img/test-results/test-results-archive-sort.png')} alt="Archive page sorting" width="350"/>
+<img src={useBaseUrl('img/test-results/test-results-archive-sort-updated.png')} alt="Archive page sorting" width="350"/>
 
 Your layout changes will be saved until you change them again.
 
@@ -37,7 +37,7 @@ The **Archives** page includes a number of filters you can use to search through
 
 1. In Sauce Labs, in the left panel, click **AUTOMATED** and then click **Archive**.
 
-<img src={useBaseUrl('img/test-results/test-results-archive-nav.png')} alt="Test results archive navigation" width="650"/>
+<img src={useBaseUrl('img/test-results/test-results-archive-nav-updated.png')} alt="Test results archive navigation" width="650"/>
 
 2. On the **Archive** page, click the **Virtual Cloud** or **Real Devices** radio button to view the relevant device results.
 
@@ -84,11 +84,11 @@ If you've created a search that you want to use in the future, you can save it b
 
 1. After you've built your search from the filters or written it in the **Search** text field on the **Archive** page, click the star icon next to the text field to save it.
 
-<img src={useBaseUrl('img/test-results/test-results-archive-save.png')} alt="Test results archive - Save a search" width="650"/>
+<img src={useBaseUrl('img/test-results/test-results-archive-save-updated.png')} alt="Test results archive - Save a search" width="650"/>
 
 2. Click the expand icon next to the star to view your favorited searches. You can select a favorite search to run it, or remove it by clicking **Delete**.
 
-<img src={useBaseUrl('img/test-results/archive-saved-search.png')} alt="Saved archive search" width="650"/>
+<img src={useBaseUrl('img/test-results/archive-saved-search-updated.png')} alt="Saved archive search" width="650"/>
 
 ## Filters and Examples
 
