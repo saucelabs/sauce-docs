@@ -37,7 +37,7 @@ You can run live tests of your websites on a wide variety of operating system, b
 
 :::caution
 
-If you have issues starting Live tests, check your IT infrastructure and make sure you are not blocking WebSockets.
+If you have issues starting live tests, check your IT infrastructure and make sure you are not blocking WebSockets.
 
 :::
 
