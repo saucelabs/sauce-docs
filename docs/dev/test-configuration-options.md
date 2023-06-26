@@ -1768,7 +1768,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-In the same way Sauce Labs captures step-by-step screenshots, we can capture the HTML source at each step of the test. This feature is disabled by default, but you can turn it on any time and find the HTML source captures on you test result page.
+In the same way Sauce Labs captures step-by-step screenshots, you can capture the HTML source at each step of a test. This feature is disabled by default, but when it is enabled you can view the HTML source captures on the **Test Results** page.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
