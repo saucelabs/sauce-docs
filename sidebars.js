@@ -894,7 +894,6 @@ module.exports = {
                         'test-fairy/security/gdpr',
                         'test-fairy/security/hiding-data',
                         'test-fairy/security/private-cloud-int',
-
                     ],
                 },
                 {
@@ -1116,6 +1115,7 @@ module.exports = {
                                 'mobile-apps/automated-testing/appium/quickstart',
                                 'mobile-apps/automated-testing/appium/real-devices',
                                 'mobile-apps/automated-testing/appium/virtual-devices',
+                                'mobile-apps/automated-testing/appium/test-app-upgrades',
                                 'mobile-apps/automated-testing/appium/appium-flutter',
                             ],
                         },
@@ -1396,7 +1396,6 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'visual/e2e-testing/integrations/continuous-integration',
-                                'visual/e2e-testing/integrations/slack',
                                 'visual/e2e-testing/integrations/webhooks',
                             ],
                         },
