@@ -50,7 +50,7 @@ To view automated test results, follow these steps:
 
 ### Filtering and Searching Automated Test Results
 
-If you have set up your tests to report whether they have passed or failed, those results will be listed on the automated builds or automated test results page. Once the results have been logged to the page, you can filter the results and search by test name to narrow down the results.
+If you have set up your tests to report whether they have passed or failed, those results will be listed on the automated builds or automated test results page. After the results have been logged to the page, you can filter the results and search by test name to narrow down the results.
 
 <img src={useBaseUrl('img/test-results/test-results-auto-filters-updated.png')} alt="Automated test results filters" width="750"/>
 
@@ -111,7 +111,7 @@ The **Archive** page includes several filters you can use to search through your
 
 2. On the **Archive** page, select either **Virtual Cloud** or **Real Devices** to view the relevant device results.
 
-3. Click a filter and select an option from the dropdown or enter a term to search for.
+3. Click a filter and select an option from the dropdown list or enter a term to search for.
    <img src={useBaseUrl('img/test-results/test-results-archive-filter.png')} alt="Test results archive search filters" width="650"/>
 
 4. Click **Apply**.
@@ -124,9 +124,9 @@ Some filters include additional options and the ability to use special operators
 
 You have two options for creating structured searches.
 
-#### Building Structured Searches from Filters
+#### Building Structured Searches From Filters
 
-With this option, you select filters and filter criteria as you would for basic filtering. Each time you make a selection, it will be added to the Search field to build the query. Using this option, there is an implied AND between the filters you select and an implied OR between the values within a specific filter.
+With this option, you select filters and filter criteria as you would for basic filtering. Each time you make a selection, it will be added to the Search field to build the query. Using this option, there is an implied AND between the filters you select and an implied OR between the values in a specific filter.
 
 #### Writing Structured Searches
 
@@ -166,7 +166,7 @@ You can use these filters singly or in combination to search through the tests a
 | Filter   | Description                                                                                                                                                                                                                          | Example                                               |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
 | Date     | Search for tests that ran on a specific date or over a specified range. Dates should be in _YYYY-MM-DD_ format.                                                                                                                      | `date:[2014-05-05 TO 2015-05-05]`                     |
-| Status   | Search for tests based on their status. Currently, there are four possible states: `failed`, `passed`, `complete`, `error`                                                                                                           | `status: failed`                                      |
+| Status   | Search for tests based on their status. There are four possible states: `failed`, `passed`, `complete`, `error`                                                                                                           | `status: failed`                                      |
 | Build    | Search for tests that belong to a specific build.                                                                                                                                                                                    | `build:main and browser:"Internet Explorer 11"`       |
 | Tag      | Search for tests that have one or multiple tags.                                                                                                                                                                                     | `tag: Jenkins`                                        |
 | Platform | Search for tests that ran on one or multiple operating systems. See [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices) for more information.                                                | `platform:("OS X 10.10" "Windows 8.1")`               |
@@ -181,7 +181,7 @@ You can use these filters singly or in combination to search through the tests a
 | Filter | Description                                                                                                                                                                           | Example                                         |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
 | Date   | Search for tests that ran on a specific date or over a specified range. Dates should be in _YYYY-MM-DD_ format.                                                                       | `date:[2014-05-05 TO 2015-05-05]`               |
-| Status | Search for tests based on their status. Currently, there are four possible states: `failed`, `passed`, `complete`, `error`                                                            | `status: failed`                                |
+| Status | Search for tests based on their status. There are four possible states: `failed`, `passed`, `complete`, `error`                                                            | `status: failed`                                |
 | Builds | Search for tests that belong to a specific build.                                                                                                                                     | `build:main and browser:"Internet Explorer 11"` |
 | OS     | Search for tests that ran on one or multiple operating systems. See [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices) for more information. | `platform:("OS X 10.10" "Windows 8.1")`         |
 | Device | Search for tests that were run on a specific device.                                                                                                                                  | `device: "iPhone 8"`                            |
@@ -205,7 +205,7 @@ You can delete any tests or builds on your **Archive** page.
 3. In the confirmation dialog, click **Delete**.
 
 :::caution **Results are Permanently Deleted**
-Once you delete a test or build, it cannot be recovered. Be careful when you click **Yes**.
+After you delete a test or build, it cannot be recovered. Be careful when you click **Yes**.
 :::
 
 ## Screenshots, Commands, Logs, and Metadata
