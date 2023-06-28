@@ -71,7 +71,7 @@ Know if your app is designed to run on internal or otherwise restricted networks
 
 ### Real Device
 
-1. On Sauce Labs, in the left panel, click **Live\*, and then click **Cross Browser\*\*.
+1. On Sauce Labs, in the left panel, click **Live**, and then click **Cross Browser**.
 2. Click the **Mobile Real** tab.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-real-nav.png')} alt="Live mobile real device test navigation" width="650"/>
