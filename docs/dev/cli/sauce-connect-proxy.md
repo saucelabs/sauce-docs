@@ -243,17 +243,34 @@ You can specify a combination of several options. For example:
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">4.7.x</span> <span className="sauceGreen">4.8.x</span> <span className="sauceGreen">4.9.x</span> | </small></p>
 
-**Description**: Defines external proxy auto-configuration (PAC) URI. You can input `http(s)` or `local file://URL`. Absolute paths are required when specifying a local PAC file. `--pac` supports the standard file URL format (that is, file://auth-path/local-path). On Windows, the format looks like `file:///C:/path/to/file`. For more information, see [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).<br/>
+**Description**: Defines external proxy auto-configuration (PAC) URI. You can input `http(s)` or `local file://URL`. Absolute paths are required when specifying a local PAC file. `--pac` supports the standard file URL format (that is, file://auth-path/local-path, see below for differences between Mac/Linux and Windows). For more information, see [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).<br/>
 **Environment variable**: `SAUCE_PAC`<br/>
 **Shorthand**: n/a
 
-```bash On Windows
+<Tabs
+defaultValue="maclinux"
+values={[
+{label: 'Mac or Linux', value: 'maclinux'},
+{label: 'Windows', value: 'windows'},
+]}>
+
+<TabItem value="maclinux">
+
+```bash
+--pac file://Users/JohnSmith/Desktop/MyPac.pac
+```
+
+</TabItem>
+
+<TabItem value="windows">
+
+```bash
 --pac file:///Users/JohnSmith/Desktop/MyPac.pac
 ```
 
-```bash On Linux/Mac
---pac file://Users/JohnSmith/Desktop/MyPac.pac
-```
+</TabItem>
+</Tabs>
+
 ---
 
 ### `--pac-auth`
