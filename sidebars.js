@@ -586,7 +586,8 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'dev/cli/saucectl/init',
-                                'dev/cli/saucectl/configure',
+                                'dev/cli/saucectl/configure/configure',
+                                'dev/cli/saucectl/configure/list',
                                 'dev/cli/saucectl/run',
                                 'dev/cli/saucectl/completion',
                                 'dev/cli/saucectl/storage/download',
@@ -892,7 +893,6 @@ module.exports = {
                                 'test-fairy/acct-mgmt/sso/okta',
                                 'test-fairy/acct-mgmt/sso/onelogin',
                                 'test-fairy/acct-mgmt/sso/ping-id',
-                                
                             ],
                         },
                     ],
@@ -906,7 +906,6 @@ module.exports = {
                         'test-fairy/security/gdpr',
                         'test-fairy/security/hiding-data',
                         'test-fairy/security/private-cloud-int',
-
                     ],
                 },
                 {
@@ -1128,6 +1127,7 @@ module.exports = {
                                 'mobile-apps/automated-testing/appium/quickstart',
                                 'mobile-apps/automated-testing/appium/real-devices',
                                 'mobile-apps/automated-testing/appium/virtual-devices',
+                                'mobile-apps/automated-testing/appium/test-app-upgrades',
                                 'mobile-apps/automated-testing/appium/appium-flutter',
                             ],
                         },
@@ -1408,7 +1408,6 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'visual/e2e-testing/integrations/continuous-integration',
-                                'visual/e2e-testing/integrations/slack',
                                 'visual/e2e-testing/integrations/webhooks',
                             ],
                         },
