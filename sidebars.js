@@ -574,7 +574,8 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'dev/cli/saucectl/init',
-                                'dev/cli/saucectl/configure',
+                                'dev/cli/saucectl/configure/configure',
+                                'dev/cli/saucectl/configure/list',
                                 'dev/cli/saucectl/run',
                                 'dev/cli/saucectl/completion',
                                 'dev/cli/saucectl/storage/download',
