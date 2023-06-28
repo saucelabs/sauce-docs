@@ -265,7 +265,7 @@ values={[
 <TabItem value="windows">
 
 ```bash
---pac file:///Users/JohnSmith/Desktop/MyPac.pac
+--pac file:///C:/Users/JohnSmith/Desktop/MyPac.pac
 ```
 
 </TabItem>
