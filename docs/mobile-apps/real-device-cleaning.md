@@ -65,7 +65,7 @@ App allowlist:
 Account allowlist:
 
 With the account allowlist you will be able: 
-- Google accounts signed into the Play Store/Google Pay/In-App Purchase can be preserved between sessions:
+- Google accounts signed into the Play Store/Google Pay/In-App Purchase can be preserved between sessions.
 - Apple IDs signed into the device and App Store/TestFlight/Apple Pay/In-App Purchase can be preserved between sessions.
 
 System app allowlist:
