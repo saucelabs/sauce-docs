@@ -418,6 +418,18 @@ module.exports = {
                                 'error-reporting/platform-integrations/real-devices/setup',
                             ],
                         },
+                        {
+                            type: 'category',
+                            label: 'Minidump',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/platform-integrations/minidump/configuration',
+                                'error-reporting/platform-integrations/minidump/breakpad',
+                                'error-reporting/platform-integrations/minidump/crashpad',
+                                'error-reporting/platform-integrations/minidump/electron',
+                                'error-reporting/platform-integrations/minidump/http-submission',
+                            ],
+                        },
                     ],
                 },
                 {
