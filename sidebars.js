@@ -418,6 +418,18 @@ module.exports = {
                                 'error-reporting/platform-integrations/real-devices/setup',
                             ],
                         },
+                        {
+                            type: 'category',
+                            label: 'Minidump',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/platform-integrations/minidump/configuration',
+                                'error-reporting/platform-integrations/minidump/breakpad',
+                                'error-reporting/platform-integrations/minidump/crashpad',
+                                'error-reporting/platform-integrations/minidump/electron',
+                                'error-reporting/platform-integrations/minidump/http-submission',
+                            ],
+                        },
                     ],
                 },
                 {
@@ -574,7 +586,8 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'dev/cli/saucectl/init',
-                                'dev/cli/saucectl/configure',
+                                'dev/cli/saucectl/configure/configure',
+                                'dev/cli/saucectl/configure/list',
                                 'dev/cli/saucectl/run',
                                 'dev/cli/saucectl/completion',
                                 'dev/cli/saucectl/storage/download',
