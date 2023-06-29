@@ -8,9 +8,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This guide helps Visual Studio Team Services (VSTS) users to upload apps (_.apk/_.ipa) to TestFairy.
 
-Adding UploadToTestFairy (or any other task name) to your existing build:
+
+This guide provides instructions for Visual Studio Team Services (VSTS) users to upload their apps (_.apk/_.ipa) to [TestFairy](https://www.testfairy.com/). By following these steps, you can easily integrate [TestFairy](https://www.testfairy.com/) into your existing build process and streamline the app deployment and testing workflow.
+
+
+#### Adding UploadToTestFairy (or any other task name) to your existing build
 
 1. Go to **Edit Build Definitions**.
    <img src={useBaseUrl('/img/test-fairy/ci-tools/EditBuildDefinitions.png')} alt="edit build definitions"/>

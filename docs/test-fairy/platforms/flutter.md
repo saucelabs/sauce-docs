@@ -8,13 +8,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-If you are developing your app in Flutter, you can find the instructions to add the TestFairy sdk in this document.
+If you are developing your app in Flutter, follow the instructions in this document add the TestFairy sdk.
 
-## Installing
+## Installation
 
 Use this package as a library.
 
-### 1. Depend On It
+### Depend On It
 
 Add this to your package's `pubspec.yaml`.
 
@@ -23,7 +23,7 @@ dependencies:
   testfairy_flutter: any
 ```
 
-### 2. Install It
+### Install It
 
 You can install packages from the command line:
 
@@ -33,7 +33,7 @@ $ flutter packages get
 
 Alternatively, your editor might support Flutter packages get. Check the docs for your editor to learn more.
 
-### 3. Import It
+### Import It
 
 Now in your Dart code, you can use the following:
 
@@ -117,7 +117,7 @@ To use TestFairy with the latest **unstable** Flutter channel, you must clone th
 
 4. When there is a new update in this repository, delete **testfairy-flutter** and retry the steps.
 
-## Troubleshoot
+## Troubleshooting FAQ
 
 - **I see `warning: None of the architectures in ARCHS (x86_64) are valid` when I build an iOS app.**
 
