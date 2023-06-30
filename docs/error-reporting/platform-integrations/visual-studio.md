@@ -107,7 +107,7 @@ bool result = backtrace::initializeCrashpad();
 ## FAQ
 
 Q1: What happens if the user doesn't specify a `db_path` variable in the `CrashpadSetup.cpp`?<br/>
-A1: The Crashpad initialization code returns -1 (error), so Crashpad won't initialize.
+A1: The Crashpad initialization code returns `-1` (error), so Crashpad won't initialize.
 
 Q2: What is `_rxid` in the build window?<br/>
 A2: That is the result from a server when we upload archive with symbols.
