@@ -430,6 +430,7 @@ module.exports = {
                                 'error-reporting/platform-integrations/minidump/http-submission',
                             ],
                         },
+                        'error-reporting/platform-integrations/visual-studio',
                     ],
                 },
                 {
