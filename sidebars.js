@@ -436,6 +436,7 @@ module.exports = {
                             label: 'Coresnap',
                             collapsed: true,
                             items: [
+                                'error-reporting/platform-integrations/coresnap/setup',
                                 'error-reporting/platform-integrations/coresnap/integrating',
                             ],
                         },
