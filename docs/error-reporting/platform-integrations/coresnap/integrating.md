@@ -7,7 +7,7 @@ description: Integrating Backtrace for system-wide core dump analysis with Cores
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This section will guide you through integrating Backtrace for system-wide core dump analysis with Coresnap, our core dump aggregation service. Coresnap is lightweight and non-intrusive to applications when idle.
+This section guides you through integrating Backtrace for system-wide core dump analysis with Coresnap, our core dump aggregation service. Coresnap is lightweight and non-intrusive to applications when idle.
 
 Coresnap is the Backtrace service that automatically processes coredumps on the machine where it is installed. By default, Coresnap generates Backtrace snapshots from coredumps on the system and sends them to the object store. For those integrating via C/C++ applications, this is the recommended approach.
 
@@ -113,7 +113,7 @@ $ npm install backtrace-morgue -g
 
 Now, let's perform a basic test to ensure connectivity to the object store before proceeding.
 
-### Testing with Morgue
+### Testing With Morgue
 
 Login to the object store by issuing the following login command with the credentials provided by Backtrace:
 
@@ -123,7 +123,7 @@ Username: jdoe
 Password:
 ```
 
-Now, list the contents of the `blackhole` project. It should return an empty result set, like the example below:
+Now, list the contents of the `blackhole` project. It returns an empty result set, like the example below:
 
 ```bash
 $ morgue list blackhole
@@ -132,7 +132,7 @@ jdoe: yourcompany/blackhole as of 1M ago [384 us]
 
 #### Troubleshooting
 
-If you encounter any issues querying the object store with `morgue` at this point, ensure that your machine can communicate with `yourcompany.sp.backtrace.io` via the following TCP ports:
+If you encounter any issues querying the object store with `morgue`, ensure that your machine can communicate with `yourcompany.sp.backtrace.io` via the following TCP ports:
 
 - 443
 - 4097
@@ -145,9 +145,9 @@ Before proceeding, make sure to turn off any services that process coredumps or 
 
 ### Deploy Client Configuration
 
-Coresnap requires a copy of the coroner client configuration file (coroner.cf), which should be provided to you by a Backtrace representative. Place a copy of this file in `/usr/local/etc/coroner.cf`.
+Coresnap requires a copy of the coroner client configuration file (coroner.cf) provided to you by a Backtrace representative. Place a copy of this file in `/usr/local/etc/coroner.cf`.
 
-Note that this file will need to be updated for each new project token (see [Create Additional Projects](#create-additional-projects))
+This file needs to be updated for each new project token (see [Create Additional Projects](#create-additional-projects))
 
 ### Prepare Coresnap.conf
 
@@ -155,7 +155,7 @@ Copy the file `/opt/backtrace/etc/coresnap/coresnap.conf` to either `/usr/local/
 
 On FreeBSD, copy `/opt/backtrace/etc/coresnap/coresnap.conf.sample` to `/opt/backtrace/etc/coresnap/coresnap.conf` instead.
 
-Note that installing Coresnap does not create the paths `/usr/local/etc/coresnap/coresnap.conf` or `/etc/coresnap/coresnap.conf` - If they do not exist, you can create them manually.
+Installing Coresnap does not create the paths `/usr/local/etc/coresnap/coresnap.conf` or `/etc/coresnap/coresnap.conf` - If they do not exist, you can create them manually.
 
 ### Start and Test Coresnap
 
@@ -201,7 +201,7 @@ The first step in troubleshooting is to check the system log for messages from t
 $ cat /var/log/syslog | grep coresnap
 ```
 
-When Coresnap processes a snapshot successfully, you will see a series of log messages similar to the following:
+When Coresnap processes a snapshot successfully, you see a series of log messages similar to the following:
 
 ```bash
 Oct 6 17:49:06 mbreauxpc coresnap[27337]: Crash dump archived in /var/coresnap/archive/pending/a78771dc-b687-4e28-b885-8fa9ed43894d
@@ -217,7 +217,7 @@ Oct 6 17:49:07 mbreauxpc coresnap[847]: crash a78771dc-b687-4e28-b885-8fa9ed4389
 
 **If coresnap fails after the second step:**
 
-- Make a note of the error message that follows and attempt to manually run the full `ptrace` command listed after `Executing slave:` as the Coresnap user. This will help reveal any permissions issues with `ptrace` reading the coredump or generating the output file. You can also refer to the Troubleshooting Tools section below.
+- Note the following error message and attempt to manually run the full `ptrace` command listed after `Executing slave:` as the Coresnap user. This helps reveal permissions issues with `ptrace` reading the coredump or generating the output file. You can also refer to the Troubleshooting Tools section below.
 
 **If coresnap fails after the third step:**
 
@@ -334,7 +334,7 @@ Remember to restart coresnapd after making any changes to `coresnap.conf`.
 
 ### Configure Workflow Integrations
 
-Once you have your Backtrace integration set up, you can configure alerting to your preferred third-party ticketing or messaging services. Refer to the product guide for detailed instructions on setting up workflow integrations.
+After you have your Backtrace integration set up, you can configure alerts to your preferred third-party ticketing or messaging services. Refer to the product guide for detailed instructions on setting up workflow integrations.
 
 ### Attach and Display Attributes
 
@@ -353,7 +353,7 @@ If you want to add additional key-value pairs to your snapshots, you can use the
 
 Additionally, you can specify a program or script for coresnap to call during snapshot generation to populate these values dynamically.
 
-By default, coresnap will execute `/opt/backtrace/etc/coresnap/defaults` and pass the faulted process' executable name as the first parameter to the script. If needed, you can modify the `defaults.command` path in the `coresnap.conf` file.
+By default, coresnap executes `/opt/backtrace/etc/coresnap/defaults` and passes the faulted process' executable name as the first parameter to the script. If needed, you can modify the `defaults.command` path in the `coresnap.conf` file.
 
 After making any changes to `coresnap.conf`, remember to restart coresnapd.
 

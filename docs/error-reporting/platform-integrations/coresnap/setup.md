@@ -13,7 +13,7 @@ To install Backtrace's package mirror, run the following command:
 # fetch https://packages.backtrace.io/LICENSE/stork/freebsd/RELEASE/backtrace.conf -o /etc/pkg/backtrace.conf
 ```
 
-Replace `<LICENSE>` with your license number. If you haven't received your license number yet, contact us. Make sure to replace `RELEASE` with the major version number (e.g., 11, 12, etc.) that matches your FreeBSD installation. Note that 11.0 is the minimum required version for coresnap.
+Replace `<LICENSE>` with your license number. If you haven't received your license number yet, contact us. Replace `RELEASE` with the major version number (for example, 11, 12, etc.) that matches your FreeBSD installation. Tthe minimum required version for coresnap is 11.0.
 
 This command configures `pkg` to pull from Backtrace's mirror. To verify proper `pkg` configuration, run the following commands:
 

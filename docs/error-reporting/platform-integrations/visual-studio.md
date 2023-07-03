@@ -55,7 +55,7 @@ The wizard consists of three main steps:
 
 - This step allows you to choose the versions of Crashpad you want to download (from the get.backtrace.io/crashpad/builds page) or specify the directory of an already downloaded library.
 - Select the desired configuration and platform versions from the dropdown lists. Backtrace provides both Release and Debug configurations of Crashpad, and x64 & Win32 platforms.
-- Use the **Download Crashpad** to connect to the `get.backtrace.io` servers and download the specified versions.You should select the destination directory, and the wizard will download the latest Crashpad binaries. If you specified multiple Configurations or Platforms to download, the wizard will download each of those.
+- Use the **Download Crashpad** to connect to the `get.backtrace.io` servers and download the specified versions. Select the destination directory, and the wizard downloads the latest Crashpad binaries. If you specify multiple Configurations or Platforms to download, the wizard will download each.
 - The **Backtrace Crashpad package directory** field is automatically filled if you use the **Download Crashpad**, but you can also provide a custom path by using the textbox or you can choose existing path by using **Browse**.
 - Proceed to the next step after making the appropriate selections.
   <img src={useBaseUrl('/img/error-reporting/vs-extension/5e601bc5af052.png')} alt="step 2: setup the configuration and platform versions"/>
@@ -96,7 +96,7 @@ If you enable symbol upload, a post-build task is created. After each successful
 After completing the wizard, make sure to open the CrashpadSetup.cpp file and specify the following values:
 
 - **db_path**: Set the directory where crash reports should be locally stored before submitting to Backtrace.
-- **handler_path**: Configure the launch mechanism for Crashpad (e.g., out-of-process).
+- **handler_path**: Configure the launch mechanism for Crashpad (for example., out-of-process).
 
 Additionally, initialize Crashpad and check the result with a function call like the following in your main function:
 
