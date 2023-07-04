@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Below are the instructions to add the TestFairy plugin to your Ionic 3 project.
+To add the [TestFairy](https://www.testfairy.com/) plugin to your Ioic 3 project, follow the instructions below. 
 
 ## Installation
 

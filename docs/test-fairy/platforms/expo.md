@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-[TestFairy for React Native](https://www.npmjs.com/package/react-native-testfairy) is a bridge to the TestFairy SDK and is also supported for Expo projects. Integrating the TestFairy SDK into your app enables you to understand better how your app performs on real devices. It tells you when and how people use your app and provides any metrics you may need to optimize your user experience and code.
+[TestFairy for React Native](https://www.npmjs.com/package/react-native-testfairy) is a bridge to the TestFairy SDK and is supported for Expo projects. Integrating the TestFairy SDK into your app enables you to understand how your app performs on real devices. It shows when and how people use your app and provides any metrics you may need to optimize your user experience and code.
 
 ## Requirements
 
