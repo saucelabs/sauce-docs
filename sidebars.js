@@ -430,6 +430,16 @@ module.exports = {
                                 'error-reporting/platform-integrations/minidump/http-submission',
                             ],
                         },
+                        'error-reporting/platform-integrations/visual-studio',
+                        {
+                            type: 'category',
+                            label: 'Coresnap',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/platform-integrations/coresnap/setup',
+                                'error-reporting/platform-integrations/coresnap/integrating',
+                            ],
+                        },
                     ],
                 },
                 {
