@@ -418,6 +418,28 @@ module.exports = {
                                 'error-reporting/platform-integrations/real-devices/setup',
                             ],
                         },
+                        {
+                            type: 'category',
+                            label: 'Minidump',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/platform-integrations/minidump/configuration',
+                                'error-reporting/platform-integrations/minidump/breakpad',
+                                'error-reporting/platform-integrations/minidump/crashpad',
+                                'error-reporting/platform-integrations/minidump/electron',
+                                'error-reporting/platform-integrations/minidump/http-submission',
+                            ],
+                        },
+                        'error-reporting/platform-integrations/visual-studio',
+                        {
+                            type: 'category',
+                            label: 'Coresnap',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/platform-integrations/coresnap/setup',
+                                'error-reporting/platform-integrations/coresnap/integrating',
+                            ],
+                        },
                     ],
                 },
                 {
@@ -574,7 +596,8 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'dev/cli/saucectl/init',
-                                'dev/cli/saucectl/configure',
+                                'dev/cli/saucectl/configure/configure',
+                                'dev/cli/saucectl/configure/list',
                                 'dev/cli/saucectl/run',
                                 'dev/cli/saucectl/completion',
                                 'dev/cli/saucectl/storage/download',
@@ -1344,7 +1367,6 @@ module.exports = {
                 'test-results',
                 'test-results/viewing-test-results',
                 'test-results/sharing-test-results',
-                'test-results/archived-test-results',
                 'test-results/test-status',
                 'test-results/badges-browser-matrix',
             ],

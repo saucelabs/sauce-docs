@@ -8,29 +8,30 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TeamCity can automatically deploy your Android and iOS Apps to [TestFairy](https://www.testfairy.com/).
+To automatically deply your Android or iOS Apps to [TestFairy](https://www.testfairy.com/) by using TeamCity, follow the steps below:
+
 
 1. On the TestFairy dashboard, navigate to the **Preferences**.
 
    <img src={useBaseUrl('/img/test-fairy/ci-tools/testfairy-open-preferences.png')} alt="open preferences"/>
 
-1. On the **Preferences**, go to the API Key section and copy the API key.
+2. On the **Preferences**, go to the API Key section and copy the API key.
 
    <img src={useBaseUrl('/img/test-fairy/ci-tools/testfairy_upload_key.png')} alt="upload the key"/>
 
-1. In TeamCity, add an environment variable as a **New Parameter** into the **Build Configuration**.
+3. In TeamCity, add an environment variable as a **New Parameter** into the **Build Configuration**.
 
    <img src={useBaseUrl('/img/test-fairy/ci-tools/teamcity-configuration-4.png')} alt="build configuration"/>
 
-1. Name the parameter `env.TESTFAIRY_API_KEY` and give it the value you copied from the TestFairy preferences page, and Save.
+4. Name the parameter `env.TESTFAIRY_API_KEY` and give it the value you copied from the TestFairy preferences page, and Save.
 
    <img src={useBaseUrl('/img/test-fairy/ci-tools/teamcity-configuration-5.png')} alt=" add environment variable"/>
 
-1. Add a **Build Step** to the **Build Configuration** you wish to deploy from.
+5. Add a **Build Step** to the **Build Configuration** you wish to deploy from.
 
    <img src={useBaseUrl('/img/test-fairy/ci-tools/teamcity-configuration-1.png')} alt="add build step"/>
 
-1. Make sure to select a **Command Line** build step.
+6. Make sure to select a **Command Line** build step.
 
    <img src={useBaseUrl('/img/test-fairy/ci-tools/teamcity-configuration-2.png')} alt="command line build step"/>
 
