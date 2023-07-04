@@ -14,8 +14,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 Integrating more than two Sauce Labs organizations with the same Identity Provider is not supported. If you have more than two organizations that you need integration with the same Identity Provider, contact your Customer Success Manager or [Sauce Labs Support](mailto:help@saucelabs.com).
 :::
 
+### Problem Description
+
 Some identity providers do not allow creating more than one SAML integration with the same service provider. In other words, they require one unique entity ID for a service provider.
 If your Identity Provider has this limitation and you have two organizations at Sauce Labs to integrate with SAML SSO for that Identity Provider, follow the setup steps below:
+
+### Solution
 
 1. In your Identity Provider set up the first SAML SSO integration/application in the [standard way](/basics/sso/setting-up-sso/#setting-up-identity-provider).
 2. [Integrate the SAML SSO application](/basics/sso/setting-up-sso/#integrating-with-sauce-labs-service-provider) that you created in the previous step with one of your Sauce Labs organizations.
@@ -49,3 +53,21 @@ If your Identity Provider has this limitation and you have two organizations at 
 5. [Integrate the SAML SSO application](/basics/sso/setting-up-sso/#integrating-with-sauce-labs-service-provider) that you created using the auxiliary metadata (`sp1`) with the other Sauce Labs organization.
    - The only additional action that you need to do, while you are in the Single Sign-On Configuration in Sauce Labs Team Management, is to expand the section **Advanced SSO Settings** and in the dropdown list **Service Provider** select **Auxiliary SP1**.
      <img src={useBaseUrl('img/basics/sso/setup-special-cases/multiple-saucelabs-orgs/saucelabs-auxiliary-sp.png')} alt="Auxiliary Service Provider" width="1100" />
+
+## Multiple Organizations with the Same Email Domain at Sauce Labs
+
+### Problem Description
+
+In some cases, your company may have multiple organizations set up within Sauce Labs, which is a recommended configuration by the Sauce Labs support team. However, a problem arises when you have a single common email domain that is used across multiple Sauce Labs organizations.
+
+The issue originates from the fact that you can only assign your company email domains to a single organization within Sauce Labs. Consequently, new users from other organizations within your company are unable to sign up through the Sauce Labs login page using Service Provider initiated SSO.
+
+### Solution
+
+To resolve this issue, new users must initially log into Sauce Labs using the Identity Provider initiated flow. This involves starting the login process within your Identity Provider by clicking the Sauce Labs app tile. For example, in the Okta dashboard, it appears as follows:
+
+<img src={useBaseUrl('img/basics/sso/login-sso-okta-dashboard.png')} alt="Okta Dashboard" width="500" />
+
+Once the user is successfully authenticated, a new account is created at Sauce Labs. Subsequently, these users can use the SP-initiated SSO flow and log in through the [Sauce Labs login page](https://accounts.saucelabs.com) by clicking the SSO button and providing their email address.
+
+<img src={useBaseUrl('img/basics/sso/login-sso-btn.png')} alt="SSO Login Button" width="400" />
