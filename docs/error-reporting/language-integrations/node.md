@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Backtrace provides an open-source module that you can use to capture uncaught JavaScript errors within Node.js, as well as manually send reports.
+Backtrace provides an open source module that you can use to capture uncaught JavaScript errors in Node.js and manually send reports.
 
 ## What You'll Need
 

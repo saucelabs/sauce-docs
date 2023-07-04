@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Backtrace provides an open-source module that you can use to capture uncaught JavaScript errors, as well as manually send reports.
+Backtrace provides an open source module that you can use to capture uncaught JavaScript errors, as well as manually send reports.
 
 ## What You'll Need
 
@@ -24,7 +24,7 @@ Backtrace provides an open-source module that you can use to capture uncaught Ja
 
 :::
 
-## Download And Documentation
+## Download and Documentation
 
 The download of `backtrace-js` module and its full documentation is available at [https://github.com/backtrace-labs/backtrace-js](https://github.com/backtrace-labs/backtrace-js).
 
