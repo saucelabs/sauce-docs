@@ -23,7 +23,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 :::
 
-## backtrace-go
+## `backtrace-go`
 
 `backtrace-go` is the easiest integration mechanism into Go, but it is the least advanced and feature-rich. The package consists of a Go-only library that allows for fast and efficient capture of fatal and non-fatal errors in Go applications.
 
@@ -45,7 +45,7 @@ In Go, errors can happen in three ways:
 
 `backtrace-go` handles error and panic situations. When handling panic situations, consider the following:
 
-- In order to capture error reports in a panic scenario, every goroutine must make an API call to set up panic handling.
+- To capture error reports in a panic scenario, every goroutine must make an API call to set up panic handling.
 - It's possible to forget to do this setup, and you might not know when a callback is executed as a goroutine.
 - If a Go application makes any calls into native libraries, a crash in a native library will crash without causing a panic.
 
@@ -89,13 +89,13 @@ somethingThatMightPanic()
 
 ### `bt.ReportAndRecoverPanic(attributes map[string]string)`
 
-This is the same as `bt.ReportPanic`, but it recovers from the panic and the goroutine lives on.
+This is the same as `bt.ReportPanic`, but it recovers from the panic, and the goroutine lives on.
 
 ### `bt.FinishSendingReports()`
 
-`backtrace-go` sends reports in a goroutine to avoid blocking. When your application shuts down, it will abort any ongoing sending of reports. Call this function to block until all queued reports are done sending.
+`backtrace-go` sends reports in a goroutine to avoid blocking. When your application shuts down, it will stop any ongoing sending of reports. Call this function to block until all queued reports are done sending.
 
-## bcd
+## `bcd`
 
 The package provides integration with out-of-process tracers. Using the provided Tracer interface, applications may invoke tracer execution on demand. Panic and signal handling integrations are provided.
 
