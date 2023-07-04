@@ -1,7 +1,7 @@
 ---
 id: setup
 title: Setting up coresnapd on FreeBSD
-sidebar_label: Setup
+sidebar_label: Setup for FreeBSD
 description: Add Backtrace to your Coresnap project.
 ---
 
