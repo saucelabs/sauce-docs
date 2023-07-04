@@ -41,7 +41,7 @@ bt.initialize(
 )
 ```
 
-## Sending Reports from Unhandled Exceptions
+## Sending Reports From Unhandled Exceptions
 
 By default, the `backtracepython` module automatically captures unhandled exceptions and creates and sends error reports from them. This behavior can be adjusted with the `disable_global_handler` option in `bt.initialize` (see below).
 
@@ -67,9 +67,9 @@ except:
 - `attributes`: Dictionary that contains additional attributes to be sent along with every error report. These can be overridden on an individual report with `report.set_attribute`. Example: `{ 'application': "ApplicationName", 'serverId': "foo" }`.
 - `timeout`: Defaults to 4. Maximum amount of seconds to wait for error report processing and sending before concluding it failed.
 - `debug_backtrace`: Defaults to False. Set to True to have an error during collecting the report raise an exception and print some debugging information to stderr.
-- `disable_global_handler`: Defaults to False. If set to False, this module will insert itself in the `sys.excepthook` chain and report those errors automatically before re-raising the exception. Set to True to disable this. Note that in this case, the only way error reports will be reported is if you manually create and send them.
+- `disable_global_handler`: Defaults to False. If set to False, this module will insert itself in the `sys.excepthook` chain and report those errors automatically before re-raising the exception. Set to True to turn this off. In this case, error reports are only reported if you manually create and send them.
 - `context_line_count`: Defaults to 200. When an error is reported, this many lines above and below each stack function are included in the report.
-- `tab_width`: Defaults to 8. If there are any hard tabs in the source code, it is unclear how many spaces they should be indented to correctly display the source code. Therefore, the error report can override this number to specify how many spaces a hard tab should be represented by when viewing source code.
+- `tab_width`: Defaults to 8. If there are any hard tabs in the source code, it is unclear how many spaces they should be indented to display the source code correctly. Therefore, the error report can override this number to specify how many spaces a hard tab is represented by when viewing the source code.
 
 ### `bt.BacktraceReport`
 
