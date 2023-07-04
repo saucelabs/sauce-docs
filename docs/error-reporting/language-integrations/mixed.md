@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-C# is a common language used to create cross-platform applications and user interfaces. In many cases, C# and C++ are used together to create more sophisticated applications. In some scenarios, a C# application will make calls to functions within managed or unmanaged C++ libraries. In others, a C++ application may act as the shell for the app, and cross-platform C# UI code is used within it. In either case, engineers require detailed crash and exception report data from both the C# and C++ applications to effectively debug and identify the root cause of any faulty code.
+C# is a common language for creating cross-platform applications and user interfaces. In many cases, C# and C++ are used together to create more sophisticated applications. In some scenarios, a C# application will make calls to functions in managed or unmanaged C++ libraries. In others, a C++ application may act as the shell for the app, and cross-platform C# UI code is used in it. In either case, engineers require detailed crash and exception report data from both the C# and C++ applications to effectively debug and identify the root cause of any faulty code.
 
 <img src={useBaseUrl('/img/error-reporting/language-integrations/5e601be29b487.png')} alt="Activity Diagram"/>
 
@@ -48,7 +48,7 @@ The C# environment requires a callback method, invoked by the C++ environment, t
 
 The remainder of this document will discuss how you can configure your application to report exceptions and crashes to your Backtrace instance. Then, you will find sample code showing how to.
 
-## How to Set up Crash And Exception Reporting in C# And C++
+## How to Setup Crash And Exception Reporting in C# And C++
 
 Configuring your application environments to report Crashes and Exceptions is the first step:
 
@@ -109,7 +109,7 @@ public void ExecuteTasks()
 
 ### Execute C++ Methods
 
-If you want to execute C++ library code from C#, use the following code to export your method:
+If you want to run C++ library code from C#, use the following code to export your method:
 
 ```csharp
 extern "C" _declspec(dllexport) methodType MethodName(method args...) {}
@@ -128,7 +128,7 @@ extern "C" _declspec(dllexport) void CrashApp(LogBuffer g_logger) {
 }
 ```
 
-### C++ Calling into C#
+### C++ Calling Into C#
 
 In the following scenario, a C# application is hosted by a managed C++ application. In this situation, we suggest adding the `UnhandledApplicationException` handler provided by the Backtrace C# library and the `try/catch` block. The C# application can send a report inside the `catch` block via `BacktraceClient` and rethrow the exception. If the C# application rethrows the exception, the C++ handler and Crashpad will catch the exception inside the `__try` `__except` block and send additional information about the current application state to Backtrace.
 
