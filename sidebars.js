@@ -448,6 +448,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'error-reporting/language-integrations/c',
+                        'error-reporting/language-integrations/go',
                         'error-reporting/language-integrations/javascript',
                         'error-reporting/language-integrations/node',
                     ],
