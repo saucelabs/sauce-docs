@@ -62,7 +62,7 @@ process.crash();
 
 ### Additional Attributes and Parameters
 
-Attributes provide relevant tags that can be used to characterize crash reports. They are useful for adding context to crashes and allow you to group or search for specific tags later. For example, you may want to tag a crash report with a version. More information on attributes can be found in the Backtrace product guide.
+Attributes provide relevant tags that can be used to characterize crash reports. They are helpful for adding context to crashes and allow you to group or search for specific tags later. For example, you may want to tag a crash report with a version. More information on attributes can be found in the Backtrace product guide.
 
 When using Backtrace to handle Electron errors, the following attributes are automatically populated. We recommend adding these attributes to your project:
 
@@ -73,7 +73,7 @@ When using Backtrace to handle Electron errors, the following attributes are aut
 - `_productName` (Populated from `package.json`, but can be overridden by `productName` passed to `crashReporter.start`)
 - `_version` (Populated from the `version` field in the application's `package.json` file)
 
-There are two ways to include additional attributes with your crash reports. The first method works on Windows, Linux, and macOS, while the second method is currently available only on macOS.
+There are two ways to include additional attributes with your crash reports. The first method works on Windows, Linux, and macOS, while the second is available only on macOS.
 
 #### Method 1: Windows/Linux/MacOS - Using the `extra` option on `crashReporter.start()`
 
@@ -118,7 +118,7 @@ crashReporter.setExtraParameter("datacenter", "nyc");
 process.crash();
 ```
 
-## Main Process - Javascript Error Reporting
+## Main Process - JavaScript Error Reporting
 
 To capture JavaScript errors in the main process, you need to install the [`backtrace-node`](https://github.com/backtrace-labs/backtrace-node) npm package (`npm install backtrace-node`).
 
@@ -142,7 +142,7 @@ bt.initialize({
 bt.report(new Error("Something failed!"));
 ```
 
-## Renderer Process - Javascript Error Reporting
+## Renderer Process - JavaScript Error Reporting
 
 To capture JavaScript errors in the renderer process, you need to install the [`backtrace-js`](https://github.com/backtrace-labs/backtrace-js#readme) npm package (`npm install backtrace-js`).
 
