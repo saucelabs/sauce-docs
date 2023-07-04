@@ -41,7 +41,7 @@ With the browser matrix, you can keep track of the test status of your project f
 
 Alternatively, you can use this HTML code on your project site.
 
-```
+```html
 <a href="https://app.saucelabs.com/u/YOUR_SAUCE_USERNAME">
   <img src="https://app.saucelabs.com/buildstatus/YOUR_SAUCE_USERNAME" alt="Sauce Test Status"/>
 </a>
@@ -57,7 +57,7 @@ If you just have one project, you can use your main Sauce Labs account name. If 
 
 ### Setting Up the Browser Matrix Widget
 
-1. Copy this markdown code into your project's GitHub README.
+Copy this markdown code into your project's GitHub README.
 
 ```
 [![Sauce Test Status](https://app.saucelabs.com/browser-matrix/YOUR_SAUCE_USERNAME)](https://app.saucelabs.com/u/YOUR_SAUCE_USERNAME)
@@ -65,7 +65,7 @@ If you just have one project, you can use your main Sauce Labs account name. If 
 
 Alternatively, you can add this HTML to your project site.
 
-```
+```html
 <a href="https://app.saucelabs.com/u/YOUR_SAUCE_USERNAME">
   <img src="https://app.saucelabs.com/browser-matrix/YOUR_SAUCE_USERNAME" alt="Sauce Test Status"/>
 </a>
