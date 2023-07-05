@@ -913,7 +913,7 @@ Available options:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-The `testOptions` property allows you to provide options to `saucectl`. It's a set of parameters allowing you to provide additional details about which test class should be run for the suite and how to apply them. More information can be found in the official Android ["Test from the command line"](https://developer.android.com/studio/test/command-line#am-instrument-options) and ["AndroidJUnitRunner"](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner) docs.
+The `testOptions` property allows you to provide options to `saucectl`. It's a set of parameters allowing you to provide additional details about which test class should be run for the suite and how to apply them. For more information, see the official Android ["Test from the command line"](https://developer.android.com/studio/test/command-line#am-instrument-options) and ["AndroidJUnitRunner"](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner) docs.
 
 ```yaml
 suites:
