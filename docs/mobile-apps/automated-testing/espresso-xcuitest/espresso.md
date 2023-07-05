@@ -903,8 +903,7 @@ Request that the matching device is from your organization's private pool.
 Sauce Labs runs your tests using [Android Debug Bridge (ADB)](https://developer.android.com/studio/test/command-line#run-tests-with-adb) for Android Real Devices and Android Emulators by invoking the `adb shell am instrument`-command. This provides a set of [instrumentation options](https://developer.android.com/studio/test/command-line#am-instrument-options) that you can use to control the test execution. We offer support for predefined and custom options.
 
 :::info
-All options are:
-
+Available options:
 - optional and can be used in any combination unless otherwise noted
 - can be used on both Android Emulators and Real Devices unless otherwise noted with <span className="sauceGreen">Virtual Devices Only</span> or <span className="sauceGreen">Real Devices Only</span>
 
