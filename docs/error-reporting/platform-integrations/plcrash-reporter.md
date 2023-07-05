@@ -15,7 +15,7 @@ PLCrashReporter is an open source project maintained by Microsoft (previously, P
 
 After integrating PLCrashReporter into your application, it can generate crash reports. These crash reports can be uploaded to Backtrace, which provides a central location for developers to triage, prioritize and debug crashes in production and development environments.
 
-This article will discuss how to integrate and send PLCrashReports to Backtrace.
+This article discusses how to integrate and send PLCrashReports to Backtrace.
 
 ## What You'll Need
 
