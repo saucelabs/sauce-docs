@@ -94,7 +94,7 @@ Here is a quick example of identifying users by email address.
 TestFairy.setUserId("john@example.com");
 ```
 
-Read [Identifying your Users](/test-fairy/sdk/identifying-users) for more identification options.
+Read [Identifying your Users](/testfairy/sdk/identifying-users) for more identification options.
 
 ## Additional Permissions (Optional)
 
