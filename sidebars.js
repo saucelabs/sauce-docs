@@ -444,6 +444,20 @@ module.exports = {
                 },
                 {
                     type: 'category',
+                    label: 'Language Integrations',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/language-integrations/c',
+                        'error-reporting/language-integrations/electron',
+                        'error-reporting/language-integrations/mixed',
+                        'error-reporting/language-integrations/go',
+                        'error-reporting/language-integrations/javascript',
+                        'error-reporting/language-integrations/node',
+                        'error-reporting/language-integrations/python',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'Web Console Views',
                     collapsed: true,
                     items: [
