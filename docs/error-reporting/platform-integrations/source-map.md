@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The following steps guides you through configuring your JS application to automatically upload sourcemap files during project build. Additionally, it will explain how to set the appropriate ID in your Backtrace client to match errors with the corresponding sourcemap files.
+The following steps guide you through configuring your JS application to automatically upload sourcemap files during the project build. Additionally, it explains how to set the appropriate ID in your Backtrace client to match errors with the corresponding sourcemap files.
 
 ## What You'll Need
 
@@ -60,7 +60,7 @@ You need to replace `<universe>` with your universe name, and `<token>` with the
 
 ## Step 4: Set Up Automatic Sourcemap Uploads
 
-This method will upload all artifact .map files.
+This method uploads all artifact .map files.
 
 First, append `npm run upload` to the `build` command in your package.json's `scripts` section:
 
@@ -71,7 +71,7 @@ First, append `npm run upload` to the `build` command in your package.json's `sc
 }
 ```
 
-Finally, add the action script `upload` to execute `backtrace-sourcemap` with `package.json` and the build folder as parameters. In this example, both `package.json` and the `dist` folder are assumed to be located in the project root directory:
+Finally, add the action script `upload` to run `backtrace-sourcemap` with `package.json` and the build folder as parameters. In this example, both the `package.json` and the `dist` folder are assumed to be located in the project root directory:
 
 ```json
 "scripts": {
