@@ -1,7 +1,7 @@
 ---
 id: ps4
 title: PlayStation 4 (PS4) Support
-sidebar_label: PlayStation 4 
+sidebar_label: PlayStation 4
 description: Backtrace is able to ingest crash reports for your PS4 games.
 ---
 
