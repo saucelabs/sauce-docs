@@ -107,7 +107,7 @@ For more information, see [Using Environment Variables for Authentication Creden
 
 The security of Sauce Connect Proxy communication to both the Sauce Labs API and the virtual machine hosting your tests in the Sauce Labs cloud is managed through [public key certificates](https://en.wikipedia.org/wiki/Public_key_certificate).
 
-For connection to the API, Sauce Connect Proxy uses certificates issued by certificate authorities, which are are integrated into the operating system of the machine where Sauce Connect Proxy is running.
+For connection to the API, Sauce Connect Proxy uses certificates issued by certificate authorities, which are integrated into the operating system of the machine where Sauce Connect Proxy is running.
 
 For connection to the Sauce Labs virtual machines, the certificate presented by the tunnel endpoint is signed by public certificate authorities.
 
@@ -148,7 +148,6 @@ On macOS machines, certificates are pre-installed as part of the [Trust Store](h
 ### Tunnel Connection to the Sauce Labs Virtual Machine over SSL/TLS
 
 Sauce Connect Proxy routes VM-to-test target traffic through the TLS connection between the Sauce Connect Proxy client and the Sauce Connect Server. Sauce Connect Proxy is not used with your Selenium and Appium webdriver traffic to the Sauce Labs `on-demand` endpoint, for example, `ondemand.us-west-1.saucelabs.com`.
-
 
 ## SSL Certificate Bumping
 

@@ -904,6 +904,7 @@ Sauce Labs runs your tests using [Android Debug Bridge (ADB)](https://developer.
 
 :::info
 Available options:
+
 - optional and can be used in any combination unless otherwise noted
 - can be used on both Android Emulators and Real Devices unless otherwise noted with <span className="sauceGreen">Virtual Devices Only</span> or <span className="sauceGreen">Real Devices Only</span>
 
@@ -1048,7 +1049,7 @@ Instructs `saucectl` to run only tests in the specified package. See [`am instru
 
 <p><small>| OPTIONAL | STRING | REAL DEVICES ONLY |</small></p>
 
-Instructs `saucectl` to run run all tests _except_ those in the specified package. See [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)-usage.
+Instructs `saucectl` to run all tests _except_ those in the specified package. See [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)-usage.
 
 ```yaml
   notPackage: com.example.android.testing.androidMyDemoTests
