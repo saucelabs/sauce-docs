@@ -40,4 +40,4 @@ If the application does not install on your device, we recommend that you run th
 4. Click allow to let the configuration profile download.
 5. Close and go to the settings app. Click on the profile downloaded menu.
 6. Install the configuration profile.
-7. After install is complete, you will be directed to review the the troubleshooting results.
+7. After install is complete, you will be directed to review the troubleshooting results.
