@@ -430,6 +430,8 @@ module.exports = {
                                 'error-reporting/platform-integrations/minidump/http-submission',
                             ],
                         },
+                        'error-reporting/platform-integrations/source-map',
+                        'error-reporting/platform-integrations/apache',
                         'error-reporting/platform-integrations/visual-studio',
                         'error-reporting/platform-integrations/plcrash-reporter',
                         {
