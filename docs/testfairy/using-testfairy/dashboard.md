@@ -24,7 +24,7 @@ The **Apps** table lists all the apps loaded into the system.
 
 The table displays information such as the app name and bundle ID, platform, latest version name and number, and details about the number of sessions, builds, crashes, and issues. You can also view the date the last build was uploaded and the date the latest session was logged.
 
-Clicking a row will open the **Builds** table (see [Builds](/testfairy/using-test-fairy/builds) for more information).
+Clicking a row will open the **Builds** table (see [Builds](/testfairy/using-testfairy/builds) for more information).
 
 Clicking the link button will open the app's landing page.
 

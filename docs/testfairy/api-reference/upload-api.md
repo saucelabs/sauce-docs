@@ -28,17 +28,17 @@ Travis CI https://docs.testfairy.com/Continuous_Integration/Travis_CI.html
 
 [Bitrise](https://www.bitrise.io/integrations/steps/testfairy-deploy)
 
-[Visual Studio Team Services](/test-fairy/ci-tools/vs-team)
+[Visual Studio Team Services](/testfairy/ci-tools/vs-team)
 
 [NetBeans](http://plugins.netbeans.org/plugin/52087/)
 
-[Bamboo](/test-fairy/ci-tools/bamboo)
+[Bamboo](/testfairy/ci-tools/bamboo)
 
-[TeamCity](/test-fairy/ci-tools/team-city)
+[TeamCity](/testfairy/ci-tools/team-city)
 
-[GitLab](/test-fairy/ci-tools/gitlab)
+[GitLab](/testfairy/ci-tools/gitlab)
 
-[Lumberyard](/test-fairy/platforms/lumberyard)
+[Lumberyard](/testfairy/platforms/lumberyard)
 
 ### Upload API
 
