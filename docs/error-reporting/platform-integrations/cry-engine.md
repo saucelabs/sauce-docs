@@ -2,7 +2,7 @@
 id: cry-engine
 title: CryEngine Integration Guide
 sidebar_label: CryEngine
-description: Integrate your CryEngine game into Backtrace for crash reporting. 
+description: Integrate your CryEngine game into Backtrace for crash reporting.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -19,7 +19,7 @@ Backtrace's integration with CryEngine supports games deployed on Windows. If yo
 
 For On-Premise (self-hosted) users: CryEngine crash ingestion requires specific packages. Contact support for detailed instructions and information.
 
-## How to Integrate
+## How To Integrate
 
 ### Register for a Backtrace Instance
 
