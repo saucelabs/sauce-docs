@@ -165,8 +165,8 @@ TestFairy.HideView (view);
 
 Below is a screen taken from a demo video: on the left, you can see what an app usually looks like; on the right is a screenshot taken with the Card Number EditText hidden by `testfairy-secure-viewid`.
 
-<img src={useBaseUrl('/img/test-fairy/sdk/iphone-with-fields.png')} alt="iphone no hidden HTML elements" width="400"/>
-<img src={useBaseUrl('/img/test-fairy/sdk/iphone-no-fields.png')} alt="iphone hidden HTML elements" width="400"/>
+<img src={useBaseUrl('/img/testfairy/sdk/iphone-with-fields.png')} alt="iphone no hidden HTML elements" width="400"/>
+<img src={useBaseUrl('/img/testfairy/sdk/iphone-no-fields.png')} alt="iphone hidden HTML elements" width="400"/>
 
 <br clear="both"/>
 

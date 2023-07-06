@@ -15,7 +15,7 @@ You can install Test Fairy Connect via a Docker image.
 ## How does it work?
 
 The critical part of TestFairy Connect is the agent service that runs on a system in your firewall, connecting to TestFairy's web app and your bug-tracking system.
-<img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/0-overview.png')} alt="Overview"/>
+<img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/0-overview.png')} alt="Overview"/>
 
 ## Installation
 

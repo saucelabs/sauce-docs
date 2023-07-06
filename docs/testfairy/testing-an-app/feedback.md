@@ -18,7 +18,7 @@ TestFairy provides an effortless way to collect this feedback.
 
 If you [added the TestFairy SDK](https://docs.testfairy.com/SDK/Adding_The_SDK_To_Your_App.html) to your app, then all you need to do is enable the **In-App Bug Reporting** feature in your build settings in the TestFairy dashboard, and you can start collection feedbacks from your users with `"shake to report"`:
 
-<img src={useBaseUrl('/img/test-fairy/testing-an-app/enable_feedback.png')} alt="In-app bug reporting"/>
+<img src={useBaseUrl('/img/testfairy/testing-an-app/enable_feedback.png')} alt="In-app bug reporting"/>
 
 Users or testers will be prompted to report feedback when they shake their devices.
 

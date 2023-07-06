@@ -21,28 +21,28 @@ The **Preset Segments** column contains three preset filters:
 ## General Filters
 
 To filter the list using the following filters:
-<img src={useBaseUrl('/img/test-fairy/using-tf/insights-filter-1.png')} alt="Filters"/>
+<img src={useBaseUrl('/img/testfairy/using-tf/insights-filter-1.png')} alt="Filters"/>
 
 You can see all apps in your account or filter only one of them:
-<img src={useBaseUrl('/img/test-fairy/using-tf/insights-filter-app-name.png')} alt="filter by app name"/>
+<img src={useBaseUrl('/img/testfairy/using-tf/insights-filter-app-name.png')} alt="filter by app name"/>
 
 You can see all versions of the app you just filtered or a specific version.
-<img src={useBaseUrl('/img/test-fairy/using-tf/insights-filter-app-version.png')} alt="filter by version"/>
+<img src={useBaseUrl('/img/testfairy/using-tf/insights-filter-app-version.png')} alt="filter by version"/>
 
 You can also filter the timeframe of the list you want.
-<img src={useBaseUrl('/img/test-fairy/using-tf/insights-time-frame.png')} alt="filter by timeframe"/>
+<img src={useBaseUrl('/img/testfairy/using-tf/insights-time-frame.png')} alt="filter by timeframe"/>
 
 ## Attribute Filters
 
 In addition to general filters, you can also filter by **session attributes**.
-<img src={useBaseUrl('/img/test-fairy/using-tf/attribute-filter.png')} alt="filter by session attribute"/>
+<img src={useBaseUrl('/img/testfairy/using-tf/attribute-filter.png')} alt="filter by session attribute"/>
 
 The default attributes are the primary attribute types (User, Session, Location, Device, etc.).
 
 ## Custom Attributes Filters
 
 If you add [custom attributes](https://docs.testfairy.com/SDK/Session_Attributes.html) to your app's session, you see them here and be able to filter according to their values:
-<img src={useBaseUrl('/img/test-fairy/using-tf/custome-attributes.png')} alt="filter by custom attribute"/>
+<img src={useBaseUrl('/img/testfairy/using-tf/custome-attributes.png')} alt="filter by custom attribute"/>
 
 This potent tool can help you identify specific sessions and filter them out of the many sessions in your app.
 
@@ -51,9 +51,9 @@ When you define values for this field, do not use characters other than text or 
 :::
 
 After you select an attribute, you can add a logical expression and enter a value in the text field.
-<img src={useBaseUrl('/img/test-fairy/using-tf/atribute-filter-logical.png')} alt="logica expression"/>
+<img src={useBaseUrl('/img/testfairy/using-tf/atribute-filter-logical.png')} alt="logica expression"/>
 
 You can see the result in the table.
 
 You can add another attribute filter using a plus sign or save a filter by clicking the **Save Segment**. After entering the name, you can see the segment in the **Custom Segments** list.
-<img src={useBaseUrl('/img/test-fairy/using-tf/filter-name.png')} alt="save segment"/>
+<img src={useBaseUrl('/img/testfairy/using-tf/filter-name.png')} alt="save segment"/>

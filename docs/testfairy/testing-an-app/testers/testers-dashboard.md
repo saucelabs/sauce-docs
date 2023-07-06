@@ -14,13 +14,13 @@ Developers can switch from this view to the full dashboard by using the **View a
 
 ## Testers Dashboard - Android View
 
-<img src={useBaseUrl('/img/test-fairy/testing-an-app/testers-dashboard-android.png')} alt="testers android dashboard" width="400"/>
-<img src={useBaseUrl('/img/test-fairy/testing-an-app/testers-dashboard-android-menu.png')} alt="testers android dasboard menu" width="400"/>
+<img src={useBaseUrl('/img/testfairy/testing-an-app/testers-dashboard-android.png')} alt="testers android dashboard" width="400"/>
+<img src={useBaseUrl('/img/testfairy/testing-an-app/testers-dashboard-android-menu.png')} alt="testers android dasboard menu" width="400"/>
 
 ## Testers Dashboard - iOS View
 
-<img src={useBaseUrl('/img/test-fairy/testing-an-app/tester-dashboard-ios.png')} alt="testers ios dashboard" width="400"/>
-<img src={useBaseUrl('/img/test-fairy/testing-an-app/testers-dashboard-ios-menu.png')} alt="testers ios dasboard menu" width="400"/>
+<img src={useBaseUrl('/img/testfairy/testing-an-app/tester-dashboard-ios.png')} alt="testers ios dashboard" width="400"/>
+<img src={useBaseUrl('/img/testfairy/testing-an-app/testers-dashboard-ios-menu.png')} alt="testers ios dasboard menu" width="400"/>
 
 ## Menu
 
@@ -43,7 +43,7 @@ If an iOS application does not install on your device, we recommend that you run
 
 1. Open your TestFairy account via the link [my.testfairy.com](https://my.testfairy.com) on the device you want to test.
 
-2. Click the **Tester** icon <img src={useBaseUrl('/img/test-fairy/testing-an-app/tester-icon-1.png')} alt="tester icon"/> menu and then click **Troubleshooting**.
+2. Click the **Tester** icon <img src={useBaseUrl('/img/testfairy/testing-an-app/tester-icon-1.png')} alt="tester icon"/> menu and then click **Troubleshooting**.
 
 3. Click **START** to start the troubleshooting process.
 

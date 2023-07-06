@@ -11,24 +11,24 @@ import TabItem from '@theme/TabItem';
 ## 1. Creating a Jira API Token
 
 1. Log in to [https://id.atlassian.com/manage/api-tokens#](https://id.atlassian.com/manage/api-tokens#) and click on **Create API token**.
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-create-api.png')} alt="Create Jira API Token"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-create-api.png')} alt="Create Jira API Token"/>
 
 1. Label the new token `TestFairy`.
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-label.png')} alt="Set TestFairy Jira Key"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-label.png')} alt="Set TestFairy Jira Key"/>
 
 1. Copy the API Token.
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-token.png')} alt="Copy the API Token"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-token.png')} alt="Copy the API Token"/>
 
 ## 2. Configuring Jira in Your TestFairy Settings
 
 1. Open your TestFairy account Preferences .
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-cloud-1.png')} alt="Open TestFairy preferences"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-cloud-1.png')} alt="Open TestFairy preferences"/>
 
 2. Choose **Integrations**, scroll to Jira and press **Add integration**.
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-cloud-1-1.png')} alt="Jira cloud"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-cloud-1-1.png')} alt="Jira cloud"/>
 
 3. Enter your Jira Username, API Token, and JIRA URL in the next screen and press **Update Jira Settings**.
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-cloud-2.png')} alt="Configure Jira Cloud"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-cloud-2.png')} alt="Configure Jira Cloud"/>
 
 ## 3. (Optional) Installing the TestFairy Chrome Extension
 
@@ -41,25 +41,25 @@ If you didn't install the Chrome extension, you could add the TestFairy Jira Add
 To install it, follow these steps:
 
 1. Open **Jira Settings**.
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-settings.png')} alt="Open Jira Settings"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-settings.png')} alt="Open Jira Settings"/>
 
 2. Open **Apps**.
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-settings1.png')} alt="Open Apps"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-settings1.png')} alt="Open Apps"/>
 
 3. In the Apps menu, press **Find new apps**.
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-find-apps.png')} alt="Find new apps"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-find-apps.png')} alt="Find new apps"/>
 
 4. Add **TestFairy for Jira** to your account.
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-discover.png')} alt="TestFairy for Jira"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-discover.png')} alt="TestFairy for Jira"/>
 
 5. On the first issue created, click on the "3 dots" icon and choose **TestFairy Session**.
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-3-dots.png')} alt="TestFairy session"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-3-dots.png')} alt="TestFairy session"/>
 
    After the installation, the Jira issue looks like the following:
 
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/hira6a.png')} alt="Jira ticket"/>
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira5b.png')} alt="Jira popup"/>
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira6c.png')} alt="Application logs"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/hira6a.png')} alt="Jira ticket"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira5b.png')} alt="Jira popup"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira6c.png')} alt="Application logs"/>
 
 ## 5. (Optional) Mapping Jira Custom Fields
 
@@ -73,21 +73,21 @@ To map Jira custom field follow the steps below:
 1. First, you need to connect a Jira account. Follow the [instructions](#1-creating-a-jira-api-token) above.
 
 2. Choose one of the apps you want to connect to and press **Activate**.
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-connect-proj-map1.png')} alt="Activate apps"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-connect-proj-map1.png')} alt="Activate apps"/>
 
    You can configure the Jira fields:
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-proj-fileds-config.png')} alt="Configure Jira fields"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-proj-fileds-config.png')} alt="Configure Jira fields"/>
 
 3. In the Jira configuration screen, choose the **Project Key** you want to connect.
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-project-select.png')} alt="Connect project"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-project-select.png')} alt="Connect project"/>
 
 4. Next, select the issue type you want to configure.
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/issue-type-select.png')} alt="Configure issue type"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/issue-type-select.png')} alt="Configure issue type"/>
 
    :::tip
    If you want first to test the connection to the Jira project, you can press **TEST** to validate the Jira issue creation. You will get a pop-up window with the response. Make sure you get a valid Jira link.
    In case you get a **PENDING** response, check the connection configuration.
-   <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-connect-test-ok.png')} alt="Connection configuration"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-connect-test-ok.png')} alt="Connection configuration"/>
    :::
 
    Each **Issue type** has different fields associated with it:
@@ -96,12 +96,12 @@ To map Jira custom field follow the steps below:
    - **Type** - the type of field as defined in the JIRA system.
    - **Value** - the values from the JIRA system (in addition to predefined fixed values and Dynamic value, see below)
    - **Required?** - specify if the field required or optional.
-     <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-requiered-fildes-mark.png')} alt="Required fields"/>
+     <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-requiered-fildes-mark.png')} alt="Required fields"/>
 
 When defining fields in the Configure Fields window, follow the below conventions:
 
 - When you choose a field from a drop-down list, this field as is (text) will be populated in the corresponding Jira field in the issue opened.
-  <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-values-drop-down.png')} alt="Values drop down"/>
+  <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-values-drop-down.png')} alt="Values drop down"/>
 
 - You can also choose from the fixed predefined values in the list below:
   - `{user.id}` - the UserId of the session running.
@@ -119,11 +119,11 @@ When defining fields in the Configure Fields window, follow the below convention
   - `{feedback.relTimestamp}` - relative timestamp of the feedback (mm:ss) since the session started
 
 To use these values, add them to the `Dynamic value` field that opens when you select the **Dynamic value** option like so:
-<img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-fixed-attr-popup.png')} alt="Fixed values"/>
+<img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-fixed-attr-popup.png')} alt="Fixed values"/>
 
 - You can add attributes defined in your app's code to the `Dynamic value` field. The structure of a dynamic field is as follows:
   `{attr.[attribute_name]||[default_value]}`.
 - `attribute_name` - is the name of the Teasfairy attribute set in the code by the `TestFairy.setAttribute` function. What passes to the Jira is the value of this attribute.
 - `default_value` - for each attribute, you can set a default value so that if you receive a null or wrong attribute value from the code (impossible in this field in Jira), the default value will be passed to Jira instead.
 
-<img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/jira-dynamic-attr-setattr.png')} alt="Attribute Setting"/>
+<img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-dynamic-attr-setattr.png')} alt="Attribute Setting"/>

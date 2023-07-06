@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To connect TestFairy to Jira Server that is installed on-prem, start by [installing TestFairy Connect](/test-fairy/testing-an-app/bug-tracking/tf-connect)
+To connect TestFairy to Jira Server that is installed on-prem, start by [installing TestFairy Connect](/testfairy/testing-an-app/bug-tracking/tf-connect)
 
 ## Configuring TestFairy Connect with Jira Server
 
@@ -52,7 +52,7 @@ $ testfairy-connect configure
 
 When done, the configuration wizard displays the success message: `Successfully connected to the issue tracker`.
 
-You have successfully configured TestFairy Connect with Jira using Basic authentication. Next, [start the agent from the command line](/test-fairy/testing-an-app/bug-tracking/tf-connect.md)
+You have successfully configured TestFairy Connect with Jira using Basic authentication. Next, [start the agent from the command line](/testfairy/testing-an-app/bug-tracking/tf-connect.md)
 
 ---
 
@@ -71,10 +71,10 @@ You have successfully configured TestFairy Connect with Jira using Basic authent
 
     1.  In your browser, go to your Jira Admin page, like `http://localhost:2990/jira/plugins/servlet/applinks/listApplicationLinks`.
     2.  Enter `URL` or any string to use for Application Link identification.
-        <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/1-create-application-link.png')} alt="Create an application link"/>
+        <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/1-create-application-link.png')} alt="Create an application link"/>
     3.  In the next screen, click **Continue**.
-        <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/2-continue.png')} alt="Continue"/>
-        <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/3-setup-application-link.png')} alt="Set Application link"/>
+        <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/2-continue.png')} alt="Continue"/>
+        <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/3-setup-application-link.png')} alt="Set Application link"/>
 
             - Application Name: `TestFairy`
             - Application Type: `Generic Application`
@@ -85,7 +85,7 @@ You have successfully configured TestFairy Connect with Jira using Basic authent
             - Request Token URL: `/plugins/servlet/oauth/access-token`
             - Request Token URL: `/plugins/servlet/oauth/authorize`
 
-        <img src={useBaseUrl('/img/test-fairy/testing-an-app/bug-tracking/4-verify-access-token.png')} alt="Verify access token"/>
+        <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/4-verify-access-token.png')} alt="Verify access token"/>
 
 3.  Run the [token generation script](https://docs.testfairy.com/js/download/oauth.js). Right-click to copy the .js file path.
 

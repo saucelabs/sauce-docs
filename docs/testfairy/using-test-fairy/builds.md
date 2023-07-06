@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 The **Builds** page displays a list of all the builds for the app. For each build, you can view the following information:
 
-<img src={useBaseUrl('/img/test-fairy/using-tf/builds-table.png')} alt="builds table"/>
+<img src={useBaseUrl('/img/testfairy/using-tf/builds-table.png')} alt="builds table"/>
 
 - **VERSION** - The build name and version.
 
@@ -28,18 +28,18 @@ The **Builds** page displays a list of all the builds for the app. For each buil
 
 - **BUILD STATUS**
 
-  - Build is not loaded into the system <img src={useBaseUrl('/img/test-fairy/using-tf/status-icon-app-not-uploaded.png')} alt="builds not loaded"/>
-  - Video is disabled <img src={useBaseUrl('/img/test-fairy/using-tf/status-icon-no-video.png')} alt="video disabled"/>
-  - Build is defined as auto-update <img src={useBaseUrl('/img/test-fairy/using-tf/status-icon-auto-update.png')} alt="builds not defined"/>
-  - Build has metadata <img src={useBaseUrl('/img/test-fairy/using-tf/status-icon-metadata.png')} alt="builds has metadata"/>
-  - Build has release notes <img src={useBaseUrl('/img/test-fairy/using-tf/status-icon-comment.png')} alt="builds has release notes"/>
-  - Build distribution is disabled <img src={useBaseUrl('/img/test-fairy/using-tf/ic_close_black_36.png')} alt="build distribution is disabled"/>
-  - Build was signed with a different certificate than the previous build <img src={useBaseUrl('/img/test-fairy/using-tf/ic_error_red_48dp.png')} alt="builds signed with different certificate"/>
-  - Build does not contain the TestFairy SDK <img src={useBaseUrl('/img/test-fairy/using-tf/status-icon-no-sdk.png')} alt="build without TestFairy SDK"/>
+  - Build is not loaded into the system <img src={useBaseUrl('/img/testfairy/using-tf/status-icon-app-not-uploaded.png')} alt="builds not loaded"/>
+  - Video is disabled <img src={useBaseUrl('/img/testfairy/using-tf/status-icon-no-video.png')} alt="video disabled"/>
+  - Build is defined as auto-update <img src={useBaseUrl('/img/testfairy/using-tf/status-icon-auto-update.png')} alt="builds not defined"/>
+  - Build has metadata <img src={useBaseUrl('/img/testfairy/using-tf/status-icon-metadata.png')} alt="builds has metadata"/>
+  - Build has release notes <img src={useBaseUrl('/img/testfairy/using-tf/status-icon-comment.png')} alt="builds has release notes"/>
+  - Build distribution is disabled <img src={useBaseUrl('/img/testfairy/using-tf/ic_close_black_36.png')} alt="build distribution is disabled"/>
+  - Build was signed with a different certificate than the previous build <img src={useBaseUrl('/img/testfairy/using-tf/ic_error_red_48dp.png')} alt="builds signed with different certificate"/>
+  - Build does not contain the TestFairy SDK <img src={useBaseUrl('/img/testfairy/using-tf/status-icon-no-sdk.png')} alt="build without TestFairy SDK"/>
 
 - Settings button - Opens the **Build Settings** menu.
 
-Builds that are starred (<img src={useBaseUrl('/img/test-fairy/using-tf/star-yellow.png')} alt="build stared"/>) are displayed at the top of the table regardless of the upload order.
+Builds that are starred (<img src={useBaseUrl('/img/testfairy/using-tf/star-yellow.png')} alt="build stared"/>) are displayed at the top of the table regardless of the upload order.
 
 ### Tags
 
