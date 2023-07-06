@@ -10,7 +10,7 @@ jobs:
       - uses: errata-ai/vale-action@reviewdog
         with:
           reporter: github-pr-review
-          level: error
+          level: warning
           fail_on_error: false
         env:
           # Required, set by GitHub actions automatically:
