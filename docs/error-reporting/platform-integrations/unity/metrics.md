@@ -2,7 +2,7 @@
 id: metrics
 title: Stability Metrics Configuration
 sidebar_label: Stability Metrics Configuration
-description: Configure your Unity SDK for your project's stability metrics. 
+description: Configure your Unity SDK for your project's stability metrics.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -34,7 +34,7 @@ By default, the Unity SDK sends events that contribute to the `Application Launc
 
 ### SDK Event Attributes
 
-Stability metrics like Crash Free Users/Sessions are calculated using events sent from the Unity SDK. To ensure that stability metrics respond to queries and filters in the Web Console (e.g., widgets on the Overview page), the attribute you want to use for filtering must be included in the events sent by the SDK. Refer to the following list of attributes that are sent by default with events from the Unity SDK:
+Stability metrics like Crash Free Users/Sessions are calculated using events sent from the Unity SDK. To ensure that stability metrics respond to queries and filters in the Web Console (for example., widgets on the Overview page), the attribute you want to use for filtering must be included in the events sent by the SDK. Refer to the following list of attributes that are sent by default with events from the Unity SDK:
 
 To add new attributes to be sent for a given metric group's event, use the [AddSummedEvent method (IBacktraceMetrics)](https://github.com/backtrace-labs/backtrace-unity/blob/7a4a67bbb256a8105b7efdacd1ebe359721942ec/Runtime/Interfaces/IBacktraceMetrics.cs).
 
@@ -125,7 +125,7 @@ Let's walk through an example to illustrate the setup process. Suppose you want 
 - Average session length by platform
 - Average session length by release version
 
-#### Step 1: Add the new metric group to your Backtrace Project in the Web Console by navigating to **Project Settings** > **Stability Monitoring**.
+#### Step 1: Add the new metric group to your Backtrace Project in the Web Console by navigating to **Project Settings** > **Stability Monitoring**
 
 <img src={useBaseUrl('/img/error-reporting/unity/AttributeLinking.png')} alt="Attribute Linking"/>
 
@@ -137,7 +137,7 @@ The **Metrics** section under **Attributes** needs to be left empty for Unity. T
 
 :::
 
-#### Step 2: Configure the Unity SDK to send this metric group and the desired attributes.
+#### Step 2: Configure the Unity SDK to send this metric group and the desired attributes
 
 Next, use the `AddSummedEvent` method to add events for the new metric group. In this example, we add an event every minute because we track `MinutesPlayed`.
 

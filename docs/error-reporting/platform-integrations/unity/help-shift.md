@@ -2,7 +2,7 @@
 id: help-shift
 title: Unity Backtrace and HelpShift SDK integration
 sidebar_label: HelpShift SDK
-description: Integrate HelpShift SDK in Unity games. 
+description: Integrate HelpShift SDK in Unity games.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -36,7 +36,7 @@ Integrate the respective SDKs for Backtrace and HelpShift first.
 
 For details on controlling the display of the HelpShift UI, refer to the [HelpShift SDK for Android documentation](https://developers.helpshift.com/sdkx-unity/support-tools-android/#conversation-view).
 
-Linking Backtrace and HelpShift is easy. Simply add the `backtraceClient["guid"]` to a customer issue field with the ID `device_id`, as shown in the code example below:
+Linking Backtrace and HelpShift is not tricky. Add the `backtraceClient["guid"]` to a customer issue field with the ID `device_id`, as shown in the code example below:
 
 ```csharp
 var configMap = new Dictionary<string, object>();
