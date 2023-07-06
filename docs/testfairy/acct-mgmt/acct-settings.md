@@ -16,13 +16,13 @@ To access the Settings page, click **Account** and then click **TestFairy Settin
 
 <img src={useBaseUrl('img/testfairy/acct-settings-sdk-token.png')} alt="SDK App Token page" width="700"/>
 
-Your app token initializes the TestFairy SDK. See [Adding the TestFairy SDK to your App](/testfairy/sdk/adding-tf-sdk) for more information.
+Your app token initializes the TestFairy SDK. See Adding the TestFairy SDK to your App /testfairy/sdk/adding-tf-sdk for more information.
 
 ## TestFairy Access Key
 
 <img src={useBaseUrl('img/testfairy/acct-settings-tf-access-key.png')} alt="TestFairy Access Key page" width="700"/>
 
-You can use the TestFairy API to upload builds and invite testers directly. For more information, see [Upload API](/testfairy/api-reference/upload-api).
+You can use the TestFairy API to upload builds and invite testers directly. For more information, see Upload API /testfairy/api-reference/upload-api.
 
 ## App Distribution
 
@@ -40,19 +40,19 @@ On the Notifications page, you can define what types of messages you want to rec
 
 You can integrate your TestFairy account with different services to customize and streamline your work processes.
 
-- Simple Mail Transfer Protocol (SMTP) and Gmail - See [SMTP and Gmail](/testfairy/integrations/smtp-gmail) for information about connecting your SMTP email server or Gmail account. This ensures you send the emails from the same account you used to register.
+- Simple Mail Transfer Protocol (SMTP) and Gmail - See SMTP and Gmail /testfairy/integrations/smtp-gmail for information about connecting your SMTP email server or Gmail account. This ensures you send the emails from the same account you used to register.
 
-- Slack - See [Slack](/testfairy/integrations/slack) for information about integrating your Slack account with TestFairy.
+- Slack - See Slack /testfairy/integrations/slack for information about integrating your Slack account with TestFairy.
 
-- Zendesk - See [ZenDesk](/testfairy/integrations/zendesk) for information about integrating your Zendesk account with TestFairy.
+- Zendesk - See ZenDesk /testfairy/integrations/zendesk for information about integrating your Zendesk account with TestFairy.
 
-- Webhooks - You can use TestFairy webhooks to connect to services. See [Microsoft Teams](/testfairy/integrations/ms-teams) for more information.
+- Webhooks - You can use TestFairy webhooks to connect to services. See Microsoft Teams /testfairy/integrations/ms-teams for more information.
 
 <img src={useBaseUrl('img/testfairy/acct-settings-integrations.png')} alt="Integrations page" width="700"/>
 
 ## Email Templates
 
-TestFairy lets you customize the invitation emails it sends. This feature is available only if you use a custom email server. See [SMTP and Gmail](/testfairy/integrations/smtp-gmail) for more information.
+TestFairy lets you customize the invitation emails it sends. This feature is available only if you use a custom email server. See SMTP and Gmail /testfairy/integrations/smtp-gmail for more information.
 
 The email is HTML based and can use custom tags.
 
@@ -66,7 +66,7 @@ To ensure testers first login to their tester accounts before downloading your a
 
 ### SAML/Single Sign-On
 
-Add the SSO metadata definitions file here. When you add SAML/Single Sign-On, the file contains your ID, URL, and X.509 certificate. See [SSO](/testfairy/acct-mgmt/sso/sso-intro) for more information.
+Add the SSO metadata definitions file here. When you add SAML/Single Sign-On, the file contains your ID, URL, and X.509 certificate. See SSO /testfairy/acct-mgmt/sso/sso-intro for more information.
 
 ## Account
 
