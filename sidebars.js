@@ -431,6 +431,7 @@ module.exports = {
                             ],
                         },
                         'error-reporting/platform-integrations/visual-studio',
+                        'error-reporting/platform-integrations/plcrash-reporter',
                         {
                             type: 'category',
                             label: 'Coresnap',
