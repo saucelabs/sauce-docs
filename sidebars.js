@@ -398,6 +398,8 @@ module.exports = {
                                 'error-reporting/platform-integrations/unity/setup',
                                 'error-reporting/platform-integrations/unity/configuration',
                                 'error-reporting/platform-integrations/unity/attributes',
+                                'error-reporting/platform-integrations/unity/metrics',
+                                'error-reporting/platform-integrations/unity/helpshift',
                             ],
                         },
                         {
