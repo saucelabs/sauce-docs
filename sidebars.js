@@ -399,7 +399,7 @@ module.exports = {
                                 'error-reporting/platform-integrations/unity/configuration',
                                 'error-reporting/platform-integrations/unity/attributes',
                                 'error-reporting/platform-integrations/unity/metrics',
-                                'error-reporting/platform-integrations/unity/help-shift',
+                                'error-reporting/platform-integrations/unity/helpshift',
                             ],
                         },
                         {

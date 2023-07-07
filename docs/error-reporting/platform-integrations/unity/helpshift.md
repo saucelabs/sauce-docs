@@ -1,5 +1,5 @@
 ---
-id: help-shift
+id: helpshift
 title: Unity Backtrace and HelpShift SDK integration
 sidebar_label: HelpShift SDK
 description: Integrate HelpShift SDK in Unity games.
