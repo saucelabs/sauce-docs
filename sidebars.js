@@ -447,6 +447,10 @@ module.exports = {
                                 'error-reporting/platform-integrations/coresnap/integrating',
                             ],
                         },
+                        'error-reporting/platform-integrations/nintendo',
+                        'error-reporting/platform-integrations/xbox',
+                        'error-reporting/platform-integrations/ps4',
+                        'error-reporting/platform-integrations/ps5',
                     ],
                 },
                 {
