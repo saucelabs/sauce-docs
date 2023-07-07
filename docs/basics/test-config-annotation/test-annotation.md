@@ -19,7 +19,7 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-Test annotation refers to adding information to your tests, such as a name, build number, tag, and pass/fail status. These annotations are useful for managing your tests and builds (for example, when searching and sorting tests in your [Archives](/test-results/archived-test-results)).
+Test annotation refers to adding information to your tests, such as a name, build number, tag, and pass/fail status. These annotations are useful for managing your tests and builds (for example, when searching and sorting tests in your [Archives](/test-results/viewing-test-results/#archived-test-results)).
 
 You can add annotations after test execution with our [REST API](/basics/test-config-annotation/test-annotation/#sauce-labs-rest-api) or during test execution with the [Selenium JavaScript Executor](/basics/test-config-annotation/test-annotation/#selenium-javascript-executor). You can also use [sample test frameworks](https://github.com/saucelabs-training) to automatically add annotations to your tests.
 

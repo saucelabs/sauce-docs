@@ -16,22 +16,19 @@ TestFairy allows you to upload your production app directory to the Apple App St
 
 ## Configuring the Integration
 
-Go to [Settings](https://app.testfairy.com/settings/integrations), and select **Apple App Store**.
+On the **Account Preferences**, next to **Apple APp Store**, click **Add Integration**.
 
-<img src={useBaseUrl('/img/test-fairy/integrations/03.png')} alt="Apple App Store"/>
+<img src={useBaseUrl('/img/test-fairy/int-apple-nav.png')} alt="Add Apple App Store integration"/>
 
-You have to create credentials from Apple iTunesConnect to upload apps. You can get the credentials by going to the [User and Access](http://appstoreconnect.apple.com/access/api), selecting the **Keys** tab, and then choosing **App Store Connect API**. Click '+' to add a new set of keys. Be sure to download the .p8 file used to sign API requests, and take note of the `Issuer ID` and the `Key ID`. You have to give **Admin access** to these keys to upload an app from TestFairy to the Apple App Store.
-
-<img src={useBaseUrl('/img/test-fairy/integrations/01.png')} alt="Test Keys"/>
+You have to create credentials from Apple iTunesConnect to upload apps. You can get the credentials by going to the [User and Access](http://appstoreconnect.apple.com/access/api), selecting the **Keys** tab, and then choosing **App Store Connect API**. Click **+** to add a new set of keys. Be sure to download the .p8 file used to sign API requests, and take note of the `Issuer ID` and the `Key ID`. You have to give **Admin access** to these keys to upload an app from TestFairy to the Apple App Store.
 
 Once you have the Issuer ID, Key ID, and the private key (.p8), go back to the settings page, fill in the form with the necessary keys, and upload the private key.
-<img src={useBaseUrl('/img/test-fairy/integrations/05.png')} alt="Apple App Store Integration"/>
+
+<img src={useBaseUrl('/img/test-fairy/int-apple-upload.png')} alt="Apple App Store Integration"/>
 
 Once uploaded, you see the associated `Issuer ID` and `Key ID` on the integration page. Verify the account matches the one in App Store Connect.
 
 <img src={useBaseUrl('/img/test-fairy/integrations/06.png')} alt="confirm account"/>
-
-You have configured the integration for upload.
 
 ## Uploading
 
