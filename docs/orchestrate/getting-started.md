@@ -54,7 +54,7 @@ COPY . .
 
 # install necessary dependencies
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
-RUN mvn clean; exit 0
+RUN mvn clean test; exit 0
 ```
 
 With this Dockerfile created you can now tell Docker to build it.
