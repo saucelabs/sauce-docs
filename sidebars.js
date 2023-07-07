@@ -435,7 +435,7 @@ module.exports = {
                         'error-reporting/platform-integrations/visual-studio',
                         'error-reporting/platform-integrations/plcrash-reporter',
                         'error-reporting/platform-integrations/stadia',
-                        'error-reporting/platform-integrations/cry-engine',
+                        'error-reporting/platform-integrations/cryengine',
                         {
                             type: 'category',
                             label: 'Coresnap',

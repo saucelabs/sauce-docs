@@ -1,5 +1,5 @@
 ---
-id: cry-engine
+id: cryengine
 title: CryEngine Integration Guide
 sidebar_label: CryEngine
 description: Integrate your CryEngine game into Backtrace for crash reporting.
