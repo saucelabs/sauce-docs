@@ -1,22 +1,19 @@
 ---
 id: testing-apple-pay
-title: Testing Apple Pay in Mobile Apps
-sidebar_label: Testing Apple Pay in Mobile Apps
+title: Testing Apple Pay
+sidebar_label: Testing Apple Pay
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 Apple Pay is a mobile payment and digital wallet service developed by Apple Inc. It allows you to make payments using your Apple devices, including iPhones and iPads. However, testing Apple Pay can be challenging, especially when it comes to testing it on different devices and environments. In this regard, Sauce Labs provides three ways to test Apple Pay, including using Simulators, using real private devices with an Apple Pay Sandbox Testing account, and using real private devices with a real production account and real credit cards.
-
 
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - A native iOS, or iPadOS mobile app.
-
 
 ## Testing Apple Pay
 

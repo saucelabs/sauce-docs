@@ -247,13 +247,30 @@ You can specify a combination of several options. For example:
 **Environment variable**: `SAUCE_PAC`<br/>
 **Shorthand**: n/a
 
-```bash On Windows
---pac file:///Users/JohnSmith/Desktop/MyPac.pac
-```
+<Tabs
+defaultValue="maclinux"
+values={[
+{label: 'Mac or Linux', value: 'maclinux'},
+{label: 'Windows', value: 'windows'},
+]}>
 
-```bash On Linux/Mac
+<TabItem value="maclinux">
+
+```bash
 --pac file://Users/JohnSmith/Desktop/MyPac.pac
 ```
+
+</TabItem>
+
+<TabItem value="windows">
+
+```bash
+--pac file:///C:/Users/JohnSmith/Desktop/MyPac.pac
+```
+
+</TabItem>
+</Tabs>
+
 ---
 
 ### `--pac-auth`

@@ -88,7 +88,7 @@ It is expected that you test your rest of your query body against the data sourc
 
 `select mins_played, time from metric_table where version = '3.16.2' and time >= $1 and time < $2`
 
-The results of your query will stored in the linked metric, so you may want to to confirm the results of the query if you see incorrect data in Backtrace after the importers are run.
+The results of your query will stored in the linked metric, so you may want to confirm the results of the query if you see incorrect data in Backtrace after the importers are run.
 
 <img src={useBaseUrl('img/error-reporting/project-settings/metrics-source-example.png')} alt="" />
 
