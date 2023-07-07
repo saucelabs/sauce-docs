@@ -501,7 +501,7 @@ Identifies the browser to be used when automating with a mobile browser. See the
 - If this capability is not provided for a real device session and also the:
   - [`appium:app`](#appiumapp)
   - or [`appium:bundleId`](#appiumbundleid) (iOS)
-  - or [`appium:appPackage`](#appiumapppackage) and ['appium:appActivity'](#appiumappactivity) (Android)
+  - or [`appium:appPackage`](#appiumapppackage) and [`appium:appActivity`](#appiumappactivity) (Android)
     capability is not provided, then a real device session will automatically fall back to the default browser. This will be Chrome for Android and Safari for iOS.
 
 :::
@@ -528,7 +528,7 @@ Allows you to set a path to an `.ipa`, `.apk`, `.aab` or `.zip` file containing 
   - [`browserName`](#browsername-1) capability
   - or [`appium:app`](#appiumapp)
   - or [`appium:bundleId`](#appiumbundleid) (iOS)
-  - or [`appium:appPackage`](#appiumapppackage) and ['appium:appActivity'](#appiumappactivity) (Android)
+  - or [`appium:appPackage`](#appiumapppackage) and [`appium:appActivity`](#appiumappactivity) (Android)
 
   capability is not provided, then a real device session will automatically fall back to the default browser. This will be Chrome for Android and Safari for iOS
 
@@ -1123,7 +1123,13 @@ Sets up the device pin code for the automated test session. Valid values are `tr
 This capability sets your device in the state required for your application to launch successfully.
 
 :::important
-The `setupDeviceLock` capability helps to bypass the Security requirements from your applications, like pincode requirements for launching and app or invoking certain activities/features within your app. For an example, see https://developer.android.com/reference/android/app/KeyguardManager.
+The `setupDeviceLock` capability helps to bypass the Security requirements from your applications, like pincode requirements for launching and app or invoking certain activities/features in your app. For an example, see https://developer.android.com/reference/android/app/KeyguardManager.
+
+It must be paired with one of the capabilities listed below.
+- [`appium:app`](#appiumapp)
+- [`appium:bundleId`](#appiumbundleid) (iOS)
+- [`appium:appPackage`](#appiumapppackage) (Android)
+- [`appium:appActivity`](#appiumappactivity) (Android)
 :::
 
 ```java title="Real Device Setting"
