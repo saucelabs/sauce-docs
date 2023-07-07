@@ -229,7 +229,7 @@ Creates a new team under the organization of the requesting account.
   <tbody>
     <tr>
      <td><code>description</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>A description to distinguish the team within the organization.</p></td>
+     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A description to distinguish the team within the organization.</p></td>
     </tr>
   </tbody>
 </table>
@@ -419,7 +419,7 @@ Replaces all values of the specified team with the new set of parameters passed 
   <tbody>
     <tr>
      <td><code>description</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>A description to distinguish the team within the organization. If the previous team definition included a description, omitting the parameter in the update will delete it from the team record.</p></td>
+     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A description to distinguish the team within the organization. If the previous team definition included a description, omitting the parameter in the update will delete it from the team record.</p></td>
     </tr>
   </tbody>
 </table>
