@@ -398,6 +398,8 @@ module.exports = {
                                 'error-reporting/platform-integrations/unity/setup',
                                 'error-reporting/platform-integrations/unity/configuration',
                                 'error-reporting/platform-integrations/unity/attributes',
+                                'error-reporting/platform-integrations/unity/metrics',
+                                'error-reporting/platform-integrations/unity/helpshift',
                             ],
                         },
                         {
@@ -434,6 +436,8 @@ module.exports = {
                         'error-reporting/platform-integrations/apache',
                         'error-reporting/platform-integrations/visual-studio',
                         'error-reporting/platform-integrations/plcrash-reporter',
+                        'error-reporting/platform-integrations/stadia',
+                        'error-reporting/platform-integrations/cryengine',
                         {
                             type: 'category',
                             label: 'Coresnap',

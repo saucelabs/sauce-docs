@@ -624,7 +624,7 @@ Annotations.EnvironmentVariablesCache["USERNAME"] = "%USERNAME%";
 }
 ```
 
-You can can also use the `BeforeSend` event along with annotations for environment variables to edit collected diagnostic data.
+You can also use the `BeforeSend` event along with annotations for environment variables to edit collected diagnostic data.
 
 ```csharp
 client.BeforeSend = (BacktraceData data) =>

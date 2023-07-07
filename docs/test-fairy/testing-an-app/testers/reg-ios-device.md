@@ -11,6 +11,7 @@ import TabItem from '@theme/TabItem';
 In order to start testing with TestFairy, you need to be invited by an app developer. Once you receive an invitation via email or landing page, download or register your device, if you are requested to do so. This is a very quick and simple process, which you will only have to do once. Some apps won't require you to register your device. In this case, simply click on the download link and follow the instructions on screen.
 
 ## When asked to register your device
+
 1. Open the invitation email and follow the link to //register your mobile device in TestFairy//.
 2. Make sure you open the link with the Safari browser.
 3. The link will open your tester dashboard at my.testfairy.com and display the Register device button. Click it to initiate the download.
@@ -21,6 +22,7 @@ In order to start testing with TestFairy, you need to be invited by an app devel
 8. Your device is now registered in TestFairy. Please wait for the developer to send you a download link.
 
 ## Downloading apps
+
 First, make sure you receive an email from the app developer, which invites you to test an application build.
 
 1. Click the “DOWNLOAD APP” link in the email.
@@ -29,12 +31,13 @@ First, make sure you receive an email from the app developer, which invites you 
 4. The app icon should now appear on your device desktop.
 
 ## Troubleshooting installation
+
 If the application does not install on your device, we recommend that you run the troubleshooting tool:
 
 1. Open your TestFairy account via the link my.testfairy.com on the device you want to test.
-2. Click the Tester icon  menu and choose Troubleshooting.
+2. Click the Tester icon menu and choose Troubleshooting.
 3. Click the START button to start the troubleshooting process.
 4. Click allow to let the configuration profile download.
 5. Close and go to the settings app. Click on the profile downloaded menu.
 6. Install the configuration profile.
-7. After install is complete, you will be directed to review the the troubleshooting results.
+7. After install is complete, you will be directed to review the troubleshooting results.
