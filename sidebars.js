@@ -836,19 +836,19 @@ module.exports = {
             items: [
                 'orchestrate',
                 'orchestrate/getting-started',
+                {
+                    type: 'category',
+                    label: 'Quickstart',
+                    collapsed: true,
+                    items: [
+                        'orchestrate/quickstart/playwright',
+                        'orchestrate/quickstart/webdriverio',
+                    ],
+                },
                 'orchestrate/saucectl-configuration',
                 'orchestrate/building-images',
                 'orchestrate/authenticated-pulls',
                 'orchestrate/best-practices',
-                {
-                    type: 'category',
-                    label: 'Quick Start',
-                    collapsed: true,
-                    items: [
-                        'orchestrate/quick-start/quickstart-playwright',
-                        'orchestrate/quick-start/quickstart-webdriverio',
-                    ]
-                },
                 'orchestrate/faq',
                 'orchestrate/architecture',
             ],
