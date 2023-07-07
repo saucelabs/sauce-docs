@@ -1123,7 +1123,7 @@ Sets up the device pin code for the automated test session. Valid values are `tr
 This capability sets your device in the state required for your application to launch successfully.
 
 :::important
-The `setupDeviceLock` capability helps to bypass the Security requirements from your applications, like pincode requirements for launching and app or invoking certain activities/features within your app. For an example, see https://developer.android.com/reference/android/app/KeyguardManager.  
+The `setupDeviceLock` capability helps to bypass the Security requirements from your applications, like pincode requirements for launching and app or invoking certain activities/features in your app. For an example, see https://developer.android.com/reference/android/app/KeyguardManager.
 
 It must be paired with one of the capabilities listed below.
 - [`appium:app`](#appiumapp)
