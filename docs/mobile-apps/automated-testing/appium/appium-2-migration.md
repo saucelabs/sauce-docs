@@ -688,7 +688,7 @@ You can find out which version of the driver is used for your test by checking t
 
 #### How do I know which version of Appium is installed on the Sauce Labs Emulators and Simulators?
 
-Check our [Platform Configurator](https://saucelabs.com/products/platform-configurator#/) for the latest versions of Appium installed on our Emulators and Simulators.
+See our [Platform Configurator](https://saucelabs.com/products/platform-configurator#/) for the latest versions of Appium installed on our Emulators and Simulators.
 
 #### Can I provide my own Appium Server version?
 
