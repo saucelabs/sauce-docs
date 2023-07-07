@@ -578,6 +578,15 @@ module.exports = {
                         'error-reporting/security-compliance/privacy-control',
                     ],
                 },
+                {
+                    type: 'category',
+                    label: 'Advanced',
+                    collapsed: true,
+                    items: [
+                        'error-reporting/advanced/morgue',
+                        'error-reporting/advanced/ptrace',
+                    ],
+                },
             ],
         },
     ],
