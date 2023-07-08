@@ -437,7 +437,7 @@ You can use this to set up a test with either [static or dynamic allocation for 
 
 **For Android Emulators**
 
-Each Android emulator skin will have a different configuration depending on the phone or tablet that it emulates. For example, all the skins have different resolutions, screen dimensions, pixel densities, memory, etc. You can use our [Platform Configurator](https://saucelabs.com/platform/platform-configurator) to get a list of the available Android emulator skins for the various Android emulator versions.
+Each Android Emulator skin will have a different configuration depending on the phone or tablet that it emulates. For example, all the skins have different resolutions, screen dimensions, pixel densities, memory, etc. You can use our [Platform Configurator](https://saucelabs.com/platform/platform-configurator) to get a list of the available Android emulator skins for the various Android Emulator versions.
 
 **Examples**
 
@@ -501,7 +501,7 @@ Identifies the browser to be used when automating with a mobile browser. See the
 - If this capability is not provided for a real device session and also the:
   - [`appium:app`](#appiumapp)
   - or [`appium:bundleId`](#appiumbundleid) (iOS)
-  - or [`appium:appPackage`](#appiumapppackage) and ['appium:appActivity'](#appiumappactivity) (Android)
+  - or [`appium:appPackage`](#appiumapppackage) and [`appium:appActivity`](#appiumappactivity) (Android)
     capability is not provided, then a real device session will automatically fall back to the default browser. This will be Chrome for Android and Safari for iOS.
 
 :::
@@ -528,7 +528,7 @@ Allows you to set a path to an `.ipa`, `.apk`, `.aab` or `.zip` file containing 
   - [`browserName`](#browsername-1) capability
   - or [`appium:app`](#appiumapp)
   - or [`appium:bundleId`](#appiumbundleid) (iOS)
-  - or [`appium:appPackage`](#appiumapppackage) and ['appium:appActivity'](#appiumappactivity) (Android)
+  - or [`appium:appPackage`](#appiumapppackage) and [`appium:appActivity`](#appiumappactivity) (Android)
 
   capability is not provided, then a real device session will automatically fall back to the default browser. This will be Chrome for Android and Safari for iOS
 
@@ -635,7 +635,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 A dependent app that has already been uploaded to [App Storage](/mobile-apps/app-storage) will be pre-installed on the device during the testing of the main app. You can specify the app using its `storage:<fileId>` or `storage:filename=<filename>` reference.
 
-Dependent apps inherit the configuration of the main app under test for [`Device Language`](https://app.saucelabs.com/live/app-testing#group-details), [`Device Orientation`](https://app.saucelabs.com/live/app-testing#group-details), and [`Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of what settings may have been applied to the app at the time of upload, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
+Dependent apps inherit the configuration of the main app under test for [`Device Language`](/mobile-apps/live-testing/live-mobile-app-testing/#default-app-settings), [`Device Orientation`](/mobile-apps/live-testing/live-mobile-app-testing/#default-app-settings), and [`Proxy`](/mobile-apps/live-testing/live-mobile-app-testing/#default-app-settings), regardless of the settings may have been applied to the app at the time of upload, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
 
 Android-dependent apps will not be instrumented or modified. iOS-dependent apps will always be resigned/modified (even when resigning is disabled for the main app) because apps can't be installed on iOS devices without resigning them. If a dependent app cannot be resigned (such as a third party app), the test will not work as intended.
 
@@ -1123,7 +1123,16 @@ Sets up the device pin code for the automated test session. Valid values are `tr
 This capability sets your device in the state required for your application to launch successfully.
 
 :::important
-The `setupDeviceLock` capability helps to bypass the Security requirements from your applications, like pincode requirements for launching and app or invoking certain activities/features within your app. For an example, see https://developer.android.com/reference/android/app/KeyguardManager.
+
+The `setupDeviceLock` capability helps to bypass the Security requirements from your applications, like pincode requirements for launching and app or invoking certain activities/features in your app. For an example, see https://developer.android.com/reference/android/app/KeyguardManager.
+
+It must be paired with one of the capabilities listed below.
+
+- [`appium:app`](#appiumapp)
+- [`appium:bundleId`](#appiumbundleid) (iOS)
+- [`appium:appPackage`](#appiumapppackage) (Android)
+- [`appium:appActivity`](#appiumappactivity) (Android)
+
 :::
 
 ```java title="Real Device Setting"

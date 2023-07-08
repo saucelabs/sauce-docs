@@ -1,14 +1,14 @@
 ---
-id: quickstart-webdriverio
-title: WebdriverIO Quickstart
-sidebar_label: WebdriverIO Quickstart
+id: playwright
+title: Playwright Quickstart
+sidebar_label: Playwright Quickstart
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This page explains how to run your WebdriverIO tests in Sauce Orchestrate with `saucectl`.
+This page explains how to run your [Playwright](/web-apps/automated-testing/playwright) tests in Sauce Orchestrate with `saucectl`.
 
 ## What You'll Need
 
@@ -51,7 +51,16 @@ git clone git@github.com:saucelabs/saucectl-imagerunner-example.git
 </TabItem>
 </Tabs>
 
-## Step 2: Link Your Sauce Labs Account
+## Step 2: Install `saucectl`
+
+Navigate to the Playwright example in the project you just cloned, then install `saucectl`.
+
+```
+cd saucectl-imagerunner-example/playwright
+npm install -g saucectl
+```
+
+## Step 3: Link Your Sauce Labs Account
 
 `saucectl` requires access to a valid Sauce Labs account.
 
@@ -74,18 +83,9 @@ If a value is returned for both variables, they are set.
 
 1. Enter your Sauce Labs Username and Access Key at the prompts.
 
-## Step 3: Install `saucectl`
-
-Navigate to the WebdriverIO example in the project you just cloned, then install `saucectl`.
-
-```
-cd saucectl-imagerunner-example/webdriverio
-npm install -g saucectl
-```
-
 ## Step 4: Run Tests Using saucectl
 
-Run the WebdriverIO tests.
+Run the Playwright tests.
 
 ```
 saucectl run
@@ -98,13 +98,15 @@ After the tests are run, `saucectl` outputs the command logs from Orchestrate an
 The following is an example CLI output.
 
 ```
-13:36:16 INF Downloading artifacts archive
+2:52:05 INF Downloading artifacts archive
+12:52:07 INF Suites in progress: 0
 
        Name                              Duration    Status       Attempts
 ────────────────────────────────────────────────────────────────────────────
-  ✔    WebdriverIO in ImageRunner            1m1s    Succeeded           1
+  ✔    Playwright in ImageRunner            2m16s    Succeeded           1
 ────────────────────────────────────────────────────────────────────────────
-  ✔    All suites have passed               1m13s
+  ✔    All suites have passed               2m32s
+
 ```
 
 The results and test assets are also available immediately following test completion in your [Sauce Labs account](https://app.saucelabs.com/dashboard/tests/vdc).
