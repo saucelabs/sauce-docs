@@ -1,47 +1,39 @@
 ---
-id: morgue
-title: Morgue
-sidebar_label: Morgue
-description: Upload, download and issue queries on objects with-in the object store with Morgue.
+id: client-morgue
+title: Coroner Client - Morgue Documentation
+sidebar_label: Client Morgue
+description: Install Coroner Client Morgue.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Morgue is a command-line interface to the Backtrace object store. It allows you to upload, download, and issue queries on objects in the object store. It is also used as a mechanism to extract formatted responses to queries for integration with other environments.
-
-For full details on how to download, install, and use the Morgue tool, refer to the readme file located at [https://github.com/backtrace-labs/backtrace-morgue/blob/master/README.md](https://github.com/backtrace-labs/backtrace-morgue/blob/master/README.md).
-
-The information below is retained for reference and is up to date as of May 2018. Some new features have been introduced and are fully documented in the readme above.
+`morgue` is a command-line interface to the Backtrace object store. It allows you to upload, download and issue queries on objects in the object store.
 
 ## Installation
 
-It is recommended to install `morgue` using `npm`.
+It is recommended to install morgue using npm.
 
-```bash
+```shell
 npm install backtrace-morgue -g
 ```
 
 If you are working from the repository, use the following command instead.
 
-```bash
+```
 npm install -g
 ```
 
 This will install the `morgue` tool in your configured path. Refer to the `morgue --help` command to learn more.
 
-## Introduction
-
-`morgue` is a command-line interface to the Backtrace object store. It allows you to upload, download, and issue queries on objects in the object store.
-
 ## Usage
 
 ### Login
 
-The first step to using Morgue is to log into a server.
+The first step to using morgue is to log into a server.
 
-```bash
+```shell
 $ morgue login http://localhost
 User: sbahra
 Password: **************
@@ -55,13 +47,13 @@ At this point, you are able to issue queries.
 
 Requests a list and description of all metadata that can be queried against.
 
-```bash
-morgue describe
+```shell
+morgue describe <[/]project> [substring]
 ```
 
 #### Example
 
-```bash
+```shell title="Example"
 $ morgue describe bidder uname
               uname.machine: machine hardware name
               uname.release: kernel release
@@ -71,10 +63,10 @@ $ morgue describe bidder uname
 
 ### Get
 
-Downloads the specified object from the Backtrace object store and prints it to standard output. Optionally, you can output the file to disk.
+Downloads the specified object from the Backtrace object store and prints it to the standard output. Optionally, you can output the file to disk.
 
-```bash
-morgue get
+```shell
+morgue get <[/]project> [options] [-o]
 ```
 
 The following options are available:
@@ -85,13 +77,13 @@ The following options are available:
 
 ### Put
 
-Uploads an object file to the Backtrace object store.
+Uploads object file to the Backtrace object store.
 
-```bash
-morgue put
+```shell
+morgue put <[/]project> <--format=btt|minidump|json|symbols> [options]
 ```
 
-The user has the following options:
+User has the following options:
 
 | Option                                       | Description                                      |
 | :------------------------------------------- | :----------------------------------------------- |
@@ -101,13 +93,11 @@ The user has the following options:
 
 ### Modify
 
-Modifies the attributes of the given object as specified.
+Modifies the attributes of the given object as specified. Both options below may be specified more than once.
 
 ```bash
-morgue modify
+morgue modify <[universe/]project> (| ...) [--set ...] [--clear ...]
 ```
-
-Both options below may be specified more than once.
 
 | Option    | Description                         |
 | :-------- | :---------------------------------- |
@@ -116,26 +106,65 @@ Both options below may be specified more than once.
 
 You can also modify multiple objects by specifying filters. The `--filter`, `--age`, and `--time` arguments are accepted for modification.
 
-#### Example
+#### Examples
 
-Set the hostname to `fqdn.example.com` for object identifier 0.
+- Set hostname to fqdn.example.com for object identifier 0:
 
-```bash
-$ morgue modify --set hostname=fqdn.example.com myproject 0
-```
+  ```shell title="Example"
+  $ morgue modify --set hostname=fqdn.example.com myproject 0
+  ```
 
-Set the custom attribute reason to `oom` for all crashes containing `memory_abort`.
+- Set custom attribute reason to oom for all crashes containing memory_abort:
 
-```bash
-$ morgue modify --set reason=oom --filter=callstack,regular-expression,memory_abort
-```
+  ```shell title="Example"
+  $ morgue modify --set reason=oom --filter=callstack,regular-expression,memory_abort
+  ```
 
 ### Attachment
 
 Manages attachments associated with an object.
 
 ```bash
-morgue attachment
+morgue attachment add [options] <[universe/]project>
+```
+
+| Option                | Description                                                                 |
+| :-------------------- | :-------------------------------------------------------------------------- |
+| `--content-type=CT`   | Specify Content-Type for attachment. The server may auto-detect this.       |
+| `--attachment-name=N` | Use this name for the attachment name. Default is the same as the filename. |
+
+```bash
+morgue attachment get [options] <[universe/]project>
+```
+
+Must specify one of the following options:
+
+| Option                | Description             |
+| :-------------------- | :---------------------- |
+| `--attachment-id=ID`  | Attachment ID to get.   |
+| `--attachment-name=N` | Attachment name to get. |
+
+```bash
+morgue attachment list [options] <[universe/]project>
+```
+
+```bash
+morgue attachment delete [options] <[universe/]project
+```
+
+Must specify one of the following options:
+
+| Option                | Description              |
+| :-------------------- | :----------------------- |
+| `--attachment-id=ID`  | Attachment ID to delete. |
+| `--attachment-name=N` | Attachment name to get.  |
+
+### List
+
+Allows you to perform queries on object metadata. You can perform either selection queries or aggregation queries, but not both at the same time. You may pass `--verbose` in order to get more detailed query performance data.
+
+```bash
+morgue list <[/]project> [substring]
 ```
 
 ### Filters
@@ -180,131 +209,136 @@ The `*` factor is used when aggregations are performed when no factor is specifi
 Sorting of results is done with the stackable option `--sort=`. The term syntax is `-`.
 
 The optional `-` reverses the sort term order to descending, otherwise, it defaults to ascending.
-Multiple sort terms can be provided to break ties in case the previously referenced sort term has ties.
+The term refers to a valid column in the table. This is only effective for selection type query, that is, when using the `--select` option.
+The is an expression pointing to a fold operation. The expression language for fold operation is one of the following literal:
 
-#### Example
+- `;group`: sort by the group key itself.
+- `;count`: sort by the group count (number of crashes).
+- `column;idx`: where column is a string referencing a `column` in the fold dictionary and `idx` is an indice in the array.
+  Multiple sort terms can be provided to break ties in case the previously referenced sort term has ties.
 
-Request all faults from application deployments owned by jdoe. Provide the timestamp, hostname, callstack and classifiers.
+#### Examples
 
-```bash
-$ morgue list bidder --filter=tag_owner,equal,jdoe --select=timestamp --select=hostname --select=callstack --select=classifiers
-*
-#9d33    Thu Oct 13 2016 18:36:01 GMT-0400 (EDT)     5 months ago
+- Request all faults from application deployments owned by jdoe. Provide the timestamp, hostname, callstack and classifiers.
+
+  ```shell
+  $ morgue list bidder --filter=tag_owner,equal,jdoe --select=timestamp --select=hostname --select=callstack --select=classifiers
+  *
+  #9d33    Thu Oct 13 2016 18:36:01 GMT-0400 (EDT)     5 months ago
   hostname: 2235.bm-bidderc.prod.nym2
   classifiers: abort stop
   callstack:
-    assert ← int_set_union_all ← all_domain_lists ←
-    setup_phase_unlocked ← bid_handler_slave_inner ← bid_handler_slave ←
-    an_sched_process_task ← an_sched_slave ← event_base_loop ←
-    an_sched_enter ← bidder_slave ← an_sched_pthread_cb
-#ef2f    Thu Oct 13 2016 18:36:01 GMT-0400 (EDT)     5 months ago
+      assert ← int_set_union_all ← all_domain_lists ←
+      setup_phase_unlocked ← bid_handler_slave_inner ← bid_handler_slave ←
+      an_sched_process_task ← an_sched_slave ← event_base_loop ←
+      an_sched_enter ← bidder_slave ← an_sched_pthread_cb
+  #ef2f    Thu Oct 13 2016 18:36:01 GMT-0400 (EDT)     5 months ago
   hostname: 2066.bm-impbus.prod.nym2
   classifiers: abort stop
   callstack:
-    assert ← an_discovery_get_instances ← budget_init_discovery ←
-    main
-#119bf   Thu Oct 13 2016 18:36:01 GMT-0400 (EDT)     5 months ago
+      assert ← an_discovery_get_instances ← budget_init_discovery ←
+      main
+  #119bf   Thu Oct 13 2016 18:36:01 GMT-0400 (EDT)     5 months ago
   hostname: 2066.bm-impbus.prod.nym2
-  classifiers
-
-: abort stop
+  classifiers: abort stop
   callstack:
-    assert ← an_discovery_get_instances ← budget_init_discovery ←
-    main
-```
+      assert ← an_discovery_get_instances ← budget_init_discovery ←
+      main
+  ```
 
-Request faults owned by jdoe, group them by fingerprint and aggregate the number of unique hosts, display a histogram of affected versions and provide a linear histogram of process age distribution.
+- Request faults owned by jdoe, group them by fingerprint and aggregate the number of unique hosts, display a histogram of affected versions and provide a linear histogram of process age distribution.
 
-```bash
-$ morgue list bidder --age=1y --factor=fingerprint --filter=tag_owner,equal,jdoe --head=callstack --unique=hostname --histogram=tag --bin=process.age
-823a55fb15bf697ba3041d736ade... ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁ 5 months ago
-Date: Wed May 18 2016 18:44:35 GMT-0400 (EDT)
-callstack:
-    assert ← int_set_union_all ← all_domain_lists ←
-    setup_phase_unlocked ← bid_handler_slave_inner ← bid_handler_slave ←
-    an_sched_process_task ← an_sched_slave ← event_base_loop ←
-    an_sched_enter ← bidder_slave ← an_sched_pthread_cb
-histogram(tag):
+  ```shell
+  $ morgue list bidder --age=1y --factor=fingerprint --filter=tag_owner,equal,jdoe --head=callstack --unique=hostname --histogram=tag --bin=process.age
+  823a55fb15bf697ba3041d736ade... ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁ 5 months ago
+  Date: Wed May 18 2016 18:44:35 GMT-0400 (EDT)
+  callstack:
+      assert ← int_set_union_all ← all_domain_lists ←
+      setup_phase_unlocked ← bid_handler_slave_inner ← bid_handler_slave ←
+      an_sched_process_task ← an_sched_slave ← event_base_loop ←
+      an_sched_enter ← bidder_slave ← an_sched_pthread_cb
+  histogram(tag):
   8.20.4.adc783.0 ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 1
-unique(hostname): 1
-bin(process.age):
+  unique(hostname): 1
+  bin(process.age):
           7731         7732 ▆▆▆▆▆▆▆▆▆▆ 1
 
-3b851ac1ab1421409159cc38edb2... ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁ 5 months ago
-Date: Tue May 17 2016 17:28:26 GMT-0400 (EDT)
+  3b851ac1ab1421409159cc38edb2... ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁ 5 months ago
+  Date: Tue May 17 2016 17:28:26 GMT-0400 (EDT)
       Tue May 17 2016 17:30:07 GMT-0400 (EDT)
-callstack:
-    assert ← an_discovery_get_instances ← budget_init_discovery ←
-    main
-histogram(tag):
+  callstack:
+      assert ← an_discovery_get_instances ← budget_init_discovery ←
+      main
+  histogram(tag):
   4.44.0.adc783.1 ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 2
-unique(hostname): 1
-bin(process.age):
-            23           24 ▆▆▆▆▆▆▆▆▆▆ 1
-            24           25 ▆▆▆▆▆▆▆▆▆▆ 1
-```
+  unique(hostname): 1
+  bin(process.age):
+              23           24 ▆▆▆▆▆▆▆▆▆▆ 1
+              24           25 ▆▆▆▆▆▆▆▆▆▆ 1
 
-Request faults for the last 2 years, group them by fingerprint, show the first object identifier in the group, sort the results by descending fingerprint, limit the results to 5 faults and skip the first 10 (according to sort order).
+  ```
 
-```bash
-$ morgue list blackhole --age=2y --factor=fingerprint --object=fingerprint --limit=5 --offset=10 --sort="-;group"
-fec4bfecf8e077cf44024f5668fa... ▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 2 years ago
-First Occurrence: Tue Jan 12 2016 13:30:12 GMT-0500 (EST)
-     Occurrences: 360
-object(fingerprint): 1c653d
+- Request faults for the last 2 years, group them by fingerprint, show the first object identifier in the group, sort the results by descending fingerprint, limit the results to 5 faults and skip the first 10 (according to sort order).
 
-fe7294a780a16e30b619e8d94a8a... ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁ 2 years ago
-First Occurrence: Wed Oct 28 2015 11:30:47 GMT-0400 (EDT)
- Last Occurrence: Wed Oct 28 2015 12:16:19 GMT-0400 (EDT)
-     Occurrences: 203
-object(fingerprint): 1c23b3
+  ```shell
+  $ morgue list blackhole --age=2y --factor=fingerprint --object=fingerprint --limit=5 --offset=10 --sort="-;group"
+  fec4bfecf8e077cf44024f5668fa... ▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 2 years ago
+  First Occurrence: Tue Jan 12 2016 13:30:12 GMT-0500 (EST)
+      Occurrences: 360
+  object(fingerprint): 1c653d
 
-fe5e0dda6cf0fb996a521dde4087... ▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 1 year ago
-First Occurrence: Tue Jun 14 2016 11:54:35 GMT-0400 (EDT)
-     Occurrences: 1
-object(fingerprint): 2de5
+  fe7294a780a16e30b619e8d94a8a... █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 2 years ago
+  First Occurrence: Wed Oct 28 2015 11:30:47 GMT-0400 (EDT)
+  Last Occurrence: Wed Oct 28 2015 12:16:19 GMT-0400 (EDT)
+      Occurrences: 203
+  object(fingerprint): 1c23b3
 
-fe46d9af7c65c084091fed51ef02... █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 2 years ago
-First Occurrence: Tue Oct 27 2015 16:59:34 GMT-0400 (EDT)
- Last Occurrence: Tue Oct 27 2015 20:05:30 GMT-0400 (EDT)
-     Occurrences: 3
-object(fingerprint): 8f41
+  fe5e0dda6cf0fb996a521dde4087... ▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 1 year ago
+  First Occurrence: Tue Jun 14 2016 11:54:35 GMT-0400 (EDT)
+      Occurrences: 1
+  object(fingerprint): 2de5
 
-fdc0860ef6dfd3d0397b53043ab9... ▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 1 year ago
-First Occurrence: Tue Jun 07 2016 11:51:55 GMT-0400 (EDT)
-     Occurrences: 211
-object(fingerprint): 1c1958
-```
+  fe46d9af7c65c084091fed51ef02... █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 2 years ago
+  First Occurrence: Tue Oct 27 2015 16:59:34 GMT-0400 (EDT)
+  Last Occurrence: Tue Oct 27 2015 20:05:30 GMT-0400 (EDT)
+      Occurrences: 3
+  object(fingerprint): 8f41
 
-Request faults for the two years, group them by fingerprint, `sum process.age`, sort the results by descending sum of `process.age` per fingerprint, limit the results to 3 faults. Note here that 1 in `-process.age;1` is the second operator (`--sum`) in this case.
+  fdc0860ef6dfd3d0397b53043ab9... ▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 1 year ago
+  First Occurrence: Tue Jun 07 2016 11:51:55 GMT-0400 (EDT)
+      Occurrences: 211
+  object(fingerprint): 1c1958
+  ```
 
-```bash
-$ morgue list blackhole --age=2y --factor=fingerprint --first=process.age --sum=process.age --limit=3 --sort="-process.age;1"
-d9358a6fdb7eaa143254b6987d00... ▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 1 year ago
-First Occurrence: Tue Sep 20 2016 21:59:46 GMT-0400 (EDT)
- Last Occurrence: Tue Sep 20 2016 22:03:23 GMT-0400 (EDT)
-     Occurrences: 38586
-sum(process.age): 56892098354615 sec
+- Request faults for the two years, group them by fingerprint, sum process.age, sort the results by descending sum of process.age per fingerprint, limit the results to 3 faults. Note here that 1 in -process.age;1 is the second operator (--sum) in this case.
 
-524b9f988c8ff9dfc1b3a0c71231... ▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 1 year ago
-First Occurrence: Tue Sep 20 2016 22:01:52 GMT-0400 (EDT)
- Last Occurrence: Tue Sep 20 2016 22:03:19 GMT-0400 (EDT)
-     Occurrences: 25737
-sum(process.age): 37947233900547 sec
+  ```shell
+  $ morgue list blackhole --age=2y --factor=fingerprint --first=process.age --sum=process.age --limit=3 --sort="-process.age;1"
+  d9358a6fdb7eaa143254b6987d00... ▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 1 year ago
+  First Occurrence: Tue Sep 20 2016 21:59:46 GMT-0400 (EDT)
+  Last Occurrence: Tue Sep 20 2016 22:03:23 GMT-0400 (EDT)
+      Occurrences: 38586
+  sum(process.age): 56892098354615 sec
 
-bffd05c6b745229fd1c648bbe2a7... ▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 1 year ago
-First Occurrence: Tue Sep 20 2016 21:59:46 GMT-0400 (EDT)
- Last Occurrence: Tue Sep 20 2016 22:03:01 GMT-0400 (EDT)
-     Occurrences: 20096
-sum(process.age): 29630010305216 sec
-```
+  524b9f988c8ff9dfc1b3a0c71231... ▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 1 year ago
+  First Occurrence: Tue Sep 20 2016 22:01:52 GMT-0400 (EDT)
+  Last Occurrence: Tue Sep 20 2016 22:03:19 GMT-0400 (EDT)
+      Occurrences: 25737
+  sum(process.age): 37947233900547 sec
+
+  bffd05c6b745229fd1c648bbe2a7... ▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 1 year ago
+  First Occurrence: Tue Sep 20 2016 21:59:46 GMT-0400 (EDT)
+  Last Occurrence: Tue Sep 20 2016 22:03:01 GMT-0400 (EDT)
+      Occurrences: 20096
+  sum(process.age): 29630010305216 sec
+  ```
 
 ### Delete Objects
 
 Allows deleting objects.
 
 ```bash
-morgue delete [object_id ...]
+morgue delete <[universe/]project> [... oidN]
 ```
 
 The `object_id` parameter specifies the ID(s) of the objects to be deleted. Object IDs can be found in the output of the `morgue list` command. For example:
@@ -329,7 +363,7 @@ The following options support partial deletes:
 Generate a flamegraph of call stacks of objects matching specified filter criteria.
 
 ```shell
-morgue flamegraph [--filter=<filter_expression>] [--unique] [--reverse]
+morgue flamegraph [--filter=] [--reverse] [--unique] [-o file.svg]
 ```
 
 The `--filter` option is used to specify filter criteria for selecting objects. The `--filter` option behaves identically to the `morgue list` sub-command. This functionality requires Perl to be installed. For more information about flamegraphs, see [Flamegraphs](http://www.brendangregg.com/flamegraphs.html).
@@ -341,46 +375,63 @@ The `--unique` option samples only unique crashes, while the `--reverse` option 
 Create and manage scheduled reports.
 
 ```bash
-morgue report [command]
+morgue report [--project=...] [--universe=...]
 ```
 
-The `morgue report` command without any additional parameters lists the available commands for managing reports.
-
-### Create Report
+#### Create Report
 
 Create a new scheduled report.
 
 ```bash
-morgue report create [--rcpt=<recipients>] [--filter=<filter_expression>]
-    [--title=<report_title>] [--period=<report_period>]
+morgue report create
+  <--rcpt=...>
+  <--title=...>
+  [--filter=...]
+  [--fingerprint=...]
+  [--histogram=...]
+  [--hour=...]
+  [--day=...]
+  --period=
 ```
 
-#### Example
+```shell title="Example"
+$ morgue report MyProject create --rcpt=null@backtrace.io
+    --rcpt=list@backtrace.io --filter=environment,equal,prod
+    --title="Production Crashes weekly" --period=week
+```
 
-```bash
-$ morgue report create --rcpt=null@backtrace.io,list@backtrace.io
-    --filter=environment,equal,prod --title="Production Crashes Weekly"
-    --period=week
+#### Delete Report
+
+```shell
+morgue report delete
+```
+
+#### List Report
+
+```shell
+morgue report list
 ```
 
 ### Repair
 
-Repair a project's attribute database.
+This command repairs the attribute database for a project. It reprocesses the affected objects (if possible) for each corrupted page of the database. Once completed successfully, the database transitions into normal mode.
 
 ```bash
-morgue repair
+morgue repair <[universe/]project>
 ```
-
-This command repairs the attribute database for a project. It reprocesses the affected objects (if possible) for each corrupted page of the database. Once completed successfully, the database transitions into normal mode.
 
 ### Reprocess
 
 Reprocess the objects in a project.
 
 ```bash
-morgue reprocess [--filter=<filter_expression>] [--first=<first_object>]
-    [--last=<last_object>]
+morgue reprocess <[universe/]project> [| ...] [--first N] [--last N]
 ```
+
+| Option      | Description                                              |
+| :---------- | :------------------------------------------------------- |
+| `--first=N` | Specify the first object ID (default: earliest known).   |
+| `--last=N`  | Specify the last object ID (default: most recent known). |
 
 This command can be used to re-execute indexing, fingerprinting, and symbolification (where needed) for the objects in a project. If a set of objects or a query is specified, the `--first` and `--last` options are replaced to match the object list. If no query, object list, or range is provided, all objects in the project are reprocessed.
 
@@ -389,43 +440,72 @@ This command can be used to re-execute indexing, fingerprinting, and symbolifica
 Configure the retention policy for a given namespace, which can cover the coroner instance, or a specific universe or project.
 
 ```bash
-morgue retention [command]
+morgue retention [options]
 ```
 
 The `morgue retention` command without any additional parameters lists the available commands for managing the retention policy.
 
+Options for set/clear:
+
+| Option      | Description                                                                        |
+| :---------- | :--------------------------------------------------------------------------------- |
+| `--type=T ` | Specify retention type (default: project) valid: `instance`, `universe`, `project` |
+
+Options for status:
+
+| Option     | Description |
+| :--------- | :---------- |
+| [--type= ] |             |
+
+Options for set:
+
+| Option            | Description                                                                       |
+| :---------------- | :-------------------------------------------------------------------------------- |
+| `--max-age=N`     | Specify time limit for objects, in seconds.                                       |
+| `--physical-only` | Specifies that the policy only delete physical copies; indexing will be retained. |
+
 #### Example
 
-```bash
+```shell title="Example"
 $ morgue retention clear a_project
 success
-
 $ morgue retention set blackhole --max-age=3600
-
 $ morgue retention list
 Project-level:
   blackhole: max age: 1h
+$
 ```
 
 ### Sampling
 
-Retrieve the object sampling status or reset it.
+Retrieve the object sampling status, or reset it. Project is a required flag if `fingerprint` is specified.
 
 ```bash
-morgue sampling [--fingerprint=<fingerprint>] [--project=<project>]
+morgue sampling [options]
 ```
 
 The `--fingerprint` option specifies the fingerprint of the object to retrieve the sampling status for. The `--project` option is required if `--fingerprint` is specified.
+
+Options for either status or reset:
+
+| Option                         | Description                                                      |
+| :----------------------------- | :--------------------------------------------------------------- |
+| `--fingerprint=group`          | Specify a fingerprint to apply to. Without this, applies to all. |
+| `--project=[universe/]project` | Specify a project to apply to. Without this, applies to all.     |
+
+Options for status only:
+
+| Option           | Description                                          |
+| :--------------- | :--------------------------------------------------- |
+| `--max-groups=N` | Specify max number of groups to display per project. |
 
 ### Symbol
 
 Retrieve a list of uploaded symbols or symbol archives.
 
 ```bash
-morgue symbol [command]
+morgue symbol <[/]project> [summary | list | missing | archives] [-o ]
 ```
-
-The `morgue symbol` command without any additional parameters lists the available commands for managing symbols.
 
 By default, `morgue symbol` will return a summary of uploaded archives, available symbols, and missing symbols.
 
@@ -438,19 +518,26 @@ By default, `morgue symbol` will return a summary of uploaded archives, availabl
 Create, modify, and delete data scrubbers.
 
 ```bash
-morgue scrubber [command]
+morgue scrubber
 ```
 
 The `morgue scrubber` command without any additional parameters lists the available commands for managing data scrubbers.
 
-Use the `--name` option to specify the name of the scrubber. Use the `--regexp` option to specify the pattern to match and scrub. Use the `--builtin` option to specify a built-in scrubber (`ssn`, `ccn`, `key`, and `env` are currently supported for social security number, credit card number, encryption key, and environment variable). If `--builtin=all` is used, all supported built-in scrubbers are created. The `--regexp` and `--builtin` options are mutually exclusive. Use the `--enable` option to activate the scrubber (use `0` to disable the scrubber).
+| Option      | Description                                                                                                                                                                                                                                              |
+| :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--name`    | Specify the name of the scrubber.                                                                                                                                                                                                                        |
+| `--regexp`  | Specify the pattern to match and scrub.                                                                                                                                                                                                                  |
+| `--builtin` | Specify a built-in scrubber (`ssn`, `ccn`, `key`, and `env` are currently supported for social security number, credit card number, encryption key, and environment variable). If `--builtin=all` is used, all supported built-in scrubbers are created. |
+| `--enable`  | Activate the scrubber (use `0` to disable the scrubber).                                                                                                                                                                                                 |
+
+The `--regexp` and `--builtin` options are mutually exclusive.
 
 ### Setup
 
 Configure the initial organization and user for an on-premise version of coronerd.
 
 ```bash
-morgue setup <coronerd_url>
+morgue setup
 ```
 
 If you are using an on-premise version of coronerd, use the `morgue setup` command to configure the initial organization and user. Replace `<coronerd_url>` with the URL of your coronerd server. For example, if the server is `backtrace.mycompany.com`, you would run:
@@ -466,7 +553,7 @@ We recommend resetting your password after enabling SSL (done by configuring you
 Delete an object and all its dependencies.
 
 ```bash
-morgue nuke --universe=<universe>
+morgue nuke --universe= [--project=]
 ```
 
 Use this command to nuke an object and all its dependencies. Make sure to back up your data before using this command.
@@ -476,7 +563,7 @@ Use this command to nuke an object and all its dependencies. Make sure to back u
 Manage API tokens for authentication and authorization.
 
 ```bash
-morgue token  [create | list | delete] [--project=<project>] [--universe=<universe>]
+morgue token [create | list | delete] [--project=...] [--universe=...]
 ```
 
 The `morgue token` command without any additional parameters lists the available commands for managing API tokens.
@@ -504,16 +591,6 @@ Lists the API tokens in the specified universe or project.
 morgue token list [--universe=<universe>] [--project=<project>]
 ```
 
-##### Example
-
-Allows you to perform queries on object metadata. You can perform either selection queries or aggregation queries, but not both at the same time.
-
-```bash
-$ morgue token list --universe=my_universe --project=my_project
-```
-
-You may pass `--verbose` in order to get more detailed query performance data.
-
 #### Delete Token
 
 Deletes the specified token by substring or exact match.
@@ -537,10 +614,14 @@ Currently, it can only be used to reset user passwords. If the `--user` or `--pa
 Create isolated tenants for receiving error data and logging in. Tenants provide namespace isolation. Users in one tenant are unable to interact with any objects outside of their tenant. This is an enterprise feature and not enabled by default for self-serve customers. The tenant commands require superuser access.
 
 ```shell
-morgue tenant [command]
+morgue tenant [create | list | delete]
 ```
 
 The `morgue tenant` command without any additional parameters lists the available commands for managing tenants.
+
+- `morgue tenant create`: Create a tenant with the specified name
+- `morgue tenant delete`: Delete a tenant with the specified name.
+- `morgue tenant list`: List all tenants on your instance.
 
 #### Examples
 
@@ -599,10 +680,15 @@ This is a destructive command from a configuration perspective. Unless you have 
 Invite new users into your system. Requires you to have logged in.
 
 ```bash
-morgue invite [command]
+morgue invite
+  create
+    --role=<"guest" | "member" | "admin">
+    --metadata=
+    --tenant=
+    --method=<"password" | "saml" | "pam">
+  delete
+  resend
 ```
-
-The `morgue invite` command without any additional parameters lists the available commands for inviting users.
 
 #### Examples
 
