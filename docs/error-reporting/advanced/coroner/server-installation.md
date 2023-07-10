@@ -98,7 +98,7 @@ sysctl -p
 
 ### SSL Configuration
 
-If you want to disable SSL on coronerd, refer to the [Disable SSL](/error-reporting/advanced/server-advanced/#DisableSSL) section.
+If you want to disable SSL on coronerd, refer to the [Disable SSL](/error-reporting/advanced/coroner/server-advanced/#disable-ssl) section.
 
 If you want to use CA-trusted certificates, see the [CA-trusted Certificates](#ca-trusted-certificates) section below.
 If you want to use self-signed certificates, see the [Self-signed Certificates](#self-signed-certificates) section below.
