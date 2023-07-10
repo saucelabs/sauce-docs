@@ -13,6 +13,8 @@ As app developers, we often release newer versions of our applications to custom
 
 But app upgrades aren't the only scenario where you might need to install apps during a running session. Sometimes, your app's functionality might rely on other dependent applications. In such cases, testing your app's interplay with these dependencies becomes essential. For instance, if your application pulls data from or interacts with another app, you'd want to ensure that this interaction remains smooth even after an upgrade. This makes the ability to install dependent apps during a run an invaluable feature for comprehensive testing.
 
+There are scenarios where you might want to delete an app and reinstall it again during a running session. For example, if you want to test the app's behavior when a user deletes and reinstalls it, you can use the mid-session install feature to accomplish this task. (Deleting apps can be done for [Android](https://github.com/appium/appium-uiautomator2-driver#mobile-removeapp) and [iOS](https://appium.github.io/appium-xcuitest-driver/4.32/execute-methods/#mobile-removeapp) command.)
+
 :::caution Important
 Installing apps mid-session from the Sauce Storage is only supported in our Real Device Cloud.
 :::
@@ -133,7 +135,7 @@ By default, Appium will not automatically launch the app after a mid-session ins
 - **iOS:** `mobile: launchApp`
 - **Android:** `mobile: startActivity`
 
-We added two extra text lines in the Appium Commands list in the Sauce Labs UI to indicate that the app has been installed and needs to be launched manually. Additionally, you will notice the execution of the command `GET /timeouts`. This command acts as a "heartbeat" to keep the session active when installation takes longer than the default timeout of 60 seconds.  By setting a maximum timeout of 5 minutes, the Appium session will remain active until the app is successfully installed, ensuring that it doesn't expire prematurely. 
+We added two extra text lines in the Appium Commands list in the Sauce Labs UI to indicate that the app has been installed and needs to be launched manually. Additionally, you will notice the execution of the command `GET /timeouts`. This command acts as a "heartbeat" to keep the session active when installation takes longer than the default timeout of 60 seconds. By setting a maximum timeout of 5 minutes, the Appium session will remain active until the app is successfully installed, ensuring that it doesn't expire prematurely.
 
 <img src={useBaseUrl('img/mobile-apps/appium-mid-session-logs.jpg')} alt="Mid session install logs" width="800" />
 
