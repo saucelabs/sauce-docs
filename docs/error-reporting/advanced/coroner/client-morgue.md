@@ -31,7 +31,7 @@ This will install the `morgue` tool in your configured path. Refer to the `morgu
 
 ### Login
 
-The first step to using morgue is to log into a server.
+The first step to using morgue is to log in to a server.
 
 ```shell
 $ morgue login http://localhost
@@ -41,7 +41,7 @@ Password: **************
 Logged in.
 ```
 
-At this point, you are able to issue queries.
+Now, you can issue queries.
 
 ### Describe
 

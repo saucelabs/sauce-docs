@@ -39,7 +39,7 @@ This will install the `morgue` tool in your configured path. Refer to the `morgu
 
 ### Login
 
-The first step to using Morgue is to log into a server.
+The first step to using Morgue is to log in to a server.
 
 ```bash
 $ morgue login http://localhost
@@ -49,7 +49,7 @@ Password: **************
 Logged in.
 ```
 
-At this point, you are able to issue queries.
+Now, you can issue queries.
 
 ### Describe
 
@@ -142,7 +142,7 @@ morgue attachment
 
 The filter option expects a comma-delimited list of the form .
 
-The currently supported operations are `equal`, `regular-expression`, `inverse-regular-expression`, `at-least`, `greater-than`, `at-most`, `less-than`, `contains`, `not-contains`, `is-set`, and `is-not-set`.
+The supported operations are `equal`, `regular-expression`, `inverse-regular-expression`, `at-least`, `greater-than`, `at-most`, `less-than`, `contains`, `not-contains`, `is-set`, and `is-not-set`.
 
 ### Pagination
 
@@ -443,7 +443,7 @@ morgue scrubber [command]
 
 The `morgue scrubber` command without any additional parameters lists the available commands for managing data scrubbers.
 
-Use the `--name` option to specify the name of the scrubber. Use the `--regexp` option to specify the pattern to match and scrub. Use the `--builtin` option to specify a built-in scrubber (`ssn`, `ccn`, `key`, and `env` are currently supported for social security number, credit card number, encryption key, and environment variable). If `--builtin=all` is used, all supported built-in scrubbers are created. The `--regexp` and `--builtin` options are mutually exclusive. Use the `--enable` option to activate the scrubber (use `0` to disable the scrubber).
+Use the `--name` option to specify the name of the scrubber. Use the `--regexp` option to specify the pattern to match and scrub. Use the `--builtin` option to specify a built-in scrubber (`ssn`, `ccn`, `key`, and `env` are supported for social security number, credit card number, encryption key, and environment variable). If `--builtin=all` is used, all supported built-in scrubbers are created. The `--regexp` and `--builtin` options are mutually exclusive. Use the `--enable` option to activate the scrubber (use `0` to disable the scrubber).
 
 ### Setup
 
@@ -512,7 +512,7 @@ Allows you to perform queries on object metadata. You can perform either selecti
 $ morgue token list --universe=my_universe --project=my_project
 ```
 
-You may pass `--verbose` in order to get more detailed query performance data.
+You may pass `--verbose` to get more detailed query performance data.
 
 #### Delete Token
 
@@ -530,7 +530,7 @@ Modify users.
 morgue user reset [--universe=<universe>] [--user=<user>] [--password=<password>]
 ```
 
-Currently, it can only be used to reset user passwords. If the `--user` or `--password` options are not specified, the command will prompt for the user and password.
+It can only be used to reset user passwords. If the `--user` or `--password` options are not specified, the command will prompt for the user and password.
 
 ### Tenant
 
