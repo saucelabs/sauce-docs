@@ -14,7 +14,7 @@ You can use the webhooks when, for example, you'd like to receive a notification
 
 To configure webhooks, open the Webhooks tab in your [User Preferences](https://app.testfairy.com/settings/) page. You can configure more than one webhook, and each webhook applies to selected projects and selected events.
 
-TestFairy automatically detects Slack endpoints and sends an appropriate payload. Follow the Slack integration guide /testfairy/integrations/slack.
+TestFairy automatically detects Slack endpoints and sends an appropriate payload. Follow the [Slack integration guide](/testfairy/integrations/slack).
 
 ## Supported Events
 

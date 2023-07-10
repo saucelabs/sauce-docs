@@ -1172,7 +1172,7 @@ The flag `clearPackageData` has to be used in conjunction with `useTestOrchestra
 
 #### `useTestOrchestrator`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Run each of your tests in its own Instrumentation instance to remove most of the app's shared state from the device CPU and memory between tests. Use this setting in conjunction with `clearPackageData: true` to completely remove all shared state.
 
