@@ -18,27 +18,23 @@ Streamline your build process and upload APKs or IPAs directly to TestFairy.
 
 [Gradle](https://github.com/testfairy/testfairy-gradle-plugin)
 
-Android Studio http://docs.testfairy.com/Android/Uploading_with_Android_Studio.html
-
 [fastlane](https://docs.fastlane.tools/actions/testfairy/)
-
-Travis CI https://docs.testfairy.com/Continuous_Integration/Travis_CI.html
 
 [CircleCI](https://circleci.com/docs/2.0/deploying-ios/#uploading-to-testfairy)
 
 [Bitrise](https://www.bitrise.io/integrations/steps/testfairy-deploy)
 
-Visual Studio Team Services /testfairy/ci-tools/vs-team
+[Visual Studio Team Services](/testfairy/ci-tools/vs-team)
 
 [NetBeans](http://plugins.netbeans.org/plugin/52087/)
 
-Bamboo /testfairy/ci-tools/bamboo
+[Bamboo](/testfairy/ci-tools/bamboo)
 
-TeamCity /testfairy/ci-tools/team-city
+[TeamCity](/testfairy/ci-tools/team-city)
 
-GitLab /testfairy/ci-tools/gitlab
+[GitLab](/testfairy/ci-tools/gitlab)
 
-Lumberyard /testfairy/platforms/lumberyard
+[Lumberyard](/testfairy/platforms/lumberyard)
 
 ### Upload API
 
