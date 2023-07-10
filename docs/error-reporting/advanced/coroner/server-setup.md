@@ -75,18 +75,18 @@ Refer to the [coronerd installation](https://documentation.backtrace.io/coronerd
        - `dictionary`: Used to store low cardinality strings (less than 2 billion unique values). Examples include commits, versions, environment, etc. This encoding is efficient in that any string already present in the dictionary only requires 4 bytes of space to store in the column.
        - `uint64`, `uint32`, `uint16`, `uint8`: Unsigned integer types used to store 64-bit, 32-bit, 16-bit, and 8-bit integers, respectively.
      - **Format**: Format of the data type used for rendering the value. The following formats are supported:
-       - `kilobytes`, `gigabytes`, `terabytes`, `bytes`: The underlying column stores integer values treated as the specified unit. This is only valid for integer types.
-       - `callstack`: The underlying column stores a serialized JSON object representing a callstack as a sequence of strings, where each element represents a function. This is only valid for the dictionary type.
-       - `hostname`: The underlying column stores a machine hostname. This is only valid for the dictionary type.
-       - `memory_address`: The values represent memory addresses and should be rendered accordingly. This is only valid for integer types.
+       - `kilobytes`, `gigabytes`, `terabytes`, `bytes`: The underlying column stores integer values treated as the specified unit. Only valid for integer types.
+       - `callstack`: The underlying column stores a serialized JSON object representing a callstack as a sequence of strings, where each element represents a function. Only valid for the dictionary type.
+       - `hostname`: The underlying column stores a machine hostname. Only valid for the dictionary type.
+       - `memory_address`: The values represent memory addresses and should be rendered accordingly. Only valid for integer types.
        - `seconds`: The values represent seconds since a user-defined epoch (for example., `process.age` is seconds since process start). This is only valid for integers.
-       - `unix_timestamp`: The values represent a UNIX timestamp. This is only valid for integers.
-       - `js_timestamp`: The values represent a JavaScript timestamp (UNIX epoch in milliseconds). This is only valid for integers.
+       - `unix_timestamp`: The values represent a UNIX timestamp. Only valid for integers.
+       - `js_timestamp`: The values represent a JavaScript timestamp (UNIX epoch in milliseconds). Only valid for integers.
        - `ipv4`: The column stores IPv4 addresses and should be used with the uint32 type. JavaScript must render the value as an IP address.
        - `ipv6`: The column stores IPv6 addresses and can only be used with the dictionary type.
-       - `username`: The column stores a reference to a coronerd username. This is only valid for the dictionary type.
-       - `sha256`: The column stores a SHA256 value. This is only valid for the dictionary type.
-       - `url`: The column stores a valid web URL. This is only valid for the dictionary type.
+       - `username`: The column stores a reference to a coronerd username. Only valid for the dictionary type.
+       - `sha256`: The column stores a SHA256 value. Only valid for the dictionary type.
+       - `url`: The column stores a valid web URL. Only valid for the dictionary type.
        - `none`: Render the value as is.
      - **Description**: Description of the attribute.
 
