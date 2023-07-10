@@ -103,7 +103,7 @@ If you want to disable SSL on coronerd, refer to the [Disable SSL](/error-report
 If you want to use CA-trusted certificates, see the [CA-trusted Certificates](#ca-trusted-certificates) section below.
 If you want to use self-signed certificates, see the [Self-signed Certificates](#self-signed-certificates) section below.
 
-### CA-trusted Certificates
+### CA-Trusted Certificates
 
 First, copy your certificate chain file (or certificate file) and private key file to `/etc/coronerd/ssl/`.
 
@@ -191,7 +191,7 @@ In the `/etc/coronerd/coronerd.conf` file, specify the certificate and key file 
 
 If you are using a certificate file, add the `certificate` setting alongside the `key` setting. Refer to the [Self-signed Certificates](#self-signed-certificates) section for more information.
 
-### Self-signed Certificates
+### Self-Signed Certificates
 
 A self-signed certificate is not issued by a trusted certificate authority (CA). However, it can be used to establish a secure channel if manually configured as a trusted certificate authority. Using self-signed certificates only affects the secure channels initiated by coroner and does not affect the system's overall secure channels and web-of-trust.
 
@@ -234,7 +234,7 @@ $ ls -lptr /etc/coronerd/ssl/coronerd-key.pem
 
 The `coronerd-key.pem` file must remain private and only be accessible on the host(s) running coronerd. The `coronerd-cert.pem` file is public and must be accessible on all hosts running the coroner client.
 
-## Step 2: Configure coronerd
+## Step 2: Configure Coronerd
 
 Make sure that both the certificate and key files are accessible on the host where coronerd is running. In your coronerd configuration file, update the `console`, `write`, `read`, and `http-console` sections under the listener with the SSL configuration.
 

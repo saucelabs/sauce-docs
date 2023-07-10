@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The `coroner` client tool allows you to submit snapshot files (.btt files) to the object store (coronerd). If you want to perform command-line querying of the Backtrace object store, you should use the [morgue tool](https://documentation.backtrace.io/product_product_morgue/) instead.
+The `coroner` client tool enables you to submit snapshot files (.btt files) to the object store (coronerd). To perform command-line querying of the Backtrace object store, use the [morgue tool](https://documentation.backtrace.io/product_product_morgue/) instead.
 
 ## Configuration
 
@@ -72,7 +72,7 @@ curl.ssl_verifypeer = false
 =
 ```
 
-### Configuration For Unsecured Communications
+### Configuration for Unsecured Communications
 
 For server-side configuration with no SSL/TLS, refer to: [Database Install with No SSL/TLS](https://documentation.backtrace.io/coronerd_install#no-ssltls).
 
@@ -103,7 +103,7 @@ You can optionally include the `-c` flag to specify a coroner configuration file
 
 ### Uploading Snapshots Automatically with `coroner daemon`
 
-The `coroner daemon` mode allows coroner to continuously monitor a list of folders for snapshot files. Whenever a snapshot is saved to one of these folders, `coroner` will automatically upload it to the object store using a specified token and then remove it. This is useful if you have a process that saves snapshots to a central location and you want to automatically upload them.
+The `coroner daemon` mode allows coroner to monitor a list of folders for snapshot files continuously. Whenever a snapshot is saved to one of these folders, `coroner` will automatically upload it to the object store using a specified token and then remove it. It helps if you have a process that saves snapshots to a central location and you want to upload them automatically.
 
 To configure `daemon` mode, add a section to your `coroner.cf` file called `[daemon]`:
 
@@ -117,6 +117,6 @@ proj2.token=proj2
 
 Each `root` setting specifies the path to a folder for `coroner` to watch, and the corresponding `token` specifies the friendly token name to use for the upload.
 
-In the example above, when a snapshot file is saved to `/home/jdoe/workspace/proj1`, `coroner daemon` will automatically execute the equivalent of `coroner put proj1 proj1 /home/jdoe/workspace/proj1/file.btt`.
+In the example above, when a snapshot file is saved to `/home/jdoe/workspace/proj1`, `coroner daemon` will automatically run the equivalent of `coroner put proj1 proj1 /home/jdoe/workspace/proj1/file.btt`.
 
 Once configured, run `coroner daemon` and leave it running.

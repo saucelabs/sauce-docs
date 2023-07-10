@@ -9,13 +9,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Interaction with the coronerd object store can be done through the web console or the command-line tools. This section focuses on the coroner tool, which is a command-line client for interacting with the object store. It is easy to use but allows for complex queries and integrates easily into your terminal development environment.
+Interaction with the coronerd object store can be done through the web console or the command-line tools. This section focuses on the coroner tool, a command-line client for interacting with the object store. It is straightforward but allows for complex queries and integrates efficiently into your terminal development environment.
 
 ## Initial Setup
 
 ### Coroner 0.12.0 or Newer
 
-After a user has been added to the object store, they must log into a server to interact with it.
+After adding a user to the object store, the user must log in to a server to interact with it.
 
 For example, to initiate a session with the object store located at errors.company.com, use the following command:
 
@@ -245,7 +245,7 @@ The `-R` option allows you to sort groups by the date of recent activity. For ex
 
 ### List All Ativity in The Last Week
 
-The `--age` option can be used to filter groups within a recent time window. For example, `coroner list project --age=1w` lists all groups and faults with activity in the past week.
+The `--age` option can be used to filter groups in a recent time window. For example, `coroner list project --age=1w` lists all groups and faults with activity in the past week.
 
 ### Find Groups With a Certain Classification
 

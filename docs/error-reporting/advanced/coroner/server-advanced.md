@@ -47,7 +47,7 @@ Now you see the added histograms on the relevant pages.
 
 By default, `coronerd` is configured to encrypt traffic. If you are using a hosted version of `coronerd`, reach out to us to disable SSL. If you wish to turn off SSL on an on-premise version of `coronerd`, follow these steps:
 
-1. Remove any relevant `ssl` sections in `/etc/coronerd/coronerd.conf`. You'll find `ssl` objects in the following JSON objects within the configuration file:
+1. Remove any relevant `ssl` sections in `/etc/coronerd/coronerd.conf`. You'll find `ssl` objects in the following JSON objects in the configuration file:
 
    - The `read` object in the `listener` object: The interface used to pull down snapshots.
    - The `write` object in the `listener` object: The interface used to submit snapshots.

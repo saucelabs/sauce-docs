@@ -79,7 +79,7 @@ Refer to the [coronerd installation](https://documentation.backtrace.io/coronerd
        - `callstack`: The underlying column stores a serialized JSON object representing a callstack as a sequence of strings, where each element represents a function. This is only valid for the dictionary type.
        - `hostname`: The underlying column stores a machine hostname. This is only valid for the dictionary type.
        - `memory_address`: The values represent memory addresses and should be rendered accordingly. This is only valid for integer types.
-       - `seconds`: The values represent seconds since a user-defined epoch (e.g., process.age is seconds since process start). This is only valid for integers.
+       - `seconds`: The values represent seconds since a user-defined epoch (for example., `process.age` is seconds since process start). This is only valid for integers.
        - `unix_timestamp`: The values represent a UNIX timestamp. This is only valid for integers.
        - `js_timestamp`: The values represent a JavaScript timestamp (UNIX epoch in milliseconds). This is only valid for integers.
        - `ipv4`: The column stores IPv4 addresses and should be used with the uint32 type. JavaScript must render the value as an IP address.
