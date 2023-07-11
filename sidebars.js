@@ -578,6 +578,27 @@ module.exports = {
                         'error-reporting/security-compliance/privacy-control',
                     ],
                 },
+                {
+                    type: 'category',
+                    label: 'Advanced',
+                    collapsed: true,
+                    items: [
+                        {
+                            type: 'category',
+                            label: 'Coroner',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/advanced/coroner/server-installation',
+                                'error-reporting/advanced/coroner/server-setup',
+                                'error-reporting/advanced/coroner/server-advanced',
+                                'error-reporting/advanced/coroner/client-getting-started',
+                                'error-reporting/advanced/coroner/client-usage',
+                                'error-reporting/advanced/coroner/client-morgue',
+                            ],
+                        },
+                        'error-reporting/advanced/morgue',
+                    ],
+                },
             ],
         },
     ],
