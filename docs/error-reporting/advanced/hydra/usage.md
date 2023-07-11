@@ -48,7 +48,7 @@ The panes, in order, are:
 
 We'll explain the Router pane in more detail later. For now, know that it contains various metadata about the application, including system information (memory/CPU usage), registers, kernel frames, and more. It also offers configurable integrations, such as source code management.
 
-Among the panes, the only one that remains constant is the Threads pane (well, almost constant, because you can still change how threads are displayed). The Frames, Variables, and Router panes dynamically update based on the selected context. We refer to these panes as context-aware. Frames are populated based on the presently selected thread, variables and registers depend on the current frame, and so on.
+Among the panes, the only one that remains constant is the Threads pane (well, almost constant because you can still change how threads are displayed). The Frames, Variables, and Router panes dynamically update based on the selected context. We refer to these panes as context-aware. Frames are populated based on the selected thread, Variables and Registers depend on the current frame, and more.
 
 ### Organizing Information with Rules
 
@@ -124,7 +124,7 @@ When using `.ignore=` followed by a regular expression, Hydra ignores matches fo
 
 You can also trigger a command to run with `.trigger=`. The most common use case is triggering a git checkout of the correct branch when using Hydra.
 
-To use a trigger, specify the source code path as the first parameter and the command to execute as the last parameter. Between them, you can include key-value pairs that act as positional variables in the trigger command. In the example above, the `version` key-value maps to the `%0` parameter. Additional key-value pairs correspond to `%1`, `%2`, and so on. `%s` refers to the project path.
+To use a trigger, specify the source code path as the first parameter and the command to run as the last parameter. Between them, you can include key-value pairs that act as positional variables in the trigger command. In the example above, the `version` key-value maps to the `%0` parameter. Additional key-value pairs correspond to `%1`, `%2`, and so on. `%s` refers to the project path.
 
 #### Troubleshooting Triggers
 
@@ -145,7 +145,7 @@ Commands:
 - Collapse or expand an item: +/- symbols next to the item
 - Collapse or expand all items: Commands specific to each pane
 
-Any item with an indicated hierarchy (that is, a +/- symbol) can be collapsed or expanded to hide or show its "children." In the Threads pane, children may refer to members of a specific thread group; in the Variables pane, members of a struct or array; in the Process pane, structured heap metadata (arenas, thread caches, etc.); and so on.
+Any item with an indicated hierarchy (such as a +/- symbol) can be collapsed or expanded to hide or show its "children." In the Threads pane, children may refer to members of a specific thread group; in the Variables pane, members of a struct or array; in the Process pane, structured heap metadata (arenas, thread caches, etc.); and more.
 
 There is one exception to the default collapsing behavior: inlined variable annotations. See the [Inlined Annotations](#inlined-annotations) section for details.
 
@@ -155,7 +155,7 @@ Any annotations on a variable are displayed directly below the variable. If a va
 
 ### Annotation Jumping
 
-Variables across frames are annotatable, and in a single frame, there may be thousands of variables, making it challenging to see any annotations. Annotation jumping comes in handy here. Open the `Warnings` tab in the bottom pane (press `w`), scroll through the list to find the annotation you're interested in, and press **Enter**. The thread, frame, and variable views update to the position of the annotation's owner.
+Variables across frames are annotatable, and in a single frame, there may be thousands of variables, making it challenging to see any annotations. Annotation jumping proves valuable in this case. Open the `Warnings` tab in the bottom pane (press `w`), scroll through the list to find the annotation you're interested in, and press **Enter**. The thread, frame, and variable views update to the position of the annotation's owner.
 
 ### Pane Maximization
 
@@ -165,9 +165,9 @@ Commands:
 
 - Maximize or restore panes: `M (Shift + m)`
 
-All panes support maximization. When a pane is maximized, it has an associated context (for example, a maximized Thread pane has a Frame pane context). The maximized pane occupies the majority of the screen space, while the contextual panes occupy the rest. All other panes are hidden. To restore all panes and sizes, you can press `M` again or use a macro movement hotkey to switch to one of the hidden panes (moving between shown panes does not restore the sizes).
+All panes support maximization. When a pane is maximized, it has an associated context (for example, a maximized Thread pane has a Frame pane context). The maximized pane occupies most of the screen space, while the contextual panes occupy the rest. All other panes are hidden. To restore all panes and sizes, press `M` again or use a macro movement hotkey to switch to one of the hidden panes (moving between shown panes does not restore the sizes).
 
-### Regex Search
+### Regular Expression Search
 
 Context: Any pane displaying a list
 
@@ -177,7 +177,7 @@ Commands:
 - Go to the next search result: `n`
 - Go to the previous search result: `N`
 
-All panes displaying a list support regex searches. Each column is searched independently. For example, in the Threads pane, the search applies to status, TID, basename, thread name, and top frame symbol.
+All panes displaying a list support regular expression searches. Each column is searched independently. For example, in the Threads pane, the search applies to status, TID, basename, thread name, and top frame symbol.
 
 ### Index Jumping
 
@@ -204,7 +204,7 @@ Commands:
 
 Threads are automatically grouped based on the selected group type and sorted according to the specified sort type.
 
-With callstack grouping, threads with identical callstacks are grouped together. Using the tid sort type orders threads based on their thread IDs. There are no other supported group and sort types.
+With callstack grouping, threads with identical callstacks are grouped together. Using the tid sort type orders threads based on their thread IDs. No other supported group and sort types are available.
 
 By default, threads are grouped by `callstack` and sorted by `tid`. You can ungroup all threads using `:ungroup` and reverse the current sorting order in each group with `:rsort` (for example, reverse sorting threads by tid).
 
@@ -286,7 +286,7 @@ Commands:
 
 - -e "command"
 
-All global commands, except regex search, can be executed immediately upon starting Hydra. This is beneficial for sharing state with other users. Provide them with a snapshot and a position URL (using the `u` command) and have them open it using: `hydra -e "j <position URL>"`.
+All global commands, except regular expression search, can be executed immediately upon starting Hydra. This is beneficial for sharing the state with other users. Provide them with a snapshot and a position URL (using the `u` command) and have them open it using: `hydra -e "j <position URL>"`.
 
 ## Router Pane
 
@@ -347,7 +347,7 @@ Commands:
 - Open a source file in the configured editor
 - Center view on the last-executed line of the frame
 
-Shows the source code for the presently selected frame. Index jumping is supported, but regex searches are not. The initial line selected is the last-executed line of the frame.
+Shows the source code for the presently selected frame. Index jumping is supported, but regular expression searches are not. The initial line selected is the last-executed line of the frame.
 
 ### Annotations
 
@@ -361,7 +361,7 @@ JSON-type annotations are shown in either the Process or Context router tabs. Re
 
 ### Column Specification
 
-The following is the column specification for each pane, from left to right (panes with a single column or containing simple key-value lists are omitted):
+The following is the column specification for each pane, from left to right (panes with a single column or containing key-value lists are omitted):
 
 - Threads
 - Thread state: F (faulted), s (sleeping), S (stopped), D (disk), T (traced), Z (zombie), X (dead), ? (unknown)
