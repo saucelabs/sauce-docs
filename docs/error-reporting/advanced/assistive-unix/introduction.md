@@ -2,7 +2,7 @@
 id: introduction
 title: Introduction
 sidebar_label: Introduction
-description: This article briefly overviews the features of the Backtrace debugger.
+description: Overview of the Backtrace debugger.
 ---
 
 import Tabs from '@theme/Tabs';
