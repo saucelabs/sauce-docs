@@ -27,7 +27,7 @@ The Backtrace Unreal plugin reports on the following types of errors:
 | ------------------- | ------------------------------------------------------------------------------------- |
 | Mobile              | Android, iOS                                                                          |
 | PC                  | Windows, MacOS, Linux                                                                 |
-| Game Consoles       | PlayStation 4, PlayStation 5, Xbox One, Xbox Series X, Xbox Series S, Nintendo Switch |
+| Game Consoles       | PlayStation 4, PlayStation 5, Xbox One, Xbox Series X, Xbox Series S, Nintendo Switch, Steam Deck |
 
 :::note
 For on-premise (self-hosted) users, the integration for Unreal Engine requires specific packages. For more information, contact support.
@@ -73,6 +73,7 @@ values={[
 {label: 'macOS', value: 'macos'},
 {label: 'Linux', value: 'linux'},
 {label: 'Game Consoles', value: 'GameConsoles'},
+{label: 'Steam Deck', value: 'SteamDeck'},
 ]}>
 
 <TabItem value="windows">
@@ -462,5 +463,8 @@ To send a crash report to your Backtrace instance for Linux, see the [Crashpad I
 
 To send a crash report to your Backtrace instance for game consoles, see the [Console Integration Guides](https://support.backtrace.io/hc/en-us/sections/360007642051-Video-Game-Technologies).
 
+</TabItem>
+<TabItem value="SteamDeck">
+   Follow the instructions for setting up crash reporting in Windows.  The Steam Deck will not show the CrashReportClient after a crash, but to enable sending `-Unattendded` can be added to the launch options for the game. Please note this option allows for crash reports to be sent without user intervention or knowledge like how the Windows client would normally allow.
 </TabItem>
 </Tabs>
