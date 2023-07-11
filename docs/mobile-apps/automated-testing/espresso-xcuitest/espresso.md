@@ -1174,9 +1174,16 @@ The flag `clearPackageData` has to be used in conjunction with `useTestOrchestra
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Run each of your tests in its own Instrumentation instance to remove most of the app's shared state from the device CPU and memory between tests. Use this setting in conjunction with `clearPackageData: true` to completely remove all shared state.
+Run each of your app's tests within its own invocation of `Instrumentation`. Android Test Orchestrator offers the following benefits for your testing environment:
 
-When set, the instrumentation starts with [Test Orchestrator version 1.1.1](https://developer.android.com/training/testing/junit-runner#using-android-test-orchestrator) in use. This property applies only to real devices, not Emulators.
+- **Minimal shared state:** Each test runs in its own `Instrumentation` instance. Therefore, if your tests share app state, most of that shared state is removed from your device's CPU or memory after each test. To remove all shared state from your device's CPU and memory after each test, use this setting in conjunction with `clearPackageData: true`.
+- **Crashes are isolated:** Even if one test crashes, it takes down only its own instance of `Instrumentation`. This means that the other tests in your suite still run, providing complete test results.
+
+:::note
+This isolation results in a possible increase in test execution time as the Android Test Orchestrator restarts the application after each test.
+:::
+
+See [Test Orchestrator](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/runner#using-android-test-orchestrator).
 
 ```yaml
   useTestOrchestrator: true
