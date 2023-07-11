@@ -596,6 +596,15 @@ module.exports = {
                                 'error-reporting/advanced/coroner/client-morgue',
                             ],
                         },
+                        {
+                            type: 'category',
+                            label: 'Hydra',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/advanced/hydra/setup',
+                                'error-reporting/advanced/hydra/usage',
+                            ],
+                        },
                         'error-reporting/advanced/morgue',
                     ],
                 },
