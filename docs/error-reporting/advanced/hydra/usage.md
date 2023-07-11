@@ -96,7 +96,7 @@ Let's take a deeper look into one of the first things you'll encounter (and defi
 
 You can configure Hydra to display relevant sections of the source code in the peripheral pane.
 
-<img src={useBaseUrl('/img/error-reporting/hydra/5e601cafecafe.png')} alt="Hydra interface"/>
+<img src={useBaseUrl('/img/error-reporting/hydra/5e601cafecafe.png')} alt="Configuring source code integration"/>
 
 To set up source code integration, edit your `~/.hydra.cf` file and add a `[scm]` section. Here's an example:
 
