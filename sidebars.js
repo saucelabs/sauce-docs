@@ -596,6 +596,15 @@ module.exports = {
                                 'error-reporting/advanced/coroner/client-morgue',
                             ],
                         },
+                        {
+                            type: 'category',
+                            label: 'Assistive Debugging for Unix',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/advanced/assistive-unix/introduction',
+                                'error-reporting/advanced/assistive-unix/overview',
+                            ],
+                        },
                         'error-reporting/advanced/morgue',
                     ],
                 },
