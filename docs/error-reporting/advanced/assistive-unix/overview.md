@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The Backtrace debugger generates stand-alone structured snapshot files that contain significantly more information than a callstack without the bloat of a traditional core dump. All crashes are automatically aggregated and deduplicated, enabling your team to respond quickly to instability and triage more effectively. [Learn more about deduplication](https://docs.saucelabs.com/error-reporting/project-setup/deduplication/).
+The Backtrace debugger generates stand-alone structured snapshot files that contain significantly more information than a callstack without the bloat of a traditional core dump. All crashes are automatically aggregated and deduplicated, enabling your team to respond quickly to instability and triage more effectively. [Learn more about deduplication](/error-reporting/project-setup/deduplication/).
 
 ## Automated Analysis and Assistive Debugging
 
