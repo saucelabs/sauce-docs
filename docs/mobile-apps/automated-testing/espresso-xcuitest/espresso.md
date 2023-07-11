@@ -1183,7 +1183,7 @@ Run each of your app's tests within its own invocation of `Instrumentation`. And
 This isolation results in a possible increase in test execution time as the Android Test Orchestrator restarts the application after each test.
 :::
 
-See [Test Orchestrator](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/runner#using-android-test-orchestrator).
+See [Test Orchestrator](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/runner#using-android-test-orchestrator) for more information.
 
 ```yaml
   useTestOrchestrator: true
