@@ -4,8 +4,6 @@ title: 'Virtual USB CLI: Start the Server'
 sidebar_label: Start Server
 ---
 
-## Description
-
 [Connect your local machine to the Sauce Labs Data Center](/mobile-apps/features/virtual-usb#start-server) where your Real Device Cloud private devices are hosted. You must initiate this command in its own separate command line terminal, since it acts as a continuously running log.
 
 ## Usage

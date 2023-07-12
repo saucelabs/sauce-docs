@@ -4,9 +4,7 @@ title: saucectl completion
 sidebar_label: saucectl completion
 ---
 
-## Description
-
-Generate a completion script for for `bash`, `zsh`, `fish` and `powershell` shells.
+Generate a completion script for `bash`, `zsh`, `fish` and `powershell` shells.
 
 ## Usage
 

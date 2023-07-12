@@ -1,7 +1,6 @@
 # Suggests alternatives for words that are gender-specific.
 extends: substitution
 message: "Use inclusive language. Consider '%s' instead of '%s'."
-link: https://wiki.saucelabs.com/display/PM/Technical+Documentation+Style+Guide#TechnicalDocumentationStyleGuide-AudiencesandPronouns
 level: warning
 ignorecase: true
 swap:

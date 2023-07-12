@@ -36,7 +36,7 @@ To integrate TestFairy with Coralogix and automatically push all the logs collec
 
 3. Install Coralogix shipper:
 
-   - Download the preconfigured [fluentd.conf](/img/test-fairy/integrations/fluentd.conf)
+   - Download the preconfigured `[fluentd.conf]`(/img/test-fairy/integrations/fluentd.conf)
    - Edit `fluentd.conf`, and update `CORALOGIX_PRIVATEKEY` and `CORALOGIX_APPNAME`
 
 4. Run FluentD:

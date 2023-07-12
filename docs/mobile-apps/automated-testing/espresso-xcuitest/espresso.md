@@ -446,72 +446,6 @@ Specifies the path to the folder location in which to download artifacts. A sepa
 
 ---
 
-## `notifications`
-
-<p><small>| OPTIONAL | OBJECT |</small></p>
-
-Specifies how to set up automatic test result alerts.
-
-```yaml
-notifications:
-  slack:
-    channels:
-      - "saucectl-results"
-      - "espresso-tests"
-    send: always
-```
-
----
-
-### `slack`
-
-<p><small>| OPTIONAL | OBJECT |</small></p>
-
-Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/basics/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
-
-```yaml
-  slack:
-    channels: "saucectl-espresso-tests"
-    send: always
-```
-
----
-
-#### `channels`
-
-<p><small>| OPTIONAL | STRING/ARRAY |</small></p>
-
-The set of Slack channels to which the test result notifications are to be sent.
-
-```yaml
-  slack:
-    channels:
-      - "saucectl-results"
-      - "espresso-team"
-    send: always
-```
-
----
-
-#### `send`
-
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Specifies when and under what circumstances to send notifications to specified Slack channels. Valid values are:
-
-- `always`: Send notifications for all test results.
-- `never`: Do not send any test result notifications.
-- `pass`: Send notifications for passing suites only.
-- `fail`: Send notifications for failed suites only.
-
-```yaml
-  slack:
-    channels: "saucectl-espresso-tests"
-    send: always
-```
-
----
-
 ## `espresso`
 
 <p><small>| REQUIRED | OBJECT |</small></p>
@@ -755,7 +689,7 @@ suite:
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-When set to `true`, the retry will test only the classes that failed during the previous try.
+When set to `true`, `saucectl` collects any failed tests from the previous run and performs an automatic retry on them.
 
 ```yaml
 suite:
@@ -763,9 +697,6 @@ suite:
     smartRetry:
       failedOnly: true
 ```
-:::info NOTE
-`failedOnly` is effective only when targeting Real Devices.
-:::
 
 ---
 
@@ -969,28 +900,62 @@ Request that the matching device is from your organization's private pool.
 
 ---
 
+Sauce Labs runs your tests using [Android Debug Bridge (ADB)](https://developer.android.com/studio/test/command-line#run-tests-with-adb) for Android Real Devices and Android Emulators by invoking the `adb shell am instrument`-command. This provides a set of [instrumentation options](https://developer.android.com/studio/test/command-line#am-instrument-options) that you can use to control the test execution. We offer support for predefined and custom options.
+
+:::info
+Available options:
+
+- optional and can be used in any combination unless otherwise noted
+- can be used on both Android Emulators and Real Devices unless otherwise noted with <span className="sauceGreen">Virtual Devices Only</span> or <span className="sauceGreen">Real Devices Only</span>
+
+:::
+
 ### `testOptions`
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-A set of parameters allowing you to provide additional details about which test class should be run for the suite and how to apply them.
+The `testOptions` property allows you to provide options to `saucectl`. It's a set of parameters allowing you to provide additional details about which test class should be run for the suite and how to apply them. For more information, see the official Android ["Test from the command line"](https://developer.android.com/studio/test/command-line#am-instrument-options) and ["AndroidJUnitRunner"](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner) docs.
 
 ```yaml
 suites:
+  # The below testOptions are examples. Some of the options are not working together, so please read the descriptions carefully.
   testOptions:
     class:
       - com.example.android.testing.androidjunitrunnersample.CalculatorAddParameterizedTest
     notClass:
       - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest
+    func: true
+    unit: true
+    perf: true
     size: small
     package: com.example.android.testing.androidjunitrunnersample
     notPackage: com.example.android.testing.androidMyDemoTests
     annotation: com.android.buzz.MyAnnotation
     notAnnotation: com.android.buzz.NotMyAnnotation
+    filter:
+      - com.android.foo.MyCustomFilter
+    runnerBuilder:
+      - com.android.foo.MyCustomBuilder
+    listener:
+      - com.foo.Listener
+    newRunListenerMode: true
     numShards: 4
     clearPackageData: true
     useTestOrchestrator: true
+    # custom test options
+    testUser: "John Doe"
+    testEnvironment: "staging"
 ```
+
+The following options are **NOT** allowed/will be ignored when running tests:
+
+- `testFile`: Running all tests listed in a file.
+- `notTestFile`: Running all tests not listed in a file.
+- `debug`: Run tests in debug mode.
+- `log`: Loads and logs all specified tests but doesn't run them.
+- `emma`: Runs an EMMA code coverage analysis and writes the output.
+- `coverageFile`: Overrides the default location of the EMMA coverage file on the device.
+- `coverage`: To generate code coverage files (\*.ec) that can be used by EMMA or JaCoCo. (<span className="sauceGreen">Soon to come for Android Real Devices/Emulators</span>)
 
 ---
 
@@ -998,7 +963,7 @@ suites:
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Instructs `saucectl` to only run the specified classes for this test suite.
+Instructs `saucectl` to only run the specified classes for this test suite. See [`am instrument`-options](https://developer.android.com/studio/test/command-line#am-instrument-options).
 
 ```yaml
   class:
@@ -1011,7 +976,7 @@ Instructs `saucectl` to only run the specified classes for this test suite.
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Instructs `saucectl` to run all classes for the suite _except_ those specified here.
+Instructs `saucectl` to run all classes for the suite _except_ those specified here. See [`am instrument`-options](https://developer.android.com/studio/test/command-line#am-instrument-options).
 
 ```yaml
   notClass:
@@ -1020,11 +985,47 @@ Instructs `saucectl` to run all classes for the suite _except_ those specified h
 
 ---
 
+#### `func`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Instructs `saucectl` to run all test classes that extend [InstrumentationTestCase](https://developer.android.com/reference/android/test/InstrumentationTestCase). See [`am instrument`-options](https://developer.android.com/studio/test/command-line#am-instrument-options).
+
+```yaml
+  func: true
+```
+
+---
+
+#### `unit`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Instructs `saucectl` to run all test classes that do not extend either InstrumentationTestCase or [PerformanceTestCase](https://developer.android.com/reference/android/test/PerformanceTestCase)/[`perf`](#perf). See [`am instrument`-options](https://developer.android.com/studio/test/command-line#am-instrument-options).
+
+```yaml
+  unit: true
+```
+
+---
+
+#### `perf`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Instructs `saucectl` to run all test classes that implement PerformanceTestCase. See [`am instrument`-options](https://developer.android.com/studio/test/command-line#am-instrument-options).
+
+```yaml
+  perf: true
+```
+
+---
+
 #### `size`
 
 <p><small>| OPTIONAL | ENUM |</small></p>
 
-Instructs `saucectl` to run only tests that are annotated with the matching size value i.e `@SmallTest`, `@MediumTest` or `@LargeTest`. Valid values are `small`, `medium`, or `large`. You may only specify one value for this property.
+Instructs `saucectl` to run only tests that are annotated with the matching size value i.e `@SmallTest`, `@MediumTest` or `@LargeTest`. Valid values are `small`, `medium`, or `large`. You may only specify one value for this property. See [`am instrument`-options](https://developer.android.com/studio/test/command-line#am-instrument-options).
 
 ```yaml
   size: small
@@ -1036,7 +1037,7 @@ Instructs `saucectl` to run only tests that are annotated with the matching size
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Instructs `saucectl` to run only tests in the specified package.
+Instructs `saucectl` to run only tests in the specified package. See [`am instrument`-options](https://developer.android.com/studio/test/command-line#am-instrument-options).
 
 ```yaml
   package: com.example.android.testing.androidjunitrunnersample
@@ -1048,7 +1049,7 @@ Instructs `saucectl` to run only tests in the specified package.
 
 <p><small>| OPTIONAL | STRING | REAL DEVICES ONLY |</small></p>
 
-Instructs `saucectl` to run run all tests _except_ those in the specified package.
+Instructs `saucectl` to run all tests _except_ those in the specified package. See [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)-usage.
 
 ```yaml
   notPackage: com.example.android.testing.androidMyDemoTests
@@ -1060,7 +1061,7 @@ Instructs `saucectl` to run run all tests _except_ those in the specified packag
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Instructs `saucectl` to run only tests that match a custom annotation that you have set.
+Instructs `saucectl` to run only tests that match a custom annotation that you have set. See [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)-usage.
 
 ```yaml
   annotation: com.android.buzz.MyAnnotation
@@ -1072,10 +1073,64 @@ Instructs `saucectl` to run only tests that match a custom annotation that you h
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Instructs `saucectl` to run all tests _except_ those matching a custom annotation that you have set.
+Instructs `saucectl` to run all tests _except_ those matching a custom annotation that you have set. See [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)-usage.
 
 ```yaml
   notAnnotation: com.android.buzz.NotMyAnnotation
+```
+
+---
+
+#### `filter`
+
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Instructs `saucectl` to filter the test run to tests that pass all of a list of custom [filter(s)](https://junit.org/junit4/javadoc/4.12/org/junit/runner/manipulation/Filter.html). See [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)-usage.
+
+```yaml
+  filter:
+    - com.android.foo.MyCustomFilter
+    - com.android.foo.MyOtherCustomFilter
+```
+
+---
+
+#### `runnerBuilder`
+
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Instructs `saucectl` to use custom [builders](https://junit.org/junit4/javadoc/4.12/org/junit/runners/model/RunnerBuilder.html) to run test classes. See [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)-usage.
+
+```yaml
+  runnerBuilder:
+    - com.android.foo.MyCustomBuilder
+    - com.android.foo.AnotherCustomBuilder
+```
+
+---
+
+#### `listener`
+
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Instructs `saucectl` to specify one or more [RunListeners](http://junit.org/javadoc/latest/org/junit/runner/notification/RunListener.html) to observe the test run. See [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)-usage.
+
+```yaml
+  listener:
+    - com.foo.Listener
+    - com.foo.Listener2
+```
+
+---
+
+#### `newRunListenerMode`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Instructs `saucectl` to use the new order of [RunListeners](http://junit.org/javadoc/latest/org/junit/runner/notification/RunListener.html) during a test run. See [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)-usage.
+
+```yaml
+  newRunListenerMode: true
 ```
 
 ---
@@ -1100,9 +1155,9 @@ Espresso may not distribute tests evenly across the number of shards specified, 
 
 #### `clearPackageData`
 
-<p><small>| OPTIONAL | BOOLEAN | REAL DEVICES ONLY |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Removes all shared states from the testing device's CPU and memory at the completion of each test.
+Removes all shared states from the testing device's CPU and memory at the completion of each test. See [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)-usage.
 
 :::note
 The flag `clearPackageData` has to be used in conjunction with `useTestOrchestrator`.
@@ -1117,14 +1172,38 @@ The flag `clearPackageData` has to be used in conjunction with `useTestOrchestra
 
 #### `useTestOrchestrator`
 
-<p><small>| OPTIONAL | BOOLEAN | REAL DEVICES ONLY |</small></p>
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Run each of your tests in its own Instrumentation instance to remove most of the app's shared state from the device CPU and memory between tests. Use this setting in conjunction with `clearPackageData: true` to completely remove all shared state.
+Run each of your app's tests within its own invocation of `Instrumentation`. Android Test Orchestrator offers the following benefits for your testing environment:
 
-When set, the instrumentation starts with [Test Orchestrator version 1.1.1](https://developer.android.com/training/testing/junit-runner#using-android-test-orchestrator) in use. This property applies only to real devices, not Emulators.
+- **Minimal shared state:** Each test runs in its own `Instrumentation` instance. Therefore, if your tests share app state, most of that shared state is removed from your device's CPU or memory after each test. To remove all shared state from your device's CPU and memory after each test, use this setting in conjunction with `clearPackageData: true`.
+- **Crashes are isolated:** Even if one test crashes, it takes down only its own instance of `Instrumentation`. This means that the other tests in your suite still run, providing complete test results.
+
+:::note
+This isolation results in a possible increase in test execution time as the Android Test Orchestrator restarts the application after each test.
+:::
+
+See [Test Orchestrator](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/runner#using-android-test-orchestrator) for more information.
 
 ```yaml
   useTestOrchestrator: true
+```
+
+---
+
+#### Custom `testOptions`
+
+The `am instrument` tool passes testing options in the form of key-value pairs, using the `-e` flag. If you normally pass extra test options to the `am instrument` tool, like for example
+
+```
+# -e <key> <value>
+- e testUser "John Doe"
+```
+
+you can do so in `saucectl` by adding them to the `testOptions` property.
+
+```yaml
+  testUser: "John Doe"
 ```
 
 ---

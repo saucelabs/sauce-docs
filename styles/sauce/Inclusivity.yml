@@ -1,7 +1,6 @@
 # Checks for problematic language.
 extends: substitution
 message: "Avoid problematic language. Use '%s' instead of '%s'."
-link: https://wiki.saucelabs.com/display/PM/Technical+Documentation+Style+Guide#TechnicalDocumentationStyleGuide-SauceLabsTerminologyUsage
 level: warning
 ignorecase: true
 action:

@@ -4,8 +4,6 @@ title: saucectl artifacts list
 sidebar_label: saucectl artifacts list
 ---
 
-## Description
-
 Lists artifacts for a job from Sauce Labs.
 
 ## Usage

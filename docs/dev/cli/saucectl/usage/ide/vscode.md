@@ -8,6 +8,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Visual Studio Code can help you edit the `saucectl` configuration files by providing helpful suggestions, autocompletion and docs; all without having to leave the IDE.
+
 ## What You'll Need
 
 - [Visual Studio Code](https://code.visualstudio.com/)
@@ -15,7 +17,6 @@ import TabItem from '@theme/TabItem';
 
 ## JSON Schema Validation
 
-Visual Studio Code can help you edit the `saucectl` configuration files by providing helpful suggestions, autocompletion and docs; all without having to leave the IDE.
 Our JSON schema is published to the [JSON Schema Store](https://www.schemastore.org/json/), which is made available to Visual Studio Code.
 
 :::caution Default Limitations
