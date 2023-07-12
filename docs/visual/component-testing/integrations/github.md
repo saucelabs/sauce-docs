@@ -2,7 +2,6 @@
 id: github
 title: GitHub Integration with Visual Component Testing
 sidebar_label: GitHub
-hide_table_of_contents: true
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
