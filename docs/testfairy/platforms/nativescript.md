@@ -8,19 +8,24 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy for Nativescript is a bridge to the TestFairy SDK. Integrating the TestFairy SDK into your app enables you to better understand how your app performs on real devices. It tells you when and how people are using your app, and provides you with any metrics you may need to optimize your user experience and code.
+TestFairy for Nativescript is a bridge to the TestFairy SDK. Integrating the TestFairy SDK into your app enables you to better understand how your app performs on real devices. It provides insights into user behavior, session recording, and metrics to optimize your user experience and code.
 
 ## Installation
+
+To install the Nativescript TestFairy plugin, run the following command:
 
 ```js
 tns plugin add nativescript-testfairy
 ```
 
-## Usage
+## Enabling Session Recording
 
-Once the native library is added to your project, you can now enable session recording with TestFairy. You will need an app token, which can be found in your [Preferences](http://app.testfairy.com/settings/) page on your TestFairy account.
+Once the native library is added to your project, you can now enable session recording with TestFairy:
 
-Next, from your JavaScript file, (app.js or app.ts for example), import the TestFairy bridge into your project, and invoke `begin` passing in the app token. The best time to invoke `begin` is usually on `launchEvent`.
+1. Obtain an app token from your TestFairy account. You can find the app token on the [Preferences](http://app.testfairy.com/settings/) page on your TestFairy account.
+2. Import the TestFairy bridge  from your JavaScript file (app.js or app.ts) into you project.
+3. Invoke the `begin`  passing in the app token. The best time to invoke `begin` is usually during the `launchEvent` of your application.
+
 
 Here's an example of how to start your recording in TypeScript:
 
@@ -49,7 +54,7 @@ application.on(application.launchEvent, (args) => {
 application.start({ moduleName: "main-page" });
 ```
 
-Here's a final sample of starting your recording using Angular
+Here's a final sample of starting your recording using Angular:
 
 ```js
 import { Component } from "@angular/core";
@@ -67,20 +72,23 @@ export class AppComponent {
 }
 ```
 
-You can now log in to your [account](http://app.testfairy.com) and view your sessions. Also, feel free to refer to the [documentation](https://github.com/testfairy/react-native-testfairy/blob/master/index.js) for other available APIs.
+You can now log in to your [account](http://app.testfairy.com) and view your sessions. For more information regarding available APIs, see the [documentation](https://github.com/testfairy/react-native-testfairy/blob/master/index.js).
 
-### User ID and Session Attributes
+## User ID and Session Attributes
 
-See the SDK Documentation /testfairy/sdk/identifying-users#nativescript for more information.
+To learn how to identify users and set session attributes using the TestFairy SDK in Nativescript, refer to the [identifying users section](/testfairy/sdk/identifying-users/) in the SDK Documentation.
 
-### Remote Logging
+## Remote Logging
 
-See the SDK Documentation /testfairy/sdk/remote-logging#nativescript for more information.
+To understand how to perform remote logging with the TestFairy SDK in Nativescript, refer to the [remote logging section](/testfairy/sdk/remote-logging/) in the SDK Documentation.
 
-### Hiding Views
 
-See the SDK Documentation /testfairy/sdk/identifying-users#nativescript for more information.
+## Hiding Views
 
-### Where To Go From Here?
+If you want to hide certain views from session recordings, check the [Nativescript section](/testfairy/sdk/identifying-users/) in the SDK Documentation for instructions.
 
-- Follow the project on [GitHub](https://github.com/testfairy/nativescript-testfairy) for updates, bug reports, or to contribute to the project.
+
+:::note 
+To stay updated on the project, report bugs, or contribute to the Nativescript TestFairy plugin, visit the [GitHub](https://github.com/testfairy/nativescript-testfairy) repository. 
+:::
+
