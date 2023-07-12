@@ -5,8 +5,6 @@ sidebar_label: Jira
 description: Connect errors from Backtrace with issues in Jira to easily manage and track bug fixes.
 ---
 
-deploy preview test
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
