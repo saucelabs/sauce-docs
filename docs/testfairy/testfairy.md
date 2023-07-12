@@ -2,5 +2,25 @@
 id: testfairy
 title: Using TestFairy
 sidebar_label: Getting Started
-hide_table_of_contents: true
 ---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+Welcome to TestFairy!
+
+Distribute App to Testers
+TestFairy offers enterprise-grade app distribution capabilities, allowing companies to easily and securely distribute the right apps to the right users. The platform allows admins to easily enforce corporate security policies during testing, and has the capability to automatically update apps to new versions or revoke access to installed apps or users.
+[Learn More here](https://docs.saucelabs.com/testfairy/testing-an-app/testers/managing-testers/)
+
+Analyze User Behavior
+TestFairy provides mobile teams with videos showing exactly what happened during a mobile device test, before a crash, or before something went wrong, which ensures that bugs are fixed quickly.
+Learn More here https://docs.saucelabs.com/testfairy/sdk/adding-tf-sdk/
+
+Collect Feedback
+TestFairy's feedback features help users provide feedback by shaking their device or taking a screenshot. A report can automatically be posted to Jira along with the session video recording, logs, metrics, and crash reports.
+[Learn More here](https://docs.saucelabs.com/test-fairy/testing-an-app/testers/user-feedback/)
+
+Security
+TestFairy is available as a private cloud or an on-premise installation and can integrate with any SAML single sign-on service. TestFairy is the only platform that provides end-to-end data encryption using your private/public keys, so your data remains private.
+[Learn More here](https://docs.saucelabs.com/testfairy/security/data-encryption/)
+
