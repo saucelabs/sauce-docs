@@ -2,7 +2,6 @@
 id: slack
 title: Slack Integration with Visual Component Testing
 sidebar_label: Slack
-hide_table_of_contents: true
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
