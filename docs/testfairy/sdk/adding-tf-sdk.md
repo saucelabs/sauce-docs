@@ -22,17 +22,17 @@ TestFairy SDK features include:
 
 To add the TestFairy SDK to your app, see the instructions for the relevant development platform:
 
-- Android /testfairy/sdk/android/integrating-android
-- iOS /testfairy/sdk/ios/integrating-ios
-- Cordova and PhoneGap /testfairy/platforms/cordova
-- Ionic /testfairy/platforms/ionic
-- React Native /testfairy/platforms/react-native
-- Unity /testfairy/platforms/unity
-- Xamarin /testfairy/platforms/xamarin
-- Titanium /testfairy/platforms/titanium
-- Nativescript /testfairy/platforms/nativescript
-- Neptune Software /testfairy/platforms/neptune
-- Flutter /testfairy/platforms/flutter
+- [Android](/testfairy/sdk/android/integrating-android)
+- [iOS](/testfairy/sdk/ios/integrating-ios)
+- [Cordova and PhoneGap](/testfairy/platforms/cordova)
+- [Ionic](/testfairy/platforms/ionic)
+- [React Native](/testfairy/platforms/react-native)
+- [Unity](/testfairy/platforms/unity)
+- [Xamarin](/testfairy/platforms/xamarin)
+- [Titanium](/testfairy/platforms/titanium)
+- [Nativescript](/testfairy/platforms/nativescript)
+- [Neptune Software](/testfairy/platforms/neptune)
+- [Flutter](/testfairy/platforms/flutter)
 
 ## Adding Events
 
