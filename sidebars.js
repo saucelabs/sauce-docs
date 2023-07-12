@@ -598,6 +598,7 @@ module.exports = {
                                 'error-reporting/advanced/coroner/client-morgue',
                             ],
                         },
+                        'error-reporting/advanced/traces-coroner',
                         {
                             type: 'category',
                             label: 'Hydra',
@@ -616,6 +617,8 @@ module.exports = {
                                 'error-reporting/advanced/assistive-unix/overview',
                             ],
                         },
+                        'error-reporting/advanced/dwarf',
+                        'error-reporting/advanced/snapshots',
                         'error-reporting/advanced/morgue',
                         'error-reporting/advanced/ptrace',
                     ],
