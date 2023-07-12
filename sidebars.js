@@ -575,6 +575,7 @@ module.exports = {
                     label: 'Privacy and Compliance',
                     collapsed: true,
                     items: [
+                        'error-reporting/security-compliance/audit-logs',
                         'error-reporting/security-compliance/common-questions',
                         'error-reporting/security-compliance/privacy-control',
                     ],
