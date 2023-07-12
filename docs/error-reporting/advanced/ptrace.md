@@ -272,7 +272,7 @@ These iterations use the same generic `for` interface mentioned earlier for thre
 - `cu`: The desired compilation unit (substring match).
 - `name`: The variable's name (exact match).
 
-All of these fields (and the filter table itself) are optional. Each iteration returns a variable object, the object file name, and the compilation unit name.
+All of these fields (and the filter table itself) are optional. Each iteration returns a variable object, the object filename, and the compilation unit name.
 
 Suppose we're interested in a particular global variable - a variable containing the version of our program:
 
@@ -457,7 +457,7 @@ pmodule.define {
 }
 ```
 
-There are a few CLI options to keep in mind when using pmodules:
+A few CLI options exist to keep in mind when using pmodules:
 
 - `sandbox whitelist`: Allows certain Lua features to be used by Lua modules (disabled by default for better default security).
 - `module-load/modules-path`: Loads modules from a specific file or directory.
