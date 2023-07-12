@@ -11,7 +11,7 @@ Webhooks allow one application to send real-time HTTP POST requests to a specifi
 
 Sauce Labs can send webhook events to notify your app any time an event happens on your account. Webhooks can be useful for extending Sauce Labs, and triggering external processes and services in your software stack. You can configure multiple webhook endpoints, and each webhook endpoint can have specific event types as filters.
 
-SauceLabs has the following event types:
+Sauce Labs has the following event types:
 
 - `build.status.error`
 - `build.status.failure`
