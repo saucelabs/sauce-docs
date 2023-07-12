@@ -616,6 +616,7 @@ module.exports = {
                             ],
                         },
                         'error-reporting/advanced/morgue',
+                        'error-reporting/advanced/ptrace',
                     ],
                 },
             ],
