@@ -24,7 +24,7 @@ For more information, see [Adding the TestFairy SDK](/testfairy/sdk/adding-tf-sd
 
 TestFairy's feedback features help users provide feedback by shaking their device or taking a screenshot. A report can automatically be posted to Jira along with the session video recording, logs, metrics, and crash reports.
 
-For more information, see [Submitting User Feedback](/test-fairy/testing-an-app/testers/user-feedback/).
+For more information, see [Getting Feedback](/testfairy/testing-an-app/feedback/).
 
 ## Security
 
