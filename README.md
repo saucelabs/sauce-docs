@@ -15,7 +15,7 @@
     <img src="https://app.saucelabs.com/browser-matrix/saucy-docs.svg?auth=495eb49379a16a1e211eb5d27444fa76" alt= "Sauce Labs Browser Matrix"/>
 </p>
 
-Welcome to the `sauce-docs`, this website contains all technical documentation about Sauce Labs and its products. This site uses [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
+Welcome to the `sauce-docs` repository. This website contains all technical documentation about Sauce Labs and its products. This website uses [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
 **Table of Contents**
 
@@ -108,7 +108,7 @@ The doc site employs two different code quality tools:
 -   `eslint`
 -   `prettier`
 
-Before each commit, a `lint-staged` task runs. If you encounter no errors feel free to push your changes to your remote branch. However if you see any `eslint` errors, or if you see any `prettier` responses like the one below, it means you have to run `eslint` and/or `prettier`
+Before each commit, a `lint-staged` task runs. If you encounter no errors feel free to push your changes to your remote branch. However, if you see any `eslint` errors, or if you see any `prettier` responses like the one below, it means you have to run `eslint` and/or `prettier`:
 
 ```
 Forgot to run prettier?
@@ -118,10 +118,10 @@ Below are the following commands for both `eslint` and `prettier` that you must 
 
 ```
 #eslint
-npx eslint . --fix
+npx eslint <file>/<location> --fix
 
 #prettier
-npx prettier --write
+npx prettier --write '<file>/<location>'
 ```
 
 ### Vale
