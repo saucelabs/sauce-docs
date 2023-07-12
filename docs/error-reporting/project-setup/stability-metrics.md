@@ -13,9 +13,9 @@ Backtrace now allows you to track trends in your software's stability as observe
 
 This builds on the ability to compute error rates against metrics you provide/upload into our system (as explained in [this document](https://support.backtrace.io/hc/en-us/articles/360052102052)). The functionality allows you to normalize your errors by useful metrics such as "number of sessions," "minutes played," or any other stability metric that you want to track in your app.
 
-Now, Backtrace's SDKs have built-in functionality to automatically generate these metrics. This means that you will be able to see session and user stability metrics like "Error-free sessions" in the Backtrace Web Console out of the box. Our APIs also allow you to create your own events so you can track custom metrics and have them sent to your Backtrace instance as well.
+Now, Backtrace's SDKs have built-in functionality to automatically generate these metrics. This means that you can see session and user stability metrics like "Error-free sessions" in the Backtrace Web Console out of the box. Our APIs also allow you to create your own events so you can track custom metrics and have them sent to your Backtrace instance as well.
 
-### How does this feature help me?
+### How Does This Feature Help Me?
 
 Often, assessing an end user's experience by looking at crash/error data alone can be difficult. Stability metrics allow you as a developer, producer, or project manager to more easily monitor your project's health in those terms.
 
@@ -57,7 +57,7 @@ In this example, we have selected to normalize our errors by sessions. Now, in t
 
 We understand that different applications are likely to require different metrics to properly monitor stability. While our SDKs provide session and unique user metrics out of the box, we have built this set of features to allow users to define custom metric events to suit the needs of their applications.
 
-For example, you could configure metrics to normalize for:
+For example, you can configure metrics to normalize for:
 
 - How many minutes of app usage were crash/error-free?
 - How many "levels" in your game had a crash/error occur?
