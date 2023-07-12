@@ -1,7 +1,7 @@
 ---
 id: tf-connect
-title: Test Fairy Connect
-sidebar_label: Test Fairy Connect
+title: TestFairy Connect
+sidebar_label: TestFairy Connect
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 TestFairy Connect is a proxy server installed on-premise, designed to help companies connect their bug-tracking systems behind a firewall (Jira Server) with the TestFairy cloud.
 
-You can install Test Fairy Connect via a Docker image.
+You can install TestFairy Connect via a Docker image.
 
 ## How does it work?
 
