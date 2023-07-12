@@ -1,6 +1,6 @@
 ---
 id: ptrace
-title: Plugins for `ptrace`
+title: Plugins for ptrace
 sidebar_label: Plugins for ptrace
 description: pmodules allow users to augment snapshots by performing custom analysis and data structure pretty printing in response to specific events.
 ---
