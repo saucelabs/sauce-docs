@@ -598,6 +598,15 @@ module.exports = {
                         },
                         {
                             type: 'category',
+                            label: 'Hydra',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/advanced/hydra/setup',
+                                'error-reporting/advanced/hydra/usage',
+                            ],
+                        },
+                        {
+                            type: 'category',
                             label: 'Assistive Debugging for Unix',
                             collapsed: true,
                             items: [
