@@ -1,7 +1,7 @@
 ---
 id: tf-production
-title: Test Fairy in Production
-sidebar_label: Test Fairy in Production
+title: TestFairy in Production
+sidebar_label: TestFairy in Production
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -35,7 +35,7 @@ Therefore it is important to follow these guidelines:
 
 1. Never use TestFairy Auto-update with apps that are shipped to production. This is a clear violation of both Apple and Google's terms.
 
-## Disabling Test Fairy in Production
+## Disabling TestFairy in Production
 
 When it comes to using TestFairy in a production environment, there may be instances where you need to disable TestFairy's functionality temporarily or permanently. Disabling TestFairy in production can be necessary for a variety of reasons, such as complying with platform guidelines or eliminating potential performance impacts.. The SDK is very modular and is built to handle the your and your company's needs.
 

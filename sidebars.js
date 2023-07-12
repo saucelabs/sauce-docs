@@ -495,6 +495,7 @@ module.exports = {
                         'error-reporting/project-setup/object-reprocessing',
                         'error-reporting/project-setup/metrics-stability-scores',
                         'error-reporting/project-setup/metric-export',
+                        'error-reporting/project-setup/stability-metrics',
                         'error-reporting/project-setup/file-attachments',
                         'error-reporting/project-setup/source-code',
                         'error-reporting/project-setup/alerts',
@@ -574,6 +575,7 @@ module.exports = {
                     label: 'Privacy and Compliance',
                     collapsed: true,
                     items: [
+                        'error-reporting/security-compliance/audit-logs',
                         'error-reporting/security-compliance/common-questions',
                         'error-reporting/security-compliance/privacy-control',
                     ],
@@ -615,6 +617,7 @@ module.exports = {
                             ],
                         },
                         'error-reporting/advanced/morgue',
+                        'error-reporting/advanced/ptrace',
                     ],
                 },
             ],
