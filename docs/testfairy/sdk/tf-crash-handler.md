@@ -1,7 +1,7 @@
 ---
 id: tf-crash-handler
-title: Test Fairy Crash Handler
-sidebar_label: Test Fairy Crash Handler
+title: TestFairy Crash Handler
+sidebar_label: TestFairy Crash Handler
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

@@ -2,7 +2,6 @@
 id: visual-studio-team-services
 title: Visual Studio Team Service Integration
 sidebar_label: Visual Studio Team Services
-hide_table_of_contents: true
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

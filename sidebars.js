@@ -949,6 +949,7 @@ module.exports = {
             label: 'TestFairy',
             collapsed: true,
             items: [
+                'testfairy/testfairy',
                 {
                     type: 'category',
                     label: 'Using TestFairy',
