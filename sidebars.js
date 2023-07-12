@@ -605,6 +605,15 @@ module.exports = {
                                 'error-reporting/advanced/hydra/usage',
                             ],
                         },
+                        {
+                            type: 'category',
+                            label: 'Assistive Debugging for Unix',
+                            collapsed: true,
+                            items: [
+                                'error-reporting/advanced/assistive-unix/introduction',
+                                'error-reporting/advanced/assistive-unix/overview',
+                            ],
+                        },
                         'error-reporting/advanced/morgue',
                     ],
                 },
