@@ -18,7 +18,7 @@ Capture error and crash reports from your games and mobile apps with Backtrace.
     <li><a href="/error-reporting/platform-integrations/ios/setup/">iOS</a></li>
     <li><a href="/error-reporting/platform-integrations/plcrash-reporter/">PLCrashReporter</a></li>
   </ul>
-  <h3>Video Games</h3>
+  <h3>Video Game Consoles</h3>
   <ul>
     <li><a href="/error-reporting/platform-integrations/unity/setup/">Unity</a></li>
     <li><a href="/error-reporting/platform-integrations/unreal/setup/">Unreal Engine</a></li>

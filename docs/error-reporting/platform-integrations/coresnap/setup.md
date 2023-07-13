@@ -38,7 +38,7 @@ After installing the packages, coresnapd requires a few configuration changes to
 # sysrc local_startup="$(sysrc -n local_startup) /opt/backtrace/etc/rc.d"
 ```
 
-`coresnapd` uses `coroner` to perform submissions of crashes. To configure it, edit the `/usr/local/etc/coroner.cf` file. For more information, consult the [coroner documentation](https://help.backtrace.io/en/articles/1717721-coroner-client-getting-started).
+`coresnapd` uses `coroner` to perform submissions of crashes. To configure it, edit the `/usr/local/etc/coroner.cf` file. For more information, consult the [coroner documentation](/error-reporting/advanced/coroner/client-getting-started/).
 
 Now you can start `coresnapd`:
 

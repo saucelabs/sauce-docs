@@ -172,7 +172,7 @@ Backtrace includes global, static, and thread-local variables in snapshots, alon
 
 The Backtrace `hydra` tool allows you to view Backtrace snapshots in your terminal. It offers advanced source-code integration, regular expression search, and more.
 
-Learn more about [hydra](https://help.backtrace.io/advanced/component-hydra/hydra-usage).
+Learn more about [hydra](/error-reporting/advanced/hydra/usage/).
 
 <img src={useBaseUrl('/img/error-reporting/assistive-unix/5e601bfd8f34c.png')} alt="example"/>
 
@@ -180,6 +180,6 @@ Learn more about [hydra](https://help.backtrace.io/advanced/component-hydra/hydr
 
 The Backtrace web debugger and web console enable you to view dumps directly in your web browser without additional tools. Dumps are automatically aggregated into a centralized object store, providing convenient access for engineers.
 
-Learn more about [web debugger](https://help.backtrace.io/product-guide/web-debugger).
+Learn more about [web debugger](/error-reporting/web-console/debug/).
 
 <img src={useBaseUrl('/img/error-reporting/assistive-unix/5e601bfecd76f.png')} alt="example"/>

@@ -9,7 +9,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-
 The Web Console’s Overview page provides an ‘at a glance’ view of your project’s health by displaying different top down views of your error / crash data. The widgets in place were designed to serve that goal by enabling a number of important use cases:
 
 - Top Down Synthesis: Aggregate widgets allow developers or project leads to quickly see their application's stability and how many total, unique, and open errors have been reported in their project for a fast, simple status update
@@ -109,8 +108,8 @@ If you see something like the error in the image below, that means you need to f
 
 <img src={useBaseUrl('img/error-reporting/console-views/stability-metrics-not-configured.png')} alt="Shows widgets for stability metrics not properly configured." />
 
-Note that, as of 8/2/2021, these features are still being developed for many of our SDKs. Right now, only our Unity SDK is supported (v 3.5.0 and up).
+Only our Unity SDK is supported (v 3.5.0 and up).
 
-For best results, note that you will need to add a filter to your view to remove the error reports from backtrace.versions that did not support stability metrics. For example, the Backtrace-Unity SDK version 3.5.0 was the first to support this feature so you would want to add a filter of "backtrace.version >= 3.5.0".
+For best results, you will need to add a filter to your view to remove the error reports from backtrace.versions that did not support stability metrics. For example, the Backtrace-Unity SDK version 3.5.0 was the first to support this feature so you would want to add a filter of "backtrace.version >= 3.5.0".
 
-For more information on stability metrics and how to ensure they are configured correctly, see [Stability Metrics](https://support.backtrace.io/hc/en-us/articles/4405716135060-Stability-Metrics).
+For more information on stability metrics and how to ensure they are configured correctly, see [Stability Metrics](/error-reporting/project-setup/stability-metrics/).

@@ -69,7 +69,7 @@ For example, let's say you wanted to submit a minidump and set the `version` att
 curl -v -F "version=1.0" -F "upload_file_minidump=@example_minidump.dmp" -H "Expect:" "https://submit.backtrace.io/<universeName>/<errorSubmissionToken>/minidump"
 ```
 
-For more information on attributes, see [here](https://support.backtrace.io/hc/en-us/articles/360040517191).
+For more information on attributes, see [Indexing Attributes](/error-reporting/project-setup/attributes/).
 
 ## Attaching Files
 

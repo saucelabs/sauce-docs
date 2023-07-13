@@ -21,11 +21,11 @@ This document provides instructions on configuring Apache Traffic Server (ATS) t
 - Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
 - A Backtrace project and a submission token.
 - Apache Traffic Server (tested with version 6.2.0)
-- Coroner Server running and accessible from the ATS machine. (See [Coroner Server installation](https://support.backtrace.io/hc/en-us/articles/360040104932-Integrating-Apache-Traffic-Server#:~:text=Coroner%20Server%20installation))
-- Coroner Client package on the ATS machine. (See [Coroner Client Installation](https://help.backtrace.io/advanced/component-coroner/coroner-client-getting-started))
-- Backtrace Ptrace package installed on the ATS machine. (See [Ptrace Installation](https://help.backtrace.io/advanced/installing-backtrace-packages))
+- Coroner Server running and accessible from the ATS machine. (See [Coroner Server installation](/error-reporting/advanced/coroner/server-installation/))
+- Coroner Client package on the ATS machine. (See [Coroner Client Installation](/error-reporting/advanced/coroner/client-getting-started/))
+- Backtrace Ptrace package installed on the ATS machine. (See [Ptrace Installation](/error-reporting/advanced/traces-coroner/))
 - Backtrace Invoker package installed on the ATS machine: `$ sudo apt-get install backtrace-invoker`.
-- (Optional but recommended) - Install the morgue command-line queryingtool: (See: [Morgue Installation](https://help.backtrace.io/product-guide/morgue))
+- (Optional but recommended) - Install the morgue command-line queryingtool: (See: [Morgue Installation](/error-reporting/advanced/morgue/#installation))
 
 :::tip Generate a Submission Token
 
@@ -143,7 +143,7 @@ $ ls *.btt
 bash.2291.1461078102.btt
 ```
 
-If the file is not generated, verify your `ptrace` installation. Refer to [Ptrace Installation](https://help.backtrace.io/advanced/installing-backtrace-packages) for assistance.
+If the file is not generated, verify your `ptrace` installation. Refer to [Ptrace Installation](/error-reporting/advanced/ptrace/) for assistance.
 
 ### Verifying Coroner Installation
 
@@ -154,7 +154,7 @@ $ coroner -c put project1 project1_token bash.2291.1461078102.btt
 7750a16bfbb8667ca39de9a568c86897944a476143074275631cd13c842ce74d => 607dcbc50c634580951c0fdf832b2fc9
 ```
 
-If you encounter issues, verify your coroner client installation. See [Coroner Client Installation](https://help.backtrace.io/advanced/component-coroner/coroner-client-getting-started) for more information.
+If you encounter issues, verify your coroner client installation. See [Coroner Client Installation](/error-reporting/advanced/coroner/client-getting-started/) for more information.
 
 ### Launching `backtrace.sh` Manually
 

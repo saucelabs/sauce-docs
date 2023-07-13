@@ -169,7 +169,7 @@ Sometimes, symbols can get missed during the symbol upload process. A list of mi
 After uploading missing symbols, you can reprocess objects to have the dumps with missing symbols reprocessed. Note that the grouping of dumps may change after missing symbols are uploaded. There are a couple of ways to reprocess objects.
 
 - System Administrators are able to reprocess all objects within a project right from the web browser by opening the menu from the top right of the screen, selecting project settings and navigating to the Reprocess Objects section.
-- System Administrators and Backtrace Support are able to reprocess more specific groups of crashes via the [morgue tool](https://support.backtrace.io/hc/en-us/articles/360040517151-Morgue).
+- System Administrators and Backtrace Support are able to reprocess more specific groups of crashes via the [morgue tool](/error-reporting/advanced/morgue/).
 
 If you’d like more information or assistance reprocessing objects, reach out to Backtrace Support via the in the in-app chat on the bottom right of your screen.
 
@@ -226,4 +226,4 @@ On Windows, applications store some unwinding information exclusively in the exe
 
 #### Visual Studio
 
-If you are using Visual Studio, you'll need to ensure that symbols are being generated correctly. Additional details are available in the [Crashpad Visual Studio](https://support.backtrace.io/hc/en-us/articles/360040516131-Crashpad-Integration-Guide#Ensuresymbolgeneration) document.
+If you are using Visual Studio, you'll need to ensure that symbols are being generated correctly. Additional details are available in the [Crashpad Visual Studio](/error-reporting/platform-integrations/minidump/crashpad/#ensure-symbol-generation) document.
