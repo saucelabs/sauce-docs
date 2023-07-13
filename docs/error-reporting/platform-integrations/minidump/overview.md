@@ -1,7 +1,7 @@
 ---
-id: minidump
+id: overview
 title: Minidump Reporting with Watchdogs for Hung Threads
-sidebar_label: Minidump Reporting
+sidebar_label: Overview
 description: Some applications implement a watchdog thread whose job is to perform internal application liveness checking.
 ---
 

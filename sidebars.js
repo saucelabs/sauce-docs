@@ -425,6 +425,7 @@ module.exports = {
                             label: 'Minidump',
                             collapsed: true,
                             items: [
+                                'error-reporting/platform-integrations/minidump/overview',
                                 'error-reporting/platform-integrations/minidump/configuration',
                                 'error-reporting/platform-integrations/minidump/breakpad',
                                 'error-reporting/platform-integrations/minidump/crashpad',
@@ -620,7 +621,6 @@ module.exports = {
                         'error-reporting/advanced/error-processing-modifiers',
                         'error-reporting/advanced/custom-symbol-server',
                         'error-reporting/advanced/sync-submissions',
-                        'error-reporting/advanced/minidump',
                         'error-reporting/advanced/package-installation',
                         'error-reporting/advanced/client-tools-unix',
                         'error-reporting/advanced/dwarf',
