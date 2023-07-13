@@ -360,7 +360,7 @@ module.exports = {
     backtrace: [
         {
             type: 'category',
-            label: 'Error and Crash Reporting',
+            label: 'Error Reporting',
             collapsed: true,
             collapsible: false,
             items: [
@@ -371,6 +371,7 @@ module.exports = {
                     label: 'Platform Integrations',
                     collapsed: true,
                     items: [
+                        'error-reporting/platform-integrations/overview',
                         {
                             type: 'category',
                             label: 'Mobile Applications',

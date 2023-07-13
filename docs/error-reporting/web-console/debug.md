@@ -51,7 +51,7 @@ This pane is present for the Backtrace SDKs that have the breadcrumb functionali
 
 <img src={useBaseUrl('img/error-reporting/console-views/debug-view-breadcrumbs.png')} alt="Shows the Breadcrumbs pane in the Debug view." />
 
-The breadcrumbs that are added depend on the SDK that you're using. For more information on which events are automatically captured or how to configure breadcrumbs, see [Platform Integrations](/error-reporting/getting-started/).
+The breadcrumbs that are added depend on the SDK that you're using. For more information on which events are automatically captured or how to configure breadcrumbs, see [Platform Integrations](/error-reporting/platform-integrations/overview).
 
 ### Global Variables
 
