@@ -21,7 +21,7 @@ At a high level, the Backtrace platform includes:
 - Workflow integrations that integrate the rich dataset captured into workflow tools like Slack and JIRA.
 - Web and Terminal interfaces to visualize and analyze the captured data.
 
-Below is a simple architectural diagram of the Backtrace Platform:
+Below is the architectural diagram of the Backtrace Platform:
 
 <img src={useBaseUrl('/img/error-reporting/5e601cbae53c6.png')} alt="Backtrace architectural diagram" width="700"/>
 
@@ -42,7 +42,7 @@ Backtrace's Snapshot Generator builds on top of our incredibly fast tracer to ca
 
 The Backtrace Snapshot Generator works across a variety of environments and targets. It can attach to live processes for on-demand snapshots or generate a snapshot from a user space or kernel coredump (kernel coredumps are only supported on FreeBSD). The Backtrace Snapshot Generator runs on Linux, FreeBSD, and OmniOS.
 
-The chart below compares our snapshot generator to GDB and LLDB generating a simple stack trace from Chromium. During this test, GDB and LLDB are simply generating a stack trace, while the Backtrace Snapshot Generator is gathering all of the data listed above, performing automated analysis, and serializing this data to disk.
+The chart below compares our snapshot generator to GDB and LLDB generating a stack trace from Chromium. During this test, GDB and LLDB are generating a stack trace, while the Backtrace Snapshot Generator is gathering all of the data listed above, performing automated analysis, and serializing this data to disk.
 
 <img src={useBaseUrl('/img/error-reporting/5e601cbc0b23e.png')} alt="comparison chart" />
 
@@ -54,7 +54,7 @@ We expose the same [LUA](error-reporting/advanced/ptrace/) and C API our analysi
 
 ## Object Store
 
-Snapshots are sent to and aggregated in Backtrace's object store, also known as `coroner`. Coroner makes the wealth of information across your snapshots easily accessible. You can issue queries to gain insights into the fault data across your entire system, such as which customers are being affected by certain types of faults, which versions are currently causing incidents, and even generate a histogram that shows how frequently certain functions appear in the faulted thread's stack trace.
+Snapshots are sent to and aggregated in Backtrace's object store, also known as `coroner`. Coroner makes the wealth of information across your snapshots accessible with ease. You can issue queries to gain insights into the fault data across your entire system, such as which customers are being affected by certain types of faults, which versions are currently causing incidents, and even generate a histogram that shows how frequently certain functions appear in the faulted thread's stack trace.
 
 ## Web UI
 
@@ -66,13 +66,13 @@ When you log in, you will see an activity summary across all of your software pr
 
 <img src={useBaseUrl('/img/error-reporting/5e601cbe14c0b.png')} alt="activity summary" />
 
-On the left, you will find gathered metadata and automated analysis statistics, along with controls to define sorting order, filters, etc. On the right, you will see the time range for each fault group, along with a color box indicating activity. Groups with darker colors have experienced more faults than those without.
+On the left, you find gathered metadata and automated analysis statistics, along with controls to define sorting order, filters, etc. On the right, you see the time range for each fault group, along with a color box indicating activity. Groups with darker colors have experienced more faults than those without.
 
 <img src={useBaseUrl('/img/error-reporting/5e601cbf6efe5.png')} alt="activity summary details" />
 
 More detailed information about each group can be viewed by clicking on **View Details**. This page shows specific instances of the fault, with the option to graph these instances on a jitter plot, line graph (number of instances over time), or a time-based heat map.
 
-The left pop-out menu shows metadata statistics associated with the group, and the right pop-out menu shows the first and last occurrence, added classifiers, and the faulted thread's stack trace (if available). Snapshot instances for each group are listed below the graph. You will notice a small icon on the right of each listing. Clicking on this icon will copy the command to download the corresponding snapshot.
+The left pop-out menu shows metadata statistics associated with the group, and the right pop-out menu shows the first and last occurrence, added classifiers, and the faulted thread's stack trace (if available). Snapshot instances for each group are listed below the graph. You can notice a small icon on the right of each listing. Clicking on this icon, copy the command to download the corresponding snapshot.
 
 ## Terminal UI
 

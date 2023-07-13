@@ -19,7 +19,7 @@ Submission buckets provide advanced control over error data submission and attac
 
 Submission buckets are configured on `api_token` objects. Only one submission bucket can be defined for each token. The `api_token` must also have synchronous POST and error POOST capabilities (`sync:post` and `error:post` respectively).
 
-## Step-by-step
+## Step-By-Step
 
 ### Step 1: Creating a Token
 
