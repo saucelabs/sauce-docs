@@ -620,6 +620,8 @@ module.exports = {
                         'error-reporting/advanced/dwarf',
                         'error-reporting/advanced/snapshots',
                         'error-reporting/advanced/morgue',
+                        'error-reporting/advanced/platform-overview',
+                        'error-reporting/advanced/submission-buckets',
                         'error-reporting/advanced/ptrace',
                     ],
                 },
