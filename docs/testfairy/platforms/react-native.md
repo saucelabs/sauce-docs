@@ -19,7 +19,7 @@ To integrate TestFairy into your React Native project, follow these steps:
  `npm install --save react-native-testfairy`
 
 :::note
-If you are using React Native version 0.60.0 or higher, you will need to run the following command in your ios directory:
+If you are using React Native version 0.60.0 or higher, you will need to run the following command in your iOS directory:
 
 ```
 cd ios
