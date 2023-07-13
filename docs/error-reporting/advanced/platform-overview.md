@@ -38,7 +38,7 @@ Backtrace's Snapshot Generator builds on top of our incredibly fast tracer to ca
 - Requested global variables.
 - Environmental information such as virtual memory stats, CPU stats, process state, and more.
 - Any contextual metadata you choose. This includes things like data center, customer, version, and environment. Our snapshot format doesn't impose any restrictions on your metadata.
-- Annotations and classifiers added by analysis modules to highlight anomalous behavior. You can easily ship your own modules using our [LUA](error-reporting/advanced/ptrace/) or C API.
+- Annotations and classifiers added by analysis modules to highlight anomalous behavior. You can easily ship your own modules using our [LUA](/error-reporting/advanced/ptrace/) or C API.
 
 The Backtrace Snapshot Generator works across a variety of environments and targets. It can attach to live processes for on-demand snapshots or generate a snapshot from a user space or kernel coredump (kernel coredumps are only supported on FreeBSD). The Backtrace Snapshot Generator runs on Linux, FreeBSD, and OmniOS.
 
@@ -50,7 +50,7 @@ The chart below compares our snapshot generator to GDB and LLDB generating a sta
 
 Backtrace's Snapshot Generator takes advantage of our fast core libraries to run automated analysis to assist in root-cause investigation. Our snapshot generator comes with a set of analysis modules to pinpoint the cause of the crash and, in some cases, identify peripheral bugs that can cause crashes in the future. For example, our snapshot generator will automatically disambiguate the direction of the fault, highlight aliases of the faulting operands across all threads, check function constraint violations in commonly used code like memcpy and realloc, and annotate common heap mismanagement issues for popular memory allocators like jemalloc and ptmalloc.
 
-We expose the same [LUA](error-reporting/advanced/ptrace/) and C API our analysis modules use to all of our users. You can use this functionality to customize our snapshot generator for your software, incorporate common and expert debugging practices, and include application state crucial for incident response. Below are some example outputs from our analysis modules in the Hydra section below.
+We expose the same [LUA](/error-reporting/advanced/ptrace/) and C API our analysis modules use to all of our users. You can use this functionality to customize our snapshot generator for your software, incorporate common and expert debugging practices, and include application state crucial for incident response. Below are some example outputs from our analysis modules in the Hydra section below.
 
 ## Object Store
 
