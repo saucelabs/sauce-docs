@@ -1,7 +1,7 @@
 ---
-id: configuration
+id: minidump
 title: Configuring Backtrace for Minidump
-sidebar_label: Configuration
+sidebar_label: Minidump
 description: Configure Backtrace for Minidump.
 ---
 
@@ -28,16 +28,16 @@ This article indexes the mechanisms to integrate minidump submission into your B
 
 ## Breakpad
 
-Firefox and a wide variety of desktop applications use the popular open source crash reporting framework. See the [Integration Guide](/error-reporting/platform-integrations/minidump/breakpad) for more information.
+Firefox and a wide variety of desktop applications use the popular open source crash reporting framework. See the [Integration Guide](/error-reporting/platform-integrations/breakpad) for more information.
 
 ## Crashpad
 
-The popular open source crash reporting framework used by Chrome, Slack, and more. It is the successor to Breakpad. See the [Integration Guide](/error-reporting/platform-integrations/minidump/crashpad) for more information.
+The popular open source crash reporting framework used by Chrome, Slack, and more. It is the successor to Breakpad. See the [Integration Guide](/error-reporting/platform-integrations/crashpad) for more information.
 
 ## Electron
 
-This popular framework allows you to build cross-platform desktop applications with JavaScript and HTML. Discord, Visual Studio, Slack, and more use it. See the [Integration Guide](/error-reporting/platform-integrations/minidump/electron) for more information.
+This popular framework allows you to build cross-platform desktop applications with JavaScript and HTML. Discord, Visual Studio, Slack, and more use it. See the [Integration Guide](/error-reporting/language-integrations/electron) for more information.
 
 ## HTTP
 
-Submit crash dumps directly over HTTP and HTTPS. For more information see the [HTTP Submission](/error-reporting/platform-integrations/minidump/http-submission).
+Submit crash dumps directly over HTTP and HTTPS. For more information see the [HTTP Submission](/error-reporting/platform-integrations/http-submission).
