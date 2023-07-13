@@ -34,7 +34,7 @@ $ curl -s https://<LICENSE>:@packagecloud.io/install/repositories/backtrace/stor
 
 Replace `<LICENSE>` with your license number. Contact us, if you haven't received your license yet.
 
-This will configure `yum` to pull from Backtrace's RPM mirror. To verify proper `yum` configuration, run the following commands:
+This configures `yum` to pull from Backtrace's RPM mirror. To verify the proper `yum` configuration, run the following commands:
 
 ```shell
 # Clean and update yum package listing
@@ -57,7 +57,7 @@ To install the desired packages, use the following command:
 $ yum install backtrace-<package-name>
 ```
 
-## Debian-based Systems (including Ubuntu)
+## Debian-Based Systems (Including Ubuntu)
 
 To install Backtrace packages, first install Backtrace's APT mirror by running the following command:
 
@@ -67,7 +67,7 @@ $ curl -s https://<LICENSE>:@packagecloud.io/install/repositories/backtrace/stor
 
 Replace `<LICENSE>` with your license number. Contact us, if you haven't received your license yet.
 
-This will configure `apt` to pull from Backtrace's APT mirror. To verify proper `apt` configuration, run the following commands:
+This configures `apt` to pull from Backtrace's APT mirror. To verify proper `apt` configuration, run the following commands:
 
 ```shell
 # Clean and update apt package listing

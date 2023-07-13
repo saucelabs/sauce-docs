@@ -9,11 +9,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Backtrace integrations using minidumps require symbol files to generate valuable callstack information. One simple way to share these symbol files with Backtrace, available for enterprise customers, is by integrating a custom symbol server.
+Backtrace integrations using minidumps require symbol files to generate valuable callstack information. One straightforward way to share these symbol files with Backtrace, available for enterprise customers, is by integrating a custom symbol server.
 
 To meet Backtrace's requirements, the custom symbol server must:
 
-- Follow Microsoft's standard symbol structure (i.e., `<url>/<object_name>/<debug_id>/<file>`).
+- Follow Microsoft's standard symbol structure (that is, `<url>/<object_name>/<debug_id>/<file>`).
 - Use tools like Windows symstore to generate files in the required structure.
 - Have a web frontend to serve the files via HTTP(S). Popular options include nginx, AWS, and Google Cloud buckets.
 - Allow your Backtrace instance to access the server (firewall and network rules may need adjustments).
