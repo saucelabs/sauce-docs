@@ -21,7 +21,7 @@ The deduplication mechanism itself greatly reduces the surface area of bugs that
 
 <img src={useBaseUrl('img/error-reporting/project-settings/deduplicated-crashes.png')} alt="" />
 
-Deduplication is only one facet of triage. If there is a memory corruption bug or security hole, then a bug may be a ticking time bomb that will eventually manifest as a major denial of service. Backtrace analyzes the memory and executable code of a crash to classify the fault. Learn more about classifiers [here](https://support.backtrace.io/hc/en-us/articles/360040105812-Classifiers).
+Deduplication is only one facet of triage. If there is a memory corruption bug or security hole, then a bug may be a ticking time bomb that will eventually manifest as a major denial of service. Backtrace analyzes the memory and executable code of a crash to classify the fault.
 
 Other systems rely on simplistic callstack-based grouping algorithms for determining the uniqueness of a fault. These systems are either too fine-grained or too coarse-grained. If deduplication is too fine-grained, the same bug impacting a large number of users may manifest as many unique bugs impacting a small set of users. If deduplication is too coarse-grained, then the impact of bugs will be inflated leading to incorrect prioritization.
 

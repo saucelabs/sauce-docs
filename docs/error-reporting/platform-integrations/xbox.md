@@ -13,4 +13,4 @@ Backtrace is able to ingest crash reports from your Xbox One, Series X | S games
 
 ## Details
 
-Authorized Xbox developers can access more details in our [Game Console Integration Documentation for Xbox](https://support.backtrace.io/hc/en-us/articles/360050846011). Contact our support team if you need access.
+Authorized Xbox developers can access more details in our [Xbox Detailed Integration Guide](https://support.backtrace.io/hc/en-us/articles/360050846011). Contact our support team if you need access.

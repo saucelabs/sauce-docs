@@ -20,7 +20,7 @@ Note that the grouping of errors may change after reprocessing.
 
 ## How To Reprocess Objects
 
-There are a couple of ways for system administrators to reprocess objects. In this guide, we will discuss the capabilities available via the Web Console. Admins can also use the [morgue command line tool](https://support.backtrace.io/hc/en-us/articles/360040517151-Morgue) to reprocess objects.
+There are a couple of ways for system administrators to reprocess objects. In this guide, we will discuss the capabilities available via the Web Console. Admins can also use the [morgue command line tool](/error-reporting/advanced/morgue/) to reprocess objects.
 
 ### Reprocess by Time
 

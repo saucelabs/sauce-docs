@@ -30,7 +30,7 @@ For new users, Backtrace has prepared an enhanced fork of Crashpad, allowing eas
 
 ## Initial Integration
 
-If you are a Windows and Visual Studio user, review the [Backtrace Visual Studio Extension Guide](https://support.backtrace.io/hc/en-us/articles/360040515951) to simplify the integration of Crashpad into your new application. If you are a Windows and Visual Studio user with an existing application, you can use manual instructions in the Visual Studio section of that guide for a step-by-step guide to integrating with Visual Studio.
+If you are a Windows and Visual Studio user, review the [Backtrace Visual Studio Extension Guide](/error-reporting/platform-integrations/visual-studio/) to simplify the integration of Crashpad into your new application. If you are a Windows and Visual Studio user with an existing application, you can use manual instructions in the Visual Studio section of that guide for a step-by-step guide to integrating with Visual Studio.
 
 Advanced instructions are available at [the Crashpad home page](https://chromium.googlesource.com/crashpad/crashpad/+/HEAD/doc/developing.md) if you can't find what you're looking for or prefer to build Crashpad from the source. Backtrace's fork of Crashpad is available [on Github](https://github.com/backtrace-labs/crashpad/tree/backtrace), which contains easy [CMake](https://cmake.org/) build instructions and also hosts [daily binary builds for Android, Linux, Windows, Mac and more](https://github.com/backtrace-labs/crashpad/actions). If you would like additional assistance, don't hesitate to contact support@saucelabs.com.
 
@@ -84,11 +84,11 @@ See [Windows](https://github.com/backtrace-labs/crashpad/blob/backtrace/examples
 
 Symbols are required to determine the source-code mapping of incoming crashes, including function name, source file, and line number. For Backtrace to effectively group and analyze your incoming crashes, you must upload application debug symbols.
 
-To learn more about uploading and managing symbols with Backtrace, see the [symbolication guide](https://support.backtrace.io/hc/en-us/articles/360040517071).
+To learn more about uploading and managing symbols with Backtrace, see [Symbolication](/error-reporting/project-setup/symbolication/).
 
 ## Visual Studio
 
-If you are a Windows and Visual Studio user, review the [Backtrace Visual Studio Extension Guide](https://support.backtrace.io/hc/en-us/articles/360040515951) to simplify the integration of Crashpad into your application.
+If you are a Windows and Visual Studio user, review the [Backtrace Visual Studio Extension Guide](/error-reporting/platform-integrations/visual-studio/) to simplify the integration of Crashpad into your application.
 
 :::note
 
@@ -197,7 +197,7 @@ Go to Project > Properties > Linker and update the `Generate Debug Info` setting
 
 This setting generates a `.pdb` file for your application in the build output directory. You can manually upload `.sym`, `.pdb`, and archive files containing `.pdb` or `.sym` files into Backtrace or through the command line. It is also possible to hook up Visual Studio to automatically upload symbols as they are generated. Now, you should be able to send crash reports. Ensure you've uploaded your symbols (click on **Symbols** under the Project Configuration page).
 
-For more details, refer to the [symbolication guide](https://support.backtrace.io/hc/en-us/articles/360040517071).
+For more details, see [Symbolication](/error-reporting/project-setup/symbolication/).
 
 ### Send Crash Reports
 

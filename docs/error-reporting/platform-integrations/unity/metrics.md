@@ -17,11 +17,7 @@ This document provides instructions on further configuring your Unity SDK to enh
 - Custom Metric Groups: Track stability based on the relevant metrics to your game, such as crashes per minute played.
 - Metric Event Control: Fine-tune the frequency of metric events for more granular data.
 
-:::note
-
-For a high-level overview of stability metrics, refer to the [Stability Metrics](https://support.backtrace.io/hc/en-us/articles/4405716135060-Stability-Metrics) article.
-
-:::
+For a high-level overview of stability metrics, see [Stability Metrics](/error-reporting/project-setup/stability-metrics/).
 
 ## Attribute Configuration
 
@@ -30,7 +26,7 @@ For stability metrics to respond to queries and filters in the Web Console, foll
 1. Ensure that the SDK sends relevant attributes on events for the metric group in question.
 2. Create the metric group and associate the relevant attributes in the Web Console's **Stability Monitoring** project setting.
 
-By default, the Unity SDK sends events that contribute to the `Application Launches` metric group. This metric group calculates Crash Free Sessions and Crash Free Users on the [Overview dashboard](https://support.backtrace.io/hc/en-us/articles/360062537851-Overview-Page). This metric group serves as an example throughout this configuration process.
+By default, the Unity SDK sends events that contribute to the `Application Launches` metric group. This metric group calculates Crash Free Sessions and Crash Free Users on the [Overview dashboard](/error-reporting/web-console/overview/). This metric group serves as an example throughout this configuration process.
 
 ### SDK Event Attributes
 
@@ -113,7 +109,7 @@ By default, the `Application Launches` metric group is automatically created whe
 
 ## Creating New Metric Groups via Unity SDK
 
-This section explains configuring your Unity game to send custom metric groups using the SDK's public APIs. For information on uploading metric groups from external data sources, refer to the [Importing Metrics documentation](https://support.backtrace.io/hc/en-us/articles/360052102052#Overview).
+This section explains configuring your Unity game to send custom metric groups using the SDK's public APIs. For information on uploading metric groups from external data sources, refer to the [Importing Metrics documentation](/error-reporting/project-setup/metrics-stability-scores/).
 
 ### `MinutesPlayed` Configuration
 
