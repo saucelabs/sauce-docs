@@ -39,12 +39,18 @@ You can also use the Appium capability `resigningEnabled=false` to disable app r
 
 You can use any of the existing methods of distribution for your iOS app, except for the **App Store** type. This means that you can choose any of the three other export methods: **Ad Hoc**, **Enterprise**, or **Development**.
 
+:::info Recommendation
+
+We highly recommend to use Ad-hoc and Development targets to get the most out of our capabilities. Enterprise-signed apps have limitations, and in some cases we are not able to install Enterprise re-signed applications due to Apple restrictions and protections.
+
+:::
+
 1. Open your app project in Xcode.
 2. Select **Generic iOS Device** or **Any iOS Device (arm64)** as your project's device target.
 3. In the **Product** menu, select **Clean**.
 4. In the **Product** menu, select **Archive**. When the archiving process completes, you'll see your app listed under **Archives**.
 5. Select your app and click **Export**.
-6. When prompted for an export method, select **Ad Hoc**, **Enterprise**, or **Development**.
+6. When prompted for an export method, select **Ad Hoc**, **Development** or **Enterprise**. 
 7. Set these **Distribution** options:
    1. App Thinning: None.
    2. Clear the selection **Rebuild from Bitcode**.

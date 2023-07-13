@@ -271,6 +271,10 @@ p {
     font-size: 18px;
 }
 
+p a {
+    text-decoration: underline;
+}
+
 .cli {
     padding-bottom: 2px;
     font-size: 16px;
