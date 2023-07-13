@@ -5,6 +5,8 @@ sidebar_label: Getting Started
 description: Achieve digital confidence for your web app on every platform and in every browser.
 ---
 
+test
+
 Achieving digital confidence for your website app involves knowing that every user who comes to your website will have the same experience, regardless of how they are getting there. Sauce Labs provides thousands of operating system and browser combinations for you to test your web app manually or using automation so you can launch faster and more confidently.
 
 <div className="box-wrapper" markdown="1">
