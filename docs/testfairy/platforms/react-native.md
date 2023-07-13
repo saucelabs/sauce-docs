@@ -29,7 +29,7 @@ pod install
 
 ## Usage
 
-Once you have successfully installed the TestFairy library, you can enable TestFairy session recording in your React Native application. You will need your app token, which you can get from your preferences page on your TestFairy account. Follow these steps to get started:
+After you have successfully installed the TestFairy library, you can enable TestFairy session recording in your React Native application. You will need your app token, which you can get from your preferences page on your TestFairy account. Follow these steps to get started:
 
 1. Obtain your app token from the [user preferences](https://app.testfairy.com/settings/) on your TestFairy account.
 2.  Import the TestFairy bridge from your JavaScript file (e.g., index.ios.js, index.android.js, or App.js), and invoke begin passing in the app token. The best time to invoke begin is usually in componentWillMount or right before you register your application.
