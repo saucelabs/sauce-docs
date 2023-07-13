@@ -26,7 +26,7 @@ Breakpad is an open source library initially developed by Google for cross-platf
 
 ## Initial Integration
 
-If you have yet to integrate Breakpad into your application, we recommend incorporating [Crashpad](/error-reporting/platform-integrations/minidump/crashpad). Crashpad is the successor to Breakpad, with many improvements and up-to-date integration instructions.
+If you have yet to integrate Breakpad into your application, we recommend incorporating [Crashpad](/error-reporting/platform-integrations/crashpad). Crashpad is the successor to Breakpad, with many improvements and up-to-date integration instructions.
 You can check [Breakpad's official integration instructions](https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting_started_with_breakpad.md#Integration-overview) for more information. If you would like additional assistance, you can reach out to us at support@saucelabs.com.
 
 ## Upload Methods
@@ -54,7 +54,7 @@ Other convenience methods are provided for Linux users of Breakpad, but `HTTPUpl
 
 ### Mac OS
 
-We highly recommend using [Crashpad](/error-reporting/platform-integrations/minidump/crashpad) for crash reporting on Mac OS.
+We highly recommend using [Crashpad](/error-reporting/platform-integrations/crashpad) for crash reporting on Mac OS.
 
 On Mac OS, `HTTPMultipartUpload()` interface is provided for Objective-C users in:
 
