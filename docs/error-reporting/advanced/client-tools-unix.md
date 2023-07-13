@@ -77,6 +77,7 @@ $ echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
 ```
 
 For additional information, refer to the following comprehensive guide: [After Upgrade, GDB Won't Attach to Process](https://askubuntu.com/questions/41629/after-upgrade-gdb-wont-attach-to-process) on the Ask Ubuntu website.
+
 :::
 
 ### Hydra
