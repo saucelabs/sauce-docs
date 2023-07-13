@@ -26,6 +26,8 @@ This article indexes the mechanisms to integrate minidump submission into your B
 
 :::
 
+## Overview
+
 Some applications implement a watchdog thread whose job is to perform internal application liveness checking. When these checks fail, the thread triggers a crash report. This has implications for the report's content that may require accounting for.
 
 ### Hang Detection
