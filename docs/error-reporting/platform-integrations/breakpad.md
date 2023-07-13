@@ -123,7 +123,7 @@ Some example attributes are:
 - resolution
 - operating_system
 
-Parameters must contain only printable ASCII characters and may not contain a quote `"` character. To have your attributes searchable by the Backtrace object store, refer to [the product guide](https://support.backtrace.io/hc/en-us/articles/360040517191-Project-Settings-Indexing-Attributes).
+Parameters must contain only printable ASCII characters and may not contain a quote `"` character. To have your attributes searchable by the Backtrace object store, refer to [the product guide](/error-reporting/project-setup/attributes/).
 
 The methods above all use a multipart POST request. Parameters are pushed as input forms.
 
@@ -184,4 +184,4 @@ dumpCallback(const google_breakpad::MinidumpDescriptor& descriptor,
 
 You must upload symbols to have Backtrace determine the source-code mapping of incoming crashes, including source file and line number. For Backtrace to effectively group and analyze your incoming crashes, you must provide application debug symbols.
 
-To learn more about how to upload and manage symbols with Backtrace, see the [symbolication guide](https://support.backtrace.io/hc/en-us/articles/360040517071-Symbolication-Overview).
+To learn more about how to upload and manage symbols with Backtrace, see [Symbolication](/error-reporting/project-setup/symbolication/).

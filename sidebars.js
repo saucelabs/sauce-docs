@@ -400,7 +400,7 @@ module.exports = {
                         },
                         {
                             type: 'category',
-                            label: 'Video Games',
+                            label: 'Video Game Consoles',
                             collapsed: true,
                             items: [
                                 {

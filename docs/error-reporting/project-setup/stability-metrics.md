@@ -11,7 +11,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Backtrace now allows you to track trends in your software's stability as observed by unique end users.
 
-This builds on the ability to compute error rates against metrics you provide/upload into our system (as explained in [this document](https://support.backtrace.io/hc/en-us/articles/360052102052)). The functionality allows you to normalize your errors by useful metrics such as "number of sessions," "minutes played," or any other stability metric that you want to track in your app.
+This builds on the ability to compute error rates against metrics you provide/upload into our system. The functionality allows you to normalize your errors by useful metrics such as "number of sessions," "minutes played," or any other stability metric that you want to track in your app.
+
+For more information, see [Importing Metrics and Generating Stability Scores](/error-reporting/project-setup/metrics-stability-scores/).
 
 Now, Backtrace's SDKs have built-in functionality to automatically generate these metrics. This means that you can see session and user stability metrics like "Error-free sessions" in the Backtrace Web Console out of the box. Our APIs also allow you to create your own events so you can track custom metrics and have them sent to your Backtrace instance as well.
 
@@ -21,7 +23,7 @@ Often, assessing an end user's experience by looking at crash/error data alone c
 
 ### Getting Started
 
-By default, Backtrace's SDKs are configured to capture session and user metrics and use them to calculate and display the following on your project's [Overview page](https://support.backtrace.io/hc/en-us/articles/360062537851):
+By default, Backtrace's SDKs are configured to capture session and user metrics and use them to calculate and display the following on your project's [Overview page](/error-reporting/web-console/overview/):
 
 - Error-free sessions: The percentage of sessions that did not trigger any error reports. A great measure of your app's aggregate session stability.
 - Error-free users: The percentage of unique users who have not experienced an error. Perfect for tracking user experiences.
@@ -33,7 +35,7 @@ This functionality also works in conjunction with the Web Console's filtering. Y
 
 :::note
 
-For filtering with a specific attribute to work, that attribute must be properly configured to be associated with the metric group in question (in the case of Error-free users/sessions, the `Application Launches` metric group). For more information on how to configure this, refer to [Web Console Metric Group / Attribute Linking](https://support.backtrace.io/hc/en-us/articles/4406826342548-Stability-Metrics-Configuration-Unity-SDK#WebConsoleMetricGroup/AttributeLinking) documentation.
+For filtering with a specific attribute to work, that attribute must be properly configured to be associated with the metric group in question (in the case of Error-free users/sessions, the `Application Launches` metric group). For more information on how to configure this, refer to [Web Console Metric Group / Attribute Linking](/error-reporting/platform-integrations/unity/metrics/#web-console-metric-group--attribute-linking) documentation.
 
 :::
 
@@ -68,4 +70,4 @@ The configuration steps for this functionality vary by SDK. For more information
 
 As of August 2021, only our Unity SDK supports this functionality. Support for the Unreal Engine, native Android and iOS SDKs will be introduced in a future release.
 
-[Unity SDK - Stability Metrics Configuration Documentation](https://support.backtrace.io/hc/en-us/articles/4406826342548-Stability-Metrics-Configuration-Unity-SDK)
+[Unity SDK - Stability Metrics Configuration Documentation](/error-reporting/platform-integrations/unity/metrics/)

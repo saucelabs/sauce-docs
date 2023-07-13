@@ -75,7 +75,7 @@ files["attachment_log"] = "/var/log/myApp.log";
 files["attachment_cpuinfo"] = "/proc/cpuinfo";
 ```
 
-See the [Breakpad Integration Guide](https://support.backtrace.io/hc/en-us/articles/360040106132-Breakpad-Integration-Guide) for more details on how to use the files parameter to upload attachments with your crash reports.
+See the [Breakpad Integration Guide](/error-reporting/platform-integrations/breakpad/) for more details on how to use the files parameter to upload attachments with your crash reports.
 
 ## Crashpad
 
@@ -96,7 +96,7 @@ bool StartHandlerForBacktrace(
 
 This new handler is very similar to StartHandler, with the addition of the file_attachments parameter. file_attachments is a map of attachment name ⟶ path, allowing convenient inclusion of file attachments (i.e. the log file) with the crash dump.
 
-More details can be found in the [Crashpad Integration Guide](https://support.backtrace.io/hc/en-us/articles/360040516131-Crashpad-Integration-Guide).
+More details can be found in the [Crashpad Integration Guide](/error-reporting/platform-integrations/crashpad/).
 
 As we move forward, Backtrace plans to work with the upstream Crashpad team to implement file attachment support in the master branch.
 

@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 This guide provides step-by-step instructions for installing and setting up coronerd, Backtrace's object-store for post-mortem assets.
 
-If you are using Backtrace's hosted service, refer to the [Object Store Configuration](https://support.backtrace.io/hc/en-us/articles/360040516831-Coroner-Server-Setup) guide.
+If you are using Backtrace's hosted service, refer to the [Object Store Configuration](/error-reporting/advanced/coroner/server-setup/) guide.
 
 ## What You'll Need
 

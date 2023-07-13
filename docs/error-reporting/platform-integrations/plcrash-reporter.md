@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-While Backtrace fully supports the base PLCrashReporter library, we also provide a custom-built backtrace-cococa library to simplify the integration and submission of errors to Backtrace. Read more in the [iOS Integration Guide](https://support.backtrace.io/hc/en-us/articles/360040104692).
+While Backtrace fully supports the base PLCrashReporter library, we also provide a custom-built backtrace-cococa library to simplify the integration and submission of errors to Backtrace. Read more in the [iOS Integration Guide](/error-reporting/platform-integrations/ios/setup/).
 
 PLCrashReporter is an open source project maintained by Microsoft (previously, Plausible Labs). It is MIT licensed with some libraries such as Protocol Buffers covered under the Apache License. It can be integrated into Objective-C and Swift applications to retrieve crash information on MacOS and iOS platforms. The source code is available on the [GitHub](https://github.com/plausiblelabs/plcrashreporter) mirror.
 
@@ -93,7 +93,7 @@ When you open the Crash Report in Backtrace's Web Debugger, you'll notice that i
 
 In addition to the system-level attributes, you can associate custom user-defined attributes, such as graphic card driver, application mode, or version information, with the PLCrashReport. These instance-level attributes provide contextual data points to support investigating the root cause.
 
-Custom attributes have to be created in the Backtrace project's settings. See the [Attributes article](https://support.backtrace.io/hc/en-us/articles/360040517191) for more information on configuring Backtrace to index those incoming attributes appropriately. Once indexed, they will be available for filter, group, and aggregate operations in the web and morgue tool.
+Custom attributes have to be created in the Backtrace project's settings. See the [Attributes article](/error-reporting/project-setup/attributes/) for more information on configuring Backtrace to index those incoming attributes appropriately. Once indexed, they will be available for filter, group, and aggregate operations in the web and morgue tool.
 
 The submission process can attach the key-value attributes to the URL during submission. For example, in this case, a dictionary value `my_custom_attribute` with a value of `sample_string`:
 
@@ -103,7 +103,7 @@ https://instance.sp.backtrace.io:6098/post?format=plcrash&token=xxxxxxx&my_custo
 
 ## Uploading File Attachments
 
-Backtrace also accepts generic file attachments, such as log or configuration files, to be associated with a crash. This additional contextual information can be invaluable during debugging as engineers look to see what happened recently and what additional configurations might be set. See the [File Attachments](https://support.backtrace.io/hc/en-us/articles/360040516371) article for more details on submitting an attachment using HTTP submission.
+Backtrace also accepts generic file attachments, such as log or configuration files, to be associated with a crash. This additional contextual information can be invaluable during debugging as engineers look to see what happened recently and what additional configurations might be set. See the [File Attachments](/error-reporting/platform-integrations/file-attachments/) article for more details on submitting an attachment using HTTP submission.
 
 ## Manage Symbols
 
@@ -111,4 +111,4 @@ While compiling a macOS application, the compiler generates a directory with dSY
 
 It is possible to generate the necessary sym files by using breakpad's `dump_syms(_mac)` tools. They can be uploaded by the usual means as well.
 
-For more information on how to do this, refer to the [symbolication guide](https://support.backtrace.io/hc/en-us/articles/360040517071).
+For more information on how to do this, refer to the [symbolication guide](/error-reporting/project-setup/symbolication/).
