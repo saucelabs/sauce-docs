@@ -1,7 +1,7 @@
 ---
 id: node
-title: Node Integration Guide
-sidebar_label: Node
+title: Node.js Integration Guide
+sidebar_label: Node.js
 description: Use Node in your Backtrace project.
 ---
 
