@@ -25,7 +25,7 @@ You need to customize this script to populate:
 
 - Endpoint (for example, https://yourcompany.sp.backtrace.io:6098)
 - Application name
-- [Submission token](https://help.backtrace.io/troubleshooting/what-is-a-submission-token)
+- Submission token
 - Attributes (using dc and version as examples)
 - btt_prefix and btt (folder and name where the .btt snapshot is temporarily saved).
 

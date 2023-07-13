@@ -15,7 +15,7 @@ Backtrace provides first-class support for the native crash reporting format of 
 
 ## Supported Platforms
 
-Backtrace's integration with CryEngine supports games deployed on Windows. If you are deploying to game consoles (PS4, Xbox One), use [Backtrace's Game Console Integrations](https://support.backtrace.io/hc/en-us/sections/360007642051-Video-Game-Technologies).
+Backtrace's integration with CryEngine supports games deployed on Windows. If you are deploying to game consoles (PS4, Xbox One), use [Backtrace's Video Game Console Integrations](/error-reporting/getting-started/).
 
 For On-Premise (self-hosted) users: CryEngine crash ingestion requires specific packages. Contact support for detailed instructions and information.
 
@@ -60,6 +60,6 @@ sys_crashrpt_server = "https://cryengine.backtrace.io/post?universe=gamingcompan
 
 ### Debug Symbols
 
-When building your game, ensure that it is configured to generate debug symbols (.pdb files) that can be provided to Backtrace. This enables proper deduplication and grouping of minidumps and human-readable call stacks. For more information, refer to the [Symbolication Guide](https://support.backtrace.io/hc/en-us/articles/360040517071).
+When building your game, ensure that it is configured to generate debug symbols (.pdb files) that can be provided to Backtrace. This enables proper deduplication and grouping of minidumps and human-readable call stacks. For more information, refer to the [Symbolication Guide](/error-reporting/project-setup/symbolication/).
 
 You can now view incoming CryEngine crashes in your Backtrace instance. Check out the Debugger to see detailed information about your crashes.
