@@ -464,7 +464,7 @@ To send a crash report to your Backtrace instance for macOS, see [PLCrashReporte
 </TabItem>
 <TabItem value="linux">
 
-To send a crash report to your Backtrace instance for Linux, see the [Crashpad Integration Guide](/error-reporting/platform-integrations/minidump/crashpad/#send-crash-reports).
+To send a crash report to your Backtrace instance for Linux, see the [Crashpad Integration Guide](/error-reporting/platform-integrations/crashpad/#send-crash-reports).
 
 </TabItem>
 <TabItem value="GameConsoles">
