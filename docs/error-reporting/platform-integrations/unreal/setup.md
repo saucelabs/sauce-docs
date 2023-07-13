@@ -246,7 +246,7 @@ To integrate error reporting in your Unreal Engine game for macOS, see [PLCrashR
 </TabItem>
 <TabItem value="linux">
 
-To integrate error reporting in your Unreal Engine game for Linux, see the [Crashpad Integration Guide](/error-reporting/platform-integrations/minidump/crashpad/).
+To integrate error reporting in your Unreal Engine game for Linux, see the [Crashpad Integration Guide](/error-reporting/platform-integrations/crashpad/).
 
 </TabItem>
 <TabItem value="GameConsoles">

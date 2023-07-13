@@ -226,4 +226,4 @@ On Windows, applications store some unwinding information exclusively in the exe
 
 #### Visual Studio
 
-If you are using Visual Studio, you'll need to ensure that symbols are being generated correctly. Additional details are available in the [Crashpad Visual Studio](/error-reporting/platform-integrations/minidump/crashpad/#ensure-symbol-generation) document.
+If you are using Visual Studio, you'll need to ensure that symbols are being generated correctly. Additional details are available in the [Crashpad Visual Studio](/error-reporting/platform-integrations/crashpad/#ensure-symbol-generation) document.
