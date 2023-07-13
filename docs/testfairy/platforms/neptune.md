@@ -8,11 +8,16 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To add the TestFairy plugin to a Neptune project, you need to do the following procedure.
+
+TestFairy for Neptune plugin allows you to integrate TestFairy functionality into your Neptune project. By following the steps below, you can enable the TestFairy plugin and initialize the TestFairy SDK in your Neptune application.
+
 
 ## Enable the TestFairy Plugin
 
-Add the following to the `config.xml` file in the Neptune Cockpit under Run > Mobile Client > Device.
+To enable the TestFairy plugin in your Neptune project, follow these steps:
+
+1. Open the Neptune Cockpit.
+2. Add the following to the `config.xml` file in the Neptune Cockpit under **Run** > **Mobile Client** > **Device**:
 
 ```xml
 <plugin name="com.testfairy.cordova-plugin" source="npm"/>
@@ -20,7 +25,10 @@ Add the following to the `config.xml` file in the Neptune Cockpit under Run > Mo
 
 ## Initialize the TestFairy SDK:
 
-Add the following code to your `init` script in the App Designer:
+After enabling the TestFairy plugin, you need to initialize the TestFairy SDK in your Neptune application. Follow these steps:
+
+1. Open the App Designer in Neptune.
+2. Add the following code to your `init` script:
 
 ```js
 document.addEventListener("deviceready", function() {
@@ -28,4 +36,7 @@ document.addEventListener("deviceready", function() {
 });
 ```
 
-Remember to replace **APP TOKEN** with your app token as displayed in [User Preferences](https://app.testfairy.com/settings/)
+:::note
+Ensure that you replace **APP TOKEN** with your actual TestFairy app token. You can find the app token in your TestFairy [User Preferences](https://app.testfairy.com/settings/).
+:::
+
