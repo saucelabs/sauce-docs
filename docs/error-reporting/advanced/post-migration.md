@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-After a server migration or similar work, the following are the minimum verification steps that should be completed.
+After a server migration or similar work, the minimum verification steps need to be completed.
 
 ## Startup/Service
 
@@ -154,7 +154,7 @@ After a server migration or similar work, the following are the minimum verifica
 
 - Ensure that the workflow configurations are ported over.
 - Verify that the workflows fire properly (check if the new server isn't having trouble talking to the third-party service).
-- Check the links within notifications.
+- Check the links in notifications.
 - If applicable, test manual ticket creation.
 - If using reporting, make sure the reports are ported over.
 - Send a test report.

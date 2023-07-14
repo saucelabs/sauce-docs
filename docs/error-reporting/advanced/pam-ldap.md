@@ -70,13 +70,13 @@ For more information, refer to the [User Management](/error-reporting/org-settin
 
 ### User Invitations
 
-Users should now be able to create an account using the invites page, with their password coming from LDAP. Ensure that SMTP is properly configured so that they can receive invitation emails.
+Users can now create an account using the invites page, with their password coming from LDAP. Ensure that SMTP is properly configured so that they can receive invitation emails.
 
 For more information on SMTP configuration, see the [Coronerd Setup](/error-reporting/advanced/coroner/server-setup/) documentation.
 
 ## Troubleshooting
 
-If authentication fails (for example, bad password when attempting to log into the UI), check the following PAM files to verify if the following lines are properly configured. This verification is necessary for CentOS 7.
+If authentication fails (for example, bad password when attempting to log in to the UI), check the following PAM files to verify if the following lines are properly configured. This verification is necessary for CentOS 7.
 
 ### /etc/nslcd.conf
 

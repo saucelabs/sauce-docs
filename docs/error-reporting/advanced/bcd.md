@@ -118,7 +118,7 @@ All communication between the host application and BCD occurs synchronously to m
 
 By default, BCD does not set any signal handlers as complex runtimes may rely on signals for functionality. To handle crashes, ensure you install a signal handler. You can use `bcd_emit` for recoverable crashes and `bcd_fatal` for non-recoverable crashes. These functions are signal-safe and thread-safe.
 
-Here is a simple example that uses `signal`. For production use, it is recommended to use `sigaction` with `SA_SIGINFO` set to allow for additional data extraction at the time of the fault.
+Here is an example that uses `signal`. For production use, it is recommended to use `sigaction` with `SA_SIGINFO` set to allow for additional data extraction at the time of the fault.
 
 ```c
 #include <stdio.h>
