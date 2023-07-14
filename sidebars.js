@@ -664,6 +664,7 @@ module.exports = {
                         'error-reporting/advanced/ptrace',
                     ],
                 },
+                'error-reporting/troubleshooting',
             ],
         },
     ],
