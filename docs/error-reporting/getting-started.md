@@ -3,65 +3,58 @@ id: getting-started
 title: Error and Crash Reporting
 sidebar_label: Getting Started
 description: Capture error and crash reports from your games and mobile apps with Backtrace.
-hide_table_of_contents: true
 ---
 
-Capture error and crash reports from your games and mobile apps with Backtrace.
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<div className="box box1 card">
-  <div className="container">
-  <h2>Platform Integrations</h2>
-  <p>Integrate Backtrace in your games and apps across languages and platforms with our error and crash reporting libraries.</p>
-  <h3>Mobile Applications</h3>
-  <ul>
-    <li><a href="/error-reporting/platform-integrations/android/setup/">Android</a></li>
-    <li><a href="/error-reporting/platform-integrations/ios/setup/">iOS</a></li>
-    <li><a href="/error-reporting/platform-integrations/plcrash-reporter/">PLCrashReporter</a></li>
-  </ul>
-  <h3>Video Game Consoles</h3>
-  <ul>
-    <li><a href="/error-reporting/platform-integrations/unity/setup/">Unity</a></li>
-    <li><a href="/error-reporting/platform-integrations/unreal/setup/">Unreal Engine</a></li>
-    <li><a href="/error-reporting/platform-integrations/cryengine/">CryEngine</a></li>
-    <li><a href="/error-reporting/platform-integrations/stadia/">Stadia</a></li>
-    <li><a href="/error-reporting/platform-integrations/nintendo/">Switch</a></li>
-    <li><a href="/error-reporting/platform-integrations/ps4/">PlayStation 4</a></li>
-    <li><a href="/error-reporting/platform-integrations/ps5/">PlayStation 5</a></li>
-    <li><a href="/error-reporting/platform-integrations/xbox/">Xbox</a></li>
-  </ul>
-  <h3>Language Integrations</h3>
-  <ul>
-    <li><a href="/error-reporting/language-integrations/c/">C#</a></li>
-    <li><a href="/error-reporting/language-integrations/mixed/">C# and C++</a></li>
-    <li><a href="/error-reporting/language-integrations/electron/">Electron</a></li>
-    <li><a href="/error-reporting/language-integrations/go/">Go</a></li>
-    <li><a href="/error-reporting/language-integrations/javascript/">JavaScript</a></li>
-    <li><a href="/error-reporting/language-integrations/node/">Node.js</a></li>
-    <li><a href="/error-reporting/language-integrations/python/">Python</a></li>
-  </ul>
-  <h3>Compiled Languages and Applications</h3>
-  <ul>
-    <li><a href="/error-reporting/platform-integrations/visual-studio/">Visual Studio Extension for C++ and Crashpad</a></li>
-    <li><a href="/error-reporting/platform-integrations/crashpad/">Crashpad</a></li>
-    <li><a href="/error-reporting/platform-integrations/coresnap/integrating/">Coresnap</a></li>
-    <li><a href="/error-reporting/platform-integrations/coresnap/setup/">Coresnapd on FreeBSD</a></li>
-    <li><a href="/error-reporting/platform-integrations/breakpad/">Breakpad</a></li>
-    <li><a href="/error-reporting/platform-integrations/http-submission/">HTTP Submission of Minidump</a></li>
-  </ul>
-  </div>
-</div>
+The following provides the steps and best practices for integrating your project with Backtrace.
 
-<div className="box box2 card">
-  <div className="container">
-  <h2>Web Console Views</h2>
-  <p>View and analyze error and crash data in the web console so you can triage, prioritize, and resolve each error.</p>
-  <ul>
-    <li><a href="/error-reporting/web-console/getting-started/">Getting Started</a></li>
-    <li><a href="/error-reporting/web-console/overview/">Overview</a></li>
-    <li><a href="/error-reporting/web-console/releases/">Releases</a></li>
-    <li><a href="/error-reporting/web-console/triage/">Triage</a></li>
-    <li><a href="/error-reporting/web-console/explore/">Explore</a></li>
-    <li><a href="/error-reporting/web-console/debug/">Debug</a></li>
-  </ul>
-  </div>
-</div>
+## Set Up A Project
+
+You must first create a project in your Backtrace instance. A project is a container that lets you organize your errors. You have to create at least one project to submit your errors to.
+
+Best practice is to create one project for each application you wish to capture errors for. Each project has its own workflow integrations, attributes, symbol archives, and submission tokens.
+
+## Upload Symbols
+
+If you are using a minidump-based integration, which includes Breakpad, Crashpad, Unreal and C#, you will need to upload your symbol files to see full debug info on your errors.
+
+For Windows users, make sure that you upload both the symbol file (.sym or .pdb format) as well as the corresponding .exe or .dll file. We recommend that you upload these together in a .zip file.
+
+For more information about working with symbols, see [Symbolication](/error-reporting/project-setup/symbolication/).
+
+## Submit Errors
+
+Submit one or more errors to your instance to verify that your integration is set up properly.
+
+The way to do this varies depending on your integration type. Make sure you have the correct submission token and submission URL.
+
+For more information about submitting errors, see our [Integration Guides](/error-reporting/platform-integrations/overview).
+
+## Add Attributes
+
+We highly recommend that you add attributes to your project and your errors - the more the better. Attributes are important because they allow you to aggregate and filter on important data in the query builder.
+
+Make sure to attach the attributes to your errors, as well as declare those attributes in the Backtrace UI.
+
+For more information, see [Attributes](/error-reporting/project-setup/attributes/).
+
+## Add a Workflow Integration
+
+Workflow integrations allow you to have Backtrace automatically alert users of new errors via a popular collaboration platform such as Slack, or a ticketing system like Jira.
+
+We recommend setting up an integration to any third-party service you use that we support. For more information, see [Workflow Integrations](/error-reporting/workflow-integrations/overview/).
+
+## Invite Team Members
+
+Backtrace makes it easy to add additional engineers to the system. For Backtrace-hosted instances, you can invite team members to join your projects. You also can allow team members to request an invitation from the login page by adding a whitelisted domain.
+
+For enterprise users who are hosting their own instance, you'll also need to [set up SMTP in coronerd](/error-reporting/advanced/coroner/server-setup/) before users can receive invitations.
+
+For more information, see [Account Management](/error-reporting/org-settings/user-mgmnt/).
+
+## View and Analyze Errors
+
+View and analyze error and crash data in the web console so you can triage, prioritize, and resolve each error.
+
+For more information, see [Web Console Getting Started](/error-reporting/web-console/getting-started/).
