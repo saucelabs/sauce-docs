@@ -39,11 +39,11 @@ For on-premise (self-hosted) users, the integration for Unreal Engine requires s
 - Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
 - A Backtrace project and a submission token.
 
-<!-- prettier-ignore -->
 :::tip Generate a Submission Token
 
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
+
 :::
 
 ### System Requirements
@@ -86,11 +86,13 @@ values={[
    :::
 1. Rename the file to `UserEngine.ini`.
 1. Open the `UserEngine.ini` file and add the following lines:
-  ```
-  [CrashReportClient]
-  CrashReportClientVersion=1.0
-  DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
-  ```
+
+```
+[CrashReportClient]
+CrashReportClientVersion=1.0
+DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
+```
+
 1. For the `DataRouterUrl`, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need).
 
 When your app or game crashes in the Unreal Editor, the Unreal Engine Crash Reporter dialog will appear and allow you to send the crash report to your Backtrace instance.
@@ -152,13 +154,15 @@ Integrate the [backtrace-android](https://github.com/backtrace-labs/backtrace-an
 1. In the directory for your Unreal Engine project, locate your app or game's `Build.cs` file.
 1. Place the `BacktraceAndroid_UPL.xml` file in the same directory with the `Build.cs` file.
 1. In the `Build.cs` file, add the following lines at the end of the `ModuleRules` class constructor:
-  ```
-  if (Target.Platform == UnrealTargetPlatform.Android)
-  {
-    string PluginPath = Utils.MakePathRelativeTo(ModuleDirectory, Target.RelativeEnginePath);
-    AdditionalPropertiesForReceipt.Add("AndroidPlugin", System.IO.Path.Combine(PluginPath, "BacktraceAndroid_UPL.xml"));
-  }
-  ```
+
+```
+if (Target.Platform == UnrealTargetPlatform.Android)
+{
+  string PluginPath = Utils.MakePathRelativeTo(ModuleDirectory, Target.RelativeEnginePath);
+  AdditionalPropertiesForReceipt.Add("AndroidPlugin", System.IO.Path.Combine(PluginPath, "BacktraceAndroid_UPL.xml"));
+}
+```
+
 1. Download the [BacktraceWrapper.h](https://gist.github.com/lysannep/6c09a572baffede96cd250dbdf01279a#file-backtracewrapper-h) header file and add it to your GameInstance.
 1. To initialize the Backtrace client, use `BacktraceIO::FInitializeBacktraceClient`.
    :::note
@@ -188,43 +192,48 @@ Integrate the [backtrace-cocoa](https://github.com/backtrace-labs/backtrace-coco
 1. Copy and paste the `Backtrace.framework.zip` and the `Backtrace_PLCrashReporter.framework.zip` folders into the directory for your Unreal Engine project.
 1. Locate your app or game's `Build.cs` file.
 1. In the `Build.cs` file, add the following lines at the end of the `ModuleRules` class constructor:
-  ```
-  if (Target.Platform == UnrealTargetPlatform.IOS)
+
+```
+if (Target.Platform == UnrealTargetPlatform.IOS)
+{
+  PublicAdditionalFrameworks.AddRange(
+    new Framework[]
   {
-    PublicAdditionalFrameworks.AddRange(
-      new Framework[]
-    {
-      new Framework("Backtrace", "/Library/Frameworks/Backtrace.framework", "", true),
-      new Framework("Backtrace_PLCrashReporter", "/Library/Frameworks/Backtrace_PLCrashReporter.framework", "", true)
-    }
-      );
+    new Framework("Backtrace", "/Library/Frameworks/Backtrace.framework", "", true),
+    new Framework("Backtrace_PLCrashReporter", "/Library/Frameworks/Backtrace_PLCrashReporter.framework", "", true)
   }
-  ```
+    );
+}
+```
+
 :::note
 Make sure to reflect the path to where you've placed both frameworks within your game project.
 :::
-1. To initialize the Backtrace client, use the following to import `Backtrace-Swift.h` from `Backtrace.framework/Headers`: 
-  ```
-  #if PLATFORM_IOS
-  #import <Backtrace/Backtrace-Swift.h>
-  #endif
 
-  void UYourGameInstanceBase::OnStart()
-  {
-  #if PLATFORM_IOS
+1. To initialize the Backtrace client, use the following to import `Backtrace-Swift.h` from `Backtrace.framework/Headers`:
 
-  BacktraceCredentials *credentials = [[BacktraceCredentials alloc]
-          initWithSubmissionUrl: [NSURL URLWithString: @"https://submit.backtrace.io/{subdomain}/{submission-token}/plcrash"]];
-  BacktraceClientConfiguration *configuration = [[BacktraceClientConfiguration alloc]
-                                                    initWithCredentials: credentials
-                                                    dbSettings: [[BacktraceDatabaseSettings alloc] init]
-                                                    reportsPerMin: 3
-                                                    allowsAttachingDebugger: NO
-                                                    detectOOM: TRUE];
-  BacktraceClient.shared = [[BacktraceClient alloc] initWithConfiguration: configuration error: nil];
-  #endif
-  }
-  ```
+```
+#if PLATFORM_IOS
+#import <Backtrace/Backtrace-Swift.h>
+#endif
+
+void UYourGameInstanceBase::OnStart()
+{
+#if PLATFORM_IOS
+
+BacktraceCredentials *credentials = [[BacktraceCredentials alloc]
+        initWithSubmissionUrl: [NSURL URLWithString: @"https://submit.backtrace.io/{subdomain}/{submission-token}/plcrash"]];
+BacktraceClientConfiguration *configuration = [[BacktraceClientConfiguration alloc]
+                                                  initWithCredentials: credentials
+                                                  dbSettings: [[BacktraceDatabaseSettings alloc] init]
+                                                  reportsPerMin: 3
+                                                  allowsAttachingDebugger: NO
+                                                  detectOOM: TRUE];
+BacktraceClient.shared = [[BacktraceClient alloc] initWithConfiguration: configuration error: nil];
+#endif
+}
+```
+
 1. For the `initWithSubmissionUrl`, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need).
 
 For information on how to change the default configuration settings for the Backtrace client, see [Configuring Backtrace for iOS](/error-reporting/platform-integrations/ios/configuration/).
@@ -232,17 +241,17 @@ For information on how to change the default configuration settings for the Back
 </TabItem>
 <TabItem value="macos">
 
-To integrate error reporting in your Unreal Engine game for macOS, see [PLCrashReporter](https://support.backtrace.io/hc/en-us/articles/360040105092).
+To integrate error reporting in your Unreal Engine game for macOS, see [PLCrashReporter](/error-reporting/platform-integrations/plcrash-reporter/).
 
 </TabItem>
 <TabItem value="linux">
 
-To integrate error reporting in your Unreal Engine game for Linux, see the [Crashpad Integration Guide](https://support.backtrace.io/hc/en-us/articles/360040516131-Crashpad-Integration-Guide#InitialIntegration).
+To integrate error reporting in your Unreal Engine game for Linux, see the [Crashpad Integration Guide](/error-reporting/platform-integrations/crashpad/).
 
 </TabItem>
 <TabItem value="GameConsoles">
 
-To integrate error reporting in your Unreal Engine game for game consoles, see the [Console Integration Guides](https://support.backtrace.io/hc/en-us/sections/360007642051-Video-Game-Technologies).
+To integrate error reporting in your Unreal Engine game for game consoles, see the [Video Game Console Integration Guides](/error-reporting/platform-integrations/overview).
 
 </TabItem>
 </Tabs>
@@ -450,17 +459,16 @@ The header file (which has the .h extension) contains the class definitions and 
 </TabItem>
 <TabItem value="macos">
 
-To send a crash report to your Backtrace instance for macOS, see [PLCrashReporter](https://support.backtrace.io/hc/en-us/articles/360040105092).
+To send a crash report to your Backtrace instance for macOS, see [PLCrashReporter](/error-reporting/platform-integrations/plcrash-reporter/).
 
 </TabItem>
 <TabItem value="linux">
 
-To send a crash report to your Backtrace instance for Linux, see the [Crashpad Integration Guide](https://support.backtrace.io/hc/en-us/articles/360040516131-Crashpad-Integration-Guide#Sendcrashreports).
+To send a crash report to your Backtrace instance for Linux, see the [Crashpad Integration Guide](/error-reporting/platform-integrations/crashpad/#send-crash-reports).
 
 </TabItem>
 <TabItem value="GameConsoles">
 
-To send a crash report to your Backtrace instance for game consoles, see the [Console Integration Guides](https://support.backtrace.io/hc/en-us/sections/360007642051-Video-Game-Technologies).
-
+To send a crash report to your Backtrace instance for game consoles, see the [Video Game Console Integration Guides](/error-reporting/platform-integrations/overview).
 </TabItem>
 </Tabs>

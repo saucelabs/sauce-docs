@@ -16,15 +16,20 @@ Our goal is to provide you access to a device that will behave in a predictable,
 
 A clean device:
 
-- Has only those apps which are provided by the manufacturer and by Sauce Labs, or which you have specifically requested to be installed.
+- Has only those apps which are provided by Sauce Labs, or which you have specifically requested to be installed.
 - Has the default system settings, which are typical for a newly configured device.
 - Provides some convenient locale and system account defaults.
 - Has an empty file system, containing no additional media or documents.
 
+
 ## Public Devices
 
 Every 5th cleaning session includes a device reboot. This ensures that the system remains
-performant, and any stray processes are stopped.
+performant and any stray processes are stopped.
+
+:::caution
+On Public devices, access to the device settings is fully restricted. Users are only allowed access to the application that is currently being tested or to the Safari/Chrome web browsers.
+:::
 
 :::note
 A factory reset is not performed between test sessions, as this requires manual intervention and would slow down the time required between test runs.
@@ -51,7 +56,7 @@ We use a proprietary process that wipes every real device clean at the end of th
 
 ## Private Devices
 
-Private Devices follow the same process as Public Devices. However, the customer can adjust the following as desired:
+Private Devices follow the same process as Public Devices. However, the customer can adjust the following as desired through our support:
 
 App allowlist:
 
@@ -59,5 +64,12 @@ App allowlist:
 
 Account allowlist:
 
-- Google accounts signed into the Play Store can be preserved between sessions.
-- Apple IDs signed into the device and App Store can be preserved between sessions.
+With the account allowlist you will be able: 
+- Google accounts signed into the Play Store/Google Pay/In-App Purchase can be preserved between sessions.
+- Apple IDs signed into the device and App Store/TestFlight/Apple Pay/In-App Purchase can be preserved between sessions.
+
+System app allowlist:
+
+By default, we are removing most of the system applications from iOS, to ensure our cleaning service run faster. 
+You can get back your Messages, Mail, Notes applications on private devices easily, by submitting a support request.
+Here you can find the list of system apps you can get access back to: https://support.apple.com/en-gb/guide/deployment/depece748c41/web

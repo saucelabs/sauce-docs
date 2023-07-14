@@ -60,7 +60,6 @@ values={[
 {label: 'US-West', value: 'US-West'},
 {label: 'US-East', value: 'US-East'},
 {label: 'EU-Central', value: 'EU-Central'},
-{label: 'APAC-Southeast', value: 'APAC-Southeast'},
 ]}>
 
 <TabItem value="US-West">
@@ -86,15 +85,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels' \
---header 'Content-Type: application/json' | json_pp
-```
-
-</TabItem>
-<TabItem value="APAC-Southeast">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.apac-southeast1.saucelabs.com/rest/v1/jim.smith/tunnels' \
 --header 'Content-Type: application/json' | json_pp
 ```
 
@@ -199,7 +189,6 @@ values={[
 {label: 'US-West', value: 'US-West'},
 {label: 'US-East', value: 'US-East'},
 {label: 'EU-Central', value: 'EU-Central'},
-{label: 'APAC-Southeast', value: 'APAC-Southeast'},
 ]}>
 
 <TabItem value="US-West">
@@ -225,15 +214,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
---header 'Content-Type: application/json' | json_pp
-```
-
-</TabItem>
-<TabItem value="APAC-Southeast">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.apac-southeast1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
 --header 'Content-Type: application/json' | json_pp
 ```
 
@@ -320,7 +300,6 @@ values={[
 {label: 'US-West', value: 'US-West'},
 {label: 'US-East', value: 'US-East'},
 {label: 'EU-Central', value: 'EU-Central'},
-{label: 'APAC-Southeast', value: 'APAC-Southeast'},
 ]}>
 
 <TabItem value="US-West">
@@ -347,14 +326,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```
 
 </TabItem>
-<TabItem value="APAC-Southeast">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.apac-southeast1.saucelabs.com/rest/v1/public/tunnels/info/versions' | json_pp
-```
-
-</TabItem>
 </Tabs>
 
 #### Responses
@@ -378,24 +349,24 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 {
    "downloads" : {
       "linux" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-linux.tar.gz",
          "sha1" : "<hash>"
       },
       "linux-arm64" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-linux-arm64.tar.gz",
          "sha1" : "<hash>"
       },
       "osx" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-osx.zip",
          "sha1" : "<hash>"
       },
       "win32" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-win32.zip",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-win32.zip",
          "sha1" : "<hash>"
       }
    },
    "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
-   "latest_version" : "4.8.2",
+   "latest_version" : "4.9.1",
    "warning" : [
       "Client host platform is not specified, the download URL cannot be determined"
    ]
@@ -504,28 +475,46 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
             "download_url" : "https://saucelabs.com/downloads/sc-4.9.0-win32.zip",
             "sha1" : "<hash>"
          }
+      },
+      "4.9.1" : {
+         "linux" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-linux.tar.gz",
+            "sha1" : "<hash>"
+         },
+         "linux-arm64" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-linux-arm64.tar.gz",
+            "sha1" : "<hash>"
+         },
+         "osx" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-osx.zip",
+            "sha1" : "<hash>"
+         },
+         "win32" : {
+            "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-win32.zip",
+            "sha1" : "<hash>"
+         }
       }
    },
    "downloads" : {
       "linux" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-linux.tar.gz",
          "sha1" : "<hash>"
       },
       "linux-arm64" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-linux-arm64.tar.gz",
          "sha1" : "<hash>"
       },
       "osx" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-osx.zip",
          "sha1" : "<hash>"
       },
       "win32" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-win32.zip",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-win32.zip",
          "sha1" : "<hash>"
       }
    },
    "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
-   "latest_version" : "4.8.2",
+   "latest_version" : "4.9.1",
    "warning" : [
       "Client host platform is not specified, the download URL cannot be determined"
    ]
@@ -534,27 +523,27 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Response to the request with an optional parameter client_host=darwin-amd64"
 {
-   "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
+   "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-osx.zip",
    "downloads" : {
       "linux" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-linux.tar.gz",
          "sha1" : "<hash>"
       },
       "linux-arm64" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-linux-arm64.tar.gz",
          "sha1" : "<hash>"
       },
       "osx" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-osx.zip",
          "sha1" : "<hash>"
       },
       "win32" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-win32.zip",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-win32.zip",
          "sha1" : "<hash>"
       }
    },
    "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
-   "latest_version" : "4.8.2",
+   "latest_version" : "4.9.1",
    "sha1" : "<hash>"
 }
 
@@ -565,24 +554,24 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
    "client_version" : "4.7.1",
    "downloads" : {
       "linux" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-linux.tar.gz",
          "sha1" : "<hash>"
       },
       "linux-arm64" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-linux-arm64.tar.gz",
          "sha1" : "<hash>"
       },
       "osx" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-osx.zip",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-osx.zip",
          "sha1" : "<hash>"
       },
       "win32" : {
-         "download_url" : "https://saucelabs.com/downloads/sc-4.8.2-win32.zip",
+         "download_url" : "https://saucelabs.com/downloads/sc-4.9.1-win32.zip",
          "sha1" : "<hash>"
       }
    },
    "info_url" : "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
-   "latest_version" : "4.8.2",
+   "latest_version" : "4.9.1",
    "status" : "UPGRADE",
    "warning" : [
       "Client host platform is not specified, the download URL cannot be determined"
@@ -625,7 +614,6 @@ values={[
 {label: 'US-West', value: 'US-West'},
 {label: 'US-East', value: 'US-East'},
 {label: 'EU-Central', value: 'EU-Central'},
-{label: 'APAC-Southeast', value: 'APAC-Southeast'},
 ]}>
 
 <TabItem value="US-West">
@@ -651,15 +639,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8/num_jobs' \
---header 'Content-Type: application/json' | json_pp
-```
-
-</TabItem>
-<TabItem value="APAC-Southeast">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.apac-southeast1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8/num_jobs' \
 --header 'Content-Type: application/json' | json_pp
 ```
 
@@ -725,7 +704,6 @@ values={[
 {label: 'US-West', value: 'US-West'},
 {label: 'US-East', value: 'US-East'},
 {label: 'EU-Central', value: 'EU-Central'},
-{label: 'APAC-Southeast', value: 'APAC-Southeast'},
 ]}>
 
 <TabItem value="US-West">
@@ -751,15 +729,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
---header 'Content-Type: application/json' | json_pp
-```
-
-</TabItem>
-<TabItem value="APAC-Southeast">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.apac-southeast1.saucelabs.com/rest/v1/jim.smith/tunnels/28e7c8133ede4588a891666dd35af1f8' \
 --header 'Content-Type: application/json' | json_pp
 ```
 

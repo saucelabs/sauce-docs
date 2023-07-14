@@ -61,6 +61,7 @@ groupId="dc-url"
 defaultValue="usw"
 values={[
 {label: 'US West', value: 'usw'},
+{label: 'US East', value: 'use'},
 {label: 'Europe', value: 'eu'},
 ]}>
 
@@ -69,6 +70,16 @@ values={[
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request POST 'https://api.us-west-1.saucelabs.com/v1/storage/upload' \
+--form 'payload=@"<path/to/your/file>"' \
+--form 'name="<filename.ext>"'
+```
+
+</TabItem>
+<TabItem value="use">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-east-4.saucelabs.com/v1/storage/upload' \
 --form 'payload=@"<path/to/your/file>"' \
 --form 'name="<filename.ext>"'
 ```

@@ -389,7 +389,7 @@ it to take up too much space on the page by default, we encourage the use of `de
 <summary>
 <strong>Click here</strong> to see an example of something hidden by default.
 </summary>
-This is hidden by default!
+This is hidden by default.
 </details>
 ```
 
@@ -406,7 +406,7 @@ This is hidden by default!
   <summary>
     <strong>Click here</strong> to see an example of something hidden by default.
   </summary>
-    This is hidden by default!
+    This is hidden by default.
 </details>
 </td>
     </tr>
@@ -420,7 +420,7 @@ There are four types of [Docusaurus admonitions](https://docusaurus.io/docs/mark
 - Note - Relevant information.
 - Tip - A user should do this.
 - Caution - A user should pay attention to this.
-- Warning - A user might do something dangerous!
+- Warning - A user might do something dangerous.
 
 <table class="code">
   <tbody>
@@ -434,19 +434,27 @@ There are four types of [Docusaurus admonitions](https://docusaurus.io/docs/mark
 
 ```markdown
 :::note
+
 Relevant information for you.
+
 :::
 
 :::tip
+
 You should do this.
+
 :::
 
 :::caution
+
 You should probably pay attention to this.
+
 :::
 
 :::warning
-You are about to do something dangerous!
+
+You are about to do something dangerous.
+
 :::
 ```
 
@@ -461,19 +469,27 @@ You are about to do something dangerous!
       <td>
 
 :::note
+
 Relevant information for you.
+
 :::
 
 :::tip
+
 You should do this.
+
 :::
 
 :::caution
+
 You should probably pay attention to this.
+
 :::
 
 :::warning
-You are about to do something dangerous!
+
+You are about to do something dangerous.
+
 :::
 
 </td>

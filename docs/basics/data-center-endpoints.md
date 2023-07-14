@@ -28,8 +28,8 @@ Your data center is determined based on your license type and your company's nee
 To see your data center, check the upper-right corner of the Sauce Labs user interface. Options include:
 
 - US West
+- US East
 - EU Central
-- APAC Southeast
 
 ## Data Center Endpoints
 
@@ -49,6 +49,13 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com. After that, i
 | REST API                     | api.us-west-1.saucelabs.com                     |
 | Sauce Connect Tunnel Servers | maki\*.miso.saucelabs.com:443                   |
 
+### US East Data Center
+
+| Description                  | Endpoint                                        |
+| ---------------------------- | ----------------------------------------------- |
+| OnDemand Endpoint            | https://ondemand.us-east-4.saucelabs.com/wd/hub |
+| REST API                     | api.us-east-4.saucelabs.com                     |
+
 ### EU Central Data Center
 
 :::note
@@ -60,14 +67,6 @@ Depending on the framework or driver you use, you might need to make additional 
 | OnDemand Endpoint            | https://ondemand.eu-central-1.saucelabs.com/wd/hub |
 | REST API                     | api-eu-central-1.saucelabs.com                     |
 | Sauce Connect Tunnel Servers | maki\*.eu-central-1.miso.saucelabs.com:443         |
-
-### APAC Southeast Data Center
-
-| Description                  | Endpoint                                               |
-| ---------------------------- | ------------------------------------------------------ |
-| OnDemand Endpoint            | https://ondemand.apac-southeast-1.saucelabs.com/wd/hub |
-| REST API                     | api-apac-southeast-1.saucelabs.com                     |
-| Sauce Connect Tunnel Servers | tunnel-\*.tunnels.apac-southeast-1.saucelabs.com:443   |
 
 ## IP Address Ranges - Outgoing
 
@@ -99,13 +98,6 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com, which resolve
 | 34.141.28.96/32                    |
 | 162.222.79.0/27                    |
 | 185.94.24.0/22                     |
-
-### APAC Southeast Data Center
-
-| Endpoints       |
-| --------------- |
-| 34.87.212.99/32 |
-| 34.87.251.80/28 |
 
 ## Real Devices
 
@@ -172,6 +164,12 @@ For details about setting up SSO for Sauce Labs, see [Setting Up Single Sign-On 
 | Signing/Encryption Certificate/Entity ID | Entity AssertionConsumeURL    |
 | ---------------------------------------- | ----------------------------- |
 | https://saucelabs.com/sso/metadata       | https://saucelabs.com/sso/acs |
+
+#### US East Data Center
+
+| Signing/Encryption Certificate/Entity ID        | Entity AssertionConsumeURL                 |
+| ----------------------------------------------- | ------------------------------------------ |
+| https://us-east-4.saucelabs.com/sso/metadata | https://us-east-4.saucelabs.com/sso/acs |
 
 #### EU Central Data Center
 

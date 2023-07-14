@@ -16,30 +16,40 @@ You can run live tests of your websites on a wide variety of operating system, b
 
 ## Testing on a Desktop Browser
 
-1. On Sauce Labs, in the left navigation panel, click **LIVE** and then click **Cross Browser**.
+1. On Sauce Labs, in the left navigation panel, click **LIVE**, and then click **Cross Browser**.
 2. Click the **Desktop** tab.
 
-<img src={useBaseUrl('img/live-testing/desktop-test-nav.png')} alt="Live desktop test navigation" width="450"/>
+<img src={useBaseUrl('img/live-testing/desktop-test-nav.png')} alt="Live desktop test navigation" width="650"/>
 
 3. In the **URL** field, enter the URL of the website you want to test.
-4. If you use Sauce Connect Proxy to test apps on a local host or behind a firewall, select the tunnel from the **SAUCE CONNECT PROXY** dropdown.
+4. If you use Sauce Connect Proxy to test apps on a local host or behind a firewall, select the tunnel from the **SAUCE CONNECT PROXY** dropdown list.
 5. Under **BROWSER SELECTION**, select the browser version and screen resolution you want to use in your test.
-6. In the **OS VERSION** dropdown, select the OS version you want to use.
+6. In the **OS VERSION** dropdown list, select the OS version you want to use.
 
-<img src={useBaseUrl('img/live-testing/desktop-test-setup.jpg')} alt="Desktop test setup" width="550"/>
+<img src={useBaseUrl('img/live-testing/desktop-test-setup.png')} alt="Desktop test setup" width="650"/>
 
 7. To view your recent configurations, click **Recents**.
 
-<img src={useBaseUrl('img/live-testing/live-testing-recent-tests-nav.png')} alt="Recent tests" width="550"/>
+<img src={useBaseUrl('img/live-testing/live-testing-recent-tests-nav.png')} alt="Recent tests" width="650"/>
 
-8. Click **Start Session**.
-   You'll see a loading screen, and then the app will launch in a live test window using the configuration you selected.
+8. Click **Start Test**.
+   A loading screen appears, and then the app launces in a live test window using the configuration you selected.
 
-<img src={useBaseUrl('img/live-testing/desktop-test-running.jpg')} alt="Desktop test running" width="650"/>
+:::caution
 
-Once your session launches, you can use your mouse cursor and keyboard to interact with the website under test.
+If you have issues starting live tests, check your IT infrastructure and make sure you are not blocking WebSockets.
 
-<img src={useBaseUrl('img/live-testing/desktop-test-ui.png')} alt="Desktop test interface" width="650"/>
+:::
+
+<img src={useBaseUrl('img/live-testing/desktop-test-running.png')} alt="Desktop test running" width="650"/>
+
+9. Once your session launches, you can use your mouse cursor and keyboard to interact with the website under test.
+
+10. Click **End** when you are done testing.
+
+11. Optionally, [you can select an outcome and enter name for your test](#adding-a-test-name-and-outcome-to-your-test).
+
+<img src={useBaseUrl('img/live-testing/live-testing-end-session-page.png')} alt="Recent tests" width="550"/>
 
 ### Live Desktop Test Interface
 
@@ -61,43 +71,45 @@ Know if your app is designed to run on internal or otherwise restricted networks
 
 ### Real Device
 
-1. On Sauce Labs, in the left panel, click **LIVE** and then click **Cross Browser**.
+1. On Sauce Labs, in the left panel, click **Live**, and then click **Cross Browser**.
 2. Click the **Mobile Real** tab.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-real-nav.png')} alt="Live mobile real device test navigation" width="650"/>
 
 3. Use the filter options or **Search** field to find the type of real device you want to use in your test.
-4. To mark a device as a favorite so you can find it easily in the future, click the pin icon next to the device name.
+4. To mark a device as a favorite so you can find it in the future, click the pin icon next to the device name.
 
 <img src={useBaseUrl('img/live-testing/device-favorite.png')} alt="Favorite a device" width="350"/>
 
 The default sorting for the device list is **Pinned First**.
 
 5. In the **URL** field, enter the URL of the website you want to test.
-6. If you are using Sauce Connect Proxy to access the web app you want to test, select the tunnel from the dropdown.
-7. Click **Launch**.
-   You'll see a loading screen, and then the URL you entered will launch in a live test window using the real device you selected.
+6. If you are using Sauce Connect Proxy to access the web app you want to test, select the tunnel from the dropdown list.
+7. Hover over the device card and click **Start Test** .
+   A loading screen appears, and then the app launces in a live test window using the configuration you selected.
 
 <img src={useBaseUrl('img/live-testing/mobile-real-test-ui.png')} alt="Mobile real device test interface" width="650"/>
 
-### Live Mobile Real Device Test Interface
+When you are done testing, [you can opt to select an outcome and enter a name for your test](#adding-a-test-name-and-outcome-to-your-test).
 
-| Icon                                                                                                               | Name                | Description                                                                                                                                          |
-| :----------------------------------------------------------------------------------------------------------------- | :------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <img src={useBaseUrl('img/live-testing/pin-unpin-icon.png')} alt="Unpin/Pin Toolbar icon" width="35"/>             | Unpin/Pin Toolbar   | Unpins or pins the live testing toolbar.                                                                                                             |
-| <img src={useBaseUrl('img/live-testing/session-info-icon.png')} alt="Session Info icon" width="35"/>               | Session Info        | Opens the **Current Session** window, which includes app and device details.                                                                         |
-| <img src={useBaseUrl('img/live-testing/take-screenshot-icon.png')} alt="Take Screenshot icon" width="35"/>         | Take Screenshot     | Takes a screenshot of the current device screen. The image downloads automatically as a .png file.                                                   |
-| <img src={useBaseUrl('img/live-testing/share-session-icon.png')} alt="Share Session icon" width="35"/>             | Share Session       | Opens the **Share Device** window. For a sharable link to the device, click **Get Link**. <br/>Users must be logged in to be able to view the test.  |
-| <img src={useBaseUrl('img/live-testing/rotate-device-icon.png')} alt="Rotate Device icon" width="35"/>             | Rotate Device       | Rotates the device between portrait and landscape.                                                                                                   |
-| <img src={useBaseUrl('img/live-testing/home-icon.png')} alt="Home icon" width="35"/>                               | Home                | Opens the device home screen.                                                                                                                        |
-| <img src={useBaseUrl('img/live-testing/more-device-options-icon.png')} alt="More Device Options icon" width="35"/> | More Device Options | **Set Location** - Set the GPS location using coordinates or by dropping a pin on the map. <br/> **Performance mode On/Off** - Enables you to increase frame rate per second, or switch back to lower frame rate video streaming, when your network connection or VPN is restrictive and you experience blurred screen.                                                        |
-| <img src={useBaseUrl('img/live-testing/restart-app-icon.png')} alt="Restart App icon" width="35"/>                 | Restart App         | Restarts the app.                                                                                                                                    |
-| <img src={useBaseUrl('img/live-testing/switch-app-version-icon.png')} alt="Switch App Version icon" width="35"/>   | Switch App Version  | Opens the **Switch App Version** window. To change the version of the app you are testing, hover over the version and then click **Choose version**. |
-| <img src={useBaseUrl('img/live-testing/clipboard-icon.png')} alt="Clipboard icon" width="35"/>                     | Clipboard           | Opens the **Paste Content Into Device** window.                                                                                                      |
-| <img src={useBaseUrl('img/live-testing/install-dependency-icon.png')} alt="Install Dependency icon" width="35"/>   | Install Dependency  | Opens the **Install Dependent App** window.                                                                                                          |
-| <img src={useBaseUrl('img/live-testing/dev-options-icon.png')} alt="Developer Options icon" width="35"/>           | Developer Options   | Opens the **Developer Options** panel, which includes the **Device Log** and **[Dev Tools](/web-apps/live-testing/dev-tools/)** tabs.                                                     |
+#### Live Mobile Real Device Test Interface
 
-### Device Log
+| Icon                                                                                                               | Name                | Description                                                                                                                                                                                                                                                                                                             |
+| :----------------------------------------------------------------------------------------------------------------- | :------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src={useBaseUrl('img/live-testing/pin-unpin-icon.png')} alt="Unpin/Pin Toolbar icon" width="35"/>             | Unpin/Pin Toolbar   | Unpins or pins the live testing toolbar.                                                                                                                                                                                                                                                                                |
+| <img src={useBaseUrl('img/live-testing/session-info-icon.png')} alt="Session Info icon" width="35"/>               | Session Info        | Opens the **Current Session** window, which includes app and device details.                                                                                                                                                                                                                                            |
+| <img src={useBaseUrl('img/live-testing/take-screenshot-icon.png')} alt="Take Screenshot icon" width="35"/>         | Take Screenshot     | Takes a screenshot of the current device screen. The image downloads automatically as a .png file.                                                                                                                                                                                                                      |
+| <img src={useBaseUrl('img/live-testing/share-session-icon.png')} alt="Share Session icon" width="35"/>             | Share Session       | Opens the **Share Device** window. For a sharable link to the device, click **Get Link**. <br/>Users must be logged in to be able to view the test.                                                                                                                                                                     |
+| <img src={useBaseUrl('img/live-testing/rotate-device-icon.png')} alt="Rotate Device icon" width="35"/>             | Rotate Device       | Rotates the device between portrait and landscape.                                                                                                                                                                                                                                                                      |
+| <img src={useBaseUrl('img/live-testing/home-icon.png')} alt="Home icon" width="35"/>                               | Home                | Opens the device home screen.                                                                                                                                                                                                                                                                                           |
+| <img src={useBaseUrl('img/live-testing/more-device-options-icon.png')} alt="More Device Options icon" width="35"/> | More Device Options | **Set Location** - Set the GPS location using coordinates or by dropping a pin on the map. <br/> **Performance mode On/Off** - Enables you to increase frame rate per second, or switch back to lower frame rate video streaming, when your network connection or VPN is restrictive and you experience blurred screen. |
+| <img src={useBaseUrl('img/live-testing/restart-app-icon.png')} alt="Restart App icon" width="35"/>                 | Restart App         | Restarts the app.                                                                                                                                                                                                                                                                                                       |
+| <img src={useBaseUrl('img/live-testing/switch-app-version-icon.png')} alt="Switch App Version icon" width="35"/>   | Switch App Version  | Opens the **Switch App Version** window. To change the version of the app you are testing, hover over the version and then click **Choose version**.                                                                                                                                                                    |
+| <img src={useBaseUrl('img/live-testing/clipboard-icon.png')} alt="Clipboard icon" width="35"/>                     | Clipboard           | Opens the **Paste Content Into Device** window.                                                                                                                                                                                                                                                                         |
+| <img src={useBaseUrl('img/live-testing/install-dependency-icon.png')} alt="Install Dependency icon" width="35"/>   | Install Dependency  | Opens the **Install Dependent App** window.                                                                                                                                                                                                                                                                             |
+| <img src={useBaseUrl('img/live-testing/dev-options-icon.png')} alt="Developer Options icon" width="35"/>           | Developer Options   | Opens the **Developer Options** panel, which includes the **Device Log** and **[Dev Tools](/web-apps/live-testing/dev-tools/)** tabs.                                                                                                                                                                                   |
+
+#### Device Log
 
 <img src={useBaseUrl('img/live-testing/device-log.png')} alt="Device Log" width="450"/>
 
@@ -112,53 +124,22 @@ The default sorting for the device list is **Pinned First**.
 
 ### Virtual Device
 
-1. On Sauce Labs, in the left panel, click **Live** and then click **Cross Browser**.
+1. On Sauce Labs, in the left panel, click **Live**, and then click **Cross Browser**.
 2. Click the **Mobile Virtual** tab.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-virtual-nav.png')} alt="Live mobile virtual device test navigation" width="650"/>
 
 3. In the **URL** field, enter the URL of the website you want to test.
-4. If you are using Sauce Connect Proxy to access the web app you want to test, select the tunnel from the dropdown. For more information about Sauce Connect Proxy, see [Using Sauce Connect Proxy](/secure-connections/sauce-connect).
+4. If you are using Sauce Connect Proxy to access the web app you want to test, select the tunnel from the dropdown list. For more information about Sauce Connect Proxy, see [Using Sauce Connect Proxy](/secure-connections/sauce-connect).
 5. In the **Manufacturer**, **Device**, and **OS Version** dropdowns, select the specifications for the virtual device you want to use.
-6. Click **Start Session**.
-   You'll see a loading screen, and then the URL you entered will launch in a live test window using the virtual device you selected.
+6. Click **Start Test**.
+   The loading screen appears, and then the URL you entered launches in a live test window using the virtual device you selected.
 
 <img src={useBaseUrl('img/live-testing/mobile-virtual-test-ui.png')} alt="Mobile virtual device test interface" width="650"/>
 
-### Adding a Test Name for Your Test
+When you are done testing, [you can opt to select an outcome and enter a name for your test](#adding-a-test-name-and-outcome-to-your-test).
 
-Sauce Labs has introduced a new feature that allows you to enter a test name for your Live Tests after cross-browser and mobile app testing. This update enhances the testing efficiency by enabling you to add more context to test descriptions and add more clarity to your test repository.
-
-Adding a test name is a straightforward process, and there are two ways to do it:
-
-1. From the end session screen:
-   - Start a Live Test session.
-   - End the Live Test Session by clicking on the **End** button from the toolbar.
-   - The end session screen will pop up, and from there, users can edit the test name:
-  <img src={useBaseUrl('img/mobile-apps/change-name-test.png')} alt="Test Name" width="550"/>
-
-1. From the test details page:
-   - Go to **Live** -> **Test results** -> Click on a test.
-   - On the test details page, click on the pencil nearby the test name to edit it:
-  <img src={useBaseUrl('img/mobile-apps/change-name-test-1.png')} alt="Test Name" width="550"/>
-   
-  
-  
-:::note
-This feature works the same way for both cross-browser testing and mobile app testing.
-:::
-
-Use test names to customize your testing experience:
-
-- Add descriptive names to your tests to quickly identify your findings.
-- Keep track of tested steps by adding details to test names.
-- Easily rename your tests to reflect Jira tickets or other related tasks.
-
-:::note LIMITATIONS
-This feature has a constraint on the maximum allowable length of the test name, which is limited to 255 characters. The utilization of emojis is not supported in the test name. 
-:::
-
-### Live Mobile Virtual Device Test Interface
+#### Live Mobile Virtual Device Test Interface
 
 | Icon                                                                                                        | Name              | Description                                                                                                                                                                                   |
 | :---------------------------------------------------------------------------------------------------------- | :---------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -168,9 +149,48 @@ This feature has a constraint on the maximum allowable length of the test name, 
 | <img src={useBaseUrl('img/live-testing/invite-session-icon.png')} alt="Invite to Session icon" width="35"/> | Invite to Session | Opens the **Invite someone to watch this session** window. Copy and share the generated link to allow other users to view the test. <br/>Users must be logged in to be able to view the test. |
 | <img src={useBaseUrl('img/live-testing/clipboard-icon.png')} alt="Clipboard icon" width="35"/>              | Clipboard         | Opens the **Remote Clipboard** window.                                                                                                                                                        |
 
+## Adding a Test Name and Outcome to Your Test
+
+You can enter a test name and select an outcome for your Live Tests after cross-browser and mobile app testing. Adding a name and outcome to your test allows you to add more context to test descriptions and add more clarity to your test repository.
+
+You can use test names to customize your testing experience. For example you can:
+
+- Add descriptive names to your tests to quickly identify your findings.
+- Keep track of tested steps by adding details to test names.
+- Rename your tests to reflect Jira tickets or other related tasks.
+
+:::note
+Test names are limited to 255 characters. The use of emojis is not supported in the test name.
+:::
+
+- From the end session screen, you can select an outcome and enter a test name:
+
+  - Start a Live Test session.
+  - End the Live Test Session by clicking **End** on the toolbar.
+  - On the test session end screen, select the test outcome and edit the test name.
+    <img src={useBaseUrl('img/live-testing/live-testing-end-session-page.png')} alt="Test Name" width="550"/>
+
+- From the test details page, you can add or edit a test name:
+
+  - Go to **Live** -> **Test results**
+  - Click a test.
+  - On the test details page, click the pencil next to the test name to edit it. <img src={useBaseUrl('img/live-testing/edit-test-name-icon.png')} alt="Test Name" width="550"/>
+  - Enter a descriptive name for the test, for example:
+    <img src={useBaseUrl('img/live-testing/change-name-test-edit.png')} alt="Test Name" width="550"/>
+
 ## Running Tests in Parallel
 
 You can run multiple live test sessions at the same time, with the number of tests limited by the concurrency allowance associated with your account. To run tests in parallel, open a new browser tab and follow the steps to set up the new session. You can switch back and forth between the sessions by clicking on the browser tabs.
+
+### Time Limits and Timeouts for Cross Broswer Testing
+
+For VDC and EmuSIM, the global limitations for the live session duration are:
+
+- Cross Browser tests for free users have a 11 minute limit from session start.
+- Cross Browser tests for paid users are limited to three hours.
+- Cross Browser tests for all accounts will timeout after 90 seconds if the session is not active (that is, has no active channels).
+
+If there is no activity a user is automatically logged out after 30 min.
 
 ## Troubleshooting Live Cross Browser Tests
 
@@ -184,7 +204,7 @@ Below are the servers and ports used by manual testing. If you plan to launch ma
 
 ### Your Job is Not Loading
 
-There are two common scenarios here:
+When a job is not loading, one of the following errors is likely to appear:
 
 - Error message: "Uh oh! Some error occurred while connecting to the browser"
 - The job seems to start, but you see only a white text box in the middle of a black screen.
@@ -213,6 +233,6 @@ We've streamlined our service to provide the best possible load times. If you're
 
 ### Links Opening in New Tabs Instead of New Windows
 
-It's possible for the manual testing VNC client to have a modifier key "stuck" down, causing any clicked links to open in new tabs. This happens if the client loses focus while a key is held down (e.g., when using Alt-Tab to switch app windows). In this case, VNC never receives the keyUp event.
+It's possible for the manual testing VNC client to have a modifier key "stuck" down, causing any clicked links to open in new tabs. This happens if the client loses focus while a key is held down (for example, when using Alt-Tab to switch app windows). In this case, VNC never receives the keyUp event.
 
-To prevent this from happening: every time you focus back on the manual testing window, click in the middle of the page, then press and release all the modifier keys (i.e., Alt, Control, Command, and Shift).
+To prevent this from happening: every time you focus back on the manual testing window, click in the middle of the page, then press and release all the modifier keys (that is, Alt, Control, Command, and Shift).

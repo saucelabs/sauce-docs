@@ -4,8 +4,6 @@ title: 'Virtual USB CLI: Disconnect Session'
 sidebar_label: Disconnect Session
 ---
 
-## Description
-
 Close a Virtual USB (vUSB) session that you joined originally using the [`connect` command](/dev/cli/virtual-usb/connect-session).
 
 :::note Android Only

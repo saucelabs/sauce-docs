@@ -4,8 +4,6 @@ title: saucectl artifacts upload
 sidebar_label: saucectl artifacts upload
 ---
 
-## Description
-
 Uploads an artifact for a job to Sauce Labs.
 
 ## Usage

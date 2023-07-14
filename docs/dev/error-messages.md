@@ -263,6 +263,32 @@ This isn't always restricted to the tests, either; an app under test which consu
 
 Break out your long tests into shorter tests and/or make sure that your tests are not filling up a lot of disk space on the VM.
 
+### Unable to Find Device Within 900000ms
+
+**Description**
+
+This timeout occurs most frequently when you include a specific device in your test case and that device isn’t available in 15 minutes.
+
+**Cause(s)**
+
+Our device pool is available to all subscribed Sauce users and (as you might imagine), some devices are more popular than others. We have hundreds of device configurations and thousands of devices hosted in our data center, but sometimes a test queue is built up for the most popular devices.
+
+**How to Resolve**
+
+Instead of passing a specific `deviceName`:
+
+- When you select a device from the pool, use `appium:deviceName` to [select the device dynamically](/mobile-apps/supported-devices/#dynamic-device-allocation). This way you can specify the type of device (make, model, OS) instead of a specific device, which increases the likelihood of finding an appropriate device that is available for your test to run on.
+- If you are looking for a specific OS version instead of a specific make and model, you can use the [`appium:platformVersion`](/dev/test-configuration-options/#appium) option to fetch a device with that OS regardless of make and model.
+
+```java
+// specific deviceId
+capabilities.setCapability("appium:deviceName", "iPhone_7_15_real");
+
+// specific platformVersion and any iPhone
+capabilities.setCapability("appium:deviceName", "^iPhone.*");
+capabilities.setCapability("appium:platformVersion", "15.7.5");
+```
+
 ## Mobile App Testing Only
 
 ### Failed to Download Mobile Application
@@ -298,25 +324,6 @@ If you're already using storage, check to make sure that:
 - You're using the exact name you provided via the rest API, not the original filename. For example, if you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `storage:filename=new_app_name.apk`.
 - Check the access permissions for the file before retrying. If you have confirmed you have permissions to access the file and you continue to get this error, contact our [Sauce Labs Support](https://saucelabs.com/training-support).
 
-
-### Unable to Find Device Within 90 Seconds
-
-**Description**
-
-This timeout occurs most frequently when you include a specific device in your test case and that device isn’t available within 90 seconds.
-
-**Cause(s)**
-
-Our public device pool is available to all subscribed Sauce Labs customers and some devices are more popular than others. We have over 280 device configurations and thousands of devices hosted in our data center, but sometimes a test queue will build up for the most popular devices.
-
-**How to Resolve**
-
-Instead of passing a specific `deviceName`:
-
-- When you select a device from the public pool, use `deviceName` to [select the device dynamically](/mobile-apps/supported-devices/#dynamic-device-allocation). This way you can specify the type of device (make, model, OS) instead of a specific device, which increases the likelihood of finding an appropriate device that is available for your test to execute on.
-- If you are looking for a specific OS version instead of a specific make and model, you can use the [`appium:platformVersion`](/dev/test-configuration-options/#appiumplatformversion) option to fetch a device with that OS regardless of make and model.
-
-
 ## Web App Testing Only
 
 ### Test Didn't See a New Command for 90 Seconds
@@ -330,7 +337,7 @@ You'll see this error when Sauce Labs doesn't receive a new command from your Se
 There are a few potential causes for this error:
 
 - The most common cause is that your script crashed, was forcefully interrupted, or you lost internet connectivity.
-- If your tests don't include a session ending request, such as a call to `driver.quit()` or `browser.stop()`, they will will keep running forever, consuming all test minutes available in your account. This error is thrown after 90 seconds as a means of preventing this.
+- If your tests don't include a session ending request, such as a call to `driver.quit()` or `browser.stop()`, they will keep running forever, consuming all test minutes available in your account. This error is thrown after 90 seconds as a means of preventing this.
 - A less common, but still possible cause, is that your test legitimately needs more than 90 seconds to send a new command to the browser. This happens most often when a network or disk IO error occurs between Selenium API calls in your tests (for example, for DB queries, local file reads, or changes).
 
 **How to Resolve**
@@ -383,7 +390,6 @@ The combination of browser, version, and operating system you want to use in you
 - Use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to set the capabilities of your test.
 - Check [our list of supported platforms, operating systems, and browsers](https://saucelabs.com/platform/supported-browsers-devices) to make sure your selections are valid.
 - Use a higher version of Selenium in the capabilities of your test, or leave the Selenium version blank to default to the latest version.
-
 
 ### Your account is not verified
 

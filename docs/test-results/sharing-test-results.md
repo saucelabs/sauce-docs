@@ -14,9 +14,9 @@ The ability to share test results is currently only supported for virtual device
 
 Once your test has run and generated a **Test Details** page, you have several options for sharing a link to that page with others.
 
-1. On Sauce Labs, in the left panel, click **LIVE** or **AUTOMATED**, and then click **Test Results**.
+1. On Sauce Labs, in the left panel, click **Live** or **Automaed**, and then click **Test Results**.
 2. On the **Test Results** page, click a test in the list to view the test details.
-3. In the **Visibility** dropdown, select a sharing option for the test results.
+3. In the **Visibility** dropdown list, select a sharing option for the test results.
 
 | Option            | Explanation                                                                                                                                                                                                                               |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -46,7 +46,7 @@ https://app.eu-central-1.saucelabs.com/tests/YOUR_TEST_ID).
 This solution is not supported for RDC.
 :::
 
-See [Data Center Endpoints](/basics/data-center-endpoints) for more info.
+See [Data Center Endpoints](/basics/data-center-endpoints) for more information.
 
 ### Linking to Tests that Require a Login to View
 
@@ -218,7 +218,7 @@ If you want to authenticate as another user, just prefix the auth token with you
 For example:
 
 ```js
-https://app.saucelabs.com/tests/YOUR_TEST_ID?auth=SAUCE_USERNAME:AUTH_TOKEN.
+https://app.saucelabs.com/tests/YOUR_TEST_ID?auth=SAUCE_USERNAME:AUTH_TOKEN
 ```
 
 ### Setting Your Test Links to Expire

@@ -4,8 +4,6 @@ title: saucectl run
 sidebar_label: saucectl run
 ---
 
-## Description
-
 Execute framework-agnostic tests using the [`saucectl`](/dev/cli/saucectl) test orchestrator.
 
 ## Usage
@@ -338,7 +336,7 @@ Specifies the Sauce Labs data center through which tests will run. Valid values 
 **Shorthand:** `-r`
 
 ```bash
-saucectl run --region use-west-1
+saucectl run --region us-west-1
 ```
 
 </div>

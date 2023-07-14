@@ -133,7 +133,7 @@ When you save a snippet from the [**Composer**](/api-testing/composer/), it will
 
 ### Create a Snippet
 
-While is perfectly fine typing the code snippet directly in the area, if you are confortable doing this. There's a easier way to create a snippet.
+While is perfectly fine typing the code snippet directly in the area, if you are comfortable doing this. There's a easier way to create a snippet.
 
 1. Open a project.
 1. Open the test you want to generate the snippet of.

@@ -541,72 +541,6 @@ Specifies the path to the folder location in which to download artifacts. A sepa
 
 ---
 
-## `notifications`
-
-<p><small>| OPTIONAL | OBJECT |</small></p>
-
-Specifies how to set up automatic test result alerts.
-
-```yaml
-notifications:
-  slack:
-    channels:
-      - "saucectl-results"
-      - "playwright-tests"
-    send: always
-```
-
----
-
-### `slack`
-
-<p><small>| OPTIONAL | OBJECT |</small></p>
-
-Specifies the settings related to sending tests result notifications through Slack. See [Slack Integration](/basics/integrations/slack) for information about integrating your Sauce Labs account with your Slack workspace.
-
-```yaml
-  slack:
-    channels: "saucectl-pw-tests"
-    send: always
-```
-
----
-
-#### `channels`
-
-<p><small>| OPTIONAL | STRING/ARRAY |</small></p>
-
-The set of Slack channels to which the test result notifications are to be sent.
-
-```yaml
-  slack:
-    channels:
-      - "saucectl-results"
-      - "playwright-team"
-    send: always
-```
-
----
-
-#### `send`
-
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Specifies when and under what circumstances to send notifications to specified Slack channels. Valid values are:
-
-- `always`: Send notifications for all test results.
-- `never`: Do not send any test result notifications.
-- `pass`: Send notifications for passing suites only.
-- `fail`: Send notifications for failed suites only.
-
-```yaml
-  slack:
-    channels: "saucectl-pw-tests"
-    send: always
-```
-
----
-
 ## `playwright`
 
 <p><small>| REQUIRED | OBJECT |</small></p>
@@ -779,6 +713,34 @@ The `numShards` and `shard` properties are mutually exclusive within each suite.
 :::
 
 ---
+
+---
+
+### `shardGrepEnabled`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When sharding is configured and used in conjunction with `grep`/`grepInvert`, some spec files may be allocated to VMs, just to be skipped by Playwright in accordance with the `grep`/`grepInvert` filters, thus wasting VM allocations.
+
+With `shardGrepEnabled: true`, saucectl will ensure that every spec to be allocated contains at least one test matching the `grep`/`grepInvert` filters.
+
+:::tip
+Filtering relies on the value set for `grep` and `grepInvert`.
+
+- `grep` to match with test name or filename.
+- `grepInvert` to exclude any match with name or filename.
+:::
+
+```yaml
+suites:
+  - name: "I am sharded"
+    shard: spec
+    shardGrepEnabled: true
+    params:
+      grep: "@smoke"
+      grepInvert: "@slow"
+```
+
 
 ### `params`
 

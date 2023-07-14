@@ -28,7 +28,7 @@ This high-level guide shows how to configure GitLab’s Continuous Integration P
 
 If your tests are running locally they may currently point to your internal Selenium Grid or local simulators. When you configure your tests to run on Sauce Labs, you will change your tests to point to a Sauce Labs data center and our VMs/Real Devices/Emulators/Simulators.
 
-The way you set up your GitLab pipeline will determine how you need to to initiate the Sauce Connect Proxy–covered in the next section.
+The way you set up your GitLab pipeline will determine how you need to initiate the Sauce Connect Proxy–covered in the next section.
 
 CI/CD systems rely heavily on repeatable steps and phases. This high level of abstraction and customization makes the tool adaptable to your business needs, in that you can mix/match/repeat complex steps with a single line of config. Sauce Labs tests may be included in one or more of those steps.
 
@@ -91,9 +91,9 @@ This script assumes that the environment variables SAUCE_USERNAME and SAUCE_ACCE
 
 ```yaml title="gitlab-sc.yml"
 script:
-- curl https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz | tar -xz
-- chmod 777 -R ./sc-4.8.2-linux
-- PATH=./sc-4.8.2-linux/bin:$PATH
+- curl https://saucelabs.com/downloads/sc-4.9.1-linux.tar.gz | tar -xz
+- chmod 777 -R ./sc-4.9.1-linux
+- PATH=./sc-4.9.1-linux/bin:$PATH
 - sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -i “gitlabTunnel” -v -s &
 - sleep 50
 ```

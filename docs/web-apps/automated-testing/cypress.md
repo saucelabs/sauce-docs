@@ -34,6 +34,17 @@ Sauce Labs supports the following test configurations for Cypress:
   </tr>
   <tbody>
     <tr>
+      <td rowspan='2'>12.14.0</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
+      <td rowspan='2'>June 16, 2024</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
       <td rowspan='2'>12.11.0</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
@@ -111,17 +122,6 @@ Sauce Labs supports the following test configurations for Cypress:
   </tbody>
   <tbody>
   <tr>
-    <td rowspan='2'>9.7.0</td>
-    <td><b>macOS:</b> 11.00, 12, 13</td>
-    <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
-    <td rowspan='2'>Jun 6, 2023</td>
-  </tr>
-  <tr>
-    <td><b>Windows:</b> 10, 11</td>
-  </tr>
-  </tbody>
-  <tbody>
-  <tr>
     <td rowspan='1'>8.6.0</td>
     <td><b>Windows:</b> 10</td>
     <td>Chrome, Firefox, Microsoft Edge</td>
@@ -167,6 +167,8 @@ See https://github.com/cypress-io/cypress/issues/23897 for more information.
 :::
 
 :::caution Webkit
+Cypress only supports launching Webkit with a fixed resolution of 1280x720.
+
 Cypress 12.6.0 does not work on Windows with Webkit browser.
 
 Cypress 12+ does not work on macOS 11 with Webkit browser.
