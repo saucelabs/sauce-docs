@@ -196,7 +196,7 @@ To generate an RSA public and private key pair, run the following commands in yo
 1. Click **+**, then select **issue tracking** > **Jira**. <br></br>
    You can configure the following settings:
    - Jira API (required): The Jira Endpoint URL (see below for examples).
-   - E-mail (required): E-mail associated with your Jira instance. For some users, the username of the Jira instance may be used.
+   - Email (required): email associated with your Jira instance. For some users, the username of the Jira instance may be used.
    - API Token (required): Jira API Token obtained here. Some Jira instances also support passwords in lieu of API Tokens, but that functionality is deprecated and will be removed.
    - Project Key (required): The Jira Project Key.
    - Issue Type: Jira Issue Type. Defaults to Bug if not present.
@@ -236,29 +236,31 @@ By default, the Jira template is populated with the default fields that are conf
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-template.png')} alt="Shows how to configure the template used to create Jira issues." width="700" />
 
-#### Custom Field Mapping
-
-Backtrace populates the default Description field. If you use a customized template where the field removed or renamed, specify an alternate field name for Backtrace to use in the **Main body text field**.
-
 ### Main Body Content
 
 You can specify attributes to be appended to the description in the **Main body content**.
+
+The first and last seen attributes are added to the description of the issue in Jira Cloud.
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-main-body-content.png')} alt="Shows how to set the attributes to be appended in the main body text." width="700" />
 
 ### Custom Fields
 
-The **Custom fields** setting allows you specify additional fields you want to populate in your Jira issue. This is useful when you are using a Jira template with added custom fields that are required - if you don't populate these, then the integration will fail to create the Jira ticket.
+The **Custom fields** setting allows you specify additional fields you want to populate in your Jira issue. You can use custom fields when you are using a Jira template with specific fields that are required. If you don't add the required fields, then the integration will fail to create the Jira ticket.
 
-You can use the value of an attribute within the text by preceding it with $ (e.g. $version). For array-type fields (such as labels), separate values with commas. If an error group has more than one value for the specified attribute, the value with the highest count will be used.
+You can use the value of an attribute in the text by preceding it with '$'. For example, $version. For array-type fields (such as labels), separate values with commas. If an error group has more than one value for the specified attribute, the value with the highest count is be used.
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-custom-fields.png')} alt="Shows how to configure custom fields" width="700" />
 
-You can use combinations of literal strings and attribute values. For example, you can set a field's value to "Hostname: $hostname, Version: $version" and the Jira integration will put the values of those attributes within the string, as expected.
+You can use combinations of literal strings and attribute values. For example, you can set a field's value to "Hostname: $hostname, Version: $version" and the Jira integration adds the values of those attributes in the string, as expected.
 
 :::note
-If you refer to an attribute within a custom field with the $attribute syntax, but are not seeing the attribute populated within the field in Jira, make sure you've added the attribute to your Project Settings configuration under Attributes. For more information, see [Attributes](/error-reporting/project-setup/attributes/).
+If you refer to an attribute in a custom field with the $attribute syntax, but are not seeing the attribute populated in the field in Jira, make sure you've added the attribute to your Project Settings configuration under Attributes. For more information, see [Attributes](/error-reporting/project-setup/attributes/).
 :::
+
+#### Custom Field Mapping
+
+Backtrace populates the default Description field. If you use a customized template where the field removed or renamed, specify an alternate field name for Backtrace to use in the **Main body text field**.
 
 ### Resolved Until Behavior
 
@@ -272,7 +274,7 @@ To set up this feature, the Backtrace version attribute has to be mapped to a Ji
 
 #### Advanced Rules Builder
 
-You can use the Advanced Rules Builder to configure advanced rules for custom Fix Versions in Jira. If you have multiple variations for Fix Versions, you can create rulesets using attribute values.
+You can use the Advanced Rules Builder to configure advanced rules for custom Fix Versions in Jira. If you have multiple variations for Fix Versions, you can create rule sets using attribute values.
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-resolve-until-advanced-configuration.png')} alt="Shows how to configure advanced rules for the Resolved Until behavior." width="800" />
 
@@ -286,11 +288,11 @@ To further automate your workflow, you can configure automated actions for your 
 
 If you've set up a Backtrace integration with Jira, but are not receiving any new Jira issues from Backtrace, verify the following:
 
-- Is your Jira endpoint correct? Your Jira endpoint should end in /Jira/rest/api/2/ or /rest/api/2/, depending on your Jira configuration. Atlassian has recently released v3 in Beta, at this time it is not currently supported. Be sure to use a v2 endpoint.
+- Is your Jira endpoint correct? Your Jira endpoint must end in /Jira/rest/api/2/ or /rest/api/2/, depending on your Jira configuration. Atlassian has recently released v3 in Beta, at this time it is not supported. Be sure to use a v2 endpoint.
 - Is your project key correct?
-- Does the Jira user associated with the e-mail you provided have permissions to create new issues within the project you specified?
-- Are you using e-mail/password or username/password combination instead of e-mail/API Token or username/API Token?
-- Do you have any required custom fields? If so, you'll need to provide values for these fields within the Custom Fields section of the Backtrace Jira workflow configuration.
+- Does the Jira user associated with the email you provided have permissions to create new issues in the project you specified?
+- Are you using email/password or username/password combination instead of email/API Token or username/API Token?
+- Do you have any required custom fields? If so, you'll need to provide values for these fields in the Custom Fields section of the Backtrace Jira workflow configuration.
 - Are you using an Issue Type other than Bug? If so, make sure to specify this in the Issue Type configuration setting.
 - Does your screen have fields called Labels and Description? If one of these is missing, you'll need to specify an alternative for these in the Custom Field Mapping section.
 - Does your Jira project configuration include all the required fields? For more information, see below.
@@ -301,9 +303,9 @@ Backtrace requires the following fields, and automatically populates them based 
 
 It's important to ensure that these fields are specified properly, as the Jira API will reject any request that has invalid fields or missing required fields:
 
-- **Project Key**: This is specified by the "Project Key" setting.
-- **Summary**: This is specified by the "Subject" setting.
-- **Issue type**: This is specified by the "Issue Type" setting, set to "Bug" by default.
+- **Project Key**: Specified by the "Project Key" setting.
+- **Summary**: Specified by the "Subject" setting.
+- **Issue type**: Specified by the "Issue Type" setting, set to "Bug" by default.
 - **Labels**: Backtrace assumes a labels-type field named "labels" and will populate this with the label "Backtrace", but you can override this by adding "labels" as a Custom Field. You can also specify an alternate name for this field with the Custom Field Mapping option.
 - **Description**: Backtrace assumes a text field named "description" and populates this with the main error information, but you can override this by adding "description" as a Custom Field (not recommended). You can also specify an alternate name for this field with the Custom Field Mapping option.
 - **Reporter**: Backtrace expects a field named "reporter", which is used to identify the user who created an issue manually from Backtrace.
