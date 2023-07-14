@@ -360,7 +360,7 @@ module.exports = {
     backtrace: [
         {
             type: 'category',
-            label: 'Error and Crash Reporting',
+            label: 'Error Reporting',
             collapsed: true,
             collapsible: false,
             items: [
@@ -371,6 +371,7 @@ module.exports = {
                     label: 'Platform Integrations',
                     collapsed: true,
                     items: [
+                        'error-reporting/platform-integrations/overview',
                         {
                             type: 'category',
                             label: 'Mobile Applications',
@@ -651,16 +652,19 @@ module.exports = {
                                 'error-reporting/advanced/assistive-unix/overview',
                             ],
                         },
-                        'error-reporting/advanced/error-processing-modifiers',
+                        'error-reporting/advanced/post-migration',
                         'error-reporting/advanced/custom-symbol-server',
+                        'error-reporting/advanced/bcd',
+                        'error-reporting/advanced/submission-buckets',
                         'error-reporting/advanced/sync-submissions',
+                        'error-reporting/advanced/pam-ldap',
+                        'error-reporting/advanced/platform-overview',
                         'error-reporting/advanced/package-installation',
                         'error-reporting/advanced/client-tools-unix',
                         'error-reporting/advanced/dwarf',
                         'error-reporting/advanced/snapshots',
+                        'error-reporting/advanced/error-processing-modifiers',
                         'error-reporting/advanced/morgue',
-                        'error-reporting/advanced/platform-overview',
-                        'error-reporting/advanced/submission-buckets',
                         'error-reporting/advanced/ptrace',
                     ],
                 },

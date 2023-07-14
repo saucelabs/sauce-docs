@@ -17,7 +17,7 @@
 # The folders are ordered as follows:
 
 # Global rule:
-*        @lauramthomas @lysannep @discombobulateme @aoleszyn
+*        @lauramthomas @lysannep @discombobulateme @aoleszyn @LoryApiFortress
 /docs/ @lauramthomas @lysannep @aoleszyn @LoryApiFortress
 
 # API testing:

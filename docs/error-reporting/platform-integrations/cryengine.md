@@ -15,7 +15,7 @@ Backtrace provides first-class support for the native crash reporting format of 
 
 ## Supported Platforms
 
-Backtrace's integration with CryEngine supports games deployed on Windows. If you are deploying to game consoles (PS4, Xbox One), use [Backtrace's Video Game Console Integrations](/error-reporting/getting-started/).
+Backtrace's integration with CryEngine supports games deployed on Windows. If you are deploying to game consoles (PS4, Xbox One), use [Backtrace's Video Game Console Integrations](/error-reporting/platform-integrations/overview).
 
 For On-Premise (self-hosted) users: CryEngine crash ingestion requires specific packages. Contact support for detailed instructions and information.
 
