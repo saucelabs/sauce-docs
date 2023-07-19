@@ -318,14 +318,57 @@ npm:
 
 ---
 
-### `registry`
+### `registries`
+
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Specifies the location of the npm registry source, scope and credentials. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
+
+```yaml
+  registries:
+    - url: https://registry.npmjs.org
+    - url: https://private.registry.company.org
+      scope: "@company"
+      authToken: secretToken
+```
+
+---
+
+#### `url`
+
+Specifies the URL of the npm registry.
+
+<p><small>| REQUIRED | STRING |</small></p>
+
+```yaml
+    - url: https://registry.npmjs.org
+```
+
+---
+
+#### `scope`
+
+Specifies which scope should be associated with this registry.
+See [Associating a scope with a registry](https://docs.npmjs.com/cli/v9/using-npm/scope#associating-a-scope-with-a-registry).
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
+```yaml
+    - url: https://registry.npmjs.org
+      scope: "@company"
+```
+
+---
+
+#### `authToken`
+
+Specifies the authentitcation token to be used with this registry.
+
+<p><small>| OPTIONAL | STRING |</small></p>
 
 ```yaml
-  registry: https://registry.npmjs.org
+    - url: https://registry.npmjs.org
+      authToken: secretToken
 ```
 
 ---
