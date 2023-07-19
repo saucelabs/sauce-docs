@@ -64,8 +64,8 @@ If you need:
 
 :::note
 
-Available OS versions for iOS/iPadOS: 16, 15, 14, 13, 12
-Available OS versions for Android: 14, 13, 12, 11, 10, 9
+Available major OS versions for iOS/iPadOS: 16.X, 15.X, 14.X, 13.X, 12.X
+Available major OS versions for Android: 14.X, 13.X, 12.X, 11.X, 10.X, 9.X
 
 :::
 
