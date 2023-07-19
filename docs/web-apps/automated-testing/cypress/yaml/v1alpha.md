@@ -362,7 +362,7 @@ Specifies the URL of the npm registry.
 
 #### `scope`
 
-Specifies which scope should be associated with this registry.
+Specifies which scope is associated with this registry.
 See [Associating a scope with a registry](https://docs.npmjs.com/cli/v9/using-npm/scope#associating-a-scope-with-a-registry).
 
 <p><small>| OPTIONAL | STRING |</small></p>
