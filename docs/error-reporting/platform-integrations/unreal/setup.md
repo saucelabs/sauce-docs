@@ -49,7 +49,7 @@ For on-premise (self-hosted) users, the integration for Unreal Engine requires s
 
 ### System Requirements
 
-- Unreal Engine version 4.16 to 5.0
+- Unreal Engine version 4.16 to 5.2
 
 ## Initialize the Backtrace Client
 
