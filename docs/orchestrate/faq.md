@@ -14,16 +14,12 @@ Yes, Sauce Connect will continue to work. Sauce Orchestrate is all about running
 
 ## How Secure Is Sauce Orchestrate?
 
-Sauce Orchestrate is a different way of repurposing existing technology available in Sauce Labs today. Most importantly, this means it falls in the Sauce Labs SOC 2 Type II and ISO 27001 certifications.
+Sauce Labs utilizes the following security mechanisms in handling sensitive data:
 
-As part of our standard annual SOC 2 Type II audit ISO 27001 re-certification audit, we intentionally do not exclude any platforms from our audit. Sauce Orchestrate does not represent a change in our security protocols, our tools, our policies and procedures, etc.
-
-We also provide many additional security mechanisms to keep your data safe:
-
-- We provide many secure mechanisms for [Handling Sensitive Data](/orchestrate/best-practices/#sensitive-data).
 - Each running container is created and destroyed as part of your request.
-- We do not store or access your image outside of some local caches to improve performance.
-- Your running container is sandboxed from a networking perspective from any other containers.
+- Sauce Labs does not store or access your image outside of local caches for improved performance.
+- Your running container is sandboxed from a networking perspective (virtually isolated from other containers).
+- Sauce Labs maintains SOC 2 Type II and ISO 27001/27701 certifications.
 
 ## What Programming Languages and Frameworks are Supported by Sauce Orchestrate?
 
