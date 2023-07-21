@@ -7,7 +7,9 @@ sidebar_label: Configuring PingOne
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <p><span className="sauceGreen">Enterprise Plans only</span></p>
+
 Complete the following steps to set up SAML SSO integration between PingOne and Sauce Labs:
+
 1. Log in to **PingOne** administrator panel.
 2. In the **Connections** menu click **Application Catalog**.
    <img src={useBaseUrl('img/basics/sso/idp-config/pingone/apps.png')} alt="Menu Application Catalog" width="200" />
