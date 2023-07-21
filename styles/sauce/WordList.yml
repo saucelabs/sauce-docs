@@ -1,0 +1,53 @@
+# Checks for incorrect spelling and word usage.
+extends: substitution
+message: "Use '%s' instead of '%s'."
+level: warning
+ignorecase: true
+action:
+  name: replace
+swap:
+  admin user: administrator or admin
+  admin users: administrators or admins
+  android: Android
+  appium: Appium
+  check box: checkbox
+  cli: CLI
+  cypress: Cypress
+  e-mail: email
+  emulator: Emulator
+  emulators: Emulators
+  end user: you
+  end users: you
+  espresso: Espresso
+  file name: filename
+  Github: GitHub
+  grayed-out: unavailable
+  in order to: to
+  IOS: iOS
+  javascript: JavaScript
+  k8s: Kubernetes
+  log into: log in to
+  NPM: npm
+  once that: after that
+  once the: after the
+  once you: after you
+  open-source: open source
+  playstation: PlayStation
+  playwright: Playwright
+  puppeteer: Puppeteer
+  regex: regular expression
+  repo: repository
+  saucelabs: Sauce Labs
+  sauce labs: Sauce Labs
+  selenium: Selenium
+  sign into: sign in to
+  simulator: Simulator
+  simulators: Simulators
+  synch: sync
+  testcafe: TestCafe
+  typescript: TypeScript
+  url:  URL
+  vs\.: versus
+  within: in
+  x509: X.509
+  xbox: Xbox

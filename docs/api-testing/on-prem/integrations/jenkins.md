@@ -1,21 +1,21 @@
 ---
 id: jenkins
-title: "Jenkins: Tricentis qTest Integration"
-sidebar_label: "Jenkins: Tricentis qTest Integration"
+title: 'Jenkins: Tricentis qTest Integration'
+sidebar_label: 'Jenkins: Tricentis qTest Integration'
 keywords:
-    - api-testing
-    - integrations
-    - jenkins
-    - tricentis
-    - qTest
-    - enterprise
+- api-testing
+- integrations
+- jenkins
+- tricentis
+- qTest
+- enterprise
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -31,7 +31,7 @@ We’re going to need both the _qTest_ plugin, and the _HTTP Request_ plugin. To
 
 ## Integrate API Fortress into your CI/CD Process
 
-The first step to integrating API Fortress into your CI/CD process is to grab the generated API hook for the project in question. To do so, head to the Settings panel in API Fortress. This view, seen below, can be accessed from anywhere in the application by clicking the _Gear_ icon in the top right corner of the screen. Please note you need Manager access to generate a webhook. From Settings, click the API Hooks section and generate the hook for your project.
+The first step to integrating API Fortress into your CI/CD process is to grab the generated API hook for the project in question. To do so, head to the Settings panel in API Fortress. This view, seen below, can be accessed from anywhere in the application by clicking the *Gear* icon in the top right corner of the screen. Please note you need Manager access to generate a webhook. From Settings, click the API Hooks section and generate the hook for your project.
 
 <img src={useBaseUrl('img/api-fortress/2018/04/hook.gif')} alt="hook.gif"/>
 

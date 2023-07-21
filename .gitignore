@@ -17,7 +17,6 @@ hs_err_pid*
 # node_modules
 **/node_modules
 yarn.lock
-package-lock.json
 
 # Optional npm cache directory
 **/.npm
@@ -44,3 +43,5 @@ nohup.out
 .env.production.local
 
 *.idea/
+
+.vscode/

@@ -16,11 +16,10 @@ In this section, you'll learn how to pull the baseline when branching and how to
 
 When working with feature branches, Visual E2E can save you time and optimize your workflow by automating the following:
 
-* **Automatically Accept updates when merging to or from the base branch**: When merging an accepted base branch into a feature branch, Screener auto-accepts UI states that match the latest base branch test. And when merging into the base branch, Screener auto-accepts UI states that match the latest accepted feature branch test.
-* **Automatically pull initial baseline from the base branch**: This is useful for having a set of UI states to initially compare a new branch against. For example, if you create a new feature branch based off of the main branch, and you have a set of UI states on the main branch, you can then compare the new branch's visual changes to the main branch's UI states.
+- **Automatically Accept updates when merging to or from the base branch**: When merging an accepted base branch into a feature branch, Screener auto-accepts UI states that match the latest base branch test. And when merging into the base branch, Screener auto-accepts UI states that match the latest accepted feature branch test.
+- **Automatically pull initial baseline from the base branch**: This is useful for having a set of UI states to initially compare a new branch against. For example, if you create a new feature branch based off of the main branch, and you have a set of UI states on the main branch, you can then compare the new branch's visual changes to the main branch's UI states.
 
 This can accelerate your workflow since you'll only need to accept once, when merging accepted updates from your base branch into a feature branch. No need to re-review UI states or re-run builds to pass again.
-
 
 ## Setup Steps
 
@@ -31,13 +30,13 @@ This can accelerate your workflow since you'll only need to accept once, when me
 Below are examples of branch environment variables for various CI tools:
 
 <Tabs
-  defaultValue="Jenkins"
-  values={[
-    {label: 'Jenkins', value: 'Jenkins'},
-    {label: 'CircleCI', value: 'CircleCI'},
-    {label: 'TravisCI', value: 'TravisCI'},
-    {label: 'GitLab', value: 'GitLab'},
-  ]}>
+defaultValue="Jenkins"
+values={[
+{label: 'Jenkins', value: 'Jenkins'},
+{label: 'CircleCI', value: 'CircleCI'},
+{label: 'TravisCI', value: 'TravisCI'},
+{label: 'GitLab', value: 'GitLab'},
+]}>
 
 <TabItem value="Jenkins">
 
@@ -93,15 +92,13 @@ capabilities: {
 </TabItem>
 </Tabs>
 
-
-
 <Tabs
-  defaultValue="Codeship"
-  values={[
-    {label: 'Codeship', value: 'Codeship'},
-    {label: 'Buildkite', value: 'Buildkite'},
-    {label: 'Drone', value: 'Drone'},
-  ]}>
+defaultValue="Codeship"
+values={[
+{label: 'Codeship', value: 'Codeship'},
+{label: 'Buildkite', value: 'Buildkite'},
+{label: 'Drone', value: 'Drone'},
+]}>
 
 <TabItem value="Codeship">
 
@@ -144,6 +141,6 @@ capabilities: {
 </TabItem>
 </Tabs>
 
-
 ## Additional Options
+
 See the full list of available `sauce:visual` options [here](/visual/e2e-testing/commands-options).

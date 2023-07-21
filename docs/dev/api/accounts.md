@@ -1,6 +1,6 @@
 ---
 id: accounts
-title: Account Management API Methods
+title: Account Management API Endpoints
 sidebar_label: Accounts
 description: Manage all aspects of your Sauce Labs organization, team, and member accounts.
 ---
@@ -8,11 +8,11 @@ description: Manage all aspects of your Sauce Labs organization, team, and membe
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Accounts API exposes the following methods related to individual and team account configuration and monitoring.
+The Accounts API exposes the following endpoints related to individual and team account configuration and monitoring.
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
-## Team Methods
+## Team
 
 ### Lookup Teams
 
@@ -101,6 +101,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     ]
 }
 ```
+
 </details>
 
 ---
@@ -122,7 +123,6 @@ Returns the full profile of the specified team. The `ID` of the team is the only
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -195,6 +195,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "links": {...}
 }
 ```
+
 </details>
 
 ---
@@ -217,18 +218,10 @@ Creates a new team under the organization of the requesting account.
   </tbody>
   <tbody>
     <tr>
-     <td><code>organization</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The unique ID of the organization under which the team is created. You can look up your organization ID by calling the <code>GET https://api.&#123;region&#125;.saucelabs.com/team-management/v1/organizations/</code> endpoint.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
      <td><code>settings</code></td>
      <td><p><small>| BODY | REQUIRED | OBJECT |</small></p><p>The settings object specifies the concurrency allocations for the team within the organization. The available attributes are:
      <ul>
       <li><code>virtual_machines</code> - <small>INTEGER</small></li>
-      <li><code>real_devices</code> - <small>INTEGER</small></li>
-      <li><code>live_only</code> - <small>BOOLEAN</small> Defaults to <code>false</code>.</li>
     </ul>
     </p><p>The <code>settings</code> parameter is required, but you only need to include the applicable concurrency attribute(s) for the team.</p></td>
     </tr>
@@ -236,7 +229,7 @@ Creates a new team under the organization of the requesting account.
   <tbody>
     <tr>
      <td><code>description</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A description to distinguish the team within the organization.</p></td>
+     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A description to distinguish the team in the organization.</p></td>
     </tr>
   </tbody>
 </table>
@@ -260,7 +253,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "settings": {
         "virtual_machines": "10"
     },
-    "organization": "<org-id>",
     "description": "Docs QA Team"
 }' | json_pp
 ```
@@ -277,7 +269,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "settings": {
         "virtual_machines": "10"
     },
-    "organization": "<org-id>",
     "description": "Docs QA Team"
 }' | json_pp
 ```
@@ -306,8 +297,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 {
     "id": "9d3460738c28491a81d7ea16704a9edd",
     "name": "A-Team",
-    "org_uuid": {...}
-    },
+    "org_uuid": "5f436681bbfc4d9ca4aef1eba49ea3b7",
     "group": {...},
     "created_at": "2021-04-02T17:52:42.578095Z",
     "updated_at": "2021-04-02T17:52:42.578126Z",
@@ -317,10 +307,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         "live_only": false
     },
     "description": "Docs QA Team",
-    "is_default": false,
-    "links": {...}
+    "is_default": false
 }
 ```
+
 </details>
 
 ---
@@ -422,8 +412,6 @@ Replaces all values of the specified team with the new set of parameters passed 
      <td><p><small>| BODY | REQUIRED | OBJECT |</small></p><p>The updated concurrency allocations for the team. The available attributes are:
       <ul>
         <li><code>virtual_machines</code> - <small>INTEGER</small></li>
-        <li><code>real_devices</code> - <small>INTEGER</small></li>
-        <li><code>live_only</code> - <small>BOOLEAN</small> Defaults to <code>false</code>.</li>
       </ul>
       </p><p>The <code>settings</code> parameter is required, but you only need to include the applicable concurrency attribute(s) for the team.</p></td>
     </tr>
@@ -431,11 +419,10 @@ Replaces all values of the specified team with the new set of parameters passed 
   <tbody>
     <tr>
      <td><code>description</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A description to distinguish the team within the organization. If the previous team definition included a description, omitting the parameter in the update will delete it from the team record.</p></td>
+     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A description to distinguish the team in the organization. If the previous team definition included a description, omitting the parameter in the update will delete it from the team record.</p></td>
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -506,8 +493,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 {
     "id": "b3de7078b79841b59d2e54127269afe3",
     "name": "Doc-Team",
-    "org_uuid": {...}
-    },
+    "org_uuid": "5f436681bbfc4d9ca4aef1eba49ea3b7",
     "group": {...},
     "created_at": "2020-10-05T17:13:56.580592Z",
     "updated_at": "2021-04-05T13:49:22.107825Z",
@@ -517,10 +503,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         "live_only": true
     },
     "description": "Docs Team",
-    "is_default": false,
-    "links": {...}
+    "is_default": false
 }
 ```
+
 </details>
 
 ---
@@ -553,8 +539,6 @@ Updates one or more individual editable parameters (such as the concurrency allo
       <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>The updated concurrency allocations for the team. The available attributes are:
         <ul>
           <li><code>virtual_machines</code> - <small>INTEGER</small></li>
-          <li><code>real_devices</code> - <small>INTEGER</small></li>
-          <li><code>live_only</code> - <small>BOOLEAN</small> Defaults to <code>false</code>.</li>
         </ul></p>
       </td>
     </tr>
@@ -606,7 +590,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </TabItem>
 </Tabs>
 
-
 #### Responses
 
 <table id="table-api">
@@ -634,7 +617,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 {
     "id": "b3de7078b79841b59d2e54127269afe3",
     "name": "Doc-Team",
-    "org_uuid": {...},
+    "org_uuid": "5f436681bbfc4d9ca4aef1eba49ea3b7",
     "group": {...},
     "created_at": "2020-10-05T17:13:56.580592Z",
     "updated_at": "2021-04-05T13:49:22.107825Z",
@@ -644,10 +627,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         "live_only": true
     },
     "description": "Docs Team",
-    "is_default": false,
-    "links": {...}
+    "is_default": false
 }
 ```
+
 </details>
 
 ---
@@ -724,6 +707,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "results": []
 }
 ```
+
 </details>
 
 ---
@@ -798,13 +782,14 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </table>
 
 ```jsx title="Sample Response"
-[]
+;[]
 ```
+
 </details>
 
 ---
 
-## User Methods
+## User
 
 ### Lookup Users
 
@@ -841,7 +826,7 @@ You can narrow the results of your query using any of the following filtering pa
      <td><code>roles</code></td>
      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Limit results to users who are assigned certain roles. Valid values are:
        <ul>
-         <li><code>1</code> - Organaization Admin</li>
+         <li><code>1</code> - Organization Admin</li>
          <li><code>4</code> - Team Admin</li>
          <li><code>3</code> - Member</li>
        </ul></p><p>Specify multiple roles as comma-separated values.</p></td>
@@ -942,6 +927,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     ]
 }
 ```
+
 </details>
 
 ---
@@ -1030,6 +1016,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "is_team_admin": false
 }
 ```
+
 </details>
 
 ---
@@ -1106,7 +1093,6 @@ Creates a new user in the Sauce Labs platform.
     </tr>
   </tbody>
 </table>
-
 
 <Tabs
 groupId="dc-url"
@@ -1222,6 +1208,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "is_team_admin": true
 }
 ```
+
 </details>
 
 ---
@@ -1361,6 +1348,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     ]
 }
 ```
+
 </details>
 
 ---
@@ -1433,7 +1421,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/' \
+--request PATCH 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "first_name": "Jimmy"
@@ -1502,6 +1490,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "is_team_admin": false
 }
 ```
+
 </details>
 
 ---
@@ -1513,13 +1502,23 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 Returns details about the current in-use virtual machines and real devices along with the maximum allowed values.
 
+:::note Real Devices
+
+At this time, the current usage for real devices is not accurately returned in the response. As a workaround, use the following endpoint:
+
+```jsx
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location --request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/concurrency' --header 'Content-Type: application/json' | json_pp
+```
+
+:::
+
 #### Parameters
 
 <table id="table-api">
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the user whose concurrency you are looking up. You can look up a user's name using a variety of filtering paramters with the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the user whose concurrency you are looking up. You can look up a user's name using a variety of filtering parameters with the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1614,9 +1613,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
      <td><p>Each set of concurrency reported in the response is broken down by the following device types:
      <ul>
       <li><code>mac_vms</code> - Mac virtual machines represent any live, automated, desktop, or mobile test running in a Mac OS, which includes iOS Simulator tests.</li>
-      <li><code>rds</code> - real devices represent any live or automated mobile test running on a Sauce Labs real device.
-      <blockquote>At this time, the current usage for real devices is not accurately returned in this response.
-      Please use the following request as a workaround: <pre>curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location --request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/concurrency' --header 'Content-Type: application/json' | json_pp </pre></blockquote></li>
+      <li><code>rds</code> - Real devices represent any live or automated mobile test running on a Sauce Labs real device.</li>
       <li><code>vms</code> - Windows virtual machines represent any live, automated, desktop, or mobile test running in a Windows or Android OS, which includes Android Emulator tests.</li>
     </ul>
     </p><p>Note that <code>mac_vms</code> and <code>vms</code> are separated here, although they are typically presented as a combined total of virtual machine usage in other areas of the Sauce Labs platform.</p></td>
@@ -1658,10 +1655,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 }
 
 ```
+
 </details>
 
 ---
-
 
 ### Get a User's Team
 
@@ -1750,6 +1747,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     ]
 }
 ```
+
 </details>
 
 ---
@@ -1790,7 +1788,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/users/membership/' \
+--request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/membership/' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "user": "<user-id>",
@@ -1803,7 +1801,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/membership/' \
+--request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/membership/' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "user": "<user-id>",
@@ -1819,7 +1817,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <table id="table-api">
 <tbody>
   <tr>
-    <td><code>200</code></td>
+    <td><code>201</code></td>
     <td colSpan='2'>Success. User assigned Org Admin role.</td>
   </tr>
 </tbody>
@@ -1885,6 +1883,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "updated_at": "2020-12-30T17:21:52.344961Z"
 }
 ```
+
 </details>
 
 ---
@@ -1978,6 +1977,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "is_team_admin": false
 }
 ```
+
 </details>
 
 ---
@@ -1988,7 +1988,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <p/>
 
 Assigns administrator rights to the user within their current team. If the user is currently assigned an Org Admin role, this call would reduce the rights to only those of a Team Admin.
-
 
 #### Parameters
 
@@ -2072,10 +2071,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "is_team_admin": true
 }
 ```
+
 </details>
 
 ---
-
 
 ### Remove Admin Rights from User
 
@@ -2083,7 +2082,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <p/>
 
 Assigns the `member` role to the user. If the user is currently assigned any Admin rights, this call removes those rights.
-
 
 #### Parameters
 
@@ -2167,10 +2165,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "is_team_admin": false
 }
 ```
+
 </details>
 
 ---
-
 
 ### Get a User's Access Key
 
@@ -2178,7 +2176,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <p/>
 
 Retrieves the Sauce Labs access key for the specified user.
-
 
 #### Parameters
 
@@ -2243,6 +2240,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "access_key": "********-****-****-****-************"
 }
 ```
+
 </details>
 
 ---
@@ -2257,7 +2255,6 @@ Creates a new auto-generated access key for the specified user.
 :::warning
 Regenerating an access key invalidates the previous value and any tests containing the prior value will fail, so make sure you update any tests and credential environment variables with the new value.
 :::
-
 
 #### Parameters
 
@@ -2322,6 +2319,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "access_key": "********-****-****-****-************"
 }
 ```
+
 </details>
 
 ---
@@ -2417,10 +2415,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "is_team_admin": false
 }
 ```
+
 </details>
 
 ---
-
 
 ### Activate a User
 
@@ -2513,6 +2511,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "is_team_admin": false
 }
 ```
+
 </details>
 
 ---

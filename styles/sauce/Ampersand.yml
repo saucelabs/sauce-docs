@@ -1,0 +1,8 @@
+# Checks for ampersands that are used in place of the word 'and'.
+extends: existence
+message: "Don't use an ampersand in place of the word 'and'. Always write out 'and' unless the ampersand is part of a proper name."
+nonword: true
+ignorecase: false
+level: warning
+tokens:
+  - '[a-zA-Z] \& [a-zA-Z]+'

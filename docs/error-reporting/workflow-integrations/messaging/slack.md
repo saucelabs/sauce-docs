@@ -1,47 +1,33 @@
 ---
 id: slack
-title: Slack Integration with Backtrace
+title: Backtrace Integration for Slack
 sidebar_label: Slack
 description: Integrate Backtrace with Slack.
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This guide will go through the steps necessary to integrate Backtrace with Slack.
+You can integrate Backtrace with the app for Slack to see the errors that matter, triage, and resolve them accordingly in one workflow.
 
-There are two main steps for setting up Slack:
-- Set up the incoming webhook
-- Create the integration
+## Set Up the Incoming Webhook
 
-## Set up the Incoming Webhook
-In order to set up integration for Slack, an Incoming WebHook must be configured in Slack - [Link to Webhook config](https://my.slack.com/services/new/incoming-webhook/). From there, follow the prompts to add the integration, then copy the Webhook URL that's generated - you will use this URL below.
+An Incoming Webhook must be configured in Slack. To set up the Incoming Webhook, follow the on-screen instructions on the [Incoming WebHooks](https://my.slack.com/services/new/incoming-webhook/) page:
+
+1. In the **Post to Channel** section, select the channel you want to post messages to, then select **Add Incoming WebHooks integration**.
+1. After the Incoming Webhook integration is added, from the **Setup Instructions**, copy the **Webhook URL**. The Webhook URL is used to create the integration for Slack in Backtrace.
 
 ## Create the Integration
-To set up the integration, first go to the **Project Settings** page for the project you want to add a integration for:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/set-up-workflow-integration.png')} alt="" />
-
-Then click **Integrations** in the left-hand menu, and the plus sign to create a new integration:
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/add-wf-integration.png')} alt="" />
-
-Select **Slack** and fill in the required settings (name, webhook URL you generated above, and one or more channels/users to send the message to).
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/configure-slack-integration.png')} alt="" />
-
-Next, customize the payload to include the content best suited for your team.
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/slack-customize-payload.png')} alt="" />
-
-Then, configure options for when the notifications should fire.
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/slack-setup-actions.png')} alt="" />
-
-Finally, add any rules to route notifications to certain channels or users based on crash attribute values.
-
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/slack-setup-additonal-rules.png')} alt="" />
-
-Submit!
-
-As always, if you have any questions then please use the chat bubble on the bottom right corner of the screen to talk to our team!
+1. Go to the **Project Settings** page for the project you want to add a integration for.
+1. Click **Integrations** in the left-hand menu, then **+** to create a new integration.
+1. Select **Slack** and fill in the required settings (name, webhook URL you generated above, and one or more channels/users to send the message to).
+   <img src={useBaseUrl('img/error-reporting/workflow-integrations/configure-slack-integration.png')} alt="" />
+1. Customize the payload to include the content best suited for your team.
+   <img src={useBaseUrl('img/error-reporting/workflow-integrations/slack-customize-payload.png')} alt="" />
+1. Configure options for when the notifications should fire.
+   <img src={useBaseUrl('img/error-reporting/workflow-integrations/slack-setup-actions.png')} alt="" />
+1. Add any rules to route notifications to certain channels or users based on crash attribute values.
+   <img src={useBaseUrl('img/error-reporting/workflow-integrations/slack-setup-additonal-rules.png')} alt="" />
+1. Click **Submit**.

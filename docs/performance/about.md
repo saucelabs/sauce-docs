@@ -11,18 +11,18 @@ Front-end performance testing complements your functional testing strategy by he
 
 Sauce Performance is a pre-integrated tool within the Sauce portfolio that is available to all users. When incorporated into existing development workflows, front end performance testing allows you to continuously measure the speed and reliability of your app, thereby ensuring your customers enjoy an optimal experience every time, in every environment. Some specific advantages to using Sauce Performance include:
 
-* Save time and money by testing your app's function and performance in a single testing platform.
-* Leverage existing functional test scripts (that are validated and executing well) as a starting point to implement performance test scripts.
-* Measure performance alongside your functional tests to identify related failure patterns.
-* Test performance earlier in the development cycle, when it's easier to make adjustments that improve your user's experience.
-* Eliminate duplication of effort across multiple 3rd party testing platforms.
-* Leverage the Sauce Machine Learning algorithm that was trained on your scripts and pages, and was defined using millions of diverse test executions, to set trends, baselines and alerts to indicate a performance regression when you have many tests running continuously.
-* Conduct script execution analysis in the same environment used by other team members, where you can share and contrast data to isolate issues.
-* Realize faster root cause analysis by using all the metrics and artifacts offered by the Sauce Performance solution.
+- Save time and money by testing your app's function and performance in a single testing platform.
+- Leverage existing functional test scripts (that are validated and executing well) as a starting point to implement performance test scripts.
+- Measure performance alongside your functional tests to identify related failure patterns.
+- Test performance earlier in the development cycle, when it's easier to make adjustments that improve your user's experience.
+- Eliminate duplication of effort across multiple 3rd party testing platforms.
+- Leverage the Sauce Machine Learning algorithm that was trained on your scripts and pages, and was defined using millions of diverse test executions, to set trends, baselines and alerts to indicate a performance regression when you have many tests running continuously.
+- Conduct script execution analysis in the same environment used by other team members, where you can share and contrast data to isolate issues.
+- Realize faster root cause analysis by using all the metrics and artifacts offered by the Sauce Performance solution.
 
 ## Sauce Performance Requirements and Recommendations
 
-Consider the following guidelines to optimize your performance testing implementation. Also review our [Front End Performance Testing Best Practices](https://saucelabs.com/assets/3we4HgHTuTo2MqfslOTPRo/53e1cb42d6d01478c30f4bb3838299eb/Best_Practices_for_Front-End_Performance_Testing_WP.pdf) white paper for more guidance about your performance test strategy.
+Consider the following guidelines to optimize your performance testing implementation. 
 
 ### Chrome Browser Required
 

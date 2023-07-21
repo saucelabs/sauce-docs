@@ -1,0 +1,7 @@
+# Checks for sentence case capitalization in headings.
+extends: capitalization
+message: "'%s' should use title case capitalization."
+level: warning
+scope: heading
+match: $title
+style: AP

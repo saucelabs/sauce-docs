@@ -8,13 +8,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+IntelliJ can help you edit the `saucectl` configuration files by providing helpful suggestions, autocompletion and docs; all without having to leave the IDE.
+
 ## What You'll Need
 
-* [IntelliJ](https://www.jetbrains.com/idea/)
+- [IntelliJ](https://www.jetbrains.com/idea/)
 
 ## JSON Schema Validation
-
-IntelliJ can help you edit the `saucectl` configuration files by providing helpful suggestions, autocompletion and docs; all without having to leave the IDE.
 
 Our JSON schema is published to the [JSON Schema Store](https://www.schemastore.org/json/), which is made available to IntelliJ. To proceed, open your `saucectl` config yaml in IntelliJ and select the `SauceCTL Configuration` schema [per the IDEA instructions](https://www.jetbrains.com/help/idea/json.html#ws_json_using_schemas).
 

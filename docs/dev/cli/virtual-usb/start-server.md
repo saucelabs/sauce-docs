@@ -1,17 +1,16 @@
 ---
 id: start-server
-title: "Virtual USB CLI: Start the Server"
+title: 'Virtual USB CLI: Start the Server'
 sidebar_label: Start Server
 ---
-
-## Description
 
 [Connect your local machine to the Sauce Labs Data Center](/mobile-apps/features/virtual-usb#start-server) where your Real Device Cloud private devices are hosted. You must initiate this command in its own separate command line terminal, since it acts as a continuously running log.
 
 ## Usage
 
-<span className="cli">$ &lt;main class&gt; [OPTIONS] server [OPTIONS]</span>
-
+```bash
+$ <main class> [OPTIONS] server [OPTIONS]
+```
 
 ## Options Details
 
@@ -20,7 +19,7 @@ sidebar_label: Start Server
 <div className="cli-desc">
 <p><small>| REQUIRED | ENUM |</small></p>
 
-Specifies the Sauce Labs data center where your Real Device Cloud private devices are hosted. Valid values are `EU` or `US`.
+Specifies the Sauce Labs data center where your Real Device Cloud private devices are hosted. Valid values are `EU`, `US`, `US_EAST`.
 
 </div>
 
@@ -32,7 +31,6 @@ Specifies the Sauce Labs data center where your Real Device Cloud private device
 A specific Virtual USB server host address. The default value, if not specified, is `http://127.0.0.1`.
 
 </div>
-
 
 ### <span className="cli">--serverPort</span>
 
@@ -48,10 +46,9 @@ A specific vUSB server port. The default value, if not specified, is `33657`.
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
- Specifies a vUSB server Android Debug Bridge (ADB) port. Default value: `7000`.
+Specifies a vUSB server Android Debug Bridge (ADB) port. Default value: `7000`.
 
  </div>
-
 
 ### <span className="cli">--adbPortRange</span>
 
@@ -61,7 +58,6 @@ A specific vUSB server port. The default value, if not specified, is `33657`.
 Specifies a vUSB server ADB port range. Default value: `100`.
 
 </div>
-
 
 ### <span className="cli">--proxyHost</span>
 

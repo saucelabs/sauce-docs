@@ -8,7 +8,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Test Timeouts
 
 If you receive a timeout, it could come from the testing framework you are using, or from WebDriver. For example, if you use WebDriverIO with Mocha, there is a default timeout of 10 seconds.
@@ -20,12 +19,12 @@ Test framework timeouts can be resolved by increasing the timeout option specifi
 Here are some examples for WebDriverIO, which supports various testing frameworks:
 
 <Tabs
-  defaultValue="Mocha"
-  values={[
-    {label: 'Mocha', value: 'Mocha'},
-    {label: 'Jasmine', value: 'Jasmine'},
-    {label: 'Cucumber', value: 'Cucumber'},
-  ]}>
+defaultValue="Mocha"
+values={[
+{label: 'Mocha', value: 'Mocha'},
+{label: 'Jasmine', value: 'Jasmine'},
+{label: 'Cucumber', value: 'Cucumber'},
+]}>
 
 <TabItem value="Mocha">
 
@@ -77,7 +76,6 @@ exports.config = {
 </TabItem>
 </Tabs>
 
-
 ### WebDriver Timeouts
 
 WebDriver timeouts can be increased via the `timeouts` capability.
@@ -95,7 +93,6 @@ capabilities = {
 ```
 
 Additional information on WebDriver timeouts can be found [here](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Errors/ScriptTimeout).
-
 
 ## Can't Capture Snapshot with `cropTo`
 

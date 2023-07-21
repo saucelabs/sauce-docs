@@ -1,0 +1,13 @@
+# Checks for periods and exclamation marks in headings.
+extends: existence
+message: "Don't use periods or exclamation marks in headings."
+nonword: true
+level: warning
+scope: heading
+action:
+  name: edit
+  params:
+    - remove
+    - '.!'
+tokens:
+  - '[a-z][.!](?:\s|$)'

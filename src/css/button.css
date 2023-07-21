@@ -1,40 +1,40 @@
-.button-dark, .button-light {
-  padding: 8px;
-  border-radius: 4px;
-  outline: 0;
-  cursor: pointer;
-  transition: ease background-color 250ms;
+.button-dark,
+.button-light {
+    padding-top: 8px;
+    padding-right: 32px;
+    padding-bottom: 8px;
+    padding-left: 32px;
+    border-radius: 32px;
+    border: 1px solid transparent;
+    outline: 0;
+    cursor: pointer;
+    transition: ease background-color 250ms;
+    font-family: var(--font-family-sans-serif);
 }
 
-.button-dark{
-  background: var(--ds-blue-700);
-  color: var(--ds-white);
-  border-style: none;
+.button-dark {
+    background: var(--primary-button);
+    color: var(--dark-500);
 }
 .button-dark:hover {
-  background: var(--ds-gray-700);
-}
-html[data-theme='dark'] .button-dark{
-  background: var(--ds-blue-200);
-  color: var(--ds-gray-900);
-}
-html[data-theme='dark'] .button-dark:hover{
-  background: var(--ds-blue-700);
-  color: var(--ds-white);
+    background: var(--yellow-500);
+    color: var(--dark-500);
+    border-color: var(--dark-500);
 }
 
 .button-light {
-  background: transparent;
-  border-color: var(--ds-blue-700);
-  border-style: solid;
+    background: transparent;
+    border-color: var(--inline-link);
+    border-style: solid;
 }
 .button-light:hover {
-  border-color: var(--ds-red-600);
+    color: var(--dark-500);
+    background-color: var(--yellow-500);
 }
-html[data-theme='dark'] .button-light {
-  border-color: var(--ds-white);
+html[data-theme="dark"] .button-light {
+    border-color: var(--neutral-100);
 }
-html[data-theme='dark'] .button-light:hover {
-  border-color: var(--ds-blue-400);
+html[data-theme="dark"] .button-light:hover {
+    border-color: var(--green-400);
+    border-color: var(--inline-link);
 }
-

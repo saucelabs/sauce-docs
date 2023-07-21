@@ -4,57 +4,57 @@ title: Error and Crash Reporting
 sidebar_label: Getting Started
 description: Capture error and crash reports from your games and mobile apps with Backtrace.
 ---
-Capture error and crash reports from your games and mobile apps with Backtrace.
 
-## Set Up Your Project
-<div className="box box1 card">
-  <div className="container">
-  <h3>Platform Integrations</h3>
-  <p>Integrate Backtrace in your games and apps across languages and platforms with our error and crash reporting libraries.</p>
-  <ul>
-    <li><a href="/error-reporting/platform-integrations/android/setup/">Android</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040104932-Integrating-Apache-Traffic-Server">Apache Traffic Server</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040106132-Breakpad-Integration-Guide">Breakpad</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040105292-C-Integration-Guide">C#</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040516051-Mixed-Call-Stacks-with-C-and-C-">C#/C++</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040106052-Coresnap-Integration-Guide">Coresnap</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040515571-Setting-up-coresnapd-on-FreeBSD">Coresnapd on FreeBSD</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040516131-Crashpad-Integration-Guide">Crashpad</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360058815691-CryEngine-Integration-Guide">CRYENGINE</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040517231-Electron-Integration-Guide">Electron</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040106032-Go-Integration-Guide">Go</a></li>
-    <li><a href="/error-reporting/platform-integrations/ios/setup/">iOS</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040517211-Javascript-Integration-Guide">JavaScript</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040517331-Minidump">Minidump</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360057860351-Nintendo-Switch-Support">Nintendo Switch</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040106012-Node-Integration-Guide">Node.js</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360043177812-PlayStation-4-PS4-Support">PlayStation 4</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360057851551-PlayStation-5-PS5-Support">PlayStation 5</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040105992-Python-Integration-Guide">Python</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040105092-PLCrashReporter">PLCrashReporter</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/4402581670164-Source-Maps-Integration-Guide-Using-backtrace-sourcemap-tools">Source Maps</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360045671092-Stadia-Integration-Guide">Stadia</a></li>
-    <li><a href="/error-reporting/platform-integrations/unity/setup">Unity</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/4405838995220-Unity-Backtrace-and-HelpShift-SDK-integration#BacktraceSDK">Unity and HelpShift</a></li>
-    <li><a href="/error-reporting/platform-integrations/unreal/setup">Unreal Engine</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040515951-Visual-Studio-Extension-Guide-C-and-Crashpad-">Visual Studio</a></li>
-    <li><a href="https://support.backtrace.io/hc/en-us/articles/360040104832-Xbox-Support">Xbox</a></li>
-  </ul>
-  </div>
-</div>
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## View and Analyze Error and Crash Data
-<div className="box box1 card">
-  <div className="container">
-  <h3>Web Console Views</h3>
-  <p>View and analyze error and crash data in the web console so you can triage, prioritize, and resolve each error.</p>
-  <ul>
-    <li><a href="/error-reporting/web-console/getting-started/">Getting Started</a></li>
-    <li><a href="/error-reporting/web-console/overview/">Overview</a></li>
-    <li><a href="/error-reporting/web-console/releases/">Releases</a></li>
-    <li><a href="/error-reporting/web-console/triage/">Triage</a></li>
-    <li><a href="/error-reporting/web-console/explore/">Explore</a></li>
-    <li><a href="/error-reporting/web-console/debug/">Debug</a></li>
-  </ul>
-  </div>
-</div>
+The following provides the steps and best practices for integrating your project with Backtrace.
+
+## Set Up A Project
+
+You must first create a project in your Backtrace instance. A project is a container that lets you organize your errors. You have to create at least one project to submit your errors to.
+
+Best practice is to create one project for each application you wish to capture errors for. Each project has its own workflow integrations, attributes, symbol archives, and submission tokens.
+
+## Upload Symbols
+
+If you are using a minidump-based integration, which includes Breakpad, Crashpad, Unreal and C#, you will need to upload your symbol files to see full debug info on your errors.
+
+For Windows users, make sure that you upload both the symbol file (.sym or .pdb format) as well as the corresponding .exe or .dll file. We recommend that you upload these together in a .zip file.
+
+For more information about working with symbols, see [Symbolication](/error-reporting/project-setup/symbolication/).
+
+## Submit Errors
+
+Submit one or more errors to your instance to verify that your integration is set up properly.
+
+The way to do this varies depending on your integration type. Make sure you have the correct submission token and submission URL.
+
+For more information about submitting errors, see our [Integration Guides](/error-reporting/platform-integrations/overview).
+
+## Add Attributes
+
+We highly recommend that you add attributes to your project and your errors - the more the better. Attributes are important because they allow you to aggregate and filter on important data in the query builder.
+
+Make sure to attach the attributes to your errors, as well as declare those attributes in the Backtrace UI.
+
+For more information, see [Attributes](/error-reporting/project-setup/attributes/).
+
+## Add a Workflow Integration
+
+Workflow integrations allow you to have Backtrace automatically alert users of new errors via a popular collaboration platform such as Slack, or a ticketing system like Jira.
+
+We recommend setting up an integration to any third-party service you use that we support. For more information, see [Workflow Integrations](/error-reporting/workflow-integrations/overview/).
+
+## Invite Team Members
+
+Backtrace makes it easy to add additional engineers to the system. For Backtrace-hosted instances, you can invite team members to join your projects. You also can allow team members to request an invitation from the login page by adding a whitelisted domain.
+
+For enterprise users who are hosting their own instance, you'll also need to [set up SMTP in coronerd](/error-reporting/advanced/coroner/server-setup/) before users can receive invitations.
+
+For more information, see [Account Management](/error-reporting/org-settings/user-mgmnt/).
+
+## View and Analyze Errors
+
+View and analyze error and crash data in the web console so you can triage, prioritize, and resolve each error.
+
+For more information, see [Web Console Getting Started](/error-reporting/web-console/getting-started/).

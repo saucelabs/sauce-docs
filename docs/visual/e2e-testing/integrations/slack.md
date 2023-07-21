@@ -14,9 +14,9 @@ Integrate Screener into your Slack app to get notifications of build status chan
 
 Receive notifications for the following build statuses:
 
-* `Build Failed`
-* `Build Error`
-* `Build Success`
+- `Build Failed`
+- `Build Error`
+- `Build Success`
 
 ## Setup Steps
 
@@ -28,10 +28,10 @@ Receive notifications for the following build statuses:
 
 4. In the Add Webhook dialog, enter your Webhook URL.
 
-  <img src={useBaseUrl('img/visual/e2e-add-webhook.png')} alt="E2E Add Webhook for Slack" />
+<img src={useBaseUrl('img/visual/e2e-add-webhook.png')} alt="E2E Add Webhook for Slack" />
 
-  Optionally, you can filter notifications by project and/or events.
+Optionally, you can filter notifications by project and/or events.
 
 5. Click **Add Endpoint**, and your Slack integration will be added.
 
-  <img src={useBaseUrl('img/visual/e2e-webhooks.png')} alt="E2E Webhooks" />
+<img src={useBaseUrl('img/visual/e2e-webhooks.png')} alt="E2E Webhooks" />

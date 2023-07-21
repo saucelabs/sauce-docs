@@ -1,0 +1,18 @@
+# Checks for problematic language.
+extends: substitution
+message: "Avoid problematic language. Use '%s' instead of '%s'."
+level: warning
+ignorecase: true
+action:
+  name: replace
+swap:
+  abort: stop, exit, cancel, or end
+  aborted: stopped, exited, cancelled, or ended
+  blacklist: denylist, reject, deny, or exclude
+  dummy: placeholder or sample
+  execute: run 
+  master: leader, manager, primary, or main
+  master branch: default branch or main
+  sanity (?:check|test): check for completeness or review
+  slave: follower, secondary, peer, or replica
+  whitelist: allowlist, allow, accept, or include

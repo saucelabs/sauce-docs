@@ -5,7 +5,7 @@ sidebar_label: Getting Started
 hide_table_of_contents: true
 ---
 
-Test your iOS and Android native mobile apps and hybrid apps on emulators, simulators, and real devices in the Sauce Labs Cloud.
+Test your iOS and Android native mobile apps and hybrid apps on Emulators, Simulators, and real devices in the Sauce Labs Cloud.
 
 ## Uploading Your App
 
@@ -18,10 +18,9 @@ Test your iOS and Android native mobile apps and hybrid apps on emulators, simul
   </div>
 </div>
 
-## Live Testing  
+## Live Testing
 
 Debug faster, facilitate collaboration, increase mobile device coverage, and combine with automated testing to improve your speed-to-market with our Live (manual) testing solution.
-
 
 <div className="box-wrapper" markdown="1">
 
@@ -69,7 +68,3 @@ Accelerate and scale your testing and broaden coverage by running automated test
   <p>Integrate your Espresso and XCUITest test automation frameworks with Sauce Labs.</p>
   </div>
 </div>
-
-## Training
-
-Get up and running quickly with your existing automated Android Appium test code using Sauce Schools' [quickstart tutorial on Running Appium Android Tests on Sauce Labs](https://training.saucelabs.com/codelabs/Module2-Quickstart/?index=..%2F..quickstart#0).

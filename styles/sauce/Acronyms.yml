@@ -1,0 +1,86 @@
+# Checks that acronyms are spelled out on first reference.
+extends: conditional
+message: "Spell out '%s', if it's unfamiliar to the audience."
+level: suggestion
+ignorecase: false
+# Ensures that the existence of 'first' implies the existence of 'second'.
+first: '\b([A-Z]{3,5})\b'
+second: '(?:\b[A-Z][a-z]+ )+\(([A-Z]{3,5})\)'
+# ... with the exception of these:
+exceptions:
+  - AES
+  - API
+  - APIF
+  - APIT
+  - ARRAY
+  - BODY
+  - CLI
+  - CPU
+  - CET
+  - CEST
+  - CSS
+  - CSV
+  - DATE
+  - DEBUG
+  - DELETE
+  - DOM
+  - DWARF
+  - DPI
+  - FAQ
+  - GET
+  - GNU
+  - GPS
+  - GPU
+  - GUI
+  - HTML
+  - HTTP
+  - HTTPS
+  - IDE
+  - JAR
+  - JSON
+  - JSX
+  - LESS
+  - LLDB
+  - NET
+  - NOTE
+  - NPM
+  - NULL
+  - OSS
+  - PATCH
+  - PATH
+  - PDF
+  - PDT
+  - PHP
+  - PID
+  - POST
+  - PUT
+  - PST
+  - QUERY
+  - RAM
+  - REPL
+  - REST
+  - RSA
+  - RSS
+  - SAML
+  - SCM
+  - SDK
+  - SQL
+  - SSH
+  - SSO
+  - SSL
+  - SVG
+  - TBD
+  - TCP
+  - TID
+  - TLS
+  - URI
+  - URL
+  - USB
+  - UTC
+  - UTF
+  - VPN
+  - XCUI
+  - XML
+  - XSS
+  - YAML
+  - ZIP

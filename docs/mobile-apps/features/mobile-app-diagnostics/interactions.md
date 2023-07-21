@@ -3,14 +3,15 @@ id: interactions
 title: Interactions
 sidebar_label: Interactions
 ---
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Interactions is a functionality that allows you to record every test session’s action and check how it interacted with the app’s UI. By reviewing the taps you can check if certain interface elements failed to load or crashed.
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-* A native Android, iOS, or iPadOS mobile app
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+- A native Android, iOS, or iPadOS mobile app
 
 ## Using Interactions for Real Devices
 
@@ -39,16 +40,16 @@ You can use Interactions to understand what happened in your test session and im
 
 The following table lists the available metrics:
 
-|Name|Description|
-|:---|:---|
-|label|The user-readable label for a particular activity.|
-|viewTag|A tag that provides additional information associated with a view.|
-|viewId|Identifier that defines view attributes.|
-|className|The class name of an element.|
-|contentDescription|The description of an element.|
-|xPosition|The horizontal position of the tap.|
-|yPosition|The vertical position of the tap.|
-|xPath|Used to locate an element in the XML structure of the app.|
+| Name               | Description                                                        |
+| :----------------- | :----------------------------------------------------------------- |
+| label              | The user-readable label for a particular activity.                 |
+| viewTag            | A tag that provides additional information associated with a view. |
+| viewId             | Identifier that defines view attributes.                           |
+| className          | The class name of an element.                                      |
+| contentDescription | The description of an element.                                     |
+| xPosition          | The horizontal position of the tap.                                |
+| yPosition          | The vertical position of the tap.                                  |
+| xPath              | Used to locate an element in the XML structure of the app.         |
 
 :::note
 You can use the xPath value to build your Appium test quickly!
@@ -60,14 +61,12 @@ You can access Interactions metrics from the [Live Test Results](/mobile-apps/li
 <br/><img src={useBaseUrl('img/mobile-apps/DEvice-Vitals-screenshot-2.png')} alt="Mobile app settings navigation" width="200"/>
 <br/><img src={useBaseUrl('img/mobile-apps/Device-Vitals-screenshot-7.png')} alt="Mobile app settings navigation" width="200"/>
 
-
 You can also download the results using the API call below:
 
- ```java
-  curl --compressed \
+```java
+ curl --compressed \
 -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}.saucelabs.com/v1/rdc/jobs/{JOB_ID}/insights.json
-  ```
-
+```
 
 ## Limitations
 
@@ -76,4 +75,5 @@ Webviews and hybrid apps are not supported
 :::
 
 ## More Information
-* [Sauce Labs Test Results](/test-results)
+
+- [Sauce Labs Test Results](/test-results)

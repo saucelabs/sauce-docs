@@ -2,94 +2,310 @@
 id: jira
 title: Jira Integration with Backtrace
 sidebar_label: Jira
-description: Integrate Backtrace with Jira.
+description: Connect errors from Backtrace with issues in Jira to easily manage and track bug fixes.
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-This guide goes through the steps necessary to integrate Backtrace with Jira. Setting up integration with the Jira ticketing system requires a valid Jira REST API URL, a user and either a password for the user or an API token.
+Integrate your Backtrace and Atlassian Jira instances to create and update issues in Jira for errors reported to Backtrace.
 
-### OAuth
-Note that Backtrace can also support OAuth for users self hosting Jira. Please reach out to our support team at support@backtrace.io in order to begin the process for configuring OAuth.
+## What You'll Need
 
-This will involve creating an application link in Atlassian with a Backtrace provided public key, setting up an integration similar to the description below, and finally opening a link from a Backtrace initiated process to accept Backtrace's requested access.
+- A Backtrace account ([log in](https://backtrace.io/login) or [sign up](https://backtrace.io/sign-up) for a free license)
+- A [Jira instance](https://www.atlassian.com/software/jira)
 
-## Set Up the Integration
-To set up the integration, navigate to the integration settings through **Project Settings > Integrations > Issue Trackers > JIRA**.
+## Connect to Jira
 
-If you wish to enable one-way synchronization or two-way synchronization, this is available from the behavior tab during configuration. One-way synchronization synchronizes updates from Backtrace issues to JIRA, and two-way synchronization updates Backtrace issues when JIRA issues are updated.
+To set up the Jira integration for a project, connect your Backtrace account to a Jira instance.
 
-These are the settings that you can configure for your Jira integration:
-- Jira API (required): Jira Endpoint URL (see below for examples)
-- E-mail (required): E-mail associated with your Jira instance. For some users, the username of the Jira instance may be used.
-- API Token (required):  Jira API Token obtained here. Some Jira instances also support passwords in lieu of API Tokens, but that functionality is deprecated and will be removed.
-- Project Key (required): Jira Project Key
-- Issue Type: Jira Issue Type.  Defaults to "Bug" if not present.
-- Subject (required): Content to put in the "Summary" field of the ticket.
-- Custom Field Mapping - Labels: See below
-- Custom Field Mapping - Description: See below
-- Custom Fields: See below
+:::note
+Jira administrator permissions are required to create and delete Jira connections.
+:::
 
-## Synchronization between Backtrace and Jira
-### Data Sync Control - Setup Behavior tab
-Backtrace supports various options to sync with Jira. On the 'Setup Behavior' tab, you can see options for when to synchronize data.
+### Jira Cloud
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-two-way-sync.png')} alt="" />
+To connect to a Jira Cloud instance, install the [Backtrace for Jira](https://marketplace.atlassian.com/apps/1228456?tab=overview&hosting=cloud) app.
 
-- Backtrace can update linked Jira issues with new values for State and Assignee when those values are changed in Backtrace.
-- Jira can update the linked Backtrace fingerprints with new values for State and Assignee when those values are changed in Jira.
+1. Go to **Project settings** > under **Workflow** > select **Integrations**.
+1. Click **+**, then select **Issue tracking** > **Jira Cloud**.
+1. Click **Install Jira Plugin**.
+1. From the Atlassian Marketplace, click **Get it now**.
+1. Select the Jira Cloud instance to connect with, then click **Get it now** again.
+1. After the plugin is installed, click **Get Started**.
+1. Enter the URL for your Backtrace instance, then click **Continue to Backtrace** to configure the Jira Cloud integration in Backtrace.
 
-### Jira Fix Version Sync - Configure Connection tab
-At the bottom of the first Configure Connection tab is a new beta feature to allow Jira Fix Versions to drive Backtrace's [Resolved Until](/error-reporting/web-console/triage/#reopen-criteria---mute-or-resolve-until) feature, and drive workflows for detected regressions. This feature is considered beta as we want to restructure our schema to provide more flexibility for how the UI exposes this configuration. Please work with our support team during this phase.
+:::note Multiple Jira Cloud Instances
+If you have multiple Jira Cloud instances, repeat the steps above to create separate connections for each one.
+:::
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-resolve-until.png')} alt="" />
+### Jira Server
 
-### Jira URL Examples
-The Jira URL generally takes one of the following formats
+:::note
+Support for Atlassian Server products ends on February 15, 2024. You may want to consider moving to Jira Cloud.
+:::
 
-https://yourhost.yourdomain.com/rest/api/2/
-https://yourhost.yourdomain.com/jira/rest/api/2/
-https://yourname.atlassian.net/rest/api/2/ (For Atlassian-hosted Jira sites)
-Atlassian now also offers a v3 API that is currently in Beta, at this time v3 is not currently supported. Be sure to use a v2 endpoint.
+To connect to a Jira Server instance, enter a connection name, the Jira instance URL, and select the authentication type. The next steps will depend on the authentication type you select. The available authentication types are:
 
-For more detailed information, see [The Jira API Documentation](https://developer.atlassian.com/server/jira/platform/rest-apis/).
+- **Basic Auth**: Requires a username and password. For more information, see [Basic Auth](#basic-auth).
+- **OAuth 1.0**: Requires an RSA key pair and a new application link in Jira. The public key is required to create a new application link in Jira, while the private key is required for the configuration in Backtrace. You can either generate the RSA key pair or use the RSA key pair generated by Backtrace. For more information, see [OAuth 1.0](#oauth-10).
+- **OAuth 2.0**: Requires an OAuth 2.0 integration and a new external application link in Jira. For more information, see [OAuth 2.0](#oauth-20).
 
-## Custom Field Mapping
-Backtrace populates the default Jira description fields. If you use a customized screen where this is removed or renamed, you will need to specify alternate field name for Backtrace to use to populate with data under Field for Main Body Text.
+Your Jira Server instance might restrict the authentication method to OAuth only. If you require basic authentication, contact your Jira admin.
 
-## Custom Fields
-Backtrace also supports populating other custom Jira fields.  This is useful when you are using a Jira screen with added custom fields that are required - if you don't populate these, then the integration will fail to create the Jira ticket.
+:::note Allowlisting for Restricted Networks
+If your network is configured to restrict external web traffic, you may need to allowlist the following IP address for the **workflows.backtrace.io** domain: **3.94.174.222**
+:::
 
-The Custom Fields setting is an optional list of additional fields you wish to populate within your Jira issue. You can use the value of an attribute within the text by preceding it with $ (e.g. $version). For array-type fields (such as labels), separate values with commas. If an error group has more than one value for the specified attribute, the value with the highest count will be used.
+#### Basic Auth
 
-You can use combinations of literal strings and attribute values.  For example, you can set a field's value to "Hostname: $hostname, Version: $version" and the Jira integration will put the values of those attributes within the string, as expected.
+1. Go to **Project settings** > under **Workflow** > select **Integrations**.
+1. Click **+**, then select **Issue tracking** > **Jira Server**.
+1. Complete the following:
+   - **Connection name**: Enter a name to identify your integration.
+   - **Jira Server url**: Enter the URL for your Jira instance.
+   - **Auth type**: Select **Basic Auth**.
+1. Enter the **Username** and **Password** for your Jira instance.
+1. Click **Continue** to configure the integration.
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-custom-fields.png')} alt="" />
+#### OAuth 1.0
 
-Note: If you refer to an attribute within a custom field with the $attribute  syntax, but are not seeing the attribute populated within the field in Jira, make sure you've added this attribute to your Project Settings configuration under Attributes. See [here](/error-reporting/project-setup/attributes/).
+**Set Up the Connection in Backtrace**
 
-## Required Fields
-Backtrace requires the following fields, and automatically populates them based on your settings.  You can override the content of any of these settings by specifying their value in the appropriate Backtrace Jira config setting, or by specifying it as a Custom Field
+1. Go to **Project settings** > under **Workflow** > select **Integrations**.
+1. Click **+**, then select **Issue tracking** > **Jira Server**.
+1. Complete the following:
+   - **Connection name**: Enter a name to identify your integration.
+   - **Jira Server url**: Enter the URL for your Jira instance.
+   - **Auth type**: Select **OAuth 1.0**.
+1. Do one of the following:
+   - If you want to use the RSA key pair generated by Backtrace:
+     1. Under **Generate Private RSA key**, select **Yes**.
+     1. Click **Continue**.
+     1. Copy the public RSA key.
+   - If you want to provide your own RSA key pair:
+     1. Under **Generate Private RSA key**, select **No**.
+     1. In the **Private RSA key** field, enter the private key from the `jira_privatekey.pem` file. For information on how to generate an RSA key pair, see below.
+     1. Click **Continue**.
 
-It is important to ensure that these fields are specified properly, as the Jira API will reject any request that has invalid fields or missing required fields.
+<details>
+<summary>Generate an RSA key pair</summary>
 
-- Project Key - This is specified by the "Project Key" setting.
-- Summary - This is specified by the "Subject" setting.
-- Issue type - This is specified by the "Issue Type" setting, set to "Bug" by default.
-- Labels - Backtrace assumes a labels-type field named "labels" and will populate this with the label "Backtrace", but you can override this by adding "labels" as a Custom Field. You can also specify an alternate name for this field with the Custom Field Mapping option.
-- Description - Backtrace assumes a text field named "description" and populates this with the main error information, but you can override this by adding "description" as a Custom Field (not recommended). You can also specify an alternate name for this field with the Custom Field Mapping option.
+To generate an RSA public and private key pair, run the following commands in your terminal one by one.
+
+1. Generate an 1024-bit private key:
+   ```bash
+   openssl genrsa -out jira_privatekey.pem 1024
+   ```
+1. Create an X.509 certificate:
+   ```bash
+   openssl req -newkey rsa:1024 -x509 -key jira_privatekey.pem -out jira_publickey.cer -days 365
+   ```
+   :::note
+   You can modify the expiration date, but you may need to update the connection more frequently.
+   :::
+1. Extract the private key (PKCS8 format) to the jira_privatekey.pcks8 file:
+   ```bash
+   openssl pkcs8 -topk8 -nocrypt -in jira_privatekey.pem -out jira_privatekey.pkcs8
+   ```
+1. Extract the public key from the certificate to the jira_publickey.pem file:
+   ```bash
+   openssl x509 -pubkey -noout -in jira_publickey.cer  > jira_publickey.pem
+   ```
+
+</details>
+
+**Create an application link in Jira**
+
+1. In Jira, go to **Jira settings** (cog icon) > **Applications** > **Application links**.
+1. Click **Create link**.
+1. For **Application type**, select **Atlassian product**.
+1. Enter an application URL, then click **Continue**. If you see a warning that the URL is invalid, ignore it and click **Continue** again.
+1. In the form, enter the following:
+   - **Application Name**: Backtrace
+   - **Application Type**: Generic Application
+   - **Service Provider Name**: Backtrace
+   - **Consumer Key**: BacktraceIO
+   - **Shared Secret**: Backtrace
+   - **Request Token URL**: https:<span>//backtrace.io/</span>
+   - **Access Token URL**: https:<span>//backtrace.io/</span>
+   - **Authorize URL**: https:<span>//backtrace.io/</span>
+   - **Create Incoming Link**: No
+1. Click **Continue**. On the **Application links** page, you'll see an application called Backtrace.
+1. Next to the Backtrace application, from the **Actions** column, click the blue crayon icon.
+1. In the Configure Backtrace dialog, select **Incoming Authentication**.
+1. Enter the following:
+   - **Consumer Key**: BacktraceIO
+   - **Consumer Name**: Backtrace
+   - **Public Key**: The public key that you copied from Backtrace or the public key from the `jira_publickey.pem` file that you generated.
+1. Click **Save**, then **Close**.
+
+**Connect the Jira Server app with Backtrace**
+
+1. In Backtrace, go back to the setup for the Jira Server integration.
+1. Click **Continue** to complete the setup in Jira.
+1. Click **Authorize**. You'll be redirected to your Jira Server instance.
+1. Click **Allow**. You'll be redirected to Backtrace to configure the integration.
+
+#### OAuth 2.0
+
+**Set Up the Connection in Backtrace**
+
+1. Go to **Project settings** > under **Workflow** > select **Integrations**.
+1. Click **+**, then select **Issue tracking** > **Jira Server**.
+1. Complete the following:
+   - **Connection name**: Enter a name to identify your integration.
+   - **Jira Server url**: Enter the URL for your Jira instance.
+   - **Auth type**: Select **OAuth 2.0**.
+
+**Create an external application link in Jira**
+
+1. In Jira, go to **Jira settings** (cog icon) > **Applications** > **Application links**.
+1. Click **Create link**.
+1. For **Application type**, select **External application**.
+1. For **Direction**, select **Incoming**.
+1. Click **Continue**.
+1. In the form, enter the following:
+   - **Name**: Backtrace
+   - **Redirect URL**: https:<span>//workflows.backtrace.io/api/workflows/plugins/jira-server/external/oauth/2.0/callback</span> - Make sure to replace the domain with the actual domain the Workflows service will be using.
+   - **Permission**: Select **Write**.
+1. Click **Save**.
+1. From the **Credentials** page, copy the **Client ID** and **Client Secret**.
+
+**Connect the Jira Server app with Backtrace**
+
+1. In Backtrace, go back to the setup for the Jira Server integration.
+1. Enter the **Client ID** and **Client Secret**.
+1. Click **Continue** to complete the setup in Jira.
+1. Click **Authorize**. You'll be redirected to your Jira Server instance.
+1. Click **Allow**. You'll be redirected to Backtrace to configure the integration.
+
+## Configure the Integration
+
+1. Go to **Project settings** > under **Workflow** > select **Integrations**.
+1. Click **+**, then select **Issue tracking** > **Jira Cloud** or **Jira Server**.
+1. Select a Jira instance, then click **Continue**.
+1. Configure the settings as required. <br />
+   For more information about the settings, see [Jira Integration Settings](#jira-integration-settings).
+1. Click **Save**.
+
+## Jira Cloud (Legacy)
+
+1. Go to **Project settings** > **Workflow Integrations**.
+1. Click **+**, then select **issue tracking** > **Jira**. <br></br>
+   You can configure the following settings:
+   - Jira API (required): The Jira Endpoint URL (see below for examples).
+   - Email (required): email associated with your Jira instance. For some users, the username of the Jira instance may be used.
+   - API Token (required): Jira API Token obtained here. Some Jira instances also support passwords in lieu of API Tokens, but that functionality is deprecated and will be removed.
+   - Project Key (required): The Jira Project Key.
+   - Issue Type: Jira Issue Type. Defaults to Bug if not present.
+   - Subject (required): Content to put in the Summary field of the ticket.
+   - Custom Field Mapping - Labels: See below
+   - Custom Field Mapping - Description: See below
+   - Custom Fields: See below
 
 Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.
 
+### Jira URL Examples
+
+The Jira URL generally takes one of the following formats:
+
+- https:<span>//yourhost.yourdomain.com/rest/api/2/</span>
+- https:<span>//yourhost.yourdomain.com/jira/rest/api/2/</span>
+- https:<span>//yourname.atlassian.net/rest/api/2/</span> (for Atlassian-hosted Jira sites)
+
+Atlassian now also offers a v3 API that is currently in Beta, at this time v3 is not currently supported. Be sure to use a v2 endpoint. For more detailed information, see the reference for [Jira's REST APIs](https://developer.atlassian.com/server/jira/platform/rest-apis/).
+
+## Jira Integration Settings
+
+### Data Synchronization
+
+With data synchronization, Backtrace will sync resolution Status and Assignee fields with Jira issues. The following settings are available:
+
+- **Data synchronization from Backtrace to Jira**: The Status and Assignee fields will be updated in Jira when issues are updated in Backtrace.
+- **Data synchronization from Jira to Backtrace**: The Status and Assignee fields will be updated in Backtrace when issues are updated in Jira.
+
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-two-way-sync.png')} alt="Shows how to enable two-way sync from Backtrace and Jira." width="700" />
+
+We recommend that you enable both settings for two-way sync.
+
+### Jira Template
+
+By default, the Jira template is populated with the default fields that are configured for your Jira project. You can change the values for the **Subject line**, **Issue Type**, and **Main body text field** as needed.
+
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-template.png')} alt="Shows how to configure the template used to create Jira issues." width="700" />
+
+### Main Body Content
+
+You can specify attributes to be appended to the description in the **Main body content**.
+
+The first and last seen attributes are added to the description of the issue in Jira Cloud.
+
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-main-body-content.png')} alt="Shows how to set the attributes to be appended in the main body text." width="700" />
+
+### Custom Fields
+
+The **Custom fields** setting allows you specify additional fields you want to populate in your Jira issue. You can use custom fields when you are using a Jira template with specific fields that are required. If you don't add the required fields, then the integration will fail to create the Jira ticket.
+
+You can use the value of an attribute in the text by preceding it with '$'. For example, $version. For array-type fields (such as labels), separate values with commas. If an error group has more than one value for the specified attribute, the value with the highest count is be used.
+
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-custom-fields.png')} alt="Shows how to configure custom fields" width="700" />
+
+You can use combinations of literal strings and attribute values. For example, you can set a field's value to "Hostname: $hostname, Version: $version" and the Jira integration adds the values of those attributes in the string, as expected.
+
+:::note
+If you refer to an attribute in a custom field with the $attribute syntax, but are not seeing the attribute populated in the field in Jira, make sure you've added the attribute to your Project Settings configuration under Attributes. For more information, see [Attributes](/error-reporting/project-setup/attributes/).
+:::
+
+#### Custom Field Mapping
+
+Backtrace populates the default Description field. If you use a customized template where the field removed or renamed, specify an alternate field name for Backtrace to use in the **Main body text field**.
+
+### Resolved Until Behavior
+
+The **Resolved until behavior** setting allows you configure the [Resolve Until](/error-reporting/web-console/triage/#reopen-criteria---mute-or-resolve-until) feature for detected regressions with versions applied in Jira issues.
+
+If a linked Jira issue is marked as resolved and the Fix Versions field is applied, Backtrace will reopen the Jira ticket if the errors reoccur in a later version.
+
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-resolve-until.png')} alt="Shows how to configure the Resolved Until behavior." width="800" />
+
+To set up this feature, the Backtrace version attribute has to be mapped to a Jira field (the default is Fix Versions). Select a version attribute in Backtrace and the Jira field that contains the version with fixes. To isolate the version number, apply a regular expression to remove extraneous information.
+
+#### Advanced Rules Builder
+
+You can use the Advanced Rules Builder to configure advanced rules for custom Fix Versions in Jira. If you have multiple variations for Fix Versions, you can create rule sets using attribute values.
+
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-resolve-until-advanced-configuration.png')} alt="Shows how to configure advanced rules for the Resolved Until behavior." width="800" />
+
+For example, you can create a rule for each development environment and version number match to determine which issues are fixed.
+
+## Issue Based Alerts
+
+To further automate your workflow, you can configure automated actions for your Jira workflow integration with issue based alerts. Use issue based alerts to automatically generate issues in Jira based on the conditions and frequency that you specify. For more information, see [Issue Based Alerts](/error-reporting/project-setup/alerts/#issue-based-alerts).
 
 ## Troubleshooting
-If you've set up a Backtrace integration with JIRA, but are not receiving any new JIRA issues from Backtrace, check on the following:
 
-- Is your JIRA endpoint correct? Your JIRA endpoint should end in /jira/rest/api/2/  or /rest/api/2/, depending on your JIRA configuration. Atlassian has recently released v3 in Beta, at this time it is not currently supported. Be sure to use a v2 endpoint.
-- Is your project key correct?  
-- Does the JIRA user associated with the e-mail you provided have permissions to create new issues within the project you specified?
-- Are you using e-mail/password or username/password combination instead of e-mail/API Token or username/API Token? API Token can be obtained here.
-- Do you have any required custom fields? If so, you'll need to provide values for these fields within the Custom Fields section of the Backtrace JIRA workflow configuration.
-- Are you using an Issue Type other than "Bug"? If so, make sure to specify this in the Issue Type config setting.
-- Does your screen have fields called "labels" and "description"? If one of these is missing, you'll need to specify an alternative for these in the Custom Field Mapping section.
+If you've set up a Backtrace integration with Jira, but are not receiving any new Jira issues from Backtrace, verify the following:
+
+- Is your Jira endpoint correct? Your Jira endpoint must end in /Jira/rest/api/2/ or /rest/api/2/, depending on your Jira configuration. Atlassian has recently released v3 in Beta, at this time it is not supported. Be sure to use a v2 endpoint.
+- Is your project key correct?
+- Does the Jira user associated with the email you provided have permissions to create new issues in the project you specified?
+- Are you using email/password or username/password combination instead of email/API Token or username/API Token?
+- Do you have any required custom fields? If so, you'll need to provide values for these fields in the Custom Fields section of the Backtrace Jira workflow configuration.
+- Are you using an Issue Type other than Bug? If so, make sure to specify this in the Issue Type configuration setting.
+- Does your screen have fields called Labels and Description? If one of these is missing, you'll need to specify an alternative for these in the Custom Field Mapping section.
+- Does your Jira project configuration include all the required fields? For more information, see below.
+
+### Required Jira Fields
+
+Backtrace requires the following fields, and automatically populates them based on your settings. You can override the content of any of these settings by specifying their value in the appropriate Backtrace Jira config setting, or by specifying it as a Custom Field.
+
+It's important to ensure that these fields are specified properly, as the Jira API will reject any request that has invalid fields or missing required fields:
+
+- **Project Key**: Specified by the "Project Key" setting.
+- **Summary**: Specified by the "Subject" setting.
+- **Issue type**: Specified by the "Issue Type" setting, set to "Bug" by default.
+- **Labels**: Backtrace assumes a labels-type field named "labels" and will populate this with the label "Backtrace", but you can override this by adding "labels" as a Custom Field. You can also specify an alternate name for this field with the Custom Field Mapping option.
+- **Description**: Backtrace assumes a text field named "description" and populates this with the main error information, but you can override this by adding "description" as a Custom Field (not recommended). You can also specify an alternate name for this field with the Custom Field Mapping option.
+- **Reporter**: Backtrace expects a field named "reporter", which is used to identify the user who created an issue manually from Backtrace.

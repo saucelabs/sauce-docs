@@ -5,7 +5,7 @@ sidebar_label: Getting Started
 description: Sauce Labs coordinates seamlessly with the most popular Continuous Integration platforms.
 ---
 
-Incorporating continuous testing into your CI pipeline means designing your tests to fit appropriately into each stage of your application development and delivery cycle. If you are already using one of the many platforms for continuous integration of your of your application development, we've got instructions for integrating your Sauce Labs test suite right into that pipeline.
+Incorporating continuous testing into your CI pipeline means designing your tests to fit appropriately into each stage of your application development and delivery cycle. If you are already using one of the many platforms for continuous integration of your application development, we've got instructions for integrating your Sauce Labs test suite right into that pipeline.
 
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
@@ -13,10 +13,10 @@ Incorporating continuous testing into your CI pipeline means designing your test
     <h2>Sauce OnDemand Plugin</h2>
     <p>Use the Sauce Labs OnDemand plugin in conjunction with your existing CI pipeline to integrate your tests.<br/>
       <ul>
-        <li><a href="/ci/bamboo">Bamboo</a></li>
-        <li><a href="/ci/bitbucket">Bitbucket</a></li>
-        <li><a href="/ci/jenkins">Jenkins</a></li>
-        <li><a href="/ci/teamcity">TeamCity</a></li>
+        <li><a href="/basics/integrations/bamboo">Bamboo</a></li>
+        <li><a href="/basics/integrations/bitbucket">Bitbucket</a></li>
+        <li><a href="/basics/integrations/jenkins">Jenkins</a></li>
+        <li><a href="/basics/integrations/teamcity">TeamCity</a></li>
       </ul></p>
     </div>
   </div>
@@ -39,7 +39,6 @@ Incorporating continuous testing into your CI pipeline means designing your test
       <ul>
         <li><a href="https://saucelabs.com/resources/articles/automated-testing-in-cicd-a-continuous-integration-server-integration-primer">Automated Testing in CI/CD Primer White Paper</a></li>
         <li><a href="https://saucelabs.com/blog/choosing-a-ci-cd-tool">Choosing a CI/CD Tool Blog</a></li>
-        <li><a href="https://training.saucelabs.com/codelabs/Module2-Testrunner/index.html?index=..%2F..saucectl#4">Sauce School Cypress/GitHub Actions Integration Module</a></li>
       </ul></p>
     </div>
   </div>

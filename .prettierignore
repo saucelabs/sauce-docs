@@ -1,0 +1,14 @@
+.prettierignore
+.prettierrc
+.eslintignore
+.eslintrc.json
+build
+.docusaurus
+.sauce
+.github
+.husky
+tests
+webdriver
+*.yml
+*.json
+docs/api-testing/on-prem/

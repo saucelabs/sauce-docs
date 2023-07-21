@@ -1,27 +1,27 @@
 ---
 id: apif-auto
-title: "APIF-Auto: Command-Line Tool"
+title: 'APIF-Auto: Command-Line Tool'
 sidebar_label: APIF-Auto
 keywords:
-    - cicd
-    - jenkins
-    - bamboo
-    - microsoft tfs
-    - team foundation server
-    - gitlab ci/cd
-    - travisci
+- cicd
+- jenkins
+- bamboo
+- microsoft tfs
+- team foundation server
+- gitlab ci/cd
+- travisci
 ---
 
 <head>
   <meta name="robots" content="noindex" />
 </head>
 
->**Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
+> **Legacy Documentation**<br/>You're viewing legacy documentation for API Fortress (deployed via an on-premises container). To view documentation for the new SaaS version of API Fortress &#8212; now known as Sauce Labs API Testing and Monitoring (with Sauce Connect tunnels) &#8212; see [API Testing on the Sauce Labs Cloud](/api-testing/).
 
 Welcome to the API Fortress Command-Line Tools!
 
-* The tool itself: [https://github.com/apifortress/afcmd/releases](https://github.com/apifortress/afcmd/releases)
-* The documentation for the API that that tool leverages: [https://apifortressv3.docs.apiary.io/](https://apifortressv3.docs.apiary.io/)
+- The tool itself: [https://github.com/apifortress/afcmd/releases](https://github.com/apifortress/afcmd/releases)
+- The documentation for the API that tool leverages: [https://apifortressv3.docs.apiary.io/](https://apifortressv3.docs.apiary.io/)
 
 The tool, or rather, pair of tools, are designed to reduce the amount of legwork that goes into executing or uploading API Fortress tests. The following readme will explain each part of the process.
 
@@ -44,7 +44,7 @@ Run allows us to execute tests on the platform and do things with that data. We 
 - **`run-all`** - RUN ALL - This will execute all of the tests in a chosen project.
 - **`run-by-tag`** - RUN BY TAG - This will execute all tests with a selected tag (requires the -t flag to set tag)
 - **`run-by-id`** - RUN BY ID - This will execute a test with a specific ID (requires the -i flag to set id)
-- **`hook`** - HOOK - This is the webhook of the project you are working with. This can be either an API Fortress URL, or the key from a configuration file (set the path to the config file with the **-c**  tag)
+- **`hook`** - HOOK - This is the webhook of the project you are working with. This can be either an API Fortress URL, or the key from a configuration file (set the path to the config file with the **-c** tag)
 
 To run all of the tests in a specific project, we would use the following command string:
 
@@ -89,18 +89,18 @@ A configuration file is a YAML file that is formatted as follows:
 
 ```yaml
 hooks:
-  - key: cool_proj1
-    url: https://mastiff.apifortress.com/app/api/rest/v3/A_WEBHOOK
-    credentials:
-      username: (your username)
-      password: (your password)
-  - key: uncool_proj
-    url: https://mastiff.apifortress.com/app/api/rest/v3/ANOTHER_WEBHOOK
-    credentials:
-      username: (another username)
-      password: (another password)
-  - key: unauth_proj
-    url: https://mastiff.apifortress.com/app/api/rest/v3/JUST_A_WEBHOOK_WITHOUT_CREDENTIALS
+- key: cool_proj1
+  url: https://mastiff.apifortress.com/app/api/rest/v3/A_WEBHOOK
+  credentials:
+  username: (your username)
+  password: (your password)
+- key: uncool_proj
+  url: https://mastiff.apifortress.com/app/api/rest/v3/ANOTHER_WEBHOOK
+  credentials:
+  username: (another username)
+  password: (another password)
+- key: unauth_proj
+  url: https://mastiff.apifortress.com/app/api/rest/v3/JUST_A_WEBHOOK_WITHOUT_CREDENTIALS
 test_directory: /tests
 ```
 

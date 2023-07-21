@@ -4,18 +4,18 @@ title: saucectl completion
 sidebar_label: saucectl completion
 ---
 
-## Description
-
-Generate a completion script for for `bash`, `zsh`, `fish` and `powershell` shells.
+Generate a completion script for `bash`, `zsh`, `fish` and `powershell` shells.
 
 ## Usage
 
-<span className="cli">$ saucectl completion [OPTIONS]</span>
-
+```bash
+$ saucectl completion [OPTIONS]
+```
 
 ## Options
 
 ### <span className="cli">bash</span>
+
 <div className="cli-desc">
 
 #### Linux
@@ -32,23 +32,28 @@ saucectl completion bash > /usr/local/etc/bash_completion.d/saucectl
 
 </div>
 
-
 ### <span className="cli">zsh</span>
+
 <div className="cli-desc">
 
 1. If shell completion is not already enabled in your environment, enable it by executing the following once:
-  ```
-  echo "autoload -U compinit; compinit" >> ~/.zshrc
-  ```
+
+```
+echo "autoload -U compinit; compinit" >> ~/.zshrc
+```
+
 2. To load completions for each session, execute once:
-  ```
-  saucectl completion zsh > "${fpath[1]}/_saucectl"
-  ```
+
+```
+saucectl completion zsh > "${fpath[1]}/_saucectl"
+```
+
 3. Start a new shell to apply this setup.
 
 </div>
 
 ### <span className="cli">fish</span>
+
 <div className="cli-desc">
 
 ```
@@ -64,6 +69,7 @@ saucectl completion fish > ~/.config/fish/completions/saucectl.fish
 </div>
 
 ### <span className="cli">Powershell</span>
+
 <div className="cli-desc">
 
 ```

@@ -4,7 +4,6 @@ title: Sauce Labs CLI Reference
 sidebar_label: Getting Started
 description: Documentation for using the various CLI tools Sauce Labs offers
 hide_table_of_contents: true
-
 ---
 
 <div>
@@ -27,7 +26,7 @@ hide_table_of_contents: true
   <div className="box boxwidebottom card">
     <div className="container">
     <a href="/dev/cli/virtual-usb"><h3>Virtual USB CLI</h3></a>
-    <p>The CLI tool for managing and deploying native mobile framework tests for real and virtual devices.</p>
+    <p>Our CLI app debugging tool that simulates connecting a Sauce Labs Private real device directly to your local machine with a USB cable.</p>
     </div>
   </div>
 </div>

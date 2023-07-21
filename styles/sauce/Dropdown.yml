@@ -1,0 +1,8 @@
+# Catches alternative usage of the phrase 'dropdown list'.
+extends: existence
+message: "Use 'dropdown list' to refer to the UI element. Do not use dropdown without list after it. Do not use drop-down (hyphenated), dropdown menu, or other variants. For example: 'From the Visibility dropdown list, select Public.'"
+level: warning
+ignorecase: true
+tokens:
+  - drop-down( [\w]*)?
+  - dropdown(?! list)

@@ -1,0 +1,66 @@
+{
+  "overrides": [
+    {
+      "files": "./docs/**/*.md",
+      "options": {
+        "parser": "markdown",
+        "tabWidth": 2,
+        "printWidth": 80,
+        "useTabs": false,
+        "trailingComma": "none",
+        "jsxSingleQuote": true,
+        "embeddedLanguageFormatting": "off",
+        "singleQuote": false,
+        "semi": false
+      }
+    },
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "html",
+        "tabWidth": 4,
+        "useTabs": false,
+        "semi": false,
+        "singleQuote": false,
+        "trailingComma": "none"
+      }
+    },
+    {
+      "files": "*.{yml,yaml}",
+      "options": {
+        "parser": "yaml",
+        "tabWidth": 2,
+        "useTabs": false,
+        "semi": false,
+        "singleQuote": true
+      }
+    },
+    {
+      "files": "*.json",
+      "options": {
+        "parser": "json",
+        "tabWidth": 1,
+        "useTabs": true,
+        "singleQuote": false
+      }
+    },
+    {
+      "files": "*.css",
+      "options": {
+        "parser": "css",
+        "tabWidth": 4,
+        "useTabs": false,
+        "singleQuote": false,
+        "trailingComma": "none"
+      }
+    }
+  ],
+  "tabWidth": 4,
+  "quoteProps": "preserve",
+  "useTabs": false,
+  "printWidth": 80,
+  "semi": true,
+  "trailingComma": "es5",
+  "jsxSingleQuote": true,
+  "singleQuote": true
+}

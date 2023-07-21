@@ -12,28 +12,28 @@ These examples can apply to virtually any GitHub deployment, provided that you a
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
-* A [GitHub Account](https://github.com/join)
-* The following permissions in GitHub:
-    * ability to create and manage workflows
-    * ability to create and store [GitHub secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- A [GitHub Account](https://github.com/join)
+- The following permissions in GitHub:
+  - ability to create and manage workflows
+  - ability to create and store [GitHub secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)
 
 ## Create GitHub Secrets
 
-The first order of business is to export your [Sauce Labs account credentials](https://app.saucelabs.com/user-settings) and store them as GitHub Secrets.
+1. Export your [Sauce Labs account credentials](https://app.saucelabs.com/user-settings) and store them as GitHub Secrets.
 
-1. Navigate to your project repository and select the __settings__ icon.
+2. Follow the GitHub Docs to [create the secrets for your repository](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository), and add the following:
 
-    <img src={useBaseUrl('img/stt/github-settings.png')} alt="GitHub Settings" width="500" />
+   Your Sauce Username:
 
-2. Select __Secrets__.
-3. Click the __New secret__ button.
-4. Add the following:
-    * Name: `SAUCE_USERNAME`
-    * Value: 'your-sauce-username'
-5. Click __Add secret__ to finish.
-6. Repeat the same steps above for your `SAUCE_ACCESS_KEY`.
+   - Name: `SAUCE_USERNAME`
+   - Value: 'your-sauce-username'
+
+   Your Sauce Access Key:
+
+   - Name: `SAUCE_ACCESS_KEY`
+   - Value: 'your-sauce-access-key'
 
 ## Configure the GitHub Action
 
@@ -46,45 +46,25 @@ Setting `env` at the top of the file enables it globally in this workflow, so al
 :::
 
 ```yaml reference
-https://github.com/saucelabs/saucectl-cypress-example/blob/master/.github/workflows/test.yml#L3-L13
+https://github.com/saucelabs/saucectl-cypress-example/blob/main/.github/workflows/test-v1.yml#L3-L13
 ```
 
 ## Create the Test Job
 
-In the examples below, we illustrate the two different `saucectl` run modes, which will determine where your tests will execute:
-* __Docker mode__ refers to executing tests locally in a container
-* __Sauce Cloud mode__ refers to executing tests on Sauce Cloud (i.e., Sauce Labs infrastructure)
-  * If you're testing on the Sauce Cloud, you will likely require a tunnel back to where your app is running. A tunnel enables the remote browser to access your local network. For this, you'll need to use [Sauce Connect](/secure-connections/sauce-connect).
+In the examples below, we illustrate how `saucectl` executes tests on Sauce Cloud (i.e., Sauce Labs infrastructure).
+You will likely require a tunnel back to where your app is running. A tunnel enables the remote browser to access your local network. For this, you'll need to use [Sauce Connect](/secure-connections/sauce-connect).
 
 :::note
-For more detailed information on setting event-driven actions and jobs, please visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).
+For more detailed information on setting event-driven actions and jobs, visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).
 :::
 
-<Tabs
-  defaultValue="Docker"
-  values={[
-    {label: 'Docker', value: 'Docker'},
-    {label: 'Sauce Cloud', value: 'Sauce Cloud'},
-  ]}>
-
-<TabItem value="Docker">
 
 ```yaml reference
-https://github.com/saucelabs/saucectl-cypress-example/blob/master/.github/workflows/test.yml#L21-L25
+https://github.com/saucelabs/saucectl-cypress-example/blob/main/.github/workflows/test-v1.yml#L27-L31
 ```
-
-</TabItem>
-<TabItem value="Sauce Cloud">
-
-```yaml reference
-https://github.com/saucelabs/saucectl-cypress-example/blob/master/.github/workflows/test.yml#L27-L31
-```
-
-</TabItem>
-</Tabs>
 
 :::note
-You can reference our example workflows [here](https://github.com/saucelabs/saucectl-cypress-example/tree/master/.github/workflows).
+You can reference our example workflows [in the `saucectl` Cypress example repository](https://github.com/saucelabs/saucectl-cypress-example/tree/main/.github/workflows).
 :::
 
 Now when you commit these files, GitHub will detect the new workflow actions and launch `saucectl` to run your tests.
@@ -93,9 +73,9 @@ To see the output:
 
 1. Log in to GitHub.
 2. Navigate to your repository page.
-3. Click on **Actions**.
+3. Click **Actions**.
 
-    <img src={useBaseUrl('img/stt/github-actions.png')} alt="GitHub Actions" width="500" />
+   <img src={useBaseUrl('img/stt/github-actions.png')} alt="GitHub Actions" width="500" />
 
 Your output may look something like this:
 

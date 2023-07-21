@@ -4,6 +4,7 @@ title: Web App Testing
 sidebar_label: Getting Started
 description: Achieve digital confidence for your web app on every platform and in every browser.
 ---
+
 Achieving digital confidence for your website app involves knowing that every user who comes to your website will have the same experience, regardless of how they are getting there. Sauce Labs provides thousands of operating system and browser combinations for you to test your web app manually or using automation so you can launch faster and more confidently.
 
 <div className="box-wrapper" markdown="1">
@@ -22,8 +23,9 @@ Achieving digital confidence for your website app involves knowing that every us
       <li><a href="/web-apps/automated-testing/selenium">Selenium</a></li>
       <li><a href="/web-apps/automated-testing/cypress">Cypress</a></li>
       <li><a href="/web-apps/automated-testing/playwright">Playwright</a></li>
+      <li><a href="/web-apps/automated-testing/cucumberjs-playwright/quickstart">Cucumber.js with Playwright</a></li>
       <li><a href="/web-apps/automated-testing/testcafe">TestCafe</a></li>
-      <li><a href="/web-apps/automated-testing/puppeteer">Puppeteer</a></li>
+      <li><a href="/web-apps/automated-testing/replay">Replay</a></li>
   </ul>
   </div>
   </div>

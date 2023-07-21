@@ -12,10 +12,10 @@ Sauce Labs uses its framework agnostic test orchestrator [`saucectl`](/dev/cli/s
 
 ## What You'll Need
 
-* A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-* Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
-* Your Espresso apps and files for real devices and/or emulators
-* Your XCUITest apps and files for real devices (automated tests for simulators are not supported at this time)
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- Your Espresso apps and files for real devices and/or emulators
+- Your XCUITest apps and files for real devices (automated tests for simulators are not supported at this time)
 
 ## Installation & Setup
 
@@ -39,10 +39,10 @@ Clone or download the [Espresso](https://github.com/saucelabs/saucectl-espresso-
 
 ### 3. Link your Sauce Labs account
 
-1. Generate a credentials file that `saucectl` can reference to authenticate your CLI commands.      
-    ```
-    saucectl configure
-    ```
+1. Generate a credentials file that `saucectl` can reference to authenticate your CLI commands.
+   ```
+   saucectl configure
+   ```
 1. Enter your Sauce Labs `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` at the prompts.
 1. `saucectl` creates a `credentials.yml` file in a `.sauce` folder of your home directory.
 
@@ -50,13 +50,11 @@ Clone or download the [Espresso](https://github.com/saucelabs/saucectl-espresso-
 You can set your Sauce Labs credentials as [environment variables](/basics/environment-variables) instead of generating a `credentials.yml`, if you prefer. In systems where both sets of credentials exist, environment variable values are prioritized.
 :::
 
-
 ### 4. Configure your test parameters
 
 Each demo repo includes a sample `config.yml` file (in the `<root>/.sauce` directory) that is preconfigured to run the example test, which is also included in the repo.
 
 Modify the `config.yml` file according to the configuration documentation for [Espresso](/mobile-apps/automated-testing/espresso-xcuitest/espresso) and [XCUITest](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest).
-
 
 :::tip Alternative Config Files
 You can create multiple configuration files to support different frameworks or different test setups and then reference the applicable configuration file at runtime using the CLI command:
@@ -64,6 +62,7 @@ You can create multiple configuration files to support different frameworks or d
 ```
 saucectl run -c ./path/to/<configFile>.yml
 ```
+
 :::
 
 ### 5. Run your tests

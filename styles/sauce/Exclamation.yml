@@ -1,0 +1,7 @@
+# Checks for exclamation marks.
+extends: existence
+message: "Avoid exclamation marks."
+nonword: true
+level: warning
+tokens:
+  - '\w!(?:\s|$)'

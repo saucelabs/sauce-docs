@@ -1,37 +1,69 @@
 :root {
-/*Sauce Labs design system colors */
-  --ds-white: #fff;
+    --dark-500: #132322;
+    --dark-400: #434e4e;
+    --dark-300: #727a7a;
+    --dark-200: #a1a7a7;
+    --dark-100: #d0d3d3;
 
-  --ds-gray-50: #f7f8fa;
-  --ds-gray-100: #eff2f6;
-  --ds-gray-200: #e8ebf1;
-  --ds-gray-300: #dbe0ea;
-  --ds-gray-400: #b6becc;
-  --ds-gray-500: #979eab;
-  --ds-gray-600: #6d7584;
-  --ds-gray-700: #4d4d4d;
-  --ds-gray-900: #1e2127;
+    --yellow-500: #ffcd48;
+    --yellow-400: #ffd76d;
+    --yellow-300: #ffe391;
+    --yellow-200: #ffebb6;
+    --yellow-100: #fff5da;
 
-  --ds-green-50: #ebf8e6;
-  --ds-green-400: #6cb841;
-  --ds-green-600: #41990f;
+    --coral-500: #ee805a;
+    --coral-400: #f1997b;
+    --coral-300: #f5b39c;
+    --coral-200: #f8ccbd;
+    --coral-100: #fce6de;
 
-  --ds-orange-50: #fff2e2;
-  --ds-orange-600: #ff8514;
+    --green-500: #3ddc91;
+    --green-400: #64e3a7;
+    --green-300: #8beabd;
+    --green-200: #b1f1d3;
+    --green-100: #d8f8e9;
 
-  --ds-red-50: #ffeceb;
-  --ds-red-100: #ffccc9;
-  --ds-red-600: #e2231a;
-  --ds-red-900: #ae0f0f;
-  --ds-red-1000: #920606;
-  --ds-red-1100: #7a0000;
-  --ds-red-sauce: #e2231a;
+    --neutral-300: #deeeea;
+    --neutral-200: #edf7f5;
+    --neutral-100: #f9f9f7;
 
-  --ds-blue-50: #e6f1fd;
-  --ds-blue-100: #bcdcfd;
-  --ds-blue-200: #95c7f9;
-  --ds-blue-400: #54a3f3;
-  --ds-blue-700: #0e75dd;
-  --ds-blue-800: #0d65be;
-  --ds-blue-900: #004a90;
+    --inline-link: #18583a;
+    --primary-button: #66de91;
+
+    /*ifm is docusaurus default styles,
+  check https://docusaurus.io/docs/styling-layout#theme-class-names*/
+    --ifm-color-primary: var(--green-500);
+    --ifm-color-primary-dark: var(--inline-link);
+    --ifm-color-primary-light: var(--green-400);
+    --ifm-color-primary-lighter: var(--green-300);
+    --ifm-color-primary-lightest: var(--green-100);
+    --ifm-footer-background-color: var(--inline-link);
+    --ifm-footer-link-color: var(--neutral-100);
+    --ifm-footer-title-color: var(--neutral-100);
+    --ifm-footer-color: var(--neutral-100);
+    --ifm-code-font-size: 85%;
+    --ifm-code-background: var(--dark-100);
+    --ifm-font-color-base: var(--dark-500);
+    --ifm-link-color: var(--inline-link);
+    --ifm-navbar-background-color: var(--neutral-100);
+    --ifm-menu-color-active: var(--inline-link);
+    --ifm-tabs-color-active: var(--dark-500);
+}
+
+html[data-theme="dark"] {
+    --ifm-color-primary-dark: var(--coral-500);
+    --ifm-font-color-base: var(--neutral-100);
+    --ifm-blockquote-color: var(--dark-100);
+    --ifm-code-background: var(--dark-500);
+    --ifm-link-color: var(--green-300);
+    --ifm-menu-color-active: var(--green-300);
+    --ifm-alert-color: var(--dark-100);
+    --ifm-navbar-link-color: var(--dark-500);
+    --ifm-navbar-background-color-dark: var(--dark-500);
+    --docsearch-muted-color: var(--dark-300);
+    --docsearch-searchbox-background: #ebedf0;
+    --docsearch-text-color: var(--neutral-100);
+    --ifm-color-secondary: var(--dark-100);
+    --ra-admonition-color: var(--neutral-100);
+    --ra-admonition-icon-color: var(--neutral-100);
 }

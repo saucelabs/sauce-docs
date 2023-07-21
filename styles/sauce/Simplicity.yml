@@ -1,0 +1,13 @@
+# Checks for words implying ease of use, to avoid cognitive dissonance for frustrated users.
+extends: existence
+message: "Remove '%s'. Be precise instead of subjective."
+level: warning
+ignorecase: true
+tokens:
+  - easy
+  - easily
+  - handy
+  - simple
+  - simply
+  - useful
+  - helpful

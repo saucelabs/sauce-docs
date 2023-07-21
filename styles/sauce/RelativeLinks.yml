@@ -1,0 +1,7 @@
+# Checks for the presence of absolute hyperlinks within the same repository that should be relative.
+extends: existence
+message: "Use a relative link instead of a URL."
+level: warning
+scope: raw
+raw:
+  - '\[[^\]]+\]\(https?:\/\/docs\.saucelabs\.com\/.*?\)'

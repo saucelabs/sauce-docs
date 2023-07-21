@@ -1,58 +1,92 @@
-div.new-search button.DocSearch.DocSearch-Button{
-    border-radius: 4px;
-    background-color: var(--ds-white);
-    width: 30%;
-    font-size: 12px;
-    margin: auto;
-}
-div.new-search svg.DocSearch-Search-Icon {
-    visibility: visible;
-    color: var(--ds-gray-500);
-}
-div.new-search .DocSearch-Button-Placeholder {
-    display: inherit;
+.DocSearch-Container .DocSearch-Modal,
+.DocSearch-Container .DocSearch-Form,
+.DocSearch-Container .DocSearch-Hit-source,
+.DocSearch-Container .DocSearch-Footer {
+    background: var(--dark-500);
 }
 
-div.new-search span.DocSearch-Button-Placeholder {
-    color: var(--ds-gray-500);
+.DocSearch-Container .DocSearch-Form {
+    box-shadow: none;
 }
 
-html[data-theme='dark'] div.new-search svg.DocSearch-Search-Icon {
-    visibility: visible;
-    color: rgb(204, 205, 207); /* ---ifm-color-primary-light */;
+.DocSearch-Container .DocSearch-Search-Icon {
+    color: var(--dark-200);
 }
 
-html[data-theme='dark'] div.new-search button.DocSearch-Button {
-    background: black;
+.DocSearch-Container .DocSearch-Input {
+    color: var(--neutral-100);
 }
 
-html[data-theme='dark'] span.DocSearch-Button-Placeholder {
-    color: rgb(204, 205, 207); /* ---ifm-color-primary-light */;
+.DocSearch-Container .DocSearch-Hit-source {
+    color: var(--green-200);
+}
+
+.DocSearch-Container .DocSearch-Hits mark {
+    color: var(--dark-500);
+    font-weight: bold;
+    background: var(--yellow-500);
+}
+
+.DocSearch-Container .DocSearch-Hits a {
+    background: none;
+    border-bottom: 1px solid var(--dark-300);
+    box-shadow: none;
+    color: var(--neutral-100);
+    margin-bottom: 0.5rem;
+}
+
+.DocSearch-Container .DocSearch-Hit a {
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+.DocSearch-Container .DocSearch-Hits a:hover,
+.DocSearch-Container .DocSearch-Hit[aria-selected="true"] a {
+    border-bottom: 2px solid var(--yellow-500);
+    background: var(--dark-500);
+    box-shadow: none;
+}
+
+.DocSearch-Container .DocSearch-Hit[aria-selected="true"] mark {
+    color: var(--dark-500) !important;
+    text-decoration: none;
+}
+
+.DocSearch-Container .DocSearch-Hit-title {
+    color: var(--neutral-100);
+}
+
+.DocSearch-Container .DocSearch-Hit-title:hover {
+    color: var(--dark-500);
+}
+
+.DocSearch-Container .DocSearch-Container .DocSearch-Hit-path {
+    color: var(--neutral-200);
+}
+
+.DocSearch-Container .DocSearch-Container .DocSearch-Hit-path:hover {
+    color: var(--dark-500);
 }
 
 /* mobile overrides */
-@media only screen
-and (min-width: 300px) and (max-width: 998px),
-only screen and (max-device-width: 998px),
-only screen and (max-width: 998px) {
-
+@media only screen and (min-width: 300px) and (max-width: 998px),
+    only screen and (max-device-width: 998px),
+    only screen and (max-width: 998px) {
     div.new-search [class^="searchBox_"] {
         position: relative;
         right: unset;
         display: inline-block;
         width: 100%;
     }
-    div.new-search button.DocSearch.DocSearch-Button{
+    div.new-search button.DocSearch.DocSearch-Button {
         width: 80%;
         margin: auto;
     }
-
 }
 
-@media only screen
-and (max-width: 750px),
-only screen and (max-device-width: 750px),
-only screen and (max-width: 750px) {
+@media only screen and (max-width: 750px),
+    only screen and (max-device-width: 750px),
+    only screen and (max-width: 750px) {
     div.new-search .DocSearch-Button-Placeholder {
         display: none;
     }

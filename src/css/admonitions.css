@@ -1,9 +1,9 @@
-
 /* Callout boxes / admonition styles */
 
+/*
 .alert a {
-    color: var(--ds-blue-900);
-    text-decoration:none;
+    color: var(--inline-link);
+    text-decoration: none;
     cursor: pointer;
     font-weight: bold;
 }
@@ -12,13 +12,17 @@
     text-decoration: underline;
 }
 
-html[data-theme='dark'] .admonition-tip p a {
-    color: var(--ds-green-400);
+html[data-theme="dark"] .alert a {
+    color: var(--green-500);
+}
+
+html[data-theme="dark"] .admonition-tip p a {
+    color: var(--yellow-500);
     cursor: pointer;
 }
 
 .alert {
-    border-left: 5px solid var(--ds-gray-300);
+    border-left: 5px solid var(--dark-200);
     margin-left: 50px;
     margin-right: 25px;
     margin-top: 10px;
@@ -33,12 +37,13 @@ html[data-theme='dark'] .admonition-tip p a {
     border-radius: 0px;
 }
 
-html[data-theme='dark'] .alert--warning p, .alert--warning h5 {
-    color: var(--ds-gray-700);
+html[data-theme="dark"] .alert--warning p,
+.alert--warning h5 {
+    color: var(--coral-200);
 }
 
 .admonition-note {
-    border-left: 5px solid var(--ds-gray-400);
+    border-left: 5px solid var(--dark-200);
     margin-left: 50px;
     margin-right: 25px;
     margin-top: 10px;
@@ -54,18 +59,16 @@ html[data-theme='dark'] .alert--warning p, .alert--warning h5 {
 }
 
 .admonition-note h5 {
-    /*color: var(--ds-gray-300);*/
     font-weight: bold;
 }
 
 .admonition-note .admonition-icon svg {
-    stroke: var(--ds-gray-400);
-    fill: var(--ds-gray-400);
+    stroke: var(--dark-200);
+    fill: var(--dark-200);
 }
 
-
 .admonition-tip {
-    border-left: 5px solid var(--ds-green-400);
+    border-left: 5px solid var(--yellow-500);
     margin-left: 50px;
     margin-right: 25px;
     margin-top: 10px;
@@ -85,14 +88,14 @@ html[data-theme='dark'] .alert--warning p, .alert--warning h5 {
 }
 
 .admonition-tip .admonition-icon svg {
-    fill: var(--ds-green-400);
+    fill: var(--yellow-500);
 }
 
 .admonition-caution {
-    border-left: 5px solid var(--ds-orange-600);
-    color: var(--ds-gray-900);
+    border-left: 5px solid var(--coral-500);
+    color: var(--dark-500);
     padding: 16px 80px 16px 16px;
-    background-color: var(--ds-orange-50);
+    background-color: var(--coral-200);
     border-top: none;
     border-bottom: none;
     border-right: none;
@@ -101,17 +104,16 @@ html[data-theme='dark'] .alert--warning p, .alert--warning h5 {
 }
 
 .admonition-caution h5 {
-    /*color: var(--ds-gray-300);*/
     font-weight: bold;
 }
 
 .admonition-caution .admonition-icon svg {
-    stroke: var(--ds-orange-600);
-    fill: var(--ds-orange-600);
+    stroke: var(--coral-500);
+    fill: var(--coral-500);
 }
 
 .admonition-warning {
-    border-left: 5px solid var(--ds-orange-600);
+    border-left: 5px solid var(--coral-500);
     margin-left: 50px;
     margin-right: 25px;
     margin-top: 10px;
@@ -131,51 +133,53 @@ html[data-theme='dark'] .alert--warning p, .alert--warning h5 {
 }
 
 .admonition-warning .admonition-icon svg {
-    stroke: var(--ds-gray-300);
-    fill: var(--ds-orange-600);;
+    stroke: var(--dark-200);
+    fill: var(--coral-500);
 }
 
 .admonition-caution code {
-    color: var(--ds-gray-700);
-    background-color: var(--ds-gray-100);
+    color: var(--dark-500);
+    background-color: var(--dark-100);
 }
 
 .admonition-caution pre code {
-    background-color: var(--ds-gray-700);
+    background-color: var(--dark-500);
 }
 
 .admonition-note code {
-    color: var(--ds-gray-700);
-    background-color: var(--ds-gray-100);
+    color: var(--dark-500);
+    background-color: var(--dark-100);
 }
 
 .admonition-note pre code {
-    background-color: var(--ds-gray-300);
+    background-color: var(--dark-200);
 }
 
 .admonition-tip code {
-    color: var(--ds-gray-700);
-    background-color: var(--ds-gray-100);
+    color: var(--dark-500);
+    background-color: var(--dark-100);
 }
 
 .admonition-tip pre code {
-    background-color: var(--ds-gray-700);
+    background-color: var(--dark-500);
 }
 
 .admonition-warning code {
-    color: var(--ds-gray-700);
-    background-color: var(--ds-gray-100);
+    color: var(--dark-500);
+    background-color: var(--dark-100);
 }
 
 .admonition-warning pre code {
-    background-color: var(--ds-gray-300);
+    background-color: var(--dark-200);
 }
 
 .admonition-info code {
-    color: var(--ds-gray-700);
-    background-color: var(--ds-gray-100);
+    color: var(--dark-500);
+    background-color: var(--dark-100);
 }
 
 .admonition-info pre code {
-    background-color: var(--ds-gray-300);
+    background-color: var(--dark-200);
 }
+
+*/

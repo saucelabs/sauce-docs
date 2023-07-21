@@ -1,6 +1,6 @@
 ---
 id: platform
-title: Sauce Platform API Methods
+title: Sauce Platform API Endpoints
 sidebar_label: Platform
 description: Retrieve information about the Sauce Labs supported automation environments and platform status.
 ---
@@ -23,7 +23,6 @@ Returns the current (30 second cache) availability of the Sauce Labs platform.
 
 This method takes no parameters.
 
-
 <Tabs
 groupId="dc-url"
 defaultValue="us"
@@ -34,7 +33,7 @@ values={[
 
 <TabItem value="us">
 
-```jsx title="Sample Request"
+```bash title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/info/status' \
 --header 'Content-Type: application/json' | json_pp
@@ -43,7 +42,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </TabItem>
 <TabItem value="eu">
 
-```jsx title="Sample Request"
+```bash title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/info/status' \
 --header 'Content-Type: application/json' | json_pp
@@ -69,20 +68,21 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </tbody>
 </table>
 
-```jsx title="Sample Response"
+```json title="Sample Response"
 {
     "wait_time": 0.5714026162790697,
     "service_operational": true,
     "status_message": "Basic service status checks passed."
 }
 ```
+
 </details>
 
 ---
 
 ### Get Supported Platforms
 
-<details><summary><span className="api get">GET</span> <code>rest/v1/info/platforms/&#123;automation_api&#125;/</code></summary>
+<details><summary><span className="api get">GET</span> <code>/rest/v1/info/platforms/&#123;automation_api&#125;</code></summary>
 <p/>
 
 Returns the set of supported operating system and browser combinations for the specified automation framework.
@@ -113,21 +113,19 @@ values={[
 
 <TabItem value="us">
 
-```jsx title="Sample Request"
+```bash title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/info/platforms/all' \
 --header 'Content-Type: application/json' | json_pp
---data-raw ''
 ```
 
 </TabItem>
 <TabItem value="eu">
 
-```jsx title="Sample Request"
+```bash title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/info/platforms/all' \
 --header 'Content-Type: application/json' | json_pp
---data-raw ''
 ```
 
 </TabItem>
@@ -150,62 +148,64 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </tbody>
 </table>
 
-```jsx title="Sample Response"
+```json title="Sample Response"
 [
-    {
-        "short_version": "11.3",
-        "long_name": "iPad Simulator",
-        "api_name": "ipad",
-        "long_version": "11.3.",
-        "device": "iPad Simulator",
-        "latest_stable_version": "",
-        "automation_backend": "webdriver",
-        "os": "Mac 10.13"
-    },
-    {
-        "deprecated_backend_versions": [],
-        "short_version": "11.3",
-        "long_name": "iPad Simulator",
-        "recommended_backend_version": "1.9.1",
-        "long_version": "11.3.",
-        "api_name": "ipad",
-        "supported_backend_versions": [
-            "1.8.1",
-            "1.9.1"
-        ],
-        "device": "iPad Simulator",
-        "latest_stable_version": "",
-        "automation_backend": "appium",
-        "os": "Mac 10.13"
-    },
-    {
-        "short_version": "12.0",
-        "long_name": "iPad Simulator",
-        "api_name": "ipad",
-        "long_version": "12.0.",
-        "device": "iPad Simulator",
-        "latest_stable_version": "",
-        "automation_backend": "webdriver",
-        "os": "Mac 10.13"
-    },
-    {
-        "deprecated_backend_versions": [],
-        "short_version": "12.0",
-        "long_name": "iPad Simulator",
-        "recommended_backend_version": "1.9.1",
-        "long_version": "12.0.",
-        "api_name": "ipad",
-        "supported_backend_versions": [
-            "1.9.1"
-        ],
-        "device": "iPad Simulator",
-        "latest_stable_version": "",
-        "automation_backend": "appium",
-        "os": "Mac 10.13"
-    },
-    //{...more results}
+   {
+      "short_version":"11.3",
+      "long_name":"iPad Simulator",
+      "api_name":"ipad",
+      "long_version":"11.3.",
+      "device":"iPad Simulator",
+      "latest_stable_version":"",
+      "automation_backend":"webdriver",
+      "os":"Mac 10.13"
+   },
+   {
+      "deprecated_backend_versions":[
+      ],
+      "short_version":"11.3",
+      "long_name":"iPad Simulator",
+      "recommended_backend_version":"1.9.1",
+      "long_version":"11.3.",
+      "api_name":"ipad",
+      "supported_backend_versions":[
+         "1.8.1",
+         "1.9.1"
+      ],
+      "device":"iPad Simulator",
+      "latest_stable_version":"",
+      "automation_backend":"appium",
+      "os":"Mac 10.13"
+   },
+   {
+      "short_version":"12.0",
+      "long_name":"iPad Simulator",
+      "api_name":"ipad",
+      "long_version":"12.0.",
+      "device":"iPad Simulator",
+      "latest_stable_version":"",
+      "automation_backend":"webdriver",
+      "os":"Mac 10.13"
+   },
+   {
+      "deprecated_backend_versions":[
+      ],
+      "short_version":"12.0",
+      "long_name":"iPad Simulator",
+      "recommended_backend_version":"1.9.1",
+      "long_version":"12.0.",
+      "api_name":"ipad",
+      "supported_backend_versions":[
+         "1.9.1"
+      ],
+      "device":"iPad Simulator",
+      "latest_stable_version":"",
+      "automation_backend":"appium",
+      "os":"Mac 10.13"
+   }
 ]
 ```
+
 </details>
 
 ---
@@ -221,7 +221,6 @@ Returns the expected date (in Unix time) on which Sauce Labs support for each Ap
 
 This method takes no parameters.
 
-
 <Tabs
 groupId="dc-url"
 defaultValue="us"
@@ -232,7 +231,7 @@ values={[
 
 <TabItem value="us">
 
-```jsx title="Sample Request"
+```bash title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/rest/v1/info/platforms/appium/eol' \
 --header 'Content-Type: application/json' | json_pp
@@ -241,7 +240,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </TabItem>
 <TabItem value="eu">
 
-```jsx title="Sample Request"
+```bash title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.eu-central-1.saucelabs.com/rest/v1/info/platforms/appium/eol' \
 --header 'Content-Type: application/json' | json_pp
@@ -267,7 +266,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </tbody>
 </table>
 
-```jsx title="Sample Response"
+```json title="Sample Response"
 {
     "1.20.2": null,
     "1.15.0": null,
@@ -310,6 +309,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "1.4.15": 1460160000
 }
 ```
+
 </details>
 
 ---

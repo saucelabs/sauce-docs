@@ -5,52 +5,43 @@
 }
 
 .cypress {
-    background-color:#29c38e;
+    background-color: #29c38e;
 }
 
 .playwright {
-    background-color:#45ba4b;
+    background-color: #45ba4b;
 }
 
 .testcafe {
-    background-color:#1a212e;
-}
-
-.puppeteer {
-    background-color:#40b5a4;
-}
-
-.sauce-cloud {
-    background-color:#ad1415;
+    background-color: #1a212e;
 }
 
 .beta {
-    background-color:#003A70;
+    background-color: #003a70;
 }
 
 .docker {
-    background-color:#1993ef;
+    background-color: #1993ef;
 }
 
 /* Support FW table style */
 
-#table-fw tr:nth-child(even){
-  background: transparent;
+#table-fw tr:nth-child(even) {
+    background: transparent;
 }
 
 #table-fw tbody:nth-child(even) {
-  background-color: #f8f8f8;
+    background-color: #f8f8f8;
 }
 
 #table-fw tbody:nth-child(odd) {
-  background-color: #FFFFFF;
+    background-color: #ffffff;
 }
 
-html[data-theme='dark'] #table-fw tbody:nth-child(even) {
+html[data-theme="dark"] #table-fw tbody:nth-child(even) {
     background-color: #595858;
 }
 
-
-html[data-theme='dark'] #table-fw tbody:nth-child(odd) {
-  background-color: #000000;
+html[data-theme="dark"] #table-fw tbody:nth-child(odd) {
+    background-color: #000000;
 }

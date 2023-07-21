@@ -8,33 +8,31 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 Get continuous visual test automation by integrating Visual E2E tests directly into your continuous integration (CI) build.
 
 If your tests are already integrated into CI, get visual results returned into your tests and pass or fail your builds depending on visual regressions found.
-
 
 ## 1. Return Visual results into your WebDriver test(s)
 
 To get the test results, add the [`@visual.end` command](/visual/e2e-testing/commands-options/#end-command) right before ending your test session. The returned result can then be asserted to pass or fail your test.
 
 <Tabs
-  defaultValue="JavaScript"
-  values={[
-    {label: 'JavaScript', value: 'JavaScript'},
-    {label: 'Java', value: 'Java'},
-    {label: 'Python', value: 'Python'},
-    {label: 'Ruby', value: 'Ruby'},
-    {label: 'C#', value: 'C#'},
-  ]}>
+defaultValue="JavaScript"
+values={[
+{label: 'JavaScript', value: 'JavaScript'},
+{label: 'Java', value: 'Java'},
+{label: 'Python', value: 'Python'},
+{label: 'Ruby', value: 'Ruby'},
+{label: 'C#', value: 'C#'},
+]}>
 
 <TabItem value="JavaScript">
 
 WebDriverIO Example:
 
 ```javascript
-const result = driver.execute('/*@visual.end*/');
-assert.ok(result.passed, result.message);
+const result = driver.execute('/*@visual.end*/')
+assert.ok(result.passed, result.message)
 ```
 
 </TabItem>
@@ -74,7 +72,6 @@ Assert.IsTrue(result.passed, result.message);
 
 For more details on results returned, view the [Visual Commands](/visual/e2e-testing/commands-options) documentation.
 
-
 ## 2. Integrate your CI Build
 
 Associate your Visual tests with your CI build number by setting the build option in your capabilities.
@@ -82,16 +79,16 @@ Associate your Visual tests with your CI build number by setting the build optio
 Below are build number environment variables for various CI tools:
 
 <Tabs
-  defaultValue="Jenkins"
-  values={[
-    {label: 'Jenkins', value: 'Jenkins'},
-    {label: 'CircleCI', value: 'CircleCI'},
-    {label: 'TravisCI', value: 'TravisCI'},
-    {label: 'GitLab', value: 'GitLab'},
-    {label: 'Codeship', value: 'Codeship'},
-    {label: 'Buildkite', value: 'Buildkite'},
-    {label: 'Drone', value: 'Drone'},
-  ]}>
+defaultValue="Jenkins"
+values={[
+{label: 'Jenkins', value: 'Jenkins'},
+{label: 'CircleCI', value: 'CircleCI'},
+{label: 'TravisCI', value: 'TravisCI'},
+{label: 'GitLab', value: 'GitLab'},
+{label: 'Codeship', value: 'Codeship'},
+{label: 'Buildkite', value: 'Buildkite'},
+{label: 'Drone', value: 'Drone'},
+]}>
 
 <TabItem value="Jenkins">
 
@@ -179,8 +176,7 @@ capabilities: {
 </TabItem>
 </Tabs>
 
-
 ## Next Steps
 
-* [Invite users](/visual/acct-team-mgmt) to your project.
-* [Troubleshooting](/visual/e2e-testing/troubleshooting).
+- [Invite users](/visual/acct-team-mgmt) to your project.
+- [Troubleshooting](/visual/e2e-testing/troubleshooting).

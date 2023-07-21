@@ -1,0 +1,8 @@
+# Suggests the correct way to describe a button.
+extends: existence
+message: "If possible, rewrite to remove 'button'."
+level: warning
+ignorecase: true
+scope: raw
+raw:
+  - \*\*.+?\*\* button

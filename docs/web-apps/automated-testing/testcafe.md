@@ -8,65 +8,146 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-[TestCafe](https://github.com/DevExpress/testcafe) is a testing framework that you can use to test your web apps &#8212; either locally in Docker or remotely on Sauce Labs cloud &#8212; using the [`saucectl` CLI](/dev/cli/saucectl). This gives you the flexibility to run your tests in the environment that best suits your organization, while still benefiting from the Sauce Labs vast collection of devices, browser, and operating system combinations and test result data analytics.
+[TestCafe](https://github.com/DevExpress/testcafe) is a testing framework that you can use to test your web apps remotely on Sauce Labs cloud using the [`saucectl` CLI](/dev/cli/saucectl).
 
 ## System Requirements
 
-You can run `saucectl` locally via Docker ([Installation Requirements](https://docs.docker.com/engine/install/#supported-platforms)) or remotely via the Sauce Labs cloud, so system requirements vary depending on your intention. The following reference serves as a general guide:
+Supported OS:
+- Windows 10 / Windows 11
+- macOS 10.14+
+- Linux
 
-<Tabs
-  defaultValue="macos"
-  values={[
-    {label: 'macOS', value: 'macos'},
-    {label: 'Linux', value: 'linux'},
-    {label: 'Windows', value: 'windows'},
-  ]}>
+## Supported Languages
 
-<TabItem value="macos">
-
-* OS: 10.14+ (Mojave, Catalina, or Big Sur)
-* Docker: [Desktop](https://docs.docker.com/docker-for-mac/install/)
-
-</TabItem>
-<TabItem value="linux">
-
-* OS/Distros: [CentOS](https://docs.docker.com/engine/install/centos/), [Debian](https://docs.docker.com/engine/install/debian/), [Fedora](https://docs.docker.com/engine/install/fedora/), [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-* Docker: [Server](https://docs.docker.com/engine/install/#server)
-
-</TabItem>
-<TabItem value="windows">
-
-* OS: Windows 10 or 11 ([Home](https://docs.docker.com/docker-for-windows/install-windows-home/), Pro, Enterprise, or Education)
-* Docker: [Desktop](https://docs.docker.com/docker-for-windows/install/)
-
-</TabItem>
-</Tabs>
+JavaScript and TypeScript are supported out of the box.
 
 ## Supported Testing Platforms
 
 Sauce Labs supports the following test configurations for TestCafe:
 
-<Tabs
-   groupId="platforms"
-   defaultValue="sauce"
-   values={[
-     {label: 'Sauce Labs', value: 'sauce'},
-     {label: 'Docker', value: 'docker'},
-   ]}>
-
-<TabItem value="sauce">
-
-  <table id="table-fw">
+<table id="table-fw">
+  <tr>
+    <th>TestCafe Version</th>
+    <th>Supported Platforms</th>
+    <th>Supported Browsers</th>
+    <th>End of Life</th>
+  </tr>
+  <tbody>
     <tr>
-      <th>TestCafe Version</th>
-      <th>Supported Platforms</th>
-      <th>Supported Browsers</th>
-      <th>End of Life</th>
+      <td rowspan='3'>2.6.2</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
+      <td rowspan='3'>June 16, 2024</td>
     </tr>
-    <tbody>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.5, 15.4, 16.0, 16.1</td>
+      <td>Safari</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='3'>2.5.0</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
+      <td rowspan='3'>May 11, 2024</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.5, 15.4, 16.0, 16.1</td>
+      <td>Safari</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='3'>2.3.1</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
+      <td rowspan='3'>Mar 01, 2024</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b>13.4, 14.5, 15.4, 16.0, 16.1</td>
+      <td>Safari</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='3'>2.2.0</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
+      <td rowspan='3'>Jan 15, 2024</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b>13.4, 14.5, 15.4, 16.0, 16.1</td>
+      <td>Safari</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='3'>2.1.0</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
+      <td rowspan='3'>Nov 30, 2023</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+      <td>Safari</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='3'>2.0.1</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
+      <td rowspan='3'>Oct 20, 2023</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+      <td>Safari</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='3'>2.0.0</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
+      <td rowspan='3'>Sep 7, 2023</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
+      <td>Safari</td>
+    </tr>
+  </tbody>
+  <tbody>
     <tr>
       <td rowspan='3'>1.20.0</td>
-      <td><b>macOS:</b> 11.00, 12</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
       <td>Safari, Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='3'>Jul 29, 2023</td>
     </tr>
@@ -74,104 +155,18 @@ Sauce Labs supports the following test configurations for TestCafe:
       <td><b>Windows:</b> 10, 11</td>
       <td>Chrome, Firefox, Microsoft Edge</td>
     </tr>
-    </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='3'>1.19.0</td>
-      <td><b>macOS:</b> 11.00, 12</td>
-      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='3'>Jun 6, 2023</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-    </tr>
     <tr>
       <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
       <td>Safari</td>
     </tr>
-    </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='3'>1.18.5</td>
-      <td><b>macOS:</b> 11.00, 12</td>
-      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='3'>Apr 16, 2023</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-    </tr>
-    <tr>
-      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-      <td>Safari</td>
-    </tr>
-    </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='3'>1.18.3</td>
-      <td><b>macOS:</b> 11.00</td>
-      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='3'>Feb 2, 2023</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-    </tr>
-    <tr>
-      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-      <td>Safari</td>
-    </tr>
-    </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='3'>1.17.1</td>
-      <td><b>macOS:</b> 11.00</td>
-      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='3'>Nov 29, 2022</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-    </tr>
-    <tr>
-      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-      <td>Safari</td>
-    </tr>
-    </tbody>
-    <tbody>
-    <tr>
-      <td rowspan='3'>1.16.1</td>
-      <td><b>macOS:</b> 11.00</td>
-      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='3'>Oct 13, 2022</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-    </tr>
-    <tr>
-      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-      <td>Safari</td>
-    </tr>
-    </tbody>
-  </table>
-
-</TabItem>
-<TabItem value="docker">
-
-Browser support for each framework is based on the Sauce Labs docker images provided in the `saucectl` installation. Each Docker image tag is the latest image that supports the specific framework version, as detailed in the available [release notes](https://github.com/saucelabs/sauce-testcafe-runner/releases).
-
-</TabItem>
-</Tabs>
-
-
+  </tbody>
+</table>
 
 ## How to Get Started
 
-* [Quickstart](/web-apps/automated-testing/testcafe/quickstart): Use our demo repo to quickly set up and run a sample TestCafe project and test to see the results.
-* [Run Your own Tests](/web-apps/automated-testing/testcafe/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
-* [Incorporate saucectl in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): TestCafe on Sauce supports CI integrations with Cirlce CI, GitLab, Jenkins, and GitHub Actions.
+- [Quickstart](/web-apps/automated-testing/testcafe/quickstart): Use our demo repo to quickly set up and run a sample TestCafe project and test to see the results.
+- [Run Your own Tests](/web-apps/automated-testing/testcafe/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
+- [Incorporate saucectl in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): TestCafe on Sauce supports CI integrations with Cirlce CI, GitLab, Jenkins, and GitHub Actions.
 
 ### TestCafe Plugins for Sauce Labs
 
