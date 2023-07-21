@@ -17,25 +17,25 @@
 # The folders are ordered as follows:
 
 # Global rule:
-*        @lauramthomas @lysannep @discombobulateme @aoleszyn
-/docs/ @lauramthomas @lysannep @aoleszyn @LoryApiFortress
+*        @lauramthomas @discombobulateme @aoleszyn @LoryApiFortress
+/docs/ @lauramthomas @aoleszyn @LoryApiFortress
 
 # API testing:
-/docs/api-testing/ @lauramthomas @lysannep @aoleszyn @LoryApiFortress
+/docs/api-testing/ @lauramthomas @aoleszyn @LoryApiFortress
 
 # Dev:
-/docs/dev/api/rdc/ @lauramthomas @lysannep @aoleszyn @LoryApiFortress @kristofmuhi @wswebcreation
-/docs/dev/api/storage/ @lauramthomas @lysannep @aoleszyn @LoryApiFortress @kristofmuhi @wswebcreation
-/docs/dev/cli/ @lauramthomas @lysannep @aoleszyn @LoryApiFortress @saucelabs/devx
+/docs/dev/api/rdc/ @lauramthomas @aoleszyn @LoryApiFortress @kristofmuhi @wswebcreation
+/docs/dev/api/storage/ @lauramthomas @aoleszyn @LoryApiFortress @kristofmuhi @wswebcreation
+/docs/dev/cli/ @lauramthomas @aoleszyn @LoryApiFortress @saucelabs/devx
 
 # Mobile apps:
-/docs/mobile-apps/ @lauramthomas @lysannep @aoleszyn @LoryApiFortress @kristofmuhi @wswebcreation
+/docs/mobile-apps/ @lauramthomas @aoleszyn @LoryApiFortress @kristofmuhi @wswebcreation
 
 # Secure connections:
-/docs/secure-connections/ @lauramthomas @lysannep @aoleszyn @LoryApiFortress
+/docs/secure-connections/ @lauramthomas @aoleszyn @LoryApiFortress
 
 # Web apps:
-/docs/web-apps/ @lauramthomas @lysannep @aoleszyn @LoryApiFortress @saucelabs/devx
+/docs/web-apps/ @lauramthomas @aoleszyn @LoryApiFortress @saucelabs/devx
 
 # Dockerfile:
-Dockerfile @alexplischke @dpgraham @lysannep
+Dockerfile @alexplischke @dpgraham @lauramthomas @aoleszyn @LoryApiFortress

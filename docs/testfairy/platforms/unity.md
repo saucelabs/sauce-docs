@@ -8,19 +8,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## What You'll Learn
-
-- [Installation](#installation)
-- [Setting Screen Name](#set-screen-name)
-- [Logging Exceptions](#log-exceptions)
-- [Troubleshooting](#troubleshooting)
-- [Identifying Your Users](#identify-users)
-- [Setting Session Attributes](#session-attributes)
-- [Remote Logging](#remote-logging)
+The TestFairy allows you to integrate it's powerful mobile testing platform into your Unity project. By following the steps below, you'll be able to start using TestFairy to capture valuable insights into your app's performance and user behavior.
 
 ## Installation
 
-The steps in this section are an example of how to add the TestFairy Unity SDK to your Unity project.
+To integrate the TestFairy Unity SDK with your Unity project, follow the steps below:
+
 
 1. From the TestFairy Unity SDK GitHub page, download the [latest](https://github.com/testfairy/testfairy-unity-plugin/releases) version of the `unitypackage`.
    <img src={useBaseUrl('/img/testfairy/platform/unity-latest.png')} alt="download latest"/>
@@ -65,11 +58,11 @@ The steps in this section are an example of how to add the TestFairy Unity SDK t
 
 7. Save, build, and run.
 
-## Usage
 
-### Setting Screen Name
+## Setting Screen Name
 
-TestFairy can capture screenshots during a recorded session. It attempts to name a screenshot based on different measures automatically. To override this, you can invoke `setScreenName` and set a name for a captured screen. `setScreenName` expects a String so that developers can label screenshots with any appropriate label. Some developers make use of the level name to set the screenshot, for example:
+TestFairy can capture screenshots during a recorded session. By default, it attempts to name a screenshot based on different measures automatically. However, you can override this behavior and set a custom name for a captured screen using the `setScreenName` method. This can help you organize and label screenshots with appropriate information, such as the level name. See the example below:
+
 
 ```js
 using UnityEngine;
@@ -86,9 +79,9 @@ public class cameraScript : MonoBehaviour {
 }
 ```
 
-### Log Your Exceptions
+## Log Your Exceptions
 
-If you would like to capture exception logs and send them to the TestFairy dashboard, use the below code example:
+To capture exception logs and send them to the TestFairy dashboard, you can use the following code example. This will help you track and analyze any exceptions that occur during the usage of your app.
 
 ```js
 private void OnEnable()
@@ -108,9 +101,9 @@ private void HandleLog(string message, string stackTrace, LogType type)
 }
 ```
 
-### Troubleshooting
+## Troubleshooting
 
-If you omit to add the above script, you may encounter the following errors:
+If you encounter certain errors during the integration process, refer to the following troubleshooting tips:
 
 ```bash
 ERROR ITMS-90087: "Unsupported Architectures. The executable TestFairy.framework contains unsupported architectures '[x86_64, i386]'
@@ -125,14 +118,14 @@ Error Domain=IDEFoundationErrorDomain Code=1 "IPA processing failed" UserInfo={N
 
 This error happens when you export an Ad hoc version of your iOS app. Most often seen in Unity Cloud build.
 
-### Identifying Your Users
+## Identifying Your Users
 
-See the SDK Documentation /testfairy/sdk/identifying-users#unity for more information.
+To learn how to identify users and set session attributes using the TestFairy SDK in Unity, refer to the [identifying users section](/testfairy/sdk/identifying-users/) in the SDK Documentation.
 
-### Session Attributes
+## Session Attributes
 
-See the SDK Documentation /testfairy/sdk/session-attributes#unity for more information.
+For information on how to set session attributes using the TestFairy Unity SDK, please refer to the [SDK Documentation on session attributes](/testfairy/sdk/session-attributes/).
 
-### Remote Logging
+## Remote Logging
 
-See the SDK Documentation /testfairy/sdk/remote-logging#unity for more information.
+To understand how to perform remote logging with the TestFairy SDK in Unity, refer to the [remote logging section](/testfairy/sdk/remote-logging/) in the SDK Documentation.

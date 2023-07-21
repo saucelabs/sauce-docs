@@ -39,4 +39,4 @@ SYMSTORE: Number of files ignored = 0
 
 You can find more information about this tool in [Microsoft's documentation](https://docs.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores). It may also be beneficial to know that you can add this as a post-build step in Visual Studio. Just add the appropriate command in the project's property pages, under **Build Events > Post-Build Event > Command Line**.
 
-The remaining steps are to upload those files to the server and then configure the custom symbol server in Backtrace's UI. For more information, see [Connecting to Symbol Servers](https://support.backtrace.io/hc/en-us/articles/360040104652-Connecting-to-Symbol-Servers).
+The remaining steps are to upload those files to the server and then configure the custom symbol server in Backtrace's UI. For more information, see [Connecting to Symbol Servers](/error-reporting/project-setup/symbol-servers/).

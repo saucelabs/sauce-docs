@@ -251,7 +251,7 @@ To integrate error reporting in your Unreal Engine game for Linux, see the [Cras
 </TabItem>
 <TabItem value="GameConsoles">
 
-To integrate error reporting in your Unreal Engine game for game consoles, see the [Video Game Console Integration Guides](/error-reporting/getting-started/).
+To integrate error reporting in your Unreal Engine game for game consoles, see the [Video Game Console Integration Guides](/error-reporting/platform-integrations/overview).
 
 </TabItem>
 </Tabs>
@@ -469,6 +469,6 @@ To send a crash report to your Backtrace instance for Linux, see the [Crashpad I
 </TabItem>
 <TabItem value="GameConsoles">
 
-To send a crash report to your Backtrace instance for game consoles, see the [Video Game Console Integration Guides](/error-reporting/getting-started/).
+To send a crash report to your Backtrace instance for game consoles, see the [Video Game Console Integration Guides](/error-reporting/platform-integrations/overview).
 </TabItem>
 </Tabs>

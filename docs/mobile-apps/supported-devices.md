@@ -62,7 +62,16 @@ If you need:
 
 ### Public Device Cloud
 
-Our public cloud, available to all users regardless of pricing plan, contains a wide selection of thoroughly cleaned devices. They are subject to availability. On the mobile device selection screen, if a device is in use, it'll be marked with a [**In Use** flag](/mobile-apps/live-testing/live-mobile-app-testing/#public-vs-private-devices). Here are some use cases:
+:::note
+
+Available major OS versions for iOS/iPadOS: 16.X, 15.X, 14.X, 13.X, 12.X
+Available major OS versions for Android: 14.X, 13.X, 12.X, 11.X, 10.X, 9.X
+
+:::
+
+Our public cloud, available to all users regardless of pricing plan, contains a wide selection of thoroughly cleaned devices. They are subject to availability. On the mobile device selection screen, if a device is in use, it'll be marked with a [**In Use** flag](/mobile-apps/live-testing/live-mobile-app-testing/#public-vs-private-devices). 
+
+Here are some use cases:
 
 - The devices available on the public cloud are sufficient for your testing coverage.
 - You need to reproduce bugs on a selection of hundreds of iOS and Android devices.
@@ -74,7 +83,7 @@ Our public cloud, available to all users regardless of pricing plan, contains a 
 
 <p><span className="sauceGreen">Enterprise Only</span></p>
 
-This is dedicated pool of devices just for your organization. On the mobile device selection screen, your private devices are marked with a [green device icon](/mobile-apps/live-testing/live-mobile-app-testing/#public-vs-private-devices). Here are some use cases:
+This is a dedicated pool of devices just for your organization. On the mobile device selection screen, your private devices are marked with a [green device icon](/mobile-apps/live-testing/live-mobile-app-testing/#public-vs-private-devices). Here are some use cases:
 
 - You need to use a very specific set of devices that aren't supported on the public cloud.
 - Your security team insists on dedicated devices.
@@ -87,7 +96,7 @@ This is dedicated pool of devices just for your organization. On the mobile devi
 |                        |                                                                                                                                                                                 iOS Mobile Apps                                                                                                                                                                                 |                                                                                                                                                                                                       Android Mobile Apps                                                                                                                                                                                                       |
 | :--------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |    **Requirements**    | <p>Your iOS app must be:</p><p>Formatted as a .app or .ipa file. Refer to the documentation on [how to create an .ipa file](/mobile-apps/automated-testing/ipa-files)</p><p>Uploaded and hosted in [Sauce Labs storage](/mobile-apps/app-storage.md) or installed from a remote location.</p><p>_Appium only. For XCUITest, `saucectl` uploads the referenced app for you._</p> | <p>Your Android app must be:</p><p>Built into an .apk or .aab package/archive file.</p><p>Configured to have [internet permissions](http://developer.android.com/reference/android/Manifest.permission.html#INTERNET)</p><p>Uploaded and hosted in [Sauce Labs storage](/mobile-apps/app-storage.md) or installed from a remote location.</p><p>_Appium only. For Expresso, `saucectl` uploads the referenced app for you._</p> |
-| **Versions supported** |                                                                                                                                                                          iOS versions 9.3.6 and higher                                                                                                                                                                          |                                                                                                                                                                                                 Android versions 5.0 and higher                                                                                                                                                                                                 |
+| **Versions supported** |                                                                                                                                                                          iOS versions 11.4 and higher                                                                                                                                                                          |                                                                                                                                                                                                 Android versions 8.0 and higher                                                                                                                                                                                                 |
 
 For the full list of supported real devices, see [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices).
 

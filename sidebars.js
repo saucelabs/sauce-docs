@@ -360,7 +360,7 @@ module.exports = {
     backtrace: [
         {
             type: 'category',
-            label: 'Error and Crash Reporting',
+            label: 'Error Reporting',
             collapsed: true,
             collapsible: false,
             items: [
@@ -371,6 +371,7 @@ module.exports = {
                     label: 'Platform Integrations',
                     collapsed: true,
                     items: [
+                        'error-reporting/platform-integrations/overview',
                         {
                             type: 'category',
                             label: 'Mobile Applications',
@@ -452,17 +453,17 @@ module.exports = {
                             label: 'Compiled Languages and Applications',
                             collapsed: true,
                             items: [
-                                'error-reporting/platform-integrations/visual-studio',
-                                'error-reporting/platform-integrations/crashpad',
                                 {
                                     type: 'category',
                                     label: 'Coresnap',
                                     collapsed: true,
                                     items: [
-                                        'error-reporting/platform-integrations/coresnap/setup',
                                         'error-reporting/platform-integrations/coresnap/integrating',
+                                        'error-reporting/platform-integrations/coresnap/setup',
                                     ],
                                 },
+                                'error-reporting/platform-integrations/visual-studio',
+                                'error-reporting/platform-integrations/crashpad',
                                 'error-reporting/platform-integrations/breakpad',
                                 'error-reporting/platform-integrations/http-submission',
                             ],
@@ -632,7 +633,9 @@ module.exports = {
                                 'error-reporting/advanced/coroner/client-morgue',
                             ],
                         },
+                        'error-reporting/advanced/morgue',
                         'error-reporting/advanced/traces-coroner',
+                        'error-reporting/advanced/ptrace',
                         {
                             type: 'category',
                             label: 'Hydra',
@@ -651,17 +654,18 @@ module.exports = {
                                 'error-reporting/advanced/assistive-unix/overview',
                             ],
                         },
-                        'error-reporting/advanced/error-processing-modifiers',
+                        'error-reporting/advanced/post-migration',
                         'error-reporting/advanced/custom-symbol-server',
+                        'error-reporting/advanced/bcd',
+                        'error-reporting/advanced/submission-buckets',
                         'error-reporting/advanced/sync-submissions',
+                        'error-reporting/advanced/pam-ldap',
+                        'error-reporting/advanced/platform-overview',
                         'error-reporting/advanced/package-installation',
                         'error-reporting/advanced/client-tools-unix',
                         'error-reporting/advanced/dwarf',
                         'error-reporting/advanced/snapshots',
-                        'error-reporting/advanced/morgue',
-                        'error-reporting/advanced/platform-overview',
-                        'error-reporting/advanced/submission-buckets',
-                        'error-reporting/advanced/ptrace',
+                        'error-reporting/advanced/error-processing-modifiers',
                     ],
                 },
             ],
