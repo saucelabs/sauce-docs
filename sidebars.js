@@ -842,6 +842,7 @@ module.exports = {
                                         'basics/sso/configuring-sso-in-ms-azure-ad',
                                         'basics/sso/configuring-sso-in-okta',
                                         'basics/sso/configuring-sso-in-onelogin',
+                                        'basics/sso/configuring-sso-in-pingone',
                                     ],
                                 },
                                 'basics/sso/logging-in-via-sso',
