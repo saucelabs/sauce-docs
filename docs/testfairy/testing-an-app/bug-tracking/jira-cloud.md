@@ -8,7 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## 1. Creating a Jira API Token
+## Creating a Jira API Token
+
+To connect TestFairy to Jira Cloud, you'll need to create an API token in Jira. This token will be used to authenticate TestFairy when accessing your Jira account. Follow these steps to create the API token:
 
 1. Log in to [https://id.atlassian.com/manage/api-tokens#](https://id.atlassian.com/manage/api-tokens#) and click on **Create API token**.
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-create-api.png')} alt="Create Jira API Token"/>
@@ -19,7 +21,9 @@ import TabItem from '@theme/TabItem';
 1. Copy the API Token.
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-token.png')} alt="Copy the API Token"/>
 
-## 2. Configuring Jira in Your TestFairy Settings
+## Configuring Jira in Your TestFairy Settings
+
+To connect TestFairy to Jira, you'll need to configure Jira settings in your TestFairy account. Follow these steps to complete the configuration:
 
 1. Open your TestFairy account Preferences .
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-cloud-1.png')} alt="Open TestFairy preferences"/>
@@ -30,15 +34,14 @@ import TabItem from '@theme/TabItem';
 3. Enter your Jira Username, API Token, and JIRA URL in the next screen and press **Update Jira Settings**.
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-cloud-2.png')} alt="Configure Jira Cloud"/>
 
-## 3. (Optional) Installing the TestFairy Chrome Extension
+## (Optional) Installing the TestFairy Chrome Extension
 
-The TestFairy Chrome Extension is available at [https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee](https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee). With this Chrome extension, every JIRA issue that has a link to a TestFairy session will contain the proper TestFairy session, timeline, logs, and crash reports embedded in the Jira issue.
+The TestFairy Chrome Extension is available at [https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee](https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee). With this Chrome extension, every JIRA issue that has a link to a TestFairy session will contain the proper TestFairy session, timeline, logs, and crash reports embedded in the Jira issue. Follow these steps to install the Chrome extension:
 
-## 4. (Optional) Adding the TestFairy Jira Add-on to Your Jira Account
+## (Optional) Adding the TestFairy Jira Add-on to Your Jira Account
 
-If you didn't install the Chrome extension, you could add the TestFairy Jira Add-on to add TestFairy videos to Jira issues.
+If you choose not to use the TestFairy Chrome Extension, you can add the TestFairy Jira Add-on to your Jira account. This add-on allows you to include TestFairy videos in Jira issues. Follow these steps to add the TestFairy Jira Add-on:
 
-To install it, follow these steps:
 
 1. Open **Jira Settings**.
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-settings.png')} alt="Open Jira Settings"/>
@@ -61,14 +64,12 @@ To install it, follow these steps:
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira5b.png')} alt="Jira popup"/>
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira6c.png')} alt="Application logs"/>
 
-## 5. (Optional) Mapping Jira Custom Fields
+## (Optional) Mapping Jira Custom Fields
 
 <p><span className="sauceGreen">Highly Recommended</span></p>
 
-The TestFairy Jira integration allows you to automatically populate any field in Jira when creating a new issue.
-You can do that with standard TestFairy data like app name, version, user, device, etc., or your session attributes, key, and value you push to our SDK in real-time.<br/>
+To leverage the full capabilities of the TestFairy Jira integration, it's recommended to map Jira custom fields. This feature allows you to automatically populate any field in Jira when creating a new issue, using standard TestFairy data or your custom session attributes. Follow these steps to map Jira custom fields:
 
-To map Jira custom field follow the steps below:
 
 1. First, you need to connect a Jira account. Follow the [instructions](#1-creating-a-jira-api-token) above.
 
