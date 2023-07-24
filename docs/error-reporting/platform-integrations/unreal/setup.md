@@ -87,9 +87,9 @@ DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
 
 When your app or game crashes in the Unreal Editor, the Unreal Engine Crash Reporter dialog will appear and allow you to send the crash report to your Backtrace instance.
 
-#### For Crashes in Packaged Builds
+### For Crashes in Packaged Builds
 
-##### Enable the Crash Reporter
+#### Enable the Crash Reporter
 
 1. In the Unreal Editor, go to **Edit > Project Settings**.
 1. In the Project Settings, search for "crash reporter".
@@ -100,7 +100,7 @@ When your app or game crashes in the Unreal Editor, the Unreal Engine Crash Repo
 If you're building from the command line, add the `-crashreporter` flag.
 :::
 
-##### Configure the Crash Reporter
+#### Configure the Crash Reporter
 
 You can configure the crash reporter to be the default for all packaged builds or for a single packaged build.
 
