@@ -988,6 +988,7 @@ module.exports = {
                 'orchestrate/building-images',
                 'orchestrate/authenticated-pulls',
                 'orchestrate/best-practices',
+                'orchestrate/sauce-connect',
                 'orchestrate/faq',
                 'orchestrate/architecture',
             ],
