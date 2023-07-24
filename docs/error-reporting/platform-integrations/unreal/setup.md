@@ -260,7 +260,7 @@ To integrate error reporting in your Unreal Engine game for game consoles, see t
 </TabItem>
 <TabItem value="SteamDeck">
 
-Follow the instructions for setting up crash reporting in Windows. The Steam Deck will not show the CrashReportClient after a crash so there will be no option for users to click the send button. To enable sending `-Unattendded` can be added to the launch options for the game. Please note this option sends crash reports without user intervention or knowledge like how the Windows client would normally allow.
+Follow the instructions for setting up crash reporting in Windows. The Steam Deck will not show the CrashReportClient after a crash, so there will be no option for users to click the send button. To enable sending, `-Unattendded` can be added to the launch options for the game. This option sends crash reports without user intervention or knowledge, like the Windows client normally allows.
 
 </TabItem>
 </Tabs>
