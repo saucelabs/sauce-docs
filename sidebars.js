@@ -560,6 +560,7 @@ module.exports = {
                                                 'error-reporting/workflow-integrations/alerting-ops/pagerduty',
                                                 'error-reporting/workflow-integrations/alerting-ops/victorops',
                                                 'error-reporting/workflow-integrations/alerting-ops/opsgenie',
+                                                'error-reporting/workflow-integrations/alerting-ops/slack',
                                             ],
                                         },
                                         {
