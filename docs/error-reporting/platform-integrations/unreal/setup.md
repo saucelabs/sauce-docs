@@ -485,9 +485,9 @@ To send a crash report to your Backtrace instance for game consoles, see the [Co
 </TabItem>
 <TabItem value="SteamDeck">
 
-To crash your game when it starts, create a class called MyActor and reference a blueprint. The blueprint can be attached to the BeginPlay event.
+To crash your game when it starts, create a class called `MyActor` and reference a blueprint. The blueprint can be attached to the `BeginPlay` event.
 
-The header file (which has the .h extension) contains the class definitions and functions, while the implementation of the class is defined by the .cpp file. For example:
+The header file (with the .h extension) contains the class definitions and functions, while the .cpp file defines the class implementation. For example:
 
 - `MyActor.h`:
 
