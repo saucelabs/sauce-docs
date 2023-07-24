@@ -8,24 +8,27 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Before we start, make sure to connect TestFairy to your bug-tracking account:
 
-- Connect TestFairy to JIRA Cloud /testfairy/testing-an-app/bug-tracking/jira-cloud
-- Connect TestFairy to JIRA Server /testfairy/testing-an-app/bug-tracking/jira-server
-- Connect TestFairy to GitHub /testfairy/testing-an-app/bug-tracking/github
-- Connect TestFairy to Trello /testfairy/testing-an-app/bug-tracking/trello
-- Connect to TestFairy Connect (TFC) /testfairy/testing-an-app/bug-tracking/tf-connect
-- Connect TestFairy to Micro Focus ALM Octane /testfairy/testing-an-app/bug-tracking/micro-focus
+Bug tracking is an essential part of the software development process to identify, document, and resolve issues in a systematic manner. TestFairy offers integration with various bug-tracking platforms, enabling seamless communication between testers and developers. 
+
+Before utilizing the bug-tracking features in TestFairy, ensure that you connect your TestFairy account to your preferred bug-tracking platform. TestFairy supports the following bug-tracking integrations:
+
+- [JIRA Cloud](/testfairy/testing-an-app/bug-tracking/jira-cloud/)
+- [JIRA Server](/testfairy/testing-an-app/bug-tracking/jira-server/)
+- [GitHub] (/testfairy/testing-an-app/bug-tracking/github/)
+- [Trello] (/testfairy/testing-an-app/bug-tracking/trello/)
+- [Connect (TFC)](/testfairy/testing-an-app/bug-tracking/tf-connect/)
+- [Micro Focus ALM Octane](/testfairy/testing-an-app/bug-tracking/micro-focus/)
+
+Ensure that you follow the relevant documentation to establish a secure and authenticated connection between TestFairy and your bug-tracking platform.
 
 ## Shake to Feedback
 
-TestFairy makes feedback as easy as a simple shake of your device.
+TestFairy offers a convenient "Shake to Feedback" feature that allows users to provide feedback easily while using your application. By shaking their device, users can trigger an email pop up containing comprehensive feedback, along with an attached screenshot that users can scribble on. The feedback message is then sent to designated destinations such as your developer's dashboard, JIRA, Slack, etc., including the user's input, a video recording of the session, and all relevant data collected during the session.
 
-When using your app with "In-app Feedback" enabled, users can post comprehensive feedback anytime by shaking their device.
-An email will pop up on the screen, ready for filling in a report. It also comes with an attached screenshot your tester can scribble on.
-Once they send this email, a feedback message is sent to all the relevant destinations (such as your developer's dashboard, JIRA, Slack, etc.) along with their input, the video recording of the session, and all the data collected throughout it.
+## Enabling Shake to Feedback in Your Build Settings
 
-### Enabling Shake to Feedback in Your Build Settings
+To enable the Shake to Feedback feature for your application, follow these steps:
 
 1. Choose the app and Build in which you'd like to enable Shake to Feedback
    <img src={useBaseUrl('/img/testfairy/testing-an-app/build-settings.png')} alt="Setting"/>
