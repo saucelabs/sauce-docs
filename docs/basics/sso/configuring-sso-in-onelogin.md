@@ -33,7 +33,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
       <img src={useBaseUrl('img/basics/sso/idp-config/onelogin/user-menu-apps.png')} alt="Users - Menu Applications" width="1000" />
 
    4. Select the Sauce Labs application from the list and click **Continue**.
-   5. You can modify **Name ID** (it has to be an email address), first name, or last name, and then click **Save**.
+   5. You can modify **Name ID** (it has to be an [email address](/basics/sso/setting-up-sso/#name-id)), first name, or last name, and then click **Save**.
       <img src={useBaseUrl('img/basics/sso/idp-config/onelogin/assign-user-to-app.png')} alt="Assign User to App" width="500" />
 
 9. Test the integration using the [IdP-initiated and the SP-initiated login](/basics/sso/logging-in-via-sso).
