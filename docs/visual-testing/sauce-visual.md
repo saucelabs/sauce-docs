@@ -6,22 +6,22 @@ sidebar_label: Getting Started
 
 ## Introduction
 
-Sauce Visual helps you to compare uploaded images (called snapshots) against reference images (called baselines). It offers APIs to upload snapshots and compare those against baselines. The result of the comparison process includes the details of eventually detected differences. All snapshots in Sauce Visual need to be assigned to visual builds.
+Sauce Visual helps you compare uploaded images (snapshots) against reference images (baselines). It offers APIs to upload snapshots and compare those against baselines. The result of the comparison process includes the details of eventually detected differences. All snapshots in Sauce Visual need to be assigned to visual builds.
 
 ## Workflow
 
-To be able to benefit from Sauce Visual you typically add it to your existing automated tests using provided libraries. We currently provide bindings for:
+To benefit from Sauce Visual, you typically add it to your existing automated tests using provided libraries. We provide bindings for:
 - JavaScript/TypeScript
 - Java
-You can use those standalone or with your Selenium/Appium-based tests. Support for other frameworks like Cypress, StoryBooks and Playwright is on the Roadmap.
+You can use those standalone or with your Selenium/Appium-based tests. Support for other frameworks like Cypress, StoryBooks, and Playwright is on the Roadmap.
 
-The best way to integrate Sauce Visual into your existing tests (or write new ones) is to follow the examples listed [in this repo](../README.md).
+The best way to integrate Sauce Visual into your existing tests (or write new ones) is to follow the examples listed [in the repository](../README.md).
 
-After you have executed your tests you will find your Visual test results on the Builds History Page:
+After you have executed your tests, you will find your Visual test results on the Builds History Page:
 
 ![Diff History Page}](./resources/BuildHistoryPage.png)
 
-By selecting one of the builds you get to the Diff Review Page where you can Approve/Reject detected diffs.
+Selecting one of the builds allows you to get the Diff Review Page, where you can Approve/Reject detected diffs.
 
 
 ![Diff Review Page}](./resources/DiffReviewPage.png)
@@ -32,11 +32,11 @@ Visual uses different Statuses:
 
 | Status   | Description |
 | -------- | ----------- |
-| In Progress | Those builds have been finished yet. As soon as this happened they can be reviewed |
-| No Changes | The snapshots assigned to your build were equal to your baseline. This is considered as success as your assertions succeeded. |
-| For Review | There where either no baselines available to compare against your upload snapshot or some of them where different then their baselines. You are supposed to review those detected diffs. As long as those changes aren't accepted they are considered a failure state. |
-| Accepted   | All detected changes where accepted. This is considered a success state. |
-| Rejected   | Some of your detected changes where rejected. This is considered an failure state. |
+| In Progress | Those builds have been finished yet. As soon as this happened, they can be reviewed |
+| No Changes | The snapshots assigned to your build equaled your baseline. It is considered a success because your assertions were successful. |
+| For Review | There were either no baselines available to compare against your upload snapshot or some were different from their baselines. You are supposed to review those detected diffs. As long as those changes aren't accepted, they are considered a failure state. |
+| Accepted   | All detected changes were accepted. This is considered a success state. |
+| Rejected   | Some of your detected changes were rejected. This is considered a failure state. |
 
 ## API
 
