@@ -23,10 +23,10 @@ The query param `?wf-beta=true` allows you to see the pre-release.
 
 3. Choose Slack from the integration list.
 
-4. **Install Slack app**.
+4. Click **Install Slack app**.
    <img src={useBaseUrl('/img/error-reporting/workflow-integrations/slack/slack_integration.png')} alt="slack integration"/>
 
-5. **Allow** Backtrace to access the Backtrace I/O Slack workspace.
+5. Next, **Allow** Backtrace to access the Backtrace I/O Slack workspace.
    <img src={useBaseUrl('/img/error-reporting/workflow-integrations/slack/backtrace_permission.png')} alt="allow backtrace to access slack integration" width="600"/>
 
 6. In Slack, go to Home, and click **Connect with Backtrace**.
