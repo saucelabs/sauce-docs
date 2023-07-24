@@ -29,7 +29,7 @@ tunnel-domains: [ ]
 
 ## Configure the Sauce Orchestrate Runner to Use This Management Tunnel
 
-1. Add the [`tunnel`](/secure-connections/orchestrate/saucectl-configuration/#tunnel) key to the runner configuration.
+1. Add the [`tunnel`](/orchestrate/saucectl-configuration/#tunnel) key to the runner configuration.
 
 
 ## More Information
