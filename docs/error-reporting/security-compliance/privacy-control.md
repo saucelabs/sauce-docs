@@ -36,7 +36,7 @@ All personally identifiable information is mutated in-place before committing to
 
 User-defined scrubbers can also be defined using POSIX regular expressions. Scrubbers that rely on regular expression are applied to any data in the dump that looks like it may be a string. For example, string representations of IP addresses can be scrubbed with the regular expression `[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+`.
 
-At this time, management of the scrubbers is handled through the morgue command line utility. For more information about how to use morgue, see [Morgue](https://support.backtrace.io/hc/en-us/articles/360040517151-Morgue).
+At this time, management of the scrubbers is handled through the morgue command line utility. For more information about how to use morgue, see [Morgue](/error-reporting/advanced/morgue/).
 
 ### Listing Scrubbers
 
@@ -99,7 +99,7 @@ morgue scrubber minetest create --name=ip_scrubber --regexp='[0-9]+\.[0-9]+\.[0-
 
 ## Extensions for Native UNIX Dumps
 
-If you are using our advanced debugger for Linux, FreeBSD and IllumOS-based systems, you are able to modify and censor personally identifiable information through our plugin system, either with LUA or C plugins. For more information, see [Plugins for ptrace](https://support.backtrace.io/hc/en-us/articles/360040516951-Plugins-for-ptrace).
+If you are using our advanced debugger for Linux, FreeBSD and IllumOS-based systems, you are able to modify and censor personally identifiable information through our plugin system, either with LUA or C plugins. For more information, see [Plugins for ptrace](/error-reporting/advanced/ptrace/).
 
 ## For On-Premise Customers Using coronerd
 

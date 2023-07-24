@@ -39,7 +39,6 @@ For on-premise (self-hosted) users, the integration for Unreal Engine requires s
 - Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
 - A Backtrace project and a submission token.
 
-<!-- prettier-ignore -->
 :::tip Generate a Submission Token
 
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
@@ -245,17 +244,17 @@ For information on how to change the default configuration settings for the Back
 </TabItem>
 <TabItem value="macos">
 
-To integrate error reporting in your Unreal Engine game for macOS, see [PLCrashReporter](https://support.backtrace.io/hc/en-us/articles/360040105092).
+To integrate error reporting in your Unreal Engine game for macOS, see [PLCrashReporter](/error-reporting/platform-integrations/plcrash-reporter/).
 
 </TabItem>
 <TabItem value="linux">
 
-To integrate error reporting in your Unreal Engine game for Linux, see the [Crashpad Integration Guide](https://support.backtrace.io/hc/en-us/articles/360040516131-Crashpad-Integration-Guide#InitialIntegration).
+To integrate error reporting in your Unreal Engine game for Linux, see the [Crashpad Integration Guide](/error-reporting/platform-integrations/crashpad/).
 
 </TabItem>
 <TabItem value="GameConsoles">
 
-To integrate error reporting in your Unreal Engine game for game consoles, see the [Console Integration Guides](https://support.backtrace.io/hc/en-us/sections/360007642051-Video-Game-Technologies).
+To integrate error reporting in your Unreal Engine game for game consoles, see the [Video Game Console Integration Guides](/error-reporting/platform-integrations/overview).
 
 </TabItem>
 <TabItem value="SteamDeck">
@@ -469,19 +468,18 @@ The header file (which has the .h extension) contains the class definitions and 
 </TabItem>
 <TabItem value="macos">
 
-To send a crash report to your Backtrace instance for macOS, see [PLCrashReporter](https://support.backtrace.io/hc/en-us/articles/360040105092).
+To send a crash report to your Backtrace instance for macOS, see [PLCrashReporter](/error-reporting/platform-integrations/plcrash-reporter/).
 
 </TabItem>
 <TabItem value="linux">
 
-To send a crash report to your Backtrace instance for Linux, see the [Crashpad Integration Guide](https://support.backtrace.io/hc/en-us/articles/360040516131-Crashpad-Integration-Guide#Sendcrashreports).
+To send a crash report to your Backtrace instance for Linux, see the [Crashpad Integration Guide](/error-reporting/platform-integrations/crashpad/#send-crash-reports).
 
 </TabItem>
 
 <TabItem value="GameConsoles">
 
-To send a crash report to your Backtrace instance for game consoles, see the [Console Integration Guides](https://support.backtrace.io/hc/en-us/sections/360007642051-Video-Game-Technologies).
-
+To send a crash report to your Backtrace instance for game consoles, see the [Video Game Console Integration Guides](/error-reporting/platform-integrations/overview).
 </TabItem>
 <TabItem value="SteamDeck">
 

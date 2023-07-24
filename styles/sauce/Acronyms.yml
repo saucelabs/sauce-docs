@@ -13,6 +13,7 @@ exceptions:
   - APIF
   - APIT
   - ARRAY
+  - BODY
   - CLI
   - CPU
   - CET
@@ -21,10 +22,13 @@ exceptions:
   - CSV
   - DATE
   - DEBUG
+  - DELETE
   - DOM
+  - DWARF
   - DPI
   - FAQ
   - GET
+  - GNU
   - GPS
   - GPU
   - GUI
@@ -40,18 +44,24 @@ exceptions:
   - NET
   - NOTE
   - NPM
+  - NULL
   - OSS
+  - PATCH
   - PATH
   - PDF
   - PDT
   - PHP
+  - PID
   - POST
+  - PUT
   - PST
   - QUERY
   - RAM
   - REPL
   - REST
   - RSA
+  - RSS
+  - SAML
   - SCM
   - SDK
   - SQL
@@ -61,6 +71,8 @@ exceptions:
   - SVG
   - TBD
   - TCP
+  - TID
+  - TLS
   - URI
   - URL
   - USB

@@ -8,14 +8,16 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy provides a mechanism to encrypt the logs and screenshots recorded from the mobile device. This way, the data kept on the cloud is encrypted, and nobody can read it other than the people in your team who have the private key.
-To use this capability, you will need to create a public key and a private key. The public key initializes the TestFairy SDK in your app. The private key, which should not be shared with anybody, will be used by you when you log in to your TestFairy dashboard.
+End-to-End Data Encryption in TestFairy ensures that the logs and screenshots recorded from a mobile device are securely encrypted before being stored on the cloud. This encryption guarantees that only authorized team members with the private key can access and view the recorded data. To use this capability, you will need to create a public key and a private key. The public key initializes the TestFairy SDK in your app and the private key, which should not be shared with anybody, will be used by you when you log in to your TestFairy dashboard. 
 
-This encryption is done with a randomly generated 256-bit AES key. This AES key is random and is only used in a single session recording. The AES key is then protected with an RSA key, where the public key is provided when constructing the SDK.
+The encryption process involves using a randomly generated 256-bit AES key (this AES key is only used in a single session recording), which is further protected with an RSA public key.
+
+
 
 ## Generating Public/Private Key Pair
 
-Generating a pair is done using `openssl` tool:
+To enable end-to-end data encryption, you need to generate a public/private key pair. The private key should be kept confidential and shared only with authorized team members. Follow the steps below to generate the key pair using the `openssl` tool:
+
 
 ```bash
 openssl genrsa -out testfairy-private-key.pem 2048
@@ -28,18 +30,19 @@ The file `testfairy-private-key.pem` is sensitive and should not be shared with 
 
 The content of `testfairy-public-key.txt` will be used to initialize the SDK. Paste this value into the first parameter of `TestFairy.setPublicKey` method.
 
-## Using Android
+## Android Integration
 
-Enable end-to-end encryption for your Android apps by calling `setPublicKey` before calling the `begin` method.
+
+Enable end-to-end encryption for your Android apps by calling `setPublicKey` before calling the `begin` method:
 
 ```java
 TestFairy.setPublicKey("<PUBLIC KEY>");
 TestFairy.begin("<APP TOKEN>");
 ```
 
-## Using iOS
+## iOS Integration
 
-Enable end-to-end encryption for your iOS apps by calling `setPublicKey` before calling the `begin` method.
+Enable end-to-end encryption for your iOS apps by calling `setPublicKey` before calling the `begin` method:
 
 ```js
 [TestFairy setPublicKey:@"<PUBLIC KEY>"];
@@ -48,22 +51,26 @@ Enable end-to-end encryption for your iOS apps by calling `setPublicKey` before 
 
 ## Viewing Encrypted Sessions
 
-Since the data is encrypted using RSA, viewing a session requires the private key. Visiting a recorded session will prompt a dialog for entry of the RSA Private Key. Just paste the private key text and click "OK". Your private keys are never sent to the server and are only kept in the browser session.
+
+Since the data is encrypted using RSA, viewing a session requires the private key. Visiting a recorded session will prompt a dialog for entry of the RSA Private Key. Paste the private key text and click "OK". Your private key is never sent to the server and is only retained within the browser session.
 
 :::caution
-
-It's crucial that you keep the private key safe. If lost, these sessions cannot be recovered, and the recorded data will become useless.
-
+It's crucial that you keep the private key safe.  If it is lost, encrypted sessions cannot be recovered, rendering the recorded data useless.
 :::
 
 ## Technical Details (How Does It Work?)
 
-As a developer who wants to encrypt their sessions, you generate a private key and derive a public key from it.
+The end-to-end encryption process operates as follows:
 
-You put your public key in your app, which is not a secret. This key can only be used to encrypt data, not decrypt.
+1. As a developer, you generate a private key and derive a public key from it.
+2. The public key is integrated into your app, allowing it to encrypt data but not decrypt it.
+3. When a new session starts (calling `TestFairy.begin` after `TestFairy.setPublicKey`), the SDK generates a random 128-bit AES key and encrypts it using the RSA public key you provided.
+4. Each session has a unique AES key (in CBC mode) that is not shared between sessions, ensuring strong security.
 
-When a new session starts (calling TestFairy.begin after TestFairy.setPublicKey), the SDK generates a random AES key and encrypts it with the RSA public key you provided.
+:::note
+The random key is encrypted by the public key by itself. It means that if a 3rd party wants to view the session, they must run 2^128 brute force combinations to find one session.
+:::
 
-It means every session has a different AES key (in CBC mode) and is not shared between sessions. The AES key is 128-bit, and the encrypted data may be decrypted if you have the key. The random key is encrypted by the public key by itself. It means that if a 3rd party wants to view the session, they must run 2^128 brute force combinations to find one session. AES is used to encrypt the data, as it is much faster than RSA and is not limited by the length of the cleartext value.
+5. AES encryption is employed for data encryption as it is faster than RSA and not limited by the length of the `cleartext` value.
+6. The encrypted data includes logs and screenshots, and certain features, such as showing values entered in EditText fields or the text of a button clicked, are automatically disabled when encryption is enabled.
 
-The data that is encrypted includes the logs and the screenshots. If encryption is enabled, certain features are automatically disabled, such as showing values entered in EditText fields or the text of a button clicked.

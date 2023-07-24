@@ -8,9 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The EU General Data Protection Regulation (GDPR) was designed to harmonize data privacy laws across Europe, protect and empower all EU citizens' data privacy, and reshape how organizations across the region approach data privacy.
+The EU General Data Protection Regulation (GDPR) was designed to harmonize data privacy laws across Europe, protect and empower all EU citizens' data privacy, and reshape how organizations across the region approach data privacy. TestFairy is committed to providing a GDPR-compliant service and ensuring that its customers can use the platform in a manner that aligns with GDPR requirements.
 
-Following these regulations, here are some answers to your questions:
+For your convenience, we have compiled a list of frequently asked questions related to TestFairy's GDPR compliance and data privacy practices. Below, you will find answers to common queries that may arise regarding the handling of personal data and the use of TestFairy's services in accordance with the EU General Data Protection Regulation (GDPR).
 
 ## Can TestFairy Provide a GDPR-Compliant Service?
 

@@ -911,13 +911,31 @@ Specifies test compilation settings. The current version of TestCafe can only co
 
 ```yaml
   compilerOptions:
-    configPath: /path/to/tsconfig.json
-    customCompilerModulePath: ../typescript@4
+    typescript:
+      configPath: /path/to/tsconfig.json
+      customCompilerModulePath: ../typescript@4
+      options:
+        showConfig: true
 ```
 
 ---
 
-#### `configPath`
+#### `typescript`
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies the TypeScript options.
+
+```yaml
+    typescript:
+      configPath: /path/to/tsconfig.json
+      customCompilerModulePath: ../typescript@4
+      options:
+        showConfig: true
+```
+
+---
+
+##### `configPath`
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -933,7 +951,7 @@ We recommend that you avoid the use of special characters when naming your confi
 
 ---
 
-#### `customCompilerModulePath`
+##### `customCompilerModulePath`
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
@@ -949,7 +967,7 @@ We recommend that you avoid the use of special characters when naming your confi
 
 ---
 
-#### `options`
+##### `options`
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 

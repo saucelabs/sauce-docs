@@ -1197,7 +1197,7 @@ The `am instrument` tool passes testing options in the form of key-value pairs, 
 
 ```
 # -e <key> <value>
-- e testUser "John Doe"
+-e testUser "John Doe"
 ```
 
 you can do so in `saucectl` by adding them to the `testOptions` property.

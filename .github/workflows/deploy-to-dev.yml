@@ -1,6 +1,14 @@
 name: Deploy to Dev
 
 on:
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - '.github/**'
+      - '.docsearch/**'
+      - 'README.md'
+      - '.gitpod.yml'
   workflow_dispatch:
 
 env:
@@ -51,3 +59,14 @@ jobs:
         run: |-
           cd build
           gsutil -m rsync -R -d . ${{ secrets.GCS_DEV_BUCKET }}
+
+      - name: Deploy Message
+        if: success()
+        uses: unsplash/comment-on-pr@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          msg: |
+            Deploy preview ready for ${{ github.event.number }}!
+            https://docs.dev.saucelabs.net
+            built from ${{ github.sha }}

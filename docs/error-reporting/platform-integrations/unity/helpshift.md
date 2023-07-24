@@ -17,7 +17,7 @@ Integrate the respective SDKs for Backtrace and HelpShift first.
 
 ### Backtrace SDK
 
-- [Unity Integration Guide for Backtrace](https://support.backtrace.io/hc/en-us/articles/360040515991)
+- [Unity Integration Guide for Backtrace](/error-reporting/platform-integrations/unity/setup/)
 
 ### HelpShift SDK
 

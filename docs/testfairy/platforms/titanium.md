@@ -8,9 +8,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The TiTestFairy Module extends the Appcelerator Titanium Mobile framework, with the TestFairy Android and iOS SDKs. The TestFairy SDK enables integration with TestFairy to give you a better understanding of how your app performs on real devices. It tells you when and how people are using your app, and provides you with any metric you may need to optimize your user experience and code.
+The TiTestFairy Module extends the Appcelerator Titanium Mobile framework with the TestFairy Android and iOS SDKs. By integrating TestFairy, you gain valuable insights into how your app performs on real devices, understand user behavior, and collect metrics to optimize your user experience and code.
+
 
 ## Installation
+
+To integrate TestFairy into your Titanium Mobile project, follow these steps:
 
 1. Add the following lines to your `tiapp.xml` file:
 
@@ -42,21 +45,23 @@ The TiTestFairy Module extends the Appcelerator Titanium Mobile framework, with 
 
 For more detailed code examples take a look at our [example app](https://github.com/testfairy/ti.testfairy/blob/feat-readme/example/app.js).
 
-## Usage
 
-### Identifying Your Users
+## Identifying Your Users
 
-See the SDK Documentation /testfairy/sdk/identifying-users#titanium for more information.
+To learn how to identify users and set session attributes using the TestFairy SDK in Titanium, refer to the [identifying users section](/testfairy/sdk/identifying-users/) in the SDK Documentation.
 
-### Session Attributes
 
-See the SDK Documentation /testfairy/sdk/session-attributes#titanium for more information.
+## Session Attributes
 
-### Remote Logging
+For information on how to set session attributes using the TestFairy Titanium SDK, please refer to the [SDK Documentation on session attributes](/testfairy/sdk/session-attributes/).
 
-See the SDK Documentation /testfairy/sdk/remote-logging#titanium for more information.
+## Remote Logging
+
+To understand how to perform remote logging with the TestFairy SDK in Titanium, refer to the [remote logging section](/testfairy/sdk/remote-logging/) in the SDK Documentation.
 
 ## Reference
+
+The TestFairy Titanium module exposes the following methods:
 
 `TiTestFairy.version;` - Returns the version of the TestFairy SDK.
 
