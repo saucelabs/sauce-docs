@@ -668,6 +668,7 @@ module.exports = {
                         'error-reporting/advanced/error-processing-modifiers',
                     ],
                 },
+                'error-reporting/troubleshooting',
             ],
         },
     ],
