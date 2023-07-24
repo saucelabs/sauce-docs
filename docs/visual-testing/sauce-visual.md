@@ -42,6 +42,8 @@ Visual uses different Statuses:
 
 Sauce Visual offers a public GraphQL API which can be used to understand the available feature set and to generate client bindings from them. The public API can be found here:
 
-- [US West API](https://api.us-west-1.saucelabs.com/v1/visual/graphql)
-- [US East API](https://api.us-east-4.saucelabs.com/v1/visual/graphql)
-- [EU Central API](https://api.eu-central-1.saucelabs.com/v1/visual/graphql)
+| Data Center | API URL                              |
+| :---------- | :---------------------------------------- |
+| US West     | https://api.us-west-1.saucelabs.com/v1/visual/graphql    |
+| US East     | https://api.us-east-4.saucelabs.com/v1/visual/graphql   |
+| EU Central      | https://api.eu-central-1.saucelabs.com/v1/visual/graphql |
