@@ -48,9 +48,7 @@ When creating your executable file, take into account the operating system you'l
 
 ### Storing a Configuration Script
 
-
 Your script can be stored in GitHub or in [App Storage](/mobile-apps/app-storage/) (for more information see [Common Error Messages](https://docs.saucelabs.com/dev/error-messages/#failed-to-download-mobile-application)). You can also use [Gist](https://gist.github.com/) to easily host your executable file. Make sure to use the link containing the raw file contents.
-
 
 ### Set the `prerun` Capability
 
@@ -307,3 +305,384 @@ If using Sauce Storage for your pre-run executable send the following desired ca
 ### 64 v. 32-bit Version of AutoIT
 
 The 64bit version of AutoIT works on IE11, and not on IE9. The 32bit version works with both browser versions.
+
+## Automated Testing
+
+### Upload Files with the REST API
+
+Below are some examples of how to use the Sauce Labs REST API to upload your mobile file to Sauce Storage. If you do not have a file to test, consider using the [Sauce Labs Swag Labs sample app](https://github.com/saucelabs/sample-app-mobile) for validating this process.
+
+#### REST API Authentication
+
+The authorization credentials are located here: [app.saucelabs.com](https://app.saucelabs.com/user-settings). A recommended best practice is to set your credentials as environment variables like so:
+
+```bash
+SAUCE_USERNAME='valid.username'
+SAUCE_ACCESS_KEY='valid.key'
+```
+
+For specific instructions on how to set environment variables visit, the following links:
+
+- [Set Environment Variables with Windows 10](https://www.architectryan.com/2018/08/31/how-to-change-environment-variables-on-windows-10/)
+- [Set Environment Variables with MacOS](https://apple.stackexchange.com/questions/106778/how-do-i-set-environment-variables-on-os-x)
+- [Set Environment Variables with Linux](https://askubuntu.com/questions/58814/how-do-i-add-environment-variables)
+
+#### Accepted File Types
+
+App Storage recognizes .apk files as Android apps and .ipa files as iOS apps, and will also parse a .zip file to determine whether a valid .app bundle exists, accepting it as an iOS app if it does. You can also upload and store other file types for generic use, such as a pre-run executable, package, or binary. Some of the formats for this type of use case include:
+
+- .js
+- .py
+- .tar
+- .zip
+- .sh
+- .bat
+
+#### Team Management Sync
+
+App Storage uses a Team Management sync feature that allows for user permissions schemes. In other words, a Sauce Labs admin (either an org admin or a team admin) can control access to individual application files or specific binary/script files. By default, all uploaded files are shared with the same team where the user participates currently. You, as a user, can only access files that are shared with the team where you contribute/participate unless your role is an organization admin in which case you have access to all files in your particular organization.
+
+To manage access to your organization go to **Account** > **Team Management**.
+
+#### Storage API Endpoints
+
+There are two main contexts/branches for the storage API:
+
+- One for working with separate application builds (individual builds, application files, etc.)
+- One for working with apps (groups of application builds with the same unique identifier, belonging to the same platform and team)
+
+For the full list of the available endpoints, see [Storage API](/dev/api/storage/)
+
+### Using Application Storage with Automated Test Builds
+
+After successfully uploading your file to application storage, you need to reference the unique app Identifier (file_id) in your test code to retrieve and use your app for automated tests.
+
+For example, let's assume you've updated a new version of your app using the [/upload](/dev/api/storage/#upload-file-to-app-storage) endpoint. The JSON response would be something like below:
+
+```json
+{
+   "item":{
+      "id":"379c301a-199c-4b40-ad45-4a95e5f30a3a",
+      "owner":{
+         "id":"286c0fbb0cb644c4a012d505b8a0a1ac",
+         "org_id":"c064890612424e34a12fca98ce4f32c6"
+      },
+      "name":"Android.SauceLabs.Mobile.Sample.app.2.3.0.apk",
+      "upload_timestamp":1593450387,
+      "etag":"0cf189b1c4c17a56656ada5e2d75cd51",
+      "kind":"android",
+      "group_id":2807,
+      "metadata":{
+         "identifier":"com.swaglabsmobileapp",
+         "name":"Swag Labs Mobile App",
+         "version":"2.3.0",
+         "icon":"<long-serial-number>",
+         "version_code":13,
+         "min_sdk":16,
+         "target_sdk":28
+      },
+      ...
+      }
+   }
+}
+```
+
+Then the file_id would be "id":"379c301a-199c-4b40-ad45-4a95e5f30a3a". If you're unsure of the id of an existing app, you can use the [endpoint](/dev/api/storage/#get-app-storage-files), along with the necessary parameters to find the desired application.
+
+:::tip File Name instead of File ID
+
+You can also use the app `name` field from the storage API in the `app` capability. This approach is particularly useful if you uploaded your build to Application Storage via a CI pipeline, and you either don't know the `id`, or you do not wish to perform JSON parsing in order to retrieve the `id`. The `filename` field also includes [any supported file that can be uploaded to application storage](#accepted-file-types).
+
+Example of uploading an Android .apk file:
+
+<Tabs
+groupId="lang-ex"
+defaultValue="java"
+values={[
+{label: 'Java', value: 'java'},
+{label: 'JS', value: 'js'},
+{label: 'Python', value: 'python'},
+{label: 'Ruby', value: 'ruby'},
+{label: 'C#', value: 'c'},
+]}>
+
+<TabItem value="java">
+
+```java
+caps.setCapability("app", "storage:filename=<file-name>.apk");
+```
+
+</TabItem>
+
+<TabItem value="js">
+
+```js
+caps['app'] = 'storage:filename=<file-name>.apk';
+```
+
+</TabItem>
+
+<TabItem value="python">
+
+```python
+caps['app'] = "storage:filename=<file-name>.apk"
+```
+
+</TabItem>
+
+<TabItem value="ruby">
+
+```ruby
+caps['app'] = 'storage:filename=<file-name>.apk'
+```
+
+</TabItem>
+
+<TabItem value="c">
+
+```csharp
+caps.SetCapability("app","storage:filename=<file-name>.apk");
+```
+
+</TabItem>
+
+</Tabs>
+
+**Limitations**:
+
+- File names are **NOT** unique, therefore they will always default to the latest version.
+- Currently you cannot specify the version of the app using this feature.
+- `build` capability not supported in VDC at this time.
+
+:::
+
+#### Updating WebDriver Capabilities
+
+If you were previously using application stored in sauce-storage, you can convert your existing test capabilities by replacing `sauce-storage:myapp` with `storage:<file_id>`.
+
+##### Example Code Snippets
+
+These examples assume `file_id = c8511dd6-38ec-4f58-b8b9-4ec8c23ad882`.
+
+<Tabs
+groupId="lang-ex"
+defaultValue="java"
+values={[
+{label: 'Java', value: 'java'},
+{label: 'JS', value: 'js'},
+{label: 'Python', value: 'python'},
+{label: 'Ruby', value: 'ruby'},
+{label: 'C#', value: 'c'},
+]}>
+
+<TabItem value="java">
+
+**Before**
+
+```java
+caps.setCapability("app", "sauce-storage:some-app.apk");
+```
+
+**After**
+
+```java
+caps.setCapability("app", "storage:c8511dd6-38ec-4f58-b8b9-4ec8c23ad882");
+```
+
+</TabItem>
+
+<TabItem value="js">
+
+**Before**
+
+```js
+caps['app'] = 'sauce-storage:my_app.apk';
+```
+
+**After**
+
+```js
+caps['app'] = 'storage:c8511dd6-38ec-4f58-b8b9-4ec8c23ad882';
+```
+
+</TabItem>
+
+<TabItem value="python">
+
+**Before**
+
+```python
+caps['app'] = "sauce-storage:my_app.apk"
+```
+
+**After**
+
+```python
+caps['app'] = "storage:c8511dd6-38ec-4f58-b8b9-4ec8c23ad882"
+```
+
+</TabItem>
+
+<TabItem value="ruby">
+
+**Before**
+
+```ruby
+caps['app'] = 'sauce-storage:my_app.apk'
+```
+
+**After**
+
+```ruby
+caps['app'] = 'storage:c8511dd6-38ec-4f58-b8b9-4ec8c23ad882'
+```
+
+</TabItem>
+
+<TabItem value="c">
+
+**Before**
+
+```csharp
+caps.SetCapability("app","sauce-storage:my_app.apk");
+```
+
+**After**
+
+```csharp
+caps.SetCapability("app","storage:c8511dd6-38ec-4f58-b8b9-4ec8c23ad882");
+```
+
+</TabItem>
+
+</Tabs>
+
+### Uploading to a Remote Location
+
+There may be situations where you want to install an application from a downloadable remote location (AWS S3 bucket, a GitHub repository, etc.).
+
+Review the following guidelines below before uploading your application:
+
+1. Make sure your application meets the [requirements](/mobile-apps/supported-devices/) for Android and iOS Mobile Application Testing.
+2. Upload your application to the hosting location.
+3. Ensure Sauce Labs has READ access to the app URL.
+4. In your test script, enter the URL for the application as the `app` desired capability. Below are some example snippets:
+
+<Tabs
+groupId="lang-ex"
+defaultValue="java"
+values={[
+{label: 'Java', value: 'java'},
+{label: 'Node.js', value: 'js'},
+{label: 'Python', value: 'python'},
+{label: 'Ruby', value: 'ruby'},
+{label: 'C#', value: 'c'},
+]}>
+
+<TabItem value="java">
+
+```java
+caps.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.2.1/iOS.Simulator.SauceLabs.Mobile.Sample.app.2.1.1.zip);
+```
+
+</TabItem>
+
+<TabItem value="js">
+
+```js
+app: 'https://github.com/saucelabs/sample-app-mobile/releases/download/2.2.1/iOS.Simulator.SauceLabs.Mobile.Sample.app.2.1.1.zip',
+```
+
+</TabItem>
+
+<TabItem value="python">
+
+```python
+'app':  'https://github.com/saucelabs/sample-app-mobile/releases/download/2.2.1/iOS.Simulator.SauceLabs.Mobile.Sample.app.2.1.1.zip',
+```
+
+</TabItem>
+
+<TabItem value="ruby">
+
+```ruby
+app: 'https://github.com/saucelabs/sample-app-mobile/releases/download/2.2.1/iOS.Simulator.SauceLabs.Mobile.Sample.app.2.1.1.zip'
+```
+
+</TabItem>
+
+<TabItem value="c">
+
+```csharp
+caps.SetCapability("app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.2.1/iOS.Simulator.SauceLabs.Mobile.Sample.app.2.1.1.zip");
+```
+
+</TabItem>
+
+</Tabs>
+
+### Uploading to Legacy Sauce Storage
+
+Sauce Storage is our legacy private storage space for apps. Files uploaded will expire seven days after upload, and be removed. You can upload the app you want to test to Sauce Storage using our REST API, and then access it for testing by specifying `sauce-storage:myapp` for the `app` capability in your test script. You upload apps using the [upload file method](/dev/api/storage/#upload-file-to-app-storage) of the Sauce Labs REST API.
+
+You can use any REST client; [cURL](https://curl.haxx.se/docs/manpage.html) is a convenient command-line option.
+
+<Tabs
+groupId="lang-ex"
+defaultValue="bash"
+values={[
+{label: 'bash', value: 'bash'},
+{label: 'powershell', value: 'powershell'},
+]}>
+
+<TabItem value="bash">
+
+**US West**
+
+```curl
+$ curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY -X POST -H "Content-Type: application/octet-stream" \
+"https://saucelabs.com/rest/v1/storage/$SAUCE_USERNAME/$APP_NAME?overwrite=true" --data-binary @path/to/your_file_name
+```
+
+**US East**
+
+```curl
+$ curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY -X POST -H "Content-Type: application/octet-stream" \
+"https://us-east-1.saucelabs.com/rest/v1/storage/$SAUCE_USERNAME/$APP_NAME?overwrite=true" --data-binary @path/to/your_file_name
+```
+
+**EU Central**
+
+```curl
+$ curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY -X POST -H "Content-Type: application/octet-stream" \
+"https://eu-central-1.saucelabs.com/rest/v1/storage/$SAUCE_USERNAME/$APP_NAME?overwrite=true" --data-binary @path/to/your_file_name
+```
+
+</TabItem>
+
+<TabItem value="powershell">
+
+**US West**
+
+```curl
+> curl -u %SAUCE_USERNAME%:%SAUCE_ACCESS_KEY% -X POST -H "Content-Type: application/octet-stream" \
+"https://saucelabs.com/rest/v1/storage/%SAUCE_USERNAME%/%APP_NAME%?overwrite=true" --data-binary @path\to\your_file_name
+```
+
+**US East**
+
+```curl
+> curl -u %SAUCE_USERNAME%:%SAUCE_ACCESS_KEY% -X POST -H "Content-Type: application/octet-stream" \
+"https://us-east-1.saucelabs.com/rest/v1/storage/%SAUCE_USERNAME%/%APP_NAME%?overwrite=true" --data-binary @path\to\your_file_name
+```
+
+**EU Central**
+
+```curl
+> curl -u %SAUCE_USERNAME%:%SAUCE_ACCESS_KEY% -X POST -H "Content-Type: application/octet-stream" \
+"https://eu-central-1.saucelabs.com/rest/v1/storage/%SAUCE_USERNAME%/%APP_NAME%?overwrite=true" --data-binary @path\to\your_file_name
+```
+
+</TabItem>
+
+</Tabs>
