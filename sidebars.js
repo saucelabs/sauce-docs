@@ -572,6 +572,7 @@ module.exports = {
                                             ],
                                         },
                                         'error-reporting/workflow-integrations/webhook',
+                                        'error-reporting/workflow-integrations/connections',
                                     ],
                                 },
                                 'error-reporting/project-setup/alerts',
