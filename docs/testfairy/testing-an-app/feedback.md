@@ -8,27 +8,33 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-User/Tester's feedback can contain vital and highly relevant information when testing an app.
+Getting feedback from users and testers is crucial in the app development process. It provides valuable insights and helps improve the overall user experience. TestFairy offers an effortless way to collect feedback through its In-App Feedback feature. By integrating the TestFairy SDK into your app, you can enable users to report bugs, suggest improvements, and share their thoughts directly from within the app.
 
-It can improve your app user experience and make it easier for your testers to communicate with you their thoughts on how to make your app better.
+## Using In-app Feedback
 
-### Using In-app Feedback
-
-TestFairy provides an effortless way to collect this feedback.
-
-If you [added the TestFairy SDK](https://docs.testfairy.com/SDK/Adding_The_SDK_To_Your_App.html) to your app, then all you need to do is enable the **In-App Bug Reporting** feature in your build settings in the TestFairy dashboard, and you can start collection feedbacks from your users with `"shake to report"`:
+TestFairy provides an effortless way to collect this feedback. If you [added the TestFairy SDK](https://docs.testfairy.com/SDK/Adding_The_SDK_To_Your_App.html) to your app, then all you need to do is enable the **In-App Bug Reporting** feature in your build settings in the TestFairy dashboard, and you can start collection feedbacks from your users with `"shake to report"`:
 
 <img src={useBaseUrl('/img/testfairy/testing-an-app/enable_feedback.png')} alt="In-app bug reporting"/>
 
-Users or testers will be prompted to report feedback when they shake their devices.
+Users or testers can initiate the feedback collection process by shaking their devices while using the app. When they shake the device, the feedback form will be triggered, allowing them to report bugs or share their suggestions.
 
 This feedback will be added to the existing app session they are currently running.
 
 All feedback includes a screenshot, device information, submitter email, and text comments added. The feedback is added to the event timeline so you can find it without difficulty.
 
-### Customizing In-app Feedback
+## Feedback Contents
 
-If you wish to use the TestFairy feedback form without having the user shake their device, you can invoke the feedback form programmatically and call the method you choose. You can do it with any gesture or button click in your app if the user opens the help menu or even gets an error message they didn't expect.
+When users provide feedback using the In-App Bug Reporting feature, the following information will be included:
+
+- **Screenshot** - A screenshot of the app at the moment the feedback was triggered.
+- **Device Information** - Details about the device, such as model, OS version, and other relevant technical information.
+- **Submitter Email** - If available, the email address of the user or tester providing the feedback.
+- **Text Comments** - Users can include specific comments to describe the issue or suggestion they are reporting.
+- **Event Timeline** - The feedback will be added to the app's event timeline, making it easy for developers to track and analyze the feedback.
+
+## Customizing In-app Feedback
+
+TestFairy allows you to customize the way In-App Feedback is collected. If you prefer not to use the shake gesture for feedback collection, you can programmatically invoke the feedback form using a button click or any other gesture within your app. This way, users can access the feedback form from a designated area within the app, like the help menu or after encountering unexpected errors.
 
 Note that if you choose to invoke the feedback form programmatically, it will be shown regardless if the in-app feedback is disabled in your build settings.
 
@@ -65,7 +71,7 @@ TestFairy.showFeedbackForm();
 
 :::note
 
-For advance customization look at [Class FeedbackOptions.Builder](https://docs.testfairy.com/reference/android/com/testfairy/FeedbackOptions.Builder.html)
+For advanced customization, see [Class FeedbackOptions.Builder](https://docs.testfairy.com/reference/android/com/testfairy/FeedbackOptions.Builder.html).
 
 :::
 
