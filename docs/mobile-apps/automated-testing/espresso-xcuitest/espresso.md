@@ -1155,7 +1155,7 @@ Espresso may not distribute tests evenly across the number of shards specified, 
 
 #### `clearPackageData`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
 
 Removes all shared states from the testing device's CPU and memory at the completion of each test. See [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)-usage.
 
