@@ -8,6 +8,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Micro Focus ALM Octane a web-based application lifecycle management and quality management solution designed to streamline software delivery and testing processes. By integrating Micro Focus ALM Octane with TestFairy, you can efficiently manage your testing processes, streamline bug tracking, and ensure a smooth collaboration between development and testing teams.
+
+## Integration Steps
+
 1. Go to your [Integrations](https://app.testfairy.com/settings/integrations/) page.
 
 2. Scoll the list to the **Micro Focus ALM Octane** and press the **Add Integration**.
@@ -32,3 +36,5 @@ import TabItem from '@theme/TabItem';
 
 9. When you return to the apps screen, the workspace is mapped to the app.
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/ALM-5.png')} alt="Project mapping"/>
+
+Congratulations! You have successfully integrated Micro Focus ALM Octane with TestFairy, and you can now manage your testing processes and issues more efficiently.
