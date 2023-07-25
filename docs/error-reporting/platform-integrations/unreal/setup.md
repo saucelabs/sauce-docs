@@ -23,11 +23,11 @@ The Backtrace Unreal plugin reports on the following types of errors:
 
 ## Supported Platforms
 
-| Supported Platforms | Supported Systems                                                                     |
-| ------------------- | ------------------------------------------------------------------------------------- |
-| Mobile              | Android, iOS                                                                          |
-| PC                  | Windows, MacOS, Linux                                                                 |
-| Game Consoles       | PlayStation 4, PlayStation 5, Xbox One, Xbox Series X, Xbox Series S, Nintendo Switch |
+| Supported Platforms | Supported Systems                                                                                 |
+| ------------------- | ------------------------------------------------------------------------------------------------- |
+| Mobile              | Android, iOS                                                                                      |
+| PC                  | Windows, MacOS, Linux                                                                             |
+| Game Consoles       | PlayStation 4, PlayStation 5, Xbox One, Xbox Series X, Xbox Series S, Nintendo Switch, Steam Deck |
 
 :::note
 For on-premise (self-hosted) users, the integration for Unreal Engine requires specific packages. For more information, contact support.
@@ -48,18 +48,7 @@ For on-premise (self-hosted) users, the integration for Unreal Engine requires s
 
 ### System Requirements
 
-- Unreal Engine version 4.16 to 5.0
-
-## Enable the Crash Reporter
-
-1. In the Unreal Editor, go to **Edit > Project Settings**.
-1. In the Project Settings, search for "crash reporter".
-1. Under **Packaging**, enable **Include Crash Reporter**.
-   <img src={useBaseUrl('img/error-reporting/unreal-enable-crashreporter.png')} alt="Enable the Crash Reporter in the Unreal Editor." />
-
-:::note
-If you're building from the command line, add the `-crashreporter` flag.
-:::
+- Unreal Engine version 4.16 to 5.2
 
 ## Initialize the Backtrace Client
 
@@ -73,6 +62,7 @@ values={[
 {label: 'macOS', value: 'macos'},
 {label: 'Linux', value: 'linux'},
 {label: 'Game Consoles', value: 'GameConsoles'},
+{label: 'Steam Deck', value: 'SteamDeck'},
 ]}>
 
 <TabItem value="windows">
@@ -97,7 +87,20 @@ DataRouterUrl="https://unreal.backtrace.io/post/{subdomain}/{submission-token}"
 
 When your app or game crashes in the Unreal Editor, the Unreal Engine Crash Reporter dialog will appear and allow you to send the crash report to your Backtrace instance.
 
-#### For Crashes in Packaged Builds
+### For Crashes in Packaged Builds
+
+#### Enable the Crash Reporter
+
+1. In the Unreal Editor, go to **Edit > Project Settings**.
+1. In the Project Settings, search for "crash reporter".
+1. Under **Packaging**, enable **Include Crash Reporter**.
+   <img src={useBaseUrl('img/error-reporting/unreal-enable-crashreporter.png')} alt="Enable the Crash Reporter in the Unreal Editor." />
+
+:::note
+If you're building from the command line, add the `-crashreporter` flag.
+:::
+
+#### Configure the Crash Reporter
 
 You can configure the crash reporter to be the default for all packaged builds or for a single packaged build.
 
@@ -254,6 +257,11 @@ To integrate error reporting in your Unreal Engine game for Linux, see the [Cras
 To integrate error reporting in your Unreal Engine game for game consoles, see the [Video Game Console Integration Guides](/error-reporting/platform-integrations/overview).
 
 </TabItem>
+<TabItem value="SteamDeck">
+
+Follow the instructions for setting up crash reporting in Windows. The Steam Deck will not show the CrashReportClient after a crash, so there will be no option for users to click the send button. To enable sending, `-Unattendded` can be added to the launch options for the game. This option sends crash reports without user intervention or knowledge, like the Windows client normally allows.
+
+</TabItem>
 </Tabs>
 
 ## Upload Debug Symbols
@@ -278,6 +286,7 @@ values={[
 {label: 'macOS', value: 'macos'},
 {label: 'Linux', value: 'linux'},
 {label: 'Game Consoles', value: 'GameConsoles'},
+{label: 'Steam Deck', value: 'SteamDeck'},
 ]}>
 
 <TabItem value="windows">
@@ -467,8 +476,93 @@ To send a crash report to your Backtrace instance for macOS, see [PLCrashReporte
 To send a crash report to your Backtrace instance for Linux, see the [Crashpad Integration Guide](/error-reporting/platform-integrations/crashpad/#send-crash-reports).
 
 </TabItem>
+
 <TabItem value="GameConsoles">
 
 To send a crash report to your Backtrace instance for game consoles, see the [Video Game Console Integration Guides](/error-reporting/platform-integrations/overview).
+</TabItem>
+<TabItem value="SteamDeck">
+
+To crash your game when it starts, create a class called `MyActor` and reference a blueprint. The blueprint can be attached to the `BeginPlay` event.
+
+The header file (with the .h extension) contains the class definitions and functions, while the .cpp file defines the class implementation. For example:
+
+- `MyActor.h`:
+
+  ```cpp
+  // Fill out your copyright notice in the Description page of Project Settings.
+  ​
+  #pragma once
+  ​
+  #include "CoreMinimal.h"
+  #include "GameFramework/Actor.h"
+  #include "GenericPlatform/GenericPlatformCrashContext.h"
+  #include "MyActor.generated.h"
+  ​
+  UCLASS()
+  class BACKTRACE_API AMyActor : public AActor
+  {
+  	GENERATED_BODY()
+
+  public:
+  	// Sets default values for this actor's properties
+  	AMyActor();
+  ​
+  protected:
+  	// Called when the game starts or when spawned
+  	virtual void BeginPlay() override;
+  ​
+  public:
+  	// Called every frame
+  	virtual void Tick(float DeltaTime) override;
+  ​
+  	UFUNCTION(BlueprintCallable, Category = "Backtrace Tools")
+  		void DoCrashMe();
+  ​
+  };
+  ```
+
+- `MyActor.cpp`:
+
+  ```cpp
+  // Fill out your copyright notice in the Description page of Project Settings.
+  ​
+  ​
+  #include "MyActor.h"
+  ​
+  // Sets default values
+  AMyActor::AMyActor()
+  {
+   	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+  	PrimaryActorTick.bCanEverTick = true;
+  ​
+  }
+  ​
+  // Called when the game starts or when spawned
+  void AMyActor::BeginPlay()
+  {
+  	Super::BeginPlay();
+  	{
+  ​
+  			FGenericCrashContext::SetGameData(TEXT("BluePrintCallStack"), TEXT("BluePrintCallStackValue"));
+  	}
+
+  }
+  ​
+  // Called every frame
+  void AMyActor::Tick(float DeltaTime)
+  {
+  	Super::Tick(DeltaTime);
+  ​
+  }
+  ​
+  void AMyActor::DoCrashMe()
+  {
+  ​
+  	UE_LOG(LogTemp, Fatal, TEXT("I crash and burn. Bye bye now"));
+  ​
+  }
+  ```
+
 </TabItem>
 </Tabs>
