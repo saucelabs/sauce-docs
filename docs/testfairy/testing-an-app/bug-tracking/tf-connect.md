@@ -8,20 +8,19 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy Connect is a proxy server installed on-premise, designed to help companies connect their bug-tracking systems behind a firewall (Jira Server) with the TestFairy cloud.
+TestFairy Connect is a proxy server designed to facilitate the connection between your bug-tracking system (Jira Server) behind a firewall and the TestFairy cloud. By installing TestFairy Connect on-premise, companies can securely integrate their bug-tracking systems with TestFairy's web app, allowing for efficient and streamlined bug tracking and reporting.
 
 You can install TestFairy Connect via a Docker image.
 
 ## How does it work?
 
-The critical part of TestFairy Connect is the agent service that runs on a system in your firewall, connecting to TestFairy's web app and your bug-tracking system.
+The core component of TestFairy Connect is the agent service. This service operates on a system within your firewall and establishes connections between TestFairy's web app and your bug-tracking system. Through this connection, bug reports and relevant data can be seamlessly exchanged between the two platforms:
+
 <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/0-overview.png')} alt="Overview"/>
 
 ## Installation
 
-Let's configure TestFairy Connect.
-
-It is required only once. Docker will automatically download the latest version.
+To install TestFairy Connect, follow the steps below. The installation process is required only once, and the Docker will automatically download the latest version:
 
 ```sh
 docker run -i -t -v $PWD:/etc/testfairy-connect testfairy/testfairy-connect:latest configure
@@ -33,9 +32,9 @@ You can replace `$PWD` with a directory of your choice to store your TestFairy C
 
 If there are no issues, you can follow the interactive configuration wizard displayed on the screen.
 
-## Configuration
+## Configuring TestFairy Connect
 
-To configure TestFairy Connect, you will need the following data:
+Before TestFairy Connect can function correctly, you need to provide specific configuration data. Ensure you have the following information:
 
 - TestFairy API key. You can find at https://[your-subdomain].testfairy.com/settings/api-key/.
 - The URL to your bug system.
@@ -44,9 +43,9 @@ To configure TestFairy Connect, you will need the following data:
 
 By default, your configuration file `config.json` is saved to `.testfairy-connect` under the Dockers Image home directory: `~/.testfairy-connect/config.json`.
 
-## Running
+## Running TestFairy Connect
 
-Now that you have TestFairy Connect configured, run it with the following:
+Once you have completed the configuration, TestFairy Connect is ready to run. To start the TestFairy Connect server, use the following command:
 
 ```sh
 docker run -d -v $PWD:/etc/testfairy-connect --restart=always testfairy/testfairy-connect:latest start
