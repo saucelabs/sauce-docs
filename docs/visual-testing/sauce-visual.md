@@ -15,16 +15,16 @@ To benefit from Sauce Visual, you typically add it to your existing automated te
 - Java
 You can use those standalone or with your Selenium/Appium-based tests. Support for other frameworks like Cypress, StoryBooks, and Playwright is on the Roadmap.
 
-The best way to integrate Sauce Visual into your existing tests (or write new ones) is to follow the examples listed [in the repository](../README.md).
+The best way to integrate Sauce Visual into your existing tests (or write new ones) is to follow the examples listed [in the Visual example repository](https://github.com/saucelabs/visual-examples).
 
 After you have executed your tests, you will find your Visual test results on the Builds History Page:
 
-![Diff History Page}](./resources/BuildHistoryPage.png)
+![Diff History Page}](./static/img/sauce-visual/BuildHistoryPage.png)
 
 Selecting one of the builds allows you to get the Diff Review Page, where you can Approve/Reject detected diffs.
 
 
-![Diff Review Page}](./resources/DiffReviewPage.png)
+![Diff Review Page}](./static/img/sauce-visual/DiffReviewPage.png)
 
 ## Visual Statuses
 
