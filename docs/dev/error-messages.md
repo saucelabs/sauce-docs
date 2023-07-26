@@ -289,6 +289,63 @@ capabilities.setCapability("appium:deviceName", "^iPhone.*");
 capabilities.setCapability("appium:platformVersion", "15.7.5");
 ```
 
+### We couldn't find a matching device in our data center
+
+**Description**
+
+We couldn't find a matching device in our data center that matches your requested capabilities.
+
+**Cause(s)**
+
+**The requested device is not available in the data center**
+
+Have you tried validating your capabilities in our Live testing filter?
+
+- **EU:** [https://app.eu-central-1.saucelabs.com/live/web-testing/device](https://app.eu-central-1.saucelabs.com/live/web-testing/device)
+- **US-East:** [https://app.us-east-4.saucelabs.com/live/web-testing/device](https://app.us-east-4.saucelabs.com/live/web-testing/device)
+- **US-West:** [https://app.saucelabs.com/live/web-testing/device](https://app.saucelabs.com/live/web-testing/device)
+
+**Your capabilities are too strict**
+
+In some cases you might search for a device with specific capabilities, for example, an exact OS version like “Android”: “7.1.1” or “iOS”: “15.0.0” which is not available anymore.
+
+Have you tried:
+
+- Validating if a device with the exact same capabilities is still available in the used data center
+- Have you tried using [Dynamic Allocation](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation)
+
+**Are you targeting the correct data center?**
+
+It might be that you are targeting the wrong data center. You can change your endpoint with one of the following [urls](/basics/data-center-endpoints/).
+
+### Unable to find an available device
+
+**Description**
+
+We couldn't find an available device in our data center that matches your requested capabilities.
+
+**Cause(s)**
+
+**The requested device is (still) in use**
+
+The requested device might not be available because it’s used. Possible reasons could be:
+
+- **Public Devices:**
+  - A matching device could not be allocated because they are all in use. We constantly monitor the usage of specific models/configurations and will add additional capacity if needed
+- **Private Devices:**
+  - The device is being cleaned, rebooted, or is getting a health check. See [cleaning](/mobile-apps/real-device-cleaning/).
+  - A team member is using this specific device configuration for a manual/automated test.
+
+**Your capabilities are too strict**
+
+In some cases you might request a device with very specific capabilities which results in only one specific device. For example, you are requesting a specific iPhone 13 with iOS 15.7.1. If that device is already in use you need to wait before it is released.
+
+Have you tried using [Dynamic Allocation](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation)
+
+**Are you targeting the correct data center?**
+
+It might be that you are targeting the wrong data center. You can change your endpoint with one of the following [urls](/basics/data-center-endpoints/).
+
 ## Mobile App Testing Only
 
 ### Failed to Download Mobile Application
