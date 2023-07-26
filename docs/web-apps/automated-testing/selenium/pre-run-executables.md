@@ -314,14 +314,14 @@ Below are some examples of how to use the Sauce Labs REST API to upload your mob
 
 #### REST API Authentication
 
-The authorization credentials are located here: [app.saucelabs.com](https://app.saucelabs.com/user-settings). A recommended best practice is to set your credentials as environment variables like so:
+You can find the authorization credentials at [app.saucelabs.com](https://app.saucelabs.com/user-settings). A recommended best practice is to set your credentials as environment variables, as shown below:
 
 ```bash
 SAUCE_USERNAME='valid.username'
 SAUCE_ACCESS_KEY='valid.key'
 ```
 
-For specific instructions on how to set environment variables visit, the following links:
+For specific instructions on how to set environment variables visit the following links:
 
 - [Set Environment Variables with Windows 10](https://www.architectryan.com/2018/08/31/how-to-change-environment-variables-on-windows-10/)
 - [Set Environment Variables with MacOS](https://apple.stackexchange.com/questions/106778/how-do-i-set-environment-variables-on-os-x)
@@ -340,7 +340,7 @@ App Storage recognizes .apk files as Android apps and .ipa files as iOS apps, an
 
 #### Team Management Sync
 
-App Storage uses a Team Management sync feature that allows for user permissions schemes. In other words, a Sauce Labs admin (either an org admin or a team admin) can control access to individual application files or specific binary/script files. By default, all uploaded files are shared with the same team where the user participates currently. You, as a user, can only access files that are shared with the team where you contribute/participate unless your role is an organization admin in which case you have access to all files in your particular organization.
+App Storage uses a Team Management sync feature that allows user permission schemes. In other words, a Sauce Labs admin (either an org admin or a team admin) can control access to individual application files or specific binary/script files. By default, all uploaded files are shared with the same team in which the user participates. As a user, you can only access files shared with the team where you contribute/participate unless your role is an organization admin; in this case, you have access to all files in your particular organization.
 
 To manage access to your organization go to **Account** > **Team Management**.
 
