@@ -8,13 +8,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To connect TestFairy to Jira Server that is installed on-prem, start by installing TestFairy Connect /testfairy/testing-an-app/bug-tracking/tf-connect
+This documentation provides step-by-step instructions on how to integrate TestFairy Connect with Jira Server for bug tracking. By following these guidelines, you can seamlessly connect TestFairy to your on-premise Jira Server either using basic authentication (user/password token) or OAuth.
 
-## Configuring TestFairy Connect with Jira Server
+:::note
+To connect TestFairy to Jira Server that is installed on-prem, start by installing [TestFairy Connect](/testfairy/testing-an-app/bug-tracking/tf-connect/).
+:::
 
-This guide explains configuring the TestFairy Connect agent to work with an on-premise Jira using basic authentication (user/password token) or OAuth.
 
-### Using the Wizard
+## Using the Configuration Wizard
 
 Start the wizard by typing the following command in your terminal or command prompt:
 
@@ -22,10 +23,10 @@ Start the wizard by typing the following command in your terminal or command pro
 $ testfairy-connect configure
 ```
 
-#### Welcome to the TestFairy Connect Configuration Wizard
+The Configuration Wizard will prompt you with the following questions:
 
 - **What is your TestFairy API Key?**
-  Put your `Upload API key` here; you can access it via the [Settings Page](https://app.testfairy.com/settings/#api-key).
+  Enter your `Upload API key` here; you can access it via the [Settings Page](https://app.testfairy.com/settings/#api-key).
 
 - **What kind of issue tracking system will you use with TestFairy Connect?**
   Choose `JIRA`.
@@ -45,14 +46,14 @@ $ testfairy-connect configure
 - **Jira password:**
   And your JIRA login password
 
-- Sometimes, depending on your user definitions in Jira, you may need to use an API token as your password. You can create one here at [https://id.atlassian.com/manage/api-tokens](https://id.atlassian.com/manage/api-tokens)
+- Sometimes, depending on your user definitions in Jira, you may need to use an API token as your password. You can create one [here](https://id.atlassian.com/manage/api-tokens).
 
 - **Please enter HTTP proxy server address; leave empty if none:**
   Send it here if you require an HTTP proxy to access this Jira server. For example, `http://user@10.0.0.1:8080`.
 
-When done, the configuration wizard displays the success message: `Successfully connected to the issue tracker`.
+Once you have provided all the necessary information, the configuration wizard will display a success message: `Successfully connected to the issue tracker`.
 
-You have successfully configured TestFairy Connect with Jira using Basic authentication. Next, start the agent from the command line /testfairy/testing-an-app/bug-tracking/tf-connect.
+You have now successfully configured TestFairy Connect with Jira using basic authentication. Next, you can start the agent from the command line.
 
 ---
 
@@ -97,6 +98,6 @@ You have successfully configured TestFairy Connect with Jira using Basic authent
 
 4.  Update your `config.json` with `access_token` and `access_token_secret`.
 
-5.  (optional) Install the TestFairy Chrome Extension.
+5.  **(optional)** Install the TestFairy Chrome Extension.
 
-The TestFairy Chrome Extension is available at [https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee](https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee). With this Chrome extension, every Jira issue that has a link to a TestFairy session will contain the proper TestFairy session, timeline, logs, and crash reports embedded in the Jira issue.
+The TestFairy Chrome Extension is available at [here](https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee). With this Chrome extension, every Jira issue that has a link to a TestFairy session will contain the proper TestFairy session, timeline, logs, and crash reports embedded in the Jira issue.
