@@ -49,4 +49,4 @@ To configure a workflow integration, select **Project Settings** from the menu a
 
 ## Connections
 
-- [Workflow Connections](/error-reporting/workflow-integrations/connections/)
+- [Workflow Connections](/error-reporting/project-setup/connections/)
