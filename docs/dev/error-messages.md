@@ -340,7 +340,7 @@ The requested device might not be available because it’s used. Possible reason
 
 In some cases you might request a device with very specific capabilities which results in only one specific device. For example, you are requesting a specific iPhone 13 with iOS 15.7.1. If that device is already in use you need to wait before it is released.
 
-Have you tried using [Dynamic Allocation](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation)
+Have you tried using [Dynamic Allocation](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation)?
 
 **Are you targeting the correct data center?**
 
