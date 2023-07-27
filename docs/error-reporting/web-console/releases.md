@@ -15,7 +15,10 @@ The Backtrace Web Console's Release view gives team leads, project managers, and
 - Retroactively compare and explore release stability to learn and improve your processes going forward
 - Quickly understand the state of your application across versions
 
-<img src={useBaseUrl('img/error-reporting/console-views/releases-page.png')} alt="The Releases view allows you to monitor release stability." />
+<img src={useBaseUrl('img/error-reporting/console-views/new_releases_page.png')} alt="The Releases view allows you to monitor release stability." />
+<img src={useBaseUrl('img/error-reporting/console-views/new_health-metrics-table.png')} alt="Shows the stability metrics for your project's releases." />
+
+You can see the user adoption of the versions, the error-free application launches, errors over time, and new errors over time. Additionally, there are quick toggles for error types (crashes, hangs, exceptions) and platforms (iOS, Android, ps4, Nintendo Switch, Xbox, Windows, Linux). The quick toggles are also available in the Overview section.
 
 ## Configuration
 
@@ -69,7 +72,7 @@ The bottom of the page lays out each release with aggregated health / stability 
 - Total errors
 - Triage status (distribution %)
 
-<img src={useBaseUrl('img/error-reporting/console-views/health-metrics-table.png')} alt="Shows the stability metrics for your project's releases." />
+<img src={useBaseUrl('img/error-reporting/console-views/new_health-metrics-table.png')} alt="Shows the stability metrics for your project's releases." />
 
 Note that you can see more information for each of the % metrics by hovering over it with your mouse. For example, by hovering over one of the error-free sessions metrics, you can see the number of error-free sessions and total number of sessions.
 
