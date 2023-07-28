@@ -40,4 +40,4 @@ Select **Circonus** and fill in the required settings (name, webhook URL, HTTPTr
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/circonus-settings.png')} alt="" />
 
-Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.
+Next: After filling in the integration-specific settings, proceed to Common Settings to finish configuring the integration.

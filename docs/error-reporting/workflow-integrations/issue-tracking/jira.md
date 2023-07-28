@@ -205,7 +205,7 @@ To generate an RSA public and private key pair, run the following commands in yo
    - Custom Field Mapping - Description: See below
    - Custom Fields: See below
 
-Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.
+Next: After filling in the integration-specific settings, proceed to Common Settings to finish configuring the integration.
 
 ### Jira URL Examples
 
