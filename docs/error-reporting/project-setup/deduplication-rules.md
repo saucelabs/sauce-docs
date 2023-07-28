@@ -45,7 +45,7 @@ As you can see, each ruleset consists of a name, an optional set or languages or
 
 A rule consists of a set of predicates (IF statements to evaluate matches against functions, objects or sources using regex), and a set of actions to take IF the statements evaluate TRUE. Click **Add a rule** to add a new rule.
 
-:::caution Supported RegEx
+:::caution Regex Support
 Backtrace supports "PCRE minus", a subset of the PCRE standard.
 You can find the library at [https://docs.rs/regex/latest/regex/](https://docs.rs/regex/latest/regex/).
 :::
