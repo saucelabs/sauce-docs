@@ -31,13 +31,13 @@ Deduplication rules can be access under Project Settings.
 
 Under Project Settings, you'll see a Deduplication section. This section will list for you the named rulesets that are associated with the project, in order of their execution. You will see a default and un-editable ruleset, called the Backtrace Ruleset. These are rules we automatically process for all incoming callstacks (Note you can't view or manage this - it's part of our secret sauce!). You can add and manage additional custom rulesets for the project. See a screenshot below for an out of the box view of project with no custom deduplication rules.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/deduplication-config.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/deduplication-config.png')} alt="deduplication config" />
 
 ### Create a Custom Ruleset
 
 Click **Add new ruleset** to create a new ruleset.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/add-new-dedup-ruleset.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/add-new-dedup-ruleset.png')} alt="add new deduplication ruleset" />
 
 As you can see, each ruleset consists of a name, an optional set or languages or OS that the rules within should apply to, an enable/disable toggle, and the ability to add a set of rules that should be evaluated.
 
@@ -45,26 +45,31 @@ As you can see, each ruleset consists of a name, an optional set or languages or
 
 A rule consists of a set of predicates (IF statements to evaluate matches against functions, objects or sources using regex), and a set of actions to take IF the statements evaluate TRUE. Click **Add a rule** to add a new rule.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/dedup-ruleset.png')} alt="" />
+:::caution Supported RegEx
+Backtrace supports "PCRE minus", a subset of the PCRE standard.
+You can find the library at [https://docs.rs/regex/latest/regex/](https://docs.rs/regex/latest/regex/).
+:::
+
+<img src={useBaseUrl('img/error-reporting/project-settings/dedup-ruleset.png')} alt="ruleset" />
 
 ### More Examples of Rules
 
 Below is an example of a more complex rule, with three predicates and a list of all available actions:
 
-<img src={useBaseUrl('img/error-reporting/project-settings/dedup-ruleset-examples.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/dedup-ruleset-examples.png')} alt="examples" />
 
 The second example shows two rules for a rule set. The first rule has 3 actions, including ignoring and skipping frames, and setting a new attribute. The second rule shows how to perform a replacement of a function name.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/ruleset-replace-example.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/ruleset-replace-example.png')} alt="ruleset replace example" />
 
 ### Enable and Disable
 
 You can quickly enable or disable rules in the toggle menu.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/disable-dedup-rules.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/disable-dedup-rules.png')} alt="disable deduplication rules" />
 
 ### Ruleset Testing
 
 After creating a ruleset, you can test the output of the deduplication engine with an existing crash report (or error) in the system. Just enter the Instance ID of the crash report in the Ruleset Testing field. (You can get an instance ID from the Debug view. You will see the Ruleset Testing field after you have saved a Ruleset).
 
-<img src={useBaseUrl('img/error-reporting/project-settings/dedup-ruleset-testing.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/dedup-ruleset-testing.png')} alt="deduplication ruleset testing" />
