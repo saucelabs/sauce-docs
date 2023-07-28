@@ -61,4 +61,4 @@ Select **Stride** and fill in the required settings:
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/stride-settings.png')} alt="" />s
 
-Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.
+Next: After filling in the integration-specific settings, proceed to Common Settings to finish configuring the integration.
