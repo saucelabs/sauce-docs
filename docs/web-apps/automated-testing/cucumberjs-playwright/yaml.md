@@ -326,7 +326,7 @@ npm:
 <p><small>| OPTIONAL | STRING |</small></p>
 
 :::note
-This setting is supported up to Playwright 1.35.1. For later version, use `registries`.
+This setting is supported up to Playwright 1.35.1. For newer versions, use `registries`.
 :::
 
 Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
