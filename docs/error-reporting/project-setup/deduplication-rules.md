@@ -43,7 +43,14 @@ As you can see, each ruleset consists of a name, an optional set or languages or
 
 ### Manage Rules in Rulesets
 
-A rule consists of a set of predicates (IF statements to evaluate matches against functions, objects or sources using regex), and a set of actions to take IF the statements evaluate TRUE. Click **Add a rule** to add a new rule.
+A rule consists of a set of predicates (IF statements), and a set of actions to take IF the statements evaluate TRUE.
+The IF statements evaluate matches against functions, objects, or sources using regex:
+
+- Function is the name of the function.
+- Source is the name of the source file from which the function comes.
+- Object is the name of the object.
+
+Click **Add a rule** to add a new rule.
 
 :::caution Regex Support
 Backtrace supports "PCRE minus", a subset of the PCRE standard.
