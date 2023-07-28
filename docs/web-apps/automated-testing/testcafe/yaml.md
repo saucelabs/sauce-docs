@@ -340,7 +340,7 @@ Specifies the location of the npm registry source. If the registry source is a p
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Specifies the location of the npm registry, scope and credentials. If the registry is inside a private network, you need to establish a tunnel using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
+Specifies the location of the npm registry, scope, and credentials. If the registry is inside a private network, you must establish a tunnel using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
 
 ```yaml
   registries:
