@@ -178,3 +178,8 @@ If all you want is to publish your TestCafe test results to Sauce Labs (but not 
 :::caution Special Characters in Test Names
 We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
 :::
+
+:::caution TestCafe 3.0.1 + Chrome/Edge + Sauce-Connect
+When using Sauce-Connect, Chrome and Edge browsers are unable to load any website through the tunnel.
+It will behave as there is no tunnel defined.
+::::
