@@ -5,11 +5,19 @@ sidebar_label: Glossary
 description: A glossary of terminology used across Sauce Labs products.
 ---
 
-**[A](/dev/glossary#a)&nbsp;&nbsp;&nbsp; [B](/dev/glossary#b)&nbsp;&nbsp;&nbsp; [C](/dev/glossary#c)&nbsp;&nbsp;&nbsp; [D](/dev/glossary#d)&nbsp;&nbsp;&nbsp; [E](/dev/glossary#e)&nbsp;&nbsp;&nbsp; [F](/dev/glossary#f)&nbsp;&nbsp;&nbsp; [H](/dev/glossary#h)&nbsp;&nbsp;&nbsp; [I](/dev/glossary#i)&nbsp;&nbsp;&nbsp; [L](/dev/glossary#l)&nbsp;&nbsp; [M](/dev/glossary#m)&nbsp;&nbsp;&nbsp; [N](/dev/glossary#n)&nbsp;&nbsp;&nbsp; [O](/dev/glossary#o)&nbsp;&nbsp;&nbsp; [P](/dev/glossary#p)&nbsp;&nbsp;&nbsp; [R](/dev/glossary#r)&nbsp;&nbsp;&nbsp; [S](/dev/glossary#s)&nbsp;&nbsp;&nbsp; [T](/dev/glossary#t)&nbsp;&nbsp;&nbsp; [U](/dev/glossary#u)&nbsp;&nbsp;&nbsp; [V](/dev/glossary#v)&nbsp;&nbsp;&nbsp; [W](/dev/glossary#w)**
+**[A](/dev/glossary#a)&nbsp;&nbsp;&nbsp; [B](/dev/glossary#b)&nbsp;&nbsp;&nbsp; [C](/dev/glossary#c)&nbsp;&nbsp;&nbsp; [D](/dev/glossary#d)&nbsp;&nbsp;&nbsp; [E](/dev/glossary#e)&nbsp;&nbsp;&nbsp; [F](/dev/glossary#f)&nbsp;&nbsp;&nbsp; [G](/dev/glossary#g)&nbsp;&nbsp;&nbsp; [H](/dev/glossary#h)&nbsp;&nbsp;&nbsp; [I](/dev/glossary#i)&nbsp;&nbsp;&nbsp; [L](/dev/glossary#l)&nbsp;&nbsp; [M](/dev/glossary#m)&nbsp;&nbsp;&nbsp; [N](/dev/glossary#n)&nbsp;&nbsp;&nbsp; [O](/dev/glossary#o)&nbsp;&nbsp;&nbsp; [P](/dev/glossary#p)&nbsp;&nbsp;&nbsp; [R](/dev/glossary#r)&nbsp;&nbsp;&nbsp; [S](/dev/glossary#s)&nbsp;&nbsp;&nbsp; [T](/dev/glossary#t)&nbsp;&nbsp;&nbsp; [U](/dev/glossary#u)&nbsp;&nbsp;&nbsp; [V](/dev/glossary#v)&nbsp;&nbsp;&nbsp; [W](/dev/glossary#w)**
 
 ---
 
 ## **A**
+
+### Action RPG (ARPG)
+
+This is typically a smaller role-playing game, usually small parties of 1-10 players, without all the depth of play offered by a full-fledged RPG. ARPGs will have tight, compact game experiences, where you have characters and loot that "persist" from session to session, but where the world the user plays in will be auto-generated at run-time.
+
+### Alpha
+
+See: _[Playtest](#playtest)_.
 
 ### Analytics
 
@@ -55,6 +63,10 @@ A testing method where you use separate software to control the execution of tes
 
 ## **B**
 
+### Beta
+
+See: _[Playtest](#playtest)_.
+
 ### Build
 
 1. A suite of individual Sauce Labs tests on various parts (e.g., page objects) of a website or app using any platform/browser combination, bundled together in the same session. A build is defined when you add the same build number to the code for tests in that suite. More information: [Best Practice: Use Build IDs, Tags, and Names to Identify Your Tests](/basics/test-config-annotation/test-annotation/#use-build-ids-tags-and-names-to-identify-your-tests).
@@ -84,6 +96,10 @@ See also: _[CI/CD platform](#cicd-platform), [software development lifecycle](#s
 A pipeline-driven software platform that automates the CI/CD pipeline process at scale. You can configure your CI/CD platform to run tests on Sauce Labs using one of our platform-specific proprietary plug-ins. More information: [Sauce Labs Integrations](/basics/integrations-overview/).
 
 See also: _[CI/CD pipeline](#cicd-pipeline), [continuous integration](#continuous-integration-ci), [continuous deployment](#continuous-deployment-cd)_.
+
+### Closed Beta Testing
+
+See: _[Playtest](#playtest)_.
 
 ### Colliding Tunnels
 
@@ -139,11 +155,19 @@ The consistency of your web or mobile app's user experience across multiple comb
 
 A method of testing where you can verify the consistency of your web or mobile app when accessed through multiple combinations of browsers, devices, and operating systems. By leveraging automated testing, you can test thousands of these combinations simultaneously in parallel. More information: [Sauce Labs Cross-Browser Testing for Web Apps](/web-apps).
 
+### Cross-Platform
+
+Describes the ability of players using different video game hardware to play with each other simultaneously.
+
 ## **D**
 
 ### Data Center (DC)
 
 A network that houses the set of Sauce Labs services relevant to your license type and your company's needs (i.e., geographic location, real vs. virtual device, and optional other services). To run a Sauce Labs test, you must connect to one or more data centers by including the appropriate endpoint URL(s) in your test script. More information: [Data Center Endpoints](/basics/data-center-endpoints).
+
+### DirectX
+
+DirectX is a series of application programming interfaces (API) that provide low-level access to hardware components like video cards, the sound card, and memory. At a basic level, DirectX allows games to "talk" to video cards. In the DOS days, games had direct access to video cards and the motherboard, and you could directly edit the configuration file to make changes.
 
 ## **E**
 
@@ -159,6 +183,10 @@ See also: _[Simulator](#simulator), [real device testing](#real-device-testing)_
 
 2. A Sauce Labs customer subscribed to our enterprise plan, which offers a dedicated account team and premium support. For more information, contact your Customer Success Manager. More information: [Sauce Labs Pricing](https://saucelabs.com/pricing).
 
+### eSports
+
+A form of competition using video games. Esports often takes the form of organized, multiplayer video game competitions, particularly between professional players, individually or as teams.
+
 ## **F**
 
 ### Failure Analysis
@@ -172,6 +200,18 @@ See also: _[Insights](#insights)_.
 A Sauce Labs Failure Analysis metric that shows a specific, recurring error that's causing test and build failures. You can see the amount of tests impacted and the percentage of total failures attributed to each error.
 
 See also: _[failure analysis](#failure-analysis)_.
+
+### First-Person Shooter (FPS)
+
+A subgenre of shooter video games.
+
+### Flight Sim
+
+Microsoft Flight Simulator is a series of amateur flight simulator programs for Microsoft Windows operating systems, and earlier for MS-DOS and Classic Mac OS. It is one of the longest-running, best-known, and most comprehensive home flight simulator programs on the market.
+
+### Frames-Per-Second (FPS)
+
+It is the frequency (rate) at which consecutive images (frames) are captured or displayed.
 
 ### Framework
 
@@ -194,6 +234,34 @@ See also: _[performance testing](#performance-testing)_.
 A method of testing that validates some functionality or feature of your app. The output of these tests should generally be a simple "pass" or "fail" – either your functionality worked as expected, or it didn't.
 
 See also: _[non-functional testing](#non-functional-testing)_.
+
+## **G**
+
+### Game Artist
+
+Game Artists design preliminary sketches and develop them according to a video game's general style. They then create 2D or 3D animations from these sketches under the supervision of the Lead Artist. These elements create the world, its mood, and unique personality.
+
+### Game Designers
+
+Game designers have duties like designing characters, levels, puzzles, art and animation. They may also write code, using various computer programming languages. Depending on their career duties, they may also be responsible for project management tasks and testing early versions of video games.
+
+### Game Engine
+
+The “game engine” is the fundamental technology that the game lives on. In most cases, a game’s menuing system, networking layer, graphical presentation, user interface, everything, will be centered around a single gaming “engine”.<br/>
+A game on a specific platform will never be based on more than one engine. The only time a game will be implemented on multiple engines is when the developer has to implement it on multiple platforms.<br/>
+Given that more engines are being developed to work across platforms, developers are starting to prefer these engines, which is leading to considerable market consolidation.
+
+### Game-Maker Studio
+
+A series of cross-platform [Game Engines](#game-engine).
+
+### Games as a service (GaaS)
+
+Represents providing video games or game content on a continuing revenue model, similar to software as a service. Games as a service are ways to monetize video games either after their initial sale, or to support a free-to-play model. Games released under the GaaS model typically receive a long or indefinite stream of monetized new content over time to encourage players to continue paying to support the game.
+
+### Graphics Processing Unit (GPU)
+
+A graphics processing unit is a specialized electronic circuit designed to rapidly manipulate and alter memory to accelerate the creation of images in a frame buffer intended for output to a display device. GPUs are used in embedded systems, mobile phones, personal computers, workstations, and game consoles.
 
 ## **H**
 
@@ -219,6 +287,16 @@ A mobile app written in platform-agnostic web technologies like HTML5, CSS, and 
 ### Image Injection
 
 See: _[camera image injection](#camera-image-injection)_.
+
+### In-House
+
+- Many studios develop their own in-house game engine, for a variety of reasons. Many times it’s a matter of legacy: they’ve been doing it this way, so they need to keep doing it that way. Some of the older engines are starting to show their age in a way that’s unavoidable, so these companies are starting to migrate in the direction of Unreal or Unity.
+- Another case for an in-house engine is the Decima engine is one example, used by publisher Guerilla Games to make Horizon: Zero Dawn. Whether it’s feature inadequacy, a long-term vision of monetizing a new engine as its own IP, or a specific problem with the other engines, this was the default for nearly all game studios throughout the 80s and 90s, and started to dwindle with the advent of Unreal in the late 90s.
+- Though most companies use pre-built game engines, they still don’t have much in the way of automated testing or error/APM monitoring. That’s where Sauce Labs comes in.
+
+### Instances
+
+A special area that generates a new copy of the location for each group, or for a certain number of players, that enters the area. Instancing, the general term for the use of this technique, addresses several problems encountered by players in the shared spaces of virtual worlds.
 
 ### Insights
 
@@ -248,7 +326,11 @@ A Sauce Labs API Testing tool that captures and record API calls (HTTP requests 
 
 A file where various Sauce Labs processes record events that occur during testing. Access to different logfiles depends on the process that generated them.
 
-## M
+### Lumberyard
+
+This is Amazon Studios’ game engine.
+
+## **M**
 
 ### Managed Customer
 
@@ -257,6 +339,14 @@ See: _[enterprise customer](#enterprise)_.
 ### Manual Testing
 
 See:[live testing](#live-testing).
+
+### MMORPG
+
+Massively Multiplayer Online Role-Playing Game.
+
+### MOBA
+
+Multiplayer Online Battle Arena.
 
 ### Mobile App
 
@@ -281,6 +371,10 @@ See also: _[functional testing](#functional-testing)_.
 ### OnDemand Service
 
 A prime facility and feature of cloud computing services that allows users to provision raw cloud resources at run time, when and where needed.
+
+### Open Beta Testing
+
+See: _[Playtest](#playtest)_.
 
 ### Organization Admin
 
@@ -312,6 +406,10 @@ A type of non-functional software testing that ensures your software responds as
 
 See also: _[front-end performance testing](#front-end-performance-testing)_.
 
+### Persistence
+
+A persistent online world that supports hundreds or thousands of players simultaneously; gaming continues to develop even when some of the players are not playing their characters.
+
 ### pidfile
 
 A text file generated by Sauce Connect Proxy that records your tunnel's process identification number (PID). Unless otherwise specified, the file will be cleaned up on exit or overwritten at startup. If needed, you can terminate a tunnel any time by sending a kill signal to the PID recorded in pidfile. More information: [How to Start and Stop Sauce Connect Tunnels (Startup and Teardown)](/secure-connections/sauce-connect/proxy-tunnels#starting-and-stopping-tunnels), [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
@@ -327,6 +425,32 @@ See [API Mocking](#api-mocking) to learn more about the concept.
 A Sauce Labs tool where you can select your capabilities and generate code snippets to copy and paste into your automated testing scripts. More information: [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/).
 
 See also: _[capabilities](#capabilities)_.
+
+### Platform-dependent
+
+Platform dependent typically refers to applications that run under only one operating system in one series of computers (one operating environment).
+
+### Playtest
+
+A playtest is the process by which a game designer tests a new game for bugs and design flaws before releasing it to market. Playtests can be run "open", "closed", "beta", or otherwise, for which they have become an established part of the quality control process.
+
+- **Alpha**: It is the phase of game testing where the game is still in the development phase along with which parallel testing is done to ensure that the game is developed without any glitches and is working smoothly without crashing.
+- **Beta**: During beta testing, the game is almost production ready with all the major issues being fixed. In this phase, the game testers are required to extensively find all the possible ways to break the game along the lookout for all minor issues. During Beta Testing, the game needs to pass through many testing methodologies such as performance testing, stress testing, and game compliance testing.
+  - **Open Beta Testing**: Open test is when the beta version of the game is made available for everyone interested. This interested group will play the game a share the reviews to the publisher. This process is also called as pre-release of the game software.
+  - **Closed Beta Testing**: This testing is done only be the closed set of people who work closely with the game developers.
+- **Release**: when the game is released to the public
+
+### Playtester
+
+A person--usually one of a large group, potentially hundreds for a AAA title--brought in, usually “cold”, to play the game before release. These players are usually disconnected from developers and aren’t involved in any decision-making--they just play the game under multiple types of observation, and put the game through its paces.
+
+### Producer
+
+Negotiate contracts, including licensing deals; Act as a liaison between the development staff and the upper stakeholders (publisher or executive staff); Develop and maintain schedules and budgets. Oversee creative (art and design) and technical development (game programming) of the game.
+
+### Procedurally-Generated
+
+It is a method of creating data algorithmically as opposed to manually, typically through a combination of human-generated assets and algorithms coupled with computer-generated randomness and processing power. In computer graphics, it is commonly used to create textures and 3D models
 
 ### Proxy Auto-Configuration File (PAC)
 
@@ -353,6 +477,14 @@ An automated web or mobile app test performed on real, physical devices hosted o
 
 See also: _[real device cloud](#real-device-cloud)_.
 
+### Real-time Strategy (RTS)
+
+It is a sub-genre of strategy video games that do not progress incrementally in turns, but allow all players to play simultaneously, in "real time".
+
+### Release
+
+See: _[Playtest](#playtest)_.
+
 ### RemoteWebDriver
 
 A remote instance of WebDriver that you must instantiate during a test to connect with the Selenium server via Sauce Labs.
@@ -363,6 +495,14 @@ See also: _[webdriver](#webdriver), [webdriverIO](#webdriverio)_.
 ### Restricted Domain
 
 A Sauce Labs feature that allows organization admins to block their internal users from accessing the public-facing Sauce Labs website to prevent anyone from enrolling in a Free Trial. Only accounts originating from the domain you designate will be allowed to access Sauce Labs. This feature is being deprecated as customers migrate to our latest Team Management features.
+
+### Role-Playing-Game (RPG)
+
+The implication is that it’s single-player (Fallout, Mass Effect), but not always. The distinction is important because of the amount of data flowing over the network, and the interplay between players.
+
+### Run-time
+
+It is a phase of a computer program in which the program is run or executed on a computer system.
 
 ## **S**
 
@@ -466,6 +606,12 @@ An end-to-end process used to develop, plan, design, build, test, and deploy sof
 
 A feature of Sauce Connect Proxy that automatically re-signs self-signed and invalid SSL certificates, which are not trusted by stock browsers like those installed on the Sauce Labs infrastructure. With SSL Bumping, your tests will not be interrupted with security warnings that can't be dismissed by Selenium. More information: [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping).
 
+### Stacktrace
+
+In computing, a stack trace (also called stack backtrace or stack traceback) is a report of the active stack frames at a certain point in time during the execution of a program. When a program is run, memory is often dynamically allocated in two places; the stack and the heap.
+
+- Programmers commonly use stack tracing during interactive and post-mortem debugging. End-users may see a stack trace displayed as part of an error message, which the user can then report to a programmer.
+
 ### Stress Testing
 
 A test method where you purposely put your system under extreme conditions – above and beyond your requirements – to identify the breaking point and determine if and when your system fails gracefully.
@@ -473,6 +619,13 @@ A test method where you purposely put your system under extreme conditions – a
 ### systemd
 
 A Linux service management tool that facilitates Sauce Connect Proxy tunnel monitoring, system startup and shutdown. More information: [Monitoring Sauce Connect Proxy with Service Management Tools](/secure-connections/sauce-connect/proxy-tunnels#service-management-tools).
+
+### Sharding
+
+Sharding is a form of database partitioning, also known as horizontal partitioning.The process involves breaking up a very large database into smaller, more manageable segments, with the idea of improving performance and reducing the query response time.
+
+- The term was popularized by Ultima Online, in which developers split players across different servers (different “worlds” in the game) to cope with the traffic.
+- In business, a common example of sharding a large database is to break up the customer database into geographic locations. Customers in the same geographic locations are grouped together and placed on unique servers.
 
 ## **T**
 
@@ -553,9 +706,24 @@ The Sauce Labs initiative to deliver a fully integrated, unified test experience
 
 See also: _[RDC on Sauce](#rdc-on-sauce)_.
 
+### Unity
+
+One of the three most well-known [game engines](#game-engine) in the world. Unity is a cross-platform engine, allowing developers to create a “core” game, which can then be played on PC, Mac, iOS, PlayStation, xBox, and other platforms with minimal extra effort.
+
+- Developers will choose Unity for games that need to work flawlessly across platforms, but which might not take full advantage of the most advanced gaming hardware or performance. If they need to render millions of triangles, Unity won’t cut it. If they need to stand up a simpler game that works on all major platforms, Unity is the right choice.
+- Side-scrollers, RTS, puzzle, slower VR titles, some RPGs - these are excellent candidates for Unity.
+
 ### Unmanaged Customer
 
 See: _[self-service](#self-service)_.
+
+### Unreal
+
+Unreal Engine is the bleeding-edge, state-of-the-art, most mature engine for 3D games and simulations. Unreal 4 has been around since 2014, and Unreal 5 is currently in beta. Unreal 5 represents a massive leap in rendering capabilities.
+
+- Fortnite, The Mass Effect series, Player Unknown’s Battleground (PUBG), Obduction and hundreds of others were developed using Unreal.
+
+See also: _[Game Engine](#game-engine)_.
 
 ### Upstart
 
@@ -568,6 +736,10 @@ See: _[systemd](#systemd)_.
 A Sauce Labs API Testing storage space where you can save Project-specific variables and code snippets.
 
 See also: [_company vault_](#company-vault).
+
+### Video Game Developers
+
+Also known as game developers, are responsible for designing and developing video games for PC, console, and mobile applications. Their job is to code the base engine from the ideas of the design team. They may also be involved in character design, level design, animation, and unit testing.
 
 ### Virtual Device Cloud (VDC)
 
