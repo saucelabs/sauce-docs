@@ -381,7 +381,7 @@ See [Associating a scope with a registry](https://docs.npmjs.com/cli/v9/using-np
 
 #### `authToken`
 
-Specifies the authentitcation token to be used with this registry.
+Specifies the authentication token to be used with this registry.
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
