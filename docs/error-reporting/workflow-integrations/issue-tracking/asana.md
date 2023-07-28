@@ -36,4 +36,4 @@ Select **Asana** and fill in the required settings (name, assignee, personal acc
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/asana-settings.png')} alt="" />
 
-Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.
+Next: After filling in the integration-specific settings, proceed to Common Settings to finish configuring the integration.
