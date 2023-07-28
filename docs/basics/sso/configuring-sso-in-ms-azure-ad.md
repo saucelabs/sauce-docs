@@ -36,7 +36,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 10. Edit the value of NameID by clicking on it.
     <img src={useBaseUrl('img/basics/sso/idp-config/azure/edit-name-id.png')} alt="Edit NameID" width="700" />
 
-11. Make sure that the source value of this claim is a **valid email address** (for example `user.mail`) and not a user identifier. Sauce Labs Service Provider requires valid email addresses during SAML SSO authentication. If you changed the source attribute, save the changes.
+11. Make sure that the source value of this claim is a **[valid email address](/basics/sso/setting-up-sso/#name-id)** (for example `user.mail`) and not a user identifier. Sauce Labs Service Provider requires valid email addresses during SAML SSO authentication. If you changed the source attribute, save the changes.
     <img src={useBaseUrl('img/basics/sso/idp-config/azure/name-id-value.png')} alt="Source attribute of NameID" width="700" />
 
 12. Next, assign users to this application:

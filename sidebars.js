@@ -512,7 +512,6 @@ module.exports = {
                             items: [
                                 'error-reporting/project-setup/symbolication',
                                 'error-reporting/project-setup/symbol-servers',
-                                'error-reporting/project-setup/deduplication-rules',
                             ],
                         },
                         {
@@ -526,7 +525,6 @@ module.exports = {
                                     collapsed: true,
                                     items: [
                                         'error-reporting/workflow-integrations/overview',
-                                        'error-reporting/workflow-integrations/common-settings',
                                         {
                                             type: 'category',
                                             label: 'Messaging',
@@ -575,6 +573,7 @@ module.exports = {
                                     ],
                                 },
                                 'error-reporting/project-setup/alerts',
+                                'error-reporting/project-setup/connections',
                                 'error-reporting/project-setup/scheduled-reports',
                                 'error-reporting/project-setup/metrics-stability-scores',
                                 'error-reporting/project-setup/stability-metrics',
@@ -668,6 +667,7 @@ module.exports = {
                         'error-reporting/advanced/error-processing-modifiers',
                     ],
                 },
+                'error-reporting/troubleshooting',
             ],
         },
     ],
@@ -842,6 +842,7 @@ module.exports = {
                                         'basics/sso/configuring-sso-in-ms-azure-ad',
                                         'basics/sso/configuring-sso-in-okta',
                                         'basics/sso/configuring-sso-in-onelogin',
+                                        'basics/sso/configuring-sso-in-pingone',
                                     ],
                                 },
                                 'basics/sso/logging-in-via-sso',
@@ -988,6 +989,7 @@ module.exports = {
                 'orchestrate/building-images',
                 'orchestrate/authenticated-pulls',
                 'orchestrate/best-practices',
+                'orchestrate/sauce-connect',
                 'orchestrate/faq',
                 'orchestrate/architecture',
             ],
