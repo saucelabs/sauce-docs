@@ -526,7 +526,6 @@ module.exports = {
                                     collapsed: true,
                                     items: [
                                         'error-reporting/workflow-integrations/overview',
-                                        'error-reporting/workflow-integrations/common-settings',
                                         {
                                             type: 'category',
                                             label: 'Messaging',
