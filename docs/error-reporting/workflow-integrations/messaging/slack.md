@@ -18,7 +18,7 @@ There are two integration paths:
 
 :::note
 
-Slack announced that they plan to deprecated support for customized webhooks, so the App for Slack is generally preferring.
+Slack announced that they plan to deprecate support for customized webhooks, so the App for Slack is generally preferred.
 
 :::
 
@@ -60,4 +60,4 @@ You can specify attributes to be appended to the description in the Main body co
 
 ## Issue Based Alerts​
 
-To further automate your workflow, you can configure automated actions for your Jira workflow integration with issue-based alerts. Use issue-based alerts to automatically generate issues in Jira based on the conditions and frequency that you specify. For more information, see [Issue Based Alerts](/error-reporting/project-setup/alerts/#issue-based-alerts).
+You can configure automated actions for your Slack workflow integration with issue-based alerts to further automate your workflow. Use issue-based alerts to automatically generate issues in Slack based on the conditions and frequency you specify. For more information, see [Issue Based Alerts](/error-reporting/project-setup/alerts/#issue-based-alerts).
