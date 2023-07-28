@@ -512,7 +512,6 @@ module.exports = {
                             items: [
                                 'error-reporting/project-setup/symbolication',
                                 'error-reporting/project-setup/symbol-servers',
-                                'error-reporting/project-setup/deduplication-rules',
                             ],
                         },
                         {
