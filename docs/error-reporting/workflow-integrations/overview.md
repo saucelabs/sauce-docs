@@ -46,3 +46,7 @@ To configure a workflow integration, select **Project Settings** from the menu a
 ## Custom
 
 - [Webhook](/error-reporting/workflow-integrations/webhook/)
+
+## Connections
+
+- [Workflow Connections](/error-reporting/project-setup/connections/)
