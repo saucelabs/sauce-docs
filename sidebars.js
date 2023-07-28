@@ -574,6 +574,7 @@ module.exports = {
                                     ],
                                 },
                                 'error-reporting/project-setup/alerts',
+                                'error-reporting/project-setup/connections',
                                 'error-reporting/project-setup/scheduled-reports',
                                 'error-reporting/project-setup/metrics-stability-scores',
                                 'error-reporting/project-setup/stability-metrics',
