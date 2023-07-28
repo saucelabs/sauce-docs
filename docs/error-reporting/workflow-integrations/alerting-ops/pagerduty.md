@@ -44,4 +44,4 @@ Select **PagerDuty** and fill in the required settings (name, service key, and a
 
 For more information, see: [PagerDuty Trigger Events Documentation](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI2Mw-send-an-event-to-pager-duty).
 
-Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.
+Next: After filling in the integration-specific settings, proceed to Common Settings to finish configuring the integration.

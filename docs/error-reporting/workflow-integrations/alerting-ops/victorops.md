@@ -40,4 +40,4 @@ Select **VictorOps** and fill in the required settings (name, endpoint URL, and 
 
 For more details, see the [VictorOps Alert API Documentation](https://victorops.secure.force.com/knowledgebase/articles/Integration/Alert-Ingestion-API-Documentation/).
 
-Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.
+Next: After filling in the integration-specific settings, proceed to Common Settings to finish configuring the integration.
