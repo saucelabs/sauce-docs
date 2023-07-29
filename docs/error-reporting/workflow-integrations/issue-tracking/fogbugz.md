@@ -27,4 +27,4 @@ Select **FogBugz** and fill in the required settings (name, server, API token, a
 
 For more detailed information about these settings, see [The Fogbugz API Documentation](https://support.fogbugz.com/hc/en-us/articles/360011242374-FogBugz-API-Introduction).
 
-Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.
+Next: After filling in the integration-specific settings, proceed to Common Settings to finish configuring the integration.
