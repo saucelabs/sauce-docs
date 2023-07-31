@@ -329,7 +329,15 @@ For specific instructions on how to set environment variables visit the followin
 
 #### Accepted File Types
 
-App Storage recognizes .apk files as Android apps and .ipa files as iOS apps, and will also parse a .zip file to determine whether a valid .app bundle exists, accepting it as an iOS app if it does. You can also upload and store other file types for generic use, such as a pre-run executable, package, or binary. Some of the formats for this type of use case include:
+App Storage recognizes certain file types for different platforms and generic use cases. Here are the accepted file types:
+
+**Android Apps (APK):** .apk files are recognized as Android apps.
+
+**iOS Apps (IPA):** .ipa files are recognized as iOS apps.
+
+**iOS Apps (APP Bundle):** A .zip file will be parsed to determine whether a valid .app bundle exists, and if found, it will be accepted as an iOS app.
+
+For generic use, you can upload and store other file types like pre-run executables, packages, or binaries. Some of the accepted formats for this type of use case include:
 
 - .js
 - .py
@@ -340,9 +348,9 @@ App Storage recognizes .apk files as Android apps and .ipa files as iOS apps, an
 
 #### Team Management Sync
 
-App Storage uses a Team Management sync feature that allows user permission schemes. In other words, a Sauce Labs admin (either an org admin or a team admin) can control access to individual application files or specific binary/script files. By default, all uploaded files are shared with the same team in which the user participates. As a user, you can only access files shared with the team where you contribute/participate unless your role is an organization admin; in this case, you have access to all files in your particular organization.
+App Storage utilizes a Team Management sync feature that enables user permission schemes. In other words, a Sauce Labs administrator, whether an organization admin or a team admin, can regulate access to individual application files or specific binary/script files. By default, the system shares all uploaded files with the team to which the user belongs. As a user, you can only access files shared with the team in which you contribute/participate unless you hold the role of an organization admin; in this case, you have access to all files in your organization.
 
-To manage access to your organization go to **Account** > **Team Management**.
+To manage access to your organization, navigate to **Account** > **Team Management**.
 
 #### Storage API Endpoints
 
