@@ -37,6 +37,14 @@ This will install the `morgue` tool in your configured path. Refer to the `morgu
 
 ## Usage
 
+:::note Default Timeframe Filter in Morgue
+
+Morgue applies a default/implicit timeframe filter of 30 days (30d) to the data. This means that by default, when querying data, Morgue will return results from the past 30 days. If you need to retrieve data from timeframes larger than 30 days, you need to explicitly specify the desired timeframe in the query.
+
+For instance, if you want results from all time, you can use something like 49 years (`--age=49y`) as the timeframe filter.
+
+:::
+
 ### Login
 
 The first step to using Morgue is to log in to a server.
