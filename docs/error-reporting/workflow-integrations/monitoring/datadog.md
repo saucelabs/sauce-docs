@@ -36,4 +36,4 @@ Select **Datadog** and fill in the required settings (name, tags, title, and API
 
 For more details, see the [Datadog Event API Documentation](https://docs.datadoghq.com/api/latest/events/).
 
-Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.
+Next: After filling in the integration-specific settings, proceed to Common Settings to finish configuring the integration.

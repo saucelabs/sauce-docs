@@ -512,7 +512,6 @@ module.exports = {
                             items: [
                                 'error-reporting/project-setup/symbolication',
                                 'error-reporting/project-setup/symbol-servers',
-                                'error-reporting/project-setup/deduplication-rules',
                             ],
                         },
                         {
@@ -526,7 +525,6 @@ module.exports = {
                                     collapsed: true,
                                     items: [
                                         'error-reporting/workflow-integrations/overview',
-                                        'error-reporting/workflow-integrations/common-settings',
                                         {
                                             type: 'category',
                                             label: 'Messaging',
@@ -575,6 +573,7 @@ module.exports = {
                                     ],
                                 },
                                 'error-reporting/project-setup/alerts',
+                                'error-reporting/project-setup/connections',
                                 'error-reporting/project-setup/scheduled-reports',
                                 'error-reporting/project-setup/metrics-stability-scores',
                                 'error-reporting/project-setup/stability-metrics',
