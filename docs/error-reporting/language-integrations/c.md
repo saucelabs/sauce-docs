@@ -26,12 +26,12 @@ Backtrace's integration with C# applications allows customers to capture and rep
 
 ## Supported Frameworks, Tools and Platforms
 
-- **.NET Framework** >3.5
-- **.NET Standard** >2.0
-- **.NET Core** >2.0
-- **Xamarin**
-- **Universal Windows Platform**
-- **Unity**
+- .NET Framework >3.5
+- .NET Standard >2.0
+- .NET Core >2.0
+- Xamarin
+- Universal Windows Platform
+- Unity
 
 ## Features
 
