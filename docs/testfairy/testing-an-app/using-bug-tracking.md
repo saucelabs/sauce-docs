@@ -22,16 +22,4 @@ Before utilizing the bug-tracking features in TestFairy, ensure that you connect
 
 Ensure that you follow the relevant documentation to establish a secure and authenticated connection between TestFairy and your bug-tracking platform.
 
-## Shake to Feedback
 
-TestFairy offers a convenient "Shake to Feedback" feature that allows users to provide feedback easily while using your application. By shaking their device, users can trigger an email pop up containing comprehensive feedback, along with an attached screenshot that users can scribble on. The feedback message is then sent to designated destinations such as your developer's dashboard, JIRA, Slack, etc., including the user's input, a video recording of the session, and all relevant data collected during the session.
-
-## Enabling Shake to Feedback in Your Build Settings
-
-To enable the Shake to Feedback feature for your application, follow these steps:
-
-1. Choose the app and Build in which you'd like to enable Shake to Feedback
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/build-settings.png')} alt="Setting"/>
-
-1. Go to **Bug Reporting** section of the build and check the box for **In-App Bug Reporting** and then **Save changes**.
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-report-enabled.png')} alt="In-App Bug Reporting"/>
