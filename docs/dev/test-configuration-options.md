@@ -655,6 +655,9 @@ capabilities.setCapability("appium:otherApps",  ["storage:7435ab52-1eaa-4387-a67
 Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
 :::
 
+:::warning
+Using `fileId` in this configuration, `otherApps` is limited to supporting only up to 2 storage file IDs due to [value length limitations](#limitations).
+:::
 ---
 
 ### `appium:orientation`
@@ -1965,3 +1968,9 @@ These are currently not supported for real devices:
 - `removeApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
 - `Edit Timezone`: Appium does not provide a capability to edit the timezone of a device in automated testing on real devices.
 - See [Virtual Device Capabilities](#virtual-device-capabilities-sauce-specific--optional) for information about timezone capabilities in a virtual device testing.
+
+## Limitations
+
+:::warning
+Capability value has a limit of 100 characters; exceeding characters will be truncated.
+:::
