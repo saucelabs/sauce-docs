@@ -36,6 +36,28 @@ Sauce Labs supports the following test configurations for Playwright:
   </tr>
   <tbody>
     <tr>
+      <td rowspan='2'>1.36.2</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
+      <td rowspan='2'>August 1, 2024</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='2'>1.35.1</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
+      <td rowspan='2'>June 16, 2024</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
       <td rowspan='2'>1.33.0</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
@@ -100,39 +122,18 @@ Sauce Labs supports the following test configurations for Playwright:
       <td><b>Windows:</b> 10, 11</td>
     </tr>
   </tbody>
-  <tbody>
-  <tr>
-    <td rowspan='2'>1.24.1</td>
-    <td><b>macOS:</b> 11.00, 12, 13</td>
-    <td rowspan='2'>Chromium, Firefox, Webkit</td>
-    <td rowspan='2'>Jul 29, 2023</td>
-  </tr>
-  <tr>
-    <td><b>Windows:</b> 10, 11</td>
-  </tr>
-  </tbody>
-  <tbody>
-  <tr>
-    <td rowspan='2'>1.22.2</td>
-    <td><b>macOS:</b> 11.00, 12, 13</td>
-    <td rowspan='2'>Chromium, Firefox, Webkit</td>
-    <td rowspan='2'>Jun 6, 2023</td>
-  </tr>
-  <tr>
-    <td><b>Windows:</b> 10, 11</td>
-  </tr>
-  </tbody>
 </table>
 
 ## How to Get Started
 
-- [Quickstart](/web-apps/automated-testing/playwright/quickstart): Use our demo repo to quickly set up and run a sample Playwright project and test to see the results.
+- [Quickstart](/web-apps/automated-testing/playwright/quickstart): Use our demo repository to quickly set up and run a sample Playwright project and test to see the results.
 - [Run your own tests](/web-apps/automated-testing/playwright/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
 - [Incorporate `saucectl` in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): Playwright on Sauce supports CI integrations with Circle CI, GitLab, Jenkins, and GitHub Actions.
-- [Run your tests in Orchestrate](/orchestrate/quickstart-playwright): Use `saucectl` to run tests with a containerized test runner.
+- [Run your tests in Orchestrate](/orchestrate/quickstart/playwright): Use `saucectl` to run tests with a containerized test runner.
 
 ## Playwright Reporter for Sauce Labs
-If you prefer to stay in Playwright, try the [Playwrigth Sauce Labs Reporter](https://github.com/saucelabs/sauce-playwright-reporter). Connect to your Sauce Labs account from within your Playwright project to configure and run your tests directly from Playwright.
+
+If you prefer to stay in Playwright, try the [Playwright Sauce Labs Reporter](https://github.com/saucelabs/sauce-playwright-reporter). Connect to your Sauce Labs account from within your Playwright project to configure and run your tests directly from Playwright.
 
 ## Limitations
 

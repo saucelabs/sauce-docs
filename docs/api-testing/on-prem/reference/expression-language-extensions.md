@@ -140,7 +140,7 @@ Encryption utilities.
 
 - **md5(input : String) : String** : returns the md5 hash of the input string
 - **hash(input : String) : String :** returns the SHA-1 hash of the input string, hex encoded
-- **genKey() : String :** generates a a random key
+- **genKey() : String :** generates a random key
 - **base64(action: String, input: String)** : decodes from or encodes into a base64 string. Action can either be 'encode' or 'decode'
 
   ```groovy

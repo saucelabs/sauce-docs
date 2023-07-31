@@ -13,6 +13,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 ## System Requirements
 
 Supported OS:
+
 - Windows 10 / Windows 11
 - macOS 10.14+
 - Linux
@@ -34,7 +35,39 @@ Sauce Labs supports the following test configurations for TestCafe:
   </tr>
   <tbody>
     <tr>
-      <td rowspan='3'>2.5.5</td>
+      <td rowspan='3'>3.0.1</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
+      <td rowspan='3'>August 1, 2024</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.5, 15.4, 16.0, 16.1</td>
+      <td>Safari</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='3'>2.6.2</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
+      <td rowspan='3'>June 16, 2024</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.5, 15.4, 16.0, 16.1</td>
+      <td>Safari</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='3'>2.5.0</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td>Safari, Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='3'>May 11, 2024</td>
@@ -128,38 +161,6 @@ Sauce Labs supports the following test configurations for TestCafe:
       <td>Safari</td>
     </tr>
   </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='3'>1.20.0</td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='3'>Jul 29, 2023</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-    </tr>
-    <tr>
-      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-      <td>Safari</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='3'>1.19.0</td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='3'>Jun 6, 2023</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-    </tr>
-    <tr>
-      <td><b>iOS:</b> 13.4, 14.0, 14.3</td>
-      <td>Safari</td>
-    </tr>
-  </tbody>
 </table>
 
 ## How to Get Started
@@ -170,11 +171,15 @@ Sauce Labs supports the following test configurations for TestCafe:
 
 ### TestCafe Plugins for Sauce Labs
 
-If you would prefer to stay in TestCafe, try the new [TestCafe Sauce Labs Plugin](https://github.com/DevExpress/testcafe-browser-provider-saucelabs). Connect to your Sauce Labs account from within your TestCafe project to configure and run your tests directly from TestCafe.
-If all you want is to publish your TestCafe test results to Sauce Labs (but not run on Sauce Labs), please check out our [TestCafe reporter](https://github.com/saucelabs/testcafe-reporter)!
+If you prefer to stay in TestCafe, try the new [TestCafe Sauce Labs Plugin](https://github.com/DevExpress/testcafe-browser-provider-saucelabs). Connect to your Sauce Labs account from within your TestCafe project to configure and run your tests directly from TestCafe.
+If all you want is to publish your TestCafe test results to Sauce Labs (but not run on Sauce Labs), check out our [TestCafe reporter](https://github.com/saucelabs/testcafe-reporter)!
 
 ## Limitations
 
-:::caution Special Characters in Test Names
-We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
-:::
+### Special Characters in Test Names
+
+We recommend that you avoid using special characters when naming your tests. If your test name contains any special characters, your test may not run, or its artifacts may not be visible on our platform.
+
+### TestCafe 3.0.1 + Chrome/Edge + Sauce-Connect
+
+When using Sauce-Connect, Chrome, and Edge browsers cannot load any website through the tunnel. It will behave as if there is no tunnel defined.

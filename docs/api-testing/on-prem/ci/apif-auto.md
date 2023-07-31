@@ -21,7 +21,7 @@ keywords:
 Welcome to the API Fortress Command-Line Tools!
 
 - The tool itself: [https://github.com/apifortress/afcmd/releases](https://github.com/apifortress/afcmd/releases)
-- The documentation for the API that that tool leverages: [https://apifortressv3.docs.apiary.io/](https://apifortressv3.docs.apiary.io/)
+- The documentation for the API that tool leverages: [https://apifortressv3.docs.apiary.io/](https://apifortressv3.docs.apiary.io/)
 
 The tool, or rather, pair of tools, are designed to reduce the amount of legwork that goes into executing or uploading API Fortress tests. The following readme will explain each part of the process.
 

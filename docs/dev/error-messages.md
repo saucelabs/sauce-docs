@@ -263,7 +263,6 @@ This isn't always restricted to the tests, either; an app under test which consu
 
 Break out your long tests into shorter tests and/or make sure that your tests are not filling up a lot of disk space on the VM.
 
-
 ### Unable to Find Device Within 900000ms
 
 **Description**
@@ -290,6 +289,62 @@ capabilities.setCapability("appium:deviceName", "^iPhone.*");
 capabilities.setCapability("appium:platformVersion", "15.7.5");
 ```
 
+### We couldn't find a matching device in our data center
+
+**Description**
+
+We couldn't find a matching device in our data center that matches your requested capabilities.
+
+**Cause(s)**
+
+**The requested device is not available in the data center**
+
+Have you tried validating your capabilities in our Live testing filter?
+
+- **EU:** [https://app.eu-central-1.saucelabs.com/live/web-testing/device](https://app.eu-central-1.saucelabs.com/live/web-testing/device)
+- **US-East:** [https://app.us-east-4.saucelabs.com/live/web-testing/device](https://app.us-east-4.saucelabs.com/live/web-testing/device)
+- **US-West:** [https://app.saucelabs.com/live/web-testing/device](https://app.saucelabs.com/live/web-testing/device)
+
+**Your capabilities are too strict**
+
+In some cases you might search for a device with specific capabilities, for example, an exact OS version like “Android”: “7.1.1” or “iOS”: “15.0.0” which is not available anymore.
+
+Have you tried:
+
+- Validating if a device with the exact same capabilities is still available in the used data center
+- Have you tried using [Dynamic Allocation](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation)
+
+**Are you targeting the correct data center?**
+
+It might be that you are targeting the wrong data center. You can change your endpoint with one of the following [urls](/basics/data-center-endpoints/).
+
+### Unable to find an available device
+
+**Description**
+
+We couldn't find an available device in our data center that matches your requested capabilities.
+
+**Cause(s)**
+
+**The requested device is (still) in use**
+
+The requested device might not be available because it’s used. Possible reasons could be:
+
+- **Public Devices:**
+  - A matching device could not be allocated because they are all in use. We constantly monitor the usage of specific models/configurations and will add additional capacity if needed
+- **Private Devices:**
+  - The device is being cleaned, rebooted, or is getting a health check. See [cleaning](/mobile-apps/real-device-cleaning/).
+  - A team member is using this specific device configuration for a manual/automated test.
+
+**Your capabilities are too strict**
+
+In some cases you might request a device with very specific capabilities which results in only one specific device. For example, you are requesting a specific iPhone 13 with iOS 15.7.1. If that device is already in use you need to wait before it is released.
+
+Have you tried using [Dynamic Allocation](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation)?
+
+**Are you targeting the correct data center?**
+
+It might be that you are targeting the wrong data center. You can change your endpoint with one of the following [urls](/basics/data-center-endpoints/).
 
 ## Mobile App Testing Only
 
@@ -326,7 +381,6 @@ If you're already using storage, check to make sure that:
 - You're using the exact name you provided via the rest API, not the original filename. For example, if you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `storage:filename=new_app_name.apk`.
 - Check the access permissions for the file before retrying. If you have confirmed you have permissions to access the file and you continue to get this error, contact our [Sauce Labs Support](https://saucelabs.com/training-support).
 
-
 ## Web App Testing Only
 
 ### Test Didn't See a New Command for 90 Seconds
@@ -340,7 +394,7 @@ You'll see this error when Sauce Labs doesn't receive a new command from your Se
 There are a few potential causes for this error:
 
 - The most common cause is that your script crashed, was forcefully interrupted, or you lost internet connectivity.
-- If your tests don't include a session ending request, such as a call to `driver.quit()` or `browser.stop()`, they will will keep running forever, consuming all test minutes available in your account. This error is thrown after 90 seconds as a means of preventing this.
+- If your tests don't include a session ending request, such as a call to `driver.quit()` or `browser.stop()`, they will keep running forever, consuming all test minutes available in your account. This error is thrown after 90 seconds as a means of preventing this.
 - A less common, but still possible cause, is that your test legitimately needs more than 90 seconds to send a new command to the browser. This happens most often when a network or disk IO error occurs between Selenium API calls in your tests (for example, for DB queries, local file reads, or changes).
 
 **How to Resolve**
@@ -393,7 +447,6 @@ The combination of browser, version, and operating system you want to use in you
 - Use the [Platform Configurator](https://saucelabs.com/platform/platform-configurator#/) to set the capabilities of your test.
 - Check [our list of supported platforms, operating systems, and browsers](https://saucelabs.com/platform/supported-browsers-devices) to make sure your selections are valid.
 - Use a higher version of Selenium in the capabilities of your test, or leave the Selenium version blank to default to the latest version.
-
 
 ### Your account is not verified
 

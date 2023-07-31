@@ -4,8 +4,6 @@ title: saucectl jobs list
 sidebar_label: saucectl jobs list
 ---
 
-## Description
-
 Lists jobs from Sauce Labs.
 
 ## Usage

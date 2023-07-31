@@ -4,8 +4,6 @@ title: saucectl storage download
 sidebar_label: saucectl storage download
 ---
 
-## Description
-
 Downloads an app file from Sauce Storage.
 
 ## Usage

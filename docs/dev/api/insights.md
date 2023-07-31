@@ -410,7 +410,7 @@ Return a set of data "buckets" representing tests that were run in each time int
     <tr>
      <td><code>interval</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
   </tbody>
@@ -477,7 +477,8 @@ Return a set of data "buckets" representing tests that were run in each time int
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p>
+     </td>
     </tr>
   </tbody>
 </table>
@@ -838,165 +839,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "items": [],
     "has_more": false
   }
-}
-```
-
-</details>
-
----
-
-### Get Error Trends
-
-<details><summary><span className="api get">GET</span> <code>/v1/analytics/trends/errors</code></summary>
-<p/>
-
-Return an array of errors that occurred on all tests run in the specified period.
-
-#### Parameters
-
-:::note
-This call requires <code>start</code> and <code>end</code> parameters OR the <code>time_range</code> parameter.
-:::
-
-<table id="table-api">
-  <tbody>
-    <tr>
-     <td><code>start</code></td>
-       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>end</code></td>
-       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>time_range</code></td>
-       <td><p><small>| QUERY | REQUIRED | DURATION + UNIT |</small></p><p>The amount of time backward from the current time that represents the period during which the test runs are executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>scope</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies the scope of the <code>owner</code> parameter. Supported values are:</p><p>
-     <ul>
-      <li><code>me</code> - owner is the logged-in requestor.</li>
-      <li><code>organization</code> - owner is all users the logged-in requestor's organization.</li>
-      <li><code>single</code> - owner is one or more users in the logged-in requestor's organization. Setting this value makes the <code>owner</code> parameter required.</li>
-    </ul></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>owner</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>The name of one or more users in the requestor's organization who executed the requested tests. This parameter is required if the <code>scope</code> parameter is set to <code>single</code>.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
-     <ul>
-      <li><code>passed</code></li>
-      <li><code>errored</code></li>
-      <li><code>failed</code></li>
-      <li><code>complete</code></li>
-    </ul></p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>os</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified operating systems.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>browser</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified browsers.</p></td>
-    </tr>
-  </tbody>
-</table>
-
-<Tabs
-groupId="dc-url"
-defaultValue="us"
-values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
-]}>
-
-<TabItem value="us">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.us-west-1.saucelabs.com/v1/analytics/trends/errors?start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z&scope=organization" | json_pp
-```
-
-</TabItem>
-<TabItem value="eu">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET "https://api.eu-central-1.saucelabs.com/v1/analytics/trends/errors?start=2021-05-01T12:00:00Z&end=2021-05-02T12:00:00Z&scope=organization" | json_pp
-```
-
-</TabItem>
-</Tabs>
-
-#### Responses
-
-<table id="table-api">
-<tbody>
-  <tr>
-    <td><code>200</code></td>
-    <td colSpan='2'>Success.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>400</code></td>
-    <td colSpan='2'>Bad Request. May include additional error messages, such as "start and end parameters are required."</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>404</code></td>
-    <td colSpan='2'>Not found.</td>
-  </tr>
-</tbody>
-</table>
-
-```jsx title="Sample Response"
-{
-  "meta": {
-    "status": 200
-  },
-  "buckets": [
-    {
-      "name": "Selenium didn't complete your last command on time.\nFor help, please check https://docs.saucelabs.com/dev/error-messages",
-      "count": 1,
-      "items": [
-        {
-          "id": "8f5nf6370061122bb6ah4ee10a2c966d",
-          "owner": "USERNAME",
-          "ancestor": "USERNAME",
-          "name": "TestScreenshot",
-          "creation_time": "2017-03-01T17:47:35Z",
-          "end_time": "2017-03-01T17:54:03Z",
-          "status": "errored",
-          "error": "Selenium didn't complete your last command on time.\nFor help, please check https://docs.saucelabs.com/dev/error-messages",
-          "os": "Linux",
-          "browser": "Android 5.1",
-          "details_url": "https://saucelabs.com/rest/v1.1/USERNAME/jobs/8f5nf6370061122bb6ah4ee10a2c966d"
-        }
-      ],
-      "has_more": false
-    },
-    // more errors...
-  ]
 }
 ```
 
@@ -1963,7 +1805,7 @@ Return an array of errors with occurrence count on all tests run in the specifie
     <tr>
      <td><code>interval</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
   </tbody>
@@ -2125,7 +1967,7 @@ Return past and current data about errors for comparison.
     <tr>
      <td><code>interval</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
   </tbody>
@@ -2331,7 +2173,7 @@ Return an array of tests with details.
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2373,19 +2215,25 @@ Return an array of tests with details.
   <tbody>
     <tr>
      <td><code>sort_by</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <code>duration</code>, <code>creation_time</code>. Default value is <code>creation_time</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <ul><li><code>duration</code></li><li><code>creation_time</code></li></ul>Default value is <code>creation_time</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>sort</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <ul><li><code>asc</code></li><li><code>desc</code></li></ul>Default value is <code>desc</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>automation_backend</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device_group</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If <code>source</code> is <code>rdc</code>, return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
     </tr>
   </tbody>
 </table>
@@ -2762,7 +2610,7 @@ Return an array of test cases (grouped by name) with statistical details.
     <tr>
      <td><code>interval</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
   </tbody>
@@ -2841,7 +2689,7 @@ Return an array of test cases (grouped by name) with statistical details.
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2859,19 +2707,25 @@ Return an array of test cases (grouped by name) with statistical details.
   <tbody>
     <tr>
      <td><code>sort_by</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <code>total_runs</code>, <code>name</code>, <code>complete_count</code>, <code>error_count</code>, <code>fail_count</code>, <code>pass_count</code>, <code>complete_rate</code>, <code>error_rate</code>, <code>failure_rate</code>, <code>pass_rate</code>, <code>avg_duration</code>, <code>median_duration</code>, <code>total_duration</code>. Default value is <code>total_runs</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <ul><li><code>total_runs</code></li><li><code>name</code></li><li><code>complete_count</code></li><li><code>error_count</code></li><li><code>fail_count</code></li><li><code>pass_count</code></li><li><code>complete_rate</code></li><li><code>error_rate</code></li><li><code>failure_rate</code></li><li><code>pass_rate</code></li><li><code>avg_duration</code></li><li><code>median_duration</code></li><li><code>total_duration</code></li></ul>Default value is <code>total_runs</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>sort</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <ul><li><code>asc</code></li><li><code>desc</code></li></ul>Default value is <code>desc</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>automation_backend</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device_group</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If <code>source</code> is <code>rdc</code>, return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
     </tr>
   </tbody>
 </table>
@@ -2983,7 +2837,7 @@ Return an array of test cases (grouped by name) with statistical details as a CS
     <tr>
      <td><code>interval</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
   </tbody>
@@ -3062,25 +2916,32 @@ Return an array of test cases (grouped by name) with statistical details as a CS
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p>
+     </td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>sort_by</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <code>total_runs</code>, <code>name</code>, <code>complete_count</code>, <code>error_count</code>, <code>fail_count</code>, <code>pass_count</code>, <code>complete_rate</code>, <code>error_rate</code>, <code>failure_rate</code>, <code>pass_rate</code>, <code>avg_duration</code>, <code>median_duration</code>, <code>total_duration</code>. Default value is <code>total_runs</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <ul><li><code>total_runs</code></li><li><code>name</code></li><li><code>complete_count</code></li><li><code>error_count</code></li><li><code>fail_count</code></li><li><code>pass_count</code></li><li><code>complete_rate</code></li><li><code>error_rate</code></li><li><code>failure_rate</code></li><li><code>pass_rate</code></li><li><code>avg_duration</code></li><li><code>median_duration</code></li><li><code>total_duration</code></li></ul>Default value is <code>total_runs</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>sort</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <ul><li><code>asc</code></li><li><code>desc</code></li></ul>Default value is <code>desc</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>automation_backend</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device_group</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If <code>source</code> is <code>rdc</code>, return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
     </tr>
   </tbody>
 </table>
@@ -3184,7 +3045,7 @@ Return an array of test cases (grouped by name) with statistical details.
     <tr>
      <td><code>interval</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
   </tbody>
@@ -3244,14 +3105,21 @@ Return an array of test cases (grouped by name) with statistical details.
   </tbody>
   <tbody>
     <tr>
-     <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+    <td><code>tag_filter_mode</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p>
+     </td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>automation_backend</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device_group</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If <code>source</code> is <code>rdc</code>, return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
     </tr>
   </tbody>
 </table>
@@ -3337,7 +3205,7 @@ Return a histogram with test statistic details grouped by specific period.
   <tbody>
     <tr>
      <td><code>groupby</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Time period for grouping. Available values are: <code>1h</code>, <code>1d</code>, <code>7d</code>.</p></td>
+       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Time period for grouping. Available values are: <ul><li><code>1h</code></li><li><code>1d</code></li><li><code>7d</code></li></ul></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -3409,7 +3277,8 @@ Return a histogram with test statistic details grouped by specific period.
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p>
+     </td>
     </tr>
   </tbody>
   <tbody>
@@ -3422,6 +3291,12 @@ Return a histogram with test statistic details grouped by specific period.
     <tr>
      <td><code>automation_backend</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device_group</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If <code>source</code> is <code>rdc</code>, return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
     </tr>
   </tbody>
 </table>
@@ -3691,7 +3566,7 @@ Return information about tests coverage for the specified <code>coverage_field</
   <tbody>
     <tr>
      <td><code>coverage_field</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<code>device</code>, <code>browser</code>, <code>os</code>.</p><p>
+       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<ul><li><code>device</code></li><li><code>browser</code></li><li><code>os</code></li></ul></p><p>
      </p></td>
     </tr>
   </tbody>
@@ -3705,7 +3580,7 @@ Return information about tests coverage for the specified <code>coverage_field</
     <tr>
      <td><code>interval</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
   </tbody>
@@ -3742,19 +3617,19 @@ Return information about tests coverage for the specified <code>coverage_field</
   <tbody>
     <tr>
      <td><code>device_group</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified device group. Available values are: <code>private</code>, <code>public</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>sort_by</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <code>name</code>, <code>count</code>, <code>total_duration</code>. Default value is <code>count</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset by the specified value. Available values are: <ul><li><code>name</code></li><li><code>count</code></li><li><code>total_duration</code></li></ul>Default value is <code>count</code>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>sort</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <code>asc</code>, <code>desc</code>. Default value is <code>desc</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Sort the dataset in ascending or descending order. Available values are: <ul><li><code>asc</code></li><li><code>desc</code></li></ul>Default value is <code>desc</code>.</p></td>
     </tr>
   </tbody>
 </table>
@@ -4000,7 +3875,7 @@ Return information about tests coverage for the specified `coverage_field` in a 
     <tr>
      <td><code>interval</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
   </tbody>
@@ -4037,7 +3912,7 @@ Return information about tests coverage for the specified `coverage_field` in a 
   <tbody>
     <tr>
      <td><code>device_group</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified device group. Available values are: <code>private</code>, <code>public</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
     </tr>
   </tbody>
 </table>
@@ -4246,7 +4121,7 @@ Return an array of buckets with aggregations, such as number of tests run on a s
     <tr>
      <td><code>interval</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
   </tbody>
@@ -4338,6 +4213,12 @@ Return an array of buckets with aggregations, such as number of tests run on a s
     <tr>
      <td><code>automation_backend</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device_group</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If <code>source</code> is <code>rdc</code>, return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
     </tr>
   </tbody>
 </table>
@@ -4533,7 +4414,7 @@ Return an array of buckets with aggregations, such as the number of tests from a
     <tr>
      <td><code>interval</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
   </tbody>
@@ -4848,7 +4729,7 @@ Return statistics for errors that occurred in tests run in the specified period.
     <tr>
      <td><code>interval</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
   </tbody>
@@ -4927,13 +4808,20 @@ Return statistics for errors that occurred in tests run in the specified period.
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p>
+     </td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>automation_backend</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device_group</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If <code>source</code> is <code>rdc</code>, return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
     </tr>
   </tbody>
 </table>
@@ -5248,7 +5136,7 @@ Return information about builds and tests run included in the build. Also, it pr
     <tr>
      <td><code>interval</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-     Relative date filter. Available values are: <code>1m</code> (1 month), <code>15m</code> (15 months), <code>1h</code> (1 hour), <code>6h</code> (6 hours), <code>12h</code> (12 hours), <code>1d</code> (1 day), <code>7d</code> (7 days), <code>30d</code> (30 days). Default value is <code>1d</code>
+     Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
   </tbody>
@@ -5327,13 +5215,20 @@ Return information about builds and tests run included in the build. Also, it pr
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <code>and</code>, <code>or</code>. Default value is <code>or</code>.</p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p>
+     </td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>automation_backend</code></td>
      <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those run on the specified framework.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device_group</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>If <code>source</code> is <code>rdc</code>, return results only for the specified device group. Available values are: <ul><li><code>private</code></li><li><code>public</code></li></ul></p></td>
     </tr>
   </tbody>
 </table>

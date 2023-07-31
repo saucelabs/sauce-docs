@@ -20,7 +20,7 @@ The changes in Appium 2 are not primarily related to changes in automation behav
 At the same time, the Appium project is taking the opportunity to remove many old and deprecated bits of functionality. More information about this can be found in the [Appium 2 release notes](https://github.com/appium/appium/releases).
 
 :::tip Appium 2 Documentation
-Appium is in the final stages of a major revision (to version 2.0). As such, the documentation found around the web may not be correct. The current Appium 2 documentation is very much in progress. Currently, it can be found [here](https://appium.github.io/appium/docs/en/2.0/).
+The current Appium 2 documentation can be found [here](https://appium.io/docs/en/2.0/).
 :::
 
 ## Breaking Changes
@@ -79,7 +79,7 @@ As mentioned above, the following breaking changes lead to using the following c
 
 ### Capabilities
 
-Below you can find an example of a capabilities object for running a test on Sauce Labs with Appium 2.
+Below you can find an example of a capabilities object for running a test on Sauce Labs with Appium 2. See our [Platform Configurator](https://saucelabs.com/products/platform-configurator#/) to help you construct your capabilities for the specific platform and device you want to test on.
 
 :::note
 The below examples are for Mobile Web Testing, for Mobile App Testing please remove the `browserName` and add the [`appium:app`-capability](/mobile-apps/app-storage#using-application-storage-with-automated-test-builds)
@@ -675,3 +675,25 @@ Below is an example for an Appium 2 test running on iOS:
 Currently, we do not provide pre-installed and do not support passing custom plugins. We will keep monitoring the Appium community for the progress of the plugins and will update this page accordingly.
 
 If you have specific needs for a plugin, please reach out to our [support team](https://support.saucelabs.com/hc/en-us/requests/new) and provide all relevant information about this plugin.
+
+### FAQ
+
+#### How do I know if my test is running on Appium 1 or Appium 2?
+
+You can find out which version of Appium is used for your test by checking the Appium Version in the Test Details Logs tab under the Appium Logs section in the Sauce Labs UI.
+
+#### How do I know which driver version is used for my test?
+
+You can find out which version of the driver is used for your test by checking the Driver Version in the Test Details Logs tab under the Appium Logs section in the Sauce Labs UI.
+
+#### How do I know which version of Appium is installed on the Sauce Labs Emulators and Simulators?
+
+See our [Platform Configurator](https://saucelabs.com/products/platform-configurator#/) for the latest versions of Appium installed on our Emulators and Simulators.
+
+#### Can I provide my own Appium Server version?
+
+No, you cannot provide your own Appium version. We keep our Appium versions up to date with the latest Appium releases. If you have specific needs for an Appium Server version then please reach out to our [support team](https://support.saucelabs.com/hc/en-us/requests/new).
+
+#### Can I provide my own Appium Driver version?
+
+No, you cannot provide your own Appium Driver version. We keep our Appium Driver versions up to date with the latest Appium Driver releases. If you have specific needs for an Appium Driver version then please reach out to our [support team](https://support.saucelabs.com/hc/en-us/requests/new).

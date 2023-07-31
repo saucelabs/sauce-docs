@@ -40,4 +40,4 @@ Select **GitHub** and fill in the required settings.
 
 For more information about these settings, please refer to the [GitHub API Documentation](https://developer.github.com/enterprise/2.3/v3/issues/#create-an-issue).
 
-Next: After filling in the integration-specific settings, proceed to [Common Settings](/error-reporting/workflow-integrations/common-settings) to finish configuring the integration.
+Next: After filling in the integration-specific settings, proceed to Common Settings to finish configuring the integration.

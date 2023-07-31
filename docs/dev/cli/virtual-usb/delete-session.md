@@ -4,8 +4,6 @@ title: 'Virtual USB CLI: Delete Session'
 sidebar_label: Delete Session
 ---
 
-## Description
-
 Close a Virtual USB session that you launched using the [`startSession` command](/dev/cli/virtual-usb/start-session).
 
 ## Usage

@@ -310,6 +310,8 @@ A parent property specifying the configuration details for any `npm` dependencie
 ```yaml
 npm:
   registry: https://registry.npmjs.org
+  registries:
+    - url: https://registry.npmjs.org
   packages:
     lodash: "4.17.20"
     "@babel/preset-typescript": "7.12"
@@ -322,10 +324,69 @@ npm:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
+:::note
+This setting is supported up to Playwright 1.35.1. For newer versions, use `registries`.
+:::
+
 Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
 
 ```yaml
   registry: https://registry.npmjs.org
+```
+
+---
+
+### `registries`
+
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Specifies the location of the npm registry, scope, and credentials. If the registry is inside a private network, you must establish a tunnel using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
+
+```yaml
+  registries:
+    - url: https://registry.npmjs.org
+    - url: https://private.registry.company.org
+      scope: "@company"
+      authToken: secretToken
+```
+
+---
+
+#### `url`
+
+Specifies the URL of the npm registry.
+
+<p><small>| REQUIRED | STRING |</small></p>
+
+```yaml
+    - url: https://registry.npmjs.org
+```
+
+---
+
+#### `scope`
+
+Specifies which scope is associated with this registry.
+See [Associating a scope with a registry](https://docs.npmjs.com/cli/v9/using-npm/scope#associating-a-scope-with-a-registry).
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+```yaml
+    - url: https://registry.npmjs.org
+      scope: "@company"
+```
+
+---
+
+#### `authToken`
+
+Specifies the authentication token to be used with this registry.
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+```yaml
+    - url: https://registry.npmjs.org
+      authToken: secretToken
 ```
 
 ---
@@ -549,7 +610,7 @@ The parent property containing the details specific to the Playwright project.
 
 ```yaml
 playwright:
-  version: 1.29.2
+  version: 1.36.2
   configFile: config.ts
 ```
 
@@ -562,7 +623,7 @@ playwright:
 The version of Playwright that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/playwright#supported-testing-platforms) for the list of Playwright versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
-  version: 1.29.2
+  version: 1.36.2
 ```
 
 :::tip
@@ -713,6 +774,34 @@ The `numShards` and `shard` properties are mutually exclusive within each suite.
 :::
 
 ---
+
+---
+
+### `shardGrepEnabled`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When sharding is configured and used in conjunction with `grep`/`grepInvert`, some spec files may be allocated to VMs, just to be skipped by Playwright in accordance with the `grep`/`grepInvert` filters, thus wasting VM allocations.
+
+With `shardGrepEnabled: true`, saucectl will ensure that every spec to be allocated contains at least one test matching the `grep`/`grepInvert` filters.
+
+:::tip
+Filtering relies on the value set for `grep` and `grepInvert`.
+
+- `grep` to match with test name or filename.
+- `grepInvert` to exclude any match with name or filename.
+:::
+
+```yaml
+suites:
+  - name: "I am sharded"
+    shard: spec
+    shardGrepEnabled: true
+    params:
+      grep: "@smoke"
+      grepInvert: "@slow"
+```
+
 
 ### `params`
 

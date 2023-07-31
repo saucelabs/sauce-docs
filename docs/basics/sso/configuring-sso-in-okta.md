@@ -20,7 +20,11 @@ Complete the following steps to set up SAML SSO integration between Okta and Sau
 1. Log into **Okta** administrator panel, go to **Applications** and click **Browse App Catalog**.
    <img src={useBaseUrl('img/basics/sso/idp-config/okta/browse-app-catalog.png')} alt="Browse App Catalog" width="850" />
 
-2. Enter **Sauce Labs** in the search box and choose the app **Sauce Labs**.
+2. Search for **Sauce Labs**, then select the [**Sauce Labs**](https://www.okta.com/integrations/sauce-labs-0/) app.
+   :::caution
+   Ensure that you install the new Sauce Labs app featuring the green logo. The app with the previous red logo is considered a legacy version and should not be used for new SSO integrations. It is integrated with the deprecated SSO implementation.
+   :::
+   <br/>
    <img src={useBaseUrl('img/basics/sso/idp-config/okta/search-app.png')} alt="Search For Sauce Labs" width="800" />
 
 3. Click **Add Integration**.
