@@ -13,6 +13,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 ## System Requirements
 
 Supported OS:
+
 - Windows 10 / Windows 11
 - macOS 10.14+
 - Linux
@@ -170,16 +171,15 @@ Sauce Labs supports the following test configurations for TestCafe:
 
 ### TestCafe Plugins for Sauce Labs
 
-If you would prefer to stay in TestCafe, try the new [TestCafe Sauce Labs Plugin](https://github.com/DevExpress/testcafe-browser-provider-saucelabs). Connect to your Sauce Labs account from within your TestCafe project to configure and run your tests directly from TestCafe.
-If all you want is to publish your TestCafe test results to Sauce Labs (but not run on Sauce Labs), please check out our [TestCafe reporter](https://github.com/saucelabs/testcafe-reporter)!
+If you prefer to stay in TestCafe, try the new [TestCafe Sauce Labs Plugin](https://github.com/DevExpress/testcafe-browser-provider-saucelabs). Connect to your Sauce Labs account from within your TestCafe project to configure and run your tests directly from TestCafe.
+If all you want is to publish your TestCafe test results to Sauce Labs (but not run on Sauce Labs), check out our [TestCafe reporter](https://github.com/saucelabs/testcafe-reporter)!
 
 ## Limitations
 
-:::caution Special Characters in Test Names
-We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
-:::
+### Special Characters in Test Names
 
-:::caution TestCafe 3.0.1 + Chrome/Edge + Sauce-Connect
-When using Sauce-Connect, Chrome and Edge browsers are unable to load any website through the tunnel.
-It will behave as there is no tunnel defined.
-::::
+We recommend that you avoid using special characters when naming your tests. If your test name contains any special characters, your test may not run, or its artifacts may not be visible on our platform.
+
+### TestCafe 3.0.1 + Chrome/Edge + Sauce-Connect
+
+When using Sauce-Connect, Chrome, and Edge browsers cannot load any website through the tunnel. It will behave as if there is no tunnel defined.
