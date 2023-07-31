@@ -99,6 +99,34 @@ The user has the following options:
 | `--kv=key1:value1,key2:value2,... `          | Upload key-values.                               |
 | `--form_data`                                | Upload file by multipart/form-data post request. |
 
+### Set
+
+The command modifies attributes of the given object as specified. Both options below may be specified more than once.
+
+```bash
+morgue set <[universe/]project> <query> <key>=<value>
+```
+
+You can also modify multiple objects by specifying filters. The `--filter`, `--age`, and `--time` arguments are accepted for modification. You must specify some filter criteria.
+
+#### Example
+
+Set custom attribute `reason` to `oom` for all crashes containing `memory_abort`.
+
+```bash
+$ morgue set reason=oom --filter=callstack,regular-expression,memory_abort
+```
+
+Set reason to `boomboom` for object `cb`.
+
+```bash
+$ morgue set reason=boomboom --filter=_tx,equal,206
+```
+
+:::note Decimal Format
+Morgue expects the default attribute `_tx` value to be in decimal format.
+:::
+
 ### Modify
 
 Modifies the attributes of the given object as specified.
