@@ -101,13 +101,13 @@ The user has the following options:
 
 ### Set
 
-Modifies attributes of the given object in the manner specified. Both options below may be specified more than once.
+The command modifies attributes of the given object as specified. Both options below may be specified more than once.
 
 ```bash
 morgue set <[universe/]project> <query> <key>=<value>
 ```
 
-You are also able to modify multiple objects by specifying filters. The `--filter`, `--age` and -`-time` arguments are accepted to modify. You must specify some filter criteria.
+You can also modify multiple objects by specifying filters. The `--filter`, `--age`, and `--time` arguments are accepted for modification. You must specify some filter criteria.
 
 #### Example
 
@@ -124,7 +124,7 @@ $ morgue set reason=boomboom --filter=_tx,equal,206
 ```
 
 :::note Decimal Format
-Morgue expects the default attribute `_tx` value in decimal format.
+Morgue expects the default attribute `_tx` value to be in decimal format.
 :::
 
 ### Modify
