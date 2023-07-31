@@ -386,3 +386,7 @@ otherApps:
 - storage:c78ec45e-ea3e-ac6a-b094-00364171addb
 - storage:filename=pre-installed-app3.apk
 ```
+
+:::warning
+`otherApps` is limited to supporting only up to 2 storage file IDs. Exceeding characters will be truncated.
+:::
