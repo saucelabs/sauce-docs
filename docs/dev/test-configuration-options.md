@@ -1969,5 +1969,5 @@ These are currently not supported for real devices:
 ## Limitations
 
 :::warning
-When running a test on a Virtual Device, please be aware that there is a 100 characters limitation for capabilities value. If the value exceeds this limit, it will be truncated and leading to issues. Make sure the value does not exceed the limitation to avoid any issues.
+When running a test on a Virtual Device, please be aware that there is a 100 characters limitation for each capability value. If the value exceeds this limit, it will be truncated, which can lead to further side effects or prevent a job from starting.
 :::
