@@ -47,7 +47,7 @@ A rule consists of a set of predicates (IF statements), and a set of actions to 
 The IF statements evaluate matches against functions, objects, or sources using regex:
 
 - Function is the name of the function.
-- Source is the name of the source file from which the function comes.
+- Source is the name of the source file that the function came from.
 - Object is the name of the object.
 
 Click **Add a rule** to add a new rule.
