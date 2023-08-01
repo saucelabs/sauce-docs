@@ -50,7 +50,9 @@ These fields are translated and displayed in the following fields on the dashboa
 
 <img src={useBaseUrl('/img/testfairy/app-distribution/ios-version-numbering.png')} alt="ios version numbering"/>
 
+:::note
 For more information about app versioning, see [Version Numbers and Build Numbers](https://developer.apple.com/library/archive/technotes/tn2420/_index.html) or [Set application version information](https://developer.android.com/studio/publish/versioning#appversioning).
+:::
 
 ## Separating Apps and Builds
 

@@ -13,7 +13,7 @@ You can integrate Backtrace with Slack to see the errors that matter, triage, an
 
 There are two integration paths:
 
-- Use the Slack App (recommended)
+- Use the App for Slack (recommended)
 - Connecting a Webhook (legacy)
 
 :::note
@@ -22,7 +22,7 @@ Slack announced that they plan to deprecate support for customized webhooks, so 
 
 :::
 
-## Connecting the Slack App
+## Connecting the App for Slack
 
 1. Navigate to **Project Settings** > **Integrations**.
 2. Click **+**.
@@ -38,7 +38,7 @@ Slack announced that they plan to deprecate support for customized webhooks, so 
 
 5. Next, **Allow** Backtrace to access the Backtrace I/O Slack workspace, or request from your Slack admin.
    <img src={useBaseUrl('/img/error-reporting/workflow-integrations/slack/backtrace_permission.png')} alt="allow backtrace to access slack integration" width="500"/>
-6. After the Slack App is installed, go to **Home** in Slack and click **Connect with Backtrace**.
+6. After the App for Slack is installed, go to **Home** in Slack and click **Connect with Backtrace**.
    <img src={useBaseUrl('/img/error-reporting/workflow-integrations/slack/connect_backtrace.png')} alt="connect with backtrace" width="500"/>
 7. Enter your Backtrace instance (\*.sp.backtrace.io domain) in **Backtrace Instance URL** and click **Submit**.
    <img src={useBaseUrl('/img/error-reporting/workflow-integrations/slack/add_instance.png')} alt="add backtrace instance URL" width="500"/>

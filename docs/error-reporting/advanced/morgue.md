@@ -37,6 +37,14 @@ This will install the `morgue` tool in your configured path. Refer to the `morgu
 
 ## Usage
 
+:::note Default Timeframe Filter in Morgue
+
+Morgue applies a default/implicit timeframe filter of 30 days (30d) to the data. This means that by default, when querying data, Morgue will return results from the past 30 days. If you need to retrieve data from timeframes larger than 30 days, you need to explicitly specify the desired timeframe in the query.
+
+For instance, if you want results from all time, you can use something like 49 years (`--age=49y`) as the timeframe filter.
+
+:::
+
 ### Login
 
 The first step to using Morgue is to log in to a server.
@@ -98,6 +106,34 @@ The user has the following options:
 | `--compression=gzip` `--compression=deflate` | Uploaded file is compressed.                     |
 | `--kv=key1:value1,key2:value2,... `          | Upload key-values.                               |
 | `--form_data`                                | Upload file by multipart/form-data post request. |
+
+### Set
+
+The command modifies attributes of the given object as specified. Both options below may be specified more than once.
+
+```bash
+morgue set <[universe/]project> <query> <key>=<value>
+```
+
+You can also modify multiple objects by specifying filters. The `--filter`, `--age`, and `--time` arguments are accepted for modification. You must specify some filter criteria.
+
+#### Example
+
+Set custom attribute `reason` to `oom` for all crashes containing `memory_abort`.
+
+```bash
+$ morgue set reason=oom --filter=callstack,regular-expression,memory_abort
+```
+
+Set reason to `boomboom` for object `cb`.
+
+```bash
+$ morgue set reason=boomboom --filter=_tx,equal,206
+```
+
+:::note Decimal Format
+Morgue expects the default attribute `_tx` value to be in decimal format.
+:::
 
 ### Modify
 
