@@ -160,7 +160,7 @@ Microsoft Edge, Chrome 71+, and the Safari browser on OS X 10.10+ and mobile iOS
     7000, 7070, 7774, 7777,
     8000, 8001, 8003, 8031, 8080, 8081, 8443, 8765, 8777, 8888,
     9000, 9001, 9031, 9080, 9081, 9090, 9191, 9876, 9877, 9999,
-    49221, 55001
+    49221, 53106, 55001
 
 :::note
 On Android devices, ports 5555 and 8080 cannot be used with Sauce Connect Proxy.
