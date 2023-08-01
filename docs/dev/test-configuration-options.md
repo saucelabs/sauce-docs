@@ -655,9 +655,6 @@ capabilities.setCapability("appium:otherApps",  ["storage:7435ab52-1eaa-4387-a67
 Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
 :::
 
-:::warning
-Using `fileId` in this configuration, `otherApps` is limited to supporting only up to 2 storage file IDs due to [value length limitations](#limitations).
-:::
 ---
 
 ### `appium:orientation`
@@ -1972,5 +1969,5 @@ These are currently not supported for real devices:
 ## Limitations
 
 :::warning
-Capability value has a limit of 100 characters; exceeding characters will be truncated.
+When running a test on a Virtual Device, please be aware that there is a 100 characters limitation for capabilities value. If the value exceeds this limit, it will be truncated and leading to issues. Make sure the value does not exceed the limitation to avoid any issues.
 :::

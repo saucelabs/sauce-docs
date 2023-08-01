@@ -576,10 +576,6 @@ Apps specified as `otherApps` inherit the configuration of the main app under te
     - storage:filename=pre-installed-app3.apk
 ```
 
-:::warning
-`otherApps` is limited to supporting only up to 2 storage file IDs. Exceeding characters will be truncated.
-:::
-
 ---
 
 ## `suites`
