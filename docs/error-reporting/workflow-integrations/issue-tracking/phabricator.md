@@ -41,4 +41,4 @@ To enable synchronization from Phabricator to Backtrace you will need to:
 - Create a Herald webhook with an URL provided to you in Setup Behavior step.
 - Create a global Herald rule for Maniphest Tasks which calls the webhook when description contains "View in Backtrace".
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/phab-set-herald-rule.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/phab-set-herald-rule.webp')} alt="" />
