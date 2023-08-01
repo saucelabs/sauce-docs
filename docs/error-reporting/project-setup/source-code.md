@@ -76,7 +76,7 @@ Once configured, a Source tab becomes available in the Debugger for all errors i
 
 Notice we'll identify the file name and path, which Repository and revision it came from, and the date that revision was published.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/debug-source.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/debug-source.webp')} alt="" />
 
 You can navigate up and down, Jump back to the highlighted line, and optionally show time that each line was committed, who did that commit, and the commit hash.
 
