@@ -59,7 +59,7 @@ To find out how well a site under test performs against a browser update, we sta
 
 As the figure below shows, more than 3,500 tests were run on Windows 7 for Chrome 50 in the past seven days, with a 41% pass rate.
 
-<img src={useBaseUrl('img/insights/chrome50.png')} alt="Chrome 50 Trends" width="750"/>
+<img src={useBaseUrl('img/insights/chrome50.webp')} alt="Chrome 50 Trends" width="750"/>
 
 There are no errors, indicating that this is a robust set of tests, but a large number of tests ran to completion without reporting a Pass or Fail status. Hovering over one of the bars in the graph shows that these no-status completions account for about 65% of the tests in every time increment.
 
