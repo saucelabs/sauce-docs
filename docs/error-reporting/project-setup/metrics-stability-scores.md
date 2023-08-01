@@ -45,11 +45,11 @@ Note: If you are linking attributes for a metric group that you expect to receiv
 
 Now we can start adding metrics, it’s good practice to have naming conventions like {metricGroupName}-{attributeName}{attributeValue} for each metric (i.e. minutesPlayed-version1.0, minutesPlayed-version1.1, etc).
 
-<img src={useBaseUrl('img/error-reporting/project-settings/create-metric.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/create-metric.webp')} alt="" />
 
 If you are following these examples, you should create a few metrics to manage number of Minutes Played or Sessions Started for each of your last few versions. Below, we have metrics for Minutes Played in Version 3.16.0, 3.16.2, 3.16.4, and 3.16.5.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/metrics-example.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/metrics-example.webp')} alt="" />
 
 We now have the 'shape' of the metrics in Backtrace. Next, we need to populate these metrics with data.
 

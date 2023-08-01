@@ -65,7 +65,7 @@ Specify the Key type as JSON and click on **Create**. Google saves a .json file 
 
 Once errors are reported to your Backtrace instance, you can view them in the Triage and Web Debugger views. See the screenshot below for the Triage view.
 
-<img src={useBaseUrl('/img/error-reporting/TriageDoc.png')} alt="triage view"/>
+<img src={useBaseUrl('/img/error-reporting/TriageDoc.webp')} alt="triage view"/>
 
 When debugging an error, you can choose to view more details of the exception. You can use the **View Latest Trace** action to see more details in the Backtrace Web Debugger. The Web Debugger provides a list of all attributes submitted with a report, the call stack and details of the selected frame, system environment details, and more to assist with the investigation.
 
