@@ -129,7 +129,7 @@ Backtrace is compatible with existing Breakpad and Socorro integrations. You can
 Below is an example of a symbol upload using the `sym_upload` tool.
 
 ```
-sym_upload null_read_av.sym 'https://submit.backtrace.io/{your-subdomain}/format=symbols&token={symbol-access-token}'
+sym_upload null_read_av.sym 'https://submit.backtrace.io/{your-subdomain}/{symbol-access-token}/symbols'
 ```
 
 To generate a symbol access token, see [Generating a Symbol Access Token](#generating-a-symbol-access-token).
@@ -141,7 +141,7 @@ In order to build automation around symbol upload, such as integration into a bu
 Below is an example of a `curl` command to submit a symbol archive.
 
 ```
-curl --data-binary @symbols.tar  -X POST  -H "Expect: gzip" "https://submit.backtrace.io/{your-subdomain}/format=symbols&token={symbol-access-token}"
+curl --data-binary @symbols.tar  -X POST  -H "Expect: gzip" "https://submit.backtrace.io/{your-subdomain}/{symbol-access-token}/symbols"
 ```
 
 :::note
