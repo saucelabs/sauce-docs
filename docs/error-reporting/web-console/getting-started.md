@@ -61,7 +61,7 @@ Aggregation Filters allow you to apply an additional filter on the results based
 
 After defining your working set, choose a tool to view and manage the result list. The result list will vary depending on which tool you are in. The following shows the result list for the Triage view.
 
-<img src={useBaseUrl('img/error-reporting/console-views/triage-results-list.png')} alt="Shows the Triage view." width="750" />
+<img src={useBaseUrl('img/error-reporting/console-views/triage-results-list.webp')} alt="Shows the Triage view." width="750" />
 
 At the top of the result list, you'll see some informational text that tells you how many issues are being displayed and how many in total there are. This gives you a view of how many additional crashes or errors that are identified outside the filter window.
 

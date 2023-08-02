@@ -1961,7 +1961,10 @@ See [Visual Testing with WebDriver](/visual/e2e-testing/setup) and [Visual Comma
 
 These are currently not supported for real devices:
 
-- `installApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
-- `removeApp`: Managed by RDC differently, but cannot be used inside an Appium test as part of the routine.
 - `Edit Timezone`: Appium does not provide a capability to edit the timezone of a device in automated testing on real devices.
 - See [Virtual Device Capabilities](#virtual-device-capabilities-sauce-specific--optional) for information about timezone capabilities in a virtual device testing.
+
+
+:::caution Limitations
+When running a test on a Virtual Device, be aware that each capability value has a 100 characters limitation. If the value exceeds this limit, it will be truncated, which can lead to further side effects or prevent a job from starting.
+:::

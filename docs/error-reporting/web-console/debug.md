@@ -15,7 +15,7 @@ The Debug view allows you to see the error or state of archived dumps from crash
 
 Below is a screenshot of the type of data you will see in the Debug view.
 
-<img src={useBaseUrl('img/error-reporting/console-views/debug-view.png')} alt="Shows the Debug view." />
+<img src={useBaseUrl('img/error-reporting/console-views/debug-view.webp')} alt="Shows the Debug view." />
 
 Depending on the type of information in the crash report, the Debug view will show different data. For example, the crash report for minidump files shows a set of callstacks from all the threads, and other details such as attributes, environment information, modules loaded, and missing symbols. The crash report for Backtrace core dump files (BTT) shows automated security and bug analysis, variables, and more.
 
@@ -49,7 +49,7 @@ This pane is present for dump formats such as minidump. This contains a tree lis
 
 This pane is present for the Backtrace SDKs that have the breadcrumb functionality enabled on the client. Breadcrumbs help you track events leading up to a crash, error, or other submitted object. You can also use automatic system breadcrumbs to track battery state changes, foreground/background switches, and memory events.
 
-<img src={useBaseUrl('img/error-reporting/console-views/debug-view-breadcrumbs.png')} alt="Shows the Breadcrumbs pane in the Debug view." />
+<img src={useBaseUrl('img/error-reporting/console-views/debug-view-breadcrumbs.webp')} alt="Shows the Breadcrumbs pane in the Debug view." />
 
 The breadcrumbs that are added depend on the SDK that you're using. For more information on which events are automatically captured or how to configure breadcrumbs, see [Platform Integrations](/error-reporting/platform-integrations/overview).
 
