@@ -20,7 +20,7 @@ Before getting started with the High Availability setup, we recommend trying the
 
 ## Basic Setup Leveraging High Availability
 
-The diagram below shows the basic Sauce Connect Proxy setup using HA.<br/><img src={useBaseUrl('img/sauce-connect/scp-basic-ha.png')} alt="Basic setup using High Availability" width="600"/>
+The diagram below shows the basic Sauce Connect Proxy setup using HA.<br/><img src={useBaseUrl('img/sauce-connect/scp-basic-ha.webp')} alt="Basic setup using High Availability" width="600"/>
 
 On the Sauce Labs side, there are three major components: **Sauce Test VM**, **Sauce Connect Tunnel VM**, and **Tunnel Pool**. The logic flow is:
 
@@ -32,7 +32,7 @@ On the Sauce Labs side, there are three major components: **Sauce Test VM**, **S
 
 In this diagram, we see a setup that allows for multiple network routes when reaching the site(s) under test.
 
-<img src={useBaseUrl('img/sauce-connect/scp-mult-routes.png')} alt="Multiple network routes to Site Under Test (SUT)" width="600"/>
+<img src={useBaseUrl('img/sauce-connect/scp-mult-routes.webp')} alt="Multiple network routes to Site Under Test (SUT)" width="600"/>
 
 There are variations to this, of course. For example, some of the Sauce Connect Proxy instances could be in the same network infrastructure as the site(s) under test. You can also imagine leveraging different virtual routes inside the same physical network. What is gained by setting up tunnels in this manner is redundancy for Sauce Connect Proxy tests, should one network route fail.
 

@@ -25,7 +25,7 @@ From the Sauce Labs side, the Sauce Connect system includes the following compon
 
 Here is an overview of how these components interact with the user environment:
 
-<img src={useBaseUrl('img/sauce-connect/sc-arch-components.png')} alt="Sauce Connect components interacting with user’s environment" width="800"/>
+<img src={useBaseUrl('img/sauce-connect/sc-arch-components.webp')} alt="Sauce Connect components interacting with user’s environment" width="800"/>
 
 ### Sauce Connect Proxy Client
 
@@ -53,8 +53,8 @@ If you're executing tests through Sauce Connect Proxy, you'll be able to see all
 
 ## Start Sequence Diagram
 
-<img src={useBaseUrl('img/sauce-connect/start-sequence.png')} alt="Sauce Connect Proxy start sequence" width="800"/>
+<img src={useBaseUrl('img/sauce-connect/start-sequence.webp')} alt="Sauce Connect Proxy start sequence" width="800"/>
 
 ## Shutdown Sequence Diagram
 
-<img src={useBaseUrl('img/sauce-connect/shutdown-sequence.png')} alt="Sauce Connect Proxy shutdown sequence" width="800"/>
+<img src={useBaseUrl('img/sauce-connect/shutdown-sequence.webp')} alt="Sauce Connect Proxy shutdown sequence" width="800"/>
