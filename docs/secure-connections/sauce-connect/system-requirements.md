@@ -306,7 +306,7 @@ If you're testing in a restricted network setting, you may need to allowlist the
 
 You need to use the set of domains for your corresponding Sauce Labs data center: US data center (US West 1) or European data center (EU Central 1). The data center you're connected to is indicated in your navigation.<br/>
 
-<img src={useBaseUrl('img/sauce-connect/data-center-ui.webp')} alt="Sauce Connect download file contents" width="450" margin-bottom="50px"/>
+<img src={useBaseUrl('img/sauce-connect/dc-ui.png')} alt="Sauce Connect data center" width="450"/>
 
 For more information on our data centers and how to choose the right one for you, see [Data Center Endpoints](/basics/data-center-endpoints).
 
