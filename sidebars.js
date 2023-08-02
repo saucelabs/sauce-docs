@@ -619,6 +619,8 @@ module.exports = {
                     label: 'Advanced',
                     collapsed: true,
                     items: [
+                        'error-reporting/advanced/platform-overview',
+                        'error-reporting/advanced/package-installation',
                         {
                             type: 'category',
                             label: 'Coroner',
@@ -632,8 +634,8 @@ module.exports = {
                                 'error-reporting/advanced/coroner/client-morgue',
                             ],
                         },
-                        'error-reporting/advanced/morgue',
                         'error-reporting/advanced/traces-coroner',
+                        'error-reporting/advanced/morgue',
                         'error-reporting/advanced/ptrace',
                         {
                             type: 'category',
@@ -654,13 +656,12 @@ module.exports = {
                             ],
                         },
                         'error-reporting/advanced/post-migration',
+                        'error-reporting/advanced/invariants',
                         'error-reporting/advanced/custom-symbol-server',
                         'error-reporting/advanced/bcd',
                         'error-reporting/advanced/submission-buckets',
                         'error-reporting/advanced/sync-submissions',
                         'error-reporting/advanced/pam-ldap',
-                        'error-reporting/advanced/platform-overview',
-                        'error-reporting/advanced/package-installation',
                         'error-reporting/advanced/client-tools-unix',
                         'error-reporting/advanced/dwarf',
                         'error-reporting/advanced/snapshots',
