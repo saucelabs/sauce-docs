@@ -70,10 +70,12 @@ Keep in mind that these are guidelines. Most environments have their own workloa
 </table>
 
 :::note macOS Catalina 10.15+ compatibility
+
 Enable your Mac to allow apps from the App Store and identified developers.
 
 1. Go to **System Preferences** > **Security & Privacy** > **General**.
 2. Under **Allow apps downloaded from**, select the option **App Store and identified developers**.
+
 :::
 
 ### Sauce Connect v4.7.x
@@ -304,7 +306,7 @@ If you're testing in a restricted network setting, you may need to allowlist the
 
 You need to use the set of domains for your corresponding Sauce Labs data center: US data center (US West 1) or European data center (EU Central 1). The data center you're connected to is indicated in your navigation.<br/>
 
-<img src={useBaseUrl('img/sauce-connect/data-center-ui.png')} alt="Sauce Connect download file contents" width="450" margin-bottom="50px"/>
+<img src={useBaseUrl('img/sauce-connect/data-center-ui.webp')} alt="Sauce Connect download file contents" width="450" margin-bottom="50px"/>
 
 For more information on our data centers and how to choose the right one for you, see [Data Center Endpoints](/basics/data-center-endpoints).
 

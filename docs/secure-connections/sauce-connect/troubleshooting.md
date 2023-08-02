@@ -105,7 +105,7 @@ Cross-Origin Resource Sharing (CORS) errors could be caused by a variety of reas
 
 As a primer, the diagram below is the ideal network configuration with regards to Sauce Connect Proxy. Your firewall only needs to allow for outbound connections to Sauce Labs. Sauce Connect Proxy establishes a TLS connection (tunnel) to a dedicated tunnel endpoint server hosted in the Sauce Labs cloud. For best performance, Sauce Connect Proxy should be running close to the Site Under Test or App Under Test.
 
-<img src={useBaseUrl('img/sauce-connect/correct-network-config.png')} alt="Correct network configuration" width="400"/>
+<img src={useBaseUrl('img/sauce-connect/correct-network-config.webp')} alt="Correct network configuration" width="400"/>
 
 The diagrams below illustrate common configuration mistakes that result in dysfunctional setups.
 
@@ -117,7 +117,7 @@ For example, if an SC Host is in Berlin and the SUT is located in a data center 
 
 The way to prevent this is to ensure the SC Host is placed in the same geographic domain as the SUT.
 
-<img src={useBaseUrl('img/sauce-connect/dys-geo-config.png')} alt="Dysfunctional geographic domain configuration" width="400"/>
+<img src={useBaseUrl('img/sauce-connect/dys-geo-config.webp')} alt="Dysfunctional geographic domain configuration" width="400"/>
 
 **Diagram Legend**
 
@@ -131,7 +131,7 @@ The way to prevent this is to ensure the SC Host is placed in the same geographi
 
 Another common mistake is placing the SUT in the same network as the [Demilitarized Zone (DMZ)](<https://en.wikipedia.org/wiki/DMZ_(computing)>). It's exposed to the internet, but isolated from the internal network.
 
-<img src={useBaseUrl('img/sauce-connect/dys-dmz-config.png')} alt="Dysfunctional DMZ + SUT network configuration" width="400"/>
+<img src={useBaseUrl('img/sauce-connect/dys-dmz-config.webp')} alt="Dysfunctional DMZ + SUT network configuration" width="400"/>
 
 **Diagram Legend**
 
