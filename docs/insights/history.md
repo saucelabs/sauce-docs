@@ -35,13 +35,13 @@ Below the performance statistics, the scatter plot shows each instance of the te
 
 The charting of errors and failures in the visualization can help you get an early assessment of flaky test behavior. In this example, the test constantly fails in the first and second re-run, and succeeds in the third. This is a very typical example of a flaky behavior.
 
-<img src={useBaseUrl('img/insights/test-history-flaky.png')} alt="Flaky Test Example" width="650"/>
+<img src={useBaseUrl('img/insights/test-history-flaky.webp')} alt="Flaky Test Example" width="650"/>
 
 ## An Example of Using Test History
 
 In this example, you can see how the test **addOneItemtoCart** was executed over the last seven days on different platforms. Along the bottom are the executions that have successfully run and passed, and have the fastest execution times. As the execution time increases, you can see that there are significantly more runs that have failed. Hovering over a few of the failed tests indicates that many of the failures are on the Chrome browser.
 
-<img src={useBaseUrl('img/insights/test-history-fails.png')} alt="Test Overview with Failures" width="650"/>
+<img src={useBaseUrl('img/insights/test-history-fails.webp')} alt="Test Overview with Failures" width="650"/>
 
 Applying a filter for Chrome browser, you can now see that the test is clearly failing specifically in that environment.
 
