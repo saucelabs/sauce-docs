@@ -15,7 +15,7 @@ Backtrace allows users to compute error rates against any metrics you collect li
 
 Below, you can see how Backtrace displays the number of errors by session (stability score) for each version:
 
-<img src={useBaseUrl('img/error-reporting/project-settings/metrics-errors-session.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/metrics-errors-session.webp')} alt="" />
 
 To use the system, a Project Admin needs to define a metric group with a series of metrics contained within it, and a metric source with a series of importers to populate data for each metric you define.
 
@@ -25,7 +25,7 @@ This guide will show admins how to use the UI to take the steps needed to get st
 
 Click into **Project Settings > Stability Monitoring** to setup the required metric groups, individual metrics, data sources, and importers.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/create-metric-group.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/create-metric-group.webp')} alt="" />
 
 ## Manage the Backtrace Metric Objects
 
@@ -57,7 +57,7 @@ We now have the 'shape' of the metrics in Backtrace. Next, we need to populate t
 
 The Metric Sources tab allows you to define connections to metric systems like Postgres, Graphite, Redshift, or Influx. In the screenshot below, a metric source to a Postgres instance called postgres-sessions is created.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/metric-sources.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/metric-sources.webp')} alt="" />
 
 ### Create the Metric Data Source
 
@@ -100,10 +100,10 @@ Once configured and populating, Stability Scores can be viewed in the Triage and
 
 Below, we can see errors normalized by sessions started. The top bar graph now shows how many sessions were seen over the time period (last 7 days), and the Errors by Sessions columns shows what % of sessions were impacted by a particular fingerprint.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/stability-scores-triage.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/stability-scores-triage.webp')} alt="" />
 
 ## Stability Scores in Explore with Group By
 
 When we defined the original metric group, we linked to an attribute (version), and then defined metrics and importers for getting the minutes played metric for each version. Now, when you use Explore and Group By version, the "Errors" column will show a % of sessions that have seen errors seen for that given version. It helps better see which versions are buggier than others.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/stability-score-explore.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/stability-score-explore.webp')} alt="" />
