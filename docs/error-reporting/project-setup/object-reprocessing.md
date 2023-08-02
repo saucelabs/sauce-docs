@@ -44,4 +44,4 @@ In the List view, admins can reprocess objects from the object ID column.
 
 In the Debugger view, admins can reprocess an object from the menu on the right.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/debug-reprocess.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/debug-reprocess.webp')} alt="" />

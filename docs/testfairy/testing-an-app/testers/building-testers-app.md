@@ -14,7 +14,7 @@ The TestFairy platform provides a unique service that allows customers to run th
 
 ### Source Code
 
-To begin, you need to access the source code of the TestFairy Testers App for Android. This can be achieved by forking the project from the following GitHub repository: [https://github.com/testfairy/testers-app-android](https://github.com/testfairy/testers-app-android)
+To begin, you need to access the source code of the TestFairy Testers App for Android. This can be achieved by forking the project from the following [GitHub repository](https://github.com/testfairy/testers-app-android).
 
 ### Code Changes
 
@@ -28,7 +28,7 @@ private static final String BASE_URL = "https://<YOUR_SUBDOMAIN_HERE>.testfairy.
 
 ### Source Code
 
-To get started with building the iOS version of the Testers App, you should fork the project from the following GitHub repository: [https://github.com/testfairy/testers-app-ios](https://github.com/testfairy/testers-app-ios)
+To get started with building the iOS version of the Testers App, you should fork the project from the following [GitHub repository](https://github.com/testfairy/testers-app-ios).
 
 ### Code Changes
 

@@ -41,10 +41,10 @@ Both **Reject submission** and **Drop objects and index only** allow you to crea
 
 This action can be used for automated assignment or to set specific attribute values.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/submission-action-set-value.png')} width= "500" alt="Shows an example configuration for the Set values submission action." />
+<img src={useBaseUrl('img/error-reporting/project-settings/submission-action-set-value.webp')} width= "500" alt="Shows an example configuration for the Set values submission action." />
 
 ### Union Values
 
 This action is like **Set value** , but for label types, like Tags or Classifiers, where instead of setting a value, the system is adding a value to the field, so it can contain multiple values.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/submission-action-union-values.png')} width= "500" alt="Shows an example configuration for the Union values submission action." />
+<img src={useBaseUrl('img/error-reporting/project-settings/submission-action-union-values.webp')} width= "500" alt="Shows an example configuration for the Union values submission action." />

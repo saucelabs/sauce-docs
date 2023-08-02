@@ -110,4 +110,4 @@ Items appear in the skip list when they cannot be fetched after multiple retries
 
 The Logs tab shows successful and failed attempts at downloading, receiving, or retrying, amongst other. You can use the logs to understand how the symbol server connection has been behaving.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/symbols-logs.png')} alt="Shows the Logs tab for a symbol server." width="600"/>
+<img src={useBaseUrl('img/error-reporting/project-settings/symbols-logs.webp')} alt="Shows the Logs tab for a symbol server." width="600"/>
