@@ -92,12 +92,12 @@ mvn test
 </TabItem>
 <TabItem value="VS Code">
 
-Right-click on the test file (**SauceTest.java**) and click **Run Java**.<br/><img src={useBaseUrl('img/selenium/vscode-run.png')} alt="Run test with VS Code" />
+Right-click on the test file (**SauceTest.java**) and click **Run Java**.<br/><img src={useBaseUrl('img/selenium/vscode-run.webp')} alt="Run test with VS Code" />
 
 </TabItem>
 <TabItem value="IntelliJ">
 
-Right-click on the test file (**SauceTest.java**) and click **Run 'SauceTest'**.<br/><img src={useBaseUrl('img/selenium/intellij-run.png')} alt="Run test with IntelliJ" />
+Right-click on the test file (**SauceTest.java**) and click **Run 'SauceTest'**.<br/><img src={useBaseUrl('img/selenium/intellij-run.webp')} alt="Run test with IntelliJ" />
 
 </TabItem>
 </Tabs>
@@ -114,7 +114,7 @@ Right-click on the test file (**SauceTest.java**) and click **Run 'SauceTest'**.
 
 <TabItem value="CLI">
 
-You should see a session confirmation message like this. Copy and paste the **Test Job Link** into your browser to see your test results on Sauce Labs.<br/><img src={useBaseUrl('img/selenium/basic-testresults.png')} alt="basic-testresults" />
+You should see a session confirmation message like this. Copy and paste the **Test Job Link** into your browser to see your test results on Sauce Labs.<br/><img src={useBaseUrl('img/selenium/basic-testresults.webp')} alt="basic-testresults" />
 
 Once you get to the **Test Results** page, click on your test to view its details.<br/><img src={useBaseUrl('img/selenium/test-results-vdc.png')} alt="basic-testresults" />
 
@@ -171,23 +171,23 @@ This quickstart test utilizes the Java Development Kit (JDK) ([download here](ht
 If it's your first time ever opening a Java project, follow the steps below; if not, you can skip this.
 
 1. Your IDE will prompt you to set up your JDK. You'll need to click on the prompt.<br/><img src={useBaseUrl('img/selenium/jdk-setup.png')} alt="jdk-setup" width="400"/><br/>
-2. Provide the location where you downloaded the JDK. Some IDEs will detect and find the path for you, so all you have to do is select it.<br/><img src={useBaseUrl('img/selenium/jdk-config.png')} alt="jdk-config" width="500"/>
+2. Provide the location where you downloaded the JDK. Some IDEs will detect and find the path for you, so all you have to do is select it.<br/><img src={useBaseUrl('img/selenium/jdk-config.webp')} alt="jdk-config" width="500"/>
 
 :::tip
 If you're new to IDEs, here are some tips:
 
 <details><summary>OpenJDK distributions</summary>
-IDEs also give you the option to download open source JDK distributions (e.g., Amazon Corretto, Oracle OpenJDK, and Eclipse Temurin) as an alternative to downloading JDK to your local machine. This works, but will only download it this specific project. If you're setting up a permanent developer environment that will be used beyond this Quickstart, you should download the JDK locally.<br/><img src={useBaseUrl('img/selenium/jdk-config-alt.png')} alt="jdk-config" width="500"/>
+IDEs also give you the option to download open source JDK distributions (e.g., Amazon Corretto, Oracle OpenJDK, and Eclipse Temurin) as an alternative to downloading JDK to your local machine. This works, but will only download it this specific project. If you're setting up a permanent developer environment that will be used beyond this Quickstart, you should download the JDK locally.<br/><img src={useBaseUrl('img/selenium/jdk-config-alt.webp')} alt="jdk-config" width="500"/>
 </details>
 
 <details><summary>Extensions and plugins</summary>
-If your IDE recommends additional extensions and plugins for Java and Maven, such as the ones listed below, you should accept them since they may contain more dependencies needed to run a test.<br/><img src={useBaseUrl('img/selenium/java-webdriver-dependencies.png')} alt="java-webdriver-dependencies" width="350"/>
+If your IDE recommends additional extensions and plugins for Java and Maven, such as the ones listed below, you should accept them since they may contain more dependencies needed to run a test.<br/><img src={useBaseUrl('img/selenium/java-webdriver-dependencies.webp')} alt="java-webdriver-dependencies" width="350"/>
 </details>
 :::
 
 ### Step 4: Run Test
 
-Right-click and run the test file, **SeleniumTest.java**.<br/><img src={useBaseUrl('img/selenium/run-selenium.png')} alt="run-selenium" />
+Right-click and run the test file, **SeleniumTest.java**.<br/><img src={useBaseUrl('img/selenium/run-selenium.webp')} alt="run-selenium" />
 
 ### Step 5: View Test Results
 
