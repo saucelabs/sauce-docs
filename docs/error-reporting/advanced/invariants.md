@@ -155,5 +155,5 @@ There are several attributes in the `issues` table that are used with invariants
 
 For a more detailed description of the invariant rules used in mute/resolve until behavior, check the following pages:
 
-- [Resolved Until Behavior](/error-reporting/workflow-integrations/issue-tracking/jira/#resolved-until-behavior)
-- [Reopen Criteria - Mute or Resolve Until](/error-reporting/web-console/triage/#reopen-criteria---mute-or-resolve-until)
+- [Resolved Until Behavior](/error-reporting/workflow-integrations/issue-tracking/jira/#resolved-until-behavior).
+- [Reopen Criteria - Mute or Resolve Until](/error-reporting/web-console/triage/#reopen-criteria---mute-or-resolve-until).
