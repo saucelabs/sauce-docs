@@ -25,7 +25,7 @@ One of the initial tasks developers often perform is manually tracing pointers a
 
 Here's an example: When a crash occurs (due to a use-after-free error) while accessing the `name` variable, Backtrace automatically tags the variable for quick reference. It performs this action across all threads, automatically tracing object references.
 
-<img src={useBaseUrl('/img/error-reporting/assistive-unix/5e601bf8a5284.png')} alt="Example"/>
+<img src={useBaseUrl('/img/error-reporting/assistive-unix/5e601bf8a5284.webp')} alt="Example"/>
 
 Backtrace accomplishes this by examining executable code, variable addresses, and values in an acceptable error margin, allowing for heuristic matches.
 
@@ -56,7 +56,7 @@ $2 = 1
 
 Backtrace validates the constraints of the underlying instruction against registers, and memory automatically identifies this as an alignment bug at snapshot generation time. Below is the same dump being viewed using the terminal-based snapshot viewer of Backtrace.
 
-<img src={useBaseUrl('/img/error-reporting/assistive-unix/5e601bf9e11fd.png')} alt=""/>
+<img src={useBaseUrl('/img/error-reporting/assistive-unix/5e601bf9e11fd.webp')} alt=""/>
 
 Backtrace can disambiguate various types of faults, including failed assertions, alignment errors, stack overflows, security-related bugs, dispatch errors, machine check errors, and memory accesses.
 
@@ -182,4 +182,4 @@ The Backtrace web debugger and web console enable you to view dumps directly in 
 
 Learn more about [web debugger](/error-reporting/web-console/debug/).
 
-<img src={useBaseUrl('/img/error-reporting/assistive-unix/5e601bfecd76f.png')} alt="example"/>
+<img src={useBaseUrl('/img/error-reporting/assistive-unix/5e601bfecd76f.webp')} alt="example"/>

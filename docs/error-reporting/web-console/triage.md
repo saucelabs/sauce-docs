@@ -9,7 +9,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-
 When opening the Web Console, you will default to the Triage view for the selected project. The Triage view displays crashes or errors grouped by fingerprint (a hash that is generated when processing crashes through Backtrace's deduplication algorithms). The fingerprint is used to signify a unique error with a common root cause.
 
 The Triage view allows you to filter errors (fingerprints) you want to view, provides aggregate information about the fingerprint, and enables actions to take to support resolution of the fingerprint. The following actions are available for users to take on fingerprints:
@@ -22,7 +21,7 @@ The Triage view allows you to filter errors (fingerprints) you want to view, pro
 - Comment and Tag- A comment thread is available in the Details view of a fingerprint. Tags can be applied to fingerprints for more ad-hoc grouping and classification.
 - Merge / Unmerge - If you find 2 or more fingerprints that should really be grouped together, take the Merge action to create a new fingerprint to group future incoming errors into.
 
-<img src={useBaseUrl('img/error-reporting/console-views/triage-view.png')} alt="The Triage view allows you to see errors with the most number of occurrences and take action." />
+<img src={useBaseUrl('img/error-reporting/console-views/triage-view.webp')} alt="The Triage view allows you to see errors with the most number of occurrences and take action." />
 
 ## View and Manage State
 
@@ -30,7 +29,7 @@ In the Triage view, each fingerprint has a status of Open, Resolved, In Progress
 
 We normally see engineering managers start with Open fingerprints so that they can make sure relevant issues are disposed of properly, by taking actions such as assigning to an engineer, linking to Jira issue, marking as Resolved or Muted).
 
-<img src={useBaseUrl('img/error-reporting/console-views/actions-in-triage-view.png')} alt="Shows different actions available in the Triage view, such as assigning to an engineer, linking to Jira issue, marking as Resolved or Muted." />
+<img src={useBaseUrl('img/error-reporting/console-views/actions-in-triage-view.webp')} alt="Shows different actions available in the Triage view, such as assigning to an engineer, linking to Jira issue, marking as Resolved or Muted." />
 
 For each fingerprint in the result list you can view and modify data:
 
@@ -57,7 +56,7 @@ A user can add additional columns to the Triage view to help them better assess 
 
 Hovering over a fingerprint will allow you to take the action to View Details Page for the fingerprint. The Details Page provides ability to analyze additional attributes across the fingerprint for better identification of patterns.
 
-<img src={useBaseUrl('img/error-reporting/console-views/triage-view-fingerprint-details.png')} alt="Shows fingerprint details in the Triage view." />
+<img src={useBaseUrl('img/error-reporting/console-views/triage-view-fingerprint-details.webp')} alt="Shows fingerprint details in the Triage view." />
 
 ## Other Actions
 

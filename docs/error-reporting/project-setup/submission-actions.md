@@ -17,7 +17,7 @@ Submission Actions allow you to configure Backtrace to perform actions in respon
 
 Submission actions can be configured under **Project Settings** > **Submission actions**:
 
-<img src={useBaseUrl('img/error-reporting/project-settings/submission-actions.png')} alt="Shows the available submission actions in the Project Settings." />
+<img src={useBaseUrl('img/error-reporting/project-settings/submission-actions.webp')} alt="Shows the available submission actions in the Project Settings." />
 
 The following actions are supported:
 

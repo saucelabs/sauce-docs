@@ -123,7 +123,7 @@ To find dSYM files while building the project:
 
 1. In Xcode, build your project.
 1. From the **Products** folder, select your iOS app. <br/>
-   <img src={useBaseUrl('img/error-reporting/ios/xcode-products.png')} width="400" alt="" />
+   <img src={useBaseUrl('img/error-reporting/ios/xcode-products.webp')} width="400" alt="" />
 1. Right-click, then click **Show in Finder**.
 1. Zip all the dSYM files and upload to Backtrace.
    <img src={useBaseUrl('img/error-reporting/ios/finder-dsyms-products.png')} width="600" alt="" />
