@@ -14,8 +14,6 @@ A part of a good testing strategy is to create end-to-end tests that resemble co
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
 
-
-
 ### Step 1: Make the Authorization Call
 
 First, make the call to retrieve the token.
@@ -101,7 +99,7 @@ Now, you can add assertions to verify the payload response returned by the call.
 ### Step 4: Reuse the Token in a Final Call
 
 You can reuse the token as many times as you want inside the same test.
-Now that you have updated the cart, you can add a `GET` request to return the items that are currently in it. 
+Now that you have updated the cart, you can add a `GET` request to return the items that are currently in it.
 
 Add a `GET` request to the cart endpoint to view the items.
 
@@ -114,7 +112,7 @@ The GET requires to pass the token granted by the authentication server as Heade
 - Name (the variable name) - for example `user_token`
 - Value (the value of the variable) - for example `${access_token}`
 
-<img src={useBaseUrl('/img/api-testing/reuse-token-final.png')} alt="Reusing tokens" width="600"/>
+<img src={useBaseUrl('/img/api-testing/reuse-token-final.webp')} alt="Reusing tokens" width="600"/>
 
 Now, you can add assertions to verify the payload response returned by the call.
 

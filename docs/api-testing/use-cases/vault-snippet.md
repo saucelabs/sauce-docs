@@ -17,7 +17,7 @@ Below is an example of how to create an Authentication Snippet:
 1. Enter the details for `username` and `password`, then select **Confirm**.<br/><img src={useBaseUrl('img/api-testing/vault_basicAuthDetails.png')} alt="Basic Auth Details" width="600"/>
 1. Once the **Authentication Header** appears, click **Save Changes**.<br/>
 1. Hold down the Ctrl key, highlight the code in the UI and **Save Snippet**.<br/><img src={useBaseUrl('img/api-testing/vault_savesnippet.png')} alt="Save snippet"/>
-1. Give the snippet a name and **Save Snippet**.<br/><img src={useBaseUrl('img/api-testing/vault_snippetname.png')} alt="Snippet name" width="600"/>
+1. Give the snippet a name and **Save Snippet**.<br/><img src={useBaseUrl('img/api-testing/vault_snippetname.webp')} alt="Snippet name" width="600"/>
 
 Consider a scenario where this authentication call will be required for all the endpoints you have to test. It makes sense for this call to be stored in the **Vault** so you don't have to write it every time.
 

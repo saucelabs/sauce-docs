@@ -75,7 +75,7 @@ As result, you will have something like `39263 Smith Ridge,32960 Bashirian Mews,
 }
 ```
 
-<img src={useBaseUrl('/img/api-testing/test-data-personal-data.png')} alt="Personal data generation" width="600"/>
+<img src={useBaseUrl('/img/api-testing/test-data-personal-data.webp')} alt="Personal data generation" width="600"/>
 
 As result, you will have something like
 
@@ -106,7 +106,7 @@ Any of the following methods can be used in a Request Body.
 }
 ```
 
-<img src={useBaseUrl('/img/api-testing/test-data-request-body.png')} alt="Request body data" width="600"/>
+<img src={useBaseUrl('/img/api-testing/test-data-request-body.webp')} alt="Request body data" width="600"/>
 
 It produces a body similar to the below:
 

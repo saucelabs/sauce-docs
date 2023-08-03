@@ -66,7 +66,7 @@ In this example you will focus on setting and retrieving a value in the Key/Valu
 
 9. The final result looks like:
 
-   <img src={useBaseUrl('img/api-testing/kv-examples/final-result-basic.png')} alt="Final result" />
+   <img src={useBaseUrl('img/api-testing/kv-examples/final-result-basic.webp')} alt="Final result" />
 
    ```yaml
    - id: get

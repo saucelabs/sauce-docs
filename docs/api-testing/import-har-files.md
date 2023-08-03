@@ -35,7 +35,7 @@ To import a HAR file:
 
 3. On the **HTTP Client** page, click **Import OpenAPI/Postman**, then click **Import OpenAPI/Postman Collection/.har** and then, select and upload your HAR file from your local machine.
 
-   <img src={useBaseUrl('/img/api-testing/import-har.png')} alt="Navigating to the HAR import modal" width="300"/>
+   <img src={useBaseUrl('/img/api-testing/import-har.webp')} alt="Navigating to the HAR import modal" width="300"/>
 
 4. Click the folder in your **Snapshots** tree where you'd like to save your file.
    <img src={useBaseUrl('img/api-testing/importFolderRebrand.png')} alt="Routes Rendered" width="350"/>
@@ -65,11 +65,11 @@ To import a HAR file:
 
 3. On the **HTTP Client** page, click **Import OpenAPI/Postman**, and then click **Import Har from RDC Job** or **Import Har from VDC Job**.
 
-   <img src={useBaseUrl('/img/api-testing/import-har-nav-rebrand.png')} alt="Navigating to the HAR import modal" width="300"/>
+   <img src={useBaseUrl('/img/api-testing/import-har-nav-rebrand.webp')} alt="Navigating to the HAR import modal" width="300"/>
 
 4. In the **Import Snapshots** window, click a test in the list and then click **Import**. You can filter this list by job owner or job type.
 
-   <img src={useBaseUrl('/img/api-testing/import-har-import-rebrand.png')} alt="Import the file" width="600"/>
+   <img src={useBaseUrl('/img/api-testing/import-har-import-rebrand.webp')} alt="Import the file" width="600"/>
 
 5. In the **Snapshots** panel, navigate to a folder and then click **Save**.
 
@@ -79,7 +79,7 @@ To import a HAR file:
 
 7. In the folder, click on a snapshot to view its details in the response panel.
 
-   <img src={useBaseUrl('/img/api-testing/import-har-calls-rebrand.png')} alt="Viewing call details" width="600"/>
+   <img src={useBaseUrl('/img/api-testing/import-har-calls-rebrand.webp')} alt="Viewing call details" width="600"/>
 
 8. To create a test based on the imported file, click **Generate Test**. For more information about creating a test, see [Create a Test](/api-testing/composer#create-a-test).
 

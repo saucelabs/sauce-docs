@@ -70,7 +70,7 @@ The second method to compose a request body is by using variables in the Body.
    }
    ```
 
-   <img src={useBaseUrl('/img/api-testing/post-body-variables.png')} alt="The Post body window"/>
+   <img src={useBaseUrl('/img/api-testing/post-body-variables.webp')} alt="The Post body window"/>
 
 In the above scenario, `user` and `password` are not directly passed in the body, but they are variables defined elsewhere: in the input set or stored in the vault.
 
@@ -129,7 +129,7 @@ The next way to compose a Request Body is by using a variable from another call.
     }
    ```
 
-   <img src={useBaseUrl('/img/api-testing/post-body-token.png')} alt="POST request body"/>
+   <img src={useBaseUrl('/img/api-testing/post-body-token.webp')} alt="POST request body"/>
 
 ## Using an Object from Another Call
 
@@ -178,13 +178,13 @@ The response payload from the call will be:
 }
 ```
 
-<img src={useBaseUrl('/img/api-testing/post-body-object.png')} alt="POST request body"/>
+<img src={useBaseUrl('/img/api-testing/post-body-object.webp')} alt="POST request body"/>
 
 3. Now you can proceed with your test.
 
 ## Creating a New Structure to Add as a Body
 
-The last scenario is another complex one. In this case,  consider the scenario where you use data from a previous call to create a new structure to add as a body.
+The last scenario is another complex one. In this case, consider the scenario where you use data from a previous call to create a new structure to add as a body.
 
 1. Perform the call that retrieves the data you are using. In the following example, the `GET` returns an array of items.
 
@@ -229,7 +229,7 @@ The response payload:
     return payload;
    ```
 
-   <img src={useBaseUrl('/img/api-testing/set-new-structure.png')} alt="The SET component window"/>
+   <img src={useBaseUrl('/img/api-testing/set-new-structure.webp')} alt="The SET component window"/>
 
 3. Click **Save Changes**
 

@@ -94,7 +94,7 @@ A _Build_ is a collection of test results and metrics associated with a given bu
 | Date     | Filter tests results by: <ul><li>Today</li><li>Yesterday</li><li>Last 3 days</li><li>Last 7 days</li><li>This Week</li><li>Previous week</li><li>Last 14 days</li><li>Last 30 days</li><li>Specific start and end date</li></ul> |
 | Build id | Filter tests results by tests that belong to a specific build                                                                                                                                                                    |
 
-6. Click on any line item below to view a summary report for that Build.<img src={useBaseUrl('img/api-testing/builds1.png')} alt="Dashboard Builds"/><br/><img src={useBaseUrl('img/api-testing/builds2.png')} alt="Dashboard Builds"/>
+6. Click on any line item below to view a summary report for that Build.<img src={useBaseUrl('img/api-testing/builds1.webp')} alt="Dashboard Builds"/><br/><img src={useBaseUrl('img/api-testing/builds2.webp')} alt="Dashboard Builds"/>
    The report contains details such as the build ID, list of Tests belonging to that build, date/time, Projects involved, successful tests, and failed tests.
 7. Under the **Event Details** column, click **Open Report Document** to see the results and metrics for each specific test that has been executed in the build.<br/><img src={useBaseUrl('img/api-fortress/2021/02/builds3.png')} alt="Dashboard Builds"/>
 

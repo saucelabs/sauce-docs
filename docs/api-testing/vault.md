@@ -67,7 +67,7 @@ Variables marked as sensitive are always excluded from Vault exports.
 
 In the following example test report, the token variable has been marked as sensitive in Vault and appears as obfuscated in the report.
 
-<img src={useBaseUrl('img/api-testing/sensitive-data2.png')} alt="data obfuscated in report" width="600"/>
+<img src={useBaseUrl('img/api-testing/sensitive-data2.webp')} alt="data obfuscated in report" width="600"/>
 
 ### Update Variables Using a File
 
@@ -141,7 +141,7 @@ While is perfectly fine typing the code snippet directly in the area, if you are
    <img src={useBaseUrl('img/api-testing/vault_savesnippet.png')} alt="Save snippet"/>
 1. Click **Save Snippet**
 1. Give the snippet a name and click **Save Snippet**
-   <img src={useBaseUrl('img/api-testing/vault_snippetname.png')} alt="Snippet name" width="600"/>
+   <img src={useBaseUrl('img/api-testing/vault_snippetname.webp')} alt="Snippet name" width="600"/>
 
 ### Update a Snippet
 
@@ -167,7 +167,7 @@ The file can be a .cvs or .json and the structure will be as follow:
 }
 ```
 
-<img src={useBaseUrl('img/api-testing/csv-example-snippet.png')} alt="csv example"/>
+<img src={useBaseUrl('img/api-testing/csv-example-snippet.webp')} alt="csv example"/>
 
 #### Project Vault:
 

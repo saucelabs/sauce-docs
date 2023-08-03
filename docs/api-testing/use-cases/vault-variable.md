@@ -11,7 +11,7 @@ Consider a scenario where a Request Header is required for all the endpoints in 
 
 <img src={useBaseUrl('img/api-testing/vault-auth-header.png')} alt="Request Header"/>
 
-<img src={useBaseUrl('img/api-testing/requests-auth-header.png')} alt="Request Header in all endpoints"/>
+<img src={useBaseUrl('img/api-testing/requests-auth-header.webp')} alt="Request Header in all endpoints"/>
 
 While this is a perfectly valid request header, it can be hard to manage and update if you scale out your tests. Therefore, rather than continuously hard-coding this value into the **Request Header** field, a safer and more efficient approach is to export this value in to a variable.
 
@@ -27,4 +27,4 @@ Now you can switch the **Request Header** field from a String value to a Variabl
 
 <img src={useBaseUrl('img/api-testing/header-string-to-var.png')} alt="Request Header with variable"/>
 
-<img src={useBaseUrl('img/api-testing/request-with-variable.png')} alt="Request Header in all endpoints as variable"/>
+<img src={useBaseUrl('img/api-testing/request-with-variable.webp')} alt="Request Header in all endpoints as variable"/>

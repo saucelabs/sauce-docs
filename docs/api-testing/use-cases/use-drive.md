@@ -143,7 +143,7 @@ As with the previous example, the first step is [uploading your file to the Vaul
 
 This time, we are using _users.csv_ file that contains a list of user details as shown:
 
-<img src={useBaseUrl('/img/api-testing/vault-use-cases/csv-users.png')} alt="Example csv file"/>
+<img src={useBaseUrl('/img/api-testing/vault-use-cases/csv-users.webp')} alt="Example csv file"/>
 
 ### Step 2: Creating the Test
 
@@ -363,7 +363,7 @@ The following example saves the values in variables:
 
 ## Comparing the Response to a File
 
-For this last example, consider a case where you need to compare the response from a call to a "template" to verify that they are the same.  You can save the template in the Vault Drive and compare it with the response.
+For this last example, consider a case where you need to compare the response from a call to a "template" to verify that they are the same. You can save the template in the Vault Drive and compare it with the response.
 
 ### Step 1: Uploading the File in Vault Drive
 
