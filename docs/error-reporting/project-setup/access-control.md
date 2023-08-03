@@ -15,7 +15,7 @@ Project Administrators can use Project Settings to restrict access to a given pr
 
 By default, Projects are available for access by all users of the Backtrace Instance. A Project Administrator can modify access control for a Project to limit which Users or Teams have access to it.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/access-control.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/access-control.webp')} alt="" />
 
 ## Adding a Team or User
 

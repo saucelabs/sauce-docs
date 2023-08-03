@@ -31,7 +31,7 @@ Click on Project Settings > Metric Export to manage Metrics Sets and Metrics Sto
 
 In this section, we will describe how to create Metric Sets and Metrics, and how to create and manage Metric Stores that you will share information with your third party systems.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/create-metrics-store.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/create-metrics-store.webp')} alt="" />
 
 ## Metric Sets and Metrics
 
@@ -62,7 +62,7 @@ See an example below where we use Explore to group by error.type and aggregate u
 
 See an example below where a Metric Set called ProjectXErrorsAndImpactedUsers contains 4 metrics (AllErrors2, ErrorsByTypeWithImpactedUsers, UsersImpacted, and UsersImpactedPerFingerprint). You can preview the query that is defining each metric.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/metrics-set-example.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/metrics-set-example.webp')} alt="" />
 
 ## Supported Metric Stores
 
