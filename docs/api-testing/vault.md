@@ -209,11 +209,11 @@ In the **Drive** section of a project-specific **Vault**, you can upload files t
 
 You can work with your files in **Vault Drive** as follows:
 
-If you upload a file via a URL, you can hover over **source url** to view the full address. <br/><img src={useBaseUrl('img/api-fortress/2022/09/vaultuploadfileURL.png')} alt="View Source URL" />
+If you upload a file via a URL, you can hover over **source url** to view the full address. <br/><img src={useBaseUrl('img/api-testing/vaultuploadfileURL.png')} alt="View Source URL" />
 
-You can rename, download, or delete individual files.<br/><img src={useBaseUrl('img/api-fortress/2022/09/vaultfileoptions.png')} alt="Rename, delete or download files" />
+You can rename, download, or delete individual files.<br/><img src={useBaseUrl('img/api-testing/vaultfileoptions.png')} alt="Rename, delete or download files" />
 
-To delete multiple files, select the checkbox next to the files, then click **Delete Selected**.<br/><img src={useBaseUrl('img/api-fortress/2022/09/vaultdeletefileoptions.png')} alt="Delete multiple files" />
+To delete multiple files, select the checkbox next to the files, then click **Delete Selected**.<br/><img src={useBaseUrl('img/api-testing/vaultdeletefileoptions.png')} alt="Delete multiple files" />
 
 ## More Information
 

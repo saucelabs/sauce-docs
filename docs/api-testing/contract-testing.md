@@ -13,7 +13,7 @@ An API conversation consists of:
 
 The conversation needs to follow specific rules that the API producer and API consumer must agree upon. The formal description of these rules is the contract, which is generally presented as a specification file such as [OpenAPI](https://swagger.io/docs/specification/about/).
 
-<img src={useBaseUrl('img/api-fortress/2022/03/api-conversation.png')} alt="API Conversation and Contract" width="300"/>
+<img src={useBaseUrl('img/api-testing/contract-test/api-conversation.png')} alt="API Conversation and Contract" width="300"/>
 
 If this contract is broken by either party, it can lead to bugs and malfunctions. _API Contract Testing_ is the act of validating that the API producer and the API consumer are respecting the contract.
 
@@ -29,12 +29,12 @@ Contract testing is a fast, lightweight form of API testing that strictly checks
 - Testing APIs during the early stages of design and development
 - Creating APIs that are internal and/or have limited number of consumers
 
-<img src={useBaseUrl('img/api-fortress/2022/03/api-consumer-contract.png')} alt="API Conversation and Contract" width="600"/>
+<img src={useBaseUrl('img/api-testing/contract-test/api-consumer-contract.png')} alt="API Conversation and Contract" width="600"/>
 
 ## Testing the API Producer Side
 
 Sauce Labs API Testing will validate the API producer (server) side by creating a contract test from your OpenAPI spec file.
-<img src={useBaseUrl('img/api-fortress/2022/03/api-producer-contract.png')} alt="API Conversation and Contract" width="500"/>
+<img src={useBaseUrl('img/api-testing/contract-test/api-producer-contract.png')} alt="API Conversation and Contract" width="500"/>
 
 1. From an API Testing Project, go to the HTTP Client.
 2. Import an OpenAPI specification file (v3.0 or higher).
@@ -99,4 +99,4 @@ Use the [`--validate-request`](/api-testing/mocking/#validate-request) switch to
 
 Sauce Labs API Testing will validate that the API consumer side has complied with the contract specifications.
 
-<img src={useBaseUrl('img/api-fortress/2022/03/api-testing-overview.png')} alt="API Conversation and Contract" width="600"/>
+<img src={useBaseUrl('img/api-testing/contract-test/api-testing-overview.png')} alt="API Conversation and Contract" width="600"/>

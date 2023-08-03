@@ -49,11 +49,11 @@ The Logger tool helps with API call recording by facilitating complete captures 
 9. Inspect the data related to the captured request (e.g., Request and Response).
 10. From here, you can see the call in the HTTP Client by clicking the **Open** button. Optionally, you can generate a test here by clicking the **Generate Test** button.
 
-<img src={useBaseUrl('img/api-fortress/2021/09/logger1.png')} alt="Logger UI"/>
+<img src={useBaseUrl('img/api-testing/logger1.png')} alt="Logger UI"/>
 
-<img src={useBaseUrl('img/api-fortress/2021/09/logger2.png')} alt="Logger UI"/>
+<img src={useBaseUrl('img/api-testing/logger2.png')} alt="Logger UI"/>
 
-<img src={useBaseUrl('img/api-fortress/2021/09/logger3.png')} alt="Logger UI"/>
+<img src={useBaseUrl('img/api-testing/logger3.png')} alt="Logger UI"/>
 
 ## More Information
 
