@@ -138,7 +138,7 @@ After running a real device test with the Backtrace SDK integrated into your And
 1. Go to the **Test Results** details page (live or automated) for a real device.
 1. From the bottom of the screen, select the **Error & Crash Reporting** tab.
 
-<img src={useBaseUrl('img/error-reporting/real-devices/real-device-tests.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/real-devices/real-device-tests.webp')} alt="" />
 
 ## View Errors and Crashes in Backtrace
 

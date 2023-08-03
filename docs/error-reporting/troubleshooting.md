@@ -113,7 +113,7 @@ First, there are a few prerequisites to enabling this functionality:
   The system must detect missing symbols on the non-faulting thread when you open an error report in the debugger (this is checked / happens automatically)
   If all of the above are true, you will see an icon/button show up on the top right corner of the debugger as shown below.
 
-<img src={useBaseUrl('/img/error-reporting/troubleshooting/cornericonfinal.png')} alt="missing symbols"/>
+<img src={useBaseUrl('/img/error-reporting/troubleshooting/cornericonfinal.webp')} alt="missing symbols"/>
 
 Pressing this button will bring up a window confirming whether or not you want to download + process the symbols that are missing. Confirming this will kick off the process for you (it might take a few seconds to complete).
 
@@ -407,7 +407,7 @@ You can create and manage submission tokens in the Project Settings window's Err
 <img src={useBaseUrl('/img/error-reporting/troubleshooting/5e601c101bdab.png')} alt="download report"/>
 
 You can create different submission tokens for different purposes, such as one token for each production version of your software. This allows you flexibility to disable tokens for certain releases as your needs dictate.
-<img src={useBaseUrl('/img/error-reporting/troubleshooting/5e601c117f836.png')} alt="download report"/>
+<img src={useBaseUrl('/img/error-reporting/troubleshooting/5e601c117f836.webp')} alt="download report"/>
 
 Submission tokens are different from symbol upload tokens.
 
