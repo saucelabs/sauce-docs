@@ -34,7 +34,7 @@ The default retention policy is 6 months, but it is possible to customize this. 
 
 After the audit log is enabled, you can extract its contents using the `morgue` tool or by making a copy of the audit log directly. To extract the log and render it in a text format using `morgue`, use the `morgue audit extract` command.
 
-<img src={useBaseUrl('/img/error-reporting/5e601b6eb5e15.png')} alt="extract the log"/>
+<img src={useBaseUrl('/img/error-reporting/5e601b6eb5e15.webp')} alt="extract the log"/>
 
 The `--table` option can be used to render the data in a tabular format in your terminal, as shown below:
 

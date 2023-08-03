@@ -73,10 +73,10 @@ The second example shows two rules for a rule set. The first rule has 3 actions,
 
 You can quickly enable or disable rules in the toggle menu.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/disable-dedup-rules.png')} alt="disable deduplication rules" />
+<img src={useBaseUrl('img/error-reporting/project-settings/disable-dedup-rules.webp')} alt="disable deduplication rules" />
 
 ### Ruleset Testing
 
 After creating a ruleset, you can test the output of the deduplication engine with an existing crash report (or error) in the system. Just enter the Instance ID of the crash report in the Ruleset Testing field. (You can get an instance ID from the Debug view. You will see the Ruleset Testing field after you have saved a Ruleset).
 
-<img src={useBaseUrl('img/error-reporting/project-settings/dedup-ruleset-testing.png')} alt="deduplication ruleset testing" />
+<img src={useBaseUrl('img/error-reporting/project-settings/dedup-ruleset-testing.webp')} alt="deduplication ruleset testing" />

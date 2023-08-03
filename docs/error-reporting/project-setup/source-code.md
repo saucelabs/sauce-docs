@@ -86,6 +86,6 @@ Some frame will get a 'Not enough information to locate source code'. That means
 
 By default, we search each repository in sequential order to try to find relevant source code. If you see incorrect information being displayed, you can "Add a rule" to nudge the system to one repository over another. Rules take the form "if a <attribute / file name / function name / object name> has a certain value, use or skip a specific repository.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/source-code-rules.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/source-code-rules.webp')} alt="" />
 
 For example, "If the module name is regular expression libc.\*so, then use repository glibc".

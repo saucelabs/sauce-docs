@@ -33,13 +33,13 @@ Click into **Project Settings > Stability Monitoring** to setup the required met
 
 First, we set up a metric group. Common metric groups are named "Sessions Started", "Minutes Played", or "Multiplayer Sessions Started".
 
-<img src={useBaseUrl('img/error-reporting/project-settings/metric-group-settings.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/metric-group-settings.webp')} alt="" />
 
 When defining a metric group, you will want to link an Attribute that you want to track stability scores for when grouped by it (i.e. Version). You can provide a default value in case that the queries you use to import data have no value for the attribute.
 
 Note: If you are linking attributes for a metric group that you expect to receive via events from one of our SDKs (Unity 3.5.0+ for example), you must ensure that the SDK is sending ALL of the attributes that you have linked on the metric events for that metrics group. If a metric event is missing an attribute that is expected for that metric group, the event will be dropped.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/metrics-link-attribute.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/metrics-link-attribute.webp')} alt="" />
 
 ### Create the Metrics
 
@@ -63,7 +63,7 @@ The Metric Sources tab allows you to define connections to metric systems like P
 
 Click **Add Metric Source** to bring up the Create Metric Source dialog. Here, you will name your source, choose your source type (Graphite, Postgres, Influx, Redshift) and relevant connection and authentication options.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/add-metrics-source.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/add-metrics-source.webp')} alt="" />
 
 You'll notice above a Coronerd URL and Submission token as part of the metric source creation. Backtrace should fill in default values for you here. These are used by the metrics source to post the results of importers back into your backtrace project. You can generate other tokens to use under **Project Settings > Error Submission Tokens**.
 
@@ -76,7 +76,7 @@ An Importer is the place where you write the query to pull metric information fr
 1. Execution plan (how much history, how often to run)
 
 See below for an example:
-<img src={useBaseUrl('img/error-reporting/project-settings/create-importer.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/create-importer.webp')} alt="" />
 
 You can see we named the importer something meaningful (MinsPlayedVersion3.16.2) and wrote a query to gather the required metric data, linked it to the Metric Minutes Played/minsPlayed-v3.16.2, and defined the execution plan (7 days of history with a 60 second time period between syncs).
 

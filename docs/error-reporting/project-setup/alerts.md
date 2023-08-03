@@ -29,7 +29,7 @@ Alert frequency allows you to control how often an alert will trigger. If you wa
 
 Error Threshold Alerts can be created from the Explore view after applying filters by using Export as:
 
-<img src={useBaseUrl('img/error-reporting/project-settings/alerts-export-as.png')} alt="Shows how to create an alert based on a query." />
+<img src={useBaseUrl('img/error-reporting/project-settings/alerts-export-as.webp')} alt="Shows how to create an alert based on a query." />
 
 You can configure the alert as follows:
 

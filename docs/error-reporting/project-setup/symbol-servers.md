@@ -37,7 +37,7 @@ If you are on an Enterprise plan and dedicated or on-prem host, you can self man
 
 Below is a screenshot of the Symbol Servers Management UI. It is accessed under **Project Settings > Symbols > Symbol Servers**.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/symbol-servers.png')} alt="Shows the Symbol servers page used to configure the symbol servers for debug symbols." />
+<img src={useBaseUrl('img/error-reporting/project-settings/symbol-servers.webp')} alt="Shows the Symbol servers page used to configure the symbol servers for debug symbols." />
 
 The default public symbols servers are scoped to your entire organization. This means that usage and statistics, allowlist, blocklist, skip list and logs will not change from project to project. Following is some brief information about each of the tabs and the data within them.
 

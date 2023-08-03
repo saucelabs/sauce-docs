@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Teams are a way to group users together for the purposes of allowing access to certain projects. Organization Administrators can access Organization Settings - Teams to create and manage new teams.
 
-<img src={useBaseUrl('img/error-reporting/project-settings/teams.png')} alt="" />
+<img src={useBaseUrl('img/error-reporting/project-settings/teams.webp')} alt="" />
 
 Teams can be added to Projects so that all members of the team have access to the project. As you manage team membership, project access is automatically reflected.
 
