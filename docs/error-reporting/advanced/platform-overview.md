@@ -64,11 +64,11 @@ Console, our web-based user interface, provides a bird's-eye view of the data st
 
 When you log in, you will see an activity summary across all of your software projects. You can click on each software project to inspect the different types of faults affecting it.
 
-<img src={useBaseUrl('/img/error-reporting/5e601cbe14c0b.png')} alt="activity summary" />
+<img src={useBaseUrl('/img/error-reporting/5e601cbe14c0b.webp')} alt="activity summary" />
 
 On the left, you find gathered metadata and automated analysis statistics, along with controls to define sorting order, filters, etc. On the right, you see the time range for each fault group, along with a color box indicating activity. Groups with darker colors have experienced more faults than those without.
 
-<img src={useBaseUrl('/img/error-reporting/5e601cbf6efe5.png')} alt="activity summary details" />
+<img src={useBaseUrl('/img/error-reporting/5e601cbf6efe5.webp')} alt="activity summary details" />
 
 More detailed information about each group can be viewed by clicking on **View Details**. This page shows specific instances of the fault, with the option to graph these instances on a jitter plot, line graph (number of instances over time), or a time-based heat map.
 
@@ -78,7 +78,7 @@ The left pop-out menu shows metadata statistics associated with the group, and t
 
 Backtrace's Hydra allows you to view the internals of each snapshot in a powerful yet approachable terminal UI.
 
-<img src={useBaseUrl('/img/error-reporting/5e601cbf6efe5.png')} alt="terminal UI" />
+<img src={useBaseUrl('/img/error-reporting/5e601cbf6efe5.webp')} alt="terminal UI" />
 
 The initial view of Hydra immediately focuses on the faulting context. Hydra's main outline includes four panes (from top to bottom):
 

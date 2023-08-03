@@ -135,7 +135,7 @@ To find dSYM files while archiving the project:
 1. Select your iOS app, then click **Show in Finder**. dSYMs are stored in a `.xcarchive` file.
    <img src={useBaseUrl('img/error-reporting/ios/xcode-organizer.png')} width="900" alt="" />
 1. Right-click, then click **Show Package Contents**.
-   <img src={useBaseUrl('img/error-reporting/ios/finder-xcarchive.png')} width="700" alt="" />
+   <img src={useBaseUrl('img/error-reporting/ios/finder-xcarchive.webp')} width="700" alt="" />
 1. Search for the **dSYMs** folder.
 1. Zip all the dSYM files and upload to Backtrace. <br/>
    <img src={useBaseUrl('img/error-reporting/ios/finder-dsyms-archive.png')} width="400" alt="" />
