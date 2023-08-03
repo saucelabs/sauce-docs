@@ -32,7 +32,7 @@ The type of project access users have and can configure for the projects they cr
 - **Organization Admin**: Organization Admins can create and interact with all data in all projects across their organization.
 
 :::tip
-You can view the access set for projects on the Projects page.<br/><img src={useBaseUrl('img/api-fortress/2021/12/accessOrg2.png')} alt="New user UI" width="500" />
+You can view the access set for projects on the Projects page.<br/><img src={useBaseUrl('img/api-testing/accessOrg2.png')} alt="New user UI" width="500" />
 :::
 
 ## Create a Project
