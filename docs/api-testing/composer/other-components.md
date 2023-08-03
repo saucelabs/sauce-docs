@@ -46,9 +46,9 @@ Here's an example of how you could use a tag in the Composer tab.
 
 You can also add tags to the test details screen when you create or edit a test.<br/><img src={useBaseUrl('img/api-testing/tagNewtest.png')} alt="Tag Component - create new test"/>
 
-Static tags will be displayed in your **Tests** list.<br/><img src={useBaseUrl('img/api-testing/testsTag.png')} alt="Tests tag.jpg"/>
+Static tags will be displayed in your **Tests** list.<br/><img src={useBaseUrl('img/api-testing/testsTag.webp')} alt="Tests tag.jpg"/>
 
-All tags, dynamic and static will mark the test execution documents. On your project **Dashboard**, you can filter events by tags.<br/><img src={useBaseUrl('img/api-testing/projDashTag.png')} alt="projDashTag.png"/>
+All tags, dynamic and static will mark the test execution documents. On your project **Dashboard**, you can filter events by tags.<br/><img src={useBaseUrl('img/api-testing/projDashTag.webp')} alt="project dashboard tag"/>
 
 </details>
 <details><summary><strong>Code View Example</strong></summary>

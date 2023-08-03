@@ -26,7 +26,7 @@ The API Testing Composer enables you to quickly generate API functional tests (n
 
    - If you have no tests or projects yet, in the **Write your own test** box, click **Use Composer**.
 
-   <img src={useBaseUrl('/img/api-testing/composer-nav.png')} alt="Navigating to the Composer" width="700"/>
+   <img src={useBaseUrl('/img/api-testing/composer-nav.webp')} alt="Navigating to the Composer" width="700"/>
 
    - If you have a project but no tests, on the **Projects** page, click **Write your own test**.
 
@@ -69,13 +69,13 @@ To create a simple `GET` request and validate that response is correct:
 
 4. In the **Variable** field, enter **payload**. This variable stores the response, so it can now be referred to as **payload**.
 
-<img src={useBaseUrl('/img/api-testing/get-request-window.png')} alt="Editing in the GET request window"/>
+<img src={useBaseUrl('/img/api-testing/get-request-window.webp')} alt="Editing in the GET request window"/>
 
 5. Leave the rest of the fields blank and then click **Save Changes**.
 
 The result should look like the following:
 
-<img src={useBaseUrl('/img/api-testing/get-request-final.png')} alt="What the GET request should look like" width="600"/>
+<img src={useBaseUrl('/img/api-testing/get-request-final.webp')} alt="What the GET request should look like" width="600"/>
 
 For more information, see [I/O Request Test Components](/api-testing/composer/io-components/).
 
@@ -93,7 +93,7 @@ For more information, see [I/O Request Test Components](/api-testing/composer/io
 
 4. Leave the rest of the fields blank and click **Save Changes**.
 
-<img src={useBaseUrl('/img/api-testing/assert-exists-window.png')} alt="Confirm changes" width="600"/>
+<img src={useBaseUrl('/img/api-testing/assert-exists-window.webp')} alt="Confirm changes" width="600"/>
 
 5. The result should look like the following:
 
@@ -113,7 +113,7 @@ In the following example, the expression checks if the `download_url` value insi
 
 4. Leave the rest of the fields blank and click **Save Changes**.
 
-<img src={useBaseUrl('/img/api-testing/assert-exists-window-2.png')} alt="Confirm changes" width="600"/>
+<img src={useBaseUrl('/img/api-testing/assert-exists-window-2.webp')} alt="Confirm changes" width="600"/>
 
 5. The result should look like the following:
 
@@ -175,7 +175,7 @@ If a component is not valid for the operation you are conducting, it will not be
 
 Click **Edit** to modify an existing component, or use the dropdown menu next to **Edit** to perform the actions shown below.
 
-<img src={useBaseUrl('img/api-testing/deleteComponent.png')} alt="Component Options"/>
+<img src={useBaseUrl('img/api-testing/deleteComponent.webp')} alt="Component Options"/>
 
 ### Save
 
@@ -212,7 +212,7 @@ If you define a variable in both the Global Parameters and Input Set sections, t
 <table>
 <tr>
 <td><strong>Input Set with Visual View</strong></td>
-<td> <img src={useBaseUrl('img/api-testing/inputVisual.png')} alt="Input Set Visual View"/> </td>
+<td> <img src={useBaseUrl('img/api-testing/inputVisual.webp')} alt="Input Set Visual View"/> </td>
 </tr>
 <tr>
 <td><strong>Input Set with Code View</strong></td>

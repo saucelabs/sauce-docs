@@ -47,7 +47,7 @@ In this way, you can eliminate duplicate tasks by editing the **Vault** variable
 
 Variables are not only bound to URLs. Request bodies can also be handled like "templates" when needed, incorporating variables as in:
 
-<img src={useBaseUrl('img/api-testing/body.png')} alt="BODY"/>
+<img src={useBaseUrl('img/api-testing/body.webp')} alt="BODY"/>
 
 And basically anywhere.
 

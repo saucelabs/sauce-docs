@@ -62,7 +62,7 @@ Variables last through the entire test unless overwritten.
 
 7. Test the response payload for the endpoint.
 
-   <img src={useBaseUrl('/img/api-testing/int-test-response-payload.png')} alt="Testing the response payload"/>
+   <img src={useBaseUrl('/img/api-testing/int-test-response-payload.webp')} alt="Testing the response payload"/>
 
 In Code view, the test should look like this:
 

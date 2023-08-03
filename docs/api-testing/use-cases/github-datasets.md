@@ -44,7 +44,7 @@ You can use CSV, JSON, or XML files that are stored in a GitHub repository as a 
    - **Variable** is the variable to store the payload in.
    - **Mode** is the filetype of the file in the repository.
 
-   <img src={useBaseUrl('img/api-testing/io-components/github-component.png')} alt="GitHub component" />
+   <img src={useBaseUrl('img/api-testing/io-components/github-component.webp')} alt="GitHub component" />
 
 The system uses these component settings to retrieve the bypopulation.csv file, parse it as a CSV file, and assign it to the **inputData** variable.
 
@@ -54,7 +54,7 @@ The system uses these component settings to retrieve the bypopulation.csv file, 
 
 4. (Optional) **Run** the test.
 
-<img src={useBaseUrl('img/api-testing/io-components/github-report.png')} alt="test report" />
+<img src={useBaseUrl('img/api-testing/io-components/github-report.webp')} alt="test report" />
 
 5. Next, iterate over a subset of this input set by adding an **Each** component.
 

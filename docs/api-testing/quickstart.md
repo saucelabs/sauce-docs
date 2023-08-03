@@ -25,7 +25,7 @@ If your APIs are behind a firewall, you'll need to set up a [Sauce Connect Proxy
 
 1. Log in to Sauce Labs, then click **API Testing**.
 
-2. From the list of test creation methods, click **Use HTTP Client**.<br/><img src={useBaseUrl('img/api-testing/newtestHTTP.png')} alt="Enter API URL" width="550" />
+2. From the list of test creation methods, click **Use HTTP Client**.<br/><img src={useBaseUrl('img/api-testing/newtestHTTP.webp')} alt="Enter API URL" width="550" />
 
 :::note Returning Users
 If you're seeing an existing list of Projects instead of the landing page shown above, click **Create Project** instead.<br/><img src={useBaseUrl('img/api-testing/createProject.png')} alt="Create Project" width="450" />
@@ -67,7 +67,7 @@ This will generate a series of assertions for this specific API request.
 
 **Visual** view shows your test as UI components:<br/><img src={useBaseUrl('img/api-testing/testVisual.png')} alt="Sample Test Visual View"/>
 
-**Code** view displays it as code:<br/><img src={useBaseUrl('img/api-testing/testCode.png')} alt="Sample Test Code View"/>
+**Code** view displays it as code:<br/><img src={useBaseUrl('img/api-testing/testCode.webp')} alt="Sample Test Code View"/>
 
 </details>
 :::
@@ -82,7 +82,7 @@ This will generate a series of assertions for this specific API request.
 
 1. To view your test results, hover your mouse over your test line item and click **Open report document**.<br/><img src={useBaseUrl('img/api-fortress/2021/01/testResultsOpen.png')} alt="Open Test Results" width="200" />
 
-1. Your test report will open in a new browser tab. The report displays granular test information that's helpful for debugging any failures ([more info](/api-testing/project-dashboard/#test-outcome-report)).<br/><img src={useBaseUrl('img/api-testing/testResultsPageRebrand.png')} alt="Test Results Page" width="600" />
+1. Your test report will open in a new browser tab. The report displays granular test information that's helpful for debugging any failures ([more info](/api-testing/project-dashboard/#test-outcome-report)).<br/><img src={useBaseUrl('img/api-testing/testResultsPageRebrand.webp')} alt="Test Results Page" width="600" />
 
 ## Publish Your Test
 

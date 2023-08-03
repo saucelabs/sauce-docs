@@ -24,9 +24,9 @@ Learn how to move your data from API Fortress (our legacy on-prem platform) to S
 
 1. Log in to API Fortress platform.
 2. Choose the Project containing the Tests you want to move to Sauce Labs.
-3. Go to your Tests list by clicking **Tests**.<br/><img src={useBaseUrl('img/api-testing/import-tests/authenticated-api.png')} alt="Authenticated API" width="600" />
-4. To export individual Tests, click the circle to the left of each Test.<br/><img src={useBaseUrl('img/api-testing/import-tests/test1.png')} alt="Test 1" width="600" /><br/>
-   Or, to export all Tests as a batch, click <b>Select All</b>.<br/><img src={useBaseUrl('img/api-testing/import-tests/select-all.png')} alt="Select all" width="600" />
+3. Go to your Tests list by clicking **Tests**.<br/><img src={useBaseUrl('img/api-testing/import-tests/authenticated-api.webp')} alt="Authenticated API" width="600" />
+4. To export individual Tests, click the circle to the left of each Test.<br/><img src={useBaseUrl('img/api-testing/import-tests/test1.webp')} alt="Test 1" width="600" /><br/>
+   Or, to export all Tests as a batch, click <b>Select All</b>.<br/><img src={useBaseUrl('img/api-testing/import-tests/select-all.webp')} alt="Select all" width="600" />
 5. Click **Export Selected**. This will give you a zip folder containing all of your tests.<br/><img src={useBaseUrl('img/api-testing/import-tests/export-selected.png')} alt="Export selected" width="600" />
 
 ### Importing Tests to Sauce Labs

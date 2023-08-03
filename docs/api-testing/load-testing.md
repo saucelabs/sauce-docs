@@ -41,7 +41,7 @@ We count 1 out of every 100 load testing executions against your monthly executi
 1. In Sauce Labs, click **API Testing**.
 
 2. On the **Tests** page, next to the test you want to run a load test on, click the **Load Test** icon.
-   <img src={useBaseUrl('/img/api-testing/load-testing-nav-rebrand.png')} alt="The Load Test icon"/>
+   <img src={useBaseUrl('/img/api-testing/load-testing-nav-rebrand.webp')} alt="The Load Test icon"/>
 
 :::note
 Load testing only works with published tests. If you change a published test, and then run a load test without re-publishing it, the load test will be run on the published version, not the updated one.
@@ -49,7 +49,7 @@ Load testing only works with published tests. If you change a published test, an
 
 3. On the tests page, click **Create Load test**.
 
-<img src={useBaseUrl('/img/api-testing/create-load-test-button-rebrand.png')} alt="The Create Load test button"/>
+<img src={useBaseUrl('/img/api-testing/create-load-test-button-rebrand.webp')} alt="The Create Load test button"/>
 
 4. On the **Create Load test** page, enter the relevant information for your test:
 
@@ -74,7 +74,7 @@ Variables and snippets in the Vault (Company/Project) are used by default, witho
 
 You can set up multiple profiles for each test, from less aggressive to very aggressive, or with varying durations. The only limitations are those inherited from your infrastructure.
 
-<img src={useBaseUrl('/img/api-testing/create-load-test-rebrand.png')} alt="The Create Load test page"/>
+<img src={useBaseUrl('/img/api-testing/create-load-test-rebrand.webp')} alt="The Create Load test page"/>
 
 5. Click **Save and Run**.
 
@@ -84,7 +84,7 @@ Once you have created and saved a load test, the configuration will be saved for
 
 The execution of a load test will generate a real-time report that is updated every minute. To stop a report before it is complete, click **Stop**.
 
-<img src={useBaseUrl('/img/api-testing/load-test-report-details-environments.png')} alt="Load Test Report Details" width="600"/>
+<img src={useBaseUrl('/img/api-testing/load-test-report-details-environments.webp')} alt="Load Test Report Details" width="600"/>
 
 Load test reports include the following details:
 
@@ -109,7 +109,7 @@ The **Footprint** dropdown shows all the endpoints the test is calling, which yo
 
 The Summary dynamically shows totals of Response time (Average, 90th percentile, Maximum, and Minimum), Requests (Total requests and Failures), and Status codes based on the selected Footprint.
 
-<img src={useBaseUrl('/img/api-testing/load-test-summary.png')} alt="The Summary section" width="600"/>
+<img src={useBaseUrl('/img/api-testing/load-test-summary.webp')} alt="The Summary section" width="600"/>
 
 The **Response time** graph shows the response time for all endpoints or for a specific endpoint. In the graph, you can see the maximum, minimum, average, and the 90th percentile. Once the test is complete, you can click any of the report measurements to remove them from the display.
 
@@ -136,8 +136,8 @@ The data inside each graph can be downloaded in a CSV file. If the footprint is 
 
 Once the test is completed, the **Failures** section will be shown at the bottom of the report. In this section, you will see the 100 most recent failures that occurred during the test. There will be one row for each test execution, and each row includes the date and time, the number of failures, and a link to the specific report for that failure.
 
-<img src={useBaseUrl('/img/api-testing/load-test-failures-report.png')} alt="Load tests failures report" />
+<img src={useBaseUrl('/img/api-testing/load-test-failures-report.webp')} alt="Load tests failures report" />
 
 Load test reports can be accessed on the project dashboard under **Load Tests**.
 
-<img src={useBaseUrl('/img/api-testing/load-test-dashboard-nav-rebrand.png')} alt="Load tests on the dashboard"/>
+<img src={useBaseUrl('/img/api-testing/load-test-dashboard-nav-rebrand.webp')} alt="Load tests on the dashboard"/>

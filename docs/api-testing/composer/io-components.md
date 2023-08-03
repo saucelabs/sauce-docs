@@ -119,7 +119,7 @@ The GitHub component is meant to simplify the process of retrieving a file from 
 GitHub Enterprise version or GitHub AE are not supported.
 :::
 
-<img src={useBaseUrl('img/api-testing/githubComponent.png')} alt="GitHub Component" />
+<img src={useBaseUrl('img/api-testing/githubComponent.webp')} alt="GitHub Component" />
 
 <details><summary><strong>Code View Example</strong></summary>
 
@@ -343,7 +343,7 @@ For all the Child Components the value can be:
 
 ### Request Header
 
-1. Click **Request Header**.<br/><img src={useBaseUrl('img/api-testing/ioHeader.png')} alt="I/O Header" />
+1. Click **Request Header**.<br/><img src={useBaseUrl('img/api-testing/ioHeader.webp')} alt="I/O Header" />
 1. Fill in the **Name** and **Value** fields.<br/><img src={useBaseUrl('img/api-testing/ioHeader2.png')} alt="I/O Header" />
 
 <details><summary><strong>Code View Example</strong></summary>
@@ -622,7 +622,7 @@ To do so, you can add the config component in the GET request as follow:
 
 This refers to the **Basic Authentication** configuration, included in each of the I/O request components. If required for your API tests, enter your authentication credentials here.
 
-1. Click **Basic Authentication**.<br/><img src={useBaseUrl('img/api-testing/ioAuth.png')} alt="I/O Authentication" />
+1. Click **Basic Authentication**.<br/><img src={useBaseUrl('img/api-testing/ioAuth.webp')} alt="I/O Authentication" />
 2. Fill in the Username and Password fields<br/><img src={useBaseUrl('img/api-testing/authBasic.png')} alt="I/O Authentication" />
 
 <details><summary><strong>Code View Example</strong></summary>

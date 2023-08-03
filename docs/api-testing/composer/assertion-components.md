@@ -50,7 +50,7 @@ Allows you to compare two payloads in terms of text, structure or values.
 
 See also [Common Fields](#assertion-common-fields)
 
-<img src={useBaseUrl('img/api-testing/compares.png')} alt="Assertion Compares Pic"/>
+<img src={useBaseUrl('img/api-testing/compares.webp')} alt="Assertion Compares Pic"/>
 
 </details>
 <details><summary><strong>Code View Examples</strong></summary>

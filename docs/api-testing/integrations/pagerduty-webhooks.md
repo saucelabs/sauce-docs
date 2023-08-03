@@ -32,7 +32,7 @@ To set up this feature:
 2. Click on any Project.
 3. Within that Project, go to **Settings** > **Connectors** > **Create Connector**.
 4. Under the **Template** dropdown, select **PagerDuty**.
-5. In the **Template** section, you'll need to replace the `“routing_key"` value with your PagerDuty Integration Key, which you can find in PagerDuty by creating an App in Developer Mode. Optionally, you can also edit the other template values meet your needs.<br/><img src={useBaseUrl('img/api-testing/pagerduty_template.png')} alt="pagerduty-template field"/>
+5. In the **Template** section, you'll need to replace the `“routing_key"` value with your PagerDuty Integration Key, which you can find in PagerDuty by creating an App in Developer Mode. Optionally, you can also edit the other template values meet your needs.<br/><img src={useBaseUrl('img/api-testing/pagerduty_template.webp')} alt="pagerduty-template field"/>
    - **URL** field is pre-populated with the PagerDuty URL (no action required).
    - **Content-Type** field will pre-populate with **application/json** (no action required).
    - **Headers** Key/Value pair fields are optional.
@@ -73,7 +73,7 @@ To test a connector:
 5. In the **Connectors Test Drive** window, select either the **Failure** or **Success** radio button, and then click **Trigger**.
    - Failure - You will receive a notification in all connector platforms in your list
    - Success - If the **On_success** toggle is set to **True**, you will receive a notification for the connector<br/>
-     <img src={useBaseUrl('img/api-testing/trigger-confirmation.png')} alt="Test Connectors dialog box" width="400"/>
+     <img src={useBaseUrl('img/api-testing/trigger-confirmation.webp')} alt="Test Connectors dialog box" width="400"/>
 
 :::note
 To check the functionality of connectors like PagerDuty that trigger an incident upon failure, and then resolve that incident with the following success, you need to first test for **Failure** and then for **Success**.

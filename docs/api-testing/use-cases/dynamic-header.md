@@ -23,7 +23,7 @@ Consider a scenario where you need to pass the Accept value in the Header that i
 
 The image shows the above scenario which requires setting up two separate calls. This solution is not particularly adherent to the Don't Repeat Yourself (DRY) rule of programming.
 
-<img src={useBaseUrl('img/api-testing/use-cases/accept_header.png')} alt="two different calls" />
+<img src={useBaseUrl('img/api-testing/use-cases/accept_header.webp')} alt="two different calls" />
 
 The solution is the following:
 
@@ -44,7 +44,7 @@ The solution is the following:
       return 'application/json'
    ```
 
-   <img src={useBaseUrl('img/api-testing/use-cases/acceptHeader.png')} alt="set accept header" />
+   <img src={useBaseUrl('img/api-testing/use-cases/acceptHeader.webp')} alt="set accept header" />
 
    The `acceptHeader` variable will be `application/xml` if the format is _XML_ and `application/json` otherwise: since there are only two different formats, it will be `application/json` only for JSON format.
 

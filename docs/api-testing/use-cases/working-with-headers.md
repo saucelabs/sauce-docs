@@ -22,7 +22,7 @@ By referencing the `payload_response.statusCode` expression you can access the s
 
 You can also create positive and negative tests by adding multiple `if` conditions to check each possible status code. For example, if you want to check the response payload when the status codes are `200`, `400`, and `401`, here's how to do it:
 
-<img src={useBaseUrl('/img/api-testing/multi-if-cond.png')} alt="Using multiple if conditions" width="600"/>
+<img src={useBaseUrl('/img/api-testing/multi-if-cond.webp')} alt="Using multiple if conditions" width="600"/>
 
 In Code view, it looks like this:
 
@@ -61,7 +61,7 @@ For example, you can retrieve the `content-type` using this expression: `payload
   value: application/json; charset=utf-8
 ```
 
-You might want to also check if the response is cached, under what conditions and for how long. For this check you can  use `payload_response.headers['cache-control']`.
+You might want to also check if the response is cached, under what conditions and for how long. For this check you can use `payload_response.headers['cache-control']`.
 
 ## Retrieving the Metrics
 
@@ -97,7 +97,7 @@ Using the values you can write assertions to verify that the values are below a 
 
 The following shows the `overall` example in Visual view:
 
-<img src={useBaseUrl('/img/api-testing/metrics-assert-less-visual.png')} alt="An Assert-Less component in Visual view" width="600"/>
+<img src={useBaseUrl('/img/api-testing/metrics-assert-less-visual.webp')} alt="An Assert-Less component in Visual view" width="600"/>
 
 ### Improving Metrics
 
@@ -124,4 +124,5 @@ http://www.whereever.com/3/details
 http://www.whereever.com/4/details
 ...
 ```
+
 To produce a single endpoint for reporting from each one of these calls, you can use a [footprint](/api-testing/composer/io-components/#config).
