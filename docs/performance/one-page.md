@@ -104,7 +104,7 @@ $ speedo run <URL> -u Slavocado -k XXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX // if S
 
 The output returned for a passing test may look as follows:
 
-<img src={useBaseUrl('img/performance/speedo-run-output.png')} alt="Run Command Output" width="750"/>
+<img src={useBaseUrl('img/performance/speedo-run-output.webp')} alt="Run Command Output" width="750"/>
 
 ### Analyze Command: Review Existing Tests
 
