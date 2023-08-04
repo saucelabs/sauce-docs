@@ -13,6 +13,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 ## System Requirements
 
 Supported OS:
+
 - Windows 10 / Windows 11
 - macOS 10.14+
 - Linux
@@ -143,11 +144,12 @@ If you would prefer to stay in Cypress, try the new [Cypress Sauce Labs Plugin](
 
 ## Limitations
 
-:::caution Special Characters in Test Names
-We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
-:::
+### Special Characters in Test Names
 
-:::caution Cypress 11+
+We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
+
+### Cypress 11+
+
 A bug impacting Cypress 11+ is causing the Cypress UI to display a browser that is not the one actually used.
 Edge is shown on Windows, and Webkit is shown on macOS.
 
@@ -155,21 +157,18 @@ The browser selected in your configuration file is used, and the console log of 
 
 The issue has been reported to Cypress.
 See: https://github.com/cypress-io/cypress/issues/25755 for more information.
-:::
 
-:::caution Firefox 101 + Windows
+### Firefox 101 + Windows
+
 Cypress does not currently work with Firefox 101 on Windows.
-:::
 
-:::caution Firefox 105
+### Firefox 105
+
 Cypress does not currently work with Firefox 105.
 See https://github.com/cypress-io/cypress/issues/23897 for more information.
-:::
 
-:::caution Webkit
-Cypress only supports launching Webkit with a fixed resolution of 1280x720.
+### Webkit
 
-Cypress 12.6.0 does not work on Windows with Webkit browser.
-
-Cypress 12+ does not work on macOS 11 with Webkit browser.
-:::
+- Cypress only supports launching Webkit with a fixed resolution of 1280x720.
+- Cypress 12.6.0 does not work on Windows with Webkit browser.
+- Cypress 12+ does not work on macOS 11 with Webkit browser.
