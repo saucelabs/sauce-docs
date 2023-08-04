@@ -137,19 +137,19 @@ If you prefer to stay in Playwright, try the [Playwright Sauce Labs Reporter](ht
 
 ## Limitations
 
-:::caution Special Characters in Test Names
-We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
-:::
+### Special Characters in Test Names
 
-:::caution Playwright 1.31.1 + Webkit + Sauce-Connect
+We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
+
+### Playwright 1.31.1 + Webkit + Sauce-Connect
+
 When using Sauce-Connect, Webkit browser is unable to load any website that is hosted on the Internet.
 Local websites can still be loaded.
-:::
 
-:::caution macOS 11 + Playwright 1.29+ + Webkit
+### macOS 11 + Playwright 1.29+ + Webkit
+
 Webkit is not working on macOS 11 since Playwright 1.29.0
-:::
 
-:::note
+### Playwright + Cucumber
+
 Based on current Playwright test runner implementation, there is no way to run Playwright test runner with Cucumber.
-:::
