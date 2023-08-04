@@ -536,6 +536,10 @@ module.exports = {
                                                 'error-reporting/workflow-integrations/messaging/gitter',
                                                 'error-reporting/workflow-integrations/messaging/amazon-sns',
                                                 'error-reporting/workflow-integrations/messaging/stride',
+                                                'error-reporting/workflow-integrations/messaging/discord',
+                                                'error-reporting/workflow-integrations/messaging/ms-teams',
+                                                'error-reporting/workflow-integrations/messaging/webex-teams',
+                                                'error-reporting/workflow-integrations/messaging/hipchat',
                                             ],
                                         },
                                         {
@@ -548,6 +552,8 @@ module.exports = {
                                                 'error-reporting/workflow-integrations/issue-tracking/phabricator',
                                                 'error-reporting/workflow-integrations/issue-tracking/asana',
                                                 'error-reporting/workflow-integrations/issue-tracking/fogbugz',
+                                                'error-reporting/workflow-integrations/issue-tracking/hack-n-plan',
+                                                'error-reporting/workflow-integrations/issue-tracking/mantis',
                                             ],
                                         },
                                         {
