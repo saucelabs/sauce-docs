@@ -99,7 +99,7 @@ If you don't have a file available, try out the sample below.
 
 5. Click the folder in your **Snapshots** tree where you'd like to save your file.<br/><img src={useBaseUrl('img/api-testing/importFolderRebrand.png')} alt="Routes Rendered" width="350"/>
 6. Click **Save**.<br/><img src={useBaseUrl('img/api-testing/importFolder2Rebrand.png')} alt="Import file to Project" width="350"/>
-7. The routes from your collection will now show in the list of saved requests.<br/><img src={useBaseUrl('img/api-fortress/2021/04/routesRendered.png')} alt="Import file to Project" width="400"/>
+7. The routes from your collection will now show in the list of saved requests.<br/><img src={useBaseUrl('img/api-testing/routesRendered.png')} alt="Import file to Project" width="400"/>
 
 ## Importing Postman Environments
 

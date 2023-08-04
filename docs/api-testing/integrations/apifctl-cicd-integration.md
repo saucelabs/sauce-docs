@@ -10,7 +10,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::warning
-`apifctl`  has been deprecated and replaced with [saucectl](/api-testing/integrations/apitesting-saucectl-integration/).
+`apifctl` has been deprecated and replaced with [saucectl](/api-testing/integrations/apitesting-saucectl-integration/).
 
 If you have any questions, contact your Customer Success Manager or Sauce Labs Support.
 :::
@@ -39,12 +39,12 @@ To generate a webhook:
 1. Enter a **Name** for your webhook (**Description** is optional), then click **Save**.<br/><img src={useBaseUrl('img/api-testing/sampleHook.png')} alt="sample webhook details" width="300" />
 1. The generated **Hook URL** will then appear. Your Sauce Labs username, Sauce API Testing endpoint, and `{hook_id}` will populate automatically. For security reasons, you'll need to add your own access key.
 
-```bash
-https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}
-```
+   ```bash
+   https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}
+   ```
 
 1. Copy the URL to your clipboard and then you can use it either locally or as part of CI build.<br/>
-   <img src={useBaseUrl('img/api-fortress/2021/04/hookURL.png')} alt="sample Hook URL"/>
+   <img src={useBaseUrl('img/api-testing/hookURL.png')} alt="sample Hook URL"/>
 
 You can then reuse this Webhook for future tests within that Project by returning to the **Webhooks** tab and copying it there. Webhooks are Project-specific.
 
