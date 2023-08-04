@@ -28,10 +28,10 @@ There are multiple ways to create and access Test environments:
 
 1. From within a Project, go to the **Environments** section.<br/><img src={useBaseUrl('img/api-testing/accessEnvironmentRebrand.png')} alt="access environment" width="300"/>
 2. Click **Create Environment**.
-3. Enter a name for your environment, then click **Save** when finished.<br/><img src={useBaseUrl('img/api-fortress/2021/04/createEnvironment.png')} alt="create environment" width="300"/>
+3. Enter a name for your environment, then click **Save** when finished.<br/><img src={useBaseUrl('img/api-testing/createEnvironment.png')} alt="create environment" width="300"/>
 4. From here, you can:
-   - Add variable(s) manually by clicking **New Entry** > Enter **Key** and **Value** pairs > **Confirm**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/manualEntry.png')} alt="create environment" width="500"/>
-   - Import an existing environment by clicking **Import** > **Choose File** (accepted file types are Postman, .json, .csv).<br/><img src={useBaseUrl('img/api-fortress/2021/04/importEnv.png')} alt="create environment" width="500"/>
+   - Add variable(s) manually by clicking **New Entry** > Enter **Key** and **Value** pairs > **Confirm**.<br/><img src={useBaseUrl('img/api-testing/manualEntry.png')} alt="create environment" width="500"/>
+   - Import an existing environment by clicking **Import** > **Choose File** (accepted file types are Postman, .json, .csv).<br/><img src={useBaseUrl('img/api-testing/importEnv.png')} alt="create environment" width="500"/>
 
 The resulting environment (along with its defined variables) will now appear in each of your Tests as an option in the environment dropdown.
 
@@ -51,13 +51,13 @@ This new environment will be selected by default in the dropdown.
 Once you've created an environment and added your variables, you can run your Test against that environment.
 
 1. From within a Project, go to any of the following sections: **Tests**, **Compose**, **HTTP Client**, or **Load Test**.
-2. Click the **Environments** drodropdown list down (defaults to **No environment**), then select the name of the environment you want to use.<br/><img src={useBaseUrl('img/api-fortress/2021/04/selectEnv.png')} alt="result in tests" width="300"/>
+2. Click the **Environments** drodropdown list down (defaults to **No environment**), then select the name of the environment you want to use.<br/><img src={useBaseUrl('img/api-testing/selectEnv.png')} alt="result in tests" width="300"/>
 
 By activating an environment here, you will be able to hit a different variable (key/value pair) in your current session without actually changing your Test.
 
 ### no environment
 
-If **None** (**no environment**) is selected, the Test will run using the values written as inputs in the test and the variables saved in the **Vault**.<br/><img src={useBaseUrl('img/api-fortress/2021/04/noEnv.png')} alt="result in tests" width="270"/>
+If **None** (**no environment**) is selected, the Test will run using the values written as inputs in the test and the variables saved in the **Vault**.<br/><img src={useBaseUrl('img/api-testing/noEnv.png')} alt="result in tests" width="270"/>
 
 ## More Information
 
