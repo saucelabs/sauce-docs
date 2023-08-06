@@ -71,79 +71,10 @@ final class DemoAppUITests: XCTestCase {
 
 ### Building the Project
 
-To run XCUITest on Sauce Real Devices, you need to create the [`.ipa` files](https://docs.saucelabs.com/mobile-apps/automated-testing/ipa-files/#creating-an-xcuitest-package) package.
+XCUITest can be executed on Sauce Labs Real Devices and Simulators <span className="sauceGreen">Beta</span> and needs an app to be tested (testApp) and an app that holds the tests (testRunner). Use the following steps to build the project:
 
-#### Using Xcode
-
-To create a build follow the steps below:
-
-1. Open your app project in [Xcode](https://developer.apple.com/xcode/).
-2. Select `Generic iOS Device` or `Any iOS Device (arm64)` as your project's device target.
-3. Make sure that your UI tests are part of a `Target Membership` and that those Targets are selected to be built in your Xcode `Build scheme`.
-   :::note
-   Targets containing UI Tests are typically selected to be built at the "Test" build action.
-   :::
-4. Generate your test package by selecting Product > Build For > Testing.
-5. Navigate to your Xcode project's Products directory and find the generated .app files.
-
-##### Creating .ipa Files for XCUITest Testing
-
-:::warning warning
-Make sure that you set the same iOS version for your app and test runner `iOS Deployment Target`. If they don't match, your tests will run locally, but fail when you run them against Sauce Labs real devices.
-:::
-
-To set the iOS version in your Xcode Project, follow these steps:
-
-1. Select the Project you want to build.
-2. Under Build Settings, set the iOS Deployment Target to the iOS version you want to use in your test. All target outputs of this project, including the app and your test runner, will be set to the same iOS version.
-
-To set the iOS version in your Xcode Target, follow these steps:
-
-1. Select the Target for your Project.
-2. Under Build Settings, set the iOS Deployment Target to the iOS version you want to use in your test.
-
-#### Using Command Line Tool
-
-Use the following command to build the project:
-
-```
-$ xcodebuild \
-    CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO \
-    clean build-for-testing \
-    -project DemoApp.xcodeproj \
-    -scheme "DemoApp" \
-    -sdk iphoneos \
-    -configuration Debug \
-    -derivedDataPath build
-```
-
-It generates apps folders under `build/Build/Products/Debug-iphoneos`.
-
-```
-$ ls build/Build/Products/Debug-iphoneos
-DemoApp.app                DemoAppTests.swiftmodule   DemoAppUITests.swiftmodule
-DemoApp.swiftmodule        DemoAppUITests-Runner.app
-```
-
-##### Creating .ipa Files for XCUITest Testing
-
-To build an ipa file for the app, see the example below:
-
-```
-$ cd build/Build/Products/Debug-iphoneos
-$ mkdir Payload
-$ cp -r DemoApp.app Payload
-$ zip --symlinks -r DemoApp.ipa Payload
-```
-
-To build an ipa file for the test bundle using the similar commands, see the example below:
-
-```
-$ cd build/Build/Products/Debug-iphoneos
-$ mkdir Payload
-$ cp -r DemoAppUITests-Runner.app Payload/
-$ zip --symlinks -r DemoAppUITests-Runner.ipa Payload
-```
+- **Real Devices:** [Create `.ipa` testApp and testRunner files](/mobile-apps/automated-testing/ipa-files/)
+- **Simulators <span className="sauceGreen">Beta</span>:** [Create `.app` testApp and testRunner files](/mobile-apps/automated-testing/app-files/)
 
 ### Running XCUITest Using `saucectl`
 
