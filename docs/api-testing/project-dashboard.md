@@ -27,15 +27,15 @@ There are three ways to access it:
 
 Here's a breakdown of what each report contains:
 
-**Test Report Details**: metadata about the execution of the test, such as Test Name, Project Name, and Mode (Scheduled or On Request)<br/><img src={useBaseUrl('img/api-fortress/2021/02/sessionDetails.png')} alt="Test Report" width="400" />
+**Test Report Details**: metadata about the execution of the test, such as Test Name, Project Name, and Mode (Scheduled or On Request)<br/><img src={useBaseUrl('img/api-testing/sessionDetails.png')} alt="Test Report" width="400" />
 
-**Outcome** (pass/fail status):<br/><img src={useBaseUrl('img/api-fortress/2021/02/outcome.png')} alt="Test Report" width="150" />
+**Outcome** (pass/fail status):<br/><img src={useBaseUrl('img/api-testing/outcome.png')} alt="Test Report" width="150" />
 
-**Assertions**: your Test assertions, where a gray dot indicates a pass, red dot indicates a fail, and yellow dot indicates a warning<br/><img src={useBaseUrl('img/api-fortress/2021/02/assertions.png')} alt="Test Report Primer Image" width="450" />
+**Assertions**: your Test assertions, where a gray dot indicates a pass, red dot indicates a fail, and yellow dot indicates a warning<br/><img src={useBaseUrl('img/api-testing/assertions.png')} alt="Test Report Primer Image" width="450" />
 
-**Request Components**: shows the specific component(s) that you tested.<br/><img src={useBaseUrl('img/api-fortress/2021/02/requestComponent.png')} alt="Test Report Primer Image" width="200" />
+**Request Components**: shows the specific component(s) that you tested.<br/><img src={useBaseUrl('img/api-testing/requestComponent.png')} alt="Test Report Primer Image" width="200" />
 
-**Stack Details**: click this to view granular details about requests and headers.<br/><img src={useBaseUrl('img/api-fortress/2021/02/stackDetails.png')} alt="Test Report Primer Image" width="150" /><br/><img src={useBaseUrl('img/api-fortress/2021/02/stackDetails-expanded.png')} alt="Stack details" width="350" />
+**Stack Details**: click this to view granular details about requests and headers.<br/><img src={useBaseUrl('img/api-testing/stackDetails.png')} alt="Test Report Primer Image" width="150" /><br/><img src={useBaseUrl('img/api-testing/stackDetails-expanded.png')} alt="Stack details" width="350" />
 
 ## Dashboard
 
@@ -96,7 +96,7 @@ A _Build_ is a collection of test results and metrics associated with a given bu
 
 6. Click on any line item below to view a summary report for that Build.<img src={useBaseUrl('img/api-testing/builds1.webp')} alt="Dashboard Builds"/><br/><img src={useBaseUrl('img/api-testing/builds2.webp')} alt="Dashboard Builds"/>
    The report contains details such as the build ID, list of Tests belonging to that build, date/time, Projects involved, successful tests, and failed tests.
-7. Under the **Event Details** column, click **Open Report Document** to see the results and metrics for each specific test that has been executed in the build.<br/><img src={useBaseUrl('img/api-fortress/2021/02/builds3.png')} alt="Dashboard Builds"/>
+7. Under the **Event Details** column, click **Open Report Document** to see the results and metrics for each specific test that has been executed in the build.<br/><img src={useBaseUrl('img/api-testing/builds3.png')} alt="Dashboard Builds"/>
 
 ## More Information
 
