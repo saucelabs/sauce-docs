@@ -8,6 +8,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Welcome to the documentation on creating Simulator .app files for Appium and XCUITest using Sauce Labs. This step-by-step documentation will walk you through the process of building, zipping, and uploading your application for testing on Sauce Labs Simulators.
+
 :::caution Important
 
 At the moment Sauce Labs Simulators only support apps that have been built with the `x86_64` -architecture for Intel-based Macs. `arm64`-based applications, built for Apple Silicon Macs, are not yet supported and will result in the following error:
@@ -27,11 +29,10 @@ At the moment Sauce Labs Simulators only support apps that have been built with 
 
 `xcodebuild` is the command-line tool built into Xcode used for building apps. You can see its detailed documentation by running `xcodebuild --help` or `man xcodebuild` in the terminal.
 
-### Building Steps
 
 The following steps can also be executed in a build pipeline, but for explanation and replication purposes, we use a terminal.
 
-#### Navigating to the project directory
+### Navigating to the project directory
 
 Open a terminal and navigate to the directory containing the Xcode workspace using the cd command.
 
@@ -39,9 +40,9 @@ Open a terminal and navigate to the directory containing the Xcode workspace usi
 cd /path/to/your/project
 ```
 
-#### Building the app(s) for testing
+### Building the app(s) for testing
 
-##### 2a. Build for Appium
+**Build for Appium**
 
 Appium only needs the test app to be built, so you can create a new build using the `build` command. The following command cleans and builds the project in one step.
 
@@ -58,7 +59,7 @@ xcodebuild \
   CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 ```
 
-**For workspace based projects**
+**Build for Appium workspace based projects**
 
 ```bash
 xcodebuild \
@@ -73,7 +74,7 @@ xcodebuild \
   CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 ```
 
-##### 2b. Build for XCUITest <span className="sauceGreen">Beta</span>
+**Build for XCUITest** <span className="sauceGreen">Beta</span>
 
 XCUITest for Simulators is currently in <span className="sauceGreen">Beta</span>. It needs two apps, which are:
 
@@ -94,7 +95,7 @@ xcodebuild \
   CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 ```
 
-**For workspace based projects**
+**Build for XCUITest workspace based projects**
 
 ```bash
 xcodebuild \
@@ -108,7 +109,7 @@ xcodebuild \
   CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 ```
 
-##### Breaking down the build commands
+### Breaking down the build commands
 
 Here is a breakdown of the command arguments:
 
@@ -134,11 +135,11 @@ Do not specify `-arch` explicitly with `xcodebuild` when a `-destination` is use
 
 :::
 
-## Zip the App(s)
+## Zipping the App(s)
 
-After the apps (testApp and testRunner) has/have been built, they need to be zipped. This can be done with the following steps
+After the apps (testApp and testRunner) has/have been built, they need to be zipped. This can be done with the following steps.
 
-### 1. Navigate to the directory containing the built apps
+### Navigating to the directory containing the built apps
 
 After building, your apps (the .app directories) will be located in the `Build/Products/Debug-iphonesimulator` directory in the Derived Data path. In the above example, we used `./customFolder`.
 
@@ -148,7 +149,7 @@ Open a terminal and navigate to this directory:
 cd /path/to/your/project/customFolder/Build/Products/Debug-iphonesimulator
 ```
 
-### 2. Zipping the Apps
+### Zipping the Apps
 
 You can create a zip archive of each app using the zip command:
 
@@ -167,12 +168,12 @@ Here is a breakdown of the command arguments, which is the same for both lines:
 Replace `/path/to/your/project/` with the actual path to your project's directory and `testApp.app` and `testRunner.app` with the actual names of your app directories.
 :::
 
-## Upload the App(s) to Sauce Storage
+## Uploading the App(s) to Sauce Storage
 
 ### Appium
 
-You can upload your mobile app programmatically using the [File Storage API Methods](/dev/api/storage), an explanation can be found [here](/mobile-apps/app-storage/#uploading-apps-via-rest-api).
+For Appium, you can upload your mobile app programmatically using the [File Storage API Methods](/dev/api/storage). For more information, see [Uploading Apps via Rest API](/mobile-apps/app-storage/#uploading-apps-via-rest-api).
 
 ### XCUITest <span className="sauceGreen">Beta</span>
 
-`saucectl` is used to run XCUITest for Simulators on Sauce Labs. It will upload the apps to Sauce Storage for you, so you don't have to do it manually. You can find more information about `saucectl` [here](/mobile-apps/automated-testing/espresso-xcuitest/).
+For XCUITest Beta, you can use `saucectl` to run XCUITest for Simulators on Sauce Labs. It will handle the app uploading process to Sauce Storage for you. For more information, see [Espresso XCUITest documentation](/mobile-apps/automated-testing/espresso-xcuitest/).
