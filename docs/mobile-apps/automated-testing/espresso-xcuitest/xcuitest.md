@@ -265,13 +265,14 @@ sauce:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Configures additional reporting capabilities provided by `saucectl`.
+The parent property containing all reporting capabilities provided by `saucectl`.
 
 ```yaml
 reporters:
   junit:
     enabled: true
     filename: saucectl-report.xml
+    webhookURL: https://my-webhook-url
 ```
 
 ---
@@ -286,7 +287,6 @@ The JUnit reporter gathers JUnit reports from all jobs and combines them into a 
 reporters:
   junit:
     enabled: true
-    filename: saucectl-report.xml
 ```
 
 ---
@@ -301,8 +301,6 @@ The JSON reporter gathers test results from all jobs and combines them into a si
 reporters:
   json:
     enabled: true
-    filename: saucectl-report.json
-    webhookURL: https://my-webhook-url
 ```
 
 ---
@@ -353,7 +351,7 @@ reporters:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Specifies how to manage test output, such as logs, videos, and screenshots.
+The parent property specifying how to manage test output, such as logs, videos, and screenshots.
 
 ```yaml
 artifacts:
@@ -470,7 +468,9 @@ xcuitest:
 - `devices`, see [Devices](#devices)
 - `simulators`, see [Simulators](#simulators)
 
-They can **NOT** be used in the same [`suites`](#suites) configuration due to `app` and `testApp` architecture differences between Real Devices and Simulators. If you want to use both Real Devices and Simulators (enforced by Apple). You need to create two separate [`suites`](#suites) configurations and provide [`app`](#app-1) and [`testApp`](#testapp-1) configuration for each suite.
+They can **NOT** be used in the same [`suites`](#suites) configuration due to `app` and `testApp` architecture differences between Real Devices and Simulators (enforced by Apple). If you want to use both Real Devices and Simulators, you need to create two separate [`suites`](#suites) configurations and provide [`app`](#app-1) and [`testApp`](#testapp-1) configuration for each suite.
+
+Follow the instructions to build [iOS Real Device `.ipa` files](/mobile-apps/automated-testing/ipa-files/) or [iOS Simulator `.app` files](/mobile-apps/automated-testing/app-files/).
 
 :::
 
@@ -522,7 +522,6 @@ Specifies description for the uploaded app.
 
 ```yaml
 xcuitest:
-  app: ./apps/xcuitest/SauceLabs-Demo-Real-Device-App.ipa # This is an example app for real devices.
   appDescription: My demo app
 ```
 
@@ -574,7 +573,6 @@ Specifies description for the uploaded testApp.
 
 ```yaml
 xcuitest:
-  testApp: ./apps/xcuitest/SauceLabs-Demo-Real-Device-App-Runner.ipa # This is an example app for real devices.
   testAppDescription: My test Runner app
 ```
 
@@ -584,10 +582,13 @@ xcuitest:
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Set of up to seven (real devices) or 2 apps (virtual) to pre-install for your tests. You can upload an app from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.ipa`), a remote url, or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
+Set of up to seven (real devices) or two (virtual devices) apps to pre-install for your tests. See [`app`](#app) for more app details.
 
 :::note
-Apps specified as `otherApps` inherit the configuration of the main app under test for [`Device Language`, `Device Orientation`, and `Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
+
+1. Real Device and Simulator apps can **NOT** be combined, see [`xcuitest`](#xcuitest) for more details.
+2. Apps specified as `otherApps` inherit the configuration of the main app under test for [`Device Language`, `Device Orientation`, and `Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
+
 :::
 
 ```yaml
@@ -607,10 +608,6 @@ xcuitest:
 <p><small>| REQUIRED | OBJECT |</small></p>
 
 The set of properties providing details about the test suites to run. May contain multiple suite definitions. See the full [example config](#example-configuration) for an illustration of multiple suite definitions.
-
-:::note Real Devices Only
-At this time, `saucectl` does not support automated tests running on simulators.
-:::
 
 ---
 
@@ -650,7 +647,6 @@ Specifies description for the uploaded test app on the suite level. If `app` is 
 ```yaml
 suites:
   - name: My Saucy Test
-    app: ./apps/SauceLabs-Demo-App.ipa # This is an example app for real devices.
     appDescription: My Demo app
 ```
 
@@ -679,7 +675,6 @@ Specifies description for the uploaded test runner applicaiton on the suite leve
 ```yaml
 suites:
   - name: My Saucy Test
-    testApp: ./apps/SauceLabs-Demo-App-Runner.app
     testAppDescription: My Demo test runner app
 ```
 
@@ -768,7 +763,7 @@ suites:
 
 ### `appSettings`
 
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 Application settings for real device tests.
 
@@ -943,7 +938,7 @@ Request a specific device for this test suite by its ID. You can look up device 
 suites:
   - name: My Saucy Test
     devices:
-      id: iPhone_11_14_5_real_us
+      - id: iPhone_11_14_5_real_us
 ```
 
 ---
