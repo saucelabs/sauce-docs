@@ -56,7 +56,7 @@ You will need the following information to connect:
 - **URL** - HTTPS URL to connect to the symbol server or S3 bucket. When using an AWS S3 bucket, use the HTTPS URL of the region the S3 bucket is hosted from.
 - **Name** - A descriptive name for this connection.
 - **Allowlist** - Whether you want to enable Allowlist or not. If Allowlist is enabled, then the system will only try to download the symbols specified in the allowlist (no other symbols will be downloaded). The most common configuration for private symbol servers is to not use the Allowlist, and instead download all symbols that are not in the blocklist or skip list on demand.
-- **Credentials** - Basic Auth, Google Cloud Storage with service secret, or AWS S3 Authentication with bucket name, S3 key, and S3 secret are supported.
+- **Credentials** - Basic Auth, Google Cloud Storage with service secret, or AWS S3 Authentication with bucket name, S3 access key (AWS Key Identifier field), and S3 secret (AWS Secret Key field) are supported. Refer to [AWS Account and Access Keys](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html) documentation for more information.
 - **Proxy Options**- If a proxy server is required, these options define the proxy credentials, host, and port.
 - **Download Options** - How many concurrent downloads to allow, and retry options before adding a symbol to the skip list.
 
