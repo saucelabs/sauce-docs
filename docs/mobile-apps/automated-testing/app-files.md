@@ -10,13 +10,13 @@ import TabItem from '@theme/TabItem';
 
 :::caution Important
 
-At the moment Sauce Labs Simulators only support apps that have been built with the `x86_64` -architecture for Intel-based Macs. `arm64`-based applications, built for Apple Silicon Macs, are not yet supported and will result in the following error.
+At the moment Sauce Labs Simulators only support apps that have been built with the `x86_64` -architecture for Intel-based Macs. `arm64`-based applications, built for Apple Silicon Macs, are not yet supported and will result in the following error:
 
 <img src={useBaseUrl('img/mobile-apps/ios-simulator-arm-error.jpg')} alt="iOS Simulators ARM64 error" width="500"/>
 
 :::
 
-## Requirements
+## What You'll Need
 
 - **Xcode:** You need to have Xcode installed, which is the IDE for developing iOS apps.
 - **Command Line Tools:** You need to have the Xcode command line tools installed, which can be done by executing the command `xcode-select --install` in the Terminal.
@@ -31,7 +31,7 @@ At the moment Sauce Labs Simulators only support apps that have been built with 
 
 The following steps can also be executed in a build pipeline, but for explanation and replication purposes, we use a terminal.
 
-#### 1. Navigate to the project directory
+#### Navigating to the project directory
 
 Open a terminal and navigate to the directory containing the Xcode workspace using the cd command.
 
@@ -39,7 +39,7 @@ Open a terminal and navigate to the directory containing the Xcode workspace usi
 cd /path/to/your/project
 ```
 
-#### 2. Build the app(s) for testing
+#### Building the app(s) for testing
 
 ##### 2a. Build for Appium
 
