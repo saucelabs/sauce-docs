@@ -59,7 +59,7 @@ Ensure to use the appropriate API URL based on your Data Center location.
 | US East     | https://api.us-east-4.saucelabs.com/v1/visual/graphql    |
 | EU Central  | https://api.eu-central-1.saucelabs.com/v1/visual/graphql |
 
-## FAQ
+## Frequently Asked Questions
 
 ### ### **Is Sauce Visual's image comparison pixel-based or DOM-based?**
 
