@@ -58,3 +58,37 @@ Ensure to use the appropriate API URL based on your Data Center location.
 | US West     | https://api.us-west-1.saucelabs.com/v1/visual/graphql    |
 | US East     | https://api.us-east-4.saucelabs.com/v1/visual/graphql    |
 | EU Central  | https://api.eu-central-1.saucelabs.com/v1/visual/graphql |
+
+## Frequently Asked Questions
+
+### ### **Is Sauce Visual's image comparison pixel-based or DOM-based?**
+
+The current implementation is Pixel-based only.
+
+### **Does Sauce Visual support "ignore regions"?**
+
+Yes, "ignore regions" are supported. Currently, you can define these regions in code by specifying the locator of a Web Element or by setting the coordinates of a rectangle.
+
+### **Will I be able to use existing Sauce team management features for access to Sauce Visual?**
+
+Yes, the Team management will eventually be supported by the new Sauce Visual.
+
+### **Can I integrate this into CI/CD testing?**
+
+Yes, Sauce Visual is 100% API-based and natively utilizes the same tools as the rest of the Sauce product line. When integrating Visual testing into your scripts, you can execute them just like any other scripts.
+
+### **Can I export diff metadata into an external test management/reporting tool?**
+
+Currently, diff information is only available via the UI. Support for exporting diff metadata into an external test management/reporting tool may be included in a later revision.
+
+### **What languages/frameworks will be supported at launch?**
+
+Sauce Visual will support the following languages/frameworks at launch: Selenium/Appium/Cypress, WebDriverIO, Java JUnit/TestNG, and JavaScript. You can find examples of some of these at [https://github.com/saucelabs/visual-examples](https://github.com/saucelabs/visual-examples).
+
+### **What subsequent languages/frameworks will be supported?**
+
+Support for additional languages/frameworks will be determined based on demand. Frameworks like Playwright, TestCafe, XCUIT, Espresso, etc., are currently under consideration. Contributions are encouraged. Check out the [examples project](https://github.com/saucelabs/visual-examples). If you create your own public library or binding, feel free to add another example to that project.
+
+### **When will it support "my favorite framework"?**
+
+The support for any framework depends on the client-side implementation using the underlying API. If you require an SDK, let us know.
