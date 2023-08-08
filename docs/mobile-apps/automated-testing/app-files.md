@@ -29,7 +29,6 @@ At the moment Sauce Labs Simulators only support apps that have been built with 
 
 `xcodebuild` is the command-line tool built into Xcode used for building apps. You can see its detailed documentation by running `xcodebuild --help` or `man xcodebuild` in the terminal.
 
-
 The following steps can also be executed in a build pipeline, but for explanation and replication purposes, we use a terminal.
 
 ### Navigating to the project directory
@@ -76,7 +75,7 @@ xcodebuild \
 
 **Build for XCUITest** <span className="sauceGreen">Beta</span>
 
-XCUITest for Simulators is currently in <span className="sauceGreen">Beta</span>. It needs two apps, which are:
+XCUITest for Simulators is currently in <span className="sauceGreen">Beta</span> and is only supported for iOS 15 and up. It needs two apps, which are:
 
 - The App that needs to be tested (testApp)
 - The App that holds the tests (testRunner)

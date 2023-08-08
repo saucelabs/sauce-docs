@@ -466,7 +466,7 @@ xcuitest:
 `saucectl` supports running XCUITests on Real Devices and Simulators <span className="sauceGreen">Beta</span> which can be configured by using:
 
 - `devices`, see [Devices](#devices)
-- `simulators`, see [Simulators](#simulators)
+- `simulators`, see [Simulators](#simulators-beta)
 
 They can **NOT** be used in the same [`suites`](#suites) configuration due to `app` and `testApp` architecture differences between Real Devices and Simulators (enforced by Apple). If you want to use both Real Devices and Simulators, you need to create two separate [`suites`](#suites) configurations and provide [`app`](#app-1) and [`testApp`](#testapp-1) configuration for each suite.
 
@@ -888,6 +888,12 @@ suites:
 
 The set of one or more versions of the device platform on which to run the test suite. Check the [list of supported virtual devices](https://app.saucelabs.com/live/web-testing/virtual) for compatible versions.
 If you are using Simulators for this test suite, this property is REQUIRED.
+
+:::note
+
+The <span className="sauceGreen">BETA</span> only supports iOS 15 and up.
+
+:::
 
 ```yaml
 suites:
