@@ -85,52 +85,51 @@ Below are common use cases ideal for implementing Camera Image Injection in your
 
 During a live test, you'll be prompted in Sauce Labs to upload a photo that will be fed to your app, rather than using your device camera to take the photo.
 
-1. In Sauce Labs, click **LIVE** and then click **Mobile App**.
-2. On the **App Selection** page, hover over the test and then click **Settings**.
+1. In Sauce Labs, click **App Management**, hover over the test and then click **Settings**.
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-settings-nav.png')} alt="Mobile app settings navigation" width="650"/>
+<img src={useBaseUrl('img/mobile-apps/camera-injection-1.png')} alt="Mobile app settings navigation" width="650"/>
 
-3. On the **Settings** page, ensure that **Image Injection** is enabled and then return to the **App Selection** page.
+1. On the **Settings** page, ensure that **Instrumentation** and **Image Injection** is enabled and then return to the **App Management** page.
 
-<img src={useBaseUrl('img/live-testing/image-injection-enabled.png')} alt="Image Injection - Enabled" width="650"/>
+<img src={useBaseUrl('img/mobile-apps/camera-injection-2.png')} alt="Mobile app settings navigation" width="650"/>
 
-4. On the **App Selection** test page, hover over the test and then click **Choose Device**.
+4. On the **App Management** test page, hover over the test and then click **Start Test**.
 
-<img src={useBaseUrl('img/live-testing/image-injection-choose-device.png')} alt="Image Injection - Choose Device" width="650"/>
+<img src={useBaseUrl('img/mobile-apps/camera-injection-3.png')} alt="Mobile app settings navigation" width="650"/>
 
-5. On the device selection page, hover over a device and then click **Launch**.
+5. On the device selection page, hover over a device and then click **Start Test**.
 
-<img src={useBaseUrl('img/live-testing/image-injection-launch.png')} alt="Image Injection - Launch" width="650"/>
+<img src={useBaseUrl('img/mobile-apps/camera-injection-4.png')} alt="Mobile app settings navigation" width="650"/>
 
-6. When you want to capture an image of the test, in the right toolbar, click **More Device Options** and then click **Camera Injection**.
+6. When you want to capture an image of the test, in the right toolbar, click **Tools** and then click **Camera Upload**.
 
-<img src={useBaseUrl('img/live-testing/camera-injection-nav.png')} alt="Camera Injection navigation" width="450"/>
+<img src={useBaseUrl('img/mobile-apps/camera-injection-5.png')} alt="Camera Injection navigation" width="650"/>
 
 7. Click **Choose Image** and navigate to the image you want to use.
 
-<img src={useBaseUrl('img/live-testing/camera-injection-choose.png')} alt="Choose a file" width="450"/>
+<img src={useBaseUrl('img/mobile-apps/camera-injection-6.png')} alt="Choose a file" width="450"/>
 
 If the image upload is successful, you will see a thumbnail of the image and a successful upload message.
 
-<img src={useBaseUrl('img/live-testing/camera-injection-success.png')} alt="Camera image upload successful" width="450"/>
+<img src={useBaseUrl('img/mobile-apps/camera-injection-7.png')} alt="Camera image upload successful" width="450"/>
 
 8. Activate the camera inside of your app. The device will show your uploaded image in the app as if the image was taken by the device camera. The image will continue to be available, should you go back to the camera during your test session, or you can upload another image and capture it with the camera.
 
-<img src={useBaseUrl('img/live-testing/camera-injection-camera.png')} alt="Image in camera app" width="350"/>
+
 
 ### Testing with QR Codes
 
 You can use the Camera Image Injection feature to upload QR codes for testing.
 
-1. In the live test window, in the right toolbar, click **More Device Options** and then click **Camera Injection**.
+1. In the live test window, in the right toolbar, click **Tools** and then click **Camera Upload**.
 
 2. Click **Choose Image** and navigate to the QR code file.
 
-<img src={useBaseUrl('img/live-testing/camera-injection-qr-nav.png')} alt="QR file navigation" width="450"/>
+<img src={useBaseUrl('img/mobile-apps/camera-injection-6.png')} alt="Choose a file" width="450"/>
 
 If the image upload is successful, you will see a thumbnail of the image and a successful upload message.
 
-<img src={useBaseUrl('img/live-testing/camera-injection-success.png')} alt="Camera image upload successful" width="450"/>
+<img src={useBaseUrl('img/mobile-apps/camera-injection-7.png')} alt="Camera image upload successful" width="450"/>
 
 #### Padding
 
