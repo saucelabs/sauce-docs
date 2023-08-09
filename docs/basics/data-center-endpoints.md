@@ -65,7 +65,7 @@ Depending on the framework or driver you use, you might need to make additional 
 | Description                  | Endpoint                                           |
 | ---------------------------- | -------------------------------------------------- |
 | OnDemand Endpoint            | https://ondemand.eu-central-1.saucelabs.com/wd/hub |
-| REST API                     | api-eu-central-1.saucelabs.com                     |
+| REST API                     | api.eu-central-1.saucelabs.com                     |
 | Sauce Connect Tunnel Servers | maki\*.eu-central-1.miso.saucelabs.com:443         |
 
 ## IP Address Ranges - Outgoing
