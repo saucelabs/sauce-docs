@@ -472,6 +472,8 @@ They can **NOT** be used in the same [`suites`](#suites) configuration due to `a
 
 Follow the instructions to build [iOS Real Device `.ipa` files](/mobile-apps/automated-testing/ipa-files/) or [iOS Simulator `.app` files](/mobile-apps/automated-testing/app-files/).
 
+<a href="mailto:help@saucelabs.com">Contact support</a> if you have any issues regarding XCUITest on Simulators during the <span className="sauceGreen">Beta</span> phase.
+
 :::
 
 ---
