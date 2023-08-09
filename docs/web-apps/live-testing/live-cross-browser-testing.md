@@ -18,48 +18,43 @@ You can run live tests of your websites on a wide variety of operating system, b
 
 1. On Sauce Labs, in the left navigation panel, click **LIVE**, and then click **Cross Browser**.
 2. Click the **Desktop** tab.
-
-<img src={useBaseUrl('img/live-testing/desktop-test-nav.png')} alt="Live desktop test navigation" width="650"/>
+   <img src={useBaseUrl('img/live-testing/desktop-test-nav.png')} alt="Live desktop test navigation" width="650"/>
 
 3. In the **URL** field, enter the URL of the website you want to test.
 4. If you use Sauce Connect Proxy to test apps on a local host or behind a firewall, select the tunnel from the **SAUCE CONNECT PROXY** dropdown list.
 5. Under **BROWSER SELECTION**, select the browser version and screen resolution you want to use in your test.
 6. In the **OS VERSION** dropdown list, select the OS version you want to use.
-
-<img src={useBaseUrl('img/live-testing/desktop-test-setup.png')} alt="Desktop test setup" width="650"/>
+   <img src={useBaseUrl('img/live-testing/desktop-test-setup.png')} alt="Desktop test setup" width="650"/>
 
 7. To view your recent configurations, click **Recents**.
-
-<img src={useBaseUrl('img/live-testing/live-testing-recent-tests-nav.png')} alt="Recent tests" width="650"/>
+   <img src={useBaseUrl('img/live-testing/live-testing-recent-tests-nav.png')} alt="Recent tests" width="650"/>
 
 8. Click **Start Test**.
    A loading screen appears, and then the app launces in a live test window using the configuration you selected.
 
-:::caution
+   :::caution
 
-If you have issues starting live tests, check your IT infrastructure and make sure you are not blocking WebSockets.
+   If you have issues starting live tests, check your IT infrastructure and make sure you are not blocking WebSockets.
 
-:::
+   :::
 
-<img src={useBaseUrl('img/live-web-apps/new-toolbar/desktop-test-running.png')} alt="Desktop test running" width="650"/>
+   <img src={useBaseUrl('img/live-web-apps/new-toolbar/desktop-test-running.png')} alt="Desktop test running" width="650"/>
 
 9. Once your session launches, you can use your mouse cursor and keyboard to interact with the website under test.
 
 10. Click **End Session** when you are done testing.
 
 11. Optionally, [you can select an outcome and enter name for your test](#adding-a-test-name-and-outcome-to-your-test).
-
-<img src={useBaseUrl('img/live-testing/live-testing-end-session-page.png')} alt="Recent tests" width="550"/>
+    <img src={useBaseUrl('img/live-testing/live-testing-end-session-page.png')} alt="Recent tests" width="550"/>
 
 ### Live Desktop Test Interface - To be updated?
 
-| Icon                                                                                                        | Name              | Description                                                                                                                                                                                   |
-| :---------------------------------------------------------------------------------------------------------- | :---------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <img src={useBaseUrl('img/live-testing/pin-unpin-icon.png')} alt="Unpin/Pin Toolbar icon" width="35"/>      | Unpin/Pin Toolbar | Unpins or pins the live testing toolbar.                                                                                                                                                      |
-| <img src={useBaseUrl('img/live-testing/session-info-icon.png')} alt="Session Info icon" width="35"/>        | Session Info      | Opens the **Current Session** window, which includes app and device details.                                                                                                                  |
-| <img src={useBaseUrl('img/live-testing/take-screenshot-icon.png')} alt="Take Screenshot icon" width="35"/>  | Take Screenshot   | Takes a screenshot of the current device screen. The image is saved on the **Test Details** page.                                                                                             |
-| <img src={useBaseUrl('img/live-testing/invite-session-icon.png')} alt="Invite to Session icon" width="35"/> | Invite to Session | Opens the **Invite someone to watch this session** window. Copy and share the generated link to allow other users to view the test. <br/>Users must be logged in to be able to view the test. |
-| <img src={useBaseUrl('img/mobile-apps/clipboard-button.png')} alt="Clipboard icon" width="35"/>             | Clipboard         | Opens the **Remote Clipboard** window.                                                                                                                                                        |
+| Icon                                                                                                               | Name              | Description                                                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------ | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src={useBaseUrl('img/live-web-apps/new-toolbar/info.png')} alt="Session Info icon" width="35"/>               | Session Info      | Opens the **Current Session** window, which includes app and device details.                                                                        |
+| <img src={useBaseUrl('img/live-web-apps/new-toolbar/share-session.png')} alt="Share session icon" width="35"/>     | Share Session     | Opens the **Share Device** window. For a sharable link to the device, click **Get Link**. <br/>Users must be logged in to be able to view the test. |
+| <img src={useBaseUrl('img/live-web-apps/new-toolbar/take-screenshot.png')} alt="Take Screenshot icon" width="35"/> | Take Screenshot   | Takes a screenshot of the current device screen. The image downloads automatically as a .png                                                        |
+| <img src={useBaseUrl('img/live-web-apps/new-toolbar/copy-clipboard.png')} alt="Copy clipboard icon" width="35"/>   | Copy to Clipboard | Opens the Paste Content Into Device window.                                                                                                         |
 
 ## Testing on a Mobile Browser
 
@@ -92,7 +87,7 @@ When you are done testing, [you can opt to select an outcome and enter a name fo
 #### Live Mobile Real Device Test Interface
 
 | Icon                                                                                                               | Name              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| :----------------------------------------------------------------------------------------------------------------- | :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------------------------------------------------------------------------------------------------ | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <img src={useBaseUrl('img/live-web-apps/new-toolbar/info.png')} alt="Session Info icon" width="35"/>               | Session Info      | Opens the **Current Session** window, which includes app and device details.                                                                                                                                                                                                                                                                                                                                                                      |
 | <img src={useBaseUrl('img/live-web-apps/new-toolbar/share-session.png')} alt="Share session icon" width="35"/>     | Share Session     | Opens the **Share Device** window. For a sharable link to the device, click **Get Link**. <br/>Users must be logged in to be able to view the test.                                                                                                                                                                                                                                                                                               |
 | <img src={useBaseUrl('img/live-web-apps/new-toolbar/home.png')} alt="Home icon" width="35"/>                       | Home              | Opens the device home screen.                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -120,28 +115,25 @@ When you are done testing, [you can opt to select an outcome and enter a name fo
 
 1. On Sauce Labs, in the left panel, click **Live**, and then click **Cross Browser**.
 2. Click the **Mobile Virtual** tab.
-
-<img src={useBaseUrl('img/live-testing/live-mobile-virtual-nav.png')} alt="Live mobile virtual device test navigation" width="650"/>
+   <img src={useBaseUrl('img/live-testing/live-mobile-virtual-nav.png')} alt="Live mobile virtual device test navigation" width="650"/>
 
 3. In the **URL** field, enter the URL of the website you want to test.
 4. If you are using Sauce Connect Proxy to access the web app you want to test, select the tunnel from the dropdown list. For more information about Sauce Connect Proxy, see [Using Sauce Connect Proxy](/secure-connections/sauce-connect).
 5. In the **Manufacturer**, **Device**, and **OS Version** dropdowns, select the specifications for the virtual device you want to use.
 6. Click **Start Test**.
    The loading screen appears, and then the URL you entered launches in a live test window using the virtual device you selected.
-
-<img src={useBaseUrl('img/live-testing/mobile-virtual-test-ui.png')} alt="Mobile virtual device test interface" width="650"/>
+   <img src={useBaseUrl('img/live-web-apps/new-toolbar/mobile-virtual-test-ui.png')} alt="Mobile virtual device test interface" width="650"/>
 
 When you are done testing, [you can opt to select an outcome and enter a name for your test](#adding-a-test-name-and-outcome-to-your-test).
 
 #### Live Mobile Virtual Device Test Interface
 
-| Icon                                                                                                        | Name              | Description                                                                                                                                                                                   |
-| :---------------------------------------------------------------------------------------------------------- | :---------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <img src={useBaseUrl('img/live-testing/pin-unpin-icon.png')} alt="Unpin/Pin Toolbar icon" width="35"/>      | Unpin/Pin Toolbar | Unpins or pins the live testing toolbar.                                                                                                                                                      |
-| <img src={useBaseUrl('img/live-testing/session-info-icon.png')} alt="Session Info icon" width="35"/>        | Session Info      | Opens the **Current Session** window, which includes app and device details.                                                                                                                  |
-| <img src={useBaseUrl('img/live-testing/take-screenshot-icon.png')} alt="Take Screenshot icon" width="35"/>  | Take Screenshot   | Takes a screenshot of the current device screen. The image is saved on the **Test Details** page.                                                                                             |
-| <img src={useBaseUrl('img/live-testing/invite-session-icon.png')} alt="Invite to Session icon" width="35"/> | Invite to Session | Opens the **Invite someone to watch this session** window. Copy and share the generated link to allow other users to view the test. <br/>Users must be logged in to be able to view the test. |
-| <img src={useBaseUrl('img/mobile-apps/clipboard-button.png')} alt="Clipboard icon" width="35"/>             | Clipboard         | Opens the **Remote Clipboard** window.                                                                                                                                                        |
+| Icon                                                                                                               | Name              | Description                                                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------ | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src={useBaseUrl('img/live-web-apps/new-toolbar/info.png')} alt="Session Info icon" width="35"/>               | Session Info      | Opens the **Current Session** window, which includes app and device details.                                                                        |
+| <img src={useBaseUrl('img/live-web-apps/new-toolbar/share-session.png')} alt="Share session icon" width="35"/>     | Share Session     | Opens the **Share Device** window. For a sharable link to the device, click **Get Link**. <br/>Users must be logged in to be able to view the test. |
+| <img src={useBaseUrl('img/live-web-apps/new-toolbar/take-screenshot.png')} alt="Take Screenshot icon" width="35"/> | Take Screenshot   | Takes a screenshot of the current device screen. The image downloads automatically as a .png                                                        |
+| <img src={useBaseUrl('img/live-web-apps/new-toolbar/copy-clipboard.png')} alt="Copy clipboard icon" width="35"/>   | Copy to Clipboard | Opens the Paste Content Into Device window.                                                                                                         |
 
 ## Adding a Test Name and Outcome to Your Test
 
