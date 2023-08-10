@@ -9,60 +9,259 @@ import TabItem from '@theme/TabItem';
 
 These API endpoints allow you to interact with Error Reporting (Backtrace) functionality.
 
-Refer to [Getting Started](/dev/api) for Authentication and Server information.
-
 ## What You'll Need
 
-- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-- An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
+- A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
+- Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
+- A Backtrace project and an API token.
 
-## Project
+## Submit Crash
 
-### Get Project Details
-
-<details><summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;</code></summary>
+<details><summary><span className="api post">POST</span><code>http://api.backtrace.io/post</code></summary>
 <p/>
 
-Returns the details of a project.
+Submits crash object to Backtrace instance.
 
 #### Parameters
 
 <table id="table-api">
-  <tbody>
-   <tr>
-    <td><code>hookId</code></td>
-    <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Your project's hook ID, which you can create and/or retrieve from your project's <strong>Webhooks</strong> tab.</p></td>
-  </tr>
-</tbody>
+   <tbody>
+      <tr>
+         <td><code>token</code></td>
+         <td>
+            <p><small>| QUERY | REQUIRED | STRING |</small></p>
+            <p>Your API token.</p>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>format</code></td>
+         <td>
+            <p><small>| QUERY | REQUIRED | STRING |</small></p>
+            <p>The format of the crash you are submitting. Default value is <code>json</code>.</p>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>body</code></td>
+         <td>
+            <p><small>| BODY | REQUIRED | STRING |</small></p>
+            <p>The JSON body of the crash dump. The required fields for <code>body</code> are:</p>
+            <p>
+              <ul>
+                <li><code>uuid</code></li>
+                <li><code>timestamp</code></li>
+                <li><code>lang</code></li>
+                <li><code>langVersion</code></li>
+                <li><code>agent</code></li>
+                <li><code>agentVersion</code></li>
+                <li><code>threads</code></li>
+                <li><code>mainThread</code></li>
+              </ul>
+            </p>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>uuid</code></td>
+         <td>
+            <p><small>| BODY | REQUIRED | STRING |</small></p>
+            <p>16 bytes of randomness in hman readable UUID format. The server will reject the request if UUID is already found.</p>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>timestamp</code></td>
+         <td>
+            <p><small>| BODY | REQUIRED | INTEGER |</small></p>
+            <p>The UTC timestamp in seconds.</p>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>lang</code></td>
+         <td>
+            <p><small>| BODY | REQUIRED | STRING |</small></p>
+            <p>The name of the programming language/environment this errors come from.</p>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>langVersion</code></td>
+         <td>
+            <p><small>| BODY | REQUIRED | STRING |</small></p>
+            <p>The versione of the programming language/environment this error come from.</p>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>agent</code></td>
+         <td>
+            <p><small>| BODY | REQUIRED | STRING |</small></p>
+            <p>The name of the client that is sending this error report.</p>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>agentVersion</code></td>
+         <td>
+            <p><small>| BODY | REQUIRED | STRING |</small></p>
+            <p>The version of the client that is sending this error report.</p>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>threads</code></td>
+         <td>
+            <p><small>| BODY | REQUIRED | OBJECT |</small></p>
+            <p>Contains a map of all threads running in the environment. It could be only one. The object is composed by the <code>main</code> object that is the key of the <code>threads</code> object and represent the unique ID of a thread. The object contains the following fields:</p>
+            <p>
+              <ul>
+                <li><code>name</code> - A string that provides a small description of what the thread does.</li>
+                <li><code>fault</code> - A boolean value that denotes if a thread is a faulting thread. Rarely two faulted threads can be seen, if it happens, the first faulting thread listed in the minidump gets the status of <code>mainThreads</code></li>
+                <li><code>stack</code> - An array composed by the following fields:</li>
+                    <ul>
+                      <li><code>guessed_frame</code> - A boolean value that is <code>true</code> if the stack frame is created by hueristic method due to missing CFI, and <code>false</code> otherwise.</li>
+                      <li><code>funcName</code> - A string value that identifies the function, method, or procedure name. If not provided then <code>address</code> must be provided.</li>
+                      <li><code>address</code> - A string value that identifies the address of the stack frame. Required if <code>funcName</code> is not provided.</li>
+                      <li><code>line</code> - A string value that identifies the line number in the source code of the stack frame. First line is 1.</li>
+                      <li><code>column</code> - A string value that identifies the column number in the source code of the stack frame. First column is 1.</li>
+                      <li><code>sourceCode</code> - A string value that identifies the ID of the source code file the stack frame is contained in.</li>
+                      <li><code>library</code> - A string value that identifies the shared object, the library or the module name.</li>
+                      <li><code>debug_identifier</code> - A string value that identifies the debug identifier for the library associated with this frame.</li>
+                      <li><code>faulted</code> - A boolean value that indicates if this frame is known to to the faulting frame.</li>
+                      <li><code>registers</code> - In this object the keys are the register names. Use any names that make sense for the architecture. These must correspond to the values in the <code>arch</code> definition. JSON does not support 64 bit integers, so you must set the correct type and then encode the 64 bit integers as a string.</li>
+                    </ul>
+              </ul>
+            </p>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>mainThreads</code></td>
+         <td>
+            <p><small>| BODY | REQUIRED | STRING |</small></p>
+            <p>It represent the thread that wither triggered the error or generated this object. The value of this field should be one of the keys in the <code>threads</code> object and cannot be <code>null</code>.</p>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>symbolication</code></td>
+         <td>
+            <p><small>| BODY | OPTIONAL | STRING |</small></p>
+            <p>Specifies the symbolication that needs to be applied. Supported values are:</p>
+            <p>
+            <ul>
+               <li><code>minidump</code>.</li>
+               <li><code>sourcemap</code>.</li>
+               <li><code>proguard</code>.</li>
+            </ul>
+            </p>This should not be specified for client-symbolicated objects.
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>entryThread</code></td>
+         <td>
+            <p><small>| BODY | OPTIONAL | STRING |</small></p>
+            <p>Specifies which thread is the entry point or the starting thread. This must correspond to an entry in the <code>threads</code> field.</p>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>arch</code></td>
+         <td>
+            <p><small>| BODY | OPTIONAL | OBJECT |</small></p>
+            <p>Specifies the CPU architecture information. It is required if you want to have registers in the stack frame. The object has two fields: </p>
+            <p>
+              <ul>
+                <li><code>name</code> - On some systems the running program can be run with a different arch tahn the system itself. <code>attributes.uname.machine</code> has to do with the system arch; this field has to do with the running process arch.</li>
+                <li><code>registers</code> - It corresponds with registers in the stack frame. Specifies the names of the registers for this arch. The values are the types. Valid types are:
+                  <ul>
+                    <li><code>i32</code></li>
+                    <li><code>u32</code></li>
+                    <li><code>i64</code></li>
+                    <li><code>u64</code></li>
+                    <li><code>f32</code></li>
+                    <li><code>string</code></li>
+                  </ul>
+                  <p>If you use <code>string</code>, you can format the value as you want.</p>
+                </li>
+              </ul>
+            </p>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>fingerprint</code></td>
+         <td>
+            <p><small>| BODY | OPTIONAL | STRING |</small></p>
+            <p>This is a base64 encoded unique ID that groups the report with the same fingerprint (32 bytes). If omitted, a fingerprint will be generated from the submitted stack trace.</p>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>classifiers</code></td>
+         <td>
+            <p><small>| BODY | OPTIONAL | ARRAY of STRINGS |</small></p>
+            <p>List of strings which are report classifications.</p>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>attributes</code></td>
+         <td>
+            <p><small>| BODY | OPTIONAL | OBJECT of KEY:VALUE Pairs |</small></p>
+            <p>This is a set of key-value pairs that belong to the error report. The exact fields are not defined by this specification. It is up to the JSON consumer how to display or otherwise represent key/value pairs in this object. The value of a key-value pair can be a string, integer, or boolean. These attributes are indexed and searchable. Some of the possible values:</p>
+            <ul>
+               <li><code>application: foo</code></li>
+               <li><code>cpu.iowait: 1234143</code></li>
+               <li><code>system.memory.buffers: 1234</code></li>
+               <li><code>uname.machine: x86_64</code></li>
+               <li><code>vm.swap.size: 1234</code></li>
+               <li><code>error.message: Unexpected token h</code></li>
+            </ul>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>sourceCode</code></td>
+         <td>
+            <p><small>| BODY | OPTIONAL | OBJECT |</small></p>
+            <p>The object include the source code for better debugging experience. The object is composed by the <code>sourceCodeId</code> object that is the ID of the source code. The object is composed by the following fields:</p>
+            <ul>
+               <li><code>text</code> - A string that provides the full source file or a subset of it. If provided, then also <code>startline</code> should be provided. If not provided, then <code>path</code> must be provided.</li>
+               <li><code>startLine</code> - An integer value that provides the line number that the provided text starts on. It is required if <code>text</code> is provided. First line is 1.</li>
+               <li><code>startColumn</code> - An integer value that provides the column number that the first byte in the <code>text</code> segment is. First column is 1.</li>
+               <li><code>startPos</code> - An integer value that provides the absolute byte index in the original file that the provided segment is part of. First byte is 0.</li>
+               <li><code>path</code> - A string value that provides the file system path to the original source code file. If not provided, then <code>text</code> must be provided.</li>
+               <li><code>tabWidth</code> - An integer value that inform source code display how many spaces a tab should represent.</li>
+            </ul>
+         </td>
+      </tr>
+   </tbody>
 </table>
 
-<Tabs
-groupId="dc-url"
-defaultValue="us"
-values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
-]}>
-
-<TabItem value="us">
-
 ```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId>' | json_pp
+
 ```
-
-</TabItem>
-
-<TabItem value="eu">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/api-testing/rest/v4/<hookId>' | json_pp
-```
-
-</TabItem>
-</Tabs>
 
 #### Responses
 
@@ -75,40 +274,20 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </tbody>
 <tbody>
   <tr>
-    <td><code>401</code></td>
-    <td colSpan='2'>Authentication error.</td>
+    <td><code>400</code></td>
+    <td colSpan='2'>Malformed request.</td>
   </tr>
 </tbody>
 <tbody>
   <tr>
-    <td><code>404</code></td>
-    <td colSpan='2'>Not found.</td>
+    <td><code>403</code></td>
+    <td colSpan='2'>Invalid token.</td>
   </tr>
 </tbody>
 </table>
 
 ```jsx title="Sample Response"
-{
-    "id": "621ad1466b1fa36aa4b8b044",
-    "name": "Dog CEO",
-    "teamId": null,
-    "description": "Random dog images",
-    "tags": ["dogs", "doggos"],
-    "notes": "Collection of open source dog pictures (see https://dog.ceo/dog-api)",
-    "type": "project",
-    "emailNotifications": ["first.last@example.com"],
-    "connectorNotifications": [{
-        "WebHook": {
-            "params": {
-                "url": "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX",
-                "headers": {},
-                "content-type": "application/json",
-                "template": "{\n    \"eventId\": \"[[${eventId}]]\",\n    \"failuresCount\": [[${failuresCount}]],\n    \"testName\": \"[[${test.name}]]\",\n    \"testId\": \"[[${test.id}]]\",\n    \"projectName\": \"[[${project.name}]]\",\n    \"projectId\": \"[[${project.id}]]\",\n    \"tags\": [\n        [# th:each=\"t,iter : ${tags}\"]\n            \"[[${t}]]\" [# th:if=\"${!iter.last}\"],[/]\n        [/]\n    ]\n}",
-                "on_success": false
-            }
-        }
-    }]
-}
+
 ```
 
 </details>
