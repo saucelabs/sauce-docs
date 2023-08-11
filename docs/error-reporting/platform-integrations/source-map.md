@@ -19,6 +19,7 @@ The following steps guide you through configuring your JS application to automat
 
 :::tip Generating Tokens
 ## Generating an Error Submission Token
+
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
 
