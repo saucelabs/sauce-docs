@@ -45,6 +45,24 @@ Submits crash object to Backtrace instance.
    </tbody>
    <tbody>
       <tr>
+         <td><code>_mod_sync</code></td>
+         <td>
+            <p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p>
+            <p>It allows to perform synchronous submissions. By default, submissions are asynchronous, setting this parameter to <code>true</code> it perfroms synchronous submissions. To perform it, the submission token must have the <code>sync:post</code> capability in addition to <code>error:post</code> and/or <code>symbol:post</code>.</p>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>upload_file</code></td>
+         <td>
+            <p><small>| BODY | OPTIONAL | STRING |</small></p>
+            <p>It allows to attach a file with the initial crash submission. It contains the location of file containing crash data to send.</p>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
          <td><code>body</code></td>
          <td>
             <p><small>| BODY | REQUIRED | STRING |</small></p>
@@ -369,7 +387,143 @@ curl --request POST 'https://api.backtrace.io/post?token=<your_token>&format=<fo
 </table>
 
 ```jsx title="Sample Response"
-
+{
+  "uuid": "123e4567-e89b-12d3-a456-426655440000",
+  "timestamp": 1475530543,
+  "lang": "nodejs",
+  "langVersion": "v4.5.0",
+  "agent": "backtrace-node",
+  "agentVersion": "0.4.0",
+  "threads": {
+    "main": {
+      "name": "my super cool thread",
+      "fault": true,
+      "stack": [
+        {
+          "guessed_frame": "false",
+          "funcName": "main",
+          "address": "16045690984833335023",
+          "line": "10",
+          "column": "19",
+          "sourceCode": "o9BYbg2uO+1m",
+          "library": "/home/example/nodebt/test.js",
+          "callstack_state": "1",
+          "registers": {
+            "rax": "16045690984833335023",
+            "rip": 1234,
+            "FLAGS": "E:1 B:0 C:1"
+          }
+        }
+      ]
+    }
+  },
+  "mainThread": "main",
+  "entryThread": "12341324",
+  "arch": {
+    "name": "x64",
+    "registers": {
+      "rax": "u64",
+      "rip": "u32",
+      "FLAGS": "string"
+    }
+  },
+  "fingerprint": "kqJB7mgd22nvWGxYU2MvCpLRTiNWO1C8KFS434eTz1M=",
+  "callstack": {
+    "frames": ["one@foo.js:123", "two@bar.js", "three"]
+  },
+  "classifiers": ["SyntaxError"],
+  "attributes": {
+    "application": "foo",
+    "cpu.boottime": 1234234234,
+    "cpu.context": 1234,
+    "cpu.idle": 1234234,
+    "cpu.iowait": 1234143,
+    "cpu.irq": 1234113,
+    "cpu.kernel": "foo",
+    "cpu.nice": "foo",
+    "cpu.process.blocked": 1234,
+    "cpu.process.count": 1234,
+    "cpu.process.running": 1234,
+    "cpu.softirq": "foo",
+    "cpu.user": 1234,
+    "descriptor.count": 1234,
+    "fault.address": "foo",
+    "fingerprint": "foo",
+    "hostname": "foo",
+    "process.age": 1234,
+    "sched.cs.involuntary": 1234,
+    "sched.cs.voluntary": 1234,
+    "system.memory.active": 1234,
+    "system.memory.buffers": 1234,
+    "system.memory.cached": 1234,
+    "system.memory.dirty": 1234,
+    "system.memory.free": 1234,
+    "system.memory.inactive": 1234,
+    "system.memory.slab": 1234,
+    "system.memory.swap.cached": 1234,
+    "system.memory.swap.free": 1234,
+    "system.memory.swap.total": 1234,
+    "system.memory.total": 1234,
+    "system.memory.vmalloc.chunk": 1234,
+    "system.memory.vmalloc.total": 1234,
+    "system.memory.vmalloc.used": 1234,
+    "system.memory.writeback": 1234,
+    "uname.machine": "x86_64",
+    "uname.release": "4.4.0-38-generic",
+    "uname.sysname": "Linux",
+    "uname.version": "#57-Ubuntu SMP Tue Sep 6 15:42:33 UTC 2016",
+    "vm.data.size": 1234,
+    "vm.locked.size": 1234,
+    "vm.pte.size": 1234,
+    "vm.rss.peak": 1234,
+    "vm.rss.size": 1234,
+    "vm.shared.size": 1234,
+    "vm.stack.size": 1234,
+    "vm.swap.size": 1234,
+    "vm.vma.peak": 1234,
+    "vm.vma.size": 1234,
+    "mem.rss": 1234,
+    "mem.heap.total": 1234,
+    "mem.heap.used": 1234,
+    "error.message": "Unexpected token h"
+  },
+  "sourceCode": {
+    "o9BYbg2uO+1m": {
+      "text":
+        "var bt = require('backtrace.io');\nbt.initialize({\n  debugBacktrace: true,\n  timeout: 9999999,\n});\n\nmain();\n\nfunction main() {\n  var json = JSON.parse(\"example\");\n}\n",
+      "startLine": 1,
+      "startColumn": 1,
+      "startPos": 0,
+      "path": "/home/andy/tmp/nodebt/test.js",
+      "tabWidth": 8
+    }
+  },
+  "memory": [
+    {
+      "start": "16045690984833335023",
+      "size": 1024,
+      "data": "R56cuNuwpqEJe8n3i4Ojlxt59fpPMU74RygKv5byWJzoHYwCr",
+      "perms": {
+        "read": true,
+        "write": true,
+        "exec": false
+      }
+    }
+  ],
+  "annotations": {
+    "Environment Variables": {
+      "ENV_VAR_EXAMPLE": "example value"
+    },
+    "Some Property Name": true,
+    "Dependencies": {
+      "dependencyName": {
+        "requestedVersion": "~1.2.0",
+        "installedVersion": "1.2.0",
+        "dependencies": {}
+      }
+    }
+  }
+}
 ```
 
 </details>
