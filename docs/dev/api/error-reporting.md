@@ -127,7 +127,7 @@ Submits crash object to Backtrace instance.
             <p>
               <ul>
                 <li><code>name</code> - A string that provides a small description of what the thread does.</li>
-                <li><code>fault</code> - A boolean value that denotes if a thread is a faulting thread. Rarely two faulted threads can be seen, if it happens, the first faulting thread listed in the minidump gets the status of <code>mainThreads</code></li>
+                <li><code>fault</code> - A boolean value that denotes if a thread is a faulting thread. Rarely two faulted threads can be seen, if it happens, the first faulting thread listed in the minidump gets the status of <code>mainThread</code></li>
                 <li><code>stack</code> - An array composed by the following fields:</li>
                     <ul>
                       <li><code>guessed_frame</code> - A boolean value that is <code>true</code> if the stack frame is created by hueristic method due to missing CFI, and <code>false</code> otherwise.</li>
@@ -148,7 +148,7 @@ Submits crash object to Backtrace instance.
    </tbody>
    <tbody>
       <tr>
-         <td><code>mainThreads</code></td>
+         <td><code>mainThread</code></td>
          <td>
             <p><small>| BODY | REQUIRED | STRING |</small></p>
             <p>It represent the thread that wither triggered the error or generated this object. The value of this field should be one of the keys in the <code>threads</code> object and cannot be <code>null</code>.</p>
@@ -307,7 +307,42 @@ Submits crash object to Backtrace instance.
 </table>
 
 ```jsx title="Sample Request"
-
+curl --request POST 'https://api.backtrace.io/post?token=<your_token>&format=<format>' \
+-H 'Content-Type: application/json' \
+-d '{
+  "body": {
+    "uuid": "123e4567-e89b-12d3-a456-426655440000",
+    "timestamp": 1475530543,
+    "lang": "nodejs",
+    "langVersion": "v4.5.0",
+    "agent": "backtrace-node",
+    "agentVersion": "0.4.0",
+    "threads": {
+      "main": {
+        "name": "my super cool thread",
+        "fault": true,
+        "stack": [
+          {
+            "guessed_frame": "false",
+            "funcName": "main",
+            "address": "16045690984833335023",
+            "line": "10",
+            "column": "19",
+            "sourceCode": "o9BYbg2uO+1m",
+            "library": "/home/example/nodebt/test.js",
+            "callstack_state": "1",
+            "registers": {
+              "rax": "16045690984833335023",
+              "rip": 1234,
+              "FLAGS": "E:1 B:0 C:1"
+            }
+          }
+        ]
+      }
+    },
+    "mainThread": "main>"
+  }
+}'
 ```
 
 #### Responses
