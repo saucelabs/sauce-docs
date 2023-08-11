@@ -122,7 +122,9 @@ You can generate a symbol access token to upload the debug symbols for your proj
 1. To generate the token, click **+**.
 1. Copy the token and save it for later.
 
-Note: API tokens, under **Project Settings > API tokens**, with symbol:post capabilities can also be used to upload symbols. 
+:::note
+API tokens, under **Project Settings** > **API tokens**, with `symbol:post` capabilities, can also be used to upload symbols. 
+:::
 
 ### Breakpad and Socorro
 
