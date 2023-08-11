@@ -257,6 +257,53 @@ Submits crash object to Backtrace instance.
          </td>
       </tr>
    </tbody>
+   <tbody>
+      <tr>
+         <td><code>memory</code></td>
+         <td>
+            <p><small>| BODY | OPTIONAL | ARRAY |</small></p>
+            <p>Provides arbitrary slices of memory. The array is composed by the following keys:</p>
+            <ul>
+               <li><code>start</code> - An integer offset that this slice of memory starts at. The 64 bit integers are represented as strings.</li>
+               <li><code>size</code> - The number of bytes of the slice. Optional if you include <code>data</code>.</li>
+               <li><code>data</code> - Base64 encoded bytes of the slice of memory. If provided, <code>size</code> can be inferred from it.</li>
+               <li><code>perms</code> - The object that sets of permissions of this slice of memory. It is composed by the boolean properties:</li>
+                  <ul>
+                     <li><code>read</code></li>
+                     <li><code>write</code></li>
+                     <li><code>exec</code></li>
+                  </ul>
+            </ul>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>annotations</code></td>
+         <td>
+            <p><small>| BODY | OPTIONAL | ARRAY or OBJECT or STRING |</small></p>
+            <p>A generic, non-indexed user-provided property. The names are free, the values can be of any type, and there is no limit to nesting.</p>
+         </td>
+      </tr>
+   </tbody>
+   <tbody>
+      <tr>
+         <td><code>modules</code></td>
+         <td>
+            <p><small>| BODY | OPTIONAL | ARRAY |</small></p>
+            <p>A list of modules as loaded in memory, used to symbolicate stack traces. The array is composed by the following keys:</p>
+            <ul>
+               <li><code>start</code> - An integer offset that the module starts at. 64 bit integers are represented as strings.</li>
+               <li><code>size</code> - The number of bytes occupied by the module.</li>
+               <li><code>code_file</code> - A string that indicates the path that the module is loaded from.</li>
+               <li><code>version</code> - The human-readable version string for the module.</li>
+               <li><code>debug_file</code> - The file containing debug information for the module.</li>
+               <li><code>debug_identifier</code> - The debug file identifier.</li>
+               <li><code>debug_file_exists</code> - A boolean value that indicates if symbolication was able to locate the debug file.</li>
+            </ul>
+         </td>
+      </tr>
+   </tbody>
 </table>
 
 ```jsx title="Sample Request"
