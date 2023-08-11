@@ -17,49 +17,40 @@ The following steps guide you through configuring your JS application to automat
 - Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
 - A Backtrace project, an error submission token and a symbol submission token.
 
-:::tip Generate an Error Submission Token
-
+:::tip Generating Tokens
+## Generating an Error Submission Token
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
 
-:::
 
-:::tip Generate a Symbol Submission Token
+## Generating a Symbol Submission Token
 
 1. In the Backtrace Console, go to **Project settings > Symbols > Access tokens**.
 1. Select **+**.
 
 :::
 
-## Obtain symbol submission URL
-If you're using a hosted instance of Backtrace, most likely you need to only pass the subdomain name. You can resolve
-your subdomain name from your instance address.
+## Obtaining Symbol Submission URL
+
+If you're using a hosted instance of Backtrace, you most likely need only to pass the subdomain name. You can resolve your subdomain name from your instance address.
 
 For example, if your instance address is `https://example.sp.backtrace.io`, your subdomain will be `example`.
 
-If for some reason you cannot upload sourcemaps using this way, or you're using an on premise installation, retrieve the
-whole URL using the following steps.
+If, for some reason, you cannot upload sourcemaps using this way, or you're using an on-premise installation, retrieve the whole URL using the following steps.
 
-### Hosted instance
+### Hosted Instance
 
-If your instance is hosted on backtrace.io, you can create the URL using
-`https://submit.backtrace.io/<your subdomain>/<submission token>/sourcemap`. If your instance is hosted on backtrace.io,
-you can create the URL using `https://submit.backtrace.io/<your subdomain>/<submission token>/sourcemap`.
+If your instance is hosted on backtrace.io, you can create the URL using `https://submit.backtrace.io/<your_subdomain>/<submission_token>/sourcemap`.
 
-For example, for subdomain https://example.sp.backtrace.io, and token
-`bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7`, the URL will be
-`https://submit.backtrace.io/example/bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7/sourcemap`.
+For example, for subdomain `https://example.sp.backtrace.io` and token `bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7`, the URL will be `https://submit.backtrace.io/example/bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7/sourcemap`.
 
-### On premise
+### On-premise
 
-If your instance is hosted on premise, you can create the URL using
-`<your address>:6098//post?format=sourcemap&token=<submission token>`.
+If your instance is hosted on-premise, you can create the URL using `<your address>:6098//post?format=sourcemap&token=<submission token>`.
 
-For example, for address https://backtrace.example.com, and token
-`bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7`, the URL will be
-`https://backtrace.example.com:6098//post?format=sourcemap&token=bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7`.
+For example, for the address `https://backtrace.example.com` and token `bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7`, the URL will be `https://backtrace.example.com:6098//post?format=sourcemap&token=bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7`.
 
-## General development
+## General Development
 
 ### Step 1: Enable Source Maps for Your Application
 
@@ -86,15 +77,15 @@ Pass `--source-map` as parameter to `uglifyjs`:
 $ uglifyjs main.js -c -m --source-map -o main.min.js
 ```
 
-### Step 2. Set up `@backtrace/javascript-cli`
+### Step 2: Set up `@backtrace/javascript-cli`
 
-Install `@backtrace/javascript-cli` as a dev dependency:
+1. Install `@backtrace/javascript-cli` as a dev dependency:
 
-```
+```bash
 > npm install --save-dev @backtrace/javascript-cli
 ```
 
-Add the following scripts to your `package.json` file:
+2. Add the following scripts to your `package.json` file:
 
 ```json
 "scripts": {
@@ -112,11 +103,11 @@ You can also use `npx` and skip adding the dependency:
 }
 ```
 
-Make sure to replace `OUTPUT_DIRECTORY` with path to the directory where your transpiled scripts are stored.
+Ensure to replace `OUTPUT_DIRECTORY` with the path to the directory where your transpiled scripts are stored.
 
-Replace `UPLOAD_OPTIONS` with either `--subdomain <your subdomain> --token <your token>` or `--url <your upload URL>`, obtained from [here](#obtain-symbol-submission-url).
+Replace `UPLOAD_OPTIONS` with either `--subdomain <your subdomain> --token <your token>` or `--url <your upload URL>`, obtained from [the symbol submission URL](#obtaining-symbol-submission-url).
 
-#### Configuration file
+#### Configuration File
 Instead of providing options in script argument lines, you can configure them in the `.backtraceclirc` configuration file:
 
 ```jsonc
@@ -133,9 +124,9 @@ Instead of providing options in script argument lines, you can configure them in
 
 For more details consult `@backtrace/javascript-cli` README.
 
-### Step 3. Set up automatic processing and upload
+### Step 3: Set Up Automatic Processing and Upload
 
-To process and upload your artifacts, you need to first run `npm run backtrace:process`, and then `npm run backtrace:upload`.
+To process and upload your artifacts, you must first run `npm run backtrace:process` and then `npm run backtrace:upload`.
 
 To ensure that this is done automatically, you can add these commands to your production script:
 ```json
@@ -159,17 +150,17 @@ module.exports = {
 }
 ```
 
-If you're using code transpiler plugins (such as Typescript), make sure to enable sourcemapping there as well.
+If you're using code transpiler plugins (such as Typescript), ensure to enable `source-mapping` there as well.
 
-### Step 2. Set up `@backtrace/webpack-plugin`
+### Step 2: Set up `@backtrace/webpack-plugin`
 
-Install `@backtrace/webpack-plugin` as a dev dependency:
+1. Install `@backtrace/webpack-plugin` as a developer dependency:
 
-```
+```bash
 > npm install --save-dev @backtrace/webpack-plugin
 ```
 
-Add it to your `plugins` array in `webpack.config.js`:
+2. Add it to your `plugins` array in `webpack.config.js`:
 
 ```js
 import { BacktracePlugin } from '@backtrace/webpack-plugin';
@@ -201,17 +192,17 @@ module.exports = {
 }
 ```
 
-If you're using code transpiler plugins (such as Typescript), make sure to enable sourcemapping there as well.
+If you're using code transpiler plugins (such as Typescript), ensure to enable source-mapping there as well.
 
-### Step 2. Set up `@backtrace/rollup-plugin`
+### Step 2: Set up `@backtrace/rollup-plugin`
 
-Install `@backtrace/rollup-plugin` as a dev dependency:
+1. Install `@backtrace/rollup-plugin` as a devevloper dependency:
 
 ```
 > npm install --save-dev @backtrace/rollup-plugin
 ```
 
-Add it to your `plugins` array in `rollup.config.js`:
+2. Add it to your `plugins` array in `rollup.config.js`:
 
 ```js
 import { BacktracePlugin } from '@backtrace/rollup-plugin';
@@ -244,17 +235,17 @@ module.exports = {
 }
 ```
 
-If you're using code transpiler plugins (such as Typescript), make sure to enable sourcemapping there as well.
+If you're using code transpiler plugins (such as Typescript), ensure to enable source-mapping there as well.
 
-### Step 2. Set up `@backtrace/vite-plugin`
+### Step 2: Set up `@backtrace/vite-plugin`
 
-Install `@backtrace/vite-plugin` as a dev dependency:
+1. Install `@backtrace/vite-plugin` as a developer dependency:
 
 ```
 > npm install --save-dev @backtrace/vite-plugin
 ```
 
-Add it to your `plugins` array in `vite.config.js`:
+2. Add it to your `plugins` array in `vite.config.js`:
 
 ```js
 import { BacktracePlugin } from '@backtrace/vite-plugin';
@@ -270,6 +261,6 @@ module.exports = {
 }
 ```
 
-## Don't see your tool described here?
+## Don't See Your Tool Described Here?
 
-We are adding support for most popular tools on a regular basis! You can always use `@backtrace/javascript-cli` - it works with any kind of output JS files.
+We are adding support for the most popular tools regularly. You can always use `@backtrace/javascript-cli`; it works with any output JS files.
