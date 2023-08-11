@@ -15,9 +15,7 @@ The following steps guide you through configuring your JS application to automat
 
 - A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
 - Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
-- A Backtrace project.
-- Error submission token.
-- Symbol submission token.
+- A Backtrace project, an error submission token and a symbol submission token.
 
 :::tip Generate an Error Submission Token
 
