@@ -108,7 +108,7 @@ $ uglifyjs main.js -c -m --source-map -o main.min.js
 1. Install `@backtrace/javascript-cli` as a dev dependency:
 
 ```bash
-> npm install --save-dev @backtrace/javascript-cli
+npm install --save-dev @backtrace/javascript-cli
 ```
 
 2. Add the following scripts to your `package.json` file:
