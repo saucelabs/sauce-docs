@@ -9,62 +9,53 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The following steps guide you through configuring your JS application to automatically upload sourcemap files during the project build.
+The following steps guide you through configuring your JavaScript application to automatically upload sourcemap files during the project build.
 
 ## What You'll Need
 
 - A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
-- Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
-- A Backtrace project, an error submission token and a symbol submission token.
+- Symbol submission token and URL
 
-:::tip Generating Tokens
+### Acquire a Symbol Submission Token and URL
 
-## Generating an Error Submission Token
+#### Step 1. Acquire a Symbol Submission Token
+1. In the Backtrace Console, go to **Project settings > Project > API tokens** and select **New**.
+1. Enter a short name like **Symbol Token**.
+1. Select **symbol:post** and click **Create**.
 
-1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
-1. Select **+**.
+#### Step 2. Construct the Symbol Submission URL
 
-## Generating a Symbol Submission Token
-
-1. In the Backtrace Console, go to **Project settings > Symbols > Access tokens**.
-1. Select **+**.
-
-:::
-
-## Obtaining Symbol Submission URL
+Symbol submission parameters differ slightly for on-premise vs. hosted instances of Backtrace.
 
 <Tabs
 groupId="instance-type"
 defaultValue="hosted"
 values={[
 {label: 'Hosted Instance', value: 'hosted'},
-{label: 'On-premise', value: 'onprem'},
+{label: 'On-premise Instance', value: 'onprem'},
 ]}>
 
 <TabItem value="hosted">
 
-If you're using a hosted instance of Backtrace, you most likely need only to pass the subdomain name. You can resolve your subdomain name from your instance address.
+If your instance is hosted on backtrace.io, you can create the Submit URL using `https://submit.backtrace.io/<your_subdomain>/<submission_token>/sourcemap`.
 
-For example, if your instance address is `https://example.sp.backtrace.io`, your subdomain will be `example`.
+If your instance address is `https://example.sp.backtrace.io`, your subdomain will be `example`.
 
-If, for some reason, you cannot upload sourcemaps using this way, or you're using an on-premise installation, retrieve the whole URL using the following steps.
-
-If your instance is hosted on backtrace.io, you can create the URL using `https://submit.backtrace.io/<your_subdomain>/<submission_token>/sourcemap`.
-
-For example, for subdomain `https://example.sp.backtrace.io` and token `bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7`, the URL will be `https://submit.backtrace.io/example/bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7/sourcemap`.
+For subdomain `example` and token `bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7`, the URL will be `https://submit.backtrace.io/example/bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7/sourcemap`.
 
 </TabItem>
 
 <TabItem value="onprem">
 
-If your instance is hosted on-premise, you can create the URL using `<your address>:6098//post?format=sourcemap&token=<submission token>`.
+If your instance is hosted on-premise, you can create the Submit URL using `<your address>:6098//post?format=sourcemap&token=<submission token>`.
 
 For example, for the address `https://backtrace.example.com` and token `bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7`, the URL will be `https://backtrace.example.com:6098//post?format=sourcemap&token=bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7`.
 
 </TabItem>
+
 </Tabs>
 
-## General Development
+## Create and Upload Source Maps
 
 ### Step 1: Enable Source Maps for Your Application
 
@@ -103,7 +94,7 @@ $ uglifyjs main.js -c -m --source-map -o main.min.js
 </TabItem>
 </Tabs>
 
-### Step 2: Set up `@backtrace/javascript-cli`
+### Step 2: Configure @backtrace/javascript-cli
 
 1. Install `@backtrace/javascript-cli` as a dev dependency:
 
@@ -129,9 +120,9 @@ You can also use `npx` and skip adding the dependency:
 }
 ```
 
-Ensure to replace `OUTPUT_DIRECTORY` with the path to the directory where your transpiled scripts are stored.
+Replace `OUTPUT_DIRECTORY` with the path to the directory where your transpiled scripts are stored.
 
-Replace `UPLOAD_OPTIONS` with either `--subdomain <your subdomain> --token <your token>` or `--url <your upload URL>`, obtained from [the symbol submission URL](#obtaining-symbol-submission-url).
+Replace `UPLOAD_OPTIONS` with `--url <your upload URL>`, obtained from [the symbol submission URL](#acquire-a-symbol-submission-token-and-url).
 
 #### Configuration File
 
@@ -141,9 +132,6 @@ Instead of providing options in script argument lines, you can configure them in
 {
   "path": "OUTPUT_DIRECTORY",
   "upload": {
-    "subdomain": "your subdomain",
-    "token": "your token",
-    // or
     "url": "your upload URL"
   }
 }
@@ -161,7 +149,7 @@ To ensure that this is done automatically, you can add these commands to your pr
   "build": "my current build command && npm run backtrace:process && npm run backtrace:upload"
 }
 ```
-## Project Bundler
+## Project Bundlers
 
 <Tabs
 groupId="project-bundler"
@@ -179,11 +167,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request GET 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId>' | json_pp
 ```
 
-</TabItem>
 
 If you're using Webpack as your project bundler, you can use `@backtrace/webpack-plugin` to automate working with sourcemaps.
 
-### Step 1: Enable Source Maps for Your Application
+#### Step 1: Enable Source Maps for Your Application
 
 Set `devtool` to `source-map` in your `webpack.config.js`:
 
@@ -196,7 +183,7 @@ module.exports = {
 
 If you're using code transpiler plugins (such as Typescript), ensure to enable `source-mapping` there as well.
 
-### Step 2: Set up `@backtrace/webpack-plugin`
+#### Step 2: Set up `@backtrace/webpack-plugin`
 
 1. Install `@backtrace/webpack-plugin` as a developer dependency:
 
@@ -219,14 +206,13 @@ module.exports = {
   })]
 }
 ```
-
-</Tabs>
+</TabItem>
 
 <TabItem value="rollup">
 
 If you're using Rollup as your project bundler, you can use `@backtrace/rollup-plugin` to automate working with sourcemaps.
 
-### Step 1: Enable Source Maps for Your Application
+#### Step 1: Enable Source Maps for Your Application
 
 Set `sourcemap` in `output` to `true` in your `rollup.config.js`:
 
@@ -240,9 +226,9 @@ module.exports = {
 
 If you're using code transpiler plugins (such as Typescript), ensure to enable source-mapping there as well.
 
-### Step 2: Set up `@backtrace/rollup-plugin`
+#### Step 2: Set up `@backtrace/rollup-plugin`
 
-1. Install `@backtrace/rollup-plugin` as a devevloper dependency:
+1. Install `@backtrace/rollup-plugin` as a developer dependency:
 
 ```
 > npm install --save-dev @backtrace/rollup-plugin
@@ -271,7 +257,7 @@ module.exports = {
 
 If you're using Vite as your project bundler, you can use `@backtrace/vite-plugin` to automate working with sourcemaps.
 
-### Step 1: Enable Source Maps for Your Application
+#### Step 1: Enable Source Maps for Your Application
 
 Set `sourcemap` in `output` to `true` in your `vite.config.js`:
 
@@ -285,7 +271,7 @@ module.exports = {
 
 If you're using code transpiler plugins (such as Typescript), ensure to enable source-mapping there as well.
 
-### Step 2: Set up `@backtrace/vite-plugin`
+#### Step 2: Set up `@backtrace/vite-plugin`
 
 1. Install `@backtrace/vite-plugin` as a developer dependency:
 
@@ -310,6 +296,7 @@ module.exports = {
 ```
 
 </TabItem>
+</Tabs>
 
 :::note Don't See Your Tool Described Here?
 
