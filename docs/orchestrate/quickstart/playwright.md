@@ -83,6 +83,12 @@ If a value is returned for both variables, they are set.
 
 1. Enter your Sauce Labs Username and Access Key at the prompts.
 
+:::note
+
+The `saucectl configure` command will not set system environment variables or alter your .bashrc or other command-line profiles to set them by default. To do this, you must run `export` commands as specified in our [environment variables](/basics/environment-variables/#setting-up-environment-variables) page.
+
+:::
+
 ## Step 4: Run Tests Using saucectl
 
 Run the Playwright tests.
