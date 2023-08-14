@@ -18,11 +18,11 @@ The following steps guide you through configuring your JS application to automat
 - A Backtrace project, an error submission token and a symbol submission token.
 
 :::tip Generating Tokens
+
 ## Generating an Error Submission Token
 
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
-
 
 ## Generating a Symbol Submission Token
 
@@ -33,33 +33,53 @@ The following steps guide you through configuring your JS application to automat
 
 ## Obtaining Symbol Submission URL
 
+<Tabs
+groupId="instance-type"
+defaultValue="hosted"
+values={[
+{label: 'Hosted Instance', value: 'hosted'},
+{label: 'On-premise', value: 'onprem'},
+]}>
+
+<TabItem value="hosted">
+
 If you're using a hosted instance of Backtrace, you most likely need only to pass the subdomain name. You can resolve your subdomain name from your instance address.
 
 For example, if your instance address is `https://example.sp.backtrace.io`, your subdomain will be `example`.
 
 If, for some reason, you cannot upload sourcemaps using this way, or you're using an on-premise installation, retrieve the whole URL using the following steps.
 
-### Hosted Instance
-
 If your instance is hosted on backtrace.io, you can create the URL using `https://submit.backtrace.io/<your_subdomain>/<submission_token>/sourcemap`.
 
 For example, for subdomain `https://example.sp.backtrace.io` and token `bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7`, the URL will be `https://submit.backtrace.io/example/bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7/sourcemap`.
 
-### On-premise
+</TabItem>
+
+<TabItem value="onprem">
 
 If your instance is hosted on-premise, you can create the URL using `<your address>:6098//post?format=sourcemap&token=<submission token>`.
 
 For example, for the address `https://backtrace.example.com` and token `bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7`, the URL will be `https://backtrace.example.com:6098//post?format=sourcemap&token=bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7`.
 
+</TabItem>
+</Tabs>
+
 ## General Development
 
 ### Step 1: Enable Source Maps for Your Application
 
-This step is development tool specific.
+<Tabs
+groupId="applications"
+defaultValue="typescript"
+values={[
+{label: 'Typescript (tsc)', value: 'typescript'},
+{label: 'UglifyJS', value: 'uglify'},
+]}>
 
-#### Typescript (tsc)
+<TabItem value="typescript">
 
 Set `sourceMap` in `compilerOptions` in your `tsconfig.json` to `true`. For example:
+
 ```jsonc
 {
     "compilerOptions": {
@@ -70,13 +90,18 @@ Set `sourceMap` in `compilerOptions` in your `tsconfig.json` to `true`. For exam
 }
 ```
 
-#### UglifyJS
+</TabItem>
+
+<TabItem value="uglify">
 
 Pass `--source-map` as parameter to `uglifyjs`:
 
 ```
 $ uglifyjs main.js -c -m --source-map -o main.min.js
 ```
+
+</TabItem>
+</Tabs>
 
 ### Step 2: Set up `@backtrace/javascript-cli`
 
@@ -109,6 +134,7 @@ Ensure to replace `OUTPUT_DIRECTORY` with the path to the directory where your t
 Replace `UPLOAD_OPTIONS` with either `--subdomain <your subdomain> --token <your token>` or `--url <your upload URL>`, obtained from [the symbol submission URL](#obtaining-symbol-submission-url).
 
 #### Configuration File
+
 Instead of providing options in script argument lines, you can configure them in the `.backtraceclirc` configuration file:
 
 ```jsonc
@@ -135,8 +161,25 @@ To ensure that this is done automatically, you can add these commands to your pr
   "build": "my current build command && npm run backtrace:process && npm run backtrace:upload"
 }
 ```
+## Project Bundler
 
-## Webpack
+<Tabs
+groupId="project-bundler"
+defaultValue="webpack"
+values={[
+{label: 'Webpack', value: 'webpack'},
+{label: 'Rollup', value: 'rollup'},
+{label: 'Vite', value: 'vite'},
+]}>
+
+<TabItem value="webpack">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId>' | json_pp
+```
+
+</TabItem>
 
 If you're using Webpack as your project bundler, you can use `@backtrace/webpack-plugin` to automate working with sourcemaps.
 
@@ -177,7 +220,9 @@ module.exports = {
 }
 ```
 
-## Rollup
+</Tabs>
+
+<TabItem value="rollup">
 
 If you're using Rollup as your project bundler, you can use `@backtrace/rollup-plugin` to automate working with sourcemaps.
 
@@ -220,7 +265,9 @@ module.exports = {
 ```
 
 
-## Vite
+</TabItem>
+
+<TabItem value="vite">
 
 If you're using Vite as your project bundler, you can use `@backtrace/vite-plugin` to automate working with sourcemaps.
 
@@ -262,6 +309,10 @@ module.exports = {
 }
 ```
 
-## Don't See Your Tool Described Here?
+</TabItem>
+
+:::note Don't See Your Tool Described Here?
 
 We are adding support for the most popular tools regularly. You can always use `@backtrace/javascript-cli`; it works with any output JS files.
+
+:::
