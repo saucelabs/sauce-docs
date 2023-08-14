@@ -18,7 +18,7 @@ You can use Dev Tools to:
 - Analyze network requests, responses, and timings to optimize your network.
 - Identify performance issues to improve load times and responsiveness.
 
-<img src={useBaseUrl('img/live-web-apps/dev-tools-elements.webp')} alt="Shows the Dev Tools tab used to inspect elements in the Developer Options for a live mobile test." width="800"/>
+<img src={useBaseUrl('img/live-web-apps/new-toolbar/dev-tools-elements.png')} alt="Shows the Dev Tools tab used to inspect elements in the Developer Options for a live mobile test." width="800"/>
 
 ## What You'll Need
 
@@ -38,6 +38,6 @@ To enable DevTools for iOS and Android during cross-browser testing:
 4. After your session starts, select **Developer Options** from the toolbar on the right of the screen.
 5. Select the new **Dev Tools** tab.
 
-<img src={useBaseUrl('img/live-web-apps/dev-tools-sources.webp')} alt="Shows the Dev Tools tab used to inspect sources in the Developer Options for a live mobile test." width="800"/>
+<img src={useBaseUrl('img/live-web-apps/new-toolbar/dev-tools-sources.png')} alt="Shows the Dev Tools tab used to inspect sources in the Developer Options for a live mobile test." width="800"/>
 
 You can now interact with the DevTool/WebInspector components.
