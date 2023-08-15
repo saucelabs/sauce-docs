@@ -149,7 +149,7 @@ Instead of providing options in script argument lines, you can configure them in
 }
 ```
 
-For more details consult `@backtrace/javascript-cli` README.
+For more details, consult `@backtrace/javascript-cli` README.
 
 ### Step 3: Set Up Automatic Processing and Upload
 
@@ -173,13 +173,6 @@ values={[
 ]}>
 
 <TabItem value="webpack">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/api-testing/rest/v4/<hookId>' | json_pp
-```
-
-</TabItem>
 
 If you're using Webpack as your project bundler, you can use `@backtrace/webpack-plugin` to automate working with sourcemaps.
 
@@ -220,7 +213,7 @@ module.exports = {
 }
 ```
 
-</Tabs>
+</TabItem>
 
 <TabItem value="rollup">
 
@@ -238,11 +231,11 @@ module.exports = {
 }
 ```
 
-If you're using code transpiler plugins (such as Typescript), ensure to enable source-mapping there as well.
+If you're using code transpiler plugins (such as Typescript), ensure to enable source mapping there as well.
 
 ### Step 2: Set up `@backtrace/rollup-plugin`
 
-1. Install `@backtrace/rollup-plugin` as a devevloper dependency:
+1. Install `@backtrace/rollup-plugin` as a developer dependency:
 
 ```
 > npm install --save-dev @backtrace/rollup-plugin
@@ -263,7 +256,6 @@ module.exports = {
   })]
 }
 ```
-
 
 </TabItem>
 
@@ -310,6 +302,7 @@ module.exports = {
 ```
 
 </TabItem>
+</Tabs>
 
 :::note Don't See Your Tool Described Here?
 
