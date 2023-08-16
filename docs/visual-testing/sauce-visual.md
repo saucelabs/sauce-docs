@@ -49,7 +49,7 @@ Sauce Visual offers a public GraphQL API, which can be used to understand the av
 
 :::note
 
-Ensure to use the appropriate API URL based on your Data Center location.
+Ensure to use the appropriate API URL based on your Data Center location. https://docs.saucelabs.com/basics/data-center-endpoints/
 
 :::
 
