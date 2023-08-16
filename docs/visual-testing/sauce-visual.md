@@ -69,17 +69,15 @@ The current implementation is Pixel-based only.
 
 Yes, "ignore regions" are supported. Currently, you can define these regions in code by specifying the locator of a Web Element or by setting the coordinates of a rectangle.
 
-### **Will I be able to use existing Sauce team management features for access to Sauce Visual?**
-
-Yes, the Team management will eventually be supported by the new Sauce Visual.
+```java
+  // This rectangular area would be ignored, no  pixel
+  // changes will be diffed in this zone.
+  IgnoreRegion ignoreRegion = new IgnoreRegion(200,200,100,100);
+```
 
 ### **Can I integrate this into CI/CD testing?**
 
 Yes, Sauce Visual is 100% API-based and natively utilizes the same tools as the rest of the Sauce product line. When integrating Visual testing into your scripts, you can execute them just like any other scripts.
-
-### **Can I export diff metadata into an external test management/reporting tool?**
-
-Currently, diff information is only available via the UI. Support for exporting diff metadata into an external test management/reporting tool may be included in a later revision.
 
 ### **What languages/frameworks will be supported at launch?**
 
