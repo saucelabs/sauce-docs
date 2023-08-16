@@ -41,7 +41,7 @@ The charting of errors and failures in the visualization can help you get an ear
 
 In this example, you can see how the test **addOneItemtoCart** was executed over the last seven days on different platforms. Along the bottom are the executions that have successfully run and passed, and have the fastest execution times. As the execution time increases, you can see that there are significantly more runs that have failed. Hovering over a few of the failed tests indicates that many of the failures are on the Chrome browser.
 
-<img src={useBaseUrl('img/insights/test-history-fails.webp')} alt="Test Overview with Failures" width="650"/>
+<img src={useBaseUrl('img/insights/test-history-fails.webp')} alt="Job Overview with Failures" width="650"/>
 
 Applying a filter for Chrome browser, you can now see that the test is clearly failing specifically in that environment.
 
