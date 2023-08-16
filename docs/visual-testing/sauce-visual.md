@@ -61,7 +61,7 @@ Ensure to use the appropriate API URL based on your Data Center location.
 
 ## Frequently Asked Questions
 
-### ### **Is Sauce Visual's image comparison pixel-based or DOM-based?**
+### **Is Sauce Visual's image comparison pixel-based or DOM-based?**
 
 The current implementation is Pixel-based only.
 
