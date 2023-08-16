@@ -7,7 +7,7 @@ description: See how grouping tests reveals outcome patterns across isolated var
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The Trends section of the Insights feature provides a variety of data visualizations to give you a holistic perspective of your test outcomes. The following table describes each section.
+The **Trends** section of the Insights feature provides a variety of data visualizations to give you a holistic perspective of your test outcomes. The following table describes each section.
 
 <table>
   <tr>
@@ -15,7 +15,7 @@ The Trends section of the Insights feature provides a variety of data visualizat
     <th>Statistical Information</th>
   </tr>
   <tr>
-    <td><b>Number of Tests</b></td>
+    <td><b>Number of Jobs</b></td>
     <td>The total number of tests run during the specified time period, separated in increments relative to the overall duration. For example, increments may be every 10 minutes for a time period of one hour, while increments might be daily for a 30-day time period.</td>
   </tr>
   <tr>
@@ -34,8 +34,8 @@ The Trends section of the Insights feature provides a variety of data visualizat
     <td>The total number or errors that occurred during the specified time period, sorted by individual error message.</td>
   </tr>
   <tr>
-    <td><b>Build and Test Statistics</b></td>
-    <td>A snapshot of all tests run during the time period, displayed in separate tabs based on whether the test is or is not assigned a Build ID.For each test listed, basic data about the time the test was executed, the time it took to run, the Sauce Labs user who ran it, and its outcome. Tests in the <b>Builds</b> tab have an additional statistic &mdash; <i>Efficiency</i> &mdash; that indicates whether the tests in the build run in parallel to optimize the execution time for the entire build.<br/>This visualization can be further filtered to show only tests with a failed and/or errored status.</td>
+    <td><b>Build and Job Statistics</b></td>
+    <td>A snapshot of all tests run during the time period, displayed in separate tabs based on whether the test is or is not assigned a Build ID. For each test listed, basic data about the time the test was executed, the time it took to run, the Sauce Labs user who ran it, and its outcome. Tests in the <b>Builds</b> tab have an additional statistic &mdash; <i>Efficiency</i> &mdash; that indicates whether the tests in the build run in parallel to optimize the execution time for the entire build.<br/>This visualization can be further filtered to show only tests with a failed and/or errored status.</td>
   </tr>
 </table>
 
