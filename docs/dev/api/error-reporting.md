@@ -48,7 +48,7 @@ Submits crash object to Backtrace instance.
          <td><code>_mod_sync</code></td>
          <td>
             <p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p>
-            <p>It allows you to perform synchronous submissions. By default, submissions are asynchronous; setting this parameter to <code>true</code> performs synchronous submissions. To perform it, the submission token must have the <code>sync:post</code> capability in addition to <code>error:post</code> and/or <code>symbol:post</code>. It is important to note that using this param could cause performance issues. </p>
+            <p>It allows you to perform synchronous submissions. By default, submissions are asynchronous; setting this parameter to <code>true</code> performs synchronous submissions. To perform it, the submission token must have the <code>sync:post</code> capability in addition to <code>error:post</code> and/or <code>symbol:post</code>. It is important to note that using this parameter could cause performance issues.</p>
          </td>
       </tr>
    </tbody>
