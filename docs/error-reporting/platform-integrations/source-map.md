@@ -114,7 +114,7 @@ Instead of providing options in script argument lines, you can configure them in
 }
 ```
 
-For more details consult `@backtrace/javascript-cli` README.
+For more details, consult `@backtrace/javascript-cli` README.
 
 ### Step 3: Set Up Automatic Processing and Upload
 
@@ -195,7 +195,7 @@ module.exports = {
 }
 ```
 
-If you're using code transpiler plugins (such as Typescript), ensure to enable source-mapping there as well.
+If you're using code transpiler plugins (such as Typescript), ensure to enable source mapping there as well.
 
 Step 2: Set up `@backtrace/rollup-plugin`
 
@@ -220,7 +220,6 @@ module.exports = {
   })]
 }
 ```
-
 
 </TabItem>
 
