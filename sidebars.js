@@ -1295,6 +1295,7 @@ module.exports = {
                             ],
                         },
                         'mobile-apps/automated-testing/ipa-files',
+                        'mobile-apps/automated-testing/app-files',
                     ],
                 },
                 'mobile-apps/ms-app-center',
