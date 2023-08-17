@@ -113,7 +113,7 @@ Sauce Labs Service Provider supports the following SAML custom claims:
 - `first_name`
 - `last_name`
 
-These attributes can enhance user identification and personalization within Sauce Labs. The above attributes are optional.
+Incorporating these attributes can improve user identification and personalization within the Sauce Labs platform. These attributes are optional.
 
 ### Identity Provider Certificate Rotation
 
