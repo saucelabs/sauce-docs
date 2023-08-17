@@ -15,7 +15,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 Supported OS:
 
 - Windows 10 / Windows 11
-- macOS 10.14+
+- macOS 10.15+
 - Linux
 
 ## Supported Languages

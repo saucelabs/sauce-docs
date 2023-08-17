@@ -122,6 +122,10 @@ You can generate a symbol access token to upload the debug symbols for your proj
 1. To generate the token, click **+**.
 1. Copy the token and save it for later.
 
+:::note
+API tokens, under **Project Settings** > **API tokens**, with `symbol:post` capabilities, can also be used to upload symbols. 
+:::
+
 ### Breakpad and Socorro
 
 Backtrace is compatible with existing Breakpad and Socorro integrations. You can upload the .sym files through an [HTTP POST](#http-api) or with Breakpad's `sym_upload` tool. You must provide a `token` (referring to your symbol access token) and a `format` query string parameter with the value `symbols`.

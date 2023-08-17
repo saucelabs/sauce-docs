@@ -34,7 +34,7 @@ Two different views are available:
 
 <img src={useBaseUrl('img/insights/viewByTests.png')} alt="view by tests"/>
 
-In this view, you can filter results to focus on failures related to your tests. Additionally, you can filter by your team’s tests, your organ ization’s tests, or failures belonging to a specific team member if you are a team member or team admin. If you are an org admin, you can filter failures belonging to any organization member. Additionally, you can apply filters based on the testing framework and time range.
+In this view, you can filter results to focus on failures related to your tests. Additionally, you can filter by your team’s tests, your organization’s tests, or failures belonging to a specific team member if you are a team member or team admin. If you are an org admin, you can filter failures belonging to any organization member. Additionally, you can apply filters based on the testing framework and time range.
 
 This view displays all the failed tests with the total number of occurrences. You can access Failure Patterns details associated with a specific test by clicking on a specific test. Each test may have more patterns, and the number of tests involved in each pattern is visible.
 
