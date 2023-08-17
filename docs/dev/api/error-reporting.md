@@ -45,15 +45,6 @@ Submits crash object to Backtrace instance.
    </tbody>
    <tbody>
       <tr>
-         <td><code>_mod_sync</code></td>
-         <td>
-            <p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p>
-            <p>It allows you to perform synchronous submissions. By default, submissions are asynchronous; setting this parameter to <code>true</code> performs synchronous submissions. To perform it, the submission token must have the <code>sync:post</code> capability in addition to <code>error:post</code> and/or <code>symbol:post</code>. It is important to note that using this parameter could cause performance issues.</p>
-         </td>
-      </tr>
-   </tbody>
-   <tbody>
-      <tr>
          <td><code>upload_file</code></td>
          <td>
             <p><small>| BODY | OPTIONAL | STRING |</small></p>
@@ -87,7 +78,7 @@ Submits crash object to Backtrace instance.
          <td><code>uuid</code></td>
          <td>
             <p><small>| BODY | REQUIRED | STRING |</small></p>
-            <p>16 bytes of randomness in hman readable UUID format. The server will reject the request if UUID is already found.</p>
+            <p>16 bytes of randomness in human readable UUID format. The server will reject the request if UUID is already found.</p>
          </td>
       </tr>
    </tbody>
@@ -105,7 +96,7 @@ Submits crash object to Backtrace instance.
          <td><code>lang</code></td>
          <td>
             <p><small>| BODY | REQUIRED | STRING |</small></p>
-            <p>The name of the programming language/environment this errors come from.</p>
+            <p>The name of the programming language/environment this error originates from.</p>
          </td>
       </tr>
    </tbody>
@@ -114,7 +105,7 @@ Submits crash object to Backtrace instance.
          <td><code>langVersion</code></td>
          <td>
             <p><small>| BODY | REQUIRED | STRING |</small></p>
-            <p>The versione of the programming language/environment this error come from.</p>
+            <p>The version of the programming language/environment this error originates from.</p>
          </td>
       </tr>
    </tbody>
@@ -141,11 +132,11 @@ Submits crash object to Backtrace instance.
          <td><code>threads</code></td>
          <td>
             <p><small>| BODY | REQUIRED | OBJECT |</small></p>
-            <p>Contains a map of all threads running in the environment. It could be only one. The object is composed by the <code>main</code> object that is the key of the <code>threads</code> object and represent the unique ID of a thread. The object contains the following fields:</p>
+            <p>Contains a map of all threads running in the environment. It could be only one. The object is composed by the <code>main</code> object that is the key of the <code>threads</code> object and represents the unique ID of a thread. The object contains the following fields:</p>
             <p>
               <ul>
                 <li><code>name</code> - A string that provides a small description of what the thread does.</li>
-                <li><code>fault</code> - A boolean value that denotes if a thread is a faulting thread. Rarely two faulted threads can be seen, if it happens, the first faulting thread listed in the minidump gets the status of <code>mainThread</code></li>
+                <li><code>fault</code> - A boolean value that denotes if a thread is a faulting thread. Rarely two faulted threads can be seen, if it happens, the first faulting thread listed gets the status of <code>mainThread</code></li>
                 <li><code>stack</code> - An array composed by the following fields:</li>
                     <ul>
                       <li><code>guessed_frame</code> - A boolean value that is <code>true</code> if the stack frame is created by hueristic method due to missing CFI, and <code>false</code> otherwise.</li>
@@ -169,7 +160,7 @@ Submits crash object to Backtrace instance.
          <td><code>mainThread</code></td>
          <td>
             <p><small>| BODY | REQUIRED | STRING |</small></p>
-            <p>It represent the thread that wither triggered the error or generated this object. The value of this field should be one of the keys in the <code>threads</code> object and cannot be <code>null</code>.</p>
+            <p>It represent the thread that either triggered the error or generated this object. The value of this field should be one of the keys in the <code>threads</code> object and cannot be <code>null</code>.</p>
          </td>
       </tr>
    </tbody>
@@ -206,7 +197,7 @@ Submits crash object to Backtrace instance.
             <p>Specifies the CPU architecture information. It is required if you want to have registers in the stack frame. The object has two fields: </p>
             <p>
               <ul>
-                <li><code>name</code> - On some systems the running program can be run with a different arch tahn the system itself. <code>attributes.uname.machine</code> has to do with the system arch; this field has to do with the running process arch.</li>
+                <li><code>name</code> - On some systems the running program can be run with a different arch than the system itself. <code>attributes.uname.machine</code> has to do with the system arch; this field has to do with the running process arch.</li>
                 <li><code>registers</code> - It corresponds with registers in the stack frame. Specifies the names of the registers for this arch. The values are the types. Valid types are:
                   <ul>
                     <li><code>i32</code></li>
@@ -270,7 +261,7 @@ Submits crash object to Backtrace instance.
                <li><code>startColumn</code> - An integer value that provides the column number that the first byte in the <code>text</code> segment is. First column is 1.</li>
                <li><code>startPos</code> - An integer value that provides the absolute byte index in the original file that the provided segment is part of. First byte is 0.</li>
                <li><code>path</code> - A string value that provides the file system path to the original source code file. If not provided, then <code>text</code> must be provided.</li>
-               <li><code>tabWidth</code> - An integer value that inform source code display how many spaces a tab should represent.</li>
+               <li><code>tabWidth</code> - An integer value that informs source code display how many spaces a tab should represent.</li>
             </ul>
          </td>
       </tr>
