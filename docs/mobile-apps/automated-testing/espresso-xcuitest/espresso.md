@@ -712,7 +712,7 @@ suite:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-The parent property that defines details for running this suite on virtual devices using an Emulator.
+The parent property that defines details for running this suite on virtual devices using an Emulator. Check our [Platform Configurator](https://saucelabs.com/products/platform-configurator#/) to see which Emulator configurations are available.
 
 ```yaml
 emulators:
@@ -755,6 +755,7 @@ The screen orientation to use while executing this test suite on this virtual de
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
 The set of one or more versions of the device platform on which to run the test suite. Check the [list of supported virtual devices](https://app.saucelabs.com/live/web-testing/virtual) for compatible versions.
+If you are using emulators for this test suite, this property is REQUIRED.
 
 ```yaml
   platformVersions:
