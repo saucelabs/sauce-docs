@@ -69,7 +69,7 @@ Available major OS versions for Android: 14.X, 13.X, 12.X, 11.X, 10.X, 9.X
 
 :::
 
-Our public cloud, available to all users regardless of pricing plan, contains a wide selection of thoroughly cleaned devices. They are subject to availability. On the mobile device selection screen, if a device is in use, it'll be marked with a [**In Use** flag](/mobile-apps/live-testing/live-mobile-app-testing/#public-vs-private-devices). 
+Our public cloud, available to all users regardless of pricing plan, contains a wide selection of thoroughly cleaned devices. They are subject to availability. On the mobile device selection screen, if a device is in use, it'll be marked with a [**In Use** flag](/mobile-apps/live-testing/live-mobile-app-testing/#public-vs-private-devices).
 
 Here are some use cases:
 
@@ -96,7 +96,7 @@ This is a dedicated pool of devices just for your organization. On the mobile de
 |                        |                                                                                                                                                                                 iOS Mobile Apps                                                                                                                                                                                 |                                                                                                                                                                                                       Android Mobile Apps                                                                                                                                                                                                       |
 | :--------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |    **Requirements**    | <p>Your iOS app must be:</p><p>Formatted as a .app or .ipa file. Refer to the documentation on [how to create an .ipa file](/mobile-apps/automated-testing/ipa-files)</p><p>Uploaded and hosted in [Sauce Labs storage](/mobile-apps/app-storage.md) or installed from a remote location.</p><p>_Appium only. For XCUITest, `saucectl` uploads the referenced app for you._</p> | <p>Your Android app must be:</p><p>Built into an .apk or .aab package/archive file.</p><p>Configured to have [internet permissions](http://developer.android.com/reference/android/Manifest.permission.html#INTERNET)</p><p>Uploaded and hosted in [Sauce Labs storage](/mobile-apps/app-storage.md) or installed from a remote location.</p><p>_Appium only. For Expresso, `saucectl` uploads the referenced app for you._</p> |
-| **Versions supported** |                                                                                                                                                                          iOS versions 11.4 and higher                                                                                                                                                                          |                                                                                                                                                                                                 Android versions 8.0 and higher                                                                                                                                                                                                 |
+| **Versions supported** |                                                                                                                                                                          iOS versions 11.4 and higher                                                                                                                                                                           |                                                                                                                                                                                                 Android versions 8.0 and higher                                                                                                                                                                                                 |
 
 For the full list of supported real devices, see [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices).
 
@@ -354,6 +354,10 @@ capabilities.setCapability("appium:platformVersion", "^(?!15).*");
 - Regex values are not case-sensitive (i.e., `"iphone .*S"` and `"IPHONe .*s"` are the same).
 
 :::
+
+<div width="100%">
+<iframe src="https://vercel.live/open-feedback/dynamic-allocation-git-add-signup-api-wswebcreation.vercel.app?via=pr-comment-visit-preview-link&passThrough=1" width="100%" height="600"></iframe>
+</div>
 
 ## Additional Resources
 
