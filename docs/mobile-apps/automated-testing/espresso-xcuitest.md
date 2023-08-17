@@ -30,7 +30,7 @@ sudo sh -c 'curl -L https://saucelabs.github.io/saucectl/install | bash -s -- -b
 ```
 
 :::caution Required Minimum Versions
-Espresso requires `saucectl` version 0.36.0 or later and XCUITest requires `saucectl` version 0.44.0 or later.
+XCUITest for Simulators is in <span className="sauceGreen">Beta</span> and requires `saucectl` version `0.1xx.0` or later. If your current version is older, you must upgrade to the most recent one.
 :::
 
 ### 2. Check out the demo repositories
