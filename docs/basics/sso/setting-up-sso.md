@@ -108,7 +108,12 @@ The value of the attribute NameID in SAML Response must be **a valid email addre
 
 ### SAML Claims
 
-Sauce Labs Service Provider does not require any extra attributes in the SAML Response.
+Sauce Labs Service Provider currently supports the following SAML custom claims:
+
+- `first_name`
+- `last_name`
+
+These attributes can enhance user identification and personalization within Sauce Labs. The above attributes are optional.
 
 ### Identity Provider Certificate Rotation
 
