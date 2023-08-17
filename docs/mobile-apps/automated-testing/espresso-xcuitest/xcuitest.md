@@ -1,14 +1,12 @@
 ---
 id: xcuitest
-title: Configuring Your XCUITest Tests
+title: Configuring Your XCUITest Tests for Real Devices and Simulators (BETA)
 sidebar_label: XCUITest Configuration
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-
-<span className="sauceGreen">Real Devices Only</span>
 
 `saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your XCUITest tests, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running XCUITest tests.
 
@@ -94,6 +92,7 @@ When setting the timeout values for your suites, consider that native framework 
 :::
 
 ```yaml
+defaults:
   timeout: 15m
 ```
 
@@ -126,6 +125,7 @@ sauce:
 Specifies through which Sauce Labs data center tests will run. Valid values are: `us-west-1` or `eu-central-1`.
 
 ```yaml
+sauce:
   region: eu-central-1
 ```
 
@@ -142,13 +142,14 @@ At this time, the `metadata` property is not supported for XCUITest because XCUI
 :::
 
 ```yaml
-metadata:
-  build: RC 10.4.i
-  tags:
-    - e2e
-    - iPad
-    - beta
-    - featurex
+sauce:
+  metadata:
+    build: RC 10.4.i
+    tags:
+      - e2e
+      - iPad
+      - beta
+      - featurex
 ```
 
 ---
@@ -164,6 +165,7 @@ Set this value to equal or less than your Sauce concurrency allowance, as settin
 :::
 
 ```yaml
+sauce:
   concurrency: 5
 ```
 
@@ -182,6 +184,7 @@ saucectl run --ccy 5
 Sets the number of times to retry a failed suite. For more settings, you can refer to [passThreshold](#passThreshold).
 
 ```yaml
+sauce:
   retries: 1
 ```
 
@@ -262,13 +265,14 @@ sauce:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Configures additional reporting capabilities provided by `saucectl`.
+The parent property containing all reporting capabilities provided by `saucectl`.
 
 ```yaml
 reporters:
   junit:
     enabled: true
     filename: saucectl-report.xml
+    webhookURL: https://my-webhook-url
 ```
 
 ---
@@ -283,7 +287,6 @@ The JUnit reporter gathers JUnit reports from all jobs and combines them into a 
 reporters:
   junit:
     enabled: true
-    filename: saucectl-report.xml
 ```
 
 ---
@@ -298,8 +301,6 @@ The JSON reporter gathers test results from all jobs and combines them into a si
 reporters:
   json:
     enabled: true
-    filename: saucectl-report.json
-    webhookURL: https://my-webhook-url
 ```
 
 ---
@@ -311,6 +312,8 @@ reporters:
 Toggles the reporter on/off.
 
 ```yaml
+reporters:
+  junit: # or json
     enabled: true
 ```
 
@@ -323,6 +326,8 @@ Toggles the reporter on/off.
 Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST with a JSON payload to the configured webhook URL.
 
 ```yaml
+reporters:
+  junit: # or json
     webhookURL: https://my-webhook-url
 ```
 
@@ -335,6 +340,8 @@ Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP PO
 Specifies the report filename. Defaults to "saucectl-report.json".
 
 ```yaml
+reporters:
+  junit: # or json
     filename: my-saucectl-report.json
 ```
 
@@ -344,7 +351,7 @@ Specifies the report filename. Defaults to "saucectl-report.json".
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Specifies how to manage test output, such as logs, videos, and screenshots.
+The parent property specifying how to manage test output, such as logs, videos, and screenshots.
 
 ```yaml
 artifacts:
@@ -365,6 +372,7 @@ artifacts:
 When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
 
 ```yaml
+artifacts:
   cleanup: true
 ```
 
@@ -377,6 +385,7 @@ When set to `true`, all contents of the specified download directory are cleared
 Specifies the settings related to downloading artifacts from tests run by `saucectl`.
 
 ```yaml
+artifacts:
   download:
     when: always
     match:
@@ -398,6 +407,8 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 - `fail`: Download artifacts for failed suites only.
 
 ```yaml
+artifacts:
+  download:
     when: always
 ```
 
@@ -410,9 +421,11 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
 
 ```yaml
-  match:
-    - junit.xml
-    - "*.log"
+artifacts:
+  download:
+    match:
+      - junit.xml
+      - "*.log"
 ```
 
 ---
@@ -424,6 +437,8 @@ Specifies which artifacts to download based on whether they match the name or fi
 Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. The name of the subdirectory will match the suite name. If a directory with the same name already exists, the new one will be suffixed by a serial number.
 
 ```yaml
+artifacts:
+  download:
     directory: ./artifacts/
 ```
 
@@ -437,14 +452,29 @@ The parent property containing the details specific to the XCUITest project.
 
 ```yaml
 xcuitest:
-  app: ./apps/SauceLabs.Mobile.Sample.XCUITest.App.ipa
+  app: ./apps/SauceLabs-Demo-App.ipa # This is an example app for real devices.
   appDescription: My demo app
-  testApp: ./apps/SwagLabsMobileAppUITests-Runner.app
+  testApp: ./apps/SauceLabs-Demo-App-Runner.app
   testAppDescription: My test app
   otherApps:
-    - ./apps/pre-installed-app1.ipa
-    - ./apps/pre-installed-app2.ipa
+    - ./apps/pre-installed-app1.ipa # This is an example app for real devices.
+    - ./apps/pre-installed-app2.ipa # This is an example app for real devices.
 ```
+
+:::caution
+
+`saucectl` supports running XCUITests on Real Devices and Simulators <span className="sauceGreen">Beta</span> which can be configured by using:
+
+- `devices`, see [Devices](#devices)
+- `simulators`, see [Simulators](#simulators-beta)
+
+They can **NOT** be used in the same [`suites`](#suites) configuration due to `app` and `testApp` architecture differences between Real Devices and Simulators (enforced by Apple). If you want to use both Real Devices and Simulators, you need to create two separate [`suites`](#suites) configurations and provide [`app`](#app-1) and [`testApp`](#testapp-1) configuration for each suite.
+
+Follow the instructions to build [iOS Real Device `.ipa` files](/mobile-apps/automated-testing/ipa-files/) or [iOS Simulator `.app` files](/mobile-apps/automated-testing/app-files/).
+
+<a href="mailto:help@saucelabs.com">Contact support</a> if you have any issues regarding XCUITest on Simulators during the <span className="sauceGreen">Beta</span> phase.
+
+:::
 
 ---
 
@@ -452,26 +482,36 @@ xcuitest:
 
 <p><small>| REQUIRED | STRING |</small></p>
 
-Specifies a local path, url, or storage identifier to the app under test. This property supports expanded environment variables. Supports `*.ipa` and `*.app` file types.
+Specifies a local path, url, or storage identifier to the app under test. This property supports expanded environment variables. Supports `*.ipa`, `*.app` and `*.zip` file types.
 
 ```yaml
-  app: ./apps/xcuitest/SauceLabs.Mobile.Sample.XCUITest.App.ipa
-```
+xcuitest:
+  # Local paths
+  ## Real Devices
+  app: ./apps/xcuitest/SauceLabs-Demo-Real-Device-App.ipa
 
-```yaml
-  app: https://example.app.download.url/SauceLabs.Mobile.Sample.XCUITest.App.ipa
-```
+  ## Simulators (BETA)
+  app: ./apps/xcuitest/SauceLabs-Demo-Simulator-App.app # Will automatically be zipped
+  app: ./apps/xcuitest/SauceLabs-Demo-Simulator-App.zip
 
-```yaml
+  # Remote locations
+  ## Real Devices
+  app: https://example.app.download.url/SauceLabs-Demo-Real-Device-App.ipa
+
+  ## Simulators (BETA)
+  app: https://example.app.download.url/SauceLabs-Demo-Simulator-App.zip
+
+  # Using an environment variable
   app: $APP
-```
 
-```yaml
+  # Storage identifiers
   app: storage:c78ec45e-ea3e-ac6a-b094-00364171addb
-```
 
-```yaml
-  app: storage:filename=SauceLabs.Mobile.Sample.XCUITest.App.ipa
+  ## Real Devices
+  app: storage:filename=SauceLabs-Demo-App.ipa
+
+  ## Simulators (BETA)
+  app: storage:filename=SauceLabs-Demo-Simulator-App.zip
 ```
 
 ---
@@ -483,6 +523,7 @@ Specifies a local path, url, or storage identifier to the app under test. This p
 Specifies description for the uploaded app.
 
 ```yaml
+xcuitest:
   appDescription: My demo app
 ```
 
@@ -492,26 +533,36 @@ Specifies description for the uploaded app.
 
 <p><small>| REQUIRED | STRING |</small></p>
 
-Either a local path, url, or storage identifier to the testing app. This property supports expanded environment variables. Supports `*.ipa` and `*.app` file types.
+Either a local path, url, or storage identifier to the testing app. This property supports expanded environment variables. Supports `*.ipa`, `*.app` or `*.zip` file types.
 
 ```yaml
-  testApp: ./apps/SwagLabsMobileAppUITests-Runner.app
-```
+xcuitest:
+  # Local paths
+  ## Real Devices
+  testApp: ./apps/xcuitest/SauceLabs-Demo-Real-Device-App-Runner.ipa
 
-```yaml
-  app: https://example.app.download.url/SwagLabsMobileAppUITests-Runner.app
-```
+  ## Simulators (BETA)
+  testApp: ./apps/xcuitest/SauceLabs-Demo-Simulator-App-Runner.app # Will automatically be zipped
+  testApp: ./apps/xcuitest/SauceLabs-Demo-Simulator-App-Runner.zip
 
-```yaml
-  testApp: $TEST_APP
-```
+  # Remote locations
+  ## Real Devices
+  testApp: https://example.app.download.url/SauceLabs-Demo-Real-Device-App-Runner.ipa
 
-```yaml
+  ## Simulators (BETA)
+  testApp: https://example.app.download.url/SauceLabs-Demo-Simulator-App-Runner.zip
+
+  # Using an environment variable
+  testApp: $APP
+
+  # Storage identifiers
   testApp: storage:11f421f0-30e3-23c2-9026-d73a205dcd38
-```
 
-```yaml
-  testApp: storage:filename=./apps/SwagLabsMobileAppUITests-Runner.app.ipa
+  ## Real Devices
+  testApp: storage:filename=SauceLabs-Demo-App-Runner.ipa
+
+  ## Simulators (BETA)
+  testApp: storage:filename=SauceLabs-Demo-Simulator-App-Runner.zip
 ```
 
 ---
@@ -523,28 +574,33 @@ Either a local path, url, or storage identifier to the testing app. This propert
 Specifies description for the uploaded testApp.
 
 ```yaml
-  testAppDescription: My test app
+xcuitest:
+  testAppDescription: My test Runner app
 ```
 
 ---
 
 ### `otherApps`
 
-<p><small>| OPTIONAL | ARRAY | REAL DEVICES ONLY |</small></p>
+<p><small>| OPTIONAL | ARRAY |</small></p>
 
-Set of up to seven apps to pre-install for your tests. You can upload an app from your local machine by specifying a filepath (relative location is `{project-root}/apps/app1.ipa`), a remote url, or an expanded environment variable representing the path, or you can specify an app that has already been uploaded to [Sauce Labs App Storage](/mobile-apps/app-storage) by providing the reference `storage:<fileId>` or `storage:filename=<filename>`.
+Set of up to seven (real devices) or two (virtual devices) apps to pre-install for your tests. See [`app`](#app) for more app details.
 
 :::note
-Apps specified as `otherApps` inherit the configuration of the main app under test for [`Device Language`, `Device Orientation`, and `Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
+
+1. Real Device and Simulator apps can **NOT** be combined, see [`xcuitest`](#xcuitest) for more details.
+2. Apps specified as `otherApps` inherit the configuration of the main app under test for [`Device Language`, `Device Orientation`, and `Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
+
 :::
 
 ```yaml
+xcuitest:
   otherApps:
-    - ./apps/pre-installed-app1.ipa
-    - https://example.app.download.url/pre-installed-app1.ipa
+    - ./apps/pre-installed-app1.ipa                           # This is an example app for real devices.
+    - https://example.app.download.url/pre-installed-app1.ipa # This is an example app for real devices.
     - $PRE_INSTALLED_APP2
     - storage:8d250fec-5ecb-535c-5d63-aed4da026293
-    - storage:filename=pre-installed-app3.ipa
+    - storage:filename=pre-installed-app3.ipa                 # This is an example app for real devices.
 ```
 
 ---
@@ -555,10 +611,6 @@ Apps specified as `otherApps` inherit the configuration of the main app under te
 
 The set of properties providing details about the test suites to run. May contain multiple suite definitions. See the full [example config](#example-configuration) for an illustration of multiple suite definitions.
 
-:::note Real Devices Only
-At this time, `saucectl` does not support automated tests running on simulators.
-:::
-
 ---
 
 ### `name`
@@ -568,7 +620,36 @@ At this time, `saucectl` does not support automated tests running on simulators.
 The name of the test suite, which will be reflected in the results and related artifacts.
 
 ```yaml
-  - name: "saucy test"
+suites:
+  - name: My Saucy Test
+```
+
+---
+
+### `app`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Sets the test application on the suite level. See the full [usage](#app). If this property is not set, `saucectl` will use the default `app` from the [`xcuitest`](#xcuitest) level.
+
+```yaml
+suites:
+  - name: My Saucy Test
+    app: ./apps/SauceLabs-Demo-App.ipa # This is an example app for real devices.
+```
+
+---
+
+### `appDescription`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies description for the uploaded test app on the suite level. If `app` is not set on suite level, `saucectl` will use the default `appDescription` from the [`xcuitest`](#xcuitest) level.
+
+```yaml
+suites:
+  - name: My Saucy Test
+    appDescription: My Demo app
 ```
 
 ---
@@ -577,11 +658,12 @@ The name of the test suite, which will be reflected in the results and related a
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Sets the test application on the suite level. See the full [usage](#testapp). If this property is not set, `saucectl` will use the default `testApp` from the [`xcuitest`](#xcuitest) level.
+Sets the test runner application on the suite level. See the full [usage](#testapp). If this property is not set, `saucectl` will use the default `testApp` from the [`xcuitest`](#xcuitest) level.
 
 ```yaml
 suites:
-  - testApp: ./apps/SwagLabsMobileAppUITests-Runner.app
+  - name: My Saucy Test
+    testApp: ./apps/SauceLabs-Demo-App-Runner.app
 ```
 
 ---
@@ -590,12 +672,12 @@ suites:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies description for the uploaded testApp on the suite level. If `testApp` is not set on suite level, `saucectl` will use the default `testAppDescription` from the [`xcuitest`](#xcuitest) level.
+Specifies description for the uploaded test runner applicaiton on the suite level. If `testApp` is not set on suite level, `saucectl` will use the default `testAppDescription` from the [`xcuitest`](#xcuitest) level.
 
 ```yaml
 suites:
-  - testApp: ./apps/SwagLabsMobileAppUITests-Runner.app
-    testAppDescription: My test app
+  - name: My Saucy Test
+    testAppDescription: My Demo test runner app
 ```
 
 ---
@@ -613,7 +695,9 @@ Setting `0` reverts to the value set in `defaults`.
 :::
 
 ```yaml
-  timeout: 15m
+suites:
+  - name: My Saucy Test
+    timeout: 15m
 ```
 
 ---
@@ -632,7 +716,7 @@ The max attempt would be 4 times. If the test passed twice, it'd stop and be mar
 ```yaml
 sauce:
   retries: 3
-suite:
+suites:
   - name: My Saucy Test
     passThreshold: 2
 ```
@@ -648,7 +732,7 @@ Specifies the retry strategy to apply for that suite. It should be used along wi
 ```yaml
 sauce:
   retries: 3
-suite:
+suites:
   - name: My Saucy Test
     smartRetry:
       failedOnly: true
@@ -663,11 +747,12 @@ suite:
 When set to `true`, `saucectl` collects any failed tests from the previous run and performs an automatic retry on them.
 
 ```yaml
-suite:
+suites:
   - name: My Saucy Test
     smartRetry:
       failedOnly: true
 ```
+
 ---
 
 #### `failedClassesOnly`
@@ -680,71 +765,173 @@ suite:
 
 ### `appSettings`
 
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 Application settings for real device tests.
 
 ```yaml
-appSettings:
-  audioCapture: true
-  instrumentation:
-    networkCapture: true
+suites:
+  - name: My Saucy Test
+    appSettings:
+      audioCapture: true
+      instrumentation:
+        networkCapture: true
 ```
 
 ---
 
 #### `audioCapture`
 
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 Record the audio stream generated by your native mobile app during a real device test.
 
 ```yaml
-  audioCapture: true
+suites:
+  - name: My Saucy Test
+    appSettings:
+      audioCapture: true
 ```
 
 ---
 
 #### `instrumentation`
 
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 Instrumentation settings for real device tests.
 
 ```yaml
-  instrumentation:
-    networkCapture: true
+suites:
+  - name: My Saucy Test
+    appSettings:
+      instrumentation:
+        networkCapture: true
 ```
 
 ---
 
-##### `networkCapture`
+#### `networkCapture`
 
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 Record network traffic for HTTP/HTTPS requests during app tests on real devices.
 
 ```yaml
-    networkCapture: true
+suites:
+  - name: My Saucy Test
+    appSettings:
+      instrumentation:
+        networkCapture: true
+```
+
+---
+
+### `simulators` <span className="sauceGreen">BETA</span>
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The parent property that defines details for running this suite on virtual devices using a Simulator. Check our [Platform Configurator](https://saucelabs.com/products/platform-configurator#/) to see which Simulator configurations are available.
+
+:::caution
+
+A `device` or a `simulator` is required to run your tests. You can **NOT** combine them in one `suite`.
+
+:::
+
+```yaml
+suites:
+  - name: My Saucy Test
+    simulators:
+      - name: "iPhone 13 Simulator"
+        orientation: portrait
+        platformVersions:
+          - "15.5"
+          - "16.2"
+```
+
+---
+
+#### `name`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+The name of the device to simulate for this test suite. To ensure name accuracy, check the [list of supported virtual devices](https://app.saucelabs.com/live/web-testing/virtual).
+If you are using Simulators for this test suite, this property is REQUIRED.
+
+```yaml
+suites:
+  - name: My Saucy Test
+    simulators:
+      - name: "iPhone 13 Simulator"
+```
+
+---
+
+#### `orientation`
+
+<p><small>| OPTIONAL | ENUM |</small></p>
+
+The screen orientation to use while executing this test suite on this virtual device. Valid values are `portrait` or `landscape`.
+
+```yaml
+suites:
+  - name: My Saucy Test
+    simulators:
+      - name: "iPhone 13 Simulator"
+        orientation: portrait
+```
+
+---
+
+#### `platformVersions`
+
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+The set of one or more versions of the device platform on which to run the test suite. Check the [list of supported virtual devices](https://app.saucelabs.com/live/web-testing/virtual) for compatible versions.
+If you are using Simulators for this test suite, this property is REQUIRED.
+
+:::note
+
+The <span className="sauceGreen">BETA</span> only supports iOS 15 and up.
+
+:::
+
+```yaml
+suites:
+  - name: My Saucy Test
+    simulators:
+      - name: "iPhone 13 Simulator"
+        platformVersions:
+          - "15.5"
+          - "16.2"
 ```
 
 ---
 
 ### `devices`
 
-<p><small>| REQUIRED | OBJECT |</small></p>
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
 The parent property that defines how to select real devices on which to run the test suite. You can request a specific device using its ID, or you can specify a set of criteria to choose the first available device that matches the specifications.
 
 When an ID is specified, it supersedes the other settings.
 
+:::caution
+
+A `device` or a `simulator` is required to run your tests. You can **NOT** combine them in one `suite`.
+
+:::
+
 ```yaml
-devices:
-  - name: "iPhone 11"
-    platformVersion: "14.3"
-    options:
-      carrierConnectivity: true
-  - id: iPhone_11_14_5_real_us
+suites:
+  - name: My Saucy Test
+    devices:
+      - name: "iPhone 11"
+        platformVersion: "14.3"
+        options:
+          carrierConnectivity: true
+      - id: iPhone_11_14_5_real_us
 ```
 
 ---
@@ -756,7 +943,10 @@ devices:
 Request a specific device for this test suite by its ID. You can look up device IDs on device selection pages or by using our [Get Devices API request](/dev/api/rdc/#get-devices).
 
 ```yaml
-        id: iPhone_11_14_5_real_us
+suites:
+  - name: My Saucy Test
+    devices:
+      - id: iPhone_11_14_5_real_us
 ```
 
 ---
@@ -768,10 +958,16 @@ Request a specific device for this test suite by its ID. You can look up device 
 Find a device for this test suite that matches the device name or portion of the name ([Dynamic Device Allocation](/mobile-apps/supported-devices/#dynamic-device-allocation)), which may provide a larger pool of available devices of the type you want.
 
 ```yaml title="Use Complete Name"
+suites:
+  - name: My Saucy Test
+    devices:
       - name: iPhone 11
 ```
 
 ```yaml title="Use Dynamic Allocation"
+suites:
+  - name: My Saucy Test
+    devices:
       - name: iPhone.*
 ```
 
@@ -809,18 +1005,24 @@ The stricter the `platformVersions` is, the smaller the pool of available device
 :::
 
 ```yaml title="Use complete version for Virtual and or Real Devices"
-        platformVersion: 14.3
+suites:
+  - name: My Saucy Test
+    devices:
+      platformVersion: 14.3
 ```
 
 ```yaml title="Use dynamic platformVersion allocation. Real Devices Only"
-        platformVersion: '^1[3-4|6].*'
+suites:
+  - name: My Saucy Test
+    devices:
+      platformVersion: '^1[3-4|6].*'
 ```
 
 ---
 
 #### `options`
 
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 A parent property to further specify desired device attributes within the pool of devices that match the `name` and `version` criteria.
 
@@ -828,39 +1030,48 @@ A parent property to further specify desired device attributes within the pool o
 
 ##### `carrierConnectivity`
 
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 Request that the matching device is also connected to a cellular network.
 
 ```yaml
-  options:
-      carrierConnectivity: true
+suites:
+  - name: My Saucy Test
+    devices:
+      options:
+        carrierConnectivity: true
 ```
 
 ---
 
 ##### `deviceType`
 
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 Request that the matching device is a specific type of device. Valid values are: `ANY`, `TABLET`, or `PHONE`.
 
 ```yaml
-  options:
-      deviceType: TABLET
+suites:
+  - name: My Saucy Test
+    devices:
+      options:
+        deviceType: TABLET
 ```
 
 ---
 
 ##### `private`
 
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 Request that the matching device is from your organization's private pool.
 
 ```yaml
-  options:
-      private: true
+suites:
+  - name: My Saucy Test
+    devices:
+      options:
+        private: true
 ```
 
 ---
@@ -872,13 +1083,23 @@ Request that the matching device is from your organization's private pool.
 A set of parameters allowing you to provide additional details about which test class should be run for the suite and how to apply them.
 
 ```yaml
-testOptions:
-    class:
-      - SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
-      - SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
-      - SwagLabsMobileAppUITests.LoginTests
-    notClass:
-      - SwagLabsMobileAppUITests.SwagLabsFlow/testCompleteFlow
+suites:
+  - name: My Saucy Test
+    testOptions:
+      class:
+         # Devices
+        - SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
+        - SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
+        - SwagLabsMobileAppUITests.LoginTests
+        # Simulators (BETA)
+        - SwagLabsMobileAppUITests/LoginTests/testSuccessfulLogin
+        - SwagLabsMobileAppUITests/LoginTests/testNoUsernameLogin
+        - SwagLabsMobileAppUITests/LoginTests
+      notClass:
+        # Devices
+        - SwagLabsMobileAppUITests.SwagLabsFlow/testCompleteFlow
+        # Simulators (BETA)
+        - SwagLabsMobileAppUITests/SwagLabsFlow/testCompleteFlow
 ```
 
 ---
@@ -889,11 +1110,27 @@ testOptions:
 
 Instructs `saucectl` to only run the specified classes for this test suite.
 
+:::note
+The `class` annotation for Real Devices is different from the one for Simulators.
+
+- For Real Devices, the format is `TestTarget.TestClass/TestMethod`.
+- For Simulators, the format is `TestTarget/TestClass/testMethod`.
+
+:::
+
 ```yaml
-    class:
-      - SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
-      - SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
-      - SwagLabsMobileAppUITests.LoginTests
+suites:
+  - name: My Saucy Test
+    testOptions:
+      class:
+         # Devices
+        - SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
+        - SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
+        - SwagLabsMobileAppUITests.LoginTests
+        # Simulators (BETA)
+        - SwagLabsMobileAppUITests/LoginTests/testSuccessfulLogin
+        - SwagLabsMobileAppUITests/LoginTests/testNoUsernameLogin
+        - SwagLabsMobileAppUITests/LoginTests
 ```
 
 ---
@@ -904,9 +1141,110 @@ Instructs `saucectl` to only run the specified classes for this test suite.
 
 Instructs `saucectl` to run all classes for the suite _except_ those specified here.
 
+:::note
+The `notClass` annotation for Real Devices is different from the one for Simulators.
+
+- For Real Devices, the format is `TestTarget.TestClass/TestMethod`.
+- For Simulators, the format is `TestTarget/TestClass/testMethod`.
+
+:::
+
 ```yaml
-    notClass:
-      - SwagLabsMobileAppUITests.SwagLabsFlow/testCompleteFlow
+suites:
+  - name: My Saucy Test
+    testOptions:
+      notClass:
+        # Devices
+        - SwagLabsMobileAppUITests.SwagLabsFlow/testCompleteFlow
+        # Simulators (BETA)
+        - SwagLabsMobileAppUITests/SwagLabsFlow/testCompleteFlow
+```
+
+---
+
+#### `testTimeoutsEnabled`
+
+<p><small>| OPTIONAL | string | <span className="sauceGreen">Simulators Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+
+By default there is no timeout, if enabled, then the timeout is 600 seconds. The values can be `Yes` or `No`. The timeout itself can be changed by adding the `defaultTestExecutionTimeAllowance` value. See also [executionTimeAllowance | Apple Developer Documentation](https://developer.apple.com/documentation/xctest/xctestcase/3526064-executiontimeallowance)
+
+```yaml
+suites:
+  - name: My Saucy Test
+    testOptions:
+      testTimeoutsEnabled: "Yes"
+```
+
+---
+
+#### `defaultTestExecutionTimeAllowance`
+
+<p><small>| OPTIONAL | integer | <span className="sauceGreen">Simulators Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+
+The default execution time an individual test is given to execute if [`testTimeoutsEnabled`](#testtimeoutsenabled) is enabled. The value is in seconds and rounds up the value you supply to the nearest minute. See also [executionTimeAllowance | Apple Developer Documentation](https://developer.apple.com/documentation/xctest/xctestcase/3526064-executiontimeallowance)
+
+```yaml
+suites:
+  - name: My Saucy Test
+    testOptions:
+      defaultTestExecutionTimeAllowance: 200
+```
+
+---
+
+#### `maximumTestExecutionTimeAllowance`
+
+<p><small>| OPTIONAL | integer | <span className="sauceGreen">Simulators Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+
+The maximum execution time an individual test is given to execute, regardless of the test's preferred allowance. The value is in seconds and rounds up the value you supply to the nearest minute. See also [executionTimeAllowance | Apple Developer Documentation](https://developer.apple.com/documentation/xctest/xctestcase/3526064-executiontimeallowance)
+
+```yaml
+suites:
+  - name: My Saucy Test
+    testOptions:
+      maximumTestExecutionTimeAllowance: 300
+```
+
+---
+
+#### `testLanguage`
+
+<p><small>| OPTIONAL | string | <span className="sauceGreen">Simulators Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+
+Specifies ISO 639-1 language during testing. See also [ISO 639-2 Language Code List - Codes for the representation of names of languages (Library of Congress)](https://www.loc.gov/standards/iso639-2/php/code_list.php)
+
+:::caution
+
+While it's possible to change the test language, it's not always guaranteed to work depending on your specific setup. Programmatically changing the `launchArguments` in your test itself is often a more reliable method ([Example](https://github.com/saucelabs/my-demo-app-ios/blob/2.0.2/MyDemoAppUITests/Tests/LocalizationTest.swift)). If the command line arguments continue to not work as expected, it would be worth reaching out to Apple's developer support for more guidance.
+
+:::
+
+```yaml
+suites:
+  - name: My Saucy Test
+    testOptions:
+      testLanguage: "de"
+```
+
+---
+
+#### `testRegion`
+
+<p><small>| OPTIONAL | integer | <span className="sauceGreen">Simulators Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+
+Specifies ISO 3166-1 region during testing with the format `{shortNameCode}_(alpha2Code}`. See also [ISO 639-2 Language Code List - Codes for the representation of names of languages (Library of Congress)](https://www.iso.org/obp/ui/#search/code/)
+
+:::caution
+
+While it's possible to change the test region, it's not always guaranteed to work depending on your specific setup. Programmatically changing the `launchArguments` in your test itself is often a more reliable method ([Example](https://github.com/saucelabs/my-demo-app-ios/blob/2.0.2/MyDemoAppUITests/Tests/LocalizationTest.swift)). If the command line arguments continue to not work as expected, it would be worth reaching out to Apple's developer support for more guidance.
+
+:::
+
+```yaml
+suites:
+  - name: My Saucy Test
+    testOptions:
+      testRegion: "de_DE"
 ```
 
 ---
@@ -928,6 +1266,7 @@ suites:
   - name: "I am sharded"
     shard: concurrency
 ```
+
 ---
 
 ### `testListFile`
@@ -937,10 +1276,14 @@ suites:
 The file containing a list of tests is used in sharding by concurrency. It's a `txt` file and each line contains a test. Click [Sharding XCUITest introduction](./xcuitest-introduction.md#sharding-xcuitest) to see how to generate this file.
 
 ```
-MyClassName/MyTestMethod
+# Devices
 SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
 SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
 SwagLabsMobileAppUITests.LoginTests
+# Simulators (BETA)
+SwagLabsMobileAppUITests/LoginTests/testSuccessfulLogin
+SwagLabsMobileAppUITests/LoginTests/testNoUsernameLogin
+SwagLabsMobileAppUITests/LoginTests
 ```
 
 ---
