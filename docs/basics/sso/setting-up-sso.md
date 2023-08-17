@@ -108,7 +108,7 @@ The value of the attribute NameID in SAML Response must be **a valid email addre
 
 ### SAML Claims
 
-Sauce Labs Service Provider currently supports the following SAML custom claims:
+Sauce Labs Service Provider supports the following SAML custom claims:
 
 - `first_name`
 - `last_name`
