@@ -73,7 +73,7 @@ If your apps's manifest.xml file defines `android:allowAudioPlaybackCapture="fal
 
 ## Using Talkback on Android Private Devices
 
-You will need a private device with Talkback enabled. 
+You will need a private device with Talkback enabled (Android 10 and above, Google Pixel or Samsung devices.)
 Open any Live Testing session (Cross Browser or Native Application test)
 Go to device Settings - Accessibility 
 Click SL_Talkback application with the Sauce Labs logo.
