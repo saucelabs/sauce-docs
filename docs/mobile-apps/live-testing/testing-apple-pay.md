@@ -8,12 +8,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Apple Pay is a mobile payment and digital wallet service developed by Apple Inc. It allows you to make payments using your Apple devices, including iPhones and iPads. However, testing Apple Pay can be challenging, especially when it comes to testing it on different devices and environments. In this regard, Sauce Labs provides three ways to test Apple Pay, including using Simulators, using real private devices with an Apple Pay Sandbox Testing account, and using real private devices with a real production account and real credit cards.
+Apple Pay is a mobile payment and digital wallet service developed by Apple Inc. It allows you to make payments using your Apple devices, including iPhones and iPads. However, testing Apple Pay can be challenging, especially when it comes to testing it on different devices and environments. In this regard, Sauce Labs provides three ways to test Apple Pay, including using Simulators, using real private devices with an [Apple Pay Sandbox Testing account](https://developer.apple.com/apple-pay/sandbox-testing/), and using real private devices with a real production account and real credit cards.
 
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - A native iOS, or iPadOS mobile app.
+- A [private devices](/mobile-apps/supported-devices/#private-device-cloud) with Apple Pay enabled! To access our private device cloud, contact your Sauce Labs account executive or our support team.
 
 ## Testing Apple Pay
 
@@ -37,14 +38,10 @@ There are important differences between the Apple Pay Real Device and Simulator 
 
 ## Requirements
 
-- You need to use [Private devices](#apple-pay-on-real-private-devices).
+- You need to use [Private devices](#apple-pay-on-real-private-devices) with Apple Payment enabled. 
 - [Instrumentation](#disable-instrumentation) needs to be disabled.
 - You need to add your Sauce Labs hosted Private device [UDID](#apple-pay-on-real-private-devices) to your own provisioning profile.
-- Devices need to have a physical home button (for instance, iPhone SE(2020/2022)/6 series/7 series/8 series). A physical button will require the passcode for payment confirmation.
-
-:::note
-Devices with a notch (like the iPhone X(S)/11/12/..) will ask for FaceId confirmation. As this feature is disabled, the payment will fall back to a different confirmation method. It will use a double press on the power button for the payment approval. However, this method is not supported.
-:::
+- Devices with Assistive touch enabled. In this case, you need to accept Apple Payment confirmation through assistive touch!
 
 ## Apple Certificates
 
@@ -103,6 +100,7 @@ To make Apple Pay work on Sauce Labs real private devices:
 ## Passcode
 
 One of the Apple Pay requirements is having a set passcode on your phone. Without it, you won't be able to add cards to your wallet. You need to use our Device Passcode capability.
+To initiate a session with automatic Passcode enabling, [explore our passcode capability](/mobile-apps/live-testing/live-mobile-app-testing/#default-app-settings), where you have the option to utilize either a dummy app or our [Sauce Demo application](https://github.com/saucelabs/my-demo-app-ios/releases/tag/2.0.2).
 
 ## Add Apple Sandbox Test Cards
 
