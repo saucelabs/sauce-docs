@@ -114,7 +114,7 @@ Instead of providing options in script argument lines, you can configure them in
 }
 ```
 
-For more details, consult `@backtrace/javascript-cli` README.
+For more details, consult `@backtrace/javascript-cli` [README](https://github.com/backtrace-labs/backtrace-javascript/blob/main/tools/cli/README.md).
 
 ### Step 3. Set Up Automatic Processing and Upload
 
