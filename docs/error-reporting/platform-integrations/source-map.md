@@ -16,14 +16,14 @@ The following steps guide you through configuring your JavaScript application to
 - A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
 - Symbol submission token and URL
 
-### Acquire a Symbol Submission Token and URL
+### Acquiring a Symbol Submission Token and URL
 
-#### Step 1. Acquire a Symbol Submission Token
+#### Step 1: Acquire a Symbol Submission Token
 1. In the Backtrace Console, go to **Project settings > Project > API tokens** and select **New**.
 1. Enter a short name like **Symbol Token**.
 1. Select **symbol:post** and click **Create**.
 
-#### Step 2. Construct the Symbol Submission URL
+#### Step 2: Construct the Symbol Submission URL
 
 The symbol submission URL is structured like this:
 `https://submit.backtrace.io/<your_subdomain>/<submission_token>/sourcemap`.
@@ -32,9 +32,9 @@ If your instance address is `https://example.sp.backtrace.io`, your subdomain wi
 
 For subdomain `example` and token `bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7`, the URL would be `https://submit.backtrace.io/example/bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e0beeb71770d08e2c8a7/sourcemap`.
 
-## Create and Upload Source Maps
+## Creating and Uploading Source Maps
 
-### Step 1. Enable Source Maps for Your Application
+Step 1: Enable Source Maps for Your Application
 
 <Tabs
 groupId="applications"
@@ -65,13 +65,13 @@ Set `sourceMap` in `compilerOptions` in your `tsconfig.json` to `true`. For exam
 Pass `--source-map` as parameter to `uglifyjs`:
 
 ```bash
-> uglifyjs main.js -c -m --source-map -o main.min.js
+uglifyjs main.js -c -m --source-map -o main.min.js
 ```
 
 </TabItem>
 </Tabs>
 
-### Step 2. Configure @backtrace/javascript-cli
+Step 2: Configure @backtrace/javascript-cli
 
 1. Install `@backtrace/javascript-cli` as a dev dependency:
 
@@ -101,7 +101,7 @@ Replace `OUTPUT_DIRECTORY` with the path to the directory where your transpiled 
 
 Replace `UPLOAD_OPTIONS` with `--url <your upload URL>`, obtained from [the symbol submission URL](#acquire-a-symbol-submission-token-and-url).
 
-#### Configuration File
+### Configuration File
 
 Instead of providing options in script argument lines, you can configure them in the `.backtraceclirc` configuration file:
 
@@ -116,7 +116,7 @@ Instead of providing options in script argument lines, you can configure them in
 
 For more details, consult `@backtrace/javascript-cli` [README](https://github.com/backtrace-labs/backtrace-javascript/blob/main/tools/cli/README.md).
 
-### Step 3. Set Up Automatic Processing and Upload
+Step 3: Set Up Automatic Processing and Upload
 
 To process and upload your artifacts, you must first run `npm run backtrace:process` and then `npm run backtrace:upload`.
 
@@ -141,7 +141,7 @@ values={[
 
 If you're using Webpack as your project bundler, you can use `@backtrace/webpack-plugin` to automate working with sourcemaps.
 
-#### Step 1. Enable Source Maps for Your Application
+Step 1: Enable Source Maps for Your Application
 
 Set `devtool` to `source-map` in your `webpack.config.js`:
 
@@ -154,12 +154,12 @@ module.exports = {
 
 If you're using code transpiler plugins (such as Typescript), ensure to enable source-mapping there as well.
 
-#### Step 2. Set up `@backtrace/webpack-plugin`
+Step 2: Set up `@backtrace/webpack-plugin`
 
 1. Install `@backtrace/webpack-plugin` as a developer dependency:
 
 ```bash
-> npm install --save-dev @backtrace/webpack-plugin
+npm install --save-dev @backtrace/webpack-plugin
 ```
 
 2. Add it to your `plugins` array in `webpack.config.js`:
@@ -183,7 +183,7 @@ module.exports = {
 
 If you're using Rollup as your project bundler, you can use `@backtrace/rollup-plugin` to automate working with sourcemaps.
 
-#### Step 1. Enable Source Maps for Your Application
+Step 1: Enable Source Maps for Your Application
 
 Set `sourcemap` in `output` to `true` in your `rollup.config.js`:
 
@@ -197,12 +197,12 @@ module.exports = {
 
 If you're using code transpiler plugins (such as Typescript), ensure to enable source-mapping there as well.
 
-#### Step 2. Set up `@backtrace/rollup-plugin`
+Step 2: Set up `@backtrace/rollup-plugin`
 
 1. Install `@backtrace/rollup-plugin` as a developer dependency:
 
 ```bash
-> npm install --save-dev @backtrace/rollup-plugin
+npm install --save-dev @backtrace/rollup-plugin
 ```
 
 2. Add it to your `plugins` array in `rollup.config.js`:
@@ -227,7 +227,7 @@ module.exports = {
 
 If you're using Vite as your project bundler, you can use `@backtrace/vite-plugin` to automate working with sourcemaps.
 
-#### Step 1. Enable Source Maps for Your Application
+Step 1: Enable Source Maps for Your Application
 
 Set `sourcemap` in `output` to `true` in your `vite.config.js`:
 
@@ -241,12 +241,12 @@ module.exports = {
 
 If you're using code transpiler plugins (such as Typescript), ensure to enable source-mapping there as well.
 
-#### Step 2. Set up `@backtrace/vite-plugin`
+Step 2: Set up `@backtrace/vite-plugin`
 
 1. Install `@backtrace/vite-plugin` as a developer dependency:
 
 ```bash
-> npm install --save-dev @backtrace/vite-plugin
+npm install --save-dev @backtrace/vite-plugin
 ```
 
 2. Add it to your `plugins` array in `vite.config.js`:
