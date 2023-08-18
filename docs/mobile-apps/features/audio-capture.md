@@ -45,10 +45,10 @@ You will be able to mute and unmute the sound during your session by clicking on
 
 :::note Limitations
 
+- TalkBack Audio is ONLY supported on Private devices, please reach out to our support team or your Sauce Labs representative to get this configured. 
 - Audio Streaming is supported on iOS/iPadOS 13.2 and above.
 - Audio Streaming is supported on Android 10 and above.
 - When Audio Streaming is enabled, we are not attaching the audio to the test results after the session ends.
-- TalkBack Audio verification on Android is not supported.
 - Website testing is not yet available on Android.
 
 :::
@@ -56,6 +56,7 @@ You will be able to mute and unmute the sound during your session by clicking on
 ## Using Audio Capture and Streaming on your Android device
 
 You will be able to capture audio on Android 10 and above.
+On private devices you are able to test Talkback on Android 12 and above. 
 
 :::note
 Once `audioCapture` is enabled, the status bar will display the recording icon.
@@ -70,10 +71,24 @@ If your apps's manifest.xml file defines `android:allowAudioPlaybackCapture="fal
 
 :::
 
+## Using Talkback on Android Private Devices
+
+You will need a private device with Talkback enabled. 
+Open any Live Testing session (Cross Browser or Native Application test)
+Go to device Settings - Accessibility 
+Click SL_Talkback application with the Sauce Labs logo.
+Click on User Service, and Allow Talkback to be activated. 
+You can read more about [Talkback here](https://support.google.com/accessibility/android/answer/6006598?sjid=17999569893329555730-EU) 
+
+<img width="751" alt="image" src="https://github.com/saucelabs/sauce-docs/assets/68342451/0643d009-17f8-4f38-a945-c0113557e1fc">
+
+
 ## Using Audio Capture on iOS/iPadOS
 
 You will be able to capture audio from iOS 10+ up.
 You will be able to validate the sound your application is making, enable the Voiceover, and validate its output.
+
+
 
 ## Accessing the Audio in Your Test Tesults for Automated Test
 
