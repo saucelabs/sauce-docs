@@ -1,6 +1,6 @@
 ---
 id: source-map
-title: Source Maps Integration Guide - Using backtrace-sourcemap-tools
+title: Setting up Source Maps for Backtrace
 sidebar_label: Source Maps
 description: Configure your JS application to automatically upload sourcemap files.
 ---
@@ -34,7 +34,7 @@ For subdomain `example` and token `bebbbc8b2bdfac76ad803b03561b25a44039e892ffd3e
 
 ## Create and Upload Source Maps
 
-### Step 1: Enable Source Maps for Your Application
+### Step 1. Enable Source Maps for Your Application
 
 <Tabs
 groupId="applications"
@@ -64,14 +64,14 @@ Set `sourceMap` in `compilerOptions` in your `tsconfig.json` to `true`. For exam
 
 Pass `--source-map` as parameter to `uglifyjs`:
 
-```
-$ uglifyjs main.js -c -m --source-map -o main.min.js
+```bash
+> uglifyjs main.js -c -m --source-map -o main.min.js
 ```
 
 </TabItem>
 </Tabs>
 
-### Step 2: Configure @backtrace/javascript-cli
+### Step 2. Configure @backtrace/javascript-cli
 
 1. Install `@backtrace/javascript-cli` as a dev dependency:
 
@@ -116,7 +116,7 @@ Instead of providing options in script argument lines, you can configure them in
 
 For more details, consult `@backtrace/javascript-cli` README.
 
-### Step 3: Set Up Automatic Processing and Upload
+### Step 3. Set Up Automatic Processing and Upload
 
 To process and upload your artifacts, you must first run `npm run backtrace:process` and then `npm run backtrace:upload`.
 
@@ -141,7 +141,7 @@ values={[
 
 If you're using Webpack as your project bundler, you can use `@backtrace/webpack-plugin` to automate working with sourcemaps.
 
-Step 1: Enable Source Maps for Your Application
+#### Step 1. Enable Source Maps for Your Application
 
 Set `devtool` to `source-map` in your `webpack.config.js`:
 
@@ -152,9 +152,9 @@ module.exports = {
 }
 ```
 
-If you're using code transpiler plugins (such as Typescript), ensure to enable `source-mapping` there as well.
+If you're using code transpiler plugins (such as Typescript), ensure to enable source-mapping there as well.
 
-Step 2: Set up `@backtrace/webpack-plugin`
+#### Step 2. Set up `@backtrace/webpack-plugin`
 
 1. Install `@backtrace/webpack-plugin` as a developer dependency:
 
@@ -183,7 +183,7 @@ module.exports = {
 
 If you're using Rollup as your project bundler, you can use `@backtrace/rollup-plugin` to automate working with sourcemaps.
 
-Step 1: Enable Source Maps for Your Application
+#### Step 1. Enable Source Maps for Your Application
 
 Set `sourcemap` in `output` to `true` in your `rollup.config.js`:
 
@@ -195,13 +195,13 @@ module.exports = {
 }
 ```
 
-If you're using code transpiler plugins (such as Typescript), ensure to enable source mapping there as well.
+If you're using code transpiler plugins (such as Typescript), ensure to enable source-mapping there as well.
 
-Step 2: Set up `@backtrace/rollup-plugin`
+#### Step 2. Set up `@backtrace/rollup-plugin`
 
 1. Install `@backtrace/rollup-plugin` as a developer dependency:
 
-```
+```bash
 > npm install --save-dev @backtrace/rollup-plugin
 ```
 
@@ -227,7 +227,7 @@ module.exports = {
 
 If you're using Vite as your project bundler, you can use `@backtrace/vite-plugin` to automate working with sourcemaps.
 
-Step 1: Enable Source Maps for Your Application
+#### Step 1. Enable Source Maps for Your Application
 
 Set `sourcemap` in `output` to `true` in your `vite.config.js`:
 
@@ -241,11 +241,11 @@ module.exports = {
 
 If you're using code transpiler plugins (such as Typescript), ensure to enable source-mapping there as well.
 
-Step 2: Set up `@backtrace/vite-plugin`
+#### Step 2. Set up `@backtrace/vite-plugin`
 
 1. Install `@backtrace/vite-plugin` as a developer dependency:
 
-```
+```bash
 > npm install --save-dev @backtrace/vite-plugin
 ```
 
