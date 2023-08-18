@@ -89,8 +89,8 @@ Support for additional languages/frameworks will be determined based on demand. 
 
 ### **When will it support "my favorite framework"?**
 
-The support for any framework depends on the client-side implementation using the underlying API. If you require an SDK, let us know at beta-visual@saucelabs.com.
+The support for any framework depends on the client-side implementation using the underlying API. If you require an SDK, let us know at <beta-visual@saucelabs.com>.
 
 ### **Feedback**
 
-Send feedback and feature requests to beta-visual@saucelabs.com.
+Send feedback and feature requests to <beta-visual@saucelabs.com>.
