@@ -90,8 +90,8 @@ This is a dedicated pool of devices just for your organization. On the mobile de
 - You want to run automated parallel tests across multiple devices simultaneously.
 - You need specific settings which are set on the devices all the time.
 - You need to establish a secure [IPSec VPN connection](/secure-connections/ipsec-vpn) between your network and the Sauce Labs cloud.
-- You want to test your apps with MDM Distribution (Intune)
-- You want to test securely payment workflow with Apple Payment, or In-App Purchase, retain your card data on your own dedicated device.
+- You want to test your apps with MDM Distribution (Intune).
+- You want to test securely payment workflow with Apple Payment, or In-App Purchase, and retain your card data on your own dedicated device.
 - You want to test eSIM/SIM card-related workflows.
 
 ### System Requirements
