@@ -65,7 +65,7 @@ If you need:
 :::note
 
 Available major OS versions for iOS/iPadOS: 16.X, 15.X, 14.X, 13.X, 12.X
-Available major OS versions for Android: 14.X, 13.X, 12.X, 11.X, 10.X, 9.X
+Available major OS versions for Android: 14.X, 13.X, 12.X, 11.X, 10.X, 9.X, 8.X
 
 :::
 
@@ -90,13 +90,16 @@ This is a dedicated pool of devices just for your organization. On the mobile de
 - You want to run automated parallel tests across multiple devices simultaneously.
 - You need specific settings which are set on the devices all the time.
 - You need to establish a secure [IPSec VPN connection](/secure-connections/ipsec-vpn) between your network and the Sauce Labs cloud.
+- You want to test your apps with MDM Distribution (Intune)
+- You want to test securely payment workflow with Apple Payment, or In-App Purchase, retain your card data on your own dedicated device.
+- You want to test eSIM/SIM card-related workflows.
 
 ### System Requirements
 
 |                        |                                                                                                                                                                                 iOS Mobile Apps                                                                                                                                                                                 |                                                                                                                                                                                                       Android Mobile Apps                                                                                                                                                                                                       |
 | :--------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |    **Requirements**    | <p>Your iOS app must be:</p><p>Formatted as a .app or .ipa file. Refer to the documentation on [how to create an .ipa file](/mobile-apps/automated-testing/ipa-files)</p><p>Uploaded and hosted in [Sauce Labs storage](/mobile-apps/app-storage.md) or installed from a remote location.</p><p>_Appium only. For XCUITest, `saucectl` uploads the referenced app for you._</p> | <p>Your Android app must be:</p><p>Built into an .apk or .aab package/archive file.</p><p>Configured to have [internet permissions](http://developer.android.com/reference/android/Manifest.permission.html#INTERNET)</p><p>Uploaded and hosted in [Sauce Labs storage](/mobile-apps/app-storage.md) or installed from a remote location.</p><p>_Appium only. For Expresso, `saucectl` uploads the referenced app for you._</p> |
-| **Versions supported** |                                                                                                                                                                          iOS versions 11.4 and higher                                                                                                                                                                           |                                                                                                                                                                                                 Android versions 8.0 and higher                                                                                                                                                                                                 |
+| **Versions supported** |                                                                                                                                                                          iOS versions 12.5.X and higher                                                                                                                                                                           |                                                                                                                                                                                                 Android versions 8.0 and higher                                                                                                                                                                                                 |
 
 For the full list of supported real devices, see [Supported Browsers and Devices](https://saucelabs.com/platform/supported-browsers-devices).
 
