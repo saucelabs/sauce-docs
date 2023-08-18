@@ -592,6 +592,7 @@ module.exports = {
                             label: 'Project',
                             collapsed: true,
                             items: [
+                                'error-reporting/project-setup/submit-url',
                                 'error-reporting/project-setup/storage-management',
                                 'error-reporting/project-setup/data-retention',
                                 'error-reporting/project-setup/storage-sampling',
