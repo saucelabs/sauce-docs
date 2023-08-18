@@ -42,7 +42,7 @@ There are important differences between the Apple Pay Real Device and Simulator 
 - You need to use [Private devices](#apple-pay-on-real-private-devices) with Apple Payment enabled. 
 - [Instrumentation](#disable-instrumentation) needs to be disabled.
 - You need to add your Sauce Labs hosted Private device [UDID](#apple-pay-on-real-private-devices) to your own provisioning profile.
-- Devices need to have a physical button with Assistive touch enabled. In this case for you to accept Apple Payment confirmation through assistive touch!
+- Devices with Assistive touch enabled. In this case, you need to accept Apple Payment confirmation through assistive touch!
 
 ## Apple Certificates
 
