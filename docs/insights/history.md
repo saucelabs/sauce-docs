@@ -2,49 +2,54 @@
 id: history
 title: Evaluating a Test Over Time
 sidebar_label: Job History
-description: Get a full picture of the success of your tests. Learn how to look at a test's history across a variety of metrics to diagnose failure patterns.
+description: Gain insights into test success and trends over time. Learn how to analyze a test's historical data across various metrics to identify patterns of failure.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The **Job History** page, which you can access under the **Insights** submenu, shows a visual snapshot of the results for a specific test over time. Seeing the test outcomes in a scatter plot helps reveal anomalies and patterns, which can help you identify issues with test performance and flakiness across platforms, operating systems, and browsers that you test against.
+The **Job History** page, accessible from the **Insights** submenu, provides a visual overview of test results over time. The bar chart representation of test outcomes reveals anomalies and patterns, aiding in the identification of issues related to test performance and flakiness across different platforms, operating systems, and browsers used for testing.
 
 :::note
-The Extended Debugging feature provides access to the HAR files and JavaScript console logs for your tests to help identify flaky tests. Check out [Debugging Tests with JavaScript Console Logs and HAR Files (Extended Debugging)](/insights/debug) for more information.
+The Extended Debugging feature offers access to HAR files and JavaScript console logs, assisting in the identification of flaky tests. For more details, refer to [Debugging Tests with JavaScript Console Logs and HAR Files (Extended Debugging)](/insights/debug).
 :::
 
-## Access the History Page for a Test
+## Accessing the Job History Page
 
 1. Click the **Insights** tab to expand its submenu.
 1. Click **Job History**.
-1. Use the [filters](scope.md#using-filters-to-adjust-the-scope-of-your-data) to reduce the list of tests to a limited range.
-1. In the **Search** field, enter the name of the test you want to view. If you're not sure, entering just the first few characters will bring up a list from which you can choose.
+1. Apply [filters](scope.md#using-filters-to-adjust-the-scope-of-your-data) to narrow down the list of tests within a specific range.
 
-## Reading the Scatter Plot Visualization
+## Interpreting the Bar Chart Visualization
 
-The test performance visualization displays a scatter plot of each iteration of the test that was executed during the specified date filter and matches other filter criteria. At the top of the visualization are four performance statistics for the test iterations shown:
+At the top of the page, the bar chart displays the number of jobs executed over time within the specified date filter, considering other filter criteria. You can further analyze trends on an hourly, daily, or weekly basis. Each bar represents the count of tests passed, failed, encountered errors, and completed. Hovering over a bar provides details about these counts.
 
-- **Total Runs** - total number of test runs for the selected period
-- **Total Errors** - total number of test runs that did not complete
-- **Total Failures** - total number of test runs that have a recorded status of "Failed"
-- **Average Runtime** - the mean runtime of all tests shown in the results
+<img src={useBaseUrl('/img/insights/jobs-details.png')} alt="detailed job runs over time" width="400"/>
 
-Below the performance statistics, the scatter plot shows each instance of the test, color-coded by run status, against the time it took the test to either execute or fail. The X-axis indicates the time range that has been selected using the time filter. The Y-axis indicates the duration of the test each time it was run. You can see the specific information about the platform, operating system, and other capabilities specified in a test by hovering your mouse cursor over the point representing it on the plot.
+Below the bar chart, four performance statistics are presented:
 
-## Using Job History to Spot Flaky Tests
+- **Total Job Cases**: The total count of aggregated groups of job runs sharing the same name.
+- **Total Errors**: The overall count of test runs that did not complete.
+- **Total Failures**: The total count of test runs recorded as "Failed."
+- **Average Runtime**: The mean runtime duration of all displayed test results.
 
-The charting of errors and failures in the visualization can help you get an early assessment of flaky test behavior. In this example, the test constantly fails in the first and second re-run, and succeeds in the third. This is a very typical example of a flaky behavior.
+Towards the bottom of the page, a table lists jobs alongside their corresponding details, including total runs, average duration, total duration, count of successful runs, success rate, count of failed runs, failure rate, count of error exits, error rate, count of completed runs, and completion rate.
 
-<img src={useBaseUrl('img/insights/test-history-flaky.png')} alt="Flaky Test Example" width="650"/>
+The default view displays **All** jobs, but filters are available for analyzing trends of jobs marked as **Consistently Failing**, **Consistently Passing**, **Consistently Error**, **Missing Status**, or **Inconsistent Result**.
 
-## An Example of Using Job History
+Additionally, you can adjust the number of items displayed per page and export results as a CSV file.
 
-In this example, you can see how the test **addOneItemtoCart** was executed over the last seven days on different platforms. Along the bottom are the executions that have successfully run and passed, and have the fastest execution times. As the execution time increases, you can see that there are significantly more runs that have failed. Hovering over a few of the failed tests indicates that many of the failures are on the Chrome browser.
+## Example Use Case: Job History Analysis
 
-<img src={useBaseUrl('img/insights/test-history-fails.webp')} alt="Job Overview with Failures" width="650"/>
+Choosing the **Inconsistent Result** option can help identify flaky test behavior. In the provided example, the test failed in nearly half of its executions.
 
-Applying a filter for Chrome browser, you can now see that the test is clearly failing specifically in that environment.
+<img src={useBaseUrl('img/insights/test-details-incosistent-results.png')} alt="Inconsistent results" width="550"/>
 
-<img src={useBaseUrl('img/insights/test-history-chrome.png')} alt="Isolated Failures on Chrome" width="650"/>
+By clicking on the job name, detailed test information becomes accessible. In this case, the test started failing on August 16.
 
-Comparing the two graphs, you can see that the majority of failing tests begin on November 6 and are run on Chrome, so now you can dig into what changes in your test at that time that might have contributed to these failures.
+<img src={useBaseUrl('/img/insights/test-details-failures.png')} alt="Test details"/>
+
+To focus on the day the test started failing, click the August 16 bar in the chart. Scrolling through the list of test results, it becomes evident that the test functioned correctly until 5:22 PM, after which it consistently failed.
+
+<img src={useBaseUrl('/img/insights/failure-details.png')} alt="Test details showing when the test starts failing" width="300"/>
+
+This data allows for an investigation into changes made to the test at that specific time, potentially contributing to these failures.
