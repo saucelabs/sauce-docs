@@ -8,10 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy allows developers to correlate sessions to app-specific information such as users, server sessions, or events.
-It helps in cases where sessions are anonymous or are related to server activities that are critical to understanding test behavior.
+With TestFairy's user identification feature, you can enhance your testing and debugging process by efficiently correlating session recordings with specific users and their traits. This capability empowers you to gain deeper insights into how different users interact with your app and aids in the diagnosis of user-specific issues during testing.
 
-Furthermore, TestFairy enables identifying users with traits such as name, email, or phone number. These traits will later be available for the developer to search or review when looking at a specific session recording.
+
 
 <Tabs
 groupId="sdk"
