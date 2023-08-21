@@ -1,20 +1,21 @@
 ---
 id: mdm-support
-title: Mobile Device Management Support on iOS Real Devices
+title: Mobile Device Management (MDM) Support on iOS Real Devices
 sidebar_label: MDM Support on iOS Real Devices
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <br/><p><span className="sauceGreen">Real Devices Only</span></p> 
+<br/><p><span className="sauceGreen">Private Devices Only</span></p>
 
-With our MDM support, you gain the ability to install your MDM solutions onto our private devices, enabling seamless policy enforcement and application management. 
+With our MDM support, you gain the ability to install your internal application through MDM  onto our private devices, enabling seamless policy enforcement and application management. 
 
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - Access to private devices.
-- Service account access to your MDM(Intune) account. 
+- Service account to access your MDM(Intune) account. 
 
 ## Key Features
 
