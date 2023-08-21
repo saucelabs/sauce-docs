@@ -26,7 +26,7 @@ Tokens are granted specific capabilities that restrict their usage to designated
 
 ## Creating Submission URLs
 
-The structure of a submission URL differs between hosted environments and on-premise installations (which are less common).
+The structure of a submission URL differs between hosted environments and on-premise installations.
 
 <Tabs
 groupId="instance-type"
