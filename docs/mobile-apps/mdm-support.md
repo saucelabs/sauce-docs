@@ -39,14 +39,14 @@ All apps can be retained on the devices of your choice, and the Apple ID used fo
 1. Start any Live Testing session with the private device where you want to install your MDM.
 2. Sign in with your AppleID and download Intune or install your MDM using a specific link.
 3. Login with your service account to your MDM/Intune portal.
-4. After successful login, download and install the MDM profile through settings.
-5. Navigate to Settings/VPN and Device Management, click on Management Profile, and install the MDM.
-6. Once installed, click on the Home Screen.
+4. After successful login, download and install the MDM profile through **Settings**.
+5. Navigate to **Settings > VPN and Device Management**, click on **Management Profile**, and install the MDM.
+6. Once installed, click on the **Home Screen**.
 7. Confirm that all the apps related to your company-managed profile have been successfully downloaded.
 
-## Retrieving the BundleID for allowlisting your apps
+## Retrieving the BundleID for Allow-listing Your Apps
 
-To prevent our cleaning to remove your application after every session, this guide will help you to obtain the bundleID for these applications. 
+To prevent our cleaning from removing your application after every session, this guide will help you to obtain the bundleID for these applications. 
 
 Follow these steps during live testing:
 
@@ -54,7 +54,7 @@ Follow these steps during live testing:
 2. Open Device logs in VERBOSE mode.
 3. Clean the device logs.
 4. Copy-paste this string in the search bar `SBApplicationStateDisplayIDKey`.
-5. Open the application you want to be allowlisted
+5. Open the application you want to be allow-listed.
 6. Check the values of `SBApplicationStateDisplayIDKey`, which is the bundleID for any given app that has been launched.
 
 <img src={useBaseUrl('img/mobile-apps/bundle-id.png')} alt="Bundle ID" width="800"/>
