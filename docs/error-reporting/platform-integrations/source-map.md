@@ -14,7 +14,7 @@ The following steps guide you through configuring your JavaScript application to
 ## What You'll Need
 
 - A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
-- Symbol submission token and URL
+- [Symbol submission token and URL](/error-reporting/project-setup/submission-url)
 
 ### Acquiring a Symbol Submission Token and URL
 
