@@ -8,10 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy allows developers to correlate sessions to app-specific information such as users, server sessions, or events.
-It helps in cases where sessions are anonymous or are related to server activities that are critical to understanding test behavior.
+With TestFairy's user identification feature, you can enhance your testing and debugging process by efficiently correlating session recordings with specific users and their traits. This capability empowers you to gain deeper insights into how different users interact with your app and aids in the diagnosis of user-specific issues during testing.
 
-Furthermore, TestFairy enables identifying users with traits such as name, email, or phone number. These traits will later be available for the developer to search or review when looking at a specific session recording.
+## Example Configuration
+
+Below are code examples illustrating how to utilize TestFairy's `setUserId` method on various platforms:
 
 <Tabs
 groupId="sdk"
@@ -182,9 +183,12 @@ TiTestFairy.setUserId("john@example.com");
 
 Where `userId` is a string representing an association to your backend. We recommend passing values such as email, phone number, or user ID your app may use. This value may not be nil and is searchable via API and web search.
 
-:::note
+## Important Notes
 
-- `setUserId:` may be called many times.
-- You may call `setUserId` before or after `begin`.
+To make the most effective use of TestFairy's user identification feature, it's essential to keep in mind the following important notes:
 
-:::
+- The `setUserId` method can be called multiple times to update the user identifier for different sessions.
+- You can call `setUserId` before or after initializing a session with `begin`.
+- The user identifier you provide must not be null and should be chosen from user attributes like email, phone number, or user ID.
+- The user identifier you set using setUserId() will be searchable through the TestFairy API and web search interface.
+

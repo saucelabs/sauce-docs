@@ -45,17 +45,17 @@ You will be able to mute and unmute the sound during your session by clicking on
 
 :::note Limitations
 
+- TalkBack Audio is ONLY supported on Private devices, reach out to our Support Team or your Sauce Labs representative to get this configured.
 - Audio Streaming is supported on iOS/iPadOS 13.2 and above.
 - Audio Streaming is supported on Android 10 and above.
 - When Audio Streaming is enabled, we are not attaching the audio to the test results after the session ends.
-- TalkBack Audio verification on Android is not supported.
 - Website testing is not yet available on Android.
 
 :::
 
-## Using Audio Capture and Streaming on your Android device
+## Using Audio Capture and Streaming on your Android Device
 
-You will be able to capture audio on Android 10 and above.
+You will have the capability to capture audio on Android 10 and later versions. On private devices, you can test TalkBack on Android 12 and later versions.
 
 :::note
 Once `audioCapture` is enabled, the status bar will display the recording icon.
@@ -70,10 +70,27 @@ If your apps's manifest.xml file defines `android:allowAudioPlaybackCapture="fal
 
 :::
 
+## Using TalkBack on Android Private Devices
+
+To utilize TalkBack on your Android private device, make sure you have a device with TalkBack enabled (Android 10 and above, Google Pixel or Samsung devices). Follow these steps:
+
+1. **Open a Live Testing Session**: Start any Live Testing session, whether it's a Cross Browser or Native Application test.
+
+2. Access device **Settings > Accessibility**.
+
+3. Select **SL_TalkBack Application**: Look for the SL_TalkBack application featuring the Sauce Labs logo.
+
+4. Click **User Service**.
+
+5. Enable **Allow Talkback**.
+
+For further information, you can refer to the official documentation on [TalkBack](https://support.google.com/accessibility/android/answer/6006598?sjid=17999569893329555730-EU).
+
+<img src={useBaseUrl('/img/mobile-apps/talkBack.png')} alt="Sauce Labs TalkBack" width="751"/>
+
 ## Using Audio Capture on iOS/iPadOS
 
-You will be able to capture audio from iOS 10+ up.
-You will be able to validate the sound your application is making, enable the Voiceover, and validate its output.
+You will be able to capture audio from iOS 10 and above. Additionally, you can validate the sounds produced by your application, enable VoiceOver, and verify its output.
 
 ## Accessing the Audio in Your Test Tesults for Automated Test
 

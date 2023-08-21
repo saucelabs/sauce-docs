@@ -1216,6 +1216,7 @@ module.exports = {
                     items: [
                         'mobile-apps/supported-devices',
                         'mobile-apps/real-device-cleaning',
+                        'mobile-apps/mdm-support',
                     ],
                 },
                 {
