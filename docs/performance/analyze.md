@@ -13,14 +13,17 @@ Every time you run a performance test, whether it is through the Speedo command 
 
 From your Sauce Labs **Test Results** page, chose one of your completed Performance tests for an overview of its results.
 
-<img src={useBaseUrl('img/performance/perf-home.png')} alt="Performance Overview" width="750"/>
+<img src={useBaseUrl('img/performance/perf-test-details.png')} alt="Performance Overview" width="800"/>
 
 From here, you can drill into a variety of specific details about the test:
 
 - Play the video of the test execution.
-- Click the tabs in the panel on the right to see data about the test:
-  - The **Commands** tab shows you the script associated with each transition of the test.
-  - The **View Logs** tab allows you to choose from a menu of log data captured for the test, including the default `performance.json`, which shows you the results.
+- Click the tabs to see data about the test:
+  - The **Commands** tab shows you the script associated with each test transition.
+  - The **Video** tab shows you the video of the test execution.
+  - The **Screenshots** tab shows the screenshot captured of the test session.
+  - The **Logs** tab lets you see the log data captured for the test and download the `json.log` file.
+  - The **Network** tab shows you all the requests the test has made.
   - The **Metadata** tab shows you the basic identity of the test, such as the Job ID, Name, and Build, which you may need to use if you are using this data in API calls or other testing.
 - At the bottom of the interface, click the **Performance** tab for a score overview and access to the **Performance Report**.
 
