@@ -14,10 +14,8 @@ With our MDM support, you gain the ability to install your internal application 
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-- A native Android, iOS, or iPadOS mobile app.
-- Access to a private devices.
-- Allowlist your AppleID to login to App Store.
-- List of Application bundleID you want to be allowlisted on your device, to prevent our cleaning to remove them.  
+- Access to private devices.
+- Service account to access your MDM(Intune) account. 
 
 ## Key Features
 
@@ -36,15 +34,28 @@ Setting up App VPNs is made easy, enabling you to connect to your internal firew
 **Retained App Data**
 All apps can be retained on the devices of your choice, and the Apple ID used for App Store login can also be retained on the device.
 
-## Obtaining the BundleID
+## Installing MDM
 
-To effectively leverage the MDM support and enforce policies any iOS application (iOS15 and above), you need to obtain their BundleIDs. Follow these steps during live testing:
+1. Start any Live Testing session with the private device where you want to install your MDM.
+2. Sign in with your AppleID and download Intune or install your MDM using a specific link.
+3. Login with your service account to your MDM/Intune portal.
+4. After successful login, download and install the MDM profile through **Settings**.
+5. Navigate to **Settings > VPN and Device Management**, click on **Management Profile**, and install the MDM.
+6. Once installed, click on the **Home Screen**.
+7. Confirm that all the apps related to your company-managed profile have been successfully downloaded.
 
-1. Open a livetesting session with an iOS Device.
-2. Open Device logs with VERBOSE mode.
+## Retrieving the BundleID for Allow-listing Your Apps
+
+To prevent our cleaning from removing your application after every session, this guide will help you to obtain the bundleID for these applications. 
+
+Follow these steps during live testing:
+
+1. Open a Live Testing session with an iOS Device.
+2. Open Device logs in VERBOSE mode.
 3. Clean the device logs.
-4. Copy paste this string in the search bar `SBApplicationStateDisplayIDKey`.
-5. Check the values of `SBApplicationStateDisplayIDKey`, that is the bundleID for any given app that has been launched.
+4. Copy-paste this string in the search bar `SBApplicationStateDisplayIDKey`.
+5. Open the application you want to be allow-listed.
+6. Check the values of `SBApplicationStateDisplayIDKey`, which is the bundleID for any given app that has been launched.
 
 <img src={useBaseUrl('img/mobile-apps/bundle-id.png')} alt="Bundle ID" width="800"/>
 
