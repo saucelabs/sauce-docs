@@ -19,20 +19,13 @@ This document provides instructions on configuring Apache Traffic Server (ATS) t
 
 - A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
 - Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
-- A Backtrace project and a submission token.
+- A Backtrace project and a [submission token](/error-reporting/project-setup/submission-url).
 - Apache Traffic Server (tested with version 6.2.0)
 - Coroner Server running and accessible from the ATS machine. (See [Coroner Server installation](/error-reporting/advanced/coroner/server-installation/))
 - Coroner Client package on the ATS machine. (See [Coroner Client Installation](/error-reporting/advanced/coroner/client-getting-started/))
 - Backtrace Ptrace package installed on the ATS machine. (See [Ptrace Installation](/error-reporting/advanced/traces-coroner/))
 - Backtrace Invoker package installed on the ATS machine: `$ sudo apt-get install backtrace-invoker`.
 - (Optional but recommended) - Install the morgue command-line queryingtool: (See: [Morgue Installation](/error-reporting/advanced/morgue/#installation))
-
-:::tip Generate a Submission Token
-
-1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
-1. Select **+**.
-
-:::
 
 ## Set Up Helper Scripts
 

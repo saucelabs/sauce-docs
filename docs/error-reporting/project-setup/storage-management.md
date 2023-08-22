@@ -7,8 +7,6 @@ description: Learn about storage management options for Backtrace.
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Overview
-
 Backtrace instances have limits on how many monthly error submissions they can accept and how much storage space those submissions consume. If an instance reaches 100% storage quota, you won't be able to receive new submissions until more storage space is available — either through a reduction in consumption, or an increase in available space. You can purchase more storage space or monthly submission quota as required.
 
 Admin users can control retention, compression, storage sampling, and submission rules. In addition, the delete-by-query capability allows users to take a manual action to remove objects from the system and free space.
