@@ -22,16 +22,19 @@ You must have [Org Admin](/basics/acct-team-mgmt/managing-user-info/#user-roles)
 
 1. Click the **Insights** tab to expand its submenu.
 1. Click **Coverage** (only visible to Org Admin users).
-1. Specify the type of coverage you wish to view by selecting the **Devices** or **Browsers** tab.
-1. Specify whether you wish to see coverage data for **Virtual Cloud** tests (desktop web-apps, mobile emulators and simulators) or **Real Devices** (physical devices located in our data centers and connected to our platform).
-1. Apply the **Owner** and time period [filters](scope.md#using-filters-to-adjust-the-scope-of-your-data) to show data for a particular user's tests and/or a specific time period.
+1. Specify the type of coverage you wish to view by selecting the **Devices**, **Browsers** or **OS** tab.
+1. If you choose **Devices** or **OS**, specify wheter you wish to see coverage data for:
+   - **Virtual Cloud** tests: desktop web-apps, mobile emulators and simulators.
+   - **Real Devices** tests: physical devices located in our data centers and connected to our platform.
+1. Apply the **Owner** and **Time Period** filters to show data for a particular user's tests and/or a specific time period.
+1. If you choose **Real Devices**, apply the **Device Group** filter to show data only for **Public** or **Private** devices.
 
 Once you have completed your selections, the report shows a breakdown of all tests that have been run for the specified user during the specified time period, providing the exact number and total duration of tests run in each environment with a bar graph for easy visualization.
 
-<img src={useBaseUrl('img/insights/coverage.png')} alt="Coverage Report" width="900"/>
+<img src={useBaseUrl('img/insights/coverage-screen.png')} alt="Coverage Report" width="900"/>
 
 :::note
-Browsers and devices not tested during the period shown are not shown in the report.
+Browsers and devices that were not tested during the indicated period are omitted from the report.
 :::
 
 ## Sorting the Data
@@ -40,7 +43,7 @@ By default, coverage is shown in descending order based on the number of tests r
 
 <img src={useBaseUrl('img/insights/sorting.png')} alt="Edit Sort Order" width="600"/>
 
-As the image shows, sorting by the **Name** column sorts the data alphabetically by the name of the browser or device, allowing you to quickly discern how much coverage a particular environment has in your testing.
+As the image shows, sorting by the **Name** column sorts the data alphabetically by the name of the browser, device or OS, allowing you to quickly discern how much coverage a particular environment has in your testing.
 
 ## Downloading Your Report
 
