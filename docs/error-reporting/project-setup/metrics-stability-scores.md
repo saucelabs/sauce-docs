@@ -9,8 +9,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Overview
-
 Backtrace allows users to compute error rates against any metrics you collect like "Sessions started”, “Minutes used”, “Online connections made” or "Songs played". These metrics can be imported from raw data that lives in external systems like Graphite, Influx, Redshift, or Postgres. In the future, you will be able to supply raw data directly through the Backtrace client SDKs.
 
 Below, you can see how Backtrace displays the number of errors by session (stability score) for each version:

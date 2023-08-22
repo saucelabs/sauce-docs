@@ -9,8 +9,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Overview
-
 An engineer who is using the Backtrace Debugger to root cause an issue will find it useful to see source code that is associated with frames in the stack trace. Backtrace has provided a Source Code Integration Service to support this.
 
 Administrators can configure Source Code display in their Debugger views using the Project Settings > Source Code tab. If you have Backtrace or your source code deployed on premises, you may need to deploy a backtrace-source-control service. Talk to our support team to learn more.

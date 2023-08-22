@@ -9,8 +9,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Overview
-
 Backtrace provides system administrators with the ability to Reprocess Objects they have stored in Backtrace. This is useful in cases where
 
 - They need to regenerate callstacks after debug symbols are uploaded.
