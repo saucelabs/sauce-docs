@@ -9,8 +9,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Introduction
-
 Scheduled reports are e-mail digests containing the latest trends and anomalies of instability for your projects. An excerpt from a report is presented below.
 
 <img src={useBaseUrl('img/error-reporting/project-settings/scheduled-report.png')} alt="" />
