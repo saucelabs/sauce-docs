@@ -9,8 +9,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Background
-
 Backtrace provides a programmable callstack based fingerprinting system, more commonly called our deduplication system. You can find more detailed information about our deduplication system here.
 
 In summary, this system allows Backtrace to group errors where root cause can be extrapolated from the contents of one or more faulting callstacks. A callstack may have differences for the same bug due to reasons like non-determinism, optimizations and recursion. To account for this, Backtrace built a programmable rules based system that can efficiently evaluate each frame in a callstack to decide if it needs removal or transformation to be normalized for more accurate grouping. We have developed a set of rules that are provided out of the box from common frameworks and platforms. (We call this the Backtrace Ruleset).
