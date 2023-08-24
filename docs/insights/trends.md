@@ -44,7 +44,7 @@ The **Trends** section of the Insights feature provides a variety of data visual
 
 The above sections are available for Virtual Cloud (VDC) and Real Device (RDC).
 
-You can also filter the results by **Owner**, **Build**, **Operating System (OS)**, **Browser** (in VDC) or **Device** (in RDC), **Device Group** (in RDC), **Framework**, **Tag** and **Date Period**. The Date Period is set by default to 7 days, but options are also available: 15 minutes, 1 hour, 6 hours, 12 hours, 1 day, and 30 days, or you can define start and end dates by switching to the **Absolute** tab in the date range filter.
+You can also filter the results by **Owner**, **Build**, **Operating System (OS)**, **Browser** (in VDC) or **Device** (in RDC), **Device Group** (in RDC), **Framework**, **Tag** and **Time Period**. The Time Period is set by default to 7 days, but options are also available: 15 minutes, 1 hour, 6 hours, 12 hours, 1 day, and 30 days, or you can define start and end dates by switching to the **Absolute** tab in the date range filter.
 
 ## Drilling Down on Visualizations
 
