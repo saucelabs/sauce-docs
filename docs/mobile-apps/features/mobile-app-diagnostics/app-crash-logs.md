@@ -10,7 +10,7 @@ The App Crash Logs feature on Sauce Labs' Real Device Cloud (RDC) platform facil
 
 Through the App Crash Logs feature, users gain access to a centralized view encompassing an array of app diagnostic signals. This expedites the debugging process for teams and reduces issue resolution time. Our primary objective is to establish expedited feedback loops for developers, enabling the early identification of risks and ensuring comprehensive coverage within the development cycle. With this enhanced capability, teams can effectively prioritize errors, crashes, and test failures based on complete data and context, focusing their efforts on the most critical issues.
 
-Our tool has the capability to detect and record fatal errors (crashes) that occur during the testing of iOS and Android apps. This information is sent to Error Reporting, where detailed call stack information can be viewed. Furthermore, our interface also renders all non-fatal errors and warnings originating from the native application visible. This feature streamlines debugging and facilitates seamless integration with other Mobile App Diagnostics components, ultimately enhancing issue identification and resolution efficiency.
+Our tool has the capability to detect and record fatal errors (crashes) that occur during the testing of both iOS and Android apps. Specifically for Android apps, this information is sent to [Error Reporting](/error-reporting/getting-started/), enabling the viewing of detailed call stack information. Furthermore, our interface also renders all non-fatal errors and warnings originating from the native application visible. This feature streamlines debugging and facilitates seamless integration with other Mobile App Diagnostics components, ultimately enhancing issue identification and resolution efficiency.
 
 ## What You'll Need
 
@@ -24,21 +24,39 @@ The App Crash Logs feature is automatically activated when the [Instrumentation 
 
 <br/><img src={useBaseUrl('img/mobile-apps/app-crash-scr1.png')} alt="Mobile app settings navigation" width="900"/>
 
-When you navigate to the [Live Test Results](/mobile-apps/live-testing/live-mobile-app-testing/) or [Automated Test Results](/mobile-apps/automated-testing/) page, you can view the collected crashes in the Crashes tab or you can see them in the Error Reporting. The collected crashes are presented in the context of their respective test cases, videos, and interactions. This centralized view is designed to enable efficient collaboration within your team and improve time to resolution for any issues that may arise.
-
-<!-- When you navigate to the [Live Test Results](/mobile-apps/live-testing/live-mobile-app-testing/) or [Automated Test Results](/mobile-apps/automated-testing/) page, you can view all the collected crashes in a centralized location. The collected crashes are presented in the context of their respective test cases, videos, and interactions. This centralized view is designed to enable efficient collaboration within your team and improve time to resolution for any issues that may arise. -->
+When you navigate to the [Live Test Results](/mobile-apps/live-testing/live-mobile-app-testing/) or [Automated Test Results](/mobile-apps/automated-testing/) page, you can view the collected crashes in the Crashes tab. The collected crashes are presented in the context of their respective test cases, videos, and interactions. This centralized view is designed to enable efficient collaboration within your team and improve time to resolution for any issues that may arise.
 
 ### Viewing the App Crash in the Crashes Tab
 
-<img src={useBaseUrl('img/mobile-apps/app-crash-scr2.png')} alt="Mobile app settings navigation" width="900"/>
+<img src={useBaseUrl('img/mobile-apps/app-crash-scr2.png')} alt="Mobile app settings navigation" width="800"/>
 
-The `crash.json` log provides detailed information on the stack trace, methods, classes, and lines of code that were being executed before the fatal error occurred. This detailed information facilitates the identification of the root cause of the crash, enabling your team to address the underlying issues in a timely and effective manner.
+The `crash.log` file provides information on the stack trace, methods, classes, and lines of code that were being executed before the fatal error occurred. This information facilitates the identification of the root cause of the crash, enabling your team to address the underlying issues in a timely and effective manner.
+
+In the Crashes tab, you will also find a **View Crash in Error Reporting** link, which directs you to [Error Reporting](/error-reporting/getting-started/) for a detailed view of the crash logs.
+
+<img src={useBaseUrl('/img/mobile-apps/rdc-er-integration/crashes-link.png')} alt="view crash in error reporting link in Crashes tab" width="700" />
 
 ### Viewing the App Crashes in Error Reporting
 
-[IMG]
+<p><small><span className="sauceGreen">Android Only</span></small></p>
 
-In the Interactions tab, the View Crash in Error Reporting link will leads you to the Error Reporting Debug view for that instance. The view will gives you all the useful information like the threads and the call stacks details. The errors are grouped together to avoid debugging the same error more times.
+While the Crashes Tab contains the stack trace, which can be useful for initial debugging of the root cause, more comprehensive insights are available within Error Reporting. Moreover, Error Reporting is the sole location where you can access callstack details for C++ crashes.
+
+<img src={useBaseUrl('/img/mobile-apps/rdc-er-integration/interactions-link.png')} alt="view crash in error reporting link in Interactions tab" width="700"/><br/><br/>
+
+Inside the Interactions tab, clicking on the **View Crash in Error Reporting** link will seamlessly direct you to the Error Reporting Debug view, specifically tailored to that session. Here, Error Reporting furnishes you with extensive information, encompassing threads and callstack specifics. This approach streamlines troubleshooting by grouping similar errors, thus avoiding repetitive debugging of identical issues.
+
+<img src={useBaseUrl('/img/mobile-apps/rdc-er-integration/debug-view.png')} alt="Debug view in Error Reporting" width="750"/>
+
+Hovering over the warning icon adjacent to the function name reveals the underlying cause, and further clarity can be gained by clicking the arrow in the popup to reveal associated details.
+
+<img src={useBaseUrl('/img/mobile-apps/rdc-er-integration/callstack-error-details.png')} alt="failure details" width="750"/><br/>
+
+<img src={useBaseUrl('/img/mobile-apps/rdc-er-integration/error-details-more.png')} alt="more details" width="750"/>
+
+Live sessions may entail multiple crashes. To streamline the identification of crashes occurring during RDC testing, the **Attributes** Tab presents designated attributes labeled as `sauce.<someattribute>`.
+
+<img src={useBaseUrl('/img/mobile-apps/rdc-er-integration/sauce-attributes.png')} alt="view crash in error reporting link in Crashes tab" width="750"/>
 
 ## Downloading the App Crash Log
 
