@@ -35,13 +35,16 @@ The **Trends** section of the Insights feature provides a variety of data visual
   </tr>
   <tr>
     <td><b>Build and Job Statistics</b></td>
-    <td>A snapshot of all tests run during the time period, displayed in separate tabs based on whether the test is or is not assigned a Build ID. For each test listed, basic data about the time the test was executed, the time it took to run, the Sauce Labs user who ran it, and its outcome. Tests in the <b>Builds</b> tab have an additional statistic &mdash; <i>Efficiency</i> &mdash; that indicates whether the tests in the build run in parallel to optimize the execution time for the entire build.<br/>This visualization can be further filtered to show only tests with a failed and/or errored status.</td>
+    <td>A snapshot of all tests run during the time period, displayed in separate tabs based on whether the test is or is not assigned a Build ID. For each test listed, basic data about the time the test was executed, the time it took to run, the Sauce Labs user who ran it, and its outcome.<br/> 
+    Tests in the <b>Builds</b> tab have an additional statistic &mdash; <i>Efficiency</i> &mdash; that indicates whether the tests in the build run in parallel to optimize the execution time for the entire build.<br/>
+    Tests in the <b>Jobs without build</b> tab have an additional statistic &mdash; <i>Error</i> &mdash; which displays the error message for the test where it was interrupted.<br/>
+    This visualization can be further filtered to show only tests with a failed and/or errored status.</td>
   </tr>
 </table>
 
 The above sections are available for Virtual Cloud (VDC) and Real Device (RDC).
 
-You can also filter the results by **Owner**, **Build**, **Operating System (OS)**, **Browser** (in VDC) or **Device** (in RDC), **Tag** and **Date Range**. The Date Range is set by default to 7 days, but options are also available: 15 minutes, 1 hour, 6 hours, 12 hours, 1 day, and 30 days, or you can define start and end dates by switching to the **Absolute** tab in the date range filter.
+You can also filter the results by **Owner**, **Build**, **Operating System (OS)**, **Browser** (in VDC) or **Device** (in RDC), **Device Group** (in RDC), **Framework**, **Tag** and **Time Period**. The Time Period is set by default to 7 days, but options are also available: 15 minutes, 1 hour, 6 hours, 12 hours, 1 day, and 30 days, or you can define start and end dates by switching to the **Absolute** tab in the date range filter.
 
 ## Drilling Down on Visualizations
 
