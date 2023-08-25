@@ -1,6 +1,6 @@
 ---
 id: source-map
-title: Source Maps Integration Guide - Using backtrace-sourcemap-tools
+title: Setting up Source Maps for Backtrace
 sidebar_label: Source Maps
 description: Configure your JS application to automatically upload sourcemap files.
 ---
@@ -9,81 +9,252 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The following steps guide you through configuring your JS application to automatically upload sourcemap files during the project build. Additionally, it explains how to set the appropriate ID in your Backtrace client to match errors with the corresponding sourcemap files.
+The following steps guide you through configuring your JavaScript application to automatically upload sourcemap files during the project build.
 
 ## What You'll Need
 
 - A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
 - Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
-- A Backtrace project and a [submission token](/error-reporting/project-setup/submission-url).
+- [Symbol submission token and URL](/error-reporting/project-setup/submission-url)
 
-## Step 1: Generate Source Maps for Your Application
+## Creating and Uploading Source Maps
 
-This step is application-specific. Take note of the location of your build folder as you'll need it in step 4.
+Step 1: Enable Source Maps for Your Application
 
-## Step 2: Install `backtrace-sourcemap-tools` as a Dev Dependency
+<Tabs
+groupId="applications"
+defaultValue="typescript"
+values={[
+{label: 'Typescript (tsc)', value: 'typescript'},
+{label: 'UglifyJS', value: 'uglify'},
+]}>
 
-Use the following command to install backtrace-sourcemap-tools as a dev dependency:
+<TabItem value="typescript">
 
-```bash
-npm install "git@github.com:backtrace-labs/backtrace-sourcemap-tools.git" --save-dev
-```
+Set `sourceMap` in `compilerOptions` in your `tsconfig.json` to `true`. For example:
 
-Alternatively, add the following entry to your package.json file under `devDependencies`:
-
-```json
-"devDependencies": {
-  "backtrace-sourcemap-tools": "git@github.com:backtrace-labs/backtrace-sourcemap-tools.git"
+```jsonc
+{
+    "compilerOptions": {
+        // other options
+        "sourceMap": true
+    },
+    "include": ["./src"]
 }
 ```
 
-## Step 3: Configure Sourcemap Upload URL in `package.json`
+</TabItem>
 
-Specify the URL, token, and universe where Backtrace sourcemap tools will upload sourcemap files when your project is built. Add the following configuration to your `package.json` file under the top-level key `backtrace`:
+<TabItem value="uglify">
+
+Pass `--source-map` as parameter to `uglifyjs`:
+
+```bash
+uglifyjs main.js -c -m --source-map -o main.min.js
+```
+
+</TabItem>
+</Tabs>
+
+Step 2: Configure @backtrace-labs/javascript-cli
+
+1. Install `@backtrace-labs/javascript-cli` as a dev dependency:
+
+```bash
+npm install --save-dev @backtrace-labs/javascript-cli
+```
+
+2. Add the following scripts to your `package.json` file:
 
 ```json
-"backtrace": {
-  "sourcemap": {
-    "upload": "https://<universe>.sp.backtrace.io:6098/post?format=sourcemap&token=<token>"
+"scripts": {
+  "backtrace:process": "backtrace-js process OUTPUT_DIRECTORY",
+  "backtrace:upload": "backtrace-js upload OUTPUT_DIRECTORY UPLOAD_OPTIONS"
+}
+```
+
+You can also use `npx` and skip adding the dependency:
+
+```json
+"scripts": {
+  "backtrace:process": "npx --package @backtrace-labs/javascript-cli backtrace-js process OUTPUT_DIRECTORY",
+  "backtrace:upload": "npx --package @backtrace-labs/javascript-cli backtrace-js upload OUTPUT_DIRECTORY UPLOAD_OPTIONS"
+}
+```
+
+Replace `OUTPUT_DIRECTORY` with the path to the directory where your transpiled scripts are stored.
+
+Replace `UPLOAD_OPTIONS` with `--url <your upload URL>`, obtained from [the symbol submission URL](#acquire-a-symbol-submission-token-and-url).
+
+### Configuration File
+
+Instead of providing options in script argument lines, you can configure them in the `.backtraceclirc` configuration file:
+
+```jsonc
+{
+  "path": "OUTPUT_DIRECTORY",
+  "upload": {
+    "url": "your upload URL"
   }
 }
 ```
 
-You need to replace `<universe>` with your universe name, and `<token>` with the symbol upload token generated in your Project Settings under the Symbols section. For on-premise Backtrace servers, replace `<universe>.sp.backtrace.io:6098` with the server and port of your Backtrace instance.
+For more details, consult `@backtrace-labs/javascript-cli` [README](https://github.com/backtrace-labs/backtrace-javascript/blob/main/tools/cli/README.md).
 
-## Step 4: Set Up Automatic Sourcemap Uploads
+Step 3: Set Up Automatic Processing and Upload
 
-This method uploads all artifact .map files.
+To process and upload your artifacts, you must first run `npm run backtrace:process` and then `npm run backtrace:upload`.
 
-First, append `npm run upload` to the `build` command in your package.json's `scripts` section:
-
+To ensure that this is done automatically, you can add these commands to your production script:
 ```json
 "scripts": {
-  "build": "my current build command && npm run upload",
-  ...
+  "build": "my current build command && npm run backtrace:process && npm run backtrace:upload"
+}
+```
+## Project Bundlers
+
+<Tabs
+groupId="project-bundler"
+defaultValue="webpack"
+values={[
+{label: 'Webpack', value: 'webpack'},
+{label: 'Rollup', value: 'rollup'},
+{label: 'Vite', value: 'vite'},
+]}>
+
+<TabItem value="webpack">
+
+If you're using Webpack as your project bundler, you can use `@backtrace-labs/webpack-plugin` to automate working with sourcemaps.
+
+Step 1: Enable Source Maps for Your Application
+
+Set `devtool` to `source-map` in your `webpack.config.js`:
+
+```js
+module.exports = {
+  devtool: 'source-map',
+  // other configuration
 }
 ```
 
-Finally, add the action script `upload` to run `backtrace-sourcemap` with `package.json` and the build folder as parameters. In this example, both the `package.json` and the `dist` folder are assumed to be located in the project root directory:
+If you're using code transpiler plugins (such as Typescript), ensure to enable source-mapping there as well.
 
-```json
-"scripts": {
-  "build": "my current build command && npm run upload",
-  "upload": "./node_modules/.bin/backtrace-sourcemap upload package.json dist"
+Step 2: Set up `@backtrace-labs/webpack-plugin`
+
+1. Install `@backtrace-labs/webpack-plugin` as a developer dependency:
+
+```bash
+npm install --save-dev @backtrace-labs/webpack-plugin
+```
+
+2. Add it to your `plugins` array in `webpack.config.js`:
+
+```js
+import { BacktracePlugin } from '@backtrace-labs/webpack-plugin';
+// or
+const { BacktracePlugin } = require('@backtrace-labs/webpack-plugin');
+
+module.exports = {
+  // other configuration
+  plugins: [new BacktracePlugin({
+    // enable upload only on production builds
+    uploadUrl: process.env.NODE_ENV === "production" ? "<your upload URL>" : undefined
+  })]
+}
+```
+</TabItem>
+
+<TabItem value="rollup">
+
+If you're using Rollup as your project bundler, you can use `@backtrace-labs/rollup-plugin` to automate working with sourcemaps.
+
+Step 1: Enable Source Maps for Your Application
+
+Set `sourcemap` in `output` to `true` in your `rollup.config.js`:
+
+```js
+module.exports = {
+  output: {
+    sourcemap: true
+  }
 }
 ```
 
-## Step 5: Set Up Automatic UUID Generation in `backtrace-node` or `backtrace-js`
+If you're using code transpiler plugins (such as Typescript), ensure to enable source-mapping there as well.
 
-To match a sourcemap file with an error report, a UUID is generated and attached to both the sourcemap file and the outgoing crash report.
+Step 2: Set up `@backtrace-labs/rollup-plugin`
 
-In your Backtrace client initialization code, call `client.setSymbolication()` to enable automatic UUID generation:
+1. Install `@backtrace-labs/rollup-plugin` as a developer dependency:
 
-```javascript
-var client = bt.initialize({
-  endpoint: '...',
-  token: '...'
-});
-
-client.setSymbolication(); // This line enables automatic UUID generation
+```bash
+npm install --save-dev @backtrace-labs/rollup-plugin
 ```
+
+2. Add it to your `plugins` array in `rollup.config.js`:
+
+```js
+import { BacktracePlugin } from '@backtrace-labs/rollup-plugin';
+// or
+const { BacktracePlugin } = require('@backtrace-labs/rollup-plugin');
+
+module.exports = {
+  // other configuration
+  plugins: [BacktracePlugin({
+    // enable upload only on production builds
+    uploadUrl: process.env.NODE_ENV === "production" ? "<your upload URL>" : undefined
+  })]
+}
+```
+
+</TabItem>
+
+<TabItem value="vite">
+
+If you're using Vite as your project bundler, you can use `@backtrace-labs/vite-plugin` to automate working with sourcemaps.
+
+Step 1: Enable Source Maps for Your Application
+
+Set `sourcemap` in `output` to `true` in your `vite.config.js`:
+
+```js
+module.exports = {
+  build: {
+    sourcemap: true
+  }
+}
+```
+
+If you're using code transpiler plugins (such as Typescript), ensure to enable source-mapping there as well.
+
+Step 2: Set up `@backtrace-labs/vite-plugin`
+
+1. Install `@backtrace-labs/vite-plugin` as a developer dependency:
+
+```bash
+npm install --save-dev @backtrace-labs/vite-plugin
+```
+
+2. Add it to your `plugins` array in `vite.config.js`:
+
+```js
+import { BacktracePlugin } from '@backtrace-labs/vite-plugin';
+// or
+const { BacktracePlugin } = require('@backtrace-labs/vite-plugin');
+
+module.exports = {
+  // other configuration
+  plugins: [BacktracePlugin({
+    // enable upload only on production builds
+    uploadUrl: process.env.NODE_ENV === "production" ? "<your upload URL>" : undefined
+  })]
+}
+```
+
+</TabItem>
+</Tabs>
+
+:::note Don't See Your Tool Described Here?
+
+We are adding support for the most popular tools regularly. You can always use `@backtrace-labs/javascript-cli`; it works with any output JS files.
+
+:::
