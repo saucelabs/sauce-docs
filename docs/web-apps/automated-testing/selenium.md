@@ -38,7 +38,7 @@ between the components using HTTP commands.
 
 #### For Sauce Labs, it looks like this:
 
-<img src={useBaseUrl('img/selenium/selenium-diagram.png')} alt="Diagram of Selenium and Sauce Labs"/>
+<img src={useBaseUrl('img/selenium/selenium-diagram.webp')} alt="Diagram of Selenium and Sauce Labs"/>
 
 ## Seven Steps of Selenium Tests
 

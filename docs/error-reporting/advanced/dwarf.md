@@ -121,7 +121,5 @@ You can utilize the other techniques mentioned in this article to further compre
 
 ## More Information
 
-- [Symbolic Debugging with DWARF](https://backtrace.io/blog/symbolic-debugging-with-dwarf/)
-- [Debugger Internals](https://backtrace.io/blog/debugger-internals/)
-- [How Debuggers Work](https://eli.thegreenplace.net/2011/01/23/how-debuggers-work-part-1)
-- [Debugging Memory Allocation](https://backtrace.io/blog/debugging-memory-allocation/)
+- [DWARF Debugging Standard](https://dwarfstd.org/index.html)
+- [Introduction to the DWARF Debugging Format](http://www.dwarfstd.org/doc/Debugging%20using%20DWARF-2012.pdf)

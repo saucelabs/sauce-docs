@@ -27,14 +27,7 @@ For non-Windows-based environments, reach out to our support team via the in-app
 
 - A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
 - Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
-- A Backtrace project and a submission token.
-
-:::tip Generate a Submission Token
-
-1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
-1. Select **+**.
-
-:::
+- A Backtrace project and a [submission token](/error-reporting/project-setup/submission-url).
 
 ## Description And UML Activity Diagram of Flow Control Between C# And C++
 

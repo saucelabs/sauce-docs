@@ -27,10 +27,10 @@ At the top of the page, the bar chart displays the number of jobs executed over 
 
 Below the bar chart, four performance statistics are presented:
 
-- **Total Job Cases**: The total count of aggregated groups of job runs sharing the same name.
+- **Total Job Unique Names**: The total count of aggregated groups of job runs sharing the same name.
 - **Total Errors**: The overall count of test runs that did not complete.
 - **Total Failures**: The total count of test runs recorded as "Failed."
-- **Average Runtime**: The mean runtime duration of all displayed test results.
+- **Average Run time**: The mean runtime duration of all displayed test results.
 
 Towards the bottom of the page, a table lists jobs alongside their corresponding details, including total runs, average duration, total duration, count of successful runs, success rate, count of failed runs, failure rate, count of error exits, error rate, count of completed runs, and completion rate.
 

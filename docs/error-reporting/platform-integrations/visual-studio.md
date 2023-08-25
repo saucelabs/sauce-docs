@@ -19,16 +19,9 @@ The extension installs a new item in the Project Menu (right-click on your proje
 
 - A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
 - Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
-- A Backtrace project and a submission token.
+- A Backtrace project and a [submission token](/error-reporting/project-setup/submission-url).
 - Visual Studio 2017 or 2019 (Preview) with the Visual Studio Extensions plugin and WPF.
 - Windows (Win32 or x86_64) as the target build platform.
-
-:::tip Generate a Submission Token
-
-1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
-1. Select **+**.
-
-:::
 
 ## Setup and Installation
 
