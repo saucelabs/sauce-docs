@@ -18,7 +18,7 @@ First, make sure your Xcode project is configured to generate the debug symbols:
 
 1. Click on your project and select Build-Settings.
 2. In the search box, type *Debug Information Format*.
-3. Click on **Debug Information Format** and select **DWARF with dSYM File**: 
+3. Click on **Debug Information Format** and select **DWARF with dSYM File**:
 <br/><img src={useBaseUrl('img/mobile-apps/generate-symbol.png')} alt="Gereating Symbols" width="600"/> 
 
 :::note
