@@ -28,8 +28,8 @@ You get to:
 defaultValue="Swift Package Manager"
 values={[
 {label: 'Swift Package Manager', value: 'Swift Package Manager'},
-{label: 'Java example', value: 'Java example'},
-{label: 'Mimi', value: 'Mimi'},
+{label: 'Cocoapods', value: 'Cocoapods'},
+{label: 'Carthage', value: 'Carthage'},
 ]}>
 
 <TabItem value="Swift Package Manager">
@@ -54,7 +54,7 @@ Requires Xcode 12+. Screenshots taken from Xcode 13.1
 <img src={useBaseUrl('img/mobile-apps/xcframework-3.png')} alt="" width="800"/>
 
 </TabItem>
-<TabItem value="Java example">
+<TabItem value="Cocoapods">
 
 1. Add the TestFairy pod to your Podfile by inserting the following line where applicable:
 ```java
@@ -66,12 +66,21 @@ pod 'TestFairy'
 
 </TabItem>
 
-<TabItem value="Mimi">
+<TabItem value="Carthage">
 Once you have Carthage installed, you can begin adding frameworks to your project. Note that Carthage only supports dynamic frameworks, which are **only available on iOS 8 or later** (or any version of OS X).
 
-1. Add binary "https://app.testfairy.com/sdk/ios/carthage.json" to your Cartfile.
-2. Run carthage update.
+1. Add `binary "https://app.testfairy.com/sdk/ios/carthage.json"` to your Cartfile.
+2. Run `carthage update`.
 3. On your application targets’ “General” settings tab, in the “Linked Frameworks and Libraries” section, drag and drop the TestFairy framework from the [Carthage/Build][] folder on disk.
+<br/><img src={useBaseUrl('/img/mobile-apps/carthage-1.png')} alt="Carthage Integration" width="600"/>
 
+4. On your application targets’ “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script in which you specify your shell (ex: bin/sh), add the following contents to the script area below the shell:
+```java
+/usr/local/bin/carthage copy-frameworks
+```           
+and add the paths to the TestFairySDK frameworks under “Input Files”, e.g.:
+
+${SRCROOT}/Carthage/Build/iOS/TestFairySDK.framework
+                
 </TabItem>
 </Tabs>
