@@ -23,12 +23,19 @@ You get to:
 
 ## Adding the SDK
 
-### Swift Package Manager
+
+<Tabs
+defaultValue="Swift Package Manager"
+values={[
+{label: 'Swift Package Manager', value: 'Swift Package Manager'},
+{label: 'Java example', value: 'Java example'},
+{label: 'Mimi', value: 'Mimi'},
+]}>
+
+<TabItem value="Swift Package Manager">
 
 :::note
-
 Requires Xcode 12+. Screenshots taken from Xcode 13.1
-
 :::
 
 1. Select your project from the Xcode navigator to open your project's configuration.
@@ -37,16 +44,34 @@ Requires Xcode 12+. Screenshots taken from Xcode 13.1
 4. Click the '+' icon to add a package.
 <img src={useBaseUrl('img/mobile-apps/xcframework-1.png')} alt="" width="800"/>
 
-5. In the newly opened dialog search for the TestFairy package repository using the URL: https://github.com/testfairy/testfairy-ios-sdk-swift-package in the top right search bar.
-6. Click the **Add Pacakge** button.
+1. In the newly opened dialog search for the TestFairy package repository using the URL: https://github.com/testfairy/testfairy-ios-sdk-swift-package in the top right search bar.
+2. Click the **Add Pacakge** button.
 <img src={useBaseUrl('img/mobile-apps/xcframework-2.png')} alt="" width="800"/>
 
-7. After the package has been downloaded, in the newly opened dialog, make sure the TestFairy package is selcted in the "Package Product" column
-8. Make sure the right target is selected in the "Add to target" column
-9. Click the **Add Pacakge** button
+1. After the package has been downloaded, in the newly opened dialog, make sure the TestFairy package is selcted in the "Package Product" column
+2. Make sure the right target is selected in the "Add to target" column
+3. Click the **Add Pacakge** button
 <img src={useBaseUrl('img/mobile-apps/xcframework-3.png')} alt="" width="800"/>
-### Cocoapods
 
-### Carthage
+</TabItem>
+<TabItem value="Java example">
 
-### Manual
+1. Add the TestFairy pod to your Podfile by inserting the following line where applicable:
+```java
+pod 'TestFairy'
+```           
+2. Run the `$ pod install` command to install the `TestFairy` dependency.
+
+
+
+</TabItem>
+
+<TabItem value="Mimi">
+Once you have Carthage installed, you can begin adding frameworks to your project. Note that Carthage only supports dynamic frameworks, which are **only available on iOS 8 or later** (or any version of OS X).
+
+1. Add binary "https://app.testfairy.com/sdk/ios/carthage.json" to your Cartfile.
+2. Run carthage update.
+3. On your application targets’ “General” settings tab, in the “Linked Frameworks and Libraries” section, drag and drop the TestFairy framework from the [Carthage/Build][] folder on disk.
+
+</TabItem>
+</Tabs>
