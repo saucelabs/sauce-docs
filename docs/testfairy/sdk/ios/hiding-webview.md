@@ -8,13 +8,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy enables developers to hide specific HTML elements from a recorded video in any `UIWebView` or `WKWebView` in their application. As the developer, you may hide one or more elements from the video for security and privacy reasons.
 
-For example, you may prevent all information related to credit card data from appearing in the session.
+TestFairy provides developers with the capability to conceal specific HTML elements within recorded videos displayed in `UIWebView` or `WKWebView` components within their application's user interface. This feature allows developers to enhance security and privacy by excluding sensitive information from video recordings.
+
+In certain scenarios, developers might need to prevent some information, such as credit card details or other sensitive content, from being displayed in recorded video sessions. TestFairy's **Hide Webview Elements from Video** feature addresses this concern by allowing developers to selectively hide designated HTML elements from the video playback.
 
 ## Syntax
 
-To hide an element from video, all you need to do is call the static instance method `hideWebViewElements` in the `TestFairy` class, passing in a CSS selector to target your element:
+The process of hiding a specific element from the recorded video involves utilizing the static instance method `hideWebViewElements` within the `TestFairy` class. This method requires a valid CSS selector as its parameter to target the desired HTML element for concealment:
 
 ```css
 [TestFairy hideWebViewElements:@"body"];
@@ -24,17 +25,18 @@ To hide an element from video, all you need to do is call the static instance me
 
 TestFairy finds any `UIWebView` or `WKWebView` in the view hierarchy and hides a given HTML element based on a valid CSS selector.
 
-### Example
+## Example
 
-Below is a screen taken from a demo video: on the left, you can see what an app usually looks like; on the right is a screenshot taken with the HTML elements hidden.
+
+Suppose you have a demo video showcasing your application's user interface. On the left side of the screen is the regular app interface, while the right side displays a screenshot with the HTML elements hidden:
 
 <img src={useBaseUrl('/img/testfairy/sdk/iphone-with-fields.png')} alt="iphone no hidden HTML elements" width="400"/>
 <img src={useBaseUrl('/img/testfairy/sdk/iphone-no-fields.png')} alt="iphone hidden HTML elements" width="400"/>
 
+This functionality provides a clear visual representation of how TestFairy's feature conceals elements within the video.
+
 :::note
-
-- Elements are hidden from screenshots before they are uploaded.
-- You may use `hideWebViewElements` with multiple comma-separated selectors.
-- You may add more selectors anytime by calling `hideWebViewElements` again.
-
+- TestFairy ensures that elements are hidden from screenshots before they are uploaded, thereby preserving the security and privacy of sensitive information.
+- The `hideWebViewElements` method supports the inclusion of multiple comma-separated CSS selectors. This capability allows you to hide multiple HTML elements simultaneously.
+- You can extend the list of hidden elements at any time by making additional calls to the `hideWebViewElements` method.
 :::
