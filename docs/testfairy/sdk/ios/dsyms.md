@@ -14,7 +14,7 @@ TestFairy requires your app's debug symbols (dSYMs) to clearly show you the name
 
 ## Generating Symbols in Xcode 
 
-First, make sure your Xcode project is configured to generate the debug symbols: 
+First, make sure your Xcode project is configured to generate the debug symbols:
 
 1. Click on your project and select Build-Settings. 
 2. In the search box, type *Debug Information Format*. 
