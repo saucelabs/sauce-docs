@@ -108,3 +108,47 @@ Make sure Copy items if needed is checked when dragging files to your project.
            
 </TabItem>
 </Tabs>
+
+## Initializing the SDK
+
+<Tabs
+defaultValue="Objective C"
+values={[
+{label: 'Objective C', value: 'Objective C'},
+{label: 'Swift', value: 'Swift'},
+]}>
+
+<TabItem value="Objective C">
+
+1. Open your AppDelegate.m file.
+
+2. Add this code to your app:
+```java
+#import "TestFairy.h"
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+	[TestFairy begin:@"SDK-u6qN9qXN"];
+
+	// below of the rest of the didFinishLaunchingWithOptions method
+	// ...
+}
+```
+</TabItem>
+<TabItem value="Swift">
+
+1. Create an Objective-C bridging header
+   Since this process only needs to be done once per project, if you have already done so, just update your bridging header file.
+   * Right-click on your project, select New File...
+   * Select Header File.h
+   * Save as Bridging.h in your project
+   * Click on Bridging.h to open it in editor
+   * Add the following line to the code:
+
+```java
+#import "TestFairy.h"
+```
+
+
+</TabItem>
+</Tabs>
