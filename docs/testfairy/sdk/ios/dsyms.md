@@ -8,21 +8,21 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy can show you crash reports to help you identify the place in the code that is causing a problem. TestFairy crash reports are easier to understand when they show actual debug symbols instead of addresses.
+TestFairy can show you crash reports to help you identify the place in the code that is causing a problem. TestFairy crash reports are easier to understand when they show actual debug symbols instead of addresses. 
 
-TestFairy requires your app's debug symbols (dSYMs) to clearly show you the names of the methods in your code. DSYM files are created by Xcode when you build your app. There are a couple of ways to upload them to TestFairy.
+TestFairy requires your app's debug symbols (dSYMs) to clearly show you the names of the methods in your code. DSYM files are created by Xcode when you build your app. There are a couple of ways to upload them to TestFairy. 
 
-## Generating Symbols in Xcode
+## Generating Symbols in Xcode 
 
-First, make sure your Xcode project is configured to generate the debug symbols:
+First, make sure your Xcode project is configured to generate the debug symbols: 
 
-1. Click on your project and select Build-Settings.
-2. In the search box, type *Debug Information Format*.
-3. Click on **Debug Information Format** and select **DWARF with dSYM File**:
-<br/><img src={useBaseUrl('img/mobile-apps/generate-symbol.png')} alt="Gereating Symbols" width="600"/>
+1. Click on your project and select Build-Settings. 
+2. In the search box, type *Debug Information Format*. 
+3. Click on **Debug Information Format** and select **DWARF with dSYM File**: 
+<br/><img src={useBaseUrl('img/mobile-apps/generate-symbol.png')} alt="Gereating Symbols" width="600"/> 
 
 :::note
-To upload symbols to TestFairy, you'll need to have your <strong>UPLOAD_API_KEY</strong> ready, which can be found from your [user preferences page](https://app.testfairy.com/settings/api-key/).
+To upload symbols to TestFairy, you'll need to have your <strong>UPLOAD_API_KEY</strong> ready, which can be found from your [user preferences page](https://app.testfairy.com/settings/api-key/). 
 :::
 
 ## Uploading multiple dSYMs
