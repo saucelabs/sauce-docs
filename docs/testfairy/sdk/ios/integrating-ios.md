@@ -30,6 +30,7 @@ values={[
 {label: 'Swift Package Manager', value: 'Swift Package Manager'},
 {label: 'Cocoapods', value: 'Cocoapods'},
 {label: 'Carthage', value: 'Carthage'},
+{label: 'Manual', value: 'Manual'},
 ]}>
 
 <TabItem value="Swift Package Manager">
@@ -83,5 +84,27 @@ and add the paths to the TestFairySDK frameworks under “Input Files”, e.g.:
 ${SRCROOT}/Carthage/Build/iOS/TestFairySDK.framework
 ``` 
 <br/><img src={useBaseUrl('/img/mobile-apps/carthage-2.png')} alt="Carthage Integration" width="600"/>             
+</TabItem>
+
+<TabItem value="Manual">
+
+1. Download the framework from our [Download page](https://app.testfairy.com/sdk/ios/).
+2. Unzip files and drag them into your project tree.
+<br/><img src={useBaseUrl('img/mobile-apps/tutorial-unzip-files.png')} alt="Carthage Integration" width="300"/>  
+
+Make sure Copy items if needed is checked when dragging files to your project.
+<br/><img src={useBaseUrl('img/mobile-apps/copy-items-if-needed.png')} alt="Carthage Integration" width="300"/>
+
+
+3. Add the following framework:
+   * In Xcode, select the project file from the project navigator, on the left side of the project window. 
+   * Show Projects and Target List.
+   * In the project settings editor, select the target to which you would like to add frameworks.
+   * Select the “Build Phases” tab, and click the small triangle next to “Link Binary With Libraries” to view all of the frameworks in your application.
+   * `SystemConfiguration.framework`
+
+  <br/><img src={useBaseUrl('img/mobile-apps/xcode-demo-1.gif')} alt="Carthage Integration" width="800"/>
+
+           
 </TabItem>
 </Tabs>
