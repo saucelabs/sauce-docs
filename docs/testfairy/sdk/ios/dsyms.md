@@ -22,7 +22,7 @@ First, make sure your Xcode project is configured to generate the debug symbols:
 <br/><img src={useBaseUrl('img/mobile-apps/generate-symbol.png')} alt="Gereating Symbols" width="600"/> 
 
 :::note
-To upload symbols to TestFairy, you'll need to have your <strong>UPLOAD_API_KEY</strong> ready, which can be found from your [user preferences page](https://app.testfairy.com/settings/api-key/). 
+To upload symbols to TestFairy, you'll need to have your <strong>UPLOAD_API_KEY</strong> ready, which can be found from your [user preferences page](https://app.testfairy.com/settings/api-key/).
 :::
 
 ## Uploading multiple dSYMs
