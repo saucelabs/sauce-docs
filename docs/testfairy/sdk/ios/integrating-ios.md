@@ -148,7 +148,45 @@ values={[
 ```java
 #import "TestFairy.h"
 ```
+:::note
+If framework wasn't uploaded manually please try:
+```java
+#import "TestFairy/TestFairy.h"
+```
+:::
 
+Update Build Settings with the new bridging header:
+* Click on your project
+* Select Build Settings tab
+* Select the "All" filter, in order to find Swift Compiler - General: Objective-C Bridging Header
+* Edit Swift Compiler - Code Generation: Objective-C Bridging Header (double-click to edit).
+* Drag "Bridging.h" from the source tree onto the edit box opened
+
+2. Open your AppDelegate.swift file.
+
+3. Add this code to your app:
+
+```java
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+	TestFairy.begin("SDK-u6qN9qXN")
+	// below of the rest of the didFinishLaunchingWithOptions method
+	// ...
+	return true
+}
+```	
 
 </TabItem>
 </Tabs>
+
+## Using PencilKit for Better Feedback
+You can give your users a better set of tools to markup any screenshots provided during feedback by adding PencilKit to your project. Simply add the PencilKit.framework to your project.
+
+:::note
+This requires iOS 13 and Xcode 11.
+:::
+
+<br/><img src={useBaseUrl('img/mobile-apps/pencilkit.png')} alt="Pencilkit" width="600"/>
+
+If a screenshot is attached to the feedback, your users can edit the screenshot by tapping on it and using PencilKit to mark it up.
+
+<br/><img src={useBaseUrl('img/mobile-apps/pencilkit-feedback.png')} alt="Pencilkit Feedback" width="250"/>
