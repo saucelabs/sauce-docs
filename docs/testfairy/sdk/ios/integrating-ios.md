@@ -79,8 +79,9 @@ Once you have Carthage installed, you can begin adding frameworks to your projec
 /usr/local/bin/carthage copy-frameworks
 ```           
 and add the paths to the TestFairySDK frameworks under “Input Files”, e.g.:
-
+```java
 ${SRCROOT}/Carthage/Build/iOS/TestFairySDK.framework
-                
+``` 
+<br/><img src={useBaseUrl('/img/mobile-apps/carthage-2.png')} alt="Carthage Integration" width="600"/>             
 </TabItem>
 </Tabs>
