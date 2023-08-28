@@ -47,7 +47,7 @@ You can run live tests of your websites on a wide variety of operating system, b
 11. Optionally, [you can select an outcome and enter name for your test](#adding-a-test-name-and-outcome-to-your-test).
     <img src={useBaseUrl('img/live-testing/live-testing-end-session-page.png')} alt="Recent tests" width="550"/>
 
-### Live Desktop Test Interface - To be updated?
+### Live Desktop Test Interface
 
 | Icon                                                                                                               | Name              | Description                                                                                                                                         |
 | ------------------------------------------------------------------------------------------------------------------ | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
