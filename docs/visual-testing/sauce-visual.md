@@ -23,13 +23,51 @@ You can use those standalone or with your Selenium/Appium-based tests. Support f
 
 The best way to integrate Sauce Visual into your existing tests (or write new ones) is to follow the examples listed [in the Visual example repository](https://github.com/saucelabs/visual-examples).
 
-After you have executed your tests, you will find your Visual test results on the Builds History Page:
+After you have executed your tests, you will get the URL to the build in the command line. You can also find your Visual test results on the Builds History Page.
 
 <img src={useBaseUrl('/img/sauce-visual/BuildHistoryPage.png')} alt="Diff History Page"/>
+
+Each Build has an overall status which is the summary of all the diffs captured within it, along with the build metadata. At the right hand side, there is a build progress bar, which lets you check at the glance how many diffs need review, are approved, or are rejected.
+
+Selecting one of the builds allows you to get to the Diff Review Page, where you can Approve/Reject detected diffs.
+
+## Reviewing Diffs
 
 Selecting one of the builds allows you to get to the Diff Review Page, where you can Approve/Reject detected diffs.
 
 <img src={useBaseUrl('/img/sauce-visual/DiffReviewPage.png')} alt="Diff Review Page"/>
+
+By default, you will see diffs in a side-by-side view, which lets you easily compare the Current diff against the Baseline. On the right hand side, you will see a toolbar which enables you to review the diffs. You can:
+
+- Switch from side-by side-to focused view, for easier comparison between Baseline and Current snapshot
+- Zoom in or out of the snapshots
+- Zoom to 100% or fit snapshot to screen
+- Highlight or hide diffs for easier discovery of the changes
+
+There are conditional actions you can use, depending on the type of view you have activated:
+
+- If in side-by-side view, you have the option to mirror the zoom and pan actions from Current snapshot to the Baseline
+- If in focused view, you can toggle between Baseline and Current diff
+
+The list below shows the available actions and their keyboard shortcuts.
+
+| Icon                                                    | Action \[Keyboard Shortcut\]                                                                                 |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| <img src={useBaseUrl('/img/sauce-visual/approve.png')} alt="Accept changes icon"/>                             | Accept changes \[A\] or Undo \[U\]                    |
+| <img src={useBaseUrl('/img/sauce-visual/reject.png')} alt="Reject changes icon"/>                              | Reject changes \[R\] or Undo \[U\]                    |
+| <img src={useBaseUrl('/img/sauce-visual/cycle-through-diffs.png')} alt="Cycle through snapshots arrows icon"/> | Cycle through snapshots \[&#x27F5;\] and \[&#x27F6;\] |
+| <img src={useBaseUrl('/img/sauce-visual/current-only.png')} alt="Current only icon"/>                          | View current diff only or View side by side \[V\]     |
+| <img src={useBaseUrl('/img/sauce-visual/zoom-in.png')} alt="Zoom in icon"/>                                    | Zoom in \[=\]                                         |
+| <img src={useBaseUrl('/img/sauce-visual/zoom-out.png')} alt="Zoom out icon"/>                                  | Zoom out \[-\]                                        |
+| <img src={useBaseUrl('/img/sauce-visual/fit-to-100.png')} alt="Fit to 100% or to screen icon"/>                | Zoom to fit \[1\] or Zoom to 100% \[0\]               |
+| <img src={useBaseUrl('/img/sauce-visual/highlight-diffs.png')} alt="Emphasize diffs icon"/>                    | Emphasize diffs \[E\]                                 |
+| <img src={useBaseUrl('/img/sauce-visual/hide-diffs.png')} alt="Hide diffs icon"/>                              | Hide diffs \[H\]                                      |
+| <img src={useBaseUrl('/img/sauce-visual/sync-actions.png')} alt="Sync pan and zoom icon"/>                     | Sync pan and zoom \[P\]                               |
+| <img src={useBaseUrl('/img/sauce-visual/view-current.png')} alt="View current icon"/>                          | Toggle Baseline and Current snapshots \[T\]           |
+
+### Additional keyboard actions
+- `cmd` on mac / `ctrl` on win + mouse scroll: for zooming in or out of the snapshot
+- `space` + click and drag: for panning the snapshot
 
 ## Visual Statuses
 
