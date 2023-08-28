@@ -38,9 +38,8 @@ In the Crashes tab, you will also find a **View Crash in Error Reporting** link,
 
 ### Viewing the App Crashes in Error Reporting
 
-<p><small><span className="sauceGreen">Android Only</span></small></p>
 
-While the Crashes Tab contains the stack trace, which can be useful for initial debugging of the root cause, more comprehensive insights are available within Error Reporting. Moreover, Error Reporting is the sole location where you can access callstack details for C++ crashes.
+While the Crashes Tab contains the stack trace, which can be useful for initial debugging of the root cause, more comprehensive insights are available within Error Reporting. Moreover, Error Reporting is the sole location to access callstack details for native crashes.
 
 <img src={useBaseUrl('/img/mobile-apps/rdc-er-integration/interactions-link.png')} alt="view crash in error reporting link in Interactions tab" width="700"/><br/><br/>
 
@@ -78,9 +77,9 @@ curl --compressed \
 
 :::note
 
-- Does not capture hangs and cross-platform development frameworks.
+- Does not capture hangs and cross-platform development frameworks, like React Native and .NET MAUI
 - Emulators/Simulators are not supported.
-
+- If you have a native crash reporting (including Backtrace), this feature will override it, therefore you will not see the crash report in your existing system.
 :::
 
 ## More Information
