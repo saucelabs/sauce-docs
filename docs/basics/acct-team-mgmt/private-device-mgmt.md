@@ -10,11 +10,10 @@ import TabItem from '@theme/TabItem';
 
 Private device management allows an organization admin to view and manage the private devices in an organization by assigning them to teams. This reduces contention for scarce devices, and provides better visibility to which team is using a device at any given time.
 
-- By default, a device is not assigned to any team, meaning it can be used by anyone in that organization.
-- If you choose to assign a device to a team, only members of that team can access the device. This applies to live test sessions, automated test sessions, and to other connection methods like [Virtual USB](/mobile-apps/features/virtual-usb).
-- At any time, you can reassign your private device to another team, or remove the team assignment altogether.
-
-If a team with devices is deleted, the devices assigned to that team return to the unassigned state. (For more information about managing teams, see [Adding and Deleting Teams](/basics/acct-team-mgmt/adding-deleting-teams).)
+- By default, a device is not assigned to any team, which means it can be used by anyone in the organization. Default assignement allows the organization admin to view all the devices as long as they are not assigned to a specific team.
+- If you choose to assign a device to a team, only members of that team can access the device. This also means that if the organization admin is not part of that team, they will not be able to see the device in their dashboard and run tests on the device. This applies to live test sessions, automated test sessions, and other connection methods like [Virtual USB](/mobile-apps/features/virtual-usb).
+- At any time, you can reassign your private device to another team or remove the team assignment altogether from the [Team Management](https://app.saucelabs.com/team-management/devices) panel.
+- If a team with devices is deleted, the devices assigned to that team return to the unassigned state. (For more information about managing teams, see [Adding and Deleting Teams](/basics/acct-team-mgmt/adding-deleting-teams).)
 
 Private devices are not included in VM or RDC concurrency limits. (For more information about concurrency, see [Concurrency Limits and Team Accounts](/basics/acct-team-mgmt/concurrency-limits).)
 
