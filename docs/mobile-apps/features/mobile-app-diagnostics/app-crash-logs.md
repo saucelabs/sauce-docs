@@ -32,7 +32,10 @@ When you navigate to the [Live Test Results](/mobile-apps/live-testing/live-mobi
 
 The `crash.log` file provides information on the stack trace, methods, classes, and lines of code that were being executed before the fatal error occurred. This information facilitates the identification of the root cause of the crash, enabling your team to address the underlying issues in a timely and effective manner.
 
-In the Crashes tab, you will also find a **View Crash in Error Reporting** link, which directs you to [Error Reporting](/error-reporting/getting-started/) for a detailed view of the crash logs.
+In the Crashes tab, you will also find a **View Crash in Error Reporting** link, which directs you to [Error Reporting](/error-reporting/getting-started/) for a detailed view of the crash logs. 
+
+Similarly, within the Automated Test section, the Commands tab includes a label with a direct link to the Error Reporting.
+
 
 <img src={useBaseUrl('/img/mobile-apps/rdc-er-integration/crashes-link.png')} alt="view crash in error reporting link in Crashes tab" width="700" />
 
