@@ -32,15 +32,13 @@ When you navigate to the [Live Test Results](/mobile-apps/live-testing/live-mobi
 
 The `crash.log` file provides information on the stack trace, methods, classes, and lines of code that were being executed before the fatal error occurred. This information facilitates the identification of the root cause of the crash, enabling your team to address the underlying issues in a timely and effective manner.
 
-In the Crashes tab, you will also find a **View Crash in Error Reporting** link, which directs you to [Error Reporting](/error-reporting/getting-started/) for a detailed view of the crash logs. 
+In the Crashes tab, you will also find a **View Crash in Error Reporting** link, which directs you to [Error Reporting](/error-reporting/getting-started/) for a detailed view of the crash logs.
 
 Similarly, within the Automated Test section, the Commands tab includes a label with a direct link to the Error Reporting.
-
 
 <img src={useBaseUrl('/img/mobile-apps/rdc-er-integration/crashes-link.png')} alt="view crash in error reporting link in Crashes tab" width="700" />
 
 ### Viewing the App Crashes in Error Reporting
-
 
 While the Crashes Tab contains the stack trace, which can be useful for initial debugging of the root cause, more comprehensive insights are available within Error Reporting. Moreover, Error Reporting is the sole location to access callstack details for native crashes.
 
@@ -49,6 +47,10 @@ While the Crashes Tab contains the stack trace, which can be useful for initial 
 Inside the Interactions tab, clicking on the **View Crash in Error Reporting** link will seamlessly direct you to the Error Reporting Debug view, specifically tailored to that session. Here, Error Reporting furnishes you with extensive information, encompassing threads and callstack specifics. This approach streamlines troubleshooting by grouping similar errors, thus avoiding repetitive debugging of identical issues.
 
 <img src={useBaseUrl('/img/mobile-apps/rdc-er-integration/debug-view.png')} alt="Debug view in Error Reporting" width="750"/>
+
+An alternative method for accessing the Backtrace instance to review the crash report is by clicking the Error Reporting link in the Sauce Labs sidebar.
+
+<img src={useBaseUrl('/img/mobile-apps/rdc-er-integration/error-reporting-link.png')} alt="Debug view in Error Reporting" width="200"/>
 
 Hovering over the warning icon adjacent to the function name reveals the underlying cause, and further clarity can be gained by clicking the arrow in the popup to reveal associated details.
 
@@ -83,6 +85,7 @@ curl --compressed \
 - Does not capture hangs and cross-platform development frameworks, like React Native and .NET MAUI
 - Emulators/Simulators are not supported.
 - If you have a native crash reporting SDK in your application (including Backtrace), this feature will override it; therefore, you will not see the crash report in your existing system.
+
 :::
 
 ## More Information
