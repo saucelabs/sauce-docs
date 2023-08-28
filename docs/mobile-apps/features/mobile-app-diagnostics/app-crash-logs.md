@@ -34,7 +34,7 @@ The `crash.log` file provides information on the stack trace, methods, classes, 
 
 In the Crashes tab, you will also find a **View Crash in Error Reporting** link, which directs you to [Error Reporting](/error-reporting/getting-started/) for a detailed view of the crash logs.
 
-Similarly, within the Automated Test section, the Commands tab includes a label with a direct link to the Error Reporting.
+Similarly, in the Automated Test section, the Commands tab includes a label directly linked to the Error Reporting.
 
 <img src={useBaseUrl('/img/mobile-apps/rdc-er-integration/crashes-link.png')} alt="view crash in error reporting link in Crashes tab" width="700" />
 
