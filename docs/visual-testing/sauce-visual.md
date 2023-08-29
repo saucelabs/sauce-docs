@@ -27,7 +27,7 @@ After you have executed your tests, you will get the URL to the build in the com
 
 <img src={useBaseUrl('/img/sauce-visual/BuildHistoryPage.png')} alt="Diff History Page"/>
 
-Each Build has an overall status which is the summary of all the diffs captured within it, along with the build metadata. At the right hand side, there is a build progress bar, which lets you check at the glance how many diffs need review, are approved, or are rejected.
+Each Build has an overall status, which is the summary of all the diffs captured within it, along with the build metadata. On the right side, there is a build progress bar, which lets you check at a glance how many diffs need review, are approved, or are rejected.
 
 Selecting one of the builds allows you to get to the Diff Review Page, where you can Approve/Reject detected diffs.
 
@@ -37,17 +37,17 @@ Selecting one of the builds allows you to get to the Diff Review Page, where you
 
 <img src={useBaseUrl('/img/sauce-visual/DiffReviewPage.png')} alt="Diff Review Page"/>
 
-By default, you will see diffs in a side-by-side view, which lets you easily compare the Current diff against the Baseline. On the right hand side, you will see a toolbar which enables you to review the diffs. You can:
+By default, you will see diffs in a side-by-side view, which lets you easily compare the Current diff against the Baseline. On the right side, you will see a toolbar enabling you to review the diffs. You can:
 
-- Switch from side-by side-to focused view, for easier comparison between Baseline and Current snapshot
-- Zoom in or out of the snapshots
-- Zoom to 100% or fit snapshot to screen
-- Highlight or hide diffs for easier discovery of the changes
+- Switch from side-by side-to focused view for easier comparison between the Baseline and Current snapshot.
+- Zoom in or out of the snapshots.
+- Zoom to 100% or fit snapshot to the screen.
+- Highlight or hide diffs for easier discovery of the changes.
 
 There are conditional actions you can use, depending on the type of view you have activated:
 
-- If in side-by-side view, you have the option to mirror the zoom and pan actions from Current snapshot to the Baseline
-- If in focused view, you can toggle between Baseline and Current diff
+- If in side-by-side view, you can mirror the zoom and pan actions from the Current snapshot to the Baseline.
+- If in focused view, you can toggle between Baseline and Current diff.
 
 The list below shows the available actions and their keyboard shortcuts.
 
@@ -65,9 +65,9 @@ The list below shows the available actions and their keyboard shortcuts.
 | <img src={useBaseUrl('/img/sauce-visual/sync-actions.png')} alt="Sync pan and zoom icon"/>                     | Sync pan and zoom \[P\]                               |
 | <img src={useBaseUrl('/img/sauce-visual/view-current.png')} alt="View current icon"/>                          | Toggle Baseline and Current snapshots \[T\]           |
 
-### Additional keyboard actions
-- `cmd` on mac / `ctrl` on win + mouse scroll: for zooming in or out of the snapshot
-- `space` + click and drag: for panning the snapshot
+### Additional Keyboard Actions
+- `cmd` on Mac / `ctrl` on Windows + mouse scroll: for zooming in or out of the snapshot.
+- `space` + click and drag: for panning the snapshot.
 
 ## Visual Statuses
 
