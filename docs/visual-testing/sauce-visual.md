@@ -51,21 +51,22 @@ There are conditional actions you can use, depending on the type of view you hav
 
 The list below shows the available actions and their keyboard shortcuts.
 
-| Icon                                                    | Action \[Keyboard Shortcut\]                                                                                 |
-| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| <img src={useBaseUrl('/img/sauce-visual/approve.png')} alt="Accept changes icon"/>                             | Accept changes \[A\] or Undo \[U\]                    |
-| <img src={useBaseUrl('/img/sauce-visual/reject.png')} alt="Reject changes icon"/>                              | Reject changes \[R\] or Undo \[U\]                    |
-| <img src={useBaseUrl('/img/sauce-visual/cycle-through-diffs.png')} alt="Cycle through snapshots arrows icon"/> | Cycle through snapshots \[&#x27F5;\] and \[&#x27F6;\] |
-| <img src={useBaseUrl('/img/sauce-visual/current-only.png')} alt="Current only icon"/>                          | View current diff only or View side by side \[V\]     |
-| <img src={useBaseUrl('/img/sauce-visual/zoom-in.png')} alt="Zoom in icon"/>                                    | Zoom in \[=\]                                         |
-| <img src={useBaseUrl('/img/sauce-visual/zoom-out.png')} alt="Zoom out icon"/>                                  | Zoom out \[-\]                                        |
-| <img src={useBaseUrl('/img/sauce-visual/fit-to-100.png')} alt="Fit to 100% or to screen icon"/>                | Zoom to fit \[1\] or Zoom to 100% \[0\]               |
-| <img src={useBaseUrl('/img/sauce-visual/highlight-diffs.png')} alt="Emphasize diffs icon"/>                    | Emphasize diffs \[E\]                                 |
-| <img src={useBaseUrl('/img/sauce-visual/hide-diffs.png')} alt="Hide diffs icon"/>                              | Hide diffs \[H\]                                      |
-| <img src={useBaseUrl('/img/sauce-visual/sync-actions.png')} alt="Sync pan and zoom icon"/>                     | Sync pan and zoom \[P\]                               |
-| <img src={useBaseUrl('/img/sauce-visual/view-current.png')} alt="View current icon"/>                          | Toggle Baseline and Current snapshots \[T\]           |
+| Icon                                                                                                                      | Action \[Keyboard Shortcut\]                          |
+| ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| <img src={useBaseUrl('/img/sauce-visual/approve.png')} alt="Accept changes icon" width="25"/>                             | Accept changes \[A\] or Undo \[U\]                    |
+| <img src={useBaseUrl('/img/sauce-visual/reject.png')} alt="Reject changes icon" width="25"/>                              | Reject changes \[R\] or Undo \[U\]                    |
+| <img src={useBaseUrl('/img/sauce-visual/cycle-through-diffs.png')} alt="Cycle through snapshots arrows icon" width="25"/> | Cycle through snapshots \[&#x27F5;\] and \[&#x27F6;\] |
+| <img src={useBaseUrl('/img/sauce-visual/current-only.png')} alt="Current only icon" width="25"/>                          | View current diff only or View side by side \[V\]     |
+| <img src={useBaseUrl('/img/sauce-visual/zoom-in.png')} alt="Zoom in icon" width="25"/>                                    | Zoom in \[=\]                                         |
+| <img src={useBaseUrl('/img/sauce-visual/zoom-out.png')} alt="Zoom out icon" width="25"/>                                  | Zoom out \[-\]                                        |
+| <img src={useBaseUrl('/img/sauce-visual/fit-to-100.png')} alt="Fit to 100% or to screen icon" width="25"/>                | Zoom to fit \[1\] or Zoom to 100% \[0\]               |
+| <img src={useBaseUrl('/img/sauce-visual/highlight-diffs.png')} alt="Emphasize diffs icon" width="25"/>                    | Emphasize diffs \[E\]                                 |
+| <img src={useBaseUrl('/img/sauce-visual/hide-diffs.png')} alt="Hide diffs icon" width="25"/>                              | Hide diffs \[H\]                                      |
+| <img src={useBaseUrl('/img/sauce-visual/sync-actions.png')} alt="Sync pan and zoom icon" width="25"/>                     | Sync pan and zoom \[P\]                               |
+| <img src={useBaseUrl('/img/sauce-visual/view-current.png')} alt="View current icon" width="25"/>                          | Toggle Baseline and Current snapshots \[T\]           |
 
 ### Additional Keyboard Actions
+
 - `cmd` on Mac / `ctrl` on Windows + mouse scroll: for zooming in or out of the snapshot.
 - `space` + click and drag: for panning the snapshot.
 
