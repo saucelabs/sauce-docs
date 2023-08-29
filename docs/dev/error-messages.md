@@ -314,6 +314,10 @@ Have you tried:
 - Validating if a device with the exact same capabilities is still available in the used data center
 - Have you tried using [Dynamic Allocation](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation)
 
+**You set `resigningEnabled` to `false` for an iOS app**
+
+The `resigningEnabled` capability can only be set to `false` for iOS private devices. See [Resigning Enablements](https://docs.saucelabs.com/mobile-apps/automated-testing/ipa-files/#sauce-resigning-enablements) for more information.
+
 **Are you targeting the correct data center?**
 
 It might be that you are targeting the wrong data center. You can change your endpoint with one of the following [urls](/basics/data-center-endpoints/).
@@ -341,6 +345,10 @@ The requested device might not be available because it’s used. Possible reason
 In some cases you might request a device with very specific capabilities which results in only one specific device. For example, you are requesting a specific iPhone 13 with iOS 15.7.1. If that device is already in use you need to wait before it is released.
 
 Have you tried using [Dynamic Allocation](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation)?
+
+**You set `resigningEnabled` to `false` for an iOS app**
+
+The `resigningEnabled` capability can only be set to `false` for iOS private devices. See [Resigning Enablements](https://docs.saucelabs.com/mobile-apps/automated-testing/ipa-files/#sauce-resigning-enablements) for more information. 
 
 **Are you targeting the correct data center?**
 
