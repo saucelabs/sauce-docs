@@ -29,11 +29,9 @@ After you have executed your tests, you will get the URL to the build in the com
 
 Each Build has an overall status, which is the summary of all the diffs captured within it, along with the build metadata. On the right side, there is a build progress bar, which lets you check at a glance how many diffs need review, are approved, or are rejected.
 
-Selecting one of the builds allows you to get to the Diff Review Page, where you can Approve/Reject detected diffs.
-
 ## Reviewing Diffs
 
-Selecting one of the builds allows you to get to the Diff Review Page, where you can Approve/Reject detected diffs.
+Selecting one of the builds allows you to get to the Diff Review Page, where you can Approve or Reject detected diffs.
 
 <img src={useBaseUrl('/img/sauce-visual/DiffReviewPage.png')} alt="Diff Review Page"/>
 
@@ -55,7 +53,7 @@ The list below shows the available actions and their keyboard shortcuts.
 | ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
 | <img src={useBaseUrl('/img/sauce-visual/approve.png')} alt="Accept changes icon" width="25"/>                             | Accept changes \[A\] or Undo \[U\]                    |
 | <img src={useBaseUrl('/img/sauce-visual/reject.png')} alt="Reject changes icon" width="25"/>                              | Reject changes \[R\] or Undo \[U\]                    |
-| <img src={useBaseUrl('/img/sauce-visual/cycle-through-diffs.png')} alt="Cycle through snapshots arrows icon" width="25"/> | Cycle through snapshots \[&#x27F5;\] and \[&#x27F6;\] |
+| <img src={useBaseUrl('/img/sauce-visual/cycle-through-diffs.png')} alt="Cycle through snapshots arrows icon" width="50"/> | Cycle through snapshots \[&#x27F5;\] and \[&#x27F6;\] |
 | <img src={useBaseUrl('/img/sauce-visual/current-only.png')} alt="Current only icon" width="25"/>                          | View current diff only or View side by side \[V\]     |
 | <img src={useBaseUrl('/img/sauce-visual/zoom-in.png')} alt="Zoom in icon" width="25"/>                                    | Zoom in \[=\]                                         |
 | <img src={useBaseUrl('/img/sauce-visual/zoom-out.png')} alt="Zoom out icon" width="25"/>                                  | Zoom out \[-\]                                        |
