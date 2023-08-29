@@ -316,7 +316,7 @@ Have you tried:
 
 **You disabled resigning for an iOS app**
 
-Disabling resigning is only available for private iOS devices. See [Resigning Enablements](https://docs.saucelabs.com/mobile-apps/automated-testing/ipa-files/#sauce-labs-resigning-enablements) for more information.
+Turning off resigning is only available for private iOS devices. For more information, see [Resigning Enablements](/mobile-apps/automated-testing/ipa-files/#sauce-labs-resigning-enablements).
 
 **Are you targeting the correct data center?**
 
