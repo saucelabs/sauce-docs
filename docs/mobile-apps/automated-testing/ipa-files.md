@@ -92,9 +92,9 @@ To set the iOS version in your Xcode Target:
 This will also overwrite the **Build Settings** at the Project level to that iOS version. If you use this method, be aware that your Targets can become out of sync with each other and the Project settings, and your tests will break. If you change the iOS version for one target output, you may want to build the Project again to make sure all your targets are in sync.
 :::
 
-# Sauce Labs Resigning Enablements
+## Sauce Labs Resigning Enablements
 
-## Public Devices
+### Public Devices
 
 Sauce Labs applies its own resigning to apps that are installed on our public iOS devices. Our resigner includes the following `keychain-access-groups` entitlements:
 
@@ -111,7 +111,7 @@ Sauce Labs applies its own resigning to apps that are installed on our public iO
 | `com.apple.developer.siri`                           | `<true/>`                                                                                                                                                                                                                                                                                           |
 | `com.apple.developer.pass-type-identifiers`          | `<array>`<br/>&nbsp;&nbsp; `<string>XXXXXXXXXX.*</string>`<br/>`</array>`                                                                                                                                                                                                                           |
 
-## Private Devices
+### Private Devices
 
 If your organization requires specific entitlements, Sauce Labs gives you the option to [disable resigning](/dev/test-configuration-options/#resigningenabled) for devices in your private pool. When resigning is disabled, you may sign your app using your own provisioning profile, which can include any entitlements in:
 
@@ -119,9 +119,9 @@ If your organization requires specific entitlements, Sauce Labs gives you the op
 - `com.apple.security.application-groups`
 - `keychain-access-groups`
 
-# Common Errors
+## Common Errors
 
-## Unable to Verify App
+### Unable to Verify App
 
 If you are facing the issue where the app crashes with a red screen and an "Unable to Verify App" popup:
 <img src={useBaseUrl('img/mobile-apps/verify-app-error.png')} alt="Mobile app settings navigation" width="350"/>
