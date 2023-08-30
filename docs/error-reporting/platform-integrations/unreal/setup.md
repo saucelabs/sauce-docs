@@ -137,7 +137,7 @@ To configure the crash reporter for a packaged build:
 
 Integrate the [backtrace-android](https://github.com/backtrace-labs/backtrace-android) error reporting library with your Unreal Engine game for Android written in Java or Kotlin.
 
-1. Download [BacktraceAndroid_UPL.xml](https://gist.github.com/lysannep/6c09a572baffede96cd250dbdf01279a#file-backtraceandroid_upl-xml).
+1. Download [BacktraceAndroid_UPL.xml](https://gist.github.com/ianrice07/36d8731f0d1af10af4803288c7c86c10).
 1. In the `BacktraceAndroid_UPL.xml` file, provide the name of your [subdomain and a submission token](/error-reporting/platform-integrations/unreal/setup/#what-youll-need) for `BacktraceCredentials`.
    - Java:
      ```java

@@ -1281,7 +1281,7 @@ When set to `true`, Sauce Labs will resign the app under test with its own signa
 - [Image Injection](#saucelabsimageinjectionenabled)
 - [Biometrics interception](#allowtouchidenroll)
 
-And many more. This value can be set to `false` to allow testing of specific behaviors that are not permitted under the Sauce Labs provisioning. See [Resigning Enablements](/mobile-apps/automated-testing/ipa-files/#sauce-resigning-enablements) for more information. This capability can only be set to `false` for iOS private devices.
+And many more. This value can be set to `false` to allow testing of specific behaviors that are not permitted under the Sauce Labs provisioning. See [Resigning Enablements](/mobile-apps/automated-testing/ipa-files/#sauce-labs-resigning-enablements) for more information. This capability can only be set to `false` for iOS private devices.
 
 **Android**
 

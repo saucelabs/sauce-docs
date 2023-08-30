@@ -88,7 +88,7 @@ Replace `UPLOAD_OPTIONS` with `--url <your upload URL>`, obtained from [the symb
 
 ### Configuration File
 
-Instead of providing options in script argument lines, you can configure them in the `.backtraceclirc` configuration file:
+Instead of providing options in script argument lines, you can configure them in the `.backtracejsrc` configuration file:
 
 ```jsonc
 {
