@@ -314,6 +314,10 @@ Have you tried:
 - Validating if a device with the exact same capabilities is still available in the used data center
 - Have you tried using [Dynamic Allocation](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation)
 
+**You disabled resigning for an iOS app**
+
+Turning off resigning is only available for private iOS devices. For more information, see [Resigning Enablements](/mobile-apps/automated-testing/ipa-files/#sauce-labs-resigning-enablements).
+
 **Are you targeting the correct data center?**
 
 It might be that you are targeting the wrong data center. You can change your endpoint with one of the following [urls](/basics/data-center-endpoints/).
