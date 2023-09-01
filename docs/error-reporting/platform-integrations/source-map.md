@@ -14,8 +14,16 @@ The following steps guide you through configuring your JavaScript application to
 ## What You'll Need
 
 - A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
-- Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
-- [Symbol submission token and URL](/error-reporting/project-setup/submission-url)
+- Symbol submission token and URL
+
+## Acquire a Symbol Submission Token and URL
+
+Refer to [Symbol submission token and URL](/error-reporting/project-setup/submission-url) to create a source map submission token using this token type and endpoint:
+
+<table>
+<tr><td><b>Token type</b></td><td>symbol:post</td></tr>
+<tr><td><b>Endpoint</b></td><td>sourcemap</td></tr>
+</table>
 
 ## Creating and Uploading Source Maps
 
