@@ -32,6 +32,15 @@ const docusaurusConfig = {
             display: `'popup'`,
             // selector: `'.beamerContainer'`,
         },
+        headTags: [
+            {
+                tagName: 'meta',
+                attributes: {
+                    name: 'google-site-verification',
+                    content: 'googlee2afebcc27f8c950.html',
+                },
+            },
+        ],
         prism: {
             additionalLanguages: [
                 'java',
