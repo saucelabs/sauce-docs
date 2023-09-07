@@ -10,6 +10,15 @@ const docusaurusConfig = {
     favicon: 'img/favicon2023.png',
     organizationName: 'saucelabs',
     projectName: 'sauce-docs',
+    headTags: [
+        {
+            tagName: 'meta',
+            attributes: {
+                name: 'google-site-verification',
+                content: 'googlee2afebcc27f8c950.html',
+            },
+        },
+    ],
     scripts: [
         '/scripts/hide.js',
         // Need Help? button
@@ -32,15 +41,6 @@ const docusaurusConfig = {
             display: `'popup'`,
             // selector: `'.beamerContainer'`,
         },
-        headTags: [
-            {
-                tagName: 'meta',
-                attributes: {
-                    name: 'google-site-verification',
-                    content: 'googlee2afebcc27f8c950.html',
-                },
-            },
-        ],
         prism: {
             additionalLanguages: [
                 'java',
