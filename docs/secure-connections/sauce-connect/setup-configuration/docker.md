@@ -156,7 +156,10 @@ $ cat /tmp/sc.ready | jq .
 }
 ```
 
-## Running the Sauce Connect Docker with a nginx Server
+## Sauce Connect Docker Examples
+Below are examples of how Sauce Connect Proxy can be used in conjunction with docker. You can do things like expose a temporary server as part of a CICD execution or make a specific URL accessible. 
+
+#### Running the Sauce Connect Docker with a nginx Server
 
 The `docker-compose.yaml` file below shows how to run Sauce Connect Docker in the nginx server. The example configuration allows you to use a tunnel while launching a Desktop or Web Mobile test, then go to the 'nginx' URL. The Sauce Connect Proxy then routes you to the nginx container.
 
@@ -182,7 +185,7 @@ services:
       - "3333:80"
 ```
 
-## Running the Sauce Connect Proxy Indefinitely
+#### Running the Sauce Connect Proxy Indefinitely
 
 If you need a Sauce Connect Proxy to stay up indefinitely, the `docker-compose.yaml` below shows how to set up a set of shared Sauce Connect Pools that automatically restart when they go down.
 
