@@ -28,7 +28,7 @@ Every 5th cleaning session includes a device reboot. This ensures that the syste
 performant and any stray processes are stopped.
 
 :::caution
-On Public devices, access to the device settings is fully restricted. Users are only allowed access to the application that is currently being tested or to the Safari/Chrome web browsers. These restrictions apply to all iOS/Android public devices.
+On Public devices, user access to device settings is limited to app-specific configurations like notifications, location services, permissions, app storage, and app details. For iOS Enterprise apps, users can trust the app via settings. Access is restricted to the test application and webapps through Safari or Chrome. These rules apply to both iOS and Android public devices.
 :::
 
 :::note
