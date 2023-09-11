@@ -18,9 +18,9 @@ Building a great user experience is more than just design. Equally important is 
 
 ### What gestures are supported on Real Devices?
 
-##On iOS we are supporting the following gestures:
+## On iOS we are supporting the following gestures:
 
-- **Pinch to Zoom**: Exclusive to iOS, activate using your trackpad or holding the ALT key during a Live Testing session.
+- **Pinch to Zoom**: Exclusive to iOS, activate using your trackpad or holding the ALT(Windows)/Option(MacOS) key [during a Live Testing session.](https://saucelabs.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fvrc8wif0t20g%2F72k6sPCuyuxDj0XUECBKs3%2Fa8df5afe7be23b6f1017e793b037e34c%2Fpinch_zoom.gif&w=3840&q=75)
 - **Two-Finger Scroll**: Captures both rapid and gradual scrolling actions.
 - **Mouse/Trackpad Journey**: Replicates intricate touch actions such as:
   - Drag and Drop
@@ -28,7 +28,7 @@ Building a great user experience is more than just design. Equally important is 
   - Complex screen drawings
 - **Taps and Clicks**: Standard input actions are supported.
 
-##On Android we are supporting the following gestures:
+## On Android we are supporting the following gestures:
 
 **- Two-Finger Scroll**: Handles both fast and slow scrolling movements.
 **- Mouse/Trackpad Journey**: Emulates complex touch interactions like:
