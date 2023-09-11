@@ -96,7 +96,7 @@ Yes. We support OAuth login via Google and GitHub.
 
 #### **Are your devices jailbroken?**
 
-No. We do not offer jailbroken or rooted devices.
+No. We do not offer jailbroken or rooted devices, neither penetration testing. 
 
 ### Automated Testing
 
@@ -279,8 +279,13 @@ To make sure the availability stays high, we need to password-protect certain fu
 
 You can run as many tests as you wish on your trial account, but you will only be able to run one test at a time. Also, no manual test is allowed to run for more than ten minutes.
 
-## System Maintenance
+## New iOS and Android Release: 
 
-#### **Is the service ever unavailable because it is under maintenance or being updated?**
+#### What is new on iOS17 devices? 
 
-Software updates are deployed to the service on Thursdays between 7:30 and 8:30 CEST. The service does not officially halt during this weekly window of time, but customers should be aware that any automated or manual tests run during this time period might fail.
+You can run automated Appium 2.0 and Live Tests against any of our iOS17 devices! You can find a detailed list of all the changes introduced that might impact[ your application or testing here.](https://saucelabs.com/resources/blog/ios-17-beta-sauce-real-device-cloud)
+The following features are limited or not available for a short period of time on iOS17 devices:
+- Accessing and changing Location services
+- XCUITest support
+- Smooth streaming and audio streaming
+- Changing locale. 
