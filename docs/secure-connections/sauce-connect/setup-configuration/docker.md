@@ -158,14 +158,17 @@ $ cat /tmp/sc.ready | jq .
 
 ## Orchestrating the Sauce Connect Proxy Container
 
+Sauce Connect Proxy Container orchestration is the automation of much of the operational effort required to run containerized Sauce Connect Proxy.
+There are multiple container orchestration tools exist, such as Kubernetes, Docker Swarm, Google CloudRun, Amazon ECS, etc. This section provides a few examples of orchestrating containerized Sauce Connect Proxy.
+
 ### Running the Sauce Connect Proxy Container Indefinitely In Kubernetes
 
-If you need a Sauce Connect Proxy to stay up indefinitely, we recommend using a [Helm chart](https://helm.sh/docs/topics/charts/).
+If you need a Sauce Connect Proxy to stay up indefinitely, we recommend using a [Helm chart](https://helm.sh/docs/topics/charts/) to manage your Sauce Connect Proxy instance or pool.
 
 The Sauce Connect Proxy Docker GitHub repository provides [a reference Helm chart](https://github.com/saucelabs/sauce-connect-docker/tree/main/chart/sauce-connect) that may be used as is, or adapted to your needs.
 To use that chart:
 
-- Define a required values file, for example:
+- Define a values file containing your configuration, for example:
 
 ```yaml
 sauceApiRegion: us-west
@@ -173,12 +176,13 @@ sauceUser: johndoe
 sauceApiKey: "xxx-xxx-xxx"
 tunnelName: "my-k8s-tunnel"
 tunnelPool: true
+tunnelPoolSize: 2
 ```
 
 - Run Helm install
 
 ```bash title="helm install"
-helm install sauce-connect  ./chart/sauce-connect --values /path/to/values.yaml --set tunnelName=your-pool-name --set tunnelPoolSize=1
+helm install sauce-connect  ./chart/sauce-connect --values /path/to/values.yaml
 ```
 
 - Use the following commands in order to get the Sauce Connect Proxy application status and logs
@@ -207,8 +211,7 @@ $ kubectl logs $POD_NAME -f
 
 ### Running the Sauce Connect Proxy Container Indefinitely With Docker Compose
 
-If you need a Sauce Connect Proxy to stay up indefinitely but you can't deploy it in Kubernetes (which is the recommended container orchestration tool), the `docker-compose.yaml` below shows how to set up a set of shared Sauce Connect Pools that automatically restart when they go down.
-the Sauce Connect Proxy Docker GitHub repository provides an [example docker-compose.yaml](https://github.com/saucelabs/sauce-connect-docker/tree/main/examples/docker-compose-sc).
+If you need a Sauce Connect Proxy to stay up indefinitely but you can't deploy it in Kubernetes (which is the recommended container orchestration tool), the Sauce Connect Proxy Docker GitHub repository provides an [example docker-compose.yaml](https://github.com/saucelabs/sauce-connect-docker/tree/main/examples/docker-compose-sc) that shows how to set up a set of shared Sauce Connect Pools that automatically restart when they go down.
 
 ### Running an Application Alongside Sauce Connect Proxy
 
