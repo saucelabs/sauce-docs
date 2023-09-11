@@ -208,70 +208,14 @@ $ kubectl logs $POD_NAME -f
 ### Running the Sauce Connect Proxy Container Indefinitely With Docker Compose
 
 If you need a Sauce Connect Proxy to stay up indefinitely but you can't deploy it in Kubernetes (which is the recommended container orchestration tool), the `docker-compose.yaml` below shows how to set up a set of shared Sauce Connect Pools that automatically restart when they go down.
+the Sauce Connect Proxy Docker GitHub repository provides an [example docker-compose.yaml](https://github.com/saucelabs/sauce-connect-docker/tree/main/examples/docker-compose-sc).
 
-```yaml
-version: "3.9"
-services:
-  sauce-connect-eu:
-    deploy:
-      replicas: 2
-      restart_policy:
-        delay: 30s
-        max_attempts: 5
-        condition: on-failure
-        window: 60s
-    image: "saucelabs/sauce-connect:latest"
-    environment:
-      SAUCE_USERNAME: ${SAUCE_USERNAME}
-      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
-      SAUCE_OUTPUT_FORMAT: "text"
-      SAUCE_LOGFILE: /tmp/persistent-eu-proxy1.log
-    command: "-i eu-pool -r eu-central --tunnel-pool"
+### Running an Application Alongside Sauce Connect Proxy
 
-  sauce-connect-us:
-    image: "saucelabs/sauce-connect:latest"
-    restart: on-failure:2
-    deploy:
-      replicas: 2
-      restart_policy:
-        delay: 30s
-        max_attempts: 5
-        condition: on-failure
-        window: 60s
-    environment:
-      SAUCE_USERNAME: ${SAUCE_USERNAME}
-      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
-      SAUCE_OUTPUT_FORMAT: "text"
-    command: "-i us-pool -i docker-sc -r us-west --tunnel-pool"
-```
-
-## Running an Application Alongside Sauce Connect Proxy
-
-
-The `docker-compose.yaml` file below shows how to run Sauce Connect Docker adjacent to an application container (an Nginx server in this example).
-The example configuration allows you to use a tunnel while launching a Desktop or Web Mobile test, then go to the 'nginx' URL. The Sauce Connect Proxy then routes you to the nginx container.
-
-The Sauce Connect Proxy sits adjacent to the `nginx:latest` instance: you can reach the nginx service from Sauce Labs by going to `http://nginx` (if you run it as is). You can also provide a name to the container with [container_name](https://docs.docker.com/compose/compose-file/compose-file-v3/#container_name).
-
-If you were to name the container explicitly like `container_name: mywebserver` it would reachable from any app or website that tried to hit mockserver via HTTP: this is due to the nature of [how docker resolves container names](https://docs.docker.com/config/containers/container-networking/#:~:text=In%20the%20same,on%20that%20network) for any valid entries on that docker network.
-
-```yaml
-version: "3"
-services:
-  sauce-connect-eu:
-    image: "saucelabs/sauce-connect:latest"
-    environment:
-      SAUCE_USERNAME: ${SAUCE_USERNAME}
-      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
-      SAUCE_OUTPUT_FORMAT: "text"
-    command: "-i composed-docker-sc -r eu-central"
-
-  nginx:
-    image: "nginx:latest"
-    container_name: "some-app"
-    ports:
-      - "3333:80"
-```
+The Sauce Connect Proxy Docker GitHub repository provides an [example docker-compose.yaml](https://github.com/saucelabs/sauce-connect-docker/tree/main/examples/docker-compose-sc-nginx) that shows
+how to run Sauce Connect Docker adjacent to an application container (an Nginx server in this example).
+The example configuration allows you to use a tunnel while launching a Desktop or Web Mobile test, then go to the 'http://some-app' URL. The Sauce Connect Proxy then routes you to the nginx container.
+You can change the Nginx container name with [container_name](https://docs.docker.com/compose/compose-file/compose-file-v3/#container_name).
 
 ## Additional Resources
 
