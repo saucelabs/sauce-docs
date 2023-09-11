@@ -13,12 +13,10 @@ Building a great user experience is more than just design. Equally important is 
 ### What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-- 
-
 
 ### What gestures are supported on Real Devices?
 
-## On iOS we are supporting the following gestures:
+#### On iOS we are supporting the following gestures:
 
 - **Pinch to Zoom**: Exclusive to iOS, activate using your trackpad or holding the ALT(Windows)/Option(MacOS) key [during a Live Testing session.](https://saucelabs.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fvrc8wif0t20g%2F72k6sPCuyuxDj0XUECBKs3%2Fa8df5afe7be23b6f1017e793b037e34c%2Fpinch_zoom.gif&w=3840&q=75)
 - **Two-Finger Scroll**: Captures both rapid and gradual scrolling actions.
@@ -28,13 +26,13 @@ Building a great user experience is more than just design. Equally important is 
   - Complex screen drawings
 - **Taps and Clicks**: Standard input actions are supported.
 
-## On Android we are supporting the following gestures:
+#### On Android we are supporting the following gestures:
 
-**- Two-Finger Scroll**: Handles both fast and slow scrolling movements.
-**- Mouse/Trackpad Journey**: Emulates complex touch interactions like:
+- **Two-Finger Scroll**: Handles both fast and slow scrolling movements.
+- **Mouse/Trackpad Journey**: Emulates complex touch interactions like:
   - Drag and Drop
   - Sliders
   - Complex screen drawings
-**- Taps and Clicks:** Basic input gestures are supported.
-**- Zoom in Google Maps or Maps SDK:** For apps with Maps SDK integrated or tests involving Google Maps, zooming is possible through specific gestures:
+- **Taps and Clicks:** Basic input gestures are supported.
+- **Zoom in Google Maps or Maps SDK:** For apps with Maps SDK integrated or tests involving Google Maps, zooming is possible through specific gestures:
   - Double-tap and hold, then drag to zoom in or out. [More here.](https://support.google.com/maps/answer/6396990?hl=en&co=GENIE.Platform%3DAndroid#:~:text=preferred%20icon%20size.-,Zoom%20in%20the%20map,-You%20can%20zoom)
