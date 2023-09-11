@@ -23,7 +23,8 @@ Building a great user experience is more than just design. Equally important is 
 - **Mouse/Trackpad Journey**: Replicates intricate touch actions such as:
   - Drag and Drop
   - Sliders
-  - Complex screen drawings
+  - Complex screen drawings (e.g.: Drawing circles)
+  - Slow swipe up from the home button to trigger [the Recent Apps view and switch apps.](https://support.apple.com/en-afri/HT202070#:~:text=Double%2Dclick%20the%20Home%20button,that%20you%20want%20to%20use.)
 - **Taps and Clicks**: Standard input actions are supported.
 
 #### On Android we are supporting the following gestures:
