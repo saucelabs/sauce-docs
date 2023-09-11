@@ -8,7 +8,7 @@ sidebar_label: FAQ
 
 #### **What type of keyboard and buttons do the Android Emulators have?**
 
-Android Emulators have software buttons and a hardware keyboard. In a regular Android Emulator the device buttons are software buttons displayed on the right size of the emulator. For the Android Emulators with different skins (e.g Google Nexus 7 HD, LG Nexus 4, Samsung Galaxy Nexus, Samsung Galaxy S3, etc) the device buttons are also software buttons that are overplayed on top of the skin. For instance, if you hover the mouse around the edges of any of our Android Emulators with a specified skin, a hover icon will appear and you should be able to find whatever buttons actually exist on the device that the skinned emulator is trying to emulate (e.g power button along the top, volume buttons along the edge, back/home buttons right below the screen, etc).
+Android Emulators have software buttons and a hardware keyboard. In a regular Android Emulator the device buttons are software buttons displayed on the right size of the emulator. For the Android Emulators with different skins (e.g Latest Google Pixels, latest Samsung Galaxy devices) the device buttons are also software buttons that are overplayed on top of the skin. For instance, if you hover the mouse around the edges of any of our Android Emulators with a specified skin, a hover icon will appear and you should be able to find whatever buttons actually exist on the device that the skinned emulator is trying to emulate (e.g power button along the top, volume buttons along the edge, back/home buttons right below the screen, etc).
 
 #### **Can I run Android Emulator tests using Espresso instead of Appium?**
 
@@ -24,7 +24,7 @@ Currently the only browser that can be automated in our Android Emulators is the
 
 #### **How real are your Real Devices?**
 
-Our devices are real, physical devices. They are standard, commercially available devices and not modified or rooted. We use virtual networking computer (VNC) to transmit mouse and keyboard events on the devices. The VNC server on the devices relays back the content of the screen of the devices in real time.
+Our devices are real, physical devices. They are standard, commercially available devices and not modified or rooted. We provide smooth streaming and fast interactions from the devices through Websockets and WebRTC protocols.
 
 #### **What are the top device lists by country, and how reliable are they?**
 
@@ -51,7 +51,7 @@ Yes. See [Camera Image Injection](/mobile-apps/features/camera-image-injection).
 - **Android Real Devices** - Yes. It works automatically with no action required.
 - **iOS Real Devices** - Yes. Prior to testing, you'll need to disable resigning; this enables notifications testing. Disabling resigning is a feature available for [private devices only](/mobile-apps/supported-devices#private-device-cloud). To disable resigning, go to **Live** > **Mobile App** > Locate your iOS mobile app from your list of uploaded app > Click **Settings** > Toggle **Instrumentation** so that it says **Disabled**. You'll need to start keeping track of the iOS device UDIDs (Unique Device Identifier) by maintaining them in your own Apple Developer profile used at app build time.
 - **Android Emulators** - not supported.
-- **iOS simulators** - Yes, when using Appium version 1.21.0. See [Announcing support for Appium v1.21.0 on iOS Simulators](https://changelog.saucelabs.com/en/announcing-support-for-appium-v-on-ios-simulators) for more information.
+- **iOS simulators** - Yes, when using the latest Appium version.  See [Announcing support for Appium v1.21.0 on iOS Simulators](https://changelog.saucelabs.com/en/announcing-support-for-appium-v-on-ios-simulators) for more information.
 
 #### **Is there a maximum time I can use a real device for either manual or automated testing, provided I actually do interact with the device?**
 
@@ -96,7 +96,7 @@ Yes. We support OAuth login via Google and GitHub.
 
 #### **Are your devices jailbroken?**
 
-No. We do not offer jailbroken or rooted devices, neither penetration testing. 
+No. We do not offer jailbroken or rooted devices, or penetration testing. 
 
 ### Automated Testing
 
@@ -112,11 +112,11 @@ Yes. You’ll want to use Maven or Gradle. We also have our own Espresso Runner 
 
 #### **Can I run native app tests with XCUITest test automation?**
 
-Yes, but only on iOS 10 and iOS 9 (note these OS versions have different default behavior).
+Yes, on iOS 13 and above. 
 
 #### **How do I upload an iOS app?**
 
-You'll need to export your app as an .ipa file for Ad Hoc Deployment as described in [Building an .ipa File](/mobile-apps/automated-testing/ipa-files/#building-an-ipa-file).
+You'll need to export your app as an .ipa file for Ad-Hoc Deployment as described in [Building an .ipa File](/mobile-apps/automated-testing/ipa-files/#building-an-ipa-file).
 
 You can upload your .ipa manually to create a project, then upload subsequent versions either manually or through our REST API, as described in [Uploading Your App to Real Device Storage with the REST API](/mobile-apps/app-storage).
 
@@ -134,7 +134,7 @@ No. On iOS, we re-sign with our own certificate. On Android, there are no extra 
 
 #### **If I run a test on the public real device cloud, can I run it over ssh or a VPN?**
 
-No. Private cloud accounts have the option to use an [IPSec VPN](/secure-connections/ipsec-vpn.md), which we'd setup and customize specifically for your network.
+No. Private and public cloud accounts have the option to use our Sauce Connect Proxy solution for ensuring a secure connection to your own environment and internal endpoints, [see more here.](https://docs.saucelabs.com/secure-connections/sauce-connect/). Using a VPN app in the device is not supported, nor guaranteed to work. 
 
 Sauce Connect is supported for both private and public clouds.
 
@@ -154,15 +154,15 @@ Appium cannot scroll in the "web" context, only in the native app context. The t
 
 No.
 
-#### **Do you support audio or microphones?**
+#### **Do you support audio capture and streaming?**
 
-No. This is a feature request on our roadmap.
+Audio capture and streaming are supported on real devices, [see more here.](https://docs.saucelabs.com/mobile-apps/features/audio-capture/#:~:text=Audio%20Capture%20is%20a%20functionality,or%20automated%20real%20device%20test.) 
 
 #### **Can I use Bluetooth on a device?**
 
-No. We do not support Bluetooth connections between devices in our Real Device Cloud. If you have a Bluetooth feature request, please let our support team know.
+No. We do not support Bluetooth connections between devices in our Real Device Cloud.
 
-#### **What should the frame rate be on newer Android devices?**
+#### **What should the frame rate be on newer Android/iOS devices?**
 
 20 to 30 FPS.
 
@@ -172,7 +172,7 @@ No.
 
 #### **Do you have any UI inspection tool built into your application like UI Automator viewer?**
 
-No, there are no inspection tools. We recommend using [Appium Desktop](https://github.com/appium/appium-desktop) or [Appium Inspector](https://github.com/saucelabs/appium-inspector-saucelabs) for UI inspection, it has built in support for devices on the Real Device Cloud.
+Not yet, this is in the works! For now, we recommend using [Appium Desktop](https://github.com/appium/appium-desktop) or [Appium Inspector](https://github.com/saucelabs/appium-inspector-saucelabs) for UI inspection, it has built-in support for devices on the Real Device Cloud.
 
 #### **Can I change the orientation of the device screen during a test?**
 
@@ -200,7 +200,7 @@ Yes, only on private devices that have SIM cards and are connected to the Carrie
 
 #### **Can I access Mobile Data? Not just WiFi, but 4G and 5G networks?**
 
-Yes, only on private devices that have SIM cards and are connected to the Carrier Network.
+Yes, only on private devices that have SIM cards and are connected to the Carrier Network. Reach out to our support team regarding this!
 
 ### Live Testing
 
