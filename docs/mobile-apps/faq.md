@@ -159,7 +159,7 @@ No.
 
 #### **Do you support audio capture and streaming?**
 
-Audio capture and streaming are supported on real devices, [see more here.](#accessing-the-audio-in-your-test-tesults-for-automated-test)
+Audio capture and streaming are supported on real devices, [see more here.](/mobile-apps/features/audio-capture/#accessing-the-audio-in-your-test-tesults-for-automated-test)
 
 #### **Can I use Bluetooth on a device?**
 
