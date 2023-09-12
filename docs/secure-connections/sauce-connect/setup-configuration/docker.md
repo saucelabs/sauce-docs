@@ -8,7 +8,8 @@ As an alternative to downloading and installing the Sauce Connect Proxy in your 
 
 Here are some benefits/use cases:
 
-- If you want to run Sauce Connect Proxy as part of a Dockerized CI/CD.
+- If you want to run Sauce Connect Proxy as part of a containerized CI/CD.
+- If you want to run Sauce Connect Proxy using container orchestration tools such as Kubernetes
 - If you'd prefer to manage Docker image tags instead of Sauce Connect Proxy versions.
 - If your setup involves several instances running on the same system, Docker would simplify Sauce Connect Proxy port management.
 
@@ -21,16 +22,15 @@ Here are some benefits/use cases:
    ```
    - To use a specific version, add it as a tag:
    ```bash
-   $ docker pull saucelabs/sauce-connect:4.8.0
+   $ docker pull saucelabs/sauce-connect:4.9.1
    ```
     <details><summary>Supported tags</summary>
       - 4.9.1, 4.9.1-ubuntu-22.04, 4.9.1-alpine-glibc, latest<br/>
       - 4.9.0, 4.9.0-ubuntu-22.04, 4.9.0-alpine-glibc<br/>
+      - 4.8.3, 4.8.3-ubuntu-22.04, 4.8.3-alpine-glibc<br/>
       - 4.8.2, 4.8.2-ubuntu-22.04, 4.8.2-alpine-glibc<br/>
       - 4.8.1, 4.8.1-ubuntu-22.04, 4.8.1-alpine-glibc<br/>
       - 4.8.0, 4.8.0-alpine-glibc<br/>
-      - 4.7.1, 4.7.1-alpine-glibc<br/>
-      - 4.7.0, 4.7.0-alpine-glibc<br/>
     </details>
 2. To run the Sauce Connect Proxy Docker image, run the script below.
 
@@ -71,7 +71,7 @@ $ docker run \
     --env-file /tmp/sc.env \
     --network="host" \
     -v /tmp:/tmp \
-    -t saucelabs/sauce-connect:4.9.1
+    -t saucelabs/sauce-connect
 ```
 
 ## Running the Sauce Connect Docker Container with a CI/CD Pipeline
@@ -97,7 +97,7 @@ You can leverage the readiness endpoint in your CI/CD pipeline by running the fo
    ```bash title="wait-for-sc.sh"
    until [ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:8032/readiness)" == "200" ]
    do
-       sleep 2
+       sleep 1
    done
    echo "SC ready"
    ```
@@ -156,73 +156,73 @@ $ cat /tmp/sc.ready | jq .
 }
 ```
 
-## Running the Sauce Connect Docker with a nginx Server
+## Orchestrating the Sauce Connect Proxy Container
 
-The `docker-compose.yaml` file below shows how to run Sauce Connect Docker in the nginx server. The example configuration allows you to use a tunnel while launching a Desktop or Web Mobile test, then go to the 'nginx' URL. The Sauce Connect Proxy then routes you to the nginx container.
+Sauce Connect Proxy Container orchestration is the automation of much of the operational effort required to run containerized Sauce Connect Proxy.
+There are multiple container orchestration tools exist, such as Kubernetes, Docker Swarm, Google CloudRun, Amazon ECS, etc. This section provides a few examples of orchestrating containerized Sauce Connect Proxy.
 
-The Sauce Connect Proxy sits adjacent to the `nginx:latest` instance: you can reach the nginx service from Sauce Labs by going to nginx (if you run it as is). You can also provide a name to the container with [container_name](https://docs.docker.com/compose/compose-file/compose-file-v3/#container_name).
+### Running the Sauce Connect Proxy Container Indefinitely In Kubernetes
 
-If you were to name the container explicitly like `container_name: mywebserver` it would reachable from any app or website that tried to hit mockserver via HTTP: this is due to the nature of [how docker resolves container names](https://docs.docker.com/config/containers/container-networking/#:~:text=In%20the%20same,on%20that%20network) for any valid entries on that docker network.
+If you need a Sauce Connect Proxy to stay up indefinitely, we recommend using a [Helm chart](https://helm.sh/docs/topics/charts/) to manage your Sauce Connect Proxy instance or pool.
 
-```yaml
-version: "3"
-services:
-  sauce-connect-eu:
-    image: "saucelabs/sauce-connect:latest"
-    environment:
-      SAUCE_USERNAME: ${SAUCE_USERNAME}
-      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
-      SAUCE_OUTPUT_FORMAT: "text"
-    command: "-i composed-docker-sc -r eu-central"
+The Sauce Connect Proxy Docker GitHub repository provides [a reference Helm chart](https://github.com/saucelabs/sauce-connect-docker/tree/main/chart/sauce-connect) that may be used as is, or adapted to your needs.
+To use that chart:
 
-  nginx:
-    image: "nginx:latest"
-    container_name: "some-app"
-    ports:
-      - "3333:80"
-```
-
-## Running the Sauce Connect Proxy Indefinitely
-
-If you need a Sauce Connect Proxy to stay up indefinitely, the `docker-compose.yaml` below shows how to set up a set of shared Sauce Connect Pools that automatically restart when they go down.
+- Define a values file containing your configuration, for example:
 
 ```yaml
-version: "3.9"
-services:
-  sauce-connect-eu:
-    deploy:
-      replicas: 2
-      restart_policy:
-        delay: 30s
-        max_attempts: 5
-        condition: on-failure
-        window: 60s
-    image: "saucelabs/sauce-connect:latest"
-    environment:
-      SAUCE_USERNAME: ${SAUCE_USERNAME}
-      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
-      SAUCE_OUTPUT_FORMAT: "text"
-      SAUCE_LOGFILE: /tmp/persistent-eu-proxy1.log
-    command: "-i eu-pool -r eu-central --tunnel-pool"
-
-  sauce-connect-us:
-    image: "saucelabs/sauce-connect:latest"
-    restart: on-failure:2
-    deploy:
-      replicas: 2
-      restart_policy:
-        delay: 30s
-        max_attempts: 5
-        condition: on-failure
-        window: 60s
-    environment:
-      SAUCE_USERNAME: ${SAUCE_USERNAME}
-      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
-      SAUCE_OUTPUT_FORMAT: "text"
-    command: "-i us-pool -i docker-sc -r us-west --tunnel-pool"
+sauceApiRegion: us-west
+sauceUser: johndoe
+sauceApiKey: "xxx-xxx-xxx"
+tunnelName: "my-k8s-tunnel"
+tunnelPool: true
+tunnelPoolSize: 2
 ```
+
+- Run Helm install
+
+```bash title="helm install"
+helm install sauce-connect  ./chart/sauce-connect --values /path/to/values.yaml
+```
+
+- Use the following commands in order to get the Sauce Connect Proxy application status and logs
+
+```bash title="SC logs"
+$ POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=sauce-connect,app.kubernetes.io/instance=sauce-connect" -o jsonpath="{.items[0].metadata.name}")
+$ CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
+$ kubectl --namespace default port-forward $POD_NAME 8080:$CONTAINER_PORT
+$ curl -s 127.0.0.1:8080/api/v1/status | jq .
+$ curl -s http://127.0.0.1:8080/api/v1/status | jq .
+{
+  "firstConnectedTime": 1662098351,
+  "tunnelID": "11111",
+  "tunnelName": "my-k8s-tunnel",
+  "tunnelServer": "tunnel-59569b.tunnels.us-west-1.saucelabs.com",
+  "lastStatusChange": 1662098350,
+  "reconnectCount": 0,
+  "tunnelStatus": "connected"
+}
+$ kubectl logs $POD_NAME -f
+...
+2022-08-02 02:59:11.464 [8] [CLI] [info] Connection state has changed: previous: INIT, actual: CONNECTED.
+2022-08-02 02:59:11.464 [8] [CLI] [info] Sauce Connect is up, you may start your tests.
+```
+
+
+### Running the Sauce Connect Proxy Container Indefinitely With Docker Compose
+
+If you need a Sauce Connect Proxy to stay up indefinitely but you can't deploy it in Kubernetes (which is the recommended container orchestration tool), the Sauce Connect Proxy Docker GitHub repository provides an [example docker-compose.yaml](https://github.com/saucelabs/sauce-connect-docker/tree/main/examples/docker-compose-sc) that shows how to set up a set of shared Sauce Connect Pools that automatically restart when they go down.
+
+### Running an Application Alongside Sauce Connect Proxy
+
+The Sauce Connect Proxy Docker GitHub repository provides an [example docker-compose.yaml](https://github.com/saucelabs/sauce-connect-docker/tree/main/examples/docker-compose-sc-nginx) that shows
+how to run Sauce Connect Docker adjacent to an application container (an Nginx server in this example).
+The example configuration allows you to use a tunnel while launching a Desktop or Web Mobile test, then go to the 'http://some-app' URL. The Sauce Connect Proxy then routes you to the nginx container.
+You can change the Nginx container name with [container_name](https://docs.docker.com/compose/compose-file/compose-file-v3/#container_name).
 
 ## Additional Resources
 
 - [Use host networking in Docker](https://docs.docker.com/network/host/)
 - [Connect from a container to a service on the macOS host](https://docs.docker.com/desktop/mac/networking/#use-cases-and-workarounds)
+- [Helm charts](https://helm.sh/docs/topics/charts/)
+- [Docker Compose File](https://docs.docker.com/compose/compose-file/compose-file-v3/)
