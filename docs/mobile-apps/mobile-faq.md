@@ -1,7 +1,7 @@
 ---
-id: faq
+id: mobile-faq
 title: Mobile App Testing FAQ
-sidebar_label: FAQ
+sidebar_label: Mobile FAQ
 ---
 
 ## Virtual Devices
