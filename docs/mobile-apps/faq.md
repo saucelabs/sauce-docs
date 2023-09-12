@@ -51,7 +51,7 @@ Yes. See [Camera Image Injection](/mobile-apps/features/camera-image-injection).
 - **Android Real Devices** - Yes. It works automatically with no action required.
 - **iOS Real Devices** - Yes. Prior to testing, you'll need to disable resigning; this enables notifications testing. Disabling resigning is a feature available for [private devices only](/mobile-apps/supported-devices#private-device-cloud). To disable resigning, go to **Live** > **Mobile App** > Locate your iOS mobile app from your list of uploaded app > Click **Settings** > Toggle **Instrumentation** so that it says **Disabled**. You'll need to start keeping track of the iOS device UDIDs (Unique Device Identifier) by maintaining them in your own Apple Developer profile used at app build time.
 - **Android Emulators** - Not supported.
-- **iOS simulators** - Yes, when using the latest Appium version. 
+- **iOS simulators** - Yes, when using the latest Appium version.
 
 #### **Is there a maximum time I can use a real device for either manual or automated testing, provided I actually do interact with the device?**
 
@@ -96,7 +96,7 @@ Yes. We support OAuth login via Google and GitHub.
 
 #### **Are your devices jailbroken?**
 
-No. We do not offer jailbroken or rooted devices, or penetration testing. 
+No. We do not offer jailbroken or rooted devices, or penetration testing.
 
 ### Automated Testing
 
@@ -112,13 +112,16 @@ Yes. You’ll want to use Maven or Gradle. We also have our own Espresso Runner 
 
 #### **Can I run native app tests with XCUITest test automation?**
 
-Yes, on iOS 13 and above. 
+Yes, on iOS 13 and above.
 
 #### **How do I upload an iOS app?**
 
-You'll need to export your app as an .ipa file for Ad-Hoc Deployment as described in [Building an .ipa File](/mobile-apps/automated-testing/ipa-files/#building-an-ipa-file).
+You'll need to export your app for the right device type:
 
-You can upload your .ipa manually to create a project, then upload subsequent versions either manually or through our REST API, as described in [Uploading Your App to Real Device Storage with the REST API](/mobile-apps/app-storage).
+- **For Simulators:** You need an `.app` file for Ad-Hoc Deployment as described in [Building an .app File](/mobile-apps/automated-testing/app-files/).
+- **For Real Devices:** You need an `.ipa` file for Ad-Hoc Deployment as described in [Building an .ipa File](/mobile-apps/automated-testing/ipa-files/#building-an-ipa-file).
+
+You can upload your `.app` or `.ipa` through our REST API, as described in [Uploading Your App to Real Device Storage with the REST API](/mobile-apps/app-storage).
 
 #### **Can I upload multiple .apk or .aab files for testing?**
 
@@ -134,7 +137,7 @@ No. On iOS, we re-sign with our own certificate. On Android, there are no extra 
 
 #### **If I run a test on the public real device cloud, can I run it over ssh or a VPN?**
 
-No. Private and public cloud accounts have the option to use our Sauce Connect Proxy solution for ensuring a secure connection to your own environment and internal endpoints, [see more here.](https://docs.saucelabs.com/secure-connections/sauce-connect/). Using a VPN app in the device is not supported, nor guaranteed to work. 
+No. Private and public cloud accounts have the option to use our Sauce Connect Proxy solution for ensuring a secure connection to your own environment and internal endpoints, [see more here.](/secure-connections/sauce-connect/). Using a VPN app in the device is not supported, nor guaranteed to work.
 
 Sauce Connect is supported for both private and public clouds.
 
@@ -156,7 +159,7 @@ No.
 
 #### **Do you support audio capture and streaming?**
 
-Audio capture and streaming are supported on real devices, [see more here.](https://docs.saucelabs.com/mobile-apps/features/audio-capture/#:~:text=Audio%20Capture%20is%20a%20functionality,or%20automated%20real%20device%20test.) 
+Audio capture and streaming are supported on real devices, [see more here.](#accessing-the-audio-in-your-test-tesults-for-automated-test)
 
 #### **Can I use Bluetooth on a device?**
 
@@ -172,7 +175,7 @@ No.
 
 #### **Do you have any UI inspection tool built into your application like UI Automator viewer?**
 
-Not yet, this is in the works! For now, we recommend using [Appium Desktop](https://github.com/appium/appium-desktop) or [Appium Inspector](https://github.com/saucelabs/appium-inspector-saucelabs) for UI inspection, it has built-in support for devices on the Real Device Cloud.
+Not yet, this is in the works! For now, we recommend using [Appium Inspector](https://github.com/appium/appium-inspector).
 
 #### **Can I change the orientation of the device screen during a test?**
 
@@ -192,7 +195,7 @@ No, the device's time and date cannot be changed.
 
 #### **Can I take screenshots during Espresso tests with the Real Device Cloud?**
 
-Yes, if you use the Spoon library.
+Yes, see [Espresso Screenshot Capture](/mobile-apps/automated-testing/espresso-xcuitest/espresso-capture/).
 
 #### **Can I test MO (Mobile Originated) SMS text messages?**
 
@@ -279,13 +282,14 @@ To make sure the availability stays high, we need to password-protect certain fu
 
 You can run as many tests as you wish on your trial account, but you will only be able to run one test at a time. Also, no manual test is allowed to run for more than ten minutes.
 
-## New iOS and Android Release: 
+## New iOS and Android Release:
 
-#### What is new on iOS17 devices? 
+#### What is new on iOS17 devices?
 
 You can run automated Appium 2.0 and Live Tests against any of our iOS17 devices! You can find a detailed list of all the changes introduced that might impact[ your application or testing here.](https://saucelabs.com/resources/blog/ios-17-beta-sauce-real-device-cloud)
 The following features are limited or not available for a short period of time on iOS17 devices:
+
 - Accessing and changing Location services
 - XCUITest support
 - Smooth streaming and audio streaming
-- Changing locale. 
+- Changing locale.
