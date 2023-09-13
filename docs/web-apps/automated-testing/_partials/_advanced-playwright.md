@@ -44,3 +44,26 @@ You can use Playwright to test your app on any browser and emulate a real device
 :::note
 Playwright is not a real Emulator or Simulator. It just emulates the browser behavior such as `userAgent`, `screenSize`, `viewport` and etc.
 :::
+
+## Screenshots
+
+To enable Playwright screenshot capture, please refer to the [Playwright Config](https://playwright.dev/docs/test-configuration#automatic-screenshots).
+
+By default, Playwright generates screenshot files in the following structure:
+
+```
+demo-todo-app-Editing-should-save-edits-on-blur-webkit
+demo-todo-app-Editing-should-save-edits-on-blur-webkit/test-finished-1.png
+demo-todo-app-Routing-should-allow-me-to-display-all-items-chromium
+demo-todo-app-Routing-should-allow-me-to-display-all-items-chromium/test-finished-1.png
+```
+
+However, Sauce Labs only supports uploading flattened files, which means that `test-finished-1.png` would be uploaded and overwritten. To set a unique screenshot name, you can refer to the [Playwright Screenshot documentation](https://playwright.dev/docs/screenshots) and set it as follows:
+
+```javascript
+test('take a screenshot', async ({ page }, testInfo) => {
+  await page.goto('https://playwright.dev/');
+  await page.screenshot({ path: 'screen_capture_unique_name.png' });
+  await testInfo.attach('screen_capture_unique_name.png', { path: 'screen_capture_unique_name.png', contentType: 'image/png' });
+});
+```
