@@ -47,7 +47,7 @@ Playwright is not a real Emulator or Simulator. It just emulates the browser beh
 
 ## Screenshots
 
-To set a unique and trackable screenshot name, please refer to the [Playwright Screenshot documentation](https://playwright.dev/docs/screenshots) and use the following code snippet:
+To get trackable screenshots in Sauce Cloud, please refer to the [Playwright Screenshot documentation](https://playwright.dev/docs/screenshots) and implement the following code snippet:
 
 ```javascript
 test('take a screenshot', async ({ page }, testInfo) => {
@@ -58,7 +58,7 @@ test('take a screenshot', async ({ page }, testInfo) => {
 ```
 
 :::caution
-Please be aware that using the default screenshot setting in the [Playwright Config](https://playwright.dev/docs/test-use-options#recording-options) may have potential issues on Sauce Labs. By default, Playwright generates screenshot files in the following structure:
+Please be aware that using the default screenshot setting in the [Playwright Config](https://playwright.dev/docs/test-use-options#recording-options) may result in potential issues on Sauce Labs. By default, Playwright generates screenshot files in the following structure:
 
 ```
 demo-todo-app-Editing-should-save-edits-on-blur-webkit
