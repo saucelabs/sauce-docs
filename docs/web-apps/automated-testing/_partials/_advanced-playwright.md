@@ -57,6 +57,8 @@ test('take a screenshot', async ({ page }, testInfo) => {
 });
 ```
 
+The captured screenshot will be logged in `sauce-test-report.json`` and can be accessed in the "Screenshots" tab on the Sauce Labs web UI. You can also download the screenshots as artifacts.
+
 :::caution
 Please be aware that using the default screenshot setting in the [Playwright Config](https://playwright.dev/docs/test-use-options#recording-options) may result in potential issues on Sauce Labs. By default, Playwright generates screenshot files in the following structure:
 
