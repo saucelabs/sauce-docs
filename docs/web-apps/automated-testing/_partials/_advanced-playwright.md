@@ -69,5 +69,5 @@ demo-todo-app-Routing-should-allow-me-to-display-all-items-chromium
 demo-todo-app-Routing-should-allow-me-to-display-all-items-chromium/test-finished-1.png
 ```
 
-However, Sauce Labs only supports uploading flattened files, which means that `test-finished-1.png` would be uploaded and overwritten, resulting in only one `test-finished-1.png` existing.
+However, Sauce Labs only supports a flat file hiearchy, which means that `test-finished-1.png` would be uploaded and overwritten, since only one file named `test-finished-1.png` can be stored.
 :::
