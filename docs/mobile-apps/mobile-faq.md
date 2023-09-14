@@ -1,7 +1,7 @@
 ---
-id: faq
+id: mobile-faq
 title: Mobile App Testing FAQ
-sidebar_label: FAQ
+sidebar_label: Mobile FAQ
 ---
 
 ## Virtual Devices
@@ -291,5 +291,5 @@ The following features are limited or not available for a short period of time o
 
 - Accessing and changing Location services
 - XCUITest support
-- Smooth streaming and audio streaming
+- Smooth streaming and audio support during Live Testing
 - Changing locale.

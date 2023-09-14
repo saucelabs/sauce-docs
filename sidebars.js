@@ -1303,7 +1303,7 @@ module.exports = {
                     ],
                 },
                 'mobile-apps/ms-app-center',
-                'mobile-apps/faq',
+                'mobile-apps/mobile-faq',
             ],
         },
         {
