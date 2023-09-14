@@ -14,8 +14,7 @@ The following steps guide you through configuring your JavaScript application to
 ## What You'll Need
 
 - A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
-- Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
-- [Symbol submission token and URL](/error-reporting/project-setup/submission-url)
+- A symbol submission URL with a `symbol:post` token for the `sourcemap` endpoint. [(Detailed instructions)](/error-reporting/project-setup/submission-url)
 
 ## Creating and Uploading Source Maps
 
@@ -84,7 +83,10 @@ You can also use `npx` and skip adding the dependency:
 
 Replace `OUTPUT_DIRECTORY` with the path to the directory where your transpiled scripts are stored.
 
-Replace `UPLOAD_OPTIONS` with `--url <your upload URL>`, obtained from [the symbol submission URL](#acquire-a-symbol-submission-token-and-url).
+Replace `UPLOAD_OPTIONS` with `--url <your symbol submission URL>`.
+:::tip
+Follow [(these instructions)](/error-reporting/project-setup/submission-url) to create a symbol submission URL with a `symbol:post` token for the `sourcemap` endpoint.
+:::
 
 ### Configuration File
 
