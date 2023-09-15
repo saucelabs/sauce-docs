@@ -38,18 +38,18 @@ The [client (also known as SC)](/secure-connections/sauce-connect-5/installation
 
 ### Sauce Connect Proxy Client Traffic
 
-The diagram above also illustrates the traffic initiated from the client.
+The diagram above also illustrates the traffic that is initiated from the client.
 
 - Sauce Connect Proxy client sends requests to the Sauce Labs REST API
   - Start/stop requests as well as various status queries to the Sauce Labs public REST API
 - Sauce Connect Proxy client establishes several (two by default) permanent secure HTTP/2 connections to Sauce Connect Server
   - These connections form a secure "tunnel" between the client and the server
   - These connections are alive as long as Sauce Connect Proxy client process is alive
-- Sauce Connect Proxy built-in HTTP proxy proxies requests initiated by a browser or a mobile app to SUT
+- Sauce Connect Proxy built-in HTTP proxy processes requests initiated by a browser or a mobile app in the Sauce Labs data center
 
 ### Sauce Connect Proxy Server
 
-The server is a VM (or container) running in Sauce Labs data centers and it includes the following components:
+The server is a VM (or a container) running in Sauce Labs data centers and it includes the following components:
 
 - Tunnel VM Controller: this is the logic that is responsible for configuring the VM, making sure all components are functional, and reporting back to other internal services.
 - SC Server: the server side implementation of HTTP/2 Connection Manager.
