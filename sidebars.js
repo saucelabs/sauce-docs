@@ -727,6 +727,7 @@ module.exports = {
                                 'dev/cli/saucectl/storage/download',
                                 'dev/cli/saucectl/storage/list',
                                 'dev/cli/saucectl/storage/upload',
+                                'dev/cli/saucectl/storage/delete',
                                 'dev/cli/saucectl/artifacts/download',
                                 'dev/cli/saucectl/artifacts/list',
                                 'dev/cli/saucectl/artifacts/upload',
@@ -1302,7 +1303,7 @@ module.exports = {
                     ],
                 },
                 'mobile-apps/ms-app-center',
-                'mobile-apps/faq',
+                'mobile-apps/mobile-faq',
             ],
         },
         {

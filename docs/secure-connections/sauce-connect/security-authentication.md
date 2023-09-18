@@ -115,7 +115,15 @@ For connection to the Sauce Labs virtual machines, the certificate presented by 
 
 When securing Sauce Connect Proxy, be sure to allowlist these sites so that the Sauce Connect SSL certificates can be verified:
 
-- http://gp.symcd.com, http://ocsp.digicert.com, http://status.geotrust.com
+- http://crl1.digicert.com
+- http://crl2.digicert.com
+- http://crl3.digicert.com
+- http://crl4.digicert.com
+- http://ocsp.digicert.com
+- http://status.geotrust.com
+- http://\*.o.lencr.org
+- http://\*.c.lencr.org
+- http://gp.symcd.com
 
 Sauce Connect Proxy will try to resolve the entire certificate chain at runtime and check if it can reach the OCSP servers in the entire chain. Because the chain is resolved during runtime and certificates change and are constantly renewed, it's possible that the OCSP sites listed in the certification check might change over time as well.
 
