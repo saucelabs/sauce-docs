@@ -14,11 +14,22 @@ The following steps guide you through configuring your JavaScript application to
 ## What You'll Need
 
 - A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
-- A symbol submission URL with a `symbol:post` token for the `sourcemap` endpoint. [(Detailed instructions)](/error-reporting/project-setup/submission-url)
+- A symbol submission URL with a `symbol:post` token for the `sourcemap` endpoint. [&ltdetailed instructions>](/error-reporting/project-setup/submission-url)
 
 ## Creating and Uploading Source Maps
 
-**Step 1: Enable Source Maps for Your Application**
+Follow these steps to create and upload source maps with every build of your application:
+1. [Enable source maps](#step-1-enable-source-maps-for-your-application)
+1. [Install the `backtrace-js` command line tool](#step-2-install-backtrace-js)
+1. [Create a configuration file for `backtrace-js`](#step-3-create-a-backtracejsrc-configuration-file)
+
+
+### Step 1: Enable Source Maps for Your Application
+:::warning
+- Under what conditions are source maps not already enabled?
+- Are normal customers completely familiar with source maps, and know whether or not they are produced?
+- This is all to ask: Can a user skip this step? Which users can?
+:::
 
 <Tabs
 groupId="applications"
@@ -55,67 +66,101 @@ uglifyjs main.js -c -m --source-map -o main.min.js
 </TabItem>
 </Tabs>
 
-**Step 2: Configure @backtrace-labs/javascript-cli**
+---
+### Step 2: Install `backtrace-js`
+
+Install the `backtrace-js` command line tool and update your build scripts to run it. `backtrace-js` can be run from the command line, but it is most efficient to use a configuration file which  we will create in the next step.
 
 1. Install `@backtrace-labs/javascript-cli` as a dev dependency:
 
    ```bash
-   npm install --save-dev @backtrace-labs/javascript-cli
+   npm install -g --save-dev @backtrace-labs/javascript-cli
    ```
 
-2. Add the following scripts to your `package.json` file:
+2. Add the following script to `package.json` to process and upload source maps:
 
    ```json
    "scripts": {
-     "backtrace:process": "backtrace-js process OUTPUT_DIRECTORY",
-     "backtrace:upload": "backtrace-js upload OUTPUT_DIRECTORY UPLOAD_OPTIONS"
+     // highlight-next-line
+     "backtrace:sourcemap": "backtrace-js run",
    }
    ```
 
-You can also use `npx` and skip adding the dependency:
+3. Update the build step in `package.json` to process and upload source maps with every build:
+
+   ```json
+   "scripts": {
+      // highlight-next-line
+     "build": "<current build commands> && npm run backtrace:sourcemap"
+   }
+   ```
+
+---
+### Step 3: Create a `.backtracejsrc` configuration file
+
+Create a `.backtracejs` file in the root of your project.
 
 ```json
-"scripts": {
-  "backtrace:process": "npx --package @backtrace-labs/javascript-cli backtrace-js process OUTPUT_DIRECTORY",
-  "backtrace:upload": "npx --package @backtrace-labs/javascript-cli backtrace-js upload OUTPUT_DIRECTORY UPLOAD_OPTIONS"
+{
+    // highlight-next-line
+    "path": "<build output>",
+    "run": {
+        "process": true,
+        "add-sources": true,
+        "upload": true
+    },
+    "upload": {
+        // highlight-next-line
+        "url": "<symbol submission url>",
+        "include-sources": true
+    }
 }
 ```
 
-Replace `OUTPUT_DIRECTORY` with the path to the directory where your transpiled scripts are stored.
+- Replace `<build output>` with the path to the directory where your transpiled scripts are stored.
+- Follow [&ltthese instructions>](/error-reporting/project-setup/submission-url) to create the `<symbol submission URL>` with a `symbol:post` token for the `sourcemap` endpoint.
 
-Replace `UPLOAD_OPTIONS` with `--url <your symbol submission URL>`.
-:::tip
-Follow [(these instructions)](/error-reporting/project-setup/submission-url) to create a symbol submission URL with a `symbol:post` token for the `sourcemap` endpoint.
+See `backtrace-js --help` or go to [`@backtrace-labs/javascript-cli`](https://github.com/backtrace-labs/backtrace-javascript/blob/dev/tools/cli) for additional command line and configuration options.
+
+:::note Troubleshooting
+  Source map processing will halt on error with a description. Use a --verbose command line switch to output extended information for troubleshooting.
+  
+  __File processing errors__
+
+  File processing may halt on a specific file for valid reasons. For instance, a source map may not produced for a script file. Processing for such a file can be skipped with an exclude object in `.backtracejsrc`
+
+  ```json
+  {
+    "path": "<build output>",
+    // highlight-start
+    "exclude": [
+      // highlight-next-line
+      "./app1/build/static/js/file.chunk.js"
+    ]
+    // highlight-end
+    "run": {
+    ...
+  }
+```
+
+  Alternatively, all processing errors can be treated as warnings or other errors levels.
+  ```json
+  {
+    "path": "<build output>",
+    // highlight-start
+    "asset-error-behavior": "warn",
+    // highlight-end
+    "run": {
+    ...
+  }
+  ```
+
 :::
 
-### Configuration File
-
-Instead of providing options in script argument lines, you can configure them in the `.backtracejsrc` configuration file:
-
-```jsonc
-{
-  "path": "OUTPUT_DIRECTORY",
-  "upload": {
-    "url": "your upload URL"
-  }
-}
-```
-
-For more details, consult `@backtrace-labs/javascript-cli` [README](https://github.com/backtrace-labs/backtrace-javascript/blob/main/tools/cli/README.md).
-
-**Step 3: Set Up Automatic Processing and Upload**
-
-To process and upload your artifacts, you must first run `npm run backtrace:process` and then `npm run backtrace:upload`.
-
-To ensure that this is done automatically, you can add these commands to your production script:
-
-```json
-"scripts": {
-  "build": "my current build command && npm run backtrace:process && npm run backtrace:upload"
-}
-```
-
 ## Project Bundlers
+:::warning
+Can we provide text that says this is only necessary if you use a project bundler?
+:::
 
 <Tabs
 groupId="project-bundler"
@@ -141,14 +186,14 @@ module.exports = {
 }
 ```
 
-If you're using code transpiler plugins (such as Typescript), ensure to enable source-mapping there as well.
+If you're using code transpiler plugins (such as Typescript), be sure to enable source maps there as well.
 
 **Step 2: Set up `@backtrace-labs/webpack-plugin`**
 
 1. Install `@backtrace-labs/webpack-plugin` as a developer dependency:
 
    ```bash
-   npm install --save-dev @backtrace-labs/webpack-plugin
+   npm install -g --save-dev @backtrace-labs/webpack-plugin
    ```
 
 2. Add it to your `plugins` array in `webpack.config.js`:
@@ -185,14 +230,14 @@ module.exports = {
 }
 ```
 
-If you're using code transpiler plugins (such as Typescript), ensure to enable source-mapping there as well.
+If you're using code transpiler plugins (such as Typescript), be sure to enable source maps there as well.
 
 **Step 2: Set up `@backtrace-labs/rollup-plugin`**
 
 1. Install `@backtrace-labs/rollup-plugin` as a developer dependency:
 
    ```bash
-   npm install --save-dev @backtrace-labs/rollup-plugin
+   npm install -g --save-dev @backtrace-labs/rollup-plugin
    ```
 
 2. Add it to your `plugins` array in `rollup.config.js`:
@@ -229,14 +274,14 @@ module.exports = {
 }
 ```
 
-If you're using code transpiler plugins (such as Typescript), ensure to enable source-mapping there as well.
+If you're using code transpiler plugins (such as Typescript), be sure to enable source maps there as well.
 
 **Step 2: Set up `@backtrace-labs/vite-plugin`**
 
 1. Install `@backtrace-labs/vite-plugin` as a developer dependency:
 
    ```bash
-   npm install --save-dev @backtrace-labs/vite-plugin
+   npm install -g --save-dev @backtrace-labs/vite-plugin
    ```
 
 2. Add it to your `plugins` array in `vite.config.js`:
