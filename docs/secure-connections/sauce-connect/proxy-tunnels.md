@@ -10,7 +10,8 @@ import TabItem from '@theme/TabItem';
 
 ## What You'll Need
 
-- If you haven't already, make sure you can cURL the website or mobile app that you'll be testing from your computer. If you can't reach it, neither can Sauce Connect Proxy.
+- If you haven't already, make sure you can access the website or mobile app that you'll be testing from the Sauce Connect Proxy host.
+  - We recommend using [cURL](https://curl.se/docs/) or an equivalent tool.
 - Check to see if you have any proxies that are required to access the public Internet.
 - Review the [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for instructions on how to set your Sauce Labs username and access key and launch a tunnel.
 - If you're using Jenkins, GitHub Actions, or Bamboo, be sure to review [Sauce Connect Proxy CI/CD Integration](/secure-connections/sauce-connect/setup-configuration/ci-cd-integration).
@@ -37,9 +38,9 @@ You can manage and monitor all Sauce Connect Proxy tunnel activity from the Sauc
 
 | Column          | Description                                                                                                                                           |
 | :-------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Type            | The icon shows whether the tunnel is a Sauce Connect Proxy tunnel, or an IPSec VPN tunnel.                                                            |
+| Type            | The icon shows whether the tunnel is a Sauce Connect Proxy, or an Sauce IPSec Proxy.                                                            |
 | State           | The icon shows whether the tunnel is running or stopped.                                                                                              |
-| Tunnel Name     | The name of the tunnel. This is the [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-identifier) used when starting the Sauce Connect tunnel. |
+| Tunnel Name     | The name of the tunnel. This is the [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) used when starting the Sauce Connect tunnel. |
 | Client Hostname | The name of the machine where the Sauce Connect Proxy client is running.                                                                              |
 | Owner           | The name of the account that is running the tunnel.                                                                                                   |
 | Sharing         | Indicates whether or not the tunnel is shared.                                                                                                        |
@@ -56,36 +57,13 @@ If successful, you'll see a confirmation response like the one below, indicating
 <details><summary><strong>Click here to expand</strong><br/></summary>
 
 ```bash
-
-                    ,,
-                   .;,
-              ..,,::i:,,..
-           .:;i1111111111ii;,
-         .;11tttffLLLLLLLfft1i,
-         ;1tfffLLCCCCCCCCCCCL1i
-        ,i1ffLLCCCCCCCCCCCLLCti;
-        :i1fLCCCCCCCCCCCCCCCCti;
-         ;1tLLLCCCCCCCCCCCLLf1i   :;
-         .:;i11ttttttttttt11i;,  ,1.   ;:
-             ..,::;iii::,,..     .;;,,;i,
-             .,:;;iiii;;:,.       ;1;:,
-           :i1111tfLCft1111i:. .:ii,
-         ,i111i1CG80GC80ti111iii;,
-       ,i1ii11if00GGGC0GGi11i1:.
-     .i1:.;1i1it08GC0080Li11i1.
-   .,1i.  i1111itCLG0GCfi11111.
- :;:;i;   :iii11iii111ii111ii;.
- .    1:    .i1i11,  .i1ii1:.
-     :i.    ,1iii1:  ,1iii1;
-     .      :11111:  ,i1111;
-             .,,,.    .,,,.
-
-
-Sauce Connect Proxy™ opens a secure connection between Sauce Labs and a locally hosted application.
+Sauce Connect Proxy opens a secure connection between Sauce Labs and a locally hosted application.
 
   Find more information at: https://docs.saucelabs.com/dev/cli/sauce-connect-proxy
 
-Sauce Connect 4.8.0
+Sauce Connect 4.9.1, build 5587 55cc68f
+
+INFO: Adding tunnel to pool 'us-west-mac', now running 2 instances.
 
 Sauce Connect runtime information:
 - Name: YOUR-TUNNEL-NAME
@@ -93,9 +71,12 @@ Sauce Connect runtime information:
 - PID file: /tmp/sc_client-YOUR-TUNNEL-NAME.pid
 - Log file: /var/folders/xj/9gxlps1566917q90pdb707cm0000gn/T/sc-YOUR-TUNNEL-NAME.log
 - SCProxy Port: 61602
-- Metric Port: None
+- Status Port: 4445
 - Selenium listener: None
 - External proxy for REST API: None
+- Tunnel proxy: None
+- Region: us-west
+
 Please wait for 'you may start your tests' to start your tests: \
 Secure remote tunnel provisioned. Tunnel ID: 09313680b3ff433ebbb6bca5cb87919c
 
@@ -153,7 +134,7 @@ If you're starting ephemeral tunnels from a CI/CD system, there are multiple way
 
 ## Stopping Tunnels
 
-There are severals ways to stop Sauce Connect Proxy tunnels:
+There are several ways to stop Sauce Connect Proxy tunnels:
 
 ### From the Command Line
 
@@ -176,12 +157,12 @@ Goodbye.
 If you attempt to terminate a Sauce Connect Proxy tunnel that is running a test with `ctrl-c`, you will see a message indicating that Sauce Connect Proxy will not terminate until tests are completed. To proceed with terminating Sauce Connect Proxy before the test finishes, enter `ctrl-c` again to force it to quit.
 :::
 
-#### To Stop a Single Tunnel: `KILL` signal
+#### To Stop a Single Tunnel: sending an interrupt signal
 
-Another way to stop an individual tunnel via command line is to send a `KILL` command to the running `Process ID` (pid). The kill command sends various signals:
+Another way to stop an individual tunnel via command line is to use the `kill` command to send an interrupt signal to the running `Process ID` (pid). The `kill` command sends various signals:
 
-- `kill -9` sends a kill signal (SIGKILL), which forces the program to shut down.
-- `kill` sends a SIGTERM signal, which interrupts the program for a graceful shutdown. This is what we'll use in the below example.
+- `kill` or `kill -15` sends a `SIGTERM` signal, which interrupts the program for a graceful shutdown. This is what we'll use in the below example.
+- `kill -9` sends a kill signal (SIGKILL), which forces the program to shut down. It's not recommended.
 
 1. Start a Sauce Connect Proxy tunnel [per standard procedure](/secure-connections/sauce-connect/quickstart).
 2. Fetch and save the process IDs for later use.
@@ -193,10 +174,10 @@ $ ps aux | grep bin/sc
 Expected Response:
 
 ```bash
-$SAUCE_USERNAME   38312   0.1  0.1  4461780  20084 s000  S+    2:58PM   0:00.33 sc-<VERSION>-<PLATFORM>/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY
+$SAUCE_USERNAME   38312   0.1  0.1  4461780  20084 s000  S+    2:58PM   0:00.33 sc-<VERSION>-<PLATFORM>/bin/sc
 ```
 
-3. Send a `KILL` signal to each `Process ID` (pid):
+3. Send a `SIGTERM` signal to each `Process ID` (`pid`):
 
 ```bash
 $ kill 38312
@@ -220,18 +201,18 @@ Here is an example using Linux commands:
 - `ps aux | grep sc`: Lists matching process(es).
 - `| grep -v grep`: Filters out the grep process itself.
 - `| awk '{print $2}'`: Grabs the `pid`.
-- `| xargs kill -9`: Passes it to `kill -9`.
+- `| xargs kill`: Passes it to the `kill` command.
 
 :::warning
 `xargs kill -9` will immediately disrupt all jobs currently running through that tunnel. If you wish to interrupt the program in order to gracefully shutdown the tunnels use the `xargs kill` signal instead.
 
-**We recommend first trying this command without `xargs kill -9` to ensure you don't unnecessarily delete adjacent running processes.**
+**We recommend first trying this command without `xargs kill` to ensure you don't unnecessarily delete adjacent running processes.**
 
 For more information about acceptable signals and parameters, see the [Linux kill command manual](http://linuxcommand.org/lc3_man_pages/kill1.html).
 :::
 
-```bash title="Example command for killing all running proxy tunnels"
-$ ps aux | grep sc | grep -v grep | awk  '{print $2}' | xargs kill -9
+```bash title="Example command for stopping all running proxy tunnels"
+$ ps aux | grep sc | grep -v grep | awk  '{print $2}' | xargs kill
 ```
 
 ### From the Tunnels Page
@@ -266,12 +247,10 @@ Ephemeral tunnels (short-lived tunnels) are ideal for the following test situati
 - If you plan to start and stop your tests quickly and need to be more hands-on.
 - If you need to test potentially build-breaking changes like modifying the tunnel to fast-fail scripts/trackers, change the geolocation, or change how SSL/TLS encryption happens.
 
-#### Starting an Ephemeral Tunnel From Your Local Workstation
-
-One option to start Ephemeral tunnels is to do so from your local workstation.
+#### Starting an Ephemeral Tunnel
 
 1. [Set your Sauce Labs username and access key as environmental variables](/basics/environment-variables).
-2. Run the basic startup commands to ensure that your tunnel starts. Be sure to include the [`--region`](/dev/cli/sauce-connect-proxy/#--region) and [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-identifier) flags for best performance.
+2. Run the basic startup commands to ensure that your tunnel starts. Be sure to include the [`--region`](/dev/cli/sauce-connect-proxy/#--region) and [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) flags for best performance.
 
 <Tabs
   defaultValue="Mac/Linux"
@@ -283,20 +262,20 @@ One option to start Ephemeral tunnels is to do so from your local workstation.
   <TabItem value="Mac/Linux">
 
 ```bash
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --region {SAUCE_DATA_CENTER} --tunnel-name $TUNNEL_NAME
+./sc --region $SAUCE_REGION --tunnel-name $SAUCE_TUNNEL_NAME
 ```
 
   </TabItem>
   <TabItem value="Windows">
 
 ```bash
-.\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% --region {SAUCE_DATA_CENTER} --tunnel-name $TUNNEL_NAME
+.\sc.exe --region $SAUCE_REGION --tunnel-name $SAUCE_TUNNEL_NAME
 ```
 
   </TabItem>
   </Tabs>
 
-Once you see a tunnel on Sauce Labs, you can start testing against a site that is hosted on your network. You can leave it up for as long as you'd like and test at a fairly reasonable volume. Start it and stop it as needed!
+Once you see a tunnel on Sauce Labs, you can start testing against a site that is hosted on your network. You can leave it up for as long as you'd like. Start it and stop it as needed!
 
 #### Starting an Ephemeral Tunnel From a Continuous Integration (CI) Build Server
 
