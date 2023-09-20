@@ -35,19 +35,20 @@ To view the description for a YAML file property, look up the corresponding [CLI
 
 ```bash
 $ cat /sc-4.9.1-osx/config_examples/config.yml
----
 api-key: ""
 auth: []
 cainfo: ""
+capath: ""
 direct-domains: []
 dns: []
 fast-fail-regexps: []
 log-stats: 0
-logfile: "-"
+logfile: ""
 max-logsize: 0
-metrics-address: "localhost:0"
+status-address: "localhost:0"
 no-autodetect: false
-no-remove-colliding-tunnels: false
+no-proxy-caching: false
+tunnel-pool: false
 no-ssl-bump-domains: []
 pac: ""
 pidfile: ""
@@ -58,10 +59,12 @@ readyfile: ""
 region: "us-west"
 rest-url: ""
 scproxy-port: 0
+scproxy-read-limit: 0
+scproxy-write-limit: 0
 se-port: 0
 shared-tunnel: false
 tunnel-domains: []
-tunnel-identifier: ""
+tunnel-name: ""
 user: ""
 verbose: 0
 ```
