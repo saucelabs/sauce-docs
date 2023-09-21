@@ -44,3 +44,30 @@ You can use Playwright to test your app on any browser and emulate a real device
 :::note
 Playwright is not a real Emulator or Simulator. It just emulates the browser behavior such as `userAgent`, `screenSize`, `viewport` and etc.
 :::
+
+## Screenshots
+
+To get trackable screenshots in Sauce Cloud, please refer to the [Playwright Screenshot documentation](https://playwright.dev/docs/screenshots) and implement the following code snippet:
+
+```javascript
+test('take a screenshot', async ({ page }, testInfo) => {
+  await page.goto('https://playwright.dev/');
+  await page.screenshot({ path: 'screen_capture_unique_name.png' });
+  await testInfo.attach('screen_capture_unique_name.png', { path: 'screen_capture_unique_name.png', contentType: 'image/png' });
+});
+```
+
+The captured screenshot will be logged in `sauce-test-report.json`` and can be accessed in the "Screenshots" tab on the Sauce Labs web UI. You can also download the screenshots as artifacts.
+
+:::caution
+Please be aware that using the default screenshot setting in the [Playwright Config](https://playwright.dev/docs/test-use-options#recording-options) may result in potential issues on Sauce Labs. By default, Playwright generates screenshot files in the following structure:
+
+```
+demo-todo-app-Editing-should-save-edits-on-blur-webkit
+demo-todo-app-Editing-should-save-edits-on-blur-webkit/test-finished-1.png
+demo-todo-app-Routing-should-allow-me-to-display-all-items-chromium
+demo-todo-app-Routing-should-allow-me-to-display-all-items-chromium/test-finished-1.png
+```
+
+However, Sauce Labs only supports a flat file hiearchy, which means that `test-finished-1.png` would be uploaded and overwritten, since only one file named `test-finished-1.png` can be stored.
+:::

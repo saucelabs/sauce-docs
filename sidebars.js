@@ -709,6 +709,15 @@ module.exports = {
                 'dev/cli/sauce-connect-proxy',
                 {
                     type: 'category',
+                    label: 'Sauce Connect Proxy 5 CLI (alpha)',
+                    collapsed: true,
+                    items: [
+                        'dev/cli/sauce-connect-5/run',
+                        'dev/cli/sauce-connect-5/completion',
+                    ],
+                },
+                {
+                    type: 'category',
                     label: 'saucectl CLI',
                     collapsed: true,
                     items: [
@@ -939,6 +948,23 @@ module.exports = {
                     label: 'Sauce Connect Proxy',
                     collapsed: true,
                     items: [
+                        {
+                            type: 'category',
+                            label: 'Sauce Connect Proxy 5 (alpha)',
+                            collapsed: true,
+                            items: [
+                                'secure-connections/sauce-connect-5',
+                                'secure-connections/sauce-connect-5/installation',
+                                {
+                                    type: 'category',
+                                    label: 'Advanced',
+                                    collapsed: true,
+                                    items: [
+                                        'secure-connections/sauce-connect-5/advanced/architecture',
+                                    ],
+                                },
+                            ],
+                        },
                         'secure-connections/sauce-connect',
                         'secure-connections/sauce-connect/installation',
                         'secure-connections/sauce-connect/quickstart',
@@ -1303,7 +1329,7 @@ module.exports = {
                     ],
                 },
                 'mobile-apps/ms-app-center',
-                'mobile-apps/faq',
+                'mobile-apps/mobile-faq',
             ],
         },
         {

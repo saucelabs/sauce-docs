@@ -173,7 +173,7 @@ The launch of Sauce Connect 4.9.1 makes it the officially supported version of t
    <td>
     <a href="https://saucelabs.com/downloads/sc-4.8.3-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.8.3-linux-arm64.tar.gz">Linux ARM64</a>, <a href="https://saucelabs.com/downloads/sc-4.8.3-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.8.3-win32.zip">Windows</a>
    </td>
-   <td rowspan="4" >Nov. 30, 2023
+   <td rowspan="4" >Feb. 29, 2024
    </td>
   </tr>
  <tr>
@@ -198,27 +198,8 @@ The launch of Sauce Connect 4.9.1 makes it the officially supported version of t
    </td>
   </tr>
   <tr>
-  </tr>    <tr>
-   <td rowspan="2" >4.7
-   </td>
-   <td>4.7.1
-   </td>
-   <td>
-    <a href="https://saucelabs.com/downloads/sc-4.7.1-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.7.1-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.7.1-win32.zip">Windows</a>
-   </td>
-   <td rowspan="2" >Aug 31, 2023
-   </td>
-  </tr>
-  <tr>
-   <td>4.7.0<sup><a href="#windows-version-no-longer-available-for-download">*</a></sup>
-   </td>
-   <td>
-    <a href="https://saucelabs.com/downloads/sc-4.7.0-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.7.0-osx.zip">Mac</a>
-   </td>
   </tr>
 </table>
-
-##### <sup>\*</sup>Windows version no longer available for download.
 
 ## Using Sauce Connect in Docker
 
