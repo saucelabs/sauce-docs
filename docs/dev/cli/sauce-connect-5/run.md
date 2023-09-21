@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::info
+:::caution
 Sauce Connect Proxy 5 release is currently in the Alpha stage, some changes in CLI are expected.
 :::
 
@@ -86,6 +86,11 @@ You can run tests using this tunnel by specifying the [`tunnelName`](/dev/test-c
 **Environment variable**: n/a<br/>
 **Shorthand**: `-c`
 
+:::note
+The following precedence order of configuration sources is used: command flags, environment variables, config
+file, default values.
+:::
+
 ---
 
 #### `--rest-url`
@@ -97,8 +102,26 @@ You can run tests using this tunnel by specifying the [`tunnelName`](/dev/test-c
 **Shorthand**: n/a
 
 :::note
-This flag is an alternative to the recommended [`--region`](/dev/cli/sauce-connect-5/run/#--region).
+This flag is an alternative to the recommended [`--region`](/dev/cli/sauce-connect-5/run/#--region). It's not shown in the CLI usage message.
 :::
+
+---
+
+#### `--metadata`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceYellow">alpha</span> | </small></p>
+
+**Description**: Sets custom metadata, expects `key=value` pairs. Can be repeated multiple times.<br/>
+**Environment variable**: `SAUCE_METADATA`<br/>
+**Shorthand**: `-M`
+
+:::note
+This flag is, primarily, used by Sauce Labs to assign custom properties to the tunnel info for reporting purposes.
+:::
+
+```bash
+--metadata "runner=jenkins" --metadata "group=qa"
+```
 
 ### Tunnel Mode Configuration
 

@@ -9,8 +9,8 @@ import ScTable from '../../../src/components/scTable.jsx';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::info
-Sauce Connect Proxy 5 release is currently in the Alpha stage. See [this document](/secure-connections/sauce-connect-5/installation/) for the most recent stable version (4.9.1) download instructions.
+:::caution
+Sauce Connect Proxy 5 release is currently in the Alpha stage. See [this document](/secure-connections/sauce-connect/installation/) for the most recent stable version (4.9.1) download instructions.
 :::
 
 This topic describes how to install Sauce Connect Proxy version 5 to your machine.
@@ -33,56 +33,56 @@ This topic describes how to install Sauce Connect Proxy version 5 to your machin
   <tr>
     <td rowspan="3">Linux x86_64</td>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect-5.0.0-alpha8_linux.x86_64.tar.gz">https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect-5.0.0-alpha8_linux.x86_64.tar.gz</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_linux.x86_64.tar.gz">https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_linux.x86_64.tar.gz</a>
     </td>
   </tr>
   <tr>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect_5.0.0-alpha8.linux_amd64.deb">https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect_5.0.0-alpha8.linux_amd64.deb</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect_5.0.0-alpha9.linux_amd64.deb">https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect_5.0.0-alpha9.linux_amd64.deb</a>
     </td>
   </tr>
   <tr>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect-5.0.0-alpha8_linux.x86_64.rpm">https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect-5.0.0-alpha8_linux.x86_64.rpm</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_linux.x86_64.rpm">https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_linux.x86_64.rpm</a>
     </td>
   </tr>
   <tr>
     <td rowspan="3">Linux arm64</td>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect-5.0.0-alpha8_linux.aarch64.tar.gz">https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect-5.0.0-alpha8_linux.aarch64.tar.gz</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_linux.aarch64.tar.gz">https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_linux.aarch64.tar.gz</a>
     </td>
   </tr>
   <tr>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect_5.0.0-alpha8.linux_arm64.deb">https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect_5.0.0-alpha8.linux_arm64.deb</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect_5.0.0-alpha9.linux_arm64.deb">https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect_5.0.0-alpha9.linux_arm64.deb</a>
     </td>
   </tr>
   <tr>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect-5.0.0-alpha8_linux.aarch64.rpm">https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect-5.0.0-alpha8_linux.aarch64.rpm</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_linux.aarch64.rpm">https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_linux.aarch64.rpm</a>
     </td>
   </tr>
   <tr>
     <td>Windows x86_64</td>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect-5.0.0-alpha8_windows.x86_64.zip">https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect-5.0.0-alpha8_windows.x86_64.zip</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_windows.x86_64.zip">https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_windows.x86_64.zip</a>
     </td>
   </tr>
   <tr>
     <td>Windows arm64</td>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect-5.0.0-alpha8_windows.aarch64.zip">https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect-5.0.0-alpha8_windows.aarch64.zip</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_windows.aarch64.zip">https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_windows.aarch64.zip</a>
     </td>
   </tr>
   <tr>
     <td>macOS</td>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect-5.0.0-alpha8_darwin.all.zip">https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect-5.0.0-alpha8_darwin.all.zip</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_darwin.all.zip">https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_darwin.all.zip</a>
     </td>
   </tr>
 </table>
 
-SHA256 checksums are available [here](https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/checksums).
+SHA256 checksums are available [here](https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/checksums).
 
 2. Install Sauce Connect Proxy
 
@@ -99,8 +99,8 @@ defaultValue="Linux/macOS"
 
   ```bash
   mkdir $HOME/sauce-connect-5.0.0-alpha && cd $HOME/sauce-connect-5.0.0-alpha
-  curl -sLO https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect-5.0.0-alpha8_linux.x86_64.tar.gz
-  tar xzf sauce-connect-5.0.0-alpha8_linux.x86_64.tar.gz
+  curl -sLO https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_linux.x86_64.tar.gz
+  tar xzf sauce-connect-5.0.0-alpha9_linux.x86_64.tar.gz
   ```
 
 <details><summary>What's in the folder?</summary>
@@ -125,7 +125,7 @@ defaultValue="Linux/macOS"
 
   ```bash
   arch=$(dpkg --print-architecture)
-  sc_version=5.0.0-alpha8
+  sc_version=5.0.0-alpha9
   curl -sLO https://saucelabs.com/downloads/sauce-connect-${sc_version}/sauce-connect_${sc_version}.linux_${arch}.deb
   sudo dpkg --skip-same-version --install sauce-connect_${sc_version}.linux_${arch}.deb
   rm sauce-connect_${sc_version}.linux_${arch}.deb
@@ -135,7 +135,7 @@ defaultValue="Linux/macOS"
   <TabItem value="RPM">
 
   ```bash
-  sudo rpm -i https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect-5.0.0-alpha8_linux.x86_64.rpm
+  sudo rpm -i https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_linux.x86_64.rpm
   ```
   </TabItem>
 
@@ -150,15 +150,15 @@ defaultValue="Linux/macOS"
   <TabItem value="RPM">
 
   ```bash
-  sudo rpm -i https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect-5.0.0-alpha8_linux.x86_64.rpm
+  sudo rpm -i https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_linux.x86_64.rpm
   ```
   </TabItem>
 
   <TabItem value="Windows">
 
   ```bash title="Using Powershell (Windows)"
-  Invoke-RestMethod -Uri https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha8/sauce-connect-5.0.0-alpha8_windows.x86_64.zip -OutFile sauce-connect-5.0.0-alpha8.zip
-  Expand-Archive -Force -Path ./sauce-connect-5.0.0-alpha8.zip
+  Invoke-RestMethod -Uri https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_windows.x86_64.zip -OutFile sauce-connect-5.0.0-alpha9.zip
+  Expand-Archive -Force -Path ./sauce-connect-5.0.0-alpha9.zip
   ```
   </TabItem>
 </Tabs>
@@ -168,7 +168,7 @@ defaultValue="Linux/macOS"
 As an alternative to downloading the client, you can use the Sauce Connect Proxy Docker image to run it in a Docker container.
 
 ```bash
-docker pull saucelabs/sauce-connect:5.0.0-alpha8
+docker pull saucelabs/sauce-connect:5.0
 ```
 
 To learn more, see [Sauce Connect Docker Container Setup](/secure-connections/sauce-connect/setup-configuration/docker/).
