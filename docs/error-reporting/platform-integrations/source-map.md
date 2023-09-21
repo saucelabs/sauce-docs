@@ -193,7 +193,7 @@ If you're using code transpiler plugins (such as Typescript), be sure to enable 
 1. Install `@backtrace-labs/webpack-plugin` as a developer dependency:
 
    ```bash
-   npm install -g --save-dev @backtrace-labs/webpack-plugin
+   npm install --save-dev @backtrace-labs/webpack-plugin
    ```
 
 2. Add it to your `plugins` array in `webpack.config.js`:
@@ -237,7 +237,7 @@ If you're using code transpiler plugins (such as Typescript), be sure to enable 
 1. Install `@backtrace-labs/rollup-plugin` as a developer dependency:
 
    ```bash
-   npm install -g --save-dev @backtrace-labs/rollup-plugin
+   npm install --save-dev @backtrace-labs/rollup-plugin
    ```
 
 2. Add it to your `plugins` array in `rollup.config.js`:
@@ -281,7 +281,7 @@ If you're using code transpiler plugins (such as Typescript), be sure to enable 
 1. Install `@backtrace-labs/vite-plugin` as a developer dependency:
 
    ```bash
-   npm install -g --save-dev @backtrace-labs/vite-plugin
+   npm install --save-dev @backtrace-labs/vite-plugin
    ```
 
 2. Add it to your `plugins` array in `vite.config.js`:
