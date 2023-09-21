@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The following steps guide you through configuring your JavaScript application to automatically upload sourcemap files during the project build.
+The Backtrace debugger can highlight specific lines in your source code associated with frames in the callstack. This powerful capability can be enabled by uploading source and source maps. The following steps guide you through configuring your JavaScript application to automatically upload sourcemap files during the project build.
 
 ## What You'll Need
 
@@ -25,11 +25,8 @@ Follow these steps to create and upload source maps with every build of your app
 
 
 ### Step 1: Enable Source Maps for Your Application
-:::warning
-- Under what conditions are source maps not already enabled?
-- Are normal customers completely familiar with source maps, and know whether or not they are produced?
-- This is all to ask: Can a user skip this step? Which users can?
-:::
+
+Source maps are automatically generated with most JavaScript frameworks. Please follow these instructions if you are using a framework that does not automatically generate source maps.
 
 <Tabs
 groupId="applications"
@@ -98,7 +95,7 @@ Install the `backtrace-js` command line tool and update your build scripts to ru
 ---
 ### Step 3: Create a `.backtracejsrc` configuration file
 
-Create a `.backtracejs` file in the root of your project.
+Create a `.backtracejs` configuration file in the root of your project with these settings to process source maps, add source and upload to Backtrace.
 
 ```json
 {
@@ -119,6 +116,12 @@ Create a `.backtracejs` file in the root of your project.
 
 - Replace `<build output>` with the path to the directory where your transpiled scripts are stored.
 - Follow [&ltthese instructions>](/error-reporting/project-setup/submission-url) to create the `<symbol submission URL>` with a `symbol:post` token for the `sourcemap` endpoint.
+
+:::info Source Code Upload
+  Source files can be embedded in source maps and included in the upload to Backtrace. The configuration above is constructed to do this.
+
+  Alternatively, if you do not wish to upload source files directly to Backtrace, you can integrate your source repository. To do so, omit `add-sources` and `include-sources` and follow the steps in the [Source Code](../../project-setup/source-code/) document.
+:::
 
 See `backtrace-js --help` or go to [`@backtrace-labs/javascript-cli`](https://github.com/backtrace-labs/backtrace-javascript/blob/dev/tools/cli) for additional command line and configuration options.
 
@@ -158,9 +161,6 @@ See `backtrace-js --help` or go to [`@backtrace-labs/javascript-cli`](https://gi
 :::
 
 ## Project Bundlers
-:::warning
-Can we provide text that says this is only necessary if you use a project bundler?
-:::
 
 <Tabs
 groupId="project-bundler"
