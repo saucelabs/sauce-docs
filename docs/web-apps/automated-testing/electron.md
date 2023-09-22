@@ -49,31 +49,33 @@ You need to specify Electron as the browser name along with the Electron version
 Examples with an Electron app test running on Windows 11 with Chromedriver 19 at US West:
 
 <Tabs
-  defaultValue="JavaScript"
-  values={[
-  {label: 'JavaScript', value: 'JavaScript'},
-  {label: 'Python', value: 'Python'},
-  ]}>
-  
-<TabItem value="Javascript">
+  defaultValue="JavaScript"
+  values={[
+  {label: 'JavaScript', value: 'JavaScript'},
+  {label: 'Python', value: 'Python'},
+  ]}>
+
+<TabItem value="JavaScript">
 ```
 driver = new Builder()
-        .usingServer('https://ondemand.us-west-1.saucelabs.com:443/wd/hub')
-        .withCapabilities({
-            browserName: 'electron',
-            browserVersion: '19',
-            platformName: 'Windows 11',
-            'goog:chromeOptions': {
-                binary: '<app_folder_name>\<app_file_name.exe>',
-            },
-            'sauce:options': {
-                username: '<username>’,
-                accessKey: ‘<accesskey>',
-                app: 'storage:<file_id>',
-            }
-        })
-        .forBrowser('electron')
-        .build();
+    .usingServer('https://ondemand.us-west-1.saucelabs.com:443/wd/hub')
+    .withCapabilities({
+        browserName: 'electron',
+        browserVersion: '19',
+        platformName: 'Windows 11',
+        'goog:chromeOptions': {
+            binary: '<app_folder_name>\<app_file_name.exe>'
+        },
+
+        'sauce:options': {
+            username: '<username>',
+            accessKey: '<accesskey>',
+            app: 'storage:<file_id>',
+        }
+    })
+
+    .forBrowser('electron')
+    .build();
 ```
 </TabItem>
 
