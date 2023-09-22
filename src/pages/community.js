@@ -17,13 +17,13 @@ class Community extends Component {
                     <p>Can&apos;t find what you need? We are here to help.</p>
                     <span className='landpage-buttons-container'>
                         <a
-                            href='https://stackoverflow.com/tags/saucelabs'
+                            href='https://saucelabs.com/resources/community/slack#mktoForm_3389'
                             target='_blank'
                             rel='noopener noreferrer'
                         >
                             <Button
                                 className='button-light'
-                                name='Stack Overflow'
+                                name='Community Forum'
                             />
                         </a>
                         <a
