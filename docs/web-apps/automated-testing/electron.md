@@ -65,7 +65,6 @@ driver = new Builder()
             platformName: 'Windows 11',
             'goog:chromeOptions': {
                 binary: '<app_folder_name>\<app_file_name.exe>',
-                   ]
             },
             'sauce:options': {
                 username: '<username>’,
