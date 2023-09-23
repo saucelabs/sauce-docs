@@ -56,7 +56,7 @@ Before you can push test data from Sauce Labs to Sumo Logic, you must create a c
 
 ## Enabling the Sumo Logic Integration in Sauce Labs
 
-1. From your Sauce Labs account, navigate to the [Account Integrations](https://app.staging.saucelabs.net/integrations) page.
+1. From your Sauce Labs account, navigate to the [Account Integrations](https://app.saucelabs.com/integrations) page.
 1. Click the Sumo Logic **Enable** button.
 1. Provide the source URL from your Sumo Logic Sauce Labs collector.
 1. Click **Save**.
@@ -69,7 +69,7 @@ The Sumo Logic integration is specific to the data center that is active for you
 
 ### Remove your Sumo Logic Integration
 
-1. From your Sauce Labs account, navigate to the [Account Integrations](https://app.staging.saucelabs.net/integrations) page.
+1. From your Sauce Labs account, navigate to the [Account Integrations](https://app.saucelabs.com/integrations) page.
 1. Click the Sumo Logic **Enable** button.
 1. Click **Remove Configurations**.
 
