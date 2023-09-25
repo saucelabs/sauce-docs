@@ -20,4 +20,4 @@ Follow these steps during live testing:
 5. Open the application you want to be allow-listed.
 6. Check the values of `SBApplicationStateDisplayIDKey`, which is the bundleID for any given app that has been launched.
 
-<img src={useBaseUrl('img/mobile-apps/bundle-id.png')} alt="Bundle ID" width="800"/>
+<img src={useBaseUrl('img/basics/bundle-id.png')} alt="Bundle ID" width="800"/>
