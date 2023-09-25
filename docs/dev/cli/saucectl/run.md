@@ -315,12 +315,12 @@ saucectl run --env <key1>=<value1> --env <key2>=<value2> ...
     </tr>
      <tr>
       <td>Puppeteer Replay</td>
-      <td></td>
+      <td>⛔</td>
       <td></td>
     </tr>
     <tr>
       <td>Espresso</td>
-      <td></td>
+      <td>⛔</td>
       <td></td>
     </tr>
      <tr>
