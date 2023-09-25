@@ -39,47 +39,52 @@ A device can be assigned to only 1 team at a time.
 
 
 ## App Allow List
-The [device cleaning process](/mobile-apps/real-device-cleaning) will remove apps installed from [Sauce Storage](/mobile-apps/app-storage) and the App Store/Play Store between sessions. To have installed apps and app data persist between sessions, update this settings with a comma separated list of the application identifiers.
+The [device cleaning process](/mobile-apps/real-device-cleaning) will remove apps installed from [Sauce Storage](/mobile-apps/app-storage) and the App Store/Play Store between sessions. To have installed apps and app data persist between sessions, update this settings for each of the application identifiers. This might be the app you are testing or dependent apps, e.g. MFA app, Microsoft Authenticator, etc.
 
 :::important
 This setting does _NOT_ install the app. You must install the desired version of the matching app, manually or via automation.
 
 
-- For iOS devices, use the bundle ID.
+- For iOS devices, use the Bundle ID.
   - [How to find the bundle ID on a Sauce Labs device](basics/acct-team-mgmt/private-device-mgmt-find-bundle-id)
 - For Android devices, use the package name.
 
-`com.google.chrome.ios,com.apps.app1,com.ios.app2`
+`com.google.chrome.ios`
+`com.apps.app1`
+`com.ios.app2`
 :::
 
 
 ## System App Allow List (iOS)
 
-Certain iOS preinstalled apps are hidden by default, e.g. Messages, Mail, Notes. To access iOS preinstalled applications, update this setting with a comma separated list of the bundle IDs.
+Certain iOS preinstalled apps are hidden by default, e.g. Messages, Mail, Notes. To access iOS preinstalled applications, add the bundle ID for each app.
 
 :::important
 For a list of native iPhone and iPad apps and their corresponding bundle IDs, please follow the reference link below.
 https://support.apple.com/en-gb/guide/deployment/depece748c41/web
 
 
- `com.apple.MobileSMS,com.apple.mobilenotes`
+ `com.apple.MobileSMS`
+ `com.apple.mobilenotes`
 :::
 
 ## Account Allow List
 
-Update this setting with a comma separated list of account emails to preserve store and payment account sign-ins between sessions.
+Update this setting for each account email to preserve store and payment account sign-ins between sessions.
 - Google accounts signed into the Play Store/Google Pay/In-App Purchase can be preserved between sessions.
 - Apple IDs signed into the device and App Store/TestFlight/Apple Pay/In-App Purchase can be preserved between sessions.
 
 
-> `account1@mydomain.com,account2@mydomain.com`
+`account1@mydomain.com`
+`account2@mydomain.com`
 
-## Enable ApplePay
+## Enable Apple Pay
 
-This setting enables ApplePay testing.
+Enable this setting to test Apple Pay.
 
 :::important
-This feature _requires_ setting the Account Allow List. For more information, please see [Testing Apple Pay](/mobile-apps/live-testing/testing-apple-pay).
+This feature _requires_ setting the Account Allow List. 
+For more information, please see [Testing Apple Pay](/mobile-apps/live-testing/testing-apple-pay).
 
 :::
 
