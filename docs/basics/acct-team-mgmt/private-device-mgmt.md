@@ -8,6 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+- Assign a private device to a team.
+- Customize a private device to allow App, System App, and Accounts to persist between sessions.
+
 Private device management allows an organization admin to view and manage the private devices in an organization by assigning them to teams and customizing the app and account allow lists. These features can reduce contention for scarce devices, provide better visibility to which team is using a device at any given time, and optimize both manual and automation workflows.
 
 - By default, a device is not assigned to any team, which means it can be used by anyone in the organization. Default assignement allows the organization admin to view all the devices as long as they are not assigned to a specific team.
@@ -38,13 +41,15 @@ A device can be assigned to only 1 team at a time.
 ## App Allow List
 The [device cleaning process](/mobile-apps/real-device-cleaning) will remove apps installed from [Sauce Storage](/mobile-apps/app-storage) and the App Store/Play Store between sessions. To have installed apps and app data persist between sessions, update this settings with a comma separated list of the application identifiers.
 
-For iOS devices, use the bundle ID.
-For Android devices, use the package name.
+:::important
+This setting does _NOT_ install the app. You must install the desired version of the matching app, manually or via automation.
+
+
+- For iOS devices, use the bundle ID.
+  - [How to find the bundle ID on a Sauce Labs device](basics/acct-team-mgmt/private-device-mgmt-find-bundle-id)
+- For Android devices, use the package name.
 
 `com.google.chrome.ios,com.apps.app1,com.ios.app2`
-
-:::caution
-This setting does _NOT_ install the app. You must install the desired version of the matching app, manually or via automation.
 :::
 
 
@@ -52,9 +57,13 @@ This setting does _NOT_ install the app. You must install the desired version of
 
 Certain iOS preinstalled apps are hidden by default, e.g. Messages, Mail, Notes. To access iOS preinstalled applications, update this setting with a comma separated list of the bundle IDs.
 
+:::important
 For a list of native iPhone and iPad apps and their corresponding bundle IDs, please follow the reference link below.
 https://support.apple.com/en-gb/guide/deployment/depece748c41/web
 
+
+ `com.apple.MobileSMS,com.apple.mobilenotes`
+:::
 
 ## Account Allow List
 
@@ -63,8 +72,14 @@ Update this setting with a comma separated list of account emails to preserve st
 - Apple IDs signed into the device and App Store/TestFlight/Apple Pay/In-App Purchase can be preserved between sessions.
 
 
-> 
+> `account1@mydomain.com,account2@mydomain.com`
 
 ## Enable ApplePay
 
-See [Testing Apple Pay](/mobile-apps/live-testing/testing-apple-pay)
+This setting enables ApplePay testing.
+
+:::important
+This feature _requires_ setting the Account Allow List. For more information, please see [Testing Apple Pay](/mobile-apps/live-testing/testing-apple-pay).
+
+:::
+

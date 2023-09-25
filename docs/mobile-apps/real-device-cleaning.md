@@ -60,5 +60,5 @@ We use a proprietary process that wipes every real device clean at the end of th
 On Private Devices, access to some parts of the device settings is restricted: Wifi and Network Settings, Profile and Device Management, Passcode/Biometrics Settings, Developer options, Resetting device options, Creating AppleIDs, Battery Options, and Display Settings.  These rules apply to both iOS and Android public devices.
 :::
 
-While both Private and Public Devices follow the same cleaning process, Private Devices can be configured to allow applications and accounts to persist between sessions. Please see Private Device Management for details.
+While both Private and Public Devices follow the same cleaning process, Private Devices can be configured to allow applications and accounts to persist between sessions. Please see [Private Device Management](basics/acct-team-mgmt/private-device-mgmt) for details.
 
