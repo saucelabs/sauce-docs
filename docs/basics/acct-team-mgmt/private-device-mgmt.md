@@ -36,7 +36,7 @@ Private devices are not included in VM or RDC concurrency limits. For more detai
 ## Viewing an Organization’s Private Devices
 
 1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="450"/>
 2. Click the **DEVICES** tab. The devices assigned to your organization will be listed.
    <img src={useBaseUrl('img/team-mgmt/device-mgmt-devices-tab.png')} alt="Devices tab" width="600"/>
 
