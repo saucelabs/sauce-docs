@@ -30,12 +30,8 @@ Sauce Labs supports the enforcement of app policies, allowing you to define and 
 **App VPN Support**
 Setting up App VPNs is made easy, enabling you to connect to your internal firewalls without the need for Sauce Connect. Certain applications, like Edge, will automatically configure VPN extensions.
 
-
 **App, System App, and Account Allow List**
 See [Private Device Management](basics/acct-team-mgmt/private-device-mgmt) for information on customizing app and account allow lists.
-
-**App Allowlisting**
-You have the option to allowlist your applications, ensuring that only approved apps are installed and available for testing. 
 
 
 ## Installing MDM
