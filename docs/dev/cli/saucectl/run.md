@@ -287,7 +287,7 @@ An environment variable key value pair that may be referenced in the tests execu
 saucectl run --env <key1>=<value1> --env <key2>=<value2> ...
 ```
 
-#### Supported Metrics
+#### Supported Frameworks
 
 <table id="env">
   <thead>
