@@ -827,8 +827,15 @@ module.exports = {
                                     items: [
                                         'basics/acct-team-mgmt/adding-deleting-teams',
                                         'basics/acct-team-mgmt/assigning-removing-users-teams',
-                                        'basics/acct-team-mgmt/private-device-mgmt',
                                         'basics/acct-team-mgmt/sauce-connect-proxy-tunnels',
+                                    ],
+                                },
+                                {
+                                    type: 'category',
+                                    label: 'Managing Private Devices',
+                                    collapsed: true,
+                                    items: [
+                                        'basics/acct-team-mgmt/private-device-mgmt'
                                     ],
                                 },
                                 {

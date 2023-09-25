@@ -57,23 +57,8 @@ We use a proprietary process that wipes every real device clean at the end of th
 ## Private Devices
 
 :::caution
-On Private devices, access to some parts of the device settings is restricted: Wifi and Network Settings, Profile and Device Management, Passcode/Biometrics Settings, Developer options, Resetting device options, Creating AppleIDs, Battery Options, and Display Settings. These restrictions apply to iOS/Android private devices.
+On Private Devices, access to some parts of the device settings is restricted: Wifi and Network Settings, Profile and Device Management, Passcode/Biometrics Settings, Developer options, Resetting device options, Creating AppleIDs, Battery Options, and Display Settings.  These rules apply to both iOS and Android public devices.
 :::
 
-Private Devices follow the same process as Public Devices. However, the customer can adjust the following as desired through our support:
+While both Private and Public Devices follow the same cleaning process, Private Devices can be configured to allow applications and accounts to persist between sessions. Please see Private Device Management for details.
 
-App allowlist:
-
-- Apps installed on the device can be selected, by name/bundleID/package name, to be preserved between sessions. These apps and their data will not be cleaned. They can be uploaded by the customer from Sauce Storage, or installed from the App Store/Play Store.
-
-Account allowlist:
-
-With the account allowlist you will be able: 
-- Google accounts signed into the Play Store/Google Pay/In-App Purchase can be preserved between sessions.
-- Apple IDs signed into the device and App Store/TestFlight/Apple Pay/In-App Purchase can be preserved between sessions.
-
-System app allowlist:
-
-By default, we are removing most of the system applications from iOS, to ensure our cleaning service run faster. 
-You can get back your Messages, Mail, Notes applications on private devices easily, by submitting a support request.
-Here you can find the list of system apps you can get access back to: https://support.apple.com/en-gb/guide/deployment/depece748c41/web
