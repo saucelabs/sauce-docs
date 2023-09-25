@@ -46,7 +46,7 @@ This setting does _NOT_ install the app. You must install the desired version of
 
 
 - For iOS devices, use the Bundle ID.
-  - [How to find the bundle ID on a Sauce Labs device](basics/acct-team-mgmt/private-device-mgmt-find-bundle-id)
+  - [How to find the bundle ID on a Sauce Labs device](/basics/acct-team-mgmt/private-device-mgmt-find-bundle-id)
 - For Android devices, use the package name.  
 
 `com.google.chrome.ios`
