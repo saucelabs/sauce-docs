@@ -1,3 +1,12 @@
+---
+id: private-device-mgmt-find-bundle-id
+title: Find iOS Bundle ID
+sidebar_label: Find iOS Bundle ID 
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+
 ## Retrieving the BundleID for Allow-listing Your Apps
 
 To prevent our cleaning from removing your application after every session, this guide will help you to obtain the bundleID for these applications. 
