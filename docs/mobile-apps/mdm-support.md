@@ -4,6 +4,8 @@ title: Mobile Device Management (MDM) Support on iOS Real Devices
 sidebar_label: MDM Support on iOS Real Devices
 ---
 
+
+
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <br/><p><span className="sauceGreen">Real Devices Only</span></p> 
@@ -25,14 +27,16 @@ You can seamlessly apply and download the MDM profile to our private iOS devices
 **App Policy Enforcement**
 Sauce Labs supports the enforcement of app policies, allowing you to define and apply specific policies for each testing session. These policies are consistently reapplied to maintain a consistent testing environment.
 
-**App Allowlisting**
-You have the option to allowlist your applications, ensuring that only approved apps are installed and available for testing. 
-
 **App VPN Support**
 Setting up App VPNs is made easy, enabling you to connect to your internal firewalls without the need for Sauce Connect. Certain applications, like Edge, will automatically configure VPN extensions.
 
-**Retained App Data**
-All apps can be retained on the devices of your choice, and the Apple ID used for App Store login can also be retained on the device.
+
+**App, System App, and Account Allow List**
+See [Private Device Management](basics/acct-team-mgmt/private-device-mgmt) for information on customizing app and account allow lists.
+
+**App Allowlisting**
+You have the option to allowlist your applications, ensuring that only approved apps are installed and available for testing. 
+
 
 ## Installing MDM
 
@@ -44,20 +48,6 @@ All apps can be retained on the devices of your choice, and the Apple ID used fo
 6. Once installed, click on the **Home Screen**.
 7. Confirm that all the apps related to your company-managed profile have been successfully downloaded.
 
-## Retrieving the BundleID for Allow-listing Your Apps
-
-To prevent our cleaning from removing your application after every session, this guide will help you to obtain the bundleID for these applications. 
-
-Follow these steps during live testing:
-
-1. Open a Live Testing session with an iOS Device.
-2. Open Device logs in VERBOSE mode.
-3. Clean the device logs.
-4. Copy-paste this string in the search bar `SBApplicationStateDisplayIDKey`.
-5. Open the application you want to be allow-listed.
-6. Check the values of `SBApplicationStateDisplayIDKey`, which is the bundleID for any given app that has been launched.
-
-<img src={useBaseUrl('img/mobile-apps/bundle-id.png')} alt="Bundle ID" width="800"/>
 
 ## Restrictions and Recommendations
 
