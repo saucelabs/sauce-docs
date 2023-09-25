@@ -6,10 +6,9 @@ sidebar_label: Find iOS Bundle ID
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-
 ## Retrieving the BundleID for Allow-listing Your Apps
 
-To prevent our cleaning from removing your application after every session, this guide will help you to obtain the bundleID for these applications. 
+To prevent our cleaning from removing your application after every session, this guide will help you to obtain the bundleID for these applications.
 
 Follow these steps during live testing:
 
