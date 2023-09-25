@@ -28,7 +28,7 @@ Every 5th cleaning session includes a device reboot. This ensures that the syste
 performant and any stray processes are stopped.
 
 :::caution
-On Public devices, access to the device settings is fully restricted. Users are only allowed access to the application that is currently being tested or to the Safari/Chrome web browsers.
+On Public devices, user access to device settings is limited to app-specific configurations like notifications, location services, permissions, app storage, and app details. For iOS Enterprise apps, users can trust the app via settings. Access is restricted to the test application and webapps through Safari or Chrome. These rules apply to both iOS and Android public devices.
 :::
 
 :::note
@@ -55,6 +55,10 @@ We use a proprietary process that wipes every real device clean at the end of th
 - PIN code/Password is removed.
 
 ## Private Devices
+
+:::caution
+On Private devices, access to some parts of the device settings is restricted: Wifi and Network Settings, Profile and Device Management, Passcode/Biometrics Settings, Developer options, Resetting device options, Creating AppleIDs, Battery Options, and Display Settings. These restrictions apply to iOS/Android private devices.
+:::
 
 Private Devices follow the same process as Public Devices. However, the customer can adjust the following as desired through our support:
 

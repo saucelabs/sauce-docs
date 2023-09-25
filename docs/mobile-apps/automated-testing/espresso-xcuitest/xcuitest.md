@@ -261,6 +261,19 @@ sauce:
 
 ---
 
+## `env`
+
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Virtual Devices Only</span> |</small></p>
+
+A property containing one or more environment variables that are global for all tests suites in this configuration. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
+
+```yaml
+  env:
+    FOO: bar
+```
+
+---
+
 ## `reporters`
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
@@ -273,6 +286,21 @@ reporters:
     enabled: true
     filename: saucectl-report.xml
     webhookURL: https://my-webhook-url
+```
+
+---
+
+### `spotlight`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The spotlight reporter highlights failed or otherwise interesting jobs.
+It may include an excerpt of failed tests or other information that may be useful for troubleshooting.
+
+```yaml
+reporters:
+  spotlight:
+    enabled: true
 ```
 
 ---
@@ -1072,6 +1100,19 @@ suites:
     devices:
       options:
         private: true
+```
+
+---
+
+### `env`
+
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Virtual Devices Only</span> |</small></p>
+
+A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
+
+```yaml
+  env:
+    FOO: bar
 ```
 
 ---

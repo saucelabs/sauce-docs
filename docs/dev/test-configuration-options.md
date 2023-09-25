@@ -1115,6 +1115,30 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
+### `android.gpu.mode`
+
+<p><small>| OPTIONAL | STRING| <span className="sauceGreen">Android Virtual Devices Only</span> |</small></p>
+
+By default, our emulator uses `software` rendering to handle graphics for maximum compatibility. This involves the CPU calculating how everything looks on your app's screen. However, this could lead to an emulator crash when testing apps with intricate or heavy graphical elements. To mitigate this, use the hardware rendering option by specifying `"android.gpu.mode"="hardware"` in your test capabilities.
+
+Valid values are `hardware` and `software` (default).
+
+:::caution
+
+Our advice is to leave it as `software` unless you are experiencing specific issues, like emulator (**not** app) crashes. Using `hardware` could solve your specific issue, but beware you might run into other issues which you didn't have before. If you do run into issues, please <a href="mailto:help@saucelabs.com">contact support</a>.
+
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("android.gpu.mode", "hardware");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
 ### `setupDeviceLock`
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> | </small></p>
@@ -1963,7 +1987,6 @@ These are currently not supported for real devices:
 
 - `Edit Timezone`: Appium does not provide a capability to edit the timezone of a device in automated testing on real devices.
 - See [Virtual Device Capabilities](#virtual-device-capabilities-sauce-specific--optional) for information about timezone capabilities in a virtual device testing.
-
 
 :::caution Limitations
 When running a test on a Virtual Device, be aware that each capability value has a 100 characters limitation. If the value exceeds this limit, it will be truncated, which can lead to further side effects or prevent a job from starting.

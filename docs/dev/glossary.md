@@ -107,7 +107,7 @@ A Sauce Connect Proxy scenario where two or more tunnels are launched with the s
 By default, duplicated (already running) tunnels are halted unless a Sauce Connect Proxy is started with the `--tunnel-pool` option.
 More information: [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
 
-See also: _[sauce connect proxy](#sauce-connect-proxy), [tunnel identifier](#tunnel-identifier)_.
+See also: _[sauce connect proxy](#sauce-connect-proxy), [tunnel name](#tunnel-name)_.
 
 ### Company Vault
 

@@ -256,6 +256,12 @@ env:
   KEY: value
 ```
 
+:::note
+Environment variables set with the saucectl `--env` flag will overwrite those specified in the sauce config file.
+
+The order of precedence is as follows: --env flag > root-level environment variables > suite-level environment variables.
+:::
+
 ## `artifacts`
 
 <p><small>| OPTIONAL | ARRAY |</small></p>

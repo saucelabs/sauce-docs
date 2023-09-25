@@ -279,6 +279,12 @@ A property containing one or more environment variables that are global for all 
     my_var: $MY_VAR  # You can also pass through existing environment variables through parameter expansion
 ```
 
+:::note
+Environment variables set with the saucectl `--env` flag will overwrite those specified in the sauce config file.
+
+The order of precedence is as follows: --env flag > root-level environment variables > suite-level environment variables.
+:::
+
 ---
 
 ## `rootDir`
@@ -442,6 +448,21 @@ reporters:
   junit:
     enabled: true
     filename: saucectl-report.xml
+```
+
+---
+
+### `spotlight`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The spotlight reporter highlights failed or otherwise interesting jobs.
+It may include an excerpt of failed tests or other information that may be useful for troubleshooting.
+
+```yaml
+reporters:
+  spotlight:
+    enabled: true
 ```
 
 ---
