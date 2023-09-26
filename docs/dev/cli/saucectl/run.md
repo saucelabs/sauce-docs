@@ -281,12 +281,65 @@ saucectl run --dry-run
 
 <div className="cli-desc">
 <p><small>| OPTIONAL | KEY=VALUE |</small></p>
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
 An environment variable key value pair that may be referenced in the tests executed by this command. Expanded environment variables are supported.
 
 ```bash
 saucectl run --env <key1>=<value1> --env <key2>=<value2> ...
 ```
+
+#### Supported Frameworks
+
+<table id="env">
+  <thead>
+    <tr>
+      <th width="40%">Frameworks and Products</th>
+      <th>Supported?</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cypress</td>
+      <td>✅</td>
+      <td><span className="sauceGreen">Virtual Devices Only</span></td>
+    </tr>
+    <tr>
+      <td>Playwright</td>
+      <td>✅</td>
+      <td><span className="sauceGreen">Virtual Devices Only</span></td>
+    </tr>
+     <tr>
+      <td>TestCafe</td>
+      <td>✅</td>
+      <td><span className="sauceGreen">Virtual Devices Only</span></td>
+    </tr>
+     <tr>
+      <td>Puppeteer Replay</td>
+      <td>❌</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Espresso</td>
+      <td>❌</td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>XCUITest</td>
+      <td>✅</td>
+      <td><span className="sauceGreen">Virtual Devices Only</span></td>
+    </tr>
+    <tr>
+      <td>API Testing</td>
+      <td>✅</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Sauce Orchestrate</td>
+      <td>✅</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 

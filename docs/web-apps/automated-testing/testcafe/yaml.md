@@ -279,6 +279,12 @@ A property containing one or more environment variables that are global for all 
     my_var: $MY_VAR  # You can also pass through existing environment variables through parameter expansion
 ```
 
+:::note
+Environment variables set with the saucectl `--env` flag will overwrite those specified in the sauce config file.
+
+The order of precedence is as follows: --env flag > root-level environment variables > suite-level environment variables.
+:::
+
 ---
 
 ## `rootDir`
