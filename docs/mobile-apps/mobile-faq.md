@@ -293,3 +293,4 @@ The following features are limited or not available for a short period of time o
 - XCUITest support
 - Smooth streaming and audio support during Live Testing
 - Changing locale.
+- Virtual USB

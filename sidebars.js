@@ -827,10 +827,10 @@ module.exports = {
                                     items: [
                                         'basics/acct-team-mgmt/adding-deleting-teams',
                                         'basics/acct-team-mgmt/assigning-removing-users-teams',
-                                        'basics/acct-team-mgmt/private-device-mgmt',
                                         'basics/acct-team-mgmt/sauce-connect-proxy-tunnels',
                                     ],
                                 },
+                                'basics/acct-team-mgmt/private-device-mgmt',
                                 {
                                     type: 'category',
                                     label: 'Billing and Subscriptions',
