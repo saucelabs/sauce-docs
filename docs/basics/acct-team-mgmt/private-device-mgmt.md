@@ -21,16 +21,17 @@ Private device management allows an organization admin to view and manage the pr
 - **Only** organization admins can manage private devices.
   - An organization admin can always re-assign a device to another team or set a device to the default unassigned state.
 - **Only** team members can access a device assigned to a team.
-  - This rule is enforced for **all** roles!
+  - This rule is enforced for all roles!
     - i.e., to access a device, an organization admin **must** be a member of the team a device is assigned to.
   - Devices automcatically return to the default unassigned state if their assigned team is deleted.
-    :::
+
+:::
 
 :::note
 For more information about managing teams, see [Adding and Deleting Teams](/basics/acct-team-mgmt/adding-deleting-teams).
 
-Private devices are not included in VM or RDC concurrency limits. For more details, please see [Concurrency Limits and Team Accounts](/basics/acct-team-mgmt/concurrency-limits).
-
+Private devices are not included in VM or RDC concurrency limits.  
+For more details, please see [Concurrency Limits and Team Accounts](/basics/acct-team-mgmt/concurrency-limits).
 :::
 
 ## Viewing an Organization’s Private Devices
@@ -43,7 +44,7 @@ Private devices are not included in VM or RDC concurrency limits. For more detai
 ## Assigning a Private Device to a Team
 
 :::note
-A device can be assigned to only 1 team at a time.
+A device can be assigned to only 1 team at a time.  
 :::
 
 1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
@@ -95,7 +96,6 @@ Update this setting for each account email to preserve store and payment account
 Enable this setting to test Apple Pay.
 
 :::important
-This feature _requires_ setting the Account Allow List.  
-Please see [Testing Apple Pay](/mobile-apps/live-testing/testing-apple-pay) for more information.
-
+This feature **requires** setting the Account Allow List.  
+Please see [Testing Apple Pay](/mobile-apps/live-testing/testing-apple-pay) for more information.  
 :::
