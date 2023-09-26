@@ -319,37 +319,35 @@ Submits crash object to Backtrace instance.
 curl --request POST 'https://api.backtrace.io/post?token=<your_token>&format=<format>' \
 -H 'Content-Type: application/json' \
 -d '{
-  "body": {
-    "uuid": "123e4567-e89b-12d3-a456-426655440000",
-    "timestamp": 1475530543,
-    "lang": "nodejs",
-    "langVersion": "v4.5.0",
-    "agent": "backtrace-node",
-    "agentVersion": "0.4.0",
-    "threads": {
-      "main": {
-        "name": "my super cool thread",
-        "fault": true,
-        "stack": [
-          {
-            "guessed_frame": "false",
-            "funcName": "main",
-            "address": "16045690984833335023",
-            "line": "10",
-            "column": "19",
-            "sourceCode": "o9BYbg2uO+1m",
-            "library": "/home/example/nodebt/test.js",
-            "callstack_state": "1",
-            "registers": {
-              "rax": "16045690984833335023",
-              "rip": 1234,
-              "FLAGS": "E:1 B:0 C:1"
-            }
+  "uuid": "123e4567-e89b-12d3-a456-426655440000",
+  "timestamp": 1475530543,
+  "lang": "nodejs",
+  "langVersion": "v4.5.0",
+  "agent": "backtrace-node",
+  "agentVersion": "0.4.0",
+  "threads": {
+    "main": {
+      "name": "my super cool thread",
+      "fault": true,
+      "stack": [
+        {
+          "guessed_frame": "false",
+          "funcName": "main",
+          "address": "16045690984833335023",
+          "line": "10",
+          "column": "19",
+          "sourceCode": "o9BYbg2uO+1m",
+          "library": "/home/example/nodebt/test.js",
+          "callstack_state": "1",
+          "registers": {
+            "rax": "16045690984833335023",
+            "rip": 1234,
+            "FLAGS": "E:1 B:0 C:1"
           }
-        ]
-      }
+        }
+      ]
     },
-    "mainThread": "main>"
+    "mainThread": "main"
   }
 }'
 ```
