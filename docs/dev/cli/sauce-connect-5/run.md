@@ -127,12 +127,12 @@ This flag is, primarily, used by Sauce Labs to assign custom properties to the t
 
 ---
 
-#### `--shared-tunnel`
+#### `--shared`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceRed">deprecated</span> | </small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">stable</span> | </small></p>
 
-**Description**: Changes tunnel sharing permissions so that all users in an organization can use Sauce Connect Proxy tunnels, rather than just the tunnel owner. For more information, see [Sharing Sauce Connect Proxy Tunnels](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels).<br/>
-**Environment variable**: `SAUCE_SHARED_TUNNEL`<br/>
+**Description**: Sharing mode. One of: `all` (more options will be added in the future). `--shared all` changes tunnel sharing permissions so that all users in an organization can use Sauce Connect Proxy tunnels (if the tunnel owner is an org admin), rather than just the tunnel owner. For more information, see [Sharing Sauce Connect Proxy Tunnels](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels).<br/>
+**Environment variable**: `SAUCE_SHARED`<br/>
 **Shorthand**: `-s`
 
 :::note
@@ -268,7 +268,7 @@ Setting this to direct sends requests to localhost directly without using the up
 
 #### `--direct-domains`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceYellow">alpha</span> | </small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">stable</span> | </small></p>
 
 **Description**: Sets domain(s) that are requested through the public internet instead of the Sauce Connect Proxy tunnel. Can be repeated multiple times. This is the inverse of [`--tunnel-domains`](#--tunnel-domains). See [Tuning Sauce Connect Proxy Traffic](/secure-connections/sauce-connect/proxy-tunnels/#direct-domains) for more information.<br/>
 **Environment variable**: `SAUCE_DIRECT_DOMAINS`<br/>
@@ -278,7 +278,7 @@ Setting this to direct sends requests to localhost directly without using the up
 
 #### `--tls-passthrough-domains`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceYellow">alpha</span> | </small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">stable</span> | </small></p>
 
 **Description**: Sets domain(s) that do not require TLS resigning. Matching requests will not be TLS re-encrypted. Can be repeated multiple times. See [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) for more information about scenarios in which might want to use this command.<br/>
 **Environment variable**: `SAUCE_TLS_PASSTHROUGH_DOMAINS`<br/>
@@ -286,11 +286,21 @@ Setting this to direct sends requests to localhost directly without using the up
 
 ---
 
+#### `--tls-resign-domains`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">stable</span> | </small></p>
+
+**Description**: Sets domain(s) that require TLS resigning (the opposite of [`--tls-passthrough-domains`](#--tls-passthrough-domains)). Matching requests will be TLS re-encrypted. Can be repeated multiple times.<br/>
+**Environment variable**: `SAUCE_TLS_RESIGN_DOMAINS`<br/>
+**Shorthand**: `-b`
+
+---
+
 #### `--deny-domains`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceYellow">alpha</span> | </small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">stable</span> | </small></p>
 
-**Description**: Allows you to set a deny-list of domain patterns. Matching requests will get dropped instantly and will not go through the tunnel. Tests for app and site degradation based on missing assets or resources. Can be used to simulate non-loading of scripts, styles, or other resources. Use this option followed by a comma-separated list of regular expressions. See the [Sauce Connect Proxy FAQ](/secure-connections/sauce-connect/faq) for an example.<br/>
+**Description**: Sets a deny-list of domains. Matching requests will get dropped instantly and will not go through the tunnel. Tests for app and site degradation based on missing assets or resources. Can be used to simulate non-loading of scripts, styles, or other resources. Use this option followed by a comma-separated list of regular expressions. See the [Sauce Connect Proxy FAQ](/secure-connections/sauce-connect/faq) for an example.<br/>
 **Environment variable**: `SAUCE_DENY_DOMAINS`<br/>
 **Shorthand**: `-F`
 
@@ -298,7 +308,7 @@ Setting this to direct sends requests to localhost directly without using the up
 
 #### `--tunnel-domains`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceYellow">alpha</span> | </small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">stable</span> | </small></p>
 
 **Description**: Sets domain(s) that are requested through the Sauce Connect Proxy tunnel. This is the inverse of [`--direct-domains`](#--direct-domains). Can be repeated multiple times. See [Tuning Sauce Connect Proxy Traffic](/secure-connections/sauce-connect/proxy-tunnels/#tunnel-domains) for more information.<br/>
 **Environment variable**: `SAUCE_TUNNEL_DOMAINS`<br/>
