@@ -955,6 +955,7 @@ module.exports = {
                             items: [
                                 'secure-connections/sauce-connect-5',
                                 'secure-connections/sauce-connect-5/installation',
+                                'secure-connections/sauce-connect-5/operation',
                                 {
                                     type: 'category',
                                     label: 'Advanced',
