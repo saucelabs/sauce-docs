@@ -165,9 +165,9 @@ sudo rpm -i https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-con
 
   <TabItem value="brew">
 
-:::caution
-To be updated
-:::
+```bash
+brew install saucelabs/tap/sauce-connect
+```
 
   </TabItem>
 
