@@ -336,7 +336,6 @@ Setting this to direct sends requests to localhost directly without using the up
 **Environment variable**: `SAUCE_API_BASIC_AUTH`<br/>
 **Shorthand**: n/a
 
-
 ### Networking and Security
 
 ---
@@ -366,7 +365,6 @@ The port is optional, if not specified the default port is 53.<br/>
 sc run --dns-server 8.8.8.8 --dns-server 8.8.4.4:53
 ```
 
-
 ### Logging
 
 ---
@@ -385,7 +383,7 @@ sc run --dns-server 8.8.8.8 --dns-server 8.8.4.4:53
 
 <p><small>| OPTIONAL | STRING | <span className="sauceYellow">alpha</span> | </small></p>
 
-**Description**: HTTP request and response logging mode, one of none, short-url, url, headers, body, errors. 
+**Description**: HTTP request and response logging mode, one of none, short-url, url, headers, body, errors.
 HTTP request and response logging mode. By default, request line and headers are logged if response status
 code is greater than or equal to 500. Setting this to none disables logging. The short-url mode logs
 [scheme://]host[/path] instead of the full URL.<br/>
@@ -405,7 +403,6 @@ code is greater than or equal to 500. Setting this to none disables logging. The
 :::note
 Setting the `SAUCE_LOG_LEVEL` environment variable to `1` is equivalent to `-v` and `2` is equivalent to `-vv`.
 :::
-
 
 ### Formatting Domains
 

@@ -171,14 +171,6 @@ To be updated
 
   </TabItem>
 
-  <TabItem value="RPM">
-
-```bash
-sudo rpm -i https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/sauce-connect-5.0.0-alpha9_linux.x86_64.rpm
-```
-
-  </TabItem>
-
   <TabItem value="Windows">
 
 ```bash title="Using Powershell (Windows)"
