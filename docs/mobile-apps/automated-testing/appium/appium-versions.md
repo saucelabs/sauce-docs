@@ -12,8 +12,119 @@ import TabItem from '@theme/TabItem';
 :::warning Appium 1 End-of-life
 The Appium core team does not maintain Appium 1.x anymore since the [1st of January 2022](https://github.com/appium/appium). Recent versions of all officially supported platform drivers are no longer compatible with Appium 1.x, and require Appium 2 to run.
 
-Sauce Labs still supports Appium 1.x (check our [Platform Configurator](https://saucelabs.com/products/platform-configurator#/) to see which Appium 1 versions are available), but we recommend migrating to Appium 2.
+Sauce Labs still supports Appium 1.x in limited versions, but we recommend [migrating to Appium 2](./appium-2-migration.md) to keep your tests up-to-date and compatible with the latest platform versions.
 :::
+
+## Selecting Appium Versions
+
+You can select a specific Appium version by using the `appiumVersion` capability as part of the `"sauce:options"`. The below examples show how to select the Appium version for your test and are using Android with Chrome as an example. See our [Platform Configurator](https://saucelabs.com/products/platform-configurator#/) to help you construct your capabilities for the specific platform and Real Device/Android Emulator/iOS Simulator you want to test on.
+
+The active Appium versions can be found in the [Real Devices](#real-devices), [Android Emulators](#android-emulators) and [iOS Simulators](#ios-simulators) sections.
+
+<Tabs
+groupId="capability-ex-emusim"
+defaultValue="java"
+values={[
+{label: 'Java', value: 'java'},
+{label: 'Node.js', value: 'js'},
+{label: 'Python', value: 'python'},
+{label: 'Ruby', value: 'ruby'},
+{label: 'C#', value: 'csharp'},
+]}>
+
+<TabItem value="java">
+
+<!-- prettier-ignore -->
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+
+capabilities.setCapability("browserName", "chrome");
+capabilities.setCapability("platformName", "android");
+capabilities.setCapability("appium:platformVersion", "14");
+capabilities.setCapability("appium:deviceName", "Google Pixel 7 Pro");
+capabilities.setCapability("appium:automationName", "uiautomator2");
+
+HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
+// Check below for the available versions
+sauceOptions.put("appiumVersion", "latest"); 
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+</TabItem>
+<TabItem value="js">
+
+<!-- prettier-ignore -->
+```js
+const capabilities = {
+    browserName: 'chrome',
+    platformName: 'android',
+    'appium:platformVersion': '14',
+    'appium:deviceName': 'Google Pixel 7 Pro',
+    'appium:automationName': 'uiautomator2',
+    'sauce:options': {
+        // Check below for the available version
+        appiumVersion: 'latest'
+    }
+}
+```
+
+</TabItem>
+<TabItem value="python">
+
+<!-- prettier-ignore -->
+```py
+capabilities = {
+    "browserName" : "chrome",
+    "platformName" : "android",
+    "appium:platformVersion" : "14",
+    "appium:deviceName" : "Google Pixel 7 Pro",
+    "appium:automationName": "uiautomator2",
+    "sauce:options" : {
+        # Check below for the available version
+        "appiumVersion" : "latest"
+    }
+}
+```
+
+</TabItem>
+<TabItem value="ruby">
+
+<!-- prettier-ignore -->
+```ruby
+capabilities = {
+    "browserName" => "chrome",
+    "platformName" => "android",
+    "appium:platformVersion" => "14",
+    "appium:deviceName" => "Google Pixel 7 Pro",
+    "appium:automationName" => "uiautomator2",
+    "sauce:options" => {
+        # Check below for the available version
+        "appiumVersion" => "latest"
+    }
+}
+```
+
+</TabItem>
+<TabItem value="csharp">
+
+<!-- prettier-ignore -->
+```csharp
+AppiumOptions capabilities = new AppiumOptions();
+
+capabilities.AddAdditionalCapability("browserName", "chrome");
+capabilities.AddAdditionalCapability("platformName", "android");
+capabilities.AddAdditionalCapability("appium:platformVersion", "14");
+capabilities.AddAdditionalCapability("appium:deviceName", "Google Pixel 7 Pro");
+capabilities.AddAdditionalCapability("appium:automationName", "uiautomator2");
+
+HashMap<String, Object> sauceOptions = new Dictionary<string, object>();
+// Check below for the available version
+sauceOptions.Add("appiumVersion", "latest");
+capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
+```
+
+</TabItem>
+</Tabs>
 
 ## Real Devices
 
