@@ -141,7 +141,7 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
     <tbody>
         <tr>
             <td><code>latest</code></td>
-            <td>-</td>
+            <td><span className="sauceGreen">Active</span></td>
             <td>
                 This will hold a collection of drivers that are compatible with the latest Appium server and driver versions that are installed in our cloud. We try to keep versions up to date every two weeks. You can find the exact versions in the first 20 log lines of the Appium logs of your executed test by going to <code>Test Details page > Logs > Appium Logs</code>
             </td>
@@ -191,21 +191,21 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 
 ### Appium 1.x
 
-| Appium Version                                                    | EOL Date                | Notes                                                              |
-| ----------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------ |
-| [`1.22.2`](https://github.com/appium/appium/releases/tag/v1.22.2) |                         |                                                                    |
-| [`1.22.1`](https://github.com/appium/appium/releases/tag/v1.22.1) | **December 31st, 2023** | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
-| [`1.22.0`](https://github.com/appium/appium/releases/tag/v1.22.0) | **December 31st, 2023** | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
-| [`1.21.0`](https://github.com/appium/appium/releases/tag/v1.21.0) | **December 31st, 2023** | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
-| [`1.20.1`](https://github.com/appium/appium/releases/tag/v1.20.1) | **December 31st, 2023** | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
-| [`1.19.0`](https://github.com/appium/appium/releases/tag/v1.19.0) | **December 31st, 2023** | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
-| [`1.18.1`](https://github.com/appium/appium/releases/tag/v1.18.1) | **December 31st, 2023** | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
-| [`1.17.1`](https://github.com/appium/appium/releases/tag/v1.17.1) | **December 31st, 2023** | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
-| [`1.17.0`](https://github.com/appium/appium/releases/tag/v1.17.0) | **December 31st, 2023** | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
-| [`1.16.0`](https://github.com/appium/appium/releases/tag/v1.16.0) | **December 31st, 2023** | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
-| [`1.15.1`](https://github.com/appium/appium/releases/tag/v1.15.1) | **December 31st, 2023** | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
-| [`1.15.0`](https://github.com/appium/appium/releases/tag/v1.15.0) | **December 31st, 2023** | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
-| [`1.14.0`](https://github.com/appium/appium/releases/tag/v1.14.0) | **December 31st, 2023** | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
+| Appium Version                                                    | EOL Date                                               | Notes                                                              |
+| ----------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------ |
+| [`1.22.2`](https://github.com/appium/appium/releases/tag/v1.22.2) | <span className="sauceGreen">Active</span>             |                                                                    |
+| [`1.22.1`](https://github.com/appium/appium/releases/tag/v1.22.1) | <span className="sauceGold">December 31st, 2023</span> | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
+| [`1.22.0`](https://github.com/appium/appium/releases/tag/v1.22.0) | <span className="sauceGold">December 31st, 2023</span> | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
+| [`1.21.0`](https://github.com/appium/appium/releases/tag/v1.21.0) | <span className="sauceGold">December 31st, 2023</span> | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
+| [`1.20.1`](https://github.com/appium/appium/releases/tag/v1.20.1) | <span className="sauceGold">December 31st, 2023</span> | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
+| [`1.19.0`](https://github.com/appium/appium/releases/tag/v1.19.0) | <span className="sauceGold">December 31st, 2023</span> | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
+| [`1.18.1`](https://github.com/appium/appium/releases/tag/v1.18.1) | <span className="sauceGold">December 31st, 2023</span> | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
+| [`1.17.1`](https://github.com/appium/appium/releases/tag/v1.17.1) | <span className="sauceGold">December 31st, 2023</span> | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
+| [`1.17.0`](https://github.com/appium/appium/releases/tag/v1.17.0) | <span className="sauceGold">December 31st, 2023</span> | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
+| [`1.16.0`](https://github.com/appium/appium/releases/tag/v1.16.0) | <span className="sauceGold">December 31st, 2023</span> | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
+| [`1.15.1`](https://github.com/appium/appium/releases/tag/v1.15.1) | <span className="sauceGold">December 31st, 2023</span> | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
+| [`1.15.0`](https://github.com/appium/appium/releases/tag/v1.15.0) | <span className="sauceGold">December 31st, 2023</span> | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
+| [`1.14.0`](https://github.com/appium/appium/releases/tag/v1.14.0) | <span className="sauceGold">December 31st, 2023</span> | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
 
 ## Android Emulators
 
