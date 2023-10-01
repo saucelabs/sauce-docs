@@ -10,7 +10,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::warning Appium 1 End-of-life
-The Appium core team does not maintain Appium 1.x anymore since the [1st of January 2022](https://github.com/appium/appium). Recent versions of all officially supported platform drivers are no longer compatible with Appium 1.x, and require Appium 2 to run.
+The Appium core team does not maintain Appium 1.x anymore since the [1st of January 2022](https://github.com/appium/appium). This means that:
+
+- bugfixes will not be released for Appium 1.x anymore and requires you to [migrate to Appium 2](./appium-2-migration.md)
+- Appium 1 and it's packaged drivers are no longer 100% compatible with Android 13/iOS 16 and higher and require Appium 2 to run stably.
 
 Sauce Labs still supports Appium 1.x in limited versions, but we recommend [migrating to Appium 2](./appium-2-migration.md) to keep your tests up-to-date and compatible with the latest platform versions.
 :::
@@ -125,6 +128,20 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 
 </TabItem>
 </Tabs>
+
+## End-of-Life and Release Strategy
+
+To improve your testing experience, we're ending support for select versions of Appium 1 and certain bundles of Appium 2. A single stable Appium 1 release will ensure better compatibility and stability, especially on older Android and iOS devices. For Appium 2, we recommend using the most recent drivers to benefit from new features and bug fixes.
+
+Our Appium 2 release strategy is as follows:
+
+- A regularly updated 'latest' version, refreshed every two weeks.
+- A monthly 'bundled' version, released on the first day of each month, that includes the latest Appium 2 drivers available as of the first day of the preceding month.
+- These bundled versions, referred to by the `appiumVersion` capability, will carry the name `appium2-YYYYMMDD`. They will reach their end-of-life 11 months post-release.
+
+This strategy is designed to ease the complexities you face in mobile app testing.
+
+You can find which versions are currently supported in the [Real Devices](#real-devices), [Android Emulators](#android-emulators) and [iOS Simulators](#ios-simulators) sections, including their end-of-life dates.
 
 ## Real Devices
 
@@ -289,9 +306,9 @@ The Appium 2 versions for Virtual Devices are also collections of drivers that a
         </tr>
         <tr>
             <td><code>2.0.0-beta66</code></td>
-            <td><span className="sauceGold">September 30th, 2024</span></td>
+            <td><span className="sauceGold">December 31st, 2023024</span></td>
             <td>
-                This is a collection of drivers that were released in October 1st 2023<br/>
+                This is a collection of drivers that were released in April 20th 2023<br/>
                 <ul>
                     <li><a href="https://github.com/appium/appium/releases/tag/appium%402.0.0-beta.66" target="_blank"><code>appium</code>: 2.0.0-beta.66</a></li>
                     <li><a href="https://github.com/appium/appium-espresso-driver/releases/tag/v2.22.0" target="_blank"><code>appium-espresso-driver</code>: 2.22.0</a></li>
@@ -303,9 +320,9 @@ The Appium 2 versions for Virtual Devices are also collections of drivers that a
         </tr>
         <tr>
             <td><code>2.0.0-beta56</code></td>
-            <td><span className="sauceGold">August 31st, 2024</span></td>
+            <td><span className="sauceGold">December 31st, 2023</span></td>
             <td>
-                This is a collection of drivers that were released in September 1st 2023<br/>
+                This is a collection of drivers that were released in February 24th 2023<br/>
                 <ul>
                     <li><a href="https://github.com/appium/appium/releases/tag/appium%402.0.0-beta.56" target="_blank"><code>appium</code>: 2.0.0-beta.56</a></li>
                     <li><a href="https://github.com/appium/appium-espresso-driver/releases/tag/v2.15.4" target="_blank"><code>appium-espresso-driver</code>: 2.15.4</a></li>
@@ -317,9 +334,9 @@ The Appium 2 versions for Virtual Devices are also collections of drivers that a
         </tr>
         <tr>
             <td><code>2.0.0-beta44</code></td>
-            <td><span className="sauceGold">August 31st, 2024</span></td>
+            <td><span className="sauceGold">December 31st, 2023</span></td>
             <td>
-                This is a collection of drivers that were released in September 1st 2023<br/>
+                This is a collection of drivers that were released in September 7th 2022<br/>
                 <ul>
                     <li><a href="https://github.com/appium/appium/releases/tag/appium%402.0.0-beta.44" target="_blank"><code>appium</code>: 2.0.0-beta.44</a></li>
                     <li><a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v2.7.0" target="_blank"><code>appium-uiautomator2-driver</code>: 2.7.0</a></li>
