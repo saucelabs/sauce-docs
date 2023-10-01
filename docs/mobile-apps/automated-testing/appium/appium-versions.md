@@ -148,7 +148,7 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
         </tr>
         <tr>
             <td><code>2.0.0</code></td>
-            <td><strong>January 30th, 2024</strong></td>
+            <td><span className="sauceGold">January 31st, 2024</span></td>
             <td>
                 This was the "old" alias for getting the latest Appium 2 drivers that were installed in the Sauce Labs Real Device Cloud. This alias is deprecated due to being unclear and is replaced by <code>latest</code>.<br />
                 The alias <code>2.0.0</code> is a collection of the following drivers<br/>
@@ -162,7 +162,7 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
         </tr>
         <tr>
             <td><code>appium2-20231001</code></td>
-            <td><strong>September 30th, 2024</strong></td>
+            <td><span className="sauceGold">September 30th, 2024</span></td>
             <td>
                 This is a collection of drivers that were released in October 1st 2023<br/>
                 <ul>
@@ -175,7 +175,7 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
         </tr>
         <tr>
             <td><code>appium2-20230901</code></td>
-            <td><strong>August 31st, 2024</strong></td>
+            <td><span className="sauceGold">August 31st, 2024</span></td>
             <td>
                 This is a collection of drivers that were released in September 1st 2023<br/>
                 <ul>
@@ -207,7 +207,9 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 | [`1.15.0`](https://github.com/appium/appium/releases/tag/v1.15.0) | <span className="sauceGold">December 31st, 2023</span> | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
 | [`1.14.0`](https://github.com/appium/appium/releases/tag/v1.14.0) | <span className="sauceGold">December 31st, 2023</span> | Update to 1.22.2 or [migrate to Appium 2](./appium-2-migration.md) |
 
-## Android Emulators
+## Virtual Devices
+
+### Android Emulators
 
 | OS Version | Supported Appium Versions                                                                                                                                            | Recommended/Default Backend Version | EOL Date |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | -------- |
@@ -223,7 +225,7 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 | 6.0        | 2.0.0, 2.0.0-beta66, 2.0.0-beta56, 2.0.0-beta44, 1.22.3, 1.22.1, 1.20.2, 1.20.1, 1.19.2, 1.18.1, 1.17.1, 1.16.0, 1.15.0, 1.13.0, 1.12.1, 1.11.1, 1.9.1, 1.8.1, 1.8.0 | 2.0.0                               |          |
 | 5.1        | 1.22.1, 1.20.2, 1.20.1, 1.19.2, 1.18.1, 1.17.1, 1.16.0, 1.15.0, 1.13.0, 1.12.1, 1.11.1, 1.9.1, 1.8.1, 1.8.0                                                          | 1.22.1                              |          |
 
-## iOS Simulators
+### iOS Simulators
 
 | Platform Version | Supported Appium Versions                                                                                       | Recommended/Default Backend Version | EOL Date |
 | ---------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------- | -------- |
@@ -249,3 +251,79 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 | 11.1             | 1.9.1, 1.8.1, 1.8.0                                                                                             | 1.9.1                               |          |
 | 11.0             | 1.9.1, 1.8.1, 1.8.0                                                                                             | 1.9.1                               |          |
 | 10.3             | 1.9.1, 1.8.1, 1.8.0                                                                                             | 1.9.1                               |          |
+
+### Appium 2 Versions
+
+The Appium 2 versions for Virtual Devices are also collections of drivers that are installed in our cloud. The below table shows the Appium 2 versions with their drivers that are available for Virtual Devices.
+
+<table>
+    <thead>
+        <tr>
+            <th>Appium Version</th>
+            <th>EOL Date</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>latest</code></td>
+            <td><span className="sauceGreen">Active</span></td>
+            <td>
+                This will hold a collection of drivers that are compatible with the latest Appium server and driver versions that are installed in our cloud. We try to keep versions up to date every two weeks. You can find the exact versions in the first 20 log lines of the Appium logs of your executed test by going to <code>Test Details page > Logs > Appium Logs</code>
+            </td>
+        </tr>
+        <tr>
+            <td><code>2.0.0</code></td>
+            <td><span className="sauceGold">January 31st, 2024</span></td>
+            <td>
+                This was the "old" alias for getting the latest Appium 2 drivers that were installed in the Sauce Labs Real Device Cloud. This alias is deprecated due to being unclear and is replaced by <code>latest</code>.<br />
+                The alias <code>2.0.0</code> is a collection of the following drivers<br/>
+                <ul>
+                    <li><a href="https://github.com/appium/appium/releases/tag/appium%402.0.1" target="_blank"><code>appium</code>: 2.0.1</a></li>
+                    <li><a href="https://github.com/appium/appium-flutter-driver/releases/tag/v1.20.2" target="_blank"><code>appium-flutter-driver</code>: 1.20.2</a></li>
+                    <li><a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v2.29.4" target="_blank"><code>appium-uiautomator2-driver</code>: 2.29.4</a></li>
+                    <li><a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v4.33.2" target="_blank"><code>appium-xcuitest-driver</code>: 4.33.2</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>2.0.0-beta66</code></td>
+            <td><span className="sauceGold">September 30th, 2024</span></td>
+            <td>
+                This is a collection of drivers that were released in October 1st 2023<br/>
+                <ul>
+                    <li><a href="https://github.com/appium/appium/releases/tag/appium%402.1.3" target="_blank"><code>appium</code>: 2.1.3</a></li>
+                    <li><a href="https://github.com/appium/appium-flutter-driver/releases/tag/v1.21.1" target="_blank"><code>appium-flutter-driver</code>: 1.21.1</a></li>
+                    <li><a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v2.29.5" target="_blank"><code>appium-uiautomator2-driver</code>: 2.29.5</a></li>
+                    <li><a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v4.35.0" target="_blank"><code>appium-xcuitest-driver</code>: 4.35.0</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>2.0.0-beta56</code></td>
+            <td><span className="sauceGold">August 31st, 2024</span></td>
+            <td>
+                This is a collection of drivers that were released in September 1st 2023<br/>
+                <ul>
+                    <li><a href="https://github.com/appium/appium/releases/tag/appium%402.1.3" target="_blank"><code>appium</code>: 2.1.3</a></li>
+                    <li><a href="https://github.com/appium/appium-flutter-driver/releases/tag/v1.21.1" target="_blank"><code>appium-flutter-driver</code>: 1.21.1</a></li>
+                    <li><a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v2.29.5" target="_blank"><code>appium-uiautomator2-driver</code>: 2.29.5</a></li>
+                    <li><a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v4.35.0" target="_blank"><code>appium-xcuitest-driver</code>: 4.35.0</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>2.0.0-beta44</code></td>
+            <td><span className="sauceGold">August 31st, 2024</span></td>
+            <td>
+                This is a collection of drivers that were released in September 1st 2023<br/>
+                <ul>
+                    <li><a href="https://github.com/appium/appium/releases/tag/appium%402.1.3" target="_blank"><code>appium</code>: 2.1.3</a></li>
+                    <li><a href="https://github.com/appium/appium-flutter-driver/releases/tag/v1.21.1" target="_blank"><code>appium-flutter-driver</code>: 1.21.1</a></li>
+                    <li><a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v2.29.5" target="_blank"><code>appium-uiautomator2-driver</code>: 2.29.5</a></li>
+                    <li><a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v4.35.0" target="_blank"><code>appium-xcuitest-driver</code>: 4.35.0</a></li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
