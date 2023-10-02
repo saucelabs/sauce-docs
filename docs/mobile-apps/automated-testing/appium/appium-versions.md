@@ -184,9 +184,9 @@ You can find which versions are currently supported in the [Real Devices](#real-
                 This is a collection of drivers that were released in October 1st 2023<br/>
                 <ul>
                     <li><a href="https://github.com/appium/appium/releases/tag/appium%402.1.3" target="_blank"><code>appium</code>: 2.1.3</a></li>
-                    <li><a href="https://github.com/appium/appium-flutter-driver/releases/tag/v1.21.1" target="_blank"><code>appium-flutter-driver</code>: 1.21.1</a></li>
-                    <li><a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v2.29.5" target="_blank"><code>appium-uiautomator2-driver</code>: 2.29.5</a></li>
-                    <li><a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v4.35.0" target="_blank"><code>appium-xcuitest-driver</code>: 4.35.0</a></li>
+                    <li><a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.0.0" target="_blank"><code>appium-flutter-driver</code>: 2.0.0</a></li>
+                    <li><a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v2.29.10" target="_blank"><code>appium-uiautomator2-driver</code>: 2.29.10</a></li>
+                    <li><a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v5.4.0" target="_blank"><code>appium-xcuitest-driver</code>: 5.4.0</a></li>
                 </ul>
             </td>
         </tr>
