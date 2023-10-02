@@ -712,6 +712,7 @@ module.exports = {
                     label: 'Sauce Connect Proxy 5 CLI (alpha)',
                     collapsed: true,
                     items: [
+                        'dev/cli/sauce-connect-5',
                         'dev/cli/sauce-connect-5/run',
                         'dev/cli/sauce-connect-5/completion',
                     ],
@@ -955,6 +956,7 @@ module.exports = {
                             items: [
                                 'secure-connections/sauce-connect-5',
                                 'secure-connections/sauce-connect-5/installation',
+                                'secure-connections/sauce-connect-5/operation',
                                 {
                                     type: 'category',
                                     label: 'Advanced',

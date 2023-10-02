@@ -96,15 +96,83 @@ sc run --user <your user> --access-key <your access key> --region <us-west|eu-ce
 
 You can manage and monitor all Sauce Connect Proxy tunnel activity from the Sauce Labs [**Tunnels**](https://app.saucelabs.com/tunnels) page, which displays useful information, such as the number of active tunnels, tunnel status, and specific attributes for each tunnel. You can also check the health of an individual tunnel by running a test on it.
 
-| Column          | Description                                                                                                                                           |
-| :-------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Type            | The icon shows whether the tunnel is a Sauce Connect Proxy, or an IPSec Proxy.                                                            |
-| State           | The icon shows whether the tunnel is running or stopped.                                                                                              |
+| Column          | Description                                                                                                                                     |
+| :-------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type            | The icon shows whether the tunnel is a Sauce Connect Proxy, or an IPSec Proxy.                                                                  |
+| State           | The icon shows whether the tunnel is running or stopped.                                                                                        |
 | Tunnel Name     | The name of the tunnel. This is the [`--tunnel-name`](/dev/cli/sauce-connect-5/run/#--tunnel-name) used when starting the Sauce Connect tunnel. |
-| Client Hostname | The name of the machine where the Sauce Connect Proxy client is running.                                                                              |
-| Owner           | The name of the account that is running the tunnel.                                                                                                   |
-| Sharing         | Indicates whether or not the tunnel is shared.                                                                                                        |
-| Duration        | The amount of time the tunnel has been running.                                                                                                       |
+| Client Hostname | The name of the machine where the Sauce Connect Proxy client is running.                                                                        |
+| Owner           | The name of the account that is running the tunnel.                                                                                             |
+| Sharing         | Indicates whether or not the tunnel is shared.                                                                                                  |
+| Duration        | The amount of time the tunnel has been running.                                                                                                 |
+
+## Service Management Tools
+
+Running Sauce Connect Proxy as a service is recommended when your tests often require an active secure connection and, operationally, it's complicated to set up a tunnel just before each test suite.
+The following options are available:
+
+- [Running a containerized Sauce Connect Proxy](/secure-connections/sauce-connect/setup-configuration/docker/#running-the-sauce-connect-proxy-container-indefinitely-in-kubernetes)
+- Running a systemd service
+
+### Running systemd service on Debian-based Linux
+
+1. [Install](/secure-connections/sauce-connect-5/installation/) Debian package
+2. Create your Sauce Connect configuration file
+
+- Sauce Connect Proxy YAML config file
+- Create an env file containing `SAUCE_CONFIG_FILE` for the systemd service to be able to locate your YAML configuration file
+
+```bash
+mkdir /etc/sauce-connect
+cat <<EOF >> /etc/sauce-connect/env
+SAUCE_CONFIG_FILE=/etc/sauce-connect/sc.yaml
+EOF
+```
+
+- Create a configuration file containing your Sauce Connect Proxy configuration
+
+```bash
+cat <<EOF >> /etc/sauce-connect/sc.yaml
+region=us-west
+user=xxx
+access-key=xxx
+tunnel-name=my-systemd-sc
+EOF
+```
+
+3. Customize the systemd unit file
+
+- Running `systemctl edit sauce-connect` will open an editor that allows adding overrides
+- Add your overrides (that systemd will save in `/etc/systemd/system/sauce-connect.service.d/override.conf`)
+
+```bash
+[Service]
+EnvironmentFile=/etc/sauce-connect/env
+```
+
+4. Validate your systemd overrides
+
+```bash
+systemctl cat sauce-connect
+  # /lib/systemd/system/sauce-connect.service
+  [Unit]
+  Description=Sauce Connect Proxy Service
+  After=network-online.target
+
+  [Service]
+  EnvironmentFile=/etc/default/sauce-connect
+  …
+
+  # /etc/systemd/system/sauce-connect.service.d/override.conf
+  [Service]
+  EnvironmentFile=/etc/sauce-connect/env
+```
+
+5. Start the service
+
+```bash
+systemctl start sauce-connect
+```
 
 ## More Information
 
