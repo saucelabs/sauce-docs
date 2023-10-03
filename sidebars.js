@@ -445,6 +445,7 @@ module.exports = {
                                 'error-reporting/language-integrations/go',
                                 'error-reporting/language-integrations/javascript',
                                 'error-reporting/language-integrations/node',
+                                'error-reporting/language-integrations/react',
                                 'error-reporting/language-integrations/python',
                             ],
                         },
