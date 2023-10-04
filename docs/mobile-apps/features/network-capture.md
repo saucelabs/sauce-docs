@@ -77,7 +77,7 @@ Alternatively, some other commonly used HAR viewers include:
 
 - Android Emulators
 - iOS Simulators
-- Hybrid Applications
+- Hybrid Applications (React Native, Cordova, Flutter)
 - Android Chrome Browser
 - iOS Safari Browser
 :::
