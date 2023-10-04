@@ -28,6 +28,12 @@ You can filter the results of your query using the `name` parameter below.
 <table id="table-api">
   <tbody>
     <tr>
+     <td><code>id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Comma-separated team IDs. Allows to receive details of multiple teams at once. For example, <code>id=3d60780314724ab8ac688b50aadd9ff9,f9acc7c5b1da4fd0902b184c4f0b6324</code> would return details of teams with IDs included in the provided list.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
      <td><code>name</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns the set of teams that begin with the specified name value. For example, <code>name=sauce</code> would return all teams in the organization with names beginning with "sauce".</p></td>
     </tr>
