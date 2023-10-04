@@ -20,7 +20,7 @@ Keep in mind that these are guidelines. Most environments have their own workloa
 
 ## Supported Operating Systems
 
-### Sauce Connect v4.8.x
+### Sauce Connect v4.x.x
 
 <table>
   <tr>
@@ -41,8 +41,7 @@ Keep in mind that these are guidelines. Most environments have their own workloa
         <p>CentOS/RHEL-7 or higher</p>
         <p>SUSE Linux Enterprise 15.0 and higher</p>
    </td>
-   <td>x86_6
-       <p>arm64</p>
+   <td>x86_64<br/>arm64
    </td>
    <td>Unsupported OSes may still be able to run Sauce Connect, but they've not been tested for versions 4.8.x and higher.
    </td>
@@ -77,54 +76,6 @@ Enable your Mac to allow apps from the App Store and identified developers.
 2. Under **Allow apps downloaded from**, select the option **App Store and identified developers**.
 
 :::
-
-### Sauce Connect v4.7.x
-
-<table>
-  <tr>
-   <td><strong>Name</strong>
-   </td>
-   <td><strong>Value</strong>
-   </td>
-   <td><strong>CPU Arch</strong>
-   </td>
-   <td><strong>Notes</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>Linux
-   </td>
-   <td>Ubuntu 14.04 or higher
-        <p>Debian 8 or higher</p>
-        <p>CentOS/RHEL-6 or higher</p>
-        <p>SUSE Linux Enterprise 12.0 and higher</p>
-   </td>
-   <td>x86_64
-   </td>
-   <td>Unsupported OSes may still be able to run Sauce Connect, but they've not been tested for versions 4.7.x and higher. Support has been ended for 32-bit Linux.
-   </td>
-  </tr>
-  <tr>
-   <td>macOS
-   </td>
-   <td>OS X 10.11 (El Capitan) and higher
-   </td>
-   <td>x86_64
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>Windows
-   </td>
-   <td>Windows 7 and higher
-   </td>
-   <td>x86
-   </td>
-   <td>
-   </td>
-  </tr>
-</table>
 
 ## Verifying Sauce Connect Network Routes on Your Host Machine
 

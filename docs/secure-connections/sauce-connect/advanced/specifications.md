@@ -33,7 +33,7 @@ Sauce Connect Proxy Tunnel connection TLS specifications
    </td>
    <td>1.2, 1.3
    </td>
-   <td>4.7.x, 4.8.x
+   <td>4.8.x, 4.9.x
    </td>
   </tr>
   <tr>
@@ -41,7 +41,7 @@ Sauce Connect Proxy Tunnel connection TLS specifications
    </td>
    <td>1.1.1k
    </td>
-   <td>4.7.x, 4.8.x
+   <td>4.8.x, 4.9.x
    </td>
   </tr>
   <tr>
@@ -59,7 +59,7 @@ Sauce Connect Proxy Tunnel connection TLS specifications
    <p>ECDHE-ECDSA-AES128-SHA256</p>
    <p>ECDHE-RSA-AES128-SHA256</p></small>
    </td>
-   <td>4.7.x, 4.8.x
+   <td>4.8.x, 4.9.x
    </td>
   </tr>
   <tr>
