@@ -811,6 +811,12 @@ You can narrow the results of your query using any of the following filtering pa
 <table id="table-api">
   <tbody>
     <tr>
+     <td><code>id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Comma-separated user IDs. Allows to receive details of multiple user at once. For example, <code>id=3d60780314724ab8ac688b50aadd9ff9,f9acc7c5b1da4fd0902b184c4f0b6324</code> would return details of users with IDs included in the provided list.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
      <td><code>username</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limits the results to usernames that begin with the specified value. For example, <code>username=an</code> would return all users in the organization with usernames beginning with "an".</p></td>
     </tr>
