@@ -823,12 +823,6 @@ You can narrow the results of your query using any of the following filtering pa
   </tbody>
   <tbody>
     <tr>
-     <td><code>team-name</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to users who belong to the specified team names. Specify multiple teams as comma-separated values.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
      <td><code>roles</code></td>
      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Limit results to users who are assigned certain roles. Valid values are:
        <ul>
