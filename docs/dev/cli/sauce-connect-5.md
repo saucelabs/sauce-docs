@@ -17,7 +17,7 @@ Below is a list of commands available with your Sauce Connect Proxy application.
 ## What You'll Need
 
 - Make sure you're using the latest [Sauce Connect Proxy version](/secure-connections/sauce-connect-5/installation/). Otherwise, some commands may not work.
-- See [Sauce Connect Administration](/secure-connections/sauce-connect-5/operation/) for setup instructions and use cases.
+- See [Sauce Connect Quickstart](/secure-connections/sauce-connect-5/quickstart/) for setup instructions and use cases.
 
 <br/>
 
