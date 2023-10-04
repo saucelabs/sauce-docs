@@ -56,10 +56,10 @@ values={[
 <TabItem value="curl">
 
 ```curl
-curl -v https://saucelabs.com/
+curl -v https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions
 ```
 
-This command should return "Connected to saucelabs.com".
+This command should return 200 and a text containing Sauce Connect versions.
 
 </TabItem>
 
@@ -153,7 +153,3 @@ For additional help, please reach out to the Sauce Labs Support Team. To better 
   ```
 
 Then, attach the resulting `sc.log` file to your support request.
-
-## More Information
-
-- Effective with Sauce Connect Proxy version 4.7.0, the `--doctor` flag was deprecated. Diagnostics are now automatically triggered. Refer to our [Changelog](https://changelog.saucelabs.com/en/sauce-connect-proxy-version-30JTvzO0F) for more information.
