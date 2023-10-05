@@ -287,7 +287,7 @@ You can find which versions are currently supported in the [Real Devices](#real-
       </td>
       <td>Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
           <code>1.22.2</code>
-        </a> or <a href="./appium-2-migration.md">migrate to Appium 2</a>
+        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
       </td>
     </tr>
     <tr>
@@ -301,7 +301,7 @@ You can find which versions are currently supported in the [Real Devices](#real-
       </td>
       <td>Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
           <code>1.22.2</code>
-        </a> or <a href="./appium-2-migration.md">migrate to Appium 2</a>
+        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
       </td>
     </tr>
     <tr>
@@ -315,7 +315,7 @@ You can find which versions are currently supported in the [Real Devices](#real-
       </td>
       <td>Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
           <code>1.22.2</code>
-        </a> or <a href="./appium-2-migration.md">migrate to Appium 2</a>
+        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
       </td>
     </tr>
     <tr>
@@ -329,7 +329,7 @@ You can find which versions are currently supported in the [Real Devices](#real-
       </td>
       <td>Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
           <code>1.22.2</code>
-        </a> or <a href="./appium-2-migration.md">migrate to Appium 2</a>
+        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
       </td>
     </tr>
     <tr>
@@ -343,7 +343,7 @@ You can find which versions are currently supported in the [Real Devices](#real-
       </td>
       <td>Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
           <code>1.22.2</code>
-        </a> or <a href="./appium-2-migration.md">migrate to Appium 2</a>
+        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
       </td>
     </tr>
     <tr>
@@ -357,7 +357,7 @@ You can find which versions are currently supported in the [Real Devices](#real-
       </td>
       <td>Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
           <code>1.22.2</code>
-        </a> or <a href="./appium-2-migration.md">migrate to Appium 2</a>
+        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
       </td>
     </tr>
     <tr>
@@ -371,7 +371,7 @@ You can find which versions are currently supported in the [Real Devices](#real-
       </td>
       <td>Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
           <code>1.22.2</code>
-        </a> or <a href="./appium-2-migration.md">migrate to Appium 2</a>
+        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
       </td>
     </tr>
     <tr>
@@ -385,7 +385,7 @@ You can find which versions are currently supported in the [Real Devices](#real-
       </td>
       <td>Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
           <code>1.22.2</code>
-        </a> or <a href="./appium-2-migration.md">migrate to Appium 2</a>
+        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
       </td>
     </tr>
     <tr>
@@ -399,7 +399,7 @@ You can find which versions are currently supported in the [Real Devices](#real-
       </td>
       <td>Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
           <code>1.22.2</code>
-        </a> or <a href="./appium-2-migration.md">migrate to Appium 2</a>
+        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
       </td>
     </tr>
     <tr>
@@ -413,7 +413,7 @@ You can find which versions are currently supported in the [Real Devices](#real-
       </td>
       <td>Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
           <code>1.22.2</code>
-        </a> or <a href="./appium-2-migration.md">migrate to Appium 2</a>
+        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
       </td>
     </tr>
     <tr>
@@ -427,7 +427,7 @@ You can find which versions are currently supported in the [Real Devices](#real-
       </td>
       <td>Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
           <code>1.22.2</code>
-        </a> or <a href="./appium-2-migration.md">migrate to Appium 2</a>
+        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
       </td>
     </tr>
     <tr>
@@ -441,7 +441,7 @@ You can find which versions are currently supported in the [Real Devices](#real-
       </td>
       <td>Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
           <code>1.22.2</code>
-        </a> or <a href="./appium-2-migration.md">migrate to Appium 2</a>
+        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
       </td>
     </tr>
   </tbody>
