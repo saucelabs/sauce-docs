@@ -30,6 +30,7 @@ Sauce Labs supports the following test configurations for Playwright:
 <table id="table-fw">
   <tr>
     <th>Playwright Version</th>
+    <th>Node.js Version</th>
     <th>Supported Platforms</th>
     <th>Supported Browsers</th>
     <th>End of Life</th>
@@ -37,6 +38,7 @@ Sauce Labs supports the following test configurations for Playwright:
   <tbody>
     <tr>
       <td rowspan='2'>1.38.1</td>
+      <td rowspan='2'>18</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>September 28, 2024</td>
@@ -48,6 +50,7 @@ Sauce Labs supports the following test configurations for Playwright:
   <tbody>
     <tr>
       <td rowspan='2'>1.37.1</td>
+      <td rowspan='2'>18</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>August 31, 2024</td>
@@ -59,6 +62,7 @@ Sauce Labs supports the following test configurations for Playwright:
   <tbody>
     <tr>
       <td rowspan='2'>1.36.2</td>
+      <td rowspan='2'>18</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>August 1, 2024</td>
@@ -70,6 +74,7 @@ Sauce Labs supports the following test configurations for Playwright:
   <tbody>
     <tr>
       <td rowspan='2'>1.35.1</td>
+      <td rowspan='2'>18</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>June 16, 2024</td>
@@ -81,6 +86,7 @@ Sauce Labs supports the following test configurations for Playwright:
   <tbody>
     <tr>
       <td rowspan='2'>1.33.0</td>
+      <td rowspan='2'>18</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>May 11, 2024</td>
@@ -92,6 +98,7 @@ Sauce Labs supports the following test configurations for Playwright:
   <tbody>
     <tr>
       <td rowspan='2'>1.31.1</td>
+      <td rowspan='2'>16</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>Mar 01, 2024</td>
@@ -103,6 +110,7 @@ Sauce Labs supports the following test configurations for Playwright:
   <tbody>
     <tr>
       <td rowspan='2'>1.29.2</td>
+      <td rowspan='2'>16</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>Jan 15, 2024</td>
@@ -114,6 +122,7 @@ Sauce Labs supports the following test configurations for Playwright:
   <tbody>
     <tr>
       <td rowspan='2'>1.28.1</td>
+      <td rowspan='2'>16</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>Nov 30, 2023</td>
@@ -125,6 +134,7 @@ Sauce Labs supports the following test configurations for Playwright:
   <tbody>
     <tr>
       <td rowspan='2'>1.27.1</td>
+      <td rowspan='2'>16</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Firefox, Webkit</td>
       <td rowspan='2'>Oct 20, 2023</td>
