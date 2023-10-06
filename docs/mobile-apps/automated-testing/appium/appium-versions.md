@@ -458,40 +458,80 @@ You can find which versions are currently supported in the [Real Devices](#real-
       <th>Supported Appium Versions</th>
       <th>Default Appium Version</th>
       <th>Recommended Appium Version</th>
-      <th>EOL Date</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><tr>
+      <td>Android 14.0</td>
+      <td>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.0.0</code>
+        </a>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.0.0</code>
+        </a>
+      </td>
+    </tr>
     <tr>
       <td>Android 13.0</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
-          <code>1.22.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.0" target="_blank">
-          <code>1.22.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
-          <code>1.20.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
-          <code>1.20.1</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
+              <code>1.22.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.0" target="_blank">
+              <code>1.22.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
+              <code>1.20.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
+              <code>1.20.1</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="#appium-2-versions">
@@ -503,38 +543,57 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>Android 12.0</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
-          <code>1.22.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.0" target="_blank">
-          <code>1.22.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
-          <code>1.20.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
-          <code>1.20.1</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
+              <code>1.22.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.0" target="_blank">
+              <code>1.22.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
+              <code>1.20.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
+              <code>1.20.1</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
@@ -546,50 +605,77 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>Android 11.0</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
-          <code>1.22.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
-          <code>1.20.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
-          <code>1.20.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
-          <code>1.19.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.18.1" target="_blank">
-          <code>1.18.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
-          <code>1.17.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
-          <code>1.16.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
-          <code>1.15.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
+              <code>1.22.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
+              <code>1.20.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
+              <code>1.20.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
+              <code>1.19.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.18.1" target="_blank">
+              <code>1.18.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
+              <code>1.17.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
+              <code>1.16.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
+              <code>1.15.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
@@ -601,65 +687,102 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>Android 10.0</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
-          <code>1.22.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
-          <code>1.20.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
-          <code>1.20.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
-          <code>1.19.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.18.1" target="_blank">
-          <code>1.18.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
-          <code>1.17.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
-          <code>1.16.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
-          <code>1.15.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
-          <code>1.13.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.11.1" target="_blank">
-          <code>1.11.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
-          <code>1.9.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
-          <code>1.8.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
-          <code>1.8.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
+              <code>1.22.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
+              <code>1.20.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
+              <code>1.20.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
+              <code>1.19.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.18.1" target="_blank">
+              <code>1.18.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
+              <code>1.17.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
+              <code>1.16.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
+              <code>1.15.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
+              <code>1.13.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.11.1" target="_blank">
+              <code>1.11.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
+              <code>1.9.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
+              <code>1.8.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
+              <code>1.8.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
@@ -671,68 +794,107 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>Android 9.0</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
-          <code>1.22.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
-          <code>1.20.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
-          <code>1.20.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
-          <code>1.19.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.18.1" target="_blank">
-          <code>1.18.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
-          <code>1.17.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
-          <code>1.16.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
-          <code>1.15.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
-          <code>1.13.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.12.1" target="_blank">
-          <code>1.12.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.11.1" target="_blank">
-          <code>1.11.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
-          <code>1.9.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
-          <code>1.8.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
-          <code>1.8.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
+              <code>1.22.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
+              <code>1.20.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
+              <code>1.20.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
+              <code>1.19.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.18.1" target="_blank">
+              <code>1.18.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
+              <code>1.17.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
+              <code>1.16.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
+              <code>1.15.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
+              <code>1.13.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.12.1" target="_blank">
+              <code>1.12.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.11.1" target="_blank">
+              <code>1.11.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
+              <code>1.9.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
+              <code>1.8.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
+              <code>1.8.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
@@ -744,68 +906,107 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>Android 8.1</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
-          <code>1.22.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
-          <code>1.20.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
-          <code>1.20.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
-          <code>1.19.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.18.1" target="_blank">
-          <code>1.18.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
-          <code>1.17.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
-          <code>1.16.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
-          <code>1.15.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
-          <code>1.13.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.12.1" target="_blank">
-          <code>1.12.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.11.1" target="_blank">
-          <code>1.11.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
-          <code>1.9.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
-          <code>1.8.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
-          <code>1.8.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
+              <code>1.22.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
+              <code>1.20.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
+              <code>1.20.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
+              <code>1.19.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.18.1" target="_blank">
+              <code>1.18.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
+              <code>1.17.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
+              <code>1.16.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
+              <code>1.15.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
+              <code>1.13.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.12.1" target="_blank">
+              <code>1.12.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.11.1" target="_blank">
+              <code>1.11.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
+              <code>1.9.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
+              <code>1.8.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
+              <code>1.8.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
@@ -817,68 +1018,107 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>Android 8.0</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
-          <code>1.22.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
-          <code>1.20.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
-          <code>1.20.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
-          <code>1.19.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.18.1" target="_blank">
-          <code>1.18.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
-          <code>1.17.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
-          <code>1.16.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
-          <code>1.15.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
-          <code>1.13.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.12.1" target="_blank">
-          <code>1.12.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.11.1" target="_blank">
-          <code>1.11.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
-          <code>1.9.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
-          <code>1.8.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
-          <code>1.8.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
+              <code>1.22.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
+              <code>1.20.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
+              <code>1.20.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
+              <code>1.19.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.18.1" target="_blank">
+              <code>1.18.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
+              <code>1.17.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
+              <code>1.16.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
+              <code>1.15.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
+              <code>1.13.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.12.1" target="_blank">
+              <code>1.12.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.11.1" target="_blank">
+              <code>1.11.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
+              <code>1.9.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
+              <code>1.8.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
+              <code>1.8.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
@@ -890,68 +1130,107 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>Android 7.1</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
-          <code>1.22.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
-          <code>1.20.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
-          <code>1.20.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
-          <code>1.19.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.18.1" target="_blank">
-          <code>1.18.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
-          <code>1.17.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
-          <code>1.16.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
-          <code>1.15.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
-          <code>1.13.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.12.1" target="_blank">
-          <code>1.12.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.11.1" target="_blank">
-          <code>1.11.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
-          <code>1.9.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
-          <code>1.8.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
-          <code>1.8.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
+              <code>1.22.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
+              <code>1.20.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
+              <code>1.20.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
+              <code>1.19.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.18.1" target="_blank">
+              <code>1.18.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
+              <code>1.17.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
+              <code>1.16.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
+              <code>1.15.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
+              <code>1.13.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.12.1" target="_blank">
+              <code>1.12.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.11.1" target="_blank">
+              <code>1.11.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
+              <code>1.9.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
+              <code>1.8.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
+              <code>1.8.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
@@ -963,68 +1242,107 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>Android 7.0</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
-          <code>1.22.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
-          <code>1.20.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
-          <code>1.20.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
-          <code>1.19.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.18.1" target="_blank">
-          <code>1.18.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
-          <code>1.17.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
-          <code>1.16.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
-          <code>1.15.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
-          <code>1.13.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.12.1" target="_blank">
-          <code>1.12.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.11.1" target="_blank">
-          <code>1.11.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
-          <code>1.9.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
-          <code>1.8.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
-          <code>1.8.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
+              <code>1.22.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
+              <code>1.20.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
+              <code>1.20.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
+              <code>1.19.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.18.1" target="_blank">
+              <code>1.18.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
+              <code>1.17.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
+              <code>1.16.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
+              <code>1.15.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
+              <code>1.13.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.12.1" target="_blank">
+              <code>1.12.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.11.1" target="_blank">
+              <code>1.11.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
+              <code>1.9.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
+              <code>1.8.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
+              <code>1.8.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
@@ -1036,68 +1354,107 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>Android 6.0</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
-          <code>1.22.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
-          <code>1.20.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
-          <code>1.20.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
-          <code>1.19.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.18.1" target="_blank">
-          <code>1.18.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
-          <code>1.17.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
-          <code>1.16.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
-          <code>1.15.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
-          <code>1.13.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.12.1" target="_blank">
-          <code>1.12.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.11.1" target="_blank">
-          <code>1.11.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
-          <code>1.9.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
-          <code>1.8.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
-          <code>1.8.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
+              <code>1.22.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
+              <code>1.20.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
+              <code>1.20.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
+              <code>1.19.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.18.1" target="_blank">
+              <code>1.18.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
+              <code>1.17.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
+              <code>1.16.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
+              <code>1.15.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
+              <code>1.13.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.12.1" target="_blank">
+              <code>1.12.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.11.1" target="_blank">
+              <code>1.11.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
+              <code>1.9.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
+              <code>1.8.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
+              <code>1.8.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
@@ -1109,53 +1466,82 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>Android 5.1</td>
       <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
-          <code>1.22.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
-          <code>1.20.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
-          <code>1.20.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
-          <code>1.19.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.18.1" target="_blank">
-          <code>1.18.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
-          <code>1.17.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
-          <code>1.16.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
-          <code>1.15.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
-          <code>1.13.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.12.1" target="_blank">
-          <code>1.12.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.11.1" target="_blank">
-          <code>1.11.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
-          <code>1.9.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
-          <code>1.8.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
-          <code>1.8.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
+              <code>1.22.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.2" target="_blank">
+              <code>1.20.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
+              <code>1.20.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
+              <code>1.19.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.18.1" target="_blank">
+              <code>1.18.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
+              <code>1.17.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
+              <code>1.16.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
+              <code>1.15.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
+              <code>1.13.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.12.1" target="_blank">
+              <code>1.12.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.11.1" target="_blank">
+              <code>1.11.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
+              <code>1.9.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
+              <code>1.8.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
+              <code>1.8.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.1" target="_blank">
@@ -1167,7 +1553,6 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>1.22.1</code>
         </a>
       </td>
-      <td></td>
     </tr>
   </tbody>
 </table>
@@ -1181,25 +1566,34 @@ You can find which versions are currently supported in the [Real Devices](#real-
       <th>Supported Appium Versions</th>
       <th>Default Appium Version</th>
       <th>Recommended Appium Version</th>
-      <th>EOL Date</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>iOS 16.2</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="#appium-2-versions">
@@ -1211,23 +1605,32 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 16.1</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="#appium-2-versions">
@@ -1239,23 +1642,32 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 16.0</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="#appium-2-versions">
@@ -1267,26 +1679,37 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 15.5</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
@@ -1298,26 +1721,37 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 15.4</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
@@ -1329,29 +1763,42 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 15.2</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
-          <code>1.22.2</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
+              <code>1.22.2</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
@@ -1363,32 +1810,47 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 15.0</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
-          <code>1.22.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.0" target="_blank">
-          <code>1.22.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
+              <code>1.22.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.0" target="_blank">
+              <code>1.22.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
@@ -1400,38 +1862,57 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 14.5</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
-          <code>1.22.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.21.0" target="_blank">
-          <code>1.21.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
-          <code>1.20.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.0" target="_blank">
-          <code>1.20.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
+              <code>1.22.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.21.0" target="_blank">
+              <code>1.21.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
+              <code>1.20.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.0" target="_blank">
+              <code>1.20.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
@@ -1443,38 +1924,57 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 14.4</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
-          <code>1.22.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.21.0" target="_blank">
-          <code>1.21.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
-          <code>1.20.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.0" target="_blank">
-          <code>1.20.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
+              <code>1.22.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.21.0" target="_blank">
+              <code>1.21.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
+              <code>1.20.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.0" target="_blank">
+              <code>1.20.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
@@ -1486,38 +1986,57 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 14.3</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
-          <code>1.22.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.21.0" target="_blank">
-          <code>1.21.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
-          <code>1.20.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.0" target="_blank">
-          <code>1.20.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
+              <code>1.22.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.21.0" target="_blank">
+              <code>1.21.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.1" target="_blank">
+              <code>1.20.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.20.0" target="_blank">
+              <code>1.20.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
@@ -1529,41 +2048,62 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 14.0</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
-          <code>1.22.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.21.0" target="_blank">
-          <code>1.21.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
-          <code>1.19.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.19.1" target="_blank">
-          <code>1.19.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.18.3" target="_blank">
-          <code>1.18.3</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
+              <code>1.22.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.21.0" target="_blank">
+              <code>1.21.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
+              <code>1.19.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.19.1" target="_blank">
+              <code>1.19.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.18.3" target="_blank">
+              <code>1.18.3</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
@@ -1575,41 +2115,62 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 13.4</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
-          <code>1.22.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.21.0" target="_blank">
-          <code>1.21.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
-          <code>1.19.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.19.1" target="_blank">
-          <code>1.19.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
-          <code>1.17.1</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
+              <code>1.22.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.21.0" target="_blank">
+              <code>1.21.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
+              <code>1.19.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.19.1" target="_blank">
+              <code>1.19.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
+              <code>1.17.1</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
@@ -1621,44 +2182,67 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 13.2</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
-          <code>1.22.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.21.0" target="_blank">
-          <code>1.21.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
-          <code>1.19.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.19.1" target="_blank">
-          <code>1.19.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
-          <code>1.17.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
-          <code>1.16.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
+              <code>1.22.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.21.0" target="_blank">
+              <code>1.21.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
+              <code>1.19.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.19.1" target="_blank">
+              <code>1.19.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
+              <code>1.17.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
+              <code>1.16.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
@@ -1670,47 +2254,72 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 13.0</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
-          <code>1.22.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.21.0" target="_blank">
-          <code>1.21.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
-          <code>1.19.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.19.1" target="_blank">
-          <code>1.19.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
-          <code>1.17.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
-          <code>1.16.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
-          <code>1.15.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
+              <code>1.22.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.21.0" target="_blank">
+              <code>1.21.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.19.2" target="_blank">
+              <code>1.19.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.19.1" target="_blank">
+              <code>1.19.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.17.1" target="_blank">
+              <code>1.17.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.16.0" target="_blank">
+              <code>1.16.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.15.0" target="_blank">
+              <code>1.15.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
@@ -1722,35 +2331,52 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 12.4</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
-          <code>1.22.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.21.0" target="_blank">
-          <code>1.21.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
-          <code>1.13.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
+              <code>1.22.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.21.0" target="_blank">
+              <code>1.21.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
+              <code>1.13.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
@@ -1762,38 +2388,57 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 12.2</td>
       <td>
-        <a href="#appium-2-versions">
-          <code>2.0.0</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta66</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta56</code>
-        </a>, 
-        <a href="#appium-2-versions">
-          <code>2.0.0-beta44</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
-          <code>1.22.3</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
-          <code>1.22.2</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.21.0" target="_blank">
-          <code>1.21.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
-          <code>1.13.0</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.12.1" target="_blank">
-          <code>1.12.1</code>
-        </a>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta66</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta56</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0-beta44</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
+              <code>1.22.3</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.22.2" target="_blank">
+              <code>1.22.2</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.21.0" target="_blank">
+              <code>1.21.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.13.0" target="_blank">
+              <code>1.13.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.12.1" target="_blank">
+              <code>1.12.1</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.22.3" target="_blank">
@@ -1805,14 +2450,17 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>2.0.0</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 12.0</td>
       <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
-          <code>1.9.1</code>
-        </a>
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
+              <code>1.9.1</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
@@ -1824,17 +2472,22 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>1.9.1</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 11.3</td>
       <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
-          <code>1.9.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
-          <code>1.8.1</code>
-        </a>
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
+              <code>1.9.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
+              <code>1.8.1</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
@@ -1846,20 +2499,27 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>1.9.1</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 11.2</td>
       <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
-          <code>1.9.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
-          <code>1.8.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
-          <code>1.8.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
+              <code>1.9.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
+              <code>1.8.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
+              <code>1.8.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
@@ -1871,20 +2531,27 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>1.9.1</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 11.1</td>
       <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
-          <code>1.9.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
-          <code>1.8.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
-          <code>1.8.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
+              <code>1.9.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
+              <code>1.8.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
+              <code>1.8.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
@@ -1896,20 +2563,27 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>1.9.1</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 11.0</td>
       <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
-          <code>1.9.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
-          <code>1.8.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
-          <code>1.8.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
+              <code>1.9.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
+              <code>1.8.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
+              <code>1.8.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
@@ -1921,20 +2595,27 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>1.9.1</code>
         </a>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td>iOS 10.3</td>
       <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
-          <code>1.9.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
-          <code>1.8.1</code>
-        </a>, 
-        <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
-          <code>1.8.0</code>
-        </a>
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.9.1" target="_blank">
+              <code>1.9.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.1" target="_blank">
+              <code>1.8.1</code>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
+              <code>1.8.0</code>
+            </a>
+          </li>
+        </ul>
       </td>
       <td>
         <a href="https://github.com/appium/appium/releases/tag/v1.8.0" target="_blank">
@@ -1946,7 +2627,6 @@ You can find which versions are currently supported in the [Real Devices](#real-
           <code>1.9.1</code>
         </a>
       </td>
-      <td></td>
     </tr>
   </tbody>
 </table>
