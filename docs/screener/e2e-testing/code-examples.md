@@ -7,7 +7,7 @@ sidebar_label: Code Examples
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To view Visual E2E code examples, please refer to the [Sauce Labs Training resources GitHub repo](https://github.com/saucelabs-training):
+To view Screener E2E code examples, please refer to the [Sauce Labs Training resources GitHub repo](https://github.com/saucelabs-training):
 
 - [JavaScript (WebDriverIO)](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio/webdriver/examples/visual-e2e)
 - [Java](https://github.com/saucelabs-training/demo-java/blob/main/selenium-junit4-examples/src/test/java/com/saucedemo/selenium/junit4/SimpleVisualE2ETest.java)

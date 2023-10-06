@@ -8,26 +8,25 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-> **Screener Docs are Now Sauce Docs**<br/>
+> **Screener Docs are Now Sauce Docs**
 > Screener is now Sauce Labs Visual Testing. As part of our effort to bring you a single, unified documentation site, we've migrated all Visual Docs from Screener.io to Sauce Docs.
 
-Follow the steps to integrate Sauce Labs Visual Component Testing with Storybook, a UI component development tool. The integration will run your existing Storybook stories as UI regression test cases in our automated visual testing platform.
+Follow the steps to integrate Screener Component Testing with Storybook, a UI component development tool. The integration will run your existing Storybook stories as UI regression test cases in our automated visual testing platform.
 
 - Get detailed UI test results across your React, Vue, Angular, and HTML components
 - Facilitate accelerate debugging and shorten release cycles
 
 ## What You'll Need
 
-- A [Sauce Labs self-serve or enterprise account](https://saucelabs.com/pricing) with access to Visual Testing. To request access, contact your CSM or Sauce Labs Support. Visual Testing is not available for free-trial accounts.
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-- Your Visual Testing [Screener API Key](https://screener.io/v2/account/api-key).
+- Your Screener Key [Screener API Key](https://screener.io/v2/account/api-key).
 - A [GitHub account](https://github.com/).
 - Have [Node.js installed](https://nodejs.org).
 - Have Storybook installed, along with an existing [project](https://storybook.js.org/basics/quick-start-guide/) and set of [component stories](https://storybook.js.org/basics/writing-stories/).
 
 ## Integration with Existing Storybook Project
 
-Follow the steps below to add Visual Component Testing functionality to your Storybook project.
+Follow the steps below to add Screener Component Testing functionality to your Storybook project.
 
 :::tip
 New to Storybook? See [Quickstart with Sample Storybook Project](#quickstart-with-sample-storybook-project).
@@ -164,7 +163,7 @@ npm run test-storybook
 
 ### View Results
 
-Go your Visual Testing Dashboard (Sauce Labs > **Visual Testing** > **Log in to Visual**) to confirm that your test is running. Instead of **sb-6.1-test**, you'll see your own Storybook project name.<br/><img src={useBaseUrl('img/visual/component-integration-results.png')} alt="Visual E2E Quickstart running test" width="300" />
+Go your Visual Testing Dashboard (Sauce Labs > **Visual Testing** > **Log in to Visual**) to confirm that your test is running. Instead of **sb-6.1-test**, you'll see your own Storybook project name.<img src={useBaseUrl('img/visual/component-integration-results.png')} alt="Visual E2E Quickstart running test" width="300" />
 
 It should take a few minutes to complete.
 
@@ -204,7 +203,7 @@ npx -p @storybook/cli sb init
 npm run storybook
 ```
 
-Once Storybook has been launched, you'll see a response like this in your terminal.<br/><img src={useBaseUrl('img/visual/component-expected-response.png')} alt="component testing expected-response" width="400" />
+Once Storybook has been launched, you'll see a response like this in your terminal.<img src={useBaseUrl('img/visual/component-expected-response.png')} alt="component testing expected-response" width="400" />
 
 ### Install Screener Package
 
@@ -282,7 +281,7 @@ npm run test-storybook
 
 Go your Visual Testing Dashboard (Sauce Labs **Visual Testing** > **Log in to Visual**) to confirm that your test is running.
 
-You'll see a new project under the name **sb-6.1-test**, plus a new [branch](/visual/e2e-testing/workflow/baseline-branch/) called **default**.<br/><img src={useBaseUrl('img/visual/component-quickstart-all-projects.png')} alt="Visual E2E Quickstart running test" width="500" />
+You'll see a new project under the name **sb-6.1-test**, plus a new [branch](/visual/e2e-testing/workflow/baseline-branch/) called **default**.<img src={useBaseUrl('img/visual/component-quickstart-all-projects.png')} alt="Visual E2E Quickstart running test" width="500" />
 
 The test should take a few minutes to complete.
 
@@ -290,7 +289,7 @@ The test should take a few minutes to complete.
 
 <details><summary>Click <strong>Show Logs</strong> > <strong>View Logs on Sauce Labs</strong> to see your <a href="/test-results">test results</a> on Sauce Labs.</summary>
 
-<img src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')} alt="Visual E2E Quickstart accept state" width="205" /><br/><img src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')} alt="Visual E2E Quickstart accept state" width="250" />
+<img src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')} alt="Visual E2E Quickstart accept state" width="205" /><img src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')} alt="Visual E2E Quickstart accept state" width="250" />
 
 </details>
 
@@ -304,6 +303,6 @@ This first test will be labeled as "failed" because there's no existing baseline
 
 ## Optional Next Steps
 
-- Learn more about the Visual Component Testing [UI review workflow](/visual/component-testing/workflow/review-workflow), [testing static Storybook web apps](/visual/component-testing/storybook-static/), and the concept of [automated visual regression testing](https://saucelabs.com/blog/what-is-automated-visual-regression-testing).
+- Learn more about the Screener Component Testing [UI review workflow](/visual/component-testing/workflow/review-workflow), [testing static Storybook web apps](/visual/component-testing/storybook-static/), and the concept of [automated visual regression testing](https://saucelabs.com/blog/what-is-automated-visual-regression-testing).
 - Add more [test configuration options](https://github.com/screener-io/screener-storybook#config-options).
-- Set up continuous visual testing by [integrating Visual E2E Testing into your CI](/visual/component-testing/integrations/continuous-integration)
+- Set up continuous visual testing by [integrating Screener E2E Testing into your CI](/visual/component-testing/integrations/continuous-integration)

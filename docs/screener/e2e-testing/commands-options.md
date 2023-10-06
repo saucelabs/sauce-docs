@@ -8,9 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Visual E2E Commands
+## Screener E2E Commands
 
-Visual E2E commands can be integrated into existing WebDriver test code simply and safely. Each command is simply a JavaScript comment placed in a WebDriver execute command &#8212; no need to install anything.
+Screener E2E commands can be integrated into existing WebDriver test code simply and safely. Each command is simply a JavaScript comment placed in a WebDriver execute command &#8212; no need to install anything.
 
 ### Init command
 
@@ -49,7 +49,7 @@ The Init command (`/*@visual.init*/`) is used to initialize and name a Visual te
    <td>Init command options. <p>Options available:</p>
 <ul><li><code>ignore</code>: comma-delimited list of css-selectors to ignore in all snapshots in test.</li></ul>
 
-```java title="Example"
+```java
 { ignore: '.selector' }
 ```
 
@@ -171,13 +171,13 @@ values={[
 browser.execute('/*@visual.snapshot*/', 'State Name')
 ```
 
-Example with <code>ignore</code> option:
+Example with ignore option:
 
 ```javascript
 browser.execute('/*@visual.snapshot*/', 'State Name', { ignore: '.selector' })
 ```
 
-Example with <code>cropTo</code> option:
+Example with cropTo option:
 
 ```javascript
 browser.execute('/*@visual.snapshot*/', 'State Name', {
@@ -186,7 +186,7 @@ cropTo: '#header'
 })
 ```
 
-Example with <code>scrollAndStitchScreenshot</code> option:
+Example with scrollAndStitchScreenshot option:
 
 ```javascript
 browser.execute('/*@visual.snapshot*/', 'State Name', {
@@ -240,7 +240,7 @@ ignoredElement.Add("ignore", "#login_button_container");
 JsExecutor.ExecuteScript("/*@visual.snapshot*/", "Ignore on Snapshot", ignoredElement);
 ```
 
-Example with <code>cropTo</code> option:
+Example with cropTo option:
 
 ```csharp
 var croppedElement = new Dictionary<string, object>();
@@ -542,8 +542,6 @@ Below are the available options that you can define with the [`sauce:visual`](/v
   minShiftGraphic: 2
 }
 ```
-
-</code></td>
 
   </tr>
   <tr>

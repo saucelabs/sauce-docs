@@ -14,7 +14,7 @@ In this section, you'll learn how to pull the baseline when branching and how to
 
 ## Workflow Optimization
 
-When working with feature branches, Visual E2E can save you time and optimize your workflow by automating the following:
+When working with feature branches, Screener E2E can save you time and optimize your workflow by automating the following:
 
 - **Automatically Accept updates when merging to or from the base branch**: When merging an accepted base branch into a feature branch, Screener auto-accepts UI states that match the latest base branch test. And when merging into the base branch, Screener auto-accepts UI states that match the latest accepted feature branch test.
 - **Automatically pull initial baseline from the base branch**: This is useful for having a set of UI states to initially compare a new branch against. For example, if you create a new feature branch based off of the main branch, and you have a set of UI states on the main branch, you can then compare the new branch's visual changes to the main branch's UI states.
@@ -23,8 +23,7 @@ This can accelerate your workflow since you'll only need to accept once, when me
 
 ## Setup Steps
 
-1. [Integrate your Visual E2E tests into your CI process](/visual/e2e-testing/integrations/continuous-integration) so that visual tests are automatically run when branching or merging.
-
+1. [Integrate your Screener E2E tests into your CI process](/visual/e2e-testing/integrations/continuous-integration) so that visual tests are automatically run when branching or merging.
 2. Set the `branch` and `baseBranch` options in your [`sauce:visual` WebDriver capabilities](/visual/e2e-testing/commands-options/#saucevisual-capability-options) to set the name of your current branch and the name of your base branch respectively.
 
 Below are examples of branch environment variables for various CI tools:

@@ -16,7 +16,7 @@ Yes. After accepting a snapshot, you can revert its acceptance before running an
 
 1. Go to the **State Detail** page.
 2. Click on the **Accepted** status dropdown.
-3. Select **Revert**.<br/>
+3. Select **Revert**.
    <img src={useBaseUrl('img/visual/revertAccepted.png')} alt="Revert accepted screenshot" width="150" />
 
 ### How do I show lazy-loaded content in my screenshot?
@@ -31,7 +31,7 @@ window.scroll(0, 1000)
 
 ### Why is my screenshot not showing as a full page?
 
-Sauce Visual captures a full-page screenshot by default in all browsers. The height of the full-page screenshot is based on the scrollable height of the main document body.
+Screener captures a full-page screenshot by default in all browsers. The height of the full-page screenshot is based on the scrollable height of the main document body.
 
 If the body is not scrollable, then the screenshot captured will appear to be cut off. For example, if the "overflow" style on the body is set to "hidden", then the body cannot be scrolled.
 
@@ -47,25 +47,25 @@ document.body.style.overflow = 'auto'
 
 ### What happens if my page has broken HTML tags?
 
-Sauce Visual assumes that there are no broken HTML tags on your pages and will not check for this.
+Screener assumes that there are no broken HTML tags on your pages and will not check for this.
 
-## Visual E2E
+## Screener E2E
 
-### What Sauce Labs browsers are supported by Visual E2E?
+### What Sauce Labs browsers are supported by Screener E2E?
 
-Visual E2E is unified with Sauce VMs, and uses Sauce browsers exclusively. For a full list, see [Visual E2E Supported Browsers and Operation Systems](https://docs.saucelabs.com/visual/e2e-testing/supported-browsers).
+Screener E2E is unified with Sauce VMs, and uses Sauce browsers exclusively. For a full list, see [Screener E2E Supported Browsers and Operation Systems](https://docs.saucelabs.com/screener/e2e-testing/supported-browsers).
 
 ### How do I test smaller mobile web viewport sizes for responsive design testing?
 
-This can be done by setting [`viewportSize` in your `sauce:visual` capabilities](/visual/e2e-testing/commands-options/#saucevisual-capability-options).
+This can be done by setting [`viewportSize` in your `sauce:visual` capabilities](/screener/e2e-testing/commands-options/#saucevisual-capability-options).
 
-### How do I run functional tests only after integrating Visual E2E?
+### How do I run functional tests only after integrating Screener E2E?
 
-If you want to run functional tests only, you do not need to modify any of your visual integration code. Just change your WebDriver endpoint from `hub.screener.io` to `ondemand.saucelabs.com`.
+If you want to run functional tests only, you do not need to modify any of your Screener integration code. Just change your WebDriver endpoint from `hub.screener.io` to `ondemand.saucelabs.com`.
 
 ### Does Screener capture `iframes`?
 
-Yes &#8212; look for [`iframes`](/visual/e2e-testing/commands-options) and [`iframesOptions`](/visual/e2e-testing/commands-options).
+Yes &#8212; look for [`iframes`](/screener/e2e-testing/commands-options) and [`iframesOptions`](/screener/e2e-testing/commands-options).
 
 ## Component Testing
 
@@ -91,7 +91,7 @@ values={[
 
 You'll see here that Jenkins looks for the following environment variables: `JENKINS_URL` or `JENKINS_HOME`, and `BUILD NUMBER`:
 
-```js reference title="Screener Runner | Jenkins example"
+```js
 https://github.com/screener-io/screener-runner/blob/master/src/ci.js#L23-L29
 ```
 
@@ -100,28 +100,28 @@ https://github.com/screener-io/screener-runner/blob/master/src/ci.js#L23-L29
 
 CircleCI looks for the following environment variables: `CI`, `CIRCLECI`, `CIRCLE_BUILD_NUM`:
 
-```js reference title="Screener Runner | CircleCI example"
+```js
 https://github.com/screener-io/screener-runner/blob/master/src/ci.js#L31-L37
 ```
 
 </TabItem>
 <TabItem value="TravisCI">
 
-```js reference title="Screener Runner | Travis CI example"
+```js
 https://github.com/screener-io/screener-runner/blob/master/src/ci.js#L39-L52
 ```
 
 </TabItem>
 <TabItem value="Visual Studio">
 
-```js reference title="Screener Runner | Visual Studio Team Services example"
+```js
 https://github.com/screener-io/screener-runner/blob/master/src/ci.js#L102-L118
 ```
 
 </TabItem>
 <TabItem value="Codeship">
 
-```js reference title="Screener Runner | Codeship example"
+```js
 https://github.com/screener-io/screener-runner/blob/master/src/ci.js#L54-L60
 ```
 
@@ -140,35 +140,35 @@ values={[
 
 <TabItem value="GitLabCI">
 
-```js reference title="Screener Runner | GitLab CI example"
+```js
 https://github.com/screener-io/screener-runner/blob/master/src/ci.js#L86-L92
 ```
 
 </TabItem>
 <TabItem value="Drone">
 
-```js reference title="Screener Runner | Drone example"
+```js
 https://github.com/screener-io/screener-runner/blob/master/src/ci.js#L70-L76
 ```
 
 </TabItem>
 <TabItem value="Bitbucket">
 
-```js reference title="Screener Runner | Bitbucket Pipelines example"
+```js
 https://github.com/screener-io/screener-runner/blob/master/src/ci.js#L62-L68
 ```
 
 </TabItem>
 <TabItem value="Semaphore">
 
-```js reference title="Screener Runner | Semaphore example"
+```js
 https://github.com/screener-io/screener-runner/blob/master/src/ci.js#L78-L84
 ```
 
 </TabItem>
 <TabItem value="Buildkite">
 
-```js reference title="Screener Runner | Buildkite example"
+```js
 https://github.com/screener-io/screener-runner/blob/master/src/ci.js#L94-L100
 ```
 
@@ -185,7 +185,7 @@ Screener Storybook supports version 3.0 to 6.x (latest) and [CSF](https://storyb
 
 React Hooks messes up using the Screener component because it executes its magic at runtime. So to use Screener Steps with React Hooks, you need to use Storybook Decorators to wrap the component story. Here is an example script: [Storybook + Screener Steps with Hooks](https://gist.github.com/screener-io/ada0e3c51137c907ba80728ad7fab23b).
 
-### Does Sauce Visual interact with knobs within stories in Storybook and test as needed?
+### Does Sauce Screener interact with knobs within stories in Storybook and test as needed?
 
 Screener-storybook does not automatically interact with knobs, as there could potentially be an infinite number of permutations. If there's a UI state that the user wants to get to using knobs, then this is possible with Screener Steps.
 
@@ -193,7 +193,7 @@ In the Storybook knobs add-on, there's a knobs UI where the user can copy a quer
 
 Click on the copy button in the lower right, then paste into an editor, then copy only the query-string portion (after the `?`) and paste that into a Screener step.
 
-```js title="Example"
+```js
 <Screener steps={new Steps()
   .executeScript('window.location.href = "?path=/story/button&knob-Label=works"')
   .snapshot('Knobs')
@@ -204,7 +204,6 @@ Click on the copy button in the lower right, then paste into an editor, then cop
 ### How do I resolve `Error: Storybook object not found`?
 
 1. Run test with `--debug` flag enabled. For example: `npm run test-storybook -- --debug`.
-
 2. After running with the debug flag, reach out to the Sauce Labs Support Team and provide them with your log output.
 
 If the following logs are found, it means that Puppeteer could not be launched because of missing dependencies:

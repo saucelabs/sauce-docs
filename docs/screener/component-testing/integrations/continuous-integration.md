@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Get continuous visual test automation by integrating Visual Component tests directly into your continuous integration (CI) build.
+Get continuous visual test automation by integrating Screener Component tests directly into your continuous integration (CI) build.
 
 Screener will automatically run tests, and pass or fail your builds depending on visual regressions found.
 
@@ -73,7 +73,7 @@ build:
 steps:
 - checkout
 - run: npm install
-# Run Screener visual component tests
+# Run Screener component tests
 - run: npm run test-storybook
 ```
 
@@ -88,7 +88,7 @@ install:
 
 script:
 - npm test
-# Run Screener visual component tests
+# Run Screener component tests
 - npm run test-storybook
 ```
 
@@ -104,7 +104,7 @@ default:
   script:
   - npm install
   - npm test
-  # Run Screener visual component tests
+  # Run Screener component tests
   - npm run test-storybook
 ```
 
@@ -133,7 +133,7 @@ steps:
 ```bash
 npm install
 
-# Run Screener visual component tests
+# Run Screener component tests
 npm run test-storybook
 ```
 

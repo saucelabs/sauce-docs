@@ -4,7 +4,7 @@ title: Visual E2E Supported Browsers and Operating Systems
 sidebar_label: Supported Browsers and OSs
 ---
 
-## Browser Versions Supported
+## Screener Browser Versions Supported
 
 <table>
   <tr>
@@ -57,7 +57,7 @@ sidebar_label: Supported Browsers and OSs
   </tr>
 </table>
 
-## OS Versions Supported
+## Screener OS Versions Supported
 
 <table>
   <tr>

@@ -11,7 +11,7 @@ To run Screener against a static Storybook build, instead of starting the Storyb
 
 ## What You'll Need
 
-- If you haven't already, follow the steps under the [Quickstart](/visual/component-testing/setup/) to integrate Sauce Labs Visual Component Testing (Screener) with Storybook and [set your Sauce credentials as environment variables](/visual/component-testing/setup/#set-environment-variables).
+- If you haven't already, follow the steps under the [Quickstart](/visual/component-testing/setup/) to integrate Screener Component Testing with Storybook and [set your Sauce credentials as environment variables](/visual/component-testing/setup/#set-environment-variables).
 - An existing [Storybook project](https://storybook.js.org/basics/quick-start-guide/) with some [component stories](https://storybook.js.org/basics/writing-stories/).
 
 ## Run a Static Storybook Build
@@ -27,8 +27,8 @@ npm run build-storybook
 <Tabs
 defaultValue="Storybook6.4"
 values={[
- {label: 'Storybook 6.4 or newer', value: 'Storybook6.4'},
- {label: 'Storybook 6.3 or older', value: 'Storybook6.3'},
+{label: 'Storybook 6.4 or newer', value: 'Storybook6.4'},
+{label: 'Storybook 6.3 or older', value: 'Storybook6.3'},
 ]}>
 
 <TabItem value="Storybook6.4">
@@ -54,6 +54,7 @@ module.exports = {
  storybookStaticBuildDir: 'storybook-static'
 }
 ```
+
 </TabItem>
 </Tabs>
 
