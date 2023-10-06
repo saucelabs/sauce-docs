@@ -1,7 +1,7 @@
 ---
 id: installation
 title: Downloading Sauce Connect Proxy 5
-sidebar_label: Download
+sidebar_label: Install
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -21,7 +21,8 @@ This topic describes how to install Sauce Connect Proxy version 5 to your machin
 
 ## Downloading Sauce Connect Proxy
 
-1. Download the latest Sauce Connect Proxy 5 to your local machine by clicking the link below corresponding to your OS and the CPU architecture.
+Download the latest Sauce Connect Proxy 5 to your local machine by clicking the link below corresponding to your OS and the CPU architecture.
+SHA256 checksums are available [here](https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/checksums).
 
 <table>
   <tr>
@@ -82,9 +83,7 @@ This topic describes how to install Sauce Connect Proxy version 5 to your machin
   </tr>
 </table>
 
-SHA256 checksums are available [here](https://saucelabs.com/downloads/sauce-connect-5.0.0-alpha9/checksums).
-
-2. Install Sauce Connect Proxy
+## Installing Sauce Connect Proxy
 
 <Tabs
 defaultValue="Linux/macOS"
@@ -134,7 +133,7 @@ rm sauce-connect_${sc_version}.linux_${arch}.deb
 <details><summary>What does the Sauce Connect Debian package install</summary>
 
 - Sauce Connect Proxy binary is in `/usr/bin/sc`
-- The enviroment variables file template is in `/etc/default/sauce-connect`. The file may be modified to include your configuration, , see [Running systemd service on Debian-based Linux](/secure-connections/sauce-connect-5/operation/#running-systemd-service-on-debian-based-linux)
+- The enviroment variables file template is in `/etc/default/sauce-connect`. The file may be modified to include your configuration, , see [Running systemd service on Debian-based Linux](/secure-connections/sauce-connect-5/operation/systemd/)
   ```bash
   cat /etc/default/sauce-connect
   # Default values for Sauce Connect Proxy
@@ -149,7 +148,7 @@ rm sauce-connect_${sc_version}.linux_${arch}.deb
   #SAUCE_TUNNEL_POOL=
   # See https://docs.saucelabs.com/dev/cli/sauce-connect-5/ for all environment variable values
   ```
-- Systemd service is enabled, see [Running systemd service on Debian-based Linux](/secure-connections/sauce-connect-5/operation/#running-systemd-service-on-debian-based-linux)
+- Systemd service is enabled, see [Running systemd service on Debian-based Linux](/secure-connections/sauce-connect-5/operation/systemd/)
 
 </details>
 
@@ -189,10 +188,10 @@ As an alternative to downloading the client, you can use the Sauce Connect Proxy
 docker pull saucelabs/sauce-connect:5.0
 ```
 
-To learn more, see [Sauce Connect Docker Container Setup](/secure-connections/sauce-connect/setup-configuration/docker/).
+To learn more, see [Sauce Connect Docker Container Setup](/secure-connections/sauce-connect-5/operation/docker/).
 
 ## More Information
 
-- [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/)
+- [Sauce Connect Proxy 5 Administration](/secure-connections/sauce-connect-5/operation/overview/)
+- [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/)
 - [Sauce Connect Proxy Architecture](/secure-connections/sauce-connect-5/advanced/architecture/)
-- [Sauce Connect Proxy Changelog](https://changelog.saucelabs.com/en?category=sauce%20connect)

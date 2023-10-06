@@ -1032,11 +1032,20 @@ This is optional for Real Devices. There are three options you can use to determ
 The stricter the `platformVersions` is, the smaller the pool of available devices will be and the longer you might need to wait for the available device. We recommend using only the major version or using the regex option to get the best results and an available device in the fastest way.
 :::
 
-```yaml title="Use complete version for Virtual and or Real Devices"
+```yaml title="Use complete version for Real Devices"
 suites:
   - name: My Saucy Test
     devices:
-      platformVersion: 14.3
+      - name: iPhone.*
+        platformVersion: 14.3
+```
+
+```yaml title="Use complete version for Virtual Devices"
+suites:
+  - name: My Saucy Test
+    simulators:
+      - name: iPhone 14 Pro Simulator
+        platformVersion: 16.2
 ```
 
 ```yaml title="Use dynamic platformVersion allocation. Real Devices Only"
@@ -1066,8 +1075,9 @@ Request that the matching device is also connected to a cellular network.
 suites:
   - name: My Saucy Test
     devices:
-      options:
-        carrierConnectivity: true
+      - name: iPhone.*
+        options:
+          carrierConnectivity: true
 ```
 
 ---
@@ -1082,8 +1092,9 @@ Request that the matching device is a specific type of device. Valid values are:
 suites:
   - name: My Saucy Test
     devices:
-      options:
-        deviceType: TABLET
+      - name: iPhone.*
+        options:
+          deviceType: TABLET
 ```
 
 ---
@@ -1098,8 +1109,9 @@ Request that the matching device is from your organization's private pool.
 suites:
   - name: My Saucy Test
     devices:
-      options:
-        private: true
+      - name: iPhone.*
+        options:
+          private: true
 ```
 
 ---

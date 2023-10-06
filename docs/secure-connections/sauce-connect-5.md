@@ -8,29 +8,28 @@ sidebar_label: Overview
 Sauce Connect Proxy 5 release is currently in the Alpha stage, some changes in CLI are expected.
 :::
 
-Sauce Connect Proxy 5 is a complete rewrite of Sauce Connect Proxy 4.x.x that aims to improve observability, performance, user experience and provide a strong foundation for future improvements.
+Sauce Connect Proxy 5 is a complete rewrite of Sauce Connect Proxy 4.x.x that aims to improve observability, performance, and user experience and provide a strong foundation for future improvements.
 
 ## What You'll Need
 
 - If you're new to Sauce Connect, we recommend reviewing the [Sauce Connect Proxy overview](/secure-connections/sauce-connect) documentation.
 
-##  What's New In Sauce Connect Proxy 5?
+## What's New In Sauce Connect Proxy 5?
 
 :::caution
 The Sauce Connect Proxy version 5 major release introduces CLI changes. Please refer to [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/) for details.
 :::
 
 1. Improved onboarding and integration due to the secure connection (tunnel) protocol change.
-The previous generation of Sauce Connect Proxy (version 4) used a custom [KGP](/secure-connections/sauce-connect/advanced/kgp/) protocol. The Sauce Connect Proxy version 5 uses HTTP/2 to establish a secure connection to Sauce Labs.
-Using standard well-documented protocol that is widely used in the industry simplifies Sauce Connect Proxy integration in secure CI/CD environments.
+   The previous generation of Sauce Connect Proxy (version 4) used a custom [KGP](/secure-connections/sauce-connect/advanced/kgp/) protocol. The Sauce Connect Proxy version 5 uses HTTP/2 to establish a secure connection to Sauce Labs.
+   Using a standard well-documented protocol that is widely used in the industry simplifies Sauce Connect Proxy integration in secure CI/CD environments.
 2. Performance improvement.
-HTTP/2 protocol is optimized for security and performance, it provides significant performance improvements that are especially noticeable when multiple test sessions use the same Sauce Connect Proxy instance.
+   HTTP/2 protocol is optimized for security and performance, it provides significant performance improvements that are especially noticeable when multiple test sessions use the same Sauce Connect Proxy instance.
 3. Significant improvement in CPU and memory utilization.
-Sauce Connect Proxy 5 utilizes much less memory and CPU resources which makes it easier to run at scale.
+   Sauce Connect Proxy 5 utilizes much less memory and CPU resources making it easier to run at scale.
 4. Observability improvement.
-Sauce Connect Proxy 5 comes with Prometheus metrics. A sample Grafana dashboard is also available.
-5. Easier installation and upgrade process. Sauce Connect Proxy 5 release contains deb and rpm packages, brew support, as well as x86_64 and arm64 architectures support for all platforms.
-
+   Sauce Connect Proxy 5 comes with Prometheus metrics. A sample Grafana dashboard is available [here](https://github.com/saucelabs/sauce-connect-docker/tree/main/examples/docker-compose-prometheus-grafana).
+5. Easier installation and upgrade process. Sauce Connect Proxy 5 release contains deb and rpm packages for Linux, brew support for macOS, as well as x86_64 and arm64 architectures support for all platforms.
 
 ### Major changes
 
@@ -51,12 +50,13 @@ The following flags are renamed to conform with the CLI naming scheme:
 - `--dns` to `--dns-server`
 - `--cainfo` to `--cacert-file`
 
-##  Getting Started With Sauce Connect Proxy 5
+## Getting Started With Sauce Connect Proxy 5
 
 Sauce Connect Proxy 5 network requirements are very similar to the previous generation of Sauce Connect Proxy (version 4). The main difference is that Sauce Connect Proxy 5 doesn't initiate non-HTTP connections.
-See [this document](/secure-connections/sauce-connect-5/installation/) for download and install instructions.
+See [this document](/secure-connections/sauce-connect-5/quickstart/) for quickstart instructions.
 
 ## More Information
 
 - [Sauce Connect Proxy Overview](/secure-connections/sauce-connect/)
-- [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/)
+- [Sauce Connect Proxy 5 Quickstart Guide](/secure-connections/sauce-connect-5/quickstart/)
+- [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/)

@@ -35,7 +35,7 @@ Selecting one of the builds allows you to get to the Diff Review Page, where you
 
 <img src={useBaseUrl('/img/sauce-visual/DiffReviewPage.png')} alt="Diff Review Page"/>
 
-By default, you will see diffs in a side-by-side view, which lets you easily compare the Current diff against the Baseline. On the right side, you will see a toolbar enabling you to review the diffs. You can:
+By default, you will see diffs in a side-by-side view, which lets you easily compare the current diff against the Baseline. On the right side, you will see a toolbar enabling you to review the diffs. You can:
 
 - Switch from side-by side-to focused view for easier comparison between the Baseline and Current snapshot.
 - Zoom in or out of the snapshots.
@@ -79,6 +79,32 @@ Visual uses different statuses:
 | For Review  | There were either no baselines available to compare against your uploaded snapshot or some were different from their baselines. You are supposed to review those detected diffs. As long as those changes aren't accepted, they are considered a failure state. |
 | Accepted    | All detected changes were accepted. This is considered a success state.                                                                                                                                                                                         |
 | Rejected    | Some of your detected changes were rejected. This is considered a failure state.                                                                                                                                                                                |
+
+## Baseline Matching
+
+A baseline is what a snapshot is compared to.
+
+For a new snapshot, the matching baseline is found based on the following properties:
+- `name`
+- `testName`
+- `suiteName`
+- `browser`
+- `operatingSystem`
+- `operatingSystemVersion`
+- `viewportWidth`
+- `viewportHeight`
+- `project`
+- `branch`
+- `device`
+
+If multiple baselines match, the most recent one is selected for diff computation.
+
+Note that not all properties are exposed on all testing frameworks.
+In these cases, a default value (0, null or empty string) is used.
+
+The matching process happens as part of the snapshot creation (`createSnapshot` in the API).
+This means, that a baseline can only be considered for a diff if it existed before the `createSnapshot` call.
+
 
 ## API
 

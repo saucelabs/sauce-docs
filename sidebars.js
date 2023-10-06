@@ -445,6 +445,7 @@ module.exports = {
                                 'error-reporting/language-integrations/go',
                                 'error-reporting/language-integrations/javascript',
                                 'error-reporting/language-integrations/node',
+                                'error-reporting/language-integrations/react',
                                 'error-reporting/language-integrations/python',
                             ],
                         },
@@ -956,7 +957,19 @@ module.exports = {
                             items: [
                                 'secure-connections/sauce-connect-5',
                                 'secure-connections/sauce-connect-5/installation',
-                                'secure-connections/sauce-connect-5/operation',
+                                'secure-connections/sauce-connect-5/quickstart',
+                                {
+                                    type: 'category',
+                                    label: 'Setup and Configuration',
+                                    collapsed: true,
+                                    items: [
+                                        'secure-connections/sauce-connect-5/operation/overview',
+                                        'secure-connections/sauce-connect-5/operation/configuration',
+                                        'secure-connections/sauce-connect-5/operation/monitoring',
+                                        'secure-connections/sauce-connect-5/operation/docker',
+                                        'secure-connections/sauce-connect-5/operation/systemd',
+                                    ],
+                                },
                                 {
                                     type: 'category',
                                     label: 'Advanced',
