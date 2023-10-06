@@ -27,7 +27,7 @@ We recommend using a [config file](/secure-connections/sauce-connect-5/operation
 
 ### Shared Tunnels
 
-Sauce Connect Proxy tunnel can be shared between multiple accounts in the same organization. To share a tunnel, start Sauce Connect Proxy with the [`--shared-tunnel`](/dev/cli/sauce-connect-proxy/#--shared-tunnel) flag.
+Sauce Connect Proxy tunnel can be shared between multiple accounts in the same organization. To share a tunnel, start Sauce Connect Proxy with the [`--shared all`](/dev/cli/sauce-connect-5/run/#--shared) flag.
 For most Sauce Labs customers, your access to shared tunnels is determined by the permissions of the user who creates them.
 Organization admins can create tunnels that any user on any team can use.
 Team admins can create tunnels that any member of their team can use. Team members cannot share tunnels they create with any other team member.
@@ -40,8 +40,8 @@ In order to use a tunnel that an admin or team member shares with you, you'll ne
 
 Every Sauce Connect Proxy tunnel spins up a fresh virtual machine (VM) that is used only for your tests. Once the tunnel is closed, VMs are destroyed.
 
-1. Make sure that the directory containing the `sc` binary (or `sc.exe`, for Windows) is in the `$PATH`. Otherwise, you will have to specify the path to the binary in the command line, `/path/to/sc`
-2. Define environment variables containing sensitive data: your user name, access key, proxy auth (if needed), etc.
+1. Make sure that the directory containing the `sc` binary (or `sc.exe`, for Windows) is in the `$PATH`. Otherwise, you will have to specify the path to the binary in the command line, i.e. `/path/to/sc`
+2. Define environment variables containing sensitive data: your user name, access key, proxy authentication (if needed), etc.
 
 ```bash
 SAUCE_USER=<username>
@@ -94,7 +94,8 @@ See the [monitoring overview](/secure-connections/sauce-connect-5/operation/moni
 Running Sauce Connect Proxy as a service is recommended when your tests often require an active secure connection and, operationally, it's complicated to set up a tunnel just before each test suite.
 The following options are available:
 
-- [Running a containerized Sauce Connect Proxy](/secure-connections/sauce-connect/setup-configuration/docker/#running-the-sauce-connect-proxy-container-indefinitely-in-kubernetes)
+- [Running Sauce Connect Proxy in Kubernetes](/secure-connections/sauce-connect-5/operation/kubernetes).
+- [Running a containerized Sauce Connect Proxy](/secure-connections/sauce-connect/setup-configuration/docker/#running-the-sauce-connect-proxy-container-indefinitely-in-kubernetes).
 - Running a [systemd service](/secure-connections/sauce-connect-5/operation/systemd/).
 
 ## More Information
