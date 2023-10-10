@@ -30,6 +30,7 @@ The Sauce Connect Proxy version 5 major release introduces CLI changes. Please r
 4. Observability improvement.
    Sauce Connect Proxy 5 comes with Prometheus metrics. A sample Grafana dashboard is available [here](https://github.com/saucelabs/sauce-connect-docker/tree/main/examples/docker-compose-prometheus-grafana).
 5. Easier installation and upgrade process. Sauce Connect Proxy 5 release contains deb and rpm packages for Linux, brew support for macOS, as well as x86_64 and arm64 architectures support for all platforms.
+6. Websockets over TLS support with [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) enabled.
 
 ### Major changes
 
@@ -40,15 +41,7 @@ Sauce Connect Proxy 5 major changes are listed below.
 - There is no default Sauce Labs region value, `--region` is required to ensure that the correct region is explicitly specified.
 - Proxy auto-detection is not supported, all proxies must be specified with explicit flags - `--proxy` or `--pac` for SUT requests and `--proxy-sauce` for Sauce Labs REST API and tunnel connections.
 - Domain flags (`--tunnel-domains`, `--direct-domains`, etc) accept regular expressions only
-
-The following flags are renamed or changed to conform with the CLI naming scheme:
-
-- `--shared-tunnel` to `--shared all`
-- `--fast-fail-regexps` to `--deny-domains`
-- `--no-ssl-bump-domains` to `--tls-passthrough-domains`
-- `--status-address` to `--api-address`
-- `--dns` to `--dns-server`
-- `--cainfo` to `--cacert-file`
+- Multiple CLI changes
 
 ## Getting Started With Sauce Connect Proxy 5
 
