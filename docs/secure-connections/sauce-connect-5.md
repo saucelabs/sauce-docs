@@ -39,13 +39,13 @@ Sauce Connect Proxy 5 major changes are listed below.
 - Tunnels must be named, `--tunnel-name` flag is no longer optional. It's done to improve security and usability - tests that use Sauce Connect must explicitly specify the [tunnel name](/dev/test-configuration-options/#tunnelname).
 - There is no default Sauce Labs region value, `--region` is required to ensure that the correct region is explicitly specified.
 - Proxy auto-detection is not supported, all proxies must be specified with explicit flags - `--proxy` or `--pac` for SUT requests and `--proxy-sauce` for Sauce Labs REST API and tunnel connections.
-- URL path matching with `--deny-domains` (`--fast-fail-regexps` in SC-4.x.x) is not supported
+- Domain flags (`--tunnel-domains`, `--direct-domains`, etc) accept regular expressions only
 
-The following flags are renamed to conform with the CLI naming scheme:
+The following flags are renamed or changed to conform with the CLI naming scheme:
 
+- `--shared-tunnel` to `--shared all`
 - `--fast-fail-regexps` to `--deny-domains`
 - `--no-ssl-bump-domains` to `--tls-passthrough-domains`
-  - `--tls-resign-domains` flag will be added shortly
 - `--status-address` to `--api-address`
 - `--dns` to `--dns-server`
 - `--cainfo` to `--cacert-file`
