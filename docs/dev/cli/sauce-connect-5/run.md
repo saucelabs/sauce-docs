@@ -17,7 +17,7 @@ The `sc run` command is a main Sauce Connect Proxy 5 command that allows provisi
 ## Usage
 
 ```bash
-SAUCE_USER=<username> SAUCE_ACCESS_KEY=<access key> sc run --region <region> [OPTIONS]
+SAUCE_USER=<username> SAUCE_ACCESS_KEY=<access key> sc run --region <region> --tunnel-name my-tunnel [OPTIONS]
 ```
 
 ## Options
@@ -115,7 +115,7 @@ This flag is an alternative to the recommended [`--region`](/dev/cli/sauce-conne
 
 #### `--metadata`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceYellow">alpha</span> | </small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">stable</span> | </small></p>
 
 **Description**: Sets custom metadata, expects `key=value` pairs. Can be repeated multiple times.<br/>
 **Default**: n/a<br/>
@@ -230,7 +230,7 @@ The header name will be normalized to canonical form. The header value should no
 
 **Description**: Defines an upstream proxy [protocol://]host:port where you want to route your test session traffic. For example, the traffic from a Firefox desktop test.<br/>
 The supported protocols are: http, https, socks, socks5. No protocol specified will be treated as HTTP proxy. The basic authentication username and password can be specified in the
-host string e.g. user:pass@host:port. Alternatively, you can use the -a, --auth flag to specify the credentials.
+host string e.g. user:pass@host:port. Alternatively, you can use the -a, --auth flag to specify the credentials.<br/>
 **Default**: n/a<br/>
 **Environment variable**: `SAUCE_PROXY`<br/>
 **Shorthand**: `-x`
@@ -341,7 +341,8 @@ Setting this to direct sends requests to localhost directly without using the up
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">stable</span> | </small></p>
 
-**Description**: Basic authentication `username:password` credentials to protect the server. Username and password are URL decoded. This allows you to pass in special characters such as @ by using %40 or pass in a colon with %3a.<br/>
+**Description**: Basic authentication `username:password` credentials to protect the server. Username and password are URL decoded. This allows you to pass in special characters such as `@` by using `%40` or pass in a colon with `%3a`.<br/>
+**Default**: n/a<br/>
 **Environment variable**: `SAUCE_API_BASIC_AUTH`<br/>
 **Shorthand**: n/a
 
@@ -352,7 +353,7 @@ Setting this to direct sends requests to localhost directly without using the up
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">stable</span> | </small></p>
 
 **Description**: CA certificate bundle in PEM format to use in addition to the system root certificates.
-Can be a path to a file or "data:" followed by base64 encoded certificate. Use this flag multiple times to specify multiple CA certificate files.<br/>
+Can be a path to a file or "data:" followed by a base64-encoded certificate. Use this flag multiple times to specify multiple CA certificate files.<br/>
 **Default**: n/a<br/>
 **Environment variable**: `SAUCE_CACERT_FILE`<br/>
 **Shorthand**: n/a
@@ -451,4 +452,4 @@ Here are some guidelines to follow when formatting domain regular expressions:
 
 ### Additional Resources
 
-- [Sauce Connect Proxy Basic Setup](/secure-connections/sauce-connect-5/installation/).
+- [Sauce Connect Proxy Installation](/secure-connections/sauce-connect-5/installation/).
