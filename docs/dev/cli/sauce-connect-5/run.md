@@ -155,7 +155,7 @@ Additional values for this flag are planned to be added in the future.
 
 **Description**: Launches a high availability tunnel pool along with the [`--tunnel-name`](#--tunnel-name) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
 **Default**: `false`<br/>
-**Environment variable**: n/a<br/>
+**Environment variable**: SAUCE_TUNNEL_POOL<br/>
 **Shorthand**: n/a
 
 ### Proxy Configuration
@@ -341,7 +341,7 @@ Setting this to direct sends requests to localhost directly without using the up
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">stable</span> | </small></p>
 
-**Description**: Basic authentication `username:password` credentials to protect the server. Username and password are URL decoded. This allows you to pass in special characters such as `@` by using `%40` or pass in a colon with `%3a`.<br/>
+**Description**: Basic authentication `username:password` credentials to protect the server.<br/>
 **Default**: n/a<br/>
 **Environment variable**: `SAUCE_API_BASIC_AUTH`<br/>
 **Shorthand**: n/a
