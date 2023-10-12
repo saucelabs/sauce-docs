@@ -17,7 +17,7 @@ To run an agent, execute the following command:
 ```bash
 docker run --pull always --rm \
 --env SAUCE_URI=wss://<api_domain>/api-testing/ws/v4/loadtesting \
---env SAUCE_AUTH=<username>:<access_key>\
+--env SAUCE_AUTH=<username>:<access_key> \
 --env WORKER_ID=<worker_name> \
 --env POOL_ID=<pool_name> \
 --env MAX_VIRTUAL_USERS=<max_virtual_users> \
