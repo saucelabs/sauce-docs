@@ -219,6 +219,8 @@ Users who are created via SSO are placed into the default team.
 
 Organization admins can [assign users to other teams](/basics/acct-team-mgmt/assigning-removing-users-teams).
 
+Additionally, you have the option to limit concurrency, which controls the number of virtual machines available for running tests simultaneously, for newly provisioned accounts. This can be configured in the [default team settings](/basics/acct-team-mgmt/concurrency-limits/).
+
 #### Usernames
 
 Usernames for new accounts provisioned via SSO are generated according to the following pattern:
