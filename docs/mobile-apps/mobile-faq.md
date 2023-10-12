@@ -290,7 +290,5 @@ You can run automated Appium 2.0 and Live Tests against any of our iOS17 devices
 The following features are limited or not available for a short period of time on iOS17 devices:
 
 - Accessing and changing Location services
-- XCUITest support
-- Smooth streaming and audio support during Live Testing
 - Changing locale.
 - Virtual USB
