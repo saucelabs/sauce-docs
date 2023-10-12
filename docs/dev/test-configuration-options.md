@@ -1161,7 +1161,7 @@ It must be paired with one of the capabilities listed below.
 
 ```java title="Real Device Setting"
 MutableCapabilities capabilities = new MutableCapabilities();
-//...
+//.. .
 MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.setCapability("setupDeviceLock", true);
 capabilities.setCapability("sauce:options", sauceOptions);
