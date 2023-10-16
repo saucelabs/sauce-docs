@@ -788,7 +788,7 @@ To split tests in the most efficient way possible, use:
 
 - `spec` when the number of specs is less than the configured concurrency.
 - `concurrency` when the number of specs is larger than the configured concurrency.
-:::
+  :::
 
 :::caution Shard Property Exclusivity
 The `numShards` and `shard` properties are mutually exclusive within each suite. If you have values for both in a single suite, the test will fail and terminate. You can, however, vary shard settings across different suites.
@@ -811,7 +811,7 @@ Filtering relies on the value set for `grep` and `grepInvert`.
 
 - `grep` to match with test name or filename.
 - `grepInvert` to exclude any match with name or filename.
-:::
+  :::
 
 ```yaml
 suites:
@@ -822,7 +822,6 @@ suites:
       grep: "@smoke"
       grepInvert: "@slow"
 ```
-
 
 ### `params`
 
@@ -856,6 +855,7 @@ Available browser names: `chromium`, `firefox`, `webkit`, and `chrome`.
 :::
 
 ---
+
 #### `headless`
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
@@ -967,7 +967,7 @@ $ mv artifacts/{your-suite-name}/example-test-1-actual.png tests/example.test.js
 
 <p><small>| OPTIONAL | DURATION |</small></p>
 
-Instructs how long `saucectl` should wait for the suite to complete, potentially overriding the default project timeout setting.
+Instructs how long `saucectl` should wait for the suite to complete, overriding the default project timeout setting of 30 minutes.
 
 When the suite reaches the timeout limit, its status is set to '?' in the CLI. This does not reflect the actual status of the job in the Sauce Labs web UI or API.
 
