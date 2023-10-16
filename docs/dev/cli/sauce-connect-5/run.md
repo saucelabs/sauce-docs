@@ -448,7 +448,7 @@ sc run --dns-server 8.8.8.8 --dns-server 8.8.4.4:53
 HTTP request and response logging mode. By default, request line and headers are logged if response status
 code is greater than or equal to 500. Setting this to none disables logging. The short-url mode logs
 [scheme://]host[/path] instead of the full URL.<br/>
-**Default**: `short-url`<br/>
+**Default**: `none`<br/>
 **Environment variable**: `SAUCE_LOG_HTTP`<br/>
 **Shorthand**: n/a
 
