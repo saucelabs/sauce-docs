@@ -410,6 +410,10 @@ Specifies any npm packages that are required to run tests and should, therefore,
     "@testcafe/react": "^5.0.1"
 ```
 
+:::caution
+Do not use `dependencies` and `packages` at the same time.
+:::
+
 ---
 
 ### `dependencies`
@@ -433,6 +437,10 @@ To use this feature, make sure that `node_modules` is not ignored via `.sauceign
 
 :::caution
 This feature is highly experimental.
+:::
+
+:::caution
+Do not use `dependencies` and `packages` at the same time.
 :::
 
 ---
