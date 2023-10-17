@@ -14,7 +14,7 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{js,jsx,md,css}": [
+    "*.{js,jsx,css}": [
       "npx prettier --check"
     ],
     "*.{js,jsx,ts,tsx}": [
