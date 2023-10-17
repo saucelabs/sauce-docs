@@ -823,7 +823,6 @@ suites:
       grepInvert: "@slow"
 ```
 
-
 ### `params`
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
@@ -856,6 +855,7 @@ Available browser names: `chromium`, `firefox`, `webkit`, and `chrome`.
 :::
 
 ---
+
 #### `headless`
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
@@ -967,7 +967,7 @@ $ mv artifacts/{your-suite-name}/example-test-1-actual.png tests/example.test.js
 
 <p><small>| OPTIONAL | DURATION |</small></p>
 
-Instructs how long `saucectl` should wait for the suite to complete, potentially overriding the default project timeout setting.
+Instructs how long `saucectl` should wait for the suite to complete, overriding the default project timeout setting of 30 minutes.
 
 When the suite reaches the timeout limit, its status is set to '?' in the CLI. This does not reflect the actual status of the job in the Sauce Labs web UI or API.
 

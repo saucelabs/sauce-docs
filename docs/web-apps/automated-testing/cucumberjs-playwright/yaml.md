@@ -85,7 +85,13 @@ defaults:
 
 <p><small>| OPTIONAL | DURATION |</small></p>
 
-Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
+Instructs how long `saucectl` should wait for the suite to complete, overriding the default project timeout setting of 30 minutes.
+
+When the suite reaches the timeout limit, its status is set to '?' in the CLI. This does not reflect the actual status of the job in the Sauce Labs web UI or API.
+
+:::note
+Setting `0` reverts to the value set in `defaults`.
+:::
 
 ```yaml
   timeout: 15m
@@ -805,6 +811,7 @@ suite:
     smartRetry:
       failedOnly: true
 ```
+
 ---
 
 ### `options`
