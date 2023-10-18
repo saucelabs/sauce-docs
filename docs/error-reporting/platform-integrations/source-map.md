@@ -71,7 +71,7 @@ Install the `backtrace-js` command line tool and update your build scripts to ru
 1. Install `@backtrace-labs/javascript-cli` as a dev dependency:
 
    ```bash
-   npm install -g --save-dev @backtrace-labs/javascript-cli
+   npm install --save-dev @backtrace-labs/javascript-cli
    ```
 
 2. Add the following script to `package.json` to process and upload source maps:
@@ -95,7 +95,7 @@ Install the `backtrace-js` command line tool and update your build scripts to ru
 ---
 ### Step 3: Create a `.backtracejsrc` configuration file
 
-Create a `.backtracejs` configuration file in the root of your project with these settings to process source maps, add source and upload to Backtrace.
+Create a `.backtracejsrc` configuration file in the root of your project with these settings to process source maps, add source and upload to Backtrace.
 
 ```json
 {
