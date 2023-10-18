@@ -196,6 +196,10 @@ sauce:
     owner: tunnel_owner_username
 ```
 
+:::caution
+[Only certain HTTP(S) ports](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports) are proxied by the tunnel.
+:::
+
 ---
 
 #### `name`
