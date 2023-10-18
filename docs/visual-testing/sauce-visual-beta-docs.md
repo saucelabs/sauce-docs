@@ -1,12 +1,16 @@
 ---
-id: sauce-visual
+id: sauce-visual-beta-docs
 title: Sauce Labs Visual Testing
-sidebar_label: Getting Started
+sidebar_label: Sauce Labs Visual Testing BETA Docs
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+
+:::warning Warning
+This doc is the current BETA doc, this needs to be removed when we have our docs ready, but is here to copy paste from.
+:::
 
 ## Introduction
 

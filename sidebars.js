@@ -1580,7 +1580,40 @@ module.exports = {
 
         {
             type: 'category',
-            label: 'Visual',
+            label: 'Visual (BETA)',
+            collapsed: true,
+            items: [
+                'sauce-visual',
+                {
+                    type: 'category',
+                    label: 'Testing Frameworks',
+                    collapsed: true,
+                    items: [
+                        'visual-testing/testing-frameworks/setup',
+                        'visual-testing/testing-frameworks/cypress-bindings',
+                        'visual-testing/testing-frameworks/java-bindings',
+                        'visual-testing/testing-frameworks/webdriverio-bindings',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Storybook Testing',
+                    collapsed: true,
+                    items: ['visual-testing/storybook-testing/setup'],
+                },
+                {
+                    type: 'category',
+                    label: 'Workflow',
+                    collapsed: true,
+                    items: ['visual-testing/workflow/review-workflow'],
+                },
+                'visual-testing/faq',
+                'visual-testing/sauce-visual-beta-docs',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Visual (Screener)',
             collapsed: true,
             items: [
                 'visual',
