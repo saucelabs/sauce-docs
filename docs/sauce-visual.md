@@ -18,9 +18,9 @@ Know exactly where and what has changed so that you can deliver a consistent and
   <h2>Sauce Visual E2E Testing</h2>
   <p>Combine visual and functional testing in the same run by integrating your Testing Framework(s) into our End-to-End (E2E) solution.</p>
   <ul>
-      <li><a href="/visual-testing/testing-frameworks/cypress-bindings">Cypress Integration</a></li>
-      <li><a href="/visual-testing/testing-frameworks/java-bindings">Java Integration</a></li>
-      <li><a href="/visual-testing/testing-frameworks/webdriverio-bindings">WebdriverIO Integration</a></li>
+      <li><a href="/visual-testing/testing-frameworks/cypress/existing-project">Cypress Integration</a></li>
+      <li><a href="/visual-testing/testing-frameworks/java/existing-project">Java Integration</a></li>
+      <li><a href="/visual-testing/testing-frameworks/webdriverio/existing-project">WebdriverIO Integration</a></li>
       <li><a href="/visual-testing/workflow/review-workflow">Workflow</a></li>
   </ul>
   </div>
