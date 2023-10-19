@@ -1,7 +1,7 @@
 ---
 id: sauce-visual
 title: Sauce Labs Visual Testing
-sidebar_label: Getting Started
+sidebar_label: Overview
 ---
 
 import Tabs from '@theme/Tabs';

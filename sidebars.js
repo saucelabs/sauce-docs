@@ -1584,15 +1584,46 @@ module.exports = {
             collapsed: true,
             items: [
                 'sauce-visual',
+                'visual-testing/getting-started',
+                {
+                    type: 'category',
+                    label: 'Workflow',
+                    collapsed: true,
+                    items: ['visual-testing/workflow/review-workflow'],
+                },
                 {
                     type: 'category',
                     label: 'Testing Frameworks',
                     collapsed: true,
                     items: [
-                        'visual-testing/testing-frameworks/setup',
-                        'visual-testing/testing-frameworks/cypress-bindings',
-                        'visual-testing/testing-frameworks/java-bindings',
-                        'visual-testing/testing-frameworks/webdriverio-bindings',
+                        {
+                            type: 'category',
+                            label: 'Cypress',
+                            collapsed: true,
+                            items: [
+                                'visual-testing/testing-frameworks/cypress/example-project',
+                                'visual-testing/testing-frameworks/cypress/existing-project',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'Java',
+                            collapsed: true,
+                            items: [
+                                'visual-testing/testing-frameworks/java/junit-example-project',
+                                'visual-testing/testing-frameworks/java/testng-example-project',
+                                'visual-testing/testing-frameworks/java/existing-project',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'WebdriverIO',
+                            collapsed: true,
+                            items: [
+                                'visual-testing/testing-frameworks/webdriverio/example-project',
+                                'visual-testing/testing-frameworks/webdriverio/existing-project',
+                            ],
+                        },
                     ],
                 },
                 {
@@ -1600,12 +1631,6 @@ module.exports = {
                     label: 'Storybook Testing',
                     collapsed: true,
                     items: ['visual-testing/storybook-testing/setup'],
-                },
-                {
-                    type: 'category',
-                    label: 'Workflow',
-                    collapsed: true,
-                    items: ['visual-testing/workflow/review-workflow'],
                 },
                 'visual-testing/faq',
                 'visual-testing/sauce-visual-beta-docs',
