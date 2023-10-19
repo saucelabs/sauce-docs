@@ -10,7 +10,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Advanced, {toc as AdvancedTOC} from '../\_partials/\_advanced.md';
 import AdvancedPlaywrightCucumber, {toc as AdvancedPlaywrightCucumberTOC} from '../\_partials/\_advanced-playwright-cucumber.md';
 
-
 <AdvancedPlaywrightCucumber />
 <Advanced />
 
