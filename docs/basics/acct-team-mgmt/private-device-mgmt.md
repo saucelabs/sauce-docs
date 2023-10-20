@@ -105,6 +105,12 @@ By default, the following folders are not cleaned on your private Android device
 - Downloads
 - DCIM
 
+:::note
+You can only retain specific folders created inside tmp. You cannot retain the whole tmp folder.
+Valid: `/data/local/tmp/retain`
+Invalid path: `/data/local/tmp/`
+:::
+
 :::important
 `/data/com.wavelink.velocity/files`  
 `/com.my.app/data/temp/folder`
