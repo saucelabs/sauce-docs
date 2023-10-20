@@ -91,6 +91,31 @@ Update this setting for each account email to preserve store and payment account
 `account2@mydomain.com`  
 :::
 
+## Retain folders/filepath (Android)
+
+You have the option to retain specific filepaths or folders on your private Android devices between sessions. 
+This feature ensures that selected data remains intact during the device cleaning process.
+
+- Filepaths or folders associated with specific applications can be retained.
+- This is especially useful for retaining data that is crucial for continuous testing or for maintaining certain app states.
+
+By default, the following folders are not cleaned on your private Android devices, ensuring that their contents are retained between sessions (iOS/Android):
+- Documents
+- Pictures
+- Downloads
+- DCIM
+
+:::note
+You can only retain specific folders created inside tmp. You cannot retain the whole tmp folder.
+Valid: `/data/local/tmp/retain`
+Invalid path: `/data/local/tmp/`
+:::
+
+:::important
+`/data/com.wavelink.velocity/files`  
+`/com.my.app/data/temp/folder`
+:::
+
 ## Enable Apple Pay
 
 Enable this setting to test Apple Pay.
