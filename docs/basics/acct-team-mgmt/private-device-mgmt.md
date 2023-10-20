@@ -91,7 +91,7 @@ Update this setting for each account email to preserve store and payment account
 `account2@mydomain.com`  
 :::
 
-## Retain specific filepaths/folders on the device (Android)
+## Retain folders/filepath (Android)
 
 You have the option to preserve specific filepaths or folders on your private Android devices between sessions. 
 This feature ensures that selected data remains intact during the device cleaning process.
