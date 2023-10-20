@@ -196,6 +196,10 @@ sauce:
     owner: tunnel_owner_username
 ```
 
+:::caution
+[Only certain HTTP(S) ports](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports) are proxied by the tunnel.
+:::
+
 ---
 
 #### `name`
@@ -346,7 +350,7 @@ Specifies the location of the npm registry source. If the registry source is a p
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Specifies the location of the npm registry, scope, and credentials. If the registry is inside a private network, you must establish a tunnel using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
+Specifies the location of the npm registry, scope, and credentials. Only one scopeless registry is allowed. If the registry is inside a private network, you must establish a tunnel using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
 
 ```yaml
   registries:
@@ -410,6 +414,10 @@ Specifies any npm packages that are required to run tests and should, therefore,
     "@testcafe/react": "^5.0.1"
 ```
 
+:::caution
+Do not use `dependencies` and `packages` at the same time.
+:::
+
 ---
 
 ### `dependencies`
@@ -433,6 +441,10 @@ To use this feature, make sure that `node_modules` is not ignored via `.sauceign
 
 :::caution
 This feature is highly experimental.
+:::
+
+:::caution
+Do not use `dependencies` and `packages` at the same time.
 :::
 
 ---
@@ -734,6 +746,7 @@ Determines whether to run the test suite in headless mode.
 ```yaml
   headless: true
 ```
+
 ---
 
 ### `platformName`
@@ -1003,6 +1016,7 @@ Specifies test compilation settings. The current version of TestCafe can only co
 ---
 
 #### `typescript`
+
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Specifies the TypeScript options.
@@ -1262,7 +1276,7 @@ Determines whether to prevent the browser from caching page content. See [TestCa
 
 <p><small>| OPTIONAL | DURATION |</small></p>
 
-Instructs how long `saucectl` should wait for the suite to complete, potentially overriding the default project timeout setting.
+Instructs how long `saucectl` should wait for the suite to complete, overriding the default project timeout setting of 30 minutes.
 
 When the suite reaches the timeout limit, its status is set to '?' in the CLI. This does not reflect the actual status of the job in the Sauce Labs web UI or API.
 
