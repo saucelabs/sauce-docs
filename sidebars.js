@@ -965,6 +965,7 @@ module.exports = {
                                     items: [
                                         'secure-connections/sauce-connect-5/operation/overview',
                                         'secure-connections/sauce-connect-5/operation/configuration',
+                                        'secure-connections/sauce-connect-5/operation/proxies',
                                         'secure-connections/sauce-connect-5/operation/monitoring',
                                         'secure-connections/sauce-connect-5/operation/docker',
                                         'secure-connections/sauce-connect-5/operation/systemd',
