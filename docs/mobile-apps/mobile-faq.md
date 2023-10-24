@@ -203,7 +203,11 @@ Yes, only on private devices that have SIM cards and are connected to the Carrie
 
 #### **Can I access Mobile Data? Not just WiFi, but 4G and 5G networks?**
 
-Yes, only on private devices that have SIM cards and are connected to the Carrier Network. Reach out to our support team regarding this!
+Yes, only on private devices that have SIM/eSIM cards and are connected to the Carrier Network. Reach out to our support team regarding this!
+
+#### **What type of carriers can I test my SIM cards/eSIM cards with? **
+
+We support T-Mobile in US-West and US-East, Verizon in US-East, and Vodafone in the EU.
 
 ### Live Testing
 
