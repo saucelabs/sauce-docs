@@ -20,7 +20,7 @@ In order to join SauceLabs Container Registry, please contact SauceLabs customer
 In order to access SauceLabs Container Registry you will need a username and a short-lived generated tokens to be used 
 as a password. The token has a time-to-live of 5 minutes.
 
-To generate a token, use [Sauce Orchestrate API](https://docs.saucelabs.com/dev/api/performance/)
+To generate a token, use [Sauce Orchestrate API](https://docs.saucelabs.com/dev/api/orchestrate/)
 or follow a script below.
 
 ### Prerequisites
