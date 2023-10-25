@@ -22,10 +22,11 @@ Here are some benefits/use cases:
    ```
    - To use a specific version, add it as a tag:
    ```bash
-   $ docker pull saucelabs/sauce-connect:4.9.1
+   $ docker pull saucelabs/sauce-connect:4.9.2
    ```
     <details><summary>Supported tags</summary>
-      - 4.9.1, 4.9.1-ubuntu-22.04, 4.9.1-alpine-glibc, latest<br/>
+      - 4.9.2, 4.9.2-ubuntu-22.04, 4.9.2-alpine-glibc, latest<br/>
+      - 4.9.1, 4.9.1-ubuntu-22.04, 4.9.1-alpine-glibc<br/>
       - 4.9.0, 4.9.0-ubuntu-22.04, 4.9.0-alpine-glibc<br/>
       - 4.8.3, 4.8.3-ubuntu-22.04, 4.8.3-alpine-glibc<br/>
       - 4.8.2, 4.8.2-ubuntu-22.04, 4.8.2-alpine-glibc<br/>
