@@ -905,7 +905,6 @@ module.exports = {
                                         'basics/integrations/gitlab',
                                         'basics/integrations/azure',
                                         'basics/integrations/jenkins',
-                                        'basics/integrations/bamboo',
                                         'basics/integrations/teamcity',
                                     ],
                                 },
@@ -1534,7 +1533,6 @@ module.exports = {
             items: [
                 'ci',
                 'basics/integrations/azure',
-                'basics/integrations/bamboo',
                 'basics/integrations/bitbucket',
                 'basics/integrations/jenkins',
                 'basics/integrations/teamcity',
