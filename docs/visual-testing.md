@@ -27,7 +27,8 @@ With Sauce Visual testing existing test suites can be enhanced with a few extra 
 
 ### Review
 
-TODO
+This workflow is responsible for approving or rejecting detected changes between a snapshot and a baseline.
+Users will be available to review changes and make the baseline evolve for approved changes.
 
 [Follow me to learn more](./visual-testing/workflows/review.md)
 
