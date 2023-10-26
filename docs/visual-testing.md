@@ -36,10 +36,37 @@ TODO
 
 TODO: explain concepts before workflows?
 
-TODO:
-  - baselines, snapshots, build, diff
-  - build-, diff status
-  - baseline matching
+Sauce Visual Testing comes with its set of concepts that will be defined here.
+
+A **snapshot** is an image representing the element that will be compared by Visual Testing. For example: the screenshot of your website or mobile application.
+
+A **build** is a grouping of multiple snapshots in a same container. \
+A **build** has a status that represents its current state:
+
+| Status | Description |
+| --- |--- |
+| `Empty` | There is no snapshot in this build |
+| `Equal` | No difference has been detected between snapshots and the matching baselines |
+| `Unapproved` | Changes have been detected and and action is needed |
+| `Approved` | Changes have been detected and they have been approved |
+| `Rejected` | Changes have been detected and they have been rejected |
+| `Errored` | An error has occured |
+
+A **baseline** is the reference **snapshot** used to compare a snapshot.
+
+A **diff** represents the differences that have been detected between a **snapshot** and its matching **baseline**. \
+A **diff** has a status that reprensent its current state:
+| Status | Description |
+| --- | --- |
+| `Queued` | The processing is queued, and waiting for processing |
+| `Equal` | No difference has been detected between this snapshot and the matching baseline |
+| `Unapproved` | Changes have been detected and an action is needed  |
+| `Approved` | Changes have been detected and they have been approved |
+| `Rejected` | Changes have been detected and they have been rejected |
+
+### Baseline Matching
+
+
 
 ## Examples
 
