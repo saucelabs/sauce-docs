@@ -34,13 +34,13 @@ TODO
 
 ## Concepts
 
-TODO: explain concepts before workflows?
-
 Sauce Visual Testing comes with its set of concepts that will be defined here.
 
-A **snapshot** is an image representing the element that will be compared by Visual Testing. For example: the screenshot of your website or mobile application.
+### Definitions
 
-A **build** is a grouping of multiple snapshots in a same container. \
+A **snapshot** is an image that will be compared by Visual Testing. For example: the screenshot of your website or mobile application.
+
+A **build** is a grouping of multiple snapshots in a same container.<br />
 A **build** has a status that represents its current state:
 
 | Status | Description |
@@ -52,10 +52,11 @@ A **build** has a status that represents its current state:
 | `Rejected` | Changes have been detected and they have been rejected |
 | `Errored` | An error has occured |
 
-A **baseline** is the reference **snapshot** used to compare a snapshot.
+A **baseline** is what a **snapshot** is compared to.
 
-A **diff** represents the differences that have been detected between a **snapshot** and its matching **baseline**. \
+A **diff** represents the differences that have been detected between a **snapshot** and its matching **baseline**.<br />
 A **diff** has a status that reprensent its current state:
+
 | Status | Description |
 | --- | --- |
 | `Queued` | The processing is queued, and waiting for processing |
@@ -66,7 +67,20 @@ A **diff** has a status that reprensent its current state:
 
 ### Baseline Matching
 
+When a new snapshot is uploaded, Visual Testing will select the matching baseline and will looks for changes between the snapshot and the baseline.
 
+For a new snapshot, the matching baseline is found based on the following properties:
+- `name`
+- `testName`
+- `suiteName`
+- `browser`
+- `operatingSystem`
+- `operatingSystemVersion`
+- `viewportWidth`
+- `viewportHeight`
+- `project`
+- `branch`
+- `device`
 
 ## Examples
 
