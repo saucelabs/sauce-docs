@@ -117,4 +117,4 @@ Example:
 
 ```
 
-[Follow me](/wdio/src/inventory-ignore-regions.spec.ts#L12-L18) to see complete working example
+[Follow me](https://github.com/saucelabs/visual-examples/blob/main/wdio/src/inventory-ignore-regions.spec.ts) to see complete working example
