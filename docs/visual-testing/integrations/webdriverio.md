@@ -13,7 +13,7 @@ If you want to start from scratch, [check out our examples](../../visual-testing
 
 ## How to add visual testing to your setup
 
-- Add sauce visual dependency
+- Add Sauce Labs Visual dependency
 
 ```sh
 npm install --save @saucelabs/wdio-sauce-visual-service
@@ -74,7 +74,7 @@ Example:
 
 #### User-specified ignored region
 
-In the case you need to ignore some region when running your tests, Visual Testing provides a way to ignore user-specified areas.
+In the case you need to ignore some region when running your tests, Sauce Labs Visual provides a way to ignore user-specified areas.
 
 Those ignored regions are specified when requesting a new snapshot.
 

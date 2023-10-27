@@ -41,7 +41,7 @@ Sauce Visual Testing comes with its set of concepts that will be defined here.
 
 A **snapshot** is an image that will be compared by Visual Testing. For example: the screenshot of your website or mobile application.
 
-A **build** is a grouping of multiple snapshots in a same container.<br />
+A **build** groups multiple snapshots. E.g. to be able to view all snapshots taken during the execution of your test suite in CI or locally.<br />
 A **build** has a status that represents its current state:
 
 | Status | Description |

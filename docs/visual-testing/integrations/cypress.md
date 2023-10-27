@@ -79,7 +79,7 @@ export default defineConfig({
 }
 ```
 
-### Region
+### Sauce Labs Region
 
 By default, visual tests are uploaded to `us-west-1` region. \
 This value can be overridden in the `cypress.config.js` configuration file.

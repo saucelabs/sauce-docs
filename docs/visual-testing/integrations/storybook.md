@@ -66,5 +66,5 @@ Optional. By default, plugin uploads all snapshots to the Sauce Labs Visual Test
 
 ### `region`
 
-Defines which region of Sauce Labs should be targeted.
+Defines which Sauce Labs region should be targeted.
 

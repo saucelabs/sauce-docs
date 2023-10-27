@@ -36,4 +36,4 @@ Support for additional languages/frameworks will be determined based on demand. 
 
 ### When will it support "my favorite framework"?
 
-The support for any framework depends on the client-side implementation using the underlying API. If you require an SDK, submit a new idea at [productboard](https://portal.productboard.com/sauceprod/2-sauce-labs-portal/tabs/4-under-consideration/submit-idea).
+The support for any framework depends on the client-side implementation using the underlying API. If you require an SDK, submit a new idea at [Productboard](https://portal.productboard.com/sauceprod/2-sauce-labs-portal/tabs/4-under-consideration/submit-idea).
