@@ -8,32 +8,43 @@ import TabItem from '@theme/TabItem';
 
 # WebdriverIO Integration
 
-This guide requires an existing WebdriverIO setup.
-If you want to start from scratch, [check out our examples](../../visual-testing.md#examples).
+## Introduction
 
-## How to add visual testing to your setup
+This guide requires an existing WebdriverIO project.<br />
+You can alternatively take a look to our [example repository](#example).
 
-- Add Sauce Labs Visual dependency
+Sauce Labs Visual provides an integration with [WebdriverIO](https://webdriver.io/) through a service that you can add to any existing WebdriverIO project.
+
+Sauce Labs Visual adds new commands to the WebdriverIO's `browser` object:
+- `browser.check()`: Takes a screenshot and send it to Sauce Labs Visual for comparison.
+- `browser.checkResults()`: Returns how many changes have been observed.
+
+## Quickstart
+
+### Step 1: Add Sauce Labs Visual dependency
+
+First, Sauce Labs Visual service needs to be installed in your current project.
 
 ```sh
 npm install --save @saucelabs/wdio-sauce-visual-service
 ```
 
-- Add the SauceVisualService to your `wdio.conf.(js|ts)`:  
-   *Build name can be set through the `buildName` attribute.*
+### Step 2: Add SauceVisualService to your WebdriverIO configuration
+
+Add the `SauceVisualService` to your existing configuration (E.g. `wdio.conf.(js|ts)`):
 
 ```ts
 ...
 export const config: Options.Testrunner = {
 ...
-    services: ['sauce', ['@saucelabs/wdio-sauce-visual-service', {
-        buildName: 'Sauce Demo Test',
-    }]],
+    services: ['sauce', ['@saucelabs/wdio-sauce-visual-service', {}]],
 ...
 }
 ```
 
-- Add a check to one of your tests:
+### Step 3: Add visual tests in you project
+
+Add a check to one of your tests:
 
 ```ts
     describe('Login Flow', () => {
@@ -45,23 +56,38 @@ export const config: Options.Testrunner = {
     })
 ```
 
-- Configure with your Sauce credentials from https://app.saucelabs.com/user-settings.
+### Step 4: Configure your Sauce Labs credentials
+
+Sauce Labs Visual relies on environment variables for authentications.\
+Both `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` need to be set prior starting your WebdriverIO job.
+
+Username and Access Key car be retrieved from https://app.saucelabs.com/user-settings.
 
 ```sh
 export SAUCE_USERNAME=__YOUR_SAUCE_USER_NAME__
 export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 ```
 
-- Run the test the way you are used to.
+### Step 5: Run the test
+
+Everything is now configured, your tests can be run as any other WebdriverIO project.
+
+Builds will appear on Sauce Labs platform as soon as they have been created by the running tests: https://app.saucelabs.com/visual/builds.
 
 ## Advanced usage
 
 ### Build attributes
 
-`buildName`, `branch` and `project` can be defined when adding `SauceVisualService` to you WebdriverIO project, through the `options` parameter.
+When creating the service in WebdriverIO's configuration, extra fields can be set to define the context, thus acting on which baselines it will be compared to. ([More info on baseline matching](../sauce-visual.md#baseline-matching))
+
+Options:
+- `buildName`: Name of the build
+- `project`: Name of the project
+- `branch`: Name of branch
+
+They need to be set through the `options` parameter.
 
 Example:
-
 ```ts
     services: ['sauce', ['@saucelabs/wdio-sauce-visual-service', {
         buildName: 'Sauce Demo Test',
@@ -117,4 +143,6 @@ Example:
 
 ```
 
-[Follow me](https://github.com/saucelabs/visual-examples/blob/main/wdio/src/inventory-ignore-regions.spec.ts) to see complete working example
+## Example
+
+An example project is available [here](https://github.com/saucelabs/visual-examples/tree/main/wdio).

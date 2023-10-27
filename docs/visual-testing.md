@@ -83,13 +83,14 @@ For a new snapshot, the matching baseline is found based on the following proper
 - `branch`
 - `device`
 
-## Examples
+## Integrations
 
-- [Cypress](https://github.com/saucelabs/visual-examples/tree/main/cypress#readme)
-- [Java JUnit](https://github.com/saucelabs/visual-examples/tree/main/wd-java#readme)
-- [Java TestNG](https://github.com/saucelabs/visual-examples/tree/main/wd-java-testng#readme)
-- [Storybook Component Testing](https://github.com/saucelabs/visual-examples/tree/main/storybook#readme)
-- [WebdriverIO](https://github.com/saucelabs/visual-examples/tree/main/wdio#readme)
+Sauce Labs Visual provides integrations with different frameworks.
+
+- [Cypress](./integrations/cypress/)
+- [Java](./integrations/java/)
+- [Storybook](./integrations/storybook/)
+- [WebdriverIO](./integrations/webdriverio/)
 
 
 
