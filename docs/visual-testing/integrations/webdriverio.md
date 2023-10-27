@@ -42,7 +42,7 @@ export const config: Options.Testrunner = {
 }
 ```
 
-### Step 3: Add visual tests in you project
+### Step 3: Add visual tests in your project
 
 Add a check to one of your tests:
 
@@ -58,7 +58,7 @@ Add a check to one of your tests:
 
 ### Step 4: Configure your Sauce Labs credentials
 
-Sauce Labs Visual relies on environment variables for authentications.\
+Sauce Labs Visual relies on environment variables for authentications.<br />
 Both `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` need to be set prior starting your WebdriverIO job.
 
 Username and Access Key can be retrieved from https://app.saucelabs.com/user-settings.
@@ -78,7 +78,7 @@ Builds will appear on Sauce Labs platform as soon as they have been created by t
 
 ### Build attributes
 
-When creating the service in WebdriverIO's configuration, extra fields can be set to define the context, thus acting on which baselines it will be compared to. ([More info on baseline matching](../sauce-visual.md#baseline-matching))
+When creating the service in WebdriverIO's configuration, extra fields can be set to define the context, thus acting on which baselines new snapshots will be compared to. ([More info on baseline matching](../sauce-visual.md#baseline-matching))
 
 Options:
 - `buildName`: Name of the build
@@ -98,11 +98,11 @@ Example:
 
 ### Ignored regions
 
-#### User-specified ignored region
-
-In the case you need to ignore some region when running your tests, Sauce Labs Visual provides a way to ignore user-specified areas.
+In the case you need to ignore some region when running your tests, Sauce Visual provides a way to ignore user-specified areas.
 
 Those ignored regions are specified when requesting a new snapshot.
+
+#### User-specified ignored region
 
 A region is defined by four elements.
 
