@@ -23,7 +23,7 @@ Sauce Labs Visual adds new commands to the WebdriverIO's `browser` object:
 
 ### Step 1: Add Sauce Labs Visual dependency
 
-First, Sauce Labs Visual service needs to be installed in your current project.
+Install the Sauce Labs Visual service in your current project.
 
 ```sh
 npm install --save @saucelabs/wdio-sauce-visual-service
@@ -61,7 +61,7 @@ Add a check to one of your tests:
 Sauce Labs Visual relies on environment variables for authentications.\
 Both `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` need to be set prior starting your WebdriverIO job.
 
-Username and Access Key car be retrieved from https://app.saucelabs.com/user-settings.
+Username and Access Key can be retrieved from https://app.saucelabs.com/user-settings.
 
 ```sh
 export SAUCE_USERNAME=__YOUR_SAUCE_USER_NAME__
