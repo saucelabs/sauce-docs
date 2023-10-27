@@ -6,7 +6,7 @@ sidebar_label: App Logs
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-App Logs is functionality that provides you with a detailed view of logs for your mobile apps. This feature provides you with visibility into events, errors, and warnings that occur during testing, making it easier to troubleshoot and diagnose issues.
+App Logs is a functionality that provides you with a detailed view of logs for your mobile apps. This feature provides you with visibility into events, errors, and warnings that occur during testing, making it easier to troubleshoot and diagnose issues.
 
 
 
@@ -47,8 +47,10 @@ You can download the App Logs as a text file to save and share with Sauce Labs s
 You can also download the results using the API call below and send it to your development team:
 
 ```java
-curl --compressed \
--O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}.saucelabs.com/v1/rdc/jobs/{JOB_ID}/device.log 
+Sample Request:
+
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/jobs/8ed051b303b4414f861e88eeb1732d02/deviceLogs' | json_pp
 ```
 
 
