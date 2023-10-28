@@ -8,13 +8,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Connect is required to run a test on an app or website located behind a firewall. Get up and running with a basic Sauce Connect Proxy tunnel in minutes using the steps below.
+Sauce Connect Proxy is required to run a test on an app or website located behind a firewall. Get up and running with a basic Sauce Connect Proxy tunnel in minutes using the steps below.
 
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - If you haven't already, make sure you can access the website or mobile app that you'll be testing from the Sauce Connect Proxy host.
-- Check to see if you have any proxies that are required to access the public Internet.
+- Check to see if you have any [proxies](/secure-connections/sauce-connect-5/operation/proxies/) that are required to access the public Internet.
 
 ## Installing Sauce Connect Proxy
 
@@ -29,8 +29,8 @@ See the [installation instructions](/secure-connections/sauce-connect-5/installa
    <details><summary>What is this?</summary>
    This snippet contains your authentication credentials (username and access key), selects a Sauce Labs Data Center, and applies a name to your tunnel. Optionally, you can rename your tunnel by replacing the value after the <code>--tunnel-name</code> flag.
    </details>
-5. Paste the snippet into your terminal but do not run it. This snippet is not updated for Sauce Connect Proxy 5 yet.
-6. Follow the steps in the [setup instructions](/secure-connections/sauce-connect-5/operation/overview/#running-sauce-connect-proxy) to start Sauce Connect Proxy 5
+5. Paste the snippet into your terminal but **do not run it**. This snippet is not updated for Sauce Connect Proxy 5, it can only be used to get your username and your access key.
+6. Follow the steps in the [setup instructions](/secure-connections/sauce-connect-5/operation/overview/#running-sauce-connect-proxy) to start Sauce Connect Proxy 5 using the username and the access key obtained in the previous step.
 
 ## Verify Connection
 
