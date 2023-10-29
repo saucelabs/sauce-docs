@@ -31,22 +31,25 @@ The Sauce Connect Proxy version 5 major release introduces CLI changes. Please r
    Sauce Connect Proxy 5 comes with [Prometheus](https://prometheus.io/) metrics. A sample [Grafana](http://grafana.org/) dashboard is available [here](https://github.com/saucelabs/sauce-connect-docker/tree/main/examples/docker-compose-prometheus-grafana).
 5. Easier installation and upgrade process. Sauce Connect Proxy 5 release contains deb and rpm packages for Linux, brew support for macOS, as well as x86_64 and arm64 architectures support for all platforms.
 6. Secure WebSockets support with [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) enabled.
+7. [SOCKS5](https://datatracker.ietf.org/doc/html/rfc1928) support for upstream proxies.
 
 ### Major changes
 
 Sauce Connect Proxy 5 major changes are listed below.
 
 - The [Selenium Relay](/secure-connections/sauce-connect/proxy-tunnels/#using-the-selenium-relay) feature is not supported.
-- Tunnels must be named, `--tunnel-name` flag is no longer optional. It's done to improve security and usability - tests that use Sauce Connect must explicitly specify the [tunnel name](/dev/test-configuration-options/#tunnelname).
-- There is no default Sauce Labs region value, `--region` is required to ensure that the correct region is explicitly specified.
+- Tunnels must be named, the [`--tunnel-name`](/dev/cli/sauce-connect-5/run/#--tunnel-name) flag is no longer optional. It's done to improve security and usability - tests that use Sauce Connect must explicitly specify the [tunnel name](/dev/test-configuration-options/#tunnelname).
+- There is no default Sauce Labs region value, [`--region`](/dev/cli/sauce-connect-5/run/#--region) is required to ensure that the correct region is explicitly specified.
 - Proxy auto-detection is not supported, all proxies must be specified with explicit flags - `--proxy` or `--pac` for SUT requests and `--proxy-sauce` for Sauce Labs REST API and tunnel connections.
-- Domain flags (`--tunnel-domains`, `--direct-domains`, etc) accept regular expressions only
-- Multiple CLI changes
+- Domain flags ([`--tunnel-domains`](/dev/cli/sauce-connect-5/run/#--tunnel-domains), [`--direct-domains`](/dev/cli/sauce-connect-5/run/#--direct-domains), etc) accept regular expressions only.
+- [Subcommands](/dev/cli/sauce-connect-5/) are introduced to support multiple CLI changes and future capabilities.
 
 ## Getting Started With Sauce Connect Proxy 5
 
-Sauce Connect Proxy 5 network requirements are very similar to the previous generation of Sauce Connect Proxy (version 4). The main difference is that Sauce Connect Proxy 5 doesn't initiate non-HTTP connections.
-See [this document](/secure-connections/sauce-connect-5/quickstart/) for quickstart instructions.
+Sauce Connect Proxy 5 network requirements are very similar to the previous generation of Sauce Connect Proxy (version 4). See [this document](/secure-connections/sauce-connect-5/quickstart/) for quickstart instructions.
+
+-  Sauce Connect Proxy 5 doesn't initiate non-HTTP connections.
+-  [Additional proxies setup](/secure-connections/sauce-connect-5/operation/proxies/) is different between Sauce Connect Proxy 4.x.x and 5.x.x.
 
 ## More Information
 

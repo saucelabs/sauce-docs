@@ -144,7 +144,7 @@ rm sauce-connect_${sc_version}.linux_${arch}.deb
   #SAUCE_REGION=
   #SAUCE_TUNNEL_NAME=
   # Options
-  #SAUCE_SHARED_TUNNEL=
+  #SAUCE_SHARED=all
   #SAUCE_TUNNEL_POOL=
   # See https://docs.saucelabs.com/dev/cli/sauce-connect-5/ for all environment variable values
   ```
