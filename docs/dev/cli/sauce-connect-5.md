@@ -24,6 +24,7 @@ Below is a list of commands available with your Sauce Connect Proxy application.
 ## Commands
 
 - [sc run](/dev/cli/sauce-connect-5/run/)
+- `sc legacy`
 - [sc completion](/dev/cli/sauce-connect-5/completion/)
 - `sc version`
 - `sc help`
@@ -31,6 +32,32 @@ Below is a list of commands available with your Sauce Connect Proxy application.
 ### `sc run`
 
 The [sc run](/dev/cli/sauce-connect-5/run/) command is a main Sauce Connect Proxy 5 command that allows provisioning a Sauce Connect Proxy server and establishing a secure connection between the Sauce Connect Proxy client and the server.
+
+### `sc legacy`
+
+The command runs Sauce Connect Proxy in compatibility mode with Sauce Connect Proxy 4.9.x. See [Sauce Connect Proxy 4.x.x CLI Reference](/dev/cli/sauce-connect-proxy). There are only a few flags that are not supported.
+
+Unsupported Sauce Connect Proxy 4.9.x flags:
+
+- [`--autodetect`](/dev/cli/sauce-connect-proxy/#--autodetect)
+- [`--certificate`](/dev/cli/sauce-connect-proxy/#--certificate)
+- [`--doctor`](/dev/cli/sauce-connect-proxy/#--doctor)
+- [`--experimental`](/dev/cli/sauce-connect-proxy/#--experimental)
+- [`--extra-info`](/dev/cli/sauce-connect-proxy/#--extra-info)
+- [`--log-stats`](/dev/cli/sauce-connect-proxy/#--log-stats)
+- [`--max-logsize`](/dev/cli/sauce-connect-proxy/#--max-logsize)
+- [`--metadata`](/dev/cli/sauce-connect-proxy/#--metadata)
+- [`--metrics-address`](/dev/cli/sauce-connect-proxy/#--metrics-address)
+- [`--no-autodetect`](/dev/cli/sauce-connect-proxy/#--no-autodetect)
+- [`--no-remove-colliding-tunnels`](/dev/cli/sauce-connect-proxy/#--no-remove-colliding-tunnels)
+- [`--ocsp`](/dev/cli/sauce-connect-proxy/#--ocsp)
+- [`--output-format`](/dev/cli/sauce-connect-proxy/#--output-format)
+- [`--pidfile`](/dev/cli/sauce-connect-proxy/#--pidfile)
+- [`--readyfile`](/dev/cli/sauce-connect-proxy/#--readyfile)
+- [`--tunnel-cainfo`](/dev/cli/sauce-connect-proxy/#--tunnel-cainfo)
+- [`--tunnel-capath`](/dev/cli/sauce-connect-proxy/#--tunnel-capath)
+- [`--readyfile`](/dev/cli/sauce-connect-proxy/#--readyfile)
+- `--vm-version`
 
 ### `sc completion`
 
