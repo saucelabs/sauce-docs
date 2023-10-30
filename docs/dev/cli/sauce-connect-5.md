@@ -42,12 +42,12 @@ The `sc version` command output detailed version info.
 
 ```bash
 sc version
-  Version:         5.0.0-alpha9
-  Build time:      2023-09-23T15:16:24Z
-  Git commit:      dd49628c1dea256145f44ea155a01f91f1f79fd9
-  Go Arch:         arm64
-  Go OS:           darwin
-  Go Version:      go1.20.4
+  Version:	 5.0.0-alpha11
+  Build time:	 2023-10-16T21:11:37Z
+  Git commit:	 3301c2ed2a0b5fe364e3e126c07a9b1a5dafa7f8
+  Go Arch:	 arm64
+  Go OS:		 darwin
+  Go Version:	 go1.20.4
 ```
 
 ### `sc help`
@@ -81,4 +81,4 @@ Use "sc <command> --help" for more information about a given command.
 ## Additional Resources
 
 - [Sauce Connect Proxy Basic Setup](/secure-connections/sauce-connect-5/installation/).
-- [Sauce Connect Proxy Environment Variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/)
+- [Sauce Connect Proxy Environment Variables](/secure-connections/sauce-connect-5/operation/configuration/#environment-variables/).

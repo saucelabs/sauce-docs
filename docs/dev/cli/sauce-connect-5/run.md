@@ -36,7 +36,7 @@ SAUCE_USER=<username> SAUCE_ACCESS_KEY=<access key> sc run --region <region> --t
 **Shorthand**: `-u`
 
 :::note
-For additional security, we recommend setting this as an [environment variable](/secure-connections/sauce-connect/setup-configuration/environment-variables/).
+For additional security, we recommend setting this as an [environment variable](/secure-connections/sauce-connect-5/operation/configuration/#environment-variables).
 :::
 
 ---
@@ -166,7 +166,7 @@ Additional values for this flag are planned to be added in the future.
 
 <p><small>| OPTIONAL | STRING | </small></p>
 
-**Description**: Proxy Auto-Configuration file to use for upstream proxy selection. It can be a local file or a URL, you can also use '-' to read from stdin. For more information, see [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).<br/>
+**Description**: Proxy Auto-Configuration file to use for upstream proxy selection. It can be a local file or a URL, you can also use '-' to read from stdin. For more information, see [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-5/operation/proxies).<br/>
 **Default**: n/a<br/>
 **Environment variable**: `SAUCE_PAC`<br/>
 **Shorthand**: `-p`
@@ -194,6 +194,10 @@ values={[
 
 </TabItem>
 </Tabs>
+
+:::note
+This flag configures the proxy for SUT traffic only. Use the [`--proxy-sauce`](#--proxy-sauce) flag to configure a proxy for the Sauce Labs REST API and Sauce Connect Server traffic.
+:::
 
 ---
 
@@ -232,8 +236,9 @@ The header name will be normalized to canonical form. The header value should no
 
 <p><small>| OPTIONAL | STRING | </small></p>
 
-**Description**: Defines an upstream proxy to route test session traffic. For example, the traffic from a Firefox desktop test.<br/>
-Supported protocols are: http, https, socks, socks5. If not specified, the default protocol is http. Format: [protocol://][user:pass@]host:port.<br/>
+**Description**: Defines an upstream proxy to route test session traffic.
+Supported protocols are: http, https, socks, socks5. If not specified, the default protocol is http. Format: `[protocol://][user:pass@]host:port`.<br/>
+For more information, see [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-5/operation/proxies).<br/>
 **Default**: n/a<br/>
 **Environment variable**: `SAUCE_PROXY`<br/>
 **Shorthand**: `-x`
@@ -257,7 +262,8 @@ Proxy basic authentication, username and password, can be specified in the proxy
 
 <p><small>| OPTIONAL | STRING | </small></p>
 
-**Description**: Defines external proxy host:port where you want to route Sauce Labs REST API and Sauce Connect Server traffic.<br/>
+**Description**: Defines external proxy you want to route Sauce Labs REST API and Sauce Connect Server traffic.
+For more information, see [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-5/operation/proxies).<br/>
 **Default**: n/a<br/>
 **Environment variable**: `SAUCE_PROXY_SAUCE`<br/>
 **Shorthand**: n/a
@@ -274,8 +280,8 @@ This flag configures the proxy for the Sauce Labs REST API and Sauce Connect Ser
 
 **Description**: One of `allow`, `deny`, `direct`. Setting this to `allow` supports sending requests to `localhost` through the upstream proxy.
 This includes scenarios where an [upstream proxy is hosted on localhost](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
-Setting this to direct sends requests to localhost directly without using the upstream proxy. By default, requests to localhost are denied.<br/>
-**Default**: `false`<br/>
+Setting this to `direct` sends requests to `localhost` directly without using the upstream proxy. By default, requests to `localhost` are denied.<br/>
+**Default**: `deny`<br/>
 **Environment variable**: `SAUCE_PROXY_LOCALHOST`<br/>
 **Shorthand**: n/a
 
