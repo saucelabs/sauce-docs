@@ -24,23 +24,31 @@ Sauce Connect is required to run a local test on an app or website located behin
 2. Extract the .zip file and move the folder to your machine's [home directory](https://en.wikipedia.org/wiki/Home_directory).
 3. Open your terminal and navigate to the Sauce Connect Proxy client bin directory.
    <Tabs
-     defaultValue="Mac/Linux"
+     defaultValue="Linux"
      values={[
-       {label: 'Mac/Linux', value: 'Mac/Linux'},
+       {label: 'Linux', value: 'Linux'},
        {label: 'Windows', value: 'Windows'},
+       {label: 'Mac', value: 'Mac'},
      ]}>
 
-   <TabItem value="Mac/Linux">
+   <TabItem value="Linux">
 
    ```bash
-   cd sc-4.9.1-osx/bin
+   cd sc-4.9.2-linux/bin
    ```
 
    </TabItem>
    <TabItem value="Windows">
 
    ```bash
-   cd C:\sc-4.9.1-win32\bin
+   cd C:\sc-4.9.2-win32\bin
+   ```
+
+   </TabItem>
+   <TabItem value="Mac">
+
+   ```bash
+   cd sc-4.9.1-osx/bin
    ```
 
    </TabItem>
