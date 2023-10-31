@@ -58,9 +58,9 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
  </tr>
  </table>
 
- :::note
+:::note
 MacOS is not supported in version 4.9.2. For a list of MacOS compatible versions see Version Lifestyle Information below.
- :::
+:::
 
 2. Extract the contents of the \*.zip download to your local machine. We recommend saving the Sauce Connect Proxy folder to your home directory.
 
