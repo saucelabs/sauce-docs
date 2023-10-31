@@ -10,7 +10,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::caution
-Sauce Connect Proxy 5 release is currently in the Alpha stage. See [this document](/secure-connections/sauce-connect/installation/) for the most recent stable version (4.9.1) download instructions.
+Sauce Connect Proxy 5 release is currently in the Beta stage. See [this document](/secure-connections/sauce-connect/installation/) for the most recent stable version (4.9.2) download instructions.
 :::
 
 This topic describes how to install Sauce Connect Proxy version 5 to your machine.

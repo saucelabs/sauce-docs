@@ -711,7 +711,7 @@ module.exports = {
                 'dev/cli/sauce-connect-proxy',
                 {
                     type: 'category',
-                    label: 'Sauce Connect Proxy 5 CLI (alpha)',
+                    label: 'Sauce Connect Proxy 5 CLI (beta)',
                     collapsed: true,
                     items: [
                         'dev/cli/sauce-connect-5',
@@ -952,7 +952,7 @@ module.exports = {
                     items: [
                         {
                             type: 'category',
-                            label: 'Sauce Connect Proxy 5 (alpha)',
+                            label: 'Sauce Connect Proxy 5 (beta)',
                             collapsed: true,
                             items: [
                                 'secure-connections/sauce-connect-5',
