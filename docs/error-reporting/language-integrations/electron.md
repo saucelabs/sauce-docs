@@ -9,158 +9,523 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Electron is a popular framework that allows you to build cross-platform desktop applications with JavaScript and HTML. It is used by applications such as Discord and Visual Studio Code. You can find more information about Electron on the [Electron homepage](https://electron.atom.io/).
+[Backtrace](https://backtrace.io) captures and reports handled and unhandled exceptions in your production software so
+you can manage application quality through the complete product lifecycle.
 
-Backtrace provides first-class support for capturing crash dumps from Electron apps in the form of minidumps. Backtrace also automatically downloads symbols for publicly released versions of Electron, enabling human-readable call stacks when using those versions.
+The [@backtrace/electron](#) SDK connects your JavaScript application to Backtrace. The basic integration is quick and
+easy, after which you can explore the rich set of Backtrace features.
 
-## What You'll Need
+## Table of Contents
 
-- A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
-- Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
-- A Backtrace project and a [submission token](/error-reporting/project-setup/submission-url).
+1. [Basic Integration - Reporting your first errors](#basic-integration)
+    - [Install the package](#install-the-package)
+    - [Integrate the SDK in the main process](#integrate-the-sdk-in-the-main-process)
+    - [Integrate the SDK in the renderer process](#integrate-the-sdk-in-the-renderer-process)
+    - [Upload source maps](#upload-source-maps)
+1. [Error Reporting Features](#error-reporting-features)
+    - [Attributes](#attributes)
+    - [File Attachments](#file-attachments)
+    - [Breadcrumbs](#breadcrumbs)
+    - [Application Stability Metrics](#application-stability-metrics)
+        - [Metrics Configuration](#metrics-configuration)
+        - [Metrics Usage](#metrics-usage)
+    - [Offline Database support](#offline-database-support)
+        - [Database Configuration](#database-configuration)
+        - [Native crash support](#native-crash-support)
+        - [Manual database operations](#manual-database-operations)
+1. [Advanced SDK Features](#advanced-sdk-features)
+    - [BacktraceClient Options](#backtraceclient)
+    - [Manually send an error](#manually-send-an-error)
+    - [Modify/skip error reports](#modifyskip-error-reports)
+    - [SDK Method Overrides](#sdk-method-overrides)
 
-## Requirements Summary
+## Basic Integration
 
-Backtrace enables you to capture both Electron process crashes and uncaught JavaScript errors. The setup process differs depending on whether you're working with the main or renderer Electron processes.
+### Install the package
 
-To report Electron crashes:
-
-- In both the main and renderer processes, initialize Electron's crash reporter by calling `crashReporter.start()`.
-
-To report uncaught JavaScript errors:
-
-- In the main process, initialize the `backtrace-node` library.
-- In the renderer process, use the `backtrace-js` library.
-
-Detailed instructions for setting up crash reporting and error reporting are provided below.
-
-## Main and Renderer Process - Reporting Electron Crashes
-
-To submit a dump file to Backtrace, you need your endpoint and token. Make sure to call `electron.crashReporter.start()` in your Electron application to automatically route crashes to Backtrace. The `submitURL` needs to point to your Backtrace instance and include the format and token query string parameters.
-
-Here's an example of submitting to a Backtrace-hosted instance:
-
-```javascript
-const { crashReporter } = require('electron');
-
-crashReporter.start({
-  productName: 'iProduct',
-  companyName: 'My Company, Inc.',
-  submitURL: 'https://mycompany.sp.backtrace.io:6098/post?format=minidump&token=fff016fe152941145a880720158dbca39c0f1b524c96bbd7c95a896556284076',
-  uploadToServer: true
-});
-
-process.crash();
+```
+$ npm install @backtrace/electron
 ```
 
-### Additional Attributes and Parameters
+### Integrate the SDK in the main process
 
-Attributes provide relevant tags that can be used to characterize crash reports. They are helpful for adding context to crashes and allow you to group or search for specific tags later. For example, you may want to tag a crash report with a version. More information on attributes can be found in the Backtrace product guide.
+Add the following code to your application before all other scripts to report Electron errors to Backtrace.
 
-When using Backtrace to handle Electron errors, the following attributes are automatically populated. We recommend adding these attributes to your project:
+```ts
+// Import the BacktraceClient from @backtrace/electron with your favorite package manager.
+import { BacktraceClient, BacktraceConfiguration } from '@backtrace/electron';
 
-- `ver` (Electron version)
-- `process_type` (main or browser)
-- `platform` (operating system)
-- `_companyName` (Populated from `package.json`, but can be overridden by `companyName` passed to `crashReporter.start`)
-- `_productName` (Populated from `package.json`, but can be overridden by `productName` passed to `crashReporter.start`)
-- `_version` (Populated from the `version` field in the application's `package.json` file)
+// Configure client options
+const options: BacktraceConfiguration = {
+    // Submission url
+    // <universe> is the subdomain of your Backtrace instance (<universe>.backtrace.io)
+    // <token> can be found in Project Settings/Submission tokens
+    url: 'https://submit.backtrace.io/<universe>/<token>/json',
+};
 
-There are two ways to include additional attributes with your crash reports. The first method works on Windows, Linux, and macOS, while the second is available only on macOS.
+// Initialize the client with the options
+const client = BacktraceClient.initialize(options);
 
-#### Method 1: Windows/Linux/MacOS - Using the `extra` option on `crashReporter.start()`
+// By default, Backtrace will send an error for Uncaught Exceptions and Unhandled Promise Rejections
 
-When calling `crashReporter.start()`, you can provide an optional extra parameter. The keys of this object represent your attribute names, and their values are passed along accordingly.
-
-If you need to modify or add attributes after the initial `crashReporter.start()` call, you'll need to call it again.
-
-```javascript title="Example Code"
-const { crashReporter } = require('electron');
-
-crashReporter.start({
-  productName: 'iProduct',
-  companyName: 'My Company, Inc.',
-  submitURL: 'https://mycompany.sp.backtrace.io:6098/post?format=minidump&token=fff016fe152941145a880720158dbca39c0f1b524c96bbd7c95a896556284076',
-  uploadToServer: true,
-  extra: {
-    "version": "1.0.1",
-    "datacenter": "nyc"
-  }
-});
-
-process.crash();
+// Manually send an error
+client.send(new Error('Something broke!'));
 ```
 
-#### Method 2: MacOS - Using `crashReporter.setExtraParameter`
+### Integrate the SDK in the renderer process
 
-On macOS, you can use [`crashReporter.setExtraParameter`](https://electron.atom.io/docs/api/crash-reporter/#crashreportersetextraparameterkey-value-macos) to add additional attributes to your Electron crash reports.
+You can use any browser based Backtrace SDK in your renderer process, such as `@backtrace/browser` or
+`@backtrace/react`. Make sure to install it aside `@backtrace/electron`:
 
-```javascript title="Example Code"
-const { crashReporter } = require('electron');
-
-crashReporter.start({
-  productName: 'iProduct',
-  companyName: 'My Company, Inc.',
-  submitURL: 'https://mycompany.sp.backtrace.io:6098/post?format=minidump&token=fff016fe152941145a880720158dbca39c0f1b524c96bbd7c95a896556284076',
-  uploadToServer: true
-});
-
-crashReporter.setExtraParameter("version", "1.0.1");
-crashReporter.setExtraParameter("datacenter", "nyc");
-
-process.crash();
+```
+$ npm install @backtrace/browser
 ```
 
-## Main Process - JavaScript Error Reporting
+To add Backtrace to the renderer process with Electron IPC support, you need to use a
+[preload script](https://www.electronjs.org/docs/latest/tutorial/tutorial-preload) in your `BrowserWindow`. Once you
+have one, add this import to it:
 
-To capture JavaScript errors in the main process, you need to install the [`backtrace-node`](https://github.com/backtrace-labs/backtrace-node) npm package (`npm install backtrace-node`).
-
-Initialize the Backtrace reporting module with your endpoint, token, and any attributes you want to use.
-
-```javascript title="Example Code"
-const bt = require('backtrace-node');
-
-bt.initialize({
-  endpoint: "https://yourcompany.sp.backtrace.io:6098",
-  token: "fffab125f8907f0e70bf5efdf4a7ec78163e055df8d8ddd291e2243515488194aaa",
-  attributes: {
-    'datacenter': 'nyc',
-    'version': '1.0.3'
-  }
-});
-
-// Backtrace automatically creates reports from uncaught exceptions.
-// If you want to manually send a report:
-
-bt.report(new Error("Something failed!"));
+```ts
+import '@backtrace/electron/main/preload';
 ```
 
-## Renderer Process - JavaScript Error Reporting
+This will ensure that IPC APIs that Backtrace uses are loaded correctly.
 
-To capture JavaScript errors in the renderer process, you need to install the [`backtrace-js`](https://github.com/backtrace-labs/backtrace-js#readme) npm package (`npm install backtrace-js`).
+After that, you can initialize Backtrace in your renderer process. There are two things that differ from the normal SDK
+initialization:
 
-Initialize the Backtrace reporting module with your endpoint, token, and any attributes you want to use.
+1. URL is not used - you can leave it as an empty string,
+1. You need to use `addBacktraceElectron` with the builder.
 
-```javascript title="Example Code"
-const bt = require('backtrace-js');
+For example, if you are initializing the SDK using the `initialize` function:
 
-bt.initialize({
-  endpoint: "https://yourcompany.sp.backtrace.io:6098",
-  token: "fffab125f8907f0e70bf5efdf4a7ec78163e055df8d8ddd291e2243515488194aaa",
-  attributes: {
-    'datacenter': 'nyc',
-    'version': '1.0.3'
-  }
-});
-
-// Backtrace automatically creates reports from uncaught exceptions.
-// If you want to manually send a report:
-
-bt.report(new Error("Something failed!"));
+```ts
+const client = BacktraceClient.initialize(
+    {
+        url: '',
+        name: 'My Renderer App',
+        version: '0.0.1',
+    },
+    (builder) => addBacktraceElectron(builder),
+);
 ```
 
-## Additional Symbols
+Or, if you are using the `build` function:
 
-If you require additional symbols, refer to the symbolification section of the Backtrace product guide.
+```ts
+const builder = BacktraceClient.builder({
+    url: '',
+    name: 'My Renderer App',
+    version: '0.0.1',
+});
 
-By combining this integration with [our support for Node](https://github.com/backtrace-labs/backtrace-node), you gain visibility into various crashes and exceptions in your application.
+addBacktraceElectron(builder);
+
+const client = builder.build();
+```
+
+#### Submission process
+
+The renderer client does not submit any errors. Everything that is being sent to Backtrace is routed via IPC to the main
+process, which handles the submission.
+
+This includes:
+
+-   error reports,
+-   error report attachments,
+-   breadcrumbs,
+-   metrics.
+
+Main process' session ID is used in the renderer reports.
+
+When an error occurs in the renderer process, the attachments from main and renderer process are included in the report.
+The attachments are streamed if possible (`Blob`, `ReadableStream`), otherwise copied by serializing them to JSON.
+However, renderer attachments are not included in the main process crashes. This is due to a possibility of having
+multiple renderer processes, but it may change in the future.
+
+#### Synchronized initialization
+
+When adding Electron to the renderer SDK, data is exchanged with the main process to ensure same session IDs are used.
+By default, this is done asynchronously as soon as possible. This may however be not enough in case of startup crashes
+just after the SDK initialization, because the data may not be exchanged yet.
+
+In those cases, you can use `synchronize` option in `addBacktraceBuilder`. Note, that if you do not ensure that the SDK
+in the main process is initialized by the time you call `addBacktraceBuilder`, **your application may hang with a white
+screen**. This is due to the synchronous nature of the IPC, that is blocking the renderer process until it receives a
+response.
+
+To enable synchronous initialization:
+
+```ts
+const client = BacktraceClient.initialize(
+    {
+        url: '',
+        name: 'My Renderer App',
+        version: '0.0.1',
+    },
+    (builder) => addBacktraceElectron(builder, { synchronous: true }),
+);
+```
+
+### Upload source maps
+
+Client-side error reports are based on minified code. Upload source maps and source code to resolve minified code to
+your original source identifiers.
+
+[(Source Map feature documentation)](https://docs.saucelabs.com/error-reporting/platform-integrations/source-map/)
+
+## Error Reporting Features
+
+All features here are described for the main process. If you want to know more about error reporting in browser, consult
+your Backtrace browser SDK's readme.
+
+### Attributes
+
+Custom attributes are key-value pairs that can be added to your error reports. They are used in report aggregation,
+sorting and filtering, can provide better contextual data for an error, and much more. They are foundational to many of
+the advanced Backtrace features detailed in
+[Error Reporting documentation](https://docs.saucelabs.com/error-reporting/getting-started/). By default attributes such
+as application name and version are populated automatically from Electron app information.
+
+There are several places where attributes can be added, modified or deleted.
+
+#### Attach attributes object to BacktraceClient
+
+It is possible to include an attributes object during [BacktraceClient](#backtraceclient) initialization. This list of
+attributes will be included with every error report, referred to as global attributes.
+
+```ts
+// Create an attributes object that can be modified throughout runtime
+const attributes: Record<string, unknown> = {
+    release: 'PROD',
+};
+
+// BacktraceClientOptions
+const options: BacktraceConfiguration = {
+    url: 'https://submit.backtrace.io/<universe>/<token>/json',
+
+    // Attach the attributes object
+    userAttributes: attributes,
+};
+
+// Initialize the client
+const client = BacktraceClient.initialize(options);
+```
+
+You can also include attributes that will be resolved when creating a report:
+
+```ts
+// BacktraceClientOptions
+const options: BacktraceConfiguration = {
+    url: 'https://submit.backtrace.io/<universe>/<token>/json',
+
+    // Attach the attributes object
+    userAttributes: () => ({
+        attribute: getAttributeValue(),
+    }),
+};
+
+// Initialize the client
+const client = BacktraceClient.initialize(options);
+```
+
+#### Add attributes during application runtime
+
+Global attributes can be set during the runtime once specific data has be loaded (e.g. a user has logged in).
+
+```ts
+const client = BacktraceClient.initialize(options);
+...
+
+client.addAttribute({
+    "clientID": "de6faf4d-d5b5-486c-9789-318f58a14476"
+})
+```
+
+You can also add attributes that will be resolved when creating a report:
+
+```ts
+const client = BacktraceClient.initialize(options);
+...
+
+client.addAttribute(() => ({
+    "clientID": resolveCurrentClientId()
+}))
+```
+
+#### Add attributes to an error report
+
+The attributes list of a BacktraceReport object can be directly modified.
+
+```ts
+const report: BacktraceReport = new BacktraceReport('My error message', { myReportKey: 'myValue' });
+report.attributes['myReportKey'] = 'New value';
+```
+
+---
+
+### File Attachments
+
+Files can be attached to error reports. This can be done when initalizing the BacktraceClient, updating the
+BacktraceClient, or dynamically for specific reports. When including attachments in BacktraceClient, all files will be
+uploaded with each report.
+
+```ts
+// Import attachment types from @backtrace/electron
+import { BacktraceStringAttachment, BacktraceFileAttachment, BacktraceBufferAttachment } from "@backtrace/electron";
+
+// BacktraceStringAttachment should be used for text object like a log file, for example
+const stringAttachment = new BacktraceStringAttachment("logfile.txt", "This is the start of my log")
+
+// Buffer attachment is an attachment type dedicated to store buffer data
+const bufferAttachment = new BacktraceBufferAttachment('buffer-attachment.txt', Buffer.from('sample'));
+
+// File attachment is an attachment type dedicated for streaming files
+const fileAttachment = new BacktraceFileAttachment('/path/to/sample/file');
+
+// BacktraceClientOptions
+const options = {
+    url: "https://submit.backtrace.io/<universe>/<token>/json",
+
+    // Attach the files to all reports
+    attachments: [path.join('/path/to/attachment'), stringAttachment],
+}
+
+const client = BacktraceClient.initialize(options);
+
+// Later decide to add an attachment to all reports
+client.addAttachment(bufferAttachment)
+
+// After catching an exception and generating a report
+try {
+    throw new Error("Caught exception!")
+} catch (error) {
+    const report = const report = new BacktraceReport(error, {}, [fileAttachment])
+    client.send(report);
+}
+```
+
+---
+
+### Breadcrumbs
+
+Breadcrumbs are snippets of chronological data tracing runtime events. This SDK records a number of events by default,
+and manual breadcrumbs can also be added.
+
+[(Breadcrumbs feature documentation)](https://docs.saucelabs.com/error-reporting/web-console/debug/#breadcrumbs)
+
+#### Breadcrumbs Configuration
+
+| Option Name          | Type                                                       | Description                                                                                                                                                   | Default         | Required?                |
+| -------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------------------ |
+| `enable`             | Boolean                                                    | Determines if the breadcrumbs support is enabled. By default the value is set to true.                                                                        | `true`          | <ul><li>- [ ] </li></ul> |
+| `logLevel`           | BreadcrumbLogLevel                                         | Specifies which log level severity to include. By default all logs are included.                                                                              | All Logs        | <ul><li>- [ ] </li></ul> |
+| `eventType`          | BreadcrumbType                                             | Specifies which breadcrumb type to include. By default all types are included.                                                                                | All Types       | <ul><li>- [ ] </li></ul> |
+| `maximumBreadcrumbs` | Number                                                     | Specifies maximum number of breadcrumbs stored by the library. By default, only 100 breadcrumbs will be stored.                                               | `100`           | <ul><li>- [ ] </li></ul> |
+| `intercept`          | (breadcrumb: RawBreadcrumb) => RawBreadcrumb \| undefined; | Inspects breadcrumb and allows to modify it. If the undefined value is being returned from the method, no breadcrumb will be added to the breadcrumb storage. | All Breadcrumbs | <ul><li>- [ ] </li></ul> |
+
+```ts
+import { BacktraceClient, BacktraceConfiguration } from '@backtrace/electron';
+
+// BacktraceClientOptions
+const options: BacktraceConfiguration = {
+    // ignoring all but breadcrumbs config for simplicity
+    breadcrumbs: {
+        // breadcrumbs configuration
+    },
+};
+
+// Initialize the client
+const client = BacktraceClient.initialize(options);
+```
+
+#### Default Breadcrumbs
+
+| Type    | Description                                                              |
+| ------- | ------------------------------------------------------------------------ |
+| Console | Adds a breadcrumb every time console log is being used by the developer. |
+
+#### Intercepting Breadcrumbs
+
+If PII or other information needs to be filtered from a breadcrumb, you can use the intercept function to skip or filter
+out the sensitive information. Any RawBreadcrumb returned will be used for the breadcrumb. If undefined is returned, no
+breadcrumb will be added.
+
+#### Manual Breadcrumbs
+
+In addition to all of the default breadcrumbs that are automatically collected, you can also manually add breadcrumbs of
+your own.
+
+```ts
+client.breadcrumbs?.info('This is a manual breadcrumb.', {
+    customAttr: 'wow!',
+});
+```
+
+---
+
+### Application Stability Metrics
+
+The Backtrace Electron SDK has the ability to send usage Metrics to be viewable in the Backtrace UI.
+
+[(Stability Metrics feature documentation)](https://docs.saucelabs.com/error-reporting/project-setup/stability-metrics/)
+
+#### Metrics Configuration
+
+| Option Name            | Type    | Description                                                                                                                                                                                                                                                                                                                                              | Default                       | Required?                |
+| ---------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ------------------------ |
+| `metricsSubmissionUrl` | String  | Metrics server hostname. By default the value is set to https://events.backtrace.io.                                                                                                                                                                                                                                                                     | `https://events.backtrace.io` | <ul><li>- [ ] </li></ul> |
+| `enable`               | Boolean | Determines if the metrics support is enabled. By default the value is set to true.                                                                                                                                                                                                                                                                       | `true`                        | <ul><li>- [ ] </li></ul> |
+| `autoSendInterval`     | Number  | Indicates how often crash free metrics are sent to Backtrace. The interval is a value in ms. By default, session events are sent on application startup/finish, and every 30 minutes while the application is running. If the value is set to 0. The auto send mode is disabled. In this situation the application needs to maintain send mode manually. | On application startup/finish | <ul><li>- [ ] </li></ul> |
+| `size`                 | Number  | Indicates how many events the metrics storage can store before auto submission.                                                                                                                                                                                                                                                                          | `50`                          | <ul><li>- [ ] </li></ul> |
+
+#### Metrics Usage
+
+```ts
+// metrics will be undefined if not enabled
+client.metrics?.send();
+```
+
+---
+
+### Offline database support
+
+The Backtrace Electron SDK can cache generated reports to local disk before sending them to Backtrace. This is
+recommended; in certain configurations Electron applications can crash before the SDK finishes submitting data, and
+under slow internet conditions your application might wait in a closing window until the HTTP submission finishes. In
+this case, cached reports will be sent on next application launch.
+
+With offline database support you can:
+
+-   cache your reports when the user doesn't have an internet connection or the service is unavailable,
+-   manually decide whether or not to send reports, and when.
+
+Offline database support is disabled by default. To enable it, please add "enable: true" and the path to the directory
+where Backtrace can store report data.
+
+```ts
+const client = BacktraceClient.initialize({
+    // ignoring all but database config for simplicity
+    database: {
+        enable: true,
+        path: '/path/to/the/database/directory',
+        captureNativeCrashes: true,
+    },
+});
+
+// manually send and keep the data on connection issue
+client.database.send();
+// manually send and remove all data no matter if received success or not.
+client.database.flush();
+```
+
+#### Database Configuration
+
+| Option Name               | Type    | Description                                                                                                                                                                  | Default | Required?                |
+| ------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------------------------ |
+| `enabled`                 | Boolean | Enable/disable offline database support.                                                                                                                                     | false   | <ul><li>- [x] </li></ul> |
+| `path`                    | String  | Local storage path for crash data.                                                                                                                                           | -       | <ul><li>- [x] </li></ul> |
+| `createDatabaseDirectory` | Boolean | Allow the SDK to create the offline database directory.                                                                                                                      | true    |
+| `autoSend`                | Boolean | Sends reports to the server based on the retry settings. If the value is set to 'false', you can use the Flush or Send methods as an alternative.                            | true    |
+| `maximumNumberOfRecords`  | Number  | The maximum number of reports stored in the offline database. When the limit is reached, the oldest reports are removed. If the value is equal to '0', then no limit is set. | 8       |
+| `retryInterval`           | Number  | The amount of time (in ms) to wait between retries if the database is unable to send a report.                                                                               | 60 000  |
+| `maximumRetries`          | Number  | The maximum number of retries to attempt if the database is unable to send a report.                                                                                         | 3       |
+| `captureNativeCrashes`    | Boolean | Capture and symbolicate stack traces for native crashes if the runtime supports this. A crash report is generated, stored locally, and uploaded upon next start.             | false   |
+
+#### Native crash support
+
+Backtrace Electron SDK can capture native crashes generated by a Electron application. In order to collect them, the SDK
+uses the Electron's `crashReporter`.
+
+Database records sent in the next session may not have some information about the crashing session such as attributes or
+breadcrumbs. To reduce database record size, attachment support was limited only to file attachments.
+
+#### Manual database operations
+
+Database support is available in the client options with the BacktraceDatabase object. You can use it to manually
+operate on database records.
+
+## Advanced SDK Features
+
+### BacktraceClient
+
+BacktraceClient is the main SDK class. Error monitoring starts when this singleton object is instantiated, and it will
+compose and send reports for unhandled errors and unhandled promise rejections. It can also be used to manually send
+reports from exceptions and rejection handlers. Do not create more than one instance of this object.
+
+#### BacktraceClientOptions
+
+The following options are available for the BacktraceClientOptions passed when initializing the BacktraceClient.
+
+| Option Name                         | Type                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                        | Default | Required?                |
+| ----------------------------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ------------------------ |
+| `url`                               | String                                              | Submission URL to send errors to                                                                                                                                                                                                                                                                                                                                                                                   |         | <ul><li>- [x] </li></ul> |
+| `token`                             | String                                              | The submission token for error injestion. This is required only if submitting directly to a Backtrace URL. (uncommon)                                                                                                                                                                                                                                                                                              |         | <ul><li>- [ ] </li></ul> |
+| `userAttributes`                    | Dictionary                                          | Additional attributes that can be filtered and aggregated against in the Backtrace UI.                                                                                                                                                                                                                                                                                                                             |         | <ul><li>- [ ] </li></ul> |
+| `attachments`                       | BacktraceAttachment[]                               | Additional files to be sent with error reports. See [File Attachments](#file-attachments)                                                                                                                                                                                                                                                                                                                          |         | <ul><li>- [ ] </li></ul> |
+| `beforeSend`                        | (data: BacktraceData) => BacktraceData \| undefined | Triggers an event every time an exception in the managed environment occurs, which allows you to skip the report (by returning a null value) or to modify data that library collected before sending the report. You can use the BeforeSend event to extend attributes or JSON object data based on data the application has at the time of exception. See [Modify/skip error reports](#modifyskip-error-reports)) |         | <ul><li>- [ ] </li></ul> |
+| `skipReport`                        | (report: BacktraceReport) => boolean                | If you want to ignore specific types of error reports, we recommend that you use the skipReport callback. By using it, based on the data generated in the report, you can decide to filter the report, or send it to Backtrace.                                                                                                                                                                                    |         | <ul><li>- [ ] </li></ul> |
+| `captureUnhandledErrors`            | Boolean                                             | Enable unhandled errors                                                                                                                                                                                                                                                                                                                                                                                            | `true`  | <ul><li>- [ ] </li></ul> |
+| `captureUnhandledPromiseRejections` | Boolean                                             | Enable unhandled promise rejection                                                                                                                                                                                                                                                                                                                                                                                 | `true`  | <ul><li>- [ ] </li></ul> |
+| `timeout`                           | Integer                                             | How long to wait in ms before timing out the connection                                                                                                                                                                                                                                                                                                                                                            | `15000` | <ul><li>- [ ] </li></ul> |
+| `ignoreSslCertificate`              | Boolean                                             | Ignore SSL Certificate errors                                                                                                                                                                                                                                                                                                                                                                                      | `false` | <ul><li>- [ ] </li></ul> |
+| `rateLimit`                         | Integer                                             | Limits the number of reports the client will send per minute. If set to '0', there is no limit. If set to a value greater than '0' and the value is reached, the client will not send any reports until the next minute.                                                                                                                                                                                           | `0`     | <ul><li>- [ ] </li></ul> |
+| `metrics`                           | BacktraceMetricsOptions                             | See [Backtrace Stability Metrics](#application-stability-metrics)                                                                                                                                                                                                                                                                                                                                                  |         | <ul><li>- [ ] </li></ul> |
+| `breadcrumbs`                       | BacktraceBreadcrumbsSettings                        | See [Backtrace Breadcrumbs](#breadcrumbs)                                                                                                                                                                                                                                                                                                                                                                          |         | <ul><li>- [ ] </li></ul> |
+| `database`                          | BacktraceDatabaseSettings                           | See [Backtrace Database](#offline-database-support)                                                                                                                                                                                                                                                                                                                                                                |         | <ul><li>- [ ] </li></ul> |
+
+### Manually send an error
+
+There are several ways to send an error to Backtrace. For more details on the definition of `client.send()` see
+[Methods](#methods) below.
+
+```ts
+// send as a string
+await client.send('This is a string!');
+
+// send as an Error
+await client.send(new Error('This is an Error!'));
+
+// as a BacktraceReport (string)
+await client.send(new BacktraceReport('This is a report with a string!'));
+
+// as a BacktraceReport (Error)
+await client.send(new BacktraceReport(new Error('This is a report with a string!')));
+```
+
+### Modify/skip error reports
+
+A BeforeSend event is triggered when an exception in the managed environment occurs to which you can attach a handler.
+You can use the BeforeSend event to scrub PII, or extend attributes or JSON object data based on data your application
+has at the time of exception. A report can be skipped sompletely by returning a null value.
+
+```ts
+const client = BacktraceClient.initialize({
+    url: SUBMISSION_URL,
+    beforeSend: (data: BacktraceData) => {
+        // skip the report by returning a null from the callback
+        if (!shouldSendReportToBacktrace(data)) {
+            return undefined;
+        }
+        // apply custom attribute
+        data.attributes['new-attribute"] = 'apply-data-in-callback';
+        return data;
+    },
+});
+```
+
+### SDK Method Overrides
+
+BacktraceClient.builder is used to override default BacktraceClient methods. File and http operation overrides, for
+example, can be used to implement custom encryption for data at rest or in motion.
+
+> Do not use these operations to modify the data objects. See [Modify/skip error reports](#modifyskip-error-reports) for
+> the correct method to modify a report before sending it to Backtrace.
+
+```ts
+const client = BacktraceClient.builder(options)
+    .useRequestHandler(requestHandler)
+    .useBreadcrumbSubscriber(breadcrumbSubscriber)
+    .addAttributeProvider(attributeProvider)
+    .build();
+```
