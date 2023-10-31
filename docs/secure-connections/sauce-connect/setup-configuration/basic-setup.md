@@ -36,23 +36,31 @@ See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstar
 1. Open your terminal and navigate to the Sauce Connect Proxy client bin folder on your local machine.
 
 <Tabs
-  defaultValue="Mac/Linux"
+  defaultValue="Linux"
   values={[
-    {label: 'Mac/Linux', value: 'Mac/Linux'},
+    {label: 'Linux', value: 'Linux'},
     {label: 'Windows', value: 'Windows'},
+    {label: 'Mac', value: 'Mac'},
   ]}>
 
-  <TabItem value="Mac/Linux">
+  <TabItem value="Linux">
 
 ```bash
-cd sc-4.9.1-osx/bin
+cd sc-4.9.2-linux/bin
 ```
 
   </TabItem>
   <TabItem value="Windows">
 
 ```bash
-cd sc-4.9.1-win32/bin
+cd sc-4.9.2-win32/bin
+```
+
+  </TabItem>
+  <TabItem value="Mac">
+
+```bash
+cd sc-4.9.1-osx/bin
 ```
 
   </TabItem>

@@ -59,12 +59,6 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
         <h3>Travis CI</h3></a>
     </div>
   </div>
-  <div className="box box8 card">
-    <div className="container">
-        <a href="/basics/integrations/bamboo/"><img src={useBaseUrl('img/integrations/bamboo.png')} alt="Bamboo logo" width="50"/>
-        <h3>Bamboo</h3></a>
-   </div>
-  </div>
   <div className="box box9 card">
     <div className="container">
         <a href="https://docs.cloudbees.com/docs/cloudbees-codeship/latest/basic-continuous-integration/browser-testing#_sauce_labs"><img src={useBaseUrl('img/integrations/cloudbees.png')} alt="Cloudbees logo" width="50" />

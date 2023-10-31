@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
   - We recommend using [cURL](https://curl.se/docs/) or an equivalent tool.
 - Check to see if you have any proxies that are required to access the public Internet.
 - Review the [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for instructions on how to set your Sauce Labs username and access key and launch a tunnel.
-- If you're using Jenkins, GitHub Actions, or Bamboo, be sure to review [Sauce Connect Proxy CI/CD Integration](/secure-connections/sauce-connect/setup-configuration/ci-cd-integration).
+- If you're using Jenkins, or GitHub Actions, be sure to review [Sauce Connect Proxy CI/CD Integration](/secure-connections/sauce-connect/setup-configuration/ci-cd-integration).
 
 ## Best Practice for Using Tunnels
 
@@ -119,7 +119,7 @@ The location of the log file will vary, depending on your operating system. For 
    </td>
    <td>(DD Month) (Time)
    Log file:
-   <code>C:\Users\sauce_username\Downloads\sc-4.9.1-win32\sc-TUNNEL_NAME.log</code>
+   <code>C:\Users\sauce_username\Downloads\sc-4.9.2-win32\sc-TUNNEL_NAME.log</code>
    </td>
   </tr>
 </table>
@@ -243,7 +243,7 @@ We also recommend verifying if your team has a tunnels setup that you can share.
 Ephemeral tunnels (short-lived tunnels) are ideal for the following test situations:
 
 - If you're testing from your laptop and start your tests from an Integrated Development Environment (IDE) or terminal.
-- If you’re starting your builds/suites from a Jenkins or Bamboo server.
+- If you’re starting your builds/suites from a Jenkins server.
 - If you plan to start and stop your tests quickly and need to be more hands-on.
 - If you need to test potentially build-breaking changes like modifying the tunnel to fast-fail scripts/trackers, change the geolocation, or change how SSL/TLS encryption happens.
 

@@ -81,7 +81,7 @@ We recommend configuring options via environment variables in the following scen
 
 - Sauce Connect Proxy command containing credentials may be exposed via process monitoring tools such as `ps`.
 - When running Sauce Connect Proxy in CI/CD environment to avoid clear-text logging your credentials.
-- Sauce Connect Proxy runs in a docker container, and a CI system (such as GitLab) allows a straightforward way to set environment variables.
+- Sauce Connect Proxy runs in a docker container, and a CI system (such as GitLab) supports secure environment variables.
 
 ### Environment Variables For Security
 
