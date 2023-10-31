@@ -8,10 +8,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::caution
-Sauce Connect Proxy 5 release is currently in the Alpha stage, some changes in CLI are expected.
-:::
-
 Below is a list of commands available with your Sauce Connect Proxy application.
 
 ## What You'll Need
@@ -35,19 +31,17 @@ The [sc run](/dev/cli/sauce-connect-5/run/) command is a main Sauce Connect Prox
 
 ### `sc legacy`
 
-The command runs Sauce Connect Proxy in compatibility mode with Sauce Connect Proxy 4.9.x. See [Sauce Connect Proxy 4.x.x CLI Reference](/dev/cli/sauce-connect-proxy). There are only a few flags that are not supported.
+The command runs Sauce Connect Proxy in compatibility mode with Sauce Connect Proxy 4.9.x. See [Sauce Connect Proxy 4.x.x CLI Reference](/dev/cli/sauce-connect-proxy). The command is intended to simplify the transition to Sauce Connect Proxy 5.x.x and will be removed in the future.
 
 Unsupported Sauce Connect Proxy 4.9.x flags:
 
 - [`--autodetect`](/dev/cli/sauce-connect-proxy/#--autodetect)
-- [`--certificate`](/dev/cli/sauce-connect-proxy/#--certificate)
 - [`--doctor`](/dev/cli/sauce-connect-proxy/#--doctor)
 - [`--experimental`](/dev/cli/sauce-connect-proxy/#--experimental)
 - [`--extra-info`](/dev/cli/sauce-connect-proxy/#--extra-info)
 - [`--log-stats`](/dev/cli/sauce-connect-proxy/#--log-stats)
 - [`--max-logsize`](/dev/cli/sauce-connect-proxy/#--max-logsize)
 - [`--metadata`](/dev/cli/sauce-connect-proxy/#--metadata)
-- [`--metrics-address`](/dev/cli/sauce-connect-proxy/#--metrics-address)
 - [`--no-autodetect`](/dev/cli/sauce-connect-proxy/#--no-autodetect)
 - [`--no-remove-colliding-tunnels`](/dev/cli/sauce-connect-proxy/#--no-remove-colliding-tunnels)
 - [`--ocsp`](/dev/cli/sauce-connect-proxy/#--ocsp)
@@ -55,7 +49,6 @@ Unsupported Sauce Connect Proxy 4.9.x flags:
 - [`--pidfile`](/dev/cli/sauce-connect-proxy/#--pidfile)
 - [`--readyfile`](/dev/cli/sauce-connect-proxy/#--readyfile)
 - [`--tunnel-cainfo`](/dev/cli/sauce-connect-proxy/#--tunnel-cainfo)
-- [`--tunnel-capath`](/dev/cli/sauce-connect-proxy/#--tunnel-capath)
 - [`--readyfile`](/dev/cli/sauce-connect-proxy/#--readyfile)
 - `--vm-version`
 
