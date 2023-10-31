@@ -12,17 +12,17 @@ import TabItem from '@theme/TabItem';
 :::warning Appium 1 End-of-life
 The Appium core team does not maintain Appium 1.x anymore since the [1st of January 2022](https://github.com/appium/appium). This means that:
 
-- bugfixes will not be released for Appium 1.x anymore and requires you to [migrate to Appium 2](./appium-2-migration.md)
-- Appium 1 and it's packaged drivers are no longer 100% compatible with Android 13/iOS 16 and higher and require Appium 2 to run stably.
+- bugfixes will not be released for Appium 1.x anymore and require you to [migrate to Appium 2](./appium-2-migration.md)
+- Appium 1 and its packaged drivers are no longer 100% compatible with Android 13/iOS 16 and higher and require Appium 2 to run stably.
 
 Sauce Labs still supports Appium 1.x in limited versions, but we recommend [migrating to Appium 2](./appium-2-migration.md) to keep your tests up-to-date and compatible with the latest platform versions.
 :::
 
 ## Selecting Appium Versions
 
-You can select a specific Appium version by using the `appiumVersion` capability as part of the `"sauce:options"`. The below examples show how to select the Appium version for your test and are using Android with Chrome as an example. See our [Platform Configurator](https://saucelabs.com/products/platform-configurator#/) to help you construct your capabilities for the specific platform and Real Device/Android Emulator/iOS Simulator you want to test on.
+You can select a specific Appium version by using the `appiumVersion` capability as part of the `"sauce:options"`. The below examples show how to select the Appium version for your test and use Android with Chrome as an example. See our [Platform Configurator](https://saucelabs.com/products/platform-configurator#/) to help you construct your capabilities for the specific platform and Real Device/Android Emulator/iOS Simulator you want to test on.
 
-The active Appium versions can be found in the [Real Devices](#real-devices), [Android Emulators](#android-emulators) and [iOS Simulators](#ios-simulators) sections.
+The active Appium versions can be found in the [Real Devices](#real-devices), [Android Emulators](#android-emulators), and [iOS Simulators](#ios-simulators) sections.
 
 <Tabs
 groupId="capability-ex-emusim"
@@ -133,16 +133,25 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 
 Our Appium 2 release strategy is as follows:
 
-- We provide a 'latest' version that is updated every two weeks to ensure you have quick access to new features and fixes. This rapid update cycle allows you to stay ahead of the curve, resolving issues and implementing new capabilities in real-time to enhance your testing workflows.
-- On the first day of each month, we release a 'bundled' version that includes all the latest Appium 2 drivers available up to the first day of the preceding month. This 'bundled' version allows you to maintain a stable testing environment with thoroughly reviewed and tested components, saving you the time and effort otherwise required to individually update drivers. Bundled versions carry a timestamp in the `appiumVersion` capability, like `appium2-YYYYMMDD`, to make version tracking straightforward. These versions have an 11-month lifespan post-release, providing you with ample time to plan upgrades and adapt your test strategies, without worrying about sudden end-of-support scenarios.
+- On the 2nd of each month, we release a 'bundled' version of Appium 2 that includes all the latest drivers available up to the 1st of that month. This 'bundled' version allows you to maintain a stable testing environment, saving you the effort required to individually update drivers. The version is named with a timestamp in the `appiumVersion` capability, such as `appium2-YYYYMMDD`, for easy tracking. These versions have an 11-month lifespan post-release, giving you plenty of time to plan your upgrade strategy.
+
+- Additionally, we offer a `latest` version, updated bi-weekly on the 2nd and 16th of each month. This version includes all the most recent Appium 2 drivers and server released up to the 1st and 15th of each month. This rapid update cycle enables you to quickly access new features and fixes, so you can continually enhance your testing workflows. The bi-weekly `latest` version does not have a fixed lifespan, allowing you to stay on the cutting edge.
 
 This strategy is designed to ease the complexities you face in mobile app testing.
+
+:::info
+The current release strategy outlined above is specific to Real Devices. We are actively working to extend this to Emulators and Simulators and will announce it shortly.
+:::
 
 ## End-of-Life
 
 To improve your testing experience, we're ending support for select versions of Appium 1 and certain bundles of Appium 2. A single stable Appium 1 release will ensure better compatibility and stability, especially on older Android and iOS devices. For Appium 2, we recommend using the most recent drivers to benefit from new features and bug fixes.
 
 You can find which versions are currently supported in the [Real Devices](#real-devices), [Android Emulators](#android-emulators) and [iOS Simulators](#ios-simulators) sections, including their end-of-life dates.
+
+:::info
+The current end-of-life strategy outlined above is specific to Real Devices. We are actively working to extend this to Emulators and Simulators and will announce it shortly.
+:::
 
 ## Real Devices
 
@@ -2646,22 +2655,10 @@ The Appium 2 versions for Virtual Devices are also collections of drivers that a
   <tbody>
     <tr>
       <td>
-        <code>latest</code>
-      </td>
-      <td>
-        <span className="sauceGreen">Active</span>
-      </td>
-      <td> This will hold a collection of drivers that are compatible with the latest Appium server and driver versions that are installed in our cloud. We try to keep versions up to date every two weeks. You can find the exact versions in the first 20 log lines of the Appium logs of your executed test by going to <code>Test Details page > Logs > Appium Logs</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <code>2.0.0</code>
       </td>
-      <td>
-        <span className="sauceGold">January 31st, 2024</span>
-      </td>
-      <td> This was the "old" alias for getting the latest Appium 2 drivers that were installed in the Sauce Labs Real Device Cloud. This alias is deprecated due to being unclear and is replaced by <code>latest</code>. <br /> The alias <code>2.0.0</code> is a collection of the following drivers <br />
+      <td>-</td>
+      <td>The is a collection of the following drivers <br />
         <ul>
           <li>
             <a href="https://github.com/appium/appium/releases/tag/appium%402.0.0" target="_blank">
@@ -2690,9 +2687,7 @@ The Appium 2 versions for Virtual Devices are also collections of drivers that a
       <td>
         <code>2.0.0-beta66</code>
       </td>
-      <td>
-        <span className="sauceGold">December 31st, 2023024</span>
-      </td>
+      <td>-</td>
       <td> This is a collection of drivers that were released in April 20th 2023 <br />
         <ul>
           <li>
@@ -2722,9 +2717,7 @@ The Appium 2 versions for Virtual Devices are also collections of drivers that a
       <td>
         <code>2.0.0-beta56</code>
       </td>
-      <td>
-        <span className="sauceGold">December 31st, 2023</span>
-      </td>
+      <td>-</td>
       <td> This is a collection of drivers that were released in February 24th 2023 <br />
         <ul>
           <li>
@@ -2754,9 +2747,7 @@ The Appium 2 versions for Virtual Devices are also collections of drivers that a
       <td>
         <code>2.0.0-beta44</code>
       </td>
-      <td>
-        <span className="sauceGold">December 31st, 2023</span>
-      </td>
+      <td>-</td>
       <td> This is a collection of drivers that were released in September 7th 2022 <br />
         <ul>
           <li>
