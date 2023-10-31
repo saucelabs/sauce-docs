@@ -1314,6 +1314,7 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'mobile-apps/automated-testing/appium',
+                                'mobile-apps/automated-testing/appium/appium-versions',
                                 'mobile-apps/automated-testing/appium/appium-2-migration',
                                 'mobile-apps/automated-testing/appium/quickstart',
                                 'mobile-apps/automated-testing/appium/real-devices',
