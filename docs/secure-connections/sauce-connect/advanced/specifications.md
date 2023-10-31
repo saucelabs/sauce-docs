@@ -138,9 +138,9 @@ Sauce Connect Proxy Tunnel connection TLS specifications
     <tr>
    <td>"Jobs wait" timeout
    </td>
-   <td>300 seconds
+   <td>3 hours
    </td>
-   <td>On receiving a "tunnel shutdown" request, Sauce Labs REST API would wait for, at most, 300 seconds for jobs, using the tunnel, to finish. Jobs that require longer time to complete may fail after the tunnel is terminated.
+   <td>On receiving a "tunnel shutdown" request, Sauce Labs REST API would wait for, at most, 3 hours for jobs, using the tunnel, to finish. Jobs that require longer time to complete may fail after the tunnel is terminated.
    </td>
   </tr>
 </table>
