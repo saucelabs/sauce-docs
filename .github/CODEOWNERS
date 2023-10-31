@@ -33,6 +33,7 @@ sidebars.js @rick-bt
 
 # Backtrace/Error Reporting
 /docs/error-reporting/ @rick-bt
+/docs/dev/api/error-reporting.md @rick-bt
 
 # Mobile apps:
 /docs/mobile-apps/ @lauramthomas @aoleszyn @LoryApiFortress @kristofmuhi @wswebcreation
