@@ -62,12 +62,12 @@ The `sc version` command output detailed version info.
 
 ```bash
 sc version
-  Version:	 5.0.0-alpha11
-  Build time:	 2023-10-16T21:11:37Z
-  Git commit:	 3301c2ed2a0b5fe364e3e126c07a9b1a5dafa7f8
+  Version:	 5.0.0
+  Build time:	 2023-10-31T21:11:37Z
+  Git commit:	 9eb9a377aaa791765f74aace37e83d8ac1d000e2
   Go Arch:	 arm64
   Go OS:		 darwin
-  Go Version:	 go1.20.4
+  Go Version:	 go1.21.3
 ```
 
 ### `sc help`
