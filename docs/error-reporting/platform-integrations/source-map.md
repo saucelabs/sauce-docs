@@ -68,10 +68,10 @@ uglifyjs main.js -c -m --source-map -o main.min.js
 
 Install the `backtrace-js` command line tool and update your build scripts to run it. `backtrace-js` can be run from the command line, but it is most efficient to use a configuration file which  we will create in the next step.
 
-1. Install `@backtrace-labs/javascript-cli` as a dev dependency:
+1. Install `@backtrace/javascript-cli` as a dev dependency:
 
    ```bash
-   npm install --save-dev @backtrace-labs/javascript-cli
+   npm install --save-dev @backtrace/javascript-cli
    ```
 
 2. Add the following script to `package.json` to process and upload source maps:
@@ -123,7 +123,7 @@ Create a `.backtracejsrc` configuration file in the root of your project with th
   Alternatively, if you do not wish to upload source files directly to Backtrace, you can integrate your source repository. To do so, omit `add-sources` and `include-sources` and follow the steps in the [Source Code](../../project-setup/source-code/) document.
 :::
 
-See `backtrace-js --help` or go to [`@backtrace-labs/javascript-cli`](https://github.com/backtrace-labs/backtrace-javascript/blob/dev/tools/cli) for additional command line and configuration options.
+See `backtrace-js --help` or go to [`@backtrace/javascript-cli`](https://github.com/backtrace-labs/backtrace-javascript/blob/dev/tools/cli) for additional command line and configuration options.
 
 :::note Troubleshooting
   Source map processing will halt on error with a description. Use a --verbose command line switch to output extended information for troubleshooting.
@@ -173,7 +173,7 @@ values={[
 
 <TabItem value="webpack">
 
-If you're using Webpack as your project bundler, you can use `@backtrace-labs/webpack-plugin` to automate working with sourcemaps.
+If you're using Webpack as your project bundler, you can use `@backtrace/webpack-plugin` to automate working with sourcemaps.
 
 **Step 1: Enable Source Maps for Your Application**
 
@@ -188,20 +188,20 @@ module.exports = {
 
 If you're using code transpiler plugins (such as Typescript), be sure to enable source maps there as well.
 
-**Step 2: Set up `@backtrace-labs/webpack-plugin`**
+**Step 2: Set up `@backtrace/webpack-plugin`**
 
-1. Install `@backtrace-labs/webpack-plugin` as a developer dependency:
+1. Install `@backtrace/webpack-plugin` as a developer dependency:
 
    ```bash
-   npm install --save-dev @backtrace-labs/webpack-plugin
+   npm install --save-dev @backtrace/webpack-plugin
    ```
 
 2. Add it to your `plugins` array in `webpack.config.js`:
 
    ```js
-   import { BacktracePlugin } from '@backtrace-labs/webpack-plugin';
+   import { BacktracePlugin } from '@backtrace/webpack-plugin';
    // or
-   const { BacktracePlugin } = require('@backtrace-labs/webpack-plugin');
+   const { BacktracePlugin } = require('@backtrace/webpack-plugin');
 
    module.exports = {
      // other configuration
@@ -216,7 +216,7 @@ If you're using code transpiler plugins (such as Typescript), be sure to enable 
 
 <TabItem value="rollup">
 
-If you're using Rollup as your project bundler, you can use `@backtrace-labs/rollup-plugin` to automate working with sourcemaps.
+If you're using Rollup as your project bundler, you can use `@backtrace/rollup-plugin` to automate working with sourcemaps.
 
 **Step 1: Enable Source Maps for Your Application**
 
@@ -232,20 +232,20 @@ module.exports = {
 
 If you're using code transpiler plugins (such as Typescript), be sure to enable source maps there as well.
 
-**Step 2: Set up `@backtrace-labs/rollup-plugin`**
+**Step 2: Set up `@backtrace/rollup-plugin`**
 
-1. Install `@backtrace-labs/rollup-plugin` as a developer dependency:
+1. Install `@backtrace/rollup-plugin` as a developer dependency:
 
    ```bash
-   npm install --save-dev @backtrace-labs/rollup-plugin
+   npm install --save-dev @backtrace/rollup-plugin
    ```
 
 2. Add it to your `plugins` array in `rollup.config.js`:
 
    ```js
-   import { BacktracePlugin } from '@backtrace-labs/rollup-plugin';
+   import { BacktracePlugin } from '@backtrace/rollup-plugin';
    // or
-   const { BacktracePlugin } = require('@backtrace-labs/rollup-plugin');
+   const { BacktracePlugin } = require('@backtrace/rollup-plugin');
 
    module.exports = {
      // other configuration
@@ -260,7 +260,7 @@ If you're using code transpiler plugins (such as Typescript), be sure to enable 
 
 <TabItem value="vite">
 
-If you're using Vite as your project bundler, you can use `@backtrace-labs/vite-plugin` to automate working with sourcemaps.
+If you're using Vite as your project bundler, you can use `@backtrace/vite-plugin` to automate working with sourcemaps.
 
 **Step 1: Enable Source Maps for Your Application**
 
@@ -276,20 +276,20 @@ module.exports = {
 
 If you're using code transpiler plugins (such as Typescript), be sure to enable source maps there as well.
 
-**Step 2: Set up `@backtrace-labs/vite-plugin`**
+**Step 2: Set up `@backtrace/vite-plugin`**
 
-1. Install `@backtrace-labs/vite-plugin` as a developer dependency:
+1. Install `@backtrace/vite-plugin` as a developer dependency:
 
    ```bash
-   npm install --save-dev @backtrace-labs/vite-plugin
+   npm install --save-dev @backtrace/vite-plugin
    ```
 
 2. Add it to your `plugins` array in `vite.config.js`:
 
    ```js
-   import { BacktracePlugin } from '@backtrace-labs/vite-plugin';
+   import { BacktracePlugin } from '@backtrace/vite-plugin';
    // or
-   const { BacktracePlugin } = require('@backtrace-labs/vite-plugin');
+   const { BacktracePlugin } = require('@backtrace/vite-plugin');
 
    module.exports = {
      // other configuration
@@ -305,6 +305,6 @@ If you're using code transpiler plugins (such as Typescript), be sure to enable 
 
 :::note Don't See Your Tool Described Here?
 
-We are adding support for the most popular tools regularly. You can always use `@backtrace-labs/javascript-cli`; it works with any output JS files.
+We are adding support for the most popular tools regularly. You can always use `@backtrace/javascript-cli`; it works with any output JS files.
 
 :::
