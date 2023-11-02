@@ -28,7 +28,7 @@ Every 5th cleaning session includes a device reboot. This ensures that the syste
 performant and any stray processes are stopped.
 
 :::caution
-Setting up VPNs on public devices is not supported. Please refer to our documentation for guidance on establishing a secure connection to your internal networks, firewalls, or endpoints. See [Sauce Connect](secure-connections/sauce-connect-5/) for more details.
+Setting up VPNs on public devices is not supported. Please refer to our documentation for guidance on establishing a secure connection to your internal networks, firewalls, or endpoints. See [Sauce Connect](./secure-connections/sauce-connect-5/) for more details.
 :::
 
 :::caution
