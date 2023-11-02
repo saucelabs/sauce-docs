@@ -28,6 +28,10 @@ Every 5th cleaning session includes a device reboot. This ensures that the syste
 performant and any stray processes are stopped.
 
 :::caution
+On Public Devices setting up VPNs is not supported. Please check our documentation related to settings up a secure connection to your internal networks/firewall/endpoints. [Sauce Connect ](secure-connections/sauce-connect-5/) for details.
+:::
+
+:::caution
 On Public devices, user access to device settings is limited to app-specific configurations like notifications, location services, permissions, app storage, and app details. For iOS Enterprise apps, users can trust the app via settings. Access is restricted to the test application and webapps through Safari or Chrome. These rules apply to both iOS and Android public devices.
 :::
 
@@ -58,6 +62,10 @@ We use a proprietary process that wipes every real device clean at the end of th
 
 :::caution
 On Private Devices, access to some parts of the device settings is restricted: Wifi and Network Settings, Profile and Device Management, Passcode/Biometrics Settings, Developer options, Resetting device options, Creating AppleIDs, Battery Options, and Display Settings.  These rules apply to both iOS and Android public devices.
+:::
+
+:::caution
+On Private Devices setting up VPNs is not supported. Please check our documentation related to settings up secure connection to your internal networks/firewall/endpoints. [Sauce Connect ](secure-connections/sauce-connect-5/) for details.
 :::
 
 While both Private and Public Devices follow the same cleaning process, Private Devices can be configured to allow applications and accounts to persist between sessions. Please see [Private Device Management](/basics/acct-team-mgmt/private-device-mgmt) for details.
