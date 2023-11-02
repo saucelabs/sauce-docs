@@ -17,7 +17,13 @@ Sauce Labs Visual provides an library allowing integration with [WebDriver](http
 
 Sauce Labs Visual plugin provides a library exposing a `VisualApi` object that provides actions:
 - `visual.check()`: Takes a screenshot and send it to Sauce Labs Visual for comparison.
+- `visual.checkResults()`: Waits for diff calculations to complete and returns a summary of results.
 
+Sample usage:
+```java
+    assertEquals(visual.checkResults().get(DiffStatus.UNAPPROVED), 2);
+```
+See [definitions](../../visual-testing.md) to learn more about different diff statuses.
 
 ## Quickstart
 
@@ -28,7 +34,7 @@ Add [Sauce Visual](https://central.sonatype.com/artifact/com.saucelabs.visual/ja
   <dependency>
     <groupId>com.saucelabs.visual</groupId>
     <artifactId>java-client</artifactId>
-    <version>0.3.107</version>
+    <version>0.3.117</version>
     <scope>test</scope>
   </dependency>
   ```

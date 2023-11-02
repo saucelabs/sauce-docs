@@ -17,7 +17,13 @@ Sauce Labs Visual provides an integration with [WebdriverIO](https://webdriver.i
 
 Sauce Labs Visual adds new commands to the WebdriverIO's `browser` object:
 - `browser.check()`: Takes a screenshot and send it to Sauce Labs Visual for comparison.
-- `browser.checkResults()`: Returns how many changes have been observed.
+- `browser.checkResults()`: Waits for diff calculations to complete and returns a summary of results.
+
+Sample usage:
+```ts
+    expect((await browser.checkResult()).UNAPPROVED).toBe(2);
+```
+See [definitions](../../visual-testing.md#definitions) to learn more about different diff statuses.
 
 ## Quickstart
 
