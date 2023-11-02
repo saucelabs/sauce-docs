@@ -72,7 +72,10 @@ If your apps's manifest.xml file defines `android:allowAudioPlaybackCapture="fal
 
 ## Enabling TalkBack/Voiceover on your Devices
 
-To utilize TalkBack on your iOS/Android devices, make sure you have access to supported devices, We support iOS 13 and above, and Android 10 and above. Follow these steps:
+To utilize TalkBack on your iOS/Android devices, make sure you have access to supported devices, We support iOS 13 and above, and Android 10 and above. 
+We are automatically enabling these Accessibility tools for you with a single click without going to the OS setting!
+
+Follow these steps:
 
 1. **Open a Live Testing Session**: Start any Live Testing session, whether it's a Cross Browser or Native Application test.
 
@@ -80,11 +83,9 @@ To utilize TalkBack on your iOS/Android devices, make sure you have access to su
 
 3. Select and toggle **Talkback** or **Voiceover**
 
-4. By turning ON Talkback/Voiceover we are automatically enabling these Accessibility tools, without going to the OS settings.
+4. Skip with OK or Cancel the native Talkback/Voiceover guide.
 
-5. Make sure you navigate through the native Accessibility guide.
-
-6. On Android you can use Arrow keys (Up-Down-Left-Right) to navigate through the elements, and by hittin ENTER key, you are able to activate the specific element. 
+5. On Android you can use the Arrow keys (Up-Down-Left-Right) to navigate through the elements, and by hitting the ENTER key, you are able to activate a specific element. 
 
 For further information, you can refer to the official documentation on [TalkBack](https://support.google.com/accessibility/android/answer/6006598?sjid=17999569893329555730-EU), [Voiceover](https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios).
 
