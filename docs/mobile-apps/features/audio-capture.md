@@ -70,7 +70,7 @@ If your apps's manifest.xml file defines `android:allowAudioPlaybackCapture="fal
 
 :::
 
-## Enabling TalkBack/Voiceover on your Devices
+## Enabling TalkBack/VoiceOver on your Devices
 
 To utilize TalkBack on your iOS/Android devices, make sure you have access to supported devices, We support iOS 13 and above, and Android 10 and above. 
 We are automatically enabling these Accessibility tools for you with a single click without going to the OS setting!
@@ -81,13 +81,13 @@ Follow these steps:
 
 2. Open the **Device Settings** from the left side toolbar.
 
-3. Select and toggle **Talkback** or **Voiceover**
+3. Select and toggle **Talkback** or **VoiceOver**
 
-4. Skip with OK or Cancel the native Talkback/Voiceover guide.
+4. Skip with OK or Cancel the native Talkback/VoiceOver guide.
 
 5. On Android you can use the Arrow keys (Up-Down-Left-Right) to navigate through the elements, and by hitting the ENTER key, you are able to activate a specific element. 
 
-For further information, you can refer to the official documentation on [TalkBack](https://support.google.com/accessibility/android/answer/6006598?sjid=17999569893329555730-EU), [Voiceover](https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios).
+For further information, you can refer to the official documentation on [TalkBack](https://support.google.com/accessibility/android/answer/6006598?sjid=17999569893329555730-EU), [VoiceOver](https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios).
 
 <img src={useBaseUrl('/img/mobile-apps/talkBack-live.png')} alt="Sauce Labs TalkBack" width="751"/>
 <img src={useBaseUrl('/img/mobile-apps/voiceOver-live.png')} alt="Sauce Labs Voiceover" width="751"/>
