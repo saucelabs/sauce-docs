@@ -88,8 +88,8 @@ To utilize TalkBack on your iOS/Android devices, make sure you have access to su
 
 For further information, you can refer to the official documentation on [TalkBack](https://support.google.com/accessibility/android/answer/6006598?sjid=17999569893329555730-EU), [Voiceover](https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios).
 
-<img src={useBaseUrl('/img/mobile-apps/talkBack.png')} alt="Sauce Labs TalkBack" width="751"/>
-<img src={useBaseUrl('/img/mobile-apps/voiceOver.png')} alt="Sauce Labs Voiceover" width="751"/>
+<img src={useBaseUrl('/img/mobile-apps/talkBack-live.png')} alt="Sauce Labs TalkBack" width="751"/>
+<img src={useBaseUrl('/img/mobile-apps/voiceOver-live.png')} alt="Sauce Labs Voiceover" width="751"/>
 
 ## Using Audio Capture on iOS/iPadOS
 
