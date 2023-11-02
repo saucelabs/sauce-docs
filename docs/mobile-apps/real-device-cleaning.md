@@ -28,7 +28,7 @@ Every 5th cleaning session includes a device reboot. This ensures that the syste
 performant and any stray processes are stopped.
 
 :::caution
-Setting up VPNs on public devices is not supported. Please refer to our documentation for guidance on establishing a secure connection to your internal networks, firewalls, or endpoints. See [Sauce Connect](./secure-connections/sauce-connect-5/) for more details.
+Setting up VPNs on public devices is not supported. Please refer to our documentation for guidance on establishing a secure connection to your internal networks, firewalls, or endpoints. See [Sauce Connect](/secure-connections/sauce-connect-5/) for more details.
 :::
 
 :::caution
@@ -65,7 +65,7 @@ On Private Devices, access to some parts of the device settings is restricted: W
 :::
 
 :::caution
-Setting up VPNs on private devices is not supported. Please consult our documentation on how to set up a secure connection to your internal networks, firewalls, or endpoints. For more details, visit [Sauce Connect](./secure-connections/sauce-connect-5/).
+Setting up VPNs on private devices is not supported. Please consult our documentation on how to set up a secure connection to your internal networks, firewalls, or endpoints. For more details, visit [Sauce Connect](/secure-connections/sauce-connect-5/).
 :::
 
 While both Private and Public Devices follow the same cleaning process, Private Devices can be configured to allow applications and accounts to persist between sessions. Please see [Private Device Management](/basics/acct-team-mgmt/private-device-mgmt) for details.
