@@ -65,7 +65,7 @@ On Private Devices, access to some parts of the device settings is restricted: W
 :::
 
 :::caution
-On Private Devices setting up VPNs is not supported. Please check our documentation related to settings up secure connection to your internal networks/firewall/endpoints. [Sauce Connect ](secure-connections/sauce-connect-5/) for details.
+Setting up VPNs on private devices is not supported. Please consult our documentation on how to set up a secure connection to your internal networks, firewalls, or endpoints. For more details, visit [Sauce Connect](secure-connections/sauce-connect-5/).
 :::
 
 While both Private and Public Devices follow the same cleaning process, Private Devices can be configured to allow applications and accounts to persist between sessions. Please see [Private Device Management](/basics/acct-team-mgmt/private-device-mgmt) for details.
