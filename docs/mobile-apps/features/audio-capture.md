@@ -70,23 +70,26 @@ If your apps's manifest.xml file defines `android:allowAudioPlaybackCapture="fal
 
 :::
 
-## Using TalkBack on Android Private Devices
+## Enabling TalkBack/Voiceover on your Devices
 
-To utilize TalkBack on your Android private device, make sure you have a device with TalkBack enabled (Android 10 and above, Google Pixel or Samsung devices). Follow these steps:
+To utilize TalkBack on your iOS/Android devices, make sure you have access to supported devices, We support iOS 13 and above, and Android 10 and above. Follow these steps:
 
 1. **Open a Live Testing Session**: Start any Live Testing session, whether it's a Cross Browser or Native Application test.
 
-2. Access device **Settings > Accessibility**.
+2. Open the **Device Settings** from the left side toolbar.
 
-3. Select **SL_TalkBack Application**: Look for the SL_TalkBack application featuring the Sauce Labs logo.
+3. Select and toggle **Talkback** or **Voiceover**
 
-4. Click **User Service**.
+4. By turning ON Talkback/Voiceover we are automatically enabling these Accessibility tools, without going to the OS settings.
 
-5. Enable **Allow Talkback**.
+5. Make sure you navigate through the native Accessibility guide.
 
-For further information, you can refer to the official documentation on [TalkBack](https://support.google.com/accessibility/android/answer/6006598?sjid=17999569893329555730-EU).
+6. On Android you can use Arrow keys (Up-Down-Left-Right) to navigate through the elements, and by hittin ENTER key, you are able to activate the specific element. 
+
+For further information, you can refer to the official documentation on [TalkBack](https://support.google.com/accessibility/android/answer/6006598?sjid=17999569893329555730-EU), [Voiceover](https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios).
 
 <img src={useBaseUrl('/img/mobile-apps/talkBack.png')} alt="Sauce Labs TalkBack" width="751"/>
+<img src={useBaseUrl('/img/mobile-apps/voiceOver.png')} alt="Sauce Labs Voiceover" width="751"/>
 
 ## Using Audio Capture on iOS/iPadOS
 
