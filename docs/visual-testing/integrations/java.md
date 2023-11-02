@@ -23,7 +23,7 @@ Sample usage:
 ```java
     assertEquals(visual.checkResults().get(DiffStatus.UNAPPROVED), 2);
 ```
-See [definitions](../../visual-testing.md) to learn more about different diff statuses.
+See [definitions](../../visual-testing.md#definitions) to learn more about different diff statuses.
 
 ## Quickstart
 
