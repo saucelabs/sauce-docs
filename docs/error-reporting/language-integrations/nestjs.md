@@ -1,19 +1,15 @@
 ---
-id: javascript
-title: JavaScript Integration Guide
-sidebar_label: JavaScript
-description: Use JavaScript in your Backtrace project.
+id: nestjs
+title: NestJS Integration Guide
+sidebar_label: NestJS
+description: Use NestJS in your Backtrace project.
 ---
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import useBaseUrl from '@docusaurus/useBaseUrl';
 
 [Backtrace](https://backtrace.io) captures and reports handled and unhandled exceptions in your production software so
 you can manage application quality through the complete product lifecycle.
 
-The [@backtrace/browser](#) SDK connects your JavaScript application to Backtrace. The basic integration is quick
-and easy, after which you can explore the rich set of Backtrace features.
+The [@backtrace/nestjs](#) SDK connects your JavaScript application to Backtrace. The basic integration is quick and easy,
+after which you can explore the rich set of Backtrace features.
 
 ## Table of Contents
 
@@ -21,6 +17,7 @@ and easy, after which you can explore the rich set of Backtrace features.
     - [Install the package](#install-the-package)
     - [Integrate the SDK](#integrate-the-sdk)
     - [Upload source maps](#upload-source-maps)
+    - [Add a Backtrace error interceptor](#add-a-backtrace-error-interceptor)
 1. [Error Reporting Features](#error-reporting-features)
     - [Attributes](#attributes)
     - [File Attachments](#file-attachments)
@@ -28,34 +25,34 @@ and easy, after which you can explore the rich set of Backtrace features.
     - [Application Stability Metrics](#application-stability-metrics)
         - [Metrics Configuration](#metrics-configuration)
         - [Metrics Usage](#metrics-usage)
+    - [Offline Database support](#offline-database-support)
+        - [Database Configuration](#database-configuration)
+        - [Native crash support](#native-crash-support)
+        - [Manual database operations](#manual-database-operations)
 1. [Advanced SDK Features](#advanced-sdk-features)
     - [BacktraceClient options](#backtraceclient)
     - [Manually send an error](#manually-send-an-error)
     - [Modify/skip error reports](#modifyskip-error-reports)
     - [SDK Method Overrides](#sdk-method-overrides)
-    
+
 ## Basic Integration
 
 ### Install the package
 
 ```
-$ npm install @backtrace/browser
+$ npm install @backtrace/nestjs
 ```
 
 ### Integrate the SDK
 
-Add the following code to your application before all other scripts to report client-side errors to Backtrace.
+Add the following code to your application before all other scripts to report NestJS errors to Backtrace.
 
 ```ts
-// Import the BacktraceClient from @backtrace/browser with your favorite package manager.
-import { BacktraceClient, BacktraceConfiguration } from '@backtrace/browser';
+// Import the BacktraceClient from @backtrace/nestjs
+import { BacktraceClient, BacktraceConfiguration, BacktraceModule } from '@backtrace/nestjs';
 
 // Configure client options
 const options: BacktraceConfiguration = {
-    // Name of the website/application
-    name: 'MyWebPage',
-    // Version of the website
-    version: '1.2.3',
     // Submission url
     // <universe> is the subdomain of your Backtrace instance (<universe>.backtrace.io)
     // <token> can be found in Project Settings/Submission tokens
@@ -63,12 +60,29 @@ const options: BacktraceConfiguration = {
 };
 
 // Initialize the client with the options
-const client = BacktraceClient.initialize(options);
+BacktraceClient.initialize(options);
 
 // By default, Backtrace will send an error for Uncaught Exceptions and Unhandled Promise Rejections
+// For capturing NestJS errors, see "Add a Backtrace error interceptor" in this README
 
-// Manually send an error
-client.send(new Error('Something broke!'));
+// Register BacktraceModule in your base module
+@Module({
+    imports: [BacktraceModule],
+    controllers: [AppController],
+})
+class AppModule {}
+
+@Controller()
+class AppController {
+    // Inject BacktraceClient into your services or controllers
+    constructor(private readonly _client: BacktraceClient) {}
+
+    @Post()
+    public endpoint() {
+        // Manually send an error
+        this._cclient.send(new Error('Something broke!'));
+    }
+}
 ```
 
 ### Upload source maps
@@ -76,7 +90,72 @@ client.send(new Error('Something broke!'));
 Client-side error reports are based on minified code. Upload source maps and source code to resolve minified code to
 your original source identifiers.
 
-[(Source Map feature documentation)](/error-reporting/platform-integrations/source-map/)
+[(Source Map feature documentation)](https://docs.saucelabs.com/error-reporting/platform-integrations/source-map/)
+
+### Add a Backtrace error interceptor
+
+While processing requests, NestJS will handle all exceptions thrown by controllers using the exception filters. This
+means that the exceptions will not be unhandled, and thus not captured by Backtrace. To capture these errors, you can
+use the `BacktraceInterceptor` class.
+
+To add the interceptor globally, you can register it as `APP_INTERCEPTOR`:
+
+```ts
+import { Module } from '@nestjs/common';
+import { APP_INTERCEPTOR } from '@nestjs/core';
+import { BacktraceModule, BacktraceInterceptor } from '@backtrace/nestjs';
+
+@Module({
+    imports: [BacktraceModule],
+    providers: [
+        {
+            provide: APP_INTERCEPTOR,
+            useValue: new BacktraceInterceptor(),
+        },
+    ],
+    controllers: [CatsController],
+})
+export class AppModule {}
+```
+
+Or, use `app.useGlobalInterceptors`:
+
+```ts
+const app = await NestFactory.create(AppModule);
+app.useGlobalInterceptors(new BacktraceInterceptor());
+```
+
+To use it on a controller, use `UseInterceptors` decorator:
+
+```ts
+@UseInterceptors(new BacktraceInterceptor())
+export class CatsController {}
+```
+
+For more information, consult [NestJS documentation](https://docs.nestjs.com/interceptors#binding-interceptors).
+
+#### Configuring the interceptor
+
+By default, the interceptor will include:
+
+-   all errors that are an instance of `Error`,
+
+and exclude:
+
+-   all `HttpException` errors that have `status < 500`.
+
+To include or exclude specific error types, pass options to `BacktraceInterceptor`:
+
+```ts
+new BacktraceInterceptor({
+    includeExceptionTypes: [Error],
+    excludeExceptionTypes: (error) => error instanceof HttpException && error.getStatus() < 500,
+});
+```
+
+As shown in the example above, `includeExceptionTypes` and `excludeExceptionTypes` accept either an array of error
+types, or a function that can return a `boolean`. The array types will match using `instanceof`. The function will have
+the thrown error passed as the first parameter.
 
 ## Error Reporting Features
 
@@ -85,7 +164,9 @@ your original source identifiers.
 Custom attributes are key-value pairs that can be added to your error reports. They are used in report aggregation,
 sorting and filtering, can provide better contextual data for an error, and much more. They are foundational to many of
 the advanced Backtrace features detailed in
-[Error Reporting documentation](/error-reporting/getting-started/).
+[Error Reporting documentation](https://docs.saucelabs.com/error-reporting/getting-started/). By default attributes such
+as application name and version are populated automatically based on your package.json information. If Backtrace cannot
+find them, you need to provide them manually via userAttributes attributes.
 
 There are several places where attributes can be added, modified or deleted.
 
@@ -102,8 +183,6 @@ const attributes: Record<string, unknown> = {
 
 // BacktraceClientOptions
 const options: BacktraceConfiguration = {
-    name: 'MyWebPage',
-    version: '1.2.3',
     url: 'https://submit.backtrace.io/<universe>/<token>/json',
 
     // Attach the attributes object
@@ -119,13 +198,11 @@ You can also include attributes that will be resolved when creating a report:
 ```ts
 // BacktraceClientOptions
 const options: BacktraceConfiguration = {
-    name: 'MyWebPage',
-    version: '1.2.3',
     url: 'https://submit.backtrace.io/<universe>/<token>/json',
 
     // Attach the attributes object
     userAttributes: () => ({
-        user: getCurrentUser(),
+        attribute: getAttributeValue(),
     }),
 };
 
@@ -175,38 +252,36 @@ BacktraceClient, or dynamically for specific reports. When including attachments
 uploaded with each report.
 
 ```ts
-// Import attachment types from @backtrace/browser
-import { BacktraceStringAttachment, BacktraceUint8ArrayAttachment  } from "@backtrace/browser";
+// Import attachment types from @backtrace/nestjs
+import { BacktraceStringAttachment, BacktraceUint8ArrayAttachment, BacktraceFileAttachment } from "@backtrace/node";
 
 // BacktraceStringAttachment should be used for text object like a log file, for example
-const attachment1 = new BacktraceStringAttachment("logfile.txt", "This is the start of my log")
+const stringAttachment = new BacktraceStringAttachment("logfile.txt", "This is the start of my log")
 
-// BacktraceUint8ArrayAttachment should be used for binary files
-const attachment2 = new BacktraceUint8ArrayAttachment("connection_buffer", new Uint8Array(2));
+// Buffer attachment is an attachment type dedicated to store buffer data
+const bufferAttachment = new BacktraceBufferAttachment('buffer-attachment.txt', Buffer.from('sample'));
 
-// Setup array of files to attach
-const attachments = [attachment1];
+// File attachment is an attachment type dedicated for streaming files
+const fileAttachment = new BacktraceFileAttachment('/path/to/sample/file');
 
 // BacktraceClientOptions
 const options = {
-    name: "MyWebPage",
-    version: "1.2.3",
     url: "https://submit.backtrace.io/<universe>/<token>/json",
 
     // Attach the files to all reports
-    attachments,
+    attachments: [path.join('/path/to/attachment'), stringAttachment],
 }
 
 const client = BacktraceClient.initialize(options);
 
 // Later decide to add an attachment to all reports
-client.addAttachment(attachment2)
+client.addAttachment(bufferAttachment)
 
 // After catching an exception and generating a report
 try {
     throw new Error("Caught exception!")
 } catch (error) {
-    const report = const report = new BacktraceReport(error, {}, [new BacktraceStringAttachment("CaughtErrorLog", "some error logging data here")])
+    const report = const report = new BacktraceReport(error, {}, [fileAttachment])
     client.send(report);
 }
 ```
@@ -218,20 +293,20 @@ try {
 Breadcrumbs are snippets of chronological data tracing runtime events. This SDK records a number of events by default,
 and manual breadcrumbs can also be added.
 
-[(Breadcrumbs feature documentation)](/error-reporting/web-console/debug/#breadcrumbs)
+[(Breadcrumbs feature documentation)](https://docs.saucelabs.com/error-reporting/web-console/debug/#breadcrumbs)
 
 #### Breadcrumbs Configuration
 
-| Option Name          | Type                                                       | Description                                                                                                                                                   | Default         | Required?                                |
-| -------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ---------------------------------------- |
-| `enable`             | Boolean                                                    | Determines if the breadcrumbs support is enabled. By default the value is set to true.                                                                        | `true`          | <input type="checkbox" disabled="true"/> |
-| `logLevel`           | BreadcrumbLogLevel                                         | Specifies which log level severity to include. By default all logs are included.                                                                              | All Logs        | <input type="checkbox" disabled="true"/> |
-| `eventType`          | BreadcrumbType                                             | Specifies which breadcrumb type to include. By default all types are included.                                                                                | All Types       | <input type="checkbox" disabled="true"/> |
-| `maximumBreadcrumbs` | Number                                                     | Specifies maximum number of breadcrumbs stored by the library. By default, only 100 breadcrumbs will be stored.                                               | `100`           | <input type="checkbox" disabled="true"/> |
-| `intercept`          | (breadcrumb: RawBreadcrumb) => RawBreadcrumb \| undefined; | Inspects breadcrumb and allows to modify it. If the undefined value is being returned from the method, no breadcrumb will be added to the breadcrumb storage. | All Breadcrumbs | <input type="checkbox" disabled="true"/> |
+| Option Name          | Type                                                       | Description                                                                                                                                                   | Default         | Required?                |
+| -------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------------------ |
+| `enable`             | Boolean                                                    | Determines if the breadcrumbs support is enabled. By default the value is set to true.                                                                        | `true`          | <ul><li>- [ ] </li></ul> |
+| `logLevel`           | BreadcrumbLogLevel                                         | Specifies which log level severity to include. By default all logs are included.                                                                              | All Logs        | <ul><li>- [ ] </li></ul> |
+| `eventType`          | BreadcrumbType                                             | Specifies which breadcrumb type to include. By default all types are included.                                                                                | All Types       | <ul><li>- [ ] </li></ul> |
+| `maximumBreadcrumbs` | Number                                                     | Specifies maximum number of breadcrumbs stored by the library. By default, only 100 breadcrumbs will be stored.                                               | `100`           | <ul><li>- [ ] </li></ul> |
+| `intercept`          | (breadcrumb: RawBreadcrumb) => RawBreadcrumb \| undefined; | Inspects breadcrumb and allows to modify it. If the undefined value is being returned from the method, no breadcrumb will be added to the breadcrumb storage. | All Breadcrumbs | <ul><li>- [ ] </li></ul> |
 
 ```ts
-import { BacktraceClient, BacktraceConfiguration } from '@backtrace/browser';
+import { BacktraceClient, BacktraceConfiguration } from '@backtrace/nestjs';
 
 // BacktraceClientOptions
 const options: BacktraceConfiguration = {
@@ -247,12 +322,9 @@ const client = BacktraceClient.initialize(options);
 
 #### Default Breadcrumbs
 
-| Type            | Description                                                                                                                                                                             |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| HTTP            | Adds a breadcrumb with the url, request type, and reponse status for Fetch or XMLHttpRequests.                                                                                          |
-| History         | Adds breadcrumb on pushstate and popstate.                                                                                                                                              |
-| Document/Window | Adds a breadcrumb for document.click, document.dblclick, document.drag, document.drop, window.load, window.unload, window.pagehide, window.pageshow, window.online, and window.offline. |
-| Console         | Adds a breadcrumb every time console log is being used by the developer.                                                                                                                |
+| Type    | Description                                                              |
+| ------- | ------------------------------------------------------------------------ |
+| Console | Adds a breadcrumb every time console log is being used by the developer. |
 
 #### Intercepting Breadcrumbs
 
@@ -275,18 +347,18 @@ client.breadcrumbs?.info('This is a manual breadcrumb.', {
 
 ### Application Stability Metrics
 
-The Backtrace Browser SDK has the ability to send usage Metrics to be viewable in the Backtrace UI.
+The Backtrace NestJS SDK has the ability to send usage Metrics to be viewable in the Backtrace UI.
 
-[(Stability Metrics feature documentation)](/error-reporting/project-setup/stability-metrics/)
+[(Stability Metrics feature documentation)](https://docs.saucelabs.com/error-reporting/project-setup/stability-metrics/)
 
 #### Metrics Configuration
 
-| Option Name            | Type    | Description                                                                                                                                                                                                                                                                                                                                              | Default                       | Required?                                |
-| ---------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ---------------------------------------- |
-| `metricsSubmissionUrl` | String  | Metrics server hostname. By default the value is set to https://events.backtrace.io.                                                                                                                                                                                                                                                                     | `https://events.backtrace.io` | <input type="checkbox" disabled="true"/> |
-| `enable`               | Boolean | Determines if the metrics support is enabled. By default the value is set to true.                                                                                                                                                                                                                                                                       | `true`                        | <input type="checkbox" disabled="true"/> |
-| `autoSendInterval`     | Number  | Indicates how often crash free metrics are sent to Backtrace. The interval is a value in ms. By default, session events are sent on application startup/finish, and every 30 minutes while the application is running. If the value is set to 0. The auto send mode is disabled. In this situation the application needs to maintain send mode manually. | On application startup/finish | <input type="checkbox" disabled="true"/> |
-| `size`                 | Number  | Indicates how many events the metrics storage can store before auto submission.                                                                                                                                                                                                                                                                          | `50`                          | <input type="checkbox" disabled="true"/> |
+| Option Name            | Type    | Description                                                                                                                                                                                                                                                                                                                                              | Default                       | Required?                |
+| ---------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ------------------------ |
+| `metricsSubmissionUrl` | String  | Metrics server hostname. By default the value is set to https://events.backtrace.io.                                                                                                                                                                                                                                                                     | `https://events.backtrace.io` | <ul><li>- [ ] </li></ul> |
+| `enable`               | Boolean | Determines if the metrics support is enabled. By default the value is set to true.                                                                                                                                                                                                                                                                       | `true`                        | <ul><li>- [ ] </li></ul> |
+| `autoSendInterval`     | Number  | Indicates how often crash free metrics are sent to Backtrace. The interval is a value in ms. By default, session events are sent on application startup/finish, and every 30 minutes while the application is running. If the value is set to 0. The auto send mode is disabled. In this situation the application needs to maintain send mode manually. | On application startup/finish | <ul><li>- [ ] </li></ul> |
+| `size`                 | Number  | Indicates how many events the metrics storage can store before auto submission.                                                                                                                                                                                                                                                                          | `50`                          | <ul><li>- [ ] </li></ul> |
 
 #### Metrics Usage
 
@@ -296,6 +368,65 @@ client.metrics?.send();
 ```
 
 ---
+
+### Offline database support
+
+The Backtrace NestJS SDK can cache generated reports and crashes to local disk before sending them to Backtrace. This is
+recommended; in certain configurations NestJS applications can crash before the SDK finishes submitting data, and under
+slow internet conditions your application might wait in a closing window until the HTTP submission finishes. In such an
+event cached reports will be sent on next application launch.
+
+With offline database support you can:
+
+-   cache your reports when the user doesn't have an internet connection or the service is unavailable,
+-   capture crashes,
+-   manually decide whether or not to send reports, and when.
+
+Offline database support is disabled by default. To enable it, please add "enable: true" and the path to the directory
+where Backtrace can store crash data.
+
+```ts
+const client = BacktraceClient.initialize({
+    // ignoring all but database config for simplicity
+    database: {
+        enable: true,
+        path: '/path/to/the/database/directory',
+        captureNativeCrashes: true,
+    },
+});
+
+// manually send and keep the data on connection issue
+client.database.send();
+// manually send and remove all data no matter if received success or not.
+client.database.flush();
+```
+
+#### Database Configuration
+
+| Option Name               | Type    | Description                                                                                                                                                                  | Default | Required?                |
+| ------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------------------------ |
+| `enabled`                 | Boolean | Enable/disable offline database support.                                                                                                                                     | false   | <ul><li>- [x] </li></ul> |
+| `path`                    | String  | Local storage path for crash data.                                                                                                                                           | -       | <ul><li>- [x] </li></ul> |
+| `createDatabaseDirectory` | Boolean | Allow the SDK to create the offline database directory.                                                                                                                      | true    |
+| `autoSend`                | Boolean | Sends reports to the server based on the retry settings. If the value is set to 'false', you can use the Flush or Send methods as an alternative.                            | true    |
+| `maximumNumberOfRecords`  | Number  | The maximum number of reports stored in the offline database. When the limit is reached, the oldest reports are removed. If the value is equal to '0', then no limit is set. | 8       |
+| `retryInterval`           | Number  | The amount of time (in ms) to wait between retries if the database is unable to send a report.                                                                               | 60 000  |
+| `maximumRetries`          | Number  | The maximum number of retries to attempt if the database is unable to send a report.                                                                                         | 3       |
+| `captureNativeCrashes`    | Boolean | Capture and symbolicate stack traces for native crashes if the runtime supports this. A crash report is generated, stored locally, and uploaded upon next start.             | false   |
+
+#### Native crash support
+
+The Backtrace NestJS SDK can capture native crashes generated by a NestJS application such as Assert/OOM crashes. In
+order to collect them, the SDK uses the NestJS's `process.report` API. After setting up the native crash support, your
+`process.report` settings may be overridden and your crash data might be created in the database directory.
+
+Database records sent in the next session may not have some information about the crashing session such as attributes or
+breadcrumbs. To reduce database record size, attachment support was limited only to file attachments.
+
+#### Manual database operations
+
+Database support is available in the client options with the BacktraceDatabase object. You can use it to manually
+operate on database records.
 
 ## Advanced SDK Features
 
@@ -312,8 +443,6 @@ The following options are available for the BacktraceClientOptions passed when i
 | Option Name                         | Type                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                        | Default | Required?                |
 | ----------------------------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ------------------------ |
 | `url`                               | String                                              | Submission URL to send errors to                                                                                                                                                                                                                                                                                                                                                                                   |         | <ul><li>- [x] </li></ul> |
-| `name`                              | String                                              | Your application name                                                                                                                                                                                                                                                                                                                                                                                              |         | <ul><li>- [x] </li></ul> |
-| `version`                           | String                                              | Your application version                                                                                                                                                                                                                                                                                                                                                                                           |         | <ul><li>- [x] </li></ul> |
 | `token`                             | String                                              | The submission token for error injestion. This is required only if submitting directly to a Backtrace URL. (uncommon)                                                                                                                                                                                                                                                                                              |         | <ul><li>- [ ] </li></ul> |
 | `userAttributes`                    | Dictionary                                          | Additional attributes that can be filtered and aggregated against in the Backtrace UI.                                                                                                                                                                                                                                                                                                                             |         | <ul><li>- [ ] </li></ul> |
 | `attachments`                       | BacktraceAttachment[]                               | Additional files to be sent with error reports. See [File Attachments](#file-attachments)                                                                                                                                                                                                                                                                                                                          |         | <ul><li>- [ ] </li></ul> |
@@ -326,10 +455,12 @@ The following options are available for the BacktraceClientOptions passed when i
 | `rateLimit`                         | Integer                                             | Limits the number of reports the client will send per minute. If set to '0', there is no limit. If set to a value greater than '0' and the value is reached, the client will not send any reports until the next minute.                                                                                                                                                                                           | `0`     | <ul><li>- [ ] </li></ul> |
 | `metrics`                           | BacktraceMetricsOptions                             | See [Backtrace Stability Metrics](#application-stability-metrics)                                                                                                                                                                                                                                                                                                                                                  |         | <ul><li>- [ ] </li></ul> |
 | `breadcrumbs`                       | BacktraceBreadcrumbsSettings                        | See [Backtrace Breadcrumbs](#breadcrumbs)                                                                                                                                                                                                                                                                                                                                                                          |         | <ul><li>- [ ] </li></ul> |
+| `database`                          | BacktraceDatabaseSettings                           | See [Backtrace Database](#offline-database-support)                                                                                                                                                                                                                                                                                                                                                                |         | <ul><li>- [ ] </li></ul> |
 
 ### Manually send an error
 
-There are several ways to send an error to Backtrace:
+There are several ways to send an error to Backtrace. For more details on the definition of `client.send()` see
+[Methods](#methods) below.
 
 ```ts
 // send as a string
@@ -354,8 +485,6 @@ has at the time of exception. A report can be skipped sompletely by returning a 
 ```ts
 const client = BacktraceClient.initialize({
     url: SUBMISSION_URL,
-    name: '@backtrace/browser-example',
-    version: '0.0.1',
     beforeSend: (data: BacktraceData) => {
         // skip the report by returning a null from the callback
         if (!shouldSendReportToBacktrace(data)) {

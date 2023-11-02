@@ -119,7 +119,7 @@ The location of the log file will vary, depending on your operating system. For 
    </td>
    <td>(DD Month) (Time)
    Log file:
-   <code>C:\Users\sauce_username\Downloads\sc-4.9.1-win32\sc-TUNNEL_NAME.log</code>
+   <code>C:\Users\sauce_username\Downloads\sc-4.9.2-win32\sc-TUNNEL_NAME.log</code>
    </td>
   </tr>
 </table>

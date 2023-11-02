@@ -441,12 +441,14 @@ module.exports = {
                             items: [
                                 'error-reporting/language-integrations/c',
                                 'error-reporting/language-integrations/mixed',
-                                'error-reporting/language-integrations/electron',
                                 'error-reporting/language-integrations/go',
-                                'error-reporting/language-integrations/javascript',
-                                'error-reporting/language-integrations/node',
-                                'error-reporting/language-integrations/react',
                                 'error-reporting/language-integrations/python',
+                                'error-reporting/language-integrations/javascript',
+                                'error-reporting/language-integrations/react',
+                                'error-reporting/language-integrations/node',
+                                'error-reporting/language-integrations/nestjs',
+                                'error-reporting/language-integrations/electron',
+                                'error-reporting/language-integrations/react-native',
                             ],
                         },
                         {
@@ -711,7 +713,7 @@ module.exports = {
                 'dev/cli/sauce-connect-proxy',
                 {
                     type: 'category',
-                    label: 'Sauce Connect Proxy 5 CLI (alpha)',
+                    label: 'Sauce Connect Proxy 5 CLI (beta)',
                     collapsed: true,
                     items: [
                         'dev/cli/sauce-connect-5',
@@ -952,7 +954,7 @@ module.exports = {
                     items: [
                         {
                             type: 'category',
-                            label: 'Sauce Connect Proxy 5 (alpha)',
+                            label: 'Sauce Connect Proxy 5 (beta)',
                             collapsed: true,
                             items: [
                                 'secure-connections/sauce-connect-5',
@@ -1314,6 +1316,7 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'mobile-apps/automated-testing/appium',
+                                'mobile-apps/automated-testing/appium/appium-versions',
                                 'mobile-apps/automated-testing/appium/appium-2-migration',
                                 'mobile-apps/automated-testing/appium/quickstart',
                                 'mobile-apps/automated-testing/appium/real-devices',

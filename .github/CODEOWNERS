@@ -20,6 +20,9 @@
 *        @lauramthomas @discombobulateme @aoleszyn @LoryApiFortress
 /docs/ @lauramthomas @aoleszyn @LoryApiFortress
 
+# Modify sidebar content:
+sidebars.js @rick-bt
+
 # API testing:
 /docs/api-testing/ @lauramthomas @aoleszyn @LoryApiFortress
 
@@ -27,6 +30,10 @@
 /docs/dev/api/rdc/ @lauramthomas @aoleszyn @LoryApiFortress @kristofmuhi @wswebcreation
 /docs/dev/api/storage/ @lauramthomas @aoleszyn @LoryApiFortress @kristofmuhi @wswebcreation
 /docs/dev/cli/ @lauramthomas @aoleszyn @LoryApiFortress @saucelabs/devx
+
+# Backtrace/Error Reporting
+/docs/error-reporting/ @rick-bt
+/docs/dev/api/error-reporting.md @rick-bt
 
 # Mobile apps:
 /docs/mobile-apps/ @lauramthomas @aoleszyn @LoryApiFortress @kristofmuhi @wswebcreation

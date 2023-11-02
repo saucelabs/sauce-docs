@@ -5,7 +5,7 @@ sidebar_label: Overview
 ---
 
 :::info
-Sauce Connect Proxy 5 release is currently in the Alpha stage, some changes in CLI are expected.
+Sauce Connect Proxy 5 release is currently in the Beta stage, some changes are expected.
 :::
 
 Sauce Connect Proxy 5 is a complete rewrite of Sauce Connect Proxy 4.x.x that aims to improve observability, performance, and user experience and provide a strong foundation for future improvements.
@@ -30,19 +30,20 @@ The Sauce Connect Proxy version 5 major release introduces CLI changes. Please r
 4. Observability improvement.
    Sauce Connect Proxy 5 comes with [Prometheus](https://prometheus.io/) metrics. A sample [Grafana](http://grafana.org/) dashboard is available [here](https://github.com/saucelabs/sauce-connect-docker/tree/main/examples/docker-compose-prometheus-grafana).
 5. Easier installation and upgrade process. Sauce Connect Proxy 5 release contains deb and rpm packages for Linux, brew support for macOS, as well as x86_64 and arm64 architectures support for all platforms.
-6. Secure WebSockets support with [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) enabled.
+6. Secure [WebSocket](https://en.wikipedia.org/wiki/WebSocket) support with [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) enabled.
 7. [SOCKS5](https://datatracker.ietf.org/doc/html/rfc1928) support for upstream proxies.
 
 ### Major changes
 
 Sauce Connect Proxy 5 major changes are listed below.
 
-- The [Selenium Relay](/secure-connections/sauce-connect/proxy-tunnels/#using-the-selenium-relay) feature is not supported.
 - Tunnels must be named, the [`--tunnel-name`](/dev/cli/sauce-connect-5/run/#--tunnel-name) flag is no longer optional. It's done to improve security and usability - tests that use Sauce Connect must explicitly specify the [tunnel name](/dev/test-configuration-options/#tunnelname).
 - There is no default Sauce Labs region value, [`--region`](/dev/cli/sauce-connect-5/run/#--region) is required to ensure that the correct region is explicitly specified.
 - Proxy auto-detection is not supported, all proxies must be specified with explicit flags - `--proxy` or `--pac` for SUT requests and `--proxy-sauce` for Sauce Labs REST API and tunnel connections.
 - Domain flags ([`--tunnel-domains`](/dev/cli/sauce-connect-5/run/#--tunnel-domains), [`--direct-domains`](/dev/cli/sauce-connect-5/run/#--direct-domains), etc) accept regular expressions only.
 - [Subcommands](/dev/cli/sauce-connect-5/) are introduced to support multiple CLI changes and future capabilities.
+- The [Selenium Relay](/secure-connections/sauce-connect/proxy-tunnels/#using-the-selenium-relay) feature is not supported.
+- Log administration capabilities (such as log-rotate) are not supported. Log management is better left to specialized tools.
 
 ## Getting Started With Sauce Connect Proxy 5
 

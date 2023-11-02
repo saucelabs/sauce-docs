@@ -8,10 +8,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::caution
-Sauce Connect Proxy 5 release is currently in the Alpha stage, some changes in CLI are expected.
-:::
-
 The `sc run` command is a main Sauce Connect Proxy 5 command that allows provisioning a Sauce Connect Proxy server and establishing a secure connection between the Sauce Connect Proxy client and the server.
 
 ## Usage
