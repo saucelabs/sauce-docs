@@ -68,7 +68,7 @@ A **diff** has a status that reprensent its current state:
 
 ### Baseline Matching
 
-When a new snapshot is uploaded, Visual Testing will select the matching baseline and will looks for changes between the snapshot and the baseline.
+When a new snapshot is uploaded, Visual Testing will compare the matching baseline with the snapshot and look for changes.
 
 For a new snapshot, the matching baseline is found based on the following properties:
 - `name`
