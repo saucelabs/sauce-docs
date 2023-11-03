@@ -177,4 +177,4 @@ Based on current Playwright test runner implementation, there is no way to run P
 
 ### Playwright HTML Reporter + Trace Viewer
 
-Because of a limitation in how assets are stored on our platform, configuring your tests to use the built-in HTML reporter and Playwright's Trace Viewer feature will not work as expected.
+Because of a limitation in how assets are stored on our platform, configuring your tests to use the built-in [HTML reporter](https://playwright.dev/docs/test-reporters#html-reporter) and Playwright's [Trace Viewer](https://playwright.dev/docs/trace-viewer-intro) feature will not work as expected.
