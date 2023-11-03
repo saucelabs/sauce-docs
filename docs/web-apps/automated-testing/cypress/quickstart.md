@@ -81,19 +81,10 @@ git clone git@github.com:saucelabs/saucectl-cypress-example.git
 
 ## Step 4: Run Tests
 
-Navigate to the version folder for the example you would like to use. v1 is an example for Cypress 10. v1alpha is an example for Cypress 9. Then use the `run` command to execute the sample test included with the `saucectl` example.
-
-Cypress 10 example
+Navigate to the versioned example you would like to use. v1 is an example for Cypress 10 and above. Then use the `run` command to execute the sample test included with the `saucectl` example.
 
 ```
 cd saucectl-cypress-example/v1
-saucectl run
-```
-
-Cypress 9 example
-
-```
-cd saucectl-cypress-example/v1alpha
 saucectl run
 ```
 
