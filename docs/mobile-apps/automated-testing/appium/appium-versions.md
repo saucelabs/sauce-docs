@@ -206,6 +206,34 @@ The current end-of-life strategy outlined above is specific to Real Devices. We 
     </tr>
     <tr>
       <td>
+        <code>appium2-20231101</code>
+      </td>
+      <td>
+        <span className="sauceGold">October 31st, 2024</span>
+      </td>
+      <td> This is a collection of drivers that were released in November 1st 2023 <br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.2.1" target="_blank">
+              <code>appium</code>: 2.2.1 </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.2.0" target="_blank">
+              <code>appium-flutter-driver</code>: 2.2.0 </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v2.33.1" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 2.33.1 </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v5.8.0" target="_blank">
+              <code>appium-xcuitest-driver</code>: 5.8.0 </a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code>appium2-20231001</code>
       </td>
       <td>
