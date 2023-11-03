@@ -174,3 +174,7 @@ Webkit is not working on macOS 11 since Playwright 1.29.0
 ### Playwright + Cucumber
 
 Based on current Playwright test runner implementation, there is no way to run Playwright test runner with Cucumber.
+
+### Playwright HTML Reporter + Trace Viewer
+
+Because of a limitation in how assets are stored on our platform, configuring your tests to use the built-in HTML reporter and Playwright's Trace Viewer feature will not work as expected. 
