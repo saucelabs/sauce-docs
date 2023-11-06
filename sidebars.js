@@ -1400,7 +1400,6 @@ module.exports = {
                                     items: [
                                         'web-apps/automated-testing/cypress/yaml',
                                         'web-apps/automated-testing/cypress/yaml/v1',
-                                        'web-apps/automated-testing/cypress/yaml/v1alpha',
                                     ],
                                 },
                                 'web-apps/automated-testing/cypress/advanced',
