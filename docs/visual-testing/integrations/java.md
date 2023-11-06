@@ -29,7 +29,7 @@ Add [Sauce Visual](https://central.sonatype.com/artifact/com.saucelabs.visual/ja
   <dependency>
     <groupId>com.saucelabs.visual</groupId>
     <artifactId>java-client</artifactId>
-    <version>LATEST</version>
+    <version>RELEASE</version>
     <scope>test</scope>
   </dependency>
   ```
