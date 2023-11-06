@@ -206,6 +206,7 @@ The credentials needed to access an image hosted in a private registry. It is hi
 ```yaml
 suites:
   - name: "saucy test"
+    image: saucelabs/sl-demo-docker-primary:0.0.1
     imagePullAuth:
       user: $DOCKER_USERNAME
       token: $DOCKER_PASSWORD
@@ -220,6 +221,7 @@ The command that is executed after the container is ready.
 ```yaml
 suites:
   - name: "saucy test"
+    image: saucelabs/sl-demo-docker-primary:0.0.1
     entrypoint: mvn test
 ```
 
@@ -232,6 +234,7 @@ Files to be uploaded onto the container. Can be used for populating test data th
 ```yaml
 suites:
   - name: "saucy test"
+    image: saucelabs/sl-demo-docker-primary:0.0.1
     files:
       - src: "runsauce.json"
         dst: "/workdir/runsauce.json"
