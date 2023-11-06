@@ -17,13 +17,8 @@ Sauce Labs Visual provides an integration with [WebdriverIO](https://webdriver.i
 
 Sauce Labs Visual adds new commands to the WebdriverIO's `browser` object:
 - `browser.check()`: Takes a screenshot and send it to Sauce Labs Visual for comparison.
-- `browser.checkResults()`: Waits for diff calculations to complete and returns a summary of results.
-
-Sample usage:
-```ts
-    expect((await browser.checkResult()).UNAPPROVED).toBe(2);
-```
-See [definitions](../../visual-testing.md#definitions) to learn more about different diff statuses.
+- `browser.checkResult()`: Waits for diff calculations to complete and returns a summary of results.
+  See [Test results summary](#test-results-summary) for more details about summary format and sample usage.
 
 ## Quickstart
 
@@ -82,6 +77,29 @@ Builds will appear on Sauce Labs platform as soon as they have been created by t
 
 ## Advanced usage
 
+### Test results summary
+
+`browser.checkResult()` returns a summary of test results in format: 
+```ts
+{
+    QUEUED: number; // Diffs that are pending for processing. Should be 0 in case the test is completed without any timeouts
+    EQUAL: number; // Diffs that have no changes detected
+    UNAPPROVED: number; // Diffs that have detected changes and waiting for action
+    APPROVED: number; // Diffs that have detected changes and have been approved
+    REJECTED: number; // Diffs that have detected changes and have been rejected
+}
+```
+
+Sample output:
+```ts
+{ APPROVED: 0, EQUAL: 0, UNAPPROVED: 2, REJECTED: 0, QUEUED: 0 }
+```
+
+Sample usage:
+```ts
+expect((await browser.checkResult()).UNAPPROVED).toBe(EXPECTED_TOTAL_UNAPPROVED_DIFFS);
+```
+
 ### Build attributes
 
 When creating the service in WebdriverIO's configuration, extra fields can be set to define the context, thus acting on which baselines new snapshots will be compared to. ([More info on baseline matching](../sauce-visual.md#baseline-matching))
@@ -104,13 +122,29 @@ Example:
 
 ### Ignored regions
 
-In the case you need to ignore some region when running your tests, Sauce Visual provides a way to ignore user-specified areas.
+#### Component-based ignored region
 
-Those ignored regions are specified when requesting a new snapshot.
+In case you need to ignore some components when running your tests, Sauce Labs Visual provides a way to ignore a list of components.
+
+An ignored component can be a specific element from the page.
+
+Those ignored components are specified when requesting a new snapshot.
+
+Example:
+
+```ts
+    await browser.check('Inventory Page', {
+        ignore: [
+            // addBackPackToCartButton will be ignored
+            InventoryPage.addBackPackToCartButton,
+        ],
+    });
+
+```
 
 #### User-specified ignored region
 
-A region is defined by four elements.
+Alternatively, ignored regions can be user-specified areas. A region is defined by four elements.
 
 - `x`, `y`: The location of the top-left corner of the ignored region
 - `width`: The width of the region to ignore
@@ -131,22 +165,6 @@ await browser.check('Before Login', {
         },
     ],
 });
-```
-
-#### Component-based ignored region
-
-Alternatively, an ignored region can be a specific element from the page.
-
-Example:
-
-```ts
-    await browser.check('Inventory Page', {
-        ignore: [
-            // addBackPackToCartButton will be ignored
-            InventoryPage.addBackPackToCartButton,
-        ],
-    });
-
 ```
 
 ## Example

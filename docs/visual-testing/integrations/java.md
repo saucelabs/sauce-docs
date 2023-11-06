@@ -17,13 +17,8 @@ Sauce Labs Visual provides an library allowing integration with [WebDriver](http
 
 Sauce Labs Visual plugin provides a library exposing a `VisualApi` object that provides actions:
 - `visual.check()`: Takes a screenshot and send it to Sauce Labs Visual for comparison.
-- `visual.checkResults()`: Waits for diff calculations to complete and returns a summary of results.
-
-Sample usage:
-```java
-    assertEquals(visual.checkResults().get(DiffStatus.UNAPPROVED), 2);
-```
-See [definitions](../../visual-testing.md#definitions) to learn more about different diff statuses.
+- `visual.checkResults()`: Waits for all diff calculations to complete and returns a summary of results.
+  See [Test results summary](#test-results-summary) for more details about summary format and sample usage.
 
 ## Quickstart
 
@@ -34,7 +29,7 @@ Add [Sauce Visual](https://central.sonatype.com/artifact/com.saucelabs.visual/ja
   <dependency>
     <groupId>com.saucelabs.visual</groupId>
     <artifactId>java-client</artifactId>
-    <version>0.3.117</version>
+    <version>LATEST</version>
     <scope>test</scope>
   </dependency>
   ```
@@ -49,18 +44,33 @@ Declare a RemoteWebDriver and a VisualApi instance as class variables
   private static RemoteWebDriver driver;
 ```
 
-Initialize `RemoteWebDriver` and `VisualApi` in `@BeforeSuite` section
+Initialize `RemoteWebDriver` and `VisualApi` in `@BeforeAll` section, or `@BeforeSuite` if you're using TestNG 
 ```java
-  @BeforeSuite
+  @BeforeAll // JUnit
+  public static void init() {
+      driver = new RemoteWebDriver(webDriverUrl, capabilities);
+      visual = new Builder(driver, sauceUsername, sauceAccessKey, DataCenter.US_WEST_1).build();
+  }
+```
+```java
+  @BeforeSuite // TestNG
   public static void init() {
       driver = new RemoteWebDriver(webDriverUrl, capabilities);
       visual = new Builder(driver, sauceUsername, sauceAccessKey, DataCenter.US_WEST_1).build();
   }
 ```
 
-Don't forget to quit the WebDriver in `@AfterSuite` section
+Don't forget to quit the WebDriver in `@AfterAll` section, or `@AfterSuite` if you're using TestNG 
 ```java
-  @AfterSuite
+  @AfterAll // JUnit
+      public static void tearDown() {
+          if (driver != null) {
+              driver.quit();
+      }
+  }
+```
+```java
+  @AfterSuite // TestNG
       public static void tearDown() {
           if (driver != null) {
               driver.quit();
@@ -102,6 +112,20 @@ Builds will appear on Sauce Labs platform as soon as they have been created by t
 
 ## Advanced usage
 
+### Test results summary
+
+`VisualApi#checkResults` returns a summary of test results in `Map<DiffStatus, Integer>` format where `DiffStatus` is one of the following:
+- `DiffStatus.QUEUED`: Diffs that are pending for processing. Should be 0 in case the test is completed without any timeouts
+- `DiffStatus.EQUAL`: Diffs that have no changes detected
+- `DiffStatus.UNAPPROVED`: Diffs that have detected changes and waiting for action
+- `DiffStatus.APPROVED`: Diffs that have detected changes and have been approved
+- `DiffStatus.REJECTED`: Diffs that have detected changes and have been rejected  
+
+Sample usage:
+```java
+    assertEquals(visual.checkResults().get(DiffStatus.UNAPPROVED), EXPECTED_TOTAL_UNAPPROVED_DIFFS);
+```
+
 ### Build attributes
 
 When creating the service in `VisualApi`, extra fields can be set to define the context, thus acting on which baselines new snapshots will be compared to. ([More info on baseline matching](../sauce-visual.md#baseline-matching))
@@ -124,13 +148,27 @@ Example:
 
 ### Ignored regions
 
-In the case you need to ignore some region when running your tests, Sauce Labs Visual provides a way to ignore user-specified areas.
+#### Component-based ignored region
 
-Those ignored regions are specified when requesting a new snapshot.
+In case you need to ignore some components when running your tests, Sauce Labs Visual provides a way to ignore a list of components.
+
+An ignored component can be a specific element from the page.
+
+Those ignored components are specified when requesting a new snapshot.
+
+Example:
+```java
+  Options options = new Options();
+  options.setIgnoreElements(List.of(
+    // AddBackpackToCartButton will be ignored
+    inventoryPage.getAddBackpackToCartButton()
+  ));
+  visual.check("Inventory Page", options);
+```
 
 #### User-specified ignored region
 
-A region is defined by four elements.
+Alternatively, ignored regions can be user-specified areas. A region is defined by four elements.
 
 - `x`, `y`: The location of the top-left corner of the ignored region
 - `width`: The width of the region to ignore
@@ -149,20 +187,6 @@ Example:
   );
   options.setIgnoreRegions(List.of(ignoreRegion));
   visual.check("Before Login", options);
-```
-
-#### Component-based ignored region
-
-Alternatively, an ignored region can be a specific element from the page.
-
-Example:
-```java
-  Options options = new Options();
-  options.setIgnoreElements(List.of(
-    // AddBackpackToCartButton will be ignored
-    inventoryPage.getAddBackpackToCartButton()
-  ));
-  visual.check("Inventory Page", options);
 ```
 
 ## Examples
