@@ -407,6 +407,8 @@ reporters:
 Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST with a JSON payload to the configured webhook URL.
 
 ```yaml
+reporters:
+  json:
     webhookURL: https://my-webhook-url
 ```
 
@@ -419,6 +421,8 @@ Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP PO
 Specifies the report filename. Defaults to "saucectl-report.json".
 
 ```yaml
+reporters:
+  json:
     filename: my-saucectl-report.json
 ```
 
