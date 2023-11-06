@@ -151,6 +151,7 @@ The set of properties providing details about the test suites to run. May contai
 The name of the test suite, which will be reflected in the results and related artifacts.
 
 ```yaml
+suites:
   - name: "saucy test"
 ```
 
@@ -163,7 +164,9 @@ The name of the test suite, which will be reflected in the results and related a
 Tell Sauce Orchestrate what kind of entrypoint process you are running. `workload` is important for security monitoring. Options are `webdriver` or `other`. For most configurations `webdriver` is required.
 
 ```yaml
-workload: webdriver
+suites:
+  - name: "saucy test"
+    workload: webdriver
 ```
 ---
 
