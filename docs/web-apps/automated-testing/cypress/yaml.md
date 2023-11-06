@@ -12,4 +12,4 @@ Before switching from Cypress 9 (or below) to version 10 (or above), follow the 
 | Cypress Version | saucectl Config Version |
 | --------------- | ----------------------- |
 | Cypress >= 10   | [v1](v1)                |
-| Cypress <= 9    | [v1alpha](v1alpha)      |
+| Cypress <= 9    | No longer supported     |
