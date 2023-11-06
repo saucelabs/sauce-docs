@@ -84,25 +84,6 @@ saucectl run --ccy 5
 
 ---
 
-### `retries`
-
-<p><small>| OPTIONAL | INTEGER |</small></p>
-
-Sets the number of times to retry a failed suite. For more settings, you can refer to [passThreshold](#passThreshold).
-
-```yaml
-sauce:
-  retries: 1
-```
-
-Alternatively, you can override the file setting at runtime by setting the retries flag as an inline parameter of the `saucectl run` command:
-
-```bash
-saucectl run --retries 1
-```
-
----
-
 ### `tunnel`
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
@@ -371,6 +352,72 @@ Specifies the path to the folder location in which to download artifacts. A sepa
 artifacts:
   download:
     directory: ./artifacts/
+```
+
+---
+
+## `reporters`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Configures additional reporting capabilities provided by `saucectl`.
+
+```yaml
+reporters:
+  json:
+    enabled: true
+    filename: saucectl-report.json
+```
+---
+
+### `json`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The JSON reporter creates a single report of all executed saucectl suites.
+
+```yaml
+reporters:
+  json:
+    enabled: true
+    filename: saucectl-report.json
+    webhookURL: https://my-webhook-url
+```
+
+---
+
+#### `enabled`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Toggles the reporter on/off.
+
+```yaml
+    enabled: true
+```
+
+---
+
+#### `webhookURL`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST with a JSON payload to the configured webhook URL.
+
+```yaml
+    webhookURL: https://my-webhook-url
+```
+
+---
+
+#### `filename`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the report filename. Defaults to "saucectl-report.json".
+
+```yaml
+    filename: my-saucectl-report.json
 ```
 
 ---
