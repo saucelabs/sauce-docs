@@ -88,12 +88,20 @@ For a new snapshot, the matching baseline is found based on the following proper
 
 ## Integrations
 
-Sauce Labs Visual provides integrations with different frameworks.
+Sauce Labs Visual provides integrations with different kind of frameworks:
+- **E2E Testing** allows to navigate a website and capture snapshots anytime this is needed.
+- **Component Testing** allows to test extensively all your components.
+
+## E2E Testing
+
+Check out how to integrate Sauce Visual into an existing test suite:
 
 - [Cypress](./integrations/cypress/)
 - [Java](./integrations/java/)
-- [Storybook](./integrations/storybook/)
 - [WebdriverIO](./integrations/webdriverio/)
 
 
+## Component Testing
+
+- [Storybook (In BETA)](./integrations/storybook/)
 
