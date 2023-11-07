@@ -16,8 +16,8 @@ You can alternatively take a look to our [example repository](#example).
 Sauce Labs Visual provides an integration with [WebdriverIO](https://webdriver.io/) through a service that you can add to any existing WebdriverIO project.
 
 Sauce Labs Visual adds new commands to the WebdriverIO's `browser` object:
-- `browser.check()`: Takes a screenshot and send it to Sauce Labs Visual for comparison.
-- `browser.checkResult()`: Waits for diff calculations to complete and returns a summary of results.
+- `browser.sauceVisualCheck()`: Takes a screenshot and send it to Sauce Labs Visual for comparison.
+- `browser.sauceVisualResults()`: Waits for diff calculations to complete and returns a summary of results.
   See [Test results summary](#test-results-summary) for more details about summary format and sample usage.
 
 ## Quickstart
@@ -51,7 +51,7 @@ Add a check to one of your tests:
     describe('Login Flow', () => {
         it('should login with valid credentials', async () => {
             ...
-            await browser.check('My Login Page')
+            await browser.sauceVisualCheck('My Login Page')
             ...
         });
     })
@@ -79,7 +79,7 @@ Builds will appear on Sauce Labs platform as soon as they have been created by t
 
 ### Test results summary
 
-`browser.checkResult()` returns a summary of test results in format: 
+`browser.sauceVisualResults()` returns a summary of test results in format: 
 ```ts
 {
     QUEUED: number; // Diffs that are pending for processing. Should be 0 in case the test is completed without any timeouts
@@ -97,7 +97,7 @@ Sample output:
 
 Sample usage:
 ```ts
-expect((await browser.checkResult()).UNAPPROVED).toBe(EXPECTED_TOTAL_UNAPPROVED_DIFFS);
+expect((await browser.sauceVisualResults()).UNAPPROVED).toBe(EXPECTED_TOTAL_UNAPPROVED_DIFFS);
 ```
 
 ### Build attributes
@@ -133,7 +133,7 @@ Those ignored components are specified when requesting a new snapshot.
 Example:
 
 ```ts
-    await browser.check('Inventory Page', {
+    await browser.sauceVisualCheck('Inventory Page', {
         ignore: [
             // addBackPackToCartButton will be ignored
             InventoryPage.addBackPackToCartButton,
@@ -155,7 +155,7 @@ Alternatively, ignored regions can be user-specified areas. A region is defined 
 Example:
 
 ```ts
-await browser.check('Before Login', {
+await browser.sauceVisualCheck('Before Login', {
     ignore: [
         {
             x: 100,

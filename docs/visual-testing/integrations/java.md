@@ -16,8 +16,8 @@ You can alternatively take a look to our [example repository](#examples).
 Sauce Labs Visual provides an library allowing integration with [WebDriver](https://www.selenium.dev/documentation/webdriver/).
 
 Sauce Labs Visual plugin provides a library exposing a `VisualApi` object that provides actions:
-- `visual.check()`: Takes a screenshot and send it to Sauce Labs Visual for comparison.
-- `visual.checkResults()`: Waits for all diff calculations to complete and returns a summary of results.
+- `visual.sauceVisualCheck()`: Takes a screenshot and send it to Sauce Labs Visual for comparison.
+- `visual.sauceVisualResults()`: Waits for all diff calculations to complete and returns a summary of results.
   See [Test results summary](#test-results-summary) for more details about summary format and sample usage.
 
 ## Quickstart
@@ -88,7 +88,7 @@ Add a check to one of your tests:
         var loginPage = new LoginPage(driver);
         loginPage.open();
 
-        visual.check("Before Login");
+        visual.sauceVisualCheck("Before Login");
     }
 ```
 
@@ -114,7 +114,7 @@ Builds will appear on Sauce Labs platform as soon as they have been created by t
 
 ### Test results summary
 
-`VisualApi#checkResults` returns a summary of test results in `Map<DiffStatus, Integer>` format where `DiffStatus` is one of the following:
+`VisualApi#sauceVisualResults()` returns a summary of test results in `Map<DiffStatus, Integer>` format where `DiffStatus` is one of the following:
 - `DiffStatus.QUEUED`: Diffs that are pending for processing. Should be 0 in case the test is completed without any timeouts
 - `DiffStatus.EQUAL`: Diffs that have no changes detected
 - `DiffStatus.UNAPPROVED`: Diffs that have detected changes and waiting for action
@@ -123,7 +123,7 @@ Builds will appear on Sauce Labs platform as soon as they have been created by t
 
 Sample usage:
 ```java
-    assertEquals(visual.checkResults().get(DiffStatus.UNAPPROVED), EXPECTED_TOTAL_UNAPPROVED_DIFFS);
+    assertEquals(visual.sauceVisualResults().get(DiffStatus.UNAPPROVED), EXPECTED_TOTAL_UNAPPROVED_DIFFS);
 ```
 
 ### Build attributes
@@ -163,7 +163,7 @@ Example:
     // AddBackpackToCartButton will be ignored
     inventoryPage.getAddBackpackToCartButton()
   ));
-  visual.check("Inventory Page", options);
+  visual.sauceVisualCheck("Inventory Page", options);
 ```
 
 #### User-specified ignored region
@@ -186,7 +186,7 @@ Example:
     200, // height
   );
   options.setIgnoreRegions(List.of(ignoreRegion));
-  visual.check("Before Login", options);
+  visual.sauceVisualCheck("Before Login", options);
 ```
 
 ## Examples
