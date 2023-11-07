@@ -44,39 +44,67 @@ Declare a RemoteWebDriver and a VisualApi instance as class variables
   private static RemoteWebDriver driver;
 ```
 
-Initialize `RemoteWebDriver` and `VisualApi` in `@BeforeAll` section, or `@BeforeSuite` if you're using TestNG 
-```java
-  @BeforeAll // JUnit
+Initialize `RemoteWebDriver` and `VisualApi` in `@BeforeAll` section, or `@BeforeSuite` if you're using TestNG
+
+<Tabs
+  defaultValue="JUnit"
+  values={[
+    {label: 'JUnit', value: 'JUnit'},
+    {label: 'TestNG', value: 'TestNG'},
+  ]}>
+  <TabItem value="JUnit">
+
+  ```java
+  @BeforeAll
   public static void init() {
       driver = new RemoteWebDriver(webDriverUrl, capabilities);
       visual = new Builder(driver, sauceUsername, sauceAccessKey, DataCenter.US_WEST_1).build();
   }
-```
-```java
-  @BeforeSuite // TestNG
+  ```
+  </TabItem>
+  <TabItem value="TestNG">
+
+  ```java
+  @BeforeSuite
   public static void init() {
       driver = new RemoteWebDriver(webDriverUrl, capabilities);
       visual = new Builder(driver, sauceUsername, sauceAccessKey, DataCenter.US_WEST_1).build();
   }
-```
+  ```
+  </TabItem>
+</Tabs>
+
 
 Don't forget to quit the WebDriver in `@AfterAll` section, or `@AfterSuite` if you're using TestNG 
-```java
-  @AfterAll // JUnit
+<Tabs
+  defaultValue="JUnit"
+  values={[
+    {label: 'JUnit', value: 'JUnit'},
+    {label: 'TestNG', value: 'TestNG'},
+  ]}>
+  <TabItem value="JUnit">
+
+  ```java
+  @AfterAll
       public static void tearDown() {
           if (driver != null) {
               driver.quit();
       }
   }
-```
-```java
-  @AfterSuite // TestNG
+  ```
+  </TabItem>
+  <TabItem value="TestNG">
+  
+  ```java
+  @AfterSuite
       public static void tearDown() {
           if (driver != null) {
               driver.quit();
       }
   }
-```
+  ```
+  </TabItem>
+</Tabs>
 
 
 ### Step 3: Add visual tests in your tests
