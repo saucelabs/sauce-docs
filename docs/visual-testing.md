@@ -71,9 +71,12 @@ A **diff** has a status that reprensent its current state:
 When a new snapshot is uploaded, Visual Testing will compare the matching baseline with the snapshot and look for changes.
 
 For a new snapshot, the matching baseline is found based on the following properties:
-- `name`
-- `testName`
-- `suiteName`
+- `name`<br/>
+  *The name of the snapshot*
+- `testName`<br/>
+  *The name of the test where the snapshot has been taken (only with Cypress and WebdriverIO)*
+- `suiteName`<br/>
+  *The name of the suite where the snapshot has been taken (only with Cypress and WebdriverIO)*
 - `browser`
 - `operatingSystem`
 - `operatingSystemVersion`
