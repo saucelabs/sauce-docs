@@ -94,7 +94,7 @@ Don't forget to quit the WebDriver in `@AfterAll` section, or `@AfterSuite` if y
   ```
   </TabItem>
   <TabItem value="TestNG">
-  
+
   ```java
   @AfterSuite
   public static void tearDown() {
