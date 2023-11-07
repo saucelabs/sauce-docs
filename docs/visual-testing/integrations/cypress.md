@@ -16,7 +16,7 @@ You can alternatively take a look to our [example repository](#example).
 Sauce Visual provides an integration with [Cypress](https://cypress.io) through a plugin that you can add to any existing Cypress project.
 
 Sauce Labs Visual introduce a new Cypress command:
-- `cy.visualCheck()`: Takes a screenshot and send it to Sauce Labs Visual for comparison.
+- `cy.sauceVisualCheck()`: Takes a screenshot and send it to Sauce Labs Visual for comparison.
 
 ## Quickstart
 
@@ -59,7 +59,7 @@ import '@saucelabs/cypress-visual-plugin/commands';
 context('Sauce Demo', () => {
   it('should render correctly', () => {
     ...
-    cy.visualCheck('visual: my-homepage');
+    cy.sauceVisualCheck('visual: my-homepage');
     ...
   })
 });
@@ -131,7 +131,7 @@ A region is defined by four elements.
 
 Example:
 ```javascript
-    cy.visualCheck('login-page', {
+    cy.sauceVisualCheck('login-page', {
       ignoredRegions: [
         {
           x: 240,
@@ -151,7 +151,7 @@ If the selectors matches multiple elements, all will be ignored.
 
 Example:
 ```javascript
-    cy.visualCheck('login-page', {
+    cy.sauceVisualCheck('login-page', {
       ignoredRegions: [
         cy.get('[data-test="username"]'),
       ]
@@ -166,7 +166,7 @@ The field `cypress` from `options` will be transmitted as it to `cy.screenshot` 
 
 Example:
 ```javascript
-    cy.visualCheck('login-page', {
+    cy.sauceVisualCheck('login-page', {
       cypress: {
         capture: 'viewport',
       }
