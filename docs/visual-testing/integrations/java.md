@@ -86,9 +86,9 @@ Don't forget to quit the WebDriver in `@AfterAll` section, or `@AfterSuite` if y
 
   ```java
   @AfterAll
-      public static void tearDown() {
-          if (driver != null) {
-              driver.quit();
+  public static void tearDown() {
+      if (driver != null) {
+          driver.quit();
       }
   }
   ```
@@ -97,9 +97,9 @@ Don't forget to quit the WebDriver in `@AfterAll` section, or `@AfterSuite` if y
   
   ```java
   @AfterSuite
-      public static void tearDown() {
-          if (driver != null) {
-              driver.quit();
+  public static void tearDown() {
+      if (driver != null) {
+          driver.quit();
       }
   }
   ```
