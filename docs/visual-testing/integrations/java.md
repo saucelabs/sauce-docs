@@ -123,7 +123,7 @@ Add a check to one of your tests:
 ### Step 4: Configure your Sauce Labs credentials
 
 Sauce Labs Visual relies on environment variables for authentications.<br />
-Both `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` need to be set prior starting your WebdriverIO job.
+Both `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` need to be set prior starting your Java job.
 
 Username and Access Key can be retrieved from https://app.saucelabs.com/user-settings.
 
