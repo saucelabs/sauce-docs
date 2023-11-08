@@ -32,7 +32,6 @@ Users will be available to review changes and make the baseline evolve for appro
 
 [Follow me to learn more](./visual-testing/workflows/review.md)
 
-
 ## Concepts
 
 Sauce Visual Testing comes with its set of concepts that will be defined here.
@@ -44,51 +43,52 @@ A **snapshot** is an image that will be compared by Visual Testing. For example:
 A **build** groups multiple snapshots. E.g. to be able to view all snapshots taken during the execution of your test suite in CI or locally.<br />
 A **build** has a status that represents its current state:
 
-| Status | Description |
-| --- |--- |
-| `Empty` | There is no snapshot in this build |
-| `Equal` | No difference has been detected between snapshots and the matching baselines |
-| `Unapproved` | Changes have been detected and and action is needed |
-| `Approved` | Changes have been detected and they have been approved |
-| `Rejected` | Changes have been detected and they have been rejected |
-| `Errored` | An error has occured |
+| Status       | Description                                                                  |
+| ------------ | ---------------------------------------------------------------------------- |
+| `Empty`      | There is no snapshot in this build                                           |
+| `Equal`      | No difference has been detected between snapshots and the matching baselines |
+| `Unapproved` | Changes have been detected and and action is needed                          |
+| `Approved`   | Changes have been detected and they have been approved                       |
+| `Rejected`   | Changes have been detected and they have been rejected                       |
+| `Errored`    | An error has occured                                                         |
 
 A **baseline** is what a **snapshot** is compared to.
 
 A **diff** represents the differences that have been detected between a **snapshot** and its matching **baseline**.<br />
 A **diff** has a status that reprensent its current state:
 
-| Status | Description |
-| --- | --- |
-| `Queued` | The processing is queued, and waiting for processing |
-| `Equal` | No difference has been detected between this snapshot and the matching baseline |
-| `Unapproved` | Changes have been detected and an action is needed  |
-| `Approved` | Changes have been detected and they have been approved |
-| `Rejected` | Changes have been detected and they have been rejected |
+| Status       | Description                                                                     |
+| ------------ | ------------------------------------------------------------------------------- |
+| `Queued`     | The processing is queued, and waiting for processing                            |
+| `Equal`      | No difference has been detected between this snapshot and the matching baseline |
+| `Unapproved` | Changes have been detected and an action is needed                              |
+| `Approved`   | Changes have been detected and they have been approved                          |
+| `Rejected`   | Changes have been detected and they have been rejected                          |
 
 ### Baseline Matching
 
 When a new snapshot is uploaded, Visual Testing will compare the matching baseline with the snapshot and look for changes.
 
 For a new snapshot, the matching baseline is found based on the following properties:
-- `name`<br/>
-  *The name of the snapshot*
-- `testName`<br/>
-  *The name of the test where the snapshot has been taken (only with Cypress and WebdriverIO)*
-- `suiteName`<br/>
-  *The name of the suite where the snapshot has been taken (only with Cypress and WebdriverIO)*
-- `browser`
-- `operatingSystem`
-- `operatingSystemVersion`
-- `viewportWidth`
-- `viewportHeight`
-- `project`
-- `branch`
-- `device`
+
+| Property                 | Type     | Description                                                                                                                                                               |
+| ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`                   | `string` | The name of the snapshot which will be set when the `sauceVisualCheck()` is called. See each language binding.                                                            |
+| `testName`               | `string` | The name of the test where the snapshot has been taken (only with Cypress, WebdriverIO, and Storybook BETA). This will automatically determined by the language binding.  |
+| `suiteName`              | `string` | The name of the suite where the snapshot has been taken (only with Cypress, WebdriverIO, and Storybook BETA). This will automatically determined by the language binding. |
+| `browser`                | `string` | The browser used to take the snapshot. This will automatically be determined by Sauce Visual.                                                                             |
+| `operatingSystem`        | `string` | The operating system used to take the snapshot. This will automatically be determined by Sauce Visual.                                                                    |
+| `operatingSystemVersion` | `string` | The operating system version used to take the snapshot. This will automatically be determined by Sauce Visual.                                                            |
+| `viewportWidth`          | `string` | The viewport width used to take the snapshot. This will automatically be determined by Sauce Visual.                                                                      |
+| `viewportHeight`         | `string` | The viewport height used to take the snapshot. This will automatically be determined by Sauce Visual.                                                                     |
+| `project`                | `string` | The project name. This can be set during service initiation, for more information see the language bindings.                                                              |
+| `branch`                 | `string` | The branch name. This can be set during service initiation, for more information see the language bindings.                                                               |
+| `device`                 | `string` | The device name. This will automatically be determine by Sauce Visual.                                                                                                    |
 
 ## Integrations
 
 Sauce Labs Visual provides integrations with different kind of frameworks:
+
 - **E2E Testing** allows to navigate a website and capture snapshots anytime this is needed.
 - **Component Testing** allows to test extensively all your components.
 
@@ -100,8 +100,6 @@ Check out how to integrate Sauce Visual into an existing test suite:
 - [Java](./integrations/java/)
 - [WebdriverIO](./integrations/webdriverio/)
 
-
 ## Component Testing
 
 - [Storybook (In BETA)](./integrations/storybook/)
-
