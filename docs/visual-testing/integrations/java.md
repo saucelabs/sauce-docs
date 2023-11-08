@@ -93,7 +93,7 @@ Don't forget to quit the WebDriver in `@AfterAll` section, or `@AfterSuite` if y
 
   ```java
   import org.junit.jupiter.api.AfterAll;
-  
+
   @AfterAll
   public static void tearDown() {
       if (driver != null) {
@@ -121,15 +121,42 @@ Don't forget to quit the WebDriver in `@AfterAll` section, or `@AfterSuite` if y
 ### Step 3: Add visual tests in your tests
 
 Add a check to one of your tests:
-```java
-    @Test
-    void checkLoginLooksTheSame() {
-        var loginPage = new LoginPage(driver);
-        loginPage.open();
 
-        visual.sauceVisualCheck("Before Login");
-    }
-```
+<Tabs
+  defaultValue="JUnit"
+  values={[
+    {label: 'JUnit', value: 'JUnit'},
+    {label: 'TestNG', value: 'TestNG'},
+  ]}>
+  <TabItem value="JUnit">
+
+  ```java
+  import org.junit.jupiter.api.Test;
+
+  @Test
+  void checkLoginLooksTheSame() {
+      var loginPage = new LoginPage(driver);
+      loginPage.open();
+
+      visual.sauceVisualCheck("Before Login");
+  }
+  ```
+  </TabItem>
+  <TabItem value="TestNG">
+
+  ```java
+  import org.testng.annotations.Test;
+  
+  @Test
+  void checkLoginLooksTheSame() {
+      var loginPage = new LoginPage(driver);
+      loginPage.open();
+
+      visual.sauceVisualCheck("Before Login");
+  }
+  ```
+  </TabItem>
+</Tabs>
 
 ### Step 4: Configure your Sauce Labs credentials
 
