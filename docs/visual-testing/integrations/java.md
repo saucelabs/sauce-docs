@@ -47,7 +47,7 @@ Declare a RemoteWebDriver and a VisualApi instance as class variables
   private static RemoteWebDriver driver;
 ```
 
-Initialize `RemoteWebDriver` and `VisualApi` in `@BeforeAll` section, or `@BeforeSuite` if you're using TestNG
+Initialize `RemoteWebDriver` and `VisualApi`
 
 <Tabs
   defaultValue="JUnit"
@@ -82,7 +82,7 @@ Initialize `RemoteWebDriver` and `VisualApi` in `@BeforeAll` section, or `@Befor
 </Tabs>
 
 
-Don't forget to quit the WebDriver in `@AfterAll` section, or `@AfterSuite` if you're using TestNG 
+Don't forget to quit the WebDriver
 <Tabs
   defaultValue="JUnit"
   values={[
