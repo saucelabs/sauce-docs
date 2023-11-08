@@ -613,7 +613,7 @@ The parent property containing the details specific to the Playwright project.
 
 ```yaml
 playwright:
-  version: 1.36.2
+  version: 1.39.0
 ```
 
 ---
@@ -625,7 +625,7 @@ playwright:
 The version of Playwright that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/playwright#supported-testing-platforms) for the list of Playwright versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
-  version: 1.36.2
+  version: 1.39.0
 ```
 
 :::tip
