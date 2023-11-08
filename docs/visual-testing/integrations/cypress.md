@@ -88,7 +88,7 @@ Builds will appear on Sauce Labs platform as soon as they have been created by t
 
 ### Build name
 
-Sauce Visual for Cypress plugin extends Cypress configuration, allowing to define the context, thus acting on which baselines new snapshots will be compared to. ([More info on baseline matching](../sauce-visual.md#baseline-matching))
+Sauce Visual for Cypress plugin extends Cypress configuration, allowing to define the context, thus acting on which baselines new snapshots will be compared to. ([More info on baseline matching](/visual-testing/#baseline-matching))
 
 Options:
 - `region`: Sauce Labs Region where the new build will be created (default: `us-west-1`)
