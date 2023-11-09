@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 > **Screener Docs are Now Sauce Docs**<br/>
-> Screener is now Sauce Labs Visual Testing. As part of our effort to bring you a unified documentation site, we've migrated all Visual Docs from Screener.io to Sauce Docs.
+> As part of our effort to bring you a unified documentation site, we've migrated all Visual Docs from Screener.io to Sauce Docs.
 
 Sauce Labs Visual E2E Testing is an automated testing method that integrates with your Selenium WebDriver tests and code, enabling you to combine functional and visual regression UI testing across different browsers and resolutions in the same run. You can use any programming language that Selenium WebDriver supports without having to install additional libraries or SDKs.
 
