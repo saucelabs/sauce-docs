@@ -40,11 +40,14 @@ Add [Sauce Visual](https://central.sonatype.com/artifact/com.saucelabs.visual/ja
 
 Declare a RemoteWebDriver and a VisualApi instance as class variables
 ```java
+  import org.openqa.selenium.remote.RemoteWebDriver;
+  import com.saucelabs.visual.VisualApi;
+
   private static VisualApi visual;
   private static RemoteWebDriver driver;
 ```
 
-Initialize `RemoteWebDriver` and `VisualApi` in `@BeforeAll` section, or `@BeforeSuite` if you're using TestNG
+Initialize `RemoteWebDriver` and `VisualApi`
 
 <Tabs
   defaultValue="JUnit"
@@ -55,27 +58,31 @@ Initialize `RemoteWebDriver` and `VisualApi` in `@BeforeAll` section, or `@Befor
   <TabItem value="JUnit">
 
   ```java
+  import org.junit.jupiter.api.BeforeAll;
+   
   @BeforeAll
   public static void init() {
       driver = new RemoteWebDriver(webDriverUrl, capabilities);
-      visual = new Builder(driver, sauceUsername, sauceAccessKey, DataCenter.US_WEST_1).build();
+      visual = new VisualApi.Builder(driver, sauceUsername, sauceAccessKey, DataCenter.US_WEST_1).build();
   }
   ```
   </TabItem>
   <TabItem value="TestNG">
 
   ```java
+  import org.testng.annotations.BeforeSuite;
+
   @BeforeSuite
   public static void init() {
       driver = new RemoteWebDriver(webDriverUrl, capabilities);
-      visual = new Builder(driver, sauceUsername, sauceAccessKey, DataCenter.US_WEST_1).build();
+      visual = new VisualApi.Builder(driver, sauceUsername, sauceAccessKey, DataCenter.US_WEST_1).build();
   }
   ```
   </TabItem>
 </Tabs>
 
 
-Don't forget to quit the WebDriver in `@AfterAll` section, or `@AfterSuite` if you're using TestNG 
+Don't forget to quit the WebDriver
 <Tabs
   defaultValue="JUnit"
   values={[
@@ -85,6 +92,8 @@ Don't forget to quit the WebDriver in `@AfterAll` section, or `@AfterSuite` if y
   <TabItem value="JUnit">
 
   ```java
+  import org.junit.jupiter.api.AfterAll;
+
   @AfterAll
   public static void tearDown() {
       if (driver != null) {
@@ -96,6 +105,8 @@ Don't forget to quit the WebDriver in `@AfterAll` section, or `@AfterSuite` if y
   <TabItem value="TestNG">
 
   ```java
+  import org.testng.annotations.AfterSuite;
+
   @AfterSuite
   public static void tearDown() {
       if (driver != null) {
@@ -110,20 +121,47 @@ Don't forget to quit the WebDriver in `@AfterAll` section, or `@AfterSuite` if y
 ### Step 3: Add visual tests in your tests
 
 Add a check to one of your tests:
-```java
-    @Test
-    void checkLoginLooksTheSame() {
-        var loginPage = new LoginPage(driver);
-        loginPage.open();
 
-        visual.sauceVisualCheck("Before Login");
-    }
-```
+<Tabs
+  defaultValue="JUnit"
+  values={[
+    {label: 'JUnit', value: 'JUnit'},
+    {label: 'TestNG', value: 'TestNG'},
+  ]}>
+  <TabItem value="JUnit">
+
+  ```java
+  import org.junit.jupiter.api.Test;
+
+  @Test
+  void checkLoginLooksTheSame() {
+      var loginPage = new LoginPage(driver);
+      loginPage.open();
+
+      visual.sauceVisualCheck("Before Login");
+  }
+  ```
+  </TabItem>
+  <TabItem value="TestNG">
+
+  ```java
+  import org.testng.annotations.Test;
+  
+  @Test
+  void checkLoginLooksTheSame() {
+      var loginPage = new LoginPage(driver);
+      loginPage.open();
+
+      visual.sauceVisualCheck("Before Login");
+  }
+  ```
+  </TabItem>
+</Tabs>
 
 ### Step 4: Configure your Sauce Labs credentials
 
 Sauce Labs Visual relies on environment variables for authentications.<br />
-Both `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` need to be set prior starting your WebdriverIO job.
+Both `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` need to be set prior starting your Java job.
 
 Username and Access Key can be retrieved from https://app.saucelabs.com/user-settings.
 
@@ -200,7 +238,7 @@ Alternatively, ignored regions can be user-specified areas. A region is defined 
 
 - `x`, `y`: The location of the top-left corner of the ignored region
 - `width`: The width of the region to ignore
-- `height`: The heigh of the region to ignore
+- `height`: The height of the region to ignore
 
 *Note: all values are pixels*
 
