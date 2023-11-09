@@ -175,9 +175,9 @@ Example:
 
 ### Specifying options for Cypress Screenshot
 
-Sauce Visual is relying on native screenshot feature from Cypress. As `cy.snapshot` has option, they can be specified in the `cy.visualCheck` command.
+Sauce Visual is relying on native screenshot feature from Cypress. As `cy.snapshot` has options, they can be specified in the `cy.visualCheck` command.
 
-The field `cypress` from `options` will be transmitted as it to `cy.screenshot` command.
+The field `cypress` from `options` will be transmitted as it to `cy.screenshot` command. (See [Cypress documentation](https://docs.cypress.io/api/commands/screenshot#Arguments))
 
 Example:
 
