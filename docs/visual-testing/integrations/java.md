@@ -183,9 +183,9 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 ### Step 5: Run the test
 
-Everything is now configured, your tests can be run as any other WebDriver test.
+Upon executing your tests for the first time under this step, a visual baseline is automatically created in our system. This baseline serves as the standard for all subsequent WebDriver tests. As new tests are run, they are compared to this original baseline, with any deviations highlighted to signal visual changes. These comparisons are integral for detecting any unintended visual modifications early in your development cycle. All test builds, including the initial baseline and subsequent runs, can be monitored and managed through the Sauce Labs platform at [Sauce Labs Visual Builds](https://app.saucelabs.com/visual/builds).
 
-Builds will appear on Sauce Labs platform as soon as they have been created by the running tests: https://app.saucelabs.com/visual/builds.
+Remember, the baseline is established during the initial run, and any subsequent visual differences detected will be marked for review.
 
 ## Advanced usage
 
