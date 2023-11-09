@@ -20,6 +20,7 @@ You can alternatively take a look to our [example repository](#example).
 Sauce Labs Visual provides an integration with [WebdriverIO](https://webdriver.io/) through a service that you can add to any existing WebdriverIO project.
 
 Sauce Labs Visual adds new commands to the WebdriverIO's `browser` object:
+
 - `browser.sauceVisualCheck()`: Takes a screenshot and send it to Sauce Labs Visual for comparison.
 - `browser.sauceVisualResults()`: Waits for diff calculations to complete and returns a summary of results.
   See [Test results summary](#test-results-summary) for more details about summary format and sample usage.
@@ -31,7 +32,7 @@ Sauce Labs Visual adds new commands to the WebdriverIO's `browser` object:
 Install the Sauce Labs Visual service in your current project.
 
 ```sh
-npm install --save @saucelabs/wdio-sauce-visual-service
+npm install --save-dev @saucelabs/wdio-sauce-visual-service
 ```
 
 ### Step 2: Add SauceVisualService to your WebdriverIO configuration
@@ -83,7 +84,8 @@ Builds will appear on Sauce Labs platform as soon as they have been created by t
 
 ### Test results summary
 
-`browser.sauceVisualResults()` returns a summary of test results in format: 
+`browser.sauceVisualResults()` returns a summary of test results in format:
+
 ```ts
 {
     QUEUED: number; // Diffs that are pending for processing. Should be 0 in case the test is completed without any timeouts
@@ -95,11 +97,13 @@ Builds will appear on Sauce Labs platform as soon as they have been created by t
 ```
 
 Sample output:
+
 ```ts
 { APPROVED: 0, EQUAL: 0, UNAPPROVED: 2, REJECTED: 0, QUEUED: 0 }
 ```
 
 Sample usage:
+
 ```ts
 expect((await browser.sauceVisualResults()).UNAPPROVED).toBe(EXPECTED_TOTAL_UNAPPROVED_DIFFS);
 ```
@@ -109,6 +113,7 @@ expect((await browser.sauceVisualResults()).UNAPPROVED).toBe(EXPECTED_TOTAL_UNAP
 When creating the service in WebdriverIO's configuration, extra fields can be set to define the context, thus acting on which baselines new snapshots will be compared to. ([More info on baseline matching](../sauce-visual.md#baseline-matching))
 
 Options:
+
 - `buildName`: Name of the build
 - `project`: Name of the project
 - `branch`: Name of branch
@@ -116,6 +121,7 @@ Options:
 They need to be set through the `options` parameter.
 
 Example:
+
 ```ts
     services: ['sauce', ['@saucelabs/wdio-sauce-visual-service', {
         buildName: 'Sauce Demo Test',
@@ -154,7 +160,7 @@ Alternatively, ignored regions can be user-specified areas. A region is defined 
 - `width`: The width of the region to ignore
 - `height`: The heigh of the region to ignore
 
-*Note: all values are pixels*
+_Note: all values are pixels_
 
 Example:
 

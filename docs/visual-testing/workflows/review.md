@@ -16,7 +16,6 @@ For many integrations, there will also be at least one automated job that genera
 
 **Note:** A "Visual Build" is currently not related to builds of automated jobs.
 
-
 ## User Interface
 
 Selecting one of the builds allows you to get to the Diff Review Page, where you can Approve or Reject detected diffs.
@@ -67,4 +66,3 @@ Visual uses different statuses:
 | For Review  | There were either no baselines available to compare against your uploaded snapshot or some were different from their baselines. You are supposed to review those detected diffs. As long as those changes aren't accepted, they are considered a failure state. |
 | Accepted    | All detected changes were accepted. This is considered a success state.                                                                                                                                                                                         |
 | Rejected    | Some of your detected changes were rejected. This is considered a failure state.                                                                                                                                                                                |
-

@@ -12,24 +12,23 @@ This workflow is responsible for generating snapshots (screenshots) of the websi
 Users new to visual testing often have an existing test suite in WebdriverIO, Cypress or a similar framework.
 With Sauce Visual testing existing test suites can be enhanced with a few extra "take a snapshot" statements and that is all it takes to implement this workflow.
 
-
 ## E2E Testing
 
 Check out how to integrate Sauce Visual into an existing test suite:
+
 - [Cypress Integration](../integrations/cypress.md)
 - [WebdriverIO Integration](../integrations/webdriverio.md)
 - [Java Integration](../integrations/java.md)
 
 Alternatively, [check out our examples](../../visual-testing.md#examples).
 
-
 ## Component Testing
 
 Sauce Visual can be used with a component testing workflow:
-- [Storybook  Integration](../integrations/storybook.md)
+
+- [Storybook Integration](../integrations/storybook.md)
 
 Alternatively, [check out our examples](../../visual-testing.md#examples).
-
 
 ## Baseline Matching
 
@@ -55,5 +54,3 @@ In these cases, a default value (0, null or empty string) is used.
 
 The matching process happens as part of the snapshot creation (`createSnapshot` in the API).
 This means, that a baseline can only be considered for a diff if it existed before the `createSnapshot` call.
-
-

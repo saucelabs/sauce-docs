@@ -32,7 +32,7 @@ This package leverage's Storybook's test-runner and metadata generation system f
 2. Install this plugin in an existing project from the root:
 
 ```sh
-npm i -D @saucelabs/visual-storybook
+npm i --save-dev @saucelabs/visual-storybook
 ```
 
 3. Eject your test-runner config and append the Sauce Visual storybook configuration:
