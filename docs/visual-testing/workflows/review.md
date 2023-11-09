@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 The review workflow happens in the [Sauce UI](https://app.saucelabs.com/visual/).
 Its purpose is to review results and define new baseline snapshots.
 
-Every execution of the [diff generation workflow](./diff-generation.md) generates a "Visual Build".
+Every execution of the [test execution workflow](./test-execution.md) generates a "Visual Build".
 For many integrations, there will also be at least one automated job that generated the snapshots for the "Visual Build".
 
 **Note:** A "Visual Build" is currently not related to builds of automated jobs.
