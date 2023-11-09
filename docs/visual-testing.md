@@ -63,7 +63,7 @@ With Sauce Visual testing existing test suites can be enhanced with a few extra 
 ### Review
 
 This workflow is responsible for approving or rejecting detected changes between a snapshot and a baseline.
-Users will be available to review changes and make the baseline evolve for approved changes.
+Users will be available to review changes and make the [baseline](#baseline) evolve for approved changes.
 
 [Follow me to learn more](./visual-testing/workflows/review.md)
 
@@ -73,9 +73,16 @@ Sauce Visual Testing comes with its set of concepts that will be defined here.
 
 ### Definitions
 
+#### Snapshot
+
 A **snapshot** is an image that will be compared by Visual Testing. For example: the screenshot of your website or mobile application.
 
-A **build** groups multiple snapshots. E.g. to be able to view all snapshots taken during the execution of your test suite in CI or locally.<br />
+#### Build
+
+A **build** groups multiple snapshots. E.g. to be able to view all snapshots taken during the execution of your test suite in CI or locally.
+
+##### Build Status
+
 A **build** has a status that represents its current state:
 
 | Status       | Description                                                                  |
@@ -87,10 +94,17 @@ A **build** has a status that represents its current state:
 | `Rejected`   | Changes have been detected and they have been rejected                       |
 | `Errored`    | An error has occured                                                         |
 
+#### Baseline
+
 A **baseline** is what a **snapshot** is compared to.
 
-A **diff** represents the differences that have been detected between a **snapshot** and its matching **baseline**.<br />
-A **diff** has a status that reprensent its current state:
+#### Diff
+
+A **diff** represents the differences that have been detected between a **snapshot** and its matching **baseline**.
+
+##### Diff Status
+
+A **diff** has a status that represents its current state:
 
 | Status       | Description                                                                     |
 | ------------ | ------------------------------------------------------------------------------- |
@@ -102,9 +116,8 @@ A **diff** has a status that reprensent its current state:
 
 ### Baseline Matching
 
-When a new snapshot is uploaded, Visual Testing will compare the matching baseline with the snapshot and look for changes.
-
-For a new snapshot, the matching baseline is found based on the following properties:
+Every integration generates snapshots and compares them against a baseline snapshot to detect differences.
+The following snapshot metadata keys are used to determine the appropriate baseline:
 
 | Property                 | Type     | Description                                                                                                                                                               |
 | ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -120,6 +133,16 @@ For a new snapshot, the matching baseline is found based on the following proper
 | `branch`                 | `string` | The branch name. This can be set during service initiation, for more information see the language bindings.                                                               |
 | `device`                 | `string` | The device name. This will automatically be determine by Sauce Visual.                                                                                                    |
 
+If multiple baselines match, the most recent one is selected for diff computation.
+
+:::note
+Note that not all properties are exposed on all testing frameworks.
+In these cases, a default value (0, null or empty string) is used.
+:::
+
+The matching process happens as part of the snapshot creation (`createSnapshot` in the API).
+This means, that a baseline can only be considered for a diff if it existed before the `createSnapshot` call.
+
 ## Integrations
 
 Sauce Labs Visual provides integrations with different kind of frameworks:
@@ -127,14 +150,23 @@ Sauce Labs Visual provides integrations with different kind of frameworks:
 - **E2E Testing** allows to navigate a website and capture snapshots anytime this is needed.
 - **Component Testing** allows to test extensively all your components.
 
-## E2E Testing
-
-Check out how to integrate Sauce Visual into an existing test suite:
-
-- [Cypress](./integrations/cypress/)
-- [Java](./integrations/java/)
-- [WebdriverIO](./integrations/webdriverio/)
-
-## Component Testing
-
-- [Storybook (In BETA)](./integrations/storybook/)
+<div className="box-wrapper" markdown="1">
+<div className="box box1 card">
+  <div className="container">
+  <h2>E2E Testing</h2>
+  <ul>
+      <li><a href="/visual-testing/integrations/cypress/">Cypress Integration</a></li>
+      <li><a href="/visual-testing/integrations/java/">Java Integration</a></li>
+      <li><a href="/visual-testing/integrations/webdriverio/">WebdriverIO Integration</a></li>
+  </ul>
+  </div>
+</div>
+<div className="box box2 card">
+  <div className="container">
+  <h2>Component Testing</h2>
+  <ul>
+      <li><a href="/visual-testing/integrations/storybook/">Storybook Integration (BETA)</a></li>
+  </ul>
+  </div>
+</div>
+</div>

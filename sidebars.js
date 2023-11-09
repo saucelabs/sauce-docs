@@ -1594,7 +1594,7 @@ module.exports = {
                     label: 'Workflows',
                     collapsed: true,
                     items: [
-                        'visual-testing/workflows/diff-generation',
+                        'visual-testing/workflows/test-execution',
                         'visual-testing/workflows/review',
                     ],
                 },
