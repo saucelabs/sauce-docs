@@ -1610,7 +1610,6 @@ module.exports = {
                     ],
                 },
                 'visual-testing/faq',
-                'visual-testing/sauce-visual-beta-docs',
             ],
         },
         {
