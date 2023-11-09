@@ -15,6 +15,37 @@ Get clear and instant visibility into the impact of code changes on your UI acro
 
 Know exactly where and what has changed so that you can deliver a consistent and intuitive user experience.
 
+Sauce Labs Visual Testing stands for:
+
+<div className="box-wrapper" markdown="1">
+<div className="box box1 card">
+  <div className="container">
+  <h2>Faster Test Execution</h2>
+  <ul>
+      <li>Purpose-built within the world’s best test infrastructure</li>
+      <li>Fewer back-and-forth commands between client and server</li>
+      <li>Based on efficient OSS framework</li>
+      <li>No need to down/upload images</li>
+  </ul>
+  </div>
+</div>
+<div className="box box2 card">
+  <div className="container">
+  <h2>Less Complexity</h2>
+  <ul>
+      <li>Less code</li>
+      <li>Less maintenance</li>
+      <li>Less flakiness</li>
+  </ul>
+  </div>
+</div>
+</div>
+
+## What You'll Need
+
+- A [Sauce Labs Enterprise account](https://saucelabs.com/pricing) with access to Visual Testing. To request access, contact your CSM or Sauce Labs Support.
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+
 ## Workflows
 
 Sauce Visual testing consists of two main workflows: Test execution and review.
