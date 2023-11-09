@@ -130,13 +130,27 @@ export default defineConfig({
 
 ### Ignored regions
 
-In the case you need to ignore some region when running your tests, Sauce Visual provides a way to ignore user-specified areas.
+#### Component-based ignored region
 
-Those ignored regions are specified when requesting a new snapshot.
+In case you need to ignore some components when running your tests, Sauce Labs Visual provides a way to ignore a list of components.
+
+An ignored component can be a specific element from the page.
+
+Those ignored components are specified when requesting a new snapshot.
+
+Example:
+
+```javascript
+    cy.sauceVisualCheck('login-page', {
+      ignoredRegions: [
+        cy.get('[data-test="username"]'),
+      ]
+    });
+```
 
 #### User-specified ignored region
 
-A region is defined by four elements.
+Alternatively, ignored regions can be user-specified areas. A region is defined by four elements.
 
 - `x`, `y`: The location of the top-left corner of the ignored region
 - `width`: The width of the region to ignore
@@ -156,22 +170,6 @@ Example:
           height: 408
         }
       ],
-    });
-```
-
-#### Component-based ignored region
-
-Alternatively, an ignored region can be a specific element from the page.
-
-If the selectors matches multiple elements, all will be ignored.
-
-Example:
-
-```javascript
-    cy.sauceVisualCheck('login-page', {
-      ignoredRegions: [
-        cy.get('[data-test="username"]'),
-      ]
     });
 ```
 
