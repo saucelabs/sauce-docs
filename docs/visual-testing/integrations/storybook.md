@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 # Storybook Integration
 
 :::note Important
-Access to this feature is presently limited to Enterprise customers as part of our commitment to providing tailored solutions. We are excited to announce that self-service access is under development and will be released shortly. Stay tuned!
+Access to this feature is currentlylimited to Enterprise customers as part of our commitment to providing tailored solutions. We are excited to announce that self-service access is under development and will be released shortly. Stay tuned!
 :::
 
 An extension for [Storybook's test-runner](https://github.com/storybookjs/test-runner) powered by [Jest](https://jestjs.io/) and [Playwright](https://playwright.dev/) to integrate effortless visual testing with Sauce Labs Visual.

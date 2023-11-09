@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 # WebdriverIO Integration
 
 :::note Important
-Access to this feature is presently limited to Enterprise customers as part of our commitment to providing tailored solutions. We are excited to announce that self-service access is under development and will be released shortly. Stay tuned!
+Access to this feature is currentlylimited to Enterprise customers as part of our commitment to providing tailored solutions. We are excited to announce that self-service access is under development and will be released shortly. Stay tuned!
 :::
 
 ## Introduction
@@ -40,11 +40,33 @@ npm install --save-dev @saucelabs/wdio-sauce-visual-service
 Add the `SauceVisualService` to your existing configuration (E.g. `wdio.conf.(js|ts)`):
 
 ```ts
-...
+import type { Options } from '@wdio/types';
+import { SauceVisualService } from '@saucelabs/wdio-sauce-visual-service';
+
 export const config: Options.Testrunner = {
-...
-    services: ['sauce', ['@saucelabs/wdio-sauce-visual-service', {}]],
-...
+    //...
+    services: [
+    //
+    // This service is needed for WDIO to make sure it can connect to Sauce Labs to:
+    // - automatically update the names
+    // - automatically update the status (passed/failed)
+    // - automatically send the stacktrace in case of a failure
+    //
+    'sauce',
+    //
+    // This service is needed for the Sauce Visual service to work
+    //
+    [
+      SauceVisualService,
+      // The options for the Sauce Visual service
+      {
+        buildName: 'Sauce Demo Test',
+        branch: 'main',
+        project: 'WDIO examples',
+      },
+    ],
+  ],
+  //...
 }
 ```
 
@@ -55,9 +77,9 @@ Add a check to one of your tests:
 ```ts
     describe('Login Flow', () => {
         it('should login with valid credentials', async () => {
-            ...
+            //...
             await browser.sauceVisualCheck('My Login Page')
-            ...
+            //...
         });
     })
 ```
@@ -76,9 +98,9 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 ### Step 5: Run the test
 
-Everything is now configured, your tests can be run as any other WebdriverIO project.
+Upon executing your tests for the first time under this step, a visual baseline is automatically created in our system. This baseline serves as the standard for all subsequent WebdriverIO tests. As new tests are run, they are compared to this original baseline, with any deviations highlighted to signal visual changes. These comparisons are integral for detecting any unintended visual modifications early in your development cycle. All test builds, including the initial baseline and subsequent runs, can be monitored and managed through the Sauce Labs platform at [Sauce Labs Visual Builds](https://app.saucelabs.com/visual/builds).
 
-Builds will appear on Sauce Labs platform as soon as they have been created by the running tests: https://app.saucelabs.com/visual/builds.
+Remember, the baseline is established during the initial run, and any subsequent visual differences detected will be marked for review.
 
 ## Advanced usage
 
