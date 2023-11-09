@@ -1585,7 +1585,7 @@ module.exports = {
 
         {
             type: 'category',
-            label: 'Visual (BETA)',
+            label: 'Visual (NEW)',
             collapsed: true,
             items: [
                 'visual-testing',
@@ -1615,7 +1615,7 @@ module.exports = {
         },
         {
             type: 'category',
-            label: 'Visual (Screener)',
+            label: 'Screener',
             collapsed: true,
             items: [
                 'visual',
