@@ -58,7 +58,7 @@ This workflow is responsible for generating snapshots (screenshots) of the websi
 Users new to visual testing often have an existing test suite in WebdriverIO, Cypress or a similar framework.
 With Sauce Visual testing existing test suites can be enhanced with a few extra "take a snapshot" statements and that is all it takes to implement this workflow.
 
-[Follow me to learn more](./visual-testing/workflows/diff-generation.md)
+[Follow me to learn more](./visual-testing/workflows/test-execution.md)
 
 ### Review
 
