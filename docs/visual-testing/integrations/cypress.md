@@ -132,7 +132,7 @@ export default defineConfig({
 
 #### Component-based ignored region
 
-In case you need to ignore some components when running your tests, Sauce Labs Visual provides a way to ignore a list of components.
+Sauce Labs Visual provides a way to ignore a list of components.
 
 An ignored component can be a specific element from the page.
 
