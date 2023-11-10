@@ -1,5 +1,5 @@
 ---
-title: Sauce Labs Visual Testing
+title: Sauce Visual Testing
 sidebar_label: Overview
 ---
 
@@ -15,7 +15,7 @@ Get clear and instant visibility into the impact of code changes on your UI acro
 
 Know exactly where and what has changed so that you can deliver a consistent and intuitive user experience.
 
-Sauce Labs Visual Testing stands for:
+Sauce Visual Testing stands for:
 
 <div className="box-wrapper" markdown="1">
 <div className="box box1 card">
@@ -145,7 +145,7 @@ This means, that a baseline can only be considered for a diff if it existed befo
 
 ## Integrations
 
-Sauce Labs Visual provides integrations with different kind of frameworks:
+Sauce Visual provides integrations with different kind of frameworks:
 
 - **E2E Testing** allows to navigate a website and capture snapshots anytime this is needed.
 - **Component Testing** allows to test extensively all your components.

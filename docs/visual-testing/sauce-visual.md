@@ -1,6 +1,6 @@
 ---
 id: sauce-visual
-title: Sauce Labs Visual Testing
+title: Sauce Visual Testing
 sidebar_label: Getting Started
 ---
 
