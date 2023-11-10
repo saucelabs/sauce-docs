@@ -19,9 +19,9 @@ You can alternatively take a look to our [example repository](#example).
 
 Sauce Visual provides an integration with [Cypress](https://cypress.io) through a plugin that you can add to any existing Cypress project.
 
-Sauce Visual introduce a new Cypress command:
+Sauce Labs Visual introduce a new Cypress command:
 
-- `cy.sauceVisualCheck()`: Takes a screenshot and send it to Sauce Visual for comparison.
+- `cy.sauceVisualCheck()`: Takes a screenshot and send it to Sauce Labs Visual for comparison.
 
 :::note Important
 Running Cypress tests on Sauce Labs requires SauceCTL to be installed and configured.
@@ -92,7 +92,7 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 ### Step 5: Run the test
 
-Upon executing your tests for the first time under this step, a visual baseline is automatically created in our system. This baseline serves as the standard for all subsequent Cypress tests. As new tests are run, they are compared to this original baseline, with any deviations highlighted to signal visual changes. These comparisons are integral for detecting any unintended visual modifications early in your development cycle. All test builds, including the initial baseline and subsequent runs, can be monitored and managed through the Sauce Labs platform at [Sauce Visual Builds](https://app.saucelabs.com/visual/builds).
+Upon executing your tests for the first time under this step, a visual baseline is automatically created in our system. This baseline serves as the standard for all subsequent Cypress tests. As new tests are run, they are compared to this original baseline, with any deviations highlighted to signal visual changes. These comparisons are integral for detecting any unintended visual modifications early in your development cycle. All test builds, including the initial baseline and subsequent runs, can be monitored and managed through the Sauce Labs platform at [Sauce Labs Visual Builds](https://app.saucelabs.com/visual/builds).
 
 Remember, the baseline is established during the initial run, and any subsequent visual differences detected will be marked for review.
 
@@ -132,7 +132,7 @@ export default defineConfig({
 
 #### Component-based ignored region
 
-Sauce Visual provides a way to ignore a list of components.
+Sauce Labs Visual provides a way to ignore a list of components.
 
 An ignored component can be a specific element from the page.
 

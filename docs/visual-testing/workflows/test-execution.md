@@ -14,7 +14,7 @@ With Sauce Visual testing existing test suites can be enhanced with a few extra 
 
 ## Integrations
 
-Sauce Visual provides integrations with different kind of frameworks:
+Sauce Labs Visual provides integrations with different kind of frameworks:
 
 - **E2E Testing** allows to navigate a website and capture snapshots anytime this is needed.
 - **Component Testing** allows to test extensively all your components.
@@ -46,11 +46,11 @@ Alternatively, [check out our examples](../../visual-testing.md#examples).
 
 Upon executing your tests for the first time, a visual baseline is automatically created in our system. This baseline serves as the standard for all subsequent tests and matches based on the metadata as described in the [Baseline Matching](../../visual-testing.md#baseline-matching).
 
-The newly created baseline needs to be reviewed and approved by a user. This can be done in the [Sauce Visual Builds](https://app.saucelabs.com/visual/builds) page. Once approved, see [Reviewing and Approving baselines](./review.md#reviewing-and-approving-baselines), the baseline is "locked" and will be used for all subsequent tests.
+The newly created baseline needs to be reviewed and approved by a user. This can be done in the [Sauce Labs Visual Builds](https://app.saucelabs.com/visual/builds) page. Once approved, see [Reviewing and Approving baselines](./review.md#reviewing-and-approving-baselines), the baseline is "locked" and will be used for all subsequent tests.
 
 ## Subsequent Test Executions
 
-As new tests are run, they are compared to the original baseline, with any deviations highlighted to signal visual changes. These comparisons are integral for detecting any unintended visual modifications early in your development cycle. All test builds, including the initial baseline and subsequent runs, can be monitored and managed through the Sauce Labs platform at [Sauce Visual Builds](https://app.saucelabs.com/visual/builds).
+As new tests are run, they are compared to the original baseline, with any deviations highlighted to signal visual changes. These comparisons are integral for detecting any unintended visual modifications early in your development cycle. All test builds, including the initial baseline and subsequent runs, can be monitored and managed through the Sauce Labs platform at [Sauce Labs Visual Builds](https://app.saucelabs.com/visual/builds).
 
 [Follow me to learn more](./review.md)
 

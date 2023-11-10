@@ -17,19 +17,19 @@ Access to this feature is currentlylimited to Enterprise customers as part of ou
 This guide requires an existing WebdriverIO project.<br />
 You can alternatively take a look to our [example repository](#example).
 
-Sauce Visual provides an integration with [WebdriverIO](https://webdriver.io/) through a service that you can add to any existing WebdriverIO project.
+Sauce Labs Visual provides an integration with [WebdriverIO](https://webdriver.io/) through a service that you can add to any existing WebdriverIO project.
 
-Sauce Visual adds new commands to the WebdriverIO's `browser` object:
+Sauce Labs Visual adds new commands to the WebdriverIO's `browser` object:
 
-- `browser.sauceVisualCheck()`: Takes a screenshot and send it to Sauce Visual for comparison.
+- `browser.sauceVisualCheck()`: Takes a screenshot and send it to Sauce Labs Visual for comparison.
 - `browser.sauceVisualResults()`: Waits for diff calculations to complete and returns a summary of results.
   See [Test results summary](#test-results-summary) for more details about summary format and sample usage.
 
 ## Quickstart
 
-### Step 1: Add Sauce Visual dependency
+### Step 1: Add Sauce Labs Visual dependency
 
-Install the Sauce Visual service in your current project.
+Install the Sauce Labs Visual service in your current project.
 
 ```sh
 npm install --save-dev @saucelabs/wdio-sauce-visual-service
@@ -86,7 +86,7 @@ Add a check to one of your tests:
 
 ### Step 4: Configure your Sauce Labs credentials
 
-Sauce Visual relies on environment variables for authentications.<br />
+Sauce Labs Visual relies on environment variables for authentications.<br />
 Both `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` need to be set prior starting your WebdriverIO job.
 
 Username and Access Key can be retrieved from https://app.saucelabs.com/user-settings.
@@ -98,7 +98,7 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 ### Step 5: Run the test
 
-Upon executing your tests for the first time under this step, a visual baseline is automatically created in our system. This baseline serves as the standard for all subsequent WebdriverIO tests. As new tests are run, they are compared to this original baseline, with any deviations highlighted to signal visual changes. These comparisons are integral for detecting any unintended visual modifications early in your development cycle. All test builds, including the initial baseline and subsequent runs, can be monitored and managed through the Sauce Labs platform at [Sauce Visual Builds](https://app.saucelabs.com/visual/builds).
+Upon executing your tests for the first time under this step, a visual baseline is automatically created in our system. This baseline serves as the standard for all subsequent WebdriverIO tests. As new tests are run, they are compared to this original baseline, with any deviations highlighted to signal visual changes. These comparisons are integral for detecting any unintended visual modifications early in your development cycle. All test builds, including the initial baseline and subsequent runs, can be monitored and managed through the Sauce Labs platform at [Sauce Labs Visual Builds](https://app.saucelabs.com/visual/builds).
 
 Remember, the baseline is established during the initial run, and any subsequent visual differences detected will be marked for review.
 
@@ -156,7 +156,7 @@ Example:
 
 #### Component-based ignored region
 
-Sauce Visual provides a way to ignore a list of components.
+Sauce Labs Visual provides a way to ignore a list of components.
 
 An ignored component can be a specific element from the page.
 
