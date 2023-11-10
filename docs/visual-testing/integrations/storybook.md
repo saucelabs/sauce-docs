@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 Access to this feature is currentlylimited to Enterprise customers as part of our commitment to providing tailored solutions. We are excited to announce that self-service access is under development and will be released shortly. Stay tuned!
 :::
 
-An extension for [Storybook's test-runner](https://github.com/storybookjs/test-runner) powered by [Jest](https://jestjs.io/) and [Playwright](https://playwright.dev/) to integrate effortless visual testing with Sauce Labs Visual.
+An extension for [Storybook's test-runner](https://github.com/storybookjs/test-runner) powered by [Jest](https://jestjs.io/) and [Playwright](https://playwright.dev/) to integrate effortless visual testing with Sauce Visual.
 
 ## Introduction
 
@@ -85,7 +85,7 @@ module.exports = {
 };
 ```
 
-5. Sauce Labs Visual relies on environment variables for authentications.<br />
+5. Sauce Visual relies on environment variables for authentications.<br />
    Both `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` need to be set prior starting your Storybook Testrunner job.
 
 Username and Access Key can be retrieved from https://app.saucelabs.com/user-settings.
@@ -114,7 +114,7 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 npx test-storybook
 ```
 
-7. Review your changes in the [Sauce Labs Visual Dashboard](https://app.saucelabs.com/visual/builds)!
+7. Review your changes in the [Sauce Visual Dashboard](https://app.saucelabs.com/visual/builds)!
 
 ## Customizing Your Builds (Environment Variables)
 
@@ -125,7 +125,7 @@ Below are the environment variables available in the visual-storybook plugin:
 | `SAUCE_USERNAME`        | required | Your Sauce Labs username. You can get this from the header of app.saucelabs.com                                                                                                                                                  |
 | `SAUCE_ACCESS_KEY`      | required | Your Sauce Labs access key. You can get this from the header of app.saucelabs.com                                                                                                                                                |
 | `SAUCE_REGION`          |          | The region you'd like to run your Visual tests in. Defaults to `us-west-1` if not supplied. Can be one of the following: <br/> `'eu-central-1'`, `'us-west-1'` or `'us-east-4'`                                                  |
-| `SAUCE_BUILD_NAME`      |          | The name you would like to appear in the Sauce Labs Visual dashboard. Defaults to 'Storybook Build'                                                                                                                              |
+| `SAUCE_BUILD_NAME`      |          | The name you would like to appear in the Sauce Visual dashboard. Defaults to 'Storybook Build'                                                                                                                                   |
 | `SAUCE_BRANCH_NAME`     |          | The branch name or tag you would like to associate this build with. We recommend using your current VCS branch in CI.                                                                                                            |
 | `SAUCE_PROJECT_NAME`    |          | The label / project you would like to associated this build with.                                                                                                                                                                |
 | `SAUCE_VISUAL_BUILD_ID` |          | For advanced users, a custom build ID. Can be used to create builds in advance. This can be used to parallelize tests, shard, or more. <br/> By default, this is not set and we create / finish a build during setup / teardown. |

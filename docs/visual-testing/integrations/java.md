@@ -17,17 +17,17 @@ Access to this feature is currentlylimited to Enterprise customers as part of ou
 This guide requires an existing Java JUnit / TestNG setup.<br />
 You can alternatively take a look to our [example repository](#examples).
 
-Sauce Labs Visual provides an library allowing integration with [WebDriver](https://www.selenium.dev/documentation/webdriver/).
+Sauce Visual provides an library allowing integration with [WebDriver](https://www.selenium.dev/documentation/webdriver/).
 
-Sauce Labs Visual plugin provides a library exposing a `VisualApi` object that provides actions:
+Sauce Visual plugin provides a library exposing a `VisualApi` object that provides actions:
 
-- `visual.sauceVisualCheck()`: Takes a screenshot and send it to Sauce Labs Visual for comparison.
+- `visual.sauceVisualCheck()`: Takes a screenshot and send it to Sauce Visual for comparison.
 - `visual.sauceVisualResults()`: Waits for all diff calculations to complete and returns a summary of results.
   See [Test results summary](#test-results-summary) for more details about summary format and sample usage.
 
 ## Quickstart
 
-### Step 1: Add Sauce Labs Visual dependecy
+### Step 1: Add Sauce Visual dependecy
 
 Add [Sauce Visual](https://central.sonatype.com/artifact/com.saucelabs.visual/java-client) dependency to your pom.xml
 
@@ -171,7 +171,7 @@ void checkLoginLooksTheSame() {
 
 ### Step 4: Configure your Sauce Labs credentials
 
-Sauce Labs Visual relies on environment variables for authentications.<br />
+Sauce Visual relies on environment variables for authentications.<br />
 Both `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` need to be set prior starting your Java job.
 
 Username and Access Key can be retrieved from https://app.saucelabs.com/user-settings.
@@ -183,7 +183,7 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 ### Step 5: Run the test
 
-Upon executing your tests for the first time under this step, a visual baseline is automatically created in our system. This baseline serves as the standard for all subsequent WebDriver tests. As new tests are run, they are compared to this original baseline, with any deviations highlighted to signal visual changes. These comparisons are integral for detecting any unintended visual modifications early in your development cycle. All test builds, including the initial baseline and subsequent runs, can be monitored and managed through the Sauce Labs platform at [Sauce Labs Visual Builds](https://app.saucelabs.com/visual/builds).
+Upon executing your tests for the first time under this step, a visual baseline is automatically created in our system. This baseline serves as the standard for all subsequent WebDriver tests. As new tests are run, they are compared to this original baseline, with any deviations highlighted to signal visual changes. These comparisons are integral for detecting any unintended visual modifications early in your development cycle. All test builds, including the initial baseline and subsequent runs, can be monitored and managed through the Sauce Labs platform at [Sauce Visual Builds](https://app.saucelabs.com/visual/builds).
 
 Remember, the baseline is established during the initial run, and any subsequent visual differences detected will be marked for review.
 
@@ -231,7 +231,7 @@ Example:
 
 #### Component-based ignored region
 
-Sauce Labs Visual provides a way to ignore a list of components.
+Sauce Visual provides a way to ignore a list of components.
 
 An ignored component can be a specific element from the page.
 
