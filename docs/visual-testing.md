@@ -92,7 +92,7 @@ A **build** has a status that represents its current state:
 | `Unapproved` | Changes have been detected and and action is needed                          |
 | `Approved`   | Changes have been detected and they have been approved                       |
 | `Rejected`   | Changes have been detected and they have been rejected                       |
-| `Errored`    | An error has occured                                                         |
+| `Errored`    | An error has occurred                                                        |
 
 #### Baseline
 
@@ -147,7 +147,7 @@ This means, that a baseline can only be considered for a diff if it existed befo
 
 Sauce Visual provides integrations with different kind of frameworks:
 
-- **E2E Testing** allows to navigate a website and capture snapshots anytime this is needed.
+- **E2E Testing** allows to navigate a website and capture snapshots any time this is needed.
 - **Component Testing** allows to test extensively all your components.
 
 <div className="box-wrapper" markdown="1">

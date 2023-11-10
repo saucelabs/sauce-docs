@@ -16,7 +16,7 @@ With Sauce Visual testing existing test suites can be enhanced with a few extra 
 
 Sauce Visual provides integrations with different kind of frameworks:
 
-- **E2E Testing** allows to navigate a website and capture snapshots anytime this is needed.
+- **E2E Testing** allows to navigate a website and capture snapshots any time this is needed.
 - **Component Testing** allows to test extensively all your components.
 
 <div className="box-wrapper" markdown="1">

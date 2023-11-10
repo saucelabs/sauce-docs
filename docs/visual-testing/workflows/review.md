@@ -46,9 +46,9 @@ Using this options will accept **all** snapshots and will use them as the new ba
 - all snapshots that don't have a baseline image, marked as "For Review".
 - all snapshots that have a baseline image where Sauce Visual detected a difference. These snapshots can only come from [Subsequent Test Executions](#subsequent-test-execution-review) and are also marked as "For Review".
 
-#### Accepts Only New
+#### Accept Only New
 
-Using this options will only accept all snapshots that **don't have a baseline image** (marked as "For Review"). If this happens during a [Subsequent Test Executions](#subsequent-test-execution-review) where we also detected visual differences, then we don't accept those snapshots.
+Using this option will only accept all snapshots that **don't have a baseline image** (marked as "For Review"). If this happens during a [Subsequent Test Executions](#subsequent-test-execution-review) where we also detected visual differences, then we don't accept those snapshots.
 
 ### Single Approve
 

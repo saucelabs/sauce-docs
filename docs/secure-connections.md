@@ -76,7 +76,7 @@ Sauce IPSec Proxy establishes a VPN connection between two IPSec gateways, and a
   <div className="box box1 card">
     <div className="container">
     <h3><a href="/secure-connections/ipsec-vpn">Using Sauce IPSec Tunnels</a></h3>
-    <p>The tunnel gateway is always on for the lifetime of the secure Sauce IPSec Proxy connection, allowing you to run secure and encrypted tests anytime in the Sauce Labs cloud.</p>
+    <p>The tunnel gateway is always on for the lifetime of the secure Sauce IPSec Proxy connection, allowing you to run secure and encrypted tests any time in the Sauce Labs cloud.</p>
     </div>
   </div>
 
