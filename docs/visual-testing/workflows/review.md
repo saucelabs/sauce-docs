@@ -30,7 +30,8 @@ Subsequent Test Executions can also generate new baseline snapshots. This can ha
 - The metadata, that is used for [Baseline Matching](../../visual-testing.md#baseline-matching), changes. For example, when you change viewport size.
 - New configurations are added to the test execution. For example, when you add a new browser or viewport size.
 - New snapshots are added to the test execution. For example, when you add a new test case.
-  :::
+
+:::
 
 ### Bulk Approve
 
