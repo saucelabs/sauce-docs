@@ -8,12 +8,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Virtual USB (vUSB) is a mobile (app) debugging tool that simulates connecting a Sauce Labs real device directly to your local machine with a USB cable. It integrates into your development environment as if the device is connected directly to your workstation, meaning you can use your choice of homegrown development and testing tools to debug.
+Virtual USB (vUSB) is a mobile (app) debugging tool that simulates connecting a Sauce Labs real device directly to your local machine/test runner host. 
+It integrates into your development and test environment, meaning you can use your choice of homegrown development and testing tools to debug.
 
-- Build and deploy apps directly from any IDE (e.g., Android Studio, Xcode).
-- Make the most out of your early stage development.
-- Use a mix of live and automated testing as it fits your use case.
-- Monitor device performance metrics such as CPU consumption, device memory, and network data performance (depending on what the IDE/your tools offer).
+- Make the most out of your early-stage development or inhouse built testing solution.
+- Use a mix of manual and automated testing as it fits your use case.
+- Run non-traditional automation frameworks.
+- Run adb commands on Android devices.
+- Monitor device performance metrics such as CPU consumption, device memory, and network data performance. 
 - Interact with your app manually in a live test session using browser-based developer tools (e.g., Chrome DevTools, Safari Web Inspector).
 
 ## What You'll Need
@@ -29,7 +31,7 @@ Virtual USB (vUSB) is a mobile (app) debugging tool that simulates connecting a 
 - A mobile native app or web app.
 - If you're testing an iOS app:
   - macOS or Linux required (not supported for Windows).
-  - Have Xcode installed (macOS only).
+  - Have Xcode command line tools installed (macOS only).
 - If you're testing an Android app:
   - Android Debug Bridge (ADB) version higher than 1.0.39.
   - Android Studio 4 or higher.
@@ -43,7 +45,7 @@ See [Virtual USB CLI Reference](/dev/cli/virtual-usb.md) for a full list of vUSB
 
 ### Download Client
 
-1. Click below to download the latest Virtual USB client to your local machine where you have your IDE installed/set up.
+1. Click below to download the latest Virtual USB client to your local machine where you have your command line tools and test enginees installed/set up.
 
   <p> <a href="https://saucelabs-vusb.s3.eu-west-1.amazonaws.com/v2.0.6/virtual-usb-client-2.0.6.jar"><button class="download">Download Virtual USB 2.0.6</button></a> </p>
 
@@ -69,7 +71,7 @@ As a reminder, vUSB only works on private devices (marked with a <img src={useBa
 
 4. On your local machine, launch a command line terminal window and use `cd` to navigate to the folder where you downloaded the vUSB client.
 
-5. In your terminal, enter the [`server`](/dev/cli/virtual-usb/start-server) command, followed by `--datacenter US` or `--datacenter EU`, to specify the Sauce Labs U.S. or E.U. Data Center. This establishes the connection from your local machine to our Real Device Cloud, where your private devices are hosted.
+5. In your terminal, enter the [`server`](/dev/cli/virtual-usb/start-server) command, followed by `--datacenter US`,  `--datacenter EU` or `--datacenter US_east` to specify the Sauce Labs xxU.S. or E.U. Data Center. This establishes the connection from your local machine to our Real Device Cloud, where your private devices are hosted.
 
 ```java
 java -jar virtual-usb-client.jar server --datacenter US

@@ -57,7 +57,7 @@ let's assume it is `registry.example.com/your-private-registry/`. Now you need t
 and use it together with created environment variables to login to your registry:
 
 ```bash
-echo $DOCKER_PASSWORD | docker login --username $DOCKER_LOGIN --password-stdin registry.example.com
+echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin registry.example.com
 ```
 
 Once you're logged in, you can run any docker commands related to the registry as you'd normally do.

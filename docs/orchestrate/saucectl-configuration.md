@@ -84,25 +84,6 @@ saucectl run --ccy 5
 
 ---
 
-### `retries`
-
-<p><small>| OPTIONAL | INTEGER |</small></p>
-
-Sets the number of times to retry a failed suite. For more settings, you can refer to [passThreshold](#passThreshold).
-
-```yaml
-sauce:
-  retries: 1
-```
-
-Alternatively, you can override the file setting at runtime by setting the retries flag as an inline parameter of the `saucectl run` command:
-
-```bash
-saucectl run --retries 1
-```
-
----
-
 ### `tunnel`
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
@@ -170,6 +151,7 @@ The set of properties providing details about the test suites to run. May contai
 The name of the test suite, which will be reflected in the results and related artifacts.
 
 ```yaml
+suites:
   - name: "saucy test"
 ```
 
@@ -182,7 +164,9 @@ The name of the test suite, which will be reflected in the results and related a
 Tell Sauce Orchestrate what kind of entrypoint process you are running. `workload` is important for security monitoring. Options are `webdriver` or `other`. For most configurations `webdriver` is required.
 
 ```yaml
-workload: webdriver
+suites:
+  - name: "saucy test"
+    workload: webdriver
 ```
 ---
 
@@ -208,7 +192,9 @@ suites:
 The location of your container image. Takes the format [registry]/[image]:[tag].
 
 ```yaml
-image: saucelabs/sl-demo-docker-primary:0.0.1
+suites:
+  - name: "saucy test"
+    image: saucelabs/sl-demo-docker-primary:0.0.1
 ```
 
 ### `imagePullAuth`
@@ -218,9 +204,12 @@ image: saucelabs/sl-demo-docker-primary:0.0.1
 The credentials needed to access an image hosted in a private registry. It is highly recommend to not hardcode credentials in your `saucectl` config. Use environment variables instead.
 
 ```yaml
-imagePullAuth:
-  user: $DOCKER_USERNAME
-  token: $DOCKER_PASSWORD
+suites:
+  - name: "saucy test"
+    image: saucelabs/sl-demo-docker-primary:0.0.1
+    imagePullAuth:
+      user: $DOCKER_USERNAME
+      token: $DOCKER_PASSWORD
 ```
 
 ### `entrypoint`
@@ -230,7 +219,10 @@ imagePullAuth:
 The command that is executed after the container is ready.
 
 ```yaml
-entrypoint: mvn test
+suites:
+  - name: "saucy test"
+    image: saucelabs/sl-demo-docker-primary:0.0.1
+    entrypoint: mvn test
 ```
 
 ### `files`
@@ -240,9 +232,12 @@ entrypoint: mvn test
 Files to be uploaded onto the container. Can be used for populating test data that your scripts access. src and dst must be an absolute path.
 
 ```yaml
-files:
-  - src: "runsauce.json"
-    dst: "/workdir/runsauce.json"
+suites:
+  - name: "saucy test"
+    image: saucelabs/sl-demo-docker-primary:0.0.1
+    files:
+      - src: "runsauce.json"
+        dst: "/workdir/runsauce.json"
 ```
 
 ### `env`
@@ -252,8 +247,10 @@ files:
 Environment variables to be injected into the container. Can be used for populating secrets used in your tests. These environment variables are not stored anywhere in Sauce Labs.
 
 ```yaml
-env:
-  KEY: value
+suites:
+  - name: "saucy test"
+    env:
+      KEY: value
 ```
 
 :::note
@@ -371,6 +368,78 @@ Specifies the path to the folder location in which to download artifacts. A sepa
 artifacts:
   download:
     directory: ./artifacts/
+```
+
+---
+
+## `reporters`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Configures additional reporting capabilities provided by `saucectl`.
+
+```yaml
+reporters:
+  json:
+    enabled: true
+    filename: saucectl-report.json
+```
+---
+
+### `json`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+The JSON reporter creates a single report of all executed saucectl suites.
+
+```yaml
+reporters:
+  json:
+    enabled: true
+    filename: saucectl-report.json
+    webhookURL: https://my-webhook-url
+```
+
+---
+
+#### `enabled`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Toggles the reporter on/off.
+
+```yaml
+reporters:
+  json:
+    enabled: true
+```
+
+---
+
+#### `webhookURL`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST with a JSON payload to the configured webhook URL.
+
+```yaml
+reporters:
+  json:
+    webhookURL: https://my-webhook-url
+```
+
+---
+
+#### `filename`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the report filename. Defaults to "saucectl-report.json".
+
+```yaml
+reporters:
+  json:
+    filename: my-saucectl-report.json
 ```
 
 ---
