@@ -9,12 +9,68 @@ import TabItem from '@theme/TabItem';
 # Review Workflow
 
 The review workflow happens in the [Sauce UI](https://app.saucelabs.com/visual/).
-Its purpose is to review results and define new baseline snapshots.
+Its purpose is to define new baseline snapshots and review diffing results.
 
 Every execution of the [test execution workflow](./test-execution.md) generates a "Visual Build".
 For many integrations, there will also be at least one automated job that generated the snapshots for the "Visual Build".
 
-**Note:** A "Visual Build" is currently not related to builds of automated jobs.
+<img src={useBaseUrl('/img/sauce-visual/build-row.jpg')} alt="Build row"/>
+
+:::note
+A "Visual Build" is currently not related to builds of automated jobs. We are working on a solution to make this more clear.
+:::
+
+## Reviewing and Approving baselines
+
+The first time you run a test, a baseline is automatically created in our system and will be marked as ["For Review"](#visual-statuses). This baseline serves as the standard for all subsequent tests and matches based on the metadata as described in the [Baseline Matching](../../visual-testing.md#baseline-matching) and must be reviewed and approved by a user.
+
+:::note
+Subsequent Test Executions can also generate new baseline snapshots. This can happen when:
+
+- The metadata, that is used for [Baseline Matching](../../visual-testing.md#baseline-matching), changes. For example, when you change viewport size.
+- New configurations are added to the test execution. For example, when you add a new browser or viewport size.
+- New snapshots are added to the test execution. For example, when you add a new test case.
+  :::
+
+### Bulk Approve
+
+You can bulk approve all the snapshots in a build by clicking on the "More options"-button, see below.
+
+<img src={useBaseUrl('/img/sauce-visual/build-bulk-accept.jpg')} alt="Build overview bulk accepts"/>
+
+#### Accept All
+
+Using this options will accept **all** snapshots and will use them as the new baseline. The following snapshot statuses will be affected:
+
+- all snapshots that don't have a baseline image, marked as "For Review".
+- all snapshots that have a baseline image where Sauce Visual detected a difference. These snapshots can only come from [Subsequent Test Executions](#subsequent-test-execution-review) and are also marked as "For Review".
+
+#### Accepts Only New
+
+Using this options will only accept all snapshots that **don't have a baseline image** (marked as "For Review"). If this happens during a [Subsequent Test Executions](#subsequent-test-execution-review) where we also detected visual differences, then we don't accept those snapshots.
+
+### Single Approve
+
+You can also review and approve a single snapshot by clicking on the Build-row. This will take you to the Build Details page where you can review and approve the snapshots by using the "Accept" button.
+
+<img src={useBaseUrl('/img/sauce-visual/build-details-single-baseline.jpg')} alt="Review and approve a single baseline images"/>
+
+If you have more than one baseline image, and you accept one, you will automatically be taken to the next one. This will continue until you have reviewed and approved all the baseline images.
+
+There is also an option to reject the snapshot. This will mark the snapshot as "Rejected" and will not be used as a baseline. A subsequent test execution will then generate a new baseline snapshot which needs to be reviewed and approved.
+
+More information about reviewing and approving diffs can be found in [Subsequent Test Execution Review](#subsequent-test-execution-review).
+
+## Subsequent Test Execution Review
+
+Every subsequent test execution will generate a new "Visual Build" and will be marked as ["For Review"](#visual-statuses). This is because:
+
+- a new baseline snapshot could be generated for the new test execution, see also [Reviewing and Approving Baselines](#reviewing-and-approving-baselines) and [Accept Only New](#accept-only-new).
+- you need to review the visual differences between the new snapshot and the previously approved baseline snapshot.
+
+The process of reviewing and approving the visual differences is the same as described in [Reviewing and Approving Baselines](#reviewing-and-approving-baselines).
+
+The user interface including the actions you can take are described in [User Interface](#user-interface).
 
 ## User Interface
 

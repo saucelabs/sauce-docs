@@ -46,7 +46,7 @@ Alternatively, [check out our examples](../../visual-testing.md#examples).
 
 Upon executing your tests for the first time, a visual baseline is automatically created in our system. This baseline serves as the standard for all subsequent tests and matches based on the metadata as described in the [Baseline Matching](../../visual-testing.md#baseline-matching).
 
-The newly created baseline needs to be reviewed and approved by a user. This can be done in the [Sauce Labs Visual Builds](https://app.saucelabs.com/visual/builds) page. Once approved, see [Approving and Reviewing baselines](./review.md), the baseline is "locked" and will be used for all subsequent tests.
+The newly created baseline needs to be reviewed and approved by a user. This can be done in the [Sauce Labs Visual Builds](https://app.saucelabs.com/visual/builds) page. Once approved, see [Reviewing and Approving baselines](./review.md#reviewing-and-approving-baselines), the baseline is "locked" and will be used for all subsequent tests.
 
 ## Subsequent Test Executions
 
