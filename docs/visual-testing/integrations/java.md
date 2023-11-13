@@ -90,6 +90,44 @@ public static void init() {
   </TabItem>
 </Tabs>
 
+To enhance efficiency in managing tests, it's important to provide a specific test name and suite name for each test. This practice allows our visual product to effectively organize snapshots into coherent groups. As a result, it simplifies the review process, saving time and effort in navigating through test results and understanding the context of each snapshot.
+
+Moreover, our Java Binding offers an automated solution to this process. By integrating the following code snippets into your tests, the Java Binding can automatically assign appropriate test names and suite names, streamlining your testing workflow.
+
+<Tabs
+defaultValue="JUnit"
+  values={[
+    {label: 'JUnit', value: 'JUnit'},
+    {label: 'TestNG', value: 'TestNG'},
+  ]}>
+<TabItem value="JUnit">
+
+```java
+import com.saucelabs.visual.junit5.TestMetaInfoExtension;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+@ExtendWith({TestMetaInfoExtension.class})
+public class MyJunitTestClass {
+    ...
+}
+```
+
+  </TabItem>
+  <TabItem value="TestNG">
+
+```java
+import com.saucelabs.visual.testng.TestMetaInfoListener;
+import org.testng.annotations.Listeners;
+
+@Listeners({TestMetaInfoListener.class})
+public class MyTestNGTestClass {
+    ...
+}
+```
+
+  </TabItem>
+</Tabs>
+
 Don't forget to quit the WebDriver
 <Tabs
 defaultValue="JUnit"
