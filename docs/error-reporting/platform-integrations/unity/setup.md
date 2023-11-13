@@ -30,9 +30,13 @@ The Backtrace Unity SDK reports on the following types of errors:
 | Supported Platforms | Supported Systems                                                                     |
 | ------------------- | ------------------------------------------------------------------------------------- |
 | Mobile              | Android, iOS                                                                          |
-| PC                  | Windows, MacOS                                                                        |
+| PC                  | Windows, MacOS*                                                                       |
 | Web                 | WebGL                                                                                 |
 | Game Consoles       | PlayStation 4, PlayStation 5, Xbox One, Xbox Series X, Nintendo Switch.               |
+
+:::note
+Native Crashes on MacOS are not supported via backtrace-unity.
+:::
 
 :::note
 Native Crashes on PlayStation and Nintendo Switch are captured via Backtrace Data Sources, which connect to the vendor provided crash reporting server. Native Crashes on Xbox can be captured by installing an additional dynamic link library (DLL) for Backtrace-Unity. Reach out to your Xbox partner manager to verify developer status with Sauce Labs Backtrace.
