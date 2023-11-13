@@ -22,6 +22,8 @@ Sauce Visual provides an integration with [Cypress](https://cypress.io) through 
 Sauce Visual introduce a new Cypress command:
 
 - `cy.sauceVisualCheck()`: Takes a screenshot and send it to Sauce Visual for comparison.
+- `cy.sauceVisualResults()`: Waits for diff calculations to complete and returns a summary of results.
+  See [Test results summary](#test-results-summary) for more details about summary format and sample usage.
 
 :::note Important
 Running Cypress tests on Sauce Labs requires SauceCTL to be installed and configured.
@@ -97,6 +99,32 @@ Upon executing your tests for the first time under this step, a visual baseline 
 Remember, the baseline is established during the initial run, and any subsequent visual differences detected will be marked for review.
 
 ## Advanced usage
+
+### Test results summary
+
+`cy.sauceVisualResults()` returns a summary of test results in format:
+
+```ts
+{
+    QUEUED: number; // Diffs that are pending for processing. Should be 0 in case the test is completed without any timeouts
+    EQUAL: number; // Diffs that have no changes detected
+    UNAPPROVED: number; // Diffs that have detected changes and waiting for action
+    APPROVED: number; // Diffs that have detected changes and have been approved
+    REJECTED: number; // Diffs that have detected changes and have been rejected
+}
+```
+
+Sample output:
+
+```ts
+{ APPROVED: 0, EQUAL: 0, UNAPPROVED: 2, REJECTED: 0, QUEUED: 0 }
+```
+
+Sample usage:
+
+```ts
+cy.sauceVisualResults().its("UNAPPROVED").should("eq", EXPECTED_UNAPPROVED_DIFFS);
+```
 
 ### Build name
 
