@@ -31,11 +31,11 @@ The Backtrace Unity SDK reports on the following types of errors:
 | ------------------- | ------------------------------------------------------------------------------------- |
 | Mobile              | Android, iOS                                                                          |
 | PC                  | Windows, MacOS*                                                                       |
-| Web                 | WebGL                                                                                 |
+| Web                 | WebGL*                                                                                |
 | Game Consoles       | PlayStation 4, PlayStation 5, Xbox One, Xbox Series X, Nintendo Switch.               |
 
 :::note
-Native Crashes on MacOS are not supported via backtrace-unity.
+Native Crashes on MacOS and WeBGL are not supported via backtrace-unity.
 :::
 
 :::note
