@@ -90,7 +90,9 @@ public static void init() {
   </TabItem>
 </Tabs>
 
-Report test name and suite name per test
+To enhance efficiency in managing tests, it's important to provide a specific test name and suite name for each test. This practice allows our visual product to effectively organize snapshots into coherent groups. As a result, it simplifies the review process, saving time and effort in navigating through test results and understanding the context of each snapshot.
+
+Moreover, our Java Binding offers an automated solution to this process. By integrating the following code snippets into your tests, the Java Binding can automatically assign appropriate test names and suite names, streamlining your testing workflow.
 
 <Tabs
 defaultValue="JUnit"
