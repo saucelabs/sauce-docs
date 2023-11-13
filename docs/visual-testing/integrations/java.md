@@ -90,6 +90,42 @@ public static void init() {
   </TabItem>
 </Tabs>
 
+Report test name and suite name per test
+
+<Tabs
+defaultValue="JUnit"
+  values={[
+    {label: 'JUnit', value: 'JUnit'},
+    {label: 'TestNG', value: 'TestNG'},
+  ]}>
+<TabItem value="JUnit">
+
+```java
+import com.saucelabs.visual.junit5.TestMetaInfoExtension;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+@ExtendWith({TestMetaInfoExtension.class})
+public class MyJunitTestClass {
+    ...
+}
+```
+
+  </TabItem>
+  <TabItem value="TestNG">
+
+```java
+import com.saucelabs.visual.testng.TestMetaInfoListener;
+import org.testng.annotations.Listeners;
+
+@Listeners({TestMetaInfoListener.class})
+public class MyTestNGTestClass {
+    ...
+}
+```
+
+  </TabItem>
+</Tabs>
+
 Don't forget to quit the WebDriver
 <Tabs
 defaultValue="JUnit"
