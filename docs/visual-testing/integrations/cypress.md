@@ -123,7 +123,9 @@ Sample output:
 Sample usage:
 
 ```ts
-cy.sauceVisualResults().its("UNAPPROVED").should("eq", EXPECTED_UNAPPROVED_DIFFS);
+const EXPECTED_TOTAL_UNAPPROVED_DIFFS = 0;
+
+cy.sauceVisualResults().its("UNAPPROVED").should("eq", EXPECTED_TOTAL_UNAPPROVED_DIFFS);
 ```
 
 ### Build name

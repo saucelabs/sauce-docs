@@ -35,7 +35,7 @@ Add [Sauce Visual](https://central.sonatype.com/artifact/com.saucelabs.visual/ja
 <dependency>
   <groupId>com.saucelabs.visual</groupId>
   <artifactId>java-client</artifactId>
-  <version>0.3.121</version>
+  <version>0.3.134</version>
   <scope>test</scope>
 </dependency>
 ```
@@ -240,6 +240,8 @@ Remember, the baseline is established during the initial run, and any subsequent
 Sample usage:
 
 ```java
+    var EXPECTED_TOTAL_UNAPPROVED_DIFFS = 0;
+
     assertEquals(visual.sauceVisualResults().get(DiffStatus.UNAPPROVED), EXPECTED_TOTAL_UNAPPROVED_DIFFS);
 ```
 
@@ -302,7 +304,7 @@ Example:
   Options options = new Options();
   IgnoreRegion ignoreRegion = new IgnoreRegion(
     100, // x
-    100  // y
+    100,  // y
     200, // width
     200, // height
   );

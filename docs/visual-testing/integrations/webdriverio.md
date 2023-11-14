@@ -127,6 +127,8 @@ Sample output:
 Sample usage:
 
 ```ts
+const EXPECTED_TOTAL_UNAPPROVED_DIFFS = 0;
+
 expect((await browser.sauceVisualResults()).UNAPPROVED).toBe(EXPECTED_TOTAL_UNAPPROVED_DIFFS);
 ```
 
