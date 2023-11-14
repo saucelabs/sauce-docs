@@ -1584,7 +1584,36 @@ module.exports = {
 
         {
             type: 'category',
-            label: 'Visual',
+            label: 'Visual (NEW)',
+            collapsed: true,
+            items: [
+                'visual-testing',
+                {
+                    type: 'category',
+                    label: 'Workflows',
+                    collapsed: true,
+                    items: [
+                        'visual-testing/workflows/test-execution',
+                        'visual-testing/workflows/review',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Integrations',
+                    collapsed: true,
+                    items: [
+                        'visual-testing/integrations/cypress',
+                        'visual-testing/integrations/java',
+                        'visual-testing/integrations/storybook',
+                        'visual-testing/integrations/webdriverio',
+                    ],
+                },
+                'visual-testing/faq',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Screener',
             collapsed: true,
             items: [
                 'visual',

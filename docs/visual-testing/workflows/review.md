@@ -1,35 +1,79 @@
 ---
-id: sauce-visual
-title: Sauce Visual Testing
-sidebar_label: Getting Started
+sidebar_label: Review
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Introduction
+# Review Workflow
 
-Sauce Visual helps you compare uploaded images (snapshots) against reference images (baselines). It offers APIs to upload snapshots and compare them against baselines. The result of the comparison process includes the details of any detected differences. All snapshots in Sauce Visual need to be assigned to visual builds.
+The review workflow happens in the [Sauce UI](https://app.saucelabs.com/visual/).
+Its purpose is to define new baseline snapshots and review diffing results.
 
-## Workflow
+Every execution of the [test execution workflow](./test-execution.md) generates a "Visual Build".
+For many integrations, there will also be at least one automated job that generated the snapshots for the "Visual Build".
 
-To benefit from Sauce Visual, you typically add it to your existing automated tests using provided libraries. We provide bindings for:
+<img src={useBaseUrl('/img/sauce-visual/build-row.jpg')} alt="Build row"/>
 
-- JavaScript/TypeScript
-- Java
+:::note
+A "Visual Build" is currently not related to builds of automated jobs. We are working on a solution to make this more clear.
+:::
 
-You can use those standalone or with your Selenium/Appium-based tests. Support for other frameworks like Cypress, StoryBooks, and Playwright is on the Roadmap.
+## Reviewing and Approving baselines
 
-The best way to integrate Sauce Visual into your existing tests (or write new ones) is to follow the examples listed [in the Visual example repository](https://github.com/saucelabs/visual-examples).
+The first time you run a test, a baseline is automatically created in our system and will be marked as ["For Review"](#visual-statuses). This baseline serves as the standard for all subsequent tests and matches based on the metadata as described in the [Baseline Matching](../../visual-testing.md#baseline-matching) and must be reviewed and approved by a user.
 
-After you have executed your tests, you will get the URL to the build in the command line. You can also find your Visual test results on the Builds History Page.
+:::note
+Subsequent Test Executions can also generate new baseline snapshots. This can happen when:
 
-<img src={useBaseUrl('/img/sauce-visual/BuildHistoryPage.png')} alt="Diff History Page"/>
+- The metadata, that is used for [Baseline Matching](../../visual-testing.md#baseline-matching), changes. For example, when you change viewport size.
+- New configurations are added to the test execution. For example, when you add a new browser or viewport size.
+- New snapshots are added to the test execution. For example, when you add a new test case.
 
-Each Build has an overall status, which is the summary of all the diffs captured within it, along with the build metadata. On the right side, there is a build progress bar, which lets you check at a glance how many diffs need review, are approved, or are rejected.
+:::
 
-## Reviewing Diffs
+### Bulk Approve
+
+You can bulk approve all the snapshots in a build by clicking on the "More options"-button, see below.
+
+<img src={useBaseUrl('/img/sauce-visual/build-bulk-accept.jpg')} alt="Build overview bulk accepts"/>
+
+#### Accept All
+
+Using this options will accept **all** snapshots and will use them as the new baseline. The following snapshot statuses will be affected:
+
+- all snapshots that don't have a baseline image, marked as "For Review".
+- all snapshots that have a baseline image where Sauce Visual detected a difference. These snapshots can only come from [Subsequent Test Executions](#subsequent-test-execution-review) and are also marked as "For Review".
+
+#### Accept Only New
+
+Using this option will only accept all snapshots that **don't have a baseline image** (marked as "For Review"). If this happens during a [Subsequent Test Executions](#subsequent-test-execution-review) where we also detected visual differences, then we don't accept those snapshots.
+
+### Single Approve
+
+You can also review and approve a single snapshot by clicking on the Build-row. This will take you to the Build Details page where you can review and approve the snapshots by using the "Accept" button.
+
+<img src={useBaseUrl('/img/sauce-visual/build-details-single-baseline.jpg')} alt="Review and approve a single baseline images"/>
+
+If you have more than one baseline image, and you accept one, you will automatically be taken to the next one. This will continue until you have reviewed and approved all the baseline images.
+
+There is also an option to reject the snapshot. This will mark the snapshot as "Rejected" and will not be used as a baseline. A subsequent test execution will then generate a new baseline snapshot which needs to be reviewed and approved.
+
+More information about reviewing and approving diffs can be found in [Subsequent Test Execution Review](#subsequent-test-execution-review).
+
+## Subsequent Test Execution Review
+
+Every subsequent test execution will generate a new "Visual Build" and will be marked as ["For Review"](#visual-statuses). This is because:
+
+- a new baseline snapshot could be generated for the new test execution, see also [Reviewing and Approving Baselines](#reviewing-and-approving-baselines) and [Accept Only New](#accept-only-new).
+- you need to review the visual differences between the new snapshot and the previously approved baseline snapshot.
+
+The process of reviewing and approving the visual differences is the same as described in [Reviewing and Approving Baselines](#reviewing-and-approving-baselines).
+
+The user interface including the actions you can take are described in [User Interface](#user-interface).
+
+## User Interface
 
 Selecting one of the builds allows you to get to the Diff Review Page, where you can Approve or Reject detected diffs.
 
@@ -79,45 +123,3 @@ Visual uses different statuses:
 | For Review  | There were either no baselines available to compare against your uploaded snapshot or some were different from their baselines. You are supposed to review those detected diffs. As long as those changes aren't accepted, they are considered a failure state. |
 | Accepted    | All detected changes were accepted. This is considered a success state.                                                                                                                                                                                         |
 | Rejected    | Some of your detected changes were rejected. This is considered a failure state.                                                                                                                                                                                |
-
-## Baseline Matching
-
-A baseline is what a snapshot is compared to.
-
-For a new snapshot, the matching baseline is found based on the following properties:
-
-- `name`
-- `testName`
-- `suiteName`
-- `browser`
-- `operatingSystem`
-- `operatingSystemVersion`
-- `viewportWidth`
-- `viewportHeight`
-- `project`
-- `branch`
-- `device`
-
-If multiple baselines match, the most recent one is selected for diff computation.
-
-Note that not all properties are exposed on all testing frameworks.
-In these cases, a default value (0, null or empty string) is used.
-
-The matching process happens as part of the snapshot creation (`createSnapshot` in the API).
-This means, that a baseline can only be considered for a diff if it existed before the `createSnapshot` call.
-
-## API
-
-Sauce Visual offers a public GraphQL API, which can be used to understand the available feature set and to generate client bindings from them. The public API can be found at the following URLs:
-
-:::note
-
-Ensure to use the appropriate API URL based on your [Data Center location](/basics/data-center-endpoints/)
-
-:::
-
-| Data Center | API URL                                                  |
-| ----------- | -------------------------------------------------------- |
-| US West     | https://api.us-west-1.saucelabs.com/v1/visual/graphql    |
-| US East     | https://api.us-east-4.saucelabs.com/v1/visual/graphql    |
-| EU Central  | https://api.eu-central-1.saucelabs.com/v1/visual/graphql |
