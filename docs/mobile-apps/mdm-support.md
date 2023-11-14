@@ -47,16 +47,15 @@ While our MDM support offers a robust framework for device management, certain l
 
 - **Sauce-Specific MDM Policy** - You should create a Sauce-specific MDM policy, emphasizing different requirements to be lowered or disabled.
 - **The following restrictions need to be removed**:
-  - USB drives not accessible in Files app
-  - Phone auto unlock not allowed
-  - USB accessories while locked not allowed
-  - Remote screen observation not allowed
-  - Installing apps from device not allowed
-  - Installing configuration profiles not allowed
-  - Changing account settings not allowed
-  
+  - USB drives not accessible in Files app (remove)
+  - Phone auto unlock not allowed (remove)
+  - USB accessories while locked not allowed (remove)
+  - Remote screen observation not allowed (remove)
+  - Installing apps from device not allowed (remove)
+  - Installing configuration profiles not allowed (remove)
+  - Changing account settings not allowed (remove)
 - **Passcode Lock and Setup** - Enforcing passcode lock or device setup is not supported.
 - **Supervised device mode** - Enabling supervised mode on the devices is not supported.
-- **USB Data Transfer**- Maintain USB data transfer functionality for efficient interactions.
-- **Screen Recording**- We recommend that the screen recording feature is enabled.
+- **USB Data Transfer**- USB file and data transfer needs to be enabled.
+- **Screen Recording**- Allowing screen-recording and screenshots need to be enabled.
 - **Application Installation** - Enable installation of applications to the device.
