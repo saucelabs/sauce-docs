@@ -56,7 +56,9 @@ export default defineConfig({
   e2e: {
     [...]
     setupNodeEvents(on, config) {
+      ...
       CypressSauceVisual.register(on, config);
+      ...
     },
   },
 })
