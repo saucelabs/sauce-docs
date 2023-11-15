@@ -66,7 +66,7 @@ module.exports = {
   // The default configuration comes from @storybook/test-runner
   ...getJestConfig(),
   // The configuration for Sauce Lab's Visual Integration
-  ...getVisualTestConfig({}),
+  ...getVisualTestConfig(),
   /** Add your own overrides below
    * @see https://jestjs.io/docs/configuration
    * @see https://github.com/playwright-community/jest-playwright#configuration
@@ -145,7 +145,7 @@ module.exports = {
   // The default configuration comes from @storybook/test-runner
   ...getJestConfig(),
   // The configuration for Sauce Lab's Visual Integration
-  ...getVisualTestConfig({}),
+  ...getVisualTestConfig(),
   /** Add your own overrides below
    * @see https://jestjs.io/docs/configuration
    * @see https://github.com/playwright-community/jest-playwright#configuration
