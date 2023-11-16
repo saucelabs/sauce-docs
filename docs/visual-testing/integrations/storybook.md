@@ -35,6 +35,16 @@ This package leverage's Storybook's test-runner and metadata generation system f
 npm i --save-dev @saucelabs/visual-storybook
 ```
 
+:::note
+
+If you don't have Playwright as a dev dependency in your project, you'll need to install it as well:
+
+```sh
+npm i --save-dev playwright
+```
+
+:::
+
 3. Eject your test-runner config and append the Sauce Visual storybook configuration:
 
 :::note
