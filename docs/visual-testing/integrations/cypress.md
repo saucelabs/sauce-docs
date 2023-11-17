@@ -67,7 +67,7 @@ export default defineConfig({
 - Register Sauce Visual for Cypress commands. Add the following line in your `cypress/support/e2e.ts`:
 
 ```ts
-import '@saucelabs/cypress-visual-plugin/commands';
+import '@saucelabs/cypress-visual-plugin/build/commands';
 ```
 
 ### Step 3: Add visual tests in your project:
