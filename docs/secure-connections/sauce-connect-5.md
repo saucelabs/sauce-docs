@@ -5,7 +5,7 @@ sidebar_label: Overview
 ---
 
 :::info
-Sauce Connect Proxy 5 release is currently in the Beta stage, some changes are expected.
+Sauce Connect Proxy 5 release is currently in the Beta stage, some changes are expected. Real Devices are not currently supported but support is expected Q4 '23 at the earliest.
 :::
 
 Sauce Connect Proxy 5 is a complete rewrite of Sauce Connect Proxy 4.x.x that aims to improve observability, performance, and user experience and provide a strong foundation for future improvements.
