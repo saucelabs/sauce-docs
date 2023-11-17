@@ -295,7 +295,7 @@ Setting this to `direct` sends requests to `localhost` directly without using th
 **Shorthand**: `-D`
 
 ```bash
---tls-passthrough-domains .*\.example\.com,.*google\.com,mycompany\.com
+--direct-domains .*\.example\.com,.*google\.com,mycompany\.com
 ```
 
 ---
