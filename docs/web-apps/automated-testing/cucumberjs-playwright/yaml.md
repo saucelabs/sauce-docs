@@ -126,7 +126,7 @@ sauce:
 Specifies through which Sauce Labs data center tests will run. Valid values are: `us-west-1` or `eu-central-1`.
 
 :::note
-`region` is mandatory and should be set either in the Sauce Config file or by using the `--region` flag.
+If you do not specify a region in your config file, you must set it when running your command with the `--region` flag.
 :::
 
 ```yaml

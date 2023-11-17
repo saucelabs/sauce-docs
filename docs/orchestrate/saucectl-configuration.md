@@ -45,7 +45,7 @@ kind: imagerunner
 The parent property containing all settings related to how tests are run and identified in the Sauce Labs platform.
 
 :::note
-`region` is mandatory and should be set either in the Sauce Config file or by using the `--region` flag.
+If you do not specify a region in your config file, you must set it when running your command with the `--region` flag.
 :::
 
 ```yaml
