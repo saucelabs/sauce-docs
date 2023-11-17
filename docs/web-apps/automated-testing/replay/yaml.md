@@ -120,6 +120,10 @@ sauce:
 
 Specifies on which Sauce Labs data center jobs will run. Valid values are: `us-west-1` or `eu-central-1`.
 
+:::note
+`region` is mandatory and should be set either in the Sauce Config file or by using the `--region` flag.
+:::
+
 ```yaml
 sauce:
   region: eu-central-1
