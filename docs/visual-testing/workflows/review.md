@@ -35,24 +35,70 @@ Subsequent Test Executions can also generate new baseline snapshots. This can ha
 
 ### Bulk Approve
 
-You can bulk approve all the snapshots in a build by clicking on the "More options"-button, see below.
+You can bulk approve all the snapshots in a build by clicking on the "More options"-button from the "Build"-page
 
-<img src={useBaseUrl('/img/sauce-visual/build-bulk-accept.jpg')} alt="Build overview bulk accepts"/>
+<img src={useBaseUrl('/img/sauce-visual/build-bulk-accept.jpg')} alt="Build page bulk accepts"/>
+
+or the "Build > Build Details"-page.
+
+<img src={useBaseUrl('/img/sauce-visual/build-details-bulk-accept.jpg')} alt="Build details page bulk accepts"/>
 
 #### Accept All
+
+<img src={useBaseUrl('/img/sauce-visual/bulk-accept-all.jpg')} alt="Bulk Accept All"/>
 
 Using this options will accept **all** snapshots and will use them as the new baseline. The following snapshot statuses will be affected:
 
 - all snapshots that don't have a baseline image, marked as "For Review".
 - all snapshots that have a baseline image where Sauce Visual detected a difference. These snapshots can only come from [Subsequent Test Executions](#subsequent-test-execution-review) and are also marked as "For Review".
+- all snapshots that have previously been accepted and are marked as "Approved".
+
+The amount in "Accept All (_number_)" will show you how many snapshots will be affected.
 
 #### Accept Only New
 
-Using this option will only accept all snapshots that **don't have a baseline image** (marked as "For Review"). If this happens during a [Subsequent Test Executions](#subsequent-test-execution-review) where we also detected visual differences, then we don't accept those snapshots.
+<img src={useBaseUrl('/img/sauce-visual/bulk-accept-only-new.jpg')} alt="Bulk Accept Only New"/>
+
+Using this option will only accept all snapshots that **don't have a baseline image** (marked as "For Review").
+
+If this happens during a [Subsequent Test Executions](#subsequent-test-execution-review) where we also detected visual differences, then we don't accept those snapshots. This is because we want you to review and approve the visual differences first.
+
+The amount in "Accept Only New (_number_)" will show you how many snapshots will be affected.
 
 ### Single Approve
 
-You can also review and approve a single snapshot by clicking on the Build-row. This will take you to the Build Details page where you can review and approve the snapshots by using the "Accept" button.
+Snapshots can be reviewed from the "Build Details"-page or the "Diff Review"-page.
+
+#### Build Details-page
+
+Open the "Build Details"-page by clicking on the Build-row. You will see a list of all the snapshots that were generated during the test execution and match the status that has been selected in the "Filter"-dropdown.
+
+<img src={useBaseUrl('/img/sauce-visual/build-details-overview.jpg')} alt="Bulk Details Overview"/>
+
+When the status "For Review" is selected, you can review and approve the snapshots by using the "Accept"-button.
+
+<img src={useBaseUrl('/img/sauce-visual/build-details-accept.jpg')} alt="Review and approve baseline images"/>
+
+##### Grouping and Filtering
+
+The list of snapshots can be grouped and filtered by using the "Group by"- and "Filter"-dropdowns.
+
+<img src={useBaseUrl('/img/sauce-visual/build-details-grouping-filtering.jpg')} alt="Build Details Grouping and Filtering"/>
+
+The grouping can be done by
+
+| Group by            | Description                                                                                          | Determined by                                             |
+| ------------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| Suite Name          | The Name of the Suite/Class                                                                          | This will automatically be determined by the used binding |
+| Test Name           | The Name of the Test that holds the visual checks                                                    | This will automatically be determined by the used binding |
+| Device              | The Device that has been used to take the snapshot. This can be a Desktop browser or a Mobile Device | This will automatically be determined by the used binding |
+| OS                  | The OS that has been used to take the snapshot.                                                      | This will automatically be determined by the used binding |
+| Storybook (Depth 1) | The name of the Storybook library you used.                                                          | This will automatically be determined by the used binding |
+| Storybook (Depth 2) | The name of the Storybook component that was used to create the snapshot.                            | This will automatically be determined by the used binding |
+
+#### Diff Review-page
+
+You can also review and approve a single snapshot by clicking on a thumbnail from the "Build Details-page. This will take you to the Diff Review page where you can review and approve the snapshots by using the "Accept" button.
 
 <img src={useBaseUrl('/img/sauce-visual/build-details-single-baseline.jpg')} alt="Review and approve a single baseline images"/>
 
