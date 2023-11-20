@@ -20,9 +20,9 @@ For many integrations, there will also be at least one automated job that genera
 A "Visual Build" is currently not related to builds of automated jobs. We are working on a solution to make this more clear.
 :::
 
-## Reviewing and Approving baselines
+## Reviewing and Accepting baselines
 
-The first time you run a test, a baseline is automatically created in our system and will be marked as ["For Review"](#visual-statuses). This baseline serves as the standard for all subsequent tests and matches based on the metadata as described in the [Baseline Matching](../../visual-testing.md#baseline-matching) and must be reviewed and approved by a user.
+The first time you run a test, a baseline is automatically created in our system and will be marked as ["For Review"](#visual-statuses). This baseline serves as the standard for all subsequent tests and matches based on the metadata as described in the [Baseline Matching](../../visual-testing.md#baseline-matching) and must be reviewed and accepted by a user.
 
 :::note
 Subsequent Test Executions can also generate new baseline snapshots. This can happen when:
@@ -33,9 +33,9 @@ Subsequent Test Executions can also generate new baseline snapshots. This can ha
 
 :::
 
-### Bulk Approve
+### Bulk Accept
 
-You can bulk approve all the snapshots in a build by clicking on the "More options"-button from the "Build"-page
+You can "bulk accept" all the snapshots in a build by clicking on the "More options"-button from the "Build"-page
 
 <img src={useBaseUrl('/img/sauce-visual/build-bulk-accept.jpg')} alt="Build page bulk accepts"/>
 
@@ -51,7 +51,6 @@ Using this options will accept **all** snapshots and will use them as the new ba
 
 - all snapshots that don't have a baseline image, marked as "For Review".
 - all snapshots that have a baseline image where Sauce Visual detected a difference. These snapshots can only come from [Subsequent Test Executions](#subsequent-test-execution-review) and are also marked as "For Review".
-- all snapshots that have previously been accepted and are marked as "Approved".
 
 The amount in "Accept All (_number_)" will show you how many snapshots will be affected.
 
@@ -61,23 +60,23 @@ The amount in "Accept All (_number_)" will show you how many snapshots will be a
 
 Using this option will only accept all snapshots that **don't have a baseline image** (marked as "For Review").
 
-If this happens during a [Subsequent Test Executions](#subsequent-test-execution-review) where we also detected visual differences, then we don't accept those snapshots. This is because we want you to review and approve the visual differences first.
+If this happens after a [Subsequent Test Executions](#subsequent-test-execution-review) where we also detected visual differences, then we don't accept those snapshots. This is because we want you to review and accept the visual differences first.
 
 The amount in "Accept Only New (_number_)" will show you how many snapshots will be affected.
 
-### Single Approve
+### Single Accept
 
 Snapshots can be reviewed from the "Build Details"-page or the "Diff Review"-page.
 
 #### Build Details-page
 
-Open the "Build Details"-page by clicking on the Build-row. You will see a list of all the snapshots that were generated during the test execution and match the status that has been selected in the "Filter"-dropdown.
+Open the "Build Details"-page by clicking on the "Build-row" from the Visual Build Overview page. You will see a list of all the snapshots that were generated during the test execution and match the status that has been selected in the "Filter"-dropdown.
 
 <img src={useBaseUrl('/img/sauce-visual/build-details-overview.jpg')} alt="Bulk Details Overview"/>
 
-When the status "For Review" is selected, you can review and approve the snapshots by using the "Accept"-button.
+When for example, the status "For Review" is selected, you can review and accept the snapshots by using the "Accept"-button.
 
-<img src={useBaseUrl('/img/sauce-visual/build-details-accept.jpg')} alt="Review and approve baseline images"/>
+<img src={useBaseUrl('/img/sauce-visual/build-details-accept.jpg')} alt="Review and accept baseline images"/>
 
 ##### Grouping and Filtering
 
@@ -98,13 +97,17 @@ The grouping can be done by
 
 #### Diff Review-page
 
-You can also review and approve a single snapshot by clicking on a thumbnail from the "Build Details-page. This will take you to the Diff Review page where you can review and approve the snapshots by using the "Accept" button.
+You can also review and accept a single snapshot by clicking on a thumbnail from the "Build Details"-page. This will open a "Diff Review"-overlay where you can review and accept the snapshots by using the "Accept" button.
 
-<img src={useBaseUrl('/img/sauce-visual/build-details-single-baseline.jpg')} alt="Review and approve a single baseline images"/>
+:::note
+The "Diff Review"-overlay will only show the snapshots that match the filter you have selected on the "Build Details"-page. If you want to see all the snapshots, you need to clear your filter.
+:::
 
-If you have more than one baseline image, and you accept one, you will automatically be taken to the next one. This will continue until you have reviewed and approved all the baseline images.
+<img src={useBaseUrl('/img/sauce-visual/build-details-single-baseline.jpg')} alt="Review and accept a single baseline images"/>
 
-There is also an option to reject the snapshot. This will mark the snapshot as "Rejected" and will not be used as a baseline. A subsequent test execution will then generate a new baseline snapshot which needs to be reviewed and approved.
+If you have more than one baseline image, and you accept one, you will automatically be taken to the next one. This will continue until you have reviewed and accepted all the baseline images.
+
+There is also an option to reject the snapshot. This will mark the snapshot as "Rejected" and will not be used as a baseline. A subsequent test execution will then generate a new baseline snapshot which needs to be reviewed and accepted.
 
 More information about reviewing and approving diffs can be found in [Subsequent Test Execution Review](#subsequent-test-execution-review).
 
@@ -113,7 +116,7 @@ More information about reviewing and approving diffs can be found in [Subsequent
 Every subsequent test execution will generate a new "Visual Build" and will be marked as ["For Review"](#visual-statuses). This is because:
 
 - a new baseline snapshot could be generated for the new test execution, see also [Reviewing and Approving Baselines](#reviewing-and-approving-baselines) and [Accept Only New](#accept-only-new).
-- you need to review the visual differences between the new snapshot and the previously approved baseline snapshot.
+- you need to review the visual differences between the new snapshot and the previously accepted baseline snapshot.
 
 The process of reviewing and approving the visual differences is the same as described in [Reviewing and Approving Baselines](#reviewing-and-approving-baselines).
 
@@ -121,7 +124,7 @@ The user interface including the actions you can take are described in [User Int
 
 ## User Interface
 
-Selecting one of the builds allows you to get to the Diff Review Page, where you can Approve or Reject detected diffs.
+Selecting one of the builds allows you to get to the Diff Review Page, where you can Accept or Reject detected diffs.
 
 <img src={useBaseUrl('/img/sauce-visual/DiffReviewPage.png')} alt="Diff Review Page"/>
 
@@ -141,7 +144,7 @@ The list below shows the available actions and their keyboard shortcuts.
 
 | Icon                                                                                                                      | Action \[Keyboard Shortcut\]                          |
 | ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| <img src={useBaseUrl('/img/sauce-visual/approve.png')} alt="Accept changes icon" width="25"/>                             | Accept changes \[A\] or Undo \[U\]                    |
+| <img src={useBaseUrl('/img/sauce-visual/accept.png')} alt="Accept changes icon" width="25"/>                              | Accept changes \[A\] or Undo \[U\]                    |
 | <img src={useBaseUrl('/img/sauce-visual/reject.png')} alt="Reject changes icon" width="25"/>                              | Reject changes \[R\] or Undo \[U\]                    |
 | <img src={useBaseUrl('/img/sauce-visual/cycle-through-diffs.png')} alt="Cycle through snapshots arrows icon" width="50"/> | Cycle through snapshots \[&#x27F5;\] and \[&#x27F6;\] |
 | <img src={useBaseUrl('/img/sauce-visual/current-only.png')} alt="Current only icon" width="25"/>                          | View current diff only or View side by side \[V\]     |

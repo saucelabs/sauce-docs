@@ -31,13 +31,8 @@ Sauce Visual plugin provides a library exposing a `VisualApi` object that provid
 
 Add [Sauce Visual](https://central.sonatype.com/artifact/com.saucelabs.visual/java-client) dependency to your pom.xml
 
-```xml
-<dependency>
-  <groupId>com.saucelabs.visual</groupId>
-  <artifactId>java-client</artifactId>
-  <version>0.3.134</version>
-  <scope>test</scope>
-</dependency>
+```xml reference
+https://github.com/saucelabs/visual-examples/blob/main/wd-java-testng/pom.xml#L18-L23
 ```
 
 _Note: You can find the latest versions available [here](https://central.sonatype.com/search?q=com.saucelabs.visual)._
