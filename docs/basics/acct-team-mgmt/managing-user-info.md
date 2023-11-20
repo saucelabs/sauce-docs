@@ -35,11 +35,12 @@ Sauce Labs offers several options for filtering your list of users. To apply one
 
 ### General Filters
 
-| Filter   | Description                                                                                                                                         | Org Admin Options |
-| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| Active   | Active user                                                                                                                                         | Deactivate        |
-| Inactive | The user has been deactivated by the organization admin                                                                                             | Reactivate        |
-| Pending  | The user has been invited via email but has not yet confirmed their invite, or the user was added manually and has not verified their email address | Deactivate        |
+| Filter           | Description                                                                                                                                                                                      | Org Admin Options    |
+|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
+| Active           | Active user                                                                                                                                                                                      | Deactivate           |
+| Inactive         | The user has been deactivated by the organization admin                                                                                                                                          | Reactivate           |
+| Pending          | The user has been invited via email but has not yet confirmed their invite, or the user was added manually and has not verified their email address                                              | Deactivate           |
+| Pending deletion | The user has been marked automatically for account deletion or an explicit request for that was made. This can happen based on multiple factors. Account will be deleted in the 7-day timeframe. | Contact support team |
 
 ### Team Filters
 
