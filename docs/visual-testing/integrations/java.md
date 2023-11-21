@@ -242,7 +242,7 @@ Sample usage:
 
 ### Build attributes
 
-When creating the service in `VisualApi`, extra fields can be set to define the context, thus acting on which baselines new snapshots will be compared to. ([More info on baseline matching](../sauce-visual.md#baseline-matching))
+When creating the service in `VisualApi`, extra fields can be set to define the context, thus acting on which baselines new snapshots will be compared to. ([More info on baseline matching](../../visual-testing.md#baseline-matching))
 
 It needs to be defined through the `VisualApi.Builder` object.
 

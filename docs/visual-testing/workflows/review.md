@@ -35,6 +35,10 @@ Subsequent Test Executions can also generate new baseline snapshots. This can ha
 
 ### Bulk Accept
 
+:::note
+Bulk Accept will not affect already accepted snapshots.
+:::
+
 You can "bulk accept" all the snapshots in a build by clicking on the "More options"-button from the "Build"-page
 
 <img src={useBaseUrl('/img/sauce-visual/build-bulk-accept.jpg')} alt="Build page bulk accepts"/>
@@ -47,12 +51,16 @@ or the "Build > Build Details"-page.
 
 <img src={useBaseUrl('/img/sauce-visual/bulk-accept-all.jpg')} alt="Bulk Accept All"/>
 
-Using this options will accept **all** snapshots and will use them as the new baseline. The following snapshot statuses will be affected:
+Using this option will accept **all** snapshots with the following statuses:
 
-- all snapshots that don't have a baseline image, marked as "For Review".
-- all snapshots that have a baseline image where Sauce Visual detected a difference. These snapshots can only come from [Subsequent Test Executions](#subsequent-test-execution-review) and are also marked as "For Review".
+- all snapshots that don't have a baseline image, marked as "For Review" in the "Build Details"-page and labeled "New" in the "Diff Review"-overlay.
+- all snapshots that have a baseline image where Sauce Visual detected a difference. They are marked as "For Review" in the "Build Details"-page and labeled as "{number} changes" in the "Diff Review"-overlay.
 
 The amount in "Accept All (_number_)" will show you how many snapshots will be affected.
+
+:::note
+An accepted snapshot in the current build will be used as a baseline image for all subsequent builds.
+:::
 
 #### Accept Only New
 
@@ -66,7 +74,7 @@ The amount in "Accept Only New (_number_)" will show you how many snapshots will
 
 ### Single Accept
 
-Snapshots can be reviewed from the "Build Details"-page or the "Diff Review"-page.
+Snapshots can be reviewed from the "Build Details"-page or the "Diff Review"-overlay.
 
 #### Build Details-page
 
