@@ -45,28 +45,32 @@ When using Sauce Visual, the client libraries need to connect with Sauce Labs AP
 #### Setting the `HTTPS_PROXY` Environment Variable
 
 1. **Identify your proxy URL**: This URL is typically provided by your organization's IT department. It could look like one of these examples:
-    - `http://myorgproxy:3128`
-    - `http://user:pass@myorgproxy:3128` (if authentication is required)
-    - `socks://username:password@myorgsocksproxy.com:9050` (for SOCKS proxy)
+
+   - `http://myorgproxy:3128`
+   - `http://user:pass@myorgproxy:3128` (if authentication is required)
+   - `socks://username:password@myorgsocksproxy.com:9050` (for SOCKS proxy)
 
 2. **Configure the environment variable**:
-    - **On Windows**:
-      - Open the Start Search, type in "env", and choose "Edit the system environment variables".
-      - In the System Properties window, click the "Environment Variables..." button.
-      - Under "System variables", click "New..." to create a new variable.
-      - Enter `HTTPS_PROXY` as the variable name and your proxy URL as the value.
-      - Click OK to save and exit.
-    - **On macOS/Linux**:
-      - Open a terminal.
-      - Use the export command to set the variable. For example:
-        
-        ```bash
-        export HTTPS_PROXY=http://myorgproxy:3128
-        ```
 
-      - To make this change permanent, add the export command to your shell's profile script (e.g., `.bash_profile` or `.bashrc`).
+   - **On Windows**:
+     - Open the Start Search, type in "env", and choose "Edit the system environment variables".
+     - In the System Properties window, click the "Environment Variables..." button.
+     - Under "System variables", click "New..." to create a new variable.
+     - Enter `HTTPS_PROXY` as the variable name and your proxy URL as the value.
+     - Click OK to save and exit.
+   - **On macOS/Linux**:
+
+     - Open a terminal.
+     - Use the export command to set the variable. For example:
+
+       ```bash
+       export HTTPS_PROXY=http://myorgproxy:3128
+       ```
+
+     - To make this change permanent, add the export command to your shell's profile script (e.g., `.bash_profile` or `.bashrc`).
 
 3. **Run your Sauce Visual job**: After setting the `HTTPS_PROXY` variable, you can proceed to run your Sauce Visual tests as usual.
+
 ---
 
 This version is designed to be easily understood by a broad audience, including those who might not be deeply technical, and it covers steps for different operating systems to ensure wide accessibility.

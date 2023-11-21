@@ -103,7 +103,7 @@ The grouping can be done by
 | Storybook (Depth 1) | The name of the Storybook library you used.                                                          | This will automatically be determined by the used binding |
 | Storybook (Depth 2) | The name of the Storybook component that was used to create the snapshot.                            | This will automatically be determined by the used binding |
 
-#### Diff Review-page
+#### Diff Review-overlay
 
 You can also review and accept a single snapshot by clicking on a thumbnail from the "Build Details"-page. This will open a "Diff Review"-overlay where you can review and accept the snapshots by using the "Accept" button.
 
@@ -132,9 +132,9 @@ The user interface including the actions you can take are described in [User Int
 
 ## User Interface
 
-Selecting one of the builds allows you to get to the Diff Review Page, where you can Accept or Reject detected diffs.
+Selecting one of the builds allows you to get to the "Diff Review"-overlay, where you can Accept or Reject detected diffs.
 
-<img src={useBaseUrl('/img/sauce-visual/DiffReviewPage.png')} alt="Diff Review Page"/>
+<img src={useBaseUrl('/img/sauce-visual/DiffReviewPage.png')} alt="Diff Review-overlay"/>
 
 By default, you will see diffs in a side-by-side view, which lets you easily compare the current diff against the Baseline. On the right side, you will see a toolbar enabling you to review the diffs. You can:
 
