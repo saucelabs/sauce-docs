@@ -63,7 +63,7 @@ With Sauce Visual testing existing test suites can be enhanced with a few extra 
 ### Review
 
 This workflow is responsible for approving or rejecting detected changes between a snapshot and a baseline.
-Users will be available to review changes and make the [baseline](#baseline) evolve for approved changes.
+Users will be available to review changes and make the [baseline](#baseline) evolve for accepted changes.
 
 [Follow me to learn more](./visual-testing/workflows/review.md)
 
@@ -85,14 +85,16 @@ A **build** groups multiple snapshots. E.g. to be able to view all snapshots tak
 
 A **build** has a status that represents its current state:
 
-| Status       | Description                                                                  |
-| ------------ | ---------------------------------------------------------------------------- |
-| `Empty`      | There is no snapshot in this build                                           |
-| `Equal`      | No difference has been detected between snapshots and the matching baselines |
-| `Unapproved` | Changes have been detected and and action is needed                          |
-| `Approved`   | Changes have been detected and they have been approved                       |
-| `Rejected`   | Changes have been detected and they have been rejected                       |
-| `Errored`    | An error has occurred                                                        |
+| Status         | Description                                                                  |
+| -------------- | ---------------------------------------------------------------------------- |
+| `Accepted`     | Changes have been detected and they have been accepted                       |
+| `No changes`   | No difference has been detected between snapshots and the matching baselines |
+| `Running`      | Build is still running                                                       |
+| `Queued`       | Snapshots are waiting to be compared against baselines                       |
+| `For review`   | Changes have been detected and and action is needed                          |
+| `Errored`      | An error has occurred                                                        |
+| `Rejected`     | Changes have been detected and they have been rejected                       |
+| `No Snapshots` | There is no snapshot in this build                                           |
 
 #### Baseline
 
@@ -106,12 +108,12 @@ A **diff** represents the differences that have been detected between a **snapsh
 
 A **diff** has a status that represents its current state:
 
-| Status       | Description                                                                                                          |
-| ------------ | -------------------------------------------------------------------------------------------------------------------- |
-| `No Changes` | No difference has been detected between this snapshot and the matching baseline                                      |
-| `For Review` | Changes have been detected and an action is needed (meaning snapshots without baselines or with a visual difference) |
-| `Accepted`   | Changes have been detected and they have been accepted                                                               |
-| `Rejected`   | Changes have been detected and they have been rejected                                                               |
+| Status       | Description                                                                                                                |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| `No Changes` | No difference has been detected between this snapshot and the matching baseline                                            |
+| `For Review` | Changes have been detected and an action is needed <br />(meaning snapshots without baselines or with a visual difference) |
+| `Accepted`   | Changes have been detected and they have been accepted                                                                     |
+| `Rejected`   | Changes have been detected and they have been rejected                                                                     |
 
 ### Baseline Matching
 

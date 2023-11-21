@@ -55,8 +55,10 @@ Using this option will accept **all** snapshots with the following statuses:
 
 - all snapshots that don't have a baseline image, marked as "For Review" in the "Build Details"-page and labeled "New" in the "Diff Review"-overlay.
 - all snapshots that have a baseline image where Sauce Visual detected a difference. They are marked as "For Review" in the "Build Details"-page and labeled as "{number} changes" in the "Diff Review"-overlay.
+- all snapshots with "Rejected" status
+- all snapshots with "No changes" status
 
-The amount in "Accept All (_number_)" will show you how many snapshots will be affected.
+The amount in "_Accept All (**19**)_" will show you how many snapshots will be affected.
 
 :::note
 An accepted snapshot in the current build will be used as a baseline image for all subsequent builds.
@@ -66,11 +68,14 @@ An accepted snapshot in the current build will be used as a baseline image for a
 
 <img src={useBaseUrl('/img/sauce-visual/bulk-accept-only-new.jpg')} alt="Bulk Accept Only New"/>
 
-Using this option will only accept all snapshots that **don't have a baseline image** (marked as "For Review").
+Using this option will only accept all snapshots that **don't have a baseline image**.
+
+- all snapshots that don't have a baseline image, marked as "For Review" in the "Build Details"-page and labeled "New" in the "Diff Review"-overlay.
+- all snapshots that don't have a baseline image, marked as "Rejected"
 
 If this happens after a [Subsequent Test Executions](#subsequent-test-execution-review) where we also detected visual differences, then we don't accept those snapshots. This is because we want you to review and accept the visual differences first.
 
-The amount in "Accept Only New (_number_)" will show you how many snapshots will be affected.
+The amount in "_Accept Only New (**11**)_" will show you how many snapshots will be affected.
 
 ### Single Accept
 
