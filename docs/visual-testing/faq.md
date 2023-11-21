@@ -37,3 +37,14 @@ Support for additional languages/frameworks will be determined based on demand. 
 ### When will it support "my favorite framework"?
 
 The support for any framework depends on the client-side implementation using the underlying API. If you require an SDK, submit a new idea at [Productboard](https://portal.productboard.com/sauceprod/2-sauce-labs-portal/tabs/4-under-consideration/submit-idea).
+
+### How to use Sauce Visual behing a Proxy?
+
+Sauce Visual client libraries require access to Sauce Labs APIs to upload your snapshot and detect differences. If your machine needs to use a proxy, ensure that the environment variable `HTTPS_PROXY` is set before running your job.
+
+Here are some examples of values:
+```
+HTTPS_PROXY=http://myorgproxy:3128
+HTTPS_PROXY=http://user:pass@myorgproxy:3128
+HTTPS_PROXY=socks://username:password@myorgsocksproxy.com:9050
+```
