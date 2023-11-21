@@ -40,7 +40,7 @@ The support for any framework depends on the client-side implementation using th
 
 ### How to use Sauce Visual behing a Proxy?
 
-Sauce Visual client libraries require access to Sauce Labs APIs to upload your snapshot and detect differences. If your machine needs to use a proxy, ensure that the environment variable `HTTPS_PROXY` is set before running your job.
+When using Sauce Visual, the client libraries need to connect with Sauce Labs APIs. This connection is essential for uploading snapshots of your application and performing visual difference analysis. If your computer is set up to access the internet through a proxy, you will need to configure an environment variable named `HTTPS_PROXY`. This setup is required to ensure that Sauce Visual can communicate with Sauce Labs APIs through your proxy.
 
 Here are some examples of values:
 ```
