@@ -106,13 +106,12 @@ A **diff** represents the differences that have been detected between a **snapsh
 
 A **diff** has a status that represents its current state:
 
-| Status       | Description                                                                     |
-| ------------ | ------------------------------------------------------------------------------- |
-| `Queued`     | The processing is queued, and waiting for processing                            |
-| `Equal`      | No difference has been detected between this snapshot and the matching baseline |
-| `Unapproved` | Changes have been detected and an action is needed                              |
-| `Approved`   | Changes have been detected and they have been approved                          |
-| `Rejected`   | Changes have been detected and they have been rejected                          |
+| Status       | Description                                                                                                          |
+| ------------ | -------------------------------------------------------------------------------------------------------------------- |
+| `No Changes` | No difference has been detected between this snapshot and the matching baseline                                      |
+| `For Review` | Changes have been detected and an action is needed (meaning snapshots without baselines or with a visual difference) |
+| `Accepted`   | Changes have been detected and they have been accepted                                                               |
+| `Rejected`   | Changes have been detected and they have been rejected                                                               |
 
 ### Baseline Matching
 

@@ -134,7 +134,7 @@ expect((await browser.sauceVisualResults()).UNAPPROVED).toBe(EXPECTED_TOTAL_UNAP
 
 ### Build attributes
 
-When creating the service in WebdriverIO's configuration, extra fields can be set to define the context, thus acting on which baselines new snapshots will be compared to. ([More info on baseline matching](../sauce-visual.md#baseline-matching))
+When creating the service in WebdriverIO's configuration, extra fields can be set to define the context, thus acting on which baselines new snapshots will be compared to. ([More info on baseline matching](../../visual-testing.md#baseline-matching))
 
 Options:
 
