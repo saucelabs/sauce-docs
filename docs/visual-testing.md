@@ -91,7 +91,7 @@ A **build** has a status that represents its current state:
 | `No changes`      | No difference has been detected between snapshots and the matching baselines |
 | `Running`         | Build is still running                                                       |
 | `Queued`          | Snapshots are waiting to be compared against baselines                       |
-| `For review`      | Changes have been detected and and action is needed                          |
+| `For review`      | Changes have been detected and action is needed                          |
 | `Errored`         | An error has occurred                                                        |
 | `Rejected`        | Changes have been detected and they have been rejected                       |
 | `No Snapshots`    | There is no snapshot in this build                                           |
