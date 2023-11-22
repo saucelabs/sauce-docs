@@ -178,3 +178,13 @@ Based on current Playwright test runner implementation, there is no way to run P
 ### Playwright HTML Reporter + Trace Viewer
 
 Because of a limitation in how assets are stored on our platform, configuring your tests to use the built-in [HTML reporter](https://playwright.dev/docs/test-reporters#html-reporter) and Playwright's [Trace Viewer](https://playwright.dev/docs/trace-viewer-intro) feature will not work as expected.
+
+### Chrome launchOptions
+
+If you use project specific `launchOptions` along with setting Chrome as the browser, you'll encounter the following error:
+
+```
+browserType.launch: Chromium distribution 'chrome' is not found at C:\Users\sauce\AppData\Local\Google\Chrome\Application\chrome.exe
+```
+
+This is because playwright's project specific settings override the global configuration that Sauce Labs provides during runtime. In this case, the location of the browser binary. Make sure that `launchOptions` are not set when running on a Sauce VM.
