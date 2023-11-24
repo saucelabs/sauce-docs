@@ -87,8 +87,8 @@ values={[
    - `http://user:pass@my.org.proxy:3128` (if authentication is required)
    - `socks://username:password@myorgsocksproxy.com:9050` (for SOCKS proxy)
 
-3. **Run your Sauce Visual jobs using proxy**
-  Sauce Visual Java client is capable of using the system-wide proxy settings without any additional setup. If you'd like to use a custom proxy server,
+3. **Run your Sauce Visual jobs using proxy**:
+  Sauce Visual Java client is capable of using system-wide proxy settings without any additional setup. If you'd like to use a custom proxy instead,
   you need to set the [relevant Java system properties](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/doc-files/net-properties.html) when running your tests. For example:
 
   ```bash
