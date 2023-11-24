@@ -44,13 +44,8 @@ When using Sauce Visual, the client libraries need to connect with Sauce Labs AP
 
 #### Setting up the proxy for Sauce Visual
 
-<Tabs 
-defaultValue="js"
-values={[
-{label: 'Javascript framework (WebdriverIO, Cypress, Storybook etc.)', value: 'js'},
-{label: 'Java framework (Selenium WebDriver)', value: 'java'},
-]}>
-<TabItem value="js">
+<Tabs>
+<TabItem value="js" label="Javascript framework (WebdriverIO, Cypress, Storybook etc.)" default>
 
 1. **Identify your proxy URL**: This URL is typically provided by your organization's IT department. It could look like one of these examples:
 
@@ -79,7 +74,7 @@ values={[
 3. **Run your Sauce Visual job**: After setting the `HTTPS_PROXY` variable, you can proceed to run your Sauce Visual tests as usual.
 
 </TabItem>
-<TabItem value="java">
+<TabItem value="java" label="Java framework (Selenium WebDriver)">
 
 1. **Identify your proxy URL**: This URL is typically provided by your organization's IT department. It could look like one of these examples:
 
