@@ -44,7 +44,7 @@ Every Sauce Connect Proxy tunnel spins up a fresh virtual machine (VM) that is u
 2. Define environment variables containing sensitive data: your user name, access key, proxy authentication (if needed), etc.
 
 ```bash
-SAUCE_USER=<username>
+SAUCE_USERNAME=<username>
 SAUCE_ACCESS_KEY=<your access key>
 ```
 
@@ -66,7 +66,7 @@ sc run --tunnel-name $SAUCE_TUNNEL_NAME --region <us-west|eu-central>
 Or without environment variables:
 
 ```bash
-sc run --user <your user> --access-key <your access key> --region <us-west|eu-central> --tunnel-name $SAUCE_TUNNEL_NAME
+sc run --username <your user> --access-key <your access key> --region <us-west|eu-central> --tunnel-name $SAUCE_TUNNEL_NAME
 ```
 
   </TabItem>
@@ -79,7 +79,7 @@ sc.exe run --tunnel-name $SAUCE_TUNNEL_NAME --region <us-west|eu-central>
 Or without environment variables:
 
 ```bash
-sc.exe run --user <your user> --access-key <your access key> --region <us-west|eu-central> --tunnel-name $SAUCE_TUNNEL_NAME
+sc.exe run --username <your user> --access-key <your access key> --region <us-west|eu-central> --tunnel-name $SAUCE_TUNNEL_NAME
 ```
 
   </TabItem>
