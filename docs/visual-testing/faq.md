@@ -53,7 +53,7 @@ When using Sauce Visual, the client libraries need to connect with Sauce Labs AP
    - `http://user:pass@my.org.proxy:3128` (if authentication is required)
    - `socks://username:password@myorgsocksproxy.com:9050` (for SOCKS proxy)
 
-2. **Configure the environment variable**:
+2. **Configure the environment HTTPS_PROXY variable**:
 
    - **On Windows**:
      - Open the Start Search, type in "env", and choose "Edit the system environment variables".
