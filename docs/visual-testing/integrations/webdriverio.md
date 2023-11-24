@@ -41,7 +41,6 @@ Add the `SauceVisualService` to your existing configuration (E.g. `wdio.conf.(js
 
 ```ts
 import type { Options } from '@wdio/types';
-import { SauceVisualService } from '@saucelabs/wdio-sauce-visual-service';
 
 export const config: Options.Testrunner = {
     //...
@@ -57,7 +56,7 @@ export const config: Options.Testrunner = {
     // This service is needed for the Sauce Visual service to work
     //
     [
-      SauceVisualService,
+      '@saucelabs/wdio-sauce-visual-service',
       // The options for the Sauce Visual service
       {
         buildName: 'Sauce Demo Test',
@@ -147,11 +146,22 @@ They need to be set through the `options` parameter.
 Example:
 
 ```ts
-    services: ['sauce', ['@saucelabs/wdio-sauce-visual-service', {
-        buildName: 'Sauce Demo Test',
-        branch: 'main',
-        project: 'WDIO examples'
-    }]],
+...
+export const config: Options.Testrunner = {
+...
+    services: [
+        'sauce',
+        [
+            '@saucelabs/wdio-sauce-visual-service',
+            {
+                buildName: 'Sauce Demo Test',
+                branch: 'main',
+                project: 'WDIO examples',
+            },
+        ],
+    ],
+...
+}
 ```
 
 ### Ignored regions

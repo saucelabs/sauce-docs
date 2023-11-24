@@ -823,6 +823,7 @@ module.exports = {
                                         'basics/acct-team-mgmt/adding-deactivating-users',
                                         'basics/acct-team-mgmt/managing-user-info',
                                         'basics/acct-team-mgmt/viewing-exporting-usage-data',
+                                        'basics/acct-team-mgmt/switching-active-team',
                                     ],
                                 },
                                 {
