@@ -8,10 +8,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-XCUITest is a test automation framework used for UI testing of mobile apps and web applications on iOS devices such as iPads and iPhones. It is built into Xcode and is Apple's official testing framework for iOS. With Sauce Labs, you can easily run your XCUITests on real iOS devices and Simulators <span className="sauceGreen">Beta</span>. This allows you to quickly and easily test your app on a variety of devices and configurations.
+XCUITest is a test automation framework used for UI testing of mobile apps and web applications on iOS devices such as iPads and iPhones. It is built into Xcode and is Apple's official testing framework for iOS. With Sauce Labs, you can easily run your XCUITests on real iOS devices and Simulators. This allows you to quickly and easily test your app on a variety of devices and configurations.
 
 :::caution Required Minimum Versions
-XCUITest for Simulators is in <span className="sauceGreen">Beta</span> and requires `saucectl` version `0.155.0` or later. If you are using an earlier version, you must upgrade to the latest version.
+XCUITest for Simulators is in and requires `saucectl` version `0.155.0` or later. If you are using an earlier version, you must upgrade to the latest version.
 :::
 
 ## What You'll Need
@@ -71,10 +71,10 @@ final class DemoAppUITests: XCTestCase {
 
 ### Building the Project
 
-XCUITest can be executed on Sauce Labs Real Devices and Simulators <span className="sauceGreen">Beta</span> and needs an app to be tested (testApp) and an app that holds the tests (testRunner). Use the following steps to build the project:
+XCUITest can be executed on Sauce Labs Real Devices and Simulators and needs an app to be tested (testApp) and an app that holds the tests (testRunner). Use the following steps to build the project:
 
 - **Real Devices:** [Create `.ipa` testApp and testRunner files](/mobile-apps/automated-testing/ipa-files/)
-- **Simulators <span className="sauceGreen">Beta</span>:** [Create `.app` testApp and testRunner files](/mobile-apps/automated-testing/app-files/)
+- **Simulators:** [Create `.app` testApp and testRunner files](/mobile-apps/automated-testing/app-files/)
 
 ### Running XCUITest Using `saucectl`
 
