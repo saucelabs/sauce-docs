@@ -8,14 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <p><span className="sauceGreen">Enterprise Plans only</span> <span className="sauceYellow">Beta feature</span></p>
 
-
-2. On the **USERS** tab, select the checkbox of the user(s) you want to assign or remove.
-3. Next to **USERS SELECTED**, in the **Action** dropdown, click **Team Assignment**.
-
 # User navigating between teams
 
 User can see the active and other teams you are assigned to in the navigation bar in the web application. 
    <img src={useBaseUrl('img/team-mgmt/active-team-dropdown.png')} alt="Active team dropdown in Navigation bar" width="400"/>
+
 The dropdown lists all the teams assigned to the user.
 
 Additionally, the user can check what teams they are assigned to in [User Settings page](https://app.saucelabs.com/user-settings) at `My Account` section. The first team in the field `Assigned Teams` refers to the currently active team.
