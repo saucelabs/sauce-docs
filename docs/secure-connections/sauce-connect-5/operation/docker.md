@@ -26,17 +26,17 @@ Here are some benefits/use cases for using containerized Sauce Connect Proxy:
    ```
    - To use a specific version, add it as a tag:
    ```bash
-   $ docker pull saucelabs/sauce-connect:5.0.0-beta1-amd64
+   $ docker pull saucelabs/sauce-connect:5.0.0-beta2-amd64
    ```
     <details><summary>Supported tags</summary>
-      - 5.0, 5.0.0-beta1, 5.0.0-beta1, 5.0.0-beta1-arm64v8<br/>
+      - 5.0, 5.0.0-beta2, 5.0.0-beta2, 5.0.0-beta2-arm64v8<br/>
     </details>
 2. To run the Sauce Connect Proxy Docker image, modify and run the script below.
 
    ```bash
-   $ SAUCE_USER="my-user" SAUCE_ACCESS_KEY="my-access-key" SAUCE_REGION="<us-west|eu-central>" SAUCE_TUNNEL_NAME="my-tunnel-name" \
+   $ SAUCE_USERNAME="my-user" SAUCE_ACCESS_KEY="my-access-key" SAUCE_REGION="<us-west|eu-central>" SAUCE_TUNNEL_NAME="my-tunnel-name" \
    docker run \
-       -e SAUCE_USER=${SAUCE_USERNAME} \
+       -e SAUCE_USERNAME=${SAUCE_USERNAME} \
        -e SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} \
        -e SAUCE_REGION=${SAUCE_REGION} \
        -e SAUCE_TUNNEL_NAME=${SAUCE_TUNNEL_NAME} \
