@@ -986,8 +986,10 @@ The following options are **NOT** allowed/will be ignored when running tests:
 Instructs `saucectl` to only run the specified classes for this test suite. See [`am instrument`-options](https://developer.android.com/studio/test/command-line#am-instrument-options).
 
 ```yaml
-  class:
-    - com.example.android.testing.androidjunitrunnersample.CalculatorAddParameterizedTest
+suites:
+  testOptions:
+    class:
+      - com.example.android.testing.androidjunitrunnersample.CalculatorAddParameterizedTest
 ```
 
 ---
@@ -999,8 +1001,10 @@ Instructs `saucectl` to only run the specified classes for this test suite. See 
 Instructs `saucectl` to run all classes for the suite _except_ those specified here. See [`am instrument`-options](https://developer.android.com/studio/test/command-line#am-instrument-options).
 
 ```yaml
-  notClass:
-    - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest
+suites:
+  testOptions:
+    notClass:
+      - com.example.android.testing.androidjunitrunnersample.CalculatorInstrumentationTest
 ```
 
 ---
@@ -1012,7 +1016,9 @@ Instructs `saucectl` to run all classes for the suite _except_ those specified h
 Instructs `saucectl` to run all test classes that extend [InstrumentationTestCase](https://developer.android.com/reference/android/test/InstrumentationTestCase). See [`am instrument`-options](https://developer.android.com/studio/test/command-line#am-instrument-options).
 
 ```yaml
-  func: true
+suites:
+  testOptions:
+    func: true
 ```
 
 ---
@@ -1024,7 +1030,9 @@ Instructs `saucectl` to run all test classes that extend [InstrumentationTestCas
 Instructs `saucectl` to run all test classes that do not extend either InstrumentationTestCase or [PerformanceTestCase](https://developer.android.com/reference/android/test/PerformanceTestCase)/[`perf`](#perf). See [`am instrument`-options](https://developer.android.com/studio/test/command-line#am-instrument-options).
 
 ```yaml
-  unit: true
+suites:
+  testOptions:
+    unit: true
 ```
 
 ---
@@ -1036,7 +1044,9 @@ Instructs `saucectl` to run all test classes that do not extend either Instrumen
 Instructs `saucectl` to run all test classes that implement PerformanceTestCase. See [`am instrument`-options](https://developer.android.com/studio/test/command-line#am-instrument-options).
 
 ```yaml
-  perf: true
+suites:
+  testOptions:
+    perf: true
 ```
 
 ---
@@ -1048,7 +1058,9 @@ Instructs `saucectl` to run all test classes that implement PerformanceTestCase.
 Instructs `saucectl` to run only tests that are annotated with the matching size value i.e `@SmallTest`, `@MediumTest` or `@LargeTest`. Valid values are `small`, `medium`, or `large`. You may only specify one value for this property. See [`am instrument`-options](https://developer.android.com/studio/test/command-line#am-instrument-options).
 
 ```yaml
-  size: small
+suites:
+  testOptions:
+    size: small
 ```
 
 ---
@@ -1060,7 +1072,9 @@ Instructs `saucectl` to run only tests that are annotated with the matching size
 Instructs `saucectl` to run only tests in the specified package. See [`am instrument`-options](https://developer.android.com/studio/test/command-line#am-instrument-options).
 
 ```yaml
-  package: com.example.android.testing.androidjunitrunnersample
+suites:
+  testOptions:
+    package: com.example.android.testing.androidjunitrunnersample
 ```
 
 ---
@@ -1072,7 +1086,9 @@ Instructs `saucectl` to run only tests in the specified package. See [`am instru
 Instructs `saucectl` to run all tests _except_ those in the specified package. See [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)-usage.
 
 ```yaml
-  notPackage: com.example.android.testing.androidMyDemoTests
+suites:
+  testOptions:
+    notPackage: com.example.android.testing.androidMyDemoTests
 ```
 
 ---
@@ -1084,7 +1100,9 @@ Instructs `saucectl` to run all tests _except_ those in the specified package. S
 Instructs `saucectl` to run only tests that match a custom annotation that you have set. See [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)-usage.
 
 ```yaml
-  annotation: com.android.buzz.MyAnnotation
+suites:
+  testOptions:
+    annotation: com.android.buzz.MyAnnotation
 ```
 
 ---
@@ -1096,7 +1114,9 @@ Instructs `saucectl` to run only tests that match a custom annotation that you h
 Instructs `saucectl` to run all tests _except_ those matching a custom annotation that you have set. See [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)-usage.
 
 ```yaml
-  notAnnotation: com.android.buzz.NotMyAnnotation
+suites:
+  testOptions:
+    notAnnotation: com.android.buzz.NotMyAnnotation
 ```
 
 ---
@@ -1108,9 +1128,11 @@ Instructs `saucectl` to run all tests _except_ those matching a custom annotatio
 Instructs `saucectl` to filter the test run to tests that pass all of a list of custom [filter(s)](https://junit.org/junit4/javadoc/4.12/org/junit/runner/manipulation/Filter.html). See [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)-usage.
 
 ```yaml
-  filter:
-    - com.android.foo.MyCustomFilter
-    - com.android.foo.MyOtherCustomFilter
+suites:
+  testOptions:
+    filter:
+      - com.android.foo.MyCustomFilter
+      - com.android.foo.MyOtherCustomFilter
 ```
 
 ---
@@ -1122,9 +1144,11 @@ Instructs `saucectl` to filter the test run to tests that pass all of a list of 
 Instructs `saucectl` to use custom [builders](https://junit.org/junit4/javadoc/4.12/org/junit/runners/model/RunnerBuilder.html) to run test classes. See [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)-usage.
 
 ```yaml
-  runnerBuilder:
-    - com.android.foo.MyCustomBuilder
-    - com.android.foo.AnotherCustomBuilder
+suites:
+  testOptions:
+    runnerBuilder:
+      - com.android.foo.MyCustomBuilder
+      - com.android.foo.AnotherCustomBuilder
 ```
 
 ---
@@ -1136,9 +1160,11 @@ Instructs `saucectl` to use custom [builders](https://junit.org/junit4/javadoc/4
 Instructs `saucectl` to specify one or more [RunListeners](http://junit.org/javadoc/latest/org/junit/runner/notification/RunListener.html) to observe the test run. See [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)-usage.
 
 ```yaml
-  listener:
-    - com.foo.Listener
-    - com.foo.Listener2
+suites:
+  testOptions:
+    listener:
+      - com.foo.Listener
+      - com.foo.Listener2
 ```
 
 ---
@@ -1150,7 +1176,9 @@ Instructs `saucectl` to specify one or more [RunListeners](http://junit.org/java
 Instructs `saucectl` to use the new order of [RunListeners](http://junit.org/javadoc/latest/org/junit/runner/notification/RunListener.html) during a test run. See [AndroidJUnitRunner](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)-usage.
 
 ```yaml
-  newRunListenerMode: true
+suites:
+  testOptions:
+    newRunListenerMode: true
 ```
 
 ---
@@ -1168,7 +1196,9 @@ Espresso may not distribute tests evenly across the number of shards specified, 
 :::
 
 ```yaml
-  numShards: 2
+suites:
+  testOptions:
+    numShards: 2
 ```
 
 ---
@@ -1184,8 +1214,10 @@ The flag `clearPackageData` has to be used in conjunction with `useTestOrchestra
 :::
 
 ```yaml
-  clearPackageData: true
-  useTestOrchestrator: true
+suites:
+  testOptions:
+    clearPackageData: true
+    useTestOrchestrator: true
 ```
 
 ---
@@ -1206,7 +1238,9 @@ This isolation results in a possible increase in test execution time as the Andr
 See [Test Orchestrator](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/runner#using-android-test-orchestrator) for more information.
 
 ```yaml
-  useTestOrchestrator: true
+suites:
+  testOptions:
+    useTestOrchestrator: true
 ```
 
 ---
@@ -1223,7 +1257,33 @@ The `am instrument` tool passes testing options in the form of key-value pairs, 
 you can do so in `saucectl` by adding them to the `testOptions` property.
 
 ```yaml
-  testUser: "John Doe"
+suites:
+  testOptions:
+    testUser: "John Doe"
+```
+
+---
+
+### `disableImmersiveModePopUp`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Android Virtual Devices Only</span> |</small></p>
+
+Android allows apps to use the full screen, hiding the status bar and navigation bar. This is called ["immersive mode"](https://developer.android.com/develop/ui/views/layout/immersive). When you run an Android test, the device will show a popup asking if you want to allow the app to use immersive mode. This popup can interfere with your test, and by default we disable it. If you want to enable it, set `disableImmersiveModePopUp` to `false`.
+
+:::note
+
+Under the hood, this capability is running this command before the app is started:
+
+```bash
+adb shell settings put secure immersive_mode_confirmations confirmed
+```
+
+:::
+
+```yaml
+suites:
+  testOptions:
+    disableImmersiveModePopUp: false
 ```
 
 ---

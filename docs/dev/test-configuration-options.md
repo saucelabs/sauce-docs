@@ -1117,7 +1117,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `android.gpu.mode`
 
-<p><small>| OPTIONAL | STRING| <span className="sauceGreen">Android Virtual Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Android Virtual Devices Only</span> |</small></p>
 
 By default, our emulator uses `software` rendering to handle graphics for maximum compatibility. This involves the CPU calculating how everything looks on your app's screen. However, this could lead to an emulator crash when testing apps with intricate or heavy graphical elements. To mitigate this, use the hardware rendering option by specifying `"android.gpu.mode"="hardware"` in your test capabilities.
 
@@ -1134,6 +1134,32 @@ MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.setCapability("android.gpu.mode", "hardware");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `disableImmersiveModePopUp`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Android Virtual Devices Only</span> |</small></p>
+
+Android allows apps to use the full screen, hiding the status bar and navigation bar. This is called ["immersive mode"](https://developer.android.com/develop/ui/views/layout/immersive). When you run an Android test, the device will show a popup asking if you want to allow the app to use immersive mode. This popup can interfere with your test, and by default we disable it. If you want to enable it, set `disableImmersiveModePopUp` to `false`.
+
+:::note
+
+Under the hood, this capability is running this command before the app is started:
+
+```bash
+adb shell settings put secure immersive_mode_confirmations confirmed
+```
+
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("disableImmersiveModePopUp", false);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
