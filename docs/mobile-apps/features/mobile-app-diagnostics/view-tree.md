@@ -30,19 +30,19 @@ To enable instrumentation:
 
 1. In Sauce Labs, from the left navigation, click **App Management**.
 
-  <img src={useBaseUrl('img/mobile-apps/app-logs5.png')} alt="App Logs" width="300"/> 
+<img src={useBaseUrl('img/mobile-apps/app-logs5.png')} alt="App Logs" width="300"/>
 
 2. Upload your mobile app.
 
-  <img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="700"/> 
+<img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="700"/>
 
 3. After you’ve uploaded your app, hover your mouse over your app, then select **Settings**.
 
-  <img src={useBaseUrl('img/mobile-apps/app-logs-6.png')} alt="App Logs" width="700"/>
+<img src={useBaseUrl('img/mobile-apps/app-logs-6.png')} alt="App Logs" width="700"/>
 
 4. Under **Real Device Settings**, toggle **Instrumentation** to **Enabled**.
 
-  <img src={useBaseUrl('img/mobile-apps/app-logs-7.png')} alt="App Logs" width="700"/> 
+<img src={useBaseUrl('img/mobile-apps/app-logs-7.png')} alt="App Logs" width="700"/>
 
 Now you can start your live or automated testing session. View Tree will be captured and be part of your test results.
 
@@ -96,6 +96,7 @@ The following table lists the available attributes:
 
 - Webviews and hybrid apps will have additional capture limitations.
 - Emulators and Simulators are not supported.
+
 :::
 
 ## More Information
