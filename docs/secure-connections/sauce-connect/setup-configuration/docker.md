@@ -61,7 +61,7 @@ Below is an example of configuring Sauce Connect Proxy using environment variabl
 $ cat /tmp/sc.env
 SAUCE_REGION: eu-central
 SAUCE_API_KEY="<YOUR API KEY>"
-SAUCE_USERNAME="<YOUR USERNAME>"
+SAUCE_USER="<YOUR USERNAME>"
 SAUCE_OUTPUT_FORMAT=text
 SAUCE_TUNNEL_POOL=true
 SAUCE_LOGFILE=-
