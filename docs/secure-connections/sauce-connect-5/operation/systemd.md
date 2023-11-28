@@ -15,7 +15,7 @@ Sauce Connect Proxy can run as a systemd service on Linux platform.
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-- A `root`-level access to a Linux machine
+- A `su`-level access to a Linux machine
 - Basic knowledge of Linux administration and systemd
 
 ## Running systemd service on Debian-based Linux
@@ -38,7 +38,7 @@ EOF
 ```bash
 cat <<EOF >> /etc/sauce-connect/sc.yaml
 region=us-west
-user=xxx
+username=xxx
 access-key=xxx
 tunnel-name=my-systemd-sc
 EOF
