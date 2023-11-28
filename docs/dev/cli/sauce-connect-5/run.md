@@ -22,13 +22,13 @@ SAUCE_USER=<username> SAUCE_ACCESS_KEY=<access key> sc run --region <region> --t
 
 ---
 
-#### `--user`
+#### `--username`
 
 <p><small>| REQUIRED | STRING | </small></p>
 
 **Description**: Sets your Sauce Labs username.<br/>
 **Default**: n/a<br/>
-**Environment variable**: `SAUCE_USER`<br/>
+**Environment variable**: `SAUCE_USERNAME`<br/>
 **Shorthand**: `-u`
 
 :::note
