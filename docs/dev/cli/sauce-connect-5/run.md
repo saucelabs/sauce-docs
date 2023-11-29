@@ -13,7 +13,7 @@ The `sc run` command is a main Sauce Connect Proxy 5 command that allows provisi
 ## Usage
 
 ```bash
-SAUCE_USER=<username> SAUCE_ACCESS_KEY=<access key> sc run --region <region> --tunnel-name my-tunnel [OPTIONS]
+SAUCE_USERNAME=<username> SAUCE_ACCESS_KEY=<access key> sc run --region <region> --tunnel-name my-tunnel [OPTIONS]
 ```
 
 ## Options
