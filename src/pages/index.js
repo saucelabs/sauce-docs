@@ -74,12 +74,6 @@ function Home() {
                                     name='Get Started'
                                 />
                             </a>
-                            <a href='/visual-testing/'>
-                                <Button
-                                    className='button-light'
-                                    name='Sauce Visual (New)'
-                                />
-                            </a>
                             <a href='/dev/api/'>
                                 <Button
                                     className='button-light'
@@ -90,6 +84,12 @@ function Home() {
                                 <Button
                                     className='button-light'
                                     name='Sauce CLI'
+                                />
+                            </a>
+                            <a href='/visual-testing/'>
+                                <Button
+                                    className='button-light'
+                                    name='Sauce Visual (New)'
                                 />
                             </a>
                         </span>
