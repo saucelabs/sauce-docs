@@ -46,6 +46,86 @@ You can manage and monitor all Sauce Connect Proxy tunnel activity from the Sauc
 | Sharing         | Indicates whether or not the tunnel is shared.                                                                                                        |
 | Duration        | The amount of time the tunnel has been running.                                                                                                       |
 
+###  Sauce Connect Proxy Status Server
+
+Sauce Connect Proxy has a "status server" feature that you can use to monitor the connection status. You can access JSON-formatted status information over an HTTP connection to a local server.
+The main purpose of the "status server" is providing Kubernetes and CI/CD support.
+
+:::note
+Available only for versions 4.8.x and higher.
+:::
+
+#### Configuring Status Server
+
+The status server is disabled by default. You can enable it by specifying the interface and port with the [`--status-address`](/dev/cli/sauce-connect-proxy/#--status-address) command.
+
+```bash
+--status-address :8080 # listens on all the interfaces' port 8080
+--status-address 1.2.3.4:80 # listens on 1.2.3.4 port 80
+```
+
+#### Status Server Endpoints
+
+- `/readiness` returns 200 response code when Sauce Connect Proxy is ready, 503 otherwise
+- `/liveness` returns 200 response code when Sauce Connect Proxy is running
+- `/api/v1/status` returns a JSON-formatted response containing the Sauce Connect Proxy runtime information
+- `/debug/vars` returns a JSON-formatted response containing the Sauce Connect Proxy metrics
+
+##### Runtime Info
+
+Status server exposes Sauce Connect Proxy runtime information at `/api/v1/status`.
+For example, after starting the client with `--status-address localhost:8080`, use the following command:
+
+```bash
+$ curl -s localhost:8080/api/v1/status | jq .
+{
+  "firstConnectedTime": 1651629711,
+  "tunnelID": "780b2e455a9f46248f3c3eb6aec349f5",
+  "tunnelName": "my-tunnel",
+  "tunnelServer": "maki111.miso.saucelabs.com",
+  "lastStatusChange": 1651629710,
+  "reconnectCount": 0,
+  "tunnelStatus": "connected"
+}
+```
+
+##### Definitions
+
+Below is a list of runtime information values and definitions for the Sauce Connect Proxy.
+
+| Name                 | Definition                                                                                                              |
+| :------------------- | :---------------------------------------------------------------------------------------------------------------------- |
+| `firstConnectedTime` | A UNIX timestamp indicating the time the connection was established for the first time.                                 |
+| `tunnelID`           | A tunnel unique ID.                                                                                                     |
+| `tunnelName`         | A tunnel name. See [`--tunnel-identifier`](/dev/cli/sauce-connect-proxy/#--tunnel-identifier).                          |
+| `tunnelServer`       | A tunnel server name.                                                                                                   |
+| `tunnelStatus`       | A tunnel could be "connected" or "disconnected". "Disconnected" status indicated that Sauce Connect Proxy is not ready. |
+| `lastStatusChange`   | A UNIX timestamp indicating the time of the last connectivity change from the client.                                   |
+| `reconnectCount`     | Number of times the connection to the Sauce Connect Proxy back end had to be re-established because of the timeout.     |
+
+##### Metrics Endpoint
+
+Additionally, the status server exposes Sauce Connect Proxy metrics information at `/debug/vars`.
+This endpoint path is backward-compatible with the deprecated `--metrics-address` that existed in the Sauce Connect Proxy version prior to 4.8.0, it is being replaced by `/api/v1/status`.
+
+:::note
+The endpoint will be removed in the future Sauce Connect Proxy versions.
+:::
+
+For example, after starting the client with `--status-address :8080`, use the following command:
+
+```bash
+$ curl -s localhost:8080/debug/vars | jq .
+{
+  "cmdline": ["sc", "-c", "/path/to/sc.yml", "--status-address", ":8080"],
+  "kgp": {
+    "Connected": true,
+    "LastStatusChange": 1651701567,
+    "ReconnectCount": 0
+  }
+}
+```
+
 ### Verifying Tunnel Success
 
 To verify that your tunnel is up and running, you can check the following:
@@ -361,85 +441,6 @@ If you start creating bigger and bigger builds with a high number of simultaneou
 
 In this scenario, you’d need to “scale up” by using a tunnel pool in HA mode (multiple tunnels with same tunnel name). We generally recommend switching when running more than 50 parallel test sessions. The mass number of tests will have room to run through, as test traffic will be distributed among the multiple tunnels.
 
-## Sauce Connect Proxy Monitoring
-
-Sauce Connect Proxy has a "status server" feature that you can use to monitor the connection status. You can access JSON-formatted status information over an HTTP connection to a local server.
-The main purpose of the "status server" is providing Kubernetes and CI/CD support.
-
-:::note
-Available only for versions 4.8.x and higher.
-:::
-
-### Configuring Status Server
-
-The status server is disabled by default. You can enable it by specifying the interface and port with the [`--status-address`](/dev/cli/sauce-connect-proxy/#--status-address) command.
-
-```bash
---status-address :8080 # listens on all the interfaces' port 8080
---status-address 1.2.3.4:80 # listens on 1.2.3.4 port 80
-```
-
-### Status Server Endpoints
-
-- `/readiness` returns 200 response code when Sauce Connect Proxy is ready, 503 otherwise
-- `/liveness` returns 200 response code when Sauce Connect Proxy is running
-- `/api/v1/status` returns a JSON-formatted response containing the Sauce Connect Proxy runtime information
-- `/debug/vars` returns a JSON-formatted response containing the Sauce Connect Proxy metrics
-
-#### Runtime Info
-
-Status server exposes Sauce Connect Proxy runtime information at `/api/v1/status`.
-For example, after starting the client with `--status-address localhost:8080`, use the following command:
-
-```bash
-$ curl -s localhost:8080/api/v1/status | jq .
-{
-  "firstConnectedTime": 1651629711,
-  "tunnelID": "780b2e455a9f46248f3c3eb6aec349f5",
-  "tunnelName": "my-tunnel",
-  "tunnelServer": "maki111.miso.saucelabs.com",
-  "lastStatusChange": 1651629710,
-  "reconnectCount": 0,
-  "tunnelStatus": "connected"
-}
-```
-
-#### Definitions
-
-Below is a list of runtime information values and definitions for the Sauce Connect Proxy.
-
-| Name                 | Definition                                                                                                              |
-| :------------------- | :---------------------------------------------------------------------------------------------------------------------- |
-| `firstConnectedTime` | A UNIX timestamp indicating the time the connection was established for the first time.                                 |
-| `tunnelID`           | A tunnel unique ID.                                                                                                     |
-| `tunnelName`         | A tunnel name. See [`--tunnel-identifier`](/dev/cli/sauce-connect-proxy/#--tunnel-identifier).                          |
-| `tunnelServer`       | A tunnel server name.                                                                                                   |
-| `tunnelStatus`       | A tunnel could be "connected" or "disconnected". "Disconnected" status indicated that Sauce Connect Proxy is not ready. |
-| `lastStatusChange`   | A UNIX timestamp indicating the time of the last connectivity change from the client.                                   |
-| `reconnectCount`     | Number of times the connection to the Sauce Connect Proxy back end had to be re-established because of the timeout.     |
-
-#### Metrics Endpoint
-
-Additionally, the status server exposes Sauce Connect Proxy metrics information at `/debug/vars`.
-This endpoint path is backward-compatible with the deprecated `--metrics-address` that existed in the Sauce Connect Proxy version prior to 4.8.0, it is being replaced by `/api/v1/status`.
-
-:::note
-The endpoint will be removed in the future Sauce Connect Proxy versions.
-:::
-
-For example, after starting the client with `--status-address :8080`, use the following command:
-
-```bash
-$ curl -s localhost:8080/debug/vars | jq .
-{
-  "cmdline": ["sc", "-c", "/path/to/sc.yml", "--status-address", ":8080"],
-  "kgp": {
-    "Connected": true,
-    "LastStatusChange": 1651701567,
-    "ReconnectCount": 0
-  }
-}
-```
 
 ## Improving Sauce Connect Proxy Performance
 
