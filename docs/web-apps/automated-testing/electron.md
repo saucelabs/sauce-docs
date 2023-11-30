@@ -13,10 +13,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 ## Supported Testing Platforms
 
 Sauce Labs currently supports the following test configurations for Electron.
-### Platforms
-Windows 10, Windows 11 (Linux and MacOS 13 support to come)
-### Electron versions
-versions 5 - 25
+- Platforms
+  - Windows 10, 
+  - Windows 11 
+  - (Linux and MacOS 13 support to come)
+- Electron versions
+  - versions 5 - 25
 
 ## How to Get Started
 
