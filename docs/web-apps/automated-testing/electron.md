@@ -22,7 +22,7 @@ versions 5 - 25
 
 ### App management
 
-Upload a zip file containing your Electron app via [REST API](/mobile-apps/app-storage/#uploading-apps-via-rest-api). You can refer to uploaded apps by either the app_id or app_name. Note that as with mobile apps, Electron apps are accessible only to members of the same team, and retained for 60 days.
+Upload a zip file containing your Electron app via [REST API](/mobile-apps/app-storage/#uploading-apps-via-rest-api). You can refer to uploaded apps by either the file ID or file name. Note that as with mobile apps, Electron apps are accessible only to members of the same team, and retained for 60 days.
 
 ### Binary location
 
