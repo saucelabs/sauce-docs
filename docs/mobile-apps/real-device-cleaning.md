@@ -21,11 +21,14 @@ A clean device:
 - Provides some convenient locale and system account defaults.
 - Has an empty file system, containing no additional media or documents.
 
-
 ## Public Devices
 
 Every 5th cleaning session includes a device reboot. This ensures that the system remains
 performant and any stray processes are stopped.
+
+:::caution
+Setting up VPNs on public devices is not supported. Please refer to our documentation for guidance on establishing a secure connection to your internal networks, firewalls, or endpoints. See [Sauce Connect](/secure-connections/sauce-connect-5) for more details.
+:::
 
 :::caution
 On Public devices, user access to device settings is limited to app-specific configurations like notifications, location services, permissions, app storage, and app details. For iOS Enterprise apps, users can trust the app via settings. Access is restricted to the test application and webapps through Safari or Chrome. These rules apply to both iOS and Android public devices.
@@ -57,23 +60,11 @@ We use a proprietary process that wipes every real device clean at the end of th
 ## Private Devices
 
 :::caution
-On Private devices, access to some parts of the device settings is restricted: Wifi and Network Settings, Profile and Device Management, Passcode/Biometrics Settings, Developer options, Resetting device options, Creating AppleIDs, Battery Options, and Display Settings. These restrictions apply to iOS/Android private devices.
+On Private Devices, access to some parts of the device settings is restricted: Wifi and Network Settings, Profile and Device Management, Passcode/Biometrics Settings, Developer options, Resetting device options, Creating AppleIDs, Battery Options, and Display Settings. These rules apply to both iOS and Android public devices.
 :::
 
-Private Devices follow the same process as Public Devices. However, the customer can adjust the following as desired through our support:
+:::caution
+Setting up VPNs on private devices is not supported. Please consult our documentation on how to set up a secure connection to your internal networks, firewalls, or endpoints. For more details, visit [Sauce Connect](/secure-connections/sauce-connect-5).
+:::
 
-App allowlist:
-
-- Apps installed on the device can be selected, by name/bundleID/package name, to be preserved between sessions. These apps and their data will not be cleaned. They can be uploaded by the customer from Sauce Storage, or installed from the App Store/Play Store.
-
-Account allowlist:
-
-With the account allowlist you will be able: 
-- Google accounts signed into the Play Store/Google Pay/In-App Purchase can be preserved between sessions.
-- Apple IDs signed into the device and App Store/TestFlight/Apple Pay/In-App Purchase can be preserved between sessions.
-
-System app allowlist:
-
-By default, we are removing most of the system applications from iOS, to ensure our cleaning service run faster. 
-You can get back your Messages, Mail, Notes applications on private devices easily, by submitting a support request.
-Here you can find the list of system apps you can get access back to: https://support.apple.com/en-gb/guide/deployment/depece748c41/web
+While both Private and Public Devices follow the same cleaning process, Private Devices can be configured to allow applications and accounts to persist between sessions. Please see [Private Device Management](/basics/acct-team-mgmt/private-device-mgmt) for details.

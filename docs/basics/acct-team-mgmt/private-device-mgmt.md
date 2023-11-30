@@ -8,28 +8,119 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Private device management allows an organization admin to view and manage the private devices in an organization by assigning them to teams. This reduces contention for scarce devices, and provides better visibility to which team is using a device at any given time.
+<br/><p><span className="sauceGreen">Private Devices Only</span></p>
 
-- By default, a device is not assigned to any team, which means it can be used by anyone in the organization. Default assignement allows the organization admin to view all the devices as long as they are not assigned to a specific team.
-- If you choose to assign a device to a team, only members of that team can access the device. This also means that if the organization admin is not part of that team, they will not be able to see the device in their dashboard and run tests on the device. This applies to live test sessions, automated test sessions, and other connection methods like [Virtual USB](/mobile-apps/features/virtual-usb).
-- At any time, you can reassign your private device to another team or remove the team assignment altogether from the [Team Management](https://app.saucelabs.com/team-management/devices) panel.
-- If a team with devices is deleted, the devices assigned to that team return to the unassigned state. (For more information about managing teams, see [Adding and Deleting Teams](/basics/acct-team-mgmt/adding-deleting-teams).)
+Private device management allows an organization admin to view and manage the private devices in an organization via the [Private Device Management](https://app.saucelabs.com/team-management/devices) panel. These features can improve device availability and optimize manual and automation workflows.
 
-Private devices are not included in VM or RDC concurrency limits. (For more information about concurrency, see [Concurrency Limits and Team Accounts](/basics/acct-team-mgmt/concurrency-limits).)
+- Assign a private device to a team.
+- Customize a private device to allow apps, system apps, and accounts to persist between sessions.
+
+:::important
+
+- Everyone in an organization can access a device in the the default unassigned state.
+- **Only** organization admins can manage private devices.
+  - An organization admin can always re-assign a device to another team or set a device to the default unassigned state.
+- **Only** team members can access a device assigned to a team.
+  - This rule is enforced for all roles!
+    - i.e., to access a device, an organization admin **must** be a member of the team a device is assigned to.
+  - Devices automcatically return to the default unassigned state if their assigned team is deleted.
+
+:::
+
+:::note
+For more information about managing teams, see [Adding and Deleting Teams](/basics/acct-team-mgmt/adding-deleting-teams).
+
+Private devices are not included in VM or RDC concurrency limits.  
+For more details, please see [Concurrency Limits and Team Accounts](/basics/acct-team-mgmt/concurrency-limits).
+:::
 
 ## Viewing an Organization’s Private Devices
 
 1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="450"/>
 2. Click the **DEVICES** tab. The devices assigned to your organization will be listed.
    <img src={useBaseUrl('img/team-mgmt/device-mgmt-devices-tab.png')} alt="Devices tab" width="600"/>
 
 ## Assigning a Private Device to a Team
 
 :::note
-A device can be assigned to only 1 team at a time.
+A device can be assigned to only 1 team at a time.  
 :::
 
 1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
 2. On the **DEVICES** tab, in the **Team** dropdown, select a team to assign the device to.
    <img src={useBaseUrl('img/team-mgmt/device-mgmt-assign-team.png')} alt="Assign a team" width="600"/>
+
+## App Allow List
+
+The [device cleaning process](/mobile-apps/real-device-cleaning) will remove apps installed from [Sauce Storage](/mobile-apps/app-storage) and the App Store/Play Store between sessions. To have installed apps and app data persist between sessions, update this setting for each of the application identifiers. This might be the app you are testing or dependent apps, e.g. MFA app, Microsoft Authenticator, etc.
+
+:::important
+This setting does **NOT** install the app. You must manually or via automation install the desired version of the matching app.
+
+- For iOS devices, use the Bundle ID.
+  - [How to find the bundle ID on a Sauce Labs device](/basics/acct-team-mgmt/private-device-mgmt-find-bundle-id)
+- For Android devices, use the package name.
+
+`com.google.chrome.ios`  
+`com.apps.app1`  
+`com.ios.app2`  
+:::
+
+## System App Allow List (iOS)
+
+Certain iOS preinstalled apps are hidden by default, e.g. Messages, Mail, Notes. To access iOS preinstalled applications, add the bundle ID for each app.
+
+:::important
+For a list of native iPhone and iPad apps and their corresponding bundle IDs, please follow the reference link below.  
+https://support.apple.com/en-gb/guide/deployment/depece748c41/web
+
+`com.apple.MobileSMS`  
+`com.apple.mobilenotes`  
+:::
+
+## Account Allow List
+
+Update this setting for each account email to preserve store and payment account sign-ins between sessions.
+
+- Google accounts signed into the Play Store/Google Pay/In-App Purchase can be preserved between sessions.
+- Apple IDs signed into the device and App Store/TestFlight/Apple Pay/In-App Purchase can be preserved between sessions.
+
+:::important
+`account1@mydomain.com`  
+`account2@mydomain.com`  
+:::
+
+## Retain folders/filepath (Android)
+
+You have the option to retain specific filepaths or folders on your private Android devices between sessions. 
+This feature ensures that selected data remains intact during the device cleaning process.
+
+- Filepaths or folders associated with specific applications can be retained.
+- This is especially useful for retaining data that is crucial for continuous testing or for maintaining certain app states.
+
+By default, the following folders are not cleaned on your private Android devices, ensuring that their contents are retained between sessions (iOS/Android):
+- Documents
+- Pictures
+- Downloads
+- DCIM
+
+:::note
+You can only retain specific folders created inside tmp. You cannot retain the whole tmp folder.
+Valid: `/data/local/tmp/retain`
+Invalid path: `/data/local/tmp/`
+:::
+
+:::important
+`/data/com.wavelink.velocity/files`  
+`/com.my.app/data/temp/folder`
+:::
+
+## Enable Apple Pay
+
+Enable this setting to test Apple Pay.
+
+:::important
+This feature **requires** setting the Account Allow List.  
+Please see [Testing Apple Pay](/mobile-apps/live-testing/testing-apple-pay) for more information.  
+:::

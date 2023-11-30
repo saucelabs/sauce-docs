@@ -36,7 +36,7 @@ Alternatively, it's also possible to associate schema files with files they are 
 
 ```json
 "yaml.schemas": {
-    "https://raw.githubusercontent.com/saucelabs/saucectl/main/api/v1alpha/generated/saucectl.schema.json": "path/to/config.yml"
+    "https://raw.githubusercontent.com/saucelabs/saucectl/main/api/saucectl.schema.json": "path/to/config.yml"
 }
 ```
 

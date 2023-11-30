@@ -120,6 +120,10 @@ sauce:
 
 Specifies on which Sauce Labs data center jobs will run. Valid values are: `us-west-1` or `eu-central-1`.
 
+:::note
+If you do not specify a region in your config file, you must set it when running your command with the `--region` flag.
+:::
+
 ```yaml
 sauce:
   region: eu-central-1
@@ -200,6 +204,10 @@ sauce:
     name: your_tunnel_name
     owner: tunnel_owner_username
 ```
+
+:::caution
+[Only certain HTTP(S) ports](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports) are proxied by the tunnel.
+:::
 
 ---
 
@@ -547,7 +555,7 @@ suites:
 
 <p><small>| OPTIONAL | DURATION |</small></p>
 
-Instructs how long `saucectl` should wait for the suite to complete, potentially overriding the default project timeout setting.
+Instructs how long `saucectl` should wait for the suite to complete, overriding the default project timeout setting of 30 minutes.
 
 When the suite reaches the timeout limit, its status is set to '?' in the CLI. This does not reflect the actual status of the job in the Sauce Labs web UI or API.
 

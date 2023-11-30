@@ -22,10 +22,11 @@ Here are some benefits/use cases:
    ```
    - To use a specific version, add it as a tag:
    ```bash
-   $ docker pull saucelabs/sauce-connect:4.9.1
+   $ docker pull saucelabs/sauce-connect:4.9.2
    ```
     <details><summary>Supported tags</summary>
-      - 4.9.1, 4.9.1-ubuntu-22.04, 4.9.1-alpine-glibc, latest<br/>
+      - 4.9.2, 4.9.2-ubuntu-22.04, 4.9.2-alpine-glibc, latest<br/>
+      - 4.9.1, 4.9.1-ubuntu-22.04, 4.9.1-alpine-glibc<br/>
       - 4.9.0, 4.9.0-ubuntu-22.04, 4.9.0-alpine-glibc<br/>
       - 4.8.3, 4.8.3-ubuntu-22.04, 4.8.3-alpine-glibc<br/>
       - 4.8.2, 4.8.2-ubuntu-22.04, 4.8.2-alpine-glibc<br/>
@@ -60,7 +61,7 @@ Below is an example of configuring Sauce Connect Proxy using environment variabl
 $ cat /tmp/sc.env
 SAUCE_REGION: eu-central
 SAUCE_API_KEY="<YOUR API KEY>"
-SAUCE_USER="<YOUR USERNAME>"
+SAUCE_USERNAME="<YOUR USERNAME>"
 SAUCE_OUTPUT_FORMAT=text
 SAUCE_TUNNEL_POOL=true
 SAUCE_LOGFILE=-
@@ -83,7 +84,7 @@ If you want to run this Docker image as part of your CI/CD pipeline, you would n
 
 ### Readiness Endpoint
 
-The readiness endpoint, supported in Sauce Connect Proxy versions 4.8.0 and higher, allows you to configure liveness and readiness HTTP probes. See the [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) for more information.
+The readiness endpoint allows you to configure liveness and readiness HTTP probes. See the [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) for more information.
 
 Docker container exposes Sauce Connect Proxy HTTP status server on port 8032. The following endpoints are available:
 

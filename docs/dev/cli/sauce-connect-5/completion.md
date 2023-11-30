@@ -4,7 +4,7 @@ title: sc completion
 sidebar_label: sc completion
 ---
 
-Generate a completion script for `bash`, `zsh`, `fish` and `powershell` shells.
+Generate an autocompletion script for `bash`, `zsh`, `fish` and `powershell` shells. See each sub-command's help for details on how to use the generated script.
 
 ## Usage
 
@@ -83,3 +83,7 @@ sc completion powershell > sc.ps1
 ```
 
 </div>
+
+## Additional Resources
+
+- [Sauce Connect Proxy Basic Setup](/secure-connections/sauce-connect-5/installation/).

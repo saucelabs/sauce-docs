@@ -53,9 +53,20 @@ We provide preconfigured SAML applications for some identity providers. They all
 - [OneLogin](/basics/sso/configuring-sso-in-onelogin)
 - [PingOne](/basics/sso/configuring-sso-in-pingone)
 
+We support also a manual setup for any other identity provider which implements SAML 2.0, for example:
+
+- Microsoft Active Directory Federation Services (MS ADFS)
+- Google Workspace (formerly G Suite)
+- Oracle Identity Cloud Service
+- ForgeRock
+- Salesforce
+- JumpCloud
+- CyberArk
+- KeyCloak
+
 :::
 
-If you use a custom identity provider or your provider does not appear in the list above, please complete the manual setup:
+If you use a custom identity provider or if we do not provide a preconfigured Sauce Labs SAML application for your identity provider, please complete the manual setup:
 
 1. Obtain SAML metadata from Sauce Labs Service Provider, which is served under [this link](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp).
 2. Log in to your identity provider administrator panel.
@@ -207,6 +218,8 @@ Make sure that you assign your [company email domains](/basics/sso/setting-up-ss
 Users who are created via SSO are placed into the default team.
 
 Organization admins can [assign users to other teams](/basics/acct-team-mgmt/assigning-removing-users-teams).
+
+Additionally, you have the option to limit concurrency, which controls the number of virtual machines available for running tests simultaneously, for newly provisioned accounts. This can be configured in the [default team settings](/basics/acct-team-mgmt/concurrency-limits/).
 
 #### Usernames
 

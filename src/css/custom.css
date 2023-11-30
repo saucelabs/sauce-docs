@@ -488,6 +488,7 @@ html[data-theme="dark"] .sauceGreen {
     color: var(--dark-500);
     padding: 0.2rem;
     font-weight: 750;
+    border-radius: 4px;
 }
 
 .sauceGold {
@@ -503,6 +504,7 @@ html[data-theme="dark"] .sauceGreen {
     color: var(--neutral-100);
     padding: 0.2rem;
     font-weight: 750;
+    border-radius: 4px;
 }
 
 .sauceLime {
@@ -510,6 +512,7 @@ html[data-theme="dark"] .sauceGreen {
     color: var(--dark-500);
     padding: 0.2rem;
     font-weight: 750;
+    border-radius: 4px;
 }
 
 .sauceYellow {
@@ -517,6 +520,7 @@ html[data-theme="dark"] .sauceGreen {
     color: var(--dark-300);
     padding: 0.2rem;
     font-weight: 750;
+    border-radius: 4px;
 }
 
 .AndroidOnly {

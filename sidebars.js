@@ -441,11 +441,14 @@ module.exports = {
                             items: [
                                 'error-reporting/language-integrations/c',
                                 'error-reporting/language-integrations/mixed',
-                                'error-reporting/language-integrations/electron',
                                 'error-reporting/language-integrations/go',
-                                'error-reporting/language-integrations/javascript',
-                                'error-reporting/language-integrations/node',
                                 'error-reporting/language-integrations/python',
+                                'error-reporting/language-integrations/javascript',
+                                'error-reporting/language-integrations/react',
+                                'error-reporting/language-integrations/node',
+                                'error-reporting/language-integrations/nestjs',
+                                'error-reporting/language-integrations/electron',
+                                'error-reporting/language-integrations/react-native',
                             ],
                         },
                         {
@@ -694,6 +697,7 @@ module.exports = {
                 'dev/api/builds',
                 'dev/api/connect',
                 'dev/api/insights',
+                'dev/api/orchestrate',
                 'dev/api/performance',
                 'dev/api/platform',
                 'dev/api/rdc',
@@ -709,9 +713,10 @@ module.exports = {
                 'dev/cli/sauce-connect-proxy',
                 {
                     type: 'category',
-                    label: 'Sauce Connect Proxy 5 CLI (alpha)',
+                    label: 'Sauce Connect Proxy 5 CLI (beta)',
                     collapsed: true,
                     items: [
+                        'dev/cli/sauce-connect-5',
                         'dev/cli/sauce-connect-5/run',
                         'dev/cli/sauce-connect-5/completion',
                     ],
@@ -818,6 +823,7 @@ module.exports = {
                                         'basics/acct-team-mgmt/adding-deactivating-users',
                                         'basics/acct-team-mgmt/managing-user-info',
                                         'basics/acct-team-mgmt/viewing-exporting-usage-data',
+                                        'basics/acct-team-mgmt/switching-active-team',
                                     ],
                                 },
                                 {
@@ -827,10 +833,10 @@ module.exports = {
                                     items: [
                                         'basics/acct-team-mgmt/adding-deleting-teams',
                                         'basics/acct-team-mgmt/assigning-removing-users-teams',
-                                        'basics/acct-team-mgmt/private-device-mgmt',
                                         'basics/acct-team-mgmt/sauce-connect-proxy-tunnels',
                                     ],
                                 },
+                                'basics/acct-team-mgmt/private-device-mgmt',
                                 {
                                     type: 'category',
                                     label: 'Billing and Subscriptions',
@@ -902,7 +908,6 @@ module.exports = {
                                         'basics/integrations/gitlab',
                                         'basics/integrations/azure',
                                         'basics/integrations/jenkins',
-                                        'basics/integrations/bamboo',
                                         'basics/integrations/teamcity',
                                     ],
                                 },
@@ -950,11 +955,26 @@ module.exports = {
                     items: [
                         {
                             type: 'category',
-                            label: 'Sauce Connect Proxy 5 (alpha)',
+                            label: 'Sauce Connect Proxy 5 (beta)',
                             collapsed: true,
                             items: [
                                 'secure-connections/sauce-connect-5',
                                 'secure-connections/sauce-connect-5/installation',
+                                'secure-connections/sauce-connect-5/quickstart',
+                                {
+                                    type: 'category',
+                                    label: 'Setup and Configuration',
+                                    collapsed: true,
+                                    items: [
+                                        'secure-connections/sauce-connect-5/operation/overview',
+                                        'secure-connections/sauce-connect-5/operation/configuration',
+                                        'secure-connections/sauce-connect-5/operation/proxies',
+                                        'secure-connections/sauce-connect-5/operation/monitoring',
+                                        'secure-connections/sauce-connect-5/operation/docker',
+                                        'secure-connections/sauce-connect-5/operation/kubernetes',
+                                        'secure-connections/sauce-connect-5/operation/systemd',
+                                    ],
+                                },
                                 {
                                     type: 'category',
                                     label: 'Advanced',
@@ -1026,6 +1046,7 @@ module.exports = {
                 'orchestrate/authenticated-pulls',
                 'orchestrate/best-practices',
                 'orchestrate/sauce-connect',
+                'orchestrate/saucelabs-private-registry',
                 'orchestrate/faq',
                 'orchestrate/architecture',
             ],
@@ -1296,6 +1317,7 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'mobile-apps/automated-testing/appium',
+                                'mobile-apps/automated-testing/appium/appium-versions',
                                 'mobile-apps/automated-testing/appium/appium-2-migration',
                                 'mobile-apps/automated-testing/appium/quickstart',
                                 'mobile-apps/automated-testing/appium/real-devices',
@@ -1379,7 +1401,6 @@ module.exports = {
                                     items: [
                                         'web-apps/automated-testing/cypress/yaml',
                                         'web-apps/automated-testing/cypress/yaml/v1',
-                                        'web-apps/automated-testing/cypress/yaml/v1alpha',
                                     ],
                                 },
                                 'web-apps/automated-testing/cypress/advanced',
@@ -1517,7 +1538,6 @@ module.exports = {
             items: [
                 'ci',
                 'basics/integrations/azure',
-                'basics/integrations/bamboo',
                 'basics/integrations/bitbucket',
                 'basics/integrations/jenkins',
                 'basics/integrations/teamcity',
@@ -1565,7 +1585,36 @@ module.exports = {
 
         {
             type: 'category',
-            label: 'Visual',
+            label: 'Visual (NEW)',
+            collapsed: true,
+            items: [
+                'visual-testing',
+                {
+                    type: 'category',
+                    label: 'Workflows',
+                    collapsed: true,
+                    items: [
+                        'visual-testing/workflows/test-execution',
+                        'visual-testing/workflows/review',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Integrations',
+                    collapsed: true,
+                    items: [
+                        'visual-testing/integrations/cypress',
+                        'visual-testing/integrations/java',
+                        'visual-testing/integrations/storybook',
+                        'visual-testing/integrations/webdriverio',
+                    ],
+                },
+                'visual-testing/faq',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Screener',
             collapsed: true,
             items: [
                 'visual',

@@ -72,23 +72,31 @@ tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
 4. Open your terminal and navigate to the Sauce Connect Proxy folder. If your folder is in your home directory, you'd run:
 
 <Tabs
-  defaultValue="Mac/Linux"
+  defaultValue="Linux"
   values={[
-    {label: 'Mac/Linux', value: 'Mac/Linux'},
+    {label: 'Linux', value: 'Linux'},
     {label: 'Windows', value: 'Windows'},
+{label: 'Mac', value: 'Mac'},
   ]}>
 
-  <TabItem value="Mac/Linux">
+  <TabItem value="Linux">
 
 ```bash
-cd sc-4.9.1-osx
+cd sc-4.9.2-linux
 ```
 
   </TabItem>
   <TabItem value="Windows">
 
 ```bash
-cd C:\sc-4.9.1-win32
+cd C:\sc-4.9.2-win32
+```
+
+  </TabItem>
+    <TabItem value="Mac">
+
+```bash
+cd sc-4.9.1-osx
 ```
 
   </TabItem>

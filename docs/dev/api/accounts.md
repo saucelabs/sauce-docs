@@ -28,6 +28,12 @@ You can filter the results of your query using the `name` parameter below.
 <table id="table-api">
   <tbody>
     <tr>
+     <td><code>id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Comma-separated team IDs. Allows to receive details of multiple teams at once. For example, <code>id=3d60780314724ab8ac688b50aadd9ff9,f9acc7c5b1da4fd0902b184c4f0b6324</code> would return details of teams with IDs included in the provided list.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
      <td><code>name</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns the set of teams that begin with the specified name value. For example, <code>name=sauce</code> would return all teams in the organization with names beginning with "sauce".</p></td>
     </tr>
@@ -805,6 +811,12 @@ You can narrow the results of your query using any of the following filtering pa
 <table id="table-api">
   <tbody>
     <tr>
+     <td><code>id</code></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Comma-separated user IDs. Allows to receive details of multiple user at once. For example, <code>id=3d60780314724ab8ac688b50aadd9ff9,f9acc7c5b1da4fd0902b184c4f0b6324</code> would return details of users with IDs included in the provided list.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
      <td><code>username</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limits the results to usernames that begin with the specified value. For example, <code>username=an</code> would return all users in the organization with usernames beginning with "an".</p></td>
     </tr>
@@ -813,12 +825,6 @@ You can narrow the results of your query using any of the following filtering pa
     <tr>
      <td><code>teams</code></td>
      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to users who belong to the specified team_ids. Specify multiple teams as comma-separated values.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>team-name</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to users who belong to the specified team names. Specify multiple teams as comma-separated values.</p></td>
     </tr>
   </tbody>
   <tbody>

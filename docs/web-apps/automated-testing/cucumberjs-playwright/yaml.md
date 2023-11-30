@@ -85,7 +85,13 @@ defaults:
 
 <p><small>| OPTIONAL | DURATION |</small></p>
 
-Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
+Instructs how long `saucectl` should wait for the suite to complete, overriding the default project timeout setting of 30 minutes.
+
+When the suite reaches the timeout limit, its status is set to '?' in the CLI. This does not reflect the actual status of the job in the Sauce Labs web UI or API.
+
+:::note
+Setting `0` reverts to the value set in `defaults`.
+:::
 
 ```yaml
   timeout: 15m
@@ -118,6 +124,10 @@ sauce:
 <p><small>| OPTIONAL | STRING/ENUM |</small></p>
 
 Specifies through which Sauce Labs data center tests will run. Valid values are: `us-west-1` or `eu-central-1`.
+
+:::note
+If you do not specify a region in your config file, you must set it when running your command with the `--region` flag.
+:::
 
 ```yaml
   region: eu-central-1
@@ -195,6 +205,10 @@ sauce:
     name: your_tunnel_name
     owner: tunnel_owner_username
 ```
+
+:::caution
+[Only certain HTTP(S) ports](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports) are proxied by the tunnel.
+:::
 
 ---
 
@@ -279,6 +293,12 @@ A property containing one or more environment variables that are global for all 
     my_var: $MY_VAR # You can also pass through existing environment variables through parameter expansion
 ```
 
+:::note
+Environment variables set with the saucectl `--env` flag will overwrite those specified in the sauce config file.
+
+The order of precedence is as follows: --env flag > root-level environment variables > suite-level environment variables.
+:::
+
 ---
 
 ## `rootDir`
@@ -341,7 +361,7 @@ Specifies the location of the npm registry source. If the registry source is a p
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Specifies the location of the npm registry, scope, and credentials. If the registry is inside a private network, you must establish a tunnel using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
+Specifies the location of the npm registry, scope, and credentials. Only one scopeless registry is allowed. If the registry is inside a private network, you must establish a tunnel using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
 
 ```yaml
   registries:
@@ -597,7 +617,7 @@ The parent property containing the details specific to the Playwright project.
 
 ```yaml
 playwright:
-  version: 1.36.2
+  version: 1.39.0
 ```
 
 ---
@@ -609,7 +629,7 @@ playwright:
 The version of Playwright that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/playwright#supported-testing-platforms) for the list of Playwright versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
-  version: 1.36.2
+  version: 1.39.0
 ```
 
 :::tip
@@ -799,6 +819,7 @@ suite:
     smartRetry:
       failedOnly: true
 ```
+
 ---
 
 ### `options`

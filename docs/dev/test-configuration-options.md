@@ -347,7 +347,7 @@ Sets idle test timeout in seconds. As a safety measure to prevent tests from run
 
 ## Mobile Appium Capabilities
 
-As the W3C WebDriver Protocol is supported in Appium v1.6.5 and higher, and required for Appium v2.0 (currently in beta), we encourage and support using it for your Appium mobile app tests instead of the JSON Wire Protocol (JWP). We'll continue to support JWP in all currently supported Appium 1.X versions, but please be aware that with Appium 2.0 (currently in beta), JWP support will be fully deprecated in favor of W3C.
+As the W3C WebDriver Protocol is supported in Appium v1.6.5 and higher, and required for Appium v2.0, we encourage and support using it for your Appium mobile app tests instead of the JSON Wire Protocol (JWP). We'll continue to support JWP in all currently supported Appium 1.X versions, but please be aware that with Appium 2.0, JWP support will be fully deprecated in favor of W3C.
 
 The capabilities defined here assume the W3C WebDriver Protocol. See [Appium Real Device W3C Specification](/mobile-apps/automated-testing/appium/real-devices/#using-the-w3c-webdriver-specification) and [Migrating Appium Real Device Tests to W3C](https://support.saucelabs.com/hc/en-us/articles/4412359870231) for more information.
 
@@ -1115,6 +1115,30 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
+### `android.gpu.mode`
+
+<p><small>| OPTIONAL | STRING| <span className="sauceGreen">Android Virtual Devices Only</span> |</small></p>
+
+By default, our emulator uses `software` rendering to handle graphics for maximum compatibility. This involves the CPU calculating how everything looks on your app's screen. However, this could lead to an emulator crash when testing apps with intricate or heavy graphical elements. To mitigate this, use the hardware rendering option by specifying `"android.gpu.mode"="hardware"` in your test capabilities.
+
+Valid values are `hardware` and `software` (default).
+
+:::caution
+
+Our advice is to leave it as `software` unless you are experiencing specific issues, like emulator (**not** app) crashes. Using `hardware` could solve your specific issue, but beware you might run into other issues which you didn't have before. If you do run into issues, please <a href="mailto:help@saucelabs.com">contact support</a>.
+
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("android.gpu.mode", "hardware");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
 ### `setupDeviceLock`
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> | </small></p>
@@ -1137,7 +1161,7 @@ It must be paired with one of the capabilities listed below.
 
 ```java title="Real Device Setting"
 MutableCapabilities capabilities = new MutableCapabilities();
-//...
+//.. .
 MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.setCapability("setupDeviceLock", true);
 capabilities.setCapability("sauce:options", sauceOptions);
@@ -1963,7 +1987,6 @@ These are currently not supported for real devices:
 
 - `Edit Timezone`: Appium does not provide a capability to edit the timezone of a device in automated testing on real devices.
 - See [Virtual Device Capabilities](#virtual-device-capabilities-sauce-specific--optional) for information about timezone capabilities in a virtual device testing.
-
 
 :::caution Limitations
 When running a test on a Virtual Device, be aware that each capability value has a 100 characters limitation. If the value exceeds this limit, it will be truncated, which can lead to further side effects or prevent a job from starting.

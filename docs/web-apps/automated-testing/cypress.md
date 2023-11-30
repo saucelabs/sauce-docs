@@ -29,13 +29,39 @@ Sauce Labs supports the following test configurations for Cypress:
 <table id="table-fw">
   <tr>
     <th>Cypress Version</th>
+    <th>Node.js Version</th>
     <th>Supported Platforms</th>
     <th>Supported Browsers</th>
     <th>End of Life</th>
   </tr>
   <tbody>
     <tr>
+      <td rowspan='2'>13.4.0</td>
+      <td rowspan='2'>20</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
+      <td rowspan='2'>November 7, 2024</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='2'>13.3.0</td>
+      <td rowspan='2'>18</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
+      <td rowspan='2'>September 28, 2024</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
       <td rowspan='2'>12.17.4</td>
+      <td rowspan='2'>18</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
       <td rowspan='2'>August 31, 2024</td>
@@ -47,6 +73,7 @@ Sauce Labs supports the following test configurations for Cypress:
   <tbody>
     <tr>
       <td rowspan='2'>12.17.2</td>
+      <td rowspan='2'>18</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
       <td rowspan='2'>August 1, 2024</td>
@@ -58,6 +85,7 @@ Sauce Labs supports the following test configurations for Cypress:
   <tbody>
     <tr>
       <td rowspan='2'>12.14.0</td>
+      <td rowspan='2'>18</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
       <td rowspan='2'>June 16, 2024</td>
@@ -69,6 +97,7 @@ Sauce Labs supports the following test configurations for Cypress:
   <tbody>
     <tr>
       <td rowspan='2'>12.11.0</td>
+      <td rowspan='2'>18</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
       <td rowspan='2'>May 11, 2024</td>
@@ -80,6 +109,7 @@ Sauce Labs supports the following test configurations for Cypress:
   <tbody>
     <tr>
       <td rowspan='2'>12.6.0</td>
+      <td rowspan='2'>16</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
       <td rowspan='2'>Mar 01, 2024</td>
@@ -91,6 +121,7 @@ Sauce Labs supports the following test configurations for Cypress:
   <tbody>
     <tr>
       <td rowspan='2'>12.3.0</td>
+      <td rowspan='2'>16</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
       <td rowspan='2'>Jan 15, 2024</td>
@@ -102,6 +133,7 @@ Sauce Labs supports the following test configurations for Cypress:
   <tbody>
     <tr>
       <td rowspan='2'>11.2.0</td>
+      <td rowspan='2'>16</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
       <td rowspan='2'>Nov 30, 2023</td>
@@ -110,43 +142,13 @@ Sauce Labs supports the following test configurations for Cypress:
       <td><b>Windows:</b> 10, 11</td>
     </tr>
   </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='2'>10.10.0</td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
-      <td rowspan='2'>Oct 20, 2023</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='2'>10.7.0</td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td rowspan='2'>Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='2'>Sep 7, 2023</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-    </tr>
-  </tbody>
-  <tbody>
-  <tr>
-    <td rowspan='1'>8.6.0</td>
-    <td><b>Windows:</b> 10</td>
-    <td>Chrome, Firefox, Microsoft Edge</td>
-    <td rowspan='2'>Oct 13, 2022</td>
-  </tr>
-  </tbody>
 </table>
 
 ## How to Get Started
 
 - [Quickstart](/web-apps/automated-testing/cypress/quickstart): Use our demo repo to quickly set up and run a sample Cypress project and test to see the results.
 - [Run your own tests](/web-apps/automated-testing/cypress/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
-- Try Cypress with Cucumber: `saucectl` supports Cypress using Cucumber, and the demo repo includes examples for [Cypress 9 and below](https://github.com/saucelabs/saucectl-cypress-example/tree/main/v1alpha/examples/cucumber) and [Cypress 10 and above](https://github.com/saucelabs/saucectl-cypress-example/tree/main/v1/examples/cucumber).
+- Try Cypress with Cucumber: `saucectl` supports Cypress using Cucumber, and the demo repo includes examples for [Cypress 10 and above](https://github.com/saucelabs/saucectl-cypress-example/tree/main/v1/examples/cucumber).
 - [Incorporate saucectl in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): Cypress on Sauce supports CI integrations with Circle CI, GitLab, Jenkins, and GitHub Actions.
 
 ## Cypress Plugin for Sauce Labs

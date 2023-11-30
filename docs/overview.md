@@ -50,7 +50,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
     <p>Browse the continuous integration and continuous delivery documentation to explore how to integrate Sauce Labs into your DevOps pipeline.</p>
     <ul>
         <li><a href="/basics/integrations/jenkins">Jenkins</a></li>
-        <li><a href="/basics/integrations/bamboo">Bamboo</a></li>
         <li>and <a href="/basics/integrations-overview/">More</a></li>
     </ul>
     </div>

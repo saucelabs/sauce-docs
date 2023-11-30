@@ -32,8 +32,7 @@ Saucelabs.com and the Sauce Labs testing service in the US and EU will be down f
 | EU        | September 23, 2023 | 7pm - 9pm CEST                 |
 | US        | October 14, 2023   | 10am - 12pm PDT                |
 | EU        | October 21, 2023   | 7pm - 9pm CEST                 |
-| US        | November 11, 2023  | 10am - 12pm PST                |
-| EU        | November 18, 2023  | 7pm - 9pm CET                  |
+| US and EU | November 18, 2023  | 7pm - 9pm CET                  |
 | US        | December 2, 2023   | 10am - 12pm PST                |
 | EU        | December 9, 2023   | 7pm - 9pm CET                  |
 

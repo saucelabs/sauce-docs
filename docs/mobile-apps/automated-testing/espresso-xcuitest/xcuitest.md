@@ -1,6 +1,6 @@
 ---
 id: xcuitest
-title: Configuring Your XCUITest Tests for Real Devices and Simulators (BETA)
+title: Configuring Your XCUITest Tests for Real Devices and Simulators
 sidebar_label: XCUITest Configuration
 ---
 
@@ -123,6 +123,10 @@ sauce:
 <p><small>| OPTIONAL | STRING/ENUM |</small></p>
 
 Specifies through which Sauce Labs data center tests will run. Valid values are: `us-west-1` or `eu-central-1`.
+
+:::note
+If you do not specify a region in your config file, you must set it when running your command with the `--region` flag.
+:::
 
 ```yaml
 sauce:
@@ -491,16 +495,14 @@ xcuitest:
 
 :::caution
 
-`saucectl` supports running XCUITests on Real Devices and Simulators <span className="sauceGreen">Beta</span> which can be configured by using:
+`saucectl` supports running XCUITests on Real Devices and Simulators which can be configured by using:
 
 - `devices`, see [Devices](#devices)
-- `simulators`, see [Simulators](#simulators-beta)
+- `simulators`, see [Simulators](#simulators)
 
 They can **NOT** be used in the same [`suites`](#suites) configuration due to `app` and `testApp` architecture differences between Real Devices and Simulators (enforced by Apple). If you want to use both Real Devices and Simulators, you need to create two separate [`suites`](#suites) configurations and provide [`app`](#app-1) and [`testApp`](#testapp-1) configuration for each suite.
 
 Follow the instructions to build [iOS Real Device `.ipa` files](/mobile-apps/automated-testing/ipa-files/) or [iOS Simulator `.app` files](/mobile-apps/automated-testing/app-files/).
-
-<a href="mailto:help@saucelabs.com">Contact support</a> if you have any issues regarding XCUITest on Simulators during the <span className="sauceGreen">Beta</span> phase.
 
 :::
 
@@ -518,7 +520,7 @@ xcuitest:
   ## Real Devices
   app: ./apps/xcuitest/SauceLabs-Demo-Real-Device-App.ipa
 
-  ## Simulators (BETA)
+  ## Simulators
   app: ./apps/xcuitest/SauceLabs-Demo-Simulator-App.app # Will automatically be zipped
   app: ./apps/xcuitest/SauceLabs-Demo-Simulator-App.zip
 
@@ -526,7 +528,7 @@ xcuitest:
   ## Real Devices
   app: https://example.app.download.url/SauceLabs-Demo-Real-Device-App.ipa
 
-  ## Simulators (BETA)
+  ## Simulators
   app: https://example.app.download.url/SauceLabs-Demo-Simulator-App.zip
 
   # Using an environment variable
@@ -538,7 +540,7 @@ xcuitest:
   ## Real Devices
   app: storage:filename=SauceLabs-Demo-App.ipa
 
-  ## Simulators (BETA)
+  ## Simulators
   app: storage:filename=SauceLabs-Demo-Simulator-App.zip
 ```
 
@@ -569,7 +571,7 @@ xcuitest:
   ## Real Devices
   testApp: ./apps/xcuitest/SauceLabs-Demo-Real-Device-App-Runner.ipa
 
-  ## Simulators (BETA)
+  ## Simulators
   testApp: ./apps/xcuitest/SauceLabs-Demo-Simulator-App-Runner.app # Will automatically be zipped
   testApp: ./apps/xcuitest/SauceLabs-Demo-Simulator-App-Runner.zip
 
@@ -577,7 +579,7 @@ xcuitest:
   ## Real Devices
   testApp: https://example.app.download.url/SauceLabs-Demo-Real-Device-App-Runner.ipa
 
-  ## Simulators (BETA)
+  ## Simulators
   testApp: https://example.app.download.url/SauceLabs-Demo-Simulator-App-Runner.zip
 
   # Using an environment variable
@@ -589,7 +591,7 @@ xcuitest:
   ## Real Devices
   testApp: storage:filename=SauceLabs-Demo-App-Runner.ipa
 
-  ## Simulators (BETA)
+  ## Simulators
   testApp: storage:filename=SauceLabs-Demo-Simulator-App-Runner.zip
 ```
 
@@ -855,7 +857,7 @@ suites:
 
 ---
 
-### `simulators` <span className="sauceGreen">BETA</span>
+### `simulators`
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
@@ -921,7 +923,7 @@ If you are using Simulators for this test suite, this property is REQUIRED.
 
 :::note
 
-The <span className="sauceGreen">BETA</span> only supports iOS 15 and up.
+XCUITest for Simulators only supports iOS 15 and up.
 
 :::
 
@@ -1032,11 +1034,20 @@ This is optional for Real Devices. There are three options you can use to determ
 The stricter the `platformVersions` is, the smaller the pool of available devices will be and the longer you might need to wait for the available device. We recommend using only the major version or using the regex option to get the best results and an available device in the fastest way.
 :::
 
-```yaml title="Use complete version for Virtual and or Real Devices"
+```yaml title="Use complete version for Real Devices"
 suites:
   - name: My Saucy Test
     devices:
-      platformVersion: 14.3
+      - name: iPhone.*
+        platformVersion: 14.3
+```
+
+```yaml title="Use complete version for Virtual Devices"
+suites:
+  - name: My Saucy Test
+    simulators:
+      - name: iPhone 14 Pro Simulator
+        platformVersion: 16.2
 ```
 
 ```yaml title="Use dynamic platformVersion allocation. Real Devices Only"
@@ -1066,8 +1077,9 @@ Request that the matching device is also connected to a cellular network.
 suites:
   - name: My Saucy Test
     devices:
-      options:
-        carrierConnectivity: true
+      - name: iPhone.*
+        options:
+          carrierConnectivity: true
 ```
 
 ---
@@ -1082,8 +1094,9 @@ Request that the matching device is a specific type of device. Valid values are:
 suites:
   - name: My Saucy Test
     devices:
-      options:
-        deviceType: TABLET
+      - name: iPhone.*
+        options:
+          deviceType: TABLET
 ```
 
 ---
@@ -1098,8 +1111,9 @@ Request that the matching device is from your organization's private pool.
 suites:
   - name: My Saucy Test
     devices:
-      options:
-        private: true
+      - name: iPhone.*
+        options:
+          private: true
 ```
 
 ---
@@ -1132,14 +1146,14 @@ suites:
         - SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
         - SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
         - SwagLabsMobileAppUITests.LoginTests
-        # Simulators (BETA)
+        # Simulators
         - SwagLabsMobileAppUITests/LoginTests/testSuccessfulLogin
         - SwagLabsMobileAppUITests/LoginTests/testNoUsernameLogin
         - SwagLabsMobileAppUITests/LoginTests
       notClass:
         # Devices
         - SwagLabsMobileAppUITests.SwagLabsFlow/testCompleteFlow
-        # Simulators (BETA)
+        # Simulators
         - SwagLabsMobileAppUITests/SwagLabsFlow/testCompleteFlow
 ```
 
@@ -1168,7 +1182,7 @@ suites:
         - SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
         - SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
         - SwagLabsMobileAppUITests.LoginTests
-        # Simulators (BETA)
+        # Simulators
         - SwagLabsMobileAppUITests/LoginTests/testSuccessfulLogin
         - SwagLabsMobileAppUITests/LoginTests/testNoUsernameLogin
         - SwagLabsMobileAppUITests/LoginTests
@@ -1197,7 +1211,7 @@ suites:
       notClass:
         # Devices
         - SwagLabsMobileAppUITests.SwagLabsFlow/testCompleteFlow
-        # Simulators (BETA)
+        # Simulators
         - SwagLabsMobileAppUITests/SwagLabsFlow/testCompleteFlow
 ```
 
@@ -1205,7 +1219,7 @@ suites:
 
 #### `testTimeoutsEnabled`
 
-<p><small>| OPTIONAL | string | <span className="sauceGreen">Simulators Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+<p><small>| OPTIONAL | string | <span className="sauceGreen">Simulators Only</span> |</small></p>
 
 By default there is no timeout, if enabled, then the timeout is 600 seconds. The values can be `Yes` or `No`. The timeout itself can be changed by adding the `defaultTestExecutionTimeAllowance` value. See also [executionTimeAllowance | Apple Developer Documentation](https://developer.apple.com/documentation/xctest/xctestcase/3526064-executiontimeallowance)
 
@@ -1220,7 +1234,7 @@ suites:
 
 #### `defaultTestExecutionTimeAllowance`
 
-<p><small>| OPTIONAL | integer | <span className="sauceGreen">Simulators Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+<p><small>| OPTIONAL | integer | <span className="sauceGreen">Simulators Only</span> |</small></p>
 
 The default execution time an individual test is given to execute if [`testTimeoutsEnabled`](#testtimeoutsenabled) is enabled. The value is in seconds and rounds up the value you supply to the nearest minute. See also [executionTimeAllowance | Apple Developer Documentation](https://developer.apple.com/documentation/xctest/xctestcase/3526064-executiontimeallowance)
 
@@ -1235,7 +1249,7 @@ suites:
 
 #### `maximumTestExecutionTimeAllowance`
 
-<p><small>| OPTIONAL | integer | <span className="sauceGreen">Simulators Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+<p><small>| OPTIONAL | integer | <span className="sauceGreen">Simulators Only</span> |</small></p>
 
 The maximum execution time an individual test is given to execute, regardless of the test's preferred allowance. The value is in seconds and rounds up the value you supply to the nearest minute. See also [executionTimeAllowance | Apple Developer Documentation](https://developer.apple.com/documentation/xctest/xctestcase/3526064-executiontimeallowance)
 
@@ -1250,7 +1264,7 @@ suites:
 
 #### `testLanguage`
 
-<p><small>| OPTIONAL | string | <span className="sauceGreen">Simulators Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+<p><small>| OPTIONAL | string | <span className="sauceGreen">Simulators Only</span> |</small></p>
 
 Specifies ISO 639-1 language during testing. See also [ISO 639-2 Language Code List - Codes for the representation of names of languages (Library of Congress)](https://www.loc.gov/standards/iso639-2/php/code_list.php)
 
@@ -1271,7 +1285,7 @@ suites:
 
 #### `testRegion`
 
-<p><small>| OPTIONAL | integer | <span className="sauceGreen">Simulators Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+<p><small>| OPTIONAL | integer | <span className="sauceGreen">Simulators Only</span> |</small></p>
 
 Specifies ISO 3166-1 region during testing with the format `{shortNameCode}_(alpha2Code}`. See also [ISO 639-2 Language Code List - Codes for the representation of names of languages (Library of Congress)](https://www.iso.org/obp/ui/#search/code/)
 
@@ -1321,7 +1335,7 @@ The file containing a list of tests is used in sharding by concurrency. It's a `
 SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
 SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
 SwagLabsMobileAppUITests.LoginTests
-# Simulators (BETA)
+# Simulators
 SwagLabsMobileAppUITests/LoginTests/testSuccessfulLogin
 SwagLabsMobileAppUITests/LoginTests/testNoUsernameLogin
 SwagLabsMobileAppUITests/LoginTests

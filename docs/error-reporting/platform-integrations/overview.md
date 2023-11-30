@@ -41,11 +41,14 @@ Integrate Backtrace in your games and apps across languages and platforms with o
   <ul>
     <li><a href="/error-reporting/language-integrations/c/">C#</a></li>
     <li><a href="/error-reporting/language-integrations/mixed/">C# and C++</a></li>
-    <li><a href="/error-reporting/language-integrations/electron/">Electron</a></li>
     <li><a href="/error-reporting/language-integrations/go/">Go</a></li>
-    <li><a href="/error-reporting/language-integrations/javascript/">JavaScript</a></li>
-    <li><a href="/error-reporting/language-integrations/node/">Node.js</a></li>
     <li><a href="/error-reporting/language-integrations/python/">Python</a></li>
+    <li><a href="/error-reporting/language-integrations/javascript/">JavaScript</a></li>
+    <li><a href="/error-reporting/language-integrations/react/">React</a></li>
+    <li><a href="/error-reporting/language-integrations/node/">Node.js</a></li>
+    <li><a href="/error-reporting/language-integrations/nestjs/">NestJS</a></li>
+    <li><a href="/error-reporting/language-integrations/electron/">Electron</a></li>
+    <li><a href="/error-reporting/language-integrations/react-native/">React Native</a></li>
   </ul>
     </div>
   </div>
