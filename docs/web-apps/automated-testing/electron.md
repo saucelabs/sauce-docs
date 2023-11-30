@@ -45,7 +45,7 @@ then the `binary` value is `'Sauce Labs Test\SauceLabsElecronApp.exe'`.
 
 ### Configuring your tests
 
-You need to specify Electron as the browser name along with the Electron version needed as the browser version. You will also need to include either the file_id or file_name of your uploaded zip file containing your Electron app, with the path to the binary inside that zip.
+You need to specify Electron as the [`browserName`](https://docs.saucelabs.com/dev/test-configuration-options/#browsername) along with the Electron version needed as the [`browserVersion`](https://docs.saucelabs.com/dev/test-configuration-options/#browserversion). You will also need to include either the file ID or file name of your uploaded zip file containing your Electron app, with the path to the binary inside that zip.
 Example written in Python with an Electron app test running on Windows 11 with Chromedriver 19 at US West:
 
 ```
