@@ -28,7 +28,7 @@ Upload a zip file containing your Electron app via [REST API](/mobile-apps/app-s
 
 ### Binary location
 
-The binary location is the folderpath and filename of your Electron executable within your zip file structure.
+The `binary_location` is the folderpath and filename of your Electron executable within your zip file structure.
 
 For example, if your zip file is structured like this:
 ```
