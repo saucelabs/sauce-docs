@@ -71,4 +71,6 @@ Test results are visible on the UI under “Automated Tests > Test Results.’ Y
 
 ## Limitations
 
-Electron support is currently enabled only for automated testing on Windows 10 and 11. Electron apps uploaded via REST API are not currently visible within the App Management of the UI. Live testing and UI enhancements to come in a future release.
+- Electron support is currently enabled only for automated testing on Windows 10 and 11. 
+- Electron apps uploaded via REST API are not currently visible within the App Management of the UI. 
+- Live testing and UI enhancements to come in a future release.
