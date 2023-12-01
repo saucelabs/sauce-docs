@@ -747,6 +747,7 @@ module.exports = {
                                 'dev/cli/saucectl/artifacts/upload',
                                 'dev/cli/saucectl/jobs/list',
                                 'dev/cli/saucectl/jobs/get',
+                                'dev/cli/saucectl/docker/push',
                             ],
                         },
                         'dev/cli/saucectl/usage/use-cases',
