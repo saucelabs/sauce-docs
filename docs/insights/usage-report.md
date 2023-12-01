@@ -15,7 +15,7 @@ Provide users with a way to view accurate VDC concurrency data and compare it to
 
 ## How it Works
 
-Usage Report calculates the maximum concurrency during a given segment of time aggregated by Month, Week, Day or Hour for each team with a usage greater than zero and presents the information using stack barks to show how much each team contributed to that usage.
+Usage Report calculates the maximum concurrency during a given segment of time aggregated by Month, Week, Day or Hour for each team with a usage greater than zero and presents the information using stack bars to show how much each team contributed to that usage.
 
 ## Available Views
 
@@ -34,5 +34,5 @@ It is possible that this aggregation shows values above the organization limit e
 
 Shows the total concurrency, adding all devices grouped by team. This information can be break down by:
 
-- VM Concurrency: Shows the concurrent usage for tests executed on Linux Browsers, Windows Browsers and Andreid Emulators.
+- VM Concurrency: Shows the concurrent usage for tests executed on Linux Browsers, Windows Browsers and Android Emulators.
 - Mac VM Concurrency: Shows the concurrent usage for tests executed on Mac OS, Mac OSX and iOS Emulators.
