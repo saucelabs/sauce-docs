@@ -17,7 +17,7 @@ $ saucectl docker push image_name [flags]
 :::note
 Ensure your `image_name` adheres to our Container Registry pattern.
 
-In order to join SauceLabs Container Registry, please contact SauceLabs customer support.
+In order to join the Sauce Labs Container Registry, please contact SauceLabs customer support.
 :::
 
 ## Available Options
