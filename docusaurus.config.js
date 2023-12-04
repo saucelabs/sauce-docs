@@ -85,9 +85,9 @@ const docusaurusConfig = {
                     to: '/dev/cli',
                 },
                 {
-                    label: 'Low Code',
+                    label: 'Visual (New)',
                     position: 'left',
-                    to: '/dev/low-code',
+                    to: '/visual-testing',
                 },
                 {
                     label: 'Error Reporting',

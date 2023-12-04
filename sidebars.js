@@ -1695,6 +1695,11 @@ module.exports = {
             ],
         },
         {
+            type: 'link',
+            label: ' Low Code',
+            href: '/dev/low-code',
+        },
+        {
             type: 'category',
             label: 'Reference',
             collapsed: true,
