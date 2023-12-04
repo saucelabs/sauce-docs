@@ -1564,6 +1564,7 @@ module.exports = {
                 'insights/scope',
                 'insights/history',
                 'insights/trends',
+                'insights/usage-report',
                 'insights/coverage',
                 'insights/failure-analysis',
                 'insights/debug',
