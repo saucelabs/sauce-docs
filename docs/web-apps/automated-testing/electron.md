@@ -1,7 +1,7 @@
 ---
 id: electron
 title: Electron Support on Sauce Labs [Beta]
-sidebar_label: Electron
+sidebar_label: Using Electron
 ---
 
 import Tabs from '@theme/Tabs';
