@@ -110,10 +110,14 @@ describe('Saucedemo example', function () {
 <TabItem value="CucumberJS">
 
 ```js
-const { Given } = require('@cucumber/cucumber');
+const { Given, When } = require('@cucumber/cucumber');
 
 Given(/^I am on the login page$/, function () {
   return browser.navigateTo('https://www.saucedemo.com');
+});
+
+When(/^I check the page before login$/, function () {
+  return browser.sauceVisualCheck('Before Login');
 });
 // ...
 ```
