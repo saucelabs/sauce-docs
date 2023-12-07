@@ -209,13 +209,13 @@ export default home;
 
 ### Build attributes
 
-When creating the service in Nightwatch's configuration, extra fields can be set to define the context, thus acting on which baselines new snapshots will be compared to. ([More info on baseline matching](../../visual-testing.md#baseline-matching))
+When creating the service in Nightwatch's configuration, extra fields can be set to define the context, thus acting on which baselines new snapshots will be compared to. ([More info on baseline matching](../../visual-testing.md#baseline-matching)).
 
 Options:
 
-- `buildName`: Name of the build
-- `project`: Name of the project
-- `branch`: Name of branch
+- `buildName`: Name of the build, not used for matching, only for display purposes
+- `project`: Name of the project, used for matching
+- `branch`: Name of branch, used for matching
 
 ```ts
 // ...
