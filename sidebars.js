@@ -1607,6 +1607,7 @@ module.exports = {
                     items: [
                         'visual-testing/integrations/cypress',
                         'visual-testing/integrations/java',
+                        'visual-testing/integrations/nightwatch',
                         'visual-testing/integrations/storybook',
                         'visual-testing/integrations/webdriverio',
                     ],
