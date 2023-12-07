@@ -274,7 +274,7 @@ Alternatively, an ignored region can be a specific region that is defined by fou
 
 - `x`, `y`: The location of the top-left corner of the ignored region
 - `width`: The width of the region to ignore
-- `height: The height of the region to ignore
+- `height`: The height of the region to ignore
 
 _Note: all values are pixels_
 
