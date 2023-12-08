@@ -133,6 +133,20 @@ Specifies the Sauce Labs data center through which tests will run. Valid values 
 
 ## Cypress Option Details
 
+### <span className="cli">--artifacts-when</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL |</small></p>
+
+Specifies when and under what circumstances to download artifacts. Valid values are:
+
+- `always`: Always download artifacts.
+- `never`: Never download artifacts.
+- `pass`: Download artifacts for passing suites only.
+- `fail`: Download artifacts for failed suites only. (default value)
+
+</div>
+
 ### <span className="cli">--browser</span>
 
 <div className="cli-desc">
@@ -348,6 +362,20 @@ The path to the mobile testing application.
 </table>
 
 ## Playwright Option Details
+
+### <span className="cli">--artifacts-when</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL |</small></p>
+
+Specifies when and under what circumstances to download artifacts. Valid values are:
+
+- `always`: Always download artifacts.
+- `never`: Never download artifacts.
+- `pass`: Download artifacts for passing suites only.
+- `fail`: Download artifacts for failed suites only. (default value)
+
+</div>
 
 ### <span className="cli">--browser</span>
 
