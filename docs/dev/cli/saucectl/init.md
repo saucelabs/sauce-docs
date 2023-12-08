@@ -24,6 +24,7 @@ In either case, the command generates a `.sauce/config.yml` folder and file in t
 
 - If you are implementing a more complex set of properties, you can manually edit your `config.yml` file. Comprehensive descriptions for all supported properties are provided by framework:
   - [Cypress YAML](/web-apps/automated-testing/cypress/yaml)
+  - [Imagerunner YAML](/orchestrate/saucectl-configuration/)
   - [Playwright YAML](/web-apps/automated-testing/playwright/yaml)
   - [TestCafe YAML](/web-apps/automated-testing/testcafe/yaml)
   - [Espresso YAML](/mobile-apps/automated-testing/espresso-xcuitest/espresso)
