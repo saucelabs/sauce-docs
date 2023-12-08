@@ -259,7 +259,8 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 <div className="cli-desc">
 <p><small>| OPTIONAL |</small></p>
 
-Find a real device for this test by matching a set of one or more device characteristics:
+Find a real device for this test by matching a set of one or more device characteristics.
+More details on static and dynamic device allocation can be found [here](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation).
 
 | Characteristic        | Description                                                                                                                                                                                              | Example                               |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
@@ -643,7 +644,8 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 <div className="cli-desc">
 <p><small>| OPTIONAL |</small></p>
 
-Find a real device for this test by matching a set of one or more device characteristics:
+Find a real device for this test by matching a set of one or more device characteristics.
+More details on static and dynamic device allocation can be found [here](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation).
 
 | Characteristic        | Description                                                                                                                                                                                              | Example                               |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
