@@ -287,13 +287,13 @@ Specify a virtual device for the test by matching a set of one or more emulator 
 | Characteristic    | Description                                                                                                        | Example                             |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
 | `name`            | Specify all or part of the emulator name. [Supported VMD List](https://app.saucelabs.com/live/web-testing/virtual) | `--emulator "name=Android.*"`       |
-| `platformVersion` | Specify the emulator platform version.                                                                             | `--emulator "platformVersion=7.1"`  |
+| `platformVersions` | Specify the emulator platform version.                                                                             | `--emulator "platformVersions=7.1"`  |
 | `orientation`     | Specify how the emulator should be oriented for the test (`portrait` or `landscape`).                              | `--emulator "orientation=portrait"` |
 
 You can specify a combination of emulator characteristics within this flag:
 
 ```bash
---emulator "name=Samsung Galaxy S8 FHD GoogleAPI Emulator,platformVersion=7.1"
+--emulator "name=Samsung Galaxy S8 FHD GoogleAPI Emulator,platformVersions=7.1"
 ```
 
 </div>
@@ -564,5 +564,138 @@ such as Windows 11 or macOS 13.
 <p><small>| REQUIRED |</small></p>
 
 The version of TestCafe that is compatible with the tests defined in this configuration.
+
+</div>
+
+
+## XCUITest Options Summary
+
+<table id="table-cli">
+  <thead>
+    <tr>
+      <th width="30%">Key</th>
+      <th width="10%">Shorthand</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     <td><span className="t-cli"><a href="#--app">--app</a></span></td>
+     <td></td>
+     <td>Path to the application under test.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--artifacts-when">--artifacts-when</a></span></td>
+     <td></td>
+     <td>When to download artifacts.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--device">--device</a></span></td>
+     <td></td>
+     <td>Real device to use for testing.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--other-apps">--other-apps</a></span></td>
+     <td></td>
+     <td>Path to additional applications.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--simulator">--simulator</a></span></td>
+     <td></td>
+     <td>The iOS simulator to use for testing.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--test-app">--test-app</a></span></td>
+     <td></td>
+     <td>Path to the test application.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+## XCUITest Option Details
+
+### <span className="cli">--app</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED |</small></p>
+
+The path to a valid mobile application to test.
+</div>
+
+### <span className="cli">--artifacts-when</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL |</small></p>
+
+Specifies when and under what circumstances to download artifacts. Valid values are:
+
+- `always`: Always download artifacts.
+- `never`: Never download artifacts.
+- `pass`: Download artifacts for passing suites only.
+- `fail`: Download artifacts for failed suites only. (default value)
+
+</div>
+
+### <span className="cli">--device</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL |</small></p>
+
+Find a real device for this test by matching a set of one or more device characteristics:
+
+| Characteristic        | Description                                                                                                                                                                                              | Example                               |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| `id`                  | Specify a device by its ID. Using this selection flag ignores all other characteristics and is not advised because availability of a specific device is uncertain and could cause your test to time out. | `--device "id=iPhone_15_Pro_real_sjc1"`       |
+| `name`                | Find a device based on a partial name in order to increase likelihood of availability of similar devices.                                                                                                | `--device "name=iPhone.*"`               |
+| `platformVersion`     | Find a device based on the version of the iOS operating system.                                                                                                                                                             | `--device "platformVersion=16.0"`      |
+| `carrierConnectivity` | The selected device must be connected to a cellular network.                                                                                                                                             | `--device "carrierConnectivity=true"` |
+| `deviceType`          | The selected device must be a particular type (`PHONE`, `TABLET`, or `ANY`).                                                                                                                             | `--device "deviceType=PHONE"`         |
+| `private`             | The selected device must be private.                                                                                                                                                                     | `--device "private=true"`             |
+
+You can specify a combination of device characteristics within this flag:
+
+```bash
+--device "name=iPhone.*,platformVersion=16.0,carrierConnectivity=true"
+```
+
+</div>
+
+### <span className="cli">--simulator</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL |</small></p>
+
+Specify a virtual device for the test by matching a set of one or more simulator characteristics.
+
+| Characteristic    | Description                                                                                                        | Example                             |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
+| `name`            | Specify all or part of the simulator name. [Supported VMD List](https://app.saucelabs.com/live/web-testing/virtual) | `--simulator "name=iPhone.*"`       |
+| `platformVersions` | Specify the simulator platform version.                                                                             | `--simulator "platformVersions=16.0"`  |
+| `orientation`     | Specify how the simulator should be oriented for the test (`portrait` or `landscape`).                              | `--simulator "orientation=portrait"` |
+
+You can specify a combination of simulator characteristics within this flag:
+
+```bash
+--simulator "name=iPhone 14 Simulator,platformVersions=16.0"
+```
+
+</div>
+
+### <span className="cli">--other-apps</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL |</small></p>
+
+The path(s) to additional applications that need to be installed along with the main app.
+
+</div>
+
+### <span className="cli">--test-app</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED |</small></p>
+
+The path to the mobile testing application.
 
 </div>
