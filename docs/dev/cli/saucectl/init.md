@@ -9,7 +9,7 @@ Generate a configuration file for use in running tests through `saucectl`.
 ## Usage
 
 ```bash
-$ saucectl init [OPTIONS]
+$ saucectl init <framework> [OPTIONS]
 ```
 
 ## Extended Description
@@ -29,7 +29,9 @@ In either case, the command generates a `.sauce/config.yml` folder and file in t
   - [Espresso YAML](/mobile-apps/automated-testing/espresso-xcuitest/espresso)
   - [XCUITest YAML](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest)
 
-## Options Summary
+## Global Options Summary
+
+These global options can be specified across all frameworks.
 
 <table id="table-cli">
   <thead>
@@ -41,104 +43,192 @@ In either case, the command generates a `.sauce/config.yml` folder and file in t
   </thead>
   <tbody>
     <tr>
-     <td><span className="t-cli"><a href="#--accesskey">--accessKey</a></span></td>
-     <td><span className="t-cli">-a</span></td>
-     <td>A valid Sauce Labs account access key.</td>
-    </tr>
-    <tr>
-     <td><span className="t-cli"><a href="#--app-string">--app</a></span></td>
-     <td></td>
-     <td>The path to a valid mobile application to test.</td>
-    </tr>
-    <tr>
-     <td><span className="t-cli"><a href="#--artifactsdownloadwhen">--artifacts.download.when</a></span></td>
-     <td><span className="t-cli">-f</span></td>
-     <td>The framework for which this configuration is intended.</td>
-    </tr>
-    <tr>
-     <td><span className="t-cli"><a href="#--browsername">--browserName</a></span></td>
-     <td><span className="t-cli">-b</span></td>
-     <td>The browser in which web-app tests will run.</td>
-    </tr>
-    <tr>
-     <td><span className="t-cli"><a href="#--cypress-config">--cypress.config</a></span></td>
-     <td></td>
-     <td>The path to the Cypress configuration file.</td>
-    </tr>
-    <tr>
-     <td><span className="t-cli"><a href="#--device">--device</a></span></td>
-     <td></td>
-     <td>The set of desired characteristics to match when finding a device.</td>
-    </tr>
-    <tr>
-     <td><span className="t-cli"><a href="#--emulator">--emulator</a></span></td>
-     <td></td>
-     <td>The set of desired characteristics to match when finding an emulator.</td>
-    </tr>
-    <tr>
-     <td><span className="t-cli"><a href="#--framework">--framework</a></span></td>
-     <td><span className="t-cli">-f</span></td>
-     <td>The framework for which this configuration is intended.</td>
-    </tr>
-    <tr>
-     <td><span className="t-cli"><a href="#--frameworkversion">--frameworkVersion</a></span></td>
-     <td><span className="t-cli">-v</span></td>
-     <td>The version of the framework that is compatible with the tests to be run.</td>
-    </tr>
-    <tr>
      <td><span className="t-cli"><a href="#--help">--help</a></span></td>
      <td><span className="t-cli">-h</span></td>
      <td>Usage information for the <code>init</code> command.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--platformname">--platformName</a></span></td>
-     <td><span className="t-cli">-p</span></td>
-     <td>The operation system and verseion on which tests will be run.</td>
+     <td><span className="t-cli"><a href="#--no-prompt">--no-prompt</a></span></td>
+     <td></td>
+     <td>Disable interactive prompts.</td>
     </tr>
     <tr>
      <td><span className="t-cli"><a href="#--region">--region</a></span></td>
      <td><span className="t-cli">-r</span></td>
      <td>The Sauce Labs data center associated with the testing account.</td>
     </tr>
+  </tbody>
+</table>
+
+## Global Options Details
+
+### <span className="cli">--help</span>
+
+<div className="cli-desc">
+
+Usage information for the `init` command.
+
+**Shorthand:** `-h`
+
+</div>
+
+### <span className="cli">--no-prompt</span>
+
+<div className="cli-desc">
+
+Disables the interactive mode. You'll have to specify most values for initialization
+via CLI flags, since there'll be no more prompts for inputs.
+
+</div>
+
+### <span className="cli">--region</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED | STRING |</small></p>
+
+Specifies the Sauce Labs data center through which tests will run. Valid values are: `us-west-1` (default) or `eu-central-1`.
+
+**Shorthand:** `-r `
+
+</div>
+
+## Cypress Options Summary
+
+<table id="table-cli">
+  <thead>
     <tr>
-     <td><span className="t-cli"><a href="#--testapp">--testApp</a></span></td>
-     <td><span className="t-cli">-t</span></td>
-     <td>The path to the mobile testing application.</td>
+      <th width="30%">Key</th>
+      <th width="10%">Shorthand</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     <td><span className="t-cli"><a href="#--artifacts-when">--artifacts-when</a></span></td>
+     <td></td>
+     <td>When to download artifacts.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--username">--username</a></span></td>
-     <td><span className="t-cli">-u</span></td>
-     <td>A valid Sauce Labs user account.</td>
+     <td><span className="t-cli"><a href="#--browser">--browser</a></span></td>
+     <td></td>
+     <td>Browser name.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--cypress-config">--cypress-config</a></span></td>
+     <td></td>
+     <td>Path to the cypress config file.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--platform">--platform</a></span></td>
+     <td></td>
+     <td>OS name and version, such as Windows 11 or macOS 13.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--version">--version</a></span></td>
+     <td></td>
+     <td>Cypress version.</td>
     </tr>
   </tbody>
 </table>
 
-## Options Details
+## Cypress Option Details
 
-### <span className="cli">--accessKey</span>
+### <span className="cli">--browser</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| REQUIRED |</small></p>
 
-The authentication access key associated with the Sauce Labs user account making this request. If you have not set your authentication credentials as environment parameters or generated a `credentials.yml` file, this value is required.
+The name of the browser in which to run tests.
+</div>
 
-**Shorthand:** `-a `
+### <span className="cli">--cypress-config</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED |</small></p>
+
+The file path to the Cypress configuration file (typically `cypress.config.js` or `cypress.config.ts`).
 
 </div>
+
+### <span className="cli">--platform</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED |</small></p>
+
+A specific operating system and version on which to run the specified browser and test suite,
+such as Windows 11 or macOS 13.
+
+</div>
+
+### <span className="cli">--version</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED |</small></p>
+
+The version of the Cypress that is compatible with the tests defined in this configuration.
+
+</div>
+
+
+## Espresso Options Summary
+
+<table id="table-cli">
+  <thead>
+    <tr>
+      <th width="30%">Key</th>
+      <th width="10%">Shorthand</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     <td><span className="t-cli"><a href="#--app">--app</a></span></td>
+     <td></td>
+     <td>Path to the application under test.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--artifacts-when">--artifacts-when</a></span></td>
+     <td></td>
+     <td>When to download artifacts.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--device">--device</a></span></td>
+     <td></td>
+     <td>Real device to use for testing.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--emulator">--emulator</a></span></td>
+     <td></td>
+     <td>Android emulator to use for testing.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--other-apps">--other-apps</a></span></td>
+     <td></td>
+     <td>Path to additional applications.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--test-app">--test-app</a></span></td>
+     <td></td>
+     <td>Path to the test application.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+## Espresso Option Details
 
 ### <span className="cli">--app</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Espresso/XCUITest Only</span> |</small></p>
+<p><small>| REQUIRED |</small></p>
 
 The path to a valid mobile application to test.
-
 </div>
 
-### <span className="cli">--artifacts.download.when</span>
+### <span className="cli">--artifacts-when</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | STRING |</small></p>
+<p><small>| OPTIONAL |</small></p>
 
 Specifies when and under what circumstances to download artifacts. Valid values are:
 
@@ -149,30 +239,10 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 
 </div>
 
-### <span className="cli">--browserName</span>
-
-<div className="cli-desc">
-<p><small>| REQUIRED | STRING | <span className="sauceGreen">Web-app Only</span> |</small></p>
-
-The name of the browser in which to run tests.
-
-**Shorthand:** `-b `
-
-</div>
-
-### <span className="cli">--cypress.config</span>
-
-<div className="cli-desc">
-<p><small>| REQUIRED | STRING | <span className="sauceGreen">Cypress Only</span> |</small></p>
-
-The file path to the Cypress configuration file (typically `cypress.json`).
-
-</div>
-
 ### <span className="cli">--device</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Espresso/XCUITest Only</span> |</small></p>
+<p><small>| OPTIONAL |</small></p>
 
 Find a real device for this test by matching a set of one or more device characteristics:
 
@@ -196,7 +266,7 @@ You can specify a combination of device characteristics within this flag:
 ### <span className="cli">--emulator</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Espresso Only</span> |</small></p>
+<p><small>| OPTIONAL |</small></p>
 
 Specify a virtual device for the test by matching a set of one or more emulator characteristics.
 
@@ -214,100 +284,20 @@ You can specify a combination of emulator characteristics within this flag:
 
 </div>
 
-### <span className="cli">--framework</span>
+### <span className="cli">--other-apps</span>
 
 <div className="cli-desc">
-<p><small>| REQUIRED | STRING |</small></p>
+<p><small>| OPTIONAL |</small></p>
 
-The framework for which this configuration is intended.
-
-**Shorthand:** `-f `
+The path(s) to additional applications that need to be installed along with the main app.
 
 </div>
 
-### <span className="cli">--frameworkVersion</span>
+### <span className="cli">--test-app</span>
 
 <div className="cli-desc">
-<p><small>| REQUIRED | STRING | <span className="sauceGreen">Web-app Only</span> |</small></p>
-
-The version of the framework that is compatible with the tests defined in this configuration.
-
-**Shorthand:** `-v `
-
-</div>
-
-### <span className="cli">--help</span>
-
-<div className="cli-desc">
-
-Usage information for the `init` command.
-
-**Shorthand:** `-h`
-
-</div>
-
-### <span className="cli">--platformName</span>
-
-<div className="cli-desc">
-<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Web-app Only</span> |</small></p>
-
-A specific operating system and version on which to run the specified browser and test suite.
-
-**Shorthand:** `-p `
-
-</div>
-
-### <span className="cli">--region</span>
-
-<div className="cli-desc">
-<p><small>| REQUIRED | STRING |</small></p>
-
-Specifies the Sauce Labs data center through which tests will run. Valid values are: `us-west-1` (default) or `eu-central-1`.
-
-**Shorthand:** `-r `
-
-</div>
-
-### <span className="cli">--testApp</span>
-
-<div className="cli-desc">
-<p><small>| REQUIRED | STRING | <span className="sauceGreen">Espresso/XCUITest Only</span> |</small></p>
+<p><small>| REQUIRED |</small></p>
 
 The path to the mobile testing application.
 
-**Shorthand:** `-t `
-
 </div>
-
-### <span className="cli">--username</span>
-
-<div className="cli-desc">
-<p><small>| OPTIONAL | STRING |</small></p>
-
-A valid Sauce Labs user account. If you have not set your authentication credentials as environment parameters or generated a `credentials.yml` file, this value is required.
-
-**Shorthand:** `-u `
-
-</div>
-
-## Examples
-
-### Interactive Example
-
-```bash
-$ saucectl init
-12:13:20 INF Start Init Command
-? Select region: us-west-1
-? Select framework:  [Use arrows to move, type to filter]
-> cypress
- playwright
- testcafe
- espresso
- xcuitest
-```
-
-### Batch Example
-
-```bash
-$ saucectl init -r us-west-1 -f cypress -b chrome
-```
