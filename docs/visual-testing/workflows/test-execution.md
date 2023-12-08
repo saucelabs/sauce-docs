@@ -26,7 +26,7 @@ Sauce Visual provides integrations with different kind of frameworks:
   <ul>
       <li><a href="/visual-testing/integrations/cypress/">Cypress Integration</a></li>
       <li><a href="/visual-testing/integrations/java/">Java Integration</a></li>
-      <li><a href="/visual-testing/integrations/nightwatch/">Nightwatch (BETA) Integration</a></li>
+      <li><a href="/visual-testing/integrations/nightwatch/">Nightwatch Integration</a></li>
       <li><a href="/visual-testing/integrations/webdriverio/">WebdriverIO Integration</a></li>
   </ul>
   </div>
@@ -35,7 +35,7 @@ Sauce Visual provides integrations with different kind of frameworks:
   <div className="container">
   <h2>Component Testing</h2>
   <ul>
-      <li><a href="/visual-testing/integrations/storybook/">Storybook Integration (BETA)</a></li>
+      <li><a href="/visual-testing/integrations/storybook/">Storybook Integration</a></li>
   </ul>
   </div>
 </div>

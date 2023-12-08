@@ -166,7 +166,7 @@ Sauce Visual provides integrations with different kind of frameworks:
   <div className="container">
   <h2>Component Testing</h2>
   <ul>
-      <li><a href="/visual-testing/integrations/storybook/">Storybook Integration (BETA)</a></li>
+      <li><a href="/visual-testing/integrations/storybook/">Storybook Integration</a></li>
   </ul>
   </div>
 </div>

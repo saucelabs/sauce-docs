@@ -1,5 +1,5 @@
 ---
-sidebar_label: Storybook (BETA)
+sidebar_label: Storybook
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
