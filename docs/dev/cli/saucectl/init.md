@@ -165,7 +165,7 @@ such as Windows 11 or macOS 13.
 <div className="cli-desc">
 <p><small>| REQUIRED |</small></p>
 
-The version of the Cypress that is compatible with the tests defined in this configuration.
+The version of Cypress that is compatible with the tests defined in this configuration.
 
 </div>
 
@@ -299,5 +299,99 @@ The path(s) to additional applications that need to be installed along with the 
 <p><small>| REQUIRED |</small></p>
 
 The path to the mobile testing application.
+
+</div>
+
+
+## Playwright Options Summary
+
+<table id="table-cli">
+  <thead>
+    <tr>
+      <th width="30%">Key</th>
+      <th width="10%">Shorthand</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     <td><span className="t-cli"><a href="#--artifacts-when">--artifacts-when</a></span></td>
+     <td></td>
+     <td>When to download artifacts.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--browser">--browser</a></span></td>
+     <td></td>
+     <td>Browser name.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--platform">--platform</a></span></td>
+     <td></td>
+     <td>OS name and version, such as Windows 11 or macOS 13.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--project">--project</a></span></td>
+     <td></td>
+     <td>Playwright project name.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--test-match">--test-match</a></span></td>
+     <td></td>
+     <td>Test file pattern to match against.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--version">--version</a></span></td>
+     <td></td>
+     <td>Playwright version.</td>
+    </tr>
+  </tbody>
+</table>
+
+## Playwright Option Details
+
+### <span className="cli">--browser</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED |</small></p>
+
+The name of the browser in which to run tests.
+</div>
+
+### <span className="cli">--platform</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED |</small></p>
+
+A specific operating system and version on which to run the specified browser and test suite,
+such as Windows 11 or macOS 13.
+
+</div>
+
+### <span className="cli">--project</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL |</small></p>
+
+If your Playwright config file (`playwright.config.js/ts`) contains projects,
+you **must** specify which project you want to run. This flag is not required otherwise.
+
+</div>
+
+### <span className="cli">--test-match</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL |</small></p>
+
+Which test files to match against for the purpose of testing.
+Defaults to `.*.spec.js`.
+
+</div>
+
+### <span className="cli">--version</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED |</small></p>
+
+The version of Playwright that is compatible with the tests defined in this configuration.
 
 </div>
