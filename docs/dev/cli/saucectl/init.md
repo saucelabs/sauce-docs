@@ -423,3 +423,68 @@ Defaults to `.*.spec.js`.
 The version of Playwright that is compatible with the tests defined in this configuration.
 
 </div>
+
+## Imagerunner Options Summary
+
+<table id="table-cli">
+  <thead>
+    <tr>
+      <th width="30%">Key</th>
+      <th width="10%">Shorthand</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     <td><span className="t-cli"><a href="#--artifacts-when">--artifacts-when</a></span></td>
+     <td></td>
+     <td>When to download artifacts.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--image">--image</a></span></td>
+     <td></td>
+     <td>Docker image to use.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--workload">--workload</a></span></td>
+     <td></td>
+     <td>Type of work performed.</td>
+    </tr>
+  </tbody>
+</table>
+
+## Imagerunner Option Details
+
+### <span className="cli">--artifacts-when</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL |</small></p>
+
+Specifies when and under what circumstances to download artifacts. Valid values are:
+
+- `always`: Always download artifacts.
+- `never`: Never download artifacts.
+- `pass`: Download artifacts for passing suites only.
+- `fail`: Download artifacts for failed suites only. (default value)
+
+</div>
+
+### <span className="cli">--image</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED |</small></p>
+
+The container image for Sauce Orchestrate.
+</div>
+
+### <span className="cli">--workload</span>
+
+<div className="cli-desc">
+<p><small>| REQUIRED |</small></p>
+
+The type of work performed within the container. Valid values are:
+
+- `webdriver`: Choose this if you are running webdriver tests.
+- `other`: Choose this for any other work.
+
+</div>
