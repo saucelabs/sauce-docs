@@ -115,8 +115,6 @@ If the image upload is successful, you will see a thumbnail of the image and a s
 
 8. Activate the camera inside of your app. The device will show your uploaded image in the app as if the image was taken by the device camera. The image will continue to be available, should you go back to the camera during your test session, or you can upload another image and capture it with the camera.
 
-
-
 ### Testing with QR Codes
 
 You can use the Camera Image Injection feature to upload QR codes for testing.

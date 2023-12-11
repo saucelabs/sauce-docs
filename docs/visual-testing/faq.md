@@ -62,6 +62,7 @@ When using Sauce Visual, the client libraries need to connect with Sauce Labs AP
      - Enter `HTTPS_PROXY` as the variable name and your proxy URL as the value.
      - Click OK to save and exit.
    - **On macOS/Linux**:
+
      - Open a terminal.
      - Use the export command to set the variable. For example:
 
@@ -82,15 +83,15 @@ When using Sauce Visual, the client libraries need to connect with Sauce Labs AP
    - `http://user:pass@my.org.proxy:3128` (if authentication is required)
    - `socks://username:password@myorgsocksproxy.com:9050` (for SOCKS proxy)
 
-3. **Run your Sauce Visual jobs using proxy**:
-  Sauce Visual Java client is capable of using system-wide proxy settings without any additional setup. If you'd like to use a custom proxy instead,
-  you need to set the [relevant Java system properties](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/doc-files/net-properties.html) when running your tests. For example:
+2. **Run your Sauce Visual jobs using proxy**:
+   Sauce Visual Java client is capable of using system-wide proxy settings without any additional setup. If you'd like to use a custom proxy instead,
+   you need to set the [relevant Java system properties](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/net/doc-files/net-properties.html) when running your tests. For example:
 
-  ```bash
-  ./mvnw clean test -Dtest=InventoryTest -Dhttps.proxyHost=my.org.proxy -Dhttps.proxyPort=3128
-  ```
+```bash
+./mvnw clean test -Dtest=InventoryTest -Dhttps.proxyHost=my.org.proxy -Dhttps.proxyPort=3128
+```
 
-  Since Sauce Visual interacts with endpoints using https protocol, you'll need to use either HTTPS or SOCKS properties.
+Since Sauce Visual interacts with endpoints using https protocol, you'll need to use either HTTPS or SOCKS properties.
 
 </TabItem>
 </Tabs>

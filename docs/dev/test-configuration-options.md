@@ -347,7 +347,7 @@ Sets idle test timeout in seconds. As a safety measure to prevent tests from run
 
 ## Mobile Appium Capabilities
 
-As the W3C WebDriver Protocol is supported in Appium v1.6.5 and higher, and required for Appium v2.0 (currently in beta), we encourage and support using it for your Appium mobile app tests instead of the JSON Wire Protocol (JWP). We'll continue to support JWP in all currently supported Appium 1.X versions, but please be aware that with Appium 2.0 (currently in beta), JWP support will be fully deprecated in favor of W3C.
+As the W3C WebDriver Protocol is supported in Appium v1.6.5 and higher, and required for Appium v2.0, we encourage and support using it for your Appium mobile app tests instead of the JSON Wire Protocol (JWP). We'll continue to support JWP in all currently supported Appium 1.X versions, but please be aware that with Appium 2.0, JWP support will be fully deprecated in favor of W3C.
 
 The capabilities defined here assume the W3C WebDriver Protocol. See [Appium Real Device W3C Specification](/mobile-apps/automated-testing/appium/real-devices/#using-the-w3c-webdriver-specification) and [Migrating Appium Real Device Tests to W3C](https://support.saucelabs.com/hc/en-us/articles/4412359870231) for more information.
 

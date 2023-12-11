@@ -21,7 +21,6 @@ A clean device:
 - Provides some convenient locale and system account defaults.
 - Has an empty file system, containing no additional media or documents.
 
-
 ## Public Devices
 
 Every 5th cleaning session includes a device reboot. This ensures that the system remains
@@ -61,7 +60,7 @@ We use a proprietary process that wipes every real device clean at the end of th
 ## Private Devices
 
 :::caution
-On Private Devices, access to some parts of the device settings is restricted: Wifi and Network Settings, Profile and Device Management, Passcode/Biometrics Settings, Developer options, Resetting device options, Creating AppleIDs, Battery Options, and Display Settings.  These rules apply to both iOS and Android public devices.
+On Private Devices, access to some parts of the device settings is restricted: Wifi and Network Settings, Profile and Device Management, Passcode/Biometrics Settings, Developer options, Resetting device options, Creating AppleIDs, Battery Options, and Display Settings. These rules apply to both iOS and Android public devices.
 :::
 
 :::caution
@@ -69,4 +68,3 @@ Setting up VPNs on private devices is not supported. Please consult our document
 :::
 
 While both Private and Public Devices follow the same cleaning process, Private Devices can be configured to allow applications and accounts to persist between sessions. Please see [Private Device Management](/basics/acct-team-mgmt/private-device-mgmt) for details.
-
