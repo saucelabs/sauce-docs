@@ -164,9 +164,13 @@ module.exports = {
   // Add this to your config
   testEnvironmentOptions: {
     'jest-playwright': {
-      // Specify the browsers you want to test with
+      // With this option tests will be run against the defaultBrowserType of the devices, otherwise
+      // they run in a matrix against the default browser(s) configured below (chromium, if omitted)
+      useDefaultBrowserType: true,
+      // we still need to specify the browsers used by the devices
+      browsers: ['chromium', 'webkit', 'firefox'],
+      // this is actually the important part, we need to specify the devices we want to test against
       devices: [ 'Desktop Edge', 'Desktop Firefox', 'Desktop Chrome', 'Desktop Safari', 'Pixel 5', 'iPhone 14 Pro Max']
-    },
   },
 };
 
