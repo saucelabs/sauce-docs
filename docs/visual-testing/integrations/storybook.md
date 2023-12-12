@@ -16,7 +16,7 @@ An extension for [Storybook's test-runner](https://github.com/storybookjs/test-r
 
 ## Introduction
 
-This guide requires an existing Storybook setup.  
+This guide requires an existing Storybook setup.<br/>
 You can alternatively take a look to our [example repository](#example).
 
 All tests are run in a headless [browser](#different-browsers) on your local machine/in your pipeline, so you don't need to worry about setting up a browser driver.
@@ -64,7 +64,7 @@ then append
 
 below the jest config spread. Your file should look similar to the example below:
 
-```js {"id":"01HHEQDRP7A2ATG5SYGWMRAPKM"}
+```js
 const { getJestConfig } = require('@storybook/test-runner');
 const { getVisualTestConfig } = require('@saucelabs/visual-storybook');
 
@@ -99,7 +99,7 @@ module.exports = {
 
 Username and Access Key can be retrieved from https://app.saucelabs.com/user-settings.
 
-```sh {"id":"01HHEQDRP7A2ATG5SYH07DD39R"}
+```sh
 export SAUCE_USERNAME=__YOUR_SAUCE_USER_NAME__
 export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 ```
@@ -133,7 +133,7 @@ Below are the environment variables available in the visual-storybook plugin:
 | ----------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `SAUCE_USERNAME`        | required | Your Sauce Labs username. You can get this from the header of app.saucelabs.com                                                                                                                                                  |
 | `SAUCE_ACCESS_KEY`      | required | Your Sauce Labs access key. You can get this from the header of app.saucelabs.com                                                                                                                                                |
-| `SAUCE_REGION`          |          | The region you'd like to run your Visual tests in. Defaults to `us-west-1` if not supplied. Can be one of the following:  `'eu-central-1'`, `'us-west-1'` or `'us-east-4'`                                                  |
+| `SAUCE_REGION`          |          | The region you'd like to run your Visual tests in. Defaults to `us-west-1` if not supplied. Can be one of the following: <br/> `'eu-central-1'`, `'us-west-1'` or `'us-east-4'`                                                  |
 | `SAUCE_BUILD_NAME`      |          | The name you would like to appear in the Sauce Visual dashboard. Defaults to 'Storybook Build'                                                                                                                                   |
 | `SAUCE_BRANCH_NAME`     |          | The branch name or tag you would like to associate this build with. We recommend using your current VCS branch in CI.                                                                                                            |
 | `SAUCE_PROJECT_NAME`    |          | The label / project you would like to associated this build with.                                                                                                                                                                |
