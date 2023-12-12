@@ -28,6 +28,7 @@ This package leverage's Storybook's test-runner and metadata generation system f
 ## Getting Started
 
 1. Follow [Storybook's instructions](https://github.com/storybookjs/test-runner/blob/next/README.md#getting-started) for setting up, installing, and configuring the test-runner if you haven't done so already. If you have already used or enabled the test-runner, you can skip this step.
+
 2. Install this plugin in an existing project from the root:
 
 ```sh
@@ -137,7 +138,7 @@ Below are the environment variables available in the visual-storybook plugin:
 | `SAUCE_BUILD_NAME`      |          | The name you would like to appear in the Sauce Visual dashboard. Defaults to 'Storybook Build'                                                                                                                                   |
 | `SAUCE_BRANCH_NAME`     |          | The branch name or tag you would like to associate this build with. We recommend using your current VCS branch in CI.                                                                                                            |
 | `SAUCE_PROJECT_NAME`    |          | The label / project you would like to associated this build with.                                                                                                                                                                |
-| `SAUCE_VISUAL_BUILD_ID` |          | For advanced users, a custom build ID. Can be used to create builds in advance. This can be used to parallelize tests, shard, or more.  By default, this is not set and we create / finish a build during setup / teardown. |
+| `SAUCE_VISUAL_BUILD_ID` |          | For advanced users, a custom build ID. Can be used to create builds in advance. This can be used to parallelize tests, shard, or more. <br/> By default, this is not set and we create / finish a build during setup / teardown. |
 
 ## Different Browsers and Devices
 
