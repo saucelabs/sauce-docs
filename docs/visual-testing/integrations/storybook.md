@@ -95,7 +95,7 @@ module.exports = {
 };
 ```
 
-5. Sauce Visual relies on environment variables for authentications.<br/>
+5. Sauce Visual relies on environment variables for authentications.<br />
    Both `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` need to be set prior starting your Storybook Testrunner job.
 
 Username and Access Key can be retrieved from https://app.saucelabs.com/user-settings.
