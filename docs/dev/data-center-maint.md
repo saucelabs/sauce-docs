@@ -21,7 +21,7 @@ Saucelabs.com and the Sauce Labs testing service in the US and EU will be down f
 | EU        | March 23, 2023     | 7pm - 9pm CET                  |
 | US and EU | April 20, 2023     | 10am - 2pm PDT, 7pm - 9pm CEST |
 
-### Backtrace - error reporting service will be down for planned maintenance on Wednesdays 11am - 1pm ET across all data centers
+### Backtrace - error reporting service updates are pushed Wednesdays 11am - 1pm ET across all data centers. Individual application servers may experience a short period of downtime within this window.
 
 
 For more information about other status updates, see [https://status.saucelabs.com](https://status.saucelabs.com/).
