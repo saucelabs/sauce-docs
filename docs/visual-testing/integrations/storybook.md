@@ -140,9 +140,9 @@ Below are the environment variables available in the visual-storybook plugin:
 | `SAUCE_PROJECT_NAME`    |          | The label / project you would like to associated this build with.                                                                                                                                                                |
 | `SAUCE_VISUAL_BUILD_ID` |          | For advanced users, a custom build ID. Can be used to create builds in advance. This can be used to parallelize tests, shard, or more. <br/> By default, this is not set and we create / finish a build during setup / teardown. |
 
-## Different browsers
+## Different Browsers and Devices
 
-By default the tests are run on your local machine/in your pipeline with Chromium. You have the option to run on `chromium`, `firefox`, `webkit`, a combination or all of them. To do so, you need to add the following to your `test-runner-jest.config.js` file:
+By default the tests are run on your local machine/in your pipeline with Chromium. You have the option to run them on different [browser and device configurations](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json) preconfigured by playwright or define your own device, a combination or all of them. To do so, you need to add the following to your `test-runner-jest.config.js` file:
 
 ```js
 const { getJestConfig } = require('@storybook/test-runner');
@@ -164,10 +164,16 @@ module.exports = {
   // Add this to your config
   testEnvironmentOptions: {
     'jest-playwright': {
-      // Specify the browsers you want to test with
-      browsers: ['chromium', 'firefox', 'webkit'],
-    },
+      // With this option tests will be run against the defaultBrowserType of the devices, otherwise
+      // they run in a matrix against the default browser(s) configured below (chromium, if omitted)
+      useDefaultBrowserType: true,
+      // we still need to specify the browsers used by the devices
+      browsers: ['chromium', 'webkit', 'firefox'],
+      // this is actually the important part, we need to specify the devices we want to test against
+      devices: [ 'Desktop Edge', 'Desktop Firefox', 'Desktop Chrome', 'Desktop Safari', 'Pixel 5', 'iPhone 14 Pro Max']
   },
 };
 
 ```
+
+If you wanna configure your own devices please follow the configuration steps inside the [playwright docs](https://playwright.dev/docs/emulation#devices).
