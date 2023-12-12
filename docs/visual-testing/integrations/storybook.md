@@ -1,7 +1,4 @@
 ---
-runme:
-  id: 01HHEQDRP7A2ATG5SYH90VAZ53
-  version: v2.0
 sidebar_label: Storybook
 ---
 
@@ -19,7 +16,7 @@ An extension for [Storybook's test-runner](https://github.com/storybookjs/test-r
 
 ## Introduction
 
-This guide requires an existing Storybook setup.
+This guide requires an existing Storybook setup.  
 You can alternatively take a look to our [example repository](#example).
 
 All tests are run in a headless [browser](#different-browsers) on your local machine/in your pipeline, so you don't need to worry about setting up a browser driver.
@@ -33,7 +30,7 @@ This package leverage's Storybook's test-runner and metadata generation system f
 1. Follow [Storybook's instructions](https://github.com/storybookjs/test-runner/blob/next/README.md#getting-started) for setting up, installing, and configuring the test-runner if you haven't done so already. If you have already used or enabled the test-runner, you can skip this step.
 2. Install this plugin in an existing project from the root:
 
-```sh {"id":"01HHEQDRP7A2ATG5SYGMQGTR2E"}
+```sh
 npm i --save-dev @saucelabs/visual-storybook
 ```
 
@@ -41,7 +38,7 @@ npm i --save-dev @saucelabs/visual-storybook
 
 If you don't have Playwright as a dev dependency in your project, you'll need to install it as well:
 
-```sh {"id":"01HHEQDRP7A2ATG5SYGQ6GFVMN"}
+```sh
 npm i --save-dev playwright
 ```
 
@@ -53,7 +50,7 @@ npm i --save-dev playwright
 If you already have a custom config file for the test-runner you can skip to the next step for appending our configuration bootstrap. If not see below or read through the [storybook-runner docs](https://github.com/storybookjs/test-runner#ejecting-configuration) to eject the default test configuration.
 :::
 
-```sh {"id":"01HHEQDRP7A2ATG5SYGSZJ47EG"}
+```sh
 npx test-storybook --eject
 ```
 
@@ -88,7 +85,7 @@ module.exports = {
 
 4. Create a `test-runner.js` file in your storybook configuration directory (`<root>/.storybook` by default) if you do not already have one, and append our `postRender` hook into it. You can read more about this file in the [hook API](https://github.com/storybookjs/test-runner#experimental-test-hook-api) section. It should look something like below:
 
-```js {"id":"01HHEQDRP7A2ATG5SYGYK8PDD3"}
+```js
 // .storybook/test-runner.js
 const { postRender } = require('@saucelabs/visual-storybook');
 
@@ -109,7 +106,7 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 6. Run your Storybook instance (or point to a built one), set the required environment variables ([see here](https://www.npmjs.com/package/@saucelabs/visual-storybook#customizing-your-builds-environment-variables) for all available / required fields), and run the test-runner! We'll take snapshots of all known Storybook stories and upload them into Sauce Visual.
 
-```sh {"id":"01HHEQDRP7A2ATG5SYH44042S7"}
+```sh
 # Spin up your storybook instance in a separate terminal window if you're not using a live /
 # hosted one
 npm run storybook
@@ -146,7 +143,7 @@ Below are the environment variables available in the visual-storybook plugin:
 
 By default the tests are run on your local machine/in your pipeline with Chromium. You have the option to run them on different [browser and device configurations](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json) preconfigured by playwright or define your own device, a combination or all of them. To do so, you need to add the following to your `test-runner-jest.config.js` file:
 
-```js {"id":"01HHEQDRP7A2ATG5SYH5V5K0TJ"}
+```js
 const { getJestConfig } = require('@storybook/test-runner');
 const { getVisualTestConfig } = require('@saucelabs/visual-storybook');
 
