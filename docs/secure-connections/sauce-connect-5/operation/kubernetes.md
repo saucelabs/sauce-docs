@@ -23,6 +23,8 @@ sc:
   user: johndoe
   accessKey: "xxx-xxx-xxx"
   tunnelName: "my-k8s-tunnel"
+tunnelPoolSize: 2
+terminationGracePeriodSeconds: 600
 ```
 
 - Run Helm install
