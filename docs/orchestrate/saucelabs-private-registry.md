@@ -18,7 +18,7 @@ In order to join SauceLabs Container Registry, please contact SauceLabs customer
 ## How do I access SauceLabs Container Registry?
 
 In order to access SauceLabs Container Registry you will need a username and a short-lived generated tokens to be used 
-as a password. The token has a time-to-live of 5 minutes.
+as a password. The token has a time-to-live of 30 minutes.
 
 To generate a token, use [Sauce Orchestrate API](https://docs.saucelabs.com/dev/api/orchestrate/)
 or follow a script below.
@@ -63,7 +63,7 @@ echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdi
 Once you're logged in, you can run any docker commands related to the registry as you'd normally do.
 
 :::note
-If you're not able to log in to docker, your token may have already expired - it's valid only for 5 minutes.
+If you're not able to log in to docker, your token may have already expired - it's valid only for 30 minutes.
 Run the first part of the script and try to log in again.
 :::
 
