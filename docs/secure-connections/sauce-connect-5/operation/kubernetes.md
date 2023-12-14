@@ -18,13 +18,11 @@ The Sauce Connect Helm chart is available at the [Sauce Labs Helm Charts Registr
 - Define a values file containing your configuration, for example:
 
 ```yaml
-sauceApiRegion: us-west
-sauceUser: johndoe
-sauceApiKey: "xxx-xxx-xxx"
-tunnelName: "my-k8s-tunnel"
-tunnelPool: true
-tunnelPoolSize: 2
-terminationGracePeriodSeconds: 600
+sc:
+  region: "us-west"
+  user: johndoe
+  accessKey: "xxx-xxx-xxx"
+  tunnelName: "my-k8s-tunnel"
 ```
 
 - Run Helm install
