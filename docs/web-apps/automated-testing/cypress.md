@@ -36,6 +36,18 @@ Sauce Labs supports the following test configurations for Cypress:
   </tr>
   <tbody>
     <tr>
+      <td rowspan='2'>13.6.0</td>
+      <td rowspan='2'>20</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
+      <td rowspan='2'>December 6, 2024</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
       <td rowspan='2'>13.4.0</td>
       <td rowspan='2'>20</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
@@ -125,18 +137,6 @@ Sauce Labs supports the following test configurations for Cypress:
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
       <td rowspan='2'>Jan 15, 2024</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='2'>11.2.0</td>
-      <td rowspan='2'>16</td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
-      <td rowspan='2'>Nov 30, 2023</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>

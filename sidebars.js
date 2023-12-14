@@ -747,6 +747,7 @@ module.exports = {
                                 'dev/cli/saucectl/artifacts/upload',
                                 'dev/cli/saucectl/jobs/list',
                                 'dev/cli/saucectl/jobs/get',
+                                'dev/cli/saucectl/docker/push',
                             ],
                         },
                         'dev/cli/saucectl/usage/use-cases',
@@ -1564,6 +1565,7 @@ module.exports = {
                 'insights/scope',
                 'insights/history',
                 'insights/trends',
+                'insights/usage-report',
                 'insights/coverage',
                 'insights/failure-analysis',
                 'insights/debug',
@@ -1605,6 +1607,7 @@ module.exports = {
                     items: [
                         'visual-testing/integrations/cypress',
                         'visual-testing/integrations/java',
+                        'visual-testing/integrations/nightwatch',
                         'visual-testing/integrations/storybook',
                         'visual-testing/integrations/webdriverio',
                     ],

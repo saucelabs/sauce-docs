@@ -118,7 +118,8 @@ Invalid path: `/data/local/tmp/`
 
 ## Enable Apple Pay
 
-Enable this setting to test Apple Pay.
+Enable this setting to test Apple Pay. This will persist assistive touch on the device, which is required to confirm payment. 
+Please send us a support ticket to set up Confirm with AssistiveTouch on your device. This requires manual intervention from our side.
 
 :::important
 This feature **requires** setting the Account Allow List.  
