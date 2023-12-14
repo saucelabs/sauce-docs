@@ -524,7 +524,7 @@ Insufficient Sauce Connect Proxy host resources may cause performance degradatio
 
 ## Service Management Tools
 :::note
-These are suggestions and examples. The tool you are familiar with is often the best choice. Anything that let's you monitor and orchestrate Sauce Connect to meet your Team's needs is the best choice.
+The below are suggestions and examples. The tool you or your team are familiar with is often the best choice.
 :::
 
 
