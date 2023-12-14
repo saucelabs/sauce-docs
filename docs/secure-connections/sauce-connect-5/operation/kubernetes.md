@@ -43,10 +43,6 @@ $ kubectl logs $POD_NAME -f
 2023/10/04 17:19:54 [control] [INFO] Sauce Connect is up, you may start your tests
 ```
 
-- Pod restart
-
-The `terminationGracePeriodSeconds` is set to 600 seconds to allow sufficient time for jobs using the Sauce Connect Proxy to finish.
-
 ## Additional Resources
 
 - [Kubernetes](https://kubernetes.io)
