@@ -18,11 +18,11 @@ The Sauce Connect Helm chart is available at the [Sauce Labs Helm Charts Registr
 - Define a values file containing your configuration, for example:
 
 ```yaml
-sauceApiRegion: us-west
-sauceUser: johndoe
-sauceApiKey: "xxx-xxx-xxx"
-tunnelName: "my-k8s-tunnel"
-tunnelPool: true
+sc:
+  region: "us-west"
+  user: johndoe
+  accessKey: "xxx-xxx-xxx"
+  tunnelName: "my-k8s-tunnel"
 tunnelPoolSize: 2
 terminationGracePeriodSeconds: 600
 ```
@@ -44,10 +44,6 @@ $ kubectl logs $POD_NAME -f
 2023/10/04 17:19:54 [tunnel] [INFO] established connection to Sauce Connect server active=2/2
 2023/10/04 17:19:54 [control] [INFO] Sauce Connect is up, you may start your tests
 ```
-
-- Pod restart
-
-The `terminationGracePeriodSeconds` is set to 600 seconds to allow sufficient time for jobs using the Sauce Connect Proxy to finish.
 
 ## Additional Resources
 
