@@ -44,6 +44,7 @@ Sauce Connect Proxy 5 major changes are listed below.
 - [Subcommands](/dev/cli/sauce-connect-5/) are introduced to support multiple CLI changes and future capabilities.
 - The [Selenium Relay](/secure-connections/sauce-connect/proxy-tunnels/#using-the-selenium-relay) feature is not supported.
 - Log administration capabilities (such as log-rotate) are not supported. Log management is better left to specialized tools.
+- [SSL Bumping](https://docs.saucelabs.com/secure-connections/sauce-connect/security-authentication/#ssl-certificate-bumping) is not enabled by default in Sauce Connect Proxy 5.
 
 ## Getting Started With Sauce Connect Proxy 5
 
