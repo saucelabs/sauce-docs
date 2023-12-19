@@ -235,6 +235,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 Returns a list of Device IDs for all devices in the data center that are currently free for testing.
 
+:::note Deprecated Endpoint
+This endpoint is deprecated. Please transition to the status endpoint for continued service.
+:::
+
 #### Parameters
 
 This method takes no parameters.
@@ -315,6 +319,252 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "OnePlus_6_real",
     ...
 ]
+```
+
+</details>
+
+---
+
+### Get Devices Status
+
+<details><summary><span className="api get">GET</span> <code>/v1/rdc/devices/status</code></summary>
+<p/>
+
+Returns a list of devices in the data center along with their current states. Each device is represented by a descriptor, 
+indicating its model, and includes information on availability, usage status, and whether it is designated as a private device.
+
+:::note
+The `inUseBy` field is exposed only for private devices `isPrivateDevice: true`. 
+Users can view information about who is currently using the device only if they have the required permissions.
+Lack of permissions will result in the inUseBy field being omitted from the response for private devices.
+:::
+
+#### Parameters
+
+This method takes no parameters.
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/devices/status' | json_pp
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/devices/status' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. Device info returned.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+    "devices": [
+        {
+            "descriptor": "iPhone_12_16_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPhone_12_mini_16_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Samsung_Galaxy_A8_2018_real",
+            "state": "IN_USE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPad_10_2_14_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPad_mini_2_12_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPad_10_2_2020_16_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Samsung_Galaxy_S21_5G_13_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Huawei_Mate_30_Pro_real",
+            "state": "IN_USE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPad_Pro_10_5_2017_15_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPad_Pro_11_2022_16_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Google_Pixel_7_Pro_14_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Samsung_Galaxy_S10_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPhone_XS_13_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPhone_8_Plus_13_4_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Google_Pixel_4_10_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Samsung_Galaxy_S21_5G_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Samsung_Galaxy_A7_2018_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPad_Pro_11_2021_17_real",
+            "state": "IN_USE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Samsung_Galaxy_S8_8_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Google_Pixel_5_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Samsung_Galaxy_A9s_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPhone_SE_15_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPhone_13_mini_17_real_2",
+            "state": "IN_USE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Google_Pixel_4_XL_13_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Samsung_Galaxy_S23_14_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Motorola_Moto_G4_cs",
+            "state": "IN_USE",
+            "inUseBy": [
+                {
+                    "username": "user-name"
+                }
+            ],
+            "isPrivateDevice": true
+        },
+        {
+            "descriptor": "Samsung_Galaxy_Tab_S8_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Lenovo_P2_real",
+            "state": "IN_USE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        ...
+    ]
+}
 ```
 
 </details>
