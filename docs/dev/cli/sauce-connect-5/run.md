@@ -8,16 +8,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::caution
-Sauce Connect Proxy 5 release is currently in the Alpha stage, some changes in CLI are expected.
-:::
-
 The `sc run` command is a main Sauce Connect Proxy 5 command that allows provisioning a Sauce Connect Proxy server and establishing a secure connection between the Sauce Connect Proxy client and the server.
 
 ## Usage
 
 ```bash
-SAUCE_USER=<username> SAUCE_ACCESS_KEY=<access key> sc run --region <region> --tunnel-name my-tunnel [OPTIONS]
+SAUCE_USERNAME=<username> SAUCE_ACCESS_KEY=<access key> sc run --region <region> --tunnel-name my-tunnel [OPTIONS]
 ```
 
 ## Options
@@ -26,13 +22,13 @@ SAUCE_USER=<username> SAUCE_ACCESS_KEY=<access key> sc run --region <region> --t
 
 ---
 
-#### `--user`
+#### `--username`
 
 <p><small>| REQUIRED | STRING | </small></p>
 
 **Description**: Sets your Sauce Labs username.<br/>
 **Default**: n/a<br/>
-**Environment variable**: `SAUCE_USER`<br/>
+**Environment variable**: `SAUCE_USERNAME`<br/>
 **Shorthand**: `-u`
 
 :::note
@@ -299,7 +295,7 @@ Setting this to `direct` sends requests to `localhost` directly without using th
 **Shorthand**: `-D`
 
 ```bash
---tls-passthrough-domains .*\.example\.com,.*google\.com,mycompany\.com
+--direct-domains .*\.example\.com,.*google\.com,mycompany\.com
 ```
 
 ---

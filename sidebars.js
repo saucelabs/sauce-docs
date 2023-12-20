@@ -441,12 +441,14 @@ module.exports = {
                             items: [
                                 'error-reporting/language-integrations/c',
                                 'error-reporting/language-integrations/mixed',
-                                'error-reporting/language-integrations/electron',
                                 'error-reporting/language-integrations/go',
-                                'error-reporting/language-integrations/javascript',
-                                'error-reporting/language-integrations/node',
-                                'error-reporting/language-integrations/react',
                                 'error-reporting/language-integrations/python',
+                                'error-reporting/language-integrations/javascript',
+                                'error-reporting/language-integrations/react',
+                                'error-reporting/language-integrations/node',
+                                'error-reporting/language-integrations/nestjs',
+                                'error-reporting/language-integrations/electron',
+                                'error-reporting/language-integrations/react-native',
                             ],
                         },
                         {
@@ -695,6 +697,7 @@ module.exports = {
                 'dev/api/builds',
                 'dev/api/connect',
                 'dev/api/insights',
+                'dev/api/usage',
                 'dev/api/orchestrate',
                 'dev/api/performance',
                 'dev/api/platform',
@@ -711,7 +714,7 @@ module.exports = {
                 'dev/cli/sauce-connect-proxy',
                 {
                     type: 'category',
-                    label: 'Sauce Connect Proxy 5 CLI (alpha)',
+                    label: 'Sauce Connect Proxy 5 CLI (beta)',
                     collapsed: true,
                     items: [
                         'dev/cli/sauce-connect-5',
@@ -745,6 +748,7 @@ module.exports = {
                                 'dev/cli/saucectl/artifacts/upload',
                                 'dev/cli/saucectl/jobs/list',
                                 'dev/cli/saucectl/jobs/get',
+                                'dev/cli/saucectl/docker/push',
                             ],
                         },
                         'dev/cli/saucectl/usage/use-cases',
@@ -821,6 +825,7 @@ module.exports = {
                                         'basics/acct-team-mgmt/adding-deactivating-users',
                                         'basics/acct-team-mgmt/managing-user-info',
                                         'basics/acct-team-mgmt/viewing-exporting-usage-data',
+                                        'basics/acct-team-mgmt/switching-active-team',
                                     ],
                                 },
                                 {
@@ -952,7 +957,7 @@ module.exports = {
                     items: [
                         {
                             type: 'category',
-                            label: 'Sauce Connect Proxy 5 (alpha)',
+                            label: 'Sauce Connect Proxy 5 (beta)',
                             collapsed: true,
                             items: [
                                 'secure-connections/sauce-connect-5',
@@ -1398,7 +1403,6 @@ module.exports = {
                                     items: [
                                         'web-apps/automated-testing/cypress/yaml',
                                         'web-apps/automated-testing/cypress/yaml/v1',
-                                        'web-apps/automated-testing/cypress/yaml/v1alpha',
                                     ],
                                 },
                                 'web-apps/automated-testing/cypress/advanced',
@@ -1562,6 +1566,7 @@ module.exports = {
                 'insights/scope',
                 'insights/history',
                 'insights/trends',
+                'insights/usage-report',
                 'insights/coverage',
                 'insights/failure-analysis',
                 'insights/debug',
@@ -1583,7 +1588,37 @@ module.exports = {
 
         {
             type: 'category',
-            label: 'Visual',
+            label: 'Visual (NEW)',
+            collapsed: true,
+            items: [
+                'visual-testing',
+                {
+                    type: 'category',
+                    label: 'Workflows',
+                    collapsed: true,
+                    items: [
+                        'visual-testing/workflows/test-execution',
+                        'visual-testing/workflows/review',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Integrations',
+                    collapsed: true,
+                    items: [
+                        'visual-testing/integrations/cypress',
+                        'visual-testing/integrations/java',
+                        'visual-testing/integrations/nightwatch',
+                        'visual-testing/integrations/storybook',
+                        'visual-testing/integrations/webdriverio',
+                    ],
+                },
+                'visual-testing/faq',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Screener',
             collapsed: true,
             items: [
                 'visual',
@@ -1662,6 +1697,11 @@ module.exports = {
                 'visual/notifications',
                 'visual/faq',
             ],
+        },
+        {
+            type: 'link',
+            label: ' Low Code',
+            href: '/dev/low-code',
         },
         {
             type: 'category',

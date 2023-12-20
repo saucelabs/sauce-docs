@@ -8,10 +8,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::caution
-Sauce Connect Proxy 5 release is currently in the Alpha stage, some changes in CLI are expected.
-:::
-
 Below is a list of commands available with your Sauce Connect Proxy application.
 
 ## What You'll Need
@@ -24,6 +20,7 @@ Below is a list of commands available with your Sauce Connect Proxy application.
 ## Commands
 
 - [sc run](/dev/cli/sauce-connect-5/run/)
+- `sc legacy`
 - [sc completion](/dev/cli/sauce-connect-5/completion/)
 - `sc version`
 - `sc help`
@@ -31,6 +28,29 @@ Below is a list of commands available with your Sauce Connect Proxy application.
 ### `sc run`
 
 The [sc run](/dev/cli/sauce-connect-5/run/) command is a main Sauce Connect Proxy 5 command that allows provisioning a Sauce Connect Proxy server and establishing a secure connection between the Sauce Connect Proxy client and the server.
+
+### `sc legacy`
+
+The command runs Sauce Connect Proxy in compatibility mode with Sauce Connect Proxy 4.9.x. See [Sauce Connect Proxy 4.x.x CLI Reference](/dev/cli/sauce-connect-proxy). The command is intended to simplify the transition to Sauce Connect Proxy 5.x.x and will be removed in the future.
+
+Unsupported Sauce Connect Proxy 4.9.x flags:
+
+- [`--autodetect`](/dev/cli/sauce-connect-proxy/#--autodetect)
+- [`--doctor`](/dev/cli/sauce-connect-proxy/#--doctor)
+- [`--experimental`](/dev/cli/sauce-connect-proxy/#--experimental)
+- [`--extra-info`](/dev/cli/sauce-connect-proxy/#--extra-info)
+- [`--log-stats`](/dev/cli/sauce-connect-proxy/#--log-stats)
+- [`--max-logsize`](/dev/cli/sauce-connect-proxy/#--max-logsize)
+- [`--metadata`](/dev/cli/sauce-connect-proxy/#--metadata)
+- [`--no-autodetect`](/dev/cli/sauce-connect-proxy/#--no-autodetect)
+- [`--no-remove-colliding-tunnels`](/dev/cli/sauce-connect-proxy/#--no-remove-colliding-tunnels)
+- [`--ocsp`](/dev/cli/sauce-connect-proxy/#--ocsp)
+- [`--output-format`](/dev/cli/sauce-connect-proxy/#--output-format)
+- [`--pidfile`](/dev/cli/sauce-connect-proxy/#--pidfile)
+- [`--readyfile`](/dev/cli/sauce-connect-proxy/#--readyfile)
+- [`--tunnel-cainfo`](/dev/cli/sauce-connect-proxy/#--tunnel-cainfo)
+- [`--readyfile`](/dev/cli/sauce-connect-proxy/#--readyfile)
+- `--vm-version`
 
 ### `sc completion`
 
@@ -42,12 +62,12 @@ The `sc version` command output detailed version info.
 
 ```bash
 sc version
-  Version:	 5.0.0-alpha11
-  Build time:	 2023-10-16T21:11:37Z
-  Git commit:	 3301c2ed2a0b5fe364e3e126c07a9b1a5dafa7f8
+  Version:	 5.0.0
+  Build time:	 2023-10-31T21:11:37Z
+  Git commit:	 9eb9a377aaa791765f74aace37e83d8ac1d000e2
   Go Arch:	 arm64
   Go OS:		 darwin
-  Go Version:	 go1.20.4
+  Go Version:	 go1.21.3
 ```
 
 ### `sc help`

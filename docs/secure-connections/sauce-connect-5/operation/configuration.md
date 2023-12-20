@@ -23,7 +23,7 @@ The Sauce Connect Proxy [config file](/dev/cli/sauce-connect-5/run/#--config-fil
 ```yaml
 ---
 region: 'us-west'
-user: 'janedoe-sauce'
+username: 'janedoe-sauce'
 access-key: 'xxxx-xxx-xxx'
 # this is my log file for SC I use for Mac OS tests.
 log-file: '/tmp/sc-mac.log'
@@ -87,7 +87,7 @@ We recommend configuring options via environment variables in the following scen
 
 The following flags may contain sensitive information:
 
-- [`--user`](/dev/cli/sauce-connect-5/run/#--user)
+- [`--username`](/dev/cli/sauce-connect-5/run/#--username)
 - [`--access-key`](/dev/cli/sauce-connect-5/run/#--access-key)
 - [`--auth`](/dev/cli/sauce-connect-5/run/#--auth)
 - [`--proxy`](/dev/cli/sauce-connect-5/run/#--proxy)
@@ -99,7 +99,7 @@ We recommend using environment variables for these flags.
 
 | Environment Variable   | Description                                                                                                   | Corresponding CLI Option                                             |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `SAUCE_USER`           | Sets your Sauce Labs username.                                                                                | [`--user`](/dev/cli/sauce-connect-5/run/#--user)                     |
+| `SAUCE_USERNAME`           | Sets your Sauce Labs username.                                                                                | [`--username`](/dev/cli/sauce-connect-5/run/#--username)                     |
 | `SAUCE_ACCESS_KEY`     | Sets your Sauce Labs access key.                                                                              | [`--access-key`](/dev/cli/sauce-connect-5/run/#--access-key)         |
 | `SAUCE_AUTH`           | Sets site or upstream proxy basic authentication credentials.                                                 | [`--auth`](/dev/cli/sauce-connect-5/run/#--auth)                     |
 | `SAUCE_PROXY`          | The basic authentication username and password can be specified in the host string, e.g. user:pass@host:port. | [`--proxy`](/dev/cli/sauce-connect-5/run/#--proxy)                   |
@@ -116,7 +116,7 @@ Follow the steps below to configure Sauce Connect Proxy using environment variab
 
 1. In your terminal window, set the following environment variables
    ```bash
-   export SAUCE_USER="your Sauce username"
+   export SAUCE_USERNAME="your Sauce username"
    export SAUCE_ACCESS_KEY="your Sauce access key"
    export SAUCE_REGION="<us-west|eu-central>"
    export SAUCE_TUNNEL_NAME="your tunnel name"
@@ -136,9 +136,9 @@ You can persist Sauce Connect Proxy environment variables by adding them to one 
 1. Open the Control Panel and click the System icon to open the **System Properties** dialog.
 2. Click **Environment Variables** to open the **Environment Variables** dialog.
 3. In the **User variables** section, click **New** to open the **New System Variable** dialog.
-4. For **Variable name**, enter **SAUCE_USER** and for **Variable value**, enter your Sauce username and then click **OK**.
+4. For **Variable name**, enter **SAUCE_USERNAME** and for **Variable value**, enter your Sauce username and then click **OK**.
 5. Repeat 3-4 to set up the **SAUCE_ACCESS_KEY**, **SAUCE_REGION**, **SAUCE_TUNNEL_NAME** or any other environment variable.
-6. Confirm that your environment variables have been set by typing `echo %SAUCE_USER%` in your terminal. The response should be your username value. Then do the same for your access key.
+6. Confirm that your environment variables have been set by typing `echo %SAUCE_USERNAME%` in your terminal. The response should be your username value. Then do the same for your access key.
 7. Starting a new Sauce Connect Proxy will not require adding required flags.
    ```bash
    sc.exe

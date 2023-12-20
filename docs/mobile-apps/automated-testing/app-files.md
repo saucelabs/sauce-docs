@@ -1,6 +1,6 @@
 ---
 id: app-files
-title: Creating Simulator .app Files for Appium and XCUITest (BETA)
+title: Creating Simulator .app Files for Appium and XCUITest
 sidebar_label: iOS Simulator .app Files
 ---
 
@@ -73,9 +73,9 @@ xcodebuild \
   CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 ```
 
-**Build for XCUITest** <span className="sauceGreen">Beta</span>
+**Build for XCUITest**
 
-XCUITest for Simulators is currently in <span className="sauceGreen">Beta</span> and is only supported for iOS 15 and up. It needs two apps, which are:
+XCUITest for Simulators is only supported for iOS 15 and up. It needs two apps, which are:
 
 - The App that needs to be tested (testApp)
 - The App that holds the tests (testRunner)
@@ -173,6 +173,6 @@ Replace `/path/to/your/project/` with the actual path to your project's director
 
 For Appium, you can upload your mobile app programmatically using the [File Storage API Methods](/dev/api/storage). For more information, see [Uploading Apps via Rest API](/mobile-apps/app-storage/#uploading-apps-via-rest-api).
 
-### XCUITest <span className="sauceGreen">Beta</span>
+### XCUITest
 
-For XCUITest Beta, you can use `saucectl` to run XCUITest for Simulators on Sauce Labs. It will handle the app uploading process to Sauce Storage for you. For more information, see [Espresso XCUITest documentation](/mobile-apps/automated-testing/espresso-xcuitest/).
+For XCUITest on Simulators, you can use `saucectl` to run XCUITest for Simulators on Sauce Labs. It will handle the app uploading process to Sauce Storage for you. For more information, see [Espresso XCUITest documentation](/mobile-apps/automated-testing/espresso-xcuitest/).

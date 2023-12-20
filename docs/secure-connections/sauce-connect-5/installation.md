@@ -10,7 +10,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::caution
-Sauce Connect Proxy 5 release is currently in the Alpha stage. See [this document](/secure-connections/sauce-connect/installation/) for the most recent stable version (4.9.1) download instructions.
+Sauce Connect Proxy 5 release is currently in the Beta stage. See [this document](/secure-connections/sauce-connect/installation/) for the most recent stable version (4.9.2) download instructions.
 :::
 
 This topic describes how to install Sauce Connect Proxy version 5 to your machine.
@@ -22,7 +22,7 @@ This topic describes how to install Sauce Connect Proxy version 5 to your machin
 ## Downloading Sauce Connect Proxy
 
 Download the latest Sauce Connect Proxy 5 to your local machine by clicking the link below corresponding to your OS and the CPU architecture.
-SHA256 checksums are available [here](https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/checksums).
+SHA256 checksums are available [here](https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/checksums).
 
 <table>
   <tr>
@@ -34,51 +34,51 @@ SHA256 checksums are available [here](https://saucelabs.com/downloads/sauce-conn
   <tr>
     <td rowspan="3">Linux x86_64</td>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect-5.0.0-alpha11_linux.x86_64.tar.gz">https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect-5.0.0-alpha11_linux.x86_64.tar.gz</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect-5.0.0-beta3_linux.x86_64.tar.gz">https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect-5.0.0-beta3_linux.x86_64.tar.gz</a>
     </td>
   </tr>
   <tr>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect_5.0.0-alpha11.linux_amd64.deb">https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect_5.0.0-alpha11.linux_amd64.deb</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect_5.0.0-beta3.linux_amd64.deb">https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect_5.0.0-beta3.linux_amd64.deb</a>
     </td>
   </tr>
   <tr>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect-5.0.0-alpha11_linux.x86_64.rpm">https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect-5.0.0-alpha11_linux.x86_64.rpm</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect-5.0.0-beta3_linux.x86_64.rpm">https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect-5.0.0-beta3_linux.x86_64.rpm</a>
     </td>
   </tr>
   <tr>
     <td rowspan="3">Linux arm64</td>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect-5.0.0-alpha11_linux.aarch64.tar.gz">https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect-5.0.0-alpha11_linux.aarch64.tar.gz</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect-5.0.0-beta3_linux.aarch64.tar.gz">https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect-5.0.0-beta3_linux.aarch64.tar.gz</a>
     </td>
   </tr>
   <tr>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect_5.0.0-alpha11.linux_arm64.deb">https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect_5.0.0-alpha11.linux_arm64.deb</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect_5.0.0-beta3.linux_arm64.deb">https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect_5.0.0-beta3.linux_arm64.deb</a>
     </td>
   </tr>
   <tr>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect-5.0.0-alpha11_linux.aarch64.rpm">https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect-5.0.0-alpha11_linux.aarch64.rpm</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect-5.0.0-beta3_linux.aarch64.rpm">https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect-5.0.0-beta3_linux.aarch64.rpm</a>
     </td>
   </tr>
   <tr>
     <td>Windows x86_64</td>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect-5.0.0-alpha11_windows.x86_64.zip">https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect-5.0.0-alpha11_windows.x86_64.zip</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect-5.0.0-beta3_windows.x86_64.zip">https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect-5.0.0-beta3_windows.x86_64.zip</a>
     </td>
   </tr>
   <tr>
     <td>Windows arm64</td>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect-5.0.0-alpha11_windows.aarch64.zip">https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect-5.0.0-alpha11_windows.aarch64.zip</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect-5.0.0-beta3_windows.aarch64.zip">https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect-5.0.0-beta3_windows.aarch64.zip</a>
     </td>
   </tr>
   <tr>
     <td>macOS</td>
     <td>
-      <a href="https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect-5.0.0-alpha11_darwin.all.zip">https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect-5.0.0-alpha11_darwin.all.zip</a>
+      <a href="https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect-5.0.0-beta3_darwin.all.zip">https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect-5.0.0-beta3_darwin.all.zip</a>
     </td>
   </tr>
 </table>
@@ -97,9 +97,9 @@ defaultValue="Linux"
 #### Binary
 
 ```bash title="Download binary"
-mkdir $HOME/sauce-connect-5.0.0-alpha && cd $HOME/sauce-connect-5.0.0-alpha
-curl -sLO https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect-5.0.0-alpha11_linux.x86_64.tar.gz
-tar xzf sauce-connect-5.0.0-alpha11_linux.x86_64.tar.gz && rm sauce-connect-5.0.0-alpha11_linux.x86_64.tar.gz
+mkdir $HOME/sauce-connect-5.0.0 && cd $HOME/sauce-connect-5.0.0
+curl -sLO https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect-5.0.0-beta3_linux.x86_64.tar.gz
+tar xzf sauce-connect-5.0.0-beta3_linux.x86_64.tar.gz && rm sauce-connect-5.0.0-beta3_linux.x86_64.tar.gz
 ```
 
 <details><summary>What's in the folder?</summary>
@@ -121,7 +121,7 @@ tar xzf sauce-connect-5.0.0-alpha11_linux.x86_64.tar.gz && rm sauce-connect-5.0.
 #### Debian
 ```bash title="Install a Debian package"
 arch=$(dpkg --print-architecture)
-sc_version=5.0.0-alpha11
+sc_version=5.0.0-beta3
 curl -sLO https://saucelabs.com/downloads/sauce-connect/${sc_version}/sauce-connect_${sc_version}.linux_${arch}.deb
 sudo dpkg --skip-same-version --install sauce-connect_${sc_version}.linux_${arch}.deb
 rm sauce-connect_${sc_version}.linux_${arch}.deb
@@ -136,7 +136,7 @@ rm sauce-connect_${sc_version}.linux_${arch}.deb
   # Default values for Sauce Connect Proxy
   #SAUCE_CONFIG_FILE=/etc/sauce-connect/config.yaml
   # Required values
-  #SAUCE_USER=
+  #SAUCE_USERNAME=
   #SAUCE_ACCESS_KEY=
   #SAUCE_REGION=
   #SAUCE_TUNNEL_NAME=
@@ -152,7 +152,7 @@ rm sauce-connect_${sc_version}.linux_${arch}.deb
 #### RPM
 
 ```bash title="Install an RPM package"
-sudo rpm -i https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect-5.0.0-alpha11_linux.x86_64.rpm
+sudo rpm -i https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect-5.0.0-beta3_linux.x86_64.rpm
 ```
 
   </TabItem>
@@ -168,9 +168,9 @@ brew install saucelabs/tap/sauce-connect
 #### Binary
 
 ```bash title="Download binary"
-mkdir $HOME/sauce-connect-5.0.0-alpha && cd $HOME/sauce-connect-5.0.0-alpha
-curl -sLO "https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect-5.0.0-alpha11_darwin.all.zip"
-unzip sauce-connect-5.0.0-alpha11_darwin.all.zip && rm sauce-connect-5.0.0-alpha11_darwin.all.zip
+mkdir $HOME/sauce-connect-5.0.0 && cd $HOME/sauce-connect-5.0.0
+curl -sLO "https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect-5.0.0-beta3_darwin.all.zip"
+unzip sauce-connect-5.0.0-beta3_darwin.all.zip && rm sauce-connect-5.0.0-beta3_darwin.all.zip
 ```
 
 <details><summary>What's in the folder?</summary>
@@ -194,8 +194,8 @@ unzip sauce-connect-5.0.0-alpha11_darwin.all.zip && rm sauce-connect-5.0.0-alpha
   <TabItem value="Windows">
 
 ```bash title="Using Powershell (Windows)"
-Invoke-RestMethod -Uri https://saucelabs.com/downloads/sauce-connect/5.0.0-alpha11/sauce-connect-5.0.0-alpha11_windows.x86_64.zip -OutFile sauce-connect-5.0.0-alpha11.zip
-Expand-Archive -Force -Path ./sauce-connect-5.0.0-alpha11.zip
+Invoke-RestMethod -Uri https://saucelabs.com/downloads/sauce-connect/5.0.0-beta3/sauce-connect-5.0.0-beta3_windows.x86_64.zip -OutFile sauce-connect-5.0.0-beta3.zip
+Expand-Archive -Force -Path ./sauce-connect-5.0.0-beta3.zip
 ```
 
   </TabItem>
