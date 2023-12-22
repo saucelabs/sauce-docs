@@ -1,6 +1,3 @@
-# This is a comment.
-# Each line is a file pattern followed by one or more owners.
-
 # Teams can be specified as code owners as well. Teams should
 # be identified in the format @org/team-name. Teams must have
 # explicit write access to the repository.
@@ -16,33 +13,25 @@
 
 # The folders are ordered as follows:
 
-# Global rule:
-*        @lauramthomas @discombobulateme @aoleszyn @LoryApiFortress
-/docs/ @lauramthomas @aoleszyn @LoryApiFortress
-
-# Modify sidebar content:
-sidebars.js @rick-bt
-
-# API testing:
-/docs/api-testing/ @lauramthomas @aoleszyn @LoryApiFortress
+# Dev/API:
+/docs/dev/api/error-reporting/ @rick-bt @peter-shao
+/docs/dev/api/rdc/ @kristofmuhi
+/docs/dev/api/storage/ @kristofmuhi
 
 # Dev:
-/docs/dev/api/rdc/ @lauramthomas @aoleszyn @LoryApiFortress @kristofmuhi @wswebcreation
-/docs/dev/api/storage/ @lauramthomas @aoleszyn @LoryApiFortress @kristofmuhi @wswebcreation
-/docs/dev/cli/ @lauramthomas @aoleszyn @LoryApiFortress @saucelabs/devx
+/docs/dev/cli/ @saucelabs/devx
 
 # Backtrace/Error Reporting
-/docs/error-reporting/ @rick-bt
-/docs/dev/api/error-reporting.md @rick-bt
+/docs/error-reporting/ @rick-bt @peter-shao
 
 # Mobile apps:
-/docs/mobile-apps/ @lauramthomas @aoleszyn @LoryApiFortress @kristofmuhi @wswebcreation
-
-# Secure connections:
-/docs/secure-connections/ @lauramthomas @aoleszyn @LoryApiFortress
+/docs/mobile-apps/ kristofmuhi
 
 # Web apps:
-/docs/web-apps/ @lauramthomas @aoleszyn @LoryApiFortress @saucelabs/devx
+/docs/web-apps/ @saucelabs/devx
 
 # Dockerfile:
-Dockerfile @alexplischke @dpgraham @lauramthomas @aoleszyn @LoryApiFortress
+Dockerfile @alexplischke @dpgraham
+
+# Frontend
+/src @discombobulateme
