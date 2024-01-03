@@ -12,14 +12,13 @@ Saucelabs.com and the Sauce Labs testing service in the US and EU will be down f
 
 | Region    | Date               | Time                           |
 | --------- | ------------------ | ------------------------------ |
-| EU        | December 10, 2022  | 7pm - 9pm CET                  |
 | US        | January 6, 2024    | 10am - 12pm PST                |
 | EU        | January 20, 2024   | 7pm - 9pm CET                  |
 | US        | February 10, 2024  | 10am - 12pm PST                |
 | EU        | February 24, 2024  | 7pm - 9pm CET                  |
 | US        | March 9, 2024      | 10am - 12pm PDT                |
-| EU        | March 23, 2023     | 7pm - 9pm CET                  |
-| US and EU | April 20, 2023     | 10am - 2pm PDT, 7pm - 9pm CEST |
+| EU        | March 23, 2024     | 7pm - 9pm CET                  |
+| US and EU | April 20, 2024     | 10am - 2pm PDT, 7pm - 9pm CEST |
 
 ### Backtrace - error reporting service updates are pushed Wednesdays 11am - 1pm ET across all data centers. Individual application servers may experience a short period of downtime within this window.
 

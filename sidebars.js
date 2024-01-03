@@ -697,6 +697,7 @@ module.exports = {
                 'dev/api/builds',
                 'dev/api/connect',
                 'dev/api/insights',
+                'dev/api/usage',
                 'dev/api/orchestrate',
                 'dev/api/performance',
                 'dev/api/platform',
