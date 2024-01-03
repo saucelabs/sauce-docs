@@ -391,61 +391,17 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 {
     "devices": [
         {
+            "descriptor": "iPhone_12_mini_16_real_private",
+            "state": "IN_USE",
+            "inUseBy": [
+                {
+                    "username": "user-name"
+                }
+            ],
+            "isPrivateDevice": true
+        },
+        {
             "descriptor": "iPhone_12_16_real",
-            "state": "AVAILABLE",
-            "inUseBy": [],
-            "isPrivateDevice": false
-        },
-        {
-            "descriptor": "iPhone_12_mini_16_real",
-            "state": "AVAILABLE",
-            "inUseBy": [],
-            "isPrivateDevice": false
-        },
-        {
-            "descriptor": "Samsung_Galaxy_A8_2018_real",
-            "state": "IN_USE",
-            "inUseBy": [],
-            "isPrivateDevice": false
-        },
-        {
-            "descriptor": "iPad_10_2_14_real",
-            "state": "AVAILABLE",
-            "inUseBy": [],
-            "isPrivateDevice": false
-        },
-        {
-            "descriptor": "iPad_mini_2_12_real",
-            "state": "AVAILABLE",
-            "inUseBy": [],
-            "isPrivateDevice": false
-        },
-        {
-            "descriptor": "iPad_10_2_2020_16_real",
-            "state": "AVAILABLE",
-            "inUseBy": [],
-            "isPrivateDevice": false
-        },
-        {
-            "descriptor": "Samsung_Galaxy_S21_5G_13_real",
-            "state": "AVAILABLE",
-            "inUseBy": [],
-            "isPrivateDevice": false
-        },
-        {
-            "descriptor": "Huawei_Mate_30_Pro_real",
-            "state": "IN_USE",
-            "inUseBy": [],
-            "isPrivateDevice": false
-        },
-        {
-            "descriptor": "iPad_Pro_10_5_2017_15_real",
-            "state": "AVAILABLE",
-            "inUseBy": [],
-            "isPrivateDevice": false
-        },
-        {
-            "descriptor": "iPad_Pro_11_2022_16_real",
             "state": "AVAILABLE",
             "inUseBy": [],
             "isPrivateDevice": false
@@ -499,12 +455,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
             "isPrivateDevice": false
         },
         {
-            "descriptor": "Samsung_Galaxy_S8_8_real",
-            "state": "AVAILABLE",
-            "inUseBy": [],
-            "isPrivateDevice": false
-        },
-        {
             "descriptor": "Google_Pixel_5_real",
             "state": "AVAILABLE",
             "inUseBy": [],
@@ -541,24 +491,56 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
             "isPrivateDevice": false
         },
         {
-            "descriptor": "Motorola_Moto_G4_cs",
-            "state": "IN_USE",
-            "inUseBy": [
-                {
-                    "username": "user-name"
-                }
-            ],
-            "isPrivateDevice": true
-        },
-        {
             "descriptor": "Samsung_Galaxy_Tab_S8_real",
             "state": "AVAILABLE",
             "inUseBy": [],
             "isPrivateDevice": false
         },
         {
-            "descriptor": "Lenovo_P2_real",
+            "descriptor": "Samsung_Galaxy_A8_2018_real",
             "state": "IN_USE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPad_10_2_14_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPad_mini_2_12_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPad_10_2_2020_16_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Samsung_Galaxy_S21_5G_13_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Huawei_Mate_30_Pro_real",
+            "state": "IN_USE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPad_Pro_10_5_2017_15_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPad_Pro_11_2022_16_real",
+            "state": "AVAILABLE",
             "inUseBy": [],
             "isPrivateDevice": false
         },
