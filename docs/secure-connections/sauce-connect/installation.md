@@ -150,15 +150,23 @@ The launch of Sauce Connect 4.9.2 makes it the officially supported version of t
    </td>
   </tr>
   <tr>
-   <td rowspan="2">4.9
+   <td rowspan="3">4.9
    </td>
+   <td>4.9.2
+   </td>
+   <td>
+    <a href="https://saucelabs.com/downloads/sc-4.9.2-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.9.2-linux-arm64.tar.gz">Linux ARM64</a>, <a href="https://saucelabs.com/downloads/sc-4.9.2-win32.zip">Windows</a>
+   </td>
+   <td rowspan="3">Dec. 31, 2024
+   </td>
+  </tr>
+   <tr>
    <td>4.9.1
    </td>
    <td>
     <a href="https://saucelabs.com/downloads/sc-4.9.1-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.9.1-linux-arm64.tar.gz">Linux ARM64</a>, <a href="https://saucelabs.com/downloads/sc-4.9.1-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.9.1-win32.zip">Windows</a>
    </td>
-   <td rowspan="2">Feb. 29, 2024
-   </td>
+
   </tr>
    <tr>
    <td>4.9.0
@@ -176,7 +184,7 @@ The launch of Sauce Connect 4.9.2 makes it the officially supported version of t
    <td>
     <a href="https://saucelabs.com/downloads/sc-4.8.3-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.8.3-linux-arm64.tar.gz">Linux ARM64</a>, <a href="https://saucelabs.com/downloads/sc-4.8.3-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.8.3-win32.zip">Windows</a>
    </td>
-   <td rowspan="4" >Feb. 29, 2024
+   <td rowspan="4" >May. 29, 2024
    </td>
   </tr>
  <tr>
