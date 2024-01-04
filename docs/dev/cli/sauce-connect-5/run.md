@@ -305,7 +305,7 @@ Setting this to `direct` sends requests to `localhost` directly without using th
 <p><small>| OPTIONAL | STRING | </small></p>
 
 **Description**: Sets domain(s) that do not require TLS resigning. Matching requests will not be TLS re-encrypted. Can be repeated multiple times. See [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) for more information about scenarios in which might want to use this command. See also [formatting domains](#formatting-domains).<br/>
-**Default**: n/a<br/>
+**Default**: `.*`<br/>
 **Environment variable**: `SAUCE_TLS_PASSTHROUGH_DOMAINS`<br/>
 **Shorthand**: `-B`
 
