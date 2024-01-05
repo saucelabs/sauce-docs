@@ -48,6 +48,15 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
   </td>
  </tr>
  <tr>
+  <td>macOS
+  </td>
+  <td>
+ <a href="https://saucelabs.com/downloads/sc-4.9.1-osx.zip">https://saucelabs.com/downloads/sc-4.9.1-osx.zip</a>
+  </td>
+  <td><small>64f9c1bac5d4f5b9acb6fbb629b6df0f5671b4c8</small>
+  </td>
+  </tr>
+ <tr>
 <td>Windows
     </td>
   <td>
@@ -59,7 +68,7 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
  </table>
 
 :::note
-MacOS is not supported in version 4.9.2. For a list of MacOS compatible versions see Version Lifestyle Information below.
+MacOS is not supported in version 4.9.2.
 :::
 
 2. Extract the contents of the \*.zip download to your local machine. We recommend saving the Sauce Connect Proxy folder to your home directory.
