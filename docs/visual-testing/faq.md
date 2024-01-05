@@ -72,7 +72,7 @@ When using Sauce Visual, the client libraries need to connect with Sauce Labs AP
 
      - To make this change permanent, add the export command to your shell's profile script (e.g., `.bash_profile` or `.bashrc`).
   
-  **NOTE**: For WebdriverIO, make sure to check proxy settings described in [official documentation](https://webdriver.io/docs/proxy/#proxy-between-driver-and-test).
+  **NOTE**: For WebdriverIO, make sure to check proxy settings described in the [official WebdriverIO documentation](https://webdriver.io/docs/proxy/#proxy-between-driver-and-test).
 
 3. **Run your Sauce Visual job**: After setting the `HTTPS_PROXY` variable, you can proceed to run your Sauce Visual tests as usual.
 
