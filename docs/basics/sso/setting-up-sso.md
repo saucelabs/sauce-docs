@@ -97,12 +97,17 @@ Here is the list of settings that are required by Sauce Labs Service Provider:
 Either the SAML Assertion or SAML Response **must be signed**.
 
 A digital signature is required to ensure that only your IdP generated the assertion.
+The IdP signs SAML requests or assertions with the private key, and Sauce Labs Service Provider verifies the signature using the public key from the IdP metadata uploaded in [SSO settings in the Team Management UI](/basics/sso/setting-up-sso/#integrating-with-sauce-labs-service-provider).
+
+If you rotate the signing certificate in your Identity Provider, you have to [reupload the IdP metadata](#identity-provider-signing-certificate-rotation) in the Sauce Labs Team Management UI.
 
 ### Encryption
 
 Encryption of the SAML Assertion **is not mandatory**.
 
 You can enable encryption if you want an additional layer of security. You will need to use the certificate (with alias _encryption_) from [the Sauce Labs metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp).
+
+In the encryption process, the Identity Provider encrypts the SAML Assertion using the public key from [the Sauce Labs metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp), and Sauce Labs Service Provider decrypts it using the private key. When Sauce Labs updates its encryption certificate, customers are required to [update their configurations with the new certificate (public key)](#sauce-labs-encryption-certificate-rotation).
 
 :::tip
 
@@ -126,22 +131,22 @@ Sauce Labs Service Provider supports the following SAML custom claims:
 
 Incorporating these attributes can improve user identification and personalization within the Sauce Labs platform. These attributes are optional.
 
-### Identity Provider Certificate Rotation
+### Identity Provider (Signing) Certificate Rotation
 
 SAML certificates have a predetermined expiration date. It is possible that your identity provider will notify you in advance or provide an alert regarding the certificate's expiry.
 
-If the certificate for the Sauce Labs app from your identity provider is nearing expiration or has already expired, follow these steps:
+If the [signing certificate](#signature) for the Sauce Labs app from your identity provider is nearing expiration or has already expired, follow these steps:
 
 1. Generate a new certificate for the Sauce Labs app within your identity provider. This new certificate will replace the expired one and will be reflected in the identity provider metadata.
 2. Export or copy the updated metadata file from your identity provider, then upload it to Sauce Labs. For information on how to upload the metadata file, see [Integrating With Sauce Labs Service Provider](/basics/sso/setting-up-sso/#integrating-with-sauce-labs-service-provider).
 
-### Sauce Labs Certificate Rotation
+### Sauce Labs (Encryption) Certificate Rotation
 
 :::note
 This section is relevant only for identity providers that enabled encryption of SAML Assertions.
 :::
 
-If you enabled encryption of SAML Assertions in your IdP, you must upload the certificate that is provided in Sauce Labs [metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp).
+If you enabled [encryption of SAML Assertions](#encryption) in your IdP, you must upload the certificate that is provided in Sauce Labs [metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp).
 
 The certificate is valid for one year. **120 days** before the expiration date the new certificate will be available in Sauce Labs [metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp).
 
