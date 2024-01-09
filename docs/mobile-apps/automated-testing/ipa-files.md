@@ -113,7 +113,7 @@ Sauce Labs applies its own resigning to apps that are installed on our public iO
 
 ### Private Devices
 
-If your organization requires specific entitlements, Sauce Labs gives you the option to [disable resigning](/dev/test-configuration-options/#resigningenabled) for devices in your private pool. To acquire private devices for your organization please get in contact with your Customer Success Manager or Account Executive. When resigning is disabled, you may sign your app using your own provisioning profile, which can include any entitlements in:
+If your organization requires specific entitlements, Sauce Labs gives you the option to [disable resigning](/dev/test-configuration-options/#resigningenabled) for devices in your private pool. To access our private device cloud, contact your Sauce Labs account executive or our support team. When resigning is disabled, you may sign your app using your own provisioning profile, which can include any entitlements in:
 
 - `com.apple.developer.associated-domains`
 - `com.apple.security.application-groups`
