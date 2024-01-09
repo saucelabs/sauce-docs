@@ -20,7 +20,7 @@ Sauce Labs supports the following features:
 - [SP-initiated SSO](/basics/sso/logging-in-via-sso/#service-provider-sp-initiated-sso).
 - [IdP-initiated SSO](/basics/sso/logging-in-via-sso/#identity-provider-idp-initiated-sso).
 - [JIT (Just-In-Time) Provisioning](/basics/sso/setting-up-sso/#just-in-time-jit-provisioning).
-- [Force authentication](/basics/sso/setting-up-sso/#enforce-saml-sso).
+- [Force authentication](/basics/sso/setting-up-sso/#enforce-saml-sso-big-bang-configuration).
 
 ## What You'll Need
 
@@ -195,13 +195,19 @@ We strongly recommend that you assign your company email domains to your Sauce L
 You can assign multiple domains.
 :::
 
-### Enforce SAML SSO
+### Enforce SAML SSO - Big Bang configuration
 
 As an additional security measure, you can require users from your organization to sign in only via SAML SSO (IdP and SP-initiated flow). All other authentication methods will not be allowed.
 
 You can toggle this setting in SSO settings:
 
 <img src={useBaseUrl('img/basics/sso/setup-sso-sso-only.png')} alt="SSO Required" width="800" />
+
+:::warning Read this before you enable Enforcing SAML login (Big Bang configuration)
+Enabling SAML affects all users who use this application.
+Users won't be able to sign in to SauceLabs using their regular sign-in page with login and password.
+They are able to access the app through the SSO provider service.
+:::
 
 ### Just-In-Time (JIT) Provisioning
 
