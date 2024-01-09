@@ -339,6 +339,17 @@ Users can view information about who is currently using the device only if they 
 Lack of permissions will result in the inUseBy field being omitted from the response for private devices.
 :::
 
+#### List of Available States:
+
+| State           | Description                                                     |
+|-----------------|-----------------------------------------------------------------|
+| `AVAILABLE`     | Device is available and ready to be allocated                   |
+| `IN_USE`        | Device is currently in use                                      |
+| `CLEANING`      | Device is being cleaned (only available for private devices)    |
+| `MAINTENANCE`   | Device is in maintenance (only available for private devices)   |
+| `REBOOTING`     | Device is rebooting (only available for private devices)        |
+| `OFFLINE`       | Device is offline (only available for private devices)          |
+
 #### Parameters
 
 This method takes no parameters.
@@ -402,27 +413,27 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         },
         {
             "descriptor": "iPhone_12_16_real",
-            "state": "AVAILABLE",
+            "state": "CLEANING",
             "inUseBy": [],
-            "isPrivateDevice": false
+            "isPrivateDevice": true
         },
         {
             "descriptor": "Google_Pixel_7_Pro_14_real",
-            "state": "AVAILABLE",
+            "state": "MAINTENANCE",
             "inUseBy": [],
-            "isPrivateDevice": false
+            "isPrivateDevice": true
         },
         {
             "descriptor": "Samsung_Galaxy_S10_real",
-            "state": "AVAILABLE",
+            "state": "REBOOTING",
             "inUseBy": [],
-            "isPrivateDevice": false
+            "isPrivateDevice": true
         },
         {
             "descriptor": "iPhone_XS_13_real",
-            "state": "AVAILABLE",
+            "state": "OFFLINE",
             "inUseBy": [],
-            "isPrivateDevice": false
+            "isPrivateDevice": true
         },
         {
             "descriptor": "iPhone_8_Plus_13_4_real",
@@ -432,7 +443,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         },
         {
             "descriptor": "Google_Pixel_4_10_real",
-            "state": "AVAILABLE",
+            "state": "IN_USE",
             "inUseBy": [],
             "isPrivateDevice": false
         },
