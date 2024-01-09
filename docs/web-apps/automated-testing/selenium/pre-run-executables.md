@@ -128,7 +128,7 @@ curl -o /Users/chef/file.txt http://mywebsite.com/file.txt
 
 <TabItem value="Windows">
 
-### Windows 7, 8, 8.1
+### Windows 7, 8, 8.1, 10, 11
 
 This batch file accomplishes the same thing as the OS X curl method, but using **bitsadmin.exe** since Windows doesn't ship with curl.
 
