@@ -19,8 +19,8 @@ Sauce Labs supports the following features:
 
 - [SP-initiated SSO](/basics/sso/logging-in-via-sso/#service-provider-sp-initiated-sso).
 - [IdP-initiated SSO](/basics/sso/logging-in-via-sso/#identity-provider-idp-initiated-sso).
-- [JIT (Just-In-Time) Provisioning](/basics/sso/setting-up-sso/#just-in-time-jit-provisioning).
-- [Force authentication](/basics/sso/setting-up-sso/#enforce-saml-sso-big-bang-configuration).
+- [JIT (Just-In-Time) Provisioning](#just-in-time-jit-provisioning).
+- [Force authentication](#enforce-saml-sso-big-bang-configuration).
 
 ## What You'll Need
 
@@ -82,15 +82,17 @@ If you use a custom identity provider or if we do not provide a preconfigured Sa
 
 Here is the list of settings that are required by Sauce Labs Service Provider:
 
-| Setting                    | Value                                                                  |
-| -------------------------- | ---------------------------------------------------------------------- |
-| Entity ID                  | `https://accounts.saucelabs.com/sp`                                    |
-| Audience URI               | `https://accounts.saucelabs.com/sp`                                    |
-| Assertion Consumer Service | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp` |
-| Recipient URL              | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp` |
-| Destination URL            | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp` |
-| Name ID format             | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`               |
-| Binding                    | `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`                       |
+| Setting                                         | Value                                                                  |
+| ----------------------------------------------- | ---------------------------------------------------------------------- |
+| Entity ID                                       | `https://accounts.saucelabs.com/sp`                                    |
+| Audience (Recipient)                            | `https://accounts.saucelabs.com/sp`                                    |
+| Assertion Consumer Service (ACS URL, Reply URL) | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp` |
+| Recipient URL                                   | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp` |
+| Destination URL                                 | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp` |
+| Name ID (Unique User Identifier)                | `email`/`mail`                                                         |
+| Name ID format/policy                           | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`               |
+| Binding                                         | `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`                       |
+| Login/Application/Sign on URL                   | `https://accounts.saucelabs.com/am/XUI/#sso-login/`                    |
 
 ### Signature
 
@@ -138,7 +140,7 @@ SAML certificates have a predetermined expiration date. It is possible that your
 If the [signing certificate](#signature) for the Sauce Labs app from your identity provider is nearing expiration or has already expired, follow these steps:
 
 1. Generate a new certificate for the Sauce Labs app within your identity provider. This new certificate will replace the expired one and will be reflected in the identity provider metadata.
-2. Export or copy the updated metadata file from your identity provider, then upload it to Sauce Labs. For information on how to upload the metadata file, see [Integrating With Sauce Labs Service Provider](/basics/sso/setting-up-sso/#integrating-with-sauce-labs-service-provider).
+2. Export or copy the updated metadata file from your identity provider, then upload it to Sauce Labs. For information on how to upload the metadata file, see [Integrating With Sauce Labs Service Provider](#integrating-with-sauce-labs-service-provider).
 
 ### Sauce Labs (Encryption) Certificate Rotation
 
@@ -187,6 +189,7 @@ If you do not replace the encryption certificate in your IdP on time, once the c
 <img src={useBaseUrl('img/basics/sso/setup-sso-enable-sso.png')} alt="Enable SSO" width="500" />
 
 6. [Test the integration](/basics/sso/logging-in-via-sso).
+7. In case of any error, please refer to the [Troubleshooting section](/basics/sso/troubleshooting-sso).
 
 ### Email domains
 
@@ -221,7 +224,7 @@ Organization admins do not have to manually create accounts at Sauce Labs for ne
 New users can sign up via SP or IdP-initiated SSO and the new accounts at Sauce Labs will be created automatically.
 
 :::tip
-Make sure that you assign your [company email domains](/basics/sso/setting-up-sso/#email-domains) to your SSO integration at Sauce Labs so that new accounts can be provisioning via the SP-initiated flow.
+Make sure that you assign your [company email domains](#email-domains) to your SSO integration at Sauce Labs so that new accounts can be provisioning via the SP-initiated flow.
 :::
 
 #### Team placement
@@ -247,6 +250,10 @@ sso-johndoe-4a74a9a
 ```
 
 Including a random suffix is essential to guarantee the uniqueness of usernames in the Sauce Labs database.
+
+### Email Verification in SSO Login
+
+When a user logs in via SSO without having previously verified their email address, the system will automatically verify the account if the email address associated with the account matches the one provided by the Identity Provider. This process ensures that successful SSO login serves as a validation of the user's email address.
 
 ## Unsupported features
 

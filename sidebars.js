@@ -873,6 +873,7 @@ module.exports = {
                                     ],
                                 },
                                 'basics/sso/logging-in-via-sso',
+                                'basics/sso/troubleshooting-sso',
                             ],
                         },
                         {
