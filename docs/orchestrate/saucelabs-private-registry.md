@@ -60,11 +60,29 @@ and use it together with created environment variables to login to your registry
 echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin registry.example.com
 ```
 
+### Working with SauceLabs Container Registry
+
 Once you're logged in, you can run any docker commands related to the registry as you'd normally do.
 
 :::note
 If you're not able to log in to docker, your token may have already expired - it's valid only for 30 minutes.
 Run the first part of the script and try to log in again.
+:::
+
+## Simplifying Interactions with the `saucectl` CLI
+
+To push Docker images, consider using the `saucectl docker push` CLI command.
+
+This command simplifies the process by handling both docker login and docker push operations, eliminating the need for manual token retrieval.
+
+For additional details, please visit the [saucectl docker push documentation](/docs/dev/cli/saucectl/docker/push.md).
+
+:::note
+Currently, this method is limited to pushing Docker images only.
+:::
+
+:::note
+Ensure that your Docker image is prebuilt before using this command.
 :::
 
 ## How many tokens can I generate?
