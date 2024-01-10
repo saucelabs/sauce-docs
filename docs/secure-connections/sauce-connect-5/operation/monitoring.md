@@ -54,9 +54,9 @@ The `/info` Endpoint contains a JSON document about the tunnel instance:
 
 ## Prometheus metrics
 
-[Prometheus](https://prometheus.io/) metrics could be used to monitor Sauce Connect Proxy traffic. A Grafana dashboard using these metrics is available at [Grafana Dashboards](https://grafana.com/grafana/dashboards/20232-sauce-connect/).
+[Prometheus](https://prometheus.io/) metrics could be used to monitor Sauce Connect Proxy traffic. Grafana dashboard using these metrics is available at [Grafana Dashboards](https://grafana.com/grafana/dashboards/20232-sauce-connect/).
 
-See also an example of a [Grafana](http://grafana.org/) dashboard [here](https://github.com/saucelabs/sauce-connect-docker/tree/main/examples/docker-compose-prometheus-grafana).
+See [this docker-compose demo](https://github.com/saucelabs/sauce-connect-docker/tree/main/examples/docker-compose-prometheus-grafana) for an example of running Sauce Connect Proxy along with [Prometheus](https://prometheus.io/) server and [Grafana](http://grafana.org/) dashboard con
 
 <img src={useBaseUrl('img/sauce-connect/sc5-dashboard.png')} alt="Sauce Connect Proxy 5 Grafana dashboard" width="650"/>
 

@@ -4,6 +4,10 @@ title: Sauce Connect Proxy 5
 sidebar_label: Overview
 ---
 
+:::info
+Sauce Connect Proxy 5 release is currently in the Beta stage.
+:::
+
 Sauce Connect Proxy 5 is a complete rewrite of Sauce Connect Proxy 4.x.x that aims to improve observability, performance, and user experience and provide a strong foundation for future improvements.
 
 ## What You'll Need
@@ -45,10 +49,7 @@ Sauce Connect Proxy 5 major changes are listed below.
 
 ## Getting Started With Sauce Connect Proxy 5
 
-Sauce Connect Proxy 5 network requirements are very similar to the previous generation of Sauce Connect Proxy (version 4). See [this document](/secure-connections/sauce-connect-5/quickstart/) for quickstart instructions.
-
--  Sauce Connect Proxy 5 doesn't initiate non-HTTP connections.
--  [Additional proxies setup](/secure-connections/sauce-connect-5/operation/proxies/) is different between Sauce Connect Proxy 4.x.x and 5.x.x.
+See [this document](/secure-connections/sauce-connect-5/quickstart/) for quickstart instructions.
 
 ## More Information
 
