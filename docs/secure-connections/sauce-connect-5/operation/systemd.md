@@ -20,65 +20,49 @@ Sauce Connect Proxy can run as a systemd service on Linux platform.
 
 ## Running systemd service on Debian-based Linux
 
-1. [Install](/secure-connections/sauce-connect-5/installation/) Debian package
-2. Create your Sauce Connect configuration file
-
-- Sauce Connect Proxy [configuration file](/secure-connections/sauce-connect-5/operation/configuration/#config-file)
-- Create an env file containing `SAUCE_CONFIG_FILE` for the systemd service to be able to locate your [configuration file](/secure-connections/sauce-connect-5/operation/configuration/#config-file)
+1. [Install](/secure-connections/sauce-connect-5/installation/) Debian package. The installation process will create
+  - `sauce-connect` user.
+  - An environment variable `SAUCE_CONFIG_FILE=/etc/sauce-connect/sauce-connect.yaml` for the `sauce-connect` systemd unit.
+  - A default Sauce Connect [configuration file](/secure-connections/sauce-connect-5/operation/configuration/#config-file) at `/etc/sauce-connect/sauce-connect.yaml`.
+2. Modify or replace the Sauce Connect [configuration file](/secure-connections/sauce-connect-5/operation/configuration/#config-file) that is created during the installation process.
 
 ```bash
-mkdir /etc/sauce-connect
-cat <<EOF >> /etc/sauce-connect/env
-SAUCE_CONFIG_FILE=/etc/sauce-connect/sc.yaml
+cat /etc/sauce-connect/sauce-connect.yaml
+# --- Required ---
+# access-key <UUID>
+#
+# Sauce Labs Access Key, you can get it from the User Settings page. For
+# additional security, we recommend setting this as an environment variable.
+#access-key:
+# region <data center>
+…
+```
+
+For example:
+
+```bash
+cat <<EOF >> /etc/sauce-connect/sauce-connect.yaml
+region: us-west
+username: xxx
+access-key: xxx
+tunnel-name: my-systemd-sc
 EOF
 ```
 
-- Create a file containing your Sauce Connect Proxy [configuration](/secure-connections/sauce-connect-5/operation/configuration/#config-file)
-
-```bash
-cat <<EOF >> /etc/sauce-connect/sc.yaml
-region=us-west
-username=xxx
-access-key=xxx
-tunnel-name=my-systemd-sc
-EOF
-```
-
-3. Customize the systemd unit file
-
-- Running `systemctl edit sauce-connect` will open an editor that allows adding overrides
-- Add your overrides (that systemd will save in `/etc/systemd/system/sauce-connect.service.d/override.conf`)
-
-```bash
-[Service]
-EnvironmentFile=/etc/sauce-connect/env
-```
-
-4. Validate your systemd overrides
-
-```bash
-systemctl cat sauce-connect
-  # /lib/systemd/system/sauce-connect.service
-  [Unit]
-  Description=Sauce Connect Proxy Service
-  After=network-online.target
-
-  [Service]
-  EnvironmentFile=/etc/default/sauce-connect
-  …
-
-  # /etc/systemd/system/sauce-connect.service.d/override.conf
-  [Service]
-  EnvironmentFile=/etc/sauce-connect/env
-```
-
-5. Start the service
+4. Start the service
 
 ```bash
 systemctl start sauce-connect
 ```
 
+5. Validate the service is running
+
+```bash
+systemctl status sauce-connect
+```
+
 ## More Information
 
 - [Sauce Connect Proxy Overview](/secure-connections/sauce-connect/)
+- [Sauce Connect Configuration File](/secure-connections/sauce-connect-5/operation/configuration/#config-file)
 - [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/)
