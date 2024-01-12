@@ -5,7 +5,7 @@ sidebar_label: Overview
 ---
 
 :::info
-Sauce Connect Proxy 5 release is currently in the Beta stage, some changes are expected. Real Devices are not currently supported but support is expected Q4 '23 at the earliest.
+Sauce Connect Proxy 5 release is currently in the Beta stage.
 :::
 
 Sauce Connect Proxy 5 is a complete rewrite of Sauce Connect Proxy 4.x.x that aims to improve observability, performance, and user experience and provide a strong foundation for future improvements.
@@ -28,7 +28,7 @@ The Sauce Connect Proxy version 5 major release introduces CLI changes. Please r
 3. Significant improvement in CPU and memory utilization.
    Sauce Connect Proxy 5 utilizes much less memory and CPU resources making it easier to run at scale.
 4. Observability improvement.
-   Sauce Connect Proxy 5 comes with [Prometheus](https://prometheus.io/) metrics. A sample [Grafana](http://grafana.org/) dashboard is available [here](https://github.com/saucelabs/sauce-connect-docker/tree/main/examples/docker-compose-prometheus-grafana).
+   Sauce Connect Proxy 5 comes with [Prometheus](https://prometheus.io/) metrics and a [Grafana dashboard](https://grafana.com/grafana/dashboards/20232-sauce-connect/).
 5. Easier installation and upgrade process. Sauce Connect Proxy 5 release contains deb and rpm packages for Linux, brew support for macOS, as well as x86_64 and arm64 architectures support for all platforms.
 6. Secure [WebSocket](https://en.wikipedia.org/wiki/WebSocket) support with [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) enabled.
 7. [SOCKS5](https://datatracker.ietf.org/doc/html/rfc1928) support for upstream proxies.
@@ -49,10 +49,7 @@ Sauce Connect Proxy 5 major changes are listed below.
 
 ## Getting Started With Sauce Connect Proxy 5
 
-Sauce Connect Proxy 5 network requirements are very similar to the previous generation of Sauce Connect Proxy (version 4). See [this document](/secure-connections/sauce-connect-5/quickstart/) for quickstart instructions.
-
--  Sauce Connect Proxy 5 doesn't initiate non-HTTP connections.
--  [Additional proxies setup](/secure-connections/sauce-connect-5/operation/proxies/) is different between Sauce Connect Proxy 4.x.x and 5.x.x.
+See [this document](/secure-connections/sauce-connect-5/quickstart/) for quickstart instructions.
 
 ## More Information
 
