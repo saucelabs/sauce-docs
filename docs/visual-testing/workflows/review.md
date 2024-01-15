@@ -116,7 +116,7 @@ You can also review and accept a single snapshot by clicking on a thumbnail from
 The "Diff Review"-overlay will only show the snapshots that match the filter you have selected on the "Build Details"-page. If you want to see all the snapshots, you need to clear your filter.
 :::
 
-<img src={useBaseUrl('/img/sauce-visual/build-details-single-baseline.jpg')} alt="Review and accept a single baseline images"/>
+<img src={useBaseUrl('/img/sauce-visual/build-details-single-baseline.jpg')} alt="Review and accept single baseline images"/>
 
 If you have more than one baseline image, and you accept one, you will automatically be taken to the next one. This will continue until you have reviewed and accepted all the baseline images.
 
@@ -137,21 +137,23 @@ The user interface including the actions you can take are described in [User Int
 
 ## User Interface
 
-Selecting one of the builds allows you to get to the "Diff Review"-overlay, where you can Accept or Reject detected diffs.
+Selecting one of the builds allows you to get to the "Diff Review" page, where you can Accept or Reject detected diffs.
 
-<img src={useBaseUrl('/img/sauce-visual/DiffReviewPage.png')} alt="Diff Review-overlay"/>
+<img src={useBaseUrl('/img/sauce-visual/diff-review-page.jpg')} alt="Diff review page with toolbars"/>
 
-By default, you will see diffs in a side-by-side view, which lets you easily compare the current diff against the Baseline. On the right side, you will see a toolbar enabling you to review the diffs. You can:
+By default, you will see diffs in a Side-by-side view, which lets you easily compare the Current diff against the Baseline. On the right side, you will see a toolbar enabling you to review the diffs. You can:
 
-- Switch from side-by side-to focused view for easier comparison between the Baseline and Current snapshot.
+- Switch from Side-by side-to Overlay view for easier comparison between the Baseline and Current snapshot.
 - Zoom in or out of the snapshots.
 - Zoom to 100% or fit snapshot to the screen.
 - Highlight or hide diffs for easier discovery of the changes.
 
 There are conditional actions you can use, depending on the type of view you have activated:
 
-- If in side-by-side view, you can mirror the zoom and pan actions from the Current snapshot to the Baseline.
-- If in focused view, you can toggle between Baseline and Current diff.
+- If in Side by side view, you can mirror the zoom and pan actions from the Current snapshot to the Baseline.
+- If in Overlay view, you can change the opacity between Baseline and Current diff.
+
+<img src={useBaseUrl('/img/sauce-visual/review-page-modes.jpg')} alt="Diff review page modes"/>
 
 The list below shows the available actions and their keyboard shortcuts.
 
@@ -160,7 +162,6 @@ The list below shows the available actions and their keyboard shortcuts.
 | <img src={useBaseUrl('/img/sauce-visual/accept.png')} alt="Accept changes icon" width="25"/>                              | Accept changes \[A\] or Undo \[U\]                    |
 | <img src={useBaseUrl('/img/sauce-visual/reject.png')} alt="Reject changes icon" width="25"/>                              | Reject changes \[R\] or Undo \[U\]                    |
 | <img src={useBaseUrl('/img/sauce-visual/cycle-through-diffs.png')} alt="Cycle through snapshots arrows icon" width="50"/> | Cycle through snapshots \[&#x27F5;\] and \[&#x27F6;\] |
-| <img src={useBaseUrl('/img/sauce-visual/current-only.png')} alt="Current only icon" width="25"/>                          | View current diff only or View side by side \[V\]     |
 | <img src={useBaseUrl('/img/sauce-visual/zoom-in.png')} alt="Zoom in icon" width="25"/>                                    | Zoom in \[=\]                                         |
 | <img src={useBaseUrl('/img/sauce-visual/zoom-out.png')} alt="Zoom out icon" width="25"/>                                  | Zoom out \[-\]                                        |
 | <img src={useBaseUrl('/img/sauce-visual/fit-to-100.png')} alt="Fit to 100% or to screen icon" width="25"/>                | Zoom to fit \[1\] or Zoom to 100% \[0\]               |
