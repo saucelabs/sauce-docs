@@ -8,6 +8,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <p><span className="sauceGreen">Enterprise Plans only</span> <span className="sauceYellow">Beta feature</span></p>
 
+:::caution
+This functionality *affects* tests run via *API* calls. It will result in tests being assigned to the currently active team.
+
+Please be cautious when using it. Currently, we *recommend* using it mostly for UI-related work.
+:::
+
 # User navigating between teams
 
 User can see the active and other teams you are assigned to in the navigation bar in the web application. 
