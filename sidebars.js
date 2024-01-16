@@ -953,41 +953,41 @@ module.exports = {
                 'secure-connections',
                 {
                     type: 'category',
-                    label: 'Sauce Connect Proxy',
+                    label: 'Sauce Connect Proxy 5',
                     collapsed: true,
                     items: [
+                        'secure-connections/sauce-connect-5',
+                        'secure-connections/sauce-connect-5/installation',
+                        'secure-connections/sauce-connect-5/quickstart',
                         {
                             type: 'category',
-                            label: 'Sauce Connect Proxy 5',
+                            label: 'Setup and Configuration',
                             collapsed: true,
                             items: [
-                                'secure-connections/sauce-connect-5',
-                                'secure-connections/sauce-connect-5/installation',
-                                'secure-connections/sauce-connect-5/quickstart',
-                                {
-                                    type: 'category',
-                                    label: 'Setup and Configuration',
-                                    collapsed: true,
-                                    items: [
-                                        'secure-connections/sauce-connect-5/operation/overview',
-                                        'secure-connections/sauce-connect-5/operation/configuration',
-                                        'secure-connections/sauce-connect-5/operation/proxies',
-                                        'secure-connections/sauce-connect-5/operation/monitoring',
-                                        'secure-connections/sauce-connect-5/operation/docker',
-                                        'secure-connections/sauce-connect-5/operation/kubernetes',
-                                        'secure-connections/sauce-connect-5/operation/systemd',
-                                    ],
-                                },
-                                {
-                                    type: 'category',
-                                    label: 'Advanced',
-                                    collapsed: true,
-                                    items: [
-                                        'secure-connections/sauce-connect-5/advanced/architecture',
-                                    ],
-                                },
+                                'secure-connections/sauce-connect-5/operation/overview',
+                                'secure-connections/sauce-connect-5/operation/configuration',
+                                'secure-connections/sauce-connect-5/operation/proxies',
+                                'secure-connections/sauce-connect-5/operation/monitoring',
+                                'secure-connections/sauce-connect-5/operation/docker',
+                                'secure-connections/sauce-connect-5/operation/kubernetes',
+                                'secure-connections/sauce-connect-5/operation/systemd',
                             ],
                         },
+                        {
+                            type: 'category',
+                            label: 'Advanced',
+                            collapsed: true,
+                            items: [
+                                'secure-connections/sauce-connect-5/advanced/architecture',
+                            ],
+                        },
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Sauce Connect Proxy 4',
+                    collapsed: true,
+                    items: [
                         'secure-connections/sauce-connect',
                         'secure-connections/sauce-connect/installation',
                         'secure-connections/sauce-connect/quickstart',
