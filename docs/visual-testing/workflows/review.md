@@ -141,9 +141,8 @@ Selecting one of the builds allows you to get to the "Diff Review" page, where y
 
 <img src={useBaseUrl('/img/sauce-visual/diff-review-page.jpg')} alt="Diff review page with toolbars"/>
 
-By default, you will see diffs in a Side-by-side view, which lets you easily compare the Current diff against the Baseline. On the right side, you will see a toolbar enabling you to review the diffs. You can:
+By default, you will see diffs in a Side-by-side view, which lets you easily compare the Current diff against the Baseline. On the top, you will see the toggle options which allow you to review snapshots by switching the view from Side-by-side to Overlay mode. On the right side, you will see a toolbar enabling you to review the diffs. You can:
 
-- Switch from Side-by-side to Overlay view for easier comparison between the Baseline and Current snapshot.
 - Zoom in or out of the snapshots.
 - Zoom to 100% or fit snapshot to the screen.
 - Highlight or hide diffs for easier discovery of the changes.
