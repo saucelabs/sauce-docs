@@ -39,11 +39,11 @@ Subsequent Test Executions can also generate new baseline snapshots. This can ha
 Bulk Accept will not affect already accepted snapshots.
 :::
 
-You can "bulk accept" all the snapshots in a build by clicking on the "More options"-button from the "Build"-page
+You can "bulk accept" all the snapshots in a build by clicking on the "More options" button from the "Build" page
 
 <img src={useBaseUrl('/img/sauce-visual/build-bulk-accept.jpg')} alt="Build page bulk accepts"/>
 
-or the "Build > Build Details"-page.
+or the "Build > Build Details" page.
 
 <img src={useBaseUrl('/img/sauce-visual/build-details-bulk-accept.jpg')} alt="Build details page bulk accepts"/>
 
@@ -53,10 +53,10 @@ or the "Build > Build Details"-page.
 
 Using this option will accept **all** snapshots with the following statuses:
 
-- all snapshots that don't have a baseline image, marked as "For Review" in the "Build Details"-page and labeled "New" in the "Diff Review"-overlay.
-- all snapshots that have a baseline image where Sauce Visual detected a difference. They are marked as "For Review" in the "Build Details"-page and labeled as "{number} changes" in the "Diff Review"-overlay.
-- all snapshots with "Rejected" status
-- all snapshots with "No changes" status
+- All snapshots that don't have a baseline image, marked as "For Review" in the "Build Details" page and labeled "New" in the "Diff Review" page.
+- All snapshots that have a baseline image where Sauce Visual detected a difference. They are marked as "For Review" in the "Build Details" page and labeled as "{number} changes" in the "Diff Review" page.
+- All snapshots with "Rejected" status
+- All snapshots with "No changes" status
 
 The amount in "_Accept All (**19**)_" will show you how many snapshots will be affected.
 
@@ -70,8 +70,8 @@ An accepted snapshot in the current build will be used as a baseline image for a
 
 Using this option will only accept all snapshots that **don't have a baseline image**.
 
-- all snapshots that don't have a baseline image, marked as "For Review" in the "Build Details"-page and labeled "New" in the "Diff Review"-overlay.
-- all snapshots that don't have a baseline image, marked as "Rejected"
+- All snapshots that don't have a baseline image, marked as "For Review" in the "Build Details" page and labeled "New" in the "Diff Review" page.
+- All snapshots that don't have a baseline image, marked as "Rejected".
 
 If this happens after a [Subsequent Test Executions](#subsequent-test-execution-review) where we also detected visual differences, then we don't accept those snapshots. This is because we want you to review and accept the visual differences first.
 
@@ -79,25 +79,25 @@ The amount in "_Accept Only New (**11**)_" will show you how many snapshots will
 
 ### Single Accept
 
-Snapshots can be reviewed from the "Build Details"-page or the "Diff Review"-overlay.
+Snapshots can be reviewed from the "Build Details" page or the "Diff Review" page.
 
-#### Build Details-page
+#### Build Details page
 
-Open the "Build Details"-page by clicking on the "Build-row" from the Visual Build Overview page. You will see a list of all the snapshots that were generated during the test execution and match the status that has been selected in the "Filter"-dropdown.
+Open the "Build Details" page by clicking on the Build row from the Visual Build Overview page. You will see a list of all the snapshots that were generated during the test execution and match the status that has been selected in the "Filter" dropdown.
 
 <img src={useBaseUrl('/img/sauce-visual/build-details-overview.jpg')} alt="Bulk Details Overview"/>
 
-When for example, the status "For Review" is selected, you can review and accept the snapshots by using the "Accept"-button.
+When for example, the status "For Review" is selected, you can review and accept the snapshots by using the "Accept" button.
 
 <img src={useBaseUrl('/img/sauce-visual/build-details-accept.jpg')} alt="Review and accept baseline images"/>
 
 ##### Grouping and Filtering
 
-The list of snapshots can be grouped and filtered by using the "Group by"- and "Filter"-dropdowns.
+The list of snapshots can be grouped and filtered by using the "Group by and "Filter" dropdowns.
 
 <img src={useBaseUrl('/img/sauce-visual/build-details-grouping-filtering.jpg')} alt="Build Details Grouping and Filtering"/>
 
-The grouping can be done by
+The grouping can be done by:
 
 | Group by            | Description                                                                                          | Determined by                                             |
 | ------------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
@@ -110,10 +110,10 @@ The grouping can be done by
 
 #### Diff Review-overlay
 
-You can also review and accept a single snapshot by clicking on a thumbnail from the "Build Details"-page. This will open a "Diff Review"-overlay where you can review and accept the snapshots by using the "Accept" button.
+You can also review and accept a single snapshot by clicking on a thumbnail from the "Build Details" page. This will open a "Diff Review" page where you can review and accept the snapshots by using the "Accept" button.
 
 :::note
-The "Diff Review"-overlay will only show the snapshots that match the filter you have selected on the "Build Details"-page. If you want to see all the snapshots, you need to clear your filter.
+The "Diff Review" page will only show the snapshots that match the filter you have selected on the "Build Details" page. If you want to see all the snapshots, you need to clear your filter.
 :::
 
 <img src={useBaseUrl('/img/sauce-visual/build-details-single-baseline.jpg')} alt="Review and accept single baseline images"/>
@@ -128,8 +128,8 @@ More information about reviewing and approving diffs can be found in [Subsequent
 
 Every subsequent test execution will generate a new "Visual Build" and will be marked as ["For Review"](#visual-statuses). This is because:
 
-- a new baseline snapshot could be generated for the new test execution, see also [Reviewing and Approving Baselines](#reviewing-and-approving-baselines) and [Accept Only New](#accept-only-new).
-- you need to review the visual differences between the new snapshot and the previously accepted baseline snapshot.
+- A new baseline snapshot could be generated for the new test execution, see also [Reviewing and Approving Baselines](#reviewing-and-approving-baselines) and [Accept Only New](#accept-only-new).
+- You need to review the visual differences between the new snapshot and the previously accepted baseline snapshot.
 
 The process of reviewing and approving the visual differences is the same as described in [Reviewing and Approving Baselines](#reviewing-and-approving-baselines).
 
