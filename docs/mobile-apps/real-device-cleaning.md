@@ -34,13 +34,13 @@ Setting up VPNs on public devices is not supported. Please refer to our document
 On Public devices, user access to device settings is limited to app-specific configurations only. like notifications, location services, permissions, app storage, and app details. For iOS Enterprise apps, users can trust the app via settings. Access is restricted to the test application and webapps through Safari or Chrome. These rules apply to both iOS and Android public devices.
 
 The list of restrictions on iOS:
-- FaceID/TouchID & Passcodes.
+- Face ID/Touch ID & Passcodes.
 - Developer mode
 - Language and region
 - Reset device
 - Find My Device
 - Standby mode
-- Create new AppleID
+- Create new Apple ID
 - Sounds and Haptics
 - Screen Time
 - Auto-lock settings
@@ -56,16 +56,16 @@ Android restrictions:
 
 The following settings are allowed ONLY on Private devices, these are blocked on public devices:
 - Safari developer settings
-- Text Size
+- Changing Text Size
 - Battery
-- VPN
+- VPN settings
 - Cellular
 - Analytics and Crash
 - Control Center
-- Appl Wallet
+- Apple Wallet
 - Passwords
-- Mail
-- Apple Sign In
+- Mail settings
+- Apple ID Sign In
 - Proxy configuration
 - Network settings
 
@@ -99,13 +99,13 @@ We use a proprietary process that wipes every real device clean at the end of th
 
 :::caution
 On Private Devices, access to some parts of the iOS settings is restricted: 
-- FaceID/TouchID & Passcodes.
+- Face ID/Touch ID & Passcodes.
 - Developer mode
 - Language and region
 - Reset device
 - Find My Device
 - Standby mode
-- Create new AppleID
+- Create new Apple ID
 - Sounds and Haptics
 - Screen Time
 - Auto-lock settings
@@ -113,8 +113,12 @@ On Private Devices, access to some parts of the iOS settings is restricted:
 - Airplay & handoff
 
 On Android the following options are restricted: 
-- 
-These rules apply to both iOS and Android public devices.
+- Biometrics and Passcode/Pincode
+- Lock settings
+- Google Account settings 
+- Developer mode
+- Network settings
+
 :::
 
 :::caution
