@@ -69,8 +69,6 @@ The following settings are allowed ONLY on Private devices, these are blocked on
 - Proxy configuration
 - Network settings
 
-Android:
-
 To access our private device cloud, contact your Sauce Labs account executive or our support team.
 :::
 
