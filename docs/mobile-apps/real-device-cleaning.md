@@ -31,7 +31,47 @@ Setting up VPNs on public devices is not supported. Please refer to our document
 :::
 
 :::caution
-On Public devices, user access to device settings is limited to app-specific configurations like notifications, location services, permissions, app storage, and app details. For iOS Enterprise apps, users can trust the app via settings. Access is restricted to the test application and webapps through Safari or Chrome. These rules apply to both iOS and Android public devices.
+On Public devices, user access to device settings is limited to app-specific configurations only. like notifications, location services, permissions, app storage, and app details. For iOS Enterprise apps, users can trust the app via settings. Access is restricted to the test application and webapps through Safari or Chrome. These rules apply to both iOS and Android public devices.
+
+The list of restrictions on iOS:
+- FaceID/TouchID & Passcodes.
+- Developer mode
+- Language and region
+- Reset device
+- Find My Device
+- Standby mode
+- Create new AppleID
+- Sounds and Haptics
+- Screen Time
+- Auto-lock settings
+- Zoom settings
+- Airplay & handoff
+
+Android restrictions:
+- Biometrics and Passcode/Pincode
+- Lock settings
+- Google Account settings 
+- Developer mode
+- Network settings
+
+The following settings are allowed ONLY on Private devices, these are blocked on public devices:
+- Safari developer settings
+- Text Size
+- Battery
+- VPN
+- Cellular
+- Analytics and Crash
+- Control Center
+- Appl Wallet
+- Passwords
+- Mail
+- Apple Sign In
+- Proxy configuration
+- Network settings
+
+Android:
+
+To access our private device cloud, contact your Sauce Labs account executive or our support team.
 :::
 
 :::note
@@ -60,7 +100,23 @@ We use a proprietary process that wipes every real device clean at the end of th
 ## Private Devices
 
 :::caution
-On Private Devices, access to some parts of the device settings is restricted: Wifi and Network Settings, Profile and Device Management, Passcode/Biometrics Settings, Developer options, Resetting device options, Creating AppleIDs, Battery Options, and Display Settings. These rules apply to both iOS and Android public devices.
+On Private Devices, access to some parts of the iOS settings is restricted: 
+- FaceID/TouchID & Passcodes.
+- Developer mode
+- Language and region
+- Reset device
+- Find My Device
+- Standby mode
+- Create new AppleID
+- Sounds and Haptics
+- Screen Time
+- Auto-lock settings
+- Zoom settings
+- Airplay & handoff
+
+On Android the following options are restricted: 
+- 
+These rules apply to both iOS and Android public devices.
 :::
 
 :::caution
