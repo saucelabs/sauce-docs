@@ -63,7 +63,7 @@ The following settings are allowed ONLY on Private devices, these are blocked on
 - Analytics and Crash
 - Control Center
 - Apple Wallet
-- Passwords
+- Safari and App Passwords
 - Mail settings
 - Apple ID Sign In
 - Proxy configuration
