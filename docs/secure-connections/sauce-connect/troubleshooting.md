@@ -141,6 +141,16 @@ Another common mistake is placing the SUT in the same network as the [Demilitari
 | SUT (Site Under Test)              | The site that you're testing.                                            |
 | Tunnel VM (Tunnel Virtual Machine) | Virtual machine that hosts Sauce Connect Proxy on the Sauce Labs side.   |
 
+## Known Issues and Workarounds
+
+### HTTP and Chrome 120 and newer
+
+Chrome 120 automatically attempts to upgrade connections from HTTP to HTTPS, and the error detection fails when using a proxy. In this case, the Sauce Connect architecture uses a proxy to route traffic from the browser through the secure tunnel. The HTTP proxy returns HTTP error codes (500) which Chrome interprets as a response from the non-existent HTTPS server.
+
+In an interactive session with a keyboard, a second attempt falls back to HTTP, however there is no workaround when controlling the browser through an automated test.
+
+If you encounter errors when using HTTP URLs with Chrome 120, the only solution is to update your endpoint to HTTPS.
+
 ## Additional Support
 
 For additional help, please reach out to the Sauce Labs Support Team. To better assist you, include the following information with your request:
