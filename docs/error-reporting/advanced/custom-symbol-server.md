@@ -18,7 +18,7 @@ To meet Backtrace's requirements, the custom symbol server must:
 - Have a web frontend to serve the files via HTTP(S). Popular options include nginx, AWS, and Google Cloud buckets.
 - Allow your Backtrace instance to access the server (firewall and network rules may need adjustments).
 - Any file compression must utilize the CAB (Cabinet) compression mechanism. Backtrace does not support any other compression mechanisms over symbol servers at this time.
--- Note that HTTP compression is also supported.
+  - Note that HTTP compression is also supported.
 
 After generating symbol files from a build, you can use Windows symstore to store the files in the Microsoft standard symbol store structure. An example invocation of symstore looks like this:
 
