@@ -14,9 +14,11 @@ Backtrace integrations using minidumps require symbol files to generate valuable
 To meet Backtrace's requirements, the custom symbol server must:
 
 - Follow Microsoft's standard symbol structure (that is, `<url>/<object_name>/<debug_id>/<file>`).
-- Use tools like Windows symstore to generate files in the required structure.
+-- Use tools like Windows symstore to generate files in the required structure.
 - Have a web frontend to serve the files via HTTP(S). Popular options include nginx, AWS, and Google Cloud buckets.
 - Allow your Backtrace instance to access the server (firewall and network rules may need adjustments).
+- Any file compression must utilize the CAB (Cabinet) compression mechanism. Backtrace does not support any other compression mechanisms over symbol servers at this time.
+-- Note that HTTP compression is also supported.
 
 After generating symbol files from a build, you can use Windows symstore to store the files in the Microsoft standard symbol store structure. An example invocation of symstore looks like this:
 
