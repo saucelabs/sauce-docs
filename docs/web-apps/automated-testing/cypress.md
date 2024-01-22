@@ -180,6 +180,10 @@ Cypress does not currently work with Firefox 101 on Windows.
 Cypress does not currently work with Firefox 105.
 See https://github.com/cypress-io/cypress/issues/23897 for more information.
 
+### Microsoft Edge 120
+
+Cypress does not currently work with Microsoft Edge 120.
+
 ### Webkit
 
 - Cypress only supports launching Webkit with a fixed resolution of 1280x720.
