@@ -88,6 +88,11 @@ Execute tests according to the environment, framework, and test suite specificat
      <td>Usage information for the <code>run</code> command.</td>
     </tr>
     <tr>
+     <td><span className="t-cli"><a href="#--help">--live-logs</a></span></td>
+     <td></td>
+     <td>Tail the live log output from a running Sauce Orchestrate container.</td>
+    </tr>
+    <tr>
      <td><span className="t-cli"><a href="#--no-color">--no-color</a></span></td>
      <td></td>
      <td>Disable colored console output.</td>
@@ -363,6 +368,19 @@ saucectl run --fail-fast
 Usage information for the `run` command.
 
 **Shorthand:** `-h`
+
+</div>
+
+### <span className="cli">--live-logs</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Sauce Orchestrate Only</span></small></p>
+
+Tail the live log output from a running Sauce Orchestrate container.
+
+```bash
+saucectl run --live-logs
+```
 
 </div>
 
