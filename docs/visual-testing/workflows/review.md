@@ -150,7 +150,7 @@ By default, you will see diffs in a Side-by-side view, which lets you easily com
 There are conditional actions you can use, depending on the type of view you have activated:
 
 - If in Side-by-side view, you can mirror the zoom and pan actions from the Current snapshot to the Baseline.
-- If in Overlay view, you can change the opacity between Baseline and Current diff.
+- If in Overlay view, you can change the opacity between Baseline and Current snapshot.
 
 <img src={useBaseUrl('/img/sauce-visual/review-page-modes.jpg')} alt="Diff review page modes"/>
 
