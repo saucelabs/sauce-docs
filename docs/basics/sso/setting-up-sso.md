@@ -20,7 +20,7 @@ Sauce Labs supports the following features:
 - [SP-initiated SSO](/basics/sso/logging-in-via-sso/#service-provider-sp-initiated-sso).
 - [IdP-initiated SSO](/basics/sso/logging-in-via-sso/#identity-provider-idp-initiated-sso).
 - [JIT (Just-In-Time) Provisioning](#just-in-time-jit-provisioning).
-- [Force authentication](#enforce-saml-sso-big-bang-configuration).
+- [Force authentication](#enforce-saml-sso---big-bang-configuration).
 
 ## What You'll Need
 
