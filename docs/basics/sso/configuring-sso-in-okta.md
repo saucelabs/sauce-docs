@@ -13,7 +13,7 @@ Sauce Labs app from the Okta catalog supports the following features:
 - [SP-initiated SSO](/basics/sso/logging-in-via-sso/#service-provider-sp-initiated-sso).
 - [IdP-initiated SSO](/basics/sso/logging-in-via-sso/#identity-provider-idp-initiated-sso).
 - [JIT (Just-In-Time) Provisioning](/basics/sso/setting-up-sso/#just-in-time-jit-provisioning).
-- [Big Bang configuration](/basics/sso/setting-up-sso/#enforce-saml-sso-big-bang-configuration).
+- [Big Bang configuration](/basics/sso/setting-up-sso/#enforce-saml-sso---big-bang-configuration).
 
 Complete the following steps to set up SAML SSO integration between Okta and Sauce Labs:
 
