@@ -176,4 +176,4 @@ module.exports = {
 
 ```
 
-If you wanna configure your own devices please follow the configuration steps inside the [playwright docs](https://playwright.dev/docs/emulation#devices).
+If you'd like to configure your own devices, please follow the configuration steps inside the [playwright docs](https://playwright.dev/docs/emulation#devices).
