@@ -14,6 +14,7 @@ Sauce Connect Proxy 5 is a complete rewrite of Sauce Connect Proxy 4.x.x that ai
 
 :::caution
 The Sauce Connect Proxy version 5 major release introduces CLI changes. Please refer to [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/) for details.
+An [`sc legacy`](/dev/cli/sauce-connect-5/#sc-legacy) command is introduced to help users transition from version 4.x.x to 5.0.x.
 :::
 
 1. Improved onboarding and integration due to the secure connection (tunnel) protocol change.

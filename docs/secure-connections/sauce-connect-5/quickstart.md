@@ -10,6 +10,11 @@ import TabItem from '@theme/TabItem';
 
 Sauce Connect Proxy is required to run a test on an app or website located behind a firewall. Get up and running with a basic Sauce Connect Proxy tunnel in minutes using the steps below.
 
+:::caution
+The Sauce Connect Proxy version 5 major release introduces CLI changes. Please refer to [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/) for details.
+An [`sc legacy`](/dev/cli/sauce-connect-5/#sc-legacy) command is introduced to help users transition from version 4.x.x to 5.0.x.
+:::
+
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
