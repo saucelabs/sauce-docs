@@ -26,31 +26,7 @@ You can manage and monitor all Sauce Connect Proxy tunnel activity from the Sauc
 
 ## Local API Server
 
-Sauce Connect Proxy exposes an API that allows obtain information about the local Sauce Connect Proxy instance. The API interface is configured with the [`--api-address`](/dev/cli/sauce-connect-5/run/#--api-address) flag.
-The table below summarizes available endpoints.
-
-| Path       | Description                                                                                            |
-| :--------- | :----------------------------------------------------------------------------------------------------- |
-| `/readyz`  | Returns 200 response code when Sauce Connect Proxy is ready, 503 otherwise.                            |
-| `/healthz` | Returns 200 response code when Sauce Connect Proxy is connected, 503 otherwise.                        |
-| `/info`    | Returns runtime information about the tunnel instance.                                                 |
-| `/metrics` | Exposes [Prometheus](https://prometheus.io/) metrics.                                                  |
-| `/configz` | Returns the configuration values.                                                                      |
-| `/pac`     | Returns the PAC content being configured with the [`--pac`](/dev/cli/sauce-connect-5/run/#--pac) flag. |
-| `/version` | Returns the Sauce Connect Proxy instance version and build info.                                       |
-
-### Info Endpoint
-
-The `/info` Endpoint contains a JSON document containing runtime information of the Sauce Connect instance:
-
-```json
-{
-  "tunnel_id": "ab2cf344d4fc40d2bdc36b2fe6535c6b",
-  "tunnel_name": "ci-tunnel-1",
-  "tunnel_server": "1.2.3.4:443",
-  "tunnel_host": "tunnel-123abc.tunnels.us-west-4.saucelabs.com"
-}
-```
+See [Sauce Connect Proxy API Server](/secure-connections/sauce-connect-5/operation/api-server).
 
 ## Prometheus metrics
 
