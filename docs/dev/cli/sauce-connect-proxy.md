@@ -8,7 +8,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Below is a list of flags to use on your Sauce Connect Proxy command line to specify parameters. Supported versions are indicated in the headers.
+Below is a list of flags to use on your Sauce Connect Proxy v4.x.x command line to specify parameters. Supported versions are indicated in the headers.
+
+:::note
+This is Sauce Connect Version 4 CLI documentation.
+The Sauce Connect Proxy version 5 major release introduced breaking CLI changes. Please refer to [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/) for details.
+:::
 
 ## What You'll Need
 
