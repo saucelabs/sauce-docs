@@ -16,6 +16,10 @@ Sauce Connect Proxy 5 is a complete rewrite of Sauce Connect Proxy 4.x.x that ai
 The Sauce Connect Proxy version 5 major release introduces CLI changes. Please refer to [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/) for details.
 :::
 
+:::note
+An [`sc legacy`](/dev/cli/sauce-connect-5/#sc-legacy) command is introduced to help users transition from version 4.x.x to 5.0.x.
+:::
+
 1. Improved onboarding and integration due to the secure connection (tunnel) protocol change.
    The previous generation of Sauce Connect Proxy (version 4) used a custom [KGP](/secure-connections/sauce-connect/advanced/kgp/) protocol. The Sauce Connect Proxy version 5 uses HTTP/2 to establish a secure connection to Sauce Labs.
    Using a standard well-documented protocol that is widely used in the industry simplifies Sauce Connect Proxy integration in secure CI/CD environments.
