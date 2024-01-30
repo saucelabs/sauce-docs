@@ -110,12 +110,14 @@ Specify a proxy password to be set on the device.
 <p><small>| OPTIONAL | STRING |</small></p>
 
 Specifies the name of an active [Sauce Connect](/secure-connections/sauce-connect/) tunnel to use for secure connectivity to the Sauce Labs platform.   
-Use the `--tunnelIdentifier` option with the tunnel identifier in the format:    
+Use the `--tunnelIdentifier` option with the tunnel identifier in the format:
+```java title="tunnel identifier format"
 --tunnelIdentifier tunnel-identifier:<tunnel-name>,<tunnel-owner>
+```    
 
 :::note Identifying a Tunnel
 - `tunnel-name`: The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, not the Tunnel ID numerical value.
-- `tunnel-owner`: The name of the tunnel owner. This is the value shown under the **Owner** column on the Sauce Labs Tunnels page.
+- `tunnel-owner`: The name of the tunnel owner. This is the value shown under the **Owner** column on the Sauce Labs Tunnels page.   
 :::
 
 </div>
