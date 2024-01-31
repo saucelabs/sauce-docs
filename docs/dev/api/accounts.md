@@ -1758,6 +1758,87 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
+### Change User's Team Assignment
+
+<details><summary><span className="api post">PUT</span> <code>/team-management/v1/users/&#123;user_id&#125;/teams/</code></summary>
+<p/>
+
+Assign user to one or multiple teams. New team assignments will replace the existing ones. User assigned to multiple teams will be able to switch between them.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>user_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the Sauce Labs user. You can look up the ID of a user in your organization using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/teams/' \
+--header 'Content-Type: application/json' \
+--data-raw '["<team1-id>", "<team2-id>"]' | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/teams/' \
+--header 'Content-Type: application/json' \
+--data-raw '["<team1-id>", "<team2-id>"]' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>204</code></td>
+    <td colSpan='2'>Success. The list of assigned teams has been properly updated.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Bad Request.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>403</code></td>
+    <td colSpan='2'>Requester is not authorized to perform this action.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+</details>
+
+---
+
 ### Subscribe a User to a Team
 
 <details><summary><span className="api post">POST</span> <code>/team-management/v1/membership/</code></summary>
