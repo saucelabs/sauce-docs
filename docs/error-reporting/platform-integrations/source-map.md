@@ -123,6 +123,21 @@ Create a `.backtracejsrc` configuration file in the root of your project with th
   Alternatively, if you do not wish to upload source files directly to Backtrace, you can integrate your source repository. To do so, omit `add-sources` and `include-sources` and follow the steps in the [Source Code](../../project-setup/source-code/) document.
 :::
 
+:::info Processing node_modules
+  node_modules are not processed by default. You may include specific modules by including a reference to each in `.backtracejsrc` `path`.
+  ```json
+{
+    // highlight-next-line
+    "path": [
+      "<build output>",
+      "./node_modules/bser",
+      "./node_modules/chalk"
+      ],
+      ...
+}
+```
+:::
+
 See `backtrace-js --help` or go to [`@backtrace/javascript-cli`](https://github.com/backtrace-labs/backtrace-javascript/blob/dev/tools/cli) for additional command line and configuration options.
 
 :::note Troubleshooting
