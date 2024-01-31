@@ -953,7 +953,7 @@ module.exports = {
                 'secure-connections',
                 {
                     type: 'category',
-                    label: 'Sauce Connect Proxy',
+                    label: 'Sauce Connect 5 (New)',
                     collapsed: true,
                     items: [
                         'secure-connections/sauce-connect-5',
