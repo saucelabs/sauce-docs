@@ -1873,17 +1873,18 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         "user_type": "admin",
         "groups": [],
         "organization": {...},
-    "team": {
-        "id": "80d69d16ebdb4c018cc9d81ea911761a",
-        "name": "Sauce-Docs",
-        "organization": {...},
-        "group": {...},
-        "created_at": "2020-12-30T17:09:12.473388Z",
-        "updated_at": "2020-12-30T17:09:12.473415Z",
-        "settings": {...},
-        "description": "Tech Content API Testing",
-        "is_default": false,
-        "links": {}
+        "team": {
+            "id": "80d69d16ebdb4c018cc9d81ea911761a",
+            "name": "Sauce-Docs",
+            "organization": {...},
+            "group": {...},
+            "created_at": "2020-12-30T17:09:12.473388Z",
+            "updated_at": "2020-12-30T17:09:12.473415Z",
+            "settings": {...},
+            "description": "Tech Content API Testing",
+            "is_default": false,
+            "links": {}
+        }
     },
     "created_at": "2020-12-30T17:21:52.344918Z",
     "updated_at": "2020-12-30T17:21:52.344961Z"
