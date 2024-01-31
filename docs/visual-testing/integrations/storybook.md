@@ -140,6 +140,40 @@ Below are the environment variables available in the visual-storybook plugin:
 | `SAUCE_PROJECT_NAME`    |          | The label / project you would like to associated this build with.                                                                                                                                                                |
 | `SAUCE_VISUAL_BUILD_ID` |          | For advanced users, a custom build ID. Can be used to create builds in advance. This can be used to parallelize tests, shard, or more. <br/> By default, this is not set and we create / finish a build during setup / teardown. |
 
+## Story / Global Configuration
+
+Additional configuration options are exposed via the `sauceVisual` [Storybook parameters](https://storybook.js.org/docs/writing-stories/parameters). You can use these to tweak settings on a global, component, or per-story basis -- see the Storybook docs for details on how to apply them to each.
+
+The below configuration options are also exported as the type `SauceVisualParams` from `@saucelabs/visual-storybook` if you'd like TypeScript types for them.
+
+Parameters key: `sauceVisual`
+
+| Key            | Type      | Default           | Description                                                                                                                                                                                                                                                                                                                               |
+|----------------|-----------|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `clip`         | `boolean` | `true`            | If the story & layout supports it, will automatically clip to the `clipSelector` to remove extraneous whitespace. Recommended to be used in conjunction with [`centered` layout](https://storybook.js.org/docs/configure/story-layout#global-layout). Currently defaults to `false`, however, will default to `true` in a future version. |
+| `clipSelector` | `string`  | `#storybook-root` | The selector to clip to when `clip = true`. Defaults to Storybook's default root element, `#storybook-root`.                                                                                                                                                                                                                              |
+| `delay`        | `number`  | `0` (no delay)    | A number, in ms, that we should delay the snapshot by. Useful if the beginning of the story has unavoidable / javascript animations.                                                                                                                                                                                                      |
+
+Component-level Example:
+
+```jsx
+const meta = {
+  title: 'Example/Button',
+  component: Button,
+  parameters: {
+    // ... Your other Storybook parameters here
+    sauceVisual: {
+      // Add storybook visual configuration options here
+      clip: true,
+      // clipSelector: '#custom-root-element',
+      // delay: 200,
+    },
+  },
+};
+
+export default meta;
+```
+
 ## Different Browsers and Devices
 
 By default the tests are run on your local machine/in your pipeline with Chromium. You have the option to run them on different [browser and device configurations](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json) preconfigured by playwright or define your own device, a combination or all of them. To do so, you need to add the following to your `test-runner-jest.config.js` file:
@@ -177,3 +211,11 @@ module.exports = {
 ```
 
 If you'd like to configure your own devices, please follow the configuration steps inside the [playwright docs](https://playwright.dev/docs/emulation#devices).
+
+## Auto Testing Variations
+
+<div className="text--center">
+<img src={useBaseUrl('/img/sauce-visual/visual-variants.png')} alt="Visual variant grid example"/>
+</div>
+
+We have a separate Storybook plugin, `@saucelabs/storybook-variants`, available for rendering all variants of a component in a grid to ease the testing and development process. Read the full [README on NPM](https://www.npmjs.com/package/@saucelabs/storybook-variants) for installation & usage.
