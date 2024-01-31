@@ -1844,6 +1844,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api post">POST</span> <code>/team-management/v1/membership/</code></summary>
 <p/>
 
+This endpoint is <strong>DEPRECATED</strong>. Please use <a href="#update-users-team-assignment">Update User's Team Assignment</a> endpoint instead.
+
+<hr />
+
 Set a user's team affiliation. Users are limited to one team affiliation, so if the user is already a member of a different team, this call will remove them from that team. Also, By default, the user will not have team-admin privileges, even if they did on a prior team.
 
 #### Parameters
