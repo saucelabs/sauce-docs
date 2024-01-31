@@ -167,14 +167,13 @@ bool startCrashHandler()
     );
 }
 
-
 }
-
-
+```
 
 In your initialization code,
+```cpp
 #include “bt_crashpad.h”
-…
+
 {
    …
    if (backtrace::startCrashHandler() == false)
