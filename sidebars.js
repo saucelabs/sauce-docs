@@ -465,8 +465,15 @@ module.exports = {
                                         'error-reporting/platform-integrations/coresnap/setup',
                                     ],
                                 },
-                                'error-reporting/platform-integrations/visual-studio',
-                                'error-reporting/platform-integrations/crashpad',
+                                {
+                                    type: 'category',
+                                    label: 'Crashpad',
+                                    collapsed: true,
+                                    items: [
+                                        'error-reporting/platform-integrations/crashpad',
+                                        'error-reporting/platform-integrations/visual-studio',
+                                    ],
+                                },
                                 'error-reporting/platform-integrations/breakpad',
                                 'error-reporting/platform-integrations/http-submission',
                             ],
