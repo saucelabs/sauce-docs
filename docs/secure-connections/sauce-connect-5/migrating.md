@@ -66,6 +66,7 @@ access-key: xxxx
 region: us-west
 tunnel-name: v4-tunnel
 username: saucebot
+$ sc run -c new.yaml
 2024/01/31 21:57:42.194037 [control] [INFO] Sauce Connect Proxy version=5.0.0
 ...
 ```
