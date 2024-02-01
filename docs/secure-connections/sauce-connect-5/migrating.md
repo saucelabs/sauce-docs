@@ -96,7 +96,7 @@ The following flags have changed or been removed with Sauce Connect 5. In additi
   </tr>
   <tr>
     <td>`--autodetect`</td>
-    <td rowspan=11>[ removed ]</td>
+    <td rowspan=11>removed</td>
   </tr>
   <tr>
     <td>`--doctor`</td>
@@ -134,7 +134,7 @@ The following flags have changed or been removed with Sauce Connect 5. In additi
   </tr>
   <tr>
     <td>`--se-port`</td>
-    <td rowspan=3>[ removed ]</td>
+    <td rowspan=3>removed</td>
   </tr>
   <tr>
     <td>`--tunnel-cainfo`</td>
