@@ -81,141 +81,44 @@ If there are any options that require manual intervention, the command will fail
 The following flags have changed or been removed with Sauce Connect 5. In addition, to start a tunnel, you'll need to use `sc run` (previously just `sc` in version 4). Refer to the [Sauce Connect CLI](/dev/cli/sauce-connect-proxy) for more details.
 
 ### Changed Flags
-<table>
-  <tr>
-    <td><strong>Version 4.x</strong></td>
-    <td><strong>Version 5.x</strong></td>
-  </tr>
-  <tr>
-    <td>`--user`</td>
-    <td>`--username`</td>
-  </tr>
-  <tr>
-    <td>`--api-key`</td>
-    <td>`--access-key`</td>
-  </tr>
-  <tr>
-    <td>`--logfile`</td><td>`--log-file`</td></tr>
-  <tr>
-    <td>`--shared-tunnel`</td>
-    <td>`--shared` (accepts values: all)</td>
-  </tr>
-  <tr>
-    <td>`--dns`</td>
-    <td>`--dns-server`</td>
-  </tr>
-  <tr>
-    <td>`--cainfo`</td>
-    <td>`--cacert-file`</td>
-  </tr>
-  <tr>
-    <td>`--verbose`</td>
-    <td>`--log-level`, `--log-http`</td>
-  </tr>
-  <tr>
-    <td>`--fast-fail-regexps` (URL regex)</td>
-    <td>`--deny-domains` (list of domain regexps)</td>
-  </tr>
-  <tr>
-    <td>`--no-ssl-bump-domains` (list of domain globs)</td>
-    <td>`--tls-passthrough-domains` (list of domain regexps)</td>
-  </tr>
-  <tr>
-    <td>`--tunnel-domains` (list of domain globs)</td>
-    <td>`--tunnel-domains` (list of domain regexps)</td>
-  </tr>
-  <tr>
-    <td>`--direct-domains` (list of domain globs)</td>
-    <td>`--direct-domains` (list of domain regexps)</td>
-  </tr>
-  <tr>
-    <td>`--pac-auth`, `--proxy-userpwd`</td>
-    <td>`--auth`</td>
-  </tr>
-  <tr>
-    <td>`--proxy-localhost` (flag, send localhost through proxy)</td>
-    <td>`--proxy-localhost` (configure localhost access: allow, direct, deny)`</td></tr>
-  <tr>
-    <td>`--proxy-tunnel` (proxy saucelabs tunnel connection)</td>
-    <td>`--proxy-sauce` (proxy any saucelabs.com connection)</td>
-  </tr>
-  <tr>
-    <td>`--scproxy-port`</td>
-    <td>`--address` (hidden flag, not part of CLI)</td>
-  </tr>
-  <tr>
-    <td>`--status-address` (status info only)</td>
-    <td>`--api-address` (several endpoints, including metrics)</td>
-  </tr>
-</table>
+
+| Version 4.x | Version 5.x |
+| ----------- | ----------- |
+| `--user` | `--username` |
+| `--api-key` | `--access-key` |
+| `--logfile` | `--log-file` |
+| `--shared-tunnel` | `--shared` (accepts values: all) |
+| `--dns` | `--dns-server` |
+| `--cainfo` | `--cacert-file` |
+| `--verbose` | `--log-level`, `--log-http` |
+| `--fast-fail-regexps` (URL regex) | `--deny-domains` (list of domain regexps) |
+| `--no-ssl-bump-domains` (list of domain globs) | `--tls-passthrough-domains` (list of domain regexps) |
+| `--tunnel-domains` (list of domain globs) | `--tunnel-domains` (list of domain regexps) |
+| `--direct-domains` (list of domain globs) | `--direct-domains` (list of domain regexps) |
+| `--pac-auth`, `--proxy-userpwd` | `--auth` |
+| `--proxy-localhost` (flag, send localhost through proxy) | `--proxy-localhost` (configure localhost access: allow, direct, deny)` |
+| `--proxy-tunnel` (proxy saucelabs tunnel connection) | `--proxy-sauce` (proxy any saucelabs.com connection) |
+| `--status-address` (status info only) | `--api-address` (several endpoints, including metrics) |
 
 ### Removed Flags
-<table>
-  <tr>
-    <td><strong>Version 4.x</strong></td>
-    <td><strong>Version 5.x</strong></td>
-  </tr>
-  <tr>
-    <td>`--autodetect`</td>
-    <td>removed</td>
-  </tr>
-  <tr>
-    <td>`--doctor`</td>
-    <td>removed</td>
-  </tr>
-  <tr>
-    <td>`--experimental`</td>
-    <td>removed</td>
-  </tr>
-  <tr>
-    <td>`--extra-info`</td>
-    <td>removed</td>
-  </tr>
-  <tr>
-    <td>`--log-stats`</td>
-    <td>removed</td>
-  </tr>
-  <tr>
-    <td>`--max-logsize`</td>
-    <td>removed</td>
-  </tr>
-  <tr>
-    <td>`--no-autodetect`</td>
-    <td>removed</td>
-  </tr>
-  <tr>
-    <td>`--no-remove-colliding-tunnels`</td>
-    <td>removed</td>
-  </tr>
-  <tr>
-    <td>`--ocsp`</td>
-    <td>removed</td>
-  </tr>
-  <tr>
-    <td>`--output-format`</td>
-    <td>removed</td>
-  </tr>
-  <tr>
-    <td>`--pidfile`</td>
-    <td>removed</td>
-  </tr>
-  <tr>
-    <td>`--readyfile`</td>
-    <td>see [Readiness Checks](/secure-connections/sauce-connect-5/operation/readiness-checks/)</td>
-  </tr>
-  <tr>
-    <td>`--se-port`</td>
-    <td>removed</td>
-  </tr>
-  <tr>
-    <td>`--tunnel-cainfo`</td>
-    <td>removed</td>
-  </tr>
-  <tr>
-    <td>`--vm-version`</td>
-    <td>removed</td>
-  </tr>
-</table>
+
+| Version 4.x | Version 5.x |
+| ----------- | ----------- |
+| `--autodetect` | removed |
+| `--doctor` | removed |
+| `--experimental` | removed |
+| `--extra-info` | removed |
+| `--log-stats` | removed |
+| `--max-logsize` | removed |
+| `--no-autodetect` | removed |
+| `--no-remove-colliding-tunnels` | removed |
+| `--ocsp` | removed |
+| `--output-format` | removed |
+| `--pidfile` | removed |
+| `--readyfile` | see [Readiness Checks](/secure-connections/sauce-connect-5/operation/readiness-checks/) |
+| `--se-port` | removed |
+| `--tunnel-cainfo` | removed |
+| `--vm-version` | removed |
 
 ## New Behavior in Sauce Connect 5
 
