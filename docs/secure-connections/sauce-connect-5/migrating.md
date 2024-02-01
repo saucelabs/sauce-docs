@@ -96,37 +96,47 @@ The following flags have changed or been removed with Sauce Connect 5. In additi
   </tr>
   <tr>
     <td>`--autodetect`</td>
-    <td rowspan=11>removed</td>
+    <td>removed</td>
   </tr>
   <tr>
     <td>`--doctor`</td>
+    <td>removed</td>
   </tr>
   <tr>
     <td>`--experimental`</td>
+    <td>removed</td>
   </tr>
   <tr>
     <td>`--extra-info`</td>
+    <td>removed</td>
   </tr>
   <tr>
     <td>`--log-stats`</td>
+    <td>removed</td>
   </tr>
   <tr>
     <td>`--max-logsize`</td>
+    <td>removed</td>
   </tr>
   <tr>
     <td>`--no-autodetect`</td>
+    <td>removed</td>
   </tr>
   <tr>
     <td>`--no-remove-colliding-tunnels`</td>
+    <td>removed</td>
   </tr>
   <tr>
     <td>`--ocsp`</td>
+    <td>removed</td>
   </tr>
   <tr>
     <td>`--output-format`</td>
+    <td>removed</td>
   </tr>
   <tr>
     <td>`--pidfile`</td>
+    <td>removed</td>
   </tr>
   <tr>
     <td>`--readyfile`</td>
@@ -134,13 +144,15 @@ The following flags have changed or been removed with Sauce Connect 5. In additi
   </tr>
   <tr>
     <td>`--se-port`</td>
-    <td rowspan=3>removed</td>
+    <td>removed</td>
   </tr>
   <tr>
     <td>`--tunnel-cainfo`</td>
+    <td>removed</td>
   </tr>
   <tr>
     <td>`--vm-version`</td>
+    <td>removed</td>
   </tr>
 </table>
 
