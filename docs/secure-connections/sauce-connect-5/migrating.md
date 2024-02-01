@@ -96,7 +96,7 @@ The following flags have changed or been removed with Sauce Connect 5. In additi
 | `--tunnel-domains` (list of domain globs) | `--tunnel-domains` (list of domain regexps) |
 | `--direct-domains` (list of domain globs) | `--direct-domains` (list of domain regexps) |
 | `--pac-auth`, `--proxy-userpwd` | `--auth` |
-| `--proxy-localhost` (flag, send localhost through proxy) | `--proxy-localhost` (configure localhost access: allow, direct, deny)` |
+| `--proxy-localhost` (flag, send localhost through proxy) | `--proxy-localhost` (configure localhost access: allow, direct, deny) |
 | `--proxy-tunnel` (proxy saucelabs tunnel connection) | `--proxy-sauce` (proxy any saucelabs.com connection) |
 | `--status-address` (status info only) | `--api-address` (several endpoints, including metrics) |
 
