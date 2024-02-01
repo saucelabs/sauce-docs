@@ -1,7 +1,7 @@
 ---
 id: crashpad
 title: Integrating Crashpad
-sidebar_label: Crashpad
+sidebar_label: Integration Guide
 description: Integrate Crashpad in your Backtrace project.
 ---
 
