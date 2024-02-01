@@ -181,9 +181,9 @@ The current end-of-life strategy outlined above is specific to Real Devices. We 
         <code>2.0.0</code>
       </td>
       <td>
-        <span className="sauceGold">January 31st, 2024</span>
+        <span className="sauceGreen">Active</span>
       </td>
-      <td> This was the "old" alias for getting the latest Appium 2 drivers that were installed in the Sauce Labs Real Device Cloud. This alias is deprecated due to being unclear and is replaced by <code>latest</code>. <br /> The alias <code>2.0.0</code> is a collection of the following drivers <br />
+      <td> This alias for getting the Appium 2 drivers that were installed in the Sauce Labs Real Device Cloud. <br /> The alias <code>2.0.0</code> is a collection of the following drivers <br />
         <ul>
           <li>
             <a href="https://github.com/appium/appium/releases/tag/appium%402.0.1" target="_blank">
