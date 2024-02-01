@@ -20,7 +20,7 @@ You can now install or upgrade Sauce Connect version 5 with a package manager sy
 * `sc run` is now used to start a tunnel, as there are now other subcommands that can be used.
 * `--tunnel-name` is now required.
 * `--region` is now required.
-* SSL Bumping is now *OFF* by default, and is called TLS Resigning.
+* SSL Bumping is now **OFF** by default, and is called TLS Resigning.
 * Domain matching for deny/direct/tunnel domains now uses the standard regex format.
 
 ## Unsupported Features
@@ -74,7 +74,7 @@ Note that there are some options that are removed in SC5, and will be dropped fr
 
 If there are any options that require manual intervention, the command will fail with an error message.
 
-*NOTE*: The legacy command will use the config file, environment variables, and CLI flags to generate the SC5 configuration file. If you're using environment variables and CLI flags to dynamically generate Sauce Connect configuration, you should review the configuration file that is generated. Options that should be in environment variables or CLI flags should be extracted from the config file.
+**NOTE**: The legacy command will use the config file, environment variables, and CLI flags to generate the SC5 configuration file. If you're using environment variables and CLI flags to dynamically generate Sauce Connect configuration, you should review the configuration file that is generated. Options that should be in environment variables or CLI flags should be extracted from the config file.
 
 ## CLI Changes in Sauce Connect 5
 
@@ -253,11 +253,11 @@ You can also prefix the option with a `-` character to remove it from the list, 
 
 [Regex 101](https://regex101.com/) is an excellent site to troubleshoot regexes.
 
-*NOTE*: Pay attention to shell wildcard rules if you're using CLI flags for these settings. The options should be wrapped with quotation marks to avoid issues. Using config files is recommended to avoid shell wildcard expansion issues.
+**NOTE**: Pay attention to shell wildcard rules if you're using CLI flags for these settings. The options should be wrapped with quotation marks to avoid issues. Using config files is recommended to avoid shell wildcard expansion issues.
 
-*NOTE*: `.` is a wildcard, so if you're matching domains separated by periods, they should be escaped with backslashes.
+**NOTE**: `.` is a wildcard, so if you're matching domains separated by periods, they should be escaped with backslashes.
 
-*NOTE*: To ensure you're not matching any extra domains, use the `^` and `$` characters to mark the start and end of the domain to be matched.
+**NOTE**: To ensure you're not matching any extra domains, use the `^` and `$` characters to mark the start and end of the domain to be matched.
 
 ## Alternatives to Deprecated Features
 
