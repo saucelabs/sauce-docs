@@ -33,7 +33,7 @@ You can now install or upgrade Sauce Connect version 5 with a package manager sy
 
 ## Quick Start using `sc legacy`
 
-The `sc legacy` command is used to translate SC4 configuration to SC5.
+The [sc legacy](/dev/cli/sauce-connect-5/#sc-legacy) command is used to translate SC4 configuration to SC5.
 
 For a quick sanity check, you can start Sauce Connect with the legacy command:
 
