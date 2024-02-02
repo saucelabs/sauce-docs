@@ -17,25 +17,25 @@ See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/
 <div className="box-wrapper" markdown="1">
 <div className="box box1 card">
   <div className="container">
-  <h3><a href="/secure-connections/sauce-connect">Sauce Connect Proxy Overview</a></h3>
+  <h3><a href="/secure-connections/sauce-connect-5">Sauce Connect Proxy Overview</a></h3>
   <p>Learn about Sauce Connect Proxy and why we recommend it over allowlisting individual IP addresses.</p>
   </div>
 </div>
 <div className="box box2 card">
   <div className="container">
-  <h3><a href="/secure-connections/sauce-connect/quickstart/">Quickstart</a></h3>
+  <h3><a href="/secure-connections/sauce-connect-5/quickstart/">Quickstart</a></h3>
   <p>Get up and running with Sauce Connect Proxy in minutes.</p>
   </div>
 </div>
     <div className="box box3 card">
       <div className="container">
-      <h3><a href="/secure-connections/sauce-connect/setup-configuration/basic-setup">Setup and Configuration</a></h3>
+      <h3><a href="/secure-connections/sauce-connect-5/operation/overview">Setup and Configuration</a></h3>
       <p>Learn how to launch a basic Sauce Connect Proxy tunnel configuration. Once you’re connected, use our code samples to run your first test.</p>
       </div>
     </div>
     <div className="box box4 card">
       <div className="container">
-      <h3><a href="/dev/cli/sauce-connect-proxy">CLI Reference</a></h3>
+      <h3><a href="/dev/cli/sauce-connect-5">CLI Reference</a></h3>
       <p>Learn how to use our CLI flags to communicate with the Sauce Labs cloud from your private network.</p>
       </div>
     </div>
