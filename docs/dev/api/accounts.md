@@ -1758,10 +1758,95 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
+### Change User's Team Assignment
+
+<details><summary><span className="api post">PUT</span> <code>/team-management/v1/users/&#123;user_id&#125;/teams/</code></summary>
+<p/>
+
+Assign user to one or multiple teams. New team assignments will replace the existing ones. User assigned to multiple teams will be able to switch between them.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>user_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the Sauce Labs user. You can look up the ID of a user in your organization using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/teams/' \
+--header 'Content-Type: application/json' \
+--data-raw '["<team1-id>", "<team2-id>"]' | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/teams/' \
+--header 'Content-Type: application/json' \
+--data-raw '["<team1-id>", "<team2-id>"]' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>204</code></td>
+    <td colSpan='2'>Success. The list of assigned teams has been properly updated.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Bad Request.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>403</code></td>
+    <td colSpan='2'>Requester is not authorized to perform this action.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+</details>
+
+---
+
 ### Subscribe a User to a Team
 
-<details><summary><span className="api post">POST</span> <code>/team-management/v1/membership/</code></summary>
+<details><summary><span className="api post">POST</span> <code>/team-management/v1/membership/</code>  <small><span className="sauceGold">DEPRECATED</span></small></summary>
 <p/>
+
+This endpoint is <strong>DEPRECATED</strong>. Please use <a href="#update-users-team-assignment">Update User's Team Assignment</a> endpoint instead.
+
+<hr />
 
 Set a user's team affiliation. Users are limited to one team affiliation, so if the user is already a member of a different team, this call will remove them from that team. Also, By default, the user will not have team-admin privileges, even if they did on a prior team.
 
@@ -1873,17 +1958,18 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         "user_type": "admin",
         "groups": [],
         "organization": {...},
-    "team": {
-        "id": "80d69d16ebdb4c018cc9d81ea911761a",
-        "name": "Sauce-Docs",
-        "organization": {...},
-        "group": {...},
-        "created_at": "2020-12-30T17:09:12.473388Z",
-        "updated_at": "2020-12-30T17:09:12.473415Z",
-        "settings": {...},
-        "description": "Tech Content API Testing",
-        "is_default": false,
-        "links": {}
+        "team": {
+            "id": "80d69d16ebdb4c018cc9d81ea911761a",
+            "name": "Sauce-Docs",
+            "organization": {...},
+            "group": {...},
+            "created_at": "2020-12-30T17:09:12.473388Z",
+            "updated_at": "2020-12-30T17:09:12.473415Z",
+            "settings": {...},
+            "description": "Tech Content API Testing",
+            "is_default": false,
+            "links": {}
+        }
     },
     "created_at": "2020-12-30T17:21:52.344918Z",
     "updated_at": "2020-12-30T17:21:52.344961Z"
