@@ -718,7 +718,6 @@ module.exports = {
             collapsed: true,
             items: [
                 'dev/cli',
-                'dev/cli/sauce-connect-proxy',
                 {
                     type: 'category',
                     label: 'Sauce Connect Proxy 5 CLI',
@@ -726,9 +725,11 @@ module.exports = {
                     items: [
                         'dev/cli/sauce-connect-5',
                         'dev/cli/sauce-connect-5/run',
+                        'dev/cli/sauce-connect-5/legacy',
                         'dev/cli/sauce-connect-5/completion',
                     ],
                 },
+                'dev/cli/sauce-connect-proxy',
                 {
                     type: 'category',
                     label: 'saucectl CLI',
