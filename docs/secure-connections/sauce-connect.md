@@ -1,8 +1,12 @@
 ---
 id: sauce-connect
-title: Sauce Connect Proxy
+title: Sauce Connect Proxy 4
 sidebar_label: Overview
 ---
+
+:::caution Sauce Connect Proxy 5 is released
+Please refer to [Sauce Connect Proxy 5 Overview](/secure-connections/sauce-connect-5/) for the most recent Sauce Connect Proxy documentation.
+:::
 
 If your company has firewall rules that limit your ability to run tests on Sauce Labs, you can use our Sauce Connect Proxy feature to connect to Sauce Labs in the cloud without exposing your company's IT infrastructure to security risks.
 
@@ -60,6 +64,7 @@ For more information about Sauce Connect Proxy&trade; and its security, see [thi
 
 ## More Information
 
+- [Sauce Connect Proxy 5 Overview](/secure-connections/sauce-connect-5/)
 - [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/)
 - [Sauce Connect Proxy Basic Setup and Configuration](/secure-connections/sauce-connect/setup-configuration/basic-setup/)
 - [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy)

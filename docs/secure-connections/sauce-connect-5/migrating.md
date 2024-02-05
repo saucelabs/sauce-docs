@@ -20,7 +20,7 @@ You can now install or upgrade Sauce Connect version 5 with a package manager sy
 * `sc run` is now used to start a tunnel, as there are now other subcommands that can be used.
 * `--tunnel-name` is now required.
 * `--region` is now required.
-* SSL Bumping is now **OFF** by default, and is called TLS Resigning.
+* [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) is now **OFF** by default, and is called TLS Resigning.
 * Domain matching for deny/direct/tunnel domains now uses the standard regex format.
 
 ## Unsupported Features

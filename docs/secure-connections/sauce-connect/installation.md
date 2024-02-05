@@ -7,6 +7,10 @@ sidebar_label: Download
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import ScTable from '../../../src/components/scTable.jsx';
 
+:::caution Sauce Connect Proxy 5 is released
+Please refer to [Sauce Connect Proxy 5 Installation Guide](/secure-connections/sauce-connect-5/installation/) for the most recent Sauce Connect Proxy 5 installation instructions.
+:::
+
 This topic describes where and how to download Sauce Connect Proxy to your local machine.
 
 ## What You’ll Need
@@ -227,6 +231,7 @@ As an alternative to downloading the client, you can use the Sauce Connect Proxy
 
 ## More Information
 
+- [Sauce Connect Proxy 5 Installation Guide](/secure-connections/sauce-connect-5/installation/)
 - [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart)
 - [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements/)
 - [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy/)
