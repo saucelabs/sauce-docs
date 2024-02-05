@@ -1844,7 +1844,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api post">POST</span> <code>/team-management/v1/membership/</code>  <small><span className="sauceGold">DEPRECATED</span></small></summary>
 <p/>
 
-This endpoint is <strong>DEPRECATED</strong>. Please use <a href="#update-users-team-assignment">Update User's Team Assignment</a> endpoint instead.
+This endpoint is <strong>DEPRECATED</strong>. Please use <a href="#change-users-team-assignment">Change User's Team Assignment</a> endpoint instead.
 
 <hr />
 
