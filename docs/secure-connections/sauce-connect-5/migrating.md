@@ -179,7 +179,7 @@ SC5 leaves log management to third party tools such as journald. It can log to s
 
 ## Proxy Updates
 
-Sauce Connect 5 no longer uses the `HTTP(S)_PROXY` and `NO_PROXY` environment variables as they aren't specific enough to control REST API and tunnel traffic.
+Sauce Connect 5 no longer uses the `HTTP(S)_PROXY` and `NO_PROXY` environment variables.
 
 To send REST API (ie, starting or stopping a tunnel) traffic through the proxy, use the [--proxy-sauce](/dev/cli/sauce-connect-proxy#--proxy-sauce) option.
 
