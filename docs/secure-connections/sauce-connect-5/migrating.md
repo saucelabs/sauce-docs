@@ -185,7 +185,9 @@ To send REST API (ie, starting or stopping a tunnel) traffic through the proxy, 
 
 To send tunnel (site under test) traffic through a proxy, use the [--proxy](/dev/cli/sauce-connect-proxy#--proxy) option.
 
-Most proxy combinations can be controlled with these two options. However, if you were using the `NO_PROXY` option to exclude various sites under test from using a parent proxy, you will likely need to use a PAC file instead. The endpoints listed in the `NO_PROXY` option would use a 'DIRECT' mode in the PAC, and the default would be the proxy.
+Most proxy combinations can be controlled with these two options.
+However, if you were using the `NO_PROXY` option to exclude various sites under test from using a parent proxy, you will likely need to use a [PAC file](/dev/cli/sauce-connect-proxy#--pac) instead.
+The endpoints listed in the `NO_PROXY` option would use a 'DIRECT' mode in the PAC, and the default would be the proxy.
 
 For example, if you wanted [https://example.com](https://example.com) to skip the proxy, and everything else to go through the proxy, you would use the following PAC file:
 
