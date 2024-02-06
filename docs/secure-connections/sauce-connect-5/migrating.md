@@ -177,6 +177,28 @@ Tracking process state through a PID file is error-prone and no longer recommend
 
 SC5 leaves log management to third party tools such as journald. It can log to stdout or a single file.
 
+## Proxy Updates
+
+Sauce Connect 5 no longer uses the `HTTP(S)_PROXY` and `NO_PROXY` environment variables as they aren't specific enough to control REST API and tunnel traffic.
+
+To send REST API (ie, starting or stopping a tunnel) traffic through the proxy, use the [--proxy-sauce](/dev/cli/sauce-connect-proxy#--proxy-sauce) option.
+
+To send tunnel (site under test) traffic through a proxy, use the [--proxy](/dev/cli/sauce-connect-proxy#--proxy) option.
+
+Most proxy combinations can be controlled with these two options. However, if you were using the `NO_PROXY` option to exclude various sites under test from using a parent proxy, you will likely need to use a PAC file instead. The endpoints listed in the `NO_PROXY` option would use a 'DIRECT' mode in the PAC, and the default would be the proxy.
+
+For example, if you wanted [https://example.com](https://example.com) to skip the proxy, and everything else to go through the proxy, you would use the following PAC file:
+
+```javascript
+function FindProxyForURL(url, host) {
+  if (dnsDomainIs(host, "example.com"))
+    return "DIRECT";
+
+
+  return "PROXY localhost:3128";
+}
+```
+
 ## Transition Timeline
 
 Sauce Connect version 5 was released January 16, 2024 and Sauce Connect version 4 is now in maintenance mode until its scheduled End of Life on December 31, 2024. During this period, other than security patches and bug fixes, all new features for Sauce Connect will be released on version 5 only.
