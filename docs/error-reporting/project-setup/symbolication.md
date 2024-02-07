@@ -26,7 +26,7 @@ values={[
 {label: 'Windows', value: 'windows'},
 {label: 'MacOS', value: 'macos'},
 {label: 'iOS', value: 'ios'},
-{label: 'Android', value: 'Android'},
+{label: 'Android', value: 'android'},
 {label: 'Linux', value: 'linux'},
 ]}>
 
