@@ -34,6 +34,10 @@ We are using the [latest version of Appium](https://docs.saucelabs.com/mobile-ap
 Now you will be able to navigate within your application on the left side throughout the whole session. 
 If you want to take another snapshot of the screen of your application you just need to click Refresh in the Inspect View.
 
+:::note Note
+
+You must wait for your app to launch before starting the inspector!
+
 ## Using the Inspect View
 
 The Inspect View gives you a snapshot of your application screen, which can be used for debugging.
