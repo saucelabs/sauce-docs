@@ -1289,6 +1289,11 @@ module.exports = {
                         'mobile-apps/features/appium-inspector',
                         'mobile-apps/features/biometric-authentication',
                         'mobile-apps/features/camera-image-injection',
+                        'mobile-apps/features/audio-capture',
+                        'mobile-apps/features/bypass-screenshot',
+                        'mobile-apps/features/gestures',
+                        'mobile-apps/features/ios-version-management',
+                        'mobile-apps/features/virtual-usb',
                         {
                             type: 'category',
                             label: 'Mobile App Diagnostics',
@@ -1302,11 +1307,6 @@ module.exports = {
                                 'mobile-apps/features/network-capture',
                             ],
                         },
-                        'mobile-apps/features/audio-capture',
-                        'mobile-apps/features/bypass-screenshot',
-                        'mobile-apps/features/gestures',
-                        'mobile-apps/features/ios-version-management',
-                        'mobile-apps/features/virtual-usb',
                     ],
                 },
                 {
