@@ -36,7 +36,7 @@ If you want to take another snapshot of the screen of your application you just 
 
 :::note Note
 
-You must wait for your app to launch before starting the inspector!
+You must wait for your app to launch before starting Appium Inspector!
 
 ## Using the Inspect View
 
