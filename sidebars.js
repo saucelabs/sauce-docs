@@ -1286,13 +1286,14 @@ module.exports = {
                     label: 'Features',
                     collapsed: true,
                     items: [
-                        'mobile-apps/features/ios-version-management',
-                        'mobile-apps/features/bypass-screenshot',
-                        'mobile-apps/features/virtual-usb',
+                        'mobile-apps/features/appium-inspector',
                         'mobile-apps/features/biometric-authentication',
                         'mobile-apps/features/camera-image-injection',
-                        'mobile-apps/features/gestures',
                         'mobile-apps/features/audio-capture',
+                        'mobile-apps/features/bypass-screenshot',
+                        'mobile-apps/features/gestures',
+                        'mobile-apps/features/ios-version-management',
+                        'mobile-apps/features/virtual-usb',
                         {
                             type: 'category',
                             label: 'Mobile App Diagnostics',
