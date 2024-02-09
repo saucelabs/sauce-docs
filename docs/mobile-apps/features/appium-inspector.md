@@ -13,6 +13,8 @@ Appium Inspector is a powerful tool built on top of the Appium test automation f
 Our latest solution seamlessly integrates into the Sauce Labs environment, requires no additional configuration on your end and it removes the burden of installing a 3rd party tool. 
 We are using the [latest version of Appium](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/appium-versions/) to inspect the elements in your application, mirroring the experience of local debugging or attaching 3rd party inspector tools to your native Appium sessions.
 
+<img src={useBaseUrl('img/mobile-apps/Appium-inspector-main.png')} alt="Appium Inspector during a Live Testing Session" width="450"/>
+
 ## What You'll Need
 
 - A Sauce Labs paid account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/))
@@ -39,15 +41,22 @@ You can hover over the elements, highlight them, or by clicking on these element
 
 When you click on the desired UI element we will pin the App Source and the Selected Elements on the right side.
 
+<img src={useBaseUrl('img/mobile-apps/Appium-inspector-inspect-refresh.png')} alt="Appium Inspector Inpect View" width="450"/>
+
 ## Using the App Source
 
 The App Source view will get you the detailed breakdown of your native applications view hierarchy in an XML tree structure.
 We are using the same getPageSource command as Appium to get the detailed source elements, attributes, and view hierarchy. [See more here.](https://appium.io/docs/en/2.4/commands/base-driver/#getpagesource) 
 
+<img src={useBaseUrl('img/mobile-apps/Appium-inspector-app-source.png')} alt="Appium Inspector App Source" width="450"/>
+
 ## Using Selected Element attributes
 
 When you click on an element in the Inspect view or App Source we will display all the attributes for that given element. 
 You can find unique locators or IDs for your automation script with the element information. 
+
+<img src={useBaseUrl('img/mobile-apps/Appium-inspector-select-element.png')} alt="Appium Inspector Selected Attributes Views" width="450"/>
+
 
 In addition, this helps to view Accessibility elements in your native application. This allows you to validate what an accessibility tool would see and what type of information can be read from your application source.
 
