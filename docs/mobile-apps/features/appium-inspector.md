@@ -35,8 +35,8 @@ Now you will be able to navigate within your application on the left side throug
 If you want to take another snapshot of the screen of your application you just need to click Refresh in the Inspect View.
 
 :::note Note
-
 You must wait for your app to launch before starting Appium Inspector!
+:::
 
 ## Using the Inspect View
 
