@@ -1,6 +1,7 @@
 ---
 id: appium-inspector
 title: Appium Inspector
+sidebar_label: Appium Inspector
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
