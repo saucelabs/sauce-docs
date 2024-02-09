@@ -13,7 +13,7 @@ Appium Inspector is a powerful tool built on top of the Appium test automation f
 Our latest solution seamlessly integrates into the Sauce Labs environment, requires no additional configuration on your end and it removes the burden of installing a 3rd party tool. 
 We are using the [latest version of Appium](https://docs.saucelabs.com/mobile-apps/automated-testing/appium/appium-versions/) to inspect the elements in your application, mirroring the experience of local debugging or attaching 3rd party inspector tools to your native Appium sessions.
 
-<img src={useBaseUrl('img/mobile-apps/Appium-inspector-main.png')} alt="Appium Inspector during a Live Testing Session" width="450"/>
+<img src={useBaseUrl('img/mobile-apps/Appium-inspector-main.png')} alt="Appium Inspector during a Live Testing Session" width="800"/>
 
 ## What You'll Need
 
