@@ -211,6 +211,7 @@ See [this guide](/secure-connections/sauce-connect-5/operation/kubernetes/)
 
 ## More Information
 
+- [Sauce Connect Proxy Changelog](https://changelog.saucelabs.com/en?category=sauce%20connect)
 - [Sauce Connect Proxy 5 Administration](/secure-connections/sauce-connect-5/operation/overview/)
 - [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/)
 - [Sauce Connect Proxy Architecture](/secure-connections/sauce-connect-5/advanced/architecture/)

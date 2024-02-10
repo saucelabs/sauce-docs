@@ -20,7 +20,7 @@ You can now install or upgrade Sauce Connect version 5 with a package manager sy
 * `sc run` is now used to start a tunnel, as there are now other subcommands that can be used.
 * `--tunnel-name` is now required.
 * `--region` is now required.
-* SSL Bumping is now **OFF** by default, and is called TLS Resigning.
+* [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) is now **OFF** by default, and is called TLS Resigning.
 * Domain matching for deny/direct/tunnel domains now uses the standard regex format.
 
 ## Unsupported Features
@@ -33,7 +33,7 @@ You can now install or upgrade Sauce Connect version 5 with a package manager sy
 
 ## Quick Start using `sc legacy`
 
-The `sc legacy` command is used to translate SC4 configuration to SC5.
+The [`sc legacy`](/dev/cli/sauce-connect-5/legacy/) command is used to translate SC4 configuration to SC5.
 
 For a quick sanity check, you can start Sauce Connect with the legacy command:
 
@@ -93,6 +93,7 @@ The following flags have changed or been removed with Sauce Connect 5. In additi
 | `--cainfo` | `--cacert-file` |
 | `--verbose` | `--log-level`, `--log-http` |
 | `--fast-fail-regexps` (URL regex) | `--deny-domains` (list of domain regexps) |
+| `--no-remove-colliding-tunnels` | `--tunnel-pool` |
 | `--no-ssl-bump-domains` (list of domain globs) | `--tls-passthrough-domains` (list of domain regexps) |
 | `--tunnel-domains` (list of domain globs) | `--tunnel-domains` (list of domain regexps) |
 | `--direct-domains` (list of domain globs) | `--direct-domains` (list of domain regexps) |
@@ -112,7 +113,6 @@ The following flags have changed or been removed with Sauce Connect 5. In additi
 | `--log-stats` | removed |
 | `--max-logsize` | removed |
 | `--no-autodetect` | removed |
-| `--no-remove-colliding-tunnels` | removed |
 | `--ocsp` | removed |
 | `--output-format` | removed |
 | `--pidfile` | removed |
