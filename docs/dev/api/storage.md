@@ -1179,7 +1179,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/icons/<icon_hash>' --output icon.png
+--request GET 'https://api.us-west-1.saucelabs.com/v1/storage/icons/<icon_hash>' --output icon.png
 ```
 
 </TabItem>
@@ -1187,7 +1187,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/icons/<icon_hash>' --output icon.png
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/icons/<icon_hash>' --output icon.png
 ```
 
 </TabItem>
@@ -1248,7 +1248,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/tags'
+--request GET 'https://api.us-west-1.saucelabs.com/v1/storage/tags'
 ```
 
 </TabItem>
@@ -1256,7 +1256,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/tags'
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/tags'
 ```
 
 </TabItem>
@@ -1334,7 +1334,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/v1/projects'
+--request GET 'https://api.us-west-1.saucelabs.com/v1/storage/projects'
 ```
 
 </TabItem>
@@ -1342,7 +1342,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/v1/projects'
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/storage/projects'
 ```
 
 </TabItem>
