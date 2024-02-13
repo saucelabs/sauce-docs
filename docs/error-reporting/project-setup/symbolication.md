@@ -184,7 +184,7 @@ If you are blocked on uploading symbols from the command line, try uploading dir
 
 ### Invalid Token
 
-If you receive an "invalid token" error in the response when uploading symbols via HTTP, check to make sure that you're using a symbol access token and not a submission token. To generate a symbol access token, see [Generating a Symbol Access Token](#generating-a-symbol-access-token).
+If you receive an "invalid token" error in the response when uploading symbols via HTTP, check to make sure that you're using a symbol access token and not a submission token. To generate a symbol access token, see [Generating Symbol Access Tokens](#generate-symbol-access-tokens).
 
 ### Missing symbols
 
