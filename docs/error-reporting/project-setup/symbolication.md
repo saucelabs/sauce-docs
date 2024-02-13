@@ -124,7 +124,7 @@ Instead of uploading symbols to Backtrace, users may choose to host a symbol ser
 
 symbold is the Backtrace service responsible for gathering symbols from connected symbol servers or stores. symbold comes pre configured by Backtrace to automatically download symbols from public third party symbol servers of commonly used libraries such as those from Microsoft, Electron, and others. We refer to these as default public symbol servers. You may also configure connections to your own private symbol servers to speed debugging time and minimize setup effort.
 
-See this [guide from Microsoft](https://docs.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores) about setting up symbol servers and symbol stores.
+See this [Microsoft guide](https://docs.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores) about setting up symbol servers and symbol stores.
 
 ### Symbol server requirements
 - Follow Microsoft's standard symbol structure, `<url>/<object_name>/<debug_id>/<file>`
