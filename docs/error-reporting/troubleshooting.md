@@ -93,7 +93,7 @@ If you are uploading symbols manually, your next steps will be to retrieve and u
 
 #### Custom Symbol Server Integration
 
-If you are using a [custom symbol server](/error-reporting/project-setup/symbol-servers/), then your next step will be to verify that the symbol exists on the symbol server in the proper directory structure (that is, `<url>/<object_name>/<debug_id>/<file>`). If it does not, then you know why it did not apply.
+If you are using a [custom symbol server](/error-reporting/project-setup/symbolication/#integrate-custom-symbol-server-with-backtrace), then your next step will be to verify that the symbol exists on the symbol server in the proper directory structure (that is, `<url>/<object_name>/<debug_id>/<file>`). If it does not, then you know why it did not apply.
 
 If it does exist, and reprocessing does not correct, then there are a few additional things to check. These items to check live in the symbol server section of your project settings (navigate from the **Main Menu** > **Project Settings** > **Symbols** > **Symbol Servers**), unless otherwise noted.
 

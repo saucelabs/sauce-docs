@@ -521,7 +521,6 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'error-reporting/project-setup/symbolication',
-                                'error-reporting/project-setup/symbol-servers',
                             ],
                         },
                         {
@@ -674,7 +673,6 @@ module.exports = {
                         },
                         'error-reporting/advanced/post-migration',
                         'error-reporting/advanced/invariants',
-                        'error-reporting/advanced/custom-symbol-server',
                         'error-reporting/advanced/bcd',
                         'error-reporting/advanced/submission-buckets',
                         'error-reporting/advanced/sync-submissions',
