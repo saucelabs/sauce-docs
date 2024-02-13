@@ -114,7 +114,7 @@ Below is an example of a curl command to submit a symbol archive.
 
 Tags can be appended as a query parameter in the destination url (ie `"&tag=<tagValue>"`). 
 
-### Supported formats
+### Supported archive formats
 
 Any archive format supported by libarchive 3.2.3 is supported such as .tar, .tar.gz, .zip. Archives should be pre-compressed and be no larger than 10GB where possible. 
 
