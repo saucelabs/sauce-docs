@@ -88,8 +88,11 @@ You can run tests using this tunnel by specifying the [`tunnelName`](/dev/test-c
 **Shorthand**: `-c`
 
 :::note
-The following precedence order of configuration sources is used: command flags, environment variables, config
-file, default values.
+The following precedence order of configuration sources is used: command flags, environment variables, config file, default values.
+:::
+
+:::note
+An additional command [`sc run config-file`](/dev/cli/sauce-connect-5/run/#configuration-file) outputs all configuration file options and their usage.
 :::
 
 ---
@@ -479,6 +482,11 @@ Here are some guidelines to follow when formatting domain regular expressions:
   - Example: You could refer to `docs\.saucelabs\.com` and `my\.saucelabs\.com` as `.*saucelabs\.com`.
 - Escape special characters, such as `.` to ensure they are not parsed
   - Not escaping dot character doesn't result in error, dot matches every single character except a newline. For example, `example.com` will match `example.com` and also `examplescom`, while `example\.com` will match `example.com` only.
+
+### Configuration File
+
+Subcommand `sc run config-file` provides reference for a configuration file used with `sc run --config-file <path to your file>`.
+The command's [output](/secure-connections/sauce-connect-5/operation/configuration/#config-file-reference) is a convenient starting point for generating your configuration file.
 
 ### Additional Resources
 
