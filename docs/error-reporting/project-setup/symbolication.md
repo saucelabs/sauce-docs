@@ -101,7 +101,7 @@ Symbol access tokens are used to upload debug symbols. Go to Project Settings > 
 
 ### UI
 Navigate to Project settings > Symbols > Overview to review your symbol uploads, 
-including upload history, search functionality, symbol access tokens and more. Backtrace recommends uploading archives (a .tar.gz or .zip file containing one or more .sym ,.pdb , ELF or dSYM files) of symbols for every build you expect to see crashes for. These symbol files can be uploaded manually or hooked up into your build system so they are automatically uploaded.
+including upload history, search functionality, symbol access tokens and more. Backtrace recommends uploading archives (a .tar.gz or .zip file containing one or more .sym, .pdb, .so, .dSYM, or ELF files) of symbols for every build you expect to see crashes for. These symbol files can be uploaded manually or by build automation scripts.
 You may also specify a tag to any of your symbol uploads in order to group symbols for ease of management. A tag is simply a group of symbols, like a folder on your filesystem. You may want to have different tags for different versions of your application or different platforms. If no tag is specified, symbols are placed into the anon tag.
 
 ### API
@@ -180,9 +180,10 @@ The Symbol Servers Management UI is accessed under Project Settings > Symbols > 
 
 ## Troubleshooting
 
-If you are blocked on uploading symbols from the command line, try uploading directly from your web browser. Instructions are available above.
+### Command line debugging
+If you are blocked on uploading symbols from the command line, try checking verbose output from a tool like curl or similar. Uploading an arhcive in the web browser may also expose additional information or errors. 
 
-### Invalid Token
+### Invalid token
 
 If you receive an "invalid token" error in the response when uploading symbols via HTTP, check to make sure that you're using a symbol access token and not a submission token. To generate a symbol access token, see [Generating Symbol Access Tokens](#generate-symbol-access-tokens).
 
