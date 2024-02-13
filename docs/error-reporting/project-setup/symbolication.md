@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Introdction
+## Introduction
 
 Debug symbols are needed when crashes are reported from binaries that have information such as function names and line numbers stripped away. Debug symbols allow Backtrace to provide human-readable callstacks and deduplicate effectively. Symbols can be uploaded directly via the UI or API, or retrieved from a managed private symbol server. Symbols are compilation specific and are applied to crash reports based on matching debug or code ID’s and filename. 
 
