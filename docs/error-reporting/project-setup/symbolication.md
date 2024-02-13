@@ -143,7 +143,7 @@ Every time Backtrace receives a report, it is scanned for symbols that do not ye
 
 Backtrace may request symbols from symbol servers for the following debug file, debug id, code file, and code id combinations, to support a variety of customer upload patterns:
 - symbol_name = basename(debug_file); id = debug_id, if debug_file and debug _identifier are available
-- symbol_name = basename(code_file; id = code_id, if code_file and code_id are available and arch=x86_64
+- symbol_name = basename(code_file); id = code_id, if code_file and code_id are available and arch=x86_64
 - symbol_name = basename(code_file); id = debug_id, if code_file and debug_id are available and arch=x86_64
 
 For each of these, Backtrace will concurrently attempt to download from the following URLs from a symbol server. As the first successfully downloaded binary will be used for the purposes of symbolication it is advised to respond to only one of these URLs:
