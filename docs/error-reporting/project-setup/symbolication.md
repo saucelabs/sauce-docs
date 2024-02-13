@@ -191,4 +191,4 @@ If you receive an "invalid token" error in the response when uploading symbols v
 See [Missing Symbols](https://docs.saucelabs.com/error-reporting/troubleshooting/#missing-symbols)
 
 ### Reading custom symbol server logs
-It’s important to note that some failures are expected, due to the wide net Backtrace casts (as explained in Symbol server | Feature details). To troubleshoot, search for the known good path on the symbol server (ie foo.pdb/123/foo.pdb). Successful symbol server requests log lines will include “Downloaded path”, and failed requests log lines will include “Download failed” with additional information about the error encountered.
+It’s important to note that some failures are expected, due to the wide net Backtrace casts (as explained in [Symbol server | Feature details](#feature-details)). To troubleshoot, search for the known good path on the symbol server (ie foo.pdb/123/foo.pdb). Successful symbol server requests log lines will include “Downloaded path”, and failed requests log lines will include “Download failed” with additional information about the error encountered.
