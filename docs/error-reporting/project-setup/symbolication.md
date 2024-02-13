@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Introduction
 
-Debug symbols are needed when crashes are reported from binaries that have information such as function names and line numbers stripped away. Debug symbols allow Backtrace to provide human-readable callstacks and deduplicate effectively. Symbols can be uploaded directly via the UI or API, or retrieved from a managed private symbol server. Symbols are compilation specific and are applied to crash reports based on matching debug or code ID’s and filename. 
+Debug symbols are needed when crashes are reported from binaries that have information such as function names and line numbers stripped away. Debug symbols allow Backtrace to provide human-readable callstacks and effectively duplicate error reports. Symbols can be uploaded via the UI or API, or retrieved from a managed private symbol server. Symbols are compilation specific and are applied to crash reports based on matching debug or code ID’s and filename. 
 
 Please note that only a subset of reports sent to Backtrace require symbols (managed code and some integration paths do not require symbols).
 
