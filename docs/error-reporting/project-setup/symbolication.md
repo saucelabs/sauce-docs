@@ -127,7 +127,7 @@ symbold is the Backtrace service responsible for gathering symbols from connecte
 See this [guide from Microsoft](https://docs.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores) about setting up symbol servers and symbol stores.
 
 ### Symbol server requirements
-- Follow Microsoft's standard symbol structure, <url>/<object_name>/<debug_id>/<file>
+- Follow Microsoft's standard symbol structure, `<url>/<object_name>/<debug_id>/<file>`
    - Use tools like Windows symstore to generate files in the required structure
    - Run [this Breakpad script](https://chromium.googlesource.com/chromium/src/+/master/components/crash/content/tools/generate_breakpad_symbols.py) to generate the symbols and proper directory structure on Linux. An example invocation looks like: `components/crash/content/tools/generate_breakpad_symbols.py --build-dir=out/gnand --symbols-dir=/tmp/my_symbols/ --binary=out/gnand/lib.unstripped/libchrome.so --clear`, but appropriate options may differ depending on your use case.
 - Have a web frontend to serve the files via HTTP(S)
@@ -150,7 +150,9 @@ For each of these, Backtrace will concurrently attempt to download from the foll
 - base-url/symbol_name/id/symbol_name
 - base-url/symbol_name/id/symbol_name_with_underscore_extension
 - base-url/symbol_name/id/symbol_name_with_sym_extension
-Where symbol_name_with_underscore_extension = replace last character of symbol name with underscore, '_'. (this is typically used as the file extension for CAB compressed binaries on Windows) and where symbol_name_with_sym_extension = replace or append the extension ".sym" to the symbol name.
+
+Where "symbol name with underscore extension" = replace last character of symbol name with underscore, '_' (this is typically used as the file extension for CAB compressed binaries on Windows) and where "symbol name with sym extension" = replace or append the extension ".sym" to the symbol name.
+
 For example, if symbol_name = foo.pdb and id = 123, the following URLs are queried:
 - base-url/foo.pdb/123/foo.pdb
 - base-url/foo.pdb/123/foo.pd_
