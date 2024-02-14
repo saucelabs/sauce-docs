@@ -260,6 +260,17 @@ Example:
     });
 ```
 
+### Capturing the dom snapshot
+
+Sauce Visual capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
+
+Example:
+```javascript
+    cy.sauceVisualCheck('login-page', {
+        captureDom: false
+    });
+```
+
 ## Limitations
 
 Sauce Visual for Cypress **DOES NOT** support `cypress open`.

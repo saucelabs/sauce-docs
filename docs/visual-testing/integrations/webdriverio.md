@@ -177,12 +177,12 @@ Those ignored components are specified when requesting a new snapshot.
 Example:
 
 ```ts
-    await browser.sauceVisualCheck('Inventory Page', {
-        ignore: [
-            // addBackPackToCartButton will be ignored
-            InventoryPage.addBackPackToCartButton,
-        ],
-    });
+await browser.sauceVisualCheck('Inventory Page', {
+    ignore: [
+        // addBackPackToCartButton will be ignored
+        InventoryPage.addBackPackToCartButton,
+    ],
+});
 
 ```
 
@@ -208,6 +208,17 @@ await browser.sauceVisualCheck('Before Login', {
             height: 200,
         },
     ],
+});
+```
+
+### Capturing the dom snapshot
+
+Sauce Visual capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
+
+Example:
+```ts
+browser.sauceVisualCheck('Before Login', {
+    captureDom: false
 });
 ```
 

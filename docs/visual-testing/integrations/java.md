@@ -307,6 +307,17 @@ Example:
   visual.sauceVisualCheck("Before Login", options);
 ```
 
+### Capturing the dom snapshot
+
+Sauce Visual capture dom snapshot by default. It can be changed in options.
+
+Example:
+```java
+  Options options = new Options();
+  options.setCaptureDom(false);
+  visual.sauceVisualCheck("Inventory Page", options);
+```
+
 ## Examples
 
 Two examples are available:

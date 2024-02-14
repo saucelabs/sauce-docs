@@ -300,6 +300,20 @@ browser
   .end();
 ```
 
+### Capturing the dom snapshot
+
+Sauce Visual capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
+
+Example:
+```ts
+browser
+  .url('https://saucedemo.com')
+  .sauceVisualCheck('Home Page', {
+    captureDom: false
+  })
+  .end();
+```
+
 ### Fail on failures
 
 By default, Sauce Visual will not fail the test if there are any failures during the comparison process. A failure will be logged in the Sauce Labs Visual dashboard, but the test will continue to run.
