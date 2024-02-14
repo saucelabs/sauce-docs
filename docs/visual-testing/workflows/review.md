@@ -131,7 +131,7 @@ Every subsequent test execution will generate a new "Visual Build" and will be m
 - A new baseline snapshot could be generated for the new test execution, see also [Reviewing and Accepting baselines](#reviewing-and-accepting-baselines) and [Accept Only New](#accept-only-new).
 - You need to review the visual differences between the new snapshot and the previously accepted baseline snapshot.
 
-The process of reviewing and approving the visual differences is the same as described in [Reviewing and Approving Baselines](#reviewing-and-approving-baselines).
+The process of reviewing and approving the visual differences is the same as described in [Reviewing and Accepting baselines](#reviewing-and-accepting-baselines).
 
 The user interface including the actions you can take are described in [User Interface](#user-interface).
 
