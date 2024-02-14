@@ -28,9 +28,9 @@ checking the Visual Studio Code settings to confirm that `yaml.schemaStore.enabl
 
 If your `saucectl` config YAML is stored in a `.sauce/` folder, Visual Studio Code will automatically apply the schema to all YAML files contained in that folder and no further action is required.
 
-You should now be able to see the docs for various attributes:<br/><img src={useBaseUrl('img/stt/vscode-yaml-docs.png')} alt="Visual Studio Code YAML Attribute Description" width="300"/>
+You should now be able to see the docs for various attributes:<br/><img src={useBaseUrl('img/stt/vscode-yaml-docs.png')} alt="Visual Studio Code YAML Attribute Description" />
 
-and have autocompletion ready at your fingertips!<br/><img src={useBaseUrl('img/stt/vscode-yaml-autocomplete.png')} alt="Visual Studio Code YAML Attribute Autocompletion" width="400"/>
+and have autocompletion ready at your fingertips!<br/><img src={useBaseUrl('img/stt/vscode-yaml-autocomplete.png')} alt="Visual Studio Code YAML Attribute Autocompletion" />
 
 Alternatively, it's also possible to associate schema files with files they are supposed to validate by adding the mapping into your Visual Studio Code settings:
 
