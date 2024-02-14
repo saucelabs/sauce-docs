@@ -128,10 +128,10 @@ More information about reviewing and approving diffs can be found in [Subsequent
 
 Every subsequent test execution will generate a new "Visual Build" and will be marked as ["For Review"](#visual-statuses). This is because:
 
-- A new baseline snapshot could be generated for the new test execution, see also [Reviewing and Approving Baselines](#reviewing-and-approving-baselines) and [Accept Only New](#accept-only-new).
+- A new baseline snapshot could be generated for the new test execution, see also [Reviewing and Accepting baselines](#reviewing-and-accepting-baselines) and [Accept Only New](#accept-only-new).
 - You need to review the visual differences between the new snapshot and the previously accepted baseline snapshot.
 
-The process of reviewing and approving the visual differences is the same as described in [Reviewing and Approving Baselines](#reviewing-and-approving-baselines).
+The process of reviewing and approving the visual differences is the same as described in [Reviewing and Accepting baselines](#reviewing-and-accepting-baselines).
 
 The user interface including the actions you can take are described in [User Interface](#user-interface).
 
@@ -178,10 +178,12 @@ The list below shows the available actions and their keyboard shortcuts.
 
 Visual uses different statuses:
 
-| Status      | Description                                                                                                                                                                                                                                                     |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| In Progress | These builds have not been finished yet. They transition into one of the following states as soon as they finish.                                                                                                                                               |
-| No Changes  | The snapshots assigned to your build matched your baseline. It is considered a success because your assertions were successful.                                                                                                                                 |
-| For Review  | There were either no baselines available to compare against your uploaded snapshot or some were different from their baselines. You are supposed to review those detected diffs. As long as those changes aren't accepted, they are considered a failure state. |
-| Accepted    | All detected changes were accepted. This is considered a success state.                                                                                                                                                                                         |
-| Rejected    | Some of your detected changes were rejected. This is considered a failure state.                                                                                                                                                                                |
+| Status          | Description                                                                                                                                                                                                                                                     |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Accepted        | All detected changes were accepted. This is considered a success state.                                                                                                                                                                                         |
+| No&nbsp;Changes | The snapshots assigned to your build matched your baseline. It is considered a success because your assertions were successful.                                                                                                                                 |
+| Running         | These builds have not been finished yet.                                                                                                                                                                                                                        |
+| Queued          | Some of your diffs are waiting to be generated.                                                                                                                                                                                                                 |
+| For&nbsp;Review | There were either no baselines available to compare against your uploaded snapshot or some were different from their baselines. You are supposed to review those detected diffs. As long as those changes aren't accepted, they are considered a failure state. |
+| Errored         | One or more errors occurred. More information is available in the "Build Details" page.                                                                                                                                                                         |
+| Rejected        | Some of your detected changes were rejected. This is considered a failure state.                                                                                                                                                                                |
