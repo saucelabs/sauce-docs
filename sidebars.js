@@ -777,6 +777,7 @@ module.exports = {
                             items: [
                                 'dev/cli/saucectl/usage/ide/intellij',
                                 'dev/cli/saucectl/usage/ide/vscode',
+                                'dev/cli/saucectl/usage/ide/zed',
                             ],
                         },
                     ],
