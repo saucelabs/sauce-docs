@@ -1298,6 +1298,7 @@ module.exports = {
                             label: 'Mobile App Diagnostics',
                             collapsed: true,
                             items: [
+                                'mobile-app-diagnostics'
                                 'mobile-apps/features/mobile-app-diagnostics/app-logs',
                                 'mobile-apps/features/mobile-app-diagnostics/app-crash-logs',
                                 'mobile-apps/features/mobile-app-diagnostics/device-vitals',
