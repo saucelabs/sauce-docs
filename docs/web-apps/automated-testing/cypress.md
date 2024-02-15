@@ -171,7 +171,7 @@ The browser selected in your configuration file is used, and the console log of 
 The issue has been reported to Cypress.
 See: https://github.com/cypress-io/cypress/issues/25755 for more information.
 
-### Firefox 101 + Windows
+### Firefox 101 on Windows
 
 Cypress does not currently work with Firefox 101 on Windows.
 
@@ -180,9 +180,9 @@ Cypress does not currently work with Firefox 101 on Windows.
 Cypress does not currently work with Firefox 105.
 See https://github.com/cypress-io/cypress/issues/23897 for more information.
 
-### Microsoft Edge 120
+### Microsoft Edge 120+ on Windows
 
-Cypress does not currently work with Microsoft Edge 120.
+Cypress does not currently work with Microsoft Edge 120+ on Windows.
 
 ### Webkit
 
