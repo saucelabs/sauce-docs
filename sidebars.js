@@ -999,6 +999,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'secure-connections/sauce-connect',
+                        'secure-connections/sauce-connect/lifecycle',
                         'secure-connections/sauce-connect/installation',
                         'secure-connections/sauce-connect/quickstart',
                         'secure-connections/sauce-connect/system-requirements',
