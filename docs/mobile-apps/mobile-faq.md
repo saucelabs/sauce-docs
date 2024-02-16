@@ -175,7 +175,7 @@ No.
 
 #### **Do you have any UI inspection tool built into your application like UI Automator viewer?**
 
-Not yet, this is in the works! For now, we recommend using [Appium Inspector](https://github.com/appium/appium-inspector).
+Yes, check out our integrated [Appium Inspector solution here](/mobile-apps/features/appium-inspector/).
 
 #### **Can I change the orientation of the device screen during a test?**
 

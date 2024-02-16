@@ -45,6 +45,10 @@ Whether you are using Appium, Espresso, or XCUITest to run your mobile automatio
 
 Once you have connected to Sauce Labs, provided access to your apps, and configured your tests, you can run your tests from the environment of your choice. For example, if you are running Appium tests through IntelliJ, you can start the test from within the IntellliJ interface or execute the command `mvn clean test` from a terminal. For espresso or XCUITests, you can use our `saucectl` CLI command `saucectl run` to kick off your tests.
 
+### 5. Debug your Tests and locator issues with Appium Inspector.
+
+Once you have successfully run your tests on Sauce Labs, you will be able to utilize our integrated [Appium Inspector capability](/mobile-apps/features/appium-inspector/) to debug your tests faster. It doesn't require you to download and install any 3rd-party tools; instead, it is seamlessly integrated into the Live Testing experience. This enables you to identify locator issues within your application or test script.
+
 ## Mobile Automation Test Considerations
 
 Within the high level process described above, there are many nuances that can affect the usefulness of your test results. Here we have tried to provide some of the most common.
