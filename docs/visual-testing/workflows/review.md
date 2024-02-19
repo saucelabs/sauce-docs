@@ -124,6 +124,18 @@ There is also an option to reject the snapshot. This will mark the snapshot as "
 
 More information about reviewing and approving diffs can be found in [Subsequent Test Execution Review](#subsequent-test-execution-review).
 
+##### Diff inspection
+
+The Diff Inspection Tool is a valuable utility that helps users identify and verify which DOM changes have impacted the UI. It offers a visual representation of the differences between two versions, making it easy to spot modified, added, or removed elements.
+
+It can detect changes in:
+- html
+- styles
+- position
+- dimensions
+
+<img src={useBaseUrl('/img/sauce-visual/dom-diff-inspection.jpg')} alt="Dom diff inspection"/>
+
 ## Subsequent Test Execution Review
 
 Every subsequent test execution will generate a new "Visual Build" and will be marked as ["For Review"](#visual-statuses). This is because:
@@ -147,8 +159,6 @@ By default, you will see diffs in a Side-by-side view, which lets you easily com
 - Zoom to 100% or fit snapshot to the screen.
 - Highlight or hide diffs for easier discovery of the changes.
 - Open diff inspection
-
-<img src={useBaseUrl('/img/sauce-visual/dom-diff-inspection.jpg')} alt="Dom diff inspection"/>
 
 There are conditional actions you can use, depending on the type of view you have activated:
 
