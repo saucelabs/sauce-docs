@@ -586,7 +586,7 @@ saucectl run --root-dir="path/to/my/root_dir"
 <div className="cli-desc">
 <p><small>| OPTIONAL | FILEPATH |</small></p>
 
-Specifies the path to the .sauceignore file. Default `.sauceignore`.
+Specifies the path to the .sauceignore file. Default: `.sauceignore`.
 
 ```bash
 saucectl run --sauceignore="path/to/my/.sauceignore"
@@ -674,7 +674,7 @@ saucectl run --upload-timeout 30m
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies an active [Sauce Connect](/secure-connections/sauce-connect/proxy-tunnels/) tunnel to establish a secure connection to run this test on Sauce Labs.
+Specifies an active [Sauce Connect](/secure-connections) tunnel to establish a secure connection to run this test on Sauce Labs.
 
 :::note
 Replaces the former `--tunnel_id` option, which is deprecated.
