@@ -449,7 +449,7 @@ saucectl run --live-logs
 <div className="cli-desc">
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Disable the automatic tagging of jobs with metadata, such as CI or Git information.
+Disables the automatic tagging of jobs with metadata, such as CI or Git information.
 
 ```bash
 saucectl run --no-auto-tagging
@@ -629,7 +629,7 @@ saucectl run --show-console-log
 <div className="cli-desc">
 <p><small>| OPTIONAL | LIST |</small></p>
 
-Keywords that may help you distinguish the test in Sauce Labs, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you.
+Keywords that may help you distinguish the test in Sauce Labs, and also help you apply filters to easily isolate tests based on metrics that are meaningful to you.
 
 ```bash
 saucectl run --tags e2e,team2
@@ -660,7 +660,7 @@ saucectl run --timeout 30m
 <div className="cli-desc">
 <p><small>| OPTIONAL | DURATION |</small></p>
 
-Upload timeout that limits how long saucectl will wait for an upload to finish. Supports duration values like '10s' '30m' etc. (default: 5m)
+Uploads timeout that limits how long saucectl will wait for an upload to finish. Supports duration values like '10s' '30m' etc. (default: 5m)
 
 ```bash
 saucectl run --upload-timeout 10s
