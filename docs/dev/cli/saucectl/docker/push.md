@@ -1,7 +1,7 @@
 ---
 id: push
 title: saucectl docker push
-sidebar_label: saucectl docker push
+sidebar_label: push
 ---
 
 Push a Docker image to the Sauce Labs Container Registry.
