@@ -1,7 +1,7 @@
 ---
 id: list
 title: saucectl jobs list
-sidebar_label: saucectl jobs list
+sidebar_label: list
 ---
 
 Lists jobs from Sauce Labs.

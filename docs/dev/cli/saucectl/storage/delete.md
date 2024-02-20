@@ -1,7 +1,7 @@
 ---
 id: delete
 title: saucectl storage delete
-sidebar_label: saucectl storage delete
+sidebar_label: delete
 ---
 
 Delete a file from Sauce Storage.

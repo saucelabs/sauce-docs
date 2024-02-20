@@ -1,7 +1,7 @@
 ---
 id: configure
 title: saucectl configure
-sidebar_label: saucectl configure
+sidebar_label: configure
 ---
 
 Generate a credentials file with your Sauce Labs Username and Access Key.
