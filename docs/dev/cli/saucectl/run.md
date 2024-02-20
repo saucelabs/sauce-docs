@@ -168,11 +168,6 @@ Execute tests according to the environment, framework, and test suite specificat
      <td>Add reference tags to your tests.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--test-env-silent">--test-env-silent</a></span></td>
-     <td></td>
-     <td>Skips the test environment announcement.</td>
-    </tr>
-    <tr>
      <td><span className="t-cli"><a href="#--timeout">--timeout</a></span></td>
       <td><span className="t-cli">-t</span></td>
      <td>Global timeout that limits how long saucectl can run in total. Supports duration values like '10s', '30m' etc. (default: no timeout).</td>
