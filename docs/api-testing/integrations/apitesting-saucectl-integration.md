@@ -26,12 +26,12 @@ To utilize `saucectl` functionalities, you'll need to generate a webhook for you
 To generate a webhook:
 
 1. Log in to Sauce Labs, then click **API Testing**.
-1. Navigate to your Project and select the **WebHooks** tab.<br/>
+2. Navigate to your Project and select the **WebHooks** tab.<br/>
    <img src={useBaseUrl('img/api-testing/webhook_tab.png')} alt="webhook screenshot" width="200"/>
-1. Select **Create Hook**.<br/><img src={useBaseUrl('img/api-testing/createHook.png')} alt="Create New WebHook" width="300"/>
-1. Enter a **Hook Name** for your webhook (**Description** is optional), then click **Save**.<br/>
+3. Select **Create Hook**.<br/><img src={useBaseUrl('img/api-testing/createHook.png')} alt="Create New WebHook" width="300"/>
+4. Enter a **Hook Name** for your webhook (**Description** is optional), then click **Save**.<br/>
    <img src={useBaseUrl('img/api-testing/sampleHook.png')} alt="sample webhook details" width="300" />
-1. The generated **Hook URL** will then appear.
+5. The generated **Hook URL** will then appear.
 
 ### Step 2: Install `saucectl`
 

@@ -45,9 +45,14 @@ Add the following to the top of your file:
 Setting `env` at the top of the file enables it globally in this workflow, so all jobs have access to these variables.
 :::
 
-```yaml reference
-https://github.com/saucelabs/saucectl-cypress-example/blob/main/.github/workflows/test-v1.yml#L3-L13
+```yaml
+env:
+  SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
+  SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
+  GITHUB_TOKEN: ${{ github.token }}
 ```
+
+[See full example on GitHub](https://github.com/saucelabs/saucectl-cypress-example/blob/main/.github/workflows/test-v1.yml)
 
 ## Create the Test Job
 
@@ -59,9 +64,20 @@ For more detailed information on setting event-driven actions and jobs, visit th
 :::
 
 
-```yaml reference
-https://github.com/saucelabs/saucectl-cypress-example/blob/main/.github/workflows/test-v1.yml#L27-L31
+```yaml
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Saucectl RUN
+        uses: saucelabs/saucectl-run-action@v4
+        with:
+          working-directory: v1
 ```
+[See full example on GitHub](https://github.com/saucelabs/saucectl-cypress-example/blob/main/.github/workflows/test-v1.yml)
 
 :::note
 You can reference our example workflows [in the `saucectl` Cypress example repository](https://github.com/saucelabs/saucectl-cypress-example/tree/main/.github/workflows).
