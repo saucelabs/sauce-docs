@@ -449,7 +449,7 @@ saucectl run --live-logs
 <div className="cli-desc">
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Disable the automatic tagging of jobs with metadata, such as CI or GIT information.
+Disable the automatic tagging of jobs with metadata, such as CI or Git information.
 
 ```bash
 saucectl run --no-auto-tagging
