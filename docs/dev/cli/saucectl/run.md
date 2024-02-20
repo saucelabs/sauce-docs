@@ -90,7 +90,7 @@ Execute tests according to the environment, framework, and test suite specificat
     <tr>
      <td><span className="t-cli"><a href="#--launch-order">--launch-order</a></span></td>
      <td></td>
-     <td>Launch jobs based on the failure rate.</td>
+     <td>Modify the execution order of suites.</td>
     </tr>
     <tr>
      <td><span className="t-cli"><a href="#--live-logs">--live-logs</a></span></td>
