@@ -760,7 +760,12 @@ module.exports = {
                                         'dev/cli/saucectl/configure/list',
                                     ],
                                 },
-                                'dev/cli/saucectl/docker/push',
+                                {
+                                    type: 'category',
+                                    label: 'saucectl docker',
+                                    collapsed: true,
+                                    items: ['dev/cli/saucectl/docker/push'],
+                                },
                                 'dev/cli/saucectl/init',
                                 {
                                     type: 'category',
