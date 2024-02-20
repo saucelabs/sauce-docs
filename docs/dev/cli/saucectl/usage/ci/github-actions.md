@@ -73,7 +73,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Saucectl RUN
-        uses: saucelabs/saucectl-run-action@v3
+        uses: saucelabs/saucectl-run-action@v4
         with:
           working-directory: v1
 ```
