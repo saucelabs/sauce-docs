@@ -100,7 +100,7 @@ Execute tests according to the environment, framework, and test suite specificat
     <tr>
      <td><span className="t-cli"><a href="#--no-auto-tagging">--no-auto-tagging</a></span></td>
      <td></td>
-     <td>Disable the automatic tagging of jobs with metadata, such as CI or GIT information.</td>
+     <td>Disable the automatic tagging of jobs with metadata, such as CI or Git information.</td>
     </tr>
     <tr>
       <td><span className="t-cli"><a href="#--no-color">--no-color</a></span></td>
