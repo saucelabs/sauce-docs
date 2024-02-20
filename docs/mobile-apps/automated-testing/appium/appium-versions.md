@@ -226,7 +226,7 @@ The current end-of-life strategy outlined above is specific to Real Devices. We 
               <code>appium-uiautomator2-driver</code>: 2.43.4 </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v5.12.2" target="_blank">
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v5.15.1" target="_blank">
               <code>appium-xcuitest-driver</code>: 5.15.1 </a>
           </li>
         </ul>
