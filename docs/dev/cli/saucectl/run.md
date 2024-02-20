@@ -516,7 +516,7 @@ saucectl run --reporters.json.enabled=true --reporters.json.filename="path/to/my
 <div className="cli-desc">
 <p><small>| OPTIONAL | URL |</small></p>
 
-Specifies the webhook URL. When saucectl test is finished, it'll send a HTTP POST payload to the configured webhook URL.
+Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST payload to the configured webhook URL.
 
 To use this option, make sure to activate the JSON reporter by including `--reporters.json.enabled=true`.
 
