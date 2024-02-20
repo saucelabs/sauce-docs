@@ -421,7 +421,9 @@ Usage information for the `run` command.
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Launch jobs based on the failure rate. Jobs with the highest failure rate launch first. Supports values: ["fail rate"].
+Modify the execution order of suites.
+
+Supported value `fail rate`: Jobs with the highest failure rate are prioritized for launch.
 
 ```bash
 saucectl run --launch-order="fail rate"
