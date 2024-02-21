@@ -789,6 +789,17 @@ module.exports = {
                                     collapsed: true,
                                     items: ['dev/cli/saucectl/docker/push'],
                                 },
+                                {
+                                    type: 'category',
+                                    label: 'saucectl imagerunner',
+                                    collapsed: true,
+                                    items: [
+                                        'dev/cli/saucectl/imagerunner/artifacts-download',
+                                        'dev/cli/saucectl/imagerunner/list',
+                                        'dev/cli/saucectl/imagerunner/logs',
+                                        'dev/cli/saucectl/imagerunner/stop',
+                                    ],
+                                },
                                 'dev/cli/saucectl/init',
                                 {
                                     type: 'category',
