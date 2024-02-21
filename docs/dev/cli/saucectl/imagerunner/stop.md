@@ -43,7 +43,7 @@ The Sauce Labs region. Options are `us-west-1` (default) and `eu-central-1`.
 **Shorthand:** `-r <region>`
 
 ```bash
-saucectl imagerunner stop runID --region us-west-1
+saucectl imagerunner stop <runID> --region us-west-1
 ```
 
 </div>

@@ -46,7 +46,7 @@ $ saucectl imagerunner logs <runID> [flags]
 Tail the live log output from a running Sauce Orchestrate container.
 
 ```bash
-saucectl imagerunner logs runID --live
+saucectl imagerunner logs <runID> --live
 ```
 
 </div>
@@ -61,7 +61,7 @@ The Sauce Labs region. Options are `us-west-1` (default) and `eu-central-1`.
 **Shorthand:** `-r <region>`
 
 ```bash
-saucectl imagerunner logs runID --region us-west-1
+saucectl imagerunner logs <runID> --region us-west-1
 ```
 
 </div>
