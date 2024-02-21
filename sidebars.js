@@ -1031,8 +1031,23 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'secure-connections/sauce-connect-5',
-                        'secure-connections/sauce-connect-5/installation',
                         'secure-connections/sauce-connect-5/quickstart',
+                        {
+                            link: {
+                                type: 'doc',
+                                id: 'secure-connections/sauce-connect-5/installation',
+                            },
+                            type: 'category',
+                            label: 'Installation',
+                            collapsed: true,
+                            items: [
+                                'secure-connections/sauce-connect-5/installation/linux',
+                                'secure-connections/sauce-connect-5/installation/macos',
+                                'secure-connections/sauce-connect-5/installation/windows',
+                                'secure-connections/sauce-connect-5/installation/docker',
+                                'secure-connections/sauce-connect-5/installation/kubernetes',
+                            ],
+                        },
                         'secure-connections/sauce-connect-5/migrating',
                         {
                             type: 'category',
@@ -1045,9 +1060,6 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/operation/api-server',
                                 'secure-connections/sauce-connect-5/operation/monitoring',
                                 'secure-connections/sauce-connect-5/operation/readiness-checks',
-                                'secure-connections/sauce-connect-5/operation/docker',
-                                'secure-connections/sauce-connect-5/operation/kubernetes',
-                                'secure-connections/sauce-connect-5/operation/systemd',
                             ],
                         },
                         {
