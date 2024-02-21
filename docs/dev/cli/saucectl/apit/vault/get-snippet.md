@@ -9,7 +9,7 @@ Gets a snippet from a project's vault.
 ## Usage
 
 ```bash
-saucectl apit vault get-snippet "snippet_name" [--project "project_name"] [flags]
+saucectl apit vault get-snippet "snippet_name" [flags]
 ```
 
 ## Available Options
