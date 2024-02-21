@@ -742,6 +742,29 @@ module.exports = {
                             items: [
                                 {
                                     type: 'category',
+                                    label: 'saucectl apit',
+                                    collapsed: true,
+                                    items: [
+                                        {
+                                            type: 'category',
+                                            label: 'vault',
+                                            collapsed: true,
+                                            items: [
+                                                'dev/cli/saucectl/apit/vault/get',
+                                                'dev/cli/saucectl/apit/vault/get-variable',
+                                                'dev/cli/saucectl/apit/vault/set-variable',
+                                                'dev/cli/saucectl/apit/vault/get-snippet',
+                                                'dev/cli/saucectl/apit/vault/set-snippet',
+                                                'dev/cli/saucectl/apit/vault/list-files',
+                                                'dev/cli/saucectl/apit/vault/upload-file',
+                                                'dev/cli/saucectl/apit/vault/download-file',
+                                                'dev/cli/saucectl/apit/vault/delete-file',
+                                            ],
+                                        },
+                                    ],
+                                },
+                                {
+                                    type: 'category',
                                     label: 'saucectl artifacts',
                                     collapsed: true,
                                     items: [
