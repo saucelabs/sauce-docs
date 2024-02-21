@@ -9,7 +9,7 @@ Gets a list of files from a project's vault drive.
 ## Usage
 
 ```bash
-saucectl apit vault list-files [--project "project_name"] [flags]
+saucectl apit vault list-files [flags]
 ```
 
 ## Available Options
