@@ -11,7 +11,7 @@ Sets/updates a variable in a project's vault.
 If a `variable_name` is already in the vault, it is updated with the new one; otherwise, it adds a new variable.
 
 ```bash
-saucectl apit vault set-variable "variable_name" "variable_value" [--project "project_name" ][flags]
+saucectl apit vault set-variable "variable_name" "variable_value" [flags]
 ```
 
 ## Available Options
