@@ -9,7 +9,7 @@ Gets a variable value from a project's vault.
 ## Usage
 
 ```bash
-saucectl apit vault get-variable "variable_name" [--project "project_name"] [flags]
+saucectl apit vault get-variable "variable_name" [flags]
 ```
 
 ## Available Options
