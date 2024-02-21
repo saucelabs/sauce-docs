@@ -94,6 +94,7 @@ Setting `0` reverts to the value set in `defaults`.
 :::
 
 ```yaml
+defaults:
   timeout: 15m
 ```
 
@@ -130,6 +131,7 @@ If you do not specify a region in your config file, you must set it when running
 :::
 
 ```yaml
+sauce:
   region: eu-central-1
 ```
 
@@ -142,13 +144,14 @@ If you do not specify a region in your config file, you must set it when running
 The set of properties that allows you to provide additional information about your project that helps you distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you, as shown in the following example:
 
 ```yaml
-metadata:
-  build: RC 10.4.a
-  tags:
-    - e2e
-    - release team
-    - beta
-    - featurex
+sauce:
+  metadata:
+    build: RC 10.4.a
+    tags:
+      - e2e
+      - release team
+      - beta
+      - featurex
 ```
 
 ---
@@ -164,6 +167,7 @@ For tests running on Sauce, set this value to equal or less than your Sauce conc
 :::
 
 ```yaml
+sauce:
   concurrency: 5
 ```
 
@@ -182,6 +186,7 @@ saucectl run --ccy 5
 Sets the number of times to retry a failed suite. For more settings, you can refer to [passThreshold](#passThreshold).
 
 ```yaml
+sauce:
   retries: 1
 ```
 
@@ -288,9 +293,9 @@ sauce:
 A property containing one or more environment variables that are global for all tests suites in this configuration. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
 
 ```yaml
-  env:
-    hello: world
-    my_var: $MY_VAR # You can also pass through existing environment variables through parameter expansion
+env:
+  hello: world
+  my_var: $MY_VAR # You can also pass through existing environment variables through parameter expansion
 ```
 
 :::note
@@ -308,11 +313,11 @@ The order of precedence is as follows: --env flag > root-level environment varia
 The directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Tailoring Your Test File Bundle](#tailoring-your-test-file-bundle) for more details. The following examples show the different relative options for setting this value.
 
 ```yaml
-  rootDir: "./" # Use the current directory
+rootDir: "./" # Use the current directory
 ```
 
 ```yaml
-  rootDir: "packages/subpackage" # Some other package from within a monorepo
+rootDir: "packages/subpackage" # Some other package from within a monorepo
 ```
 
 :::caution
@@ -352,6 +357,7 @@ This setting is supported up to Playwright 1.35.1. For newer versions, use `regi
 Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
 
 ```yaml
+npm:
   registry: https://registry.npmjs.org
 ```
 
@@ -364,6 +370,7 @@ Specifies the location of the npm registry source. If the registry source is a p
 Specifies the location of the npm registry, scope, and credentials. Only one scopeless registry is allowed. If the registry is inside a private network, you must establish a tunnel using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
 
 ```yaml
+npm:
   registries:
     - url: https://registry.npmjs.org
     - url: https://private.registry.company.org
@@ -380,6 +387,8 @@ Specifies the URL of the npm registry.
 <p><small>| REQUIRED | STRING |</small></p>
 
 ```yaml
+npm:
+  registries:
     - url: https://registry.npmjs.org
 ```
 
@@ -393,6 +402,8 @@ See [Associating a scope with a registry](https://docs.npmjs.com/cli/v9/using-np
 <p><small>| OPTIONAL | STRING |</small></p>
 
 ```yaml
+npm:
+  registries:
     - url: https://registry.npmjs.org
       scope: "@company"
 ```
@@ -406,6 +417,8 @@ Specifies the authentication token to be used with this registry.
 <p><small>| OPTIONAL | STRING |</small></p>
 
 ```yaml
+npm:
+  registries:
     - url: https://registry.npmjs.org
       authToken: secretToken
 ```
@@ -491,6 +504,8 @@ reporters:
 Toggles the reporter on/off.
 
 ```yaml
+reporters:
+  json:
     enabled: true
 ```
 
@@ -503,6 +518,8 @@ Toggles the reporter on/off.
 Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST with a JSON payload to the configured webhook URL.
 
 ```yaml
+reporters:
+  json:
     webhookURL: https://my-webhook-url
 ```
 
@@ -515,6 +532,8 @@ Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP PO
 Specifies the report filename. Defaults to "saucectl-report.json".
 
 ```yaml
+reporters:
+  json:
     filename: my-saucectl-report.json
 ```
 
@@ -545,6 +564,7 @@ artifacts:
 When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
 
 ```yaml
+artifacts:
   cleanup: true
 ```
 
@@ -557,6 +577,7 @@ When set to `true`, all contents of the specified download directory are cleared
 Specifies the settings related to downloading artifacts from tests run by `saucectl`.
 
 ```yaml
+artifacts:
   download:
     when: always
     match:
@@ -578,6 +599,8 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 - `fail`: Download artifacts for failed suites only.
 
 ```yaml
+artifacts:
+  download:
     when: always
 ```
 
@@ -590,9 +613,11 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
 
 ```yaml
-  match:
-    - junit.xml
-    - "*.log"
+artifacts:
+  download:
+    match:
+      - junit.xml
+      - "*.log"
 ```
 
 ---
@@ -604,6 +629,8 @@ Specifies which artifacts to download based on whether they match the name or fi
 Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. The name of the subdirectory will match the suite name. If a directory with the same name already exists, the new one will be suffixed by a serial number.
 
 ```yaml
+artifacts:
+  download:
     directory: ./artifacts/
 ```
 
@@ -629,6 +656,7 @@ playwright:
 The version of Playwright that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/playwright#supported-testing-platforms) for the list of Playwright versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
+playwright:
   version: 1.39.0
 ```
 
@@ -655,6 +683,7 @@ The set of properties providing details about the test suites to run. May contai
 The name of the test suite, which will be reflected in the results and related artifacts.
 
 ```yaml
+suites:
   - name: "saucy test"
 ```
 
@@ -683,9 +712,11 @@ suites:
 A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
 
 ```yaml
-  env:
-    hello: world
-    my_var: $MY_VAR
+suites:
+  - name: "saucy test"
+    env:
+      hello: world
+      my_var: $MY_VAR
 ```
 
 ---
@@ -697,6 +728,8 @@ A property containing one or more environment variables that may be referenced i
 A specific operating system and version on which to run the specified browser and test suite. Defaults to a platform that is supported by `saucectl` for the chosen browser.
 
 ```yaml
+suites:
+  - name: "saucy test"
     platformName: "Windows 11"
 ```
 
@@ -709,6 +742,8 @@ A specific operating system and version on which to run the specified browser an
 Specifies a browser window screen resolution, which may be useful if you are attempting to simulate a browser on a particular device type. See [Test Configurations](/basics/test-config-annotation/test-config) for a list of available resolution values.
 
 ```yaml
+suites:
+  - name: "saucy test"
     screenResolution: "1920x1080"
 ```
 
@@ -725,8 +760,8 @@ Selectable values: `spec` to shard by spec file, `concurrency` to shard by concu
 
 ```yaml
 suites:
-- name: 'I am sharded'
-  shard: spec
+  - name: 'I am sharded'
+    shard: spec
 ```
 
 :::tip
@@ -751,7 +786,9 @@ Setting `0` reverts to the value set in `defaults`.
 :::
 
 ```yaml
-  timeout: 15m
+suites:
+  - name: "saucy test"
+    timeout: 15m
 ```
 
 ---
@@ -767,8 +804,10 @@ There is a 300-second limit for all `preExec` commands to complete.
 :::
 
 ```yaml
-  preExec:
-    - node ./scripts/pre-execution-script.js
+suites:
+  - name: "saucy test"
+    preExec:
+      - node ./scripts/pre-execution-script.js
 ```
 
 ---
@@ -787,7 +826,7 @@ The max attempt would be 4 times. If the test passed twice, it'd stop and be mar
 ```yaml
 sauce:
   retries: 3
-suite:
+suites:
   - name: My Saucy Test
     passThreshold: 2
 ```
@@ -803,7 +842,7 @@ Specifies the retry strategy to apply for that suite. Requires [retries](#retrie
 ```yaml
 sauce:
   retries: 3
-suite:
+suites:
   - name: My Saucy Test
     smartRetry:
       failedOnly: true
@@ -818,7 +857,7 @@ suite:
 When set to `true`, only the spec files that failed during the previous attempt are retried.
 
 ```yaml
-suite:
+suites:
   - name: My Saucy Test
     smartRetry:
       failedOnly: true
@@ -854,8 +893,10 @@ suites:
 Specifies the path to the Cucumber configuration file. See the [Cucumber.js Configuration documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md) for more information.
 
 ```yaml
-  options:
-    config: "my_cucumber_config.js"
+suites:
+  - name: "saucy test"
+    options:
+      config: "my_cucumber_config.js"
 ```
 
 ---
@@ -867,8 +908,10 @@ Specifies the path to the Cucumber configuration file. See the [Cucumber.js Conf
 Specifies with regular expression matching which Cucumber scenarios to run. See the [Cucumber.js Filtering documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/filtering.md#names) for more information.
 
 ```yaml
-  options:
-    name: ".*My Cucumber Scenario"
+suites:
+  - name: "saucy test"
+    options:
+      name: ".*My Cucumber Scenario"
 ```
 
 ---
@@ -880,9 +923,11 @@ Specifies with regular expression matching which Cucumber scenarios to run. See 
 Paths to feature files. See the [Cucumber.js Configuration documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md#finding-your-features) for more information. You can use glob pattern to indicate all files that match a specific value, such as a file name, type, or directory.
 
 ```yaml
-  options:
-     paths:
-      - "features/**/*.feature"
+suites:
+  - name: "saucy test"
+    options:
+      paths:
+        - "features/**/*.feature"
 ```
 
 ---
@@ -894,8 +939,10 @@ Paths to feature files. See the [Cucumber.js Configuration documentation](https:
 Excludes test files to skip the tests. You can use glob pattern to indicate all files that match a specific value, such as a file name, type, or directory.
 
 ```yaml
-  options:
-    excludedTestFiles: ["features/failed/**/*.feature"]
+suites:
+  - name: "saucy test"
+    options:
+      excludedTestFiles: ["features/failed/**/*.feature"]
 ```
 
 ---
@@ -907,8 +954,10 @@ Excludes test files to skip the tests. You can use glob pattern to indicate all 
 Specifies whether to show the full backtrace for errors.
 
 ```yaml
-  options:
-    backtrace: true
+suites:
+  - name: "saucy test"
+    options:
+      backtrace: true
 ```
 
 ---
@@ -920,9 +969,11 @@ Specifies whether to show the full backtrace for errors.
 Paths to your support code for CommonJS. See the [Cucumber.js Configuration documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/configuration.md#finding-your-code) for more information.
 
 ```yaml
-  options:
-    require:
-      - "features/support/*.js"
+suites:
+  - name: "saucy test"
+    options:
+      require:
+        - "features/support/*.js"
 ```
 
 ---
@@ -934,9 +985,11 @@ Paths to your support code for CommonJS. See the [Cucumber.js Configuration docu
 Paths to your support code for ESM. See the [Cucumber.js ES Modules (experimental) documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/esm.md) for more information.
 
 ```yaml
-  options:
-    import:
-      - "features/support/*.js"
+suites:
+  - name: "saucy test"
+    options:
+      import:
+        - "features/support/*.js"
 ```
 
 ---
@@ -948,10 +1001,12 @@ Paths to your support code for ESM. See the [Cucumber.js ES Modules (experimenta
 Tag expression to filter which Cucumber scenarios run. See the [Cucumber.js Filtering documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/filtering.md#tags) for more information.
 
 ```yaml
-  options:
-    tags:
-      - "@smoke"
-      - "@e2e"
+suites:
+  - name: "saucy test"
+    options:
+      tags:
+        - "@smoke"
+        - "@e2e"
 ```
 
 ---
@@ -963,9 +1018,11 @@ Tag expression to filter which Cucumber scenarios run. See the [Cucumber.js Filt
 Name/path and (optionally) output file path of each formatter to use. See the [Cucumber.js Formatters documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md) for more information.
 
 ```yaml
-  options:
-    format:
-      - "json:my-cucumber.json"
+suites:
+  - name: "saucy test"
+    options:
+      format:
+        - "json:my-cucumber.json"
 ```
 
 ---
@@ -977,9 +1034,11 @@ Name/path and (optionally) output file path of each formatter to use. See the [C
 Options to provide to formatters. See the [Cucumber.js Formatters documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md) for more information.
 
 ```yaml
-  options:
-    formatOptions:
-      someOption: true
+suites:
+  - name: "saucy test"
+    options:
+      formatOptions:
+        someOption: true
 ```
 
 ---
