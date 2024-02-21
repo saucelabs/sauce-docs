@@ -9,7 +9,7 @@ Fetches the logs from an imagerunner run.
 ## Usage
 
 ```bash
-$ saucectl imagerunner logs runID [flags]
+$ saucectl imagerunner logs <runID> [flags]
 ```
 
 ## Available Options
