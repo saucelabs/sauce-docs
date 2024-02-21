@@ -9,7 +9,7 @@ Get artifacts/files of the container from a Sauce Orchestrate run. Only the file
 ## Usage
 
 ```bash
-$ saucectl imagerunner artifacts download runID globPattern [flags]
+$ saucectl imagerunner artifacts download <runID> <globPattern> [flags]
 ```
 
 ## Available Options
