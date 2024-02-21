@@ -9,7 +9,7 @@ Prints the vault's content in JSON format to the standard output stream (stdout)
 ## Usage
 
 ```bash
-saucectl apit vault get [--project "project_name"] [flags]
+saucectl apit vault get [flags]
 ```
 
 ## Available Options
