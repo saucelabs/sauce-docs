@@ -19,7 +19,7 @@ saucectl apit vault set-snippet "snippet_name" "file_name" [flags]
 To update or add via stdin:
 
 ```bash
-cat "file_name" | saucectl apit vault set-snippet "snippet_name" - [--project "project_name"] [flags]
+cat "file_name" | saucectl apit vault set-snippet "snippet_name" - [flags]
 ```
 
 
