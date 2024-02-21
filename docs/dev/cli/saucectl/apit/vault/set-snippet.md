@@ -13,7 +13,7 @@ When a `snippet_name` exists in the vault, it will be replaced with the new cont
 To update or add from a file:
 
 ```bash
-saucectl apit vault set-snippet "snippet_name" "file_name" [--project "project_name"] [flags]
+saucectl apit vault set-snippet "snippet_name" "file_name" [flags]
 ```
 
 To update or add via stdin:
