@@ -9,7 +9,7 @@ Removes a file from a project's vault drive.
 ## Usage
 
 ```bash
-saucectl apit vault delete-file "filename" [--project "project_name"] [flags]
+saucectl apit vault delete-file "filename" [flags]
 ```
 
 ## Available Options
