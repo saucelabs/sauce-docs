@@ -9,7 +9,7 @@ Downloads a file from a project's vault drive.
 ## Usage
 
 ```bash
-saucectl apit vault download-file "filename" [--project "project_name"] [flags]
+saucectl apit vault download-file "filename" [flags]
 ```
 
 ## Available Options
