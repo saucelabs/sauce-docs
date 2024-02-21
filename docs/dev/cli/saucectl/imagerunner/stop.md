@@ -9,7 +9,7 @@ Stops a running Sauce Orchestrate container.
 ## Usage
 
 ```bash
-$ saucectl imagerunner stop runID [flags]
+$ saucectl imagerunner stop <runID> [flags]
 ```
 
 ## Available Options
