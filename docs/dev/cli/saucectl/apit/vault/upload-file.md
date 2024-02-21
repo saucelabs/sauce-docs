@@ -9,7 +9,7 @@ Uploads a file to a project's vault drive.
 ## Usage
 
 ```bash
-saucectl apit vault upload-file "filename" [--project "project_name"] [flags]
+saucectl apit vault upload-file "filename" [flags]
 ```
 
 ## Available Options
