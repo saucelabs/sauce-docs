@@ -460,18 +460,33 @@ The main command to run a Sauce Orchestrate job. Must be executed at the root le
 saucectl run
 ```
 
-### `saucectl imagerunner logs`
+### `saucectl imagerunner` Commands
 
-Get logs of the container from a Sauce Orchestrate run.
+Supported commands:
 
-```bash
-saucectl imagerunner logs <runID>
-```
-
-### `saucectl imagerunner artifacts`
-
-Get artifacts/files of the container from a Sauce Orchestrate run. Only the files specified in `artifacts` configuration are downloaded.
-
-```bash
-saucectl imagerunner artifacts <runID>
-```
+<table id="table-cli">
+  <thead>
+    <tr>
+      <th>Operation</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr>
+     <td><a href="/dev/cli/saucectl/imagerunner/artifacts-download">Get artifacts</a></td>
+     <td>Get artifacts/files of the container from a Sauce Orchestrate run.</td>
+   </tr>
+   <tr>
+     <td><a href="/dev/cli/saucectl/imagerunner/list">List containers</a></td>
+     <td>Return the list of Sauce Orchestrate containers.</td>
+   </tr>
+   <tr>
+     <td><a href="/dev/cli/saucectl/imagerunner/logs">Get logs</a></td>
+     <td>Fetch the logs from an imagerunner run.</td>
+   </tr>
+   <tr>
+     <td><a href="/dev/cli/saucectl/imagerunner/stop">Stop a container</a></td>
+     <td>Stop a running Sauce Orchestrate container.</td>
+   </tr>
+  </tbody>
+</table>
