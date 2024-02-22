@@ -302,14 +302,14 @@ browser
 
 ### Capturing the dom snapshot
 
-Sauce Visual capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
+Sauce Visual does not capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
 
 Example:
 ```ts
 browser
   .url('https://saucedemo.com')
   .sauceVisualCheck('Home Page', {
-    captureDom: false
+    captureDom: true
   })
   .end();
 ```

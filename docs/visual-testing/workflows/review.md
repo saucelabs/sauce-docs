@@ -126,13 +126,19 @@ More information about reviewing and approving diffs can be found in [Subsequent
 
 ##### Diff inspection
 
-The Diff Inspection Tool is a valuable utility that helps users identify and verify which DOM changes have impacted the UI. It offers a visual representation of the differences between two versions, making it easy to spot modified, added, or removed elements.
+The Diff Inspection Tool is a valuable utility that helps identify and verify which DOM changes have impacted the UI. It offers a visual representation of the differences between two versions, making it easy to spot modified, added, or removed elements.
 
-It can detect changes in:
+It detects changes in:
 - html
 - styles
 - position
 - dimensions
+
+The `captureDom` option is disabled by default. For information on how to enable this option or for examples, please refer to the integration page.
+
+:::note
+To generate the DOM diff, it is important to ensure that both the baseline and snapshot have accurately captured the DOM.
+:::
 
 <img src={useBaseUrl('/img/sauce-visual/dom-diff-inspection.jpg')} alt="Dom diff inspection"/>
 

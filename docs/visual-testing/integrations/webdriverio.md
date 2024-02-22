@@ -74,13 +74,13 @@ export const config: Options.Testrunner = {
 Add a check to one of your tests:
 
 ```ts
-    describe('Login Flow', () => {
-        it('should login with valid credentials', async () => {
-            //...
-            await browser.sauceVisualCheck('My Login Page')
-            //...
-        });
-    })
+describe('Login Flow', () => {
+    it('should login with valid credentials', async () => {
+        //...
+        await browser.sauceVisualCheck('My Login Page')
+        //...
+    });
+})
 ```
 
 ### Step 4: Configure your Sauce Labs credentials
@@ -213,12 +213,12 @@ await browser.sauceVisualCheck('Before Login', {
 
 ### Capturing the dom snapshot
 
-Sauce Visual capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
+Sauce Visual does not capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
 
 Example:
 ```ts
 browser.sauceVisualCheck('Before Login', {
-    captureDom: false
+    captureDom: true
 });
 ```
 

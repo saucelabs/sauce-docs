@@ -42,11 +42,11 @@ _Note: You can find the latest versions available [here](https://central.sonatyp
 Declare a RemoteWebDriver and a VisualApi instance as class variables
 
 ```java
-  import org.openqa.selenium.remote.RemoteWebDriver;
-  import com.saucelabs.visual.VisualApi;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import com.saucelabs.visual.VisualApi;
 
-  private static VisualApi visual;
-  private static RemoteWebDriver driver;
+private static VisualApi visual;
+private static RemoteWebDriver driver;
 ```
 
 Initialize `RemoteWebDriver` and `VisualApi`
@@ -235,9 +235,9 @@ Remember, the baseline is established during the initial run, and any subsequent
 Sample usage:
 
 ```java
-    var EXPECTED_TOTAL_UNAPPROVED_DIFFS = 0;
+var EXPECTED_TOTAL_UNAPPROVED_DIFFS = 0;
 
-    assertEquals(visual.sauceVisualResults().get(DiffStatus.UNAPPROVED), EXPECTED_TOTAL_UNAPPROVED_DIFFS);
+assertEquals(visual.sauceVisualResults().get(DiffStatus.UNAPPROVED), EXPECTED_TOTAL_UNAPPROVED_DIFFS);
 ```
 
 ### Build attributes
@@ -255,11 +255,11 @@ Methods available:
 Example:
 
 ```java
-    visual = new Builder(driver, username, accessKey, DataCenter.US_WEST_1)
-              .withBuild("Sauce Demo Test")
-              .withBranch("main")
-              .withProject("Java examples")
-              .build();
+visual = new Builder(driver, username, accessKey, DataCenter.US_WEST_1)
+          .withBuild("Sauce Demo Test")
+          .withBranch("main")
+          .withProject("Java examples")
+          .build();
 ```
 
 ### Ignored regions
@@ -275,12 +275,12 @@ Those ignored components are specified when requesting a new snapshot.
 Example:
 
 ```java
-  Options options = new Options();
-  options.setIgnoreElements(List.of(
-    // AddBackpackToCartButton will be ignored
-    inventoryPage.getAddBackpackToCartButton()
-  ));
-  visual.sauceVisualCheck("Inventory Page", options);
+Options options = new Options();
+options.setIgnoreElements(List.of(
+  // AddBackpackToCartButton will be ignored
+  inventoryPage.getAddBackpackToCartButton()
+));
+visual.sauceVisualCheck("Inventory Page", options);
 ```
 
 #### User-specified ignored region
@@ -296,26 +296,26 @@ _Note: all values are pixels_
 Example:
 
 ```java
-  Options options = new Options();
-  IgnoreRegion ignoreRegion = new IgnoreRegion(
-    100, // x
-    100,  // y
-    200, // width
-    200, // height
-  );
-  options.setIgnoreRegions(List.of(ignoreRegion));
-  visual.sauceVisualCheck("Before Login", options);
+Options options = new Options();
+IgnoreRegion ignoreRegion = new IgnoreRegion(
+  100, // x
+  100,  // y
+  200, // width
+  200, // height
+);
+options.setIgnoreRegions(List.of(ignoreRegion));
+visual.sauceVisualCheck("Before Login", options);
 ```
 
 ### Capturing the dom snapshot
 
-Sauce Visual capture dom snapshot by default. It can be changed in options.
+Sauce Visual does not capture dom snapshot by default. It can be changed in options.
 
 Example:
 ```java
-  Options options = new Options();
-  options.setCaptureDom(false);
-  visual.sauceVisualCheck("Inventory Page", options);
+Options options = new Options();
+options.setCaptureDom(true);
+visual.sauceVisualCheck("Inventory Page", options);
 ```
 
 ## Examples
