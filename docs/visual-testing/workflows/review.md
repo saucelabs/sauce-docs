@@ -130,7 +130,7 @@ The Diff Inspection Tool is a valuable utility that helps identify and verify wh
 
 It detects changes in:
 - html
-- styles
+- computed CSS styles
 - position
 - dimensions
 
@@ -140,7 +140,7 @@ The `captureDom` option is disabled by default. For information on how to enable
 To generate the DOM diff, it is important to ensure that both the baseline and snapshot have accurately captured the DOM.
 :::
 
-<img src={useBaseUrl('/img/sauce-visual/dom-diff-inspection.jpg')} alt="Dom diff inspection"/>
+<img src={useBaseUrl('/img/sauce-visual/dom-diff-inspection.jpg')} alt="DOM diff inspection"/>
 
 ## Subsequent Test Execution Review
 

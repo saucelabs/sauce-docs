@@ -211,7 +211,7 @@ await browser.sauceVisualCheck('Before Login', {
 });
 ```
 
-### Capturing the dom snapshot
+### Capturing the DOM snapshot
 
 Sauce Visual does not capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
 

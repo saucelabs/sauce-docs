@@ -307,7 +307,7 @@ options.setIgnoreRegions(List.of(ignoreRegion));
 visual.sauceVisualCheck("Before Login", options);
 ```
 
-### Capturing the dom snapshot
+### Capturing the DOM snapshot
 
 Sauce Visual does not capture dom snapshot by default. It can be changed in options.
 
