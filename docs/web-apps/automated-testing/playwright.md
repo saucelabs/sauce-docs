@@ -188,3 +188,11 @@ browserType.launch: Chromium distribution 'chrome' is not found at C:\Users\sauc
 ```
 
 This is because playwright's project specific settings override the global configuration that Sauce Labs provides during runtime. In this case, the location of the browser binary. Make sure that `launchOptions` are not set when running on a Sauce VM.
+
+### Webkit + Windows
+
+There is a [known issue](https://github.com/microsoft/playwright/issues/24512) in Playwright that prevents some sites from loading in Webkit on Windows with the error `SSL peer certificate or SSH remote key was not OK`. We recommend running your Playwright + Webkit tests on our Mac VMs.
+
+:::note
+Tests running through Sauce Tunnels are unaffected.
+:::
