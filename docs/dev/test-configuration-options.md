@@ -1527,11 +1527,16 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Execute ADB shell commands.
+Execute ADB shell commands, through Appium's `mobile: shell` capability.
+
+:::note
+Sauce Labs now supports ADB commands for Appium. To use ADB and `mobile: shell` commands, please [sign up for our BETA through this form](https://forms.gle/42qv8U1RukqC62x86) and indicate the desired ADB commands you would like to run. We will be supporting a limited list of ADB commands through `mobile: shell`.
+:::
+
 
 ```java
 driver.executeScript("mobile: shell", ImmutableMap.of(
-    "command", "ls",
+    "command", "input keyevent 3",
     "args", ImmutableList.of("-l", "-a")
 ));
 ```
