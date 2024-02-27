@@ -1523,6 +1523,21 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
+### `mobile: shell`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Execute ADB shell commands.
+
+```java
+driver.executeScript("mobile: shell", ImmutableMap.of(
+    "command", "ls",
+    "args", ImmutableList.of("-l", "-a")
+));
+```
+
+---
+
 ## Desktop and Mobile Capabilities: Sauce-Specific – Optional
 
 Optional Sauce Labs-specific capabilities that you can use for any Sauce Labs test. They must be added to the `sauce:options` block of your session creation code.
