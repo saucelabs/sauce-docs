@@ -187,7 +187,7 @@ This is because playwright's project specific settings override the global confi
 
 ### Webkit + Windows
 
-There is a [known issue](https://github.com/microsoft/playwright/issues/24512) in Playwright that prevents some sites from loading in Webkit on Windows with the error `SSL peer certificate or SSH remote key was not OK`. We recommend running your Playwright + Webkit tests on our Mac VMs.
+There is a [known issue](https://github.com/microsoft/playwright/issues/24512) in Playwright that prevents some sites from loading in Webkit on Windows with the error `SSL peer certificate or SSH remote key was not OK`. We recommend running your Playwright + Webkit tests on our Mac VMs by setting the [platformName](https://docs.saucelabs.com/web-apps/automated-testing/playwright/yaml/#platformname) to either `macOS 13` or `macOS 12`.
 
 :::note
 Tests running through Sauce Tunnels are unaffected.
