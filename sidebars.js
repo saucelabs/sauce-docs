@@ -1519,6 +1519,7 @@ module.exports = {
                                 'web-apps/automated-testing/cucumberjs-playwright/quickstart',
                                 'web-apps/automated-testing/cucumberjs-playwright/yaml',
                                 'web-apps/automated-testing/cucumberjs-playwright/advanced',
+                                'web-apps/automated-testing/cucumberjs-playwright/limitations',
                             ],
                         },
                         {
