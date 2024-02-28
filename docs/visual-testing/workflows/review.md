@@ -165,7 +165,7 @@ By default, you will see diffs in a Side-by-side view, which lets you easily com
 - Zoom in or out of the snapshots.
 - Zoom to 100% or fit snapshot to the screen.
 - Highlight or hide diffs for easier discovery of the changes.
-- Open diff inspection
+- Open Diff Inspection
 
 There are conditional actions you can use, depending on the type of view you have activated:
 
