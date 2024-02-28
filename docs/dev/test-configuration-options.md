@@ -1536,8 +1536,8 @@ Sauce Labs now supports ADB commands for Appium. To use ADB and `mobile: shell` 
 
 ```java
 driver.executeScript("mobile: shell", ImmutableMap.of(
-    "command", "input keyevent 3",
-    "args", ImmutableList.of("-l", "-a")
+    "command", "input",
+    "args", ImmutableList.of("keyevent", "3")
 ));
 ```
 
