@@ -188,7 +188,7 @@ The list below shows the available actions and their keyboard shortcuts.
 |               <img src={useBaseUrl('/img/sauce-visual/hide-diffs.png')} alt="Hide diffs icon" width="25"/>                | Hide diffs \[H\]                                      |
 |           <img src={useBaseUrl('/img/sauce-visual/sync-actions.png')} alt="Sync pan and zoom icon" width="25"/>           | Sync pan and zoom \[P\]                               |
 |             <img src={useBaseUrl('/img/sauce-visual/view-current.png')} alt="View current icon" width="25"/>              | Toggle Baseline and Current snapshots \[T\]           |
-|            <img src={useBaseUrl('/img/sauce-visual/dom-diff.png')} alt="Show dom diff inspection" width="25"/>            | Toggle diff inspection \[I\]                          |
+|            <img src={useBaseUrl('/img/sauce-visual/dom-diff.png')} alt="Show Diff Inspection" width="25"/>            | Toggle Diff Inspection \[I\]                          |
 
 ### Additional Keyboard Actions
 
