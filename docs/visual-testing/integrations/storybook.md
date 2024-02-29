@@ -139,6 +139,7 @@ Below are the environment variables available in the visual-storybook plugin:
 | `SAUCE_BRANCH_NAME`     |          | The branch name or tag you would like to associate this build with. We recommend using your current VCS branch in CI.                                                                                                            |
 | `SAUCE_PROJECT_NAME`    |          | The label / project you would like to associated this build with.                                                                                                                                                                |
 | `SAUCE_VISUAL_BUILD_ID` |          | For advanced users, a custom build ID. Can be used to create builds in advance. This can be used to parallelize tests, shard, or more. <br/> By default, this is not set and we create / finish a build during setup / teardown. |
+| `SAUCE_VISUAL_CUSTOM_ID` |          | For advanced users, a custom build ID in a user-specified format. Can be used to uniquely identify a build and might include other identifiers such as pipeline ID, commit ID etc. Just like `SAUCE_VISUAL_BUILD_ID`, can be used to parallelize tests, shard, or more. <br/> By default, this is not set and we create / finish a build during setup / teardown.  |
 
 ## Story / Global Configuration
 

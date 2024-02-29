@@ -178,6 +178,21 @@ export default defineConfig({
 }
 ```
 
+### Environment variables
+
+Below are the environment variables available for the Sauce Visual for Cypress plugin. Keep in mind that these variables have precedence over the ones defined in Cypress configuration.
+
+| Variable Name           |          | Description                                                                                                                                                                                                                      |
+| ----------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SAUCE_USERNAME`        | required | Your Sauce Labs username. You can get this from the header of app.saucelabs.com                                                                                                                                                  |
+| `SAUCE_ACCESS_KEY`      | required | Your Sauce Labs access key. You can get this from the header of app.saucelabs.com                                                                                                                                                |
+| `SAUCE_REGION`          |          | The region you'd like to run your Visual tests in. Defaults to `us-west-1` if not supplied. Can be one of the following: <br/> `'eu-central-1'`, `'us-west-1'` or `'us-east-4'`                                                  |
+| `SAUCE_VISUAL_BUILD_NAME`      |          | The name you would like to appear in the Sauce Visual dashboard. Defaults to 'Cypress Visual Testing'                                                                                                                                   |
+| `SAUCE_VISUAL_BRANCH_NAME`     |          | The branch name or tag you would like to associate this build with. We recommend using your current VCS branch in CI.                                                                                                            |
+| `SAUCE_VISUAL_PROJECT_NAME`    |          | The label / project you would like to associate this build with.                                                                                                                                                                |
+| `SAUCE_VISUAL_BUILD_ID` |          | For advanced users, a custom build ID. Can be used to create builds in advance. This can be used to parallelize tests, shard, or more. <br/> By default, this is not set and we create / finish a build during setup / teardown. |
+| `SAUCE_VISUAL_CUSTOM_ID` |          | For advanced users, a custom build ID in a user-specified format. Can be used to uniquely identify a build and might include other identifiers such as pipeline ID, commit ID etc. Just like `SAUCE_VISUAL_BUILD_ID`, it can be used to parallelize tests, shard, or more. <br/> By default, this is not set and we create / finish a build during setup / teardown.  |
+
 ### Ignored regions
 
 #### Component-based ignored region
