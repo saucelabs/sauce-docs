@@ -193,6 +193,12 @@ Below are the environment variables available for the Sauce Visual for Cypress p
 | `SAUCE_VISUAL_BUILD_ID`        |          | For advanced users, a user-supplied SauceLabs Visual build ID. Can be used to create builds in advance using the GraphQL API. This can be used to parallelize tests with multiple browsers, shard, or more. <br/> By default, this is not set and we create / finish a build during setup / teardown. |
 | `SAUCE_VISUAL_CUSTOM_ID`       |          | For advanced users, a user-supplied custom ID to identify this build. Can be used in CI to identify / check / re-check the status of a single build. Usage suggestions: CI pipeline ID.  |
 
+### Working with custom ID
+
+Linking all your Sauce Visual tests to one build ID can streamline your workflow, especially in CI setups. This enables easy management using the Sauce Visual CLI, like creating builds with custom IDs, adding snapshots, and completing builds. This way, you can efficiently handle multiple tests grouped under the same build in Sauce Visual.
+
+When you use `SAUCE_VISUAL_CUSTOM_ID`, Sauce Visual checks if there's an existing build with that ID. If found, your tests are linked to it; otherwise, Sauce Visual creates a new build. In contrast, using `SAUCE_VISUAL_BUILD_ID` requires an existing build with the provided ID; otherwise, an error occurs.
+
 ### Ignored regions
 
 #### Component-based ignored region
