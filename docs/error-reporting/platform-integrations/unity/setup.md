@@ -47,7 +47,7 @@ Offline database capabilities are currently not supported for Nintendo Switch.
 :::
 
 :::note
-The iOS SDK contains a privacy manifest to declare the types of data accessed on the device. Please refer to this [source document](https://github.com/backtrace-labs/backtrace-cocoa/blob/master/PrivacyInfo.xcprivacy) for the specific types of data collected by the SDK.
+The iOS SDK contains a privacy manifest to declare the types of data accessed on the device. Please refer to this [source document](https://github.com/backtrace-labs/backtrace-unity/blob/master/iOS/PrivacyInfo.xcprivacy) for the specific types of data collected by the SDK.
 :::
 
 ## What You'll Need
