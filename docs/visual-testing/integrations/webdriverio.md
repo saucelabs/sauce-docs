@@ -223,6 +223,32 @@ browser.sauceVisualCheck('Before Login', {
 });
 ```
 
+### Full page screenshots
+
+If you want to see more than what's on the screen, you can take a full-page screenshot. It'll capture everything by scrolling and stitching it together.
+
+:::note
+It's recommended to use the `hideAfterFirstScroll` option for all fixed elements on the page.
+:::
+
+Options:
+
+- `enable`: Enable taking full page screenshot (limited to desktop devices only)
+- `delayAfterScroll`: Delay in ms after scrolling and before taking screenshots (helps with lazy loading content)
+- `hideAfterFirstScroll`: Hide elements on the page after first scroll (uses css selectors)
+
+Example:
+
+```ts
+await browser.sauceVisualCheck('Long content page', {
+  fullPageConfig: {
+    enable: true,
+    delayAfterScroll: 500,
+    hideAfterFirstScroll: ["#header"],
+  },
+});
+```
+
 ## Example
 
 An example project is available [here](https://github.com/saucelabs/visual-examples/tree/main/wdio).
