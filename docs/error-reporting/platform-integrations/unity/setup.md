@@ -46,6 +46,10 @@ Native Crashes on PlayStation and Nintendo Switch are captured via Backtrace Dat
 Offline database capabilities are currently not supported for Nintendo Switch.
 :::
 
+:::note
+The iOS SDK contains a privacy manifest to declare the types of data accessed on the device. Please refer to this [source document](https://github.com/backtrace-labs/backtrace-unity/blob/master/iOS/PrivacyInfo.xcprivacy) for the specific types of data collected by the SDK.
+:::
+
 ## What You'll Need
 
 - A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
