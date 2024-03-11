@@ -8,17 +8,55 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-If you don't want to use Docker Hub or your company-provided docker registry, there is an option to store your images
+If you don't want to use Docker Hub or your company-provided docker registry, there is an option to store your container images
 within SauceLabs infrastructure.
 
 ## How do I get access to SauceLabs Container Registry?
 
 In order to join SauceLabs Container Registry, please contact SauceLabs customer support.
 
-## How do I access SauceLabs Container Registry?
+## How do I access SauceLabs Container Registry using `saucectl`?
 
-In order to access SauceLabs Container Registry you will need a username and a short-lived generated tokens to be used 
-as a password. The token has a time-to-live of 30 minutes.
+### Prerequisites
+
+1. Export `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables ([learn more about authentication](https://docs.saucelabs.com/dev/api/#authentication)).
+2. Make sure you have the following tools installed:
+   * `docker` (or other tool for pushing container images that exposes docker socket)
+3. Find out what's your container registry url. For this example let's assume it is `registry.example.com/your-private-registry/`.
+
+### Pushing images
+
+To push Docker images, consider using the `saucectl docker push` CLI command. This command simplifies the process by handling
+both docker login and docker push operations, eliminating the need for manual authentication.
+
+```bash
+saucectl docker push registry.example.com/your-private-registry/image-name:tag
+```
+
+For additional details, please visit the [saucectl docker push documentation](/docs/dev/cli/saucectl/docker/push.md).
+
+:::note
+Currently, this method is limited to pushing Docker images only.
+:::
+
+:::note
+Ensure that your Docker image is prebuilt before using this command.
+:::
+
+### Starting a test
+
+If you're using SauceLabs Container Registry, you may start a test without providing credentials to your container
+registry. However, you must follow two rules:
+1. Account used to start a test must be allowed to generate a short-lived token for the used registry.
+2. You must not provide `imagePullAuth` in the configuration file.
+
+If both of those conditions are met, we're going to automatically authenticate your test execution to pull container images.
+There's no need to change the way how you execute `saucectl` to start a test.
+
+## How do I access SauceLabs Container Registry programmatically?
+
+In order to access SauceLabs Container Registry programmatically you will need a username and a short-lived generated token
+to be used as a password. The token has a time-to-live of 30 minutes.
 
 To generate a token, use [Sauce Orchestrate API](https://docs.saucelabs.com/dev/api/orchestrate/)
 or follow a script below.
@@ -67,22 +105,6 @@ Once you're logged in, you can run any docker commands related to the registry a
 :::note
 If you're not able to log in to docker, your token may have already expired - it's valid only for 30 minutes.
 Run the first part of the script and try to log in again.
-:::
-
-## Simplifying Interactions with the `saucectl` CLI
-
-To push Docker images, consider using the `saucectl docker push` CLI command.
-
-This command simplifies the process by handling both docker login and docker push operations, eliminating the need for manual token retrieval.
-
-For additional details, please visit the [saucectl docker push documentation](/docs/dev/cli/saucectl/docker/push.md).
-
-:::note
-Currently, this method is limited to pushing Docker images only.
-:::
-
-:::note
-Ensure that your Docker image is prebuilt before using this command.
 :::
 
 ## How many tokens can I generate?
