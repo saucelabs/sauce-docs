@@ -15,14 +15,14 @@ within SauceLabs infrastructure.
 
 In order to join SauceLabs Container Registry, please contact SauceLabs customer support.
 
-## How do I authenticate SauceLabs Container Registry?
+## How do I authenticate to SauceLabs Container Registry?
 
 In order to provide the most secure way to access your images, we use short-lived tokens to authenticate you
-into SauceLabs Container Registry.
+to SauceLabs Container Registry.
 
 There are two ways of interacting with our container registry:
-1. using `saucectl` - for most common use-cases, it automatically injects short-lived tokens
-2. programmatically - for more demanding use-cases, you must retrieve short-lived token yourself
+1. using `saucectl` - for the most common use-cases, it automatically injects short-lived tokens
+2. programmatically - for the more demanding use-cases, you must retrieve short-lived token yourself
 
 ## How do I access SauceLabs Container Registry using `saucectl`?
 
@@ -58,7 +58,7 @@ Ensure that your Docker image is prebuilt before using this command.
 
 If you are using SauceLabs Container Registry, you may start a test without providing credentials to your container
 registry. However, you must follow two rules:
-1. Account used to start a test must be allowed to generate a short-lived token for the used registry.
+1. Account used to start a test must be allowed to generate a short-lived token for the registry you want to use.
 2. You must not provide `imagePullAuth` in the configuration file for the container we should authenticate.
 
 If both of those conditions are met, we're going to automatically authenticate your test execution to pull container images.
@@ -92,7 +92,7 @@ This sample script is created for *nix systems.
 
 ### Setting environment variables to be used by docker
 
-The code below is using url for US West datacenter. Make sure you use url for the datacenter matching your 
+The code below uses url for US West datacenter. Make sure you use url for the datacenter matching your 
 registry url. If you're not sure which one to use, contact customer support.
 
 ```bash
