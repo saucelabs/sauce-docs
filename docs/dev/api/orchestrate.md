@@ -26,7 +26,7 @@ Return a short-lived token that can be used to access SauceLabs Container Regist
   <tbody>
     <tr>
      <td><code>registry_url</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The url of your SauceLabs Container Registry.</p></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The whole url of your SauceLabs Container Registry (not just a domain name).</p></td>
     </tr>
   </tbody>
 </table>
