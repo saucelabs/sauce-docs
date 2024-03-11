@@ -64,14 +64,6 @@ registry. However, you must follow two rules:
 If both of those conditions are met, we're going to automatically authenticate your test execution to pull container images.
 There's no need to change the way how you execute `saucectl` to start a test - it all happens out of the box.
 
-Example:
-
-```bash
-saucectl run
-```
-
-For additional details, please visit the [saucectl run documentation](/docs/dev/cli/saucectl/run.md).
-
 ## How do I access SauceLabs Container Registry programmatically?
 
 In order to access SauceLabs Container Registry programmatically, you will need a username and a short-lived generated token
