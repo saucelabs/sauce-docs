@@ -31,7 +31,7 @@ There are two ways of interacting with our container registry:
 1. Export `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables ([learn more about authentication](https://docs.saucelabs.com/dev/api/#authentication)).
 2. Make sure you have the following tools installed:
    * `docker` (or other tool for pushing container images that exposes docker socket)
-3. Find out what's your container registry url. For this example let's assume it is `registry.example.com/your-private-registry/`.
+3. Find out what's your container registry url. For this example let's assume it is `registry.example.com/your-private-registry`.
 
 ### Pushing images
 
@@ -89,6 +89,7 @@ This sample script is created for *nix systems.
    * `docker` (or other tool for pushing container images)
    * `jq` (or other tool for parsing json)
    * `curl` (or other tool for making http requests)
+3. Find out what's your container registry url. For this example let's assume it is `registry.example.com/your-private-registry`.
 
 ### Setting environment variables to be used by docker
 
@@ -96,7 +97,9 @@ The code below uses url for US West datacenter. Make sure you use url for the da
 registry url. If you're not sure which one to use, contact customer support.
 
 ```bash
-SAUCE_SHORT_LIVED_TOKEN=`curl -s -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
+export SAUCE_REGISTRY_URL="registry.example.com/your-private-registry"
+SAUCE_SHORT_LIVED_TOKEN=`curl --silent --user "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
+  --header "Content-Type: application/json" --data "{\"registry_url\": \"$SAUCE_REGISTRY_URL\"}" \
   --request POST 'https://api.us-west-1.saucelabs.com/v1alpha1/hosted/container-registry/authorization-token'`
 export DOCKER_USERNAME=`echo $SAUCE_SHORT_LIVED_TOKEN | jq -r .username`
 export DOCKER_PASSWORD=`echo $SAUCE_SHORT_LIVED_TOKEN | jq -r .password`
