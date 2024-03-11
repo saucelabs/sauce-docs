@@ -38,6 +38,8 @@ There are two ways of interacting with our container registry:
 To push Docker images, consider using the `saucectl docker push` CLI command. This command simplifies the process by handling
 both docker login and docker push operations, eliminating the need for manual authentication.
 
+Example:
+
 ```bash
 saucectl docker push registry.example.com/your-private-registry/image-name:tag
 ```
@@ -61,6 +63,14 @@ registry. However, you must follow two rules:
 
 If both of those conditions are met, we're going to automatically authenticate your test execution to pull container images.
 There's no need to change the way how you execute `saucectl` to start a test - it all happens out of the box.
+
+Example:
+
+```bash
+saucectl run
+```
+
+For additional details, please visit the [saucectl run documentation](/docs/dev/cli/saucectl/run.md).
 
 ## How do I access SauceLabs Container Registry programmatically?
 
