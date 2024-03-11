@@ -15,6 +15,15 @@ within SauceLabs infrastructure.
 
 In order to join SauceLabs Container Registry, please contact SauceLabs customer support.
 
+## How do I authenticate SauceLabs Container Registry?
+
+In order to provide the most secure way to access your images, we use short-lived tokens to authenticate you
+into SauceLabs Container Registry.
+
+There are two ways of interacting with our container registry:
+1. using `saucectl` - for most common use-cases, it automatically injects short-lived tokens
+2. programmatically - for more demanding use-cases, you must retrieve short-lived token yourself
+
 ## How do I access SauceLabs Container Registry using `saucectl`?
 
 ### Prerequisites
@@ -45,17 +54,17 @@ Ensure that your Docker image is prebuilt before using this command.
 
 ### Starting a test
 
-If you're using SauceLabs Container Registry, you may start a test without providing credentials to your container
+If you are using SauceLabs Container Registry, you may start a test without providing credentials to your container
 registry. However, you must follow two rules:
 1. Account used to start a test must be allowed to generate a short-lived token for the used registry.
-2. You must not provide `imagePullAuth` in the configuration file.
+2. You must not provide `imagePullAuth` in the configuration file for the container we should authenticate.
 
 If both of those conditions are met, we're going to automatically authenticate your test execution to pull container images.
-There's no need to change the way how you execute `saucectl` to start a test.
+There's no need to change the way how you execute `saucectl` to start a test - it all happens out of the box.
 
 ## How do I access SauceLabs Container Registry programmatically?
 
-In order to access SauceLabs Container Registry programmatically you will need a username and a short-lived generated token
+In order to access SauceLabs Container Registry programmatically, you will need a username and a short-lived generated token
 to be used as a password. The token has a time-to-live of 30 minutes.
 
 To generate a token, use [Sauce Orchestrate API](https://docs.saucelabs.com/dev/api/orchestrate/)
@@ -107,7 +116,7 @@ If you're not able to log in to docker, your token may have already expired - it
 Run the first part of the script and try to log in again.
 :::
 
-## How many tokens can I generate?
+### How many tokens can I generate?
 
 There's no limit to how many tokens can be generated. If you generate a new one, the old one will still be valid
 till it's expiration time.
