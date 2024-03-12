@@ -222,3 +222,7 @@ If you'd like to configure your own devices, please follow the configuration ste
 </div>
 
 We have a separate Storybook plugin, `@saucelabs/storybook-variants`, available for rendering all variants of a component in a grid to ease the testing and development process. Read the full [README on NPM](https://www.npmjs.com/package/@saucelabs/storybook-variants) for installation & usage.
+
+## Example
+
+An example project is available [here](https://github.com/saucelabs/visual-examples/tree/main/storybook).
