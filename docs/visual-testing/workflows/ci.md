@@ -1,10 +1,21 @@
 ---
-sidebar_label: Branching
+sidebar_label: Continous Integration
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+# Continous Integration
+
+To integrate Sauce Visual into your continous integration workflow we recommend a two step approach using the sauce visual cli. 
+
+1. trigger test execution in your ci the way you do it locally, make sure your test doesn't fail when visual differences are being detected. Make sure to pass a custom id to your build configuration.
+2. in a dedicated build step use the sauce visual cli to fetch the current state of the sauce visual build from step one. It will fail in case visual changes have been detected. Make sure to have nodejs installed.
+
+```
+npx @saucelabs/visual build status -r us-west-1 --custom-id YOUR_CUSTOM_BUILD_ID
+```
 
 # Branching & Merging Workflow
 

@@ -1692,7 +1692,7 @@ module.exports = {
                     items: [
                         'visual-testing/workflows/test-execution',
                         'visual-testing/workflows/review',
-                        'visual-testing/workflows/branching',
+                        'visual-testing/workflows/ci',
                     ],
                 },
                 {
