@@ -251,6 +251,7 @@ Methods available:
 - `withBuild(String build)`: Sets the name of the build
 - `withProject(String project)`: Sets the name of the project
 - `withBranch(String branch)`: Sets the name of the branch
+- `withDefaultBranch(String defaultBranch)`: Sets the name of the default branch
 
 Example:
 
