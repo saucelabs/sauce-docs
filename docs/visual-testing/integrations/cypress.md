@@ -212,11 +212,11 @@ Those ignored components are specified when requesting a new snapshot.
 Example:
 
 ```javascript
-    cy.sauceVisualCheck('login-page', {
-      ignoredRegions: [
-        cy.get('[data-test="username"]'),
-      ]
-    });
+cy.sauceVisualCheck('login-page', {
+  ignoredRegions: [
+    cy.get('[data-test="username"]'),
+  ]
+});
 ```
 
 #### User-specified ignored region
@@ -232,16 +232,16 @@ _Note: all values are pixels_
 Example:
 
 ```javascript
-    cy.sauceVisualCheck('login-page', {
-      ignoredRegions: [
-        {
-          x: 240,
-          y: 800,
-          width: 1520,
-          height: 408
-        }
-      ],
-    });
+cy.sauceVisualCheck('login-page', {
+  ignoredRegions: [
+    {
+      x: 240,
+      y: 800,
+      width: 1520,
+      height: 408
+    }
+  ],
+});
 ```
 
 ### Specifying options for Cypress Screenshot
@@ -253,11 +253,22 @@ The field `cypress` from `options` will be transmitted as it to `cy.screenshot` 
 Example:
 
 ```javascript
-    cy.sauceVisualCheck('login-page', {
-      cypress: {
-        capture: 'viewport',
-      }
-    });
+cy.sauceVisualCheck('login-page', {
+  cypress: {
+    capture: 'viewport',
+  }
+});
+```
+
+### Capturing the DOM snapshot
+
+Sauce Visual does not capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
+
+Example:
+```javascript
+cy.sauceVisualCheck('login-page', {
+    captureDom: true
+});
 ```
 
 ## Limitations
