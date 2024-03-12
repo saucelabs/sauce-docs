@@ -219,7 +219,8 @@ Options:
 
 - `buildName`: Name of the build, not used for matching, only for display purposes
 - `project`: Name of the project, used for matching
-- `branch`: Name of branch, used for matching
+- `branch`: Name of the branch, used for matching
+- `defaultBranch`: Name of the default branch, used for matching
 
 ```ts
 // ...

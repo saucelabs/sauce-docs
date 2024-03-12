@@ -139,7 +139,8 @@ Options:
 
 - `buildName`: Name of the build
 - `project`: Name of the project
-- `branch`: Name of branch
+- `branch`: Name of the branch, used for matching
+- `defaultBranch`: Name of the default branch, used for matching
 
 They need to be set through the `options` parameter.
 
