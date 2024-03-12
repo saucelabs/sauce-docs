@@ -74,13 +74,13 @@ export const config: Options.Testrunner = {
 Add a check to one of your tests:
 
 ```ts
-    describe('Login Flow', () => {
-        it('should login with valid credentials', async () => {
-            //...
-            await browser.sauceVisualCheck('My Login Page')
-            //...
-        });
-    })
+describe('Login Flow', () => {
+    it('should login with valid credentials', async () => {
+        //...
+        await browser.sauceVisualCheck('My Login Page')
+        //...
+    });
+})
 ```
 
 ### Step 4: Configure your Sauce Labs credentials
@@ -139,7 +139,8 @@ Options:
 
 - `buildName`: Name of the build
 - `project`: Name of the project
-- `branch`: Name of branch
+- `branch`: Name of the branch, used for matching
+- `defaultBranch`: Name of the default branch, used for matching
 
 They need to be set through the `options` parameter.
 
@@ -177,12 +178,12 @@ Those ignored components are specified when requesting a new snapshot.
 Example:
 
 ```ts
-    await browser.sauceVisualCheck('Inventory Page', {
-        ignore: [
-            // addBackPackToCartButton will be ignored
-            InventoryPage.addBackPackToCartButton,
-        ],
-    });
+await browser.sauceVisualCheck('Inventory Page', {
+    ignore: [
+        // addBackPackToCartButton will be ignored
+        InventoryPage.addBackPackToCartButton,
+    ],
+});
 
 ```
 
@@ -208,6 +209,17 @@ await browser.sauceVisualCheck('Before Login', {
             height: 200,
         },
     ],
+});
+```
+
+### Capturing the DOM snapshot
+
+Sauce Visual does not capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
+
+Example:
+```ts
+browser.sauceVisualCheck('Before Login', {
+    captureDom: true
 });
 ```
 
