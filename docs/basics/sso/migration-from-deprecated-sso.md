@@ -60,16 +60,25 @@ You will have access to the configuration panels of both integrations in the Tea
 
 <img src={useBaseUrl('img/basics/sso/migration-to-the-new-sso/migration-wizard-button.png')} alt="SSO Migration Banner" width="800" />
 
-3. Upload the XML file containing your Identity Provider metadata generated in the first step, and then click **Enable new SSO**.
+3. If some users from your organization have their email addresses empty at Sauce Labs, you will see the following pop-up. Otherwise, email addresses for all users are set up correctly, and you can proceed to the step 4.  
+<img src={useBaseUrl('img/basics/sso/migration-to-the-new-sso/provide-missing-emails.png')} alt="Provide Missing Email Addresses" width="800" />
 
-<img src={useBaseUrl('img/basics/sso/migration-to-the-new-sso/upload-metadata.png')} alt="Upload metadata" width="700" />
+   - Click **Download as CSV** to download a CSV file containing the list of users with missing email addresses.  
+   - Fill in the email addresses for the users in the CSV file in the second column **valid_email_address** and then upload the file and click **Continue**.  
+   - You will get error messages for any invalid email addresses. Correct the email addresses and upload the file again.
+   <img src={useBaseUrl('img/basics/sso/migration-to-the-new-sso/missing-emails-errors.png')} alt="Missing Email Addresses Validation" width="800" />
+   - After successfully uploading the file, you will be able to proceed to the step 4 to upload the metadata file.
 
-4. After successfully uploading the metadata, you will see a confirmation message and the configuration panel for managing the new SSO.
+4. Upload the XML file containing your Identity Provider metadata generated in the first step, and then click **Enable new SSO**.  
+  
+<img src={useBaseUrl('img/basics/sso/migration-to-the-new-sso/upload-metadata.png')} alt="Upload metadata" width="700" />  
+
+5. After successfully uploading the metadata, you will see a confirmation message and the configuration panel for managing the new SSO.
 
 <img src={useBaseUrl('img/basics/sso/migration-to-the-new-sso/success-new-ui.png')} alt="Successful Setup" width="800" />
 
-5. Test the new integration using the [IdP and the SP initiated login](/basics/sso/logging-in-via-sso).
+6. Test the new integration using the [IdP and the SP initiated login](/basics/sso/logging-in-via-sso).
 
-6. Keep in mind that the deprecated SSO integration continues to work independently and concurrently. It is not affected by the migration and remains enabled. You can manage this integration in the Team Management UI. To disable the deprecated SSO, toggle the **Enable Single Sign on** option after validating the new integration. You may also permanently delete the metadata file of your previous integration by clicking **Delete metadata file**.
+7. Keep in mind that the deprecated SSO integration continues to work independently and concurrently. It is not affected by the migration and remains enabled. You can manage this integration in the Team Management UI. To disable the deprecated SSO, toggle the **Enable Single Sign on** option after validating the new integration. You may also permanently delete the metadata file of your previous integration by clicking **Delete metadata file**.
 
 <img src={useBaseUrl('img/basics/sso/migration-to-the-new-sso/legacy-sso-ui.png')} alt="Deprecated SSO Configuration Panel" width="800" />
