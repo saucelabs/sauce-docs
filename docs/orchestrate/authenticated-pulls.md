@@ -67,3 +67,9 @@ artifacts:
       - "*"
     directory: ./artifacts
 ```
+
+## Using SauceLabs Container Registry?
+
+We provide a dedicated solution for storing container images within our infrastructure. If you're already using it -
+feel free to check out [additional documentation about it](https://docs.saucelabs.com/orchestrate/saucelabs-private-registry/),
+if not - reach out to SauceLabs customer support to learn more.
