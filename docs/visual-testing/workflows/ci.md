@@ -8,7 +8,9 @@ import TabItem from '@theme/TabItem';
 
 # Continous Integration
 
-To integrate Sauce Visual into your continous integration workflow we recommend a two step approach using the sauce visual cli. 
+To integrate Sauce Visual into your continous integration workflow we recommend a two step approach using the sauce visual cli. Sauce visual cli will work with all major CI systems (Github, Gitlab, Jenkins, CircleCI).
+
+To implement a merge/pull request flow which blocks the given request from merging when visual diffs are dectected and not approved do the following:
 
 1. trigger test execution in your ci the way you do it locally, make sure your test doesn't fail when visual differences are being detected. Make sure to pass a custom id to your build configuration.
 2. in a dedicated build step use the sauce visual cli to fetch the current state of the sauce visual build from step one. It will fail in case visual changes have been detected. Make sure to have nodejs installed.
@@ -23,6 +25,8 @@ The branching workflow starts by running a visual build on a new branch. Its pur
 without impacting other builds. It can also be used to maintain baselines for different environments. E.g. dev staging and production.
 
 If you are familiar with git branching this workflow is similair but different to simplify the overall workflow.
+
+<img src={useBaseUrl('img/sauce-visual/branching-merging.png')} alt="Baseline Branching and Merging" />
 
 # Creating new branches
 
