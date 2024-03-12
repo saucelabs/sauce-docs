@@ -10,12 +10,16 @@ import TabItem from '@theme/TabItem';
 
 To integrate Sauce Visual into your continous integration workflow we recommend a two step approach using the sauce visual cli. Sauce visual cli will work with all major CI systems (Github, Gitlab, Jenkins, CircleCI).
 
+<img src={useBaseUrl('img/sauce-visual/workflow-ci.png')} alt="Branch Review Pipeline" />
+
 To implement a merge/pull request flow which blocks the given request from merging when visual diffs are dectected and not approved do the following:
 
-1. trigger test execution in your ci the way you do it locally, make sure your test doesn't fail when visual differences are being detected. Make sure to pass a custom id to your build configuration.
-2. in a dedicated build step use the sauce visual cli to fetch the current state of the sauce visual build from step one. It will fail in case visual changes have been detected. Make sure to have nodejs installed.
+1. trigger test execution in your ci the way you do it locally. Make sure to pass a custom build id and do not fail your test when visual differences where detected.
+2. in a dedicated build step use the sauce visual cli to fetch the current state of the sauce visual build using the custom build id from step one. It will fail in case visual changes have been detected.
 
 ```
+# make sure nodejs and npx is available
+
 npx @saucelabs/visual build status -r us-west-1 --custom-id YOUR_CUSTOM_BUILD_ID
 ```
 
