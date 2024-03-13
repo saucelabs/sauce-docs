@@ -40,4 +40,4 @@ Please check the documentation for your intergration to configure branches prope
 
 # Merging a branch
 
-To merge baselines into your main branch we recommend at this point to merge your code changes in your source code repository and run a new build on the resulting main brach. This will prevent any merge issues and guarantees you don't miss any changes.
+To merge baselines into your main branch we recommend at this point to merge your code changes in your source code repository and run a new build on the resulting main branch. This will prevent any merge issues and guarantees you don't miss any changes.
