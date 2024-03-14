@@ -193,7 +193,7 @@ Alternatively, ignored regions can be user-specified areas. A region is defined 
 
 - `x`, `y`: The location of the top-left corner of the ignored region
 - `width`: The width of the region to ignore
-- `height`: The heigh of the region to ignore
+- `height`: The height of the region to ignore
 
 _Note: all values are pixels_
 

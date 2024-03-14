@@ -179,7 +179,7 @@ export default meta;
 
 ## Different Browsers and Devices
 
-By default the tests are run on your local machine/in your pipeline with Chromium. You have the option to run them on different [browser and device configurations](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json) preconfigured by playwright or define your own device, a combination or all of them. To do so, you need to add the following to your `test-runner-jest.config.js` file:
+By default, the tests are run on your local machine/in your pipeline with Chromium. You have the option to run them on different [browser and device configurations](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json) preconfigured by playwright or define your own device, a combination or all of them. To do so, you need to add the following to your `test-runner-jest.config.js` file:
 
 ```js
 const { getJestConfig } = require('@storybook/test-runner');
