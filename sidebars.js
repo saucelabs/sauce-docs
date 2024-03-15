@@ -1701,6 +1701,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'visual-testing/integrations/cypress',
+                        'visual-testing/integrations/csharp',
                         'visual-testing/integrations/java',
                         'visual-testing/integrations/nightwatch',
                         'visual-testing/integrations/storybook',
