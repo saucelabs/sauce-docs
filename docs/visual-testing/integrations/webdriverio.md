@@ -225,10 +225,10 @@ browser.sauceVisualCheck('Before Login', {
 
 ### Full page screenshots
 
-If you want to see more than what's on the screen, you can take a full-page screenshot. It'll capture everything by scrolling and stitching it together.
+If you want to see more than what's on the screen, you can take a full-page screenshot. It'll capture everything by scrolling and stitching it together.  
 
 :::note
-It's recommended to use the `hideAfterFirstScroll` option for all fixed elements on the page.
+It's recommended to use the `hideAfterFirstScroll` option for elements like sticky header. 
 :::
 
 Options:
@@ -241,7 +241,7 @@ Example:
 
 ```ts
 await browser.sauceVisualCheck('Long content page', {
-  fullPageConfig: {
+  fullPage: {
     enable: true,
     delayAfterScroll: 500,
     hideAfterFirstScroll: ["#header"],
