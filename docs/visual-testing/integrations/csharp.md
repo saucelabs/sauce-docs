@@ -162,11 +162,16 @@ defaultValue="NUnit"
   <TabItem value="xUnit">
 
 ```csharp
-  public void Dispose()
+  public class MyTestClass : IAsyncLifetime
   {
-      Driver?.Quit();
-      VisualClient.Cleanup().Wait();
-      VisualClient.Dispose();
+    [...]
+
+    public async Task DisposeAsync()
+    {
+        Driver?.Quit();
+        await VisualClient.Cleanup();
+        VisualClient.Dispose();
+    }
   }
 ```
 
