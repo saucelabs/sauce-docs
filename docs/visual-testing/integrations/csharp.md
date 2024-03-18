@@ -271,7 +271,7 @@ Those ignored components are specified when requesting a new snapshot.
 
 Example:
 
-```java
+```csharp
 var btnAction = Driver.FindElement(By.CssSelector(".app_logo"));
 
 await VisualClient.VisualCheck("C# capture",
@@ -293,7 +293,7 @@ _Note: all values are pixels_
 
 Example:
 
-```java
+```csharp
 await VisualClient.VisualCheck("C# capture",
     new VisualCheckOptions()
     {
