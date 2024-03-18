@@ -72,12 +72,12 @@ For example, with a subscription, you can test iPhone 12 devices with any of the
 
 Yes, by using virtual USB, but only on private Android devices. Currently, iOS does not have an option to upload or download files from real devices. See [Virtual USB Testing on Real Mobile Devices](/mobile-apps/features/virtual-usb) for more information.
 
-#### **I want to execute ADB shell commands, but I am getting an error. Why?**
+#### **I'm encountering errors when executing ADB shell commands. What could be the issue?**
 
-If you're encountering issues with ADB shell commands during your automated Appium tests, ensure that you are using the 
+If you're facing challenges with ADB shell commands during your automated Appium tests, ensure that you are using the 
 [mobile: shell script](https://docs.saucelabs.com/dev/test-configuration-options/#mobile-shell) correctly.
 
-We maintain an allowlist of commands that can be executed within our Real Device Cloud. Refer to the list of allowlisted commands to ensure compatibility:
+We maintain an allowlist of commands that can be executed within our Real Device Cloud. Please refer to the list of allowed commands to ensure compatibility:
 * am start
 * am force-stop
 * pm clear
@@ -87,8 +87,8 @@ We maintain an allowlist of commands that can be executed within our Real Device
 * am compat enable
 * cmd connectivity airplane-mode (enable|disable)
 
-If the command you need to use is not on the list, you can submit a request through this [form](https://docs.google.com/forms/d/1t4MCf6ClHlLxX80RP5bNU9wVJBhQOd4ll6IjP0ecMgc) 
-or reach out to your Customer Success Manager or Sauce Labs Support.
+If the command you require is not listed, you can submit a request through this [form](https://docs.google.com/forms/d/1t4MCf6ClHlLxX80RP5bNU9wVJBhQOd4ll6IjP0ecMgc) 
+or reach out to your Customer Success Manager or Sauce Labs Support for assitance.
 
 ### Security
 
