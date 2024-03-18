@@ -41,7 +41,7 @@ npm:
 
 If your registry is only accessible inside your corporate network, you'll have to use 
 Sauce Connect to securely connect the Sauce Labs cloud to your registry. See the
-[SauceConnect](https://docs.saucelabs.com/secure-connections/sauce-connect-5/) docs for more
+[Sauce Connect](https://docs.saucelabs.com/secure-connections/sauce-connect-5/) docs for more
 details.
 
 #### **When I download test artifacts after the test completes, why don't I see all of the expected artifacts?**
