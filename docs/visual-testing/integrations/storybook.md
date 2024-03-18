@@ -131,12 +131,13 @@ npx test-storybook
 Below are the environment variables available in the visual-storybook plugin:
 
 | Variable Name           |          | Description                                                                                                                                                                                                                      |
-| ----------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|:------------------------| -------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `SAUCE_USERNAME`        | required | Your Sauce Labs username. You can get this from the header of app.saucelabs.com                                                                                                                                                  |
 | `SAUCE_ACCESS_KEY`      | required | Your Sauce Labs access key. You can get this from the header of app.saucelabs.com                                                                                                                                                |
 | `SAUCE_REGION`          |          | The region you'd like to run your Visual tests in. Defaults to `us-west-1` if not supplied. Can be one of the following: <br/> `'eu-central-1'`, `'us-west-1'` or `'us-east-4'`                                                  |
 | `SAUCE_BUILD_NAME`      |          | The name you would like to appear in the Sauce Visual dashboard. Defaults to 'Storybook Build'                                                                                                                                   |
-| `SAUCE_BRANCH_NAME`     |          | The branch name or tag you would like to associate this build with. We recommend using your current VCS branch in CI.                                                                                                            |
+| `SAUCE_VISUAL_BRANCH_NAME`     |          | The branch name you would like to associate this build with. We recommend using your current VCS branch in CI.                                                                                                            |
+| `SAUCE_VISUAL_DEFAULT_BRANCH_NAME`     |          | The main branch name you would like to associate this build with. Usually `main` or `master` or alternatively the branch name your current branch was derived from. [Follow me to learn more](../workflows/ci.md) |
 | `SAUCE_PROJECT_NAME`    |          | The label / project you would like to associated this build with.                                                                                                                                                                |
 | `SAUCE_VISUAL_BUILD_ID` |          | For advanced users, a user-supplied SauceLabs Visual build ID. Can be used to create builds in advance using the GraphQL API. This can be used to parallelize tests with multiple browsers, shard, or more. <br/> By default, this is not set and we create / finish a build during setup / teardown. |
 | `SAUCE_VISUAL_CUSTOM_ID` |          | For advanced users, a user-supplied custom ID to identify this build. Can be used in CI to identify / check / re-check the status of a single build. Usage suggestions: CI pipeline ID.  |
@@ -150,7 +151,8 @@ The below configuration options are also exported as the type `SauceVisualParams
 Parameters key: `sauceVisual`
 
 | Key            | Type      | Default           | Description                                                                                                                                                                                                                                                                                                                               |
-|----------------|-----------|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:---------------|:----------|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `captureDom`   | `boolean` | `true`            | Toggles DOM snapshot capture.                                                                                                                                                                                                                                                                                                             |
 | `clip`         | `boolean` | `true`            | If the story & layout supports it, will automatically clip to the `clipSelector` to remove extraneous whitespace. Recommended to be used in conjunction with [`centered` layout](https://storybook.js.org/docs/configure/story-layout#global-layout). Currently defaults to `false`, however, will default to `true` in a future version. |
 | `clipSelector` | `string`  | `#storybook-root` | The selector to clip to when `clip = true`. Defaults to Storybook's default root element, `#storybook-root`.                                                                                                                                                                                                                              |
 | `delay`        | `number`  | `0` (no delay)    | A number, in ms, that we should delay the snapshot by. Useful if the beginning of the story has unavoidable / javascript animations.                                                                                                                                                                                                      |
@@ -177,7 +179,7 @@ export default meta;
 
 ## Different Browsers and Devices
 
-By default the tests are run on your local machine/in your pipeline with Chromium. You have the option to run them on different [browser and device configurations](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json) preconfigured by playwright or define your own device, a combination or all of them. To do so, you need to add the following to your `test-runner-jest.config.js` file:
+By default, the tests are run on your local machine/in your pipeline with Chromium. You have the option to run them on different [browser and device configurations](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json) preconfigured by playwright or define your own device, a combination or all of them. To do so, you need to add the following to your `test-runner-jest.config.js` file:
 
 ```js
 const { getJestConfig } = require('@storybook/test-runner');
@@ -220,3 +222,7 @@ If you'd like to configure your own devices, please follow the configuration ste
 </div>
 
 We have a separate Storybook plugin, `@saucelabs/storybook-variants`, available for rendering all variants of a component in a grid to ease the testing and development process. Read the full [README on NPM](https://www.npmjs.com/package/@saucelabs/storybook-variants) for installation & usage.
+
+## Example
+
+An example project is available [here](https://github.com/saucelabs/visual-examples/tree/main/storybook).

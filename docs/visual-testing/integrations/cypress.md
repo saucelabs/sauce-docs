@@ -158,6 +158,7 @@ Options:
 - `buildName`: Name of the build (default: `Cypress Visual Testing`)
 - `project`: Name of the project (default: `None`)
 - `branch`: Name of branch (default: `None`)
+- `defaultBranch`: Name of the main or default branch (default: `None`)  
 
 They need to be set through the `saucelabs` attribute of `e2e` configuration.
 
@@ -188,10 +189,17 @@ Below are the environment variables available for the Sauce Visual for Cypress p
 | `SAUCE_ACCESS_KEY`      | required | Your Sauce Labs access key. You can get this from the header of app.saucelabs.com                                                                                                                                                |
 | `SAUCE_REGION`          |          | The region you'd like to run your Visual tests in. Defaults to `us-west-1` if not supplied. Can be one of the following: <br/> `'eu-central-1'`, `'us-west-1'` or `'us-east-4'`                                                  |
 | `SAUCE_VISUAL_BUILD_NAME`      |          | The name you would like to appear in the Sauce Visual dashboard. Defaults to 'Cypress Visual Testing'                                                                                                                                   |
-| `SAUCE_VISUAL_BRANCH_NAME`     |          | The branch name or tag you would like to associate this build with. We recommend using your current VCS branch in CI.                                                                                                            |
+| `SAUCE_VISUAL_BRANCH_NAME`     |          | The branch name you would like to associate this build with. We recommend using your current VCS branch in CI.                                                                                                            |
+| `SAUCE_VISUAL_DEFAULT_BRANCH_NAME`     |          | The main branch name you would like to associate this build with. Usually `main` or `master` or alternatively the branch name your current branch was derived from. [Follow me to learn more](../workflows/ci.md) |
 | `SAUCE_VISUAL_PROJECT_NAME`    |          | The label / project you would like to associate this build with.                                                                                                                                                                |
 | `SAUCE_VISUAL_BUILD_ID`        |          | For advanced users, a user-supplied SauceLabs Visual build ID. Can be used to create builds in advance using the GraphQL API. This can be used to parallelize tests with multiple browsers, shard, or more. <br/> By default, this is not set and we create / finish a build during setup / teardown. |
 | `SAUCE_VISUAL_CUSTOM_ID`       |          | For advanced users, a user-supplied custom ID to identify this build. Can be used in CI to identify / check / re-check the status of a single build. Usage suggestions: CI pipeline ID.  |
+
+### Working with custom ID
+
+Linking all your Sauce Visual tests to one build ID can streamline your workflow, especially in CI setups. This enables easy management using the Sauce Visual CLI, like creating builds with custom IDs, adding snapshots, and completing builds. This way, you can efficiently handle multiple tests grouped under the same build in Sauce Visual.
+
+When you use `SAUCE_VISUAL_CUSTOM_ID`, Sauce Visual checks if there's an existing build with that ID. If found, your tests are linked to it; otherwise, Sauce Visual creates a new build. In contrast, using `SAUCE_VISUAL_BUILD_ID` requires an existing build with the provided ID; otherwise, an error occurs.
 
 ### Ignored regions
 
@@ -206,11 +214,11 @@ Those ignored components are specified when requesting a new snapshot.
 Example:
 
 ```javascript
-    cy.sauceVisualCheck('login-page', {
-      ignoredRegions: [
-        cy.get('[data-test="username"]'),
-      ]
-    });
+cy.sauceVisualCheck('login-page', {
+  ignoredRegions: [
+    cy.get('[data-test="username"]'),
+  ]
+});
 ```
 
 #### User-specified ignored region
@@ -219,23 +227,23 @@ Alternatively, ignored regions can be user-specified areas. A region is defined 
 
 - `x`, `y`: The location of the top-left corner of the ignored region
 - `width`: The width of the region to ignore
-- `height`: The heigh of the region to ignore
+- `height`: The height of the region to ignore
 
 _Note: all values are pixels_
 
 Example:
 
 ```javascript
-    cy.sauceVisualCheck('login-page', {
-      ignoredRegions: [
-        {
-          x: 240,
-          y: 800,
-          width: 1520,
-          height: 408
-        }
-      ],
-    });
+cy.sauceVisualCheck('login-page', {
+  ignoredRegions: [
+    {
+      x: 240,
+      y: 800,
+      width: 1520,
+      height: 408
+    }
+  ],
+});
 ```
 
 ### Specifying options for Cypress Screenshot
@@ -247,11 +255,22 @@ The field `cypress` from `options` will be transmitted as it to `cy.screenshot` 
 Example:
 
 ```javascript
-    cy.sauceVisualCheck('login-page', {
-      cypress: {
-        capture: 'viewport',
-      }
-    });
+cy.sauceVisualCheck('login-page', {
+  cypress: {
+    capture: 'viewport',
+  }
+});
+```
+
+### Capturing the DOM snapshot
+
+Sauce Visual does not capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
+
+Example:
+```javascript
+cy.sauceVisualCheck('login-page', {
+    captureDom: true
+});
 ```
 
 ## Limitations
