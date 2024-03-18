@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Is Sauce Visual's image comparison pixel-based or DOM-based?
 
-The current implementation is Pixel-based only.
+The current implementation is Pixel-based by default, while DOM-based diffing can be turned on by setting the flag `captureDom`  to `true`. Read more in our integration guides.
 
 ### Does Sauce Visual support "ignore regions"?
 
