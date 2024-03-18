@@ -22,7 +22,7 @@ Sauce Visual provides an library allowing integration with [WebDriver](https://w
 Sauce Visual plugin provides a library exposing a `VisualClient` class that provides actions:
 
 - `VisualCheck`: Takes a screenshot and sends it to Sauce Visual for comparison.
-- `visualClient.VisualResults()`: Waits for all diff calculations to complete and returns a summary of results.
+- `VisualResults`: Waits for all diff calculations to complete and returns a summary of results.
   See [Test results summary](#test-results-summary) for more details about summary format and sample usage.
 
 ## Quickstart
