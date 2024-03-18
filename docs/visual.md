@@ -11,7 +11,6 @@ The Screener visual testing solution is going to be discontinued on May 31st, 20
 If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
 :::
 
-
 > **Screener Docs are Now Sauce Docs**<br/>
 > As part of our effort to bring you a single, unified documentation site, we've migrated all Visual Docs from [Screener.io](https://screener.io) to Sauce Docs.
 
