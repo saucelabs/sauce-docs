@@ -14,7 +14,7 @@ Access to this feature is currently limited to Enterprise customers as part of o
 
 ## Introduction
 
-This guide requires an existing C# nUnit / xUnit setup.<br />
+This guide requires an existing C# NUnit / xUnit setup.<br />
 You can alternatively take a look to our [example repository](#examples).
 
 Sauce Visual provides an library allowing integration with [WebDriver](https://www.selenium.dev/documentation/webdriver/).
@@ -56,22 +56,63 @@ private VisualClient VisualClient { get; set; }
 Initialize `RemoteWebDriver` and `VisualClient`
 
 <Tabs
-defaultValue="nUnit"
+defaultValue="NUnit"
   values={[
-    {label: 'nUnit', value: 'nUnit'},
+    {label: 'NUnit', value: 'NUnit'},
     {label: 'xUnit', value: 'xUnit'},
   ]}>
-<TabItem value="nUnit">
+<TabItem value="NUnit">
 
 ```csharp
+    [OneTimeSetUp]
+    public void Setup()
+    {
+      var sauceUsername = "YOUR_USERNAME";
+      var sauceAccessKey = "YOUR_ACCESS_KEY";
+      var sauceUrl = "https://ondemand.us-west-1.saucelabs.com:443/wd/hub";
 
+      var browserOptions = new ChromeOptions();
+      browserOptions.PlatformName = "Windows 11";
+      browserOptions.BrowserVersion = "latest";
+
+      var sauceOptions = new Dictionary<string, object>();
+      sauceOptions.Add("username", sauceUsername);
+      sauceOptions.Add("accessKey", sauceAccessKey);
+      browserOptions.AddAdditionalOption("sauce:options", sauceOptions);
+
+      Driver = new RemoteWebDriver(sauceUrl, browserOptions);
+
+      VisualClient = new VisualClient(Driver, Region.UsWest1, sauceUsername, sauceAccessKey,
+          new CreateBuildOptions() { Name = "My Visual Build", Project = "csharp-project", Branch = "csharp-branch" });
+      VisualClient.CaptureDom = true;
+    }
 ```
 
   </TabItem>
   <TabItem value="xUnit">
 
 ```csharp
+    public MyTestClass()
+    {
+      var sauceUsername = "YOUR_USERNAME";
+      var sauceAccessKey = "YOUR_ACCESS_KEY";
+      var sauceUrl = "https://ondemand.us-west-1.saucelabs.com:443/wd/hub";
 
+      var browserOptions = new ChromeOptions();
+      browserOptions.PlatformName = "Windows 11";
+      browserOptions.BrowserVersion = "latest";
+
+      var sauceOptions = new Dictionary<string, object>();
+      sauceOptions.Add("username", sauceUsername);
+      sauceOptions.Add("accessKey", sauceAccessKey);
+      browserOptions.AddAdditionalOption("sauce:options", sauceOptions);
+
+      Driver = new RemoteWebDriver(sauceUrl, browserOptions);
+
+      VisualClient = new VisualClient(Driver, Region.UsWest1, sauceUsername, sauceAccessKey,
+          new CreateBuildOptions() { Name = "My Visual Build", Project = "csharp-project", Branch = "csharp-branch" });
+      VisualClient.CaptureDom = true;
+    }
 ```
 
   </TabItem>
@@ -83,14 +124,21 @@ To enhance efficiency in managing tests, it's important to provide a specific te
 
 Don't forget to quit the WebDriver and Dispose VisualClient.
 <Tabs
-defaultValue="nUnit"
+defaultValue="NUnit"
   values={[
-    {label: 'nUnit', value: 'nUnit'},
+    {label: 'NUnit', value: 'NUnit'},
     {label: 'xUnit', value: 'xUnit'},
   ]}>
-<TabItem value="nUnit">
+<TabItem value="NUnit">
 
 ```csharp
+    [OneTimeTearDown]
+    public void Teardown()
+    {
+        Driver?.Quit();
+        VisualClient.Cleanup().Wait();
+        VisualClient.Dispose();
+    }
 ```
 
   </TabItem>
@@ -113,15 +161,24 @@ defaultValue="nUnit"
 Add a check to one of your tests:
 
 <Tabs
-defaultValue="nUnit"
+defaultValue="NUnit"
   values={[
-    {label: 'nUnit', value: 'nUnit'},
+    {label: 'NUnit', value: 'NUnit'},
     {label: 'xUnit', value: 'xUnit'},
   ]}>
-<TabItem value="nUnit">
+<TabItem value="NUnit">
 
 ```csharp
 
+    [Test]
+    public async Task SauceDemoHomePage()
+    {
+        Driver.Navigate().GoToUrl("https://www.saucedemo.com");
+        var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
+        wait.Until(drv => drv.FindElement(usernameLocator));
+
+        await VisualClient.VisualCheck("Sauce Demo Homepage");
+    }
 ```
 
   </TabItem>
@@ -258,5 +315,5 @@ VisualClient.CaptureDom = true;
 
 Two examples are available:
 
-- An example project [using nUnit](https://github.com/saucelabs/visual-examples/tree/main/dotnet-nunit)
+- An example project [using NUnit](https://github.com/saucelabs/visual-examples/tree/main/dotnet-nunit)
 - An example project [using xUnit](https://github.com/saucelabs/visual-examples/tree/main/dotnet-xunit)
