@@ -236,7 +236,7 @@ Sample usage:
 var expectedTotalUnapprovedDiffs = 0;
 
 var results = await VisualClient.VisualResults();
-Assert.AreEqual(expectedTotalUnapprovedDiffs, results?[DiffStatus.Unapproved]);
+Assert.AreEqual(expectedTotalUnapprovedDiffs, results[DiffStatus.Unapproved]);
 ```
 
 ### Build attributes
