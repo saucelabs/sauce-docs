@@ -222,7 +222,7 @@ Remember, the baseline is established during the initial run, and any subsequent
 
 ### Test results summary
 
-`VisualClient.VisualResults()` returns a summary of test results in `dictionnary<DiffStatus, int>` format where `DiffStatus` is one of the following:
+`VisualClient.VisualResults()` returns a summary of test results in `Dictionnary<DiffStatus, int>` format where `DiffStatus` is one of the following:
 
 - `DiffStatus.QUEUED`: Diffs that are pending for processing. Should be 0 in case the test is completed without any timeouts
 - `DiffStatus.EQUAL`: Diffs that have no changes detected
