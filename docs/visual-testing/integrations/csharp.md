@@ -19,7 +19,7 @@ You can alternatively take a look to our [example repository](#examples).
 
 Sauce Visual provides an library allowing integration with [WebDriver](https://www.selenium.dev/documentation/webdriver/).
 
-Sauce Visual plugin provides a library exposing a `VisualClient` object that provides actions:
+Sauce Visual plugin provides a library exposing a `VisualClient` class that provides actions:
 
 - `visualClient.VisualCheck()`: Takes a screenshot and send it to Sauce Visual for comparison.
 - `visualClient.VisualResults()`: Waits for all diff calculations to complete and returns a summary of results.
