@@ -4,6 +4,13 @@ title: Browsers and Devices Supported for Visual Component Testing
 sidebar_label: Supported Browsers and Devices
 ---
 
+:::warning Screener End-of-life
+
+The Screener visual testing solution is going to be discontinued on May 31st, 2024. You can migrate to the new Sauce Labs Visual Testing solution by following the [integration steps](/visual-testing/).
+
+If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+:::
+
 For cross-browser testing (i.e., testing across multiple browsers), we provide cloud browsers and device emulators.
 
 ## Supported Browsers
