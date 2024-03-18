@@ -8,9 +8,16 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::warning Screener End-of-life
+
+The Screener visual testing solution is going to be discontinued on May 31st, 2024. You can migrate to the new Sauce Labs Visual Testing solution by following the [integration steps](/visual-testing/).
+
+If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+:::
+
 ## Visual E2E Commands
 
-Visual E2E commands can be integrated into existing WebDriver test code simply and safely. Each command is simply a JavaScript comment placed in a WebDriver execute command &#8212; no need to install anything.
+Screener's Visual E2E commands can be integrated into existing WebDriver test code simply and safely. Each command is simply a JavaScript comment placed in a WebDriver execute command &#8212; no need to install anything.
 
 ### Init command
 

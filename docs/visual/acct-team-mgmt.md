@@ -1,12 +1,19 @@
 ---
 id: acct-team-mgmt
-title: Visual Testing Account and Team Management
+title: Screener Account and Team Management
 sidebar_label: Account and Team Management
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+:::warning Screener End-of-life
+
+The Screener visual testing solution is going to be discontinued on May 31st, 2024. You can migrate to the new Sauce Labs Visual Testing solution by following the [integration steps](/visual-testing/).
+
+If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+:::
 
 Teams Management allows you to create Teams for your Account, add users to your Teams, specify user roles, and specify which projects users have access to. In addition, you can assign a user to be an administrator for your Screener Account.
 

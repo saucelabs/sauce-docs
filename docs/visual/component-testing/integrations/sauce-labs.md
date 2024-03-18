@@ -4,6 +4,13 @@ title: Sauce Labs Integration with Visual Component Testing
 sidebar_label: Sauce Labs
 ---
 
+:::warning Screener End-of-life
+
+The Screener visual testing solution is going to be discontinued on May 31st, 2024. You can migrate to the new Sauce Labs Visual Testing solution by following the [integration steps](/visual-testing/).
+
+If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+:::
+
 Screener integrates with the Sauce Labs testing cloud for Cross-Browser Testing.
 
 To learn more about Screener's Cross-Browser Testing, see [Visual Component Cross-Browser Testing](/visual/component-testing/supported-browsers).
