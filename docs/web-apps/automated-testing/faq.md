@@ -40,7 +40,7 @@ npm:
 ```
 
 If your registry is only accessible inside your corporate network, you'll have to use 
-SauceConnect to securely connect the SauceLabs cloud to your registry. See the
+Sauce Connect to securely connect the Sauce Labs cloud to your registry. See the
 [SauceConnect](https://docs.saucelabs.com/secure-connections/sauce-connect-5/) docs for more
 details.
 
