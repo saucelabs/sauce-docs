@@ -99,6 +99,7 @@ defaultValue="NUnit"
 
       VisualClient = new VisualClient(Driver, Region.UsWest1, sauceUsername, sauceAccessKey,
           new CreateBuildOptions() { Name = "My Visual Build", Project = "csharp-project", Branch = "csharp-branch" });
+      // Enable Dom Capture
       VisualClient.CaptureDom = true;
     }
 ```
@@ -126,6 +127,7 @@ defaultValue="NUnit"
 
       VisualClient = new VisualClient(Driver, Region.UsWest1, sauceUsername, sauceAccessKey,
           new CreateBuildOptions() { Name = "My Visual Build", Project = "csharp-project", Branch = "csharp-branch" });
+      // Enable Dom Capture
       VisualClient.CaptureDom = true;
     }
 ```
