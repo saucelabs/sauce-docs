@@ -75,7 +75,7 @@ defaultValue="NUnit"
       browserOptions.PlatformName = "Windows 11";
       browserOptions.BrowserVersion = "latest";
 
-      var sauceOptions = new Dictionary<string, object>();
+      var sauceOptions = new Dictionary<string, string>();
       sauceOptions.Add("username", sauceUsername);
       sauceOptions.Add("accessKey", sauceAccessKey);
       browserOptions.AddAdditionalOption("sauce:options", sauceOptions);
