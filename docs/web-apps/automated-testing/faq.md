@@ -9,7 +9,7 @@ sidebar_label: FAQ
 
 #### **Can I use any version of Cypress/TestCafe/Playwright?**
 
-No, only certain versions of Cypress/TestCafe/Playwright can be used on SauceLabs. The list of 
+No, only certain versions of Cypress/TestCafe/Playwright can be used on Sauce Labs. The list of
 supported versions for each framework can be found in our docs:
 
 * [Using Cypress](https://docs.saucelabs.com/web-apps/automated-testing/cypress/#supported-testing-platforms)
