@@ -150,10 +150,10 @@ defaultValue="NUnit"
 
 ```csharp
     [OneTimeTearDown]
-    public void Teardown()
+    public async Task Teardown()
     {
         Driver?.Quit();
-        VisualClient.Cleanup().Wait();
+        await VisualClient.Cleanup();
         VisualClient.Dispose();
     }
 ```
