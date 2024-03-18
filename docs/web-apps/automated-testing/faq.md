@@ -27,7 +27,7 @@ LTS version at the time of release. A full list can be found in our docs:
 
 #### **My tests rely on private npm packages. How do I include them in my tests?**
 
-If you registry is externally accessible, you can include it in your saucectl configuration 
+If your registry is externally accessible, you can include it in your saucectl configuration 
 under the `registries` setting:
 
 ```yaml
