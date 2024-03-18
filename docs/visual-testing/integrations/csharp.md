@@ -30,14 +30,29 @@ Sauce Visual plugin provides a library exposing a `VisualClient` class that prov
 ### Step 1: Add Sauce Visual dependecy
 
 Add [Sauce Visual](https://www.nuget.org/packages/SauceLabs.Visual/) dependency to your `.csproj`
-```xml
-  <!-- FIXME USE Example Repo Reference -->
-  <ItemGroup>
-    ...
-    <PackageReference Include="SauceLabs.Visual" Version="0.0.1" />
-    ...
-  </ItemGroup>
+
+<Tabs
+defaultValue="windows"
+  values={[
+    {label: 'Windows NuGet CLI', value: 'windows'},
+    {label: 'Linux/macOS/.Net Core', value: 'other'},
+  ]}>
+<TabItem value="windows">
+
+```powershell
+Install-Package SauceLabs.Visual
 ```
+
+  </TabItem>
+  <TabItem value="other">
+
+```sh
+dotnet add package SauceLabs.Visual
+```
+
+  </TabItem>
+</Tabs>
+
 
 _Note: You can find the latest versions available [here](https://www.nuget.org/packages/SauceLabs.Visual#readme-body-tab)._
 
