@@ -97,8 +97,12 @@ defaultValue="NUnit"
 
       Driver = new RemoteWebDriver(sauceUrl, browserOptions);
 
-      VisualClient = new VisualClient(Driver, Region.UsWest1, sauceUsername, sauceAccessKey,
-          new CreateBuildOptions() { Name = "My Visual Build", Project = "csharp-project", Branch = "csharp-branch" });
+      VisualClient = new VisualClient(Driver, Region.UsWest1, new CreateBuildOptions()
+      {
+          Name = "My Visual Build",
+          Project = "csharp-project",
+          Branch = "csharp-branch"
+      });
       // Enable Dom Capture
       VisualClient.CaptureDom = true;
     }
@@ -125,8 +129,13 @@ defaultValue="NUnit"
 
       Driver = new RemoteWebDriver(sauceUrl, browserOptions);
 
-      VisualClient = new VisualClient(Driver, Region.UsWest1, sauceUsername, sauceAccessKey,
-          new CreateBuildOptions() { Name = "My Visual Build", Project = "csharp-project", Branch = "csharp-branch" });
+
+      VisualClient = new VisualClient(Driver, Region.UsWest1, new CreateBuildOptions()
+      {
+          Name = "My Visual Build",
+          Project = "csharp-project",
+          Branch = "csharp-branch"
+      });
       // Enable Dom Capture
       VisualClient.CaptureDom = true;
     }
