@@ -171,7 +171,7 @@ defaultValue="NUnit"
 ```csharp
 
     [Test]
-    public async Task SauceDemoHomePage()
+    public async Task SauceDemoHomePage_ShouldWaitForUserNameLocator_TheLocatorIsAvailableOnThePage()
     {
         Driver.Navigate().GoToUrl("https://www.saucedemo.com");
         var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
