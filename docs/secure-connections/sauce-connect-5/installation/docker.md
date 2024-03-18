@@ -33,8 +33,14 @@ Here are some benefits/use cases for using containerized Sauce Connect Proxy:
     </details>
 2. To run the Sauce Connect Proxy Docker image, modify and run the script below.
 
-   ```bash
-   $ SAUCE_USERNAME="my-user" SAUCE_ACCESS_KEY="my-access-key" SAUCE_REGION="<us-west|eu-central>" SAUCE_TUNNEL_NAME="my-tunnel-name" \
+   ```shell
+   #!/bin/bash
+
+   # This command sets your environment variables in your current shell. 
+   # Replace the placeholders with your username and access key.
+   SAUCE_USERNAME="<enter username here>" SAUCE_ACCESS_KEY="<enter access key here>" SAUCE_REGION="us-west" SAUCE_TUNNEL_NAME="my-tunnel-name" \
+
+   # This command runs the docker container, integrating the newly set environment variables
    docker run \
        -e SAUCE_USERNAME=${SAUCE_USERNAME} \
        -e SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} \
@@ -44,7 +50,20 @@ Here are some benefits/use cases for using containerized Sauce Connect Proxy:
        -it saucelabs/sauce-connect:5.0
    ```
 
-If desired, you can specify any additional ["sc run" CLI arguments](/dev/cli/sauce-connect-5/run/).
+Below, the shell script has been placed into a single command. Note that while both region options are listed in this example, a single value should be used.
+
+   ```bash
+   $ SAUCE_USERNAME="<enter username here>" SAUCE_ACCESS_KEY="<enter access key here>" SAUCE_REGION="us-west" SAUCE_TUNNEL_NAME="my-tunnel-name" \
+   docker run \
+       -e SAUCE_USERNAME=${SAUCE_USERNAME} \
+       -e SAUCE_ACCESS_KEY=${SAUCE_ACCESS_KEY} \
+       -e SAUCE_REGION=${SAUCE_REGION} \
+       -e SAUCE_TUNNEL_NAME=${SAUCE_TUNNEL_NAME} \
+       --network="host" \
+       -it saucelabs/sauce-connect:5.0
+   ```
+
+If desired, specify additional ["sc run" CLI arguments](/dev/cli/sauce-connect-5/run/).
 
 :::note
 The example above uses `--network="host"` docker option to allow Sauce Connect in the Docker container to access your local services in the host machine. This option does not work on MacOS and Windows. See [Connect from a container to a service on the macOS host](https://docs.docker.com/desktop/networking/#use-cases-and-workarounds) for more details.
