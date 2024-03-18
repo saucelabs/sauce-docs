@@ -1545,6 +1545,7 @@ module.exports = {
                         },
                     ],
                 },
+                'web-apps/automated-testing/faq',
             ],
         },
         {
