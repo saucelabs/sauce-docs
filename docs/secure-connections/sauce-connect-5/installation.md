@@ -1,6 +1,6 @@
 ---
 id: installation
-title: Install Sauce Connect 
+title: Install Sauce Connect
 sidebar_label: Installation
 ---
 
@@ -13,7 +13,7 @@ Visit the following pages for installation instructions for your platform:
 - **[Docker](/secure-connections/sauce-connect-5/installation/docker)**
 - **[Kubernetes](/secure-connections/sauce-connect-5/installation/kubernetes)**
 
-### Download Links 
+### Download Links
 
 If you prefer to do custom installation, you can download Sauce Connect binaries from the following links.
 
