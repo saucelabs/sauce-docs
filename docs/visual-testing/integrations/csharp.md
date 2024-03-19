@@ -80,7 +80,7 @@ defaultValue="NUnit"
 
 ```csharp
     [OneTimeSetUp]
-    public void Setup()
+    public async Task Setup()
     {
       var sauceUsername = "YOUR_USERNAME";
       var sauceAccessKey = "YOUR_ACCESS_KEY";
@@ -97,7 +97,7 @@ defaultValue="NUnit"
 
       Driver = new RemoteWebDriver(sauceUrl, browserOptions);
 
-      VisualClient = new VisualClient(Driver, Region.UsWest1, new CreateBuildOptions()
+      VisualClient = await VisualClient.Create(Driver, Region.UsWest1, new CreateBuildOptions()
       {
           Name = "My Visual Build",
           Project = "csharp-project",
@@ -112,35 +112,29 @@ defaultValue="NUnit"
   <TabItem value="xUnit">
 
 ```csharp
-    public MyTestClass()
+  class MyTestClass : IAsyncLifetime {
+    [...]
+    public async Task InitializeAsync()
     {
-      var sauceUsername = "YOUR_USERNAME";
-      var sauceAccessKey = "YOUR_ACCESS_KEY";
-      var sauceUrl = "https://ondemand.us-west-1.saucelabs.com:443/wd/hub";
+        var browserOptions = Utils.GetBrowserOptions();
+        var sauceOptions = Utils.GetSauceOptions();
+        browserOptions.AddAdditionalOption("sauce:options", sauceOptions);
 
-      var browserOptions = new ChromeOptions();
-      browserOptions.PlatformName = "Windows 11";
-      browserOptions.BrowserVersion = "latest";
+        var sauceUrl = Utils.GetOnDemandURL();
+        Driver = new RemoteWebDriver(sauceUrl, browserOptions);
+        Driver.ExecuteScript("sauce:job-name=xUnit C#/.Net Visual Session");
 
-      var sauceOptions = new Dictionary<string, object>();
-      sauceOptions.Add("username", sauceUsername);
-      sauceOptions.Add("accessKey", sauceAccessKey);
-      browserOptions.AddAdditionalOption("sauce:options", sauceOptions);
-
-      Driver = new RemoteWebDriver(sauceUrl, browserOptions);
-
-
-      VisualClient = new VisualClient(Driver, Region.UsWest1, new CreateBuildOptions()
-      {
-          Name = "My Visual Build",
-          Project = "csharp-project",
-          Branch = "csharp-branch"
-      });
-      // Enable Dom Capture
-      VisualClient.CaptureDom = true;
+        VisualClient = await VisualClient.Create(Driver, Region.UsWest1, new CreateBuildOptions()
+        {
+            Name = "My Visual Build",
+            Project = "csharp-project",
+            Branch = "csharp-branch"
+        });
+        // Enable Dom Capture
+        VisualClient.CaptureDom = true;
     }
+  }
 ```
-
   </TabItem>
 </Tabs>
 
@@ -174,7 +168,6 @@ defaultValue="NUnit"
   public class MyTestClass : IAsyncLifetime
   {
     [...]
-
     public async Task DisposeAsync()
     {
         Driver?.Quit();
@@ -202,7 +195,7 @@ defaultValue="NUnit"
 ```csharp
 
     [Test]
-    public async Task SauceDemoHomePage_ShouldWaitForUserNameLocator_TheLocatorIsAvailableOnThePage()
+    public async Task SauceDemoHomePage_ShouldRenderLoginCorrectly()
     {
         Driver.Navigate().GoToUrl("https://www.saucedemo.com");
         var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
@@ -218,7 +211,7 @@ defaultValue="NUnit"
 ```csharp
 
     [Fact]
-    public async void SauceDemoHomePage()
+    public async Task SauceDemoHomePage_ShouldRenderLoginCorrectly()
     {
         Driver.Navigate().GoToUrl("https://www.saucedemo.com");
         var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
@@ -286,7 +279,7 @@ Properties available:
 Example:
 
 ```csharp
-  VisualClient = new VisualClient(Driver, Region.UsWest1, sauceUsername, sauceAccessKey,
+  VisualClient = await VisualClient.Create(Driver, Region.UsWest1, sauceUsername, sauceAccessKey,
       new CreateBuildOptions() { Name = "My Visual Build", Project = "csharp-project", Branch = "feature-branch" });
 ```
 
@@ -338,7 +331,7 @@ Sauce Visual does not capture dom snapshot by default. It can be changed when cr
 
 Example:
 ```csharp
-VisualClient = new VisualClient(Driver, Region.UsWest1, sauceUsername, sauceAccessKey);
+VisualClient = VisualClient.Create(Driver, Region.UsWest1, sauceUsername, sauceAccessKey);
 VisualClient.CaptureDom = true;
 ```
 
