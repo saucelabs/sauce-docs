@@ -315,6 +315,34 @@ browser
   .end();
 ```
 
+### Full page screenshots
+
+If you want to see more than what's on the screen, you can take a full-page screenshot. It'll capture everything by scrolling and stitching it together.
+
+:::note
+It's recommended to use the `hideAfterFirstScroll` option for elements like sticky header.
+:::
+
+Options:
+
+- `delayAfterScrollMs`: Delay in ms after scrolling and before taking screenshots (helps with lazy loading content)
+- `hideAfterFirstScroll`: Hide elements on the page after first scroll (uses css selectors)
+
+Example:
+
+```ts
+await browser.sauceVisualCheck('Long content page', {
+  fullPage: true,
+});
+
+await browser.sauceVisualCheck('Long content page', {
+  fullPage: {
+    delayAfterScroll: 500,
+    hideAfterFirstScroll: ["#header"],
+  },
+});
+```
+
 ### Fail on failures
 
 By default, Sauce Visual will not fail the test if there are any failures during the comparison process. A failure will be logged in the Sauce Labs Visual dashboard, but the test will continue to run.
