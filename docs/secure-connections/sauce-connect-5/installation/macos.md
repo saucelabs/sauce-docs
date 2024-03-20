@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 On macOS you can install Sauce Connect with [Homebrew](https://brew.sh)
 
-### Install 
+### Install
 
 ```bash
 brew tap saucelabs/tap
@@ -36,12 +36,12 @@ sc run --config-file sauce-connect.yaml
 
 ## With zip package
 
-Sauce Connect provides `.zip` package with a signed binary that can be used on any macOS version. 
+Sauce Connect provides `.zip` package with a signed binary that can be used on any macOS version.
 
-### Unpack the zip file 
+### Unpack the zip file
 
 ```bash
-curl -L -o sauce-connect.zip https://saucelabs.com/downloads/sauce-connect/5.0.0/sauce-connect-5.0.0_darwin.all.zip
+curl -L -o sauce-connect.zip https://saucelabs.com/downloads/sauce-connect/5.0.1/sauce-connect-5.0.1_darwin.all.zip
 sudo mkdir -p /opt/sauce-connect
 sudo unzip -d /opt/sauce-connect sauce-connect.zip
 ```
