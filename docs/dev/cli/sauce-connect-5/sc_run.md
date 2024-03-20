@@ -1,493 +1,385 @@
 ---
 id: run
 title: sc run
-sidebar_label: sc run
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# Sc Run
 
-The `sc run` command is a main Sauce Connect Proxy 5 command that allows provisioning a Sauce Connect Proxy server and establishing a secure connection between the Sauce Connect Proxy client and the server.
+Usage: `sc run --username <username> --access-key <UUID> --region <data center> --tunnel-name <value> [flags]`
 
-## Usage
+Run Sauce Connect Proxy
 
-```bash
-SAUCE_USERNAME=<username> SAUCE_ACCESS_KEY=<access key> sc run --region <region> --tunnel-name my-tunnel [OPTIONS]
-```
+**Note:** You can also specify the options as YAML, JSON or TOML file using `--config-file` flag.
+You can generate a config file by running `sc run config-file` command.
+
+
+## Required
+
+### `-k, --access-key` {#access-key}
+
+* Environment variable: `SAUCE_ACCESS_KEY`
+* Value Format: `<UUID>`
+
+Sauce Labs Access Key, you can get it from the User Settings page https://app.saucelabs.com/user-settings.
+For additional security, we recommend setting this as an environment variable.
+
+### `-r, --region` {#region}
+
+* Environment variable: `SAUCE_REGION`
+* Value Format: `<data center>`
+
+Sauce Labs region name, ex.
+us-west or eu-central.
+More details at https://docs.saucelabs.com/basics/data-center-endpoints.
+
+### `-i, --tunnel-name` {#tunnel-name}
+
+* Environment variable: `SAUCE_TUNNEL_NAME`
+* Value Format: `<name>`
+
+Name of the tunnel or tunnel pool.
+You can run tests using this tunnel by specifying the tunnelName value in your test capabilities, see https://docs.saucelabs.com/dev/test-configuration-options/.
+It can also assign a name to a group of tunnels in the same high availability pool, see https://docs.saucelabs.com/secure-connections/sauce-connect/setup-configuration/high-availability/.
+
+### `-u, --username` {#username}
+
+* Environment variable: `SAUCE_USERNAME`
+* Value Format: `<username>`
+
+Sauce Labs username.
+For additional security, we recommend setting this as an environment variable.
 
 ## Options
 
-### Main
+### `-M, --metadata` {#metadata}
 
----
+* Environment variable: `SAUCE_METADATA`
+* Value Format: `<key=value>,...`
 
-#### `--username`
+Custom metadata key-value pairs.
+This flag is, primarily, used by Sauce Labs to assign custom properties to the tunnel for reporting purposes.
 
-<p><small>| REQUIRED | STRING | </small></p>
+### `-s, --shared` {#shared}
 
-**Description**: Sets your Sauce Labs username.<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_USERNAME`<br/>
-**Shorthand**: `-u`
+* Environment variable: `SAUCE_SHARED`
+* Value Format: `<all>`
 
-:::note
-For additional security, we recommend setting this as an [environment variable](/secure-connections/sauce-connect-5/operation/configuration/#environment-variables).
-:::
+Share the tunnel within the same org unit.
+Only the 'all' option is currently supported.
+See https://docs.saucelabs.com/basics/acct-team-mgmt/sauce-connect-proxy-tunnels/.
 
----
+### `-t, --tunnel-pool` {#tunnel-pool}
 
-#### `--access-key`
+* Environment variable: `SAUCE_TUNNEL_POOL`
+* Value Format: `<value>`
+* Default value: `false`
 
-<p><small>| REQUIRED | STRING | </small></p>
+Denotes a tunnel as part of a high availability tunnel pool.
+See https://docs.saucelabs.com/secure-connections/sauce-connect/setup-configuration/high-availability/.
 
-**Description**: Sets your Sauce Labs access key. This will be the same as your [Access Key](https://app.saucelabs.com/user-settings).<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_ACCESS_KEY`<br/>
-**Shorthand**: `-k`
 
-:::note
-For additional security, we recommend setting this as an [environment variable](/secure-connections/sauce-connect/setup-configuration/environment-variables/).
-:::
+## Tunnel traffic
 
----
+### `-F, --deny-domains` {#deny-domains}
 
-#### `--region`
+* Environment variable: `SAUCE_DENY_DOMAINS`
+* Value Format: `[-]<regexp>,...`
 
-<p><small>| REQUIRED | STRING |  </small></p>
+Deny requests to the matching domains.
+Prefix domains with '-' to exclude requests from being denied.
 
-**Description**: Sets your Sauce Labs [data center endpoint](/basics/data-center-endpoints/#data-center-endpoints) (for example, `us-west` or `eu-central`).<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_REGION`<br/>
-**Shorthand**: `-r`
+The following example denies requests to *.example.com and *.google.com.
 
----
-
-#### `--tunnel-name`
-
-<p><small>| REQUIRED | STRING | </small></p>
-
-**Description**: Assigns a name to a Sauce Connect Proxy tunnel. It can also assign a name to a group of tunnels in the same [High Availability pool](/secure-connections/sauce-connect/setup-configuration/high-availability), when used with [`--tunnel-pool`](#--tunnel-pool). Must be in ASCII format.<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_TUNNEL_NAME`<br/>
-**Shorthand**: `-i`
-
-:::note
-You can run tests using this tunnel by specifying the [`tunnelName`](/dev/test-configuration-options/#tunnelname) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).
-:::
-
----
-
-#### `--config-file`
-
-<p><small>| OPTIONAL | STRING | </small></p>
-
-**Description**: Defines the local path to a YAML file containing a Sauce Connect Proxy configuration.<br/>
-**Default**: n/a<br/>
-**Environment variable**: n/a<br/>
-**Shorthand**: `-c`
-
-:::note
-The following precedence order of configuration sources is used: command flags, environment variables, config file, default values.
-:::
-
-:::note
-An additional command [`sc run config-file`](/dev/cli/sauce-connect-5/run/#configuration-file) outputs all configuration file options and their usage.
-:::
-
----
-
-#### `--rest-url`
-
-<p><small>| OPTIONAL | STRING | </small></p>
-
-**Description**: Sets the URL for the [data center endpoint](/basics/data-center-endpoints) of the location where the device you're testing on is hosted.<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_REST_URL`<br/>
-**Shorthand**: n/a
-
-:::note
-This flag is an alternative to the recommended [`--region`](/dev/cli/sauce-connect-5/run/#--region). It's not shown in the CLI usage message.
-:::
-
----
-
-#### `--metadata`
-
-<p><small>| OPTIONAL | STRING | </small></p>
-
-**Description**: Sets custom metadata, expects `key=value` pairs. Can be repeated multiple times.<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_METADATA`<br/>
-**Shorthand**: `-M`
-
-:::note
-This flag is, primarily, used by Sauce Labs to assign custom properties to the tunnel info for reporting purposes.
-:::
-
-```bash
---metadata "runner=jenkins" --metadata "group=qa"
+```
+--deny-domains .*\.example\.com,.*\.google\.com
 ```
 
-### Tunnel Mode Configuration
+### `-D, --direct-domains` {#direct-domains}
 
----
+* Environment variable: `SAUCE_DIRECT_DOMAINS`
+* Value Format: `[-]<regexp>,...`
 
-#### `--shared`
+Forward matching requests to their origin server over the public internet.
+Requests that don't match "direct domains" will be forwarded to customer-side over the Sauce Connect Proxy connection.
+You can specify --direct-domains or --tunnel-domains, but not both.
+Prefix domains with '-' to exclude requests from being forwarded directly.
+Note that direct domains are automatically excluded from being resigned.
 
-<p><small>| OPTIONAL | STRING | </small></p>
+The following example sends requests to *.example.com and *.google.com directly.
+It would tunnel all other domains.
 
-**Description**: Sharing mode. One of: `all` (more options will be added in the future). `--shared all` changes tunnel sharing permissions so that all users in an organization can use Sauce Connect Proxy tunnels (if the tunnel owner is an org admin), rather than just the tunnel owner. For more information, see [Sharing Sauce Connect Proxy Tunnels](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels).<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_SHARED`<br/>
-**Shorthand**: `-s`
-
-:::note
-Additional values for this flag are planned to be added in the future.
-:::
-
----
-
-#### `--tunnel-pool`
-
-<p><small>| OPTIONAL | BOOL | </small></p>
-
-**Description**: Launches a high availability tunnel pool along with the [`--tunnel-name`](#--tunnel-name) flag. For more info, see [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).<br/>
-**Default**: `false`<br/>
-**Environment variable**: SAUCE_TUNNEL_POOL<br/>
-**Shorthand**: n/a
-
-### Proxy Configuration
-
----
-
-#### `--pac`
-
-<p><small>| OPTIONAL | STRING | </small></p>
-
-**Description**: Proxy Auto-Configuration file to use for upstream proxy selection. It can be a local file or a URL, you can also use '-' to read from stdin. For more information, see [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-5/operation/proxies).<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_PAC`<br/>
-**Shorthand**: `-p`
-
-<Tabs
-defaultValue="maclinux"
-values={[
-{label: 'Mac or Linux', value: 'maclinux'},
-{label: 'Windows', value: 'windows'},
-]}>
-
-<TabItem value="maclinux">
-
-```bash
---pac file:///Users/JohnSmith/Desktop/MyPac.pac
+```
+--direct-domains .*\.example\.com,.*\.google\.com
 ```
 
-</TabItem>
+### `-B, --tls-passthrough-domains` {#tls-passthrough-domains}
 
-<TabItem value="windows">
+* Environment variable: `SAUCE_TLS_PASSTHROUGH_DOMAINS`
+* Value Format: `[-]<regexp>,...`
 
-```bash
---pac file:///C:/Users/JohnSmith/Desktop/MyPac.pac
+Pass matching requests to their origin server without SSL/TLS re-encryption.
+You can specify --tls-passthrough-domains or --tls-resign-domains, but not both.
+Prefix domains with '-' to exclude requests from being passed through.
+Note that direct domains will always be passed through.
+
+The following example passes requests to *.example.com and *.google.com through without SSL/TLS re-encryption.
+
+```
+--tls-passthrough-domains .*\.example\.com,.*\.google\.com
 ```
 
-</TabItem>
-</Tabs>
+### `-b, --tls-resign-domains` {#tls-resign-domains}
 
-:::note
-This flag configures the proxy for SUT traffic only. Use the [`--proxy-sauce`](#--proxy-sauce) flag to configure a proxy for the Sauce Labs REST API and Sauce Connect Server traffic.
-:::
+* Environment variable: `SAUCE_TLS_RESIGN_DOMAINS`
+* Value Format: `[-]<regexp>,...`
 
----
+Resign SSL/TLS certificates for matching requests.
+You can specify --tls-resign-domains or --tls-passthrough-domains, but not both.
+Prefix domains with '-' to exclude requests from being resigned.
+Note that direct domains will never be resigned.
 
-#### `--auth`
+The following example resigns SSL/TLS certificates for all requests to *.myorg.dev, except abc.myorg.dev.
 
-<p><small>| OPTIONAL | STRING | </small></p>
+```
+--tls-resign-domains .*\.myorg\.dev,-abc\.myorg\.dev
+```
 
-**Description**: Site or upstream proxy basic authentication credentials in the format `username:password@host:port`. The host and port can be set to "*" to match all. The flag can be specified multiple times to add multiple credentials.<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_PAC_AUTH`<br/>
-**Shorthand**: `-a`
+### `-T, --tunnel-domains` {#tunnel-domains}
 
-```bash
+* Environment variable: `SAUCE_TUNNEL_DOMAINS`
+* Value Format: `[-]<regexp>,...`
+
+Forward matching requests over the Sauce Connect Proxy connection.
+Requests not matching "tunnel domains" will be forwarded to their origin server over the public internet.
+This is the recommended option for the best performance since it minimizes the expensive tunnelled traffic and uses it only for internal domains that are not publicly available.
+You can specify --tunnel-domains or --direct-domains, but not both.
+Prefix domains with '-' to exclude requests from being forwarded over the SC Proxy connection.
+
+The following example tunnels all requests to *.myorg.dev, except abc.myorg.com.
+
+```
+--tunnel-domains .*\.myorg\.dev,-abc\.myorg\.com
+```
+
+## Proxy
+
+### `-a, --auth` {#auth}
+
+* Environment variable: `SAUCE_AUTH`
+* Value Format: `<username[:password]@host:port,...>`
+
+Site or upstream proxy basic authentication credentials.
+The host and port can be set to "*" to match all hosts and ports respectively.
+The flag can be specified multiple times to add multiple credentials.
+Note: Requests to these hosts will be automatically resigned as if there were specified in --tls-resign-domains flag.
+Example: 
+```
 --proxy myproxy.org:3128 --proxy-sauce https://external.com:443 --auth user1:pass1@myproxy.org:3128,user2:pass2@external.com:*
 ```
 
----
+### `-H, --header` {#header}
 
-#### `--header`
+* Environment variable: `SAUCE_HEADER`
+* Value Format: `<header>`
 
-<p><small>| OPTIONAL | STRING | </small></p>
+Add or remove HTTP request headers.
+Use the format "name: value" to add a header, "name;" to set the header to empty value, "-name" to remove the header, "-name*" to remove headers by prefix.
+The header name will be normalized to canonical form.
+The header value should not contain any newlines or carriage returns.
+The flag can be specified multiple times.
+Example: -H "Host: example.com" -H "-User-Agent" -H "-X-*".
 
-**Description**: Add or remove HTTP request headers. Use the format "name: value" to add a header, "name;" to set the header to empty value, "-name" to remove the header, "-name*" to remove headers by prefix.
-The header name will be normalized to canonical form. The header value should not contain any newlines or carriage returns. The flag can be specified multiple times.<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_HEADER`<br/>
-**Shorthand**: `-H`
+### `-p, --pac` {#pac}
 
-```bash
--H "Host: example.com" -H "-User-Agent" -H "-X-*"
-```
+* Environment variable: `SAUCE_PAC`
+* Value Format: `<path or URL>`
 
----
+Proxy Auto-Configuration file to use for upstream proxy selection.
+It can be a local file or a URL, you can also use '-' to read from stdin.
+The data URI scheme is supported, the format is `data:base64,<encoded data>`.
 
-#### `--proxy`
+### `-x, --proxy` {#proxy}
 
-<p><small>| OPTIONAL | STRING | </small></p>
+* Environment variable: `SAUCE_PROXY`
+* Value Format: `[protocol://]host[:port]`
 
-**Description**: Defines an upstream proxy to route test session traffic.
-Supported protocols are: http, https, socks, socks5. If not specified, the default protocol is http. Format: `[protocol://][user:pass@]host:port`.<br/>
-For more information, see [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-5/operation/proxies).<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_PROXY`<br/>
-**Shorthand**: `-x`
+Upstream proxy to use for requests received from the Sauce Connect Server only.
+The supported protocols are: http, https, socks, socks5.
+No protocol specified will be interpreted as an HTTP proxy.
+If the port number is not specified, it is assumed to be 1080.
+The basic authentication username and password can be specified in the host string, e.g.
+user:pass@host:port.
+Alternatively, you can specify the credentials using the -a, --auth flag.
 
-```bash
---proxy http://local.dev:8080
---proxy https://user:auth@local.dev:443
-```
+### `--proxy-localhost` {#proxy-localhost}
 
-:::note
-This flag configures the proxy for SUT traffic only. Use the [`--proxy-sauce`](#--proxy-sauce) flag to configure a proxy for the Sauce Labs REST API and Sauce Connect Server traffic.
-:::
+* Environment variable: `SAUCE_PROXY_LOCALHOST`
+* Value Format: `<allow|deny|direct>`
+* Default value: `deny`
 
-:::note
-Proxy basic authentication, username and password, can be specified in the proxy URL, or with the -a, --auth flag.
-:::
+Setting this to allow enables sending requests to localhost through the upstream proxy.
+Setting this to direct sends requests to localhost directly without using the upstream proxy.
+By default, requests to localhost are denied.
 
----
+### `--proxy-sauce` {#proxy-sauce}
 
-#### `--proxy-sauce`
+* Environment variable: `SAUCE_PROXY_SAUCE`
+* Value Format: `[protocol://]host[:port]`
 
-<p><small>| OPTIONAL | STRING | </small></p>
+Proxy for requests to Sauce Labs REST API and Sauce Connect servers only.
+See the -x, --proxy flag for more details on the format.
 
-**Description**: Defines external proxy you want to route Sauce Labs REST API and Sauce Connect Server traffic.
-For more information, see [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-5/operation/proxies).<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_PROXY_SAUCE`<br/>
-**Shorthand**: n/a
+## DNS
 
-:::note
-This flag configures the proxy for the Sauce Labs REST API and Sauce Connect Server traffic only. Use the [`--proxy`](#--proxy) flag to configure a proxy for SUT traffic proxy.
-:::
+### `--dns-round-robin` {#dns-round-robin}
 
----
+* Environment variable: `SAUCE_DNS_ROUND_ROBIN`
+* Value Format: `<value>`
+* Default value: `false`
 
-#### `--proxy-localhost`
+If more than one DNS server is specified with the --dns-server flag, passing this flag will enable round-robin selection.
 
-<p><small>| OPTIONAL | STRING | </small></p>
 
-**Description**: One of `allow`, `deny`, `direct`. Setting this to `allow` supports sending requests to `localhost` through the upstream proxy.
-This includes scenarios where an [upstream proxy is hosted on localhost](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
-Setting this to `direct` sends requests to `localhost` directly without using the upstream proxy. By default, requests to `localhost` are denied.<br/>
-**Default**: `deny`<br/>
-**Environment variable**: `SAUCE_PROXY_LOCALHOST`<br/>
-**Shorthand**: n/a
+### `-n, --dns-server` {#dns-server}
 
-### Tunnel Traffic Configuration
+* Environment variable: `SAUCE_DNS_SERVER`
+* Value Format: `<ip>[:<port>]`
 
----
+DNS server(s) to use instead of system default.
+There are two execution policies, when more then one server is specified.
+Fallback: the first server in a list is used as primary, the rest are used as fallbacks.
+Round robin: the servers are used in a round-robin fashion.
+The port is optional, if not specified the default port is 53.
 
-#### `--direct-domains`
+### `--dns-timeout` {#dns-timeout}
 
-<p><small>| OPTIONAL | STRING | </small></p>
+* Environment variable: `SAUCE_DNS_TIMEOUT`
+* Value Format: `<duration>`
+* Default value: `5s`
 
-**Description**: Sets domain(s) that are requested through the public internet instead of the Sauce Connect Proxy tunnel. Can be repeated multiple times. This is the inverse of [`--tunnel-domains`](#--tunnel-domains). See [Tuning Sauce Connect Proxy Traffic](/secure-connections/sauce-connect/proxy-tunnels/#direct-domains) for more information. See also [formatting domains](#formatting-domains).<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_DIRECT_DOMAINS`<br/>
-**Shorthand**: `-D`
+Timeout for dialing DNS servers.
+Only used if DNS servers are specified.
 
-```bash
---direct-domains .*\.example\.com,.*google\.com,mycompany\.com
-```
 
----
+## HTTP client
 
-#### `--tls-passthrough-domains`
+### `--cacert-file` {#cacert-file}
 
-<p><small>| OPTIONAL | STRING | </small></p>
+* Environment variable: `SAUCE_CACERT_FILE`
+* Value Format: `<path or base64>`
 
-**Description**: Sets domain(s) that do not require TLS resigning. Matching requests will not be TLS re-encrypted. Can be repeated multiple times. See [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) for more information about scenarios in which might want to use this command. See also [formatting domains](#formatting-domains).<br/>
-**Default**: `all`<br/>
-**Environment variable**: `SAUCE_TLS_PASSTHROUGH_DOMAINS`<br/>
-**Shorthand**: `-B`
+Add your own CA certificates to verify against.
+The system root certificates will be used in addition to any certificates in this list.
+Can be a path to a file or "data:" followed by base64 encoded certificate.
+Use this flag multiple times to specify multiple CA certificate files.
 
-```bash
---tls-passthrough-domains .*\.example\.com,.*google\.com,mycompany\.com
-```
+### `--http-dial-timeout` {#http-dial-timeout}
 
----
+* Environment variable: `SAUCE_HTTP_DIAL_TIMEOUT`
+* Value Format: `<duration>`
+* Default value: `30s`
 
-#### `--tls-resign-domains`
+The maximum amount of time a dial will wait for a connect to complete.
+With or without a timeout, the operating system may impose its own earlier timeout.
+For instance, TCP timeouts are often around 3 minutes.
 
-<p><small>| OPTIONAL | STRING | </small></p>
 
-**Description**: Sets domain(s) that require TLS resigning (the inverse of [`--tls-passthrough-domains`](#--tls-passthrough-domains)). Matching requests will be TLS re-encrypted. Can be repeated multiple times. See also [formatting domains](#formatting-domains).<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_TLS_RESIGN_DOMAINS`<br/>
-**Shorthand**: `-b`
+### `--http-idle-conn-timeout` {#http-idle-conn-timeout}
 
-```bash
---tls-resign-domains .*\.myorg\.dev
-```
+* Environment variable: `SAUCE_HTTP_IDLE_CONN_TIMEOUT`
+* Value Format: `<duration>`
+* Default value: `1m30s`
 
----
+The maximum amount of time an idle (keep-alive) connection will remain idle before closing itself.
+Zero means no limit.
 
-#### `--deny-domains`
 
-<p><small>| OPTIONAL | STRING | </small></p>
+### `--http-response-header-timeout` {#http-response-header-timeout}
 
-**Description**: Sets a deny-list of domains. Matching requests will get dropped instantly and will not go through the tunnel. Tests for app and site degradation based on missing assets or resources. Can be used to simulate non-loading of scripts, styles, or other resources. Use this option followed by a comma-separated list of regular expressions. See the [Sauce Connect Proxy FAQ](/secure-connections/sauce-connect/faq) for an example. See also [formatting domains](#formatting-domains).<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_DENY_DOMAINS`<br/>
-**Shorthand**: `-F`
+* Environment variable: `SAUCE_HTTP_RESPONSE_HEADER_TIMEOUT`
+* Value Format: `<duration>`
+* Default value: `0s`
 
----
+The amount of time to wait for a server's response headers after fully writing the request (including its body, if any).This time does not include the time to read the response body.
+Zero means no limit.
 
-#### `--tunnel-domains`
 
-<p><small>| OPTIONAL | STRING | </small></p>
+### `--http-tls-handshake-timeout` {#http-tls-handshake-timeout}
 
-**Description**: Sets domain(s) that are requested through the Sauce Connect Proxy tunnel. This is the inverse of [`--direct-domains`](#--direct-domains). Can be repeated multiple times. See [Tuning Sauce Connect Proxy Traffic](/secure-connections/sauce-connect/proxy-tunnels/#tunnel-domains) for more information. See also [formatting domains](#formatting-domains).<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_TUNNEL_DOMAINS`<br/>
-**Shorthand**: `-t`
+* Environment variable: `SAUCE_HTTP_TLS_HANDSHAKE_TIMEOUT`
+* Value Format: `<duration>`
+* Default value: `10s`
 
-### Client Configuration
+The maximum amount of time waiting to wait for a TLS handshake.
+Zero means no limit.
 
----
+## API server
 
-#### `--api-address`
+### `--api-address` {#api-address}
 
-<p><small>| OPTIONAL | STRING | </small></p>
+* Environment variable: `SAUCE_API_ADDRESS`
+* Value Format: `<host:port>`
 
-**Description**: Use this option to define the host:port for the internal web server used to expose the Sauce Connect Proxy runtime info. Disabled by default.<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_API_ADDRESS`<br/>
-**Shorthand**: n/a
+The server address to listen on.
+If the host is empty, the server will listen on all available interfaces.
 
----
+### `--api-basic-auth` {#api-basic-auth}
 
-#### `--api-basic-auth`
+* Environment variable: `SAUCE_API_BASIC_AUTH`
+* Value Format: `<username[:password]>`
 
-<p><small>| OPTIONAL | STRING | </small></p>
+Basic authentication credentials to protect the server.
 
-**Description**: Basic authentication `username:password` credentials to protect the server.<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_API_BASIC_AUTH`<br/>
-**Shorthand**: n/a
+### `--api-idle-timeout` {#api-idle-timeout}
 
----
+* Environment variable: `SAUCE_API_IDLE_TIMEOUT`
+* Value Format: `<duration>`
+* Default value: `1h0m0s`
 
-#### `--cacert-file`
+The maximum amount of time to wait for the next request before closing connection.
 
-<p><small>| OPTIONAL | STRING | </small></p>
+## Logging
 
-**Description**: CA certificate bundle in PEM format to use in addition to the system root certificates.
-Can be a path to a file or "data:" followed by a base64-encoded certificate. Use this flag multiple times to specify multiple CA certificate files.<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_CACERT_FILE`<br/>
-**Shorthand**: n/a
+### `--log-file` {#log-file}
 
-### DNS
+* Environment variable: `SAUCE_LOG_FILE`
+* Value Format: `<path>`
 
----
+Path to the log file, if empty, logs to stdout.
 
-#### `--dns-server`
+### `--log-http` {#log-http}
 
-<p><small>| OPTIONAL | STRING | </small></p>
+* Environment variable: `SAUCE_LOG_HTTP`
+* Value Format: `[api|proxy|control:]<none|short-url|url|headers|body|errors>,...`
 
-**Description**: DNS server(s) to use instead of system default. There are two execution policies, when more then one server is specified.
-Fallback: the first server in a list is used as primary, the rest are used as fallbacks. Round robin: the servers are used in a round-robin fashion.
-The port is optional, if not specified the default port is 53.<br/>
-**Default**: n/a<br/>
-**Environment variable**: `SAUCE_DNS`<br/>
-**Shorthand**: `-n`
+HTTP request and response logging mode.
+Setting this to none disables logging.
+The short-url mode logs [scheme://]host[/path] instead of the full URL.
+The error mode logs request line and headers if status code is greater than or equal to 500.
 
-```bash
-sc run --dns-server 8.8.8.8 --dns-server 8.8.4.4:53
-```
+### `--log-level` {#log-level}
 
----
+* Environment variable: `SAUCE_LOG_LEVEL`
+* Value Format: `<error|info|debug>`
+* Default value: `info`
 
-#### `--dns-server-timeout`
+Log level.
 
-<p><small>| OPTIONAL | STRING | </small></p>
-
-**Description**: Timeout for connecting to DNS servers. Only used if DNS servers are specified.<br/>
-**Default**: `5s`<br/>
-**Environment variable**: `SAUCE_DNS_TIMEOUT`<br/>
-**Shorthand**: n/a
-
----
-
-#### `--dns-round-robin`
-
-<p><small>| OPTIONAL | BOOL | </small></p>
-
-**Description**: If more than one DNS server is specified with the --dns-server flag, passing this flag will enable round-robin selection.<br/>
-**Default**: `false`<br/>
-**Environment variable**: `SAUCE_DNS_ROUND_ROBIN`<br/>
-**Shorthand**: n/a
-
-### Logging
-
----
-
-#### `--log-file`
-
-<p><small>| OPTIONAL | STRING | </small></p>
-
-**Description**: Captures the Sauce Connect Proxy logs in a file. If a path is not specified, logs to stdout.<br/>
-**Default**: console<br/>
-**Environment variable**: `SAUCE_LOG_FILE`<br/>
-**Shorthand**: n/a
-
----
-
-#### `--log-http`
-
-<p><small>| OPTIONAL | STRING | </small></p>
-
-**Description**: HTTP request and response logging mode, one of none, short-url, url, headers, body, errors.
-HTTP request and response logging mode. By default, request line and headers are logged if response status
-code is greater than or equal to 500. Setting this to none disables logging. The short-url mode logs
-[scheme://]host[/path] instead of the full URL.<br/>
-**Default**: `none`<br/>
-**Environment variable**: `SAUCE_LOG_HTTP`<br/>
-**Shorthand**: n/a
-
----
-
-#### `--log-level`
-
-<p><small>| OPTIONAL | STRING | </small></p>
-
-**Description**: Log level, one of error, info, debug.<br/>
-**Default**: `info`<br/>
-**Environment variable**: `SAUCE_LOG_LEVEL`<br/>
-**Shorthand**: n/a
-
-### Formatting Domains
+## Formatting Domains
 
 Here are some guidelines to follow when formatting domain regular expressions:
 
 - Use only the domain name. Do not precede it with `http:` or `https:`.
-  - Example: `mydomain\.com`
+	- Example: `mydomain\.com`
 - Make sure your comma-separated list of domains doesn't include any spaces.
-  - Example, `mydomain\.com,saucelabs.com,mysite\.com`
+	- Example, `mydomain\.com,saucelabs.com,mysite\.com`
 - Domains flags can be repeated multiple times
-  - Example, `--direct-domains mydomain\.com,saucelabs\.com --direct-domains mysite\.com`
+	- Example, `--direct-domains mydomain\.com,saucelabs\.com --direct-domains mysite\.com`
 - Prefix domain names with `.*` to match all its subdomains.
-  - Example: You could refer to `docs\.saucelabs\.com` and `my\.saucelabs\.com` as `.*saucelabs\.com`.
+	- Example: You could refer to `docs\.saucelabs\.com` and `my\.saucelabs\.com` as `.*saucelabs\.com`.
 - Escape special characters, such as `.` to ensure they are not parsed
-  - Not escaping dot character doesn't result in error, dot matches every single character except a newline. For example, `example.com` will match `example.com` and also `examplescom`, while `example\.com` will match `example.com` only.
+	- Not escaping dot character doesn't result in error, dot matches every single character except a newline. For example, `example.com` will match `example.com` and also `examplescom`, while `example\.com` will match `example.com` only.
 
-### Configuration File
-
-Subcommand `sc run config-file` provides reference for a configuration file used with `sc run --config-file <path to your file>`.
-The command's [output](/secure-connections/sauce-connect-5/operation/configuration/#config-file-reference) is a convenient starting point for generating your configuration file.
-
-### Additional Resources
+## Additional Resources
 
 - [Sauce Connect Proxy Installation](/secure-connections/sauce-connect-5/installation/).
