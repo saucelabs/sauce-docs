@@ -325,7 +325,6 @@ It's recommended to use the `hideAfterFirstScroll` option for elements like stic
 
 Options:
 
-- `enable`: Enable taking full page screenshot (limited to desktop devices only)
 - `delayAfterScrollMs`: Delay in ms after scrolling and before taking screenshots (helps with lazy loading content)
 - `hideAfterFirstScroll`: Hide elements on the page after first scroll (uses css selectors)
 
@@ -333,8 +332,11 @@ Example:
 
 ```ts
 await browser.sauceVisualCheck('Long content page', {
+  fullPage: true,
+});
+
+await browser.sauceVisualCheck('Long content page', {
   fullPage: {
-    enable: true,
     delayAfterScroll: 500,
     hideAfterFirstScroll: ["#header"],
   },
