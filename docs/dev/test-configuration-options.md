@@ -1525,7 +1525,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `mobile: shell`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">BETA</span> | <span className="sauceGreen">Android Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">Android Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
 
 Execute ADB shell commands, through Appium's `mobile: shell` capability.
 
