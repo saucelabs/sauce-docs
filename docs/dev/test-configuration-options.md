@@ -1525,12 +1525,12 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `mobile: shell`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">BETA</span> | <span className="sauceGreen">Android Only</span> |</small></p>
 
 Execute ADB shell commands, through Appium's `mobile: shell` capability.
 
 :::note
-Sauce Labs now supports ADB commands for Appium. To use ADB and `mobile: shell` commands, please [sign up for our BETA through this form](https://forms.gle/42qv8U1RukqC62x86) and indicate the desired ADB commands you would like to run. We will be supporting a limited list of ADB commands through `mobile: shell`.
+Sauce Labs now supports ADB commands for Appium. To use ADB and `mobile: shell` commands, please [sign up for our BETA through this form](https://forms.gle/42qv8U1RukqC62x86) and indicate the desired ADB commands you would like to run. We will be supporting a limited list of ADB commands through `mobile: shell`. Please refer to the list of allowed commands here [here]([https://forms.gle/42qv8U1RukqC62x86](https://docs.saucelabs.com/mobile-apps/mobile-faq/#im-encountering-errors-when-executing-adb-shell-commands-what-could-be-the-issue)) or contact support for assistance.
 :::
 
 
