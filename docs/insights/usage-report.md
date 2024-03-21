@@ -7,12 +7,16 @@ description: Presents the maximum concurrency usage for a given segment of time,
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Get an accurate view of your concurrency data and compare it to your contractual limit, on an as-needed basis. Your team can cull, filter, and break down this data to best suit your needs. Check your usage for both Virtual Devices and Real Devices to understand your teams' testing patterns. Finding the right cross-section of data is easy and intuitive with a few actions like:
+Sauce Labs Usage provides you with an accurate view of your concurrency data and let's you compare it to your contractual limit, on an as-needed basis. Your team can cull, filter, and break down this data to best suit your needs. Check your usage for both Virtual Devices and Real Devices to understand your teams' testing patterns. Finding the right cross-section of data is easy and intuitive with a few actions like:
 
 - Visualizing the concurrency usage at organization level or by team level.
 - Compare concurrency usage between teams.
 - Timebox data by chosen interval.
 - Visualize the maximum concurrency usage as it approaches the contractual limit.
+
+Taking advantage of Suace Labs Usage data is simple. Log into Sauce Labs and from the left panel, expand the **Insights** section and select **Usage**. 
+
+<img src={useBaseUrl('img/insights/left_panel_usage.png')} alt="Left panel navigation to Insights and Usage"/>
 
 ## How it Works
 
