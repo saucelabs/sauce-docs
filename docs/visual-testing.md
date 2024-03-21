@@ -157,6 +157,7 @@ Sauce Visual provides integrations with different kind of frameworks:
   <h2>E2E Testing</h2>
   <ul>
       <li><a href="/visual-testing/integrations/cypress/">Cypress Integration</a></li>
+      <li><a href="/visual-testing/integrations/csharp/">C#/.Net Integration</a></li>
       <li><a href="/visual-testing/integrations/java/">Java Integration</a></li>
       <li><a href="/visual-testing/integrations/nightwatch/">Nightwatch Integration</a></li>
       <li><a href="/visual-testing/integrations/webdriverio/">WebdriverIO Integration</a></li>
