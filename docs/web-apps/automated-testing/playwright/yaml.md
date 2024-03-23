@@ -558,12 +558,35 @@ Specifies how to manage test artifacts, such as logs, videos, and screenshots.
 
 ```yaml
 artifacts:
+  retain:
+    "foo/bar": "bar.zip"
   cleanup: true
   download:
     when: always
     match:
       - junit.xml
     directory: ./artifacts/
+```
+
+---
+
+### `retain`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Compress selected folders into zip files for download as artifacts.
+
+:::note
+- The source must exclusively be a folder.
+- Regex definitions for source folders are not permitted.
+- Source folders must use relative paths within the workspace folder.
+- Only zip files are accepted as target files.
+:::
+
+```yaml
+artifacts:
+  retain:
+    "foo/bar": "bar.zip"
 ```
 
 ---
