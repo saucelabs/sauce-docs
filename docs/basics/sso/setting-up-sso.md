@@ -82,17 +82,18 @@ If you use a custom identity provider or if we do not provide a preconfigured Sa
 
 Here is the list of settings that are required by Sauce Labs Service Provider:
 
-| Setting                                         | Value                                                                  |
-| ----------------------------------------------- | ---------------------------------------------------------------------- |
-| Entity ID                                       | `https://accounts.saucelabs.com/sp`                                    |
-| Audience (Recipient)                            | `https://accounts.saucelabs.com/sp`                                    |
-| Assertion Consumer Service (ACS URL, Reply URL) | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp` |
-| Recipient URL                                   | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp` |
-| Destination URL                                 | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp` |
-| Name ID (Unique User Identifier)                | `email`/`mail`                                                         |
-| Name ID format/policy                           | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`               |
-| Binding                                         | `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`                       |
-| Login/Application/Sign on URL                   | `https://accounts.saucelabs.com/am/XUI/#sso-login/`                    |
+| Setting                                         | Value                                                                        |
+| ----------------------------------------------- | ---------------------------------------------------------------------------- |
+| Entity ID                                       | `https://accounts.saucelabs.com/sp`                                          |
+| Audience (Recipient)                            | `https://accounts.saucelabs.com/sp`                                          |
+| Assertion Consumer Service (ACS URL, Reply URL) | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp`       |
+| Recipient URL                                   | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp`       |
+| Destination URL                                 | `https://accounts.saucelabs.com/am/AuthConsumer/metaAlias/authtree/sp`       |
+| Name ID (Unique User Identifier)                | `email`/`mail`                                                               |
+| Name ID format/policy                           | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`                     |
+| Binding                                         | `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`                             |
+| Login/Application/Sign on URL                   | `https://accounts.saucelabs.com/am/XUI/#sso-login/`                          |
+| SAML claims                                     | [List of supported optional claims](/basics/sso/setting-up-sso/#saml-claims) |
 
 ### Signature
 
@@ -124,14 +125,19 @@ Name ID format must be set to `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAd
 
 The value of the attribute NameID in SAML Response must be **a valid email address**. We do not accept values which are not email addresses, for instance usernames, IDs, etc.
 
+If your Identity Provider does not provide the email address in the NameID attribute, please refer to the instructions provided in the [Special Cases](/basics/sso/setting-up-sso-special-cases#nameid-is-not-a-real-email-address-but-a-user-identifier) section.
+
 ### SAML Claims
 
 Sauce Labs Service Provider supports the following SAML custom claims:
 
 - `first_name`
 - `last_name`
+- `contact_email` (Click [here](/basics/sso/setting-up-sso-special-cases#nameid-is-not-a-real-email-address-but-a-user-identifier) to see the use case)
 
-Incorporating these attributes can improve user identification and personalization within the Sauce Labs platform. These attributes are optional.
+These attributes are **optional**.
+
+Incorporating these attributes can improve user identification and personalization within the Sauce Labs platform.
 
 ### Identity Provider (Signing) Certificate Rotation
 
