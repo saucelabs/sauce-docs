@@ -2,10 +2,10 @@
 sidebar_label: Nightwatch
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import FullPageJS from '../_partials/_fullpage-js.md'
+import ClippingWDIO from '../_partials/_clipping-webdriver.md';
 
 # Nightwatch Integration
 
@@ -319,6 +319,10 @@ browser
 ### Full page screenshots
 
 <FullPageJS />
+
+### Clip to an element
+
+<ClippingWDIO />
 
 ### Fail on failures
 

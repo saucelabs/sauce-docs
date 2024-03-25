@@ -2,9 +2,9 @@
 sidebar_label: Java
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ClippingDescription from '../_partials/_clipping-description.md';
 
 # Java WebDriver Integration
 
@@ -317,6 +317,20 @@ Example:
 Options options = new Options();
 options.setCaptureDom(true);
 visual.sauceVisualCheck("Inventory Page", options);
+```
+
+### Clip to an element
+
+<ClippingDescription />
+
+Example:
+
+```java
+import com.saucelabs.visual.CheckOptions;
+
+CheckOptions options = new CheckOptions();
+options.setClipSelector(".your-css-selector");
+visual.sauceVisualCheck("Visible Sale Banner", options);
 ```
 
 ## Examples

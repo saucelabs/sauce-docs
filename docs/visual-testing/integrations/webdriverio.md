@@ -2,10 +2,8 @@
 sidebar_label: WebdriverIO
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import FullPageJS from '../_partials/_fullpage-js.md';
+import ClippingWDIO from '../_partials/_clipping-webdriver.md';
 
 # WebdriverIO Integration
 
@@ -227,6 +225,10 @@ browser.sauceVisualCheck('Before Login', {
 ### Full page screenshots
 
 <FullPageJS />
+
+### Clip to an element
+
+<ClippingWDIO />
 
 ## Example
 
