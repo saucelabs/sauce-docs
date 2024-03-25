@@ -1,5 +1,5 @@
 ---
-sidebar_label: Continous Integration
+sidebar_label: Continuous Integration
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
