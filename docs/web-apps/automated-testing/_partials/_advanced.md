@@ -134,11 +134,10 @@ You can avoid installing or uninstalling dependencies prior to each bundling ope
 
 ```jsx title= "config.yml npm example"
 npm:
-  registry: https://registry.npmjs.org
+  registries:
+    - url: https://registry.npmjs.org
   packages:
-    lodash: "4.17.20"
-    "@babel/preset-typescript": "7.12"
-    "@playwright/react": "^5.0.1"
+    "lodash": "4.17.20"
 ```
 
 Alternatively, you can let `saucectl` selectively include already installed dependencies from the `node_modules` folder.
