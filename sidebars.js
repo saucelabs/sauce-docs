@@ -716,17 +716,7 @@ module.exports = {
             collapsed: true,
             items: [
                 'dev/cli',
-                {
-                    type: 'category',
-                    label: 'Sauce Connect Proxy 5 CLI',
-                    collapsed: true,
-                    items: [
-                        'dev/cli/sauce-connect-5',
-                        'dev/cli/sauce-connect-5/run',
-                        'dev/cli/sauce-connect-5/legacy',
-                        'dev/cli/sauce-connect-5/completion',
-                    ],
-                },
+                'dev/cli/sauce-connect-5',
                 'dev/cli/sauce-connect-proxy',
                 {
                     type: 'category',
@@ -1049,6 +1039,19 @@ module.exports = {
                             ],
                         },
                         'secure-connections/sauce-connect-5/migrating',
+                        {
+                            link: {
+                                type: 'doc',
+                                id: 'secure-connections/sauce-connect-5/cli/sc',
+                            },
+                            type: 'category',
+                            label: 'CLI',
+                            collapsed: true,
+                            items: [
+                                'secure-connections/sauce-connect-5/cli/run',
+                                'secure-connections/sauce-connect-5/cli/legacy',
+                            ],
+                        },
                         {
                             type: 'category',
                             label: 'Setup and Configuration',

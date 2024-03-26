@@ -22,7 +22,7 @@ brew install sauce-connect
 ### Edit config file
 
 This step is optional. You can use default configuration or configure Sauce Connect with flags or environment variables.
-See [CLI reference](/dev/cli/sauce-connect-5/) for more details.
+See [CLI reference](/secure-connections/sauce-connect-5/cli/run) for more details.
 
 ```bash
 vim sauce-connect.yaml
@@ -87,7 +87,7 @@ echo 'source <(sc completion bash)' >>~/.bash_profile
 ### Edit config file
 
 This step is optional. You can use default configuration or configure Sauce Connect with flags or environment variables.
-See [CLI reference](/dev/cli/sauce-connect-5/) for more details.
+See [CLI reference](/secure-connections/sauce-connect-5/cli/run) for more details.
 
 ```bash
 vim /opt/sauce-connect/sauce-connect.yaml

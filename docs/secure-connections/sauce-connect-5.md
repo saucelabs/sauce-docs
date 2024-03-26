@@ -13,8 +13,8 @@ Sauce Connect Proxy 5 is a complete rewrite of Sauce Connect Proxy 4.x.x that ai
 ## What's New In Sauce Connect Proxy 5?
 
 :::caution
-The Sauce Connect Proxy version 5 major release introduces CLI changes. Please refer to [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/) for details.
-An [`sc legacy`](/dev/cli/sauce-connect-5/legacy/) command is introduced to help users transition from version 4.x.x to 5.0.x.
+The Sauce Connect Proxy version 5 major release introduces CLI changes. Please refer to [Sauce Connect Proxy 5 CLI Reference](/secure-connections/sauce-connect-5/cli/sc/) for details.
+An [`sc legacy`](/secure-connections/sauce-connect-5/cli/legacy/) command is introduced to help users transition from version 4.x.x to 5.0.x.
 :::
 
 1. Improved onboarding and integration due to the secure connection (tunnel) protocol change.
@@ -34,13 +34,13 @@ An [`sc legacy`](/dev/cli/sauce-connect-5/legacy/) command is introduced to help
 
 Sauce Connect Proxy 5 major changes are listed below.
 
-- Tunnels must be named, the [`--tunnel-name`](/dev/cli/sauce-connect-5/run/#--tunnel-name) flag is no longer optional. It's done to improve security and usability - tests that use Sauce Connect must explicitly specify the [tunnel name](/dev/test-configuration-options/#tunnelname).
-- There is no default Sauce Labs region value, [`--region`](/dev/cli/sauce-connect-5/run/#--region) is required to ensure that the correct region is explicitly specified.
+- Tunnels must be named, the [`--tunnel-name`](/secure-connections/sauce-connect-5/cli/run/#--tunnel-name) flag is no longer optional. It's done to improve security and usability - tests that use Sauce Connect must explicitly specify the [tunnel name](/dev/test-configuration-options/#tunnelname).
+- There is no default Sauce Labs region value, [`--region`](/secure-connections/sauce-connect-5/cli/run/#--region) is required to ensure that the correct region is explicitly specified.
 - [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) is not enabled for all domains, by default.
   - [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) is fully supported and additional flags are added to fine-tune the configuration.
-- Proxy auto-detection is not supported, all proxies must be specified with explicit flags - [`--proxy`](/dev/cli/sauce-connect-5/run/#--proxy) or [`--pac`](/dev/cli/sauce-connect-5/run/#--pac) for SUT requests and [`--proxy-sauce`](/dev/cli/sauce-connect-5/run/#--proxy-sauce) for Sauce Labs REST API and tunnel connections.
-- Domain flags ([`--tunnel-domains`](/dev/cli/sauce-connect-5/run/#--tunnel-domains), [`--direct-domains`](/dev/cli/sauce-connect-5/run/#--direct-domains), etc) accept regular expressions only.
-- [Subcommands](/dev/cli/sauce-connect-5/) are introduced to support multiple CLI changes and future capabilities.
+- Proxy auto-detection is not supported, all proxies must be specified with explicit flags - [`--proxy`](/secure-connections/sauce-connect-5/cli/run/#--proxy) or [`--pac`](/secure-connections/sauce-connect-5/cli/run/#--pac) for SUT requests and [`--proxy-sauce`](/secure-connections/sauce-connect-5/cli/run/#--proxy-sauce) for Sauce Labs REST API and tunnel connections.
+- Domain flags ([`--tunnel-domains`](/secure-connections/sauce-connect-5/cli/run/#--tunnel-domains), [`--direct-domains`](/secure-connections/sauce-connect-5/cli/run/#--direct-domains), etc) accept regular expressions only.
+- [Subcommands](/secure-connections/sauce-connect-5/cli/sc) are introduced to support multiple CLI changes and future capabilities.
 - The [Selenium Relay](/secure-connections/sauce-connect/proxy-tunnels/#using-the-selenium-relay) feature is not supported.
 - Log administration capabilities (such as log-rotate) are not supported. Log management is better left to specialized tools.
 
@@ -54,4 +54,4 @@ If you already use Sauce Connect Proxy 4, please refer to [Sauce Connect Proxy 5
 
 - [Sauce Connect Proxy 5 Quickstart Guide](/secure-connections/sauce-connect-5/quickstart/)
 - [Sauce Connect Proxy 5 Migration Guide](/secure-connections/sauce-connect-5/migrating/)
-- [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/)
+- [Sauce Connect Proxy 5 CLI Reference](/secure-connections/sauce-connect-5/cli/sc)

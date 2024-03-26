@@ -43,7 +43,7 @@ Here are some benefits/use cases for using containerized Sauce Connect Proxy:
        --network="host" \
        -it saucelabs/sauce-connect:5.0
    ```
-   If desired, you can specify any additional [`sc run` options](/dev/cli/sauce-connect-5/run/) as environment variables.
+   If desired, you can specify any additional [`sc run` options](/secure-connections/sauce-connect-5/cli/run/) as environment variables.
 
    Alternatively, you can also mount a config file to the container by adding the `-v` option to the `docker run` command.
 

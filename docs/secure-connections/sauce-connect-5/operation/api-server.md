@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Sauce Connect Proxy, optionally, exposes an API server that allows obtain information about the local Sauce Connect Proxy instance.
-The API interface is configured with the [`--api-address`](/dev/cli/sauce-connect-5/run/#--api-address) flag.
+The API interface is configured with the [`--api-address`](/secure-connections/sauce-connect-5/cli/run/#--api-address) flag.
 
 ```bash
 --api-address :8080 # listens on all the interfaces' port 8080
@@ -28,7 +28,7 @@ The table below summarizes available endpoints.
 | `/info`    | Returns runtime information about the tunnel instance.                                                 |
 | `/metrics` | Exposes [Prometheus](https://prometheus.io/) metrics.                                                  |
 | `/configz` | Returns the configuration values.                                                                      |
-| `/pac`     | Returns the PAC content being configured with the [`--pac`](/dev/cli/sauce-connect-5/run/#--pac) flag. |
+| `/pac`     | Returns the PAC content being configured with the [`--pac`](/secure-connections/sauce-connect-5/cli/run/#--pac) flag. |
 | `/version` | Returns the Sauce Connect Proxy instance version and build info.                                       |
 
 ### Info
@@ -51,4 +51,4 @@ The `/readyz` response is used to determine when Sauce Connect Proxy is ready to
 ## More Information
 
 - [Sauce Connect Proxy Overview](/secure-connections/sauce-connect/)
-- [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/)
+- [Sauce Connect Proxy 5 CLI Reference](/secure-connections/sauce-connect-5/cli/sc/)

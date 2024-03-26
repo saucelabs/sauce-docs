@@ -11,8 +11,8 @@ import TabItem from '@theme/TabItem';
 Sauce Connect Proxy is required to run a test on an app or website located behind a firewall. Get up and running with a basic Sauce Connect Proxy tunnel in minutes using the steps below.
 
 :::caution
-The Sauce Connect Proxy version 5 major release introduces CLI changes. Please refer to [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/) for details.
-An [`sc legacy`](/dev/cli/sauce-connect-5/legacy/) command is introduced to help users transition from version 4.x.x to 5.0.x.
+The Sauce Connect Proxy version 5 major release introduces CLI changes. Please refer to [Sauce Connect Proxy 5 CLI Reference](/secure-connections/sauce-connect-5/cli/run/) for details.
+An [`sc legacy`](/secure-connections/sauce-connect-5/cli/legacy/) command is introduced to help users transition from version 4.x.x to 5.0.x.
 :::
 
 ## What You'll Need
@@ -111,7 +111,7 @@ Alternatively, you can go to the **Tunnel Proxies** page and click one of the **
 
 - [Sauce Connect Proxy Overview](/secure-connections/sauce-connect-5/)
 - [Sauce Connect Proxy Configuration](/secure-connections/sauce-connect-5/operation/configuration)
-- [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/)
+- [Sauce Connect Proxy 5 CLI Reference](/secure-connections/sauce-connect-5/cli/sc)
 - [Uploading and Managing Mobile Apps in Sauce Labs](/mobile-apps/app-storage)
 - [Live Testing Web Apps](/web-apps/live-testing/live-cross-browser-testing/)
 - [Live Testing Mobile Apps](/mobile-apps/live-testing/live-mobile-app-testing/)

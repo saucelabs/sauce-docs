@@ -17,7 +17,7 @@ hide_table_of_contents: true
 <div>
   <div className="box boxwidetop card">
     <div className="container">
-    <a href="/dev/cli/sauce-connect-5/run"><h3>Sauce Connect Proxy 5 CLI </h3></a>
+    <a href="/secure-connections/sauce-connect-5/cli/sc"><h3>Sauce Connect Proxy 5 CLI </h3></a>
     <p>The CLI tool for deploying Sauce Connect Proxy 5 tunnels.</p>
     </div>
   </div>
