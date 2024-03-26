@@ -23,7 +23,7 @@ All tests are run in a headless [browser](#different-browsers) on your local mac
 
 ## Compatibility
 
-This package leverage's Storybook's test-runner and metadata generation system for enabling automatic testing of Storybook stories. We recommend running Storybook `^6.4.0` and an up-to-date version of the Storybook test-runner (`>=0.13.0` at time of writing).
+This package leverage's Storybook's test-runner and metadata generation system for enabling automatic testing of Storybook stories. We recommend running Storybook `^7.0.0 || ^8.0.0` and an up-to-date version of the Storybook test-runner (`>=0.17.0` at time of writing).
 
 ## Getting Started
 
@@ -88,10 +88,10 @@ module.exports = {
 
 ```js
 // .storybook/test-runner.js
-const { postRender } = require('@saucelabs/visual-storybook');
+const { postVisit } = require('@saucelabs/visual-storybook');
 
 module.exports = {
-  postRender,
+  postVisit,
 };
 ```
 

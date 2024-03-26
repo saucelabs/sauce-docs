@@ -2,9 +2,8 @@
 sidebar_label: WebdriverIO
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import FullPageJS from '../_partials/_fullpage-js.md';
+import ClippingWDIO from '../_partials/_clipping-webdriver.md';
 
 # WebdriverIO Integration
 
@@ -225,31 +224,11 @@ browser.sauceVisualCheck('Before Login', {
 
 ### Full page screenshots
 
-If you want to see more than what's on the screen, you can take a full-page screenshot. It'll capture everything by scrolling and stitching it together.  
+<FullPageJS />
 
-:::note
-It's recommended to use the `hideAfterFirstScroll` option for elements like sticky header. 
-:::
+### Clip to an element
 
-Options:
-
-- `delayAfterScrollMs`: Delay in ms after scrolling and before taking screenshots (helps with lazy loading content)
-- `hideAfterFirstScroll`: Hide elements on the page after first scroll (uses css selectors)
-
-Example:
-
-```ts
-await browser.sauceVisualCheck('Long content page', {
-  fullPage: true,
-});
-
-await browser.sauceVisualCheck('Long content page', {
-  fullPage: {
-    delayAfterScrollMs: 500,
-    hideAfterFirstScroll: ["#header"],
-  },
-});
-```
+<ClippingWDIO />
 
 ## Example
 

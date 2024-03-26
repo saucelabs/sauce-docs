@@ -93,7 +93,7 @@ When for example, the status "For Review" is selected, you can review and accept
 
 ##### Grouping and Filtering
 
-The list of snapshots can be grouped and filtered by using the "Group by and "Filter" dropdowns.
+The list of snapshots can be grouped and filtered by using the "Group By" and "Filter" dropdowns.
 
 <img src={useBaseUrl('/img/sauce-visual/build-details-grouping-filtering.jpg')} alt="Build Details Grouping and Filtering"/>
 

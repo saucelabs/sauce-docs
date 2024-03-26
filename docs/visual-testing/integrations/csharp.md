@@ -17,7 +17,7 @@ Access to this feature is currently limited to Enterprise customers as part of o
 This guide requires an existing C# NUnit / xUnit setup.<br />
 You can alternatively take a look to our [example repository](#examples).
 
-Sauce Visual provides an library allowing integration with [WebDriver](https://www.selenium.dev/documentation/webdriver/).
+Sauce Visual provides a library allowing integration with [WebDriver](https://www.selenium.dev/documentation/webdriver/).
 
 Sauce Visual plugin provides a library exposing a `VisualClient` class that provides actions:
 
@@ -27,7 +27,7 @@ Sauce Visual plugin provides a library exposing a `VisualClient` class that prov
 
 ## Quickstart
 
-### Step 1: Add Sauce Visual dependecy
+### Step 1: Add Sauce Visual dependency
 
 Add [Sauce Visual](https://www.nuget.org/packages/SauceLabs.Visual/) dependency to your `.csproj`
 
