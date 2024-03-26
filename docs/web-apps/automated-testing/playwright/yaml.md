@@ -88,6 +88,7 @@ defaults:
 Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
 
 ```yaml
+defaults:
   timeout: 15m
 ```
 
@@ -124,6 +125,7 @@ If you do not specify a region in your config file, you must set it when running
 :::
 
 ```yaml
+sauce:
   region: eu-central-1
 ```
 
@@ -136,13 +138,14 @@ If you do not specify a region in your config file, you must set it when running
 The set of properties that allows you to provide additional information about your project that helps you distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you, as shown in the following example:
 
 ```yaml
-metadata:
-  build: RC 10.4.a
-  tags:
-    - e2e
-    - release team
-    - beta
-    - featurex
+sauce:
+  metadata:
+    build: RC 10.4.a
+    tags:
+      - e2e
+      - release team
+      - beta
+      - featurex
 ```
 
 ---
@@ -158,6 +161,7 @@ For tests running on Sauce, set this value to equal or less than your Sauce conc
 :::
 
 ```yaml
+sauce:
   concurrency: 5
 ```
 
@@ -176,6 +180,7 @@ saucectl run --ccy 5
 Sets the number of times to retry a failed suite. For more settings, you can refer to [passThreshold](#passThreshold).
 
 ```yaml
+sauce:
   retries: 1
 ```
 
@@ -282,9 +287,9 @@ sauce:
 A property containing one or more environment variables that are global for all tests suites in this configuration. Values set in this global property will overwrite values set for the same environment variables set at the suite level.
 
 ```yaml
-  env:
-    hello: world
-    my_var: $MY_VAR  # You can also pass through existing environment variables through parameter expansion
+env:
+  hello: world
+  my_var: $MY_VAR  # You can also pass through existing environment variables through parameter expansion
 ```
 
 :::note
@@ -302,11 +307,11 @@ The order of precedence is as follows: --env flag > root-level environment varia
 The directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Tailoring Your Test File Bundle](#tailoring-your-test-file-bundle) for more details. The following examples show the different relative options for setting this value.
 
 ```yaml
-  rootDir: "./" # Use the current directory
+rootDir: "./" # Use the current directory
 ```
 
 ```yaml
-  rootDir: "packages/subpackage" # Some other package from within a monorepo
+rootDir: "packages/subpackage" # Some other package from within a monorepo
 ```
 
 :::caution
@@ -345,6 +350,7 @@ This setting is supported up to Playwright 1.35.1. For newer versions, use `regi
 Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
 
 ```yaml
+npm:
   registry: https://registry.npmjs.org
 ```
 
@@ -357,6 +363,7 @@ Specifies the location of the npm registry source. If the registry source is a p
 Specifies the location of the npm registry, scope, and credentials. Only one scopeless registry is allowed. If the registry is inside a private network, you must establish a tunnel using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
 
 ```yaml
+npm:
   registries:
     - url: https://registry.npmjs.org
     - url: https://private.registry.company.org
@@ -373,6 +380,8 @@ Specifies the URL of the npm registry.
 <p><small>| REQUIRED | STRING |</small></p>
 
 ```yaml
+npm:
+  registries:
     - url: https://registry.npmjs.org
 ```
 
@@ -386,6 +395,8 @@ See [Associating a scope with a registry](https://docs.npmjs.com/cli/v9/using-np
 <p><small>| OPTIONAL | STRING |</small></p>
 
 ```yaml
+npm:
+  registries:
     - url: https://registry.npmjs.org
       scope: "@company"
 ```
@@ -399,6 +410,8 @@ Specifies the authentication token to be used with this registry.
 <p><small>| OPTIONAL | STRING |</small></p>
 
 ```yaml
+npm:
+  registries:
     - url: https://registry.npmjs.org
       authToken: secretToken
 ```
@@ -412,6 +425,7 @@ Specifies the authentication token to be used with this registry.
 Specifies any npm packages that are required to run tests and should, therefore, be installed on the Sauce Labs VM. See [Including Node Dependencies](#including-node-dependencies).
 
 ```yaml
+npm:
   packages:
     lodash: "4.17.20"
     "@babel/preset-typescript": "7.12"
@@ -521,6 +535,8 @@ reporters:
 Toggles the reporter on/off.
 
 ```yaml
+reporters:
+  json:
     enabled: true
 ```
 
@@ -533,6 +549,9 @@ Toggles the reporter on/off.
 Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST with a JSON payload to the configured webhook URL.
 
 ```yaml
+reporters:
+  json:
+    enabled: true
     webhookURL: https://my-webhook-url
 ```
 
@@ -545,6 +564,9 @@ Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP PO
 Specifies the report filename. Defaults to "saucectl-report.json".
 
 ```yaml
+reporters:
+  json:
+    enabled: true
     filename: my-saucectl-report.json
 ```
 
@@ -575,6 +597,7 @@ artifacts:
 When set to `true`, all contents of the specified download directory are cleared before any new artifacts from the current test are downloaded.
 
 ```yaml
+artifacts:
   cleanup: true
 ```
 
@@ -587,6 +610,7 @@ When set to `true`, all contents of the specified download directory are cleared
 Specifies the settings related to downloading artifacts from tests run by `saucectl`.
 
 ```yaml
+artifacts:
   download:
     when: always
     match:
@@ -608,6 +632,8 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 - `fail`: Download artifacts for failed suites only.
 
 ```yaml
+artifacts:
+  download:
     when: always
 ```
 
@@ -620,9 +646,11 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
 
 ```yaml
-  match:
-    - junit.xml
-    - "*.log"
+artifacts:
+  download:
+    match:
+      - junit.xml
+      - "*.log"
 ```
 
 ---
@@ -634,6 +662,8 @@ Specifies which artifacts to download based on whether they match the name or fi
 Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. The name of the subdirectory will match the suite name. If a directory with the same name already exists, the new one will be suffixed by a serial number.
 
 ```yaml
+artifacts:
+  download:
     directory: ./artifacts/
 ```
 
@@ -660,6 +690,7 @@ playwright:
 The version of Playwright that is compatible with the tests defined in this file. See [Supported Testing Platforms](/web-apps/automated-testing/playwright#supported-testing-platforms) for the list of Playwright versions supported by `saucectl` and their compatible test platforms.
 
 ```yaml
+playwright:
   version: 1.36.2
 ```
 
@@ -679,6 +710,7 @@ The path (relative to `rootDir`) to your Playwright configuration file. `saucect
 If it's not set, `saucectl` defaults to `playwright.config.ts` or `playwright.config.js`.
 
 ```yaml
+playwright:
   configFile: config.ts
 ```
 
@@ -699,6 +731,7 @@ The set of properties providing details about the test suites to run. May contai
 The name of the test suite, which will be reflected in the results and related artifacts.
 
 ```yaml
+suites:
   - name: "saucy test"
 ```
 
@@ -711,9 +744,11 @@ The name of the test suite, which will be reflected in the results and related a
 A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
 
 ```yaml
-  env:
-    hello: world
-    my_var: $MY_VAR
+suites:
+  - name: "saucy test"
+    env:
+      hello: world
+      my_var: $MY_VAR
 ```
 
 ---
@@ -725,6 +760,8 @@ A property containing one or more environment variables that may be referenced i
 A specific operating system and version on which to run the specified browser and test suite. Defaults to a platform that is supported by `saucectl` for the chosen browser.
 
 ```yaml
+suites:
+  - name: "saucy test"
     platformName: "Windows 10"
 ```
 
@@ -737,6 +774,8 @@ A specific operating system and version on which to run the specified browser an
 Specifies a browser window screen resolution, which may be useful if you are attempting to simulate a browser on a particular device type. See [Test Configurations](/basics/test-config-annotation/test-config) for a list of available resolution values.
 
 ```yaml
+suites:
+  - name: "saucy test"
     screenResolution: "1920x1080"
 ```
 
@@ -749,6 +788,8 @@ Specifies a browser window screen resolution, which may be useful if you are att
 One or more paths to the Playwright test files to run for this suite. Regex values are supported to indicate all files of a certain type or in a certain directory, etc.
 
 ```yaml
+suites:
+  - name: "saucy test"
     testMatch: ["**/*.js"]
 ```
 
@@ -761,6 +802,8 @@ One or more paths to the Playwright test files to run for this suite. Regex valu
 Excludes test files to skip the tests. You can use regex values to indicate all files that match a specific value, such as a file name, type, or directory.
 
 ```yaml
+suites:
+  - name: "saucy test"
     excludedTestFiles: ["**/*.js"]
 ```
 
@@ -779,7 +822,9 @@ The `numShards` and `shard` properties are mutually exclusive within each suite.
 :::
 
 ```yaml
-  numShards: 2
+suites:
+  - name: "saucy test"
+    numShards: 2
 ```
 
 ---
@@ -795,8 +840,8 @@ Selectable values: `spec` to shard by spec file, `concurrency` to shard by concu
 
 ```yaml
 suites:
-- name: 'I am sharded'
-  shard: spec
+  - name: 'I am sharded'
+    shard: spec
 ```
 
 :::tip
@@ -846,6 +891,8 @@ suites:
 A parent property that details any additional parameters you wish to set for the test suite.
 
 ```yaml
+suites:
+  - name: "saucy test"
     params:
       browserName: "firefox"
       headless: true
@@ -863,6 +910,8 @@ The name of the browser in which to run this test suite.
 Available browser names: `chromium`, `firefox`, `webkit`, and `chrome`.
 
 ```yaml
+suites:
+  - name: "saucy test"
     browserName: "firefox"
 ```
 
@@ -879,6 +928,8 @@ Available browser names: `chromium`, `firefox`, `webkit`, and `chrome`.
 Determines whether to run the test suite in headless mode.
 
 ```yaml
+suites:
+  - name: "saucy test"
     headless: true
 ```
 
@@ -891,6 +942,8 @@ Determines whether to run the test suite in headless mode.
 Allows you to alter the test execution speed for the test suite in milliseconds, to simulate different network connectivity or other conditions that may impact load times.
 
 ```yaml
+suites:
+  - name: "saucy test"
     sloMo: 1000
 ```
 
@@ -907,6 +960,8 @@ Allows you to apply the configurations from your [Playwright project](https://pl
 :::
 
 ```yaml
+suites:
+  - name: "saucy test"
     project: "project name"
 ```
 
@@ -919,6 +974,8 @@ Allows you to apply the configurations from your [Playwright project](https://pl
 Patterns to run tests based on their title.
 
 ```yaml
+suites:
+  - name: "saucy test"
     grep: "should include"
 ```
 
@@ -931,6 +988,8 @@ Patterns to run tests based on their title.
 Patterns to skip tests based on their title.
 
 ```yaml
+suites:
+  - name: "saucy test"
     grepInvert: "should exclude"
 ```
 
@@ -943,6 +1002,8 @@ Patterns to skip tests based on their title.
 Determines whether to update snapshots with the actual results produced by the test run. Playwright tests support [visual comparisons](https://playwright.dev/docs/test-snapshots).
 
 ```yaml
+suites:
+  - name: "saucy test"
     updateSnapshots: true
 ```
 
@@ -974,6 +1035,8 @@ $ mv artifacts/{your-suite-name}/example-test-1-actual.png tests/example.test.js
 4. Set `updateSnapshots` to `true`. Playwright will continue to update the baseline screenshots.
 
 ```yaml
+suites:
+  - name: "saucy test"
     updateSnapshots: true
 ```
 
@@ -992,7 +1055,9 @@ Setting `0` reverts to the value set in `defaults`.
 :::
 
 ```yaml
-  timeout: 15m
+suites:
+  - name: "saucy test"
+    timeout: 15m
 ```
 
 ---
@@ -1008,8 +1073,10 @@ There is a 300-second limit for all `preExec` commands to complete.
 :::
 
 ```yaml
-  preExec:
-    - node ./scripts/pre-execution-script.js
+suites:
+  - name: "saucy test"
+    preExec:
+      - node ./scripts/pre-execution-script.js
 ```
 
 ---
@@ -1021,7 +1088,9 @@ There is a 300-second limit for all `preExec` commands to complete.
 Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
 
 ```yaml
-  timeZone: New_York
+suites:
+  - name: "saucy test"
+    timeZone: New_York
 ```
 
 ---
