@@ -354,14 +354,14 @@ visual.sauceVisualCheck("Long content page", options);
 
 ```java
 import com.saucelabs.visual.CheckOptions;
-import com.saucelabs.visual.model.FullPageConfig;
+import com.saucelabs.visual.model.FullPageScreenshotConfig;
 
 CheckOptions options = new CheckOptions();
-FullPageConfig fullPageConfig = new FullPageConfig.Builder()
+FullPageScreenshotConfig config = new FullPageScreenshotConfig.Builder()
         .withDelayAfterScrollMs(500)
         .withHideAfterFirstScroll("#header")
         .build();
-options.enableFullPageScreenshots(fullPageConfig);
+options.enableFullPageScreenshots(config);
 visual.sauceVisualCheck("Long content page", options);
 ```
 
