@@ -332,9 +332,7 @@ npm:
   registries:
     - url: https://registry.npmjs.org
   packages:
-    lodash: "4.17.20"
-    "@babel/preset-typescript": "7.12"
-    "@playwright/react": "^5.0.1"
+    "lodash": "4.17.20"
 ```
 
 ---
@@ -427,9 +425,7 @@ Specifies any npm packages that are required to run tests and should, therefore,
 ```yaml
 npm:
   packages:
-    lodash: "4.17.20"
-    "@babel/preset-typescript": "7.12"
-    "@playwright/react": "^5.0.1"
+    "lodash": "4.17.20"
 ```
 
 :::caution
