@@ -256,7 +256,10 @@ Methods available:
 Example:
 
 ```java
-visual = new Builder(driver, username, accessKey, DataCenter.US_WEST_1)
+import com.saucelabs.visual.VisualApi;
+import com.saucelabs.visual.DataCenter;
+
+visual = new VisualApi.Builder(driver, username, accessKey, DataCenter.US_WEST_1)
           .withBuild("Sauce Demo Test")
           .withBranch("main")
           .withProject("Java examples")
@@ -276,7 +279,9 @@ Those ignored components are specified when requesting a new snapshot.
 Example:
 
 ```java
-Options options = new Options();
+import com.saucelabs.visual.CheckOptions;
+
+CheckOptions options = new CheckOptions();
 options.setIgnoreElements(List.of(
   // AddBackpackToCartButton will be ignored
   inventoryPage.getAddBackpackToCartButton()
@@ -297,7 +302,10 @@ _Note: all values are pixels_
 Example:
 
 ```java
-Options options = new Options();
+import com.saucelabs.visual.CheckOptions;
+import com.saucelabs.visual.model.IgnoreRegion;
+
+CheckOptions options = new CheckOptions();
 IgnoreRegion ignoreRegion = new IgnoreRegion(
   100, // x
   100,  // y
@@ -314,10 +322,49 @@ Sauce Visual does not capture dom snapshot by default. It can be changed in opti
 
 Example:
 ```java
-Options options = new Options();
+import com.saucelabs.visual.CheckOptions;
+
+CheckOptions options = new CheckOptions();
 options.setCaptureDom(true);
 visual.sauceVisualCheck("Inventory Page", options);
 ```
+
+### Full page screenshots
+
+If you want to see more than what's on the screen, you can take a full-page screenshot. It'll capture everything by scrolling and stitching it together.
+
+:::note
+It's recommended to use the `hideAfterFirstScroll` option for elements like sticky header.
+:::
+
+Options:
+
+- `delayAfterScrollMs`: Delay in ms after scrolling and before taking screenshots (helps with lazy loading content)
+- `hideAfterFirstScroll`: Hide elements on the page after first scroll (uses css selectors)
+
+Examples:
+
+```java
+import com.saucelabs.visual.CheckOptions;
+
+CheckOptions options = new CheckOptions();
+options.enableFullPageScreenshots();
+visual.sauceVisualCheck("Long content page", options);
+```
+
+```java
+import com.saucelabs.visual.CheckOptions;
+import com.saucelabs.visual.model.FullPageScreenshotConfig;
+
+CheckOptions options = new CheckOptions();
+FullPageScreenshotConfig config = new FullPageScreenshotConfig.Builder()
+        .withDelayAfterScrollMs(500)
+        .withHideAfterFirstScroll("#header")
+        .build();
+options.enableFullPageScreenshots(config);
+visual.sauceVisualCheck("Long content page", options);
+```
+
 
 ### Clip to an element
 
