@@ -1048,6 +1048,8 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/cli/legacy',
                             ],
                         },
+                        'secure-connections/sauce-connect-5/config',
+                        'secure-connections/sauce-connect-5/metrics',
                         {
                             type: 'category',
                             label: 'Setup and Configuration',
