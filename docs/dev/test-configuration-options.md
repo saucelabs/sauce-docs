@@ -176,6 +176,21 @@ Describes the current session’s user prompt handler. The default value is `"di
 
 ---
 
+### `webSocketUrl`
+
+<p><small>| BOOLEAN | <span className="sauceGreen">Desktop Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+
+Enables [W3C WebDriver BiDi](https://w3c.github.io/webdriver-bidi/) support. This allows Selenium 4 clients to use [Bi-Directional functionality](https://www.selenium.dev/documentation/webdriver/bidirectional/). It also enables BiDi for other test frameworks, like [WebDriverIO](https://webdriver.io/docs/api/webdriverBidi/). In particular, this capability exposes the WebSocket endpoint which is available under `webSocketUrl` field in session startup response body. This endpoint can be used to issue WebDriver BiDi commands as described by the [specification](https://w3c.github.io/webdriver-bidi/). The default value is `false`.
+
+The `webSocketUrl` capability is **not compatible** with [`extendedDebugging`](#extendeddebugging) capability.
+
+
+```java
+"webSocketUrl": true
+```
+
+---
+
 ## Desktop Browser Capabilities: Sauce-Specific – Optional
 
 Browser-specific optional capabilities you can add to the `sauce:options` block of your test session creation code.
@@ -341,6 +356,20 @@ Sets idle test timeout in seconds. As a safety measure to prevent tests from run
 
 ```java
 "idleTimeout": 90
+```
+
+---
+
+### `devTools`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Desktop Only</span> | <span className="sauceGreen">BETA</span> | </small></p>
+
+Enables [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) support, which is disabled by default on Sauce Labs platform. This allows Selenium 4 clients to use [Bi-Directional functionality](https://www.selenium.dev/documentation/webdriver/bidirectional/). In particular, this capability exposes the WebSocket endpoint which is available under `se:cdp` field in session startup response body. This endpoint can be used to issue WebDriver BiDi commands as described by the [specification](https://w3c.github.io/webdriver-bidi/). The default value is `false`.
+
+The `devTools` capability is **not compatible** with [`extendedDebugging`](#extendeddebugging) capability.
+
+```java
+"devTools": true
 ```
 
 ---
