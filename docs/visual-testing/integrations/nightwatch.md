@@ -222,6 +222,7 @@ Options:
 - `project`: Name of the project, used for matching
 - `branch`: Name of the branch, used for matching
 - `defaultBranch`: Name of the default branch, used for matching
+- `captureDom`: Enable DOM capture globally, can also be enabled on a per-screenshot basis
 
 ```ts
 // ...
@@ -236,6 +237,7 @@ module.exports = {
         buildName: 'Nightwatch Visual Demo Test',
         project: 'Nightwatch Project',
         branch: 'main',
+        // captureDom: true,
       },
       // ...
     },
