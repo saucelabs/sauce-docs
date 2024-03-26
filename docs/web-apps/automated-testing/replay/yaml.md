@@ -30,7 +30,7 @@ While you can use multiple files of different names or locations to specify your
 https://github.com/saucelabs/saucectl-replay-example/blob/main/.sauce/config.yml
 ```
 
-Each of the properties supported for running Playwright tests through `saucectl` is defined below.
+Each of the properties supported for replaying Chrome DevTools recordings through `saucectl` is defined below.
 
 ## `apiVersion`
 
