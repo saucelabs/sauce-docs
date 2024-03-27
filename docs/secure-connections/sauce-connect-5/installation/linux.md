@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## Debian/Ubuntu
 
-Sauce Connect provides `.deb` package with Systemd service for [Sauce Connect run](/dev/cli/sauce-connect-5/sc_run.md) command.
+Sauce Connect provides `.deb` package with Systemd service for [Sauce Connect run](/secure-connections/sauce-connect-5/cli/run) command.
 Other commands are available as well, but you will need to start them manually.
 
 ### Install package
@@ -60,7 +60,7 @@ sudo systemctl status sauce-connect
 
 ## RedHat/CentOS/Fedora
 
-Sauce Connect provides `.rpm` package with Systemd service for [Sauce Connect run](/dev/cli/sauce-connect-5/sc_run.md) command.
+Sauce Connect provides `.rpm` package with Systemd service for [Sauce Connect run](/secure-connections/sauce-connect-5/cli/run) command.
 Other commands are available as well, but you will need to start them manually.
 
 
@@ -172,7 +172,7 @@ sudo ln -s /opt/sauce-connect/completions/sc.bash /etc/bash_completion.d/sc
 ### Edit config file
 
 This step is optional. You can use default configuration or configure Sauce Connect with flags or environment variables.
-See [CLI reference](/dev/cli/sauce-connect-5/) for more details.
+See [CLI reference](/secure-connections/sauce-connect-5/cli/run) for more details.
 
 
 ```bash
