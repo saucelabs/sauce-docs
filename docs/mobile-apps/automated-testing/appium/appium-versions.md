@@ -155,6 +155,10 @@ The current end-of-life strategy outlined above is specific to Real Devices. We 
 
 ## Real Devices
 
+:::info Enhancing Customer Experience: Introduce Support for the Appium Images Plugin
+In our ongoing commitment to improving customer experience, Saucelabs is pleased to announce support for the [Appium Images Plugin](https://www.npmjs.com/package/@appium/images-plugin). This plugin will now be included by default with Appium version `latest` and all subsequent versions released after April 1st.
+:::
+
 ### Appium 2.x
 
 <table>
