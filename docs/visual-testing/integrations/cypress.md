@@ -2,9 +2,9 @@
 sidebar_label: Cypress
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ClippingDescription from '../_partials/_clipping-description.md';
 
 # Cypress Integration
 
@@ -270,6 +270,33 @@ Example:
 ```javascript
 cy.sauceVisualCheck('login-page', {
     captureDom: true
+});
+```
+
+### Full page screenshots
+
+Cypress natively offers full page screenshots -- you can pass options into our `sauceVisualCheck` function in order to enable it for your visual checks.
+
+Example:
+
+```javascript
+cy.sauceVisualCheck('Inventory Page', {
+    cypress: {
+        // One or more options to be passed directly to the cy.screenshot() function call.
+        capture: 'fullPage',
+    },
+});
+```
+
+### Clip to an element
+
+<ClippingDescription />
+
+Example:
+
+```javascript
+cy.sauceVisualCheck('Inventory Page', {
+    clipSelector: '.your-css-selector',
 });
 ```
 
