@@ -155,8 +155,10 @@ The current end-of-life strategy outlined above is specific to Real Devices. We 
 
 ## Real Devices
 
-:::info Enhancing Customer Experience: Introduce Support for the Appium Images Plugin
-In our ongoing commitment to improving customer experience, Saucelabs is pleased to announce support for the [Appium Images Plugin](https://www.npmjs.com/package/@appium/images-plugin). This plugin will now be included by default with Appium version `latest` and all subsequent versions released after April 1st.
+:::info Supported Custom Appium Plugins:
+The following list of custom Appium plugins are supported:
+- [Appium Images Plugin](https://www.npmjs.com/package/@appium/images-plugin). This plugin will now be included by default with Appium version `latest` and all subsequent versions released after April 1st.
+- [Deque axe DevTools® Mobile Analyzer Accessibility plugin](https://docs.deque.com/devtools-mobile/2024.2.14/en/march-2024). This plugin helps you with automated accessibility testing. Empower your team to focus on identifying and resolving accessibility issues. Requires Deque axe DevTools® license.
 :::
 
 ### Appium 2.x
