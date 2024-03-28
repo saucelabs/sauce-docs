@@ -212,6 +212,38 @@ The following list of custom Appium plugins are supported:
     </tr>
     <tr>
       <td>
+        <code>appium2-deque-accessibility</code>
+      </td>
+      <td>
+        <span className="sauceGold">March 28th, 2025</span>
+      </td>
+      <td>[Deque axe DevTools® Mobile Analyzer Accessibility plugin](https://docs.deque.com/devtools-mobile/2024.2.14/en/march-2024) helps you with automated accessibility testing. Contains only latest version of Appium. The plugin helps identifying and resolving accessibility issues. Requires Deque axe DevTools® license.  <br />
+        <ul>
+          <li>
+            <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/march-2024" target="_blank">
+              <code>axeDevToolsMobile Appium Plugin</code>: 2.0.0 </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.5.1" target="_blank">
+              <code>appium</code>: 2.5.1 </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.5.0" target="_blank">
+              <code>appium-flutter-driver</code>: 2.5.0 </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.0.1" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 3.0.1 </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.2.0" target="_blank">
+              <code>appium-xcuitest-driver</code>: 7.2.0 </a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code>appium2-20240301</code>
       </td>
       <td>
