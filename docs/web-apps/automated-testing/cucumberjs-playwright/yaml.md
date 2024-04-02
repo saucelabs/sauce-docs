@@ -254,6 +254,21 @@ sauce:
 
 ---
 
+#### `timeout`
+
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+How long to wait for the specified tunnel to be ready. Supports duration values like '10s', '30m' etc. (default: 30s)
+
+```yaml
+sauce:
+  tunnel:
+    name: your_tunnel_name
+    timeout: 30s
+```
+
+---
+
 ### `visibility`
 
 <p><small>| OPTIONAL | STRING |</small></p>
@@ -773,7 +788,7 @@ To split tests in the most efficient way possible, use:
 
 - `spec` when the number of specs is less than the configured concurrency.
 - `concurrency` when the number of specs is larger than the configured concurrency.
-:::
+  :::
 
 ---
 
