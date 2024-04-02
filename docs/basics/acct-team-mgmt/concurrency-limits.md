@@ -35,7 +35,7 @@ For more usage information, see [Viewing and Exporting Usage Data](/basics/acct-
 
 ## How Concurrency Allocation Works
 
-Through Sauce Labs, organization admins set the total concurrency of their organization's account. When setting the concurrency limit for a team, be mindful that team members share the concurrency limit of the team. If a team exceeds its concurrency limit, any additional tests will be queued. Be informed that queuing will be disabled from March 1st, 2024. 
+Through Sauce Labs, organization admins set the total concurrency of their organization's account. When setting the concurrency limit for a team, be mindful that team members share the concurrency limit of the team. If a team exceeds its concurrency limit, any additional tests will be queued. Be informed that queuing will be disabled from May 1st, 2024 (implemented upon contract renewal). 
 
 #### Example - Org Limits
 
