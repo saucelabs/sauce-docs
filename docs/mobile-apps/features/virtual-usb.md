@@ -343,7 +343,7 @@ java -jar virtual-usb-client.jar disconnect --sessionId 37D274BC3A65A34BB3DA4DDF
 
 ### Run test-framework agnostic test.
 
-If you require access to a device with an app installed by Sauce Labs and wish to execute your own scripts, our vUSB solution is the perfect fit for your needs. This solution is designed specifically for test frameworks that may not fit within the conventional Appium/XCUITest/Espresso categories. With vUSB, you can easily integrate your other testing workflows and leverage our robust infrastructure to ensure the quality and reliability of your applications.
+If you require access to a device with an app installed by Sauce Labs and wish to execute your own scripts, our vUSB solution is the perfect fit for your needs. This solution is designed specifically for test frameworks that may not fit within the conventional Appium/XCUITest/Espresso categories. With vUSB, you can easily integrate your other testing workflows and leverage our robust device infrastructure.
 
 ### ADB commands
 
