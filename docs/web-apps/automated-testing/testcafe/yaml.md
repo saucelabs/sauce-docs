@@ -678,6 +678,7 @@ The parent property containing the details specific to the TestCafe project.
 ```yaml
 testcafe:
   version: 3.0.1
+  configFile: .testcaferc.js
 ```
 
 ---
@@ -698,6 +699,21 @@ You can also define a path to your `package.json`. This will make saucectl use t
 
 The path to your `package.json` file will be relative to the `rootDir` of your configuration.
 :::
+
+---
+
+### `configFile`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+The path (relative to `rootDir`) to your TestCafe configuration file. `saucectl` determines related files based on the location of this config file.
+
+If this path isn't specified, saucectl automatically searches for `.testcaferc.js`, `.testcaferc.cjs`, or `.testcaferc.json` as default options.
+
+```yaml
+testcafe:
+  configFile: .testcaferc.js
+```
 
 ---
 
