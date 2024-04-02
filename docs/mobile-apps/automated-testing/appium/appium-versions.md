@@ -235,6 +235,34 @@ The following list of custom Appium plugins are supported:
     </tr>
     <tr>
       <td>
+        <code>appium2-20240401</code>
+      </td>
+      <td>
+        <span className="sauceGold">March 31st, 2025</span>
+      </td>
+      <td> This is a collection of drivers that were released in March 1st 2023 <br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.5.1" target="_blank">
+              <code>appium</code>: 2.5.1 </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.5.1" target="_blank">
+              <code>appium-flutter-driver</code>: 2.5.1 </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.0.4" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 3.0.4 </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.9.1" target="_blank">
+              <code>appium-xcuitest-driver</code>: 7.9.1 </a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code>appium2-20240301</code>
       </td>
       <td>
