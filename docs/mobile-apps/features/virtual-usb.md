@@ -291,7 +291,7 @@ adb connect localhost:7000
 
 <!-- prettier-ignore-start -->
 :::caution iOS Limitations
-Attaching debugger is not supported, due to the amount of data that the iOS device symbols will need to be downloaded to your local machine. This happens automatically when you're connecting to a Sauce Labs iOS device for the first time via a remote debug vUSB session with Xcode. **Xcode will attempt to download the iOS device symbols over the vUSB tunnel, causing a lag that can last from few minutes up to an hour.**
+Attaching a debugger is not supported due to the amount of data that the iOS device symbols will need to be downloaded to your local machine. This process occurs automatically when you're connecting to a Sauce Labs iOS device for the first time via a remote debug vUSB session with Xcode. Xcode will attempt to download the iOS device symbols over the vUSB tunnel, causing a lag that can last from a few minutes to an hour..**
 
 - **What to Do**: Go to `~/Library/Developer/Xcode/iOS DeviceSupport/` and check the used iOS version of the phone to see if the symbols have been downloaded. The total used space per OS should be more than 1GB. If they are less than 1MB, delete the folder and restart Xcode again so it can re-fetch them.
   This a one-time action that you won't need to do again for future tests.
@@ -340,10 +340,6 @@ java -jar virtual-usb-client.jar disconnect --sessionId 37D274BC3A65A34BB3DA4DDF
 :::
 
 ## Example Use Cases
-
-### Run test-framework agnostic test.
-
-If you require access to a device with an app installed by Sauce Labs and wish to execute your own scripts, our vUSB solution is the perfect fit for your needs. This solution is designed specifically for test frameworks that may not fit within the conventional Appium/XCUITest/Espresso categories. With vUSB, you can easily integrate your other testing workflows and leverage our robust device infrastructure.
 
 ### ADB commands
 
