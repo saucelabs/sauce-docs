@@ -883,7 +883,7 @@ Filtering relies on the value set for `grep` and `grepInvert`.
 
 - `grep` to match with test name or filename.
 - `grepInvert` to exclude any match with name or filename.
-  :::
+:::
 
 ```yaml
 suites:
