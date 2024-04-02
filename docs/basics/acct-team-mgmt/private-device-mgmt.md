@@ -65,6 +65,8 @@ This setting does **NOT** install the app. You must manually or via automation i
 `com.google.chrome.ios`  
 `com.apps.app1`  
 `com.ios.app2`  
+
+*Multiple entries must be comma-separated.*
 :::
 
 ## System App Allow List (iOS)
@@ -75,8 +77,10 @@ Certain iOS preinstalled apps are hidden by default, e.g. Messages, Mail, Notes.
 For a list of native iPhone and iPad apps and their corresponding bundle IDs, please follow the reference link below.  
 https://support.apple.com/en-gb/guide/deployment/depece748c41/web
 
-`com.apple.MobileSMS`  
-`com.apple.mobilenotes`  
+`com.apple.MobileSMS`
+`com.apple.mobilenotes`
+
+*Multiple entries must be comma-separated.*
 :::
 
 ## Account Allow List
@@ -89,6 +93,8 @@ Update this setting for each account email to preserve store and payment account
 :::important
 `account1@mydomain.com`  
 `account2@mydomain.com`  
+
+*Multiple entries must be comma-separated.*
 :::
 
 ## Retain folders/filepath (Android)
@@ -114,6 +120,8 @@ Invalid path: `/data/local/tmp/`
 :::important
 `/data/com.wavelink.velocity/files`  
 `/com.my.app/data/temp/folder`
+
+*Multiple entries must be comma-separated.*
 :::
 
 ## Enable Apple Pay
