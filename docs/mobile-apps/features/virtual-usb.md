@@ -38,7 +38,7 @@ It integrates into your development and test environment, meaning you can use yo
 - If you need to use [Sauce Connect Proxy](/secure-connections/sauce-connect), you'll need to have the client installed first.
 
 :::note Limitations
-A vUSB is currently only supported for test automation. Debugging with any IDE, and attaching debuggers with Xcode and Android Studio, are not advised and won't be supported at this time). 
+vUSB is currently only supported for test automation. Debugging with any IDE, and attaching debuggers with Xcode and Android Studio, are not advised and won't be supported at this time). 
 iOS17 is not supported at this time. We will soon introduce a new CLI tool to connect to a device and run automated tests. 
 :::
 
