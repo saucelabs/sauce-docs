@@ -2,9 +2,10 @@
 sidebar_label: Java
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ClippingDescription from '../_partials/_clipping-description.md';
+import FullPageDescription from '../_partials/_fullpage-description.md';
 
 # Java WebDriver Integration
 
@@ -331,16 +332,7 @@ visual.sauceVisualCheck("Inventory Page", options);
 
 ### Full page screenshots
 
-If you want to see more than what's on the screen, you can take a full-page screenshot. It'll capture everything by scrolling and stitching it together.  
-
-:::note
-It's recommended to use the `hideAfterFirstScroll` option for elements like sticky header. 
-:::
-
-Options:
-
-- `delayAfterScrollMs`: Delay in ms after scrolling and before taking screenshots (helps with lazy loading content)
-- `hideAfterFirstScroll`: Hide elements on the page after first scroll (uses css selectors)
+<FullPageDescription />
 
 Examples:
 
@@ -363,6 +355,21 @@ FullPageScreenshotConfig config = new FullPageScreenshotConfig.Builder()
         .build();
 options.enableFullPageScreenshots(config);
 visual.sauceVisualCheck("Long content page", options);
+```
+
+
+### Clip to an element
+
+<ClippingDescription />
+
+Example:
+
+```java
+import com.saucelabs.visual.CheckOptions;
+
+CheckOptions options = new CheckOptions();
+options.setClipSelector(".your-css-selector");
+visual.sauceVisualCheck("Visible Sale Banner", options);
 ```
 
 ## Examples

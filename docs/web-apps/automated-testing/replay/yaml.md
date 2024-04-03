@@ -30,7 +30,7 @@ While you can use multiple files of different names or locations to specify your
 https://github.com/saucelabs/saucectl-replay-example/blob/main/.sauce/config.yml
 ```
 
-Each of the properties supported for running Playwright tests through `saucectl` is defined below.
+Each of the properties supported for replaying Chrome DevTools recordings through `saucectl` is defined below.
 
 ## `apiVersion`
 
@@ -244,6 +244,21 @@ sauce:
   tunnel:
     name: your_tunnel_name
     owner: tunnel_owner_username
+```
+
+---
+
+#### `timeout`
+
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+How long to wait for the specified tunnel to be ready. Supports duration values like '10s', '30m' etc. (default: 30s)
+
+```yaml
+sauce:
+  tunnel:
+    name: your_tunnel_name
+    timeout: 30s
 ```
 
 ---

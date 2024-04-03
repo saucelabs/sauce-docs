@@ -123,7 +123,6 @@ If you know that your tests require only specific dependencies, install them ind
 ```bash
 # Install individual dependencies
 npm install playwright-xpath
-npm install @playwright/react
 
 saucectl run
 ```

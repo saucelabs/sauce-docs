@@ -155,6 +155,12 @@ The current end-of-life strategy outlined above is specific to Real Devices. We 
 
 ## Real Devices
 
+:::info Supported Custom Appium Plugins:
+The following list of custom Appium plugins are supported:
+- [Appium Images Plugin](https://www.npmjs.com/package/@appium/images-plugin). This plugin will now be included by default with Appium version `latest` and all subsequent versions released after April 1st.
+- [Deque axe DevTools® Mobile Analyzer Accessibility plugin](https://docs.deque.com/devtools-mobile/appium). This plugin helps you with automated accessibility testing. Empower your team to focus on identifying and resolving accessibility issues. Requires Deque axe DevTools® Mobile license.
+:::
+
 ### Appium 2.x
 
 <table>
@@ -200,6 +206,29 @@ The current end-of-life strategy outlined above is specific to Real Devices. We 
           <li>
             <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v4.33.2" target="_blank">
               <code>appium-xcuitest-driver</code>: 4.33.2 </a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>appium2-deque-accessibility</code>
+      </td>
+      <td>
+        <span className="sauceGreen">Active</span>
+      </td>
+      <td>  
+        <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/march-2024" target="_blank">
+              Deque axe DevTools® Mobile Analyzer Accessibility plugin</a> helps you with automated accessibility testing. Contains only the latest version of Appium. The plugin helps to identify and to resolve accessibility issues. Requires Deque axe DevTools® license.
+        <br />
+        <ul>
+          <li>
+            <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/march-2024" target="_blank">
+              <code>axeDevToolsMobile Appium Plugin</code>: 2.0.0 </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.5.1" target="_blank">
+              <code>appium</code>: 2.5.1 </a>
           </li>
         </ul>
       </td>
