@@ -84,7 +84,7 @@ We maintain an allowlist of commands that can be executed within our Real Device
 * input
 * (ls|cp|mkdir|echo|grep|cut|pwd|dumpsys)
 * getprop
-* am compat enable <value>
+* am compat enable
 * cmd connectivity airplane-mode (enable|disable)
 * settings put global (animator_duration_scale|transition_animation_scale|window_animation_scale) <value>
 * setprop debug.firebase.analytics.app <value>
