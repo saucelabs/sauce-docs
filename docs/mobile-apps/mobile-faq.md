@@ -83,9 +83,11 @@ We maintain an allowlist of commands that can be executed within our Real Device
 * pm clear
 * input
 * (ls|cp|mkdir|echo|grep|cut|pwd|dumpsys)
-* getProp
-* am compat enable
+* getprop
+* am compat enable <value>
 * cmd connectivity airplane-mode (enable|disable)
+* settings put global (animator_duration_scale|transition_animation_scale|window_animation_scale) <value>
+* setprop debug.firebase.analytics.app <value>
 
 If the command you require is not listed, you can submit a request through this [form](https://docs.google.com/forms/d/1t4MCf6ClHlLxX80RP5bNU9wVJBhQOd4ll6IjP0ecMgc) 
 or reach out to your Customer Success Manager or Sauce Labs Support for assistance.
