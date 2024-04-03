@@ -108,7 +108,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         "isAlternativeIoEnabled": true,
         "supportsManualWebTesting": true,
         "supportsMultiTouch": true,
-        "supportsXcuiTest": true
+        "supportsXcuiTest": false
     },
     {...more devices},
 ]
@@ -801,7 +801,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
       "supportsMinicapSocketConnection" : false,
       "supportsMockLocations" : true,
       "supportsMultiTouch" : true,
-      "supportsXcuiTest" : true
+      "supportsXcuiTest" : false
    },
    "device_log_url" : "https://api.eu-central-1.saucelabs.com/v1/rdc/jobs/51873a114a6141239c933042e948aa54/deviceLogs",
    "device_name" : "Samsung Galaxy S10",
