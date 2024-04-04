@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import EnterpriseNote from '../_partials/_enterprise-note.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
+import FullPageDescription from '../_partials/_fullpage-description.md';
 
 # C#/.Net WebDriver Integration
 
@@ -338,6 +339,33 @@ Example:
 ```csharp
 VisualClient = VisualClient.Create(Driver, Region.UsWest1, sauceUsername, sauceAccessKey);
 VisualClient.CaptureDom = true;
+```
+
+### Full page screenshots
+
+<FullPageDescription />
+
+Examples:
+
+```csharp
+await VisualClient.VisualCheck("C# full page",
+    new VisualCheckOptions()
+    {
+        FullPage = true,
+    });
+```
+
+```csharp
+await VisualClient.VisualCheck("C# full page config",
+    new VisualCheckOptions()
+    {
+        FullPage = true,
+        FullPageConfig = new FullPageConfig()
+            {
+                DelayAfterScrollMs = 500,
+                HideAfterFirstScroll = new List<string> { ".header" }
+            }
+    });
 ```
 
 ## Examples
