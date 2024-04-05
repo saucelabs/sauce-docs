@@ -30,7 +30,8 @@ Looking to import from a spec file? See [Building a Test from a Spec File](/api-
 
 If you don't have a file available, try out the sample below.
 
-<details><summary>Click here to open a sample Postman Collection file</summary>Copy the text below, paste the text into a text editor, then save that as a .json file.<br/><br/>
+<details>
+<summary>Click here to open a sample Postman Collection file</summary>Copy the text below, paste the text into a text editor, then save that as a .json file.<br/><br/>
 
 ```json title="demo_postman_collection.json"
 {

@@ -92,28 +92,30 @@ Each resolution item in the array is either:
   ```java
   { deviceName: 'iPhone 6' }
   ```
-     <details><summary>Supported <code>deviceName</code> value options (<strong>click here to expand</strong>):</summary>
-      <ul>
-      <li>iPad</li>
-      <li>iPad Pro</li>
-      <li>iPhone 4</li>
-      <li>iPhone 5</li>
-      <li>iPhone 6</li>
-      <li>iPhone 6 Plus</li>
-      <li>iPhone 7</li>
-      <li>iPhone 7 Plus</li>
-      <li>iPhone 8</li>
-      <li>iPhone 8 Plus</li>
-      <li>iPhone X</li>
-      <li>Galaxy S6</li>
-      <li>Galaxy S7</li>
-      <li>Galaxy S8</li>
-      <li>Nexus 4</li>
-      <li>Nexus 5</li>
-      <li>Nexus 5X</li>
-      <li>Nexus 6P</li>
-      <li>Nexus 7</li>
-      <li>Nexus 10</li></ul>
+     <details>
+         <summary>Supported <code>deviceName</code> value options (<strong>click here to expand</strong>):</summary>
+          <ul>
+              <li>iPad</li>
+              <li>iPad Pro</li>
+              <li>iPhone 4</li>
+              <li>iPhone 5</li>
+              <li>iPhone 6</li>
+              <li>iPhone 6 Plus</li>
+              <li>iPhone 7</li>
+              <li>iPhone 7 Plus</li>
+              <li>iPhone 8</li>
+              <li>iPhone 8 Plus</li>
+              <li>iPhone X</li>
+              <li>Galaxy S6</li>
+              <li>Galaxy S7</li>
+              <li>Galaxy S8</li>
+              <li>Nexus 4</li>
+              <li>Nexus 5</li>
+              <li>Nexus 5X</li>
+              <li>Nexus 6P</li>
+              <li>Nexus 7</li>
+              <li>Nexus 10</li>
+          </ul>
      </details>
 
 Example config using `resolutions`:

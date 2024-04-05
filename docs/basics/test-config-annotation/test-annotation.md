@@ -166,7 +166,8 @@ public class TextInputTest extends TestBase {
 
 You can manage your tests more effectively from your Dashboard and Archives with annotations. The Sauce Labs REST API includes an [update_job](/dev/api/jobs/#update-a-job) method that you can use to set a name, tags, pass/fail status, and custom data for your test after it runs. To automate test annotation with this method, you'll want to create a simple set of functions to perform the put request for you.
 
-<details><summary>Sauce Labs REST API Examples</summary>
+<details>
+<summary>Sauce Labs REST API Examples</summary>
 
 - [Java](https://github.com/saucelabs/saucerest-java)
 - [Python](https://gist.github.com/1644439)

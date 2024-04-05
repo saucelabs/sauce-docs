@@ -19,28 +19,20 @@ The following browsers are available in our cloud:
 
 <table>
   <tr>
-   <td><strong>browserName</strong>
-   </td>
-   <td><strong>version</strong>
-   </td>
+   <td><strong>browserName</strong></td>
+   <td><strong>version</strong></td>
   </tr>
   <tr>
-   <td><strong>chrome</strong>
-   </td>
-   <td><em>-Do not set-</em>
-   </td>
+   <td><strong>chrome</strong></td>
+   <td><em>-Do not set-</em></td>
   </tr>
   <tr>
-   <td><strong>firefox</strong>
-   </td>
-   <td><em>-Do not set-</em>
-   </td>
+   <td><strong>firefox</strong></td>
+   <td><em>-Do not set-</em></td>
   </tr>
   <tr>
-   <td><strong>internet explorer</strong>
-   </td>
-   <td>11
-   </td>
+   <td><strong>internet explorer</strong></td>
+   <td>11</td>
   </tr>
 </table>
 

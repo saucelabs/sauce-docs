@@ -29,8 +29,7 @@ Sauce Labs supports Idp-initiated SSO, which allows your authorized employees to
     <h2>Configuring</h2>
     <p>Configure single sign-on tools to work with Sauce.</p>
     <ul>
-        <li><a href="/basics/sso-deprecated/config-adfs">AD FS
-  </a></li>
+        <li><a href="/basics/sso-deprecated/config-adfs">AD FS</a></li>
         <li><a href="/basics/sso-deprecated/config-okta">Okta</a></li>
     </ul></div>
   </div>

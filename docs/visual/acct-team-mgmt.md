@@ -34,88 +34,53 @@ Before you create a team, it is useful to understand the different user roles in
 
 <table>
   <tr>
-   <td><strong> </strong>
-   </td>
-   <td><strong><small>Viewer</small></strong>
-   </td>
-   <td><strong><small>Tester</small></strong>
-   </td>
-   <td><strong><small>Administrator</small></strong>
-   </td>
-   <td><strong><small>Account Owner</small></strong>
-   </td>
+   <td><strong> </strong></td>
+   <td><strong><small>Viewer</small></strong></td>
+   <td><strong><small>Tester</small></strong></td>
+   <td><strong><small>Administrator</small></strong></td>
+   <td><strong><small>Account Owner</small></strong></td>
   </tr>
   <tr>
-   <td>View Projects & UI States
-   </td>
-   <td>x
-   </td>
-   <td>x
-   </td>
-   <td>x
-   </td>
-   <td>x
-   </td>
+   <td>View Projects & UI States</td>
+   <td>x</td>
+   <td>x</td>
+   <td>x</td>
+   <td>x</td>
   </tr>
   <tr>
-   <td>Change Status of UI States
-   </td>
-   <td>
-   </td>
-   <td>x
-   </td>
-   <td>x
-   </td>
-   <td>x
-   </td>
+   <td>Change Status of UI States</td>
+   <td></td>
+   <td>x</td>
+   <td>x</td>
+   <td>x</td>
   </tr>
   <tr>
-   <td>Delete Branches
-   </td>
-   <td>
-   </td>
-   <td>x
-   </td>
-   <td>x
-   </td>
-   <td>x
-   </td>
+   <td>Delete Branches</td>
+   <td></td>
+   <td>x</td>
+   <td>x</td>
+   <td>x</td>
   </tr>
   <tr>
-   <td>Add/Delete Projects
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>x
-   </td>
-   <td>x
-   </td>
+   <td>Add/Delete Projects</td>
+   <td></td>
+   <td></td>
+   <td>x</td>
+   <td>x</td>
   </tr>
   <tr>
-   <td>Manage Teams
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>x
-   </td>
-   <td>x
-   </td>
+   <td>Manage Teams</td>
+   <td></td>
+   <td></td>
+   <td>x</td>
+   <td>x</td>
   </tr>
   <tr>
-   <td>Manage Billing Information
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>x
-   </td>
+   <td>Manage Billing Information</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td>x</td>
   </tr>
 </table>
 

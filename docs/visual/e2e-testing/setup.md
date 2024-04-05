@@ -320,10 +320,11 @@ Go your Visual Testing Dashboard (Sauce Labs **Visual Testing** > **Log in to Vi
 
 :::tip
 
-<details><summary>Click <strong>Show Logs</strong> > <strong>View Logs on Sauce Labs</strong> to see your <a href="/test-results">test results</a> on Sauce Labs.</summary>
-
-<img src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')} alt="Visual E2E Quickstart accept state" width="205" /><br/><img src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')} alt="Visual E2E Quickstart accept state" width="250" />
-
+<details>
+    <summary>
+        Click <strong>Show Logs</strong> > <strong>View Logs on Sauce Labs</strong> to see your <a href="/test-results">test results</a> on Sauce Labs.
+    </summary>
+    <img src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')} alt="Visual E2E Quickstart accept state" width="205" /><br/><img src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')} alt="Visual E2E Quickstart accept state" width="250" />
 </details>
 
 :::
@@ -411,7 +412,9 @@ Choose which test in the project you'd like to run:
 - [**simple-mocha-test.js** (WebdriverIO with Mocha)](https://github.com/luishernandezv/visual-e2e/blob/main/simple-jest.test.js) ([Mocha](https://mochajs.org/) required)
 - [**simple-mocha-test.js** (WebdriverIO with Jest)](https://github.com/luishernandezv/visual-e2e/blob/main/simple-jest.test.js) ([Jest](https://jestjs.io/) required)
 
-<details><summary>What's in the tests?</summary>
+<details>
+
+<summary>What's in the tests?</summary>
 
 To view a breakdown of what's happening in each test script, click on any of the WebDriver test links above and refer to the comments in the script. For example:
 
@@ -483,10 +486,9 @@ The test should take a few minutes to complete.
 
 :::tip
 
-<details><summary>Click <strong>Show Logs</strong> > <strong>View Logs on Sauce Labs</strong> to see your <a href="/test-results">test results</a> on Sauce Labs.</summary>
-
-<img src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')} alt="Visual E2E Quickstart accept state" width="205" /><br/><img src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')} alt="Visual E2E Quickstart accept state" width="250" />
-
+<details>
+    <summary>Click <strong>Show Logs</strong> > <strong>View Logs on Sauce Labs</strong> to see your <a href="/test-results">test results</a> on Sauce Labs.</summary>
+    <img src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')} alt="Visual E2E Quickstart accept state" width="205" /><br/><img src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')} alt="Visual E2E Quickstart accept state" width="250" />
 </details>
 
 :::

@@ -86,136 +86,92 @@ The following step methods are available. Step methods with selectors have built
 
 <table>
 <tr>
- <td><strong>Step Method</strong>
- </td>
- <td><strong>Description</strong>
- </td>
+ <td><strong>Step Method</strong></td>
+ <td><strong>Description</strong></td>
 </tr>
 <tr>
- <td><code>snapshot(name)</code>
- </td>
- <td>this will capture a Screener snapshot.
- </td>
+ <td><code>snapshot(name)</code></td>
+ <td>this will capture a Screener snapshot.</td>
 </tr>
   <tr>
-   <td><code>click(selector)</code>
-   </td>
-   <td>this will click on the first element matching the provided css selector.
-   </td>
+   <td><code>click(selector)</code></td>
+   <td>this will click on the first element matching the provided css selector.</td>
   </tr>
   <tr>
-   <td><code>snapshot(name)</code>
-   </td>
-   <td>this will capture a Screener snapshot.
-   </td>
+   <td><code>snapshot(name)</code></td>
+   <td>this will capture a Screener snapshot.</td>
   </tr>
   <tr>
-   <td><code>hover(selector)</code>
-   </td>
-   <td>this will move the mouse over the first element matching the provided css selector.
-   </td>
+   <td><code>hover(selector)</code></td>
+   <td>this will move the mouse over the first element matching the provided css selector.</td>
   </tr>
   <tr>
-   <td><code>mouseDown(selector)</code>
-   </td>
-   <td>this will press and hold the mouse button over the first element matching the provided css selector.
-   </td>
+   <td><code>mouseDown(selector)</code></td>
+   <td>this will press and hold the mouse button over the first element matching the provided css selector.</td>
   </tr>
   <tr>
-   <td><code>mouseUp(selector)</code>
-   </td>
-   <td>this will release the mouse button. The "selector" parameter is optional.
-   </td>
+   <td><code>mouseUp(selector)</code></td>
+   <td>this will release the mouse button. The "selector" parameter is optional.</td>
   </tr>
   <tr>
-   <td><code>focus(selector)</code>
-   </td>
-   <td>this will set cursor focus on the first element matching the provided css selector.
-   </td>
+   <td><code>focus(selector)</code></td>
+   <td>this will set cursor focus on the first element matching the provided css selector.</td>
   </tr>
   <tr>
-   <td><code>setValue(selector, value)</code>
-   </td>
-   <td>this will set the value of the input field matching the provided css selector.
-   </td>
+   <td><code>setValue(selector, value)</code></td>
+   <td>this will set the value of the input field matching the provided css selector.</td>
   </tr>
   <tr>
-   <td><code>clearValue(selector)</code>
-   </td>
-   <td>this will clear the value of the input field matching the provided css selector.
-   </td>
+   <td><code>clearValue(selector)</code></td>
+   <td>this will clear the value of the input field matching the provided css selector.</td>
   </tr>
   <tr>
-   <td><code>keys(selector, keys)</code>
-   </td>
-   <td>this will send the provided keys to the first element matching the provided css selector.
-   </td>
+   <td><code>keys(selector, keys)</code></td>
+   <td>this will send the provided keys to the first element matching the provided css selector.</td>
   </tr>
   <tr>
-   <td><code>executeScript(code)</code>
-   </td>
-   <td>this executes custom JS code against the client browser the test is running in. <strong>NOTE:</strong> The "code" parameter is a string.
-   </td>
+   <td><code>executeScript(code)</code></td>
+   <td>this executes custom JS code against the client browser the test is running in. <strong>NOTE:</strong> The "code" parameter is a string.</td>
   </tr>
   <tr>
-   <td><code>ignore(selector)</code>
-   </td>
-   <td>this ignores all elements matching the provided css selector(s).
-   </td>
+   <td><code>ignore(selector)</code></td>
+   <td>this ignores all elements matching the provided css selector(s).</td>
   </tr>
   <tr>
-   <td><code>clearIgnores()</code>
-   </td>
-   <td>this resets all ignores added using the ignore(selector) step.
-   </td>
+   <td><code>clearIgnores()</code></td>
+   <td>this resets all ignores added using the ignore(selector) step.</td>
   </tr>
   <tr>
-   <td><code>wait(ms)</code>
-   </td>
-   <td>this will pause execution for the specified number of ms.
-   </td>
+   <td><code>wait(ms)</code></td>
+   <td>this will pause execution for the specified number of ms.</td>
   </tr>
   <tr>
-   <td><code>wait(selector)</code>
-   </td>
-   <td>this will wait until the element matching the provided css selector is present.
-   </td>
+   <td><code>wait(selector)</code></td>
+   <td>this will wait until the element matching the provided css selector is present.</td>
   </tr>
   <tr>
-   <td><code>waitForNotFound(selector)</code>
-   </td>
-   <td>this will wait until the element matching the provided css selector is Not present.
-   </td>
+   <td><code>waitForNotFound(selector)</code></td>
+   <td>this will wait until the element matching the provided css selector is Not present.</td>
   </tr>
   <tr>
-   <td><code>cssAnimations(isEnabled)</code>
-   </td>
-   <td>this will override the global cssAnimations option for the current UI state. Set to <code>true</code> to enable CSS Animations; set to <code>false</code> to disable.
-   </td>
+   <td><code>cssAnimations(isEnabled)</code></td>
+   <td>this will override the global cssAnimations option for the current UI state. Set to <code>true</code> to enable CSS Animations; set to <code>false</code> to disable.</td>
   </tr>
   <tr>
-   <td><code>rtl()</code>
-   </td>
-   <td>this will set the current UI state to right-to-left direction.
-   </td>
+   <td><code>rtl()</code></td>
+   <td>this will set the current UI state to right-to-left direction.</td>
   </tr>
   <tr>
-   <td><code>ltr()</code>
-   </td>
-   <td>this will set the current UI state to left-to-right direction.
-   </td>
+   <td><code>ltr()</code></td>
+   <td>this will set the current UI state to left-to-right direction.</td>
   </tr>
   <tr>
-   <td><code>url(url)</code>
-   </td>
-   <td>this will load a new url.
-   </td>
+   <td><code>url(url)</code></td>
+   <td>this will load a new url.</td>
   </tr>
   <tr>
-   <td><code>end()</code>
-   </td>
-   <td>this will return the steps to be run.
-   </td>
+   <td><code>end()</code></td>
+   <td>this will return the steps to be run.</td>
   </tr>
 </table>
 
