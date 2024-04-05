@@ -41,7 +41,7 @@ We do this so we don’t have to manually invoke or set a variable every time it
 
 <img src={useBaseUrl('img/api-fortress/2018/04/Screen-Shot-2018-04-12-at-12.31.27-PM.png')} alt="Set Variable"/>
 
-Now, call the variable `“access_token”` and assign the value to ${payload.Token}. The response body from the original post call was saved to a variable called “payload.” The key to access the token is named `“Token”`, so you may find it by calling `“payloadToken”`. Be sure to wrap this all in `${}` so that API Fortress knows to interpret what’s between the brackets instead of using it literally.
+Now, call the variable `“access_token”` and assign the value to $\{payload.Token}. The response body from the original post call was saved to a variable called “payload.” The key to access the token is named `“Token”`, so you may find it by calling `“payloadToken”`. Be sure to wrap this all in `${}` so that API Fortress knows to interpret what’s between the brackets instead of using it literally.
 
 ## Making Follow-up Calls
 
