@@ -1,3 +1,4 @@
+const unwrapJsx = require('./src/plugins/unwrap-jsx');
 const docusaurusConfig = {
     title: 'Sauce Labs Documentation',
     tagline: 'Test all the things.',
@@ -129,6 +130,7 @@ const docusaurusConfig = {
                         'https://github.com/saucelabs/sauce-docs/edit/main/',
                     showLastUpdateAuthor: true,
                     showLastUpdateTime: true,
+                    remarkPlugins: [unwrapJsx],
                 },
                 googleAnalytics: {
                     trackingID: 'UA-6735579-1',
