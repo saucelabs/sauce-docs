@@ -343,7 +343,18 @@ VisualClient.CaptureDom = true;
 
 ### Full page screenshots
 
-<FullPageDescription />
+By default, only the current viewport is captured when `.VisualCheck` is used. You can opt in to capturing the entire page by using the `FullPage` option. It will capture everything by scrolling and stitching multiple screenshots together.
+Additionally, you have the option to configure full page settings using the `FullPageConfig` option.
+
+:::note
+It's recommended to use the `HideAfterFirstScroll` option for fixed or sticky position elements such as sticky headers or consent banners.
+:::
+
+Options:
+
+- `DelayAfterScrollMs`: Delay in ms after scrolling and before taking screenshots (helps with lazy loading content)
+- `HideAfterFirstScroll`: Hide elements on the page after first scroll (uses css selectors)
+
 
 Examples:
 
