@@ -4,12 +4,11 @@ sidebar_label: WebdriverIO
 
 import FullPageJS from '../_partials/_fullpage-js.md';
 import ClippingWDIO from '../_partials/_clipping-webdriver.md';
+import EnterpriseNote from '../_partials/_enterprise-note.md';
 
 # WebdriverIO Integration
 
-:::note Important
-Access to this feature is currently limited to Enterprise customers as part of our commitment to providing tailored solutions. We are excited to announce that self-service access is under development and will be released shortly. Stay tuned!
-:::
+<EnterpriseNote />
 
 ## Introduction
 

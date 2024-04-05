@@ -5,12 +5,11 @@ sidebar_label: Cypress
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ClippingDescription from '../_partials/_clipping-description.md';
+import EnterpriseNote from '../_partials/_enterprise-note.md';
 
 # Cypress Integration
 
-:::note Important
-Access to this feature is currently limited to Enterprise customers as part of our commitment to providing tailored solutions. We are excited to announce that self-service access is under development and will be released shortly. Stay tuned!
-:::
+<EnterpriseNote />
 
 ## Introduction
 
