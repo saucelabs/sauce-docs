@@ -1707,6 +1707,7 @@ module.exports = {
                         'visual-testing/integrations/nightwatch',
                         'visual-testing/integrations/storybook',
                         'visual-testing/integrations/webdriverio',
+                        'visual-testing/integrations/python',
                     ],
                 },
                 'visual-testing/faq',
