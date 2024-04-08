@@ -1436,9 +1436,9 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `audioCapture`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span></small> |</p>
+<p><small>| OPTIONAL | BOOLEAN | </small></p>
 
-Enables audio recording in your iOS and Android native mobile app tests. The audio will be part of the **Test Results** page video file, which you can play back and download in our built-in media player. The default value is `false`.
+Enables audio recording in your automated tests. This feature is supported for Windows and macOS desktop tests as well as mobile Real Devices. The audio will be part of the **Test Results** page video file, which you can play back and download in our built-in media player. The default value is `false`.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
