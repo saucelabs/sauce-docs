@@ -123,10 +123,8 @@ We recommend creating a helper class / function within your framework of choice 
 
 ```python
 session_id = 'YOUR_SESSION_ID'  # Get your Selenium session ID from your framework
-meta = client.get_selenium_metadata(session_id)
 client.create_snapshot_from_webdriver(
     name="Snapshot Name",
-    meta=meta,
     session_id=session_id,
     # Other optional items to customize your snapshots / associate them with the current test run
     # test_name="TEST_NAME_FROM_YOUR_FRAMEWORK",
