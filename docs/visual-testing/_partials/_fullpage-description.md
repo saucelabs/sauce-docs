@@ -6,5 +6,5 @@ It's recommended to use the `hideAfterFirstScroll` option for fixed or sticky po
 
 Options:
 
-- `delayAfterScrollMs`: Delay in ms after scrolling and before taking screenshots. Default value is 0 (helps with lazy loading content)
+- `delayAfterScrollMs`: Delay in ms after scrolling and before taking screenshots. The default value is 0. We recommend using this option for lazy loading content.
 - `hideAfterFirstScroll`: Hide elements on the page after first scroll (uses css selectors)
