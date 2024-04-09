@@ -242,9 +242,15 @@ Remember, the baseline is established during the initial run, and any subsequent
 
 ## Advanced usage
 
+### Customizing Your Builds (Environment Variables)
+
+Below are the environment variables available in the Sauce Visual C# plugin:
+
+<EnvironmentVariables />
+
 ### Test results summary
 
-`VisualClient.VisualResults()` returns a summary of test results in `Dictionnary<DiffStatus, int>` format where `DiffStatus` is one of the following:
+`VisualClient.VisualResults()` returns a summary of test results in `Dictionary<DiffStatus, int>` format where `DiffStatus` is one of the following:
 
 - `DiffStatus.QUEUED`: Diffs that are pending for processing. Should be 0 in case the test is completed without any timeouts
 - `DiffStatus.EQUAL`: Diffs that have no changes detected

@@ -222,6 +222,12 @@ Remember, the baseline is established during the initial run, and any subsequent
 
 ## Advanced usage
 
+### Customizing Your Builds (Environment Variables)
+
+Below are the environment variables available in the Sauce Visual Java plugin:
+
+<EnvironmentVariables />
+
 ### Test results summary
 
 `VisualApi#sauceVisualResults()` returns a summary of test results in `Map<DiffStatus, Integer>` format where `DiffStatus` is one of the following:

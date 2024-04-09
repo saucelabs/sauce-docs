@@ -167,6 +167,12 @@ More information about the status can be found [here](#sauce-visual-assertion)
 
 ## Advanced usage
 
+### Customizing Your Builds (Environment Variables)
+
+Below are the environment variables available in the Sauce Visual Nightwatch plugin:
+
+<EnvironmentVariables />
+
 ### Sauce Visual Assertion
 
 :::note
