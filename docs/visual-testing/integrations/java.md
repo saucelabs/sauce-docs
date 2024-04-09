@@ -5,7 +5,7 @@ sidebar_label: Java
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ClippingDescription from '../_partials/_clipping-description.md';
-import FullPageDescription from '../_partials/_fullpage-description.md';
+import FullPageLimit from '../_partials/_fullpage-limit.md';
 import EnterpriseNote from '../_partials/_enterprise-note.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 
@@ -338,7 +338,17 @@ visual.sauceVisualCheck("Inventory Page", options);
 
 ### Full page screenshots
 
-<FullPageDescription />
+By default, only the current viewport is captured when `.sauceVisualCheck` is used. You can opt in to capturing the entire page by using the `enableFullPageScreenshots` option. It will capture everything by scrolling and stitching multiple screenshots together.
+Additionally, you have the option to configure full page settings using the `FullPageConfig` option.
+
+:::note
+It's recommended to use the `HideAfterFirstScroll` option for fixed or sticky position elements such as sticky headers or consent banners.
+:::
+
+Options:
+
+- `DelayAfterScrollMs`: Delay in ms after scrolling and before taking screenshots. Default value is 0 (helps with lazy loading content)
+- `HideAfterFirstScroll`: Hide elements on the page after first scroll (uses css selectors)
 
 Examples:
 
@@ -363,6 +373,7 @@ options.enableFullPageScreenshots(config);
 visual.sauceVisualCheck("Long content page", options);
 ```
 
+<FullPageLimit />
 
 ### Clip to an element
 
