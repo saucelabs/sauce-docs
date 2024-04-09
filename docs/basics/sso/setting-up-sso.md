@@ -34,7 +34,7 @@ Sauce Labs supports the following features:
 
 ## Setup Overview
 
-First, set up a new SAML application in your [Identity Provider (IdP)](#setting-up-identity-provider). Next, enable and configure SSO in [Sauce Labs Team Management Panel](#integrating-with-sauce-labs-service-provider).
+First, set up a new SAML application in your [Identity Provider (IdP)](#setting-up-identity-provider). Next, enable and configure SSO in [Sauce Labs Organization Management Panel](#integrating-with-sauce-labs-service-provider).
 
 :::note
 SSO at Sauce Labs is global. In other words, it does not matter in which region you set it up. Unlike to the [former SSO implementation](/basics/sso-deprecated/setting-up-single-sign-on), which has been deprecated.
@@ -76,7 +76,7 @@ If you use a custom identity provider or if we do not provide a preconfigured Sa
    - In the IdP, go to the "Applications" or "Integrations" section and create a new SAML application.
    - Follow the instructions from your IdP to provide the Sauce Labs SAML metadata obtained in Step 1. If your IdP does not allow uploading service provider metadata, set up the integration manually using [Service Provider SAML Requirements](#service-provider-saml-requirements).
 4. Export SAML metadata of your new SAML application.
-   - It will be used to set up the SSO at Sauce Labs in [Team Management Panel](#integrating-with-sauce-labs-service-provider).
+   - It will be used to set up the SSO at Sauce Labs in [Organization Management Panel](#integrating-with-sauce-labs-service-provider).
 
 ### Service Provider SAML Requirements
 
@@ -100,9 +100,9 @@ Here is the list of settings that are required by Sauce Labs Service Provider:
 Either the SAML Assertion or SAML Response **must be signed**.
 
 A digital signature is required to ensure that only your IdP generated the assertion.
-The IdP signs SAML requests or assertions with the private key, and Sauce Labs Service Provider verifies the signature using the public key from the IdP metadata uploaded in [SSO settings in the Team Management UI](/basics/sso/setting-up-sso/#integrating-with-sauce-labs-service-provider).
+The IdP signs SAML requests or assertions with the private key, and Sauce Labs Service Provider verifies the signature using the public key from the IdP metadata uploaded in [SSO settings in the Organization Management UI](/basics/sso/setting-up-sso/#integrating-with-sauce-labs-service-provider).
 
-If you rotate the signing certificate in your Identity Provider, you have to [reupload the IdP metadata](#identity-provider-signing-certificate-rotation) in the Sauce Labs Team Management UI.
+If you rotate the signing certificate in your Identity Provider, you have to [reupload the IdP metadata](#identity-provider-signing-certificate-rotation) in the Sauce Labs Organization Management UI.
 
 ### Encryption
 
@@ -174,9 +174,9 @@ If you do not replace the encryption certificate in your IdP on time, once the c
 
 ## Integrating With Sauce Labs Service Provider
 
-1. On Sauce Labs, click **Account**, and then click **Team Management**.
+1. On Sauce Labs, click **Account**, and then click **Organization Management**.
 
-<img src={useBaseUrl('img/basics/sso/setup-sso-sp-tm-menu.png')} alt="Team Management Menu" width="300" />
+<img src={useBaseUrl('img/basics/sso/setup-sso-sp-tm-menu.png')} alt="Organization Management Menu" width="300" />
 
 2. On the **Organization Management** page, in the **ORGANIZATION SETTINGS** section, click **View Settings**.
 

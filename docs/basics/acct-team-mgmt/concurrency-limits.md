@@ -12,9 +12,9 @@ If your organization has multiple teams sharing a Sauce Labs account, you can us
 
 If you are an org admin, you can view and control your organization's concurrency limits:
 
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. In Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 
-<img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="300"/>
+<img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="300"/>
 
 2. On the **Organization Management** page, under the ORGANIZATION NAME box, concurrency limits will be displayed for the selected data center. 
 

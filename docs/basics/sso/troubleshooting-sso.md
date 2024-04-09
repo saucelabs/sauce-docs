@@ -37,7 +37,7 @@ When integrating SAML Single Sign-On (SSO) into your system, it's crucial to ens
 
 - This error indicates a mismatch between the Issuer (Identity Provider identifier) in the SAML request and the metadata uploaded to Sauce Labs.
   <br/><img src={useBaseUrl('img/basics/sso/troubleshooting/invalid-metadata-issuer-error.png')} alt="Invalid Metadata Issuer Error" width="550" />
-- Re-download the metadata from your identity provider's Sauce Labs SAML app and re-upload it in the [Team Management](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider) section.
+- Re-download the metadata from your identity provider's Sauce Labs SAML app and re-upload it in the [Organization Management](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider) section.
 
 ### Service Provider Initiated SSO Email Error
 
