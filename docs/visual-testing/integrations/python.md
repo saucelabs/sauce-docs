@@ -3,6 +3,7 @@ sidebar_label: Python
 ---
 
 import EnterpriseNote from '../_partials/_enterprise-note.md'
+import EnvironmentVariables from '../_partials/_environment-variables.md';
 
 # Python Integration
 
@@ -139,6 +140,12 @@ client.create_snapshot_from_webdriver(
 # Finish the currently opened build associated with this instance
 client.finish_build()
 ```
+
+## Environment variables
+
+Below are the environment variables available in the Sauce Visual Python plugin:
+
+<EnvironmentVariables />
 
 ## Examples
 
