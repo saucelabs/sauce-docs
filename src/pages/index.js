@@ -38,7 +38,7 @@ function Home() {
                             </a>
                             <a
                                 className='hero__popular-searches'
-                                href='/dev/cli/sauce-connect-proxy/'
+                                href='/dev/cli/sauce-connect-5/'
                             >
                                 &nbsp;Sauce Connect |
                             </a>
