@@ -5,6 +5,7 @@ sidebar_label: C#/.Net
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import EnterpriseNote from '../_partials/_enterprise-note.md';
+import EnvironmentVariables from '../_partials/_environment-variables.md';
 
 # C#/.Net WebDriver Integration
 

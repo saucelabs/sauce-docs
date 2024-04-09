@@ -7,6 +7,7 @@ import TabItem from '@theme/TabItem';
 import ClippingDescription from '../_partials/_clipping-description.md';
 import FullPageDescription from '../_partials/_fullpage-description.md';
 import EnterpriseNote from '../_partials/_enterprise-note.md';
+import EnvironmentVariables from '../_partials/_environment-variables.md';
 
 # Java WebDriver Integration
 
