@@ -1,4 +1,5 @@
 import FullPageDescription from './_fullpage-description.md';
+import FullPageLimit from './_fullpage-limit.md';
 
 <FullPageDescription />
 
@@ -18,3 +19,5 @@ await browser.sauceVisualCheck('Long content page', {
   },
 });
 ```
+
+<FullPageLimit />
