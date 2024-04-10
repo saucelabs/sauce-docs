@@ -19,7 +19,7 @@ Try our [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platfo
 
 When setting up your test, you'll need to configure your script with settings called _capabilities_ that align with your test environment (e.g., desktop browser, mobile web browser, mobile app). While each environment has its own set of capabilities, they can also be combined. Some are required for a test to run in a given environment, while some are optional.
 
-You'll need to add these configurations to the [capabilities](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_Capabilities.html) or [options](https://www.selenium.dev/documentation/en/driver_idiosyncrasies/driver_specific_capabilities/) classes.
+You'll need to add these configurations to the [capabilities](https://www.selenium.dev/documentation/webdriver/drivers/options/) or [options](https://www.selenium.dev/documentation/en/driver_idiosyncrasies/driver_specific_capabilities/) classes.
 
 - **W3C WebDriver Capabilities**: Required for any test using Selenium or Appium to communicate with the browser. W3C WebDriver capabilities are universal capabilities for any test, and are usually combined with additional capabilities. See the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/#capabilities) for more information.
 - **Sauce Labs Capabilities**: Needed for running a test on the Sauce Labs Cloud, with different possible sets for different environments. Though there aren't any capabilities required, you will need to [configure the endpoint URL](/basics/data-center-endpoints) and should pass the test name and status as capabilities to the remote webdriver.
