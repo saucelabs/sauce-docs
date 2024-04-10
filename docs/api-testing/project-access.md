@@ -13,17 +13,17 @@ Project settings allow you to view the access to projects that was defined when 
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-- An understanding of [Team Management](/basics/acct-team-mgmt/managing-user-info/) if you are an organization admin configuring team access to projects.
+- An understanding of [Organization Management](/basics/acct-team-mgmt/managing-user-info/) if you are an organization admin configuring team access to projects.
 
 :::note
-Sauce Labs Team Management features are available for <span className="sauceGreen">Enterprise Plans only</span>.
+Sauce Labs Organization Management features are available for <span className="sauceGreen">Enterprise Plans only</span>.
 :::
 
 ## Project Access Levels and User Scenarios
 
 Access to a project is assigned when the project is created. You can assign the following access levels to a project:
 
-- **Team Access**: Available if an organization admin has set up teams in Team Management. Users must be a member of the assigned team or an organization admin to access the project.
+- **Team Access**: Available if an organization admin has set up teams in Organization Management. Users must be a member of the assigned team or an organization admin to access the project.
 - **Organization Access**: Everyone that can access the organization.
 
 The type of project access users have and can configure for the projects they create is based on the following user scenarios:
@@ -49,7 +49,7 @@ You create projects and define project settings on the Projects page, and edit p
 
 ### Manage Access to Projects
 
-Suppose an organization admin deletes a team from Sauce Labs [Accounts > Team Management](/basics/acct-team-mgmt/managing-user-info/) before managing project access in API Testing. In that case, you see a banner at the top of the Projects page that notifies you some projects belong to a deleted team. Clicking on the **Update** brings you to the Settings, where you can assign a new access level to that project.
+Suppose an organization admin deletes a team from Sauce Labs [Accounts > Organization Management](/basics/acct-team-mgmt/managing-user-info/) before managing project access in API Testing. In that case, you see a banner at the top of the Projects page that notifies you some projects belong to a deleted team. Clicking on the **Update** brings you to the Settings, where you can assign a new access level to that project.
 
 ## Email Notifications
 

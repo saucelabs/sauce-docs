@@ -16,7 +16,7 @@ If you want to update the billing information for an Enterprise plan, contact yo
 
 1. On Sauce Labs, click **ACCOUNT**, and then click **Billing**.
 
-<img src={useBaseUrl('img/team-mgmt/team-mgmt-billing-nav.png')} alt="Team management billing navigation" width="300"/>
+<img src={useBaseUrl('img/team-mgmt/team-mgmt-billing-nav.png')} alt="Organization management billing navigation" width="300"/>
 
 2. On the Billing page, click **Billing Information**.
 3. Update cardholder details (if required).

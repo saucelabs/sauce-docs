@@ -18,9 +18,9 @@ After the migration, each team has the same properties across all regions.
 For teams that had the same name across regions, a prefix `Former {REGION}` has been added to the duplicated team during the migration.
 :::
 
-Team name can be changed by users with `Organization Admin` role in `TEAMS` section of `Team Management` panel.
+Team name can be changed by users with `Organization Admin` role in `TEAMS` section of `Organization Management` panel.
 
-Team assignment for users can be changed in `Team Management` panel. More info in [(Switching Active Team)](https://docs.saucelabs.com/basics/acct-team-mgmt/switching-active-team/)
+Team assignment for users can be changed in `Organization Management` panel. More info in [(Switching Active Team)](https://docs.saucelabs.com/basics/acct-team-mgmt/switching-active-team/)
 
 Users are assigned to the teams they were previously assigned to in each region. Using team navigation, they can switch their active team as they see fit.
 
