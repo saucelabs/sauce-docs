@@ -7,6 +7,7 @@ import TabItem from '@theme/TabItem';
 import ClippingDescription from '../_partials/_clipping-description.md';
 import FullPageDescription from '../_partials/_fullpage-description.md';
 import EnterpriseNote from '../_partials/_enterprise-note.md';
+import EnvironmentVariables from '../_partials/_environment-variables.md';
 
 # Java WebDriver Integration
 
@@ -221,6 +222,12 @@ Upon executing your tests for the first time under this step, a visual baseline 
 Remember, the baseline is established during the initial run, and any subsequent visual differences detected will be marked for review.
 
 ## Advanced usage
+
+### Customizing Your Builds (Environment Variables)
+
+Below are the environment variables available in the Sauce Visual Java plugin. Keep in mind that these variables have precedence over the ones defined in CheckOptions configuration.
+
+<EnvironmentVariables />
 
 ### Test results summary
 
