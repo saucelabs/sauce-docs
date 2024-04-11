@@ -154,11 +154,22 @@ async with async_playwright() as playwright:
 
 #### Capabilities
 
-Currently only below listed capabilities are available when using Playwright via WebSocket:
-- `os`
-- `osVersion`
-- `browser`
-- `browserVersion`
+Currently only below listed capabilities and values are available when using Playwright via WebSocket:
+
+| Capability        | Value                             |
+| ----------------- | --------------------------------- |
+| `os`              | `Windows`, `macOS`, `Linux`       |
+| `osVersion`       | see note below                    |
+| `browser`         | `googlechrome`, `microsoftedge`   |
+| `browserVersion`  | `118`, `119`, `120`               |
+
+:::note
+Available combinations for `os` & `osVersion`:
+- `Windows 10`
+- `Windows 11`
+- `macOS 13`
+- `Linux`
+:::
 
 They need to be provided as json string to the `caps` parameter using the `/cdp` endpoint:
 <Tabs
