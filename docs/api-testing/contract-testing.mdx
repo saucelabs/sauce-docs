@@ -51,8 +51,9 @@ Sauce Labs API Testing will validate the API producer (server) side by creating 
 
 Optionally, you can add further [assertions](/api-testing/composer/) here to your test, which will perform functional testing on top of your contract tests and fully validate the APIs are working as intended.
 
-<details><summary>What is functional testing?</summary>
-<i>Functional testing</i> is a more robust, data-driven method that checks the API logic and consumer flows. If your organization is creating a large-scale API program that will have public APIs with third-party consumers, for example, functional testing is ideal. That's where adding functional testing to complement your contract testing strategy can give your development team insight into how accurately your APIs render, and ultimately bring products to market faster.
+<details>
+  <summary>What is functional testing?</summary>
+  <i>Functional testing</i> is a more robust, data-driven method that checks the API logic and consumer flows. If your organization is creating a large-scale API program that will have public APIs with third-party consumers, for example, functional testing is ideal. That's where adding functional testing to complement your contract testing strategy can give your development team insight into how accurately your APIs render, and ultimately bring products to market faster.
 </details>
 
 After you've run your tests as part of a build (i.e., as part of your CI pipeline) or as a [scheduled test](/api-testing/schedule-test/), you can view your contract test results and events on your [Project Dashboard](/api-testing/project-dashboard/).
@@ -72,20 +73,20 @@ docker run --pull always -v "$(pwd)/myspec:/specs" \
 --logger https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/insights/events/_contract
 ```
 
-<details><summary>Want to run Piestry as part of a build?</summary>
+<details>
+  <summary>Want to run Piestry as part of a build?</summary>
 
-Alternatively, you can run the command as a [build](/api-testing/project-dashboard/#test-build-reports) by issuing the following launch command instead of the above:
+  Alternatively, you can run the command as a [build](/api-testing/project-dashboard/#test-build-reports) by issuing the following launch command instead of the above:
 
-```bash
-docker run --pull always -v "$(pwd)/myspec:/specs" \
--p 5000:5000 quay.io/saucelabs/piestry \
--u /specs/myspec.yaml \
---logger "https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/insights/events/_contract?buildId=build123"
-```
+  ```bash
+  docker run --pull always -v "$(pwd)/myspec:/specs" \
+  -p 5000:5000 quay.io/saucelabs/piestry \
+  -u /specs/myspec.yaml \
+  --logger "https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/insights/events/_contract?buildId=build123"
+  ```
 
-Here, the URL is appended by the `buildId` parameter.
-
-  </details>
+  Here, the URL is appended by the `buildId` parameter.
+</details>
 
 Be sure to use the same OpenAPI spec used to test the API producer side. This will activate the contract testing functionality and bind a series of endpoints with a Sauce Labs API Testing project.
 

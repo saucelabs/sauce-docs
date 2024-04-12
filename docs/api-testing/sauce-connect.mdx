@@ -26,9 +26,9 @@ We do not support [Allow-listing static IPs](/basics/data-center-endpoints/). We
 
 1. First, you'll need to create a YAML configuration file. From a text editor or IDE, create a file called **api-config.yaml**, then copy and paste it into the template below.
 
-<!-- :::caution Important
+{/* :::caution Important
 If you are already using a tunnel, note that the version has been updated, and the previous version **v2alpha** is deprecated and will be dismissed by July 31st. Update your version as per the configuration below.
-::: -->
+::: */}
 
 <Tabs
   defaultValue="US Data Center"
@@ -138,14 +138,14 @@ If the tunnel was launched successfully, you'll see a [CLI response](/secure-con
 :::tip Session Stickiness
 The **Tests** and **Compose** tabs have a _session stickiness_ feature (also known as session persistence) that binds your tunnel session to our API testing server. When you select a tunnel from the Sauce Connect Proxy dropdown, that tunnel will stay as the default selection, even if you close your browser.
 
-<details><summary>Learn more</summary>
+<details>
+  <summary>Learn more</summary>
 
-This feature does not apply to the **HTTP Client** or **Schedule** tabs, where the tunnel dropdown will always default to **No Tunnel**.
+  This feature does not apply to the **HTTP Client** or **Schedule** tabs, where the tunnel dropdown will always default to **No Tunnel**.
 
-If you shut down a tunnel that's currently selected in a Sauce Connect dropdown anywhere in the platform (**Tests**, **Compose**, **HTTP Client**, or **Schedule** tab), the test would fail and you'd see the below error message. This is something to be mindful of when selecting a tunnel in the **Schedule** tab to run in the future.
+  If you shut down a tunnel that's currently selected in a Sauce Connect dropdown anywhere in the platform (**Tests**, **Compose**, **HTTP Client**, or **Schedule** tab), the test would fail and you'd see the below error message. This is something to be mindful of when selecting a tunnel in the **Schedule** tab to run in the future.
 
-<img src={useBaseUrl('img/api-testing/api-sc-tunnel-error.png')} alt="API Testing Sauce Connect Nav error" width="350"/>
-
+  <img src={useBaseUrl('img/api-testing/api-sc-tunnel-error.png')} alt="API Testing Sauce Connect Nav error" width="350"/>
 </details>
 
 :::

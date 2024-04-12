@@ -16,502 +16,515 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ### Lookup Teams
 
-<details><summary><span className="api get">GET</span> <code>/team-management/v1/teams/</code></summary>
-<p/>
+<details>
+  <summary><span className="api get">GET</span> <code>/team-management/v1/teams/</code></summary>
+  <p/>
 
-Queries the organization of the requesting account and returns the number of teams matching the query and a summary of each team, including the `ID` value, which may be a required parameter of other API calls related to a specific team.
+  Queries the organization of the requesting account and returns the number of teams matching the query and a summary of each team, including the `ID` value, which may be a required parameter of other API calls related to a specific team.
 
-You can filter the results of your query using the `name` parameter below.
+  You can filter the results of your query using the `name` parameter below.
 
-#### Parameters
+  #### Parameters
 
-<table id="table-api">
+  <table id="table-api">
+    <tbody>
+      <tr>
+      <td><code>id</code></td>
+      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Comma-separated team IDs. Allows to receive details of multiple teams at once. For example, <code>id=3d60780314724ab8ac688b50aadd9ff9,f9acc7c5b1da4fd0902b184c4f0b6324</code> would return details of teams with IDs included in the provided list.</p></td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+      <td><code>name</code></td>
+      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns the set of teams that begin with the specified name value. For example, <code>name=sauce</code> would return all teams in the organization with names beginning with "sauce".</p></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <Tabs
+  groupId="dc-url"
+  defaultValue="us"
+  values={[
+  {label: 'United States', value: 'us'},
+  {label: 'Europe', value: 'eu'},
+  ]}>
+
+  <TabItem value="us">
+
+  ```jsx title="Sample Request"
+  curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+  --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams?name=sauce' \
+  --header 'Content-Type: application/json' | json_pp
+  ```
+
+  </TabItem>
+
+  <TabItem value="eu">
+
+  ```jsx title="Sample Request"
+  curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+  --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams?name=sauce' \
+  --header 'Content-Type: application/json' | json_pp
+  ```
+
+  </TabItem>
+  </Tabs>
+
+  #### Responses
+
+  <table id="table-api">
   <tbody>
     <tr>
-     <td><code>id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Comma-separated team IDs. Allows to receive details of multiple teams at once. For example, <code>id=3d60780314724ab8ac688b50aadd9ff9,f9acc7c5b1da4fd0902b184c4f0b6324</code> would return details of teams with IDs included in the provided list.</p></td>
+      <td><code>200</code></td>
+      <td colSpan='2'>Success. Team info returned.</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>name</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns the set of teams that begin with the specified name value. For example, <code>name=sauce</code> would return all teams in the organization with names beginning with "sauce".</p></td>
+      <td><code>404</code></td>
+      <td colSpan='2'>Not found.</td>
     </tr>
   </tbody>
-</table>
+  </table>
 
-<Tabs
-groupId="dc-url"
-defaultValue="us"
-values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
-]}>
-
-<TabItem value="us">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams?name=sauce' \
---header 'Content-Type: application/json' | json_pp
-```
-
-</TabItem>
-
-<TabItem value="eu">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams?name=sauce' \
---header 'Content-Type: application/json' | json_pp
-```
-
-</TabItem>
-</Tabs>
-
-#### Responses
-
-<table id="table-api">
-<tbody>
-  <tr>
-    <td><code>200</code></td>
-    <td colSpan='2'>Success. Team info returned.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>404</code></td>
-    <td colSpan='2'>Not found.</td>
-  </tr>
-</tbody>
-</table>
-
-```jsx title="Sample Response"
-{
-    "links": {...},
-    "count": 1,
-    "results": [
-        {
-            "id": "**************",
-            "name": "Sauce-Docs",
-            "settings": {
-                "virtual_machines": 25,
-                "real_devices": 0,
-                "live_only": false
-            },
-            "group": {...},
-            "is_default": false,
-            "org_uuid": "**************",
-            "user_count": 1
-        }
-    ]
-}
-```
-
+  ```jsx title="Sample Response"
+  {
+      "links": {...},
+      "count": 1,
+      "results": [
+          {
+              "id": "**************",
+              "name": "Sauce-Docs",
+              "settings": {
+                  "virtual_machines": 25,
+                  "real_devices": 0,
+                  "live_only": false
+              },
+              "group": {...},
+              "is_default": false,
+              "org_uuid": "**************",
+              "user_count": 1
+          }
+      ]
+  }
+  ```
 </details>
 
 ---
 
 ### Get a Specific Team
 
-<details><summary><span className="api get">GET</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
-<p/>
+<details>
+  <summary><span className="api get">GET</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
+  <p/>
 
-Returns the full profile of the specified team. The `ID` of the team is the only valid unique identifier.
+  Returns the full profile of the specified team. The `ID` of the team is the only valid unique identifier.
 
-#### Parameters
+  #### Parameters
 
-<table id="table-api">
+  <table id="table-api">
+    <tbody>
+      <tr>
+      <td><code>id</code></td>
+      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <Tabs
+  groupId="dc-url"
+  defaultValue="us"
+  values={[
+  {label: 'United States', value: 'us'},
+  {label: 'Europe', value: 'eu'},
+  ]}>
+
+  <TabItem value="us">
+
+  ```jsx title="Sample Request"
+  curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+  --request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>' \
+  --header 'Content-Type: application/json' | json_pp
+  ```
+
+  </TabItem>
+
+  <TabItem value="eu">
+
+  ```jsx title="Sample Request"
+  curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+  --request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>' \
+  --header 'Content-Type: application/json' | json_pp
+  ```
+
+  </TabItem>
+  </Tabs>
+
+  #### Responses
+
+  <table id="table-api">
   <tbody>
     <tr>
-     <td><code>id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
+      <td><code>200</code></td>
+      <td colSpan='2'>Success. Team info returned.</td>
     </tr>
   </tbody>
-</table>
+  <tbody>
+    <tr>
+      <td><code>404</code></td>
+      <td colSpan='2'>Not found.</td>
+    </tr>
+  </tbody>
+  </table>
 
-<Tabs
-groupId="dc-url"
-defaultValue="us"
-values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
-]}>
-
-<TabItem value="us">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>' \
---header 'Content-Type: application/json' | json_pp
-```
-
-</TabItem>
-
-<TabItem value="eu">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>' \
---header 'Content-Type: application/json' | json_pp
-```
-
-</TabItem>
-</Tabs>
-
-#### Responses
-
-<table id="table-api">
-<tbody>
-  <tr>
-    <td><code>200</code></td>
-    <td colSpan='2'>Success. Team info returned.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>404</code></td>
-    <td colSpan='2'>Not found.</td>
-  </tr>
-</tbody>
-</table>
-
-```jsx title="Sample Response"
-{
-    "id": "80d69d16ebdb4c018cc9d81ea911761a",
-    "name": "Sauce-Docs",
-    "org_uuid": {
-        "id": "**********",
-        "name": "SLTC",
-        "created_at": "2020-10-05T16:21:01.513495Z",
-        "updated_at": "2020-11-09T23:46:47.752572Z",
-        "total_vm_concurrency": 46,
-        "settings": {...}
-    },
-    "group": {...},
-    "created_at": "2020-12-30T17:09:12.473388Z",
-    "updated_at": "2020-12-30T17:09:12.473415Z",
-    "settings": {
-        "virtual_machines": 25,
-        "real_devices": 0,
-        "live_only": false
-    },
-    "description": "Tech Content API Testing",
-    "is_default": false,
-    "links": {...}
-}
-```
-
+  ```jsx title="Sample Response"
+  {
+      "id": "80d69d16ebdb4c018cc9d81ea911761a",
+      "name": "Sauce-Docs",
+      "org_uuid": {
+          "id": "**********",
+          "name": "SLTC",
+          "created_at": "2020-10-05T16:21:01.513495Z",
+          "updated_at": "2020-11-09T23:46:47.752572Z",
+          "total_vm_concurrency": 46,
+          "settings": {...}
+      },
+      "group": {...},
+      "created_at": "2020-12-30T17:09:12.473388Z",
+      "updated_at": "2020-12-30T17:09:12.473415Z",
+      "settings": {
+          "virtual_machines": 25,
+          "real_devices": 0,
+          "live_only": false
+      },
+      "description": "Tech Content API Testing",
+      "is_default": false,
+      "links": {...}
+  }
+  ```
 </details>
 
 ---
 
 ### Create a Team
 
-<details><summary><span className="api post">POST</span> <code>/team-management/v1/teams/</code></summary>
-<p/>
+<details>
+  <summary><span className="api post">POST</span> <code>/team-management/v1/teams/</code></summary>
+  <p/>
 
-Creates a new team under the organization of the requesting account.
+  Creates a new team under the organization of the requesting account.
 
-#### Parameters
+  #### Parameters
 
-<table id="table-api">
+  <table id="table-api">
+    <tbody>
+      <tr>
+      <td><code>name</code></td>
+      <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>A name for the new team.</p></td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+      <td><code>settings</code></td>
+      <td>
+        <p><small>| BODY | REQUIRED | OBJECT |</small></p>
+        <p>
+          The settings object specifies the concurrency allocations for the team within the organization. The available attributes are:
+          <ul>
+            <li><code>virtual_machines</code> - <small>INTEGER</small></li>
+          </ul>
+        </p>
+        <p>The <code>settings</code> parameter is required, but you only need to include the applicable concurrency attribute(s) for the team.</p>
+      </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+      <td><code>description</code></td>
+      <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A description to distinguish the team in the organization.</p></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <Tabs
+  groupId="dc-url"
+  defaultValue="us"
+  values={[
+  {label: 'United States', value: 'us'},
+  {label: 'Europe', value: 'eu'},
+  ]}>
+
+  <TabItem value="us">
+
+  ```jsx title="Sample Request"
+  curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+  --request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+      "name": "A-Team",
+      "settings": {
+          "virtual_machines": "10"
+      },
+      "description": "Docs QA Team"
+  }' | json_pp
+  ```
+
+  </TabItem>
+  <TabItem value="eu">
+
+  ```jsx title="Sample Request"
+  curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+  --request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+      "name": "A-Team",
+      "settings": {
+          "virtual_machines": "10"
+      },
+      "description": "Docs QA Team"
+  }' | json_pp
+  ```
+
+  </TabItem>
+  </Tabs>
+
+  #### Responses
+
+  <table id="table-api">
   <tbody>
     <tr>
-     <td><code>name</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>A name for the new team.</p></td>
+      <td><code>201</code></td>
+      <td colSpan='2'>Success. Team created.</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>settings</code></td>
-     <td><p><small>| BODY | REQUIRED | OBJECT |</small></p><p>The settings object specifies the concurrency allocations for the team within the organization. The available attributes are:
-     <ul>
-      <li><code>virtual_machines</code> - <small>INTEGER</small></li>
-    </ul>
-    </p><p>The <code>settings</code> parameter is required, but you only need to include the applicable concurrency attribute(s) for the team.</p></td>
+      <td><code>400</code></td>
+      <td colSpan='2'>Bad request.</td>
     </tr>
   </tbody>
-  <tbody>
-    <tr>
-     <td><code>description</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A description to distinguish the team in the organization.</p></td>
-    </tr>
-  </tbody>
-</table>
+  </table>
 
-<Tabs
-groupId="dc-url"
-defaultValue="us"
-values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
-]}>
-
-<TabItem value="us">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "name": "A-Team",
-    "settings": {
-        "virtual_machines": "10"
-    },
-    "description": "Docs QA Team"
-}' | json_pp
-```
-
-</TabItem>
-<TabItem value="eu">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "name": "A-Team",
-    "settings": {
-        "virtual_machines": "10"
-    },
-    "description": "Docs QA Team"
-}' | json_pp
-```
-
-</TabItem>
-</Tabs>
-
-#### Responses
-
-<table id="table-api">
-<tbody>
-  <tr>
-    <td><code>201</code></td>
-    <td colSpan='2'>Success. Team created.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>400</code></td>
-    <td colSpan='2'>Bad request.</td>
-  </tr>
-</tbody>
-</table>
-
-```jsx title="Sample Response"
-{
-    "id": "9d3460738c28491a81d7ea16704a9edd",
-    "name": "A-Team",
-    "org_uuid": "5f436681bbfc4d9ca4aef1eba49ea3b7",
-    "group": {...},
-    "created_at": "2021-04-02T17:52:42.578095Z",
-    "updated_at": "2021-04-02T17:52:42.578126Z",
-    "settings": {
-        "virtual_machines": 10,
-        "real_devices": 0,
-        "live_only": false
-    },
-    "description": "Docs QA Team",
-    "is_default": false
-}
-```
-
+  ```jsx title="Sample Response"
+  {
+      "id": "9d3460738c28491a81d7ea16704a9edd",
+      "name": "A-Team",
+      "org_uuid": "5f436681bbfc4d9ca4aef1eba49ea3b7",
+      "group": {...},
+      "created_at": "2021-04-02T17:52:42.578095Z",
+      "updated_at": "2021-04-02T17:52:42.578126Z",
+      "settings": {
+          "virtual_machines": 10,
+          "real_devices": 0,
+          "live_only": false
+      },
+      "description": "Docs QA Team",
+      "is_default": false
+  }
+  ```
 </details>
 
 ---
 
 ### Delete a Team
 
-<details><summary><span className="api delete">DELETE</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
-<p/>
+<details>
+  <summary><span className="api delete">DELETE</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
+  <p/>
 
-Deletes the specified team from the organization of the requesting account.
+  Deletes the specified team from the organization of the requesting account.
 
-#### Parameters
+  #### Parameters
 
-<table id="table-api">
+  <table id="table-api">
+    <tbody>
+      <tr>
+      <td><code>team_id</code></td>
+      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <Tabs
+  groupId="dc-url"
+  defaultValue="us"
+  values={[
+  {label: 'United States', value: 'us'},
+  {label: 'Europe', value: 'eu'},
+  ]}>
+
+  <TabItem value="us">
+
+  ```jsx title="Sample Request"
+  curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+  --request DELETE 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>/' \
+  --header 'Content-Type: application/json' \
+  --data-raw '' | json_pp
+  ```
+
+  </TabItem>
+  <TabItem value="eu">
+
+  ```jsx title="Sample Request"
+  curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+  --request DELETE 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>/' \
+  --header 'Content-Type: application/json' \
+  --data-raw '' | json_pp
+  ```
+
+  </TabItem>
+  </Tabs>
+
+  #### Responses
+
+  <table id="table-api">
   <tbody>
     <tr>
-     <td><code>team_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
+      <td><code>204</code></td>
+      <td colSpan='2'>Success. No content returned.</td>
     </tr>
   </tbody>
-</table>
-
-<Tabs
-groupId="dc-url"
-defaultValue="us"
-values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
-]}>
-
-<TabItem value="us">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>/' \
---header 'Content-Type: application/json' \
---data-raw '' | json_pp
-```
-
-</TabItem>
-<TabItem value="eu">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>/' \
---header 'Content-Type: application/json' \
---data-raw '' | json_pp
-```
-
-</TabItem>
-</Tabs>
-
-#### Responses
-
-<table id="table-api">
-<tbody>
-  <tr>
-    <td><code>204</code></td>
-    <td colSpan='2'>Success. No content returned.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>404</code></td>
-    <td colSpan='2'>Not found.</td>
-  </tr>
-</tbody>
-</table>
-
+  <tbody>
+    <tr>
+      <td><code>404</code></td>
+      <td colSpan='2'>Not found.</td>
+    </tr>
+  </tbody>
+  </table>
 </details>
 
 ---
 
 ### Update a Team
 
-<details><summary><span className="api put">PUT</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
-<p/>
+<details>
+  <summary><span className="api put">PUT</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
+  <p/>
 
-Replaces all values of the specified team with the new set of parameters passed in the request. To update only certain parameters, see [Partially Update Team](#partially-update-a-team).
+  Replaces all values of the specified team with the new set of parameters passed in the request. To update only certain parameters, see [Partially Update Team](#partially-update-a-team).
 
-#### Parameters
+  #### Parameters
 
-<table id="table-api">
+  <table id="table-api">
+    <tbody>
+      <tr>
+      <td><code>team_id</code></td>
+      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+      <td><code>name</code></td>
+      <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The name of the team as it will be after the update. Pass the current value to keep the name unchanged.</p></td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td><code>settings</code></td>
+        <td>
+          <p>
+            <small>| BODY | REQUIRED | OBJECT |</small>
+          </p>
+          <p>
+            The updated concurrency allocations for the team. The available attributes are:
+            <ul>
+              <li><code>virtual_machines</code> - <small>INTEGER</small></li>
+            </ul>
+          </p>
+          <p>The <code>settings</code> parameter is required, but you only need to include the applicable concurrency attribute(s) for the team.</p>
+        </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+      <td><code>description</code></td>
+      <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A description to distinguish the team in the organization. If the previous team definition included a description, omitting the parameter in the update will delete it from the team record.</p></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <Tabs
+  groupId="dc-url"
+  defaultValue="us"
+  values={[
+  {label: 'United States', value: 'us'},
+  {label: 'Europe', value: 'eu'},
+  ]}>
+
+  <TabItem value="us">
+
+  ```jsx title="Sample Request"
+  curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+  --request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+      "name": "Doc-Team",
+      "settings": {
+          "virtual_machines": "10"
+      },
+      "description": "Docs Team"
+  }' | json_pp
+  ```
+
+  </TabItem>
+  <TabItem value="eu">
+
+  ```jsx title="Sample Request"
+  curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+  --request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+      "name": "Doc-Team",
+      "settings": {
+          "virtual_machines": "10"
+      },
+      "description": "Docs Team"
+  }' | json_pp
+  ```
+
+  </TabItem>
+  </Tabs>
+
+  #### Responses
+
+  <table id="table-api">
   <tbody>
     <tr>
-     <td><code>team_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
+      <td><code>201</code></td>
+      <td colSpan='2'>Success. Team updated.</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>name</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The name of the team as it will be after the update. Pass the current value to keep the name unchanged.</p></td>
+      <td><code>400</code></td>
+      <td colSpan='2'>Bad request.</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>settings</code></td>
-     <td><p><small>| BODY | REQUIRED | OBJECT |</small></p><p>The updated concurrency allocations for the team. The available attributes are:
-      <ul>
-        <li><code>virtual_machines</code> - <small>INTEGER</small></li>
-      </ul>
-      </p><p>The <code>settings</code> parameter is required, but you only need to include the applicable concurrency attribute(s) for the team.</p></td>
+      <td><code>404</code></td>
+      <td colSpan='2'>Not found.</td>
     </tr>
   </tbody>
-  <tbody>
-    <tr>
-     <td><code>description</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A description to distinguish the team in the organization. If the previous team definition included a description, omitting the parameter in the update will delete it from the team record.</p></td>
-    </tr>
-  </tbody>
-</table>
+  </table>
 
-<Tabs
-groupId="dc-url"
-defaultValue="us"
-values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
-]}>
-
-<TabItem value="us">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "name": "Doc-Team",
-    "settings": {
-        "virtual_machines": "10"
-    },
-    "description": "Docs Team"
-}' | json_pp
-```
-
-</TabItem>
-<TabItem value="eu">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "name": "Doc-Team",
-    "settings": {
-        "virtual_machines": "10"
-    },
-    "description": "Docs Team"
-}' | json_pp
-```
-
-</TabItem>
-</Tabs>
-
-#### Responses
-
-<table id="table-api">
-<tbody>
-  <tr>
-    <td><code>201</code></td>
-    <td colSpan='2'>Success. Team updated.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>400</code></td>
-    <td colSpan='2'>Bad request.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>404</code></td>
-    <td colSpan='2'>Not found.</td>
-  </tr>
-</tbody>
-</table>
-
-```jsx title="Sample Response" {3,10,14}
-{
-    "id": "b3de7078b79841b59d2e54127269afe3",
-    "name": "Doc-Team",
-    "org_uuid": "5f436681bbfc4d9ca4aef1eba49ea3b7",
-    "group": {...},
-    "created_at": "2020-10-05T17:13:56.580592Z",
-    "updated_at": "2021-04-05T13:49:22.107825Z",
-    "settings": {
-        "virtual_machines": 10,
-        "real_devices": 0,
-        "live_only": true
-    },
-    "description": "Docs Team",
-    "is_default": false
-}
-```
+  ```jsx title="Sample Response" {3,10,14}
+  {
+      "id": "b3de7078b79841b59d2e54127269afe3",
+      "name": "Doc-Team",
+      "org_uuid": "5f436681bbfc4d9ca4aef1eba49ea3b7",
+      "group": {...},
+      "created_at": "2020-10-05T17:13:56.580592Z",
+      "updated_at": "2021-04-05T13:49:22.107825Z",
+      "settings": {
+          "virtual_machines": 10,
+          "real_devices": 0,
+          "live_only": true
+      },
+      "description": "Docs Team",
+      "is_default": false
+  }
+  ```
 
 </details>
 
@@ -519,124 +532,124 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Partially Update a Team
 
-<details><summary><span className="api patch">PATCH</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
-<p/>
+<details>
+  <summary><span className="api patch">PATCH</span> <code>/team-management/v1/teams/&#123;team_id&#125;/</code></summary>
+  <p/>
 
-Updates one or more individual editable parameters (such as the concurrency allocation) of the specified team without requiring a full profile update.
+  Updates one or more individual editable parameters (such as the concurrency allocation) of the specified team without requiring a full profile update.
 
-#### Parameters
+  #### Parameters
 
-<table id="table-api">
+  <table id="table-api">
+    <tbody>
+      <tr>
+      <td><code>team_id</code></td>
+      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the ID of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+      <td><code>name</code></td>
+      <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>An updated name for the team.</p></td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td><code>settings</code></td>
+        <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>The updated concurrency allocations for the team. The available attributes are:
+          <ul>
+            <li><code>virtual_machines</code> - <small>INTEGER</small></li>
+          </ul></p>
+        </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+      <td><code>description</code></td>
+      <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>An updated description.</p></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <Tabs
+  groupId="dc-url"
+  defaultValue="us"
+  values={[
+  {label: 'United States', value: 'us'},
+  {label: 'Europe', value: 'eu'},
+  ]}>
+
+  <TabItem value="us">
+
+  ```jsx title="Sample Request"
+  curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+  --request PATCH 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+      "settings": {
+          "virtual_machines": "25"
+      }
+  }' | json_pp
+  ```
+
+  </TabItem>
+
+  <TabItem value="eu">
+
+  ```jsx title="Sample Request"
+  curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+  --request PATCH 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+      "settings": {
+          "virtual_machines": "25"
+      }
+  }' | json_pp
+  ```
+
+  </TabItem>
+  </Tabs>
+
+  #### Responses
+
+  <table id="table-api">
   <tbody>
     <tr>
-     <td><code>team_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the ID of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
+      <td><code>200</code></td>
+      <td colSpan='2'>Success. Team updated.</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-     <td><code>name</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>An updated name for the team.</p></td>
+      <td><code>400</code></td>
+      <td colSpan='2'>Bad request.</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <td><code>settings</code></td>
-      <td><p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>The updated concurrency allocations for the team. The available attributes are:
-        <ul>
-          <li><code>virtual_machines</code> - <small>INTEGER</small></li>
-        </ul></p>
-      </td>
+      <td><code>404</code></td>
+      <td colSpan='2'>Not found.</td>
     </tr>
   </tbody>
-  <tbody>
-    <tr>
-     <td><code>description</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>An updated description.</p></td>
-    </tr>
-  </tbody>
-</table>
+  </table>
 
-<Tabs
-groupId="dc-url"
-defaultValue="us"
-values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
-]}>
-
-<TabItem value="us">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PATCH 'https://api.us-west-1.saucelabs.com/team-management/v1/teams/<team-id>' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "settings": {
-        "virtual_machines": "25"
-    }
-}' | json_pp
-```
-
-</TabItem>
-
-<TabItem value="eu">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PATCH 'https://api.eu-central-1.saucelabs.com/team-management/v1/teams/<team-id>' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "settings": {
-        "virtual_machines": "25"
-    }
-}' | json_pp
-```
-
-</TabItem>
-</Tabs>
-
-#### Responses
-
-<table id="table-api">
-<tbody>
-  <tr>
-    <td><code>200</code></td>
-    <td colSpan='2'>Success. Team updated.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>400</code></td>
-    <td colSpan='2'>Bad request.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>404</code></td>
-    <td colSpan='2'>Not found.</td>
-  </tr>
-</tbody>
-</table>
-
-```jsx {9} title="Sample Response"
-{
-    "id": "b3de7078b79841b59d2e54127269afe3",
-    "name": "Doc-Team",
-    "org_uuid": "5f436681bbfc4d9ca4aef1eba49ea3b7",
-    "group": {...},
-    "created_at": "2020-10-05T17:13:56.580592Z",
-    "updated_at": "2021-04-05T13:49:22.107825Z",
-    "settings": {
-        "virtual_machines": 25,
-        "real_devices": 0,
-        "live_only": true
-    },
-    "description": "Docs Team",
-    "is_default": false
-}
-```
-
+  ```jsx {9} title="Sample Response"
+  {
+      "id": "b3de7078b79841b59d2e54127269afe3",
+      "name": "Doc-Team",
+      "org_uuid": "5f436681bbfc4d9ca4aef1eba49ea3b7",
+      "group": {...},
+      "created_at": "2020-10-05T17:13:56.580592Z",
+      "updated_at": "2021-04-05T13:49:22.107825Z",
+      "settings": {
+          "virtual_machines": 25,
+          "real_devices": 0,
+          "live_only": true
+      },
+      "description": "Docs Team",
+      "is_default": false
+  }
+  ```
 </details>
 
 ---

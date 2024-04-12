@@ -30,69 +30,69 @@ Looking to import from a spec file? See [Building a Test from a Spec File](/api-
 
 If you don't have a file available, try out the sample below.
 
-<details><summary>Click here to open a sample Postman Collection file</summary>Copy the text below, paste the text into a text editor, then save that as a .json file.<br/><br/>
+<details>
+  <summary>Click here to open a sample Postman Collection file</summary>Copy the text below, paste the text into a text editor, then save that as a .json file.<br/><br/>
 
-```json title="demo_postman_collection.json"
-{
-  "info": {
-    "_postman_id": "901ae894-37d4-45c1-b1bc-bd6b31762bfe",
-    "name": "demoapif",
-    "description": "Call to the APIF demo API All Products Get.",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "product",
-      "item": [
-        {
-          "name": "List All Products",
-          "request": {
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "addTokenTo",
-                  "value": "header",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
+  ```json title="demo_postman_collection.json"
+  {
+    "info": {
+      "_postman_id": "901ae894-37d4-45c1-b1bc-bd6b31762bfe",
+      "name": "demoapif",
+      "description": "Call to the APIF demo API All Products Get.",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "product",
+        "item": [
+          {
+            "name": "List All Products",
+            "request": {
+              "auth": {
+                "type": "oauth2",
+                "oauth2": [
+                  {
+                    "key": "addTokenTo",
+                    "value": "header",
+                    "type": "string"
+                  }
+                ]
               },
-              {
-                "key": "key",
-                "value": "ABC123",
-                "type": "text"
-              }
-            ],
-            "url": {
-              "raw": "http://demoapi.apifortress.com/api/retail/product",
-              "protocol": "http",
-              "host": [
-                "demoapi",
-                "apifortress",
-                "com"
+              "method": "GET",
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "key": "key",
+                  "value": "ABC123",
+                  "type": "text"
+                }
               ],
-              "path": [
-                "api",
-                "retail",
-                "product"
-              ]
-            }
-          },
-          "response": []
-        }
-      ],
-      "description": "Folder for product"
-    }
-  ]
-}
-```
-
+              "url": {
+                "raw": "http://demoapi.apifortress.com/api/retail/product",
+                "protocol": "http",
+                "host": [
+                  "demoapi",
+                  "apifortress",
+                  "com"
+                ],
+                "path": [
+                  "api",
+                  "retail",
+                  "product"
+                ]
+              }
+            },
+            "response": []
+          }
+        ],
+        "description": "Folder for product"
+      }
+    ]
+  }
+  ```
 </details>
 
 :::
