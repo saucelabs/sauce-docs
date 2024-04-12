@@ -68,7 +68,7 @@ If your Identity Provider has this limitation and you have two organizations at 
      5. Open the metadata file in a text editor, append the app ID to the attribute `entityID` and save the file. You will upload this modified metadata file in Sauce Labs UI in the step #5.
         <img src={useBaseUrl('img/basics/sso/setup-special-cases/multiple-saucelabs-orgs/azure-edit-metadata.png')} alt="Azure: Append app ID in metadata" width="1100" />
 5. [Integrate the SAML SSO application](/basics/sso/setting-up-sso/#integrating-with-sauce-labs-service-provider) that you created using the auxiliary metadata (`sp1`) with the other Sauce Labs organization.
-   - The only additional action that you need to do, while you are in the Single Sign-On Configuration in Sauce Labs Team Management, is to expand the section **Advanced SSO Settings** and in the dropdown list **Service Provider** select **Auxiliary SP1**.
+   - The only additional action that you need to do, while you are in the Single Sign-On Configuration in Sauce Labs Organization Management, is to expand the section **Advanced SSO Settings** and in the dropdown list **Service Provider** select **Auxiliary SP1**.
      <img src={useBaseUrl('img/basics/sso/setup-special-cases/multiple-saucelabs-orgs/saucelabs-auxiliary-sp.png')} alt="Auxiliary Service Provider" width="1100" />
 
 ## Multiple Organizations with the Same Email Domain at Sauce Labs

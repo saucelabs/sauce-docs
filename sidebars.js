@@ -885,7 +885,7 @@ module.exports = {
                         'basics/environment-variables',
                         {
                             type: 'category',
-                            label: 'Account and Team Management',
+                            label: 'Account and Organization Management',
                             collapsed: true,
                             items: [
                                 'basics/acct-team-mgmt-hub',

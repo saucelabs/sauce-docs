@@ -11,9 +11,9 @@ If you are an organization admin, you can assign users to and remove users from 
 
 ## Assigning a User to a Team
 
-1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="400"/>
 
 2. On the **USERS** tab, select the checkbox of the user(s) you want to assign or remove.
 3. Next to **USERS SELECTED**, in the **Action** dropdown, click **Team Assignment**.
@@ -26,7 +26,7 @@ A user can only be assigned to one team; changing a user's team assignment will 
 
 ## Removing Users from Teams
 
-1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 2. On the **TEAMS** tab, click the team whose user you want to remove.
 3. On the **MEMBERS** tab, select the checkbox of the user you want to remove.
 4. Next to **USERS SELECTED**, in the **Action** dropdown, click **Remove User from team**.

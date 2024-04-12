@@ -5,6 +5,8 @@ sidebar_label: C#/.Net
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import EnterpriseNote from '../_partials/_enterprise-note.md';
+import EnvironmentVariables from '../_partials/_environment-variables.md';
+import FullPageLimit from '../_partials/_fullpage-limit.md';
 
 # C#/.Net WebDriver Integration
 
@@ -242,9 +244,15 @@ Remember, the baseline is established during the initial run, and any subsequent
 
 ## Advanced usage
 
+### Customizing Your Builds (Environment Variables)
+
+Below are the environment variables available in the Sauce Visual C# plugin:
+
+<EnvironmentVariables />
+
 ### Test results summary
 
-`VisualClient.VisualResults()` returns a summary of test results in `Dictionnary<DiffStatus, int>` format where `DiffStatus` is one of the following:
+`VisualClient.VisualResults()` returns a summary of test results in `Dictionary<DiffStatus, int>` format where `DiffStatus` is one of the following:
 
 - `DiffStatus.QUEUED`: Diffs that are pending for processing. Should be 0 in case the test is completed without any timeouts
 - `DiffStatus.EQUAL`: Diffs that have no changes detected
@@ -332,6 +340,46 @@ Example:
 VisualClient = VisualClient.Create(Driver, Region.UsWest1, sauceUsername, sauceAccessKey);
 VisualClient.CaptureDom = true;
 ```
+
+### Full page screenshots
+
+By default, only the current viewport is captured when `.VisualCheck` is used. You can opt in to capturing the entire page by using the `FullPage` option. It will capture everything by scrolling and stitching multiple screenshots together.
+Additionally, you have the option to configure full page settings using the `FullPageConfig` option.
+
+:::note
+It's recommended to use the `HideAfterFirstScroll` option for fixed or sticky position elements such as sticky headers or consent banners.
+:::
+
+Options:
+
+- `DelayAfterScrollMs`: Delay in ms after scrolling and before taking screenshots. The default value is 0. We recommend using this option for lazy loading content.
+- `HideAfterFirstScroll`: Hide elements on the page after first scroll (uses css selectors)
+
+
+Examples:
+
+```csharp
+await VisualClient.VisualCheck("C# full page",
+    new VisualCheckOptions()
+    {
+        FullPage = true,
+    });
+```
+
+```csharp
+await VisualClient.VisualCheck("C# full page config",
+    new VisualCheckOptions()
+    {
+        FullPage = true,
+        FullPageConfig = new FullPageConfig()
+            {
+                DelayAfterScrollMs = 500,
+                HideAfterFirstScroll = new List<string> { ".header" }
+            }
+    });
+```
+
+<FullPageLimit />
 
 ## Examples
 
