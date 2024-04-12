@@ -22,20 +22,20 @@
     ]
   },
   "dependencies": {
-    "@algolia/client-search": "4.10.3",
-    "@docusaurus/core": "^2.0.1",
-    "@docusaurus/preset-classic": "^2.0.1",
-    "@mdx-js/react": "^1.6.21",
+    "@algolia/client-search": "^4.23.0",
+    "@docusaurus/core": "^3.0.0",
+    "@docusaurus/preset-classic": "^3.0.0",
+    "@mdx-js/react": "^3.0.0",
     "@saucelabs/theme-github-codeblock": "^0.2.3",
     "@svgr/webpack": "^6.5.1",
     "algoliasearch": "^4.11.0",
     "clsx": "1.1.1",
     "file-loader": "^6.2.0",
-    "prism-react-renderer": "^1.2.1",
+    "prism-react-renderer": "^2.1.0",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-alice-carousel": "2.5.1",
-    "react-dom": "^17.0.1",
+    "react": "^18.2.0",
+    "react-alice-carousel": "^2.9.1",
+    "react-dom": "^18.2.0",
     "react-instantsearch-dom": "^6.15.0",
     "url-loader": "^4.1.1"
   },
@@ -52,19 +52,22 @@
     ]
   },
   "devDependencies": {
-    "axios": "^0.21.1",
+    "axios": "^1.6.0",
     "cross-env": "^7.0.3",
-    "cypress": "9.3.1",
-    "eslint": "^8.28.0",
-    "eslint-config-prettier": "8.5.0",
+    "cypress": "^13.7.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.5.1",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^17.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.31.11",
-    "husky": "^8.0.0",
-    "lint-staged": "^13.1.0",
-    "prettier": "2.8.0"
+    "eslint-plugin-react": "^7.34.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.0.0",
+    "prettier": "3.2.0"
+  },
+  "engines": {
+    "node": ">=18.0"
   }
 }
