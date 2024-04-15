@@ -25,7 +25,7 @@ Saucelabs.com and the Sauce Labs testing service in the US and EU will be down f
 | EU        | May 25, 2024       | 7pm-9pm CEST                   |
 | US        | June 8, 2024       | 10am - 12pm PDT                |
 | EU        | June 22, 2024      | 7pm-9pm CEST                   |
-| EU        | July 9, 2024       | 9pm-1am PDT                    |
+| US        | July 9, 2024       | 9pm-1am PDT                    |
 
 ### Backtrace - error reporting service updates are pushed Wednesdays 11am - 1pm ET across all data centers. Individual application servers may experience a short period of downtime within this window
 
