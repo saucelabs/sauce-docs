@@ -11,7 +11,7 @@ Sauce Labs Usage provides you with an accurate view of your concurrency data and
 
 - Visualizing the concurrency usage at organization level or by team level.
 - Compare concurrency usage between teams.
-- Timebox data by chosen interval.
+- Adjust date-range filters to understand usage across time. 
 - Visualize the maximum concurrency usage as it approaches the subscription limit.
 
 Taking advantage of Suace Labs Usage data is simple. Log into Sauce Labs and from the left panel, expand the **Insights** section and select **Usage**. 
@@ -45,7 +45,7 @@ Shows the total concurrency, aggregating all devices grouped by team. This infor
 ### Real Device Concurrency Usage
 
 :::note Public and Private Real Devices
-Public Real Device usage is generally available. Private Real Device usage will be available April/May 2024
+Public Device usage is generally available. Private Device usage will be generally available May 2024
 :::
 
 <img src={useBaseUrl('img/insights/ccy-org-month-rdc-public.png')} alt="Public Real Device concurrency usage at organization level"/>
@@ -53,6 +53,8 @@ Public Real Device usage is generally available. Private Real Device usage will 
 ## Usage Reporting Email Notifications
 
 Get clear and consistent updates delivered directly to your inbox when your organization is reaching or approaching different limits of your concurrency subscription. All the benefits of our Usage reporting like visualizing the concurrency usage at an organization level or by team level, comparing concurrency usage between teams, and visualizing the maximum concurrency usage as it approaches the subscription limit are still present in the Usage tab, now with the added benefit of getting better visibility into your subscription usage on a consistent basis via email.
+
+<img src={useBaseUrl('img/insights/usage-email.png')} alt="Usage Email"/>
 
 :::note Org Admins 
 Org admins will be opted into the emails automatically but can choose to disable them via User Settings.
@@ -62,7 +64,7 @@ Org admins will be opted into the emails automatically but can choose to disable
 
 There are two emails you may receive once opted into receiving Usage Reports via email. 
 
-- Concurrency limit approaching: This email will be sent when concurrency limit has reached 95 -99.9%
+- Concurrency limit approaching: This email will be sent when concurrency limit has reached 95 - 99.9%
 - Concurrency limit exceeded: This email will be sent when concurrency limit has exceeded 100%
 
 #### Opting Into Usage Report Emails
