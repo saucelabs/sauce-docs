@@ -688,7 +688,7 @@ The parent property containing the details specific to the Playwright project.
 
 ```yaml
 playwright:
-  version: 1.36.2
+  version: 1.43.1
   configFile: config.ts
 ```
 
@@ -702,7 +702,7 @@ The version of Playwright that is compatible with the tests defined in this file
 
 ```yaml
 playwright:
-  version: 1.36.2
+  version: 1.43.1
 ```
 
 :::tip
