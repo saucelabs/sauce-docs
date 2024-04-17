@@ -209,7 +209,7 @@ const host = items[1].replaceAll('/', '');
 const port = items[2];
 const response = await t.request({
   url: `http://some-internal-resource.example.com/`,
-  method: "get",
+  method: 'get',
   proxy: {
     protocol: 'http',
     host,
