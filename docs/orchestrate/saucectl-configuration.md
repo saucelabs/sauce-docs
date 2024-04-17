@@ -290,10 +290,6 @@ Define service containers that are required to run alongside the main container
 of the suite. The available configuration options for services are similar to
 those of the main container.
 
-:::note
-A service container may not be up and running by the time your main container
-starts. Please take that into account when writing your tests.
-:::
 
 ```yaml
 suites:
@@ -313,6 +309,10 @@ suites:
         resourceProfile: c1m1
 ```
 
+:::note
+A service container may not be up and running by the time your main container
+starts. Please take that into account when writing your tests.
+:::
 
 ## `artifacts`
 
