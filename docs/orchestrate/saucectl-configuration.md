@@ -263,6 +263,38 @@ Environment variables set with the saucectl `--env` flag will overwrite those sp
 The order of precedence is as follows: --env flag > root-level environment variables > suite-level environment variables.
 :::
 
+### `services`
+
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Define service containers that are required to run alongside the main container
+of the suite. The available configuration options for services are similar to
+those of the main container.
+
+:::note
+A service container may not be up and running by the time your main container
+starts. Please take that into account when writing your tests.
+:::
+
+```yaml
+suites:
+  - name: "saucy test"
+    services:
+      - name: "a service"
+        image: your-org/your-service-image:0.0.1
+        imagePullAuth:
+          user: sauceuser
+          token: "123"
+        entrypoint: mvn test
+        files:
+          - src: "runsauce.json"
+            dst: "/workdir/runsauce.json"
+        env:
+          KEY: value
+        resourceProfile: c1m1
+```
+
+
 ## `artifacts`
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
