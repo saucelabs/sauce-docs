@@ -268,7 +268,8 @@ The order of precedence is as follows: --env flag > root-level environment varia
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Supply additional metadata to the container.
+This field's primary use case is for troubleshooting. Unless instructed by a
+Sauce Labs employee, setting any random values here will serve you no purpose.
 
 ```yaml
 suites:
@@ -277,10 +278,6 @@ suites:
       KEY: value
 ```
 
-:::note
-This field's primary use case is for troubleshooting. Unless instructed by a
-Sauce Labs employee, setting any random values here will serve you no purpose.
-:::
 
 ### `services`
 
