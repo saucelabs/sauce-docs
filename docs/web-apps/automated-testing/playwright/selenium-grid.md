@@ -26,3 +26,10 @@ SELENIUM_REMOTE_URL=https://ondemand.us-west-1.saucelabs.com:443/wd/hub \
 SELENIUM_REMOTE_CAPABILITIES='{"platformName":"Windows 11","browserName":"Google Chrome","sauce:options":{"devTools":true,"username":"your_user","accessKey":"your_access_key"}}' \
 npx playwright test --headed
 ```
+
+# Limitations
+
+The remote session has no knowledge of the _tests_ you are running. Since the
+browser is mainly communicating with Playwright via CDP, there are only the most
+rudimentary Selenium commands that are visible in the UI: to instatiate and
+close the session.
