@@ -36,8 +36,8 @@ For more details, please see [Concurrency Limits and Team Accounts](/basics/acct
 
 ## Viewing an Organization’s Private Devices
 
-1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="450"/>
+1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="450"/>
 2. Click the **DEVICES** tab. The devices assigned to your organization will be listed.
    <img src={useBaseUrl('img/team-mgmt/device-mgmt-devices-tab.png')} alt="Devices tab" width="600"/>
 
@@ -47,7 +47,7 @@ For more details, please see [Concurrency Limits and Team Accounts](/basics/acct
 A device can be assigned to only 1 team at a time.  
 :::
 
-1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 2. On the **DEVICES** tab, in the **Team** dropdown, select a team to assign the device to.
    <img src={useBaseUrl('img/team-mgmt/device-mgmt-assign-team.png')} alt="Assign a team" width="600"/>
 

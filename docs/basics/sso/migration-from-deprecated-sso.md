@@ -15,7 +15,7 @@ Before you begin the migration process, review the differences between the two i
 :::tip
 Both the deprecated SSO integration and the new SSO integration can work independently and concurrently. This means that you can set up the new SSO and test it while your users continue to use the deprecated integration.
 
-You will have access to the configuration panels of both integrations in the Team Management UI, allowing you to manage and configure them separately.
+You will have access to the configuration panels of both integrations in the Organization Management UI, allowing you to manage and configure them separately.
 :::
 
 ## Differences In The New SSO
@@ -37,9 +37,9 @@ You will have access to the configuration panels of both integrations in the Tea
 
 1. Before starting the migration process, ensure that your organization is currently using the deprecated SSO integration. To confirm this, follow the steps provided in [this guide](/basics/sso-deprecated/setting-up-single-sign-on/#how-do-i-know-if-my-organization-uses-the-deprecated-sso-integration).
 
-2. Next, on Sauce Labs click **Account**, and then click **Team Management**.
+2. Next, on Sauce Labs click **Account**, and then click **Organization Management**.
 
-<img src={useBaseUrl('img/basics/sso/setup-sso-sp-tm-menu.png')} alt="Team Management Menu" width="300" />
+<img src={useBaseUrl('img/basics/sso/setup-sso-sp-tm-menu.png')} alt="Organization Management Menu" width="300" />
 
 2. On the **Organization Management** page, in the **ORGANIZATION SETTINGS** section, click **View Settings**.
 
@@ -79,6 +79,6 @@ You will have access to the configuration panels of both integrations in the Tea
 
 6. Test the new integration using the [IdP and the SP initiated login](/basics/sso/logging-in-via-sso).
 
-7. Keep in mind that the deprecated SSO integration continues to work independently and concurrently. It is not affected by the migration and remains enabled. You can manage this integration in the Team Management UI. To disable the deprecated SSO, toggle the **Enable Single Sign on** option after validating the new integration. You may also permanently delete the metadata file of your previous integration by clicking **Delete metadata file**.
+7. Keep in mind that the deprecated SSO integration continues to work independently and concurrently. It is not affected by the migration and remains enabled. You can manage this integration in the Organization Management UI. To disable the deprecated SSO, toggle the **Enable Single Sign on** option after validating the new integration. You may also permanently delete the metadata file of your previous integration by clicking **Delete metadata file**.
 
 <img src={useBaseUrl('img/basics/sso/migration-to-the-new-sso/legacy-sso-ui.png')} alt="Deprecated SSO Configuration Panel" width="800" />

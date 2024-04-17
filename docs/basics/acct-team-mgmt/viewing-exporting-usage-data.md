@@ -69,9 +69,9 @@ One way to tell if you're getting the most efficient use out of your Sauce Labs 
 
 You can export a .csv file that contains the usage information for selected accounts.
 
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. In Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="400"/>
 
 2. On the **USERS** tab, select the checkboxes of the users whose usage information you want to export.
 3. Next to **USERS SELECTED**, click the download button.
