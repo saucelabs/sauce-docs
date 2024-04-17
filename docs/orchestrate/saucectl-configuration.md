@@ -246,7 +246,7 @@ suites:
 
 ### `env`
 
-<p><small>| OPTIONAL | ARRAY |</small></p>
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
 Environment variables to be injected into the container. Can be used for populating secrets used in your tests. These environment variables are not stored anywhere in Sauce Labs.
 
@@ -261,6 +261,54 @@ suites:
 Environment variables set with the saucectl `--env` flag will overwrite those specified in the sauce config file.
 
 The order of precedence is as follows: --env flag > root-level environment variables > suite-level environment variables.
+:::
+
+
+### `metadata`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+This field's primary use case is for troubleshooting. Unless instructed by a
+Sauce Labs employee, setting any random values here will serve you no purpose.
+
+```yaml
+suites:
+  - name: "saucy test"
+    metadata:
+      KEY: value
+```
+
+
+### `services`
+
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Define service containers that are required to run alongside the main container
+of the suite. The available configuration options for services are similar to
+those of the main container.
+
+
+```yaml
+suites:
+  - name: "saucy test"
+    services:
+      - name: "a service"
+        image: your-org/your-service-image:0.0.1
+        imagePullAuth:
+          user: sauceuser
+          token: "123"
+        entrypoint: mvn test
+        files:
+          - src: "runsauce.json"
+            dst: "/workdir/runsauce.json"
+        env:
+          KEY: value
+        resourceProfile: c1m1
+```
+
+:::note
+A service container may not be up and running by the time your main container
+starts. Please take that into account when writing your tests.
 :::
 
 ## `artifacts`
