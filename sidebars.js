@@ -1507,6 +1507,7 @@ module.exports = {
                             items: [
                                 'web-apps/automated-testing/playwright',
                                 'web-apps/automated-testing/playwright/quickstart',
+                                'web-apps/automated-testing/playwright/selenium-grid',
                                 'web-apps/automated-testing/playwright/yaml',
                                 'web-apps/automated-testing/playwright/advanced',
                             ],
