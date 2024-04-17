@@ -246,7 +246,7 @@ suites:
 
 ### `env`
 
-<p><small>| OPTIONAL | ARRAY |</small></p>
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
 Environment variables to be injected into the container. Can be used for populating secrets used in your tests. These environment variables are not stored anywhere in Sauce Labs.
 
@@ -261,6 +261,25 @@ suites:
 Environment variables set with the saucectl `--env` flag will overwrite those specified in the sauce config file.
 
 The order of precedence is as follows: --env flag > root-level environment variables > suite-level environment variables.
+:::
+
+
+### `metadata`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Supply additional metadata to the container.
+
+```yaml
+suites:
+  - name: "saucy test"
+    metadata:
+      KEY: value
+```
+
+:::note
+This field's primary use case is for troubleshooting. Unless instructed by a
+Sauce Labs employee, setting any random values here will serve you no purpose.
 :::
 
 ### `services`
