@@ -378,7 +378,7 @@ See: _[Playtest](#playtest)_.
 
 ### Organization Admin
 
-The Sauce Labs account admin role that can manage permissions levels for all users, oversee Sauce Labs test settings and activity for their organization, create Teams and Team Admins, designate other Organization Admins, and set concurrency allocations among different Teams. More information: [Account and Team Management](/basics/acct-team-mgmt-hub).
+The Sauce Labs account admin role that can manage permissions levels for all users, oversee Sauce Labs test settings and activity for their organization, create Teams and Team Admins, designate other Organization Admins, and set concurrency allocations among different Teams. More information: [Account and Organization Management](/basics/acct-team-mgmt-hub).
 
 See also: _[team admin](#team-admin), [team management](#team-management)_.
 
@@ -494,7 +494,7 @@ See also: _[webdriver](#webdriver), [webdriverIO](#webdriverio)_.
 
 ### Restricted Domain
 
-A Sauce Labs feature that allows organization admins to block their internal users from accessing the public-facing Sauce Labs website to prevent anyone from enrolling in a Free Trial. Only accounts originating from the domain you designate will be allowed to access Sauce Labs. This feature is being deprecated as customers migrate to our latest Team Management features.
+A Sauce Labs feature that allows organization admins to block their internal users from accessing the public-facing Sauce Labs website to prevent anyone from enrolling in a Free Trial. Only accounts originating from the domain you designate will be allowed to access Sauce Labs. This feature is being deprecated as customers migrate to our latest Organization Management features.
 
 ### Role-Playing-Game (RPG)
 
@@ -635,7 +635,7 @@ A Sauce Labs user role with permission to add and manage Team Members as well as
 
 See also: _[organization admin](#organization-admin), [team member](#team-member)_.
 
-### Team Management
+### Organization Management
 
 A Sauce Labs feature available to enterprise users that provides organizations with the ability to create a hierarchy of Organization Admins, Team Admins, and Team Members, and manage user access to the system and concurrency settings.
 

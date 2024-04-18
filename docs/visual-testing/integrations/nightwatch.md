@@ -7,6 +7,7 @@ import TabItem from '@theme/TabItem';
 import FullPageJS from '../_partials/_fullpage-js.md'
 import ClippingWDIO from '../_partials/_clipping-webdriver.md';
 import EnterpriseNote from '../_partials/_enterprise-note.md';
+import EnvironmentVariables from '../_partials/_environment-variables.md';
 
 # Nightwatch Integration
 
@@ -166,6 +167,12 @@ More information about the status can be found [here](#sauce-visual-assertion)
 :::
 
 ## Advanced usage
+
+### Customizing Your Builds (Environment Variables)
+
+Below are the environment variables available in the Sauce Visual Nightwatch plugin:
+
+<EnvironmentVariables />
 
 ### Sauce Visual Assertion
 

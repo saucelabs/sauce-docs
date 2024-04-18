@@ -346,11 +346,11 @@ For generic use, you can upload and store other file types like pre-run executab
 - .sh
 - .bat
 
-#### Team Management Sync
+#### Organization Management Sync
 
-App Storage utilizes a Team Management sync feature that enables user permission schemes. In other words, a Sauce Labs administrator, whether an organization admin or a team admin, can regulate access to individual application files or specific binary/script files. By default, the system shares all uploaded files with the team to which the user belongs. As a user, you can only access files shared with the team in which you contribute/participate unless you hold the role of an organization admin; in this case, you have access to all files in your organization.
+App Storage utilizes a Organization Management sync feature that enables user permission schemes. In other words, a Sauce Labs administrator, whether an organization admin or a team admin, can regulate access to individual application files or specific binary/script files. By default, the system shares all uploaded files with the team to which the user belongs. As a user, you can only access files shared with the team in which you contribute/participate unless you hold the role of an organization admin; in this case, you have access to all files in your organization.
 
-To manage access to your organization, navigate to **Account** > **Team Management**.
+To manage access to your organization, navigate to **Account** > **Organization Management**.
 
 #### Storage API Endpoints
 

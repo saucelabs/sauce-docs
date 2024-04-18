@@ -3,6 +3,7 @@ sidebar_label: Python
 ---
 
 import EnterpriseNote from '../_partials/_enterprise-note.md'
+import EnvironmentVariables from '../_partials/_environment-variables.md';
 
 # Python Integration
 
@@ -67,7 +68,7 @@ Invalid Login
 - Step 4: Configure your Sauce Labs credentials
 
 Sauce Visual relies on environment variables for authentications.<br />
-Both `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` need to be set prior starting your Cypress job.
+Both `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` need to be set prior starting your Python tests.
 
 Username and Access Key can be retrieved from https://app.saucelabs.com/user-settings.
 
@@ -139,6 +140,12 @@ client.create_snapshot_from_webdriver(
 # Finish the currently opened build associated with this instance
 client.finish_build()
 ```
+
+## Environment variables
+
+Below are the environment variables available in the Sauce Visual Python plugin:
+
+<EnvironmentVariables />
 
 ## Examples
 

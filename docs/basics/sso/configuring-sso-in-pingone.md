@@ -29,6 +29,6 @@ Complete the following steps to set up SAML SSO integration between PingOne and 
 7. Click the arrow to expand **Connection details**. And next click **Download metadata**.
    <img src={useBaseUrl('img/basics/sso/idp-config/pingone/download-metadata.png')} alt="Download Metadata" width="600" />
 
-8. Use the metadata file from the previous step and set up the SSO integration at Sauce Labs in [Team Management Panel](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider).
+8. Use the metadata file from the previous step and set up the SSO integration at Sauce Labs in [Organization Management Panel](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider).
 
 9. Test the integration using the [IdP-initiated and the SP-initiated login](/basics/sso/logging-in-via-sso).
