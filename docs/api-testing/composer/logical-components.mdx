@@ -122,7 +122,7 @@ Allows you to iterate over a collection of elements and execute the piece of cod
 
 Allows you to run a specific piece of code only if a specific condition is met.
 
-<details
+<details>
   <summary><strong>Parameters</strong></summary>
 
   <table id="table-api">
@@ -147,20 +147,21 @@ Allows you to run a specific piece of code only if a specific condition is met.
   <img src={useBaseUrl('img/api-testing/ifexists.png')} alt="ifexists.png" />
 
   </details>
-  <details><summary><strong>Code View Examples</strong></summary>
+  <details>
+    <summary><strong>Code View Examples</strong></summary>
 
-  ```yaml
-  - id: if
-    children:
-    - id: assert-equals
-      expression: payload.message
-      value: Seats Available
-    - id: assert-equals
-      expression: payload.content.flightid
-      value: ${id}
-      type: string
-    expression: payload.success == true
-  ```
+    ```yaml
+    - id: if
+      children:
+      - id: assert-equals
+        expression: payload.message
+        value: Seats Available
+      - id: assert-equals
+        expression: payload.content.flightid
+        value: ${id}
+        type: string
+      expression: payload.success == true
+    ```
 </details>
 
 ### While

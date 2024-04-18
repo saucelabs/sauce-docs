@@ -15,7 +15,10 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ### Get short-lived tokens for private registry
 
-<details><summary><span className="api get">POST</span> <code>/v1alpha1/hosted/container-registry/authorization-token</code></summary>
+<details>
+  <summary>
+    <span className="api get">POST</span> <code>/v1alpha1/hosted/container-registry/authorization-token</code>
+  </summary>
 <p/>
 
 Return a short-lived token that can be used to access SauceLabs Container Registry.
@@ -86,7 +89,7 @@ curl --header "Content-Type: application/json" --data "{\"registry_url\": \"exam
 
 ```jsx title="Sample Response"
 {
-    "expires_at": "2023-10-23T12:03:55Z", 
+    "expires_at": "2023-10-23T12:03:55Z",
     "password": "ya29.c.c0AY_VpZh8lOOO98LjV71rZJx5tPAC8XE42io...",
     "username": "oauth2accesstoken"
 }
