@@ -14,11 +14,16 @@ const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({baseDirectory: __dirname, recommendedConfig: pluginJs.configs.recommended});
 
 export default [
-  {languageOptions: { globals: globals.browser }},
+  {languageOptions: {
+    globals: globals.browser
+  },
+    files: ['**/*.js', '**/*.jsx'],
+  },
   ...compat.extends("airbnb"),
   eslintPluginPrettier,
   {
     ...mdx.flat,
+    files: ['**/*.md', '**/*.mdx'],
     // optional, if you want to lint code blocks at the same
     processor: mdx.createRemarkProcessor({
       lintCodeBlocks: true,
@@ -36,4 +41,12 @@ export default [
       'prefer-const': 'error',
     },
   },
+  {
+    ignores: [
+      '**/node_modules/**',
+      '**/build/**',
+      '**/test/**',
+      '**/tests/**'
+    ]
+  }
 ];
