@@ -24,7 +24,7 @@ You can use Dev Tools to:
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-- Web or hybrid application under test. 
+- Web or Hybrid application under test. 
 - A Google Chrome or Microsoft Edge browser (for Windows or macOS).
 - An iOS or Android Real Device with version:
   - iOS/iPadOS 13 and above
@@ -42,7 +42,7 @@ To enable DevTools for iOS and Android during cross-browser testing:
 
 :::note 
 With DevTools against Hybrid applications, we're initiating DevTools and searching for a Webview/Webkit in your application context. This may take a few moments. 
-Please ensure that the page you're inspecting contains a Webview/Webkit and that it's currently rendered on screen.
+Please ensure that the page you're inspecting contains a WebView/Webkit and that it's currently rendered on screen.
 
 :::
 
