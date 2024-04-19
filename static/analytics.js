@@ -4,7 +4,7 @@
         window.analytics instanceof HTMLElement
     )
         window.analytics = [];
-    var analytics = (window.analytics = window.analytics || []);
+    const analytics = (window.analytics = window.analytics || []);
     if (!analytics.initialize)
         if (analytics.invoked)
             window.console &&
@@ -36,25 +36,22 @@
             ];
             analytics.factory = function (e) {
                 return function () {
-                    var t = Array.prototype.slice.call(arguments);
+                    const t = Array.prototype.slice.call(arguments);
                     t.unshift(e);
                     analytics.push(t);
                     return analytics;
                 };
             };
-            for (var e = 0; e < analytics.methods.length; e++) {
-                var key = analytics.methods[e];
+            for (let e = 0; e < analytics.methods.length; e++) {
+                const key = analytics.methods[e];
                 analytics[key] = analytics.factory(key);
             }
             analytics.load = function (key, e) {
-                var t = document.createElement('script');
+                const t = document.createElement('script');
                 t.type = 'text/javascript';
                 t.async = !0;
-                t.src =
-                    'https://cdn.segment.com/analytics.js/v1/' +
-                    key +
-                    '/analytics.min.js';
-                var n = document.getElementsByTagName('script')[0];
+                t.src = `https://cdn.segment.com/analytics.js/v1/${key}/analytics.min.js`;
+                const n = document.getElementsByTagName('script')[0];
                 n.parentNode.insertBefore(t, n);
                 analytics._loadOptions = e;
             };

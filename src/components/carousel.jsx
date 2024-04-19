@@ -79,7 +79,7 @@ const responsive = {
     1024: { items: 4 },
 };
 
-const Carousel = () => {
+function Carousel() {
     return (
         <AliceCarousel
             className='alice-carousel__prev-btn'
@@ -88,6 +88,6 @@ const Carousel = () => {
             responsive={responsive}
         />
     );
-};
+}
 
 export default Carousel;

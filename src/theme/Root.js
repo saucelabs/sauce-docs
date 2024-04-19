@@ -6,7 +6,7 @@ function Root({ children }) {
         <>
             <BrowserOnly>
                 {() => {
-                    const Segment = require('./Segment').Segment;
+                    const { Segment } = require('./Segment');
                     return <Segment />;
                 }}
             </BrowserOnly>
