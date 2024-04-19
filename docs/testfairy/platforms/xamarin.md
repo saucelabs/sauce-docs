@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy allows you to gather insights and valuable data about your Xamarin-based Android and iOS applications. 
+TestFairy allows you to gather insights and valuable data about your Xamarin-based Android and iOS applications.
 
 ## Installation
 
@@ -37,7 +37,6 @@ public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 }
 ```
 
-
 ### Identifying Your Users
 
 To learn how to identify users and set session attributes using the TestFairy SDK in Xamarin, refer to the [identifying users section](/testfairy/sdk/identifying-users/) in the SDK Documentation.
@@ -65,7 +64,6 @@ To enable automatic uploads of .dSYM files, follow these steps:
 3. Click on **Custom Commands** on the left, press **Select a project operation** and select **After Build**
 
 <img src={useBaseUrl('/img/testfairy/platform/custom_command.png')} alt="custom command"/>
-
 
 4. Add the following to the command line.
 
@@ -122,10 +120,8 @@ public class MainActivity : Activity {
 
 TestFairy can record screen casts, monitor CPU consumption, memory allocations, grab logs, and enable user feedback by shaking their devices. To configure what TestFairy records, visit your **Build Settings** after calling Begin() at least once.
 
-
 To configure how and what TestFairy records, visit your **Build Settings**. You see the build after calling `Begin ()` at least once.
 
 ## Mixing With Other Crash Handlers
 
 TestFairy can work alongside other crash handlers without any issues.
-

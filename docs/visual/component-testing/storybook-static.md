@@ -27,8 +27,8 @@ npm run build-storybook
 <Tabs
 defaultValue="Storybook6.4"
 values={[
- {label: 'Storybook 6.4 or newer', value: 'Storybook6.4'},
- {label: 'Storybook 6.3 or older', value: 'Storybook6.3'},
+{label: 'Storybook 6.4 or newer', value: 'Storybook6.4'},
+{label: 'Storybook 6.3 or older', value: 'Storybook6.3'},
 ]}>
 
 <TabItem value="Storybook6.4">
@@ -54,6 +54,7 @@ module.exports = {
  storybookStaticBuildDir: 'storybook-static'
 }
 ```
+
 </TabItem>
 </Tabs>
 

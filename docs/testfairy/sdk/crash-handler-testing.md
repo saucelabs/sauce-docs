@@ -8,10 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-TestFairy's crash handler is a robust feature that allows you to identify and analyze crashes occurring within your iOS mobile applications. By incorporating the TestFairy library, you can deliberately trigger controlled crashes in your app and gain insights into the stacktrace associated with each crash. 
-
-
+TestFairy's crash handler is a robust feature that allows you to identify and analyze crashes occurring within your iOS mobile applications. By incorporating the TestFairy library, you can deliberately trigger controlled crashes in your app and gain insights into the stacktrace associated with each crash.
 
 :::note
 This feature is available starting from iOS SDK version 1.19.8.

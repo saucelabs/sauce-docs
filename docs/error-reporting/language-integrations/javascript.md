@@ -18,22 +18,22 @@ and easy, after which you can explore the rich set of Backtrace features.
 ## Table of Contents
 
 1. [Basic Integration - Reporting your first errors](#basic-integration)
-    - [Install the package](#install-the-package)
-    - [Integrate the SDK](#integrate-the-sdk)
-    - [Upload source maps](#upload-source-maps)
+   - [Install the package](#install-the-package)
+   - [Integrate the SDK](#integrate-the-sdk)
+   - [Upload source maps](#upload-source-maps)
 1. [Error Reporting Features](#error-reporting-features)
-    - [Attributes](#attributes)
-    - [File Attachments](#file-attachments)
-    - [Breadcrumbs](#breadcrumbs)
-    - [Application Stability Metrics](#application-stability-metrics)
-        - [Metrics Configuration](#metrics-configuration)
-        - [Metrics Usage](#metrics-usage)
+   - [Attributes](#attributes)
+   - [File Attachments](#file-attachments)
+   - [Breadcrumbs](#breadcrumbs)
+   - [Application Stability Metrics](#application-stability-metrics)
+     - [Metrics Configuration](#metrics-configuration)
+     - [Metrics Usage](#metrics-usage)
 1. [Advanced SDK Features](#advanced-sdk-features)
-    - [BacktraceClient options](#backtraceclient)
-    - [Manually send an error](#manually-send-an-error)
-    - [Modify/skip error reports](#modifyskip-error-reports)
-    - [SDK Method Overrides](#sdk-method-overrides)
-    
+   - [BacktraceClient options](#backtraceclient)
+   - [Manually send an error](#manually-send-an-error)
+   - [Modify/skip error reports](#modifyskip-error-reports)
+   - [SDK Method Overrides](#sdk-method-overrides)
+
 ## Basic Integration
 
 ### Install the package

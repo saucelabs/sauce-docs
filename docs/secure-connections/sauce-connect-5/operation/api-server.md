@@ -16,7 +16,6 @@ The API interface is configured with the [`--api-address`](/dev/cli/sauce-connec
 --api-address 127.0.0.1:8081 # listens on 127.0.0.1 port 8081
 ```
 
-
 ## Endpoints
 
 The table below summarizes available endpoints.

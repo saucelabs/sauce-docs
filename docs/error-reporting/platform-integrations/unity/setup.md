@@ -27,12 +27,12 @@ The Backtrace Unity SDK reports on the following types of errors:
 
 ## Supported Platforms
 
-| Supported Platforms | Supported Systems                                                                     |
-| ------------------- | ------------------------------------------------------------------------------------- |
-| Mobile              | Android, iOS                                                                          |
-| PC                  | Windows, MacOS*                                                                       |
-| Web                 | WebGL*                                                                                |
-| Game Consoles       | PlayStation 4, PlayStation 5, Xbox One, Xbox Series X, Nintendo Switch.               |
+| Supported Platforms | Supported Systems                                                       |
+| ------------------- | ----------------------------------------------------------------------- |
+| Mobile              | Android, iOS                                                            |
+| PC                  | Windows, MacOS\*                                                        |
+| Web                 | WebGL\*                                                                 |
+| Game Consoles       | PlayStation 4, PlayStation 5, Xbox One, Xbox Series X, Nintendo Switch. |
 
 :::note
 Native Crashes on MacOS and WeBGL are not supported via backtrace-unity.
@@ -61,7 +61,7 @@ The iOS SDK contains a privacy manifest to declare the types of data accessed on
 
 1. In the Backtrace Console, go to **Project settings > Error submission > Submission tokens**.
 1. Select **+**.
-:::
+   :::
 
 ### System Requirements
 

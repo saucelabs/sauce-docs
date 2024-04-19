@@ -49,6 +49,7 @@ sudo unzip -d /opt/sauce-connect sauce-connect.zip
 ### Check the signature
 
 Run the following command, you should see `Developer ID Application: SAUCE LABS INC`.
+
 ```bash
 codesign -dvv /opt/sauce-connect/sc
 ```
@@ -61,7 +62,6 @@ sudo ln -s /opt/sauce-connect/sc /usr/local/bin/sc
 
 ### Add completion
 
-
 <Tabs
 defaultValue="Zsh"
   values={[
@@ -73,6 +73,7 @@ defaultValue="Zsh"
 ```bash
 echo 'source <(sc completion zsh)' >>~/.zshrc
 ```
+
   </TabItem>
 
   <TabItem value="Bash">

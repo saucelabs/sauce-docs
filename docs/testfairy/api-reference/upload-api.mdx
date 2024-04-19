@@ -43,79 +43,203 @@ Streamline your build process and upload APKs or IPAs directly to TestFairy.
 
 #### Parameters
 
-<table id="table-api">
- <tbody>
- <tr>
- <td><code>api_key</code></td>
- <td><p><small>| REQUIRED |</small></p><p>Your API application key. See https://app.testfairy.com/settings for details.</p></td>
- </tr>
- </tbody>
- <tbody>
- <tr>
- <td><code>file</code></td>
- <td><p><small>| REQUIRED |</small></p><p>Android Package Kit (APK), Android App Bundle (AAB), iOS package App Store (IPA), or ZIP (MacOS) file data.</p></td>
- </tr>
- </tbody>
- <tbody>
- <tr>
- <td><code>symbols_file</code></td>
- <td><p><small>| OPTIONAL |</small></p><p>Symbols mapping file. For iOS, this is a path to the <strong>zipped</strong> symbols file. For Android, this is the path to the mappings.txt file</p></td>
- </tr>
- </tbody>
- <tbody>
- <tr>
- <td><code>groups</code></td>
- <td><p><small>| OPTIONAL |</small></p><p>Comma-separated list of tester groups that get permission to download this app.</p></td>
- </tr>
- </tbody>
- <tbody>
- <tr>
- <td><code>notify</code></td>
- <td><p><small>| OPTIONAL |</small></p><p>Send email to all users in 'groups'. It can be <code>on</code> or <code>off</code>. Default is <code>off</code>.</p></td>
- </tr>
- </tbody>
- <tbody>
- <tr>
- <td><code>release_notes</code></td>
- <td><p><small>| OPTIONAL |</small></p><p>Release notes for this upload. This text adds to emails and landing pages.</p></td>
- </tr>
- </tbody>
- <tbody>
- <tr>
- <td><code>auto_update</code></td>
- <td><p><small>| OPTIONAL |</small></p><p>Allows to upgrade all users to the current version. It can be <code>on</code> or <code>off</code>. Default is <code>off</code>.</p></td>
- </tr>
- </tbody>
- <tbody>
- <tr>
- <td><code>tags</code></td>
- <td><p><small>| OPTIONAL |</small></p><p>Set of comma-separated tags to be displayed and searched upon.</p></td>
- </tr>
- </tbody>
- <tbody>
- <tr>
- <td><code>folder_name</code></td>
- <td><p><small>| OPTIONAL |</small></p><p>Name of the dashboard folder that contains this app</p></td>
- </tr>
- </tbody>
- <tbody>
- <tr>
- <td><code>landing_page_mode</code></td>
- <td><p><small>| OPTIONAL |</small></p><p>Landing page mode. It can be <code>open</code> or <code>closed</code>. Default is <code>open</code>.</p></td>
- </tr>
- </tbody>
- <tbody>
- <tr>
- <td><code>upload_to_saucelabs</code></td>
- <td><p><small>| OPTIONAL |</small></p><p>Upload file directly to Sauce Labs. It can be <code>on</code> or <code>off</code>. Default is <code>off</code>.</p></td>
- </tr>
- </tbody>
- <tbody>
- <tr>
- <td><code>platform</code></td>
- <td><p><small>| OPTIONAL |</small></p><p>In case the app is not iOS or Android, which are detected automatically, use this to mark an app for specific desktop or console platforms. Values can be "Xbox", "PlayStation", "switch", "windows", "macos". This feature is not enabled by default. Contact support for more information.</p></td>
- </tr>
- </tbody>
+<table id='table-api'>
+    <tbody>
+        <tr>
+            <td>
+                <code>api_key</code>
+            </td>
+            <td>
+                <p>
+                    <small>| REQUIRED |</small>
+                </p>
+                <p>
+                    Your API application key. See
+                    https://app.testfairy.com/settings for details.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>
+                <code>file</code>
+            </td>
+            <td>
+                <p>
+                    <small>| REQUIRED |</small>
+                </p>
+                <p>
+                    Android Package Kit (APK), Android App Bundle (AAB), iOS
+                    package App Store (IPA), or ZIP (MacOS) file data.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>
+                <code>symbols_file</code>
+            </td>
+            <td>
+                <p>
+                    <small>| OPTIONAL |</small>
+                </p>
+                <p>
+                    Symbols mapping file. For iOS, this is a path to the{' '}
+                    <strong>zipped</strong> symbols file. For Android, this is
+                    the path to the mappings.txt file
+                </p>
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>
+                <code>groups</code>
+            </td>
+            <td>
+                <p>
+                    <small>| OPTIONAL |</small>
+                </p>
+                <p>
+                    Comma-separated list of tester groups that get permission to
+                    download this app.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>
+                <code>notify</code>
+            </td>
+            <td>
+                <p>
+                    <small>| OPTIONAL |</small>
+                </p>
+                <p>
+                    Send email to all users in 'groups'. It can be{' '}
+                    <code>on</code> or <code>off</code>. Default is{' '}
+                    <code>off</code>.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>
+                <code>release_notes</code>
+            </td>
+            <td>
+                <p>
+                    <small>| OPTIONAL |</small>
+                </p>
+                <p>
+                    Release notes for this upload. This text adds to emails and
+                    landing pages.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>
+                <code>auto_update</code>
+            </td>
+            <td>
+                <p>
+                    <small>| OPTIONAL |</small>
+                </p>
+                <p>
+                    Allows to upgrade all users to the current version. It can
+                    be <code>on</code> or <code>off</code>. Default is{' '}
+                    <code>off</code>.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>
+                <code>tags</code>
+            </td>
+            <td>
+                <p>
+                    <small>| OPTIONAL |</small>
+                </p>
+                <p>
+                    Set of comma-separated tags to be displayed and searched
+                    upon.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>
+                <code>folder_name</code>
+            </td>
+            <td>
+                <p>
+                    <small>| OPTIONAL |</small>
+                </p>
+                <p>Name of the dashboard folder that contains this app</p>
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>
+                <code>landing_page_mode</code>
+            </td>
+            <td>
+                <p>
+                    <small>| OPTIONAL |</small>
+                </p>
+                <p>
+                    Landing page mode. It can be <code>open</code> or{' '}
+                    <code>closed</code>. Default is <code>open</code>.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>
+                <code>upload_to_saucelabs</code>
+            </td>
+            <td>
+                <p>
+                    <small>| OPTIONAL |</small>
+                </p>
+                <p>
+                    Upload file directly to Sauce Labs. It can be{' '}
+                    <code>on</code> or <code>off</code>. Default is{' '}
+                    <code>off</code>.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>
+                <code>platform</code>
+            </td>
+            <td>
+                <p>
+                    <small>| OPTIONAL |</small>
+                </p>
+                <p>
+                    In case the app is not iOS or Android, which are detected
+                    automatically, use this to mark an app for specific desktop
+                    or console platforms. Values can be "Xbox", "PlayStation",
+                    "switch", "windows", "macos". This feature is not enabled by
+                    default. Contact support for more information.
+                </p>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 <Tabs
@@ -184,11 +308,11 @@ In the case of an error, TestFairy returns a JSON with `status` => `fail` and `c
 
 ```json title="Sample Response"
 {
- "status": "ok",
- "app_name": "Jigsaw Puzzlers",
- "app_version": "0.9.5",
- "app_url": "https://app.testfairy.com/download/6CWKJCHD60PPVWYJHGM4AADJQYA4SDR0/filename.apk",
- "landing_page_url": "https://tsfr.io/3tajti",
+    "status": "ok",
+    "app_name": "Jigsaw Puzzlers",
+    "app_version": "0.9.5",
+    "app_url": "https://app.testfairy.com/download/6CWKJCHD60PPVWYJHGM4AADJQYA4SDR0/filename.apk",
+    "landing_page_url": "https://tsfr.io/3tajti"
 }
 ```
 

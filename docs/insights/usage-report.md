@@ -27,7 +27,6 @@ In this view, shows the total concurrency usage at organization level compared t
 
 It is possible that this aggregation shows values above the organization limit even when teams have not gone above their individual limit. To see the usage at team level, select the corresponding team in the dropdown from the filters.
 
-
 ### VM concurrency usage
 
 <img src={useBaseUrl('img/insights/ccy-org-month-vms.png')} alt="VM concurrency usage at organization level"/>

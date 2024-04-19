@@ -10,9 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Enterprise apps provide specialized functionalities tailored to the needs of an organization. These apps may not be available on the official app store but can be manually installed on your device. However, when you install such apps, you might encounter a notification stating that the app developer is not trusted on your device. This documentation will guide you through the process of manually installing and establishing trust for custom enterprise apps on your device.
 
-
 ## Manually install and trust an enterprise app
-
 
 When you first open an enterprise app that you've manually installed, you see a notification that the developer of the app isn't trusted on your device. You can dismiss this message, but then you can't open the app. Follow these steps to manually install and trust an enterprise app on your device:
 

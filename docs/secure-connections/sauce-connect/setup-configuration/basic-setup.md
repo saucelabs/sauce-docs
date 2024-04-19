@@ -40,7 +40,7 @@ See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstar
   values={[
     {label: 'Linux', value: 'Linux'},
     {label: 'Windows', value: 'Windows'},
-    {label: 'Mac', value: 'Mac'},
+{label: 'Mac', value: 'Mac'},
   ]}>
 
   <TabItem value="Linux">

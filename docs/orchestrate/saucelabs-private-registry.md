@@ -21,6 +21,7 @@ In order to provide the most secure way to access your images, we use short-live
 to SauceLabs Container Registry.
 
 There are two ways of interacting with our container registry:
+
 1. using `saucectl` - for the most common use-cases, it automatically injects short-lived tokens
 2. programmatically - for the more demanding use-cases, you must retrieve short-lived token yourself
 
@@ -30,7 +31,7 @@ There are two ways of interacting with our container registry:
 
 1. Export `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables ([learn more about authentication](/docs/dev/api.md#authentication)).
 2. Make sure you have the following tools installed:
-   * `docker` (or other tool for pushing container images that exposes docker socket)
+   - `docker` (or other tool for pushing container images that exposes docker socket)
 3. Find out what's your container registry url. For this example let's assume it is `registry.example.com/your-private-registry`.
 
 ### Pushing images
@@ -59,6 +60,7 @@ Ensure that your Docker image is prebuilt before using this command.
 
 If you are using SauceLabs Container Registry, you may start a test without providing credentials to your container
 registry. However, you must follow two rules:
+
 1. Account used to start a test must be allowed to generate a short-lived token for the registry you want to use.
 2. You must not provide `imagePullAuth` in the configuration file for the container we should authenticate.
 
@@ -82,28 +84,30 @@ To generate a token, use [Sauce Orchestrate API](/docs/dev/api/orchestrate.md) o
 
 ### Prerequisites
 
-This sample script is created for *nix systems.
+This sample script is created for \*nix systems.
 
 1. Export `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables ([learn more about authentication](/docs/dev/api.md#authentication)).
 2. Make sure you have the following tools installed:
-   * `docker` (or other tool for pushing container images)
-   * `jq` (or other tool for parsing json)
-   * `curl` (or other tool for making http requests)
+   - `docker` (or other tool for pushing container images)
+   - `jq` (or other tool for parsing json)
+   - `curl` (or other tool for making http requests)
 3. Find out what's your container registry url.
 
 ### Setting environment variables to be used by docker
 
-The code below uses url for US West datacenter. Make sure you use url for the datacenter matching your 
+The code below uses url for US West datacenter. Make sure you use url for the datacenter matching your
 registry url. If you're not sure which one to use, contact customer support.
 
 Export useful environment variables:
+
 ```bash
 export SAUCE_USERNAME="your-username"
 export SAUCE_ACCESS_KEY="your-access-key"
 export SAUCE_REGISTRY_URL="your-saucelabs-registry-url"
-````
+```
 
 Retrieve short-lived token:
+
 ```bash
 SAUCE_SHORT_LIVED_TOKEN=`curl --silent --user "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
   --header "Content-Type: application/json" --data "{\"registry_url\": \"$SAUCE_REGISTRY_URL\"}" \
@@ -113,13 +117,14 @@ export DOCKER_PASSWORD=`echo $SAUCE_SHORT_LIVED_TOKEN | jq -r .password`
 ```
 
 You can always check when your token expires by running this command:
+
 ```bash
 echo $SAUCE_SHORT_LIVED_TOKEN | jq -r .expires_at
 ```
 
 ### Using short-lived token to log in
 
-Before running this step, make sure you know what's the address of your container registry. For this example 
+Before running this step, make sure you know what's the address of your container registry. For this example
 let's assume it is `registry.example.com/your-private-registry`. Now you need to extract the domain name from it,
 and use it together with created environment variables to login to your registry:
 

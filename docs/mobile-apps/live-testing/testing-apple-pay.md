@@ -16,7 +16,6 @@ Apple Pay is a mobile payment and digital wallet service developed by Apple Inc.
 - A native iOS, or iPadOS mobile app with Passcode capability enabled
 - A [private devices](/mobile-apps/supported-devices/#private-device-cloud) with Apple Pay enabled! To access our private device cloud and Apple Pay, contact your Sauce Labs account executive or our support team.
 
-
 ## Testing Apple Pay
 
 Sauce Labs offers three ways to test Apple Pay :
@@ -71,6 +70,7 @@ To make Apple Pay work on Sauce Labs real private devices:
    :::note
    Your device list can be found on Apple’s [Certificates, Identifiers & Profiles page](https://developer.apple.com/account/resources/) for your developer account, and you can get the UDID of your private device by contacting your Sauce Labs CSM.
    :::
+
 ## Passcode
 
 One of the Apple Pay requirements is having a set passcode on your phone. Without it, you won't be able to add cards to your wallet. You need to use our Device Passcode capability.
@@ -92,7 +92,7 @@ Apple test cards can be found on Apple’s [Sandbox Testing](https://developer.a
 
 ## Disable Instrumentation
 
-1. On Sauce Labs, in the left navigation, click **Live** and then click **Mobile-App**.  
+1. On Sauce Labs, in the left navigation, click **Live** and then click **Mobile-App**.
 
 You will see an overview of the already uploaded apps. If no app has been uploaded, then upload the app. Once uploaded, open the app settings by hovering over the row until you see this:
 
@@ -102,7 +102,7 @@ You will see an overview of the already uploaded apps. If no app has been upload
 
 <img src={useBaseUrl('img/live-testing/apple-pay-10.png')} alt="Apple Pay setup - Settings" width="650"/>
 
-3. Under **Default settings**, toggle **Instrumentation** to **Disabled**, and Enable Passcode. 
+3. Under **Default settings**, toggle **Instrumentation** to **Disabled**, and Enable Passcode.
 
 <img src={useBaseUrl('img/live-testing/apple-pay-11.png')} alt="Apple Pay setup - Disable instrumentation" width="350"/>
 

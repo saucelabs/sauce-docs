@@ -99,14 +99,14 @@ The list of snapshots can be grouped and filtered by using the "Group By" and "F
 
 The grouping can be done by:
 
-| Group by            | Description                                                                                          | Determined by                                              |
-|:--------------------|:-----------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|
-| Suite Name          | The Name of the Suite/Class                                                                          | This will automatically be determined by the used binding  |
-| Test Name           | The Name of the Test that holds the visual checks                                                    | This will automatically be determined by the used binding  |
-| Device              | The Device that has been used to take the snapshot. This can be a Desktop browser or a Mobile Device | This will automatically be determined by the used binding  |
-| OS                  | The OS that has been used to take the snapshot.                                                      | This will automatically be determined by the used binding  |
-| Storybook (Depth 1) | The name of the Storybook library you used.                                                          | This will automatically be determined by the used binding  |
-| Storybook (Depth 2) | The name of the Storybook component that was used to create the snapshot.                            | This will automatically be determined by the used binding  |
+| Group by            | Description                                                                                          | Determined by                                             |
+| :------------------ | :--------------------------------------------------------------------------------------------------- | :-------------------------------------------------------- |
+| Suite Name          | The Name of the Suite/Class                                                                          | This will automatically be determined by the used binding |
+| Test Name           | The Name of the Test that holds the visual checks                                                    | This will automatically be determined by the used binding |
+| Device              | The Device that has been used to take the snapshot. This can be a Desktop browser or a Mobile Device | This will automatically be determined by the used binding |
+| OS                  | The OS that has been used to take the snapshot.                                                      | This will automatically be determined by the used binding |
+| Storybook (Depth 1) | The name of the Storybook library you used.                                                          | This will automatically be determined by the used binding |
+| Storybook (Depth 2) | The name of the Storybook component that was used to create the snapshot.                            | This will automatically be determined by the used binding |
 
 #### Diff Review-overlay
 
@@ -129,6 +129,7 @@ More information about reviewing and approving diffs can be found in [Subsequent
 The Diff Inspection Tool is a valuable utility that helps identify and verify which DOM changes have impacted the UI. It offers a visual representation of the differences between two versions, making it easy to spot modified, added, or removed elements.
 
 It detects changes in:
+
 - HTML
 - computed CSS styles
 - position
@@ -177,7 +178,7 @@ There are conditional actions you can use, depending on the type of view you hav
 The list below shows the available actions and their keyboard shortcuts.
 
 |                                                           Icon                                                            | Action \[Keyboard Shortcut\]                          |
-|:-------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------|
+| :-----------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------- |
 |               <img src={useBaseUrl('/img/sauce-visual/accept.png')} alt="Accept changes icon" width="25"/>                | Accept changes \[A\] or Undo \[U\]                    |
 |               <img src={useBaseUrl('/img/sauce-visual/reject.png')} alt="Reject changes icon" width="25"/>                | Reject changes \[R\] or Undo \[U\]                    |
 | <img src={useBaseUrl('/img/sauce-visual/cycle-through-diffs.png')} alt="Cycle through snapshots arrows icon" width="50"/> | Cycle through snapshots \[&#x27F5;\] and \[&#x27F6;\] |
@@ -188,7 +189,7 @@ The list below shows the available actions and their keyboard shortcuts.
 |               <img src={useBaseUrl('/img/sauce-visual/hide-diffs.png')} alt="Hide diffs icon" width="25"/>                | Hide diffs \[H\]                                      |
 |           <img src={useBaseUrl('/img/sauce-visual/sync-actions.png')} alt="Sync pan and zoom icon" width="25"/>           | Sync pan and zoom \[P\]                               |
 |             <img src={useBaseUrl('/img/sauce-visual/view-current.png')} alt="View current icon" width="25"/>              | Toggle Baseline and Current snapshots \[T\]           |
-|            <img src={useBaseUrl('/img/sauce-visual/dom-diff.png')} alt="Show Diff Inspection" width="25"/>            | Toggle Diff Inspection \[I\]                          |
+|              <img src={useBaseUrl('/img/sauce-visual/dom-diff.png')} alt="Show Diff Inspection" width="25"/>              | Toggle Diff Inspection \[I\]                          |
 
 ### Additional Keyboard Actions
 
@@ -200,7 +201,7 @@ The list below shows the available actions and their keyboard shortcuts.
 Visual uses different statuses:
 
 | Status          | Description                                                                                                                                                                                                                                                     |
-|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :-------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Accepted        | All detected changes were accepted. This is considered a success state.                                                                                                                                                                                         |
 | No&nbsp;Changes | The snapshots assigned to your build matched your baseline. It is considered a success because your assertions were successful.                                                                                                                                 |
 | Running         | These builds have not been finished yet.                                                                                                                                                                                                                        |

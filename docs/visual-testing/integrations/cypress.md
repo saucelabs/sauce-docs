@@ -4,9 +4,9 @@ sidebar_label: Cypress
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ClippingDescription from '../_partials/_clipping-description.md';
-import EnterpriseNote from '../_partials/_enterprise-note.md';
-import EnvironmentVariables from '../_partials/_environment-variables.md';
+import ClippingDescription from '../\_partials/\_clipping-description.md';
+import EnterpriseNote from '../\_partials/\_enterprise-note.md';
+import EnvironmentVariables from '../\_partials/\_environment-variables.md';
 
 # Cypress Integration
 
@@ -158,7 +158,7 @@ Options:
 - `buildName`: Name of the build (default: `Cypress Visual Testing`)
 - `project`: Name of the project (default: `None`)
 - `branch`: Name of branch (default: `None`)
-- `defaultBranch`: Name of the main or default branch (default: `None`)  
+- `defaultBranch`: Name of the main or default branch (default: `None`)
 
 They need to be set through the `saucelabs` attribute of `e2e` configuration.
 
@@ -257,6 +257,7 @@ cy.sauceVisualCheck('login-page', {
 Sauce Visual does not capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
 
 Example:
+
 ```javascript
 cy.sauceVisualCheck('login-page', {
     captureDom: true

@@ -22,7 +22,6 @@ To update or add via stdin:
 cat "file_name" | saucectl apit vault set-snippet "snippet_name" - [flags]
 ```
 
-
 ## Available Options
 
 <table id="table-cli">

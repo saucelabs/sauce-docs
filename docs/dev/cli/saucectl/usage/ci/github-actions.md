@@ -63,7 +63,6 @@ You will likely require a tunnel back to where your app is running. A tunnel ena
 For more detailed information on setting event-driven actions and jobs, visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).
 :::
 
-
 ```yaml
 jobs:
   main:
@@ -77,6 +76,7 @@ jobs:
         with:
           working-directory: v1
 ```
+
 [See full example on GitHub](https://github.com/saucelabs/saucectl-cypress-example/blob/main/.github/workflows/test-v1.yml)
 
 :::note

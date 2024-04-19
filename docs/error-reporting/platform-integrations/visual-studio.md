@@ -18,7 +18,7 @@ Follow these steps to add Crashpad to a C++ project.
 In a x64 Native Tools Command Prompt for VS 2022 run the following commands to build Crashpad binaries for both the Debug and Release configurations.
 
 ```powershell
-git clone https://github.com/backtrace-labs/crashpad.git 
+git clone https://github.com/backtrace-labs/crashpad.git
 cd crashpad
 cmake -B cbuild
 cmake --build cbuild --config Debug
@@ -64,12 +64,12 @@ Or, if the configurations are named `Debug` and `Release` then this can be simpl
 
 <img src={useBaseUrl('/img/error-reporting/vs-extension/vs-link.png')} alt="listeners"/>
 
-
 ## Code Samples
 
 The following code can be added to your project and can be used to initialize Crashpad in your application.
 
 Header, `bt_crashpad.h`
+
 ```cpp
 #pragma once
 
@@ -79,6 +79,7 @@ namespace backtrace {
 ```
 
 Source file, `bt_crashpad.cpp`
+
 ```cpp
 #include "bt_crashpad.h"
 
@@ -171,6 +172,7 @@ bool startCrashHandler()
 ```
 
 In your initialization code,
+
 ```cpp
 #include “bt_crashpad.h”
 

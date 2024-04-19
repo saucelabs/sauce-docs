@@ -22,11 +22,11 @@ Sauce Labs Visual E2E Testing is an automated testing method that integrates wit
 
 ## What You'll Need
 
-- A [Sauce Labs self-serve or enterprise account](https://saucelabs.com/pricing) with access to Visual Testing. To request access, contact your CSM or Sauce Labs Support. Visual Testing is not available for free-trial accounts.
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-- Your Visual Testing [Screener API Key](https://screener.io/v2/account/api-key).
-- A [GitHub account](https://github.com/).
-- Have [Node.js installed](https://nodejs.org/en/download/).
+-   A [Sauce Labs self-serve or enterprise account](https://saucelabs.com/pricing) with access to Visual Testing. To request access, contact your CSM or Sauce Labs Support. Visual Testing is not available for free-trial accounts.
+-   Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+-   Your Visual Testing [Screener API Key](https://screener.io/v2/account/api-key).
+-   A [GitHub account](https://github.com/).
+-   Have [Node.js installed](https://nodejs.org/en/download/).
 
 ## Integration with Existing WebDriver Tests
 
@@ -193,11 +193,11 @@ values={[
 
 ```javascript
 exports.config = {
-hostname: 'hub.screener.io',
-port: 443,
-protocol: 'https',
-path: '/wd/hub'
-}
+    hostname: 'hub.screener.io',
+    port: 443,
+    protocol: 'https',
+    path: '/wd/hub',
+};
 ```
 
 </TabItem>
@@ -255,10 +255,10 @@ values={[
 
 ```javascript
 it('should take snapshot', () => {
-browser.url('https://screener.io')
-browser.execute('/*@visual.init*/', 'My Visual Test')
-browser.execute('/*@visual.snapshot*/', 'Home')
-})
+    browser.url('https://screener.io');
+    browser.execute('/*@visual.init*/', 'My Visual Test');
+    browser.execute('/*@visual.snapshot*/', 'Home');
+});
 ```
 
 </TabItem>
@@ -409,26 +409,26 @@ $Env:SCREENER_API_KEY = "Replace with your Screener API key"
 
 Choose which test in the project you'd like to run:
 
-- [**simple-test.js** (WebdriverIO only)](https://github.com/luishernandezv/visual-e2e/blob/main/simple-test.js)
-- [**simple-mocha-test.js** (WebdriverIO with Mocha)](https://github.com/luishernandezv/visual-e2e/blob/main/simple-jest.test.js) ([Mocha](https://mochajs.org/) required)
-- [**simple-mocha-test.js** (WebdriverIO with Jest)](https://github.com/luishernandezv/visual-e2e/blob/main/simple-jest.test.js) ([Jest](https://jestjs.io/) required)
+-   [**simple-test.js** (WebdriverIO only)](https://github.com/luishernandezv/visual-e2e/blob/main/simple-test.js)
+-   [**simple-mocha-test.js** (WebdriverIO with Mocha)](https://github.com/luishernandezv/visual-e2e/blob/main/simple-jest.test.js) ([Mocha](https://mochajs.org/) required)
+-   [**simple-mocha-test.js** (WebdriverIO with Jest)](https://github.com/luishernandezv/visual-e2e/blob/main/simple-jest.test.js) ([Jest](https://jestjs.io/) required)
 
 <details>
   <summary>What's in the tests?</summary>
 
-  To view a breakdown of what's happening in each test script, click on any of the WebDriver test links above and refer to the comments in the script. For example:
+To view a breakdown of what's happening in each test script, click on any of the WebDriver test links above and refer to the comments in the script. For example:
 
-  ```js
-  //Navigate to the test site
-  await browser.url('http://saucedemo.com')
-  ```
+```js
+//Navigate to the test site
+await browser.url('http://saucedemo.com');
+```
 
-  At a high level, each test script:
+At a high level, each test script:
 
-  1. Adds your Sauce Labs credentials, test capabilities (e.g., project name), Visual E2E Testing commands.
-  2. Launches the [Sauce Labs demo website](http://saucedemo.com) in a browser and logs in.
-  3. Carries out a Visual E2E test session (i.e., taking UI snapshots).
-  4. Ends session.
+1. Adds your Sauce Labs credentials, test capabilities (e.g., project name), Visual E2E Testing commands.
+2. Launches the [Sauce Labs demo website](http://saucedemo.com) in a browser and logs in.
+3. Carries out a Visual E2E test session (i.e., taking UI snapshots).
+4. Ends session.
 
 </details>
 
@@ -487,10 +487,22 @@ The test should take a few minutes to complete.
 :::tip
 
 <details>
-  <summary>
-    Click <strong>Show Logs</strong> > <strong>View Logs on Sauce Labs</strong> to see your <a href="/test-results">test results</a> on Sauce Labs.
-  </summary>
-  <img src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')} alt="Visual E2E Quickstart accept state" width="205" /><br/><img src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')} alt="Visual E2E Quickstart accept state" width="250" />
+    <summary>
+        Click <strong>Show Logs</strong> >{' '}
+        <strong>View Logs on Sauce Labs</strong> to see your{' '}
+        <a href='/test-results'>test results</a> on Sauce Labs.
+    </summary>
+    <img
+        src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')}
+        alt='Visual E2E Quickstart accept state'
+        width='205'
+    />
+    <br />
+    <img
+        src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')}
+        alt='Visual E2E Quickstart accept state'
+        width='250'
+    />
 </details>
 
 :::
@@ -531,27 +543,27 @@ npm run test:jest-changes
 </Tabs>
 
 2. On your Visual Testing Dashboard, you should see a new test running under the same project and branch. Because an element changed in one of your baseline snapshots, the test will be labeled as "failed". To resolve this, you'll need to review and accept them:
-   - Click **Review 1 Changed**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-changed-state.png')} alt="Visual E2E Quickstart changed state" width="500" />
-   - You'll see that the login button color has changed from red to green. Click **Changed** > **Accept**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-accept.png')} alt="Visual E2E Quickstart accept state" width="450" />
+    - Click **Review 1 Changed**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-changed-state.png')} alt="Visual E2E Quickstart changed state" width="500" />
+    - You'll see that the login button color has changed from red to green. Click **Changed** > **Accept**.<br/><img src={useBaseUrl('img/visual/e2e-quickstart-accept.png')} alt="Visual E2E Quickstart accept state" width="450" />
 3. Return to your Visual Testing Dashboard. The two states should now be labeled as **Accepted**. If you run this test again using the [run commands under **Apply UI Changes**](#apply-ui-changes), the result will be labeled **Success**.
 
 For each build, you should receive an [email summary](/visual/notifications/) indicating the pass/fail status, delivered to the address associated with your Sauce Labs account.
 
 ## Optional Next Steps
 
-- Learn more about the Visual E2E Testing [review workflow](/visual/e2e-testing/workflow/review-workflow/) and [commands](/visual/e2e-testing/commands-options).
-- See [full test script examples](/visual/e2e-testing/code-examples).
-- Add more [test configuration options](https://github.com/screener-io/screener-storybook#config-options).
-- Set up continuous visual testing by [integrating Visual E2E Testing into your CI](/visual/e2e-testing/integrations/continuous-integration).
-- Confirm that your WebDriver test scripts use [W3C WebDriver capabilities](/dev/w3c-webdriver-capabilities/).
-- Confirm that the browsers in your tests are [supported by Sauce Labs](/visual/e2e-testing/supported-browsers).
-- Try out these useful WebDriver settings in your tests:
-  - **Timeouts**: If you're using several [visual assertions](/visual/e2e-testing/commands-options/#visual-e2e-commands) in your test, you may need to increase the `timeout` value in your configuration to help with test stability. A single assertion can take up to 45 seconds. If you have a WebdriverIO test with three [snapshots (`/*@visual.snapshot*/`)](/visual/e2e-testing/commands-options/#snapshot-command), for example, you'd need to [set your `timeout` value](https://webdriver.io/docs/timeouts/#framework-related-timeouts) above 180000 milliseconds (3 mins) to prevent your test from failing.
-  - **Advanced Debugging**: To enable more granular debugging details, add [`extendedDebugging`](/dev/test-configuration-options/#extendeddebugging) to your test capabilities:
-  ```java
-  'sauce:options': {
-    username: process.env.SAUCE_USERNAME,
-    accessKey: process.env.SAUCE_ACCESS_KEY,
-    extendedDebugging: true,
-  },
-  ```
+-   Learn more about the Visual E2E Testing [review workflow](/visual/e2e-testing/workflow/review-workflow/) and [commands](/visual/e2e-testing/commands-options).
+-   See [full test script examples](/visual/e2e-testing/code-examples).
+-   Add more [test configuration options](https://github.com/screener-io/screener-storybook#config-options).
+-   Set up continuous visual testing by [integrating Visual E2E Testing into your CI](/visual/e2e-testing/integrations/continuous-integration).
+-   Confirm that your WebDriver test scripts use [W3C WebDriver capabilities](/dev/w3c-webdriver-capabilities/).
+-   Confirm that the browsers in your tests are [supported by Sauce Labs](/visual/e2e-testing/supported-browsers).
+-   Try out these useful WebDriver settings in your tests:
+    -   **Timeouts**: If you're using several [visual assertions](/visual/e2e-testing/commands-options/#visual-e2e-commands) in your test, you may need to increase the `timeout` value in your configuration to help with test stability. A single assertion can take up to 45 seconds. If you have a WebdriverIO test with three [snapshots (`/*@visual.snapshot*/`)](/visual/e2e-testing/commands-options/#snapshot-command), for example, you'd need to [set your `timeout` value](https://webdriver.io/docs/timeouts/#framework-related-timeouts) above 180000 milliseconds (3 mins) to prevent your test from failing.
+    -   **Advanced Debugging**: To enable more granular debugging details, add [`extendedDebugging`](/dev/test-configuration-options/#extendeddebugging) to your test capabilities:
+    ```java
+    'sauce:options': {
+      username: process.env.SAUCE_USERNAME,
+      accessKey: process.env.SAUCE_ACCESS_KEY,
+      extendedDebugging: true,
+    },
+    ```

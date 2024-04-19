@@ -184,7 +184,6 @@ Enables [W3C WebDriver BiDi](https://w3c.github.io/webdriver-bidi/) support. Thi
 
 The `webSocketUrl` capability is **not compatible** with [`extendedDebugging`](#extendeddebugging) capability.
 
-
 ```java
 "webSocketUrl": true
 ```
@@ -1561,7 +1560,6 @@ Execute ADB shell commands, through Appium's `mobile: shell` capability.
 :::note
 Sauce Labs now supports ADB commands for Appium. To use ADB and `mobile: shell` commands, please [sign up for our BETA through this form](https://forms.gle/42qv8U1RukqC62x86) and indicate the desired ADB commands you would like to run. We will be supporting a limited list of ADB commands through `mobile: shell`. Please refer to the list of [allowed commands](https://docs.saucelabs.com/mobile-apps/mobile-faq/#im-encountering-errors-when-executing-adb-shell-commands-what-could-be-the-issue) or contact support for assistance.
 :::
-
 
 ```java
 driver.executeScript("mobile: shell", ImmutableMap.of(

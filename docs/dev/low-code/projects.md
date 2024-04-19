@@ -98,7 +98,7 @@ The <b>Execution</b> panel displays currently running test cases, as well as tes
 
 ### Overall Health
 
-The Overall Health section gives a quick look at data that might be important to you, including the number of projects, test suites, and test cases that have passed and failed. 
+The Overall Health section gives a quick look at data that might be important to you, including the number of projects, test suites, and test cases that have passed and failed.
 
 <img src={useBaseUrl('/img/dev/low-code/overall-health.png')} alt="Overall Health"/>
 
@@ -189,12 +189,11 @@ The **Project Details** page displays information about the selected project, in
 
 ## Test Cases Tab
 
-
 The **Test Cases** tab consists of a table of information about the test cases that are part of the project. From this page you can also create a new test case. For more information, see [Test Cases](dev/low-code/projects/test-cases.md).
 
 ## Test Cases Page
-On the **Test Cases** page you can view, update, move, or disable a test case. In addition, you can add tags to test cases and easily access the step editor. For more information, see [Test Cases](dev/low-code/projects/test-cases.md).
 
+On the **Test Cases** page you can view, update, move, or disable a test case. In addition, you can add tags to test cases and easily access the step editor. For more information, see [Test Cases](dev/low-code/projects/test-cases.md).
 
 ## Data Tab
 
@@ -213,4 +212,5 @@ A flow is a set of steps that are linked for easy re-use. The **Flows** tab disp
 A test suite is a collection of test cases in a project. The **Test Suites** tab displays the test suites in a project, in table form. From this screen you can also create a new test suite, and clone, download, and disable existing test suites. For more information, see [Test Suites](dev/low-code/projects/test-suites.md).
 
 ## Test Suites Page
+
 On the **Test Suites** page you can view, update, execute, clone, or delete a test suite. In addition, you can view the test cases associated with the suite, as well as quickly access the step editor. For more information, see [Test Suites](dev/low-code/projects/test-suites.md).

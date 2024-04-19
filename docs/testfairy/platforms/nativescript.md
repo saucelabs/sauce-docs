@@ -23,9 +23,8 @@ tns plugin add nativescript-testfairy
 Once the native library is added to your project, you can now enable session recording with TestFairy:
 
 1. Obtain an app token from your TestFairy account. You can find the app token on the [Preferences](http://app.testfairy.com/settings/) page on your TestFairy account.
-2. Import the TestFairy bridge  from your JavaScript file (app.js or app.ts) into you project.
-3. Invoke the `begin`  passing in the app token. The best time to invoke `begin` is usually during the `launchEvent` of your application.
-
+2. Import the TestFairy bridge from your JavaScript file (app.js or app.ts) into you project.
+3. Invoke the `begin` passing in the app token. The best time to invoke `begin` is usually during the `launchEvent` of your application.
 
 Here's an example of how to start your recording in TypeScript:
 
@@ -82,13 +81,10 @@ To learn how to identify users and set session attributes using the TestFairy SD
 
 To understand how to perform remote logging with the TestFairy SDK in Nativescript, refer to the [remote logging section](/testfairy/sdk/remote-logging/) in the SDK Documentation.
 
-
 ## Hiding Views
 
 If you want to hide certain views from session recordings, check the [Nativescript section](/testfairy/sdk/identifying-users/) in the SDK Documentation for instructions.
 
-
-:::note 
-To stay updated on the project, report bugs, or contribute to the Nativescript TestFairy plugin, visit the [GitHub](https://github.com/testfairy/nativescript-testfairy) repository. 
+:::note
+To stay updated on the project, report bugs, or contribute to the Nativescript TestFairy plugin, visit the [GitHub](https://github.com/testfairy/nativescript-testfairy) repository.
 :::
-

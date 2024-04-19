@@ -13,8 +13,8 @@ Expressions are fields that reference an item in the test scope. The item can be
 
 ## What You'll Need
 
-- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-- Familiarity with the [API Testing Composer](/api-testing/composer/).
+-   A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+-   Familiarity with the [API Testing Composer](/api-testing/composer/).
 
 ## Using Expressions
 
@@ -37,13 +37,13 @@ When working with structured data, expression is the path for reaching out a sp
 If you want to reach the value of the `created_time` attribute:
 
 ```js
-payload.data.created_time
+payload.data.created_time;
 ```
 
 If you want to check the `width` of the images:
 
 ```js
-payload.data.images.thumbnail.width
+payload.data.images.thumbnail.width;
 ```
 
 ### Special Characters
@@ -51,7 +51,7 @@ payload.data.images.thumbnail.width
 The `Total-items` element is a bit tricky, because the minus sign ( - ) would be misunderstood and treated as a subtraction operation. For this reason, the dot notation would require square brackets:
 
 ```js
-payload.data['Total-Items']
+payload.data['Total-Items'];
 ```
 
 ### XML
@@ -70,7 +70,7 @@ Example:
 If you want to check the `size` attribute, you have to write:
 
 ```js
-payload['@size']
+payload['@size'];
 ```
 
 #### Simple Object Access Protocol (SOAP)
@@ -91,7 +91,7 @@ When you are working with SOAP API, the response might look something like this:
 You'll also need to include the namespace in the expression. In the above scenario, if you want to check the `Username` item, you have to write:
 
 ```js
-payload['soap:Body']['m:GetUserResponse']['m:Username']
+payload['soap:Body']['m:GetUserResponse']['m:Username'];
 ```
 
 :::note
@@ -110,7 +110,7 @@ Expressions can also contain directives to transform the data you are willing to
 ```
 
 ```js
-payload.HotelSummary.length
+payload.HotelSummary.length;
 ```
 
 Will count the number of instances of `HotelSummary`.
@@ -131,14 +131,14 @@ These _extensions_ can be used in any field that can be evaluated, which means i
 
 This is the main extension. It supports many useful functions.
 
-- **exists(object : Object) : Boolean :** an XML and JSON existence state is different by definition. Use this in an "if statement" if a test should work both with JSON and XML
-- **contains(object : Object, substring : String) : Boolean :** returns true whether the string version of "object" contains the "substring" sub-string.
+-   **exists(object : Object) : Boolean :** an XML and JSON existence state is different by definition. Use this in an "if statement" if a test should work both with JSON and XML
+-   **contains(object : Object, substring : String) : Boolean :** returns true whether the string version of "object" contains the "substring" sub-string.
 
-  ```js
-  WSUtil.contains(payload.fruit.name, 'banana')
-  ```
+    ```js
+    WSUtil.contains(payload.fruit.name, 'banana');
+    ```
 
-- **isInteger(string: String) , isFloat(string: String), isUrl(string: String), isEmail(string: String), isPhoneNumber(string: String), isBoolean(string: String), isArray(object: Object), isMap(object: Object), isCreditCard(string: String) : Boolean :** evaluate the nature of a data item
+-   **isInteger(string: String) , isFloat(string: String), isUrl(string: String), isEmail(string: String), isPhoneNumber(string: String), isBoolean(string: String), isArray(object: Object), isMap(object: Object), isCreditCard(string: String) : Boolean :** evaluate the nature of a data item
 
 ### pick()
 
@@ -147,7 +147,7 @@ This is the main extension. It supports many useful functions.
 Given any array, you can ask the system to create a random subset of it. One typical usage is when an iterator would turn out to be huge, and you prefer to cherry-pick a few items. The code below will return an array of five random elements off the _artists_ array.
 
 ```js
-payload.artists.pick(5)
+payload.artists.pick(5);
 ```
 
 A hands on example:
@@ -155,10 +155,10 @@ A hands on example:
 ```yaml
 - id: each
   children:
-  - id: assert-exists
-    expression: _1.href
-  - id: assert-exists
-    expression: _1.id
+      - id: assert-exists
+        expression: _1.href
+      - id: assert-exists
+        expression: _1.id
   expression: payload.artists.pick(5)
 ```
 
@@ -174,31 +174,31 @@ If you are testing XML, the pick() function must be `WSUtil.pick(array,n)`. Cons
 
 Utility functions for numbers.
 
-- **random(min: Int, max: Int) : Int** : generates a random integer number between min and max.
+-   **random(min: Int, max: Int) : Int** : generates a random integer number between min and max.
 
-  ```js
-  N.random(10,30)
-  ```
+    ```js
+    N.random(10, 30);
+    ```
 
-- **random(min: Int, max: Int, quantity: Int) : List :** generates a list of random numbers
+-   **random(min: Int, max: Int, quantity: Int) : List :** generates a list of random numbers
 
-  ```js
-  N.random(10,30,5)
-  ```
+    ```js
+    N.random(10, 30, 5);
+    ```
 
 ### D
 
 Plays with dates.
 
-- **nowMillis() : Int :** returns the current Unix epoch in milliseconds.
-- **plusDays(millis: Int, days: Int): Int** : returns the provided milliseconds, plus the provided number of days
-- **plusHours(millis: Int, hours: Int): Int** : returns the provided milliseconds, plus the provided number of hours
-- **minusDays(millis: Int, days: Int) : Int** : returns the provided milliseconds, minus the provided number of days
-- **minusHours(millis: Int, hours: Int): Int** : returns the provided milliseconds, minus the provided number of hours
-- **format(millis: Int, format: String) : String** : creates a timestamp with the given format, using the current timezone
-- **format(millis: Int, format: String, timezone: String) : String :** creates a timestamp with the given format, based on the provided timezone id
-- **format(millis: Int, format: String, offset: Int) : String :** creates a timestamp with the given format, based on the provided timezone offset
-- **parse(timestamp: String) : Int** : tries to parse the provided timestamp and convert it in milliseconds. It will use current timezone if not provided
+-   **nowMillis() : Int :** returns the current Unix epoch in milliseconds.
+-   **plusDays(millis: Int, days: Int): Int** : returns the provided milliseconds, plus the provided number of days
+-   **plusHours(millis: Int, hours: Int): Int** : returns the provided milliseconds, plus the provided number of hours
+-   **minusDays(millis: Int, days: Int) : Int** : returns the provided milliseconds, minus the provided number of days
+-   **minusHours(millis: Int, hours: Int): Int** : returns the provided milliseconds, minus the provided number of hours
+-   **format(millis: Int, format: String) : String** : creates a timestamp with the given format, using the current timezone
+-   **format(millis: Int, format: String, timezone: String) : String :** creates a timestamp with the given format, based on the provided timezone id
+-   **format(millis: Int, format: String, offset: Int) : String :** creates a timestamp with the given format, based on the provided timezone offset
+-   **parse(timestamp: String) : Int** : tries to parse the provided timestamp and convert it in milliseconds. It will use current timezone if not provided
 
 Here's the conversion map for formats:
 
@@ -230,77 +230,77 @@ Generates fake data.
 
 #### Addresses and Countries
 
-- `F.streetName()` - Generates a street name
-- `F.streetAddressNumber()` - Generates an address number
-- `F.streetAddress()` - Generates a street and address number. If secondary is specified, this method provides an apartment number.
-- `F.secondaryAddress()` - Generates an apartment number
-- `F.zipCode()` - Generates a ZIP code. Valid only for US states.
-- `F.streetSuffix()` - Generates a street suffix
-- `F.citySuffix()` - Generates a city suffix
-- `F.cityPrefix()` - Generates a city prefix
-- `F.city()` - Generates a city name
-- `F.state()` - Generates a state/province
-- `F.buildingNumber()` - Generates a build number
-- `F.country()` - Generates a country
-- `F.countryCode()` - Generates a country code
-- `F.countryCodeSL()` - Generates a country code in small letters
+-   `F.streetName()` - Generates a street name
+-   `F.streetAddressNumber()` - Generates an address number
+-   `F.streetAddress()` - Generates a street and address number. If secondary is specified, this method provides an apartment number.
+-   `F.secondaryAddress()` - Generates an apartment number
+-   `F.zipCode()` - Generates a ZIP code. Valid only for US states.
+-   `F.streetSuffix()` - Generates a street suffix
+-   `F.citySuffix()` - Generates a city suffix
+-   `F.cityPrefix()` - Generates a city prefix
+-   `F.city()` - Generates a city name
+-   `F.state()` - Generates a state/province
+-   `F.buildingNumber()` - Generates a build number
+-   `F.country()` - Generates a country
+-   `F.countryCode()` - Generates a country code
+-   `F.countryCodeSL()` - Generates a country code in small letters
 
 #### People and Identity
 
-- `F.fullName()` - Generates a full name
-- `F.firstName()` - Generates a first name
-- `F.lastName()` - Generates a last name
-- `F.profession()` - Generates a profession
-- `F.timeZone()` - Generates a time zone
-- `F.phone()` - Generates a phone number
-- `F.mobile()` - Generates a mobile number
+-   `F.fullName()` - Generates a full name
+-   `F.firstName()` - Generates a first name
+-   `F.lastName()` - Generates a last name
+-   `F.profession()` - Generates a profession
+-   `F.timeZone()` - Generates a time zone
+-   `F.phone()` - Generates a phone number
+-   `F.mobile()` - Generates a mobile number
 
 #### Internet
 
-- `F.emailAddress()` - Generates an email address. **Note:** These email addresses are randomly generated with real domains. Please be careful if you are using this in a test as there is a chance that some of them could be real email addresses.
-- `F.domainName()` - Generates a domain name
-- `F.domainWord()` - Generates a word
-- `F.domainSuffix()` - Generates a suffix
-- `F.url()` - Generates a URL
-- `F.password(<minimumLength,maximumLength,includeUppercase,includeSpecial,includeDigit>)` - Generates a password. For example, `F.password(5,10,true,false, true)`.
+-   `F.emailAddress()` - Generates an email address. **Note:** These email addresses are randomly generated with real domains. Please be careful if you are using this in a test as there is a chance that some of them could be real email addresses.
+-   `F.domainName()` - Generates a domain name
+-   `F.domainWord()` - Generates a word
+-   `F.domainSuffix()` - Generates a suffix
+-   `F.url()` - Generates a URL
+-   `F.password(<minimumLength,maximumLength,includeUppercase,includeSpecial,includeDigit>)` - Generates a password. For example, `F.password(5,10,true,false, true)`.
 
 #### Credit Card
 
-- `F.creditCardNumber()` - Generates a credit card number
-- `F.creditCardExpiry()` - Generates a credit card expiration date
-- `F.creditCardType()` - Generates a credit card type
+-   `F.creditCardNumber()` - Generates a credit card number
+-   `F.creditCardExpiry()` - Generates a credit card expiration date
+-   `F.creditCardType()` - Generates a credit card type
 
 #### Products
 
-- `F.productName()` - Generates a product name
-- `F.price()` - Generates a price
-- `F.promotionCode()` - Generates random promotion code
+-   `F.productName()` - Generates a product name
+-   `F.price()` - Generates a price
+-   `F.promotionCode()` - Generates random promotion code
 
 #### Companies
 
-- `F.companyName()` - Generates a company name
-- `F.suffix()` - Generates a company suffix
+-   `F.companyName()` - Generates a company name
+-   `F.suffix()` - Generates a company suffix
 
 #### Random Numbers
 
-- `F.integer(<min,max>)` - Generates an integer. For example, `F.integer(2,20)`
-- `F.decimal(<min,max,maxdecimals>)` - Generates a decimal number. For example, `F.decimal(0,2,2)`
-- `F.uuid()` - Generates a unique identifier
+-   `F.integer(<min,max>)` - Generates an integer. For example, `F.integer(2,20)`
+-   `F.decimal(<min,max,maxdecimals>)` - Generates a decimal number. For example, `F.decimal(0,2,2)`
+-   `F.uuid()` - Generates a unique identifier
 
 #### Boolean
 
-- `F.bool()` - Generates a boolean value
+-   `F.bool()` - Generates a boolean value
 
 ### WSCrypto
 
 Encryption utilities:
 
-- **md5(input : String) : String** : returns the md5 hash of the input string.
-- **hash(input : String) : String :** returns the SHA-1 hash of the input string, hex encoded.
-- **base64(action: String, input: String)** : decodes from or encodes into a base64 string. Action can either be `'encode'` or `'decode'`.
-  ```js
-  WSCrypto.base64('encode', 'whatever')
-  ```
-- **sha256(input : String) : String** : creates an hash of input using the SHA-256 algorithm.
-- **sha256(input : String, secret : String) : String :** encrypts input with secret using the HMAC-SHA256 algorithm.
-- **hmacSha1(input : String, secret : String) : String** : encrypts input with secret using the HMAC-SHA1 algorithm.
+-   **md5(input : String) : String** : returns the md5 hash of the input string.
+-   **hash(input : String) : String :** returns the SHA-1 hash of the input string, hex encoded.
+-   **base64(action: String, input: String)** : decodes from or encodes into a base64 string. Action can either be `'encode'` or `'decode'`.
+    ```js
+    WSCrypto.base64('encode', 'whatever');
+    ```
+-   **sha256(input : String) : String** : creates an hash of input using the SHA-256 algorithm.
+-   **sha256(input : String, secret : String) : String :** encrypts input with secret using the HMAC-SHA256 algorithm.
+-   **hmacSha1(input : String, secret : String) : String** : encrypts input with secret using the HMAC-SHA1 algorithm.

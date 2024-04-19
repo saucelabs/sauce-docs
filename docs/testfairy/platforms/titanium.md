@@ -10,7 +10,6 @@ import TabItem from '@theme/TabItem';
 
 The TiTestFairy Module extends the Appcelerator Titanium Mobile framework with the TestFairy Android and iOS SDKs. By integrating TestFairy, you gain valuable insights into how your app performs on real devices, understand user behavior, and collect metrics to optimize your user experience and code.
 
-
 ## Installation
 
 To integrate TestFairy into your Titanium Mobile project, follow these steps:
@@ -35,7 +34,8 @@ To integrate TestFairy into your Titanium Mobile project, follow these steps:
 1. Include the module in your code and use it:
 
    ```javascript
-       var TiTestFairy = require('com.testfairy.titestfairy');
+       const TiTestFairy = require('com.testfairy.titestfairy');
+
        TiTestFairy.begin("<APP TOKEN>");
    ```
 
@@ -45,11 +45,9 @@ To integrate TestFairy into your Titanium Mobile project, follow these steps:
 
 For more detailed code examples take a look at our [example app](https://github.com/testfairy/ti.testfairy/blob/feat-readme/example/app.js).
 
-
 ## Identifying Your Users
 
 To learn how to identify users and set session attributes using the TestFairy SDK in Titanium, refer to the [identifying users section](/testfairy/sdk/identifying-users/) in the SDK Documentation.
-
 
 ## Session Attributes
 

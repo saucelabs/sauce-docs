@@ -42,7 +42,6 @@ The TestFairy Chrome Extension is available at [https://chrome.google.com/websto
 
 If you choose not to use the TestFairy Chrome Extension, you can add the TestFairy Jira Add-on to your Jira account. This add-on allows you to include TestFairy videos in Jira issues. Follow these steps to add the TestFairy Jira Add-on:
 
-
 1. Open **Jira Settings**.
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-settings.png')} alt="Open Jira Settings"/>
 
@@ -69,7 +68,6 @@ If you choose not to use the TestFairy Chrome Extension, you can add the TestFai
 <p><span className="sauceGreen">Highly Recommended</span></p>
 
 To leverage the full capabilities of the TestFairy Jira integration, it's recommended to map Jira custom fields. This feature allows you to automatically populate any field in Jira when creating a new issue, using standard TestFairy data or your custom session attributes. Follow these steps to map Jira custom fields:
-
 
 1. First, you need to connect a Jira account. Follow the [instructions](#1-creating-a-jira-api-token) above.
 

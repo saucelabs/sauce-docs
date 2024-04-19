@@ -9,12 +9,12 @@ Add Backtrace to your iOS project to automatically detect and report handled and
 
 After you've completed the steps on this page, the Backtrace client will be installed and setup with the default configuration settings. Crash and error reports will include the following metadata:
 
-- system
-- machine
-- signal
-- exception
-- thread
-- process
+-   system
+-   machine
+-   signal
+-   exception
+-   thread
+-   process
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -22,9 +22,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Supported Platforms
 
-- iOS 11+
-- macOS 10.13+
-- tvOS 11+
+-   iOS 11+
+-   macOS 10.13+
+-   tvOS 11+
 
 ### Privacy manifest
 
@@ -32,13 +32,13 @@ The iOS SDK contains a privacy manifest to declare the types of data accessed on
 
 ## What You'll Need
 
-- A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
-- Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
-- A Backtrace project and a [submission token](/error-reporting/project-setup/submission-url).
+-   A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
+-   Your subdomain name (used to connect to your Backtrace instance). For example, `https://example-subdomain.sp.backtrace.io`.
+-   A Backtrace project and a [submission token](/error-reporting/project-setup/submission-url).
 
 ### System Requirements
 
-- Xcode 10 or above
+-   Xcode 10 or above
 
 ## Install the SDK
 
@@ -70,6 +70,7 @@ You can install the SDK with Swift Package Manager (SPM) or CocoaPods. The SPM p
       ```
       pod 'Backtrace'
       ```
+
    </li>
    </ol>
   </TabItem>
@@ -112,7 +113,10 @@ To generate debug symbols in dSYM format:
 
 1. In Xcode, go to your project target's **Build Settings**.
 1. Under **Build Options**, set **Debug Information Format** to **DWARF with dSYM File**.
-   <img src={useBaseUrl('img/error-reporting/ios/xcode-set-debug-format.png')} alt="" />
+    <img
+        src={useBaseUrl('img/error-reporting/ios/xcode-set-debug-format.png')}
+        alt=''
+    />
 
 ### Find Debug Symbols
 
@@ -120,22 +124,42 @@ To find dSYM files while building the project:
 
 1. In Xcode, build your project.
 1. From the **Products** folder, select your iOS app. <br/>
-   <img src={useBaseUrl('img/error-reporting/ios/xcode-products.webp')} width="400" alt="" />
+    <img
+        src={useBaseUrl('img/error-reporting/ios/xcode-products.webp')}
+        width='400'
+        alt=''
+    />
 1. Right-click, then click **Show in Finder**.
 1. Zip all the dSYM files and upload to Backtrace.
-   <img src={useBaseUrl('img/error-reporting/ios/finder-dsyms-products.png')} width="600" alt="" />
+    <img
+        src={useBaseUrl('img/error-reporting/ios/finder-dsyms-products.png')}
+        width='600'
+        alt=''
+    />
 
 To find dSYM files while archiving the project:
 
 1. In Xcode, archive your project.
 1. To open the Archives organizer, go to **Window > Organizer** and click **Archives**.
 1. Select your iOS app, then click **Show in Finder**. dSYMs are stored in a `.xcarchive` file.
-   <img src={useBaseUrl('img/error-reporting/ios/xcode-organizer.png')} width="900" alt="" />
+    <img
+        src={useBaseUrl('img/error-reporting/ios/xcode-organizer.png')}
+        width='900'
+        alt=''
+    />
 1. Right-click, then click **Show Package Contents**.
-   <img src={useBaseUrl('img/error-reporting/ios/finder-xcarchive.webp')} width="700" alt="" />
+    <img
+        src={useBaseUrl('img/error-reporting/ios/finder-xcarchive.webp')}
+        width='700'
+        alt=''
+    />
 1. Search for the **dSYMs** folder.
 1. Zip all the dSYM files and upload to Backtrace. <br/>
-   <img src={useBaseUrl('img/error-reporting/ios/finder-dsyms-archive.png')} width="400" alt="" />
+    <img
+        src={useBaseUrl('img/error-reporting/ios/finder-dsyms-archive.png')}
+        width='400'
+        alt=''
+    />
 
 ## Verify the Setup
 

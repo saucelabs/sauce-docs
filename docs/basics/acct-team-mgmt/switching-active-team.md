@@ -9,15 +9,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 <p><span className="sauceGreen">Enterprise Plans only</span> <span className="sauceYellow">Beta feature</span></p>
 
 :::caution
-This functionality *affects* tests run via *API* calls. It will result in tests being assigned to the currently active team.
+This functionality _affects_ tests run via _API_ calls. It will result in tests being assigned to the currently active team.
 
-Please be cautious when using it. Currently, we *recommend* using it mostly for UI-related work.
+Please be cautious when using it. Currently, we _recommend_ using it mostly for UI-related work.
 :::
 
 # User navigating between teams
 
-User can see the active and other teams you are assigned to in the navigation bar in the web application. 
-   <img src={useBaseUrl('img/team-mgmt/active-team-dropdown.png')} alt="Active team dropdown in Navigation bar" width="400"/>
+User can see the active and other teams you are assigned to in the navigation bar in the web application.
+<img src={useBaseUrl('img/team-mgmt/active-team-dropdown.png')} alt="Active team dropdown in Navigation bar" width="400"/>
 
 The dropdown lists all the teams assigned to the user.
 
@@ -35,8 +35,8 @@ Team assignment is persistent across all data regions.
 
 ## Batch assignment of users to multiple teams
 
-At [User Management view](https://app.saucelabs.com/team-management/users), select users. Click `Team assignment` in the Actions dropdown. 
-   <img src={useBaseUrl('img/team-mgmt/team-assignment-option.png')} alt="Team assignment option" width="400"/>
+At [User Management view](https://app.saucelabs.com/team-management/users), select users. Click `Team assignment` in the Actions dropdown.
+<img src={useBaseUrl('img/team-mgmt/team-assignment-option.png')} alt="Team assignment option" width="400"/>
 
 You will be presented with a modal with a list of selected users and multi select dropdown to pick the teams you would like to assign the users to.
 
@@ -46,4 +46,4 @@ You will be presented with a modal with a list of selected users and multi selec
 
 Additionally, `Organization Admin` can manage teams assignments for a single user. In [User Management view](https://app.saucelabs.com/team-management/users), click on the link to a specific user. In section `Roles and Teams` there is a dropdown to add/remove assigned teams. Click `Update` to save the assignment.
 
-   <img src={useBaseUrl('img/team-mgmt/roles-teams-assignment.png')} alt="Roles and Teams assignment section" width="400"/>
+<img src={useBaseUrl('img/team-mgmt/roles-teams-assignment.png')} alt="Roles and Teams assignment section" width="400"/>

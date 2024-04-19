@@ -25,9 +25,9 @@ The first and easiest way is when we have a body from somewhere to copy and pas
 1. In the composer we add the POST component and type the url and all of the required fields.
 
    ```js
-   //mydomain.com/myPost //the url of the resource you want to test
-   Url: https: Variable: payload //the name of the variable that contains the response
-   Mode: json //the type of the response
+   // mydomain.com/myPost //the url of the resource you want to test
+   payload // the name of the variable that contains the response
+   json // the type of the response
    ```
 
    <img src={useBaseUrl('img/api-fortress/2018/09/post_comp.jpg')} alt="post_comp.jpg"/>
@@ -50,9 +50,9 @@ Another way to compose a request is using variables in the body.
 1. In the composer we add the POST component typing the url and all the required fields.
 
    ```js
-   //mydomain.com/myPost //the url of the resource you want to test)
-   Url: https: Variable: payload //the name of the variable that contains the response)
-   Mode: json //the type of the response)
+   // mydomain.com/myPost //the url of the resource you want to test)
+   payload // the name of the variable that contains the response)
+   json // the type of the response)
    ```
 
    <img src={useBaseUrl('img/api-fortress/2018/09/post_comp.jpg')} alt="post_comp.jpg"/>

@@ -64,9 +64,9 @@ This setting does **NOT** install the app. You must manually or via automation i
 
 `com.google.chrome.ios`  
 `com.apps.app1`  
-`com.ios.app2`  
+`com.ios.app2`
 
-*Multiple entries must be comma-separated.*
+_Multiple entries must be comma-separated._
 :::
 
 ## System App Allow List (iOS)
@@ -80,7 +80,7 @@ https://support.apple.com/en-gb/guide/deployment/depece748c41/web
 `com.apple.MobileSMS`
 `com.apple.mobilenotes`
 
-*Multiple entries must be comma-separated.*
+_Multiple entries must be comma-separated._
 :::
 
 ## Account Allow List
@@ -92,20 +92,21 @@ Update this setting for each account email to preserve store and payment account
 
 :::important
 `account1@mydomain.com`  
-`account2@mydomain.com`  
+`account2@mydomain.com`
 
-*Multiple entries must be comma-separated.*
+_Multiple entries must be comma-separated._
 :::
 
 ## Retain folders/filepath (Android)
 
-You have the option to retain specific filepaths or folders on your private Android devices between sessions. 
+You have the option to retain specific filepaths or folders on your private Android devices between sessions.
 This feature ensures that selected data remains intact during the device cleaning process.
 
 - Filepaths or folders associated with specific applications can be retained.
 - This is especially useful for retaining data that is crucial for continuous testing or for maintaining certain app states.
 
 By default, the following folders are not cleaned on your private Android devices, ensuring that their contents are retained between sessions (iOS/Android):
+
 - Documents
 - Pictures
 - Downloads
@@ -121,12 +122,12 @@ Invalid path: `/data/local/tmp/`
 `/data/com.wavelink.velocity/files`  
 `/com.my.app/data/temp/folder`
 
-*Multiple entries must be comma-separated.*
+_Multiple entries must be comma-separated._
 :::
 
 ## Enable Apple Pay
 
-Enable this setting to test Apple Pay. This will persist assistive touch on the device, which is required to confirm payment. 
+Enable this setting to test Apple Pay. This will persist assistive touch on the device, which is required to confirm payment.
 Please send us a support ticket to set up Confirm with AssistiveTouch on your device. This requires manual intervention from our side.
 
 :::important

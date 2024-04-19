@@ -11,9 +11,9 @@ If you have a [Postman API Collection](https://www.postman.com/collection/), you
 
 ## What You'll Need
 
-- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-- An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
-- A Postman Collection (v2.0 or higher).
+-   A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+-   An existing API Testing Project. For details on how to create one, see [API Testing Quickstart](/api-testing/quickstart/).
+-   A Postman Collection (v2.0 or higher).
 
 :::note
 Looking to import from a spec file? See [Building a Test from a Spec File](/api-testing/build-from-spec/).
@@ -33,66 +33,59 @@ If you don't have a file available, try out the sample below.
 <details>
   <summary>Click here to open a sample Postman Collection file</summary>Copy the text below, paste the text into a text editor, then save that as a .json file.<br/><br/>
 
-  ```json title="demo_postman_collection.json"
-  {
+```json title="demo_postman_collection.json"
+{
     "info": {
-      "_postman_id": "901ae894-37d4-45c1-b1bc-bd6b31762bfe",
-      "name": "demoapif",
-      "description": "Call to the APIF demo API All Products Get.",
-      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+        "_postman_id": "901ae894-37d4-45c1-b1bc-bd6b31762bfe",
+        "name": "demoapif",
+        "description": "Call to the APIF demo API All Products Get.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "item": [
-      {
-        "name": "product",
-        "item": [
-          {
-            "name": "List All Products",
-            "request": {
-              "auth": {
-                "type": "oauth2",
-                "oauth2": [
-                  {
-                    "key": "addTokenTo",
-                    "value": "header",
-                    "type": "string"
-                  }
-                ]
-              },
-              "method": "GET",
-              "header": [
+        {
+            "name": "product",
+            "item": [
                 {
-                  "key": "Accept",
-                  "value": "application/json"
-                },
-                {
-                  "key": "key",
-                  "value": "ABC123",
-                  "type": "text"
+                    "name": "List All Products",
+                    "request": {
+                        "auth": {
+                            "type": "oauth2",
+                            "oauth2": [
+                                {
+                                    "key": "addTokenTo",
+                                    "value": "header",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "key",
+                                "value": "ABC123",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://demoapi.apifortress.com/api/retail/product",
+                            "protocol": "http",
+                            "host": ["demoapi", "apifortress", "com"],
+                            "path": ["api", "retail", "product"]
+                        }
+                    },
+                    "response": []
                 }
-              ],
-              "url": {
-                "raw": "http://demoapi.apifortress.com/api/retail/product",
-                "protocol": "http",
-                "host": [
-                  "demoapi",
-                  "apifortress",
-                  "com"
-                ],
-                "path": [
-                  "api",
-                  "retail",
-                  "product"
-                ]
-              }
-            },
-            "response": []
-          }
-        ],
-        "description": "Folder for product"
-      }
+            ],
+            "description": "Folder for product"
+        }
     ]
-  }
-  ```
+}
+```
+
 </details>
 
 :::
@@ -138,6 +131,6 @@ Your environmental variables will now be available as an Environment in your Pro
 
 ## More Information
 
-- [Build a Sauce Labs API Test from a Spec File](/api-testing/build-from-spec)
-- [Build a Sauce Labs API Test from a HAR File](/api-testing/import-har-files/)
-- [Importing and Exporting Data from Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#exporting-postman-data)
+-   [Build a Sauce Labs API Test from a Spec File](/api-testing/build-from-spec)
+-   [Build a Sauce Labs API Test from a HAR File](/api-testing/import-har-files/)
+-   [Importing and Exporting Data from Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#exporting-postman-data)

@@ -1294,6 +1294,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </details>
 
 ---
+
 ### List Projects
 
 <details><summary><span className="api get">GET</span><code>/v1/storage/projects</code></summary>

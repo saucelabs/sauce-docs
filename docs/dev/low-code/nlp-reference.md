@@ -341,7 +341,7 @@ Blocks can be used to loop through commands as many times as required.
 #### Example
 
 ```
-run ${block_name} for (number) times 
+run ${block_name} for (number) times
 begin block block_name
 enter username
 enter password
@@ -488,14 +488,17 @@ Files should be uploaded to the **Artifacts** section and attached to the test c
 <img src={useBaseUrl('/img/dev/low-code/upload-file-to-example.png')} alt="An example of an upload file action"/>
 
 ## Date Support
+
 Get today's date in a given format, provided on the Data tab.
 
 `{today, <format>}`
+
 - Enter Date + `{today, dd/mm/yy}`
 - Enter Date + `{today, mm/dd/yy}`
 - Enter Date + `{today, yy/mm/dd}`
 
 ### Relative Date support
+
 Support is also provided for additions of days/months/years etc. This should be provided on the Data tab. For uploaded files this information can be found in the Test Data column.
 
 Today's date:
@@ -504,7 +507,7 @@ Today's date:
 Two days ago:
 `{Today - 2{dd}, MM/dd/yyyy}undefined>`
 
-Two days from now: 
+Two days from now:
 `{Today + 2{dd}, MM/dd/yyyy}`
 
 One month ago:

@@ -9,7 +9,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-
 The Explore view exposes the power of query on your diagnostic data. Useful when you want to group by attributes other than fingerprint and Aggregate attribute information, and when you want to visualize using a List or [Flame Graph](/error-reporting/web-console/flame-graphs/) view.
 
 You are able to use the same filters discussed in the Triage view, and further use Group By and Aggregate functions to slice and dice your data by other attributes like version, user, app module, and more.

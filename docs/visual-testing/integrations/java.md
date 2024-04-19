@@ -4,10 +4,10 @@ sidebar_label: Java
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ClippingDescription from '../_partials/_clipping-description.md';
-import FullPageLimit from '../_partials/_fullpage-limit.md';
-import EnterpriseNote from '../_partials/_enterprise-note.md';
-import EnvironmentVariables from '../_partials/_environment-variables.md';
+import ClippingDescription from '../\_partials/\_clipping-description.md';
+import FullPageLimit from '../\_partials/\_fullpage-limit.md';
+import EnterpriseNote from '../\_partials/\_enterprise-note.md';
+import EnvironmentVariables from '../\_partials/\_environment-variables.md';
 
 # Java WebDriver Integration
 
@@ -328,6 +328,7 @@ visual.sauceVisualCheck("Before Login", options);
 Sauce Visual does not capture dom snapshot by default. It can be changed in options.
 
 Example:
+
 ```java
 import com.saucelabs.visual.CheckOptions;
 

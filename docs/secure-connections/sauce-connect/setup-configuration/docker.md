@@ -209,7 +209,6 @@ $ kubectl logs $POD_NAME -f
 2022-08-02 02:59:11.464 [8] [CLI] [info] Sauce Connect is up, you may start your tests.
 ```
 
-
 ### Running the Sauce Connect Proxy Container Indefinitely With Docker Compose
 
 If you need a Sauce Connect Proxy to stay up indefinitely but you can't deploy it in Kubernetes (which is the recommended container orchestration tool), the Sauce Connect Proxy Docker GitHub repository provides an [example docker-compose.yaml](https://github.com/saucelabs/sauce-connect-docker/tree/main/examples/docker-compose-sc) that shows how to set up a set of shared Sauce Connect Pools that automatically restart when they go down.

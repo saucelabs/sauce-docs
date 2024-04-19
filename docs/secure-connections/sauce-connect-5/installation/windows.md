@@ -23,6 +23,7 @@ mkdir C:\sauce-connect
 Invoke-WebRequest -Uri https://saucelabs.com/downloads/sauce-connect/5.0.1/sauce-connect-5.0.1_windows.aarch64.zip -OutFile sauce-connect.zip
 Expand-Archive -Path sauce-connect.zip -DestinationPath C:\sauce-connect
 ```
+
   </TabItem>
 
   <TabItem value="x86-64">

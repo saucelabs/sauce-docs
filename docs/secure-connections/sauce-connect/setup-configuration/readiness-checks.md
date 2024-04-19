@@ -12,10 +12,10 @@ To run tests using an ephemeral tunnel, it's important to be sure the tunnel is 
 
 There are four approaches to check for readiness:
 
-* Manual testing
-* Using the Status Server HTTP Endpoint
-* Using the ready file
-* Using the REST API
+- Manual testing
+- Using the Status Server HTTP Endpoint
+- Using the ready file
+- Using the REST API
 
 ## Manual Testing
 

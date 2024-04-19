@@ -25,13 +25,23 @@ Return a short-lived token that can be used to access SauceLabs Container Regist
 
 #### Parameters
 
-<table id="table-api">
-  <tbody>
-    <tr>
-     <td><code>registry_url</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The whole url of your SauceLabs Container Registry (not just a domain name).</p></td>
-    </tr>
-  </tbody>
+<table id='table-api'>
+    <tbody>
+        <tr>
+            <td>
+                <code>registry_url</code>
+            </td>
+            <td>
+                <p>
+                    <small>| BODY | REQUIRED | STRING |</small>
+                </p>
+                <p>
+                    The whole url of your SauceLabs Container Registry (not just
+                    a domain name).
+                </p>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 <Tabs
@@ -60,31 +70,46 @@ curl --header "Content-Type: application/json" --data "{\"registry_url\": \"exam
 
 #### Responses
 
-<table id="table-api">
-<tbody>
-  <tr>
-    <td><code>200</code></td>
-    <td colSpan='2'>Success.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>403</code></td>
-    <td colSpan='2'>You're not allowed to generate a short living token for your organization.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>422</code></td>
-    <td colSpan='2'>We couldn't generate a short living token for your organization.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>500</code></td>
-    <td colSpan='2'>We couldn't generate a short living token for your organization.</td>
-  </tr>
-</tbody>
+<table id='table-api'>
+    <tbody>
+        <tr>
+            <td>
+                <code>200</code>
+            </td>
+            <td colSpan='2'>Success.</td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>
+                <code>403</code>
+            </td>
+            <td colSpan='2'>
+                You're not allowed to generate a short living token for your
+                organization.
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>
+                <code>422</code>
+            </td>
+            <td colSpan='2'>
+                We couldn't generate a short living token for your organization.
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td>
+                <code>500</code>
+            </td>
+            <td colSpan='2'>
+                We couldn't generate a short living token for your organization.
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 ```jsx title="Sample Response"

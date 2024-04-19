@@ -566,9 +566,9 @@ On the **Test Cases** tab, hover in the **EXECUTE** column and then click the **
 
 <img src={useBaseUrl('/img/dev/low-code/execute-a-test.png')} alt="Navigating to the test execution window" width="600"/>
 
-
 ## Test Cases Page
-On the **Test Cases** page you can view, update, move, or disable a test case. 
+
+On the **Test Cases** page you can view, update, move, or disable a test case.
 
 ## Test Cases Page Components
 

@@ -192,7 +192,7 @@ Example
 
 ```js
 // Be sure to import TestFairy
-var TiTestFairy = require('com.testfairy.titestfairy');
+const TiTestFairy = require('com.testfairy.titestfairy');
 
 TiTestFairy.setAttribute("name","John Snow");
 TiTestFairy.setAttribute("phone","+672-14-5109");

@@ -36,7 +36,6 @@ tunnel-name: 'my-macos'
 
 [`sc run config-file`](/dev/cli/sauce-connect-5/run/#configuration-file) command's output below contains all the available options and their usage.
 
-
 <details><summary>`sc run config-file` output</summary>
 
 #### Reference
@@ -335,7 +334,7 @@ We recommend using environment variables for these flags.
 
 | Environment Variable   | Description                                                                                                   | Corresponding CLI Option                                             |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `SAUCE_USERNAME`           | Sets your Sauce Labs username.                                                                                | [`--username`](/dev/cli/sauce-connect-5/run/#--username)                     |
+| `SAUCE_USERNAME`       | Sets your Sauce Labs username.                                                                                | [`--username`](/dev/cli/sauce-connect-5/run/#--username)             |
 | `SAUCE_ACCESS_KEY`     | Sets your Sauce Labs access key.                                                                              | [`--access-key`](/dev/cli/sauce-connect-5/run/#--access-key)         |
 | `SAUCE_AUTH`           | Sets site or upstream proxy basic authentication credentials.                                                 | [`--auth`](/dev/cli/sauce-connect-5/run/#--auth)                     |
 | `SAUCE_PROXY`          | The basic authentication username and password can be specified in the host string, e.g. user:pass@host:port. | [`--proxy`](/dev/cli/sauce-connect-5/run/#--proxy)                   |

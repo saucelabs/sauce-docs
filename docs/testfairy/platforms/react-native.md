@@ -16,7 +16,7 @@ To integrate TestFairy into your React Native project, follow these steps:
 
 1. Open your project's root directory in a terminal.
 2. Run the following command to install the TestFairy package as a dependency:
- `npm install --save react-native-testfairy`
+   `npm install --save react-native-testfairy`
 
 :::note
 If you are using React Native version 0.60.0 or higher, you will need to run the following command in your iOS directory:
@@ -25,6 +25,7 @@ If you are using React Native version 0.60.0 or higher, you will need to run the
 cd ios
 pod install
 ```
+
 :::
 
 ## Usage
@@ -32,7 +33,7 @@ pod install
 After you have successfully installed the TestFairy library, you can enable TestFairy session recording in your React Native application. You will need your app token, which you can get from your preferences page on your TestFairy account. Follow these steps to get started:
 
 1. Obtain your app token from the [user preferences](https://app.testfairy.com/settings/) on your TestFairy account.
-2.  Import the TestFairy bridge from your JavaScript file (e.g., index.ios.js, index.android.js, or App.js), and invoke begin passing in the app token. The best time to invoke begin is usually in componentWillMount or right before you register your application.
+2. Import the TestFairy bridge from your JavaScript file (e.g., index.ios.js, index.android.js, or App.js), and invoke begin passing in the app token. The best time to invoke begin is usually in componentWillMount or right before you register your application.
 
 ```
 const TestFairy = require('react-native-testfairy');

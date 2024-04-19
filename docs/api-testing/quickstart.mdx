@@ -15,7 +15,7 @@ This Quickstart guide will get you up and running with a functional API Test. Le
 
 ## What You'll Need
 
-- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+-   A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 
 :::note
 If your APIs are behind a firewall, you'll need to set up a [Sauce Connect Proxy](/api-testing/sauce-connect) tunnel before proceeding.
@@ -32,17 +32,22 @@ If you're seeing an existing list of Projects instead of the landing page shown 
 :::
 
 3. In the **Create a New Project** window:
-   - Set the **Create from** dropdown to **blank project**.
-   - Enter your **Project Name**.
-   - Optionally, you can add **Tags**, a **Description**, **Notes**. For the purpose of this Quickstart, leave **Access** as-is.
-   - Click **Save** when you're finished. <br/><img src={useBaseUrl('img/api-testing/newProject.png')} alt="Create a Project UI" width="300" />
+    - Set the **Create from** dropdown to **blank project**.
+    - Enter your **Project Name**.
+    - Optionally, you can add **Tags**, a **Description**, **Notes**. For the purpose of this Quickstart, leave **Access** as-is.
+    - Click **Save** when you're finished. <br/><img src={useBaseUrl('img/api-testing/newProject.png')} alt="Create a Project UI" width="300" />
 
 ## Create Test
 
 For the purpose of this Quickstart, we'll test a `GET` call from [Dog CEO](https://dog.ceo/dog-api/documentation/), a public API that generates a list of dog breeds.
 
 In the **HTTP Client** > **Enter request URL** field, enter `https://dog.ceo/api/breeds/list/all`:
-<img src={useBaseUrl('img/api-testing/enterRequestURL.png')} alt="Enter API URL" width="500" />
+
+<img
+    src={useBaseUrl('img/api-testing/enterRequestURL.png')}
+    alt='Enter API URL'
+    width='500'
+/>
 
 ## Send Request
 
@@ -55,9 +60,9 @@ The JSON response &#8212; in this case, a list of dog breeds &#8212; will popula
 1. Click **Generate Test**.<br/><img src={useBaseUrl('img/api-testing/generateTest.png')} alt="Generate Test" width="400" />
 
 2. In the **New Test** window:
-   - Enter your **Test Name**.
-   - Optionally, you can add a **Description** and/or **Tags**.
-   - Click **Create Test** when you're finished.<br/><img src={useBaseUrl('img/api-testing/testDetails.png')} alt="Create Test" width="400"/>
+    - Enter your **Test Name**.
+    - Optionally, you can add a **Description** and/or **Tags**.
+    - Click **Create Test** when you're finished.<br/><img src={useBaseUrl('img/api-testing/testDetails.png')} alt="Create Test" width="400"/>
 
 This will generate a series of assertions for this specific API request.
 
@@ -66,9 +71,10 @@ This will generate a series of assertions for this specific API request.
 <details>
    <summary>Viewing your test</summary>
 
-   **Visual** view shows your test as UI components:<br/><img src={useBaseUrl('img/api-testing/testVisual.png')} alt="Sample Test Visual View"/>
+**Visual** view shows your test as UI components:<br/><img src={useBaseUrl('img/api-testing/testVisual.png')} alt="Sample Test Visual View"/>
 
-   **Code** view displays it as code:<br/><img src={useBaseUrl('img/api-testing/testCode.webp')} alt="Sample Test Code View"/>
+**Code** view displays it as code:<br/><img src={useBaseUrl('img/api-testing/testCode.webp')} alt="Sample Test Code View"/>
+
 </details>
 :::
 
@@ -96,8 +102,8 @@ Our API Testing interface has a unique working copy/published copy workflow that
 
 Sauce Labs API Testing has a full suite of tools that enables comprehensive continuous integration testing.
 
-- Set up a [recurring test schedule](/api-testing/schedule-test) so that you can monitor the health of your APIs.
-- [Add logic/components](/api-testing/composer/) using the Composer.
-- Create a new test from a [spec file](/api-testing/build-from-spec) or [Postman collection](/api-testing/import-postman-collection).
-  - When you [generate a test](#generate-test) this way, the test components will be based on your imported request-and-response data.
-- Create a new test [from scratch](/api-testing/composer/).
+-   Set up a [recurring test schedule](/api-testing/schedule-test) so that you can monitor the health of your APIs.
+-   [Add logic/components](/api-testing/composer/) using the Composer.
+-   Create a new test from a [spec file](/api-testing/build-from-spec) or [Postman collection](/api-testing/import-postman-collection).
+    -   When you [generate a test](#generate-test) this way, the test components will be based on your imported request-and-response data.
+-   Create a new test [from scratch](/api-testing/composer/).

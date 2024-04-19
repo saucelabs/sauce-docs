@@ -20,7 +20,6 @@ To link the Sauce Labs VM with Sauce Labs Low Code:
 
 <img src={useBaseUrl('/img/dev/low-code/credentials-tab.png')} alt="The Credentials tab" width="500"/>
 
-
 To enable Sauce Labs execution and add platform browser combinations:
 
 :::note

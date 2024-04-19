@@ -8,8 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy offers a valuable feature that allows developers to conceal sensitive information from recorded sessions, ensuring that sensitive data, such as credit card information, remains protected during testing and debugging. 
-
+TestFairy offers a valuable feature that allows developers to conceal sensitive information from recorded sessions, ensuring that sensitive data, such as credit card information, remains protected during testing and debugging.
 
 For example, you might want to prevent all information related to credit card data from appearing in the session:
 
@@ -102,13 +101,14 @@ Example
 
 ```js
 const TestFairy = require('react-native-testfairy');
-var MyComponent = React.createClass({
 
-    componentDidMount: function() {
+const MyComponent = React.createClass({
+
+    componentDidMount() {
         TestFairy.hideView(this.refs.instructions);
     },
 
-    render: function() {
+    render() {
         return (<Text ref="instructions">This will be hidden</Text>);
     }
 });
@@ -172,7 +172,8 @@ Below is a screen taken from a demo video: on the left, you can see what an app 
 <br clear="both"/>
 
 :::note
+
 - Hidden views are automatically removed from the video before being sent to TestFairy's servers, ensuring that sensitive data is never captured or exposed.
 - Developers can hide multiple views within a session to protect various sensitive elements in the application.
 - It is permissible to add the same view multiple times for hiding without any additional checks.
-:::
+  :::

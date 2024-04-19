@@ -14,7 +14,6 @@ This documentation provides step-by-step instructions on how to integrate TestFa
 To connect TestFairy to Jira Server that is installed on-prem, start by installing [TestFairy Connect](/testfairy/testing-an-app/bug-tracking/tf-connect/).
 :::
 
-
 ## Using the Configuration Wizard
 
 Start the wizard by typing the following command in your terminal or command prompt:

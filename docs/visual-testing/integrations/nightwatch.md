@@ -4,10 +4,10 @@ sidebar_label: Nightwatch
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import FullPageJS from '../_partials/_fullpage-js.md'
-import ClippingWDIO from '../_partials/_clipping-webdriver.md';
-import EnterpriseNote from '../_partials/_enterprise-note.md';
-import EnvironmentVariables from '../_partials/_environment-variables.md';
+import FullPageJS from '../\_partials/\_fullpage-js.md'
+import ClippingWDIO from '../\_partials/\_clipping-webdriver.md';
+import EnterpriseNote from '../\_partials/\_enterprise-note.md';
+import EnvironmentVariables from '../\_partials/\_environment-variables.md';
 
 # Nightwatch Integration
 
@@ -315,6 +315,7 @@ browser
 Sauce Visual does not capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
 
 Example:
+
 ```ts
 browser
   .url('https://saucedemo.com')

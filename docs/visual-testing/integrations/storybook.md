@@ -3,8 +3,8 @@ sidebar_label: Storybook
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import EnterpriseNote from '../_partials/_enterprise-note.md';
-import EnvironmentVariables from '../_partials/_environment-variables.md';
+import EnterpriseNote from '../\_partials/\_enterprise-note.md';
+import EnvironmentVariables from '../\_partials/\_environment-variables.md';
 
 # Storybook Integration
 
@@ -139,7 +139,7 @@ The below configuration options are also exported as the type `SauceVisualParams
 Parameters key: `sauceVisual`
 
 | Key            | Type      | Default           | Description                                                                                                                                                                                                                                                                                                                               |
-|:---------------|:----------|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :------------- | :-------- | :---------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `captureDom`   | `boolean` | `true`            | Toggles DOM snapshot capture.                                                                                                                                                                                                                                                                                                             |
 | `clip`         | `boolean` | `true`            | If the story & layout supports it, will automatically clip to the `clipSelector` to remove extraneous whitespace. Recommended to be used in conjunction with [`centered` layout](https://storybook.js.org/docs/configure/story-layout#global-layout). Currently defaults to `false`, however, will default to `true` in a future version. |
 | `clipSelector` | `string`  | `#storybook-root` | The selector to clip to when `clip = true`. Defaults to Storybook's default root element, `#storybook-root`.                                                                                                                                                                                                                              |

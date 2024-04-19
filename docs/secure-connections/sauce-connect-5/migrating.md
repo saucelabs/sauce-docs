@@ -17,19 +17,19 @@ You can now install or upgrade Sauce Connect version 5 with a package manager sy
 
 ## Major Differences
 
-* `sc run` is now used to start a tunnel, as there are now other subcommands that can be used.
-* `--tunnel-name` is now required.
-* `--region` is now required.
-* [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) is now **OFF** by default, and is called TLS Resigning.
-* Domain matching for deny/direct/tunnel domains now uses the standard regex format.
+- `sc run` is now used to start a tunnel, as there are now other subcommands that can be used.
+- `--tunnel-name` is now required.
+- `--region` is now required.
+- [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) is now **OFF** by default, and is called TLS Resigning.
+- Domain matching for deny/direct/tunnel domains now uses the standard regex format.
 
 ## Unsupported Features
 
-* Selenium Relay has been removed.
-* PID file has been removed.
-* Readyfile has been removed.
-* Log rotation has been removed.
-* Proxy autodetection is not supported.
+- Selenium Relay has been removed.
+- PID file has been removed.
+- Readyfile has been removed.
+- Log rotation has been removed.
+- Proxy autodetection is not supported.
 
 ## Quick Start using `sc legacy`
 
@@ -52,7 +52,6 @@ $ sc5 legacy -c orig.yaml
 ```
 
 However, the legacy option will be removed in later versions of Sauce Connect, so we recommend using the legacy command to translate the config file to the new version. You can then use the new config file with the sc run command:
-
 
 ```
 $ cat orig.yaml
@@ -83,43 +82,43 @@ The following flags have changed or been removed with Sauce Connect 5. In additi
 
 ### Changed Flags
 
-| Version 4.x | Version 5.x |
-| ----------- | ----------- |
-| `--user` | `--username` |
-| `--api-key` | `--access-key` |
-| `--logfile` | `--log-file` |
-| `--shared-tunnel` | `--shared` (accepts values: all) |
-| `--dns` | `--dns-server` |
-| `--cainfo` | `--cacert-file` |
-| `--verbose` | `--log-level`, `--log-http` |
-| `--fast-fail-regexps` (URL regex) | `--deny-domains` (list of domain regexps) |
-| `--no-remove-colliding-tunnels` | `--tunnel-pool` |
-| `--no-ssl-bump-domains` (list of domain globs) | `--tls-passthrough-domains` (list of domain regexps) |
-| `--tunnel-domains` (list of domain globs) | `--tunnel-domains` (list of domain regexps) |
-| `--direct-domains` (list of domain globs) | `--direct-domains` (list of domain regexps) |
-| `--pac-auth`, `--proxy-userpwd` | `--auth` |
+| Version 4.x                                              | Version 5.x                                                           |
+| -------------------------------------------------------- | --------------------------------------------------------------------- |
+| `--user`                                                 | `--username`                                                          |
+| `--api-key`                                              | `--access-key`                                                        |
+| `--logfile`                                              | `--log-file`                                                          |
+| `--shared-tunnel`                                        | `--shared` (accepts values: all)                                      |
+| `--dns`                                                  | `--dns-server`                                                        |
+| `--cainfo`                                               | `--cacert-file`                                                       |
+| `--verbose`                                              | `--log-level`, `--log-http`                                           |
+| `--fast-fail-regexps` (URL regex)                        | `--deny-domains` (list of domain regexps)                             |
+| `--no-remove-colliding-tunnels`                          | `--tunnel-pool`                                                       |
+| `--no-ssl-bump-domains` (list of domain globs)           | `--tls-passthrough-domains` (list of domain regexps)                  |
+| `--tunnel-domains` (list of domain globs)                | `--tunnel-domains` (list of domain regexps)                           |
+| `--direct-domains` (list of domain globs)                | `--direct-domains` (list of domain regexps)                           |
+| `--pac-auth`, `--proxy-userpwd`                          | `--auth`                                                              |
 | `--proxy-localhost` (flag, send localhost through proxy) | `--proxy-localhost` (configure localhost access: allow, direct, deny) |
-| `--proxy-tunnel` (proxy saucelabs tunnel connection) | `--proxy-sauce` (proxy any saucelabs.com connection) |
-| `--status-address` (status info only) | `--api-address` (several endpoints, including metrics) |
+| `--proxy-tunnel` (proxy saucelabs tunnel connection)     | `--proxy-sauce` (proxy any saucelabs.com connection)                  |
+| `--status-address` (status info only)                    | `--api-address` (several endpoints, including metrics)                |
 
 ### Removed Flags
 
-| Version 4.x | Version 5.x |
-| ----------- | ----------- |
-| `--autodetect` | removed |
-| `--doctor` | removed |
-| `--experimental` | removed |
-| `--extra-info` | removed |
-| `--log-stats` | removed |
-| `--max-logsize` | removed |
-| `--no-autodetect` | removed |
-| `--ocsp` | removed |
-| `--output-format` | removed |
-| `--pidfile` | removed |
-| `--readyfile` | see [Readiness Checks](/secure-connections/sauce-connect-5/operation/readiness-checks/) |
-| `--se-port` | removed |
-| `--tunnel-cainfo` | removed |
-| `--vm-version` | removed |
+| Version 4.x       | Version 5.x                                                                             |
+| ----------------- | --------------------------------------------------------------------------------------- |
+| `--autodetect`    | removed                                                                                 |
+| `--doctor`        | removed                                                                                 |
+| `--experimental`  | removed                                                                                 |
+| `--extra-info`    | removed                                                                                 |
+| `--log-stats`     | removed                                                                                 |
+| `--max-logsize`   | removed                                                                                 |
+| `--no-autodetect` | removed                                                                                 |
+| `--ocsp`          | removed                                                                                 |
+| `--output-format` | removed                                                                                 |
+| `--pidfile`       | removed                                                                                 |
+| `--readyfile`     | see [Readiness Checks](/secure-connections/sauce-connect-5/operation/readiness-checks/) |
+| `--se-port`       | removed                                                                                 |
+| `--tunnel-cainfo` | removed                                                                                 |
+| `--vm-version`    | removed                                                                                 |
 
 ## New Behavior in Sauce Connect 5
 
@@ -137,11 +136,11 @@ For example, if you have a parent proxy with authorization, but also have a SUT 
 
 The following options now use standard regexes to control SC5 behavior:
 
-* deny-domains
-* direct-domains
-* tls-passthrough-domains
-* tls-resign-domains
-* tunnel-domains
+- deny-domains
+- direct-domains
+- tls-passthrough-domains
+- tls-resign-domains
+- tunnel-domains
 
 For example, to deny access to any google.com domain, you would use:
 

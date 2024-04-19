@@ -142,9 +142,7 @@ npm:
 Alternatively, you can let `saucectl` selectively include already installed dependencies from the `node_modules` folder.
 
 ```jsx title= "config.yml npm dependencies"
-npm:
-  dependencies:
-    - lodash
+- lodash
 ```
 
 :::caution

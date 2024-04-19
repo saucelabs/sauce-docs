@@ -17,18 +17,18 @@ We do not support [Allow-listing static IPs](/basics/data-center-endpoints/). We
 
 ## What You'll Need
 
-- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-- Your Sauce Labs [Username](https://app.saucelabs.com/user-settings) and [Access Key](https://app.saucelabs.com/user-settings).
-- Have the [Sauce Connect Proxy client installed](/secure-connections/sauce-connect/installation/) on your local machine. If you're new to the feature, check out the [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/).
-- An existing API Testing Project and Test. For details on how to create them, see [API Testing Quickstart](/api-testing/quickstart/).
+-   A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
+-   Your Sauce Labs [Username](https://app.saucelabs.com/user-settings) and [Access Key](https://app.saucelabs.com/user-settings).
+-   Have the [Sauce Connect Proxy client installed](/secure-connections/sauce-connect/installation/) on your local machine. If you're new to the feature, check out the [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/).
+-   An existing API Testing Project and Test. For details on how to create them, see [API Testing Quickstart](/api-testing/quickstart/).
 
 ## Start API-Specific Tunnel
 
 1. First, you'll need to create a YAML configuration file. From a text editor or IDE, create a file called **api-config.yaml**, then copy and paste it into the template below.
 
-{/* :::caution Important
+{/_ :::caution Important
 If you are already using a tunnel, note that the version has been updated, and the previous version **v2alpha** is deprecated and will be dismissed by July 31st. Update your version as per the configuration below.
-::: */}
+::: _/}
 
 <Tabs
   defaultValue="US Data Center"
@@ -64,11 +64,15 @@ tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
   </Tabs>
 
 2. In the **api-config.yaml** file:
-   - Leave the `rest-url` and `vm-version` values as-is
-   - Set the `user` and `api-key` values as your own Sauce username and access key, respectively
-   - Set the `tunnel-identifier` value to whatever you'd like to name your tunnel
+    - Leave the `rest-url` and `vm-version` values as-is
+    - Set the `user` and `api-key` values as your own Sauce username and access key, respectively
+    - Set the `tunnel-identifier` value to whatever you'd like to name your tunnel
 3. Save the **api-config.yaml** file to the Sauce Connect Proxy root folder on your local machine. <br/>
-   <img src={useBaseUrl('img/api-testing/sauceconnect-folders.png')} alt="API Testing Sauce Connect folder structure" width="350" />
+    <img
+        src={useBaseUrl('img/api-testing/sauceconnect-folders.png')}
+        alt='API Testing Sauce Connect folder structure'
+        width='350'
+    />
 4. Open your terminal and navigate to the Sauce Connect Proxy folder. If your folder is in your home directory, you'd run:
 
 <Tabs
@@ -141,9 +145,9 @@ The **Tests** and **Compose** tabs have a _session stickiness_ feature (also kno
 <details>
   <summary>Learn more</summary>
 
-  This feature does not apply to the **HTTP Client** or **Schedule** tabs, where the tunnel dropdown will always default to **No Tunnel**.
+This feature does not apply to the **HTTP Client** or **Schedule** tabs, where the tunnel dropdown will always default to **No Tunnel**.
 
-  If you shut down a tunnel that's currently selected in a Sauce Connect dropdown anywhere in the platform (**Tests**, **Compose**, **HTTP Client**, or **Schedule** tab), the test would fail and you'd see the below error message. This is something to be mindful of when selecting a tunnel in the **Schedule** tab to run in the future.
+If you shut down a tunnel that's currently selected in a Sauce Connect dropdown anywhere in the platform (**Tests**, **Compose**, **HTTP Client**, or **Schedule** tab), the test would fail and you'd see the below error message. This is something to be mindful of when selecting a tunnel in the **Schedule** tab to run in the future.
 
   <img src={useBaseUrl('img/api-testing/api-sc-tunnel-error.png')} alt="API Testing Sauce Connect Nav error" width="350"/>
 </details>
@@ -156,5 +160,5 @@ The **Tests** and **Compose** tabs have a _session stickiness_ feature (also kno
 
 ## More Information
 
-- [Using Sauce Connect Proxy](/secure-connections/sauce-connect)
-- [Specialized Sauce Connect Proxy Setups](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#api-testing-setup)
+-   [Using Sauce Connect Proxy](/secure-connections/sauce-connect)
+-   [Specialized Sauce Connect Proxy Setups](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#api-testing-setup)

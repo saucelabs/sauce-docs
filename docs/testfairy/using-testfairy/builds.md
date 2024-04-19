@@ -37,8 +37,6 @@ The **Builds** page displays a list of all the builds for the app. For each buil
   - Build was signed with a different certificate than the previous build <img src={useBaseUrl('/img/testfairy/using-tf/ic_error_red_48dp.png')} alt="builds signed with different certificate"/>
   - Build does not contain the TestFairy SDK <img src={useBaseUrl('/img/testfairy/using-tf/status-icon-no-sdk.png')} alt="build without TestFairy SDK"/>
 
-
-
 Builds that are starred (<img src={useBaseUrl('/img/testfairy/using-tf/star-yellow.png')} alt="build stared"/>) are displayed at the top of the table regardless of the upload order.
 
 ## Tags

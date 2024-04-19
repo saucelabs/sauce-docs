@@ -330,25 +330,25 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <details><summary><span className="api get">GET</span> <code>/v1/rdc/devices/status</code></summary>
 <p/>
 
-Returns a list of devices in the data center along with their current states. Each device is represented by a descriptor, 
+Returns a list of devices in the data center along with their current states. Each device is represented by a descriptor,
 indicating its model, and includes information on availability, usage status, and whether it is designated as a private device.
 
 :::note
-The `inUseBy` field is exposed only for private devices `isPrivateDevice: true`. 
+The `inUseBy` field is exposed only for private devices `isPrivateDevice: true`.
 Users can view information about who is currently using the device only if they have the required permissions.
 Lack of permissions will result in the inUseBy field being omitted from the response for private devices.
 :::
 
 #### List of Available States:
 
-| State           | Description                                                     |
-|-----------------|-----------------------------------------------------------------|
-| `AVAILABLE`     | Device is available and ready to be allocated                   |
-| `IN_USE`        | Device is currently in use                                      |
-| `CLEANING`      | Device is being cleaned (only available for private devices)    |
-| `MAINTENANCE`   | Device is in maintenance (only available for private devices)   |
-| `REBOOTING`     | Device is rebooting (only available for private devices)        |
-| `OFFLINE`       | Device is offline (only available for private devices)          |
+| State         | Description                                                   |
+| ------------- | ------------------------------------------------------------- |
+| `AVAILABLE`   | Device is available and ready to be allocated                 |
+| `IN_USE`      | Device is currently in use                                    |
+| `CLEANING`    | Device is being cleaned (only available for private devices)  |
+| `MAINTENANCE` | Device is in maintenance (only available for private devices) |
+| `REBOOTING`   | Device is rebooting (only available for private devices)      |
+| `OFFLINE`     | Device is offline (only available for private devices)        |
 
 #### Parameters
 

@@ -35,5 +35,5 @@ To get started with building the iOS version of the Testers App, you should fork
 Once you have forked the iOS project, make the following changes to [ViewController.swift](https://github.com/testfairy/testers-app-ios/blob/master/TestFairy/ViewController.swift#L9):
 
 ```js
-let TESTFAIRY_URL = "https://<YOUR_SUBDOMAIN_HERE>.testfairy.com"
+const TESTFAIRY_URL = "https://<YOUR_SUBDOMAIN_HERE>.testfairy.com"
 ```

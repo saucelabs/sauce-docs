@@ -122,13 +122,13 @@ caps['app'] = "https://github.com/saucelabs/sample-app-mobile/releases/download/
 <TabItem value="Node.js">
 
 ```js
-caps['browserName'] = ''
-caps['appiumVersion'] = '1.13.0'
-caps['deviceName'] = 'iPhone 8 Simulator'
-caps['deviceOrientation'] = 'portrait'
-caps['platformVersion'] = '12.2'
-caps['platformName'] = 'iOS'
-caps['app'] =
+caps.browserName = ''
+caps.appiumVersion = '1.13.0'
+caps.deviceName = 'iPhone 8 Simulator'
+caps.deviceOrientation = 'portrait'
+caps.platformVersion = '12.2'
+caps.platformName = 'iOS'
+caps.app =
 'https://github.com/saucelabs/sample-app-mobile/releases/download/2.2.0/iOS.Simulator.SauceLabs.Mobile.Sample.app.2.1.0.zip'
 ```
 
@@ -208,13 +208,13 @@ caps['app'] = "https://github.com/saucelabs/sample-app-mobile/releases/download/
 
 ```js
 caps = {}
-caps['appiumVersion'] = '1.9.1'
-caps['deviceName'] = 'Samsung Galaxy S9 Plus FHD GoogleAPI Emulator'
-caps['deviceOrientation'] = 'portrait'
-caps['browserName'] = ''
-caps['platformVersion'] = '8.1'
-caps['platformName'] = 'Android'
-caps['app'] =
+caps.appiumVersion = '1.9.1'
+caps.deviceName = 'Samsung Galaxy S9 Plus FHD GoogleAPI Emulator'
+caps.deviceOrientation = 'portrait'
+caps.browserName = ''
+caps.platformVersion = '8.1'
+caps.platformName = 'Android'
+caps.app =
 'https://github.com/saucelabs/sample-app-mobile/releases/download/2.2.0/Android.SauceLabs.Mobile.Sample.app.2.2.0.apk'
 ```
 

@@ -146,6 +146,7 @@ To update a schedule:
 3. Follow the instructions for [Creating a Schedule](#creating-a-schedule) and then click **Update**.
 
 ## Execution History Page
+
 The **Execution History** page displays extensive information about the test that was executed. Use the **Prev** and **Next** buttons to navigate back and forth between tests in the **Reports** page view, and clicking the **Refresh** button will update the list.
 
 <img src={useBaseUrl('/img/dev/low-code/execution-history-page.png')} alt="The Execution History page" width="600"/>

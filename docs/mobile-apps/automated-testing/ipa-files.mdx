@@ -50,10 +50,10 @@ We highly recommend to use Ad-hoc and Development targets to get the most out of
 5. Select your app and click **Export**.
 6. When prompted for an export method, select **Ad Hoc**, **Development** or **Enterprise**.
 7. Set these **Distribution** options:
-   1. App Thinning: None.
-   2. Clear the selection **Rebuild from Bitcode**.
-   3. **Strip Swift symbols** is optional.
-   4. Clear the selection **Include manifest for over-the-air installation**.
+    1. App Thinning: None.
+    2. Clear the selection **Rebuild from Bitcode**.
+    3. **Strip Swift symbols** is optional.
+    4. Clear the selection **Include manifest for over-the-air installation**.
 8. Select your **Distribution Certificate** and **Provisioning Profile** (**Automatic** or **Manual**). This will generate the `.ipa` file.
 9. When the file generation process completes, click **Export** and choose where to save the `.ipa` file.
 10. Your `.ipa` file is now ready for upload to Sauce Labs.
@@ -69,7 +69,12 @@ We highly recommend to use Ad-hoc and Development targets to get the most out of
 1. Open your app project in Xcode.
 2. Select **Generic iOS Device** or **Any iOS Device (arm64)** as your project's device target.
 3. Make sure that your UI tests are part of a **Target Membership** and that those Targets are selected to be built in your Xcode **Build scheme**. _Targets containing UI Tests are typically selected to be built at the "Test" build action._
-   <img src={useBaseUrl('img/xcuitest/xcode-build.png')} alt="Xcode Build Options" width="800" />
+
+    <img
+        src={useBaseUrl('img/xcuitest/xcode-build.png')}
+        alt='Xcode Build Options'
+        width='800'
+    />
 
 4. Generate your test package by selecting **Product** > **Build For** > **Testing**.
 5. Navigate to your Xcode project's **Products** directory and find the generated **.app** files.
@@ -115,16 +120,21 @@ Sauce Labs applies its own resigning to apps that are installed on our public iO
 
 If your organization requires specific entitlements, Sauce Labs gives you the option to [disable resigning](/dev/test-configuration-options/#resigningenabled) for devices in your private pool. To access our private device cloud, contact your Sauce Labs account executive or our support team. When resigning is disabled, you may sign your app using your own provisioning profile, which can include any entitlements in:
 
-- `com.apple.developer.associated-domains`
-- `com.apple.security.application-groups`
-- `keychain-access-groups`
+-   `com.apple.developer.associated-domains`
+-   `com.apple.security.application-groups`
+-   `keychain-access-groups`
 
 ## Common Errors
 
 ### Unable to Verify App
 
 If you are facing the issue where the app crashes with a red screen and an "Unable to Verify App" popup:
-<img src={useBaseUrl('img/mobile-apps/verify-app-error.png')} alt="Mobile app settings navigation" width="350"/>
+
+<img
+    src={useBaseUrl('img/mobile-apps/verify-app-error.png')}
+    alt='Mobile app settings navigation'
+    width='350'
+/>
 
 that means your proxy might be blocking Apple's signature check for installing custom enterprise apps on iOS. Apple has recently started rolling out a new signature verification and PPQS check for new prov. profiles and our new accounts. During installation, Apple sends an initial API request to verify the signature of the app.
 

@@ -1,4 +1,4 @@
-import ClippingDescription from './_clipping-description.md'
+import ClippingDescription from './\_clipping-description.md'
 
 <ClippingDescription />
 

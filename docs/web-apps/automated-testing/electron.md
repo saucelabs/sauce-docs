@@ -13,9 +13,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 ## Supported Testing Platforms
 
 Sauce Labs currently supports the following test configurations for Electron.
+
 - Platforms
-  - Windows 10, 
-  - Windows 11 
+  - Windows 10,
+  - Windows 11
   - (Linux and MacOS 13 support to come)
 - Electron versions
   - versions 5 - 25
@@ -31,13 +32,14 @@ Upload a zip file containing your Electron app via [REST API](/mobile-apps/app-s
 The `binary_location` is the folderpath and filename of your Electron executable within your zip file structure.
 
 For example, if your zip file is structured like this:
+
 ```
 SauceLabsElectronAppv1.zip
 -- [ Sauce Labs Test ]
   -- SauceLabsElectronApp.exe
   -- mobi.dll
   -- [ resources ]
-      -- ffmpeg.dll  
+      -- ffmpeg.dll
   [ guide ]
   -- config.yaml
   -- readme.txt
@@ -71,6 +73,6 @@ Test results are visible on the UI under “Automated Tests > Test Results.’ Y
 
 ## Limitations
 
-- Electron support is currently enabled only for automated testing on Windows 10 and 11. 
-- Electron apps uploaded via REST API are not currently visible within the App Management of the UI. 
+- Electron support is currently enabled only for automated testing on Windows 10 and 11.
+- Electron apps uploaded via REST API are not currently visible within the App Management of the UI.
 - Live testing and UI enhancements to come in a future release.

@@ -98,8 +98,9 @@ Example
 
 ```js
 const TestFairy = require('react-native-testfairy');
-var MyComponent = React.createClass({
-    componentDidMount: function() {
+
+const MyComponent = React.createClass({
+    componentDidMount() {
         TestFairy.addEvent("Purchase OK");
     }
 });

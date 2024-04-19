@@ -8,7 +8,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 TestFairy offers a convenient "Shake to Feedback" feature that allows users to provide feedback easily while using your application. By shaking their device, users can trigger an email pop up containing comprehensive feedback, along with an attached screenshot that users can scribble on. The feedback message is then sent to designated destinations such as your developer's dashboard, JIRA, Slack, etc., including the user's input, a video recording of the session, and all relevant data collected during the session.
 
 ## Using Shake to Feedback

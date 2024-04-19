@@ -21,8 +21,7 @@ To see all the testers you have for your app, invite new testers, or import/expo
 
 :::note
 You can also select a Group for the testers in the list or leave it blank (see **Managing tester groups** below).
-:::
-3. After you finish, click **Add Beta Testers** below the list to complete the process.
+::: 3. After you finish, click **Add Beta Testers** below the list to complete the process.
 
 You can add testers manually or [import lists of testers](https://app.testfairy.com/testers/import/) in CSV format.
 
@@ -32,12 +31,12 @@ For more information on how to add UDIDs to provisioning profiles, see [Adding U
 
 :::
 
-
 ## Managing Tester Groups
 
 You can also divide testers into **groups** to add more structure and organize your testing efforts.
 
 To create a group, follow the steps below:
+
 1. Click in the GROUPS text box and then on `Create new group...`
    <img src={useBaseUrl('/img/test-fairy/testers-new-group.png')} alt="Create new group"/>
 2. Choose a group name and click **OK**. The tester you clicked in their group will be assigned the group you created.

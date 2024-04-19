@@ -2,8 +2,8 @@
 sidebar_label: Python
 ---
 
-import EnterpriseNote from '../_partials/_enterprise-note.md'
-import EnvironmentVariables from '../_partials/_environment-variables.md';
+import EnterpriseNote from '../\_partials/\_enterprise-note.md'
+import EnvironmentVariables from '../\_partials/\_environment-variables.md';
 
 # Python Integration
 
@@ -132,7 +132,6 @@ client.create_snapshot_from_webdriver(
     # suite_name="SUITE_NAME_FROM_YOUR_FRAMEWORK",
 )
 ```
-
 
 - Either manually or in an `afterAll` hook that is only triggered once at the end of your framework, finish the Visual build to let Sauce Visual know we're ready to present the results in the UI.
 

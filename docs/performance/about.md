@@ -22,7 +22,7 @@ Sauce Performance is a pre-integrated tool within the Sauce portfolio that is av
 
 ## Sauce Performance Requirements and Recommendations
 
-Consider the following guidelines to optimize your performance testing implementation. 
+Consider the following guidelines to optimize your performance testing implementation.
 
 ### Chrome Browser Required
 

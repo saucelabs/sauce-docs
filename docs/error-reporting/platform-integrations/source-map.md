@@ -19,10 +19,10 @@ The Backtrace debugger can highlight specific lines in your source code associat
 ## Creating and Uploading Source Maps
 
 Follow these steps to create and upload source maps with every build of your application:
+
 1. [Enable source maps](#step-1-enable-source-maps-for-your-application)
 1. [Install the `backtrace-js` command line tool](#step-2-install-backtrace-js)
 1. [Create a configuration file for `backtrace-js`](#step-3-create-a-backtracejsrc-configuration-file)
-
 
 ### Step 1: Enable Source Maps for Your Application
 
@@ -64,9 +64,10 @@ uglifyjs main.js -c -m --source-map -o main.min.js
 </Tabs>
 
 ---
+
 ### Step 2: Install `backtrace-js`
 
-Install the `backtrace-js` command line tool and update your build scripts to run it. `backtrace-js` can be run from the command line, but it is most efficient to use a configuration file which  we will create in the next step.
+Install the `backtrace-js` command line tool and update your build scripts to run it. `backtrace-js` can be run from the command line, but it is most efficient to use a configuration file which we will create in the next step.
 
 1. Install `@backtrace/javascript-cli` as a dev dependency:
 
@@ -93,6 +94,7 @@ Install the `backtrace-js` command line tool and update your build scripts to ru
    ```
 
 ---
+
 ### Step 3: Create a `.backtracejsrc` configuration file
 
 Create a `.backtracejsrc` configuration file in the root of your project with these settings to process source maps, add source and upload to Backtrace.
@@ -118,60 +120,63 @@ Create a `.backtracejsrc` configuration file in the root of your project with th
 - Follow [&ltthese instructions>](/error-reporting/project-setup/submission-url) to create the `<symbol submission URL>` with a `symbol:post` token for the `sourcemap` endpoint.
 
 :::info Source Code Upload
-  Source files can be embedded in source maps and included in the upload to Backtrace. The configuration above is constructed to do this.
+Source files can be embedded in source maps and included in the upload to Backtrace. The configuration above is constructed to do this.
 
-  Alternatively, if you do not wish to upload source files directly to Backtrace, you can integrate your source repository. To do so, omit `add-sources` and `include-sources` and follow the steps in the [Source Code](../../project-setup/source-code/) document.
+Alternatively, if you do not wish to upload source files directly to Backtrace, you can integrate your source repository. To do so, omit `add-sources` and `include-sources` and follow the steps in the [Source Code](../../project-setup/source-code/) document.
 :::
 
 :::info Processing node_modules
-  node_modules are not processed by default. You may include specific modules by including a reference to each in `.backtracejsrc` `path`.
-  ```json
+node_modules are not processed by default. You may include specific modules by including a reference to each in `.backtracejsrc` `path`.
+
+```json
 {
-    // highlight-next-line
-    "path": [
-      "<build output>",
-      "./node_modules/bser",
-      "./node_modules/chalk"
-      ],
-      ...
+  // highlight-next-line
+  "path": [
+    "<build output>",
+    "./node_modules/bser",
+    "./node_modules/chalk"
+    ],
+    ...
 }
 ```
+
 :::
 
 See `backtrace-js --help` or go to [`@backtrace/javascript-cli`](https://github.com/backtrace-labs/backtrace-javascript/blob/dev/tools/cli) for additional command line and configuration options.
 
 :::note Troubleshooting
-  Source map processing will halt on error with a description. Use a --verbose command line switch to output extended information for troubleshooting.
-  
-  __File processing errors__
+Source map processing will halt on error with a description. Use a --verbose command line switch to output extended information for troubleshooting.
 
-  File processing may halt on a specific file for valid reasons. For instance, a source map may not produced for a script file. Processing for such a file can be skipped with an exclude object in `.backtracejsrc`
+**File processing errors**
 
-  ```json
-  {
-    "path": "<build output>",
-    // highlight-start
-    "exclude": [
-      // highlight-next-line
-      "./app1/build/static/js/file.chunk.js"
-    ]
-    // highlight-end
-    "run": {
-    ...
-  }
+File processing may halt on a specific file for valid reasons. For instance, a source map may not produced for a script file. Processing for such a file can be skipped with an exclude object in `.backtracejsrc`
+
+```json
+{
+  "path": "<build output>",
+  // highlight-start
+  "exclude": [
+    // highlight-next-line
+    "./app1/build/static/js/file.chunk.js"
+  ]
+  // highlight-end
+  "run": {
+  ...
+}
 ```
 
-  Alternatively, all processing errors can be treated as warnings or other errors levels.
-  ```json
-  {
-    "path": "<build output>",
-    // highlight-start
-    "asset-error-behavior": "warn",
-    // highlight-end
-    "run": {
-    ...
-  }
-  ```
+Alternatively, all processing errors can be treated as warnings or other errors levels.
+
+```json
+{
+  "path": "<build output>",
+  // highlight-start
+  "asset-error-behavior": "warn",
+  // highlight-end
+  "run": {
+  ...
+}
+```
 
 :::
 

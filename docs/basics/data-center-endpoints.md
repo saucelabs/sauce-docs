@@ -51,10 +51,10 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com. After that, i
 
 ### US East Data Center
 
-| Description                  | Endpoint                                        |
-| ---------------------------- | ----------------------------------------------- |
-| OnDemand Endpoint            | https://ondemand.us-east-4.saucelabs.com/wd/hub |
-| REST API                     | api.us-east-4.saucelabs.com                     |
+| Description       | Endpoint                                        |
+| ----------------- | ----------------------------------------------- |
+| OnDemand Endpoint | https://ondemand.us-east-4.saucelabs.com/wd/hub |
+| REST API          | api.us-east-4.saucelabs.com                     |
 
 ### EU Central Data Center
 
@@ -167,8 +167,8 @@ For details about setting up SSO for Sauce Labs, see [Setting Up Single Sign-On 
 
 #### US East Data Center
 
-| Signing/Encryption Certificate/Entity ID        | Entity AssertionConsumeURL                 |
-| ----------------------------------------------- | ------------------------------------------ |
+| Signing/Encryption Certificate/Entity ID     | Entity AssertionConsumeURL              |
+| -------------------------------------------- | --------------------------------------- |
 | https://us-east-4.saucelabs.com/sso/metadata | https://us-east-4.saucelabs.com/sso/acs |
 
 #### EU Central Data Center

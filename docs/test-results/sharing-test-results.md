@@ -145,6 +145,7 @@ public class SauceShareableLink {
 
 ```js
 const crypto = require('crypto')
+
 const sessionId = 'f65a1ee87a77410189aba40f48ac1223'
 const addDate = process.argv.includes('addDate')
 const date = new Date()

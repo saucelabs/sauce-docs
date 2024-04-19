@@ -4,7 +4,7 @@ title: Virtual USB CLI Reference
 sidebar_label: General Usage
 ---
 
-Virtual USB (vUSB) is a mobile (app) debugging tool that simulates connecting a Sauce Labs real device directly to your local machine/test runner host. 
+Virtual USB (vUSB) is a mobile (app) debugging tool that simulates connecting a Sauce Labs real device directly to your local machine/test runner host.
 It integrates into your development and test environment, meaning you can use your choice of homegrown development and testing tools to debug.
 This section outlines the required and optional parameters for the vUSB client test runner. For step-by-step instructions on how to use vUSB, see [Virtual USB Testing on Real Mobile Devices](/mobile-apps/features/virtual-usb).
 

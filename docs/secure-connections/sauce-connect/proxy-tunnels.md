@@ -36,15 +36,15 @@ Tunnels must be started from the command line of the machine where the Sauce Con
 
 You can manage and monitor all Sauce Connect Proxy tunnel activity from the Sauce Labs [**Tunnels**](https://app.saucelabs.com/tunnels) page, which displays useful information, such as the number of active tunnels, tunnel status, and specific attributes for each tunnel. You can also check the health of an individual tunnel by running a test on it.
 
-| Column          | Description                                                                                                                                           |
-| :-------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Column          | Description                                                                                                                                     |
+| :-------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
 | Type            | The icon shows whether the tunnel is a Sauce Connect Proxy, or an Sauce IPSec Proxy.                                                            |
-| State           | The icon shows whether the tunnel is running or stopped.                                                                                              |
+| State           | The icon shows whether the tunnel is running or stopped.                                                                                        |
 | Tunnel Name     | The name of the tunnel. This is the [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) used when starting the Sauce Connect tunnel. |
-| Client Hostname | The name of the machine where the Sauce Connect Proxy client is running.                                                                              |
-| Owner           | The name of the account that is running the tunnel.                                                                                                   |
-| Sharing         | Indicates whether or not the tunnel is shared.                                                                                                        |
-| Duration        | The amount of time the tunnel has been running.                                                                                                       |
+| Client Hostname | The name of the machine where the Sauce Connect Proxy client is running.                                                                        |
+| Owner           | The name of the account that is running the tunnel.                                                                                             |
+| Sharing         | Indicates whether or not the tunnel is shared.                                                                                                  |
+| Duration        | The amount of time the tunnel has been running.                                                                                                 |
 
 ### Verifying Tunnel Success
 
@@ -124,8 +124,7 @@ The location of the log file will vary, depending on your operating system. For 
   </tr>
 </table>
 
-
-###  Sauce Connect Proxy Status Server
+### Sauce Connect Proxy Status Server
 
 Sauce Connect Proxy has a "status server" feature that you can use to monitor the connection status. You can access JSON-formatted status information over an HTTP connection to a local server.
 The main purpose of the "status server" is providing Kubernetes and CI/CD support.
@@ -204,7 +203,6 @@ $ curl -s localhost:8080/debug/vars | jq .
   }
 }
 ```
-
 
 #### Tunnels Page
 
@@ -443,7 +441,6 @@ If you start creating bigger and bigger builds with a high number of simultaneou
 
 In this scenario, you’d need to “scale up” by using a tunnel pool in HA mode (multiple tunnels with same tunnel name). We generally recommend switching when running more than 50 parallel test sessions. The mass number of tests will have room to run through, as test traffic will be distributed among the multiple tunnels.
 
-
 ## Improving Sauce Connect Proxy Performance
 
 During testing, your website or app may load resources (e.g. tracking services, images/videos, advertisements), which can impact page load times and even cause tests to fail.
@@ -523,10 +520,10 @@ Insufficient Sauce Connect Proxy host resources may cause performance degradatio
 - Open File Limit
 
 ## Service Management Tools
+
 :::note
 The below are suggestions and examples. The tool you or your team are familiar with is often the best choice.
 :::
-
 
 ### Running systemd for Linux
 

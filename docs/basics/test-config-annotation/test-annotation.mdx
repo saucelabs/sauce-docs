@@ -3,21 +3,29 @@ id: test-annotation
 title: Test Annotation
 sidebar_label: Test Annotation
 keywords:
-- update RDC job
-- update real device
-- update device job
+    - update RDC job
+    - update real device
+    - update device job
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-export const Highlight = ({children, color}) => ( <span style={{
-      backgroundColor: color,
-      borderRadius: '2px',
-      color: '#fff',
-      padding: '0.2rem',
-    }}>{children}</span> );
+export function Highlight({ children, color }) {
+    return (
+        <span
+            style={{
+                backgroundColor: color,
+                borderRadius: '2px',
+                color: '#fff',
+                padding: '0.2rem',
+            }}
+        >
+            {children}
+        </span>
+    );
+}
 
 Test annotation refers to adding information to your tests, such as a name, build number, tag, and pass/fail status. These annotations are useful for managing your tests and builds (for example, when searching and sorting tests in your [Archives](/test-results/viewing-test-results/#archived-test-results)).
 
@@ -25,8 +33,8 @@ You can add annotations after test execution with our [REST API](/basics/test-co
 
 ## What You'll Need
 
-- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+-   A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
+-   Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 
 ## Selenium JavaScript Executor
 
@@ -98,8 +106,16 @@ One of the most difficult aspects of troubleshooting Selenium or Appium tests ca
 
 For example, in the command log on the left, it's hard to immediately see which command is responsible for following a link to the page, which one submitted a comment, and which one asserted that the comment was valid. In the screenshot on the right, each set of commands has been provided with a context.
 
-<img src={useBaseUrl('img/test-config-js-context1.png')} alt="Context for Selenium commands - before" width="250"/>
-<img src={useBaseUrl('img/test-config-js-context2.png')} alt="Context for Selenium commands - after" width="250"/>
+<img
+    src={useBaseUrl('img/test-config-js-context1.png')}
+    alt='Context for Selenium commands - before'
+    width='250'
+/>
+<img
+    src={useBaseUrl('img/test-config-js-context2.png')}
+    alt='Context for Selenium commands - after'
+    width='250'
+/>
 
 #### Code Example
 
@@ -162,7 +178,9 @@ public class TextInputTest extends TestBase {
 
 ## Sauce Labs REST API
 
-<p><span className="sauceGreen">Virtual Devices Only</span></p>
+<p>
+    <span className='sauceGreen'>Virtual Devices Only</span>
+</p>
 
 You can manage your tests more effectively from your Dashboard and Archives with annotations. The Sauce Labs REST API includes an [update_job](/dev/api/jobs/#update-a-job) method that you can use to set a name, tags, pass/fail status, and custom data for your test after it runs. To automate test annotation with this method, you'll want to create a simple set of functions to perform the put request for you.
 
@@ -172,6 +190,7 @@ You can manage your tests more effectively from your Dashboard and Archives with
     - [Java](https://github.com/saucelabs/saucerest-java)
     - [Python](https://gist.github.com/1644439)
     - [Ruby](https://gist.github.com/DylanLacey/5218959)
+
 </details>
 
 :::note Adding Pass/Fail Status and Build Numbers to Test Results with Frameworks
@@ -296,24 +315,24 @@ IWebDriver driver = new RemoteWebDriver(new Uri("https://ondemand.us-west-1.sauc
 <TabItem value="nodejs">
 
 ```js
-const username = process.env.SAUCE_USERNAME
-const accessKey = process.env.SAUCE_ACCESS_KEY
-const tags = ['tag1', 'tag2', 'tag3']
+const username = process.env.SAUCE_USERNAME;
+const accessKey = process.env.SAUCE_ACCESS_KEY;
+const tags = ['tag1', 'tag2', 'tag3'];
 const driver = new webdriver.Builder()
-.withCapabilities({
-browserName: 'firefox',
-platform: 'Windows 10',
-version: '79.0',
-'sauce:options': {
-name: 'Web Driver demo Test',
-build: 'build-1234',
-tags: tags,
-username: username,
-accessKey: accessKey
-}
-})
-.usingServer('https://ondemand.us-west-1.saucelabs.com:443/wd/hub')
-.build()
+    .withCapabilities({
+        browserName: 'firefox',
+        platform: 'Windows 10',
+        version: '79.0',
+        'sauce:options': {
+            name: 'Web Driver demo Test',
+            build: 'build-1234',
+            tags,
+            username,
+            accessKey,
+        },
+    })
+    .usingServer('https://ondemand.us-west-1.saucelabs.com:443/wd/hub')
+    .build();
 ```
 
 </TabItem>

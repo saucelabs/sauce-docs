@@ -197,12 +197,13 @@ If `var_1` = `"testing"`, and `var_2` = `"printing variable: testing"`:
 
 <!-- prettier-ignore -->
 :::note
+
 - Any reference to an input variable should be `aiq_1`, `aiq_2`, and so on.
 - Multiple input variables should be comma separated.
 - Only one output variable is supported.
 - Returning `${}` is required with a variable name. This is different than saving a variable.
 - Since the scripts being executed are separate, any kind of iframe navigation has to be handled within the script.
-:::
+  :::
 
 ### Saving with Execution
 

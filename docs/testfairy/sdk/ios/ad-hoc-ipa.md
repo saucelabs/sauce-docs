@@ -8,7 +8,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 An Ad Hoc provisioning profile allows your app to be installed on designated devices without the assistance of Xcode. This distribution method is particularly useful for testing your app on specific devices before it's released to the public.
 
 Apple allows app distribution for testing on registered devices using an **Ad-Hoc** or **Enterprise** provisioning profile. The output file you create is an iOS App file (a file with an `.ipa` filename extension) that is then used to install your app on registered devices.
@@ -16,6 +15,7 @@ Apple allows app distribution for testing on registered devices using an **Ad-Ho
 ## Prerequisites
 
 Before proceeding with the steps below, ensure that you have completed the following:
+
 1. **Register Test Devices** Register all the test devices on which you intend to install and test your app. You can follow the instructions in the [Registering Your iOS Device UDID Number](https://docs.saucelabs.com/testfairy/testing-an-app/testers/reg-ios-device/) to complete this step.
 2. **Create Ad Hoc Provisioning Profile** - Make sure you have created an Ad Hoc provisioning profile on the Apple Developer Portal. This provisioning profile should specify an App ID that matches your app, a list of test devices, and a single distribution certificate.
 3. **Archive Your App** - Create an archive of your app using Xcode. This archive will be used to generate the Ad Hoc IPA file.
@@ -49,13 +49,12 @@ Follow these steps to export your app for testing using the Ad Hoc provisioning 
 1. Open your Xcode project.
 2. In the Xcode project editor, select either `Generic iOS Device` or the name of your connected device from the Scheme toolbar menu. Note that you cannot create an archive of a simulator build.
 3. Choose **Product** and then **Archive** from the top menu. The **Archives organizer** will appear, displaying the new archive.
-Xcode will perform preliminary validation tests on the archive. To proceed with creating the IPA file, click the "Distribute App" button.
-1. A dialog will appear with export options. Choose the `Save for Ad Hoc Deployment` option. This ensures that the app will be code signed with the distribution certificate.
-2. In the next dialog, select a signing method and click "Next."
-3. On the distribution options screen, customize the settings as needed and click "Next."
-4. Review the app details, entitlements, and provisioning profile in the appearing dialog.
-5. Click the **Export** button. The Finder will display the exported files. Save the exported IPA file to your desired location.
-
+   Xcode will perform preliminary validation tests on the archive. To proceed with creating the IPA file, click the "Distribute App" button.
+4. A dialog will appear with export options. Choose the `Save for Ad Hoc Deployment` option. This ensures that the app will be code signed with the distribution certificate.
+5. In the next dialog, select a signing method and click "Next."
+6. On the distribution options screen, customize the settings as needed and click "Next."
+7. Review the app details, entitlements, and provisioning profile in the appearing dialog.
+8. Click the **Export** button. The Finder will display the exported files. Save the exported IPA file to your desired location.
 
 ## Installing Your App on Test Devices Using Xcode
 

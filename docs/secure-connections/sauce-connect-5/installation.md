@@ -7,6 +7,7 @@ sidebar_label: Installation
 ### Installation Instructions (recommended)
 
 Visit the following pages for installation instructions for your platform:
+
 - **[Linux](/secure-connections/sauce-connect-5/installation/linux)**
 - **[MacOS](/secure-connections/sauce-connect-5/installation/macos)**
 - **[Windows](/secure-connections/sauce-connect-5/installation/windows)**

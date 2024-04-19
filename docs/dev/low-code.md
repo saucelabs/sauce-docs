@@ -13,7 +13,6 @@ The NLP engine autonomously creates test cases, scripts, and data, allowing non-
 
 For more information about using Sauce Labs Low Code, see <a href="https://www.youtube.com/watch?v=We20yocI4j4">Low-code Automated Web Testing with Sauce Labs.</a>
 
-
 <div>
   <div className="box boxwidetop card">
     <div className="container">

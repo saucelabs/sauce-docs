@@ -2,10 +2,10 @@
 sidebar_label: WebdriverIO
 ---
 
-import FullPageJS from '../_partials/_fullpage-js.md';
-import ClippingWDIO from '../_partials/_clipping-webdriver.md';
-import EnterpriseNote from '../_partials/_enterprise-note.md';
-import EnvironmentVariables from '../_partials/_environment-variables.md';
+import FullPageJS from '../\_partials/\_fullpage-js.md';
+import ClippingWDIO from '../\_partials/\_clipping-webdriver.md';
+import EnterpriseNote from '../\_partials/\_enterprise-note.md';
+import EnvironmentVariables from '../\_partials/\_environment-variables.md';
 
 # WebdriverIO Integration
 
@@ -99,7 +99,6 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 Upon executing your tests for the first time under this step, a visual baseline is automatically created in our system. This baseline serves as the standard for all subsequent WebdriverIO tests. As new tests are run, they are compared to this original baseline, with any deviations highlighted to signal visual changes. These comparisons are integral for detecting any unintended visual modifications early in your development cycle. All test builds, including the initial baseline and subsequent runs, can be monitored and managed through the Sauce Labs platform at [Sauce Visual Builds](https://app.saucelabs.com/visual/builds).
 
 Remember, the baseline is established during the initial run, and any subsequent visual differences detected will be marked for review.
-
 
 ## Advanced usage
 
@@ -223,6 +222,7 @@ await browser.sauceVisualCheck('Before Login', {
 Sauce Visual does not capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
 
 Example:
+
 ```ts
 browser.sauceVisualCheck('Before Login', {
     captureDom: true

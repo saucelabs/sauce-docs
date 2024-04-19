@@ -194,7 +194,7 @@ After you've created the download script, use the prerun capability in your test
 If your script is in a publicly accessible location, you need to add the URL to the prerun capability.
 
 ```js
-capabilities['prerun'] = 'http://location.of/curl.sh'
+capabilities.prerun = 'http://location.of/curl.sh'
 ```
 
 ## Editing the VM's Host File
@@ -425,7 +425,7 @@ caps.setCapability("app", "storage:filename=<file-name>.apk");
 <TabItem value="js">
 
 ```js
-caps['app'] = 'storage:filename=<file-name>.apk';
+caps.app = 'storage:filename=<file-name>.apk';
 ```
 
 </TabItem>
@@ -504,13 +504,13 @@ caps.setCapability("app", "storage:c8511dd6-38ec-4f58-b8b9-4ec8c23ad882");
 **Before**
 
 ```js
-caps['app'] = 'sauce-storage:my_app.apk';
+caps.app = 'sauce-storage:my_app.apk';
 ```
 
 **After**
 
 ```js
-caps['app'] = 'storage:c8511dd6-38ec-4f58-b8b9-4ec8c23ad882';
+caps.app = 'storage:c8511dd6-38ec-4f58-b8b9-4ec8c23ad882';
 ```
 
 </TabItem>

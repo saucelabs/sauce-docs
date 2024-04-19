@@ -154,6 +154,7 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 <p><small>| REQUIRED |</small></p>
 
 The name of the browser in which to run tests.
+
 </div>
 
 ### <span className="cli">--cypress-config</span>
@@ -183,7 +184,6 @@ such as Windows 11 or macOS 13.
 The version of Cypress that is compatible with the tests defined in this configuration.
 
 </div>
-
 
 ## Espresso Options Summary
 
@@ -229,7 +229,6 @@ The version of Cypress that is compatible with the tests defined in this configu
   </tbody>
 </table>
 
-
 ## Espresso Option Details
 
 ### <span className="cli">--app</span>
@@ -238,6 +237,7 @@ The version of Cypress that is compatible with the tests defined in this configu
 <p><small>| REQUIRED |</small></p>
 
 The path to a valid mobile application to test.
+
 </div>
 
 ### <span className="cli">--artifacts-when</span>
@@ -286,11 +286,11 @@ You can specify a combination of device characteristics within this flag:
 
 Specify a virtual device for the test by matching a set of one or more emulator characteristics.
 
-| Characteristic    | Description                                                                                                        | Example                             |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
-| `name`            | Specify all or part of the emulator name. [Supported VMD List](https://app.saucelabs.com/live/web-testing/virtual) | `--emulator "name=Android.*"`       |
-| `platformVersions` | Specify the emulator platform version.                                                                             | `--emulator "platformVersions=7.1"`  |
-| `orientation`     | Specify how the emulator should be oriented for the test (`portrait` or `landscape`).                              | `--emulator "orientation=portrait"` |
+| Characteristic     | Description                                                                                                        | Example                             |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
+| `name`             | Specify all or part of the emulator name. [Supported VMD List](https://app.saucelabs.com/live/web-testing/virtual) | `--emulator "name=Android.*"`       |
+| `platformVersions` | Specify the emulator platform version.                                                                             | `--emulator "platformVersions=7.1"` |
+| `orientation`      | Specify how the emulator should be oriented for the test (`portrait` or `landscape`).                              | `--emulator "orientation=portrait"` |
 
 You can specify a combination of emulator characteristics within this flag:
 
@@ -317,7 +317,6 @@ The path(s) to additional applications that need to be installed along with the 
 The path to the mobile testing application.
 
 </div>
-
 
 ## Playwright Options Summary
 
@@ -385,6 +384,7 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 <p><small>| REQUIRED |</small></p>
 
 The name of the browser in which to run tests.
+
 </div>
 
 ### <span className="cli">--platform</span>
@@ -477,6 +477,7 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 <p><small>| REQUIRED |</small></p>
 
 The container image for Sauce Orchestrate.
+
 </div>
 
 ### <span className="cli">--workload</span>
@@ -490,7 +491,6 @@ The type of work performed within the container. Valid values are:
 - `other`: Choose this for any other work.
 
 </div>
-
 
 ## TestCafe Options Summary
 
@@ -548,6 +548,7 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 <p><small>| REQUIRED |</small></p>
 
 The name of the browser in which to run tests.
+
 </div>
 
 ### <span className="cli">--platform</span>
@@ -568,7 +569,6 @@ such as Windows 11 or macOS 13.
 The version of TestCafe that is compatible with the tests defined in this configuration.
 
 </div>
-
 
 ## XCUITest Options Summary
 
@@ -614,7 +614,6 @@ The version of TestCafe that is compatible with the tests defined in this config
   </tbody>
 </table>
 
-
 ## XCUITest Option Details
 
 ### <span className="cli">--app</span>
@@ -623,6 +622,7 @@ The version of TestCafe that is compatible with the tests defined in this config
 <p><small>| REQUIRED |</small></p>
 
 The path to a valid mobile application to test.
+
 </div>
 
 ### <span className="cli">--artifacts-when</span>
@@ -647,14 +647,14 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 Find a real device for this test by matching a set of one or more device characteristics.
 More details on static and dynamic device allocation can be found [here](/mobile-apps/supported-devices/#static-and-dynamic-device-allocation).
 
-| Characteristic        | Description                                                                                                                                                                                              | Example                               |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| `id`                  | Specify a device by its ID. Using this selection flag ignores all other characteristics and is not advised because availability of a specific device is uncertain and could cause your test to time out. | `--device "id=iPhone_15_Pro_real_sjc1"`       |
-| `name`                | Find a device based on a partial name in order to increase likelihood of availability of similar devices.                                                                                                | `--device "name=iPhone.*"`               |
-| `platformVersion`     | Find a device based on the version of the iOS operating system.                                                                                                                                                             | `--device "platformVersion=16.0"`      |
-| `carrierConnectivity` | The selected device must be connected to a cellular network.                                                                                                                                             | `--device "carrierConnectivity=true"` |
-| `deviceType`          | The selected device must be a particular type (`PHONE`, `TABLET`, or `ANY`).                                                                                                                             | `--device "deviceType=PHONE"`         |
-| `private`             | The selected device must be private.                                                                                                                                                                     | `--device "private=true"`             |
+| Characteristic        | Description                                                                                                                                                                                              | Example                                 |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| `id`                  | Specify a device by its ID. Using this selection flag ignores all other characteristics and is not advised because availability of a specific device is uncertain and could cause your test to time out. | `--device "id=iPhone_15_Pro_real_sjc1"` |
+| `name`                | Find a device based on a partial name in order to increase likelihood of availability of similar devices.                                                                                                | `--device "name=iPhone.*"`              |
+| `platformVersion`     | Find a device based on the version of the iOS operating system.                                                                                                                                          | `--device "platformVersion=16.0"`       |
+| `carrierConnectivity` | The selected device must be connected to a cellular network.                                                                                                                                             | `--device "carrierConnectivity=true"`   |
+| `deviceType`          | The selected device must be a particular type (`PHONE`, `TABLET`, or `ANY`).                                                                                                                             | `--device "deviceType=PHONE"`           |
+| `private`             | The selected device must be private.                                                                                                                                                                     | `--device "private=true"`               |
 
 You can specify a combination of device characteristics within this flag:
 
@@ -671,11 +671,11 @@ You can specify a combination of device characteristics within this flag:
 
 Specify a virtual device for the test by matching a set of one or more simulator characteristics.
 
-| Characteristic    | Description                                                                                                        | Example                             |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
-| `name`            | Specify all or part of the simulator name. [Supported VMD List](https://app.saucelabs.com/live/web-testing/virtual) | `--simulator "name=iPhone.*"`       |
-| `platformVersions` | Specify the simulator platform version.                                                                             | `--simulator "platformVersions=16.0"`  |
-| `orientation`     | Specify how the simulator should be oriented for the test (`portrait` or `landscape`).                              | `--simulator "orientation=portrait"` |
+| Characteristic     | Description                                                                                                         | Example                               |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| `name`             | Specify all or part of the simulator name. [Supported VMD List](https://app.saucelabs.com/live/web-testing/virtual) | `--simulator "name=iPhone.*"`         |
+| `platformVersions` | Specify the simulator platform version.                                                                             | `--simulator "platformVersions=16.0"` |
+| `orientation`      | Specify how the simulator should be oriented for the test (`portrait` or `landscape`).                              | `--simulator "orientation=portrait"`  |
 
 You can specify a combination of simulator characteristics within this flag:
 

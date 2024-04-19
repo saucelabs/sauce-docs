@@ -12,7 +12,6 @@ import TabItem from '@theme/TabItem';
 The Sauce Connect Proxy 4.x.x version of this article is [here](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
 :::
 
-
 This guide is intended for users who need to set up additional proxies to route traffic originated from their Sauce Connect Proxy client. Additional proxies may be configured for various purposes
 such as improved network security, corporate internet usage policy, traffic monitoring, or caching. Sauce Connect Proxy network traffic includes:
 

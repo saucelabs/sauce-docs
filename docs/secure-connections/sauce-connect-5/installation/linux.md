@@ -21,12 +21,13 @@ defaultValue="ARM64"
     {label: 'ARM64', value: 'ARM64'},
     {label: 'x86-64', value: 'x86-64'},
   ]}>
-    <TabItem value="ARM64">
+<TabItem value="ARM64">
 
 ```bash
 curl -L -o sauce-connect.deb https://saucelabs.com/downloads/sauce-connect/5.0.1/sauce-connect_5.0.1.linux_arm64.deb
 sudo dpkg -i sauce-connect.deb
 ```
+
   </TabItem>
 
   <TabItem value="x86-64">
@@ -63,7 +64,6 @@ sudo systemctl status sauce-connect
 Sauce Connect provides `.rpm` package with Systemd service for [Sauce Connect run](/dev/cli/sauce-connect-5/sc_run.md) command.
 Other commands are available as well, but you will need to start them manually.
 
-
 ### Install package
 
 <Tabs
@@ -77,6 +77,7 @@ defaultValue="ARM64"
 ```bash
 sudo rpm -i https://saucelabs.com/downloads/sauce-connect/5.0.1/sauce-connect-5.0.1_linux.aarch64.rpm
 ```
+
   </TabItem>
 
   <TabItem value="x86-64">
@@ -124,6 +125,7 @@ curl -L -o sauce-connect.tar.gz https://saucelabs.com/downloads/sauce-connect/5.
 sudo mkdir -p /opt/sauce-connect
 sudo tar -C /opt/sauce-connect -xzf sauce-connect.tar.gz
 ```
+
   </TabItem>
 
   <TabItem value="x86-64">
@@ -136,7 +138,6 @@ sudo tar -C /opt/sauce-connect -xzf sauce-connect.tar.gz
 
   </TabItem>
 </Tabs>
-
 
 ### Link the binary
 
@@ -157,6 +158,7 @@ defaultValue="User"
 ```bash
 echo 'source <(sc completion bash)' >>~/.bash_profile
 ```
+
   </TabItem>
 
   <TabItem value="System">
@@ -173,7 +175,6 @@ sudo ln -s /opt/sauce-connect/completions/sc.bash /etc/bash_completion.d/sc
 
 This step is optional. You can use default configuration or configure Sauce Connect with flags or environment variables.
 See [CLI reference](/dev/cli/sauce-connect-5/) for more details.
-
 
 ```bash
 vim /opt/sauce-connect/sauce-connect.yaml

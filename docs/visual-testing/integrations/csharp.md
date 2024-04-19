@@ -4,9 +4,9 @@ sidebar_label: C#/.Net
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import EnterpriseNote from '../_partials/_enterprise-note.md';
-import EnvironmentVariables from '../_partials/_environment-variables.md';
-import FullPageLimit from '../_partials/_fullpage-limit.md';
+import EnterpriseNote from '../\_partials/\_enterprise-note.md';
+import EnvironmentVariables from '../\_partials/\_environment-variables.md';
+import FullPageLimit from '../\_partials/\_fullpage-limit.md';
 
 # C#/.Net WebDriver Integration
 
@@ -52,7 +52,6 @@ dotnet add package SauceLabs.Visual
 
   </TabItem>
 </Tabs>
-
 
 _Note: You can find the latest versions available [here](https://www.nuget.org/packages/SauceLabs.Visual#readme-body-tab)._
 
@@ -135,12 +134,11 @@ defaultValue="NUnit"
     }
   }
 ```
+
   </TabItem>
 </Tabs>
 
 To enhance efficiency in managing tests, it's important to provide a specific test name and suite name for each test. This practice allows Sauce Visual to effectively organize snapshots into coherent groups. As a result, it simplifies the review process, saving time and effort in navigating through test results and understanding the context of each snapshot.
-
-
 
 Don't forget to quit the WebDriver and Dispose VisualClient.
 <Tabs
@@ -276,6 +274,7 @@ When creating the service in `VisualClient`, extra fields can be set to define t
 It needs to be defined through a `CreateBuildOptions` object.
 
 Properties available:
+
 - `string? Name`: The name of the build
 - `string? Project`: The name of the project
 - `string? Branch`: The name of the branch
@@ -336,6 +335,7 @@ await VisualClient.VisualCheck("C# capture",
 Sauce Visual does not capture dom snapshot by default. It can be changed when creating the `VisualClient` object.
 
 Example:
+
 ```csharp
 VisualClient = VisualClient.Create(Driver, Region.UsWest1, sauceUsername, sauceAccessKey);
 VisualClient.CaptureDom = true;
@@ -354,7 +354,6 @@ Options:
 
 - `DelayAfterScrollMs`: Delay in ms after scrolling and before taking screenshots. The default value is 0. We recommend using this option for lazy loading content.
 - `HideAfterFirstScroll`: Hide elements on the page after first scroll (uses css selectors)
-
 
 Examples:
 

@@ -105,7 +105,6 @@ saucectl run
 
 You can refer to the [Command Reference](/dev/cli/saucectl/run/) for the complete list of options for the `run` command and [saucectl YAML Configuration](/api-testing/integrations/yaml) for more configuration options.
 
-
 ### Vault
 
 Supported `saucectl vault` commands:

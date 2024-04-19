@@ -182,7 +182,7 @@ Example
 
 ```js
 // Be sure to import TestFairy
-var TiTestFairy = require('com.testfairy.titestfairy');
+const TiTestFairy = require('com.testfairy.titestfairy');
 
 TiTestFairy.setServerEndpoint("my-subdomain.testfairy.com");
 TiTestFairy.begin("<your app token here>");

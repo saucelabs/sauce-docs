@@ -157,7 +157,7 @@ values={[
 
 ```js
 exports.config = {
-//...
+// ...
 capabilities: [
 {
 deviceName: 'Samsung Galaxy S10',
@@ -168,7 +168,7 @@ automationName: 'UiAutomator2',
 sauceLabsImageInjectionEnabled: true
 }
 ]
-//...
+// ...
 }
 ```
 

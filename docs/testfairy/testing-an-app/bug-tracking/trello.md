@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Connecting TestFairy with Trello is pretty straightforward process, follow the steps below: 
+Connecting TestFairy with Trello is pretty straightforward process, follow the steps below:
 
 1. Open your TestFairy account Preferences.
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-cloud-1.png')} alt="TestFairy Preferences"/>

@@ -70,6 +70,7 @@ def driver(request):
 
 ```js {5,6}
 const { config } = require('./wdio.shared.conf')
+
 const defaultBrowserSauceOptions = {
 build: `WebdriverIO-V6 Front-End Performance-${new Date().getTime()}`,
 name: `WebdriverIO-V6 Front-End Performance-${new Date().getTime()}`,

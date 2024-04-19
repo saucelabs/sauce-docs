@@ -8,9 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 TestFairy for Neptune plugin allows you to integrate TestFairy functionality into your Neptune project. By following the steps below, you can enable the TestFairy plugin and initialize the TestFairy SDK in your Neptune application.
-
 
 ## Enable the TestFairy Plugin
 
@@ -39,4 +37,3 @@ document.addEventListener("deviceready", function() {
 :::note
 Ensure that you replace **APP TOKEN** with your actual TestFairy app token. You can find the app token in your TestFairy [User Preferences](https://app.testfairy.com/settings/).
 :::
-

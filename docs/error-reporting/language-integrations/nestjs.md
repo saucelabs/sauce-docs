@@ -14,26 +14,26 @@ after which you can explore the rich set of Backtrace features.
 ## Table of Contents
 
 1. [Basic Integration - Reporting your first errors](#basic-integration)
-    - [Install the package](#install-the-package)
-    - [Integrate the SDK](#integrate-the-sdk)
-    - [Upload source maps](#upload-source-maps)
-    - [Add a Backtrace error interceptor](#add-a-backtrace-error-interceptor)
+   - [Install the package](#install-the-package)
+   - [Integrate the SDK](#integrate-the-sdk)
+   - [Upload source maps](#upload-source-maps)
+   - [Add a Backtrace error interceptor](#add-a-backtrace-error-interceptor)
 1. [Error Reporting Features](#error-reporting-features)
-    - [Attributes](#attributes)
-    - [File Attachments](#file-attachments)
-    - [Breadcrumbs](#breadcrumbs)
-    - [Application Stability Metrics](#application-stability-metrics)
-        - [Metrics Configuration](#metrics-configuration)
-        - [Metrics Usage](#metrics-usage)
-    - [Offline Database support](#offline-database-support)
-        - [Database Configuration](#database-configuration)
-        - [Native crash support](#native-crash-support)
-        - [Manual database operations](#manual-database-operations)
+   - [Attributes](#attributes)
+   - [File Attachments](#file-attachments)
+   - [Breadcrumbs](#breadcrumbs)
+   - [Application Stability Metrics](#application-stability-metrics)
+     - [Metrics Configuration](#metrics-configuration)
+     - [Metrics Usage](#metrics-usage)
+   - [Offline Database support](#offline-database-support)
+     - [Database Configuration](#database-configuration)
+     - [Native crash support](#native-crash-support)
+     - [Manual database operations](#manual-database-operations)
 1. [Advanced SDK Features](#advanced-sdk-features)
-    - [BacktraceClient options](#backtraceclient)
-    - [Manually send an error](#manually-send-an-error)
-    - [Modify/skip error reports](#modifyskip-error-reports)
-    - [SDK Method Overrides](#sdk-method-overrides)
+   - [BacktraceClient options](#backtraceclient)
+   - [Manually send an error](#manually-send-an-error)
+   - [Modify/skip error reports](#modifyskip-error-reports)
+   - [SDK Method Overrides](#sdk-method-overrides)
 
 ## Basic Integration
 
@@ -138,11 +138,11 @@ For more information, consult [NestJS documentation](https://docs.nestjs.com/int
 
 By default, the interceptor will include:
 
--   all errors that are an instance of `Error`,
+- all errors that are an instance of `Error`,
 
 and exclude:
 
--   all `HttpException` errors that have `status < 500`.
+- all `HttpException` errors that have `status < 500`.
 
 To include or exclude specific error types, pass options to `BacktraceInterceptor`:
 
@@ -378,9 +378,9 @@ event cached reports will be sent on next application launch.
 
 With offline database support you can:
 
--   cache your reports when the user doesn't have an internet connection or the service is unavailable,
--   capture crashes,
--   manually decide whether or not to send reports, and when.
+- cache your reports when the user doesn't have an internet connection or the service is unavailable,
+- capture crashes,
+- manually decide whether or not to send reports, and when.
 
 Offline database support is disabled by default. To enable it, please add "enable: true" and the path to the directory
 where Backtrace can store crash data.

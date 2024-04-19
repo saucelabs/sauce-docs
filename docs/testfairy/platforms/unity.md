@@ -14,7 +14,6 @@ The TestFairy allows you to integrate it's powerful mobile testing platform into
 
 To integrate the TestFairy Unity SDK with your Unity project, follow the steps below:
 
-
 1. From the TestFairy Unity SDK GitHub page, download the [latest](https://github.com/testfairy/testfairy-unity-plugin/releases) version of the `unitypackage`.
    <img src={useBaseUrl('/img/testfairy/platform/unity-latest.png')} alt="download latest"/>
 
@@ -58,11 +57,9 @@ To integrate the TestFairy Unity SDK with your Unity project, follow the steps b
 
 7. Save, build, and run.
 
-
 ## Setting Screen Name
 
 TestFairy can capture screenshots during a recorded session. By default, it attempts to name a screenshot based on different measures automatically. However, you can override this behavior and set a custom name for a captured screen using the `setScreenName` method. This can help you organize and label screenshots with appropriate information, such as the level name. See the example below:
-
 
 ```js
 using UnityEngine;

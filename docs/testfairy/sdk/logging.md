@@ -238,7 +238,7 @@ TestFairy.logException(<Error>);
 Example
 
 ```js
-var error = new Error("Some Message");
+const error = new Error("Some Message");
 TestFairy.logException(error);
 ```
 
@@ -264,15 +264,16 @@ Example
 // Be sure to import TestFairy
 const TestFairy = require('react-native-testfairy');
 
-var error = new Error("Some Message");
+const error = new Error("Some Message");
 TestFairy.logException(error);
 ```
 
 We recommend replacing the `Global Handler` with a custom method, automatically sending the exception to TestFairy sessions. One suggestion we have is to add a method that looks like this:
 
 ```js
-var ErrorUtils = require('ErrorUtils');
-var originalGlobalHandler = ErrorUtils.getGlobalHandler();
+const ErrorUtils = require('ErrorUtils');
+
+const originalGlobalHandler = ErrorUtils.getGlobalHandler();
 ErrorUtils.setGlobalHandler((error, isFatal) => {
     TestFairy.logException(error);
     originalGlobalHandler.handleException(error, isFatal);
@@ -293,7 +294,7 @@ Example
 // Be sure to import TestFairy
 import { TestFairySDK } from 'nativescript-testfairy';
 
-var error = new Error("Some Message");
+const error = new Error("Some Message");
 TestFairySDK.logException(error);
 ```
 

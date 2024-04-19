@@ -172,6 +172,7 @@ suites:
   - name: "saucy test"
     workload: webdriver
 ```
+
 ---
 
 ### `resourceProfile`
@@ -187,6 +188,7 @@ suites:
   - name: "saucy test"
     resourceProfile: c2m2
 ```
+
 ---
 
 ### `image`
@@ -295,7 +297,7 @@ The following limitations are in effect for artifact downloads. They do not appl
 - Must specify an absolute path (starting at the root `/`)
 - Max requested volume for parent dir is 10M
 - You can only specify up to 10 paths
-:::
+  :::
 
 ### `cleanup`
 
@@ -388,6 +390,7 @@ reporters:
     enabled: true
     filename: saucectl-report.json
 ```
+
 ---
 
 ### `json`

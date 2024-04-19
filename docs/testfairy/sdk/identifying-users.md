@@ -172,7 +172,7 @@ Example
 
 ```js
 // Be sure to import TestFairy
-var TiTestFairy = require('com.testfairy.titestfairy');
+const TiTestFairy = require('com.testfairy.titestfairy');
 
 TiTestFairy.setUserId("john@example.com");
 ```
@@ -191,4 +191,3 @@ To make the most effective use of TestFairy's user identification feature, it's 
 - You can call `setUserId` before or after initializing a session with `begin`.
 - The user identifier you provide must not be null and should be chosen from user attributes like email, phone number, or user ID.
 - The user identifier you set using setUserId() will be searchable through the TestFairy API and web search interface.
-

@@ -14,46 +14,59 @@ Keep in mind that these are guidelines. Most environments have their own workloa
 
 ## What You'll Need
 
-- Minimum 2 core x 8 GB Machine.
-- We recommend using the [cURL command line](https://curl.haxx.se/download.html) or an equivalent tool to ensure that any error messages you receive are precise and actionable. If you're not familiar with the tool, [review their docs here](https://curl.se/docs) and then install cURL on your local machine.
-- For macOS and other Unix-based systems, set your [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) to at least 64000. See [What are the optimal open file settings?](/secure-connections/sauce-connect/faq/#what-are-the-optimal-open-file-settings).
+-   Minimum 2 core x 8 GB Machine.
+-   We recommend using the [cURL command line](https://curl.haxx.se/download.html) or an equivalent tool to ensure that any error messages you receive are precise and actionable. If you're not familiar with the tool, [review their docs here](https://curl.se/docs) and then install cURL on your local machine.
+-   For macOS and other Unix-based systems, set your [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) to at least 64000. See [What are the optimal open file settings?](/secure-connections/sauce-connect/faq/#what-are-the-optimal-open-file-settings).
 
 ## Supported Operating Systems
 
 ### Sauce Connect v4.x.x
 
 <table>
-  <tr>
-   <td><strong>Name</strong></td>
-   <td><strong>Value</strong></td>
-   <td><strong>CPU Arch</strong></td>
-   <td><strong>Notes</strong></td>
-  </tr>
-  <tr>
-    <td>Linux</td>
-    <td>
-      Ubuntu 18.04 or higher
-      <p>Debian 9 or higher</p>
-      <p>CentOS/RHEL-7 or higher</p>
-      <p>SUSE Linux Enterprise 15.0 and higher</p>
-    </td>
-   <td>x86_64<br/>arm64</td>
-   <td>Unsupported OSes may still be able to run Sauce Connect, but they've not been tested for versions 4.8.x and higher.</td>
-  </tr>
-  <tr>
-   <td>macOS</td>
-   <td>macOS 10.13 (High Sierra) and higher</td>
-   <td>x86_64</td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>Windows</td>
-   <td>Windows 10 and higher</td>
-   <td>x86</td>
-   <td>
-   </td>
-  </tr>
+    <tr>
+        <td>
+            <strong>Name</strong>
+        </td>
+        <td>
+            <strong>Value</strong>
+        </td>
+        <td>
+            <strong>CPU Arch</strong>
+        </td>
+        <td>
+            <strong>Notes</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>Linux</td>
+        <td>
+            Ubuntu 18.04 or higher
+            <p>Debian 9 or higher</p>
+            <p>CentOS/RHEL-7 or higher</p>
+            <p>SUSE Linux Enterprise 15.0 and higher</p>
+        </td>
+        <td>
+            x86_64
+            <br />
+            arm64
+        </td>
+        <td>
+            Unsupported OSes may still be able to run Sauce Connect, but they've
+            not been tested for versions 4.8.x and higher.
+        </td>
+    </tr>
+    <tr>
+        <td>macOS</td>
+        <td>macOS 10.13 (High Sierra) and higher</td>
+        <td>x86_64</td>
+        <td />
+    </tr>
+    <tr>
+        <td>Windows</td>
+        <td>Windows 10 and higher</td>
+        <td>x86</td>
+        <td />
+    </tr>
 </table>
 
 :::note macOS Catalina 10.15+ compatibility
@@ -75,12 +88,12 @@ As an important step prior to downloading Sauce Connect Proxy, you or your syste
 
 3. Use cURL (or equivalent tool) to reach the below URLs, as needed. For example:
 
-   - [https://api.us-west-1.saucelabs.com/rest/v1](https://api.us-west-1.saucelabs.com/rest/v1) for US-WEST region
-   - [https://api.eu-central-1.saucelabs.com](https://api.eu-central-1.saucelabs.com/) for EU-Central region
+    - [https://api.us-west-1.saucelabs.com/rest/v1](https://api.us-west-1.saucelabs.com/rest/v1) for US-WEST region
+    - [https://api.eu-central-1.saucelabs.com](https://api.eu-central-1.saucelabs.com/) for EU-Central region
 
-   If you can get a `200 OK` response from all URLs above, you are ready to start Sauce Connect!
-   As an alternative, you can just try to [start a tunnel](/secure-connections/sauce-connect/setup-configuration/basic-setup/#validating-your-basic-setup)
-   and check the console output.
+    If you can get a `200 OK` response from all URLs above, you are ready to start Sauce Connect!
+    As an alternative, you can just try to [start a tunnel](/secure-connections/sauce-connect/setup-configuration/basic-setup/#validating-your-basic-setup)
+    and check the console output.
 
 ## Configuring Your System to Use Sauce Connect
 
@@ -93,53 +106,69 @@ Actual system requirements will depend on the number of parallel tests, and amou
 ### Amazon Web Services (AWS)
 
 <table>
-  <tr>
-    <td></td>
-    <td><strong>Machine Type</strong></td>
-    <td><strong>Memory</strong></td>
-    <td><strong>Processor</strong></td>
-    <td><strong>Bandwidth</strong></td>
-  </tr>
-  <tr>
-    <td>Minimum</td>
-    <td>EC2 m4.large</td>
-    <td>8 GB</td>
-    <td>2</td>
-    <td>450 Mbps</td>
-  </tr>
-  <tr>
-    <td>Recommended</td>
-    <td>EC2 m4.xlarge</td>
-    <td>16 GB</td>
-    <td>4</td>
-    <td>750 Mbps</td>
-  </tr>
+    <tr>
+        <td />
+        <td>
+            <strong>Machine Type</strong>
+        </td>
+        <td>
+            <strong>Memory</strong>
+        </td>
+        <td>
+            <strong>Processor</strong>
+        </td>
+        <td>
+            <strong>Bandwidth</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>Minimum</td>
+        <td>EC2 m4.large</td>
+        <td>8 GB</td>
+        <td>2</td>
+        <td>450 Mbps</td>
+    </tr>
+    <tr>
+        <td>Recommended</td>
+        <td>EC2 m4.xlarge</td>
+        <td>16 GB</td>
+        <td>4</td>
+        <td>750 Mbps</td>
+    </tr>
 </table>
 
 ### Google Compute Engine (GCE)
 
 <table>
-  <tr>
-    <td></td>
-    <td><strong>Machine Type</strong></td>
-    <td><strong>Memory</strong></td>
-    <td><strong>Processor</strong></td>
-    <td><strong>Bandwidth</strong></td>
-  </tr>
-  <tr>
-    <td>Minimum</td>
-    <td>GCE n1-standard-2</td>
-    <td>7.5 GB</td>
-    <td>2</td>
-    <td>450 Mbps</td>
-  </tr>
-  <tr>
-    <td>Recommended</td>
-    <td>GCE n1-standard-4</td>
-    <td>15 GB</td>
-    <td>4</td>
-    <td>750 Mbps</td>
-  </tr>
+    <tr>
+        <td />
+        <td>
+            <strong>Machine Type</strong>
+        </td>
+        <td>
+            <strong>Memory</strong>
+        </td>
+        <td>
+            <strong>Processor</strong>
+        </td>
+        <td>
+            <strong>Bandwidth</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>Minimum</td>
+        <td>GCE n1-standard-2</td>
+        <td>7.5 GB</td>
+        <td>2</td>
+        <td>450 Mbps</td>
+    </tr>
+    <tr>
+        <td>Recommended</td>
+        <td>GCE n1-standard-4</td>
+        <td>15 GB</td>
+        <td>4</td>
+        <td>750 Mbps</td>
+    </tr>
 </table>
 
 ### Microsoft Azure
@@ -147,71 +176,83 @@ Actual system requirements will depend on the number of parallel tests, and amou
 The below recommendations are for Linux VMs.
 
 <table>
-  <tr>
-    <td></td>
-    <td><strong>Machine Type</strong></td>
-    <td><strong>Memory</strong></td>
-    <td><strong>Processor</strong></td>
-    <td><strong>Bandwidth</strong></td>
-  </tr>
-  <tr>
-    <td>Minimum</td>
-    <td>Standard_D2a_v4</td>
-    <td>8 GiB</td>
-    <td>2</td>
-    <td>2000 Mbps</td>
-  </tr>
-  <tr>
-    <td>Recommended</td>
-    <td>Standard_D4a_v4</td>
-    <td>16 GiB</td>
-    <td>4</td>
-    <td>4000 Mbps</td>
-  </tr>
+    <tr>
+        <td />
+        <td>
+            <strong>Machine Type</strong>
+        </td>
+        <td>
+            <strong>Memory</strong>
+        </td>
+        <td>
+            <strong>Processor</strong>
+        </td>
+        <td>
+            <strong>Bandwidth</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>Minimum</td>
+        <td>Standard_D2a_v4</td>
+        <td>8 GiB</td>
+        <td>2</td>
+        <td>2000 Mbps</td>
+    </tr>
+    <tr>
+        <td>Recommended</td>
+        <td>Standard_D4a_v4</td>
+        <td>16 GiB</td>
+        <td>4</td>
+        <td>4000 Mbps</td>
+    </tr>
 </table>
 
 ## Optimizing the Sauce Connect Proxy Performance
 
-- If you're running **50 or more parallel tests**, we recommend a minimum network bandwidth of 450 Mbps to support the high volume of network traffic.
-- If you're running **100 or more parallel tests**, we recommend a minimum network bandwidth of 750 Mbps to support the high volume of network traffic.
-- For best performance, stability, and security, we recommend using a dedicated server for each tunnel (see [Sauce Connect Proxy Network Security](/secure-connections/sauce-connect/security-authentication)).
-- If you're running **60 or more parallel tests**, we recommend launching more than one tunnel and using the [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
+-   If you're running **50 or more parallel tests**, we recommend a minimum network bandwidth of 450 Mbps to support the high volume of network traffic.
+-   If you're running **100 or more parallel tests**, we recommend a minimum network bandwidth of 750 Mbps to support the high volume of network traffic.
+-   For best performance, stability, and security, we recommend using a dedicated server for each tunnel (see [Sauce Connect Proxy Network Security](/secure-connections/sauce-connect/security-authentication)).
+-   If you're running **60 or more parallel tests**, we recommend launching more than one tunnel and using the [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
 
 These are recommendations for the number of Sauce Connect tunnels by number of tests running in parallel:
 
 <table>
-  <tr>
-    <td><strong>Parallel Tests</strong></td>
-    <td><strong>Recommended SC Tunnels</strong></td>
-  </tr>
-  <tr>
-    <td>0-59</td>
-    <td>1</td>
-  </tr>
-  <tr>
-    <td>60-119</td>
-    <td>2</td>
-  </tr>
-  <tr>
-    <td>120-199</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>200-299</td>
-    <td>4-5</td>
-  </tr>
-  <tr>
-    <td>400-599</td>
-    <td>6-7</td>
-  </tr>
-  <tr>
-    <td>600-799</td>
-    <td>8-9</td>
-  </tr>
-  <tr>
-    <td>800+</td>
-    <td>10</td>
-  </tr>
+    <tr>
+        <td>
+            <strong>Parallel Tests</strong>
+        </td>
+        <td>
+            <strong>Recommended SC Tunnels</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>0-59</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>60-119</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>120-199</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>200-299</td>
+        <td>4-5</td>
+    </tr>
+    <tr>
+        <td>400-599</td>
+        <td>6-7</td>
+    </tr>
+    <tr>
+        <td>600-799</td>
+        <td>8-9</td>
+    </tr>
+    <tr>
+        <td>800+</td>
+        <td>10</td>
+    </tr>
 </table>
 
 ## Setting Up Sauce Connect on Your Test Device Network
@@ -243,7 +284,11 @@ If you're testing in a restricted network setting, you may need to allowlist the
 
 You need to use the set of domains for your corresponding Sauce Labs data center: US data center (US West 1) or European data center (EU Central 1). The data center you're connected to is indicated in your navigation.<br/>
 
-<img src={useBaseUrl('img/sauce-connect/dc-ui.png')} alt="Sauce Connect data center" width="450"/>
+<img
+    src={useBaseUrl('img/sauce-connect/dc-ui.png')}
+    alt='Sauce Connect data center'
+    width='450'
+/>
 
 For more information on our data centers and how to choose the right one for you, see [Data Center Endpoints](/basics/data-center-endpoints).
 
@@ -275,7 +320,7 @@ values={[
 </TabItem>
 </Tabs>
 
-<br/>
+<br />
 
 #### Sauce Connect Tunnel Service Domains
 
@@ -309,15 +354,15 @@ values={[
 For US-West-1 (Virtual Device Cloud/Real Device Cloud + Sauce Connect): `*.miso.saucelabs.com`
 :::
 
-<br/>
+<br />
 
 ## Transport Layer Security (TLS) Requirements
 
 Here are the Sauce Connect Proxy network requirements for TLS and SSL traffic:
 
-- TLS version 1.2 or higher
-- TLS/SSL library (e.g., OpenSSL)
-- Network `port 443`, through which all traffic between your site and a Sauce Labs tunnel endpoint must pass
+-   TLS version 1.2 or higher
+-   TLS/SSL library (e.g., OpenSSL)
+-   Network `port 443`, through which all traffic between your site and a Sauce Labs tunnel endpoint must pass
 
 ## Certificate Management
 

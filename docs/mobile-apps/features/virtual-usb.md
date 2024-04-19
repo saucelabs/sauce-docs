@@ -38,8 +38,8 @@ It integrates into your development and test environment, meaning you can use yo
 - If you need to use [Sauce Connect Proxy](/secure-connections/sauce-connect), you'll need to have the client installed first.
 
 :::note Limitations
-vUSB is currently only supported for test automation. Debugging with any IDE, and attaching debuggers with Xcode and Android Studio, are not advised and won't be supported at this time). 
-iOS17 is not supported at this time. We will soon introduce a new CLI tool to connect to a device and run automated tests. 
+vUSB is currently only supported for test automation. Debugging with any IDE, and attaching debuggers with Xcode and Android Studio, are not advised and won't be supported at this time).
+iOS17 is not supported at this time. We will soon introduce a new CLI tool to connect to a device and run automated tests.
 :::
 
 ## Using Virtual USB
@@ -287,7 +287,7 @@ adb connect localhost:7000
 
 ### Test and Debug
 
-8. Now, you can debug and run tests on your app. We advise you to use our Sauce App Storage to upload the apps and run tests against them. 
+8. Now, you can debug and run tests on your app. We advise you to use our Sauce App Storage to upload the apps and run tests against them.
 
 <!-- prettier-ignore-start -->
 :::caution iOS Limitations
