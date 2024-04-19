@@ -30,11 +30,3 @@ hide_table_of_contents: true
     </div>
   </div>
 </div>
-<div>
-  <div className="box boxwidebottom card">
-    <div className="container">
-    <a href="/dev/cli/virtual-usb"><h3>Virtual USB CLI</h3></a>
-    <p>Our CLI app debugging tool that simulates connecting a Sauce Labs Private real device directly to your local machine with a USB cable.</p>
-    </div>
-  </div>
-</div>
