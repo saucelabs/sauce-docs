@@ -58,15 +58,15 @@ If your Identity Provider has this limitation and you have two organizations at 
 4. Keep in mind that the SAML SSO application that you have created in the previous step has to have **different Identity Provider Entity ID (**`issuer`**) than the first one**. This is mandatory because Sauce Labs Service Provider does not allow duplicate IdP entity IDs. This is an issue in standard setup with a single tenant in some identity providers, such as Azure Active Directory or Auth0. Every SAML app that you create within the same tenant will have the same entity ID in metadata and in the SAMLRequest. Follow the steps below for your identity provider:
    - **Azure Active Directory** provides a [solution for this multi-instancing setup](https://learn.microsoft.com/en-us/azure/active-directory/develop/reference-app-multi-instancing). Follow the below steps to set up multiple Sauce Labs SAML applications within the single Azure tenant:
      1. Once you set up successfully the new SAML app in Azure in the step #3, Go to **Single sign-on** settings of your Azure app and click **Edit** in the section **Attributes & Claims**.
-        <img src={useBaseUrl('img/basics/sso/setup-special-cases/multiple-saucelabs-orgs/azure-edit-attributes-and-claims.png')} alt="Azure: Edit Attributes&Claims" width="1100" />
+        <img src={useBaseUrl('img/basics/sso/setup-special-cases/multiple-saucelabs-orgs/azure/edit-attributes-and-claims.png')} alt="Azure: Edit Attributes&Claims" width="1100" />
      2. In **Advanced settings** edit **Advanced SAML claims options** and select the checkbox **Append application ID to issuer**.
-        <img src={useBaseUrl('img/basics/sso/setup-special-cases/multiple-saucelabs-orgs/azure-append-app-id-to-issuer.png')} alt="Azure: Append app ID to issuer" width="1100" />
+        <img src={useBaseUrl('img/basics/sso/setup-special-cases/multiple-saucelabs-orgs/azure/append-app-id-to-issuer.png')} alt="Azure: Append app ID to issuer" width="1100" />
      3. Download the metadata file of your Azure app.
-        <img src={useBaseUrl('img/basics/sso/setup-special-cases/multiple-saucelabs-orgs/azure-download-metadata.png')} alt="Azure: Download metadata" width="1100" />
+        <img src={useBaseUrl('img/basics/sso/setup-special-cases/multiple-saucelabs-orgs/azure/download-metadata.png')} alt="Azure: Download metadata" width="1100" />
      4. Next, before you upload metadata in Sauce Labs UI (step #5), you have to append Azure application ID to entity ID in metadata. Copy the application ID in the tab **Overview**.
-        <img src={useBaseUrl('img/basics/sso/setup-special-cases/multiple-saucelabs-orgs/azure-app-id.png')} alt="Azure: App ID" width="1100" />
+        <img src={useBaseUrl('img/basics/sso/setup-special-cases/multiple-saucelabs-orgs/azure/app-id.png')} alt="Azure: App ID" width="1100" />
      5. Open the metadata file in a text editor, append the app ID to the attribute `entityID` and save the file. You will upload this modified metadata file in Sauce Labs UI in the step #5.
-        <img src={useBaseUrl('img/basics/sso/setup-special-cases/multiple-saucelabs-orgs/azure-edit-metadata.png')} alt="Azure: Append app ID in metadata" width="1100" />
+        <img src={useBaseUrl('img/basics/sso/setup-special-cases/multiple-saucelabs-orgs/azure/edit-metadata.png')} alt="Azure: Append app ID in metadata" width="1100" />
    - **Auth0** requires adding a custom attribute (`issuer`) to the [SAML assertion configuration](https://auth0.com/docs/authenticate/protocols/saml/saml-configuration/customize-saml-assertions#saml-assertion-attributes). Follow the below steps to set up multiple Sauce Labs SAML applications within the single Auth0 tenant:
      1. Once you set up successfully the new SAML app in Auth0 in the step #3, go to **Addons** tab of your Auth0 app and click **SAML2 WEB APP**.
         <img src={useBaseUrl('img/basics/sso/setup-special-cases/multiple-saucelabs-orgs/auth0/edit-app.png')} alt="Auth0: Edit SAML App" width="1100" />
