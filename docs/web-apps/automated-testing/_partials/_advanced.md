@@ -181,8 +181,7 @@ env:
 ```
 
 When configured this way, the directory named `report-directory` will be archived as `archived-report.zip`.
-To maintain backwards compatibility, some asset types (e.g. images, logs, etc.) in `report-directory` will be
-automatically attached to the test results.
+To maintain backwards compatibility with our UI, some asset types (e.g. images, logs, etc.) in `report-directory` will still be automatically copied over to `__assets__/` and attached to the test results.
 
 ## Setting up a Proxy
 
