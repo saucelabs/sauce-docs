@@ -165,7 +165,7 @@ you can use the `retain` feature to define a directory to archive and store as a
 Nested assets are stored **flat** in Sauce Labs. A test asset like `__assets__/mylogs/log.txt` would therefore be stored and available for download as `log.txt`.
 Please keep that in mind when creating custom assets, as examples like `__assets__/mylogs/log.txt` and `__assets__/myotherlogs/log.txt` would eventually collide when persisted.
 
-For cypress and playwright, there are cases where you may want to override this default behaviour; e.g. your test framework generates
+For Cypress and Playwright, there are cases where you may want to override this default behavior; e.g. your test framework generates
 an HTML report and you want to preserve the entire report directory and don't want the individual files to
 be flattened and automatically attached as described above. In that case, you can set an environment variable
 in your saucectl config to opt out of the default behaviour. When set, the configured output directory
