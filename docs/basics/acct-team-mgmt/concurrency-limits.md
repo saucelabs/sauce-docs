@@ -59,7 +59,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 :::caution
 
-Queuing will be disabled on May 1st, 2024 (implemented upon contract renewal). To better manage your usage, check the [Usage Analytics](https://docs.saucelabs.com/dev/api/usage/) that Sauce Labs provides for you 
+Queuing will be disabled on May 1st, 2024 (implemented upon contract renewal). To better manage your usage, check the [Usage Analytics](/insights/usage-report) that Sauce Labs provides for you 
 
 :::
 
