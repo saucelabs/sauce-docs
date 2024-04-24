@@ -42,7 +42,33 @@ values={[
 <TabItem value="Java">
 
 ```java
-// Add selenium example
+public class SauceLabsTest {
+
+    public static void main(String[] args) {
+
+        ChromeOptions options = new ChromeOptions();
+        options.setBrowserVersion("latest");
+        options.setPlatformName("Windows 10");
+
+        HashMap<String, Object> sauceOptions = new HashMap<>();
+        sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
+        sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
+        sauceOptions.put("devTools", true);
+        sauceOptions.put("name", "My Selenium CDP Test");
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("chromeOptions", options);
+        capabilities.setCapability("sauce:options", sauceOptions);
+
+        String sauceUrl = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
+        // Alternatively use EU datacenter
+        // String sauceUrl = "https://ondemand.eu-central-1.saucelabs.com/wd/hub";
+
+        WebDriver driver = new RemoteWebDriver(new URL(sauceUrl), capabilities);
+
+        driver.quit();
+    }
+}
 ```
 
 </TabItem>
@@ -71,7 +97,44 @@ driver = webdriver.Remote(command_executor=sauce_url, options=options)
 <TabItem value="WebdriverIO">
 
 ```javascript
-// Add selenium example
+const { ChromeOptions } = require('selenium-webdriver');
+const { Builder, By, Key } = require('selenium-webdriver');
+
+const SAUCE_USERNAME = process.env.SAUCE_USERNAME;
+const SAUCE_ACCESS_KEY = process.env.SAUCE_ACCESS_KEY;
+
+const options = new ChromeOptions();
+options.browser_version = 'latest';
+options.platform_name = 'Windows 10';
+
+const sauce_options = {
+  'username': SAUCE_USERNAME,
+  'accessKey': SAUCE_ACCESS_KEY,
+  'devTools': true,
+  'name': 'My Selenium CDP Test'
+};
+
+options.set_capability('sauce:options', sauce_options);
+
+const sauce_url = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
+// Alternatively use EU datacenter
+// const sauce_url = "https://ondemand.eu-central-1.saucelabs.com/wd/hub";
+
+(async () => {
+  try {
+    const driver = await new Builder().forBrowser('chrome').remote(sauce_url, options).build();
+
+    await driver.get('https://www.example.com'); // Replace with your test URL
+
+    const element = await driver.findElement(By.id('search-box'));
+    await element.sendKeys('Selenium Test');
+    await element.sendKeys(Key.ENTER);
+
+    await driver.quit();
+  } catch (error) {
+    console.error(error);
+  }
+})();
 ```
 
 </TabItem>

@@ -75,7 +75,16 @@ async with driver.bidi_connection() as connection:
 <TabItem value="WebdriverIO">
 
 ```javascript
-// Add Example
+async function setCookie() {
+  await browser.setCookies([
+    {
+      name: "cheese",
+      value: "gouda",
+      domain: "www.selenium.dev",
+      secure: true,
+    },
+  ]);
+}
 ```
 
 </TabItem>
@@ -125,7 +134,12 @@ async with driver.bidi_connection() as connection:
 <TabItem value="WebdriverIO">
 
 ```javascript
-// Add Example
+async function myTest() {
+  const encodedAuth = Buffer.from("admin:admin").toString("base64");
+  const headers = { Authorization: `Basic ${encodedAuth}` };
+
+  await browser.url("http://localhost:3000/api/endpoint?headers=" + JSON.stringify(headers));
+}
 ```
 
 </TabItem>
@@ -171,7 +185,15 @@ async with driver.bidi_connection() as session:
 <TabItem value="WebdriverIO">
 
 ```javascript
-// Add Example
+async function captureConsoleLogs() {
+  const listenerFunction = function (message) {
+    console.log("Console Log:", message);
+  };
+
+  await browser.call(() => {
+    console.addListener("all", listenerFunction);
+  });
+}
 ```
 
 </TabItem>
@@ -229,7 +251,24 @@ async with driver.bidi_connection() as connection:
 <TabItem value="WebdriverIO">
 
 ```javascript
-// Add Example
+async function captureContentTypes() {
+  const contentTypes = [];
+
+  const listener = async (event) => {
+    if (event.name === 'Network.responseReceived') {
+      const contentType = event.params.response.headers['Content-Type'];
+      contentTypes.push(contentType);
+
+      if (contentType === 'text/html; charset=utf-8') {
+        await browser.removeListener('Network.responseReceived', listener);
+      }
+    }
+  };
+
+  await browser.on('Network.responseReceived', listener);
+
+  console.log('Captured content types:', contentTypes);
+}
 ```
 
 </TabItem>
