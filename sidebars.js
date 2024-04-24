@@ -1546,7 +1546,7 @@ module.exports = {
                         },
                         {
                             type: 'category',
-                            label: 'CDP / BiDi (NEW)',
+                            label: 'CDP / BiDi (Beta)',
                             collapsed: true,
                             items: [
                                 'web-apps/automated-testing/cdp-bidi',
