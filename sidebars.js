@@ -894,12 +894,20 @@ module.exports = {
                                     type: 'category',
                                     label: 'Managing Users and Accounts',
                                     collapsed: true,
-                                    items: [
-                                        'basics/acct-team-mgmt/concurrency-limits',
+                                    items: [                                    
                                         'basics/acct-team-mgmt/adding-deactivating-users',
                                         'basics/acct-team-mgmt/managing-user-info',
                                         'basics/acct-team-mgmt/viewing-exporting-usage-data',
                                         'basics/acct-team-mgmt/switching-active-team',
+                                    ],
+                                },
+                                {
+                                    type: 'category',
+                                    label: 'Managing Concurrency',
+                                    collapsed: true,
+                                    items: [                            
+                                        'basics/acct-team-mgmt/concurrency/understanding-concurrency',
+                                        'basics/acct-team-mgmt/concurrency/managing-concurrency',
                                     ],
                                 },
                                 {
