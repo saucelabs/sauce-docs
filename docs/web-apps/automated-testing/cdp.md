@@ -56,9 +56,7 @@ public class SauceLabsTest {
         sauceOptions.put("devTools", true);
         sauceOptions.put("name", "My Selenium CDP Test");
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("chromeOptions", options);
-        capabilities.setCapability("sauce:options", sauceOptions);
+        options.setCapability("sauce:options", sauceOptions);
 
         String sauceUrl = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
         // Alternatively use EU datacenter
