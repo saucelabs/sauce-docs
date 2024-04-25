@@ -62,7 +62,7 @@ public class SauceLabsTest {
         // Alternatively use EU datacenter
         // String sauceUrl = "https://ondemand.eu-central-1.saucelabs.com/wd/hub";
 
-        WebDriver driver = new RemoteWebDriver(new URL(sauceUrl), capabilities);
+        WebDriver driver = new RemoteWebDriver(new URL(sauceUrl), options);
 
         driver.quit();
     }
