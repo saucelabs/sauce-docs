@@ -143,7 +143,7 @@ client.finish_build()
 
 ## Environment variables
 
-Below are the environment variables available in the Sauce Visual Python plugin:
+Below are the environment variables available in the Sauce Visual Python plugin. Keep in mind that the variables defined in Robot configuration have precedence over these ones.
 
 <EnvironmentVariables />
 
