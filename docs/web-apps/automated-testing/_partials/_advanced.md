@@ -153,12 +153,35 @@ This feature is highly experimental.
 
 ## Attaching Test Assets
 
-Any test assets created by your tests at runtime (such as logs, screenshots or reports) you wish to retain along with your test results must be placed in the `__assets__` directory of your project root folder. On Sauce Labs VMs, this path is relative to the current working directory.
+By default, any test assets created by your tests at runtime (such as logs, screenshots or reports) you wish to retain along with your test results must be placed in the `__assets__` directory of your project root folder. On Sauce Labs VMs, this path is relative to the current working directory.
 
-:::note Nested Paths
+### Attaching entire directories
+
+In situations where you want to preserve the file structure of your assets (e.g. a multi-page HTML report),
+you can use the `retain` feature to define a directory to archive and store as a test asset.
+
+### Handling nested assets
+
 Nested assets are stored **flat** in Sauce Labs. A test asset like `__assets__/mylogs/log.txt` would therefore be stored and available for download as `log.txt`.
 Please keep that in mind when creating custom assets, as examples like `__assets__/mylogs/log.txt` and `__assets__/myotherlogs/log.txt` would eventually collide when persisted.
-:::
+
+For Cypress and Playwright, there are cases where you may want to override this default behavior; e.g. your test framework generates
+an HTML report and you want to preserve the entire report directory and don't want the individual files to
+be flattened and automatically attached as described above. In that case, you can set an environment variable
+in your saucectl config to opt out of the default behaviour. When set, the configured output directory
+for the test run will be honoured; e.g. it won't be overridden to `__assets__/`.
+
+```yaml title= "example configuration"
+artifacts:
+  retain:
+    report-directory: archived-report.zip
+
+env:
+  SAUCE_SYNC_WEB_ASSETS: "true"
+```
+
+When configured this way, the directory named `report-directory` will be archived as `archived-report.zip`.
+To maintain backwards compatibility with our UI, some asset types (e.g. images, logs, etc.) in `report-directory` will still be automatically copied over to `__assets__/` and attached to the test results.
 
 ## Setting up a Proxy
 

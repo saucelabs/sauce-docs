@@ -5,10 +5,6 @@ sidebar_label: Troubleshooting
 description: Troubleshooting reference for Unreal Engine crash reports.
 ---
 
-## Android Assert (Check/Ensure/Verify) crashes are not showing up in Backtrace for my debug builds
-
-Backtrace currently doesn't handle the Assert crashes typically associated with Debug builds on Android. This is not a problem in release builds, where these types of conditions tend to be compiled out. For more information on Asserts, see the [Unreal Engine Documentation](https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/ProgrammingWithCPP/Assertions/).
-
 ## How can I troubleshoot failures in crash reporting?
 
 Please refer to your crash reporting client logs.

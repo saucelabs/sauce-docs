@@ -614,6 +614,35 @@ artifacts:
 
 ---
 
+### `retain`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Define directories to archive and retain as a test asset at the end of a test run. Archived test assets can
+be downloaded automatically using the `download` configuration, via the 
+[REST API](/dev/api/jobs/#get-a-job-asset-file), or through the test details page.
+
+```yaml
+artifacts:
+  retain:
+    source-directory: destination-archive.zip
+  download:
+    when: always
+    match:
+      - destination-archive.zip
+    directory: ./artifacts/
+```
+
+:::note
+The source and destination will be relative to the `rootDir` defined in your configuration.
+:::
+
+:::note
+The destination archive must have a .zip file extension.
+:::
+
+---
+
 ### `download`
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
@@ -688,7 +717,7 @@ The parent property containing the details specific to the Playwright project.
 
 ```yaml
 playwright:
-  version: 1.36.2
+  version: 1.43.1
   configFile: config.ts
 ```
 
@@ -702,7 +731,7 @@ The version of Playwright that is compatible with the tests defined in this file
 
 ```yaml
 playwright:
-  version: 1.36.2
+  version: 1.43.1
 ```
 
 :::tip
