@@ -1774,6 +1774,12 @@ Assign user to one or multiple teams. New team assignments will replace the exis
      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the Sauce Labs user. You can look up the ID of a user in your organization using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+     <td><code>teams</code></td>
+     <td><p><small>| BODY | REQUIRED | ARRAY OF STRINGS |</small></p><p>List of unique team identifiers. You can look up the ID of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
+    </tr>
+  </tbody>
 </table>
 
 <Tabs
@@ -1790,7 +1796,7 @@ values={[
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request PUT 'https://api.us-west-1.saucelabs.com/team-management/v1/users/<user-id>/teams/' \
 --header 'Content-Type: application/json' \
---data-raw '["<team1-id>", "<team2-id>"]' | json_pp
+--data-raw '{"teams": ["<team1-id>", "<team2-id>"]}' | json_pp
 ```
 
 </TabItem>
@@ -1800,7 +1806,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request PUT 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/<user-id>/teams/' \
 --header 'Content-Type: application/json' \
---data-raw '["<team1-id>", "<team2-id>"]' | json_pp
+--data-raw '{"teams": ["<team1-id>", "<team2-id>"]}' | json_pp
 ```
 
 </TabItem>

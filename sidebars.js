@@ -885,7 +885,7 @@ module.exports = {
                         'basics/environment-variables',
                         {
                             type: 'category',
-                            label: 'Account and Team Management',
+                            label: 'Account and Organization Management',
                             collapsed: true,
                             items: [
                                 'basics/acct-team-mgmt-hub',
@@ -1507,6 +1507,7 @@ module.exports = {
                             items: [
                                 'web-apps/automated-testing/playwright',
                                 'web-apps/automated-testing/playwright/quickstart',
+                                'web-apps/automated-testing/playwright/selenium-grid',
                                 'web-apps/automated-testing/playwright/yaml',
                                 'web-apps/automated-testing/playwright/advanced',
                             ],
@@ -1702,10 +1703,12 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'visual-testing/integrations/cypress',
+                        'visual-testing/integrations/csharp',
                         'visual-testing/integrations/java',
                         'visual-testing/integrations/nightwatch',
                         'visual-testing/integrations/storybook',
                         'visual-testing/integrations/webdriverio',
+                        'visual-testing/integrations/python',
                     ],
                 },
                 'visual-testing/faq',

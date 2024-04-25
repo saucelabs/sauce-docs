@@ -7,7 +7,6 @@ sidebar_label: Appium Inspector
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <p><small><span className="sauceGreen">Real Devices Only</span></small></p>
-<p><small><span className="sauceGreen">BETA</span></small></p>
 
 Appium Inspector is a powerful tool built on top of the Appium test automation framework to help simplify the process of writing/debugging tests for mobile applications on real devices. This helps to automate a new application or feature in your native application. The tool is designed to help you select specific elements in your application for test automation, so you will be able to debug issues in your test automation scripts in a timely manner.
 Our latest solution seamlessly integrates into the Sauce Labs environment, requires no additional configuration on your end and it removes the burden of installing a 3rd party tool. 
@@ -97,8 +96,6 @@ Height
 x/y coordinates
 
 ## Hybrid Apps / WebView
-
-<p><span className="sauceGreen">iOS Only</span></p>
 
 Utilize [Dev Tools](https://docs.saucelabs.com/web-apps/live-testing/dev-tools/) to validate hybrid or web views within native applications. 
 This feature enables seamless validation of web content integrated within native apps, providing comprehensive testing capabilities for a 

@@ -8,6 +8,23 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <p><span className="sauceGreen">Enterprise Plans only</span></p>
 
+## NameID is not a real email address but a user identifier
+
+### Problem Description
+
+In some cases, the NameID in the SAML assertion is not a real email address but an identifier. This user identifier is immutable. Users in your Identity Provider have also been assigned email addresses that can change at any time.
+
+You want to use this user identifier to match users in Sauce Labs, but you also want to provide the real email address to Sauce Labs.
+
+### Solution
+
+1. If the user identifier is not an email address, ensure to send it in the NameID field as an email address. [This format](/basics/sso/setting-up-sso/#name-id) is required by the Sauce Labs Service Provider. Simply put the user identifier in the NameID field and add your company's dummy domain to it. For example, if the user identifier is `john.doe`, the NameID should be `john.doe@your.company.domain`.
+2. Send the real email address in the SAML claim `contact_email`.
+
+Keep in mind that the value of `contact_email` will be used as the primary email address for the user in Sauce Labs. If the `contact_email` changes and the user logs in to Sauce Labs, the email address in Sauce Labs will be updated.
+
+The `contact_email` must be an email address not used by any other user in Sauce Labs.
+
 ## Single Identity Provider and Multiple Organizations at Sauce Labs
 
 :::note
@@ -51,7 +68,7 @@ If your Identity Provider has this limitation and you have two organizations at 
      5. Open the metadata file in a text editor, append the app ID to the attribute `entityID` and save the file. You will upload this modified metadata file in Sauce Labs UI in the step #5.
         <img src={useBaseUrl('img/basics/sso/setup-special-cases/multiple-saucelabs-orgs/azure-edit-metadata.png')} alt="Azure: Append app ID in metadata" width="1100" />
 5. [Integrate the SAML SSO application](/basics/sso/setting-up-sso/#integrating-with-sauce-labs-service-provider) that you created using the auxiliary metadata (`sp1`) with the other Sauce Labs organization.
-   - The only additional action that you need to do, while you are in the Single Sign-On Configuration in Sauce Labs Team Management, is to expand the section **Advanced SSO Settings** and in the dropdown list **Service Provider** select **Auxiliary SP1**.
+   - The only additional action that you need to do, while you are in the Single Sign-On Configuration in Sauce Labs Organization Management, is to expand the section **Advanced SSO Settings** and in the dropdown list **Service Provider** select **Auxiliary SP1**.
      <img src={useBaseUrl('img/basics/sso/setup-special-cases/multiple-saucelabs-orgs/saucelabs-auxiliary-sp.png')} alt="Auxiliary Service Provider" width="1100" />
 
 ## Multiple Organizations with the Same Email Domain at Sauce Labs

@@ -2,15 +2,16 @@
 sidebar_label: Nightwatch
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import FullPageJS from '../_partials/_fullpage-js.md'
+import ClippingWDIO from '../_partials/_clipping-webdriver.md';
+import EnterpriseNote from '../_partials/_enterprise-note.md';
+import EnvironmentVariables from '../_partials/_environment-variables.md';
 
 # Nightwatch Integration
 
-:::note Important
-Access to this feature is currently limited to Enterprise customers as part of our commitment to providing tailored solutions. We are excited to announce that self-service access is under development and will be released shortly. Stay tuned!
-:::
+<EnterpriseNote />
 
 ## Introduction
 
@@ -167,6 +168,12 @@ More information about the status can be found [here](#sauce-visual-assertion)
 
 ## Advanced usage
 
+### Customizing Your Builds (Environment Variables)
+
+Below are the environment variables available in the Sauce Visual Nightwatch plugin. Keep in mind that the variables defined in Nightwatch configuration have precedence over these ones.
+
+<EnvironmentVariables />
+
 ### Sauce Visual Assertion
 
 :::note
@@ -221,6 +228,7 @@ Options:
 - `project`: Name of the project, used for matching
 - `branch`: Name of the branch, used for matching
 - `defaultBranch`: Name of the default branch, used for matching
+- `captureDom`: Enable DOM capture globally, can also be enabled on a per-screenshot basis
 
 ```ts
 // ...
@@ -235,6 +243,7 @@ module.exports = {
         buildName: 'Nightwatch Visual Demo Test',
         project: 'Nightwatch Project',
         branch: 'main',
+        // captureDom: true,
       },
       // ...
     },
@@ -317,31 +326,11 @@ browser
 
 ### Full page screenshots
 
-If you want to see more than what's on the screen, you can take a full-page screenshot. It'll capture everything by scrolling and stitching it together.
+<FullPageJS />
 
-:::note
-It's recommended to use the `hideAfterFirstScroll` option for elements like sticky header.
-:::
+### Clip to an element
 
-Options:
-
-- `delayAfterScrollMs`: Delay in ms after scrolling and before taking screenshots (helps with lazy loading content)
-- `hideAfterFirstScroll`: Hide elements on the page after first scroll (uses css selectors)
-
-Example:
-
-```ts
-await browser.sauceVisualCheck('Long content page', {
-  fullPage: true,
-});
-
-await browser.sauceVisualCheck('Long content page', {
-  fullPage: {
-    delayAfterScrollMs: 500,
-    hideAfterFirstScroll: ["#header"],
-  },
-});
-```
+<ClippingWDIO />
 
 ### Fail on failures
 

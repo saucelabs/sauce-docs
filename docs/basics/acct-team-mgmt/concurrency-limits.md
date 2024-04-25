@@ -12,9 +12,9 @@ If your organization has multiple teams sharing a Sauce Labs account, you can us
 
 If you are an org admin, you can view and control your organization's concurrency limits:
 
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. In Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 
-<img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="300"/>
+<img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="300"/>
 
 2. On the **Organization Management** page, under the ORGANIZATION NAME box, concurrency limits will be displayed for the selected data center. 
 
@@ -35,7 +35,7 @@ For more usage information, see [Viewing and Exporting Usage Data](/basics/acct-
 
 ## How Concurrency Allocation Works
 
-Through Sauce Labs, organization admins set the total concurrency of their organization's account. When setting the concurrency limit for a team, be mindful that team members share the concurrency limit of the team. If a team exceeds its concurrency limit, any additional tests will be queued. Be informed that queuing will be disabled from March 1st, 2024. 
+Through Sauce Labs, organization admins set the total concurrency of their organization's account. When setting the concurrency limit for a team, be mindful that team members share the concurrency limit of the team. If a team exceeds its concurrency limit, any additional tests will be queued. Be informed that queuing will be disabled from May 1st, 2024 (upon contract renewal). 
 
 #### Example - Org Limits
 
@@ -59,7 +59,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 :::caution
 
-Queuing will be disabled on March 1st, 2024. To better manage your usage, check the [Usage Analytics](https://docs.saucelabs.com/dev/api/usage/) that Sauce Labs provides for you 
+Queuing will be disabled on May 1st, 2024 (implemented upon contract renewal). To better manage your usage, check the [Usage Analytics](/insights/usage-report) that Sauce Labs provides for you 
 
 :::
 
