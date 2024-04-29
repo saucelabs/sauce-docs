@@ -274,4 +274,4 @@ async function captureContentTypes() {
 </TabItem>
 </Tabs>
 
-See also [alternative implementations](https://www.selenium.dev/documentation/webdriver/bidirectional/chrome_devtools/bidi_api/#response-information)
+See also [alternative implementations](https://www.selenium.dev/documentation/webdriver/bidirectional/chrome_devtools/bidi_api/#response-information) or [WebdriverIO reference on CDP](https://webdriver.io/docs/devtools-service/#chrome-devtools-access)
