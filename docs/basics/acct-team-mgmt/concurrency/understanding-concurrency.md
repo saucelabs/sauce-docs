@@ -6,13 +6,11 @@ sidebar_label: Understanding Concurrency
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<!-- <p><span className="sauceGreen">Enterprise Plans only</span></p> -->
-
 Your subscription to the Sauce Labs Virtual Cloud or Real Device Cloud entitles you to run a certain amount of concurrent tests as many times as you like within a given region. In essence, this means you pay for the ability to run at your peak needs and you can run at that as frequently as you like. Your concurrency can be used for both automated and live testing.
 
 ## Virtual Cloud Concurrency
 
-Concurrency for the virtual cloud is defined at two levels, the organization and the team level. 
+Concurrency for the Virtual Cloud is defined at two levels, the organization and the team level. 
 
 To view your organizations concurrency limit:
 
@@ -32,7 +30,7 @@ To view the concurrency for a given team
 
 ### Exceeding Virtual Cloud Concurrency
 
-The virtual cloud is used to run business critical pipelines across large enterprise organizations. This means there will be times when it is difficult to predict exactly how much concurrency you will need at all times. For these situations we allow your organization to exceed it's concurrency limit. 
+The Virtual Cloud is used to run business critical pipelines across large enterprise organizations. This means there will be times when it is difficult to predict exactly how much concurrency you will need at all times. For these situations we allow your organization to exceed it's concurrency limit. 
 
 The following table describes the maximum amount you are allowed to exceed your concurrency limit.
 
@@ -43,9 +41,9 @@ The following table describes the maximum amount you are allowed to exceed your 
 |501-2000|50%|1000 -> 1500|
 |2001+|10%|2500 -> 2750|
 
-Once your organization attempts to run a test past the maximum amount you can exceed your tests will receive a [You've Exceeding Your Concurrency Limit Error] (/dev/error-messages/#youve-exceeded-your-sauce-labs-concurrency-limit)
+Once your organization attempts to run a test past the maximum amount you can exceed your tests will receive a [You've Exceeding Your Concurrency Limit Error](/dev/error-messages/#youve-exceeded-your-sauce-labs-concurrency-limit)
 
-To learn more about how to manage your concurrency including setting team limits and receiving usage notifications please read [Managing Concurrency](./managing-concurrency.md)
+To learn more about how to manage your concurrency, including setting team limits and receiving usage notifications, please read [Managing Concurrency](/basics/acct-team-mgmt/concurrency/managing-concurrency/)
 
 
 ## Real Device Cloud Concurrency

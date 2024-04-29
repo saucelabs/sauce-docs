@@ -21,9 +21,9 @@ The first and foremost way to manage how many concurrent tests to run on Sauce L
 </Tabs>
 
 #### Usage Reporting & Notifications
-Sauce Labs provides you robust mechanisms to inspect your organizations usage. This includes seeing your organization wide usage over time and a team breakdown. To learn more see (Usage Report)[/insights/usage-report].
+Sauce Labs provides you robust mechanisms to inspect your organization's usage. This includes seeing your organization wide usage over time and a team breakdown. To learn more see [Usage Report](/insights/usage-report).
 
-We also provide notification mechanisms to alert you when your organization is reaching its subscription amount. To learn more about these see (Usage Notifications)[/insights/usage-report].
+We also provide notification mechanisms to alert you when your organization is reaching its subscription amount. To learn more about these see [Usage Notifications](/insights/usage-report).
 
 #### Team Management
 
@@ -53,7 +53,7 @@ For more usage information, see [Viewing and Exporting Usage Data](/basics/acct-
 
 6. Under the Teams tab, Enter **Team VM Concurrency** and click on Update.
 
-For an example, if an organization admin allocates 100 VMs to Team A, which has five members. Since the members of a team share the team's VM limit, the number of concurrent tests being run by the five team members cannot exceed 100. However, concurrency limits cannot be set at the user level, so User A could be running 20 tests, while user B is running 50 tests, and users C, D, and E are running 10 tests each. Or User A could be running 100 tests while Users B, C, D, and E are not running any tests.
+For an example, let's say the organization admin allocates 100 VMs to Team A, which has five members. Since the members of a team share the team's VM limit, the number of concurrent tests being run by the five team members cannot exceed 100. However, concurrency limits cannot be set at the user level, so User A could be running 20 tests, while user B is running 50 tests, and users C, D, and E are running 10 tests each. Or User A could be running 100 tests while Users B, C, D, and E are not running any tests.
 
 #### Concurrency API
 
