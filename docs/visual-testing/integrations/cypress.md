@@ -181,7 +181,7 @@ export default defineConfig({
 
 ### Environment variables
 
-Below are the environment variables available for the Sauce Visual for Cypress plugin. Keep in mind that these variables have precedence over the ones defined in Cypress configuration.
+Below are the environment variables available for the Sauce Visual for Cypress plugin. Keep in mind that the variables defined in Cypress configuration have precedence over these variables.
 
 <EnvironmentVariables />
 
