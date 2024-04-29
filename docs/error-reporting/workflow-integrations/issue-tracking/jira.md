@@ -225,6 +225,7 @@ With data synchronization, Backtrace will sync resolution Status and Assignee fi
 
 - **Data synchronization from Backtrace to Jira**: The Status and Assignee fields will be updated in Jira when issues are updated in Backtrace.
 - **Data synchronization from Jira to Backtrace**: The Status and Assignee fields will be updated in Backtrace when issues are updated in Jira.
+- **Assignee and Status Synchronization on Linking**: Select the source of truth in the event of a mismatch of these fields between Backtrace and Jira.
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-two-way-sync.png')} alt="Shows how to enable two-way sync from Backtrace and Jira." width="700" />
 
