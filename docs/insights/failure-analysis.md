@@ -14,7 +14,7 @@ Using Failure Analysis:
 - Validates investment in test automation by showing larger patterns as a source of failure, allowing for global mitigation and faster time-to-market with better quality
 
 :::note
-Failure Analysis supports Cypress, Playwright, Selenium and Appium. However, for Selenium and Appium to be effective, the tests must be configured to [report a pass/fail outcome](/basics/test-config-annotation/test-annotation#setting-passfail). Additionally, Appium is supported only for mobile web applications and not for native applications.
+Failure Analysis supports Playwright, Selenium and Appium. However, for Selenium and Appium to be effective, the tests must be configured to [report a pass/fail outcome](/basics/test-config-annotation/test-annotation#setting-passfail). Additionally, Appium is supported only for mobile web applications and not for native applications.
 :::
 
 ## How it Works

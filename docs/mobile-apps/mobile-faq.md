@@ -88,6 +88,7 @@ We maintain an allowlist of commands that can be executed within our Real Device
 * cmd connectivity airplane-mode (enable|disable)
 * settings put global (animator_duration_scale|transition_animation_scale|window_animation_scale) <value\>
 * setprop debug.firebase.analytics.app <value\>
+* setprop (log.tag.FA|log.tag.FA-SVC) (ERROR|WARN|INFO|DEBUG|VERBOSE)
 
 If the command you require is not listed, you can submit a request through this [form](https://docs.google.com/forms/d/1t4MCf6ClHlLxX80RP5bNU9wVJBhQOd4ll6IjP0ecMgc) 
 or reach out to your Customer Success Manager or Sauce Labs Support for assistance.

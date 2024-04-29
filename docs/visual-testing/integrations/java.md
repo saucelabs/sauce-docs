@@ -225,7 +225,7 @@ Remember, the baseline is established during the initial run, and any subsequent
 
 ### Customizing Your Builds (Environment Variables)
 
-Below are the environment variables available in the Sauce Visual Java plugin. Keep in mind that these variables have precedence over the ones defined in CheckOptions configuration.
+Below are the environment variables available in the Sauce Visual Java plugin. Keep in mind that the variables defined in `CheckOptions` configuration have precedence over these ones.
 
 <EnvironmentVariables />
 
