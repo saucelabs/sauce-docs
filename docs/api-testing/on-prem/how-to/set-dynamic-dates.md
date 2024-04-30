@@ -1,5 +1,5 @@
 ---
-id: dynamic-dates
+id: set-dynamic-dates
 title: Dynamic Dates
 sidebar_label: Dynamic Dates
 keywords:

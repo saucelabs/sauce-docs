@@ -1,5 +1,5 @@
 ---
-id: legacy
+id: sc-legacy
 title: sc legacy
 ---
 

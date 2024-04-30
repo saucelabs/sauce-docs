@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     apif: [
         {
             type: 'category',
@@ -115,13 +115,13 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'api-testing/on-prem/how-to/assertions-for-metrics-performance',
-                        'api-testing/on-prem/how-to/3-leg-oauth',
+                        'api-testing/on-prem/how-to/three-leg-oauth',
                         'api-testing/on-prem/how-to/integration-testing',
                         'api-testing/on-prem/how-to/copy-a-test',
                         'api-testing/on-prem/how-to/authorization-simple-oauth-etc',
                         'api-testing/on-prem/how-to/different-ways-to-compose-a-request-body',
                         'api-testing/on-prem/how-to/disable-ssl-validation',
-                        'api-testing/on-prem/how-to/dynamic-dates',
+                        'api-testing/on-prem/how-to/set-dynamic-dates',
                         'api-testing/on-prem/how-to/tweaking-stateful-email-notifications',
                         'api-testing/on-prem/how-to/executing-from-cucumber',
                         'api-testing/on-prem/how-to/following-redirects',
@@ -167,7 +167,7 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'api-testing/on-prem/integrations/connectors/bigpanda-io',
-                                'api-testing/on-prem/integrations/connectors/datadog',
+                                'api-testing/on-prem/integrations/connectors/setup-connectors-datadog',
                                 'api-testing/on-prem/integrations/connectors/elastic-kibana',
                                 'api-testing/on-prem/integrations/connectors/jira',
                                 'api-testing/on-prem/integrations/connectors/pagerduty',
@@ -722,8 +722,8 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'dev/cli/sauce-connect-5',
-                        'dev/cli/sauce-connect-5/run',
-                        'dev/cli/sauce-connect-5/legacy',
+                        'dev/cli/sauce-connect-5/sc-run',
+                        'dev/cli/sauce-connect-5/sc-legacy',
                         'dev/cli/sauce-connect-5/completion',
                     ],
                 },

@@ -1,5 +1,5 @@
 ---
-id: run
+id: sc-run
 title: sc run
 ---
 
@@ -172,7 +172,7 @@ Site or upstream proxy basic authentication credentials.
 The host and port can be set to "*" to match all hosts and ports respectively.
 The flag can be specified multiple times to add multiple credentials.
 Note: Requests to these hosts will be automatically resigned as if there were specified in --tls-resign-domains flag.
-Example: 
+Example:
 ```
 --proxy myproxy.org:3128 --proxy-sauce https://external.com:443 --auth user1:pass1@myproxy.org:3128,user2:pass2@external.com:*
 ```

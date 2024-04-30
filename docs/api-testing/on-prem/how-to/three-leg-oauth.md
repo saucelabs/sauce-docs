@@ -1,5 +1,5 @@
 ---
-id: 3-leg-oauth
+id: three-leg-oauth
 title: 'Automating 3-Legged OAuth'
 sidebar_label: 'Automating 3-Legged OAuth'
 keywords:

@@ -1,5 +1,5 @@
 ---
-id: datadog
+id: setup-connectors-datadog
 title: 'Connectors: DataDog'
 sidebar_label: DataDog
 keywords:
