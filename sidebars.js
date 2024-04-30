@@ -1552,6 +1552,15 @@ module.exports = {
                                 'web-apps/automated-testing/replay/yaml',
                             ],
                         },
+                        {
+                            type: 'category',
+                            label: 'CDP / BiDi (Beta)',
+                            collapsed: true,
+                            items: [
+                                'web-apps/automated-testing/cdp-bidi',
+                                'web-apps/automated-testing/cdp-bidi/examples',
+                            ],
+                        },
                     ],
                 },
                 'web-apps/automated-testing/web-automated-faq',
