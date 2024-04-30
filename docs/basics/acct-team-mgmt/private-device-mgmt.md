@@ -31,7 +31,7 @@ Private device management allows an organization admin to view and manage the pr
 For more information about managing teams, see [Adding and Deleting Teams](/basics/acct-team-mgmt/adding-deleting-teams).
 
 Private devices are not included in VM or RDC concurrency limits.  
-For more details, please see [Concurrency Limits and Team Accounts](/basics/acct-team-mgmt/concurrency-limits).
+For more details, please see [Managing Concurrency](/basics/acct-team-mgmt/concurrency/managing-concurrency).
 :::
 
 ## Viewing an Organization’s Private Devices

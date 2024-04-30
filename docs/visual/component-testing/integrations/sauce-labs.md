@@ -25,7 +25,7 @@ To learn more about Screener's Cross-Browser Testing, see [Visual Component Cros
 ## What You'll Need
 
 - A valid Sauce Labs account.
-- Access to enough [concurrency](/basics/acct-team-mgmt/concurrency-limits) in your Sauce account to run Screener tests. Each browser/resolution combination will use one concurrent machine.
+- Access to enough [concurrency](/basics/acct-team-mgmt/concurrency/understanding-concurrency) in your Sauce account to run Screener tests. Each browser/resolution combination will use one concurrent machine.
 
 ## Adding Sauce Labs Browsers
 
