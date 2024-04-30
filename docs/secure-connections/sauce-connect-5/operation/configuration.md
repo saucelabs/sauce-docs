@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The explicit way to launch a Sauce Connect Proxy tunnel is to run a single command line comprised of all [flags](/dev/cli/sauce-connect-5/run/) and any optional [flags](/dev/cli/sauce-connect-5/run/) you want to use to customize tunnel behavior.
+The explicit way to launch a Sauce Connect Proxy tunnel is to run a single command line comprised of all [flags](/secure-connections/sauce-connect-5/cli/run/) and any optional [flags](/secure-connections/sauce-connect-5/cli/run/) you want to use to customize tunnel behavior.
 It's also possible to pass the same command-line arguments through a config file, and as environment variables.
 If you pass the same argument through multiple methods, the order of precedence is as follows (from highest to lowest):
 
@@ -18,7 +18,7 @@ If you pass the same argument through multiple methods, the order of precedence 
 
 ## Config File
 
-The Sauce Connect Proxy [config file](/dev/cli/sauce-connect-5/run/#--config-file) may contain any CLI flag.
+The Sauce Connect Proxy [config file](/secure-connections/sauce-connect-5/cli/run/#--config-file) may contain any CLI flag.
 It may also contain comments that could help make its content more readable, for example:
 
 ```yaml
@@ -34,7 +34,7 @@ tunnel-name: 'my-macos'
 
 ### Config File Reference
 
-[`sc run config-file`](/dev/cli/sauce-connect-5/run/#configuration-file) command's output below contains all the available options and their usage.
+[`sc run config-file`](/secure-connections/sauce-connect-5/cli/run/#configuration-file) command's output below contains all the available options and their usage.
 
 
 <details><summary>`sc run config-file` output</summary>
@@ -281,7 +281,7 @@ To launch a tunnel using a **config.yml** file option.
 
 1. Create Sauce Connect Proxy config file in any location, for example: `$HOME/sc/config.yml` (`%HOMEPATH%\sc\config.yml` for Windows).
 2. Enter values for the properties you'd like to use.
-3. Use the [--config-file](/dev/cli/sauce-connect-5/run/#--config-file) flag to run Sauce Connect Proxy with your configuration file.
+3. Use the [--config-file](/secure-connections/sauce-connect-5/cli/run/#--config-file) flag to run Sauce Connect Proxy with your configuration file.
 
 <Tabs
     defaultValue="Mac/Linux"
@@ -308,7 +308,7 @@ sc.exe run -c %HOMEPATH%\sc\config.yml
 
 ## Environment Variables
 
-You can set via environment variables all Sauce Connect Proxy [command-line options](/dev/cli/sauce-connect-5/).
+You can set via environment variables all Sauce Connect Proxy [command-line options](/secure-connections/sauce-connect-5/cli/run).
 Each option description includes the corresponding environment variable.
 
 ### Use Cases
@@ -323,25 +323,25 @@ We recommend configuring options via environment variables in the following scen
 
 The following flags may contain sensitive information:
 
-- [`--username`](/dev/cli/sauce-connect-5/run/#--username)
-- [`--access-key`](/dev/cli/sauce-connect-5/run/#--access-key)
-- [`--auth`](/dev/cli/sauce-connect-5/run/#--auth)
-- [`--proxy`](/dev/cli/sauce-connect-5/run/#--proxy)
-- [`--proxy-sauce`](/dev/cli/sauce-connect-5/run/#--proxy-sauce)
-- [`--header`](/dev/cli/sauce-connect-5/run/#--header)
-- [`--api-basic-auth`](/dev/cli/sauce-connect-5/run/#--api-basic-auth)
+- [`--username`](/secure-connections/sauce-connect-5/cli/run/#--username)
+- [`--access-key`](/secure-connections/sauce-connect-5/cli/run/#--access-key)
+- [`--auth`](/secure-connections/sauce-connect-5/cli/run/#--auth)
+- [`--proxy`](/secure-connections/sauce-connect-5/cli/run/#--proxy)
+- [`--proxy-sauce`](/secure-connections/sauce-connect-5/cli/run/#--proxy-sauce)
+- [`--header`](/secure-connections/sauce-connect-5/cli/run/#--header)
+- [`--api-basic-auth`](/secure-connections/sauce-connect-5/cli/run/#--api-basic-auth)
 
 We recommend using environment variables for these flags.
 
 | Environment Variable   | Description                                                                                                   | Corresponding CLI Option                                             |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `SAUCE_USERNAME`           | Sets your Sauce Labs username.                                                                                | [`--username`](/dev/cli/sauce-connect-5/run/#--username)                     |
-| `SAUCE_ACCESS_KEY`     | Sets your Sauce Labs access key.                                                                              | [`--access-key`](/dev/cli/sauce-connect-5/run/#--access-key)         |
-| `SAUCE_AUTH`           | Sets site or upstream proxy basic authentication credentials.                                                 | [`--auth`](/dev/cli/sauce-connect-5/run/#--auth)                     |
-| `SAUCE_PROXY`          | The basic authentication username and password can be specified in the host string, e.g. user:pass@host:port. | [`--proxy`](/dev/cli/sauce-connect-5/run/#--proxy)                   |
-| `SAUCE_PROXY_SAUCE`    | The basic authentication username and password can be specified in the host string, e.g. user:pass@host:port. | [`--proxy-sauce`](/dev/cli/sauce-connect-5/run/#--proxy-sauce)       |
-| `SAUCE_HEADER`         | May contain headers with sensitive information.                                                               | [`--header`](/dev/cli/sauce-connect-5/run/#--header)                 |
-| `SAUCE_API_BASIC_AUTH` | Contains an optional internal API server authentication.                                                      | [`--api-basic-auth`](/dev/cli/sauce-connect-5/run/#--api-basic-auth) |
+| `SAUCE_USERNAME`           | Sets your Sauce Labs username.                                                                                | [`--username`](/secure-connections/sauce-connect-5/cli/run/#--username)                     |
+| `SAUCE_ACCESS_KEY`     | Sets your Sauce Labs access key.                                                                              | [`--access-key`](/secure-connections/sauce-connect-5/cli/run/#--access-key)         |
+| `SAUCE_AUTH`           | Sets site or upstream proxy basic authentication credentials.                                                 | [`--auth`](/secure-connections/sauce-connect-5/cli/run/#--auth)                     |
+| `SAUCE_PROXY`          | The basic authentication username and password can be specified in the host string, e.g. user:pass@host:port. | [`--proxy`](/secure-connections/sauce-connect-5/cli/run/#--proxy)                   |
+| `SAUCE_PROXY_SAUCE`    | The basic authentication username and password can be specified in the host string, e.g. user:pass@host:port. | [`--proxy-sauce`](/secure-connections/sauce-connect-5/cli/run/#--proxy-sauce)       |
+| `SAUCE_HEADER`         | May contain headers with sensitive information.                                                               | [`--header`](/secure-connections/sauce-connect-5/cli/run/#--header)                 |
+| `SAUCE_API_BASIC_AUTH` | Contains an optional internal API server authentication.                                                      | [`--api-basic-auth`](/secure-connections/sauce-connect-5/cli/run/#--api-basic-auth) |
 
 ### Running Sauce Connect Proxy With Environment Variables
 
@@ -386,4 +386,4 @@ You can persist Sauce Connect Proxy environment variables by adding them to one 
 ## More Information
 
 - [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect-5/quickstart)
-- [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-5/)
+- [Sauce Connect Proxy CLI](/secure-connections/sauce-connect-5/cli/sc)

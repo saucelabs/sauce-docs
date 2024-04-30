@@ -18,7 +18,7 @@ You can manage and monitor all Sauce Connect Proxy tunnel activity from the Sauc
 | :-------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
 | Type            | The icon shows whether the tunnel is a Sauce Connect Proxy, or an IPSec Proxy.                                                                  |
 | State           | The icon shows whether the tunnel is running or stopped.                                                                                        |
-| Tunnel Name     | The name of the tunnel. This is the [`--tunnel-name`](/dev/cli/sauce-connect-5/run/#--tunnel-name) used when starting the Sauce Connect tunnel. |
+| Tunnel Name     | The name of the tunnel. This is the [`--tunnel-name`](/secure-connections/sauce-connect-5/cli/run/#--tunnel-name) used when starting the Sauce Connect tunnel. |
 | Client Hostname | The name of the machine where the Sauce Connect Proxy client is running.                                                                        |
 | Owner           | The name of the account that is running the tunnel.                                                                                             |
 | Sharing         | Indicates whether or not the tunnel is shared.                                                                                                  |
@@ -39,5 +39,5 @@ See [this demo](https://github.com/saucelabs/sauce-connect-docker/tree/main/exam
 ## More Information
 
 - [Sauce Connect Proxy Overview](/secure-connections/sauce-connect/)
-- [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/)
+- [Sauce Connect Proxy 5 CLI Reference](/secure-connections/sauce-connect-5/cli/sc/)
 - [Sauce Connect Grafana Dashboard](https://grafana.com/grafana/dashboards/20232-sauce-connect/)

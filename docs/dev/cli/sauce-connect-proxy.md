@@ -12,7 +12,7 @@ Below is a list of flags to use on your Sauce Connect Proxy v4.x.x command line 
 
 :::note
 This is Sauce Connect Version 4 CLI documentation.
-The Sauce Connect Proxy version 5 major release introduced breaking CLI changes. Please refer to [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/) for details.
+The Sauce Connect Proxy version 5 major release introduced breaking CLI changes. Please refer to [Sauce Connect Proxy 5 CLI Reference](/secure-connections/sauce-connect-5/cli/sc/) for details.
 :::
 
 ## What You'll Need
