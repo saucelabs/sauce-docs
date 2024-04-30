@@ -92,7 +92,7 @@ WebDriver driver = new RemoteWebDriver(new URL(sauceUrl), caps);
 <TabItem value="Python">
 
 ```py reference title="Recommended Code"
-https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/conftest.py#L12-L21
+https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/conftest.py#L12-L25
 ```
 
 ```py title="Deprecated Code"
