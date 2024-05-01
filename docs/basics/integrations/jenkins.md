@@ -108,7 +108,8 @@ When options can be set at both levels, project settings override global setting
   </tr>
   <tr>
     <td><b>Sauce Connect Options</b></td>
-    <td>The list of command line arguments to apply each time Sauce Connect Proxy is launched for any project. For example:<br/>
+<td>
+The list of command line arguments to apply each time Sauce Connect Proxy is launched for any project. For example:<br/>
     <code>-i myTunnel -l ./jenkins_scp_log</code>
     </td>
   </tr>
@@ -151,7 +152,8 @@ Project specific settings will always override the global value for the same set
     </tr>
     <tr>
       <td><b>WebDriver</b></td>
-      <td>Choose one or more operating system and browser combinations you wish to test using the WebDriver automation tool. If you specify one option, the plugin populates the following environment variables with values that correspond to your selection.
+<td>
+Choose one or more operating system and browser combinations you wish to test using the WebDriver automation tool. If you specify one option, the plugin populates the following environment variables with values that correspond to your selection.
         <ul>
           <li><code>SELENIUM_PLATFORM</code></li>
           <li><code>SELENIUM_BROWSER</code></li>
@@ -212,7 +214,8 @@ Project specific settings will always override the global value for the same set
      </tr>
      <tr>
        <td><b>Sauce Connect Options</b></td>
-       <td>A list of command line arguments to apply each time Sauce Connect Proxy is launched for this project. For example:<br/>
+<td>
+A list of command line arguments to apply each time Sauce Connect Proxy is launched for this project. For example:<br/>
          <code>-i projectTunnel -l ./scp_project_log</code>
        </td>
      </tr>

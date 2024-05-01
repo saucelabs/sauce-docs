@@ -28,7 +28,8 @@ In the example above, you can see that our user is `john@example.com` and the AP
 
 ### Get All Projects
 
-<details><summary><span className="api get">GET</span><code>/api/1/projects/</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api/1/projects/</code></summary>
 <p></p>
 
 Returns a list of all projects (iOS and Android apps) in this account.
@@ -66,7 +67,8 @@ Returns a list of all projects (iOS and Android apps) in this account.
 
 ### Get All Builds in a Project
 
-<details><summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/</code></summary>
 <p></p>
 
 Get all builds in a specific project. Each build is a distinct version that is either uploaded or created by the TestFairy SDK.
@@ -117,7 +119,8 @@ Get all builds in a specific project. Each build is a distinct version that is e
 
 ### Get Metadata for a Specific Build
 
-<details><summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;</code></summary>
 <p></p>
 
 Get a specific build of a specific project. Query the /api/1/projects/&#123;project-id&#125; API for a list of available builds.
@@ -166,7 +169,8 @@ Get a specific build of a specific project. Query the /api/1/projects/&#123;proj
 
 ### Delete a Specific Build
 
-<details><summary><span className="api delete">DELETE</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;</code></summary>
+<details>
+<summary><span className="api delete">DELETE</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;</code></summary>
 <p></p>
 
 Delete a specific build. When all builds of a project are deleted, the project itself is removed from /api/1/projects API. When deleting a build, all of its artifacts (IPA/APK files), recorded sessions, and crashes are also deleted.
@@ -194,7 +198,8 @@ Delete a specific build. When all builds of a project are deleted, the project i
 
 ### Download the Uploaded Artifact
 
-<details><summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/download/</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/download/</code></summary>
 <p></p>
 
 Downloads the binary file uploaded to TestFairy.
@@ -216,7 +221,8 @@ Downloads the binary file uploaded to TestFairy.
 
 ### List All Recorded Sessions in Build
 
-<details><summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/sessions/</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/sessions/</code></summary>
 <p></p>
 
 Get metadata for all sessions recorded for a specific build.
@@ -258,7 +264,8 @@ Get metadata for all sessions recorded for a specific build.
 
 ### Get Session Data, Events and Logs
 
-<details><summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/sessions/&#123;session-id&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/sessions/&#123;session-id&#125;</code></summary>
 <p></p>
 
 Get metadata (and optionally data) for a specific session.
@@ -313,7 +320,8 @@ Get metadata (and optionally data) for a specific session.
 
 ### List All Testers
 
-<details><summary><span className="api get">GET</span><code>/api/1/testers</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api/1/testers</code></summary>
 <p></p>
 
 List all testers in this account.
@@ -360,7 +368,8 @@ List all testers in this account.
 
 ### Add a New Tester
 
-<details><summary><span className="api post">POST</span><code>/api/1/testers/</code></summary>
+<details>
+<summary><span className="api post">POST</span><code>/api/1/testers/</code></summary>
 <p></p>
 
 Add a new tester to account. Optionally can add them to a group.
@@ -411,7 +420,8 @@ Add a new tester to account. Optionally can add them to a group.
 
 ### Block a Tester
 
-<details><summary><span className="api post">POST</span><code>/api/1/testers/&#123;tester-id&#125;/block/</code></summary>
+<details>
+<summary><span className="api post">POST</span><code>/api/1/testers/&#123;tester-id&#125;/block/</code></summary>
 <p></p>
 
 Blocks a single tester. They cannot download the apps they are invited to. However, the data stays. You can later unblock this tester or delete them completely.
@@ -439,7 +449,8 @@ Blocks a single tester. They cannot download the apps they are invited to. Howev
 
 ### Unblock a Tester
 
-<details><summary><span className="api delete">DELETE</span><code>/api/1/testers/&#123;tester-id&#125;/block/</code></summary>
+<details>
+<summary><span className="api delete">DELETE</span><code>/api/1/testers/&#123;tester-id&#125;/block/</code></summary>
 <p></p>
 
 Unblock a single tester. Their invitations are restored. If the user is already unblocked, then nothing happens.
@@ -467,7 +478,8 @@ Unblock a single tester. Their invitations are restored. If the user is already 
 
 ### Delete a Tester
 
-<details><summary><span className="api delete">DELETE</span><code>/api/1/testers/&#123;tester-id&#125;</code></summary>
+<details>
+<summary><span className="api delete">DELETE</span><code>/api/1/testers/&#123;tester-id&#125;</code></summary>
 <p></p>
 
 Delete a single tester, remove them from any tester-groups they might be in, and invalidate all invitations that are sent.
@@ -495,7 +507,8 @@ Delete a single tester, remove them from any tester-groups they might be in, and
 
 ### Get Latest Recorded Feedbacks
 
-<details><summary><span className="api get">GET</span><code>/api/1/feedbacks/</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api/1/feedbacks/</code></summary>
 <p></p>
 
 Get metadata for 100 of the latest feedbacks recorded.
@@ -537,7 +550,8 @@ Get metadata for 100 of the latest feedbacks recorded.
 
 ### Get Recent Audit Trail Items
 
-<details><summary><span className="api get">GET</span><code>/api/1/audits</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api/1/audits</code></summary>
 <p></p>
 
 Get recent audit trail items.
@@ -581,7 +595,8 @@ Get recent audit trail items.
 
 ### Get the List of Admins and Their Permissions
 
-<details><summary><span className="api get">GET</span><code>/api/1/cpanel/permissions/</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api/1/cpanel/permissions/</code></summary>
 <p></p>
 
 Get the list of admins in the account and their permissions.
@@ -642,7 +657,8 @@ Get the list of admins in the account and their permissions.
 
 ### List All Webhooks
 
-<details><summary><span className="api get">GET</span><code>/api/1/webhooks/</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api/1/webhooks/</code></summary>
 <p></p>
 
 List all webhooks in this account.
@@ -680,7 +696,8 @@ List all webhooks in this account.
 
 ### Add a New Webhook
 
-<details><summary><span className="api post">POST</span><code>/api/1/webhook/</code></summary>
+<details>
+<summary><span className="api post">POST</span><code>/api/1/webhook/</code></summary>
 <p></p>
 
 Add a new webhook to the account.
@@ -743,7 +760,8 @@ Add a new webhook to the account.
 
 ### Get a Single Webhook
 
-<details><summary><span className="api get">GET</span><code>/api/1/webhook/&#123;webhook-id&#125;/</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api/1/webhook/&#123;webhook-id&#125;/</code></summary>
 <p></p>
 
 Returns a single webhook.
@@ -779,7 +797,8 @@ Returns a single webhook.
 
 ### Modify a Webhook
 
-<details><summary><span className="api post">POST</span><code>/api/1/webhook/&#123;webhook-id&#125;/</code></summary>
+<details>
+<summary><span className="api post">POST</span><code>/api/1/webhook/&#123;webhook-id&#125;/</code></summary>
 <p></p>
 
 Modifies a single webhook.
@@ -842,7 +861,8 @@ Modifies a single webhook.
 
 ### Delete a Webhook
 
-<details><summary><span className="api delete">DELETE</span><code>/api/1/webhook/&#123;webhook-id&#125;/</code></summary>
+<details>
+<summary><span className="api delete">DELETE</span><code>/api/1/webhook/&#123;webhook-id&#125;/</code></summary>
 <p></p>
 
 Deletes a single webhook.

@@ -21,7 +21,8 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ### Get Tunnels for a User
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/tunnels</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/tunnels</code></summary>
 <p/>
 
 Returns Tunnel IDs or Tunnels Info for any currently running tunnels launched by or shared with the specified user.
@@ -160,7 +161,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Tunnel Information
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/tunnels/&#123;tunnel_id&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/tunnels/&#123;tunnel_id&#125;</code></summary>
 <p/>
 
 Returns information about the specified tunnel.
@@ -269,7 +271,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Tunnel Version Downloads
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/public/tunnels/info/versions</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/rest/v1/public/tunnels/info/versions</code></summary>
 <p/>
 
 Returns tunnel version download information.
@@ -587,7 +590,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Current Jobs for a Tunnel
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/tunnels/&#123;tunnel_id&#125;/num_jobs</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/tunnels/&#123;tunnel_id&#125;/num_jobs</code></summary>
 <p/>
 
 Returns the number of currently running jobs for the specified tunnel.
@@ -677,7 +681,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Stop a Tunnel
 
-<details><summary><span className="api delete">DELETE</span> <code>/rest/v1/&#123;username&#125;/tunnels/&#123;tunnel_id&#125;</code></summary>
+<details>
+<summary><span className="api delete">DELETE</span> <code>/rest/v1/&#123;username&#125;/tunnels/&#123;tunnel_id&#125;</code></summary>
 <p/>
 
 Shuts down the specified tunnel.

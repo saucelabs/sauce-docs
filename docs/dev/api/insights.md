@@ -16,7 +16,8 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ### Get Test Results
 
-<details><summary><span className="api get">GET</span> <code>/v1/analytics/tests</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/analytics/tests</code></summary>
 <p/>
 
 Return run data for all tests that match the request criteria.
@@ -75,7 +76,8 @@ Return run data for all tests that match the request criteria.
   <tbody>
     <tr>
      <td><code>scope</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
      Specifies the scope of the <code>owner</code> parameter. Supported values are:</p><p>
      <ul>
       <li><code>me</code> - owner is the logged-in requestor.</li>
@@ -100,7 +102,8 @@ Return run data for all tests that match the request criteria.
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
      <ul>
       <li><code>passed</code></li>
       <li><code>errored</code></li>
@@ -112,7 +115,8 @@ Return run data for all tests that match the request criteria.
   <tbody>
     <tr>
      <td><code>time_range</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
        The amount of time backward from the current time that represents the period during which the test runs are executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).
        </p></td>
     </tr>
@@ -197,7 +201,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get a Summary of Test Metrics
 
-<details><summary><span className="api get">GET</span> <code>/v1/analytics/insights/test-metrics</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/analytics/insights/test-metrics</code></summary>
 <p/>
 
 Return an aggregate of metric values for runs of a specified test during the specified period.
@@ -236,7 +241,8 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
   <tbody>
     <tr>
      <td><code>scope</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies the scope of the <code>owner</code> parameter. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies the scope of the <code>owner</code> parameter. Supported values are:</p><p>
      <ul>
       <li><code>me</code> - owner is the logged-in requestor.</li>
       <li><code>organization</code> - owner is all users the logged-in requestor's organization.</li>
@@ -253,7 +259,8 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
      <ul>
       <li><code>passed</code></li>
       <li><code>errored</code></li>
@@ -385,7 +392,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Test Trends
 
-<details><summary><span className="api get">GET</span> <code>/v1/analytics/trends/tests</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/analytics/trends/tests</code></summary>
 <p/>
 
 Return a set of data "buckets" representing tests that were run in each time interval defined by the request parameters.
@@ -396,7 +404,8 @@ Return a set of data "buckets" representing tests that were run in each time int
   <tbody>
     <tr>
      <td><code>scope</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
      Specifies the scope of the <code>owner</code> parameter. Supported values are:</p><p>
      <ul>
       <li><code>me</code> - owner is the logged-in requestor.</li>
@@ -409,7 +418,8 @@ Return a set of data "buckets" representing tests that were run in each time int
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -459,7 +469,8 @@ Return a set of data "buckets" representing tests that were run in each time int
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
      <ul>
       <li><code>passed</code></li>
       <li><code>errored</code></li>
@@ -477,7 +488,8 @@ Return a set of data "buckets" representing tests that were run in each time int
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p>
      </td>
     </tr>
   </tbody>
@@ -656,7 +668,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Builds and Tests
 
-<details><summary><span className="api get">GET</span> <code>/v1/analytics/trends/builds_tests</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/analytics/trends/builds_tests</code></summary>
 <p/>
 
 Return the set of all tests run in the specified period, grouped by whether each test was part of a build or not.
@@ -689,7 +702,8 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
   <tbody>
     <tr>
      <td><code>scope</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies the scope of the <code>owner</code> parameter. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies the scope of the <code>owner</code> parameter. Supported values are:</p><p>
      <ul>
       <li><code>me</code> - owner is the logged-in requestor.</li>
       <li><code>organization</code> - owner is all users the logged-in requestor's organization.</li>
@@ -706,7 +720,8 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
      <ul>
       <li><code>passed</code></li>
       <li><code>errored</code></li>
@@ -848,7 +863,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Filter Items
 
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/filters</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/filters</code></summary>
 <p/>
 
 Return data for all tests that match the request criteria.
@@ -859,7 +875,8 @@ Return data for all tests that match the request criteria.
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -875,7 +892,8 @@ Return data for all tests that match the request criteria.
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
      <ul>
       <li><code>passed</code></li>
       <li><code>error</code></li>
@@ -1061,7 +1079,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Filter Items from All Sources
 
-<details><summary><span className="api get">GET</span> <code>/insights/v2/filters</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/insights/v2/filters</code></summary>
 <p/>
 
 Return data from all sources for all tests that match the request criteria.
@@ -1078,7 +1097,8 @@ Return data from all sources for all tests that match the request criteria.
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
      <ul>
       <li><code>passed</code></li>
       <li><code>error</code></li>
@@ -1175,7 +1195,8 @@ Return data from all sources for all tests that match the request criteria.
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -1275,7 +1296,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Activity
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/users/&#123;user_id&#125;/activity</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/rest/v1/users/&#123;user_id&#125;/activity</code></summary>
 <p/>
 
 Return daily statistics about test results and concurrency usage for the specified <code>user_id</code>.
@@ -1304,7 +1326,8 @@ Return daily statistics about test results and concurrency usage for the specifi
   <tbody>
     <tr>
      <td><code>level</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
      Specifies the ownership level. Supported values are:
       <ul>
         <li><code>user</code></li>
@@ -1384,7 +1407,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Activity for Users
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/users_activity</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/rest/v1/users_activity</code></summary>
 <p/>
 
 Return daily statistics about test results and concurrency usage.
@@ -1517,7 +1541,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Activity for Teams
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/activity/teams</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/rest/v1/activity/teams</code></summary>
 <p/>
 
 Return daily statistics about test results and concurrency usage for teams.
@@ -1650,7 +1675,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Activity for Org
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/activity/organization</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/rest/v1/activity/organization</code></summary>
 <p/>
 
 Return daily statistics about test results and concurrency usage for organization.
@@ -1777,7 +1803,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Errors
 
-<details><summary><span className="api get">GET</span><code>/v2/insights/&#123;source&#125;/errors</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/v2/insights/&#123;source&#125;/errors</code></summary>
 <p/>
 
 Return an array of errors with occurrence count on all tests run in the specified period.
@@ -1788,7 +1815,8 @@ Return an array of errors with occurrence count on all tests run in the specifie
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -1804,7 +1832,8 @@ Return an array of errors with occurrence count on all tests run in the specifie
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -1939,7 +1968,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Errors Trends
 
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/errors/trends</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/errors/trends</code></summary>
 <p/>
 
 Return past and current data about errors for comparison.
@@ -1950,7 +1980,8 @@ Return past and current data about errors for comparison.
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -1966,7 +1997,8 @@ Return past and current data about errors for comparison.
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -2098,7 +2130,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Tests
 
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/tests</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/tests</code></summary>
 <p/>
 
 Return an array of tests with details.
@@ -2109,7 +2142,8 @@ Return an array of tests with details.
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -2330,7 +2364,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Common Tests
 
-<details><summary><span className="api get">GET</span> <code>/insights/v2/tests</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/insights/v2/tests</code></summary>
 <p/>
 
 Return an array of tests with details.
@@ -2347,7 +2382,8 @@ Return an array of tests with details.
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -2472,7 +2508,8 @@ Return an array of tests with details.
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
      <ul>
       <li><code>complete</code></li>
       <li><code>error</code></li>
@@ -2582,7 +2619,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Test Cases
 
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/test-cases</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/test-cases</code></summary>
 <p/>
 
 Return an array of test cases (grouped by name) with statistical details.
@@ -2593,7 +2631,8 @@ Return an array of test cases (grouped by name) with statistical details.
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -2609,7 +2648,8 @@ Return an array of test cases (grouped by name) with statistical details.
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -2671,7 +2711,8 @@ Return an array of test cases (grouped by name) with statistical details.
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
      <ul>
       <li><code>complete</code></li>
       <li><code>error</code></li>
@@ -2809,7 +2850,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Test Cases CSV
 
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/test-cases/csv</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/test-cases/csv</code></summary>
 <p/>
 
 Return an array of test cases (grouped by name) with statistical details as a CSV file.
@@ -2820,7 +2862,8 @@ Return an array of test cases (grouped by name) with statistical details as a CS
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -2836,7 +2879,8 @@ Return an array of test cases (grouped by name) with statistical details as a CS
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -2898,7 +2942,8 @@ Return an array of test cases (grouped by name) with statistical details as a CS
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
      <ul>
       <li><code>complete</code></li>
       <li><code>error</code></li>
@@ -2916,7 +2961,8 @@ Return an array of test cases (grouped by name) with statistical details as a CS
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p>
      </td>
     </tr>
   </tbody>
@@ -2999,7 +3045,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Test Cases Stats
 
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/test-cases/stats</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/test-cases/stats</code></summary>
 <p/>
 
 Return an array of test cases (grouped by name) with statistical details.
@@ -3010,7 +3057,8 @@ Return an array of test cases (grouped by name) with statistical details.
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -3044,7 +3092,8 @@ Return an array of test cases (grouped by name) with statistical details.
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -3088,7 +3137,8 @@ Return an array of test cases (grouped by name) with statistical details.
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
      <ul>
       <li><code>complete</code></li>
       <li><code>error</code></li>
@@ -3106,7 +3156,8 @@ Return an array of test cases (grouped by name) with statistical details.
   <tbody>
     <tr>
     <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p>
      </td>
     </tr>
   </tbody>
@@ -3184,7 +3235,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Status Trend
 
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/test-cases/trends</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/test-cases/trends</code></summary>
 <p/>
 
 Return a histogram with test statistic details grouped by specific period.
@@ -3195,7 +3247,8 @@ Return a histogram with test statistic details grouped by specific period.
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -3277,7 +3330,8 @@ Return a histogram with test statistic details grouped by specific period.
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p>
      </td>
     </tr>
   </tbody>
@@ -3365,7 +3419,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Max Concurrency Report CSV
 
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/concurrency/max/csv</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/concurrency/max/csv</code></summary>
 <p/>
 
 Return information about concurrency usage in a CSV format.
@@ -3376,7 +3431,8 @@ Return information about concurrency usage in a CSV format.
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud. Supported values are:</p><p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud. Supported values are:</p><p>
      <ul>
       <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
@@ -3455,7 +3511,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Max Concurrency Report JSON
 
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/concurrency/max/json</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/concurrency/max/json</code></summary>
 <p/>
 
 Return information about concurrency usage.
@@ -3466,7 +3523,8 @@ Return information about concurrency usage.
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud. Supported values are:</p><p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud. Supported values are:</p><p>
      <ul>
       <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
@@ -3545,7 +3603,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Coverage
 
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/coverage/&#123;coverage_field&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/coverage/&#123;coverage_field&#125;</code></summary>
 <p/>
 
 Return information about tests coverage for the specified <code>coverage_field</code>.
@@ -3556,7 +3615,8 @@ Return information about tests coverage for the specified <code>coverage_field</
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -3566,7 +3626,8 @@ Return information about tests coverage for the specified <code>coverage_field</
   <tbody>
     <tr>
      <td><code>coverage_field</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<ul><li><code>device</code></li><li><code>browser</code></li><li><code>os</code></li></ul></p><p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<ul><li><code>device</code></li><li><code>browser</code></li><li><code>os</code></li></ul></p><p>
      </p></td>
     </tr>
   </tbody>
@@ -3579,7 +3640,8 @@ Return information about tests coverage for the specified <code>coverage_field</
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -3696,7 +3758,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Coverage from All Sources
 
-<details><summary><span className="api get">GET</span> <code>/insights/v2/coverage/&#123;coverage_field&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/insights/v2/coverage/&#123;coverage_field&#125;</code></summary>
 <p/>
 
 Return information from all sources about test coverage for the specified <code>coverage_field</code>.
@@ -3707,7 +3770,8 @@ Return information from all sources about test coverage for the specified <code>
   <tbody>
     <tr>
      <td><code>coverage_field</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<ul><li><code>device</code></li><li><code>browser</code></li><li><code>os</code></li></ul></p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<ul><li><code>device</code></li><li><code>browser</code></li><li><code>os</code></li></ul></p>
      </td>
     </tr>
   </tbody>
@@ -3768,7 +3832,8 @@ Return information from all sources about test coverage for the specified <code>
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -3840,7 +3905,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Coverage CSV
 
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/coverage/&#123;coverage_field&#125;/csv</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/coverage/&#123;coverage_field&#125;/csv</code></summary>
 <p/>
 
 Return information about tests coverage for the specified `coverage_field` in a CSV format.
@@ -3851,7 +3917,8 @@ Return information about tests coverage for the specified `coverage_field` in a 
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -3861,7 +3928,8 @@ Return information about tests coverage for the specified `coverage_field` in a 
   <tbody>
     <tr>
      <td><code>coverage_field</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<code>device</code>, <code>browser</code>, <code>os</code>.</p><p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<code>device</code>, <code>browser</code>, <code>os</code>.</p><p>
      </p></td>
     </tr>
   </tbody>
@@ -3874,7 +3942,8 @@ Return information about tests coverage for the specified `coverage_field` in a 
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -3970,7 +4039,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Coverage CSV from All Sources
 
-<details><summary><span className="api get">GET</span> <code>/insights/v2/coverage/&#123;coverage_field&#125;/csv</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/insights/v2/coverage/&#123;coverage_field&#125;/csv</code></summary>
 <p/>
 
 Return information from all sources about test coverage for the specified `coverage_field` in a CSV format.
@@ -3981,7 +4051,8 @@ Return information from all sources about test coverage for the specified `cover
   <tbody>
     <tr>
       <td><code>coverage_field</code></td>
-        <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<ul><li><code>device</code></li><li><code>browser</code></li><li><code>os</code></li></ul></p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<ul><li><code>device</code></li><li><code>browser</code></li><li><code>os</code></li></ul></p>
       </td>
     </tr>
   </tbody>
@@ -4030,7 +4101,8 @@ Return information from all sources about test coverage for the specified `cover
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -4093,7 +4165,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Trends Tests
 
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/trends/tests</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/trends/tests</code></summary>
 <p/>
 
 Return an array of buckets with aggregations, such as number of tests run on a specific browser or device.
@@ -4104,7 +4177,8 @@ Return an array of buckets with aggregations, such as number of tests run on a s
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -4120,7 +4194,8 @@ Return an array of buckets with aggregations, such as number of tests run on a s
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -4188,7 +4263,8 @@ Return an array of buckets with aggregations, such as number of tests run on a s
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
      <ul>
       <li><code>complete</code></li>
       <li><code>error</code></li>
@@ -4396,7 +4472,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Trends Tests from All Sources
 
-<details><summary><span className="api get">GET</span> <code>/insights/v2/trends/tests</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/insights/v2/trends/tests</code></summary>
 <p/>
 
 Return an array of buckets with aggregations, such as the number of tests from all sources run on a specific browser or device.
@@ -4413,7 +4490,8 @@ Return an array of buckets with aggregations, such as the number of tests from a
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -4493,7 +4571,8 @@ Return an array of buckets with aggregations, such as the number of tests from a
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -4504,7 +4583,8 @@ Return an array of buckets with aggregations, such as the number of tests from a
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
      <ul>
       <li><code>passed</code></li>
       <li><code>error</code></li>
@@ -4701,7 +4781,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Trends Errors
 
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/trends/errors</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/trends/errors</code></summary>
 <p/>
 
 Return statistics for errors that occurred in tests run in the specified period.
@@ -4712,7 +4793,8 @@ Return statistics for errors that occurred in tests run in the specified period.
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -4728,7 +4810,8 @@ Return statistics for errors that occurred in tests run in the specified period.
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -4790,7 +4873,8 @@ Return statistics for errors that occurred in tests run in the specified period.
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
      <ul>
       <li><code>complete</code></li>
       <li><code>error</code></li>
@@ -4808,7 +4892,8 @@ Return statistics for errors that occurred in tests run in the specified period.
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p>
      </td>
     </tr>
   </tbody>
@@ -4911,7 +4996,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Trends Errors from All Sources
 
-<details><summary><span className="api get">GET</span> <code>/insights/v2/trends/errors</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/insights/v2/trends/errors</code></summary>
 <p/>
 
 Return statistics from all sources for errors that occurred on tests run in the specified period.
@@ -4988,7 +5074,8 @@ Return statistics from all sources for errors that occurred on tests run in the 
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -4999,7 +5086,8 @@ Return statistics from all sources for errors that occurred on tests run in the 
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
      <ul>
       <li><code>passed</code></li>
       <li><code>error</code></li>
@@ -5108,7 +5196,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Trends Builds Tests
 
-<details><summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/trends/builds_tests</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v2/insights/&#123;source&#125;/trends/builds_tests</code></summary>
 <p/>
 
 Return information about builds and tests run included in the build. Also, it provides information about tests without build names.
@@ -5119,7 +5208,8 @@ Return information about builds and tests run included in the build. Also, it pr
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -5135,7 +5225,8 @@ Return information about builds and tests run included in the build. Also, it pr
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -5197,7 +5288,8 @@ Return information about builds and tests run included in the build. Also, it pr
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
      <ul>
       <li><code>complete</code></li>
       <li><code>error</code></li>
@@ -5215,7 +5307,8 @@ Return information about builds and tests run included in the build. Also, it pr
   <tbody>
     <tr>
      <td><code>tag_filter_mode</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>It changes the default behavior of <code>tag</code> filters: when you add multiple <code>tag</code> filters, the default behavior is <code>or</code>. When you add <code>tag_filter_mode=and</code>, the results are limited to only those with all <code>tags</code> provided. Available values are: <ul><li><code>and</code></li><li><code>or</code></li></ul>Default value is <code>or</code>.</p>
      </td>
     </tr>
   </tbody>
@@ -5360,7 +5453,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Trends Builds Tests from All Sources
 
-<details><summary><span className="api get">GET</span> <code>/insights/v2/trends/builds-tests</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/insights/v2/trends/builds-tests</code></summary>
 <p/>
 
 Return information from all sources about builds and tests run included in the build. Also, it provides information about tests without build names.
@@ -5443,7 +5537,8 @@ Return information from all sources about builds and tests run included in the b
   <tbody>
     <tr>
      <td><code>source</code></td>
-       <td><p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -5454,7 +5549,8 @@ Return information from all sources about builds and tests run included in the b
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
      <ul>
       <li><code>passed</code></li>
       <li><code>error</code></li>

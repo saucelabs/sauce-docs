@@ -153,7 +153,9 @@ accessKey: process.env.SAUCE_ACCESS_KEY
 <tbody>
   <tr>
     <td><code>storybookConfigDir</code> or <code>storybookStaticDir</code></td>
-    <td><p>These are your Storybook server options. To determine whether you need <code>storybookConfigDir</code> or <code>storybookStaticDir</code>, go to your project directory and find the <code>start-storybook</code> command, usually a script located in a <strong>package.json</strong> file.</p><br/><p>If the <code>-c</code> or <code>--config-dir</code> option is set, use <code>storybookConfigDir</code> and that value to your code snippet. If the <code>-s</code> or <code>--static-dir</code> option is set, use the <code>storybookStaticDir</code> with its value.</p>
+<td>
+
+    <p>These are your Storybook server options. To determine whether you need <code>storybookConfigDir</code> or <code>storybookStaticDir</code>, go to your project directory and find the <code>start-storybook</code> command, usually a script located in a <strong>package.json</strong> file.</p><br/><p>If the <code>-c</code> or <code>--config-dir</code> option is set, use <code>storybookConfigDir</code> and that value to your code snippet. If the <code>-s</code> or <code>--static-dir</code> option is set, use the <code>storybookStaticDir</code> with its value.</p>
     </td>
   </tr>
 </tbody>
@@ -295,7 +297,8 @@ The test should take a few minutes to complete.
 
 :::tip
 
-<details><summary>Click <strong>Show Logs</strong> > <strong>View Logs on Sauce Labs</strong> to see your <a href="/test-results">test results</a> on Sauce Labs.</summary>
+<details>
+<summary>Click <strong>Show Logs</strong> > <strong>View Logs on Sauce Labs</strong> to see your <a href="/test-results">test results</a> on Sauce Labs.</summary>
 
 <img src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')} alt="Visual E2E Quickstart accept state" width="205" /><br/><img src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')} alt="Visual E2E Quickstart accept state" width="250" />
 

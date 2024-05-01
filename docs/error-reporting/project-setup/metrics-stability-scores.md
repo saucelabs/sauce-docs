@@ -92,7 +92,7 @@ The results of your query will stored in the linked metric, so you may want to c
 
 ## View Stability Scores
 
-Once configured and populating, Stability Scores can be viewed in the Triage and Explore Views. You'll see a dropdown in the upper right for "Errors normalized by {metric group}".
+Once configured and populating, Stability Scores can be viewed in the Triage and Explore Views. You'll see a dropdown in the upper right for "Errors normalized by \{metric group\}".
 
 ## Stability Scores in Triage
 

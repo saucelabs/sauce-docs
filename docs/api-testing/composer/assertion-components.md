@@ -22,7 +22,8 @@ Assertions are a type of component that you can add to a test using the Composer
 
 Allows you to compare two payloads in terms of text, structure or values.
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 <table id="table-api">
   <tbody>
@@ -53,7 +54,8 @@ See also [Common Fields](#assertion-common-fields)
 <img src={useBaseUrl('img/api-testing/compares.webp')} alt="Assertion Compares Pic"/>
 
 </details>
-<details><summary><strong>Code View Examples</strong></summary>
+<details>
+<summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: assert-compares
@@ -85,7 +87,8 @@ See also [Common Fields](#assertion-common-fields)
 
 This assertion is used to check if the element described by the expression contains a specific substring. For example, to test the word _Uber_ is in Uber's product names (_UberX, UberBlack, UberPool_).
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 <table id="table-api">
   <tbody>
@@ -110,7 +113,8 @@ This assertion is used to check if the element described by the expression conta
 See also [Common Fields](#assertion-common-fields)
 
 </details>
-<details><summary><strong>Code View Examples</strong></summary>
+<details>
+<summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: assert-contains
@@ -130,7 +134,8 @@ See also [Common Fields](#assertion-common-fields)
 
 This assertion is used to check if the element value described by the expression is equal to a specific value. A direct one-to-one comparison.
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 <table id="table-api">
   <tbody>
@@ -155,7 +160,8 @@ This assertion is used to check if the element value described by the expression
 See also [Common Fields](#assertion-common-fields)
 
 </details>
-<details><summary><strong>Code View Examples</strong></summary>
+<details>
+<summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: assert-equals
@@ -175,7 +181,8 @@ See also [Common Fields](#assertion-common-fields)
 
 This assertion is used to check if the element described by the expression exists. The presence of the element, even empty, is enough to consider it a valid assertion.
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 <table id="table-api">
   <tbody>
@@ -192,7 +199,8 @@ This assertion is used to check if the element described by the expression exist
 See also [Common Fields](#assertion-common-fields)
 
 </details>
-<details><summary><strong>Code View Examples</strong></summary>
+<details>
+<summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: assert-exists
@@ -205,7 +213,8 @@ See also [Common Fields](#assertion-common-fields)
 
 This assertion is used to check if the element value described by the expression is greater than a proposed value. The values can be compared as a _string_ or _number_.
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 <table id="table-api">
   <tbody>
@@ -226,7 +235,8 @@ This assertion is used to check if the element value described by the expression
 See also [Common Fields](#assertion-common-fields)
 
 </details>
-<details><summary><strong>Code View Examples</strong></summary>
+<details>
+<summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: assert-greater
@@ -240,7 +250,8 @@ See also [Common Fields](#assertion-common-fields)
 
 This assertion is used to check if the element described by the expression matches at least one item from a given list. For example, the category of a product is one of the approved categories such as men, women, or children.
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 <table id="table-api">
   <tbody>
@@ -261,7 +272,8 @@ This assertion is used to check if the element described by the expression match
 See also [Common Fields](#assertion-common-fields).
 
 </details>
-<details><summary><strong>Code View Examples</strong></summary>
+<details>
+<summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: assert-in
@@ -286,7 +298,8 @@ See also [Common Fields](#assertion-common-fields).
 
 This assertion is used to check if the value of the element defined by the expression belongs to a specific type. This is one of the more commonly used assertions because it can be used to verify various things such as whole numbers, email addresses, phone numbers, URLs, and so forth.
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 <table id="table-api">
   <tbody>
@@ -307,7 +320,8 @@ This assertion is used to check if the value of the element defined by the expre
 See also [Common Fields](#assertion-common-fields)
 
 </details>
-<details><summary><strong>Code View Examples</strong></summary>
+<details>
+<summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: assert-is
@@ -321,7 +335,8 @@ See also [Common Fields](#assertion-common-fields)
 
 This assertion is used to check if the element value described by the expression is less than a proposed value. The values can be compared as a _string_ or _number_.
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 <table id="table-api">
   <tbody>
@@ -342,7 +357,8 @@ This assertion is used to check if the element value described by the expression
 See also [Common Fields](#assertion-common-fields)
 
 </details>
-<details><summary><strong>Code View Examples</strong></summary>
+<details>
+<summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: assert-less
@@ -356,7 +372,8 @@ See also [Common Fields](#assertion-common-fields)
 
 This assertion is used to check if the element value described by the expression matches a knowledge base of some kind (e.g, U.S. state or zip code). This also gives you the ability to write your own regex (regular expression).
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 <table id="table-api">
   <tbody>
@@ -381,7 +398,8 @@ This assertion is used to check if the element value described by the expression
 See also [Common Fields](#assertion-common-fields)
 
 </details>
-<details><summary><strong>Code View Examples</strong></summary>
+<details>
+<summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: assert-matches
@@ -395,7 +413,8 @@ See also [Common Fields](#assertion-common-fields)
 
 This assertion is used to validate a JSON schema, based on the provided schema definition.
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 <table id="table-api">
   <tbody>
@@ -416,7 +435,8 @@ This assertion is used to validate a JSON schema, based on the provided schema d
 See also [Comment](#comment)
 
 </details>
-<details><summary><strong>Code View Examples</strong></summary>
+<details>
+<summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: set

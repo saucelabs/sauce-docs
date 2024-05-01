@@ -14,7 +14,8 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ### Get Devices
 
-<details><summary><span className="api get">GET</span> <code>/v1/rdc/devices</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/devices</code></summary>
 <p/>
 
 Get the set of real devices located at the data center, as well as the operating system/browser combinations and identifying information for each device.
@@ -120,7 +121,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get a Specific Device
 
-<details><summary><span className="api get">GET</span> <code>/v1/rdc/devices/&#123;device_id&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/devices/&#123;device_id&#125;</code></summary>
 <p/>
 
 Get information about the device specified in the request.
@@ -230,7 +232,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Available Devices
 
-<details><summary><span className="api get">GET</span> <code>/v1/rdc/devices/available</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/devices/available</code></summary>
 <p/>
 
 Returns a list of Device IDs for all devices in the data center that are currently free for testing.
@@ -327,7 +330,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Devices Status
 
-<details><summary><span className="api get">GET</span> <code>/v1/rdc/devices/status</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/devices/status</code></summary>
 <p/>
 
 Returns a list of devices in the data center along with their current states. Each device is represented by a descriptor, 
@@ -566,7 +570,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Real Device Jobs
 
-<details><summary><span className="api get">GET</span> <code>/v1/rdc/jobs</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/jobs</code></summary>
 <p/>
 
 Get a list of jobs that are actively running on real devices in the data center.
@@ -676,7 +681,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get a Specific Real Device Job
 
-<details><summary><span className="api get">GET</span> <code>/v1/rdc/jobs/&#123;job_id&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/jobs/&#123;job_id&#125;</code></summary>
 <p/>
 
 Get information about a specific job running on a real device at the data center.
@@ -844,7 +850,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Stop a Job
 
-<details><summary><span className="api put">PUT</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/stop</code></summary>
+<details>
+<summary><span className="api put">PUT</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/stop</code></summary>
 <p/>
 
 Stops a running job described by the `job_id`.
@@ -956,7 +963,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Update a Job
 
-<details><summary><span className="api put">PUT</span> <code>/v1/rdc/jobs/&#123;job_id&#125;</code></summary>
+<details>
+<summary><span className="api put">PUT</span> <code>/v1/rdc/jobs/&#123;job_id&#125;</code></summary>
 <p/>
 
 Edit job attributes based on parameters passed in the request, including setting the status and name of the job. Any parameter for which a new value is provided in the request will replace the existing value. For example, if you provide a set of tags, they will not be added to the current tags; they will replace them, so make sure you pass the entire set you wish to assign.
@@ -1176,7 +1184,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Delete a Job
 
-<details><summary><span className="api delete">DELETE</span> <code>/v1/rdc/jobs/&#123;job_id&#125;</code></summary>
+<details>
+<summary><span className="api delete">DELETE</span> <code>/v1/rdc/jobs/&#123;job_id&#125;</code></summary>
 <p/>
 
 Delete a job and all of its assets from the Sauce Labs test history.

@@ -24,7 +24,8 @@ The Tag component within the Composer enables you to dynamically tag the resulti
 
 This is different from the tags applied when you first [create the test](/api-testing/composer/#create-a-composer-test). That feature enables you to search for that tag(s) filter in your Project **Tests** tab or [**Dashboard**](/api-testing/project-dashboard) tab.
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 <table id="table-api">
   <tbody>
@@ -51,7 +52,8 @@ Static tags will be displayed in your **Tests** list.<br/><img src={useBaseUrl('
 All tags, dynamic and static will mark the test execution documents. On your project **Dashboard**, you can filter events by tags.<br/><img src={useBaseUrl('img/api-testing/projDashTag.webp')} alt="project dashboard tag"/>
 
 </details>
-<details><summary><strong>Code View Example</strong></summary>
+<details>
+<summary><strong>Code View Example</strong></summary>
 
 ```yaml
 - id: tag
@@ -66,7 +68,8 @@ In Sauce Labs API Testing you can create variables in several different ways by 
 
 <img src={useBaseUrl('img/api-testing/set-var-component.png')} alt="Set var component" />
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 <table id="table-api">
   <tbody>
@@ -124,7 +127,8 @@ You can learn more about this mode by checking out [the example](/api-testing/us
 
 </details>
 
-<details><summary><strong>Code View Examples</strong></summary>
+<details>
+<summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: set
@@ -193,7 +197,8 @@ You can learn more about this mode by checking out [the example](/api-testing/us
 
 This component allows you to parse a string into structured data, using one of the available parsers.
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 <table id="table-api">
   <tbody>
@@ -230,7 +235,8 @@ Here are the results of the above test:
 Before parsing the string, the test will consider the variable `colors` as one big string so `colors[1]` will print `“` as that is the second character in the string. After parsing the string into JSON the system can traverse through the variable as a JSON, so `colors[1]` will print the second element in the JSON array: `blue`.
 
 </details>
-<details><summary><strong>Code View Examples</strong></summary>
+<details>
+<summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: parse
@@ -250,7 +256,8 @@ Before parsing the string, the test will consider the variable `colors` as one b
 
 This assertion allows you to print out (in test reports) information. It can have two sorts of values, as described below.
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 There are no parameters -- text only.
 
@@ -270,7 +277,8 @@ The value of the ID is ${payload.id}
 
 </details>
 
-<details><summary><strong>Code View Example</strong></summary>
+<details>
+<summary><strong>Code View Example</strong></summary>
 
 ```yaml
 - id: comment
@@ -288,7 +296,8 @@ The value of the ID is ${payload.id}
 
 This component allows you to pause or stop a test entirely.
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 <table id="table-api">
   <tbody>
@@ -320,7 +329,8 @@ In this example, the test will wait 1000 milliseconds before performing the `GET
 
 </details>
 
-<details><summary><strong>Code View Examples</strong></summary>
+<details>
+<summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: flow
@@ -341,7 +351,8 @@ The Fact component enables you to add information (facts) about the nature of th
 
 Test activity is tracked using test ID number. This may not work if you're testing in multiple environments (i.e., production, staging, QA), as an incident could be environment-specific. When a Fact component is added to a test, it will inform our system which environment the execution relates to so that the incident signature will carry the environment as well.
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 <table id="table-api">
   <tbody>
@@ -373,7 +384,8 @@ Learn how to [improve the email notifications](/api-testing/use-cases/fact/#sett
 
 </details>
 
-<details><summary><strong>Code View Examples</strong></summary>
+<details>
+<summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: fact
@@ -413,7 +425,8 @@ The Key/Value Store component has four methods available for use:
 - [**Push**](/api-testing/use-cases/key-value/#pushpop-workflow): adds a value to the end of an existent value **of the datatype "Array"** in the Key/Value store. If no such key exists, it will create a new array containing the passed in value.  The passed in value is entered in the **Data** field.<br/><img src={useBaseUrl('img/api-testing/KeyValuePush.png')} alt="KeyValuePush.png" />
 - [**Pop**](/api-testing/use-cases/key-value/#pushpop-workflow): removes a value from the end of an existent value **of the datatype "Array"** in the Key/Value store.<br/><img src={useBaseUrl('/img/api-testing/KeyValuePop.png')} alt="KeyValuePop.png" />
 
-<details><summary><strong>Code View Examples</strong></summary>
+<details>
+<summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: kv

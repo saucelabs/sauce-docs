@@ -86,12 +86,14 @@ As such, it is good practice for each line to be less than 120 characters long f
 <table class="code">
   <tbody>
     <tr>
-      <td>
+<td>
+
 
 **Markdown**
 
 </td>
-      <td>
+<td>
+
 
 ```markdown
 This
@@ -113,10 +115,12 @@ rather than creating a new paragraph
 <tr>
 <td>
 
+
 **Display**
 
 </td>
-      <td>
+<td>
+
 
 This
 will
@@ -197,12 +201,14 @@ and then use the tabs as follows:
 <table class="code">
   <tbody>
     <tr>
-      <td>
+<td>
+
 
 **Markdown**
 
 </td>
-      <td>
+<td>
+
 
 ```markdown
 <Tabs groupId="lang-ex">
@@ -220,10 +226,12 @@ and then use the tabs as follows:
 <tr>
 <td>
 
+
 **Display**
 
 </td>
-      <td>
+<td>
+
 
 <Tabs groupId="lang-ex">
   <TabItem value="java" label="Java" default>
@@ -246,12 +254,14 @@ To refer to a single class or method name in a sentence, place single backticks 
 <table class="code">
   <tbody>
     <tr>
-      <td>
+<td>
+
 
 **Markdown**
 
 </td>
-      <td>
+<td>
+
 
 ```markdown
 This comment refers to the `RemoteWebDriver` class
@@ -262,10 +272,12 @@ This comment refers to the `RemoteWebDriver` class
 <tr>
 <td>
 
+
 **Display**
 
 </td>
-      <td>
+<td>
+
 
 This comment refers to the `RemoteWebDriver` class
 
@@ -282,12 +294,14 @@ to specify which language you are using, and it's a good idea to include a title
 <table class="code">
   <tbody>
     <tr>
-      <td>
+<td>
+
 
 **Markdown**
 
 </td>
-      <td>
+<td>
+
 
     ```java title="Custom Title"
     RemoteWebDriver driver = new RemoteWebDriver(url, capabilities);
@@ -298,10 +312,12 @@ to specify which language you are using, and it's a good idea to include a title
 <tr>
 <td>
 
+
 **Display**
 
 </td>
-      <td>
+<td>
+
 
 ```java title="Custom Title"
 RemoteWebDriver driver = new RemoteWebDriver(url, capabilities);
@@ -339,12 +355,14 @@ git push origin --tags
 <table class="code">
   <tbody>
     <tr>
-      <td>
+<td>
+
 
 **Markdown**
 
 </td>
-      <td>
+<td>
+
 
     ```java reference title="Example Test"
     https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/demo/SauceBindingsTest.java#L39-L43
@@ -355,10 +373,12 @@ git push origin --tags
 <tr>
 <td>
 
+
 **Display**
 
 </td>
-      <td>
+<td>
+
 
 ```java reference title="Example Test"
 https://github.com/saucelabs-training/demo-java/blob/docs-1.0/selenium-examples/src/test/java/com/saucedemo/selenium/demo/SauceBindingsTest.java#L39-L43
@@ -377,12 +397,14 @@ it to take up too much space on the page by default, we encourage the use of `de
 <table class="code">
   <tbody>
     <tr>
-      <td>
+<td>
+
 
 **HTML**
 
 </td>
-      <td>
+<td>
+
 
 ```html
 <details>
@@ -398,10 +420,12 @@ This is hidden by default.
 <tr>
 <td>
 
+
 **Display**
 
 </td>
-      <td>
+<td>
+
 <details>
   <summary>
     <strong>Click here</strong> to see an example of something hidden by default.
@@ -425,12 +449,14 @@ There are four types of [Docusaurus admonitions](https://docusaurus.io/docs/mark
 <table class="code">
   <tbody>
     <tr>
-      <td>
+<td>
+
 
 **Markdown**
 
 </td>
-      <td>
+<td>
+
 
 ```markdown
 :::note
@@ -463,10 +489,12 @@ You are about to do something dangerous.
 <tr>
 <td>
 
+
 **Display**
 
 </td>
-      <td>
+<td>
+
 
 :::note
 
@@ -510,12 +538,14 @@ Green badges are used for everything except for deprecated information, which is
 <table class="code">
   <tbody>
     <tr>
-      <td>
+<td>
+
 
 **HTML**
 
 </td>
-      <td>
+<td>
+
 
 ```html
 <p><span className="sauceGreen">Beta</span></p>
@@ -531,10 +561,12 @@ Green badges are used for everything except for deprecated information, which is
 <tr>
 <td>
 
+
 **Display**
 
 </td>
-      <td>
+<td>
+
 <p><span className="sauceGreen">Beta</span></p>
 <p><span className="sauceGreen">Enterprise Only</span></p>
 <p><span className="sauceGreen">iOS Only</span></p>
@@ -556,12 +588,14 @@ technology.
 <table class="code">
   <tbody>
     <tr>
-      <td>
+<td>
+
 
 **HTML**
 
 </td>
-      <td>
+<td>
+
 
 ```html
 <p><span class="highlight cypress">Cypress</span></p>
@@ -574,10 +608,12 @@ technology.
 <tr>
 <td>
 
+
 **Display**
 
 </td>
-      <td>
+<td>
+
         <p><span class="highlight cypress">Cypress</span></p>
         <p><span class="highlight playwright">Playwright version >= 1.12</span></p>
         <p><span class="highlight testcafe">TestCafe</span></p>
@@ -593,12 +629,14 @@ For overview pages that have four categories, we often use these Boxes. Note tha
 <table class="code">
   <tbody>
     <tr>
-      <td>
+<td>
+
 
 **HTML**
 
 </td>
-      <td>
+<td>
+
 
 ```html
 <div className="box-wrapper" markdown="1">
@@ -648,10 +686,12 @@ For overview pages that have four categories, we often use these Boxes. Note tha
 <tr>
 <td>
 
+
 **Display**
 
 </td>
-      <td>
+<td>
+
 <div className="box-wrapper" markdown="1">
   <div className="box box1 card">
     <div className="container">

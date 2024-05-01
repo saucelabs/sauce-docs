@@ -231,11 +231,13 @@ The following sample values are presented using case for readability, but capabi
   <tr>
     <td><a href="/dev/test-configuration-options#deviceName"><code>deviceName</code></a></td>
     <td>No</td>
-    <td><p>Provide a device display name, or use regular expressions to provide a partial name, thus increasing the potential pool of matches. Some examples include:</p>
+<td>
+<p>Provide a device display name, or use regular expressions to provide a partial name, thus increasing the potential pool of matches. Some examples include:</p>
     <p>Any iPhone: <code>"appium:deviceName", "iPhone.*", "iPhone .*"</code></p>
     <p>Any device with the word "nexus" in its display name: <code>"appium:deviceName", ".*nexus.*"</code></p>
     <p>Either <i>iPhone 7</i> or <i>iPhone 6</i>: <code>"appium:deviceName", "iPhone [67]"</code> or <code>"iPhone [6-7]"</code></p>
-    <p>Either <i>iPhone 7S</i> or <i>iPhone 6S</i>: <code>"appium:deviceName", "iPhone [67]S"</code> or <code>"iPhone [6-7]S"</code></p></td>
+    <p>Either <i>iPhone 7S</i> or <i>iPhone 6S</i>: <code>"appium:deviceName", "iPhone [67]S"</code> or <code>"iPhone [6-7]S"</code></p>
+  </td>
   </tr>
   <tr>
    <td><a href="/dev/test-configuration-options#platformname"><code>platformName</code></a></td>
@@ -245,8 +247,10 @@ The following sample values are presented using case for readability, but capabi
   <tr>
    <td><a href="/dev/test-configuration-options#platformVersion"><code>platformVersion</code></a></td>
    <td>No</td>
-   <td>Specify the OS version to use in your tests (i.e., <code>4</code> or <code>4.1</code>.
-     <p>This property uses a substring match, so you can specify major and/or incremental versions. For example, if you set only a major version <code>4</code>, any devices running incremental versions (e.g., <code>4.1</code>, <code>4.2</code>, <code>4.2.1</code>, <code>4.4.4</code>) will also match. This behavior extends to minor and point versions as well, so <code>11.4</code> matches <code>11.4.0</code> and <code>11.4.1</code>.</p></td>
+<td>
+Specify the OS version to use in your tests (i.e., <code>4</code> or <code>4.1</code>.
+     <p>This property uses a substring match, so you can specify major and/or incremental versions. For example, if you set only a major version <code>4</code>, any devices running incremental versions (e.g., <code>4.1</code>, <code>4.2</code>, <code>4.2.1</code>, <code>4.4.4</code>) will also match. This behavior extends to minor and point versions as well, so <code>11.4</code> matches <code>11.4.0</code> and <code>11.4.1</code>.</p>
+     </td>
   </tr>
   </tbody>
 </table>

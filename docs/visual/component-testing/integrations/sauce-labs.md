@@ -72,22 +72,28 @@ module.exports = config;
     </tr>
     <tr>
      <td><strong>chrome</strong></td>
-     <td><ul>
-  <li>87.0</li>
-  <li>86.0</li>
-  <li>85.0</li>
-  <li>84.0</li>
-  <li>83.0</li></ul>
+<td>
+
+     <ul>
+      <li>87.0</li>
+      <li>86.0</li>
+      <li>85.0</li>
+      <li>84.0</li>
+      <li>83.0</li>
+      </ul>
      </td>
     </tr>
     <tr>
      <td><strong>firefox</strong></td>
-     <td><ul>
-  <li>83.0</li>
-  <li>82.0</li>
-  <li>81.0</li>
-  <li>80.0</li>
-  <li>79.0</li></ul>
+<td>
+
+      <ul>
+        <li>83.0</li>
+        <li>82.0</li>
+        <li>81.0</li>
+        <li>80.0</li>
+        <li>79.0</li>
+      </ul>
      </td>
     </tr>
     <tr>
@@ -96,21 +102,28 @@ module.exports = config;
     </tr>
     <tr>
      <td><strong>microsoftedge</strong></td>
-     <td><ul><li>87.0</li>
-  <li>86.0</li>
-  <li>85.0</li>
-  <li>84.0</li>
-  <li>83.0</li>
-  <li>18.17763</li>
-  <li>17.17134</li></ul>
+<td>
+
+      <ul>
+        <li>87.0</li>
+        <li>86.0</li>
+        <li>85.0</li>
+        <li>84.0</li>
+        <li>83.0</li>
+        <li>18.17763</li>
+        <li>17.17134</li>
+      </ul>
      </td>
     </tr>
     <tr>
      <td><strong>safari</strong></td>
-     <td><ul>
-  <li>13.1</li>
-  <li>12.1</li>
-  <li>11.1</li></ul>
+<td>
+
+      <ul>
+        <li>13.1</li>
+        <li>12.1</li>
+        <li>11.1</li>
+      </ul>
      </td>
     </tr>
   </table>

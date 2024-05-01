@@ -37,7 +37,8 @@ tunnel-name: 'my-macos'
 [`sc run config-file`](/dev/cli/sauce-connect-5/run/#configuration-file) command's output below contains all the available options and their usage.
 
 
-<details><summary>`sc run config-file` output</summary>
+<details>
+<summary>`sc run config-file` output</summary>
 
 #### Reference
 

@@ -27,34 +27,27 @@ The Init command (`/*@visual.init*/`) is used to initialize and name a Visual te
 
 <table>
   <tr>
-   <td><strong>Argument</strong>
-   </td>
-   <td><strong>Type</strong>
-   </td>
-   <td><strong>Required</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+   <td><strong>Argument</strong></td>
+   <td><strong>Type</strong></td>
+   <td><strong>Required</strong></td>
+   <td><strong>Description</strong></td>
   </tr>
   <tr>
-   <td><code>name</code>
-   </td>
-   <td>String
-   </td>
-   <td>Yes
-   </td>
-   <td>Name of Visual test
-   </td>
+   <td><code>name</code></td>
+   <td>String</td>
+   <td>Yes</td>
+   <td>Name of Visual test</td>
   </tr>
   <tr>
-   <td><code>options</code>
-   </td>
-   <td>Object
-   </td>
-   <td>No
-   </td>
-   <td>Init command options. <p>Options available:</p>
-<ul><li><code>ignore</code>: comma-delimited list of css-selectors to ignore in all snapshots in test.</li></ul>
+   <td><code>options</code></td>
+   <td>Object</td>
+   <td>No</td>
+   <td>
+    <div>Init command options.</div>
+    <p>Options available:</p>
+    <ul>
+      <li><code>ignore</code>: comma-delimited list of css-selectors to ignore in all snapshots in test.</li>
+    </ul>
 
 ```java title="Example"
 { ignore: '.selector' }
@@ -124,38 +117,29 @@ The above Init command must be called first before any snapshots are taken, or a
 
 <table>
   <tr>
-   <td><strong>Argument</strong>
-   </td>
-   <td><strong>Type</strong>
-   </td>
-   <td><strong>Required</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+   <td><strong>Argument</strong></td>
+   <td><strong>Type</strong></td>
+   <td><strong>Required</strong></td>
+   <td><strong>Description</strong></td>
   </tr>
   <tr>
-   <td>name
-   </td>
-   <td>String
-   </td>
-   <td>Yes
-   </td>
-   <td>Name of Snapshot
-   </td>
+   <td>name</td>
+   <td>String</td>
+   <td>Yes</td>
+   <td>Name of Snapshot</td>
   </tr>
   <tr>
-   <td>options
-   </td>
-   <td>Object
-   </td>
-   <td>No
-   </td>
-   <td>Snapshot command options. <p>Options available:</p>
-<ul>
-<li><code>ignore</code>: comma-delimited list of css-selectors to ignore in snapshot.</li>
-<li><code>cropTo</code>: single css-selector to crop the snapshot to.</li>
-<li><code>scrollAndStitchScreenshot</code>: boolean option to capture a full-page screenshot using a scrolling and stitching strategy instead of using native browser full-page screenshot capabilities.</li>
-</ul>
+   <td>options</td>
+   <td>Object</td>
+   <td>No</td>
+   <td>
+      <div>Snapshot command options.</div>
+      <p>Options available:</p>
+      <ul>
+      <li><code>ignore</code>: comma-delimited list of css-selectors to ignore in snapshot.</li>
+      <li><code>cropTo</code>: single css-selector to crop the snapshot to.</li>
+      <li><code>scrollAndStitchScreenshot</code>: boolean option to capture a full-page screenshot using a scrolling and stitching strategy instead of using native browser full-page screenshot capabilities.</li>
+      </ul>
    </td>
   </tr>
 </table>
@@ -270,16 +254,17 @@ The response will contain the following properties:
    <td>
     <strong>passed</strong>
    </td>
-   <td>
-    Whether or not the test passed.
-   </td>
+   <td>Whether or not the test passed.</td>
   </tr>
   <tr>
    <td>
     <strong>status</strong>
    </td>
    <td>
-    The test status. Possible values: <code>success</code>, <code>failure</code>, <code>error</code>, <code>timeout</code>, <code>cancelled</code>.
+    <div>
+      The test status. Possible values:
+      <code>success</code>, <code>failure</code>, <code>error</code>, <code>timeout</code>, <code>cancelled</code>.
+    </div>
    </td>
   </tr>
   <tr>
@@ -287,7 +272,7 @@ The response will contain the following properties:
     <strong>totals</strong>
    </td>
    <td>
-    Visual regression result totals.
+    <div>Visual regression result totals.</div>
    </td>
   </tr>
   <tr>
@@ -295,7 +280,11 @@ The response will contain the following properties:
     <strong>states</strong>
    </td>
    <td>
-    List of all snapshots, including name, status and URL. <strong>NOTE</strong>: URLs are not permalinks; URL will direct to the latest results for the snapshot.
+    <div>
+      {`List of all snapshots, including name, status and URL. `}
+      <strong>NOTE</strong>
+      {`: URLs are not permalinks; URL will direct to the latest results for the snapshot.`}
+    </div>
    </td>
   </tr>
   <tr>
@@ -303,7 +292,7 @@ The response will contain the following properties:
     <strong>message</strong>
    </td>
    <td>
-    Error message.
+    <div>Error message.</div>
    </td>
   </tr>
 </table>

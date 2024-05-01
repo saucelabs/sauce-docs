@@ -14,7 +14,8 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ### Get Sauce Labs TestStatus
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/info/status</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/rest/v1/info/status</code></summary>
 <p/>
 
 Returns the current (30 second cache) availability of the Sauce Labs platform.
@@ -82,7 +83,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Supported Platforms
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/info/platforms/&#123;automation_api&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/rest/v1/info/platforms/&#123;automation_api&#125;</code></summary>
 <p/>
 
 Returns the set of supported operating system and browser combinations for the specified automation framework.
@@ -93,7 +95,8 @@ Returns the set of supported operating system and browser combinations for the s
   <tbody>
     <tr>
      <td><code>automation_api</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The framework for which you are requesting supported platforms. Valid values are:</p><p>
+<td>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>The framework for which you are requesting supported platforms. Valid values are:</p><p>
      <ul>
       <li><code>all</code></li>
       <li><code>appium</code></li>
@@ -212,7 +215,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get End of Life Dates for Appium Versions
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/info/platforms/appium/eol</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/rest/v1/info/platforms/appium/eol</code></summary>
 <p/>
 
 Returns the expected date (in Unix time) on which Sauce Labs support for each Appium version is to be discontinued.

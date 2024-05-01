@@ -15,50 +15,62 @@ If you have any questions, please reach out to your Customer Success Manager or 
 
 <table>
   <tr>
-   <td>
+<td>
+
     <strong>browserName</strong>
    </td>
-   <td>
+<td>
+
     <strong>browserVersion</strong>
    </td>
   </tr>
   <tr>
-   <td>
+<td>
+
     chrome
    </td>
-   <td>
+<td>
+
     75+
    </td>
   </tr>
   <tr>
-   <td>
+<td>
+
     firefox
    </td>
-   <td>
+<td>
+
     66+
    </td>
   </tr>
   <tr>
-   <td>
+<td>
+
     microsoftedge
    </td>
-   <td>
+<td>
+
     79+
    </td>
   </tr>
   <tr>
-   <td>
+<td>
+
     safari
    </td>
-   <td>
+<td>
+
     11.1+
    </td>
   </tr>
   <tr>
-   <td>
+<td>
+
     internet explorer
    </td>
-   <td>
+<td>
+
     11
    </td>
   </tr>
@@ -68,79 +80,99 @@ If you have any questions, please reach out to your Customer Success Manager or 
 
 <table>
   <tr>
-   <td>
+<td>
+
     <strong>platformName</strong>
    </td>
-   <td>
+<td>
+
     <strong>Name</strong>
    </td>
   </tr>
   <tr>
-   <td>
+<td>
+
     Windows 7
    </td>
-   <td>
+<td>
+
    </td>
   </tr>
   <tr>
-   <td>
+<td>
+
     Windows 10
    </td>
-   <td>
+<td>
+
    </td>
   </tr>
   <tr>
-   <td>
+<td>
+
     Windows 11
    </td>
-   <td>
+<td>
+
    </td>
   </tr>
   <tr>
-   <td>
+<td>
+
     macOS 13
    </td>
-   <td>
+<td>
+
     Ventura
    </td>
   </tr>
   <tr>
-   <td>
+<td>
+
     macOS 12
    </td>
-   <td>
+<td>
+
     Monterey
    </td>
   </tr>
   <tr>
-   <td>
+<td>
+
     macOS 11.00
    </td>
-   <td>
+<td>
+
     Big Sur
    </td>
   </tr>
   <tr>
-   <td>
+<td>
+
     macOS 10.15
    </td>
-   <td>
+<td>
+
     Catalina
    </td>
   </tr>
   <tr>
-   <td>
+<td>
+
     macOS 10.14
    </td>
-   <td>
+<td>
+
     Mojave
    </td>
   </tr>
   <tr>
-   <td>
+<td>
+
     macOS 10.13
    </td>
-   <td>
+<td>
+
     High Sierra
    </td>
   </tr>

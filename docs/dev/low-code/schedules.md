@@ -14,99 +14,130 @@ The **Schedules** page includes information about your scheduled tests. From thi
 
 <table>
   <tr>
-    <td colspan='3'><b>Component</b>
+    <td colspan='3'>
+<b>Component</b>
     </td>
-    <td><b>Description</b>
-    </td>
-  </tr>
-  <tr>
-    <td colspan='3'><b>Schedule</b> column
-    </td>
-    <td>The name given to the schedule.<br/><br/>Click the up or down arrow next to the column name to sort the table by schedule name.
+<td>
+<b>Description</b>
     </td>
   </tr>
   <tr>
-    <td colspan='3'><b>Test Suite</b> column
+    <td colspan='3'>
+<b>Schedule</b> column
     </td>
-    <td>The name given to the test suite.<br/><br/>Click the up or down arrow next to the column name to sort the table by test suite name.
-    </td>
-  </tr>
-  <tr>
-    <td colspan='3'><b>Schedule Owner</b> column
-    </td>
-    <td>The name of the user who created the schedule.<br/><br/>Click the up or down arrow next to the column name to sort the table by schedule owner name.
+<td>
+The name given to the schedule.<br/><br/>Click the up or down arrow next to the column name to sort the table by schedule name.
     </td>
   </tr>
   <tr>
-    <td colspan='3'><b>Start Date</b> column
+    <td colspan='3'>
+<b>Test Suite</b> column
     </td>
-    <td>The scheduled start date.<br/><br/>Click the up or down arrow next to the column name to sort the table by the start date.
-    </td>
-  </tr>
-  <tr>
-    <td colspan='3'><b>End Date</b> column
-    </td>
-    <td>The scheduled end date.<br/><br/>Click the up or down arrow next to the column name to sort the table by the end date.
+<td>
+The name given to the test suite.<br/><br/>Click the up or down arrow next to the column name to sort the table by test suite name.
     </td>
   </tr>
   <tr>
-    <td colspan='3'><b>Interval</b> button
+    <td colspan='3'>
+<b>Schedule Owner</b> column
     </td>
-    <td>The interval at which tests will be run.
-    </td>
-  </tr>
-  <tr>
-    <td colspan='3'><b>Execution History</b> button
-    </td>
-    <td>Clicking the <b>Execution History</b> button opens the <b>Execution History</b> page. See Execution History Page for more information.
+<td>
+The name of the user who created the schedule.<br/><br/>Click the up or down arrow next to the column name to sort the table by schedule owner name.
     </td>
   </tr>
   <tr>
-    <td rowspan='3'><b>Actions</b>
+    <td colspan='3'>
+<b>Start Date</b> column
     </td>
-    <td colspan='2'><b>Assign to Me</b> button
-    </td>
-    <td>Makes you the schedule owner.
-    </td>
-  </tr>
-  <tr>
-    <td colspan='2'><b>Update Schedule</b>
-    </td>
-    <td>Modify job and schedule details. See <a href="#creating-a-schedule">Creating a Schedule</a> for more information.
+<td>
+The scheduled start date.<br/><br/>Click the up or down arrow next to the column name to sort the table by the start date.
     </td>
   </tr>
   <tr>
-    <td colspan='2'><b>Delete Schedule</b>
+    <td colspan='3'>
+<b>End Date</b> column
     </td>
-    <td>Deletes the schedule.
-    </td>
-  </tr>
-  <tr>
-    <td rowspan='5'>Dropdown
-    </td>
-    <td colspan='2'><b>Case</b> column
-    </td>
-    <td>The name given to the test case.
+<td>
+The scheduled end date.<br/><br/>Click the up or down arrow next to the column name to sort the table by the end date.
     </td>
   </tr>
   <tr>
-    <td colspan='2'><b>Last Scheduled Run</b> column
+    <td colspan='3'>
+<b>Interval</b> button
     </td>
-    <td>The date the last run was scheduled for.
-    </td>
-  </tr>
-  <tr>
-    <td colspan='2'><b>Schedule Execution Status</b> column
-    </td>
-    <td>The status of the scheduled execution.
+<td>
+The interval at which tests will be run.
     </td>
   </tr>
   <tr>
-    <td rowspan='2'><b>Actions</b>
+    <td colspan='3'>
+<b>Execution History</b> button
     </td>
-    <td><b>Go To Execution</b>
+<td>
+Clicking the <b>Execution History</b> button opens the <b>Execution History</b> page. See Execution History Page for more information.
     </td>
-    <td>Takes you to the execution page for the test case.
+  </tr>
+  <tr>
+    <td rowspan='3'>
+      <b>Actions</b>
+    </td>
+    <td colspan='2'>
+<b>Assign to Me</b> button
+    </td>
+<td>
+Makes you the schedule owner.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'>
+<b>Update Schedule</b>
+    </td>
+<td>
+Modify job and schedule details. See <a href="#creating-a-schedule">Creating a Schedule</a> for more information.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'>
+<b>Delete Schedule</b>
+    </td>
+<td>
+Deletes the schedule.
+    </td>
+  </tr>
+  <tr>
+    <td rowspan='5'>Dropdown</td>
+    <td colspan='2'>
+<b>Case</b> column
+    </td>
+<td>
+The name given to the test case.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'>
+<b>Last Scheduled Run</b> column
+    </td>
+<td>
+The date the last run was scheduled for.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'>
+<b>Schedule Execution Status</b> column
+    </td>
+<td>
+The status of the scheduled execution.
+    </td>
+  </tr>
+  <tr>
+    <td rowspan='2'>
+      <b>Actions</b>
+    </td>
+<td>
+<b>Go To Execution</b>
+    </td>
+<td>
+Takes you to the execution page for the test case.
     </td>
   </tr>
 </table>
@@ -154,83 +185,110 @@ The **Execution History** page displays extensive information about the test tha
 
 <table>
   <tr>
-    <td colspan='3'><b>Execution Time</b> column
+    <td colspan='3'>
+<b>Execution Time</b> column
     </td>
-    <td>The time the test was executed.<br/><br/>Click the up or down arrow next to the column name to sort the table by execution time.
-    </td>
-  </tr>
-  <tr>
-    <td colspan='3'><b>Total</b> column
-    </td>
-    <td>The total number of tests run in the project, test suite, or test case.<br/><br/>Click the up or down arrow next to the column name to sort the table by total number of tests.
+<td>
+The time the test was executed.<br/><br/>Click the up or down arrow next to the column name to sort the table by execution time.
     </td>
   </tr>
   <tr>
-    <td colspan='3'><b>Passed</b> column
+    <td colspan='3'>
+<b>Total</b> column
     </td>
-    <td>The number of tests that were run that passed.<br/><br/>Click the up or down arrow next to the column name to sort the table by the number of tests that passed.
-    </td>
-  </tr>
-  <tr>
-    <td colspan='3'><b>Failed</b> column
-    </td>
-    <td>The number of tests that were run that failed.<br/><br/>Click the up or down arrow next to the column name to sort the table by the number of tests that failed.
+<td>
+The total number of tests run in the project, test suite, or test case.<br/><br/>Click the up or down arrow next to the column name to sort the table by total number of tests.
     </td>
   </tr>
   <tr>
-    <td colspan='3'><b>Execute Failed Test Cases</b> button
+    <td colspan='3'>
+<b>Passed</b> column
     </td>
-    <td>Click to re-execute the failed tests.
-    </td>
-  </tr>
-  <tr>
-    <td colspan='3'><b>Stop</b> button
-    </td>
-    <td>Click to stop the execution.
+<td>
+The number of tests that were run that passed.<br/><br/>Click the up or down arrow next to the column name to sort the table by the number of tests that passed.
     </td>
   </tr>
   <tr>
-    <td rowspan='7'><b>Details</b> dropdown
+    <td colspan='3'>
+<b>Failed</b> column
     </td>
-    <td colspan='2'><b>Case</b> column
-    </td>
-    <td>The name given to the test case.<br/><br/>Click the up or down arrow next to the column name to sort the table by case name.
-    </td>
-  </tr>
-  <tr>
-    <td colspan='2'><b>Project</b> column
-    </td>
-    <td>The project the test case is associated with.<br/><br/>Click the up or down arrow next to the column name to sort the table by project name.
+<td>
+The number of tests that were run that failed.<br/><br/>Click the up or down arrow next to the column name to sort the table by the number of tests that failed.
     </td>
   </tr>
   <tr>
-    <td colspan='2'><b>Execution Status</b> column
+    <td colspan='3'>
+<b>Execute Failed Test Cases</b> button
     </td>
-    <td>The status of the execution.<br/><br/>Click the up or down arrow next to the column name to sort the table by execution status.
+<td>
+Click to re-execute the failed tests.
     </td>
   </tr>
   <tr>
-    <td colspan='2'><b>Retry Execution Status</b> column
+    <td colspan='3'>
+<b>Stop</b> button
     </td>
-    <td>
+<td>
+Click to stop the execution.
+    </td>
+  </tr>
+  <tr>
+    <td rowspan='7'>
+      <b>Details</b> dropdown
+    </td>
+    <td colspan='2'>
+<b>Case</b> column
+    </td>
+<td>
+The name given to the test case.<br/><br/>Click the up or down arrow next to the column name to sort the table by case name.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'>
+<b>Project</b> column
+    </td>
+<td>
+The project the test case is associated with.<br/><br/>Click the up or down arrow next to the column name to sort the table by project name.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'>
+<b>Execution Status</b> column
+    </td>
+<td>
+The status of the execution.<br/><br/>Click the up or down arrow next to the column name to sort the table by execution status.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'>
+<b>Retry Execution Status</b> column
+    </td>
+<td>
+
     </td>
   </tr>
   <tr> 
-    <td colspan='2'><b>Preview</b>
+    <td colspan='2'>
+<b>Preview</b>
     </td>
-    <td>Generates a preview of the test, which opens in a new tab.
-    </td>
-  </tr>
-  <tr> 
-    <td colspan='2'><b>Download</b>
-    </td>
-    <td>Downloads the <b>Execution Report</b> as an .html file.<br/><br/>The <b>Execution Report</b> contains the information from the <b>Execution History</b> page, but in .html format.
+<td>
+Generates a preview of the test, which opens in a new tab.
     </td>
   </tr>
   <tr> 
-    <td colspan='2'><b>Go to Step Editor</b>
+    <td colspan='2'>
+<b>Download</b>
     </td>
-    <td>Opens the step editor for the test case. See <a href="/dev/low-code/projects/test-cases/#using-the-step-editor">Using the Step Editor</a> for more information.
+<td>
+Downloads the <b>Execution Report</b> as an .html file.<br/><br/>The <b>Execution Report</b> contains the information from the <b>Execution History</b> page, but in .html format.
+    </td>
+  </tr>
+  <tr> 
+    <td colspan='2'>
+<b>Go to Step Editor</b>
+    </td>
+<td>
+Opens the step editor for the test case. See <a href="/dev/low-code/projects/test-cases/#using-the-step-editor">Using the Step Editor</a> for more information.
     </td>
   </tr>
 </table>

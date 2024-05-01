@@ -19,35 +19,43 @@ Learn the Screener workflow for reviewing UIs. Each UI state under test has one 
 
 <table>
   <tr>
-   <td>
+<td>
+
     <strong>New</strong>
    </td>
-   <td>
+<td>
+
     A new UI state that has not been reviewed yet.
    </td>
   </tr>
   <tr>
-   <td>
+<td>
+
     <strong>Changed</strong>
    </td>
-   <td>
+<td>
+
     A UI state that has changed visually when compared to its accepted baseline.
    </td>
   </tr>
   <tr>
-   <td>
+<td>
+
     <strong>Accepted</strong>
    </td>
-   <td>
+<td>
+
     A UI state that is visually the same as its baseline
    <p>OR has been reviewed and accepted by a team member.</p>
    </td>
   </tr>
   <tr>
-   <td>
+<td>
+
     <strong>Rejected</strong>
    </td>
-   <td>
+<td>
+
     A UI state that has been reviewed, found to have defects, and rejected by a team member.
    </td>
   </tr>

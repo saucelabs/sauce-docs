@@ -82,7 +82,7 @@ You can take explicit Mute or Resolve actions on a fingerprint. Mute a fingerpri
 
 You can take explicit Mute Until or Resolve Until actions on a fingerprint to specify if/when you would like the fingerprint and any linked issues (i.e. Jira) to be reopened. Customers use this capability to specify which criteria should be used to determine if a fingerprint should be re-opened and to automate issue tracking workflows to respond to regressions.
 
-You can specify conditions such as "until the fingerprint is seen in version {choose version attribute} greater than {value}" or "until the fingerprint is seen again after < 30 minutes | 2 hours | 1 day | 1 week | 1 month>".
+You can specify conditions such as "until the fingerprint is seen in version \{choose version attribute\} greater than \{value\}" or "until the fingerprint is seen again after < 30 minutes | 2 hours | 1 day | 1 week | 1 month>".
 
 <img src={useBaseUrl('img/error-reporting/console-views/mute-until.png')} alt="" />
 

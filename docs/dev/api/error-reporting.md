@@ -17,7 +17,8 @@ These API endpoints allow you to interact with Error Reporting (Backtrace) funct
 
 ## Submit Crash
 
-<details><summary><span className="api post">POST</span><code>http://api.backtrace.io/post</code></summary>
+<details>
+<summary><span className="api post">POST</span><code>http://api.backtrace.io/post</code></summary>
 <p/>
 
 Submits crash object to Backtrace instance.
@@ -28,7 +29,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>token</code></td>
-         <td>
+<td>
+
             <p><small>| QUERY | REQUIRED | STRING |</small></p>
             <p>Your API token.</p>
          </td>
@@ -37,7 +39,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>format</code></td>
-         <td>
+<td>
+
             <p><small>| QUERY | REQUIRED | STRING |</small></p>
             <p>The format of the crash you are submitting. Default value is <code>json</code>.</p>
          </td>
@@ -46,7 +49,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>upload_file</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | OPTIONAL | STRING |</small></p>
             <p>It allows to attach a file with the initial crash submission. It contains the location of file containing crash data to send.</p>
          </td>
@@ -55,7 +59,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>body</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | REQUIRED | STRING |</small></p>
             <p>The JSON body of the crash dump. The required fields for <code>body</code> are:</p>
             <p>
@@ -76,7 +81,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>uuid</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | REQUIRED | STRING |</small></p>
             <p>16 bytes of randomness in human readable UUID format. The server will reject the request if UUID is already found.</p>
          </td>
@@ -85,7 +91,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>timestamp</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | REQUIRED | INTEGER |</small></p>
             <p>The UTC timestamp in seconds.</p>
          </td>
@@ -94,7 +101,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>lang</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | REQUIRED | STRING |</small></p>
             <p>The name of the programming language/environment this error originates from.</p>
          </td>
@@ -103,7 +111,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>langVersion</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | REQUIRED | STRING |</small></p>
             <p>The version of the programming language/environment this error originates from.</p>
          </td>
@@ -112,7 +121,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>agent</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | REQUIRED | STRING |</small></p>
             <p>The name of the client that is sending this error report.</p>
          </td>
@@ -121,7 +131,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>agentVersion</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | REQUIRED | STRING |</small></p>
             <p>The version of the client that is sending this error report.</p>
          </td>
@@ -130,7 +141,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>threads</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | REQUIRED | OBJECT |</small></p>
             <p>Contains a map of all threads running in the environment. It could be only one. The object is composed by the <code>main</code> object that is the key of the <code>threads</code> object and represents the unique ID of a thread. The object contains the following fields:</p>
             <p>
@@ -158,7 +170,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>mainThread</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | REQUIRED | STRING |</small></p>
             <p>It represent the thread that either triggered the error or generated this object. The value of this field should be one of the keys in the <code>threads</code> object and cannot be <code>null</code>.</p>
          </td>
@@ -167,7 +180,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>symbolication</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | OPTIONAL | STRING |</small></p>
             <p>Specifies the symbolication that needs to be applied. Supported values are:</p>
             <p>
@@ -176,14 +190,16 @@ Submits crash object to Backtrace instance.
                <li><code>sourcemap</code>.</li>
                <li><code>proguard</code>.</li>
             </ul>
-            </p>This should not be specified for client-symbolicated objects.
+            </p>
+            {`This should not be specified for client-symbolicated objects.`}
          </td>
       </tr>
    </tbody>
    <tbody>
       <tr>
          <td><code>entryThread</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | OPTIONAL | STRING |</small></p>
             <p>Specifies which thread is the entry point or the starting thread. This must correspond to an entry in the <code>threads</code> field.</p>
          </td>
@@ -192,7 +208,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>arch</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | OPTIONAL | OBJECT |</small></p>
             <p>Specifies the CPU architecture information. It is required if you want to have registers in the stack frame. The object has two fields: </p>
             <p>
@@ -217,7 +234,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>fingerprint</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | OPTIONAL | STRING |</small></p>
             <p>This is a base64 encoded unique ID that groups the report with the same fingerprint (32 bytes). If omitted, a fingerprint will be generated from the submitted stack trace.</p>
          </td>
@@ -226,7 +244,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>classifiers</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | OPTIONAL | ARRAY of STRINGS |</small></p>
             <p>List of strings which are report classifications.</p>
          </td>
@@ -235,7 +254,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>attributes</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | OPTIONAL | OBJECT of KEY:VALUE Pairs |</small></p>
             <p>This is a set of key-value pairs that belong to the error report. The exact fields are not defined by this specification. It is up to the JSON consumer how to display or otherwise represent key/value pairs in this object. The value of a key-value pair can be a string, integer, or boolean. These attributes are indexed and searchable. Some of the possible values:</p>
             <ul>
@@ -252,7 +272,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>sourceCode</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | OPTIONAL | OBJECT |</small></p>
             <p>The object include the source code for better debugging experience. The object is composed by the <code>sourceCodeId</code> object that is the ID of the source code. The object is composed by the following fields:</p>
             <ul>
@@ -269,7 +290,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>memory</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | OPTIONAL | ARRAY |</small></p>
             <p>Provides arbitrary slices of memory. The array is composed by the following keys:</p>
             <ul>
@@ -289,7 +311,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>annotations</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | OPTIONAL | ARRAY or OBJECT or STRING |</small></p>
             <p>A generic, non-indexed user-provided property. The names are free, the values can be of any type, and there is no limit to nesting.</p>
          </td>
@@ -298,7 +321,8 @@ Submits crash object to Backtrace instance.
    <tbody>
       <tr>
          <td><code>modules</code></td>
-         <td>
+<td>
+
             <p><small>| BODY | OPTIONAL | ARRAY |</small></p>
             <p>A list of modules as loaded in memory, used to symbolicate stack traces. The array is composed by the following keys:</p>
             <ul>

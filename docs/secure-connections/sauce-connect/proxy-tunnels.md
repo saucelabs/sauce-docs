@@ -54,7 +54,8 @@ To verify that your tunnel is up and running, you can check the following:
 
 If successful, you'll see a confirmation response like the one below, indicating that you can start your tests.
 
-<details><summary><strong>Click here to expand</strong><br/></summary>
+<details>
+<summary><strong>Click here to expand</strong><br/></summary>
 
 ```bash
 Sauce Connect Proxy opens a secure connection between Sauce Labs and a locally hosted application.
@@ -93,33 +94,31 @@ The location of the log file will vary, depending on your operating system. For 
 
 <table>
   <tr>
-   <td>OS
-   </td>
-   <td>Log Directory
+   <td>OS</td>
+   <td>Log Directory</td>
+  </tr>
+  <tr>
+   <td>Mac</td>
+<td>
+
+    {`(DD Month) (Time) Log file:`}
+    <code>/var/folders/72/tjnr5_fs4fvcb3csfjx4sw200000gn/T/sc-TUNNEL_NAME.log</code>
    </td>
   </tr>
   <tr>
-   <td>Mac
-   </td>
-   <td>(DD Month) (Time)
-   Log file:
-   <code>/var/folders/72/tjnr5_fs4fvcb3csfjx4sw200000gn/T/sc-TUNNEL_NAME.log</code>
-   </td>
-  </tr>
-  <tr>
-   <td>Linux
-   </td>
-   <td>(DD Month) (Time)
-   Log file:
-   <code>/tmp/sc-TUNNEL_NAME.log</code>
+   <td>Linux</td>
+<td>
+
+    {`(DD Month) (Time) Log file:`}
+    <code>/tmp/sc-TUNNEL_NAME.log</code>
    </td>
   </tr>
   <tr>
-   <td>Windows
-   </td>
-   <td>(DD Month) (Time)
-   Log file:
-   <code>C:\Users\sauce_username\Downloads\sc-4.9.2-win32\sc-TUNNEL_NAME.log</code>
+   <td>Windows</td>
+<td>
+
+    {`(DD Month) (Time) Log file:`}
+    <code>C:\Users\sauce_username\Downloads\sc-4.9.2-win32\sc-TUNNEL_NAME.log</code>
    </td>
   </tr>
 </table>

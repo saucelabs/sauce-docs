@@ -1118,3 +1118,24 @@ ul.dropdown__menu li a:hover {
         padding: 0;
     }
 }
+
+/* corret markdowns injecting of <p> tags */
+td > p {
+    margin: 0;
+    font-size: 16px;
+}
+
+details p {
+    margin: 0;
+    font-size: 16px;
+}
+
+td a p {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+.tabs-container li p {
+    font-size: 16px;
+}

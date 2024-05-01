@@ -26,9 +26,11 @@ To download the information on the Reports page, click the **Download** button a
     <td>The name of the project, test suite, or test case the report is for.<br/><br/>Click the up or down arrow next to the column name to sort the table by name.</td>
   </tr>
   <tr>
-    <td><b>Start Time</b>
+<td>
+<b>Start Time</b>
     </td>
-    <td><b>Actual Date (Default)</b> - The date the report was created.<br/><br/><b>Relative Date</b> - The time since the report was created.<br/><br/>Click the up or down arrow next to the column name to sort the table by date.
+<td>
+<b>Actual Date (Default)</b> - The date the report was created.<br/><br/><b>Relative Date</b> - The time since the report was created.<br/><br/>Click the up or down arrow next to the column name to sort the table by date.
     </td>
   </tr>
   <tr>

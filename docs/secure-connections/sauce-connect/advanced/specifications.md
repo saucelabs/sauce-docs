@@ -21,59 +21,76 @@ Sauce Connect Proxy Tunnel connection TLS specifications
 
 <table>
   <tr>
-   <td><strong>Name</strong>
+<td>
+<strong>Name</strong>
    </td>
-   <td><strong>Value</strong>
+<td>
+<strong>Value</strong>
    </td>
-   <td><strong>SC Versions</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>Supported TLS Versions
-   </td>
-   <td>1.2, 1.3
-   </td>
-   <td>4.8.x, 4.9.x
+<td>
+<strong>SC Versions</strong>
    </td>
   </tr>
   <tr>
-   <td>Sauce Connect Proxy client OpenSSL Version
+<td>
+Supported TLS Versions
    </td>
-   <td>1.1.1k
+<td>
+1.2, 1.3
    </td>
-   <td>4.8.x, 4.9.x
-   </td>
-  </tr>
-  <tr>
-   <td>Sauce Connect Proxy client-supported ciphers
-   </td>
-   <td><small>
-   <p>ECDHE-ECDSA-AES256-GCM-SHA384</p>
-   <p>ECDHE-RSA-AES256-GCM-SHA384</p>
-   <p>ECDHE-ECDSA-CHACHA20-POLY1305</p>
-   <p>ECDHE-RSA-CHACHA20-POLY1305</p>
-   <p>ECDHE-ECDSA-AES128-GCM-SHA256</p>
-   <p>ECDHE-RSA-AES128-GCM-SHA256</p>
-   <p>ECDHE-ECDSA-AES256-SHA384</p>
-   <p>ECDHE-RSA-AES256-SHA384</p>
-   <p>ECDHE-ECDSA-AES128-SHA256</p>
-   <p>ECDHE-RSA-AES128-SHA256</p></small>
-   </td>
-   <td>4.8.x, 4.9.x
+<td>
+4.8.x, 4.9.x
    </td>
   </tr>
   <tr>
-   <td>Sauce Connect Proxy server-supported ciphers
+<td>
+Sauce Connect Proxy client OpenSSL Version
    </td>
-   <td><small>
-   <p>ECDHE-ECDSA-AES256-GCM-SHA384</p>
-   <p>ECDHE-RSA-AES256-GCM-SHA384</p>
-   <p>ECDHE-ECDSA-CHACHA20-POLY1305</p>
-   <p>ECDHE-RSA-CHACHA20-POLY1305</p>
-   <p>ECDHE-ECDSA-AES128-GCM-SHA256</p>
-   <p>ECDHE-RSA-AES128-GCM-SHA256</p></small>
+<td>
+1.1.1k
    </td>
-   <td>
+<td>
+4.8.x, 4.9.x
+   </td>
+  </tr>
+  <tr>
+<td>
+Sauce Connect Proxy client-supported ciphers
+   </td>
+<td>
+   <small>
+      <p>ECDHE-ECDSA-AES256-GCM-SHA384</p>
+      <p>ECDHE-RSA-AES256-GCM-SHA384</p>
+      <p>ECDHE-ECDSA-CHACHA20-POLY1305</p>
+      <p>ECDHE-RSA-CHACHA20-POLY1305</p>
+      <p>ECDHE-ECDSA-AES128-GCM-SHA256</p>
+      <p>ECDHE-RSA-AES128-GCM-SHA256</p>
+      <p>ECDHE-ECDSA-AES256-SHA384</p>
+      <p>ECDHE-RSA-AES256-SHA384</p>
+      <p>ECDHE-ECDSA-AES128-SHA256</p>
+      <p>ECDHE-RSA-AES128-SHA256</p>
+   </small>
+   </td>
+<td>
+4.8.x, 4.9.x
+   </td>
+  </tr>
+  <tr>
+<td>
+Sauce Connect Proxy server-supported ciphers
+   </td>
+<td>
+   <small>
+      <p>ECDHE-ECDSA-AES256-GCM-SHA384</p>
+      <p>ECDHE-RSA-AES256-GCM-SHA384</p>
+      <p>ECDHE-ECDSA-CHACHA20-POLY1305</p>
+      <p>ECDHE-RSA-CHACHA20-POLY1305</p>
+      <p>ECDHE-ECDSA-AES128-GCM-SHA256</p>
+      <p>ECDHE-RSA-AES128-GCM-SHA256</p>
+   </small>
+   </td>
+<td>
+
    </td>
   </tr>
 </table>
@@ -88,59 +105,80 @@ Sauce Connect Proxy Tunnel connection TLS specifications
 
 <table>
   <tr>
-   <td><strong>Name</strong>
+<td>
+<strong>Name</strong>
    </td>
-   <td><strong>Value</strong>
+<td>
+<strong>Value</strong>
    </td>
-   <td><strong>Notes</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>"REST API GET `/USER/tunnels/ID`" timeout
-   </td>
-   <td>5 seconds
-   </td>
-   <td>Sauce Connect Proxy "HTTP long polling" (each 5 seconds) requests to get the backend status.
+<td>
+<strong>Notes</strong>
    </td>
   </tr>
   <tr>
-   <td>"REST API POST `/USER/tunnels/ID`" timeout
+<td>
+"REST API GET `/USER/tunnels/ID`" timeout
    </td>
-   <td>10 seconds
+<td>
+5 seconds
    </td>
-   <td>Sauce Connect Proxy "HTTP long polling" (each 30 seconds) requests to update the client status.
-   </td>
-  </tr>
-  <tr>
-   <td>"Tunnel provisioning" timeout
-   </td>
-   <td>45 seconds
-   </td>
-   <td>Tunnel provisioning may take anywhere from 3 to 45 seconds, depending on the load and the tunnel features.
+<td>
+Sauce Connect Proxy "HTTP long polling" (each 5 seconds) requests to get the backend status.
    </td>
   </tr>
   <tr>
-   <td>"Initial tunnel connection" timeout
+<td>
+"REST API POST `/USER/tunnels/ID`" timeout
    </td>
-   <td>15 seconds
+<td>
+10 seconds
    </td>
-   <td>Sauce Connect Proxy tunnel must be established within this timeout after the server is provisioned.
+<td>
+Sauce Connect Proxy "HTTP long polling" (each 30 seconds) requests to update the client status.
    </td>
   </tr>
   <tr>
-   <td>"Tunnel disconnected" timeout
+<td>
+"Tunnel provisioning" timeout
    </td>
-   <td>60 seconds
+<td>
+45 seconds
    </td>
-   <td>Sauce Connect Proxy client may disconnect from the server (after establishing the initial connection) for up to 60 seconds.
+<td>
+Tunnel provisioning may take anywhere from 3 to 45 seconds, depending on the load and the tunnel features.
+   </td>
+  </tr>
+  <tr>
+<td>
+"Initial tunnel connection" timeout
+   </td>
+<td>
+15 seconds
+   </td>
+<td>
+Sauce Connect Proxy tunnel must be established within this timeout after the server is provisioned.
+   </td>
+  </tr>
+  <tr>
+<td>
+"Tunnel disconnected" timeout
+   </td>
+<td>
+60 seconds
+   </td>
+<td>
+Sauce Connect Proxy client may disconnect from the server (after establishing the initial connection) for up to 60 seconds.
    </td>
   </tr>
     <tr>
-   <td>"Jobs wait" timeout
+<td>
+"Jobs wait" timeout
    </td>
-   <td>3 hours
+<td>
+3 hours
    </td>
-   <td>On receiving a "tunnel shutdown" request, Sauce Labs REST API would wait for, at most, 3 hours for jobs, using the tunnel, to finish. Jobs that require longer time to complete may fail after the tunnel is terminated.
+<td>
+On receiving a "tunnel shutdown" request, Sauce Labs REST API would wait for, at most, 3 hours for jobs, using the tunnel, to finish. Jobs that require longer time to complete may fail after the tunnel is terminated.
    </td>
   </tr>
 </table>

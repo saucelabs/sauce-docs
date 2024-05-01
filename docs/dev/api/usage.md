@@ -63,7 +63,8 @@ This call requires <code>org_id</code> parameter.
   <tbody>
     <tr>
      <td><code>source</code></td>
-    <td><p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -74,7 +75,8 @@ This call requires <code>org_id</code> parameter.
   <tbody>
     <tr>
      <td><code>granularity</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results grouped by given granularity:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results grouped by given granularity:</p><p>
      <ul>
       <li><code>hourly</code></li>
       <li><code>weekly</code></li>
@@ -87,7 +89,8 @@ This call requires <code>org_id</code> parameter.
   <tbody>
     <tr>
      <td><code>resource_type</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given resource type</p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given resource type</p>
      <p/>
      For the Virtual Could tests:
      <ul>
@@ -257,7 +260,8 @@ This call requires <code>org_id</code> and <code>team_id</code> parameters.
   <tbody>
     <tr>
      <td><code>source</code></td>
-    <td><p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -268,7 +272,8 @@ This call requires <code>org_id</code> and <code>team_id</code> parameters.
   <tbody>
     <tr>
      <td><code>granularity</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results grouped by given granularity:</p><p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results grouped by given granularity:</p><p>
      <ul>
       <li><code>hourly</code></li>
       <li><code>weekly</code></li>
@@ -281,7 +286,8 @@ This call requires <code>org_id</code> and <code>team_id</code> parameters.
   <tbody>
     <tr>
      <td><code>resource_type</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given resource type</p>
+<td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given resource type</p>
      <p/>
      For the Virtual Could tests:
      <ul>

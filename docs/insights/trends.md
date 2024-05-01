@@ -20,7 +20,8 @@ The **Trends** section of the Insights feature provides a variety of data visual
   </tr>
   <tr>
     <td><b>Pass/Fail Rate</b></td>
-    <td>For each increment in the time period, the percentage of tests that:<br/>
+<td>
+For each increment in the time period, the percentage of tests that:<br/>
       <ul>
         <li><b>Completed</b>: Ran to completion, but did not have a pass or fail status.</li>
         <li><b>Passed</b>: Ran to completion with a status of Passed.</li>
@@ -35,10 +36,12 @@ The **Trends** section of the Insights feature provides a variety of data visual
   </tr>
   <tr>
     <td><b>Build and Job Statistics</b></td>
-    <td>A snapshot of all tests run during the time period, displayed in separate tabs based on whether the test is or is not assigned a Build ID. For each test listed, basic data about the time the test was executed, the time it took to run, the Sauce Labs user who ran it, and its outcome.<br/> 
+<td>
+A snapshot of all tests run during the time period, displayed in separate tabs based on whether the test is or is not assigned a Build ID. For each test listed, basic data about the time the test was executed, the time it took to run, the Sauce Labs user who ran it, and its outcome.<br/> 
     Tests in the <b>Builds</b> tab have an additional statistic &mdash; <i>Efficiency</i> &mdash; that indicates whether the tests in the build run in parallel to optimize the execution time for the entire build.<br/>
     Tests in the <b>Jobs without build</b> tab have an additional statistic &mdash; <i>Error</i> &mdash; which displays the error message for the test where it was interrupted.<br/>
-    This visualization can be further filtered to show only tests with a failed and/or errored status.</td>
+    This visualization can be further filtered to show only tests with a failed and/or errored status.
+    </td>
   </tr>
 </table>
 

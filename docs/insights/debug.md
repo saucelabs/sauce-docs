@@ -171,7 +171,8 @@ Configure `sauce:intercept` to return the specified response.
   <tbody>
     <tr>
      <td><code>response</code></td>
-     <td><p><small>| REQUIRED | STRING |</small></p><p>An object that defines the response to send when the requested URL is intercepted. Valid attributes of the response are:</p>
+<td>
+<p><small>| REQUIRED | STRING |</small></p><p>An object that defines the response to send when the requested URL is intercepted. Valid attributes of the response are:</p>
      <ul>
       <li><code>status</code>: HTTP response code representing the request status, such as <code>200</code>.</li>
       <li><code>headers</code>: List of key/value pairs set as header variables, for example, <code>Cookie: "foo=bar"</code>.</li>
@@ -250,7 +251,8 @@ Configure `sauce:intercept` to return the specified error.
   <tbody>
     <tr>
     <td><code>error</code></td>
-    <td><p><small>| REQUIRED | STRING |</small></p><p>A valid error status to return when the requested URL is intercepted. Valid values are:</p>
+<td>
+<p><small>| REQUIRED | STRING |</small></p><p>A valid error status to return when the requested URL is intercepted. Valid values are:</p>
      <ul>
       <li><code>Failed</code></li>
       <li><code>Aborted</code></li>
@@ -356,7 +358,8 @@ With network conditioning you can test your site on a variety of network connect
   <tbody>
     <tr>
     <td><code>condition</code></td>
-    <td><p><small>| REQUIRED | STRING |</small></p><p>A string or object representing browser network conditions. Sauce Labs supports the following predefined network profiles:</p>
+<td>
+<p><small>| REQUIRED | STRING |</small></p><p>A string or object representing browser network conditions. Sauce Labs supports the following predefined network profiles:</p>
     <table>
      <tr>
       <th>Profile</th>

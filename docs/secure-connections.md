@@ -102,45 +102,55 @@ Sauce Connect Proxy and Sauce IPSec Proxy accomplish the same thing: establish a
 
 <table>
   <tr>
-   <td><strong>Sauce Connect Proxy</strong>
+   <td><strong>Sauce Connect Proxy</strong></td>
+   <td><strong>Sauce IPSec Proxy</strong></td>
+  </tr>
+  <tr>
+<td>
+By default, the Sauce Connect Proxy client starts a single tunnel. For high-volume testing, we recommend High Availability tunnel pools, which you can launch using designated <a href="/dev/cli/sauce-connect-proxy">Sauce Connect Proxy command-line options</a>.
    </td>
-   <td><strong>Sauce IPSec Proxy</strong>
+<td>
+Sauce IPSec Proxy is a static setup with two tunnel gateways that are pre-configured in High Availability mode.
    </td>
   </tr>
   <tr>
-   <td>By default, the Sauce Connect Proxy client starts a single tunnel. For high-volume testing, we recommend High Availability tunnel pools, which you can launch using designated <a href="/dev/cli/sauce-connect-proxy">Sauce Connect Proxy command-line options</a>.
+<td>
+You can manage tunnel lifespan by launching different types of tunnels: ephemeral (per-build) tunnels or long-running tunnels.
    </td>
-   <td>Sauce IPSec Proxy is a static setup with two tunnel gateways that are pre-configured in High Availability mode.
-   </td>
-  </tr>
-  <tr>
-   <td>You can manage tunnel lifespan by launching different types of tunnels: ephemeral (per-build) tunnels or long-running tunnels.
-   </td>
-   <td>Sauce IPSec Proxy tunnels are long-running, by default.
+<td>
+Sauce IPSec Proxy tunnels are long-running, by default.
    </td>
   </tr>
   <tr>
-   <td>Sauce Connect Proxy client (binary) runs within your network to establish the tunnels, which use proprietary protocol over TLS 1.2.
+<td>
+Sauce Connect Proxy client (binary) runs within your network to establish the tunnels, which use proprietary protocol over TLS 1.2.
    </td>
-   <td>Sauce IPSec Proxy tunnels use industry standards to establish connection and offer two options for routing traffic to sites and apps under test.
-   </td>
-  </tr>
-  <tr>
-   <td>Available to all Sauce Labs accountholders at no additional cost.
-   </td>
-   <td><a href="https://saucelabs.com/pricing">Enterprise Plans</a> only.
+<td>
+Sauce IPSec Proxy tunnels use industry standards to establish connection and offer two options for routing traffic to sites and apps under test.
    </td>
   </tr>
   <tr>
-   <td>Regardless of your license type (free-trial, self-serve, enterprise), you can download and use Sauce Connect Proxy.
+<td>
+Available to all Sauce Labs accountholders at no additional cost.
    </td>
-   <td>Requires a custom setup between your network and the Sauce Labs cloud prior to use.
+<td>
+<a href="https://saucelabs.com/pricing">Enterprise Plans</a> only.
    </td>
   </tr>
   <tr>
-   <td>Minimal setup time required; as little as 5-10 minutes.
+<td>
+Regardless of your license type (free-trial, self-serve, enterprise), you can download and use Sauce Connect Proxy.
    </td>
-   <td>Setup time is appropriately four weeks; involves close collaboration and coordination between your organization and Sauce Labs.
+<td>
+Requires a custom setup between your network and the Sauce Labs cloud prior to use.
+   </td>
+  </tr>
+  <tr>
+<td>
+Minimal setup time required; as little as 5-10 minutes.
+   </td>
+<td>
+Setup time is appropriately four weeks; involves close collaboration and coordination between your organization and Sauce Labs.
    </td>
   </tr>
 </table>

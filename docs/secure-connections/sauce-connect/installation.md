@@ -26,47 +26,62 @@ If applicable, delete any previous Sauce Connect versions you have. Using older 
 1. Download the latest Sauce Connect Proxy client to your local machine by clicking the link below corresponding to your OS.
  <table>
    <tr>
-     <td><strong>Platform</strong>
+<td>
+<strong>Platform</strong>
      </td>
-     <td><strong>Download URL</strong>
+<td>
+<strong>Download URL</strong>
      </td>
-<td><strong>SHA1 Checksum</strong>
+<td>
+<strong>SHA1 Checksum</strong>
 </td>
   </tr>
   <tr>
-<td>Linux
+<td>
+Linux
   </td>
-   <td>
+<td>
+
  <a href="https://saucelabs.com/downloads/sc-4.9.2-linux.tar.gz">https://saucelabs.com/downloads/sc-4.9.2-linux.tar.gz</a>
   </td>
-  <td><small>5589571bdc186f3f1b05fe6ce68529501a42fb43</small>
+<td>
+<small>5589571bdc186f3f1b05fe6ce68529501a42fb43</small>
   </td>
  </tr>
    <tr>
-<td>Linux ARM64
+<td>
+Linux ARM64
   </td>
-   <td>
+<td>
+
  <a href="https://saucelabs.com/downloads/sc-4.9.2-linux-arm64.tar.gz">https://saucelabs.com/downloads/sc-4.9.2-linux-arm64.tar.gz</a>
   </td>
-  <td><small>8b02c4343b74c36c575817ea4a6eae5fb5718f6c</small>
+<td>
+<small>8b02c4343b74c36c575817ea4a6eae5fb5718f6c</small>
   </td>
  </tr>
  <tr>
-  <td>macOS
+<td>
+macOS
   </td>
-  <td>
+<td>
+
  <a href="https://saucelabs.com/downloads/sc-4.9.1-osx.zip">https://saucelabs.com/downloads/sc-4.9.1-osx.zip</a>
   </td>
-  <td><small>64f9c1bac5d4f5b9acb6fbb629b6df0f5671b4c8</small>
+<td>
+<small>64f9c1bac5d4f5b9acb6fbb629b6df0f5671b4c8</small>
   </td>
   </tr>
  <tr>
-<td>Windows
+<td>
+Windows
     </td>
-  <td>
+<td>
+
    <a href="https://saucelabs.com/downloads/sc-4.9.2-win32.zip">https://saucelabs.com/downloads/sc-4.9.2-win32.zip</a>
   </td>
-  <td><small>47c19feda3fb684f88acd816e9c8f2e3d4a1e3c0</small>
+<td>
+<small>47c19feda3fb684f88acd816e9c8f2e3d4a1e3c0</small>
   </td>
  </tr>
  </table>
@@ -77,7 +92,8 @@ MacOS is not supported in version 4.9.2.
 
 2. Extract the contents of the \*.zip download to your local machine. We recommend saving the Sauce Connect Proxy folder to your home directory.
 
-<details><summary>What's in the folder?</summary>
+<details>
+<summary>What's in the folder?</summary>
 
 #### Sauce Connect folder contents
 

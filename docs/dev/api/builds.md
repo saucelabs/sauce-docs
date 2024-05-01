@@ -18,7 +18,8 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ### Lookup Builds
 
-<details><summary><span className="api get">GET</span> <code>/v2/builds/&#123;build_source&#125;/</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v2/builds/&#123;build_source&#125;/</code></summary>
 <p/>
 
 Queries the requesting account and returns a summary of each build matching the query, including the `ID` value, which may be a required parameter of other API calls related to a specific build.
@@ -31,7 +32,8 @@ You can narrow the results of your query using any of the optional filtering par
   <tbody>
     <tr>
      <td><code>build_source</code></td>
-     <td><p><small>| PATH | REQUIRED | ENUM |</small></p><p>The type of device for which you are getting builds. Valid values are:
+<td>
+<p><small>| PATH | REQUIRED | ENUM |</small></p><p>The type of device for which you are getting builds. Valid values are:
        <ul>
          <li><code>rdc</code> - Real Device Builds</li>
          <li><code>vdc</code> - Emulator or Simulator Builds</li>
@@ -65,7 +67,8 @@ You can narrow the results of your query using any of the optional filtering par
   <tbody>
     <tr>
      <td><code>status</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Returns only builds where the status matches the list of values specified. Valid values are:
+<td>
+<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Returns only builds where the status matches the list of values specified. Valid values are:
        <ul>
          <li><code>running</code> - Any job in the build has a state of <i>running</i>, <i>new</i>, or <i>queued</i>.</li>
          <li><code>error</code> - The build is not <b>running</b> and at least one job in the build has a state of <i>errored</i>.</li>
@@ -108,7 +111,8 @@ You can narrow the results of your query using any of the optional filtering par
   <tbody>
     <tr>
      <td><code>sort</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ENUM |</small></p><p>Sorts the results in alphabetically ascending or descending order. Valid values are:
+<td>
+<p><small>| QUERY | OPTIONAL | ENUM |</small></p><p>Sorts the results in alphabetically ascending or descending order. Valid values are:
        <ul>
          <li><code>asc</code> - Ascending</li>
          <li><code>desc</code> - Descending</li>
@@ -208,7 +212,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get a Specific Build
 
-<details><summary><span className="api get">GET</span> <code>/v2/builds/&#123;build_source&#125;/&#123;build_id&#125;/</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v2/builds/&#123;build_source&#125;/&#123;build_id&#125;/</code></summary>
 <p/>
 
 Retrieve the details related to a specific build by passing its unique ID in the request.
@@ -219,7 +224,8 @@ Retrieve the details related to a specific build by passing its unique ID in the
   <tbody>
     <tr>
      <td><code>build_source</code></td>
-     <td><p><small>| PATH | REQUIRED | ENUM |</small></p><p>The type of test device associated with the build. Valid values are:
+<td>
+<p><small>| PATH | REQUIRED | ENUM |</small></p><p>The type of test device associated with the build. Valid values are:
        <ul>
          <li><code>rdc</code> - Real Device Builds</li>
          <li><code>vdc</code> - Emulator or Simulator Builds</li>
@@ -320,7 +326,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Lookup the Build for a Specific Job
 
-<details><summary><span className="api get">GET</span> <code>/v2/builds/&#123;build_source&#125;/jobs/&#123;job_id&#125;/build/</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v2/builds/&#123;build_source&#125;/jobs/&#123;job_id&#125;/build/</code></summary>
 <p/>
 
 Retrieves the build details for a known job.
@@ -331,7 +338,8 @@ Retrieves the build details for a known job.
   <tbody>
     <tr>
      <td><code>build_source</code></td>
-     <td><p><small>| PATH | REQUIRED | ENUM |</small></p><p>The type of test device associated with the job and build. Valid values are:
+<td>
+<p><small>| PATH | REQUIRED | ENUM |</small></p><p>The type of test device associated with the job and build. Valid values are:
        <ul>
          <li><code>rdc</code> - Real Device Builds</li>
          <li><code>vdc</code> - Emulator or Simulator Builds</li>
@@ -432,7 +440,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Lookup Jobs in a Build
 
-<details><summary><span className="api get">GET</span> <code>/v2/builds/&#123;build_source&#125;/&#123;build_id&#125;/jobs/</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v2/builds/&#123;build_source&#125;/&#123;build_id&#125;/jobs/</code></summary>
 <p/>
 
 Returns information about all jobs associated with the specified build. You can limit which jobs are returned using any of the optional filtering parameters.
@@ -443,7 +452,8 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>build_source</code></td>
-     <td><p><small>| PATH | REQUIRED | ENUM |</small></p><p>The type of test device associated with the build and its jobs. Valid values are:
+<td>
+<p><small>| PATH | REQUIRED | ENUM |</small></p><p>The type of test device associated with the build and its jobs. Valid values are:
        <ul>
          <li><code>rdc</code> - Real Device Builds</li>
          <li><code>vdc</code> - Emulator or Simulator Builds</li>
@@ -465,7 +475,8 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>completed</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on whether they completed, meaning the tests ran uninterrupted to completion:
+<td>
+<p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on whether they completed, meaning the tests ran uninterrupted to completion:
        <ul>
          <li><code>true</code> - Return jobs that have a completed state of true.</li>
          <li><code>false</code> - Return jobs that have a completed state of false.</li>
@@ -475,7 +486,8 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>errored</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on their <code>errored</code> state:
+<td>
+<p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on their <code>errored</code> state:
        <ul>
          <li><code>true</code> - Return jobs that have an errored state of true.</li>
          <li><code>false</code> - Return jobs that have an errored state of false.</li>
@@ -485,7 +497,8 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>failed</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on their <code>failed</code> state:
+<td>
+<p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on their <code>failed</code> state:
        <ul>
          <li><code>true</code> - Return jobs that have a failed state of true.</li>
          <li><code>false</code> - Return jobs that have a failed state of false.</li>
@@ -495,7 +508,8 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>finished</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on whether they have finished, meaning they are no longer <i>running</i>, but may not have run to completion:
+<td>
+<p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on whether they have finished, meaning they are no longer <i>running</i>, but may not have run to completion:
        <ul>
          <li><code>true</code> - Return jobs that have a finished state of true.</li>
          <li><code>false</code> - Return jobs that have a finished state of false.</li>
@@ -505,7 +519,8 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>new</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on their <code>new</code> state:
+<td>
+<p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on their <code>new</code> state:
        <ul>
          <li><code>true</code> - Return jobs that have a new state of true.</li>
          <li><code>false</code> - Return jobs that have a new state of false.</li>
@@ -515,7 +530,8 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>passed</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on their <code>passed</code> state:
+<td>
+<p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on their <code>passed</code> state:
        <ul>
          <li><code>true</code> - Return jobs that have a passed state of true.</li>
          <li><code>false</code> - Return jobs that have a passed state of false.</li>
@@ -525,7 +541,8 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>public</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on whether they were run on public devices:
+<td>
+<p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on whether they were run on public devices:
        <ul>
          <li><code>true</code> - Return jobs that have a public state of true.</li>
          <li><code>false</code> - Return jobs that have a public state of false.</li>
@@ -535,7 +552,8 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>queued</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on whether their current state is <i>queued</i>:
+<td>
+<p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on whether their current state is <i>queued</i>:
        <ul>
          <li><code>true</code> - Return jobs that have a queued state of true.</li>
          <li><code>false</code> - Return jobs that have a queued state of false.</li>
@@ -545,7 +563,8 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>running</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on whether they are currently in a <i>running</i> state:
+<td>
+<p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on whether they are currently in a <i>running</i> state:
        <ul>
          <li><code>true</code> - Return jobs that are currently running.</li>
          <li><code>false</code> - Return jobs that are not currently running.</li>
@@ -555,7 +574,8 @@ Returns information about all jobs associated with the specified build. You can 
   <tbody>
     <tr>
      <td><code>faulty</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on whether they are identified as <i>faulty</i>, meaning either <i>errored</i> or <i>failed</i> state is true.
+<td>
+<p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Returns jobs based on whether they are identified as <i>faulty</i>, meaning either <i>errored</i> or <i>failed</i> state is true.
        <ul>
          <li><code>true</code> - Return jobs that have a faulty state of true.</li>
          <li><code>false</code> - Return jobs that have a faulty state of false.</li>

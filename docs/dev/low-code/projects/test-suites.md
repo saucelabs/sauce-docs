@@ -14,45 +14,59 @@ A test suite is a collection of test cases in a project. The **Test Suites** tab
 
 <table>
   <tr>
-    <td><b>Column</b>
+<td>
+<b>Column</b>
     </td>
-    <td colspan='2'><b>Description</b>
-    </td>
-  </tr>
-  <tr>
-    <td><b>Suite</b>
-    </td>
-    <td colspan='2'>The test suites associated with the project. Click a test suite name to open the <b>Update Suite</b> window, where you can view and modify details about the test suite.<br/><br/>Click the up or down arrow next to the column name to sort the table alphabetically by test suite name.
+    <td colspan='2'>
+<b>Description</b>
     </td>
   </tr>
   <tr>
-    <td><b>Created</b>
+<td>
+<b>Suite</b>
     </td>
-    <td colspan='2'>The date the test suite was created.<br/><br/>Click the up or down arrow next to the column name to sort the table by created date.
-    </td>
-  </tr>
-  <tr>
-    <td><b>Last Run</b>
-    </td>
-    <td colspan='2'>The date the test suite was last run.<br/><br/>Click the up or down arrow next to the column name to sort the table by last run date.
+    <td colspan='2'>
+    The test suites associated with the project. Click a test suite name to open the <b>Update Suite</b> window, where you can view and modify details about the test suite.<br/><br/>Click the up or down arrow next to the column name to sort the table alphabetically by test suite name.
     </td>
   </tr>
   <tr>
-    <td><b>Last Status</b>
+<td>
+<b>Created</b>
     </td>
-    <td colspan='2'>The last status of the test suite.<br/><br/>Click the up or down arrow next to the column name to sort the table by last status.
-    </td>
-  </tr>
-  <tr>
-    <td><b>Execute</b>
-    </td>
-    <td colspan='2'>Hover in the <b>Execute</b> column and then click the <b>Execute</b> button.
+    <td colspan='2'>
+    The date the test suite was created.<br/><br/>Click the up or down arrow next to the column name to sort the table by created date.
     </td>
   </tr>
   <tr>
-    <td><b>Delete</b>
+<td>
+<b>Last Run</b>
     </td>
-    <td colspan='2'>Hover in the <b>Delete</b> column and then click the <b>Delete</b> button.
+    <td colspan='2'>
+    The date the test suite was last run.<br/><br/>Click the up or down arrow next to the column name to sort the table by last run date.
+    </td>
+  </tr>
+  <tr>
+<td>
+<b>Last Status</b>
+    </td>
+    <td colspan='2'>
+    The last status of the test suite.<br/><br/>Click the up or down arrow next to the column name to sort the table by last status.
+    </td>
+  </tr>
+  <tr>
+<td>
+<b>Execute</b>
+    </td>
+    <td colspan='2'>
+      Hover in the <b>Execute</b> column and then click the <b>Execute</b> button.
+    </td>
+  </tr>
+  <tr>
+<td>
+<b>Delete</b>
+    </td>
+    <td colspan='2'>
+      Hover in the <b>Delete</b> column and then click the <b>Delete</b> button.
     </td>
   </tr>
   
@@ -90,71 +104,92 @@ You can set a test suite or suites to be triggered after the completion of the p
 
 <table>
   <tr>
-    <td colspan='2'><b>Component</b>
+    <td colspan='2'>
+<b>Component</b>
     </td>
-    <td><b>Description</b>
-    </td>
-  </tr>
-  <tr>
-    <td colspan='2'><b>Case</b>
-    </td>
-    <td>The name given to the test case.<br/><br/>Click the up or down arrow next to the column name to sort the table by case name.
+<td>
+<b>Description</b>
     </td>
   </tr>
   <tr>
-    <td colspan='2'><b>Project</b>
+    <td colspan='2'>
+<b>Case</b>
     </td>
-    <td>The project the test case is associated with.<br/><br/>Click the up or down arrow next to the column name to sort the table by project name.
-    </td>
-  </tr>
-  <tr>
-    <td colspan='2'><b>Created</b>
-    </td>
-    <td>The date the test case was created.<br/><br/>Click the up or down arrow next to the column name to sort the table by created date.
+<td>
+The name given to the test case.<br/><br/>Click the up or down arrow next to the column name to sort the table by case name.
     </td>
   </tr>
   <tr>
-    <td colspan='2'><b>Last Generated</b>
+    <td colspan='2'>
+<b>Project</b>
     </td>
-    <td>The date the test case was last generated.<br/><br/>Click the up or down arrow next to the column name to sort the table by the last generated date.
-    </td>
-  </tr>
-  <tr>
-    <td colspan='2'><b>Last Status</b>
-    </td>
-    <td>The most recent status of the test case.<br/><br/>Click the up or down arrow next to the column name to sort the table by last status.
+<td>
+The project the test case is associated with.<br/><br/>Click the up or down arrow next to the column name to sort the table by project name.
     </td>
   </tr>
   <tr>
-    <td rowspan='5'><b>Actions</b>
+    <td colspan='2'>
+<b>Created</b>
     </td>
-    <td><b>Update Test Case</b>
-    </td>
-    <td>Update the test case details. See <a href="/dev/low-code/projects/test-cases/#adding-a-test-case">Adding a Test Case</a> for more information.
-    </td>
-  </tr>
-  <tr>
-    <td><b>Move Test Case</b>
-    </td>
-    <td>Move the test case to a different project. See <a href="/dev/low-code/projects/project-details">Project Details </a> for more information.
+<td>
+The date the test case was created.<br/><br/>Click the up or down arrow next to the column name to sort the table by created date.
     </td>
   </tr>
   <tr>
-    <td><b>View Tags</b>
+    <td colspan='2'>
+<b>Last Generated</b>
     </td>
-    <td>View the tags added to the test case.
-    </td>
-  </tr>
-  <tr>
-    <td><b>Disable Test Case</b>
-    </td>
-    <td>Disable the test case.<br/><br/>You can also disable a test case by selecting its check box and then clicking the <b>Disable Test Case</b> button.
+<td>
+The date the test case was last generated.<br/><br/>Click the up or down arrow next to the column name to sort the table by the last generated date.
     </td>
   </tr>
   <tr>
-    <td><b>Go To Step Editor</b>
+    <td colspan='2'>
+<b>Last Status</b>
     </td>
-    <td>Opens the step editor for the test case. See <a href="/dev/low-code/projects/test-cases#using-the-step-editor">Using the Step Editor</a> for more information.
+<td>
+The most recent status of the test case.<br/><br/>Click the up or down arrow next to the column name to sort the table by last status.
+    </td>
+  </tr>
+  <tr>
+    <td rowspan='5'><b>Actions</b></td>
+<td>
+<b>Update Test Case</b>
+    </td>
+<td>
+Update the test case details. See <a href="/dev/low-code/projects/test-cases/#adding-a-test-case">Adding a Test Case</a> for more information.
+    </td>
+  </tr>
+  <tr>
+<td>
+<b>Move Test Case</b>
+    </td>
+<td>
+Move the test case to a different project. See <a href="/dev/low-code/projects/project-details">Project Details </a> for more information.
+    </td>
+  </tr>
+  <tr>
+<td>
+<b>View Tags</b>
+    </td>
+<td>
+View the tags added to the test case.
+    </td>
+  </tr>
+  <tr>
+<td>
+<b>Disable Test Case</b>
+    </td>
+<td>
+Disable the test case.<br/><br/>You can also disable a test case by selecting its check box and then clicking the <b>Disable Test Case</b> button.
+    </td>
+  </tr>
+  <tr>
+<td>
+<b>Go To Step Editor</b>
+    </td>
+<td>
+Opens the step editor for the test case. See <a href="/dev/low-code/projects/test-cases#using-the-step-editor">Using the Step Editor</a> for more information.
     </td>
   </tr>
 </table>
@@ -167,40 +202,52 @@ On the **Test Suites** page you can view, update, execute, clone, or delete a te
 
 <table>
   <tr>
-    <td colspan='2'><b>Component</b>
+    <td colspan='2'>
+<b>Component</b>
     </td>
-    <td><b>Description</b>
-    </td>
-  </tr>
-  <tr>
-    <td colspan='2'><b>Suite</b>
-    </td>
-    <td>The name given to the test suite.<br/><br/>Click the up or down arrow next to the column name to sort the table by suite name.
+<td>
+<b>Description</b>
     </td>
   </tr>
   <tr>
-    <td colspan='2'><b>Created</b>
+    <td colspan='2'>
+<b>Suite</b>
     </td>
-    <td>The date the test suite was created.<br/><br/>Click the up or down arrow next to the column name to sort the table by created date.
-    </td>
-  </tr>
-  <tr>
-    <td colspan='2'><b>Last Run</b>
-    </td>
-    <td>The date the test suite was last run.<br/><br/>Click the up or down arrow next to the column name to sort the table by last run date.
+<td>
+The name given to the test suite.<br/><br/>Click the up or down arrow next to the column name to sort the table by suite name.
     </td>
   </tr>
   <tr>
-    <td colspan='2'><b>Last Status</b>
+    <td colspan='2'>
+<b>Created</b>
     </td>
-    <td>The most recent status of the test suite.<br/><br/>Click the up or down arrow next to the column name to sort the table by last status.
+<td>
+The date the test suite was created.<br/><br/>Click the up or down arrow next to the column name to sort the table by created date.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'>
+<b>Last Run</b>
+    </td>
+<td>
+The date the test suite was last run.<br/><br/>Click the up or down arrow next to the column name to sort the table by last run date.
+    </td>
+  </tr>
+  <tr>
+    <td colspan='2'>
+<b>Last Status</b>
+    </td>
+<td>
+The most recent status of the test suite.<br/><br/>Click the up or down arrow next to the column name to sort the table by last status.
     </td>
   </tr>
 
   <tr>
-    <td colspan='2'><b>More</b>
+    <td colspan='2'>
+<b>More</b>
     </td>
-    <td><ul>
+<td>
+<ul>
     <li><b>Clone Suite</b></li>
     <li><b>Disable Suite</b></li>
     <li><b>Delete Suite</b></li>

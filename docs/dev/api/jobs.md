@@ -27,7 +27,8 @@ The set of methods defined in this section are applicable to tests that are not 
 
 ### Get Jobs
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/jobs</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/jobs</code></summary>
 <p/>
 
 Get a list of recent jobs run by the specified user.
@@ -157,7 +158,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Job Details
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;</code></summary>
 <p/>
 
 Get detailed information about a specific job.
@@ -269,7 +271,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Update a Job
 
-<details><summary><span className="api put">PUT</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;</code></summary>
+<details>
+<summary><span className="api put">PUT</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;</code></summary>
 <p/>
 
 Edit job attributes based on parameters passed in the request, including setting the status and name of the job. Any parameter for which a new value is provided in the request will replace the existing value. For example, if you provide a set of tags, they will not be added to the current tags; they will replace them, so make sure you pass the entire set you wish to assign.
@@ -308,7 +311,8 @@ This call is specific to jobs running in simulation. To update a job for real de
   <tbody>
     <tr>
      <td><code>public</code></td>
-       <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>Specifies the level of visibility permitted for the job. Valid values are:
+<td>
+<p><small>| BODY | OPTIONAL | STRING |</small></p><p>Specifies the level of visibility permitted for the job. Valid values are:
          <ul>
            <li><code>public</code> - Visibility is unrestricted and available to anyone on the internet.</li>
            <li><code>public restricted</code> - Visibility is limited to the results page and video/screenshot assets. Logs and other metadata is hidden from unauthorized viewers.</li>
@@ -465,7 +469,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Stop a Job
 
-<details><summary><span className="api put">PUT</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;/stop</code></summary>
+<details>
+<summary><span className="api put">PUT</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;/stop</code></summary>
 <p/>
 
 Stop a specific job.
@@ -569,7 +574,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Delete a Job
 
-<details><summary><span className="api delete">DELETE</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;</code></summary>
+<details>
+<summary><span className="api delete">DELETE</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;</code></summary>
 <p/>
 
 Delete a job and all of its assets from the Sauce Labs test history.
@@ -637,7 +643,8 @@ No payload is returned with the successful deletion.
 
 ### List Job Assets
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;/assets</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;/assets</code></summary>
 <p/>
 
 Get a list of files associated with a specific test, such as the logs, video, and screenshots.
@@ -726,7 +733,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get a Job Asset File
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;/assets/&#123;file_name&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;/assets/&#123;file_name&#125;</code></summary>
 <p/>
 
 Retrieve one of the asset files associated with a job, such as a log file, video, or screenshot. The response contains the output of the requested file.
@@ -961,7 +969,8 @@ type: 'hard'
 
 ### Get All Screenshots
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;/assets/screenshots.zip</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;/assets/screenshots.zip</code></summary>
 <p/>
 
 Retrieves all of the screenshot files for the specified job and downloads them as a single ZIP file. Use the `--output <filepath>` cURL flag, as shown in the request samples, to download to a local directory.
@@ -1045,7 +1054,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Delete Job Assets
 
-<details><summary><span className="api delete">DELETE</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;/assets</code></summary>
+<details>
+<summary><span className="api delete">DELETE</span> <code>/rest/v1/&#123;username&#125;/jobs/&#123;job_id&#125;/assets</code></summary>
 <p/>
 
 Sauce Labs retains job asset files for 30 days, after which, they are purged, but you can delete the asset files for a job before that, if desired. This request deletes all of the asset files associated with a job. Deleting a single asset file is not supported at this time.
@@ -1140,7 +1150,8 @@ Builds are now available to both RDC and VDC jobs. See the new [Builds API](/dev
 
 ### Get Builds
 
-<details><summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/builds</code>  <small><span className="sauceGold">DEPRECATED</span></small></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/rest/v1/&#123;username&#125;/builds</code>  <small><span className="sauceGold">DEPRECATED</span></small></summary>
 <p/>
 
 Get a list of recent builds run by the specified user.
