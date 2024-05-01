@@ -77,14 +77,16 @@ Return run data for all tests that match the request criteria.
     <tr>
      <td><code>scope</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-     Specifies the scope of the <code>owner</code> parameter. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+    <p>Specifies the scope of the <code>owner</code> parameter. Supported values are:</p>
+    <p>
      <ul>
       <li><code>me</code> - owner is the logged-in requestor.</li>
       <li><code>organization</code> - owner is all users the logged-in requestor's organization.</li>
       <li><code>single</code> - owner is one or more users in the logged-in requestor's organization. Setting this value makes the <code>owner</code> parameter required.</li>
     </ul>
-     </p></td>
+     </p>
+     </td>
     </tr>
   </tbody>
   <tbody>
@@ -103,20 +105,24 @@ Return run data for all tests that match the request criteria.
     <tr>
      <td><code>status</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p>
+  <p>
      <ul>
       <li><code>passed</code></li>
       <li><code>errored</code></li>
       <li><code>failed</code></li>
       <li><code>complete</code></li>
-    </ul></p></td>
+    </ul>
+    </p>
+    </td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>time_range</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
        The amount of time backward from the current time that represents the period during which the test runs are executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).
        </p></td>
     </tr>
@@ -242,12 +248,15 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
     <tr>
      <td><code>scope</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies the scope of the <code>owner</code> parameter. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies the scope of the <code>owner</code> parameter. Supported values are:</p>
+    <p>
      <ul>
       <li><code>me</code> - owner is the logged-in requestor.</li>
       <li><code>organization</code> - owner is all users the logged-in requestor's organization.</li>
       <li><code>single</code> - owner is one or more users in the logged-in requestor's organization. Setting this value makes the <code>owner</code> parameter required.</li>
-    </ul></p></td>
+    </ul>
+    </p>
+    </td>
     </tr>
   </tbody>
   <tbody>
@@ -260,13 +269,16 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
     <tr>
      <td><code>status</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with a specified status. Supported values are:</p>
+    <p>
      <ul>
       <li><code>passed</code></li>
       <li><code>errored</code></li>
       <li><code>failed</code></li>
       <li><code>complete</code></li>
-    </ul></p></td>
+    </ul>
+    </p>
+    </td>
     </tr>
   </tbody>
   <tbody>
@@ -405,35 +417,47 @@ Return a set of data "buckets" representing tests that were run in each time int
     <tr>
      <td><code>scope</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
-     Specifies the scope of the <code>owner</code> parameter. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+    <p>Specifies the scope of the <code>owner</code> parameter. Supported values are:</p>
+    <p>
      <ul>
       <li><code>me</code> - owner is the logged-in requestor.</li>
       <li><code>organization</code> - owner is all users the logged-in requestor's organization.</li>
       <li><code>single</code> - owner is one or more users in the logged-in requestor's organization. Setting this value makes the <code>owner</code> parameter required.</li>
     </ul>
-     </p></td>
+     </p>
+     </td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>interval</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+    <p>
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
-     </p></td>
+     </p>
+     </td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>time_range</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The amount of time backward from the current time that represents the period during which the test runs are executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
+       <td>
+        <p><small>| QUERY | OPTIONAL | STRING |</small></p>
+        <p>
+        The amount of time backward from the current time that represents the period during which the test runs are executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).
+        </p>
+        </td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>start</code></td>
-       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+       <td>
+        <p><small>| QUERY | OPTIONAL | DATE |</small></p>
+        <p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p>
+      </td>
     </tr>
   </tbody>
   <tbody>
@@ -470,13 +494,16 @@ Return a set of data "buckets" representing tests that were run in each time int
     <tr>
      <td><code>status</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with a specified status. Supported values are:</p>
+  <p>
      <ul>
       <li><code>passed</code></li>
       <li><code>errored</code></li>
       <li><code>failed</code></li>
       <li><code>complete</code></li>
-    </ul></p></td>
+    </ul>
+    </p>
+    </td>
     </tr>
   </tbody>
   <tbody>
@@ -703,31 +730,40 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
     <tr>
      <td><code>scope</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies the scope of the <code>owner</code> parameter. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Specifies the scope of the <code>owner</code> parameter. Supported values are:</p>
+    <p>
      <ul>
       <li><code>me</code> - owner is the logged-in requestor.</li>
       <li><code>organization</code> - owner is all users the logged-in requestor's organization.</li>
       <li><code>single</code> - owner is one or more users in the logged-in requestor's organization. Setting this value makes the <code>owner</code> parameter required.</li>
-    </ul></p></td>
+    </ul>
+    </p>
+    </td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>owner</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>The name of one or more users in the requestor's organization who executed the requested tests. This parameter is required if the <code>scope</code> parameter is set to <code>single</code>.</p></td>
+     <td>
+     <p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p>
+     <p>The name of one or more users in the requestor's organization who executed the requested tests. This parameter is required if the <code>scope</code> parameter is set to <code>single</code>.</p>
+     </td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>status</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to only those with a specified status. Supported values are:</p>
+    <p>
      <ul>
       <li><code>passed</code></li>
       <li><code>errored</code></li>
       <li><code>failed</code></li>
       <li><code>complete</code></li>
-    </ul></p></td>
+    </ul>
+    </p>
+    </td>
     </tr>
   </tbody>
   <tbody>
@@ -876,11 +912,14 @@ Return data for all tests that match the request criteria.
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+    <p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
-    </ul></p></td>
+    </ul>
+    </p>
+    </td>
     </tr>
   </tbody>
   <tbody>
@@ -893,13 +932,17 @@ Return data for all tests that match the request criteria.
     <tr>
      <td><code>status</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>passed</code></li>
       <li><code>error</code></li>
       <li><code>failed</code></li>
       <li><code>complete</code></li>
-    </ul></p>Default value is: <code>["error", "failed", "passed", "complete"]</code>
+    </ul>
+    </p>
+    Default value is: <code>["error", "failed", "passed", "complete"]</code>
     </td>
     </tr>
   </tbody>
@@ -1098,13 +1141,17 @@ Return data from all sources for all tests that match the request criteria.
     <tr>
      <td><code>status</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY OF STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>passed</code></li>
       <li><code>error</code></li>
       <li><code>failed</code></li>
       <li><code>complete</code></li>
-    </ul></p>Default value is: <code>["error", "failed", "passed", "complete"]</code>
+    </ul></p>
+
+Default value is: <code>["error", "failed", "passed", "complete"]</code>
     </td>
     </tr>
   </tbody>
@@ -1196,11 +1243,15 @@ Return data from all sources for all tests that match the request criteria.
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
-    </ul></p>Default value is: <code>["vdc", "rdc"]</code>
+    </ul></p>
+
+Default value is: <code>["vdc", "rdc"]</code>
     </td>
     </tr>
   </tbody>
@@ -1327,7 +1378,9 @@ Return daily statistics about test results and concurrency usage for the specifi
     <tr>
      <td><code>level</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+
      Specifies the ownership level. Supported values are:
       <ul>
         <li><code>user</code></li>
@@ -1816,7 +1869,9 @@ Return an array of errors with occurrence count on all tests run in the specifie
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -1833,7 +1888,9 @@ Return an array of errors with occurrence count on all tests run in the specifie
     <tr>
      <td><code>interval</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -1981,7 +2038,9 @@ Return past and current data about errors for comparison.
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -1998,7 +2057,9 @@ Return past and current data about errors for comparison.
     <tr>
      <td><code>interval</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -2143,7 +2204,9 @@ Return an array of tests with details.
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -2383,11 +2446,15 @@ Return an array of tests with details.
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
-    </ul></p>Default value is: <code>["vdc", "rdc"]</code>
+    </ul></p>
+
+Default value is: <code>["vdc", "rdc"]</code>
     </td>
     </tr>
   </tbody>
@@ -2509,7 +2576,9 @@ Return an array of tests with details.
     <tr>
      <td><code>status</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>complete</code></li>
       <li><code>error</code></li>
@@ -2632,7 +2701,9 @@ Return an array of test cases (grouped by name) with statistical details.
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -2649,7 +2720,9 @@ Return an array of test cases (grouped by name) with statistical details.
     <tr>
      <td><code>interval</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -2712,7 +2785,9 @@ Return an array of test cases (grouped by name) with statistical details.
     <tr>
      <td><code>status</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>complete</code></li>
       <li><code>error</code></li>
@@ -2863,7 +2938,9 @@ Return an array of test cases (grouped by name) with statistical details as a CS
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -2880,7 +2957,9 @@ Return an array of test cases (grouped by name) with statistical details as a CS
     <tr>
      <td><code>interval</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -2943,7 +3022,9 @@ Return an array of test cases (grouped by name) with statistical details as a CS
     <tr>
      <td><code>status</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>complete</code></li>
       <li><code>error</code></li>
@@ -3058,7 +3139,9 @@ Return an array of test cases (grouped by name) with statistical details.
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -3093,7 +3176,9 @@ Return an array of test cases (grouped by name) with statistical details.
     <tr>
      <td><code>interval</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -3138,7 +3223,9 @@ Return an array of test cases (grouped by name) with statistical details.
     <tr>
      <td><code>status</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>complete</code></li>
       <li><code>error</code></li>
@@ -3248,7 +3335,9 @@ Return a histogram with test statistic details grouped by specific period.
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -3432,7 +3521,9 @@ Return information about concurrency usage in a CSV format.
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud. Supported values are:</p><p>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
@@ -3524,7 +3615,9 @@ Return information about concurrency usage.
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud. Supported values are:</p><p>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>vdc</code> - Virtual Device Cloud</li>
     </ul></p></td>
@@ -3616,7 +3709,9 @@ Return information about tests coverage for the specified <code>coverage_field</
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -3627,7 +3722,11 @@ Return information about tests coverage for the specified <code>coverage_field</
     <tr>
      <td><code>coverage_field</code></td>
 <td>
-<p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<ul><li><code>device</code></li><li><code>browser</code></li><li><code>os</code></li></ul></p><p>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<ul><li><code>device</code></li><li><code>browser</code></li><li><code>os</code></li></ul></p>
+
+
+<p>
+
      </p></td>
     </tr>
   </tbody>
@@ -3641,7 +3740,9 @@ Return information about tests coverage for the specified <code>coverage_field</
     <tr>
      <td><code>interval</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -3772,6 +3873,8 @@ Return information from all sources about test coverage for the specified <code>
      <td><code>coverage_field</code></td>
 <td>
 <p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<ul><li><code>device</code></li><li><code>browser</code></li><li><code>os</code></li></ul></p>
+
+
      </td>
     </tr>
   </tbody>
@@ -3833,11 +3936,15 @@ Return information from all sources about test coverage for the specified <code>
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
-    </ul></p>Default value is: <code>["vdc", "rdc"]</code>
+    </ul></p>
+
+Default value is: <code>["vdc", "rdc"]</code>
     </td>
     </tr>
   </tbody>
@@ -3918,7 +4025,9 @@ Return information about tests coverage for the specified `coverage_field` in a 
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -3929,7 +4038,9 @@ Return information about tests coverage for the specified `coverage_field` in a 
     <tr>
      <td><code>coverage_field</code></td>
 <td>
-<p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<code>device</code>, <code>browser</code>, <code>os</code>.</p><p>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<code>device</code>, <code>browser</code>, <code>os</code>.</p>
+<p>
+
      </p></td>
     </tr>
   </tbody>
@@ -3943,7 +4054,9 @@ Return information about tests coverage for the specified `coverage_field` in a 
     <tr>
      <td><code>interval</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -4053,6 +4166,8 @@ Return information from all sources about test coverage for the specified `cover
       <td><code>coverage_field</code></td>
 <td>
 <p><small>| PATH | REQUIRED | STRING |</small></p><p>Available values are:<ul><li><code>device</code></li><li><code>browser</code></li><li><code>os</code></li></ul></p>
+
+
       </td>
     </tr>
   </tbody>
@@ -4102,11 +4217,15 @@ Return information from all sources about test coverage for the specified `cover
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
-    </ul></p>Default value is: <code>["vdc", "rdc"]</code>
+    </ul></p>
+
+Default value is: <code>["vdc", "rdc"]</code>
     </td>
     </tr>
   </tbody>
@@ -4178,7 +4297,9 @@ Return an array of buckets with aggregations, such as number of tests run on a s
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -4195,7 +4316,9 @@ Return an array of buckets with aggregations, such as number of tests run on a s
     <tr>
      <td><code>interval</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -4264,7 +4387,9 @@ Return an array of buckets with aggregations, such as number of tests run on a s
     <tr>
      <td><code>status</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>complete</code></li>
       <li><code>error</code></li>
@@ -4491,7 +4616,9 @@ Return an array of buckets with aggregations, such as the number of tests from a
     <tr>
      <td><code>interval</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -4572,11 +4699,15 @@ Return an array of buckets with aggregations, such as the number of tests from a
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
-    </ul></p>Default value is: <code>["vdc", "rdc"]</code>
+    </ul></p>
+
+Default value is: <code>["vdc", "rdc"]</code>
     </td>
     </tr>
   </tbody>
@@ -4584,13 +4715,17 @@ Return an array of buckets with aggregations, such as the number of tests from a
     <tr>
      <td><code>status</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>passed</code></li>
       <li><code>error</code></li>
       <li><code>failed</code></li>
       <li><code>complete</code></li>
-    </ul></p>Default value is: <code>["error", "failed", "passed", "complete"]</code>
+    </ul></p>
+
+Default value is: <code>["error", "failed", "passed", "complete"]</code>
     </td>
     </tr>
   </tbody>
@@ -4794,7 +4929,9 @@ Return statistics for errors that occurred in tests run in the specified period.
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -4811,7 +4948,9 @@ Return statistics for errors that occurred in tests run in the specified period.
     <tr>
      <td><code>interval</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -4874,7 +5013,9 @@ Return statistics for errors that occurred in tests run in the specified period.
     <tr>
      <td><code>status</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>complete</code></li>
       <li><code>error</code></li>
@@ -5075,11 +5216,15 @@ Return statistics from all sources for errors that occurred on tests run in the 
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
-    </ul></p>Default value is: <code>["vdc", "rdc"]</code>
+    </ul></p>
+
+Default value is: <code>["vdc", "rdc"]</code>
     </td>
     </tr>
   </tbody>
@@ -5087,13 +5232,17 @@ Return statistics from all sources for errors that occurred on tests run in the 
     <tr>
      <td><code>status</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>passed</code></li>
       <li><code>error</code></li>
       <li><code>failed</code></li>
       <li><code>complete</code></li>
-    </ul></p>Default value is: <code>["error", "failed", "passed", "complete"]</code>
+    </ul></p>
+
+Default value is: <code>["error", "failed", "passed", "complete"]</code>
     </td>
     </tr>
   </tbody>
@@ -5209,7 +5358,9 @@ Return information about builds and tests run included in the build. Also, it pr
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| PATH | REQUIRED | STRING |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
@@ -5226,7 +5377,9 @@ Return information about builds and tests run included in the build. Also, it pr
     <tr>
      <td><code>interval</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+
      Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code>
      </p></td>
     </tr>
@@ -5289,7 +5442,9 @@ Return information about builds and tests run included in the build. Also, it pr
     <tr>
      <td><code>status</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>complete</code></li>
       <li><code>error</code></li>
@@ -5538,11 +5693,15 @@ Return information from all sources about builds and tests run included in the b
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
-    </ul></p>Default value is: <code>["vdc", "rdc"]</code>
+    </ul></p>
+
+Default value is: <code>["vdc", "rdc"]</code>
     </td>
     </tr>
   </tbody>
@@ -5550,13 +5709,17 @@ Return information from all sources about builds and tests run included in the b
     <tr>
      <td><code>status</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p><p>
+<p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>Limit results to only those with a specified status. Supported values are:</p>
+<p>
+
      <ul>
       <li><code>passed</code></li>
       <li><code>error</code></li>
       <li><code>failed</code></li>
       <li><code>complete</code></li>
-    </ul></p>Default value is: <code>["error", "failed", "passed", "complete"]</code>
+    </ul></p>
+
+Default value is: <code>["error", "failed", "passed", "complete"]</code>
     </td>
     </tr>
   </tbody>

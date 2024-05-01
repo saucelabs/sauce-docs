@@ -96,12 +96,16 @@ Returns the set of supported operating system and browser combinations for the s
     <tr>
      <td><code>automation_api</code></td>
 <td>
-<p><small>| PATH | REQUIRED | STRING |</small></p><p>The framework for which you are requesting supported platforms. Valid values are:</p><p>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>The framework for which you are requesting supported platforms. Valid values are:</p>
+  <p>
      <ul>
       <li><code>all</code></li>
       <li><code>appium</code></li>
       <li><code>webdriver</code></li>
-     </ul></p></td>
+     </ul>
+    </p>
+    </td>
     </tr>
   </tbody>
 </table>

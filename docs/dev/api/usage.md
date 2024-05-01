@@ -57,18 +57,27 @@ This call requires <code>org_id</code> parameter.
   <tbody>
     <tr>
      <td><code>org_id</code></td>
-       <td><p><small>| QUERY| REQUIRED | STRING |</small></p><p>Return results only for the specified <code>org_id</code>.</p></td>
+      <td>
+        <p><small>| QUERY| REQUIRED | STRING |</small></p>
+       <p>Return results only for the specified <code>org_id</code>.</p>
+      </td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p>
+  <small>| QUERY | OPTIONAL | ARRAY |</small>
+</p>
+<p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+  <p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
-    </ul></p>Default value is: <code>vdc</code>
+    </ul>
+  </p>
+  Default value is: <code>vdc</code>
     </td>
     </tr>
   </tbody>
@@ -76,13 +85,19 @@ This call requires <code>org_id</code> parameter.
     <tr>
      <td><code>granularity</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results grouped by given granularity:</p><p>
+<p>
+  <small>| QUERY | OPTIONAL | STRING |</small>
+</p>
+<p>Return results grouped by given granularity:</p>
+  <p>
      <ul>
       <li><code>hourly</code></li>
       <li><code>weekly</code></li>
       <li><code>daily</code></li>
       <li><code>monthly</code></li>
-    </ul></p>Default value is: <code>daily</code>
+    </ul>
+  </p>
+    Default value is: <code>daily</code>
     </td>
     </tr>
   </tbody>
@@ -261,11 +276,17 @@ This call requires <code>org_id</code> and <code>team_id</code> parameters.
     <tr>
      <td><code>source</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+<p>
+  <small>| QUERY | OPTIONAL | ARRAY |</small>
+</p>
+<p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+  <p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
-    </ul></p>Default value is: <code>vdc</code>
+    </ul>
+  </p>
+    Default value is: <code>vdc</code>
     </td>
     </tr>
   </tbody>
@@ -273,13 +294,19 @@ This call requires <code>org_id</code> and <code>team_id</code> parameters.
     <tr>
      <td><code>granularity</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results grouped by given granularity:</p><p>
+<p>
+  <small>| QUERY | OPTIONAL | STRING |</small>
+</p>
+  <p>Return results grouped by given granularity:</p>
+  <p>
      <ul>
       <li><code>hourly</code></li>
       <li><code>weekly</code></li>
       <li><code>daily</code></li>
       <li><code>monthly</code></li>
-    </ul></p>Default value is: <code>daily</code>
+    </ul>
+  </p>
+  Default value is: <code>daily</code>
     </td>
     </tr>
   </tbody>

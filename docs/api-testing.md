@@ -23,8 +23,12 @@ Use the API Testing platform to generate contract tests from an OpenAPI specific
 
 </p>
 <ul>
-<li><a href="/api-testing/contract-testing">API Contract Testing</a></li>
-<li><a href="/api-testing/mocking">API Mocking with Piestry</a></li>
+<li>
+<a href="/api-testing/contract-testing">API Contract Testing</a>
+</li>
+<li>
+<a href="/api-testing/mocking">API Mocking with Piestry</a>
+</li>
 </ul>
 </div>
 </div>
@@ -38,9 +42,11 @@ Use the API Testing platform to generate contract tests from an OpenAPI specific
 Create functional tests from multiple locations:
 <ul>
 <li>
-<a href="/api-testing/quickstart">HTTP client</a></li>
+<a href="/api-testing/quickstart">HTTP client</a>
+</li>
 <li>
-<a href="/api-testing/import-postman-collection">Postman collection (in the HTTP client)</a></li>
+<a href="/api-testing/import-postman-collection">Postman collection (in the HTTP client)</a>
+</li>
 <li>
 <a href="/api-testing/build-from-spec">OpenAPI spec file</a>
 </li>

@@ -30,13 +30,23 @@ You can filter the results of your query using the `name` parameter below.
   <tbody>
     <tr>
      <td><code>id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Comma-separated team IDs. Allows to receive details of multiple teams at once. For example, <code>id=3d60780314724ab8ac688b50aadd9ff9,f9acc7c5b1da4fd0902b184c4f0b6324</code> would return details of teams with IDs included in the provided list.</p></td>
+     <td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+Comma-separated team IDs. Allows to receive details of multiple teams at once. For example, <code>id=3d60780314724ab8ac688b50aadd9ff9,f9acc7c5b1da4fd0902b184c4f0b6324</code> would return details of teams with IDs included in the provided list.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>name</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Returns the set of teams that begin with the specified name value. For example, <code>name=sauce</code> would return all teams in the organization with names beginning with "sauce".</p></td>
+     <td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+Returns the set of teams that begin with the specified name value. For example, <code>name=sauce</code> would return all teams in the organization with names beginning with "sauce".
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -127,7 +137,12 @@ Returns the full profile of the specified team. The `ID` of the team is the only
   <tbody>
     <tr>
      <td><code>id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -222,24 +237,42 @@ Creates a new team under the organization of the requesting account.
   <tbody>
     <tr>
      <td><code>name</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>A name for the new team.</p></td>
+     <td>
+<p><small>| BODY | REQUIRED | STRING |</small></p>
+<p>
+A name for the new team.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>settings</code></td>
 <td>
-<p><small>| BODY | REQUIRED | OBJECT |</small></p><p>The settings object specifies the concurrency allocations for the team within the organization. The available attributes are:
+<p><small>| BODY | REQUIRED | OBJECT |</small></p>
+<p>
+The settings object specifies the concurrency allocations for the team within the organization. The available attributes are:
      <ul>
       <li><code>virtual_machines</code> - <small>INTEGER</small></li>
     </ul>
-    </p><p>The <code>settings</code> parameter is required, but you only need to include the applicable concurrency attribute(s) for the team.</p></td>
+    
+</p>
+<p>
+The <code>settings</code> parameter is required, but you only need to include the applicable concurrency attribute(s) for the team.
+    
+</p>
+    </td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>description</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A description to distinguish the team in the organization.</p></td>
+     <td>
+<p><small>| BODY | OPTIONAL | STRING |</small></p>
+<p>
+A description to distinguish the team in the organization.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -339,7 +372,12 @@ Deletes the specified team from the organization of the requesting account.
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -409,30 +447,52 @@ Replaces all values of the specified team with the new set of parameters passed 
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The unique identifier of the team. You can look up the IDs of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>name</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The name of the team as it will be after the update. Pass the current value to keep the name unchanged.</p></td>
+     <td>
+<p><small>| BODY | REQUIRED | STRING |</small></p>
+<p>
+The name of the team as it will be after the update. Pass the current value to keep the name unchanged.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>settings</code></td>
 <td>
-<p><small>| BODY | REQUIRED | OBJECT |</small></p><p>The updated concurrency allocations for the team. The available attributes are:
+<p><small>| BODY | REQUIRED | OBJECT |</small></p>
+<p>
+  The updated concurrency allocations for the team. The available attributes are:
       <ul>
         <li><code>virtual_machines</code> - <small>INTEGER</small></li>
       </ul>
-      </p><p>The <code>settings</code> parameter is required, but you only need to include the applicable concurrency attribute(s) for the team.</p></td>
+      
+</p>
+<p>
+  The <code>settings</code> parameter is required, but you only need to include the applicable concurrency attribute(s) for the team.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>description</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A description to distinguish the team in the organization. If the previous team definition included a description, omitting the parameter in the update will delete it from the team record.</p></td>
+     <td>
+<p><small>| BODY | OPTIONAL | STRING |</small></p>
+<p>
+A description to distinguish the team in the organization. If the previous team definition included a description, omitting the parameter in the update will delete it from the team record.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -538,30 +598,48 @@ Updates one or more individual editable parameters (such as the concurrency allo
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the team. You can look up the ID of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The unique identifier of the team. You can look up the ID of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>name</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>An updated name for the team.</p></td>
+     <td>
+<p><small>| BODY | OPTIONAL | STRING |</small></p>
+<p>
+An updated name for the team.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
       <td><code>settings</code></td>
 <td>
-<p><small>| BODY | OPTIONAL | OBJECT |</small></p><p>The updated concurrency allocations for the team. The available attributes are:
+<p><small>| BODY | OPTIONAL | OBJECT |</small></p>
+<p>
+  The updated concurrency allocations for the team. The available attributes are:
         <ul>
           <li><code>virtual_machines</code> - <small>INTEGER</small></li>
-        </ul></p>
+        </ul>
+</p>
       </td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>description</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>An updated description.</p></td>
+     <td>
+<p><small>| BODY | OPTIONAL | STRING |</small></p>
+<p>
+An updated description.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -664,7 +742,12 @@ Returns the number of members in the specified team and lists each member.
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Identifies the team for which you are requesting the list of members.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+Identifies the team for which you are requesting the list of members.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -746,7 +829,12 @@ Regenerating an access key invalidates the previous value and any tests containi
   <tbody>
     <tr>
      <td><code>team_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>Identifies the team for which you are resetting member access keys.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+Identifies the team for which you are resetting member access keys.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -824,61 +912,102 @@ You can narrow the results of your query using any of the following filtering pa
   <tbody>
     <tr>
      <td><code>id</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Comma-separated user IDs. Allows to receive details of multiple user at once. For example, <code>id=3d60780314724ab8ac688b50aadd9ff9,f9acc7c5b1da4fd0902b184c4f0b6324</code> would return details of users with IDs included in the provided list.</p></td>
+     <td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+Comma-separated user IDs. Allows to receive details of multiple user at once. For example, <code>id=3d60780314724ab8ac688b50aadd9ff9,f9acc7c5b1da4fd0902b184c4f0b6324</code> would return details of users with IDs included in the provided list.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limits the results to usernames that begin with the specified value. For example, <code>username=an</code> would return all users in the organization with usernames beginning with "an".</p></td>
+     <td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+Limits the results to usernames that begin with the specified value. For example, <code>username=an</code> would return all users in the organization with usernames beginning with "an".
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>teams</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to users who belong to the specified team_ids. Specify multiple teams as comma-separated values.</p></td>
+     <td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+Limit results to users who belong to the specified team_ids. Specify multiple teams as comma-separated values.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>roles</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Limit results to users who are assigned certain roles. Valid values are:
+<p><small>| QUERY | OPTIONAL | INTEGER |</small></p>
+<p>
+  Limit results to users who are assigned certain roles. Valid values are:
        <ul>
          <li><code>1</code> - Organization Admin</li>
          <li><code>4</code> - Team Admin</li>
          <li><code>3</code> - Member</li>
-       </ul></p><p>Specify multiple roles as comma-separated values.</p></td>
+       </ul>
+</p>
+<p>
+Specify multiple roles as comma-separated values.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>phrase</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to users whose first name, last name, or email address begins with the specified value.</p></td>
+     <td>
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+Limit results to users whose first name, last name, or email address begins with the specified value.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>status</code></td>
 <td>
-<p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Limit results to users of the specifid status. Valid values are:
+<p><small>| QUERY | OPTIONAL | STRING |</small></p>
+<p>
+  Limit results to users of the specifid status. Valid values are:
        <ul>
          <li><code>active</code></li>
          <li><code>pending</code></li>
          <li><code>inactive</code></li>
-       </ul></p></td>
+       </ul>
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>limit</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INTEGER MAX=100 |</small></p><p>Limit results to a maximum number per page. Default value is <code>20</code>.</p></td>
+     <td>
+<p><small>| QUERY | OPTIONAL | INTEGER MAX=100 |</small></p>
+<p>
+Limit results to a maximum number per page. Default value is <code>20</code>.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>offset</code></td>
-     <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>The starting record number from which to return results.</p></td>
+     <td>
+<p><small>| QUERY | OPTIONAL | INTEGER |</small></p>
+<p>
+The starting record number from which to return results.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -966,7 +1095,12 @@ Returns the full profile of the specified user. The `ID` of the user is the only
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The user's unique identifier. You can look up the IDs of users in your organization using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The user's unique identifier. You can look up the IDs of users in your organization using the <a href="#lookup-users">Lookup Users</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -1056,32 +1190,56 @@ Creates a new user in the Sauce Labs platform.
   <tbody>
     <tr>
      <td><code>first_name</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The new user's first name.</p></td>
+     <td>
+<p><small>| BODY | REQUIRED | STRING |</small></p>
+<p>
+The new user's first name.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>last_name</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The new user's last name.</p></td>
+     <td>
+<p><small>| BODY | REQUIRED | STRING |</small></p>
+<p>
+The new user's last name.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>email</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The user's contact email address.</p></td>
+     <td>
+<p><small>| BODY | REQUIRED | STRING |</small></p>
+<p>
+The user's contact email address.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>A login username for the new user.</p></td>
+     <td>
+<p><small>| BODY | REQUIRED | STRING |</small></p>
+<p>
+A login username for the new user.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
       <td><code>password</code></td>
 <td>
-<p><small>| BODY | REQUIRED | STRING |</small></p><p>A login password for the new user. The password requirements are: </p><p>
+<p><small>| BODY | REQUIRED | STRING |</small></p>
+<p>
+A login password for the new user. The password requirements are: 
+</p>
+<p>
       <ul>
         <li>1 lowercase letter</li>
         <li>1 uppercase letter</li>
@@ -1089,31 +1247,47 @@ Creates a new user in the Sauce Labs platform.
         <li>1 special character</li>
         <li>8 characters minimum</li>
         <li>No blank spaces</li>
-      </ul></p></td>
+      </ul>
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>organization</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The identifier of the organization to create the user's account. You can look up organization IDs by calling the <code>GET https://api.&#123;region&#125;.saucelabs.com/team-management/v1/organizations/</code> endpoint.</p></td>
+     <td>
+<p><small>| BODY | REQUIRED | STRING |</small></p>
+<p>
+The identifier of the organization to create the user's account. You can look up organization IDs by calling the <code>GET https://api.&#123;region&#125;.saucelabs.com/team-management/v1/organizations/</code> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>role</code></td>
 <td>
-<p><small>| BODY | REQUIRED | INTEGER |</small></p><p>Tnew user's permission role. Valid values are:
+<p><small>| BODY | REQUIRED | INTEGER |</small></p>
+<p>
+The new user's permission role. Valid values are:
        <ul>
          <li><code>1</code> - Organaization Admin</li>
          <li><code>4</code> - Team Admin</li>
          <li><code>3</code> - Member</li>
-       </ul></p></td>
+       </ul>
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>team</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The identifier of the team of which the new user is a member. You can look up team IDs using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
+     <td>
+<p><small>| BODY | OPTIONAL | STRING |</small></p>
+<p>
+The identifier of the team of which the new user is a member. You can look up team IDs using the <a href="#lookup-teams">Lookup Teams</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -1251,32 +1425,56 @@ Replaces all values of the specified user profile with the new set of parameters
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>first_name</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The user's first name.</p></td>
+     <td>
+<p><small>| BODY | REQUIRED | STRING |</small></p>
+<p>
+The user's first name.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>last_name</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The user's last name.</p></td>
+     <td>
+<p><small>| BODY | REQUIRED | STRING |</small></p>
+<p>
+The user's last name.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>email</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The user's contact email address.</p></td>
+     <td>
+<p><small>| BODY | REQUIRED | STRING |</small></p>
+<p>
+The user's contact email address.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
       <td><code>password</code></td>
 <td>
-<p><small>| BODY | REQUIRED | STRING |</small></p><p>A login password for the new user. The password requirements are: </p><p>
+<p><small>| BODY | REQUIRED | STRING |</small></p>
+<p>
+A login password for the new user. The password requirements are: 
+</p>
+<p>
       <ul>
         <li>1 lowercase letter</li>
         <li>1 uppercase letter</li>
@@ -1284,13 +1482,20 @@ Replaces all values of the specified user profile with the new set of parameters
         <li>1 special character</li>
         <li>8 characters minimum</li>
         <li>No blank spaces</li>
-      </ul></p></td>
+      </ul>
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>verify_password</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>A confirmation of the password. This value must match the <code>password</code> value in the request.</p></td>
+     <td>
+<p><small>| BODY | REQUIRED | STRING |</small></p>
+<p>
+A confirmation of the password. This value must match the <code>password</code> value in the request.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -1393,32 +1598,56 @@ Allows you to update individual user values without replacing the entire profile
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user to update. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The unique identifier of the user to update. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>first_name</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The user's first name.</p></td>
+     <td>
+<p><small>| BODY | OPTIONAL | STRING |</small></p>
+<p>
+The user's first name.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>last_name</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The user's last name.</p></td>
+     <td>
+<p><small>| BODY | OPTIONAL | STRING |</small></p>
+<p>
+The user's last name.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>email</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>The user's contact email address.</p></td>
+     <td>
+<p><small>| BODY | OPTIONAL | STRING |</small></p>
+<p>
+The user's contact email address.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
       <td><code>password</code></td>
 <td>
-<p><small>| BODY | OPTIONAL | STRING |</small></p><p>A login password for the new user. The password requirements are: </p><p>
+<p><small>| BODY | OPTIONAL | STRING |</small></p>
+<p>
+A login password for the new user. The password requirements are: 
+</p>
+<p>
       <ul>
         <li>1 lowercase letter</li>
         <li>1 uppercase letter</li>
@@ -1426,13 +1655,20 @@ Allows you to update individual user values without replacing the entire profile
         <li>1 special character</li>
         <li>8 characters minimum</li>
         <li>No blank spaces</li>
-      </ul></p></td>
+      </ul>
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>verify_password</code></td>
-     <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>A confirmation of the password. If the <code>password</code> parameter is included in the call, this parameter is required and the values for both must match.</p></td>
+     <td>
+<p><small>| BODY | OPTIONAL | STRING |</small></p>
+<p>
+A confirmation of the password. If the <code>password</code> parameter is included in the call, this parameter is required and the values for both must match.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -1547,7 +1783,12 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location --request GET 'https://ap
   <tbody>
     <tr>
      <td><code>username</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The username of the user whose concurrency you are looking up. You can look up a user's name using a variety of filtering parameters with the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The username of the user whose concurrency you are looking up. You can look up a user's name using a variety of filtering parameters with the <a href="#lookup-users">Lookup Users</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -1640,13 +1881,19 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     <tr>
      <td><code>*.&#123;device_type&#125;</code></td>
 <td>
-<p>Each set of concurrency reported in the response is broken down by the following device types:
+<p>
+Each set of concurrency reported in the response is broken down by the following device types:
      <ul>
       <li><code>mac_vms</code> - Mac virtual machines represent any live, automated, desktop, or mobile test running in a Mac OS, which includes iOS Simulator tests.</li>
       <li><code>rds</code> - Real devices represent any live or automated mobile test running on a Sauce Labs real device.</li>
       <li><code>vms</code> - Windows virtual machines represent any live, automated, desktop, or mobile test running in a Windows or Android OS, which includes Android Emulator tests.</li>
     </ul>
-    </p><p>Note that <code>mac_vms</code> and <code>vms</code> are separated here, although they are typically presented as a combined total of virtual machine usage in other areas of the Sauce Labs platform.</p></td>
+    
+</p>
+<p>
+Note that <code>mac_vms</code> and <code>vms</code> are separated here, although they are typically presented as a combined total of virtual machine usage in other areas of the Sauce Labs platform.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -1708,7 +1955,12 @@ At this time, users may only belong to a maximum of one team.
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -1797,13 +2049,23 @@ Assign user to one or multiple teams. New team assignments will replace the exis
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the Sauce Labs user. You can look up the ID of a user in your organization using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The unique identifier of the Sauce Labs user. You can look up the ID of a user in your organization using the <a href="#lookup-users">Lookup Users</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>teams</code></td>
-     <td><p><small>| BODY | REQUIRED | ARRAY OF STRINGS |</small></p><p>List of unique team identifiers. You can look up the ID of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
+     <td>
+<p><small>| BODY | REQUIRED | ARRAY OF STRINGS |</small></p>
+<p>
+List of unique team identifiers. You can look up the ID of teams in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -1889,13 +2151,23 @@ Set a user's team affiliation. Users are limited to one team affiliation, so if 
   <tbody>
     <tr>
      <td><code>user</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the Sauce Labs user to be added to the team.You can look up the ID of a user in your organization using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The unique identifier of the Sauce Labs user to be added to the team.You can look up the ID of a user in your organization using the <a href="#lookup-users">Lookup Users</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>team</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The identifier of the team to which the user will be added. You can look up the ID of a team in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The identifier of the team to which the user will be added. You can look up the ID of a team in your organization using the <a href="#lookup-teams">Lookup Teams</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -2027,7 +2299,12 @@ Assigns administrator rights to the user within their organization. Organization
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -2122,7 +2399,12 @@ Assigns administrator rights to the user within their current team. If the user 
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -2217,7 +2499,12 @@ Assigns the `member` role to the user. If the user is currently assigned any Adm
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -2312,7 +2599,12 @@ Retrieves the Sauce Labs access key for the specified user.
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -2392,7 +2684,12 @@ Regenerating an access key invalidates the previous value and any tests containi
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -2468,7 +2765,12 @@ Suspends the specified user's account, preventing all access to Sauce Labs while
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
 </table>
@@ -2565,7 +2867,12 @@ Re-activates the specified user's account, if it had been previously deactivated
   <tbody>
     <tr>
      <td><code>user_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.</p></td>
+     <td>
+<p><small>| PATH | REQUIRED | STRING |</small></p>
+<p>
+The unique identifier of the user. You can look up a user's ID using the <a href="#lookup-users">Lookup Users</a> endpoint.
+</p>
+</td>
     </tr>
   </tbody>
 </table>

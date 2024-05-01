@@ -214,8 +214,11 @@ Submits crash object to Backtrace instance.
             <p>Specifies the CPU architecture information. It is required if you want to have registers in the stack frame. The object has two fields: </p>
             <p>
               <ul>
-                <li><code>name</code> - On some systems the running program can be run with a different arch than the system itself. <code>attributes.uname.machine</code> has to do with the system arch; this field has to do with the running process arch.</li>
-                <li><code>registers</code> - It corresponds with registers in the stack frame. Specifies the names of the registers for this arch. The values are the types. Valid types are:
+                <li>
+                <code>name</code> - On some systems the running program can be run with a different arch than the system itself. <code>attributes.uname.machine</code> has to do with the system arch; this field has to do with the running process arch.
+                </li>
+                <li>
+                <code>registers</code> - It corresponds with registers in the stack frame. Specifies the names of the registers for this arch. The values are the types. Valid types are:
                   <ul>
                     <li><code>i32</code></li>
                     <li><code>u32</code></li>

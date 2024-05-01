@@ -16,7 +16,7 @@ keywords:
 
 ## Preamble
 
-The API Fortress expression language is mostly used to identify a path in a payload, or reference a variable. But there's more to it. A number of extensions are available to generate calculated data, determine the quality of a value and so on. These _extensions_ can be used in any field that can be evaluated, which means in all _expression_ fields, and all the fields where the value is wrapped in the _${...}_ brackets.
+The API Fortress expression language is mostly used to identify a path in a payload, or reference a variable. But there's more to it. A number of extensions are available to generate calculated data, determine the quality of a value and so on. These _extensions_ can be used in any field that can be evaluated, which means in all _expression_ fields, and all the fields where the value is wrapped in the _$\{...\}_ brackets.
 
 ### `anyArrray.pick(n)`
 

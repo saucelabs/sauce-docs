@@ -91,8 +91,8 @@ When options can be set at both levels, project settings override global setting
 ### Configure Global Sauce Settings
 
 1. From your Jenkins dashboard, select **Manage Jenkins** then **Configure System**.
-1. Scroll down to the **Sauce Support** section.
-1. Configure the optional settings as needed, based on the descriptions in the following table.
+2. Scroll down to the **Sauce Support** section.
+3. Configure the optional settings as needed, based on the descriptions in the following table.
 <table>
   <tr>
     <th>Setting</th>
@@ -126,14 +126,15 @@ The list of command line arguments to apply each time Sauce Connect Proxy is lau
     <td>A value that will be automatically added to the front of any Jenkins environment variable set by the Sauce OnDemand plugin.</td>
   </tr>
 </table>
-1. Click **Save**.
+4. Click **Save**.
 
 ### Configure Sauce Settings for a Project
 
 1. From your Jenkins dashboard, select the project you wish to configure.
-1. Select **Configure** from the project menu.
-1. Select the **Sauce Labs Options** tab to jump to the relevant settings.
-1. Configure the optional settings as needed, based on the descriptions in the following table.
+2. Select **Configure** from the project menu.
+3. Select the **Sauce Labs Options** tab to jump to the relevant settings.
+4. Configure the optional settings as needed, based on the descriptions in the following table.
+
 :::note
 Project specific settings will always override the global value for the same setting.
 :::
@@ -186,7 +187,9 @@ Choose one or more operating system and browser combinations you wish to test us
       <td>If <b>Create a new unique Sauce Connect tunnel per build</b> in enabled in the Advanced Options section, checking this option ensures that cancelled builds do not tie up tunnels unnecessarily.</td>
     </tr>
   </table>
-1. Scroll to the **Sauce Connect Advanced Options** section, and click **Advanced** to display additional options described in the following table as needed.
+
+  5. Scroll to the **Sauce Connect Advanced Options** section, and click **Advanced** to display additional options described in the following table as needed.
+
    <table>
      <tr>
        <th>Setting</th>
