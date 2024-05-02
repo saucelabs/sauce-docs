@@ -64,9 +64,9 @@ jobs:
         with:
           node-version: 18.x
       - name: Install Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v2
         with:
-          python-version: '3.10'
+          python-version: 3.7
       - run: pip install crcmod
       - name: Set up Cloud SDK
         uses: 'google-github-actions/setup-gcloud@v2'
@@ -112,9 +112,9 @@ jobs:
         with:
           node-version: 18.x
       - name: Install Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v2
         with:
-          python-version: '3.10'
+          python-version: 3.7
       - run: pip install crcmod
       - name: Set up Cloud SDK
         uses: 'google-github-actions/setup-gcloud@v2'
