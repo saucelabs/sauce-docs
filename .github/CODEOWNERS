@@ -25,8 +25,8 @@
 /docs/error-reporting/ @rick-bt @peter-shao
 
 # Sauce Orchestrate
-/docs/orchestrate/ @maciejplonski-saucelabs
-/docs/orchestrate.md @maciejplonski-saucelabs
+/docs/orchestrate/ @saucelabs/sauce-orchestrate-team
+/docs/orchestrate.md @saucelabs/sauce-orchestrate-team
 
 # Mobile apps:
 /docs/mobile-apps/ @kristofmuhi
