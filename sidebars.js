@@ -1726,6 +1726,7 @@ module.exports = {
                         'visual-testing/integrations/storybook',
                         'visual-testing/integrations/webdriverio',
                         'visual-testing/integrations/python',
+                        'visual-testing/integrations/python-robot-framework',
                     ],
                 },
                 'visual-testing/faq',
