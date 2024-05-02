@@ -170,7 +170,7 @@ More information about the status can be found [here](#sauce-visual-assertion)
 
 ### Customizing Your Builds (Environment Variables)
 
-Below are the environment variables available in the Sauce Visual Nightwatch plugin. Keep in mind that the variables defined in Nightwatch configuration have precedence over these ones.
+Below are the environment variables available in the Sauce Visual Nightwatch plugin. Keep in mind that the variables defined in Nightwatch configuration have precedence over these.
 
 <EnvironmentVariables />
 
