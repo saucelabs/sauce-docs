@@ -45,7 +45,7 @@ For more technical users, we also expose a generic SauceLabsVisual client which 
 
 Generally, the workflow would be as follows:
 
-### 1. Import and instantiate the Client
+### Step 1 - Import and instantiate the Client
 
 Import the client and store it in a variable you can access globally in your tests / framework:
 
@@ -55,7 +55,7 @@ from saucelabs_visual.client import SauceLabsVisual
 client = SauceLabsVisual()
 ```
 
-### 2. Create the Build
+### Step 2 - Create the Build
 
 - Either manually or in a `beforeAll` hook that is only triggered once in your framework, create the Visual build that we'll associate all screenshots with.
 
@@ -70,7 +70,7 @@ client.create_build(
 )
 ```
 
-### 3. Take a Snapshot
+### Step 3 - Take a Snapshot
 
 Take a visual snapshot in each test where you'd like to check for visual changes
 
@@ -87,7 +87,7 @@ client.create_snapshot_from_webdriver(
 )
 ```
 
-### 4. Finish the Build
+### Step 4 - Finish the Build
 
 - Either manually or in an `afterAll` hook that is only triggered once at the end of your framework, finish the Visual build to let Sauce Visual know we're ready to present the results in the UI.
 
