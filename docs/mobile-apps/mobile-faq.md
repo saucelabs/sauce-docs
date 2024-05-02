@@ -74,7 +74,7 @@ Yes, by using virtual USB, but only on private Android devices. Currently, iOS d
 
 #### **I'm encountering errors when executing ADB shell commands. What could be the issue?**
 
-If you're facing challenges with ADB shell commands during your automated Appium tests, ensure that you are using the 
+If you're facing challenges with ADB shell commands during your automated Appium tests, ensure that you are using the
 [mobile: shell script](https://docs.saucelabs.com/dev/test-configuration-options/#mobile-shell) correctly.
 
 We maintain an allowlist of commands that can be executed within our Real Device Cloud. Please refer to the list of allowed commands to ensure compatibility:
@@ -88,8 +88,9 @@ We maintain an allowlist of commands that can be executed within our Real Device
 * cmd connectivity airplane-mode (enable|disable)
 * settings put global (animator_duration_scale|transition_animation_scale|window_animation_scale) {`<value>`}
 * setprop debug.firebase.analytics.app {`<value>`}
+* setprop (log.tag.FA|log.tag.FA-SVC) (ERROR|WARN|INFO|DEBUG|VERBOSE)
 
-If the command you require is not listed, you can submit a request through this [form](https://docs.google.com/forms/d/1t4MCf6ClHlLxX80RP5bNU9wVJBhQOd4ll6IjP0ecMgc) 
+If the command you require is not listed, you can submit a request through this [form](https://docs.google.com/forms/d/1t4MCf6ClHlLxX80RP5bNU9wVJBhQOd4ll6IjP0ecMgc)
 or reach out to your Customer Success Manager or Sauce Labs Support for assistance.
 
 ### Security

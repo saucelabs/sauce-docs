@@ -100,7 +100,7 @@ https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/
 <TabItem value="Python">
 
 ```py reference title="Starting a Sauce Labs Session"
-https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/conftest.py#L12-L23
+https://github.com/saucelabs-training/demo-python/blob/docs-1.1/examples/selenium/conftest.py#L12-L25
 ```
 
 </TabItem>

@@ -123,7 +123,7 @@ See also: [http client](#http-client).
 
 ### Concurrency Limit
 
-The maximum number of total Sauce Labs tests -- both automated and manual -- that you can run simultaneously across all user accounts within your organization. Concurrency limits vary according to pricing plan. Once you and/or your teammates have used all concurrency slots, additional tests will not launch until an existing test has finished. More information: [Understanding Concurrency Limits and Team Accounts](/basics/acct-team-mgmt/concurrency-limits).
+The maximum number of total Sauce Labs tests -- both automated and manual -- that you can run simultaneously across all user accounts within your organization. Concurrency limits vary according to pricing plan. Once you and/or your teammates have used all concurrency slots, additional tests will not launch until an existing test has finished. More information: [Understanding Concurrency](/basics/acct-team-mgmt/concurrency/understanding-concurrency).
 
 ### Continuous Deployment (CD)
 
