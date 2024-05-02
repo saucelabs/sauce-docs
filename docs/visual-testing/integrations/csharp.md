@@ -246,7 +246,7 @@ Remember, the baseline is established during the initial run, and any subsequent
 
 ### Customizing Your Builds (Environment Variables)
 
-Below are the environment variables available in the Sauce Visual C# plugin. Keep in mind that the variables defined in `CreateBuildOptions` configuration have precedence over these ones.
+Below are the environment variables available in the Sauce Visual C# plugin. Keep in mind that the variables defined in `CreateBuildOptions` configuration have precedence over these.
 
 <EnvironmentVariables />
 
