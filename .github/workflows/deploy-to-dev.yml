@@ -20,25 +20,25 @@ jobs:
   deploy-dev:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Install Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.7
+          python-version: '3.10' 
       - run: pip install crcmod
       - name: Set up Cloud SDK
-        uses: 'google-github-actions/setup-gcloud@v0'
+        uses: 'google-github-actions/setup-gcloud@v2'
         with:
           version: '290.0.1'
           project_id: ${{ secrets.RUN_PROJECT_DEV }}
           service_account_key: ${{ secrets.RUN_SA_KEY_DEV }}
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         id: cache-build
         with:
           path: |
