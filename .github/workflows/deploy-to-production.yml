@@ -68,12 +68,16 @@ jobs:
         with:
           python-version: 3.7
       - run: pip install crcmod
+
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v2'
+        with:
+          workload_identity_provider: ${{ secrets.RUN_PROJECT_PROD }}
+          service_account:  ${{ secrets.RUN_SA_KEY_PROD }}
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v2'
         with:
           version: '>= 290.0.1'
-          project_id: ${{ secrets.RUN_PROJECT }}
-          service_account_key: ${{ secrets.RUN_SA_KEY }}
 
       - uses: actions/cache@v2
         id: cache-build
