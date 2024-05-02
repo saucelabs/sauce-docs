@@ -75,7 +75,7 @@ saucectl run --ccy 10
 
 A setting of `10` runs up to 10 test suites at the same time. If the test has more suites than that, excess suites are queued and run in order as currently running suites complete and new slots are available.
 
-When running on Sauce Cloud, the maximum concurrency that you can use is defined by your [account settings](/basics/acct-team-mgmt/concurrency-limits/).
+When running on Sauce Cloud, the maximum concurrency that you can use is defined by your [account settings](/basics/acct-team-mgmt/concurrency/understanding-concurrency).
 
 ## Sauce Connect
 

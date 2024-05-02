@@ -11,9 +11,9 @@ If you are an organization admin, you can create and delete teams and assign con
 
 ## Adding Teams
 
-1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="400"/>
 
 2. On the **TEAMS** tab, click the blue plus sign.
 
@@ -24,12 +24,12 @@ If you are an organization admin, you can create and delete teams and assign con
 <img src={useBaseUrl('img/team-mgmt/create-new-team.jpg')} alt="Create new team" width="400"/>
 
 4. In the **TO LINE OF BUSINESS** dropdown, select the line of business the team will be associated with.
-5. Under **TEAM VM CONCURRENCY LIMITS**, use the up and down arrows to set the number of concurrent virtual machines that the team can access. For more information about concurrency, see [Concurrency Limits and Team Accounts](/basics/acct-team-mgmt/concurrency-limits).
+5. Under **TEAM VM CONCURRENCY LIMITS**, use the up and down arrows to set the number of concurrent virtual machines that the team can access. For more information about concurrency, see [Managing Concurrency](/basics/acct-team-mgmt/concurrency/managing-concurrency).
 6. Click **ADD TEAM**.
 
 ## Deleting Teams
 
-1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 2. On the **TEAMS** tab, select the checkbox of the team or teams you want to delete.
 3. Next to **TEAMS SELECTED**, in the **Action** dropdown, click **Delete team**.
 

@@ -5,13 +5,13 @@ sidebar_label: Java
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ClippingDescription from '../_partials/_clipping-description.md';
-import FullPageDescription from '../_partials/_fullpage-description.md';
+import FullPageLimit from '../_partials/_fullpage-limit.md';
+import EnterpriseNote from '../_partials/_enterprise-note.md';
+import EnvironmentVariables from '../_partials/_environment-variables.md';
 
 # Java WebDriver Integration
 
-:::note Important
-Access to this feature is currently limited to Enterprise customers as part of our commitment to providing tailored solutions. We are excited to announce that self-service access is under development and will be released shortly. Stay tuned!
-:::
+<EnterpriseNote />
 
 ## Introduction
 
@@ -223,6 +223,12 @@ Remember, the baseline is established during the initial run, and any subsequent
 
 ## Advanced usage
 
+### Customizing Your Builds (Environment Variables)
+
+Below are the environment variables available in the Sauce Visual Java plugin. Keep in mind that the variables defined in `CheckOptions` configuration have precedence over these ones.
+
+<EnvironmentVariables />
+
 ### Test results summary
 
 `VisualApi#sauceVisualResults()` returns a summary of test results in `Map<DiffStatus, Integer>` format where `DiffStatus` is one of the following:
@@ -332,7 +338,18 @@ visual.sauceVisualCheck("Inventory Page", options);
 
 ### Full page screenshots
 
-<FullPageDescription />
+By default, only the current viewport is captured when `.sauceVisualCheck` is used. You can opt in to capturing the entire page by using the `enableFullPageScreenshots` option. It will capture everything by scrolling and stitching multiple screenshots together.
+
+:::note
+It's recommended to use the `withHideAfterFirstScroll` method for fixed or sticky position elements such as sticky headers or consent banners.
+:::
+
+Configuration should be specified using the `FullPageScreenshotConfig.Builder` object.
+
+Methods available:
+
+- `withDelayAfterScrollMs(int delayAfterScrollMs)`: Delay in ms after scrolling and before taking screenshots. The default value is 0. We recommend using this option for lazy loading content.
+- `withHideAfterFirstScroll(String... hideAfterFirstScroll)`: Hide elements on the page after first scroll (uses css selectors)
 
 Examples:
 
@@ -357,6 +374,7 @@ options.enableFullPageScreenshots(config);
 visual.sauceVisualCheck("Long content page", options);
 ```
 
+<FullPageLimit />
 
 ### Clip to an element
 

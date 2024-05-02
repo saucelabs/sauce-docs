@@ -885,7 +885,7 @@ module.exports = {
                         'basics/environment-variables',
                         {
                             type: 'category',
-                            label: 'Account and Team Management',
+                            label: 'Account and Organization Management',
                             collapsed: true,
                             items: [
                                 'basics/acct-team-mgmt-hub',
@@ -895,11 +895,19 @@ module.exports = {
                                     label: 'Managing Users and Accounts',
                                     collapsed: true,
                                     items: [
-                                        'basics/acct-team-mgmt/concurrency-limits',
                                         'basics/acct-team-mgmt/adding-deactivating-users',
                                         'basics/acct-team-mgmt/managing-user-info',
                                         'basics/acct-team-mgmt/viewing-exporting-usage-data',
                                         'basics/acct-team-mgmt/switching-active-team',
+                                    ],
+                                },
+                                {
+                                    type: 'category',
+                                    label: 'Managing Concurrency',
+                                    collapsed: true,
+                                    items: [
+                                        'basics/acct-team-mgmt/concurrency/understanding-concurrency',
+                                        'basics/acct-team-mgmt/concurrency/managing-concurrency',
                                     ],
                                 },
                                 {
@@ -1507,6 +1515,7 @@ module.exports = {
                             items: [
                                 'web-apps/automated-testing/playwright',
                                 'web-apps/automated-testing/playwright/quickstart',
+                                'web-apps/automated-testing/playwright/selenium-grid',
                                 'web-apps/automated-testing/playwright/yaml',
                                 'web-apps/automated-testing/playwright/advanced',
                             ],
@@ -1541,6 +1550,15 @@ module.exports = {
                                 'web-apps/automated-testing/replay',
                                 'web-apps/automated-testing/replay/quickstart',
                                 'web-apps/automated-testing/replay/yaml',
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'CDP / BiDi (Beta)',
+                            collapsed: true,
+                            items: [
+                                'web-apps/automated-testing/cdp-bidi',
+                                'web-apps/automated-testing/cdp-bidi/examples',
                             ],
                         },
                     ],
@@ -1707,6 +1725,7 @@ module.exports = {
                         'visual-testing/integrations/nightwatch',
                         'visual-testing/integrations/storybook',
                         'visual-testing/integrations/webdriverio',
+                        'visual-testing/integrations/python',
                     ],
                 },
                 'visual-testing/faq',

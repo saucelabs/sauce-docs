@@ -4,12 +4,12 @@ sidebar_label: WebdriverIO
 
 import FullPageJS from '../_partials/_fullpage-js.md';
 import ClippingWDIO from '../_partials/_clipping-webdriver.md';
+import EnterpriseNote from '../_partials/_enterprise-note.md';
+import EnvironmentVariables from '../_partials/_environment-variables.md';
 
 # WebdriverIO Integration
 
-:::note Important
-Access to this feature is currently limited to Enterprise customers as part of our commitment to providing tailored solutions. We are excited to announce that self-service access is under development and will be released shortly. Stay tuned!
-:::
+<EnterpriseNote />
 
 ## Introduction
 
@@ -100,7 +100,14 @@ Upon executing your tests for the first time under this step, a visual baseline 
 
 Remember, the baseline is established during the initial run, and any subsequent visual differences detected will be marked for review.
 
+
 ## Advanced usage
+
+### Customizing Your Builds (Environment Variables)
+
+Below are the environment variables available in the Sauce Visual WebdriverIO plugin. Keep in mind that the variables defined in WebdriverIO configuration have precedence over these variables.
+
+<EnvironmentVariables />
 
 ### Test results summary
 

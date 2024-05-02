@@ -63,15 +63,15 @@ The USAGE widget provides a quick look at the device usage, by test session, for
 
 ## Minutes Used vs. Concurrency
 
-One way to tell if you're getting the most efficient use out of your Sauce Labs plan is to compare the minutes used with the number of concurrent tests run during the same period. If the ratio of minutes to concurrency is low, for example, 2:1 (100 minutes:50 concurrent tests), then you are using a lot of minutes to run very few tests. You should redesign your tests to take greater advantage of concurrency. See [Using Frameworks to Run Tests in Parallel](/web-apps/automated-testing/selenium#using-frameworks-to-run-tests-in-parallel) and [Concurrency Limits and Team Accounts](/basics/acct-team-mgmt/concurrency-limits/) for more information.
+One way to tell if you're getting the most efficient use out of your Sauce Labs plan is to compare the minutes used with the number of concurrent tests run during the same period. If the ratio of minutes to concurrency is low, for example, 2:1 (100 minutes:50 concurrent tests), then you are using a lot of minutes to run very few tests. You should redesign your tests to take greater advantage of concurrency. See [Using Frameworks to Run Tests in Parallel](/web-apps/automated-testing/selenium#using-frameworks-to-run-tests-in-parallel) and [Understanding Concurrency](/basics/acct-team-mgmt/concurrency/understanding-concurrency) for more information.
 
 ## Exporting Usage Data
 
 You can export a .csv file that contains the usage information for selected accounts.
 
-1. In Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. In Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="400"/>
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="400"/>
 
 2. On the **USERS** tab, select the checkboxes of the users whose usage information you want to export.
 3. Next to **USERS SELECTED**, click the download button.

@@ -38,7 +38,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
     <h2>Sauce Trusted Connection</h2>
     <p>Browse the security documentation to learn how to communicate with Sauce Labs Cloud from your private network.</p>
     <ul>
-        <li><a href="/secure-connections/sauce-connect">Sauce Connect Proxy</a></li>
+        <li><a href="/secure-connections/sauce-connect-5">Sauce Connect Proxy</a></li>
         <li><a href="/secure-connections/ipsec-vpn">IPSec VPN</a></li>
     </ul>
     </div>

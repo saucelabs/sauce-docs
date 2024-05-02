@@ -3,14 +3,12 @@ sidebar_label: Storybook
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import EnterpriseNote from '../_partials/_enterprise-note.md';
+import EnvironmentVariables from '../_partials/_environment-variables.md';
 
 # Storybook Integration
 
-:::note Important
-Access to this feature is currently limited to Enterprise customers as part of our commitment to providing tailored solutions. We are excited to announce that self-service access is under development and will be released shortly. Stay tuned!
-:::
+<EnterpriseNote />
 
 An extension for [Storybook's test-runner](https://github.com/storybookjs/test-runner) powered by [Jest](https://jestjs.io/) and [Playwright](https://playwright.dev/) to integrate effortless visual testing with Sauce Visual.
 
@@ -128,19 +126,9 @@ npx test-storybook
 
 ## Customizing Your Builds (Environment Variables)
 
-Below are the environment variables available in the visual-storybook plugin:
+Below are the environment variables available in the visual-storybook plugin. Keep in mind that the variables defined in Storybook configuration have precedence over these ones.
 
-| Variable Name           |          | Description                                                                                                                                                                                                                      |
-|:------------------------| -------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `SAUCE_USERNAME`        | required | Your Sauce Labs username. You can get this from the header of app.saucelabs.com                                                                                                                                                  |
-| `SAUCE_ACCESS_KEY`      | required | Your Sauce Labs access key. You can get this from the header of app.saucelabs.com                                                                                                                                                |
-| `SAUCE_REGION`          |          | The region you'd like to run your Visual tests in. Defaults to `us-west-1` if not supplied. Can be one of the following: <br/> `'eu-central-1'`, `'us-west-1'` or `'us-east-4'`                                                  |
-| `SAUCE_BUILD_NAME`      |          | The name you would like to appear in the Sauce Visual dashboard. Defaults to 'Storybook Build'                                                                                                                                   |
-| `SAUCE_VISUAL_BRANCH_NAME`     |          | The branch name you would like to associate this build with. We recommend using your current VCS branch in CI.                                                                                                            |
-| `SAUCE_VISUAL_DEFAULT_BRANCH_NAME`     |          | The main branch name you would like to associate this build with. Usually `main` or `master` or alternatively the branch name your current branch was derived from. [Follow me to learn more](../workflows/ci.md) |
-| `SAUCE_PROJECT_NAME`    |          | The label / project you would like to associated this build with.                                                                                                                                                                |
-| `SAUCE_VISUAL_BUILD_ID` |          | For advanced users, a user-supplied SauceLabs Visual build ID. Can be used to create builds in advance using the GraphQL API. This can be used to parallelize tests with multiple browsers, shard, or more. <br/> By default, this is not set and we create / finish a build during setup / teardown. |
-| `SAUCE_VISUAL_CUSTOM_ID` |          | For advanced users, a user-supplied custom ID to identify this build. Can be used in CI to identify / check / re-check the status of a single build. Usage suggestions: CI pipeline ID.  |
+<EnvironmentVariables />
 
 ## Story / Global Configuration
 
