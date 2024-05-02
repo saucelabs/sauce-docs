@@ -11,15 +11,6 @@ Managing your concurrency throughout your organization is an important aspect of
 #### Setting Parallel Limits in Common Frameworks
 The first and foremost way to manage how many concurrent tests to run on Sauce Labs is to use the out of the box mechanisms available in your test framework. For convenience we have included some of the more populare frameworks below but please consult the documentation for your specific framework to learn more.
 
-<Tabs>
-<TabItem value="Maven" label="Maven" default>
-
-</TabItem>
-<TabItem value="Webdriver" label="webdriver.io" default>
-
-</TabItem>
-</Tabs>
-
 #### Usage Reporting & Notifications
 Sauce Labs provides you robust mechanisms to inspect your organization's usage. This includes seeing your organization wide usage over time and a team breakdown. To learn more see [Usage Report](/insights/usage-report).
 
