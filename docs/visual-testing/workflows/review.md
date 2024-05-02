@@ -54,7 +54,7 @@ or the "Build > Build Details" page.
 Using this option will accept **all** snapshots with the following statuses:
 
 - All snapshots that don't have a baseline image, marked as "For Review" in the "Build Details" page and labeled "New" in the "Diff Review" page.
-- All snapshots that have a baseline image where Sauce Visual detected a difference. They are marked as "For Review" in the "Build Details" page and labeled as "{number} changes" in the "Diff Review" page.
+- All snapshots that have a baseline image where Sauce Visual detected a difference. They are marked as "For Review" in the "Build Details" page and labeled as "\{number} changes" in the "Diff Review" page.
 - All snapshots with "Rejected" status
 - All snapshots with "No changes" status
 

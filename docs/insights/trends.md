@@ -20,7 +20,8 @@ The **Trends** section of the Insights feature provides a variety of data visual
   </tr>
   <tr>
     <td><b>Pass/Fail Rate</b></td>
-    <td>For each increment in the time period, the percentage of tests that:<br/>
+    <td>
+        For each increment in the time period, the percentage of tests that:<br/>
       <ul>
         <li><b>Completed</b>: Ran to completion, but did not have a pass or fail status.</li>
         <li><b>Passed</b>: Ran to completion with a status of Passed.</li>
