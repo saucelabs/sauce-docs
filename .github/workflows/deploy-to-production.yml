@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18.x
-          
+
       - uses: actions/cache@v4
         id: cache-npm-packages
         with:
@@ -38,7 +38,7 @@ jobs:
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         run: npm install
-        
+
       - uses: actions/cache@v4
         id: cache-build
         with:
@@ -55,7 +55,7 @@ jobs:
     permissions:
       contents: 'read'
       id-token: 'write'
-      
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -63,27 +63,27 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18.x
-          
+
       - name: Install Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.7
       - run: pip install crcmod
-      
+
       - name: Auth GCP
         uses: 'google-github-actions/auth@v2'
         with:
           workload_identity_provider: ${{ secrets.RUN_PROJECT }}
           service_account: ${{ secrets.RUN_SA_KEY }}
 
-      - name: 'Set up Cloud SDK' 
+      - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v2'
         with:
           version: '>= 290.0.1'
-      
+
       - name: 'Use gcloud CLI'
         run: 'gcloud info'
-          
+
       - uses: actions/cache@v4
         id: cache-build
         with:
@@ -95,28 +95,24 @@ jobs:
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         run: |
           npm install
-
       - name: Run Build
         if: steps.cache-build.outputs.cache-hit != 'true'
         run: |
           npm run build
-
       - name: Deploy to Bucket
         run: |-
           cd build
           gsutil -m rsync -R -d . ${{ secrets.GCS_BUCKET }}
-
   deploy-production:
     needs: deploy-staging
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/main' }}
     env:
       NO_INDEX: false
-      
+
     permissions:
       contents: read
       id-token: write
-      
     steps:
       - uses: actions/checkout@v4
         with:
@@ -124,7 +120,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18.x
-          
+
       - name: Auth GCP
         uses: 'google-github-actions/auth@v2'
         with:
@@ -139,14 +135,15 @@ jobs:
       - name: 'Use gcloud CLI'
         run: 'gcloud info'
 
+      - name: 'Use gcloud CLI'
+        run: 'gcloud info'
+
       - name: Install Dependencies
         run: |
           npm install
-
       - name: Run Build
         run: |
           npm run build
-
       - name: Deploy to Bucket
         run: |-
           cd build
