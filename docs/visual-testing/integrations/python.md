@@ -105,3 +105,4 @@ Below are the environment variables available in the Sauce Visual Python plugin.
 ## Examples
 
 Example projects are available [here](https://github.com/saucelabs/visual-examples/tree/main/python).
+
