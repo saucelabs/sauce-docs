@@ -245,13 +245,79 @@ The following list of custom Appium plugins are supported:
     </tr>
     <tr>
       <td>
+        <code>appium2-20240501</code>
+      </td>
+      <td>
+        <span className="sauceGold">April 30th, 2025</span>
+      </td>
+      <td>
+        This is a collection of drivers that were released in May 1st 2024 <br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.5.4" target="_blank">
+              <code>appium</code>: 2.5.4
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.6.0" target="_blank">
+              <code>appium-flutter-driver</code>: 2.6.0
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.1.0" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 3.1.0
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.15.1" target="_blank">
+              <code>appium-xcuitest-driver</code>: 7.15.1
+            </a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>appium2-20240401</code>
+      </td>
+      <td>
+        <span className="sauceGold">March 31st, 2025</span>
+      </td>
+      <td>
+        This is a collection of drivers that were released in April 1st 2024 <br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.5.1" target="_blank">
+              <code>appium</code>: 2.5.1
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.5.1" target="_blank">
+              <code>appium-flutter-driver</code>: 2.5.1
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.0.4" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 3.0.4
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.9.1" target="_blank">
+              <code>appium-xcuitest-driver</code>: 7.9.1
+            </a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code>appium2-20240301</code>
       </td>
       <td>
         <span className="sauceGold">February 28th, 2025</span>
       </td>
       <td>
-        This is a collection of drivers that were released in March 1st 2023 <br />
+        This is a collection of drivers that were released in March 1st 2024 <br />
         <ul>
           <li>
             <a href="https://github.com/appium/appium/releases/tag/appium%402.5.1" target="_blank">
@@ -284,7 +350,7 @@ The following list of custom Appium plugins are supported:
         <span className="sauceGold">January 31st, 2025</span>
       </td>
       <td>
-        This is a collection of drivers that were released in February 1st 2023 <br />
+        This is a collection of drivers that were released in February 1st 2024 <br />
         <ul>
           <li>
             <a href="https://github.com/appium/appium/releases/tag/appium%402.4.1" target="_blank">
@@ -317,7 +383,7 @@ The following list of custom Appium plugins are supported:
         <span className="sauceGold">December 31st, 2024</span>
       </td>
       <td>
-        This is a collection of drivers that were released in January 1st 2023 <br />
+        This is a collection of drivers that were released in January 1st 2024 <br />
         <ul>
           <li>
             <a href="https://github.com/appium/appium/releases/tag/appium%402.3.0" target="_blank">
@@ -347,7 +413,7 @@ The following list of custom Appium plugins are supported:
         <code>appium2-20231201</code>
       </td>
       <td>
-        <span className="sauceGold">November 31st, 2024</span>
+        <span className="sauceGold">November 30th, 2024</span>
       </td>
       <td>
         This is a collection of drivers that were released in December 1st 2023 <br />
