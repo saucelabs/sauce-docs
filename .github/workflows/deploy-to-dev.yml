@@ -20,10 +20,10 @@ jobs:
   deploy-dev:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v4
         with:
           node-version: 18.x
       - name: Install Python
@@ -31,14 +31,22 @@ jobs:
         with:
           python-version: 3.7
       - run: pip install crcmod
-      - name: Set up Cloud SDK
-        uses: 'google-github-actions/setup-gcloud@v0'
-        with:
-          version: '290.0.1'
-          project_id: ${{ secrets.RUN_PROJECT_DEV }}
-          service_account_key: ${{ secrets.RUN_SA_KEY_DEV }}
 
-      - uses: actions/cache@v2
+      - name: Auth GCP
+        uses: 'google-github-actions/auth@v2'
+        with:
+          workload_identity_provider: ${{ secrets.RUN_PROJECT_DEV }}
+          service_account: ${{ secrets.RUN_SA_KEY_DEV }}
+
+      - name: 'Set up Cloud SDK' 
+        uses: 'google-github-actions/setup-gcloud@v2'
+        with:
+          version: '>= 290.0.1'
+      
+      - name: 'Use gcloud CLI'
+        run: 'gcloud info'
+
+      - uses: actions/cache@v4
         id: cache-build
         with:
           path: |
