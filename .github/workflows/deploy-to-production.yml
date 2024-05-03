@@ -34,7 +34,7 @@ jobs:
           path: |
             **/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
-
+          
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         run: npm install
@@ -113,7 +113,6 @@ jobs:
     permissions:
       contents: read
       id-token: write
-
     steps:
       - uses: actions/checkout@v4
         with:
@@ -128,10 +127,13 @@ jobs:
           workload_identity_provider: ${{ secrets.RUN_PROJECT_PROD }}
           service_account: ${{ secrets.RUN_SA_KEY_PROD }}
 
-      - name: 'Set up Cloud SDK'
+      - name: 'Set up Cloud SDK' 
         uses: 'google-github-actions/setup-gcloud@v2'
         with:
           version: '>= 290.0.1'
+      
+      - name: 'Use gcloud CLI'
+        run: 'gcloud info'
 
       - name: 'Use gcloud CLI'
         run: 'gcloud info'

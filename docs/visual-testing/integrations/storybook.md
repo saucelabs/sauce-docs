@@ -126,7 +126,7 @@ npx test-storybook
 
 ## Customizing Your Builds (Environment Variables)
 
-Below are the environment variables available in the visual-storybook plugin. Keep in mind that the variables defined in Storybook configuration have precedence over these ones.
+Below are the environment variables available in the visual-storybook plugin. Keep in mind that the variables defined in Storybook configuration have precedence over these.
 
 <EnvironmentVariables />
 
