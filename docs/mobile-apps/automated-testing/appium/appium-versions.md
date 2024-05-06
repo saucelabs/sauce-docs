@@ -180,37 +180,27 @@ The following list of custom Appium plugins are supported:
         <span className="sauceGreen">Active</span>
       </td>
       <td>
-          This will hold a collection of drivers that are compatible with the latest Appium server and driver versions that are installed in our cloud. We try to keep versions up to date every two weeks. You can find the exact versions in the first 20 log lines of the Appium logs of your executed test by going to <code>Test Details page > Logs > Appium Logs</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>2.0.0</code>
-      </td>
-      <td>
-        <span className="sauceGreen">Active</span>
-      </td>
-      <td>
-        This alias for getting the Appium 2 drivers that were installed in the Sauce Labs Real Device Cloud. <br /> The alias <code>2.0.0</code> is a collection of the following drivers <br />
+        This will hold a collection of drivers that are compatible with the latest Appium server and driver versions that are installed in our cloud. We try to keep versions up to date every two weeks. <br />
+        This is a collection of drivers that were released in this version <br />
         <ul>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%402.0.1" target="_blank">
-              <code>appium</code>: 2.0.1
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.5.2" target="_blank">
+              <code>appium</code>: 2.5.2
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v1.20.2" target="_blank">
-              <code>appium-flutter-driver</code>: 1.20.2
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.6.0" target="_blank">
+              <code>appium-flutter-driver</code>: 2.6.0
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v2.29.4" target="_blank">
-              <code>appium-uiautomator2-driver</code>: 2.29.4
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.1.0" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 3.1.0
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v4.33.2" target="_blank">
-              <code>appium-xcuitest-driver</code>: 4.33.2
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.11.3" target="_blank">
+              <code>appium-xcuitest-driver</code>: 7.11.3
             </a>
           </li>
         </ul>
