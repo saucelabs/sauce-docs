@@ -1552,6 +1552,56 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
+### `networkProfile`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+
+Set a network profile with predefined network conditions at the beginning of the session. 
+Please refer to the [list of network profiles](https://docs.saucelabs.com/mobile-apps/features/network-throttling/#predefined-network-profiles) for more information about each profile's network conditions.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("networkProfile", "2G");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `networkConditions`
+
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+
+Set custom network conditions for `downloadSpeed`, `uploadSpeed`, `latency` or `loss` at the beginning of the session.
+Not all parameters need to be specified and only the ones specified will have conditioning applied.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("networkConditions", ImmutableMap.of(
+		"downloadSpeed", "input",
+		"uploadSpeed", "input",
+		"latency", "input",
+		"loss", "input",
+));
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+:::important
+
+Each network condition has a supported value range:
+
+- `downloadSpeed`: 0 - 50000 kbps
+- `uploadSpeed`: 0 - 50000 kbps
+- `latency`: 0 - 3000 ms
+- `loss`: 0 - 100 %
+
+:::
+
+---
+
 ### `mobile: shell`
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">Android Only</span> |</small></p>
