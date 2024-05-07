@@ -149,7 +149,7 @@ const docusaurusConfig = {
             },
         ],
     ],
-    themes: ['@saucelabs/theme-github-codeblock'],
+    themes: ['docusaurus-theme-github-codeblock'],
     plugins: ['./src/plugins/beamer'],
 };
 
