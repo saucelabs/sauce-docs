@@ -14,14 +14,14 @@ We support the following change types:
 - **Content:** The text, image or other content changes.
 - **Dimensions:** When the size of an element changes.
 - **Position:** When the position (top left corner) of an element changes.
-- **Structure:** When an element was added, deleted or moved.
+- **Structure:** When an element or attribute was added, deleted or moved.
 - **Style:** When CSS was changed.
-- **Visual:** When something visually that cannot be categorized.
+- **Visual:** When something visually changed that cannot be categorized.
 
 > Note: To benefit from selective diffing, you need
->   - to capture a DOM snapshot and compare with 
->   - a baseline that also contains a DOM snapshot;
->   - to use the BALANCED diffing method.
+>   - A baseline with a DOM capture
+>   - A snapshot with a DOM capture
+>   - To request the BALANCED diffing method during the visual check
 
 For each snapshot, you can specify which types of changes should be detected or ignored.
 
