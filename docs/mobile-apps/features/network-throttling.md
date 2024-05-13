@@ -7,8 +7,10 @@ sidebar_label: Network Throttling
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <p><small><span className="sauceGreen">Real Devices Only</span></small></p>
+<p><small><span className="sauceGreen">iOS BETA</span></small></p>
 
 With Sauce Labs Network Throttling, you can apply network conditions to do fancy network stuff during live and automated testing.
+Something with debugging with network capture. the whole shebang why we do this
 
 ## What You'll Need
 
@@ -120,20 +122,26 @@ Funky list of predefined profiles with their specific network conditions in a ta
   </tbody>
 </table>
 
-## Appium Capability for entire session
-[Appium Capability networkProfile](https://docs.saucelabs.com/dev/test-configuration-options/#network-profile)
+## Automated Testing
 
-## Mid-Session Appium
+### Automated Appium Test
+* [Appium capability networkProfile](https://docs.saucelabs.com/dev/test-configuration-options/#network-profile)
+* [Appium capability networkConditions](https://docs.saucelabs.com/dev/test-configuration-options/#network-conditions)
 
+## Upcoming
 
-## Live Testing
+* dynamic mid-session network throttling for automated Appium tests
+* dynamic mid-session network throttling for manual Live tests
+* network throttling at the beginning of the session for automated native framework tests
 
+## Limitations
+:::note Limitations
 
-## Native Testing Frameworks
+- iOS network throttling is supported on iOS/iPadOS 14.0 and above.
+
+:::
 
 
 ## More Information
-
-Something about network capture
 
 - [Network Capture](https://docs.saucelabs.com/mobile-apps/features/network-capture/)

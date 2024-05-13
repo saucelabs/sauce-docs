@@ -1554,7 +1554,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `networkProfile`
 
-<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">iOS BETA</span> |</small></p>
 
 Set a network profile with predefined network conditions at the beginning of the session. 
 Please refer to the [list of network profiles](https://docs.saucelabs.com/mobile-apps/features/network-throttling/#predefined-network-profiles) for more information about each profile's network conditions.
@@ -1571,7 +1571,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `networkConditions`
 
-<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">iOS BETA</span> |</small></p>
 
 Set custom network conditions for `downloadSpeed`, `uploadSpeed`, `latency` or `loss` at the beginning of the session.
 Not all parameters need to be specified and only the ones specified will have conditioning applied.
@@ -1581,10 +1581,10 @@ MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.setCapability("networkConditions", ImmutableMap.of(
-		"downloadSpeed", "input",
-		"uploadSpeed", "input",
-		"latency", "input",
-		"loss", "input",
+		"downloadSpeed", 5000,
+		"uploadSpeed", 3000,
+		"latency", 200,
+		"loss", 2,
 ));
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
