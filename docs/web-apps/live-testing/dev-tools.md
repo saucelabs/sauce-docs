@@ -48,4 +48,10 @@ Please ensure that the page you're inspecting contains a WebView/Webkit and that
 
 <img src={useBaseUrl('img/live-web-apps/new-toolbar/dev-tools-sources.png')} alt="Shows the Dev Tools tab used to inspect sources in the Developer Options for a live mobile test." width="800"/>
 
+:::caution
+With Hybrid application, release builds must enable the ability to inspect web views in your application.
+ * On Android 4.4*, call [`WebView.setWebContentsDebuggingEnabled`](https://developer.android.com/reference/android/webkit/WebView#setWebContentsDebuggingEnabled(boolean)).
+ * On iOS 16.4+, set [`isinspectable`](https://developer.apple.com/documentation/webkit/wkwebview/4111163-isinspectable) to `true` on on the Webkit/WKWebView instance.
+:::
+
 You can now interact with the DevTool/WebInspector components.
