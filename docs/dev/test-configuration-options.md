@@ -1575,6 +1575,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 Set custom network conditions for `downloadSpeed`, `uploadSpeed`, `latency` or `loss` at the beginning of the session.
 Not all parameters need to be specified and only the ones specified will have conditioning applied.
+Please refer to the [supported network conditions](https://docs.saucelabs.com/mobile-apps/features/network-throttling/#supported-network-conditions) for more information.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();

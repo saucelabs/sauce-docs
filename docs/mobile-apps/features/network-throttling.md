@@ -9,8 +9,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 <p><small><span className="sauceGreen">Real Devices Only</span></small></p>
 <p><small><span className="sauceGreen">iOS BETA</span></small></p>
 
-With Sauce Labs Network Throttling, you can apply network conditions to do fancy network stuff during live and automated testing.
-Something with debugging with network capture. the whole shebang why we do this
+With Sauce Labs Network Throttling, you can simulate and reproduce different network scenarios, ensuring that your mobile application performs optimally under 
+a huge variety of network conditions. From replicating slow network speeds to mimicking offline states, high latency, or connection disruptions,
+this feature allows you to identify network-related performance issues early in your pipeline.
+
+In combination with our [Network Traffic Capture](https://docs.saucelabs.com/mobile-apps/features/network-capture/) functionality to record network traffic,
+you have the tools to replicate and troubleshoot any performance concerns stemming from network operations.
 
 ## What You'll Need
 
@@ -19,7 +23,7 @@ Something with debugging with network capture. the whole shebang why we do this
 
 ## Supported Network Conditions
 
-Table with conditions and allowed range.
+The following table shows the allowed range of supported network condition parameters:
 
 <table>
   <thead>
@@ -48,9 +52,11 @@ Table with conditions and allowed range.
   </tbody>
 </table>
 
+Only specified parameters will undergo conditioning, allowing for flexibility in customizing network simulations to your precise testing needs.
+
 ## Predefined Network Profiles
 
-Funky list of predefined profiles with their specific network conditions in a table.
+The following table shows the predefined network profiles along with their corresponding parameter values supported on Sauce Labs:
 
 <table>
   <thead>
@@ -124,15 +130,18 @@ Funky list of predefined profiles with their specific network conditions in a ta
 
 ## Automated Testing
 
-### Automated Appium Test
-* [Appium capability networkProfile](https://docs.saucelabs.com/dev/test-configuration-options/#network-profile)
-* [Appium capability networkConditions](https://docs.saucelabs.com/dev/test-configuration-options/#network-conditions)
+### Appium
+To use the Sauce Labs Network Throttling feature in your automated Appium test, you can add the sauce-specific capability
+[networkConditions](https://docs.saucelabs.com/dev/test-configuration-options/#network-conditions) to provide custom network conditions for
+the entire session.
+Alternatively, you can use the sauce-specific capability [networkProfile](https://docs.saucelabs.com/dev/test-configuration-options/#network-profile)
+to apply one of the predefined network profiles to your session.
 
 ## Upcoming
 
-* dynamic mid-session network throttling for automated Appium tests
-* dynamic mid-session network throttling for manual Live tests
-* network throttling at the beginning of the session for automated native framework tests
+* Change your desired network conditions dynamically any time during your automated Appium test
+* Apply network throttling to your manual Live tests
+* Apply network throttling to your Espresso and XCUITest tests
 
 ## Limitations
 :::note Limitations
