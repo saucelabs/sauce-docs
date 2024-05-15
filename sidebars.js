@@ -1374,6 +1374,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'mobile-apps/features/appium-inspector',
+                        'mobile-apps/features/network-throttling',
                         'mobile-apps/features/biometric-authentication',
                         'mobile-apps/features/camera-image-injection',
                         'mobile-apps/features/audio-capture',
