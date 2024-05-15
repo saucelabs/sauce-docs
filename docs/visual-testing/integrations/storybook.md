@@ -3,12 +3,9 @@ sidebar_label: Storybook
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import EnterpriseNote from '../_partials/_enterprise-note.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 
 # Storybook Integration
-
-<EnterpriseNote />
 
 An extension for [Storybook's test-runner](https://github.com/storybookjs/test-runner) powered by [Jest](https://jestjs.io/) and [Playwright](https://playwright.dev/) to integrate effortless visual testing with Sauce Visual.
 
