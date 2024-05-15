@@ -19,7 +19,6 @@ you have the tools to replicate and troubleshoot any performance concerns stemmi
 ## What You'll Need
 
 - A Sauce Labs paid account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/))
-- A native Android, iOS, or iPadOS mobile app.
 
 ## Supported Network Conditions
 
@@ -153,4 +152,4 @@ to apply one of the predefined network profiles to your session.
 
 ## More Information
 
-- [Network Capture](https://docs.saucelabs.com/mobile-apps/features/network-capture/)
+- Use [Network Capture](https://docs.saucelabs.com/mobile-apps/features/network-capture/) to debug the failures in the app.
