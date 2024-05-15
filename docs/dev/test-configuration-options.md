@@ -1983,6 +1983,28 @@ sauceOptions.setCapability("timeZone", "Los_Angeles");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">All Devices Since appium2-20240501</span> |</small></p>
+
+Both UiAutomator2 and XCUITest drivers allow to change the time zone using corresponding
+test session capabilities.
+
+**Android Devices**
+
+Provide a valid time zone identifier to `appium:timeZone` capability.
+The time zone identifier must be a valid name from the list of
+[available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones),
+for example `America/New_York`.
+The time zone is changed instantly on the *per-device* basis and is preserved until the next change.
+
+**iOS Devices**
+
+Provide a valid time zone identifier to `appium:appTimeZone` capability.
+The time zone identifier must be a valid name from the list of
+[available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), for example `America/New_York`.
+The time zone is changed on the *per-application* basis and is only valid for the application under test.
+The same behavior could be achieved by providing a custom value to the
+[TZ](https://developer.apple.com/forums/thread/86951#263395) environment variable via the `appium:processArguments` capability.
+
 ---
 
 ### Pre-Run Executables
