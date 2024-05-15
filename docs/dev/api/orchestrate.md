@@ -15,7 +15,8 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ### Get short-lived tokens for private registry
 
-<details><summary><span className="api get">POST</span> <code>/v1alpha1/hosted/container-registry/authorization-token</code></summary>
+<details>
+<summary><span className="api get">POST</span> <code>/v1alpha1/hosted/container-registry/authorization-token</code></summary>
 <p/>
 
 Return a short-lived token that can be used to access SauceLabs Container Registry.

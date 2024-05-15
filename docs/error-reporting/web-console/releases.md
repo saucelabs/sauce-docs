@@ -24,7 +24,7 @@ You can see the user adoption of the versions, the error-free application launch
 
 ### Set the Version Attribute
 
-You will want to ensure the Release Comparison View's concept of a "Release" is represented by the attribute most relevant to you. Use the pencil icon next to the "Comparing by {attribute}" text at the top of the view to set this as desired.
+You will want to ensure the Release Comparison View's concept of a "Release" is represented by the attribute most relevant to you. Use the pencil icon next to the "Comparing by \{attribute}" text at the top of the view to set this as desired.
 
 <img src={useBaseUrl('img/error-reporting/console-views/edit-version-attribute.png')} alt="Shows how to set the version attribute for the Releases view." />
 

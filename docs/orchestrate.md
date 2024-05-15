@@ -16,29 +16,28 @@ Sauce Labs Orchestrate is a new and unique approach to web and mobile applicatio
 - **Improve reliability:** Reduce unpredictable network issues and help developers focus their time on innovation by eliminating the need to troubleshoot errors caused by the heavy network overhead of a remote grid.
 
 <div className="box-wrapper" markdown="1">
-<div className="box box1 card">
-  <div className="container">
-  <h3><a href="/orchestrate/getting-started">Getting Started</a></h3>
-  <p>Get up and running with Sauce Orchestrate in minutes.</p>
-  </div>
+    <a href="/orchestrate/getting-started" className="box box1 card">
+        <div className="container">
+            <h3>Getting Started</h3>
+            <p>Get up and running with Sauce Orchestrate in minutes.</p>
+        </div>
+    </a>
+    <a href="/orchestrate/building-images" className="box box2 card">
+        <div className="container">
+            <h3>Building Docker Images</h3>
+            <p>Learn how to build your first Docker Image.</p>
+        </div>
+    </a>
+    <a href="/orchestrate/best-practices" className="box box3 card">
+        <div className="container">
+            <h3>Best Practices</h3>
+            <p>Learn about the best practices using Sauce Orchestrate.</p>
+        </div>
+    </a>
+    <a href="/orchestrate/faq" className="box box4 card">
+        <div className="container">
+            <h3>FAQ</h3>
+            <p>Get answers to your frequently asked questions.</p>
+        </div>
+    </a>
 </div>
-<div className="box box2 card">
-  <div className="container">
-  <h3><a href="/orchestrate/building-images">Building Docker Images</a></h3>
-  <p>Learn how to build your first Docker Image.</p>
-  </div>
-</div>
-<div className="box box3 card">
-  <div className="container">
-  <h3><a href="/orchestrate/best-practices">Best Practices</a></h3>
-  <p>Learn about the best practices using Sauce Orchestrate.</p>
-  </div>
-</div>
-<div className="box box4 card">
-  <div className="container">
-  <h3><a href="/orchestrate/faq">FAQ</a></h3>
-  <p>Get answers to your frequently asked questions.</p>
-  </div>
-</div>
-</div>
-§

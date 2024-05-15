@@ -59,6 +59,7 @@ Appium JS-Executor methods for Real Device Testing in Sauce Labs are limited and
 | `"sauce:job-info={'build':'mybuild','name':'my test name', 'public':'team}"`                                               | Sets one or more job information fields to the values sent in the JSON-formatted dictionary.                                                                                                                                               |
 | `"sauce:inject-image=[base64_encoded_image]"` <small><span className="sauceGreen">RDC ✓</span></small>                     | Points to file for testing image injection (e.g., barcode scanning).                                                                                                                                                                       |
 | `"sauce:performanceEnable"`                                                                                                | Allows performance metrics to be collected.                                                                                                                                                                                                |
+| `"mobile:deepLink"`                                                                                                        | Opens the given URL with the default or the given application. This functionality is only available since iOS version 17. The following arguments are supported: `url` (required) The URL to be opened; `bundleId` (optional) The bundle identifier of an application to open the given url with. If not provided then the default application for the given url scheme is going to be used. |
 | `"sauce:performanceDisable"`                                                                                               | Pauses performance metrics collection.                                                                                                                                                                                                     |
 
 :::note
@@ -166,7 +167,8 @@ public class TextInputTest extends TestBase {
 
 You can manage your tests more effectively from your Dashboard and Archives with annotations. The Sauce Labs REST API includes an [update_job](/dev/api/jobs/#update-a-job) method that you can use to set a name, tags, pass/fail status, and custom data for your test after it runs. To automate test annotation with this method, you'll want to create a simple set of functions to perform the put request for you.
 
-<details><summary>Sauce Labs REST API Examples</summary>
+<details>
+<summary>Sauce Labs REST API Examples</summary>
 
 - [Java](https://github.com/saucelabs/saucerest-java)
 - [Python](https://gist.github.com/1644439)

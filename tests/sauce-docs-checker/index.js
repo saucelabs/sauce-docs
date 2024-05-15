@@ -12,7 +12,7 @@ let moment = require('moment');
 const core = require('@actions/core');
 
 let wiki_url = 'https://wiki.saucelabs.com';
-let docs_url = 'http://localhost:8000/';
+let docs_url = 'http://127.0.0.1:8000/';
 let result = {};
 let wiki_result = {};
 let wiki_map = {};

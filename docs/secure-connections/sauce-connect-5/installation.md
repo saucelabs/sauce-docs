@@ -21,10 +21,8 @@ SHA256 checksums are available [here](https://saucelabs.com/downloads/sauce-conn
 
 <table>
   <tr>
-    <td><strong>Platform</strong>
-    </td>
-    <td><strong>Download URL</strong>
-    </td>
+    <td><strong>Platform</strong></td>
+    <td><strong>Download URL</strong></td>
   </tr>
   <tr>
     <td rowspan="3">Linux x86_64</td>

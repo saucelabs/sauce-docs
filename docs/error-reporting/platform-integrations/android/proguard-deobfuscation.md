@@ -45,7 +45,8 @@ To do this, you need to upload the ProGuard mapping file corresponding to the bu
    }};
    ```
 
-  <details><summary>Generating a UUID</summary>
+  <details>
+  <summary>Generating a UUID</summary>
   You can use the uuidgen command to generate UUID's for each version of your software, for example:
   ```
   $ uuidgen -N '1.0.0-beta' --namespace "f615d933-702b-5c5f-913d-18223dc80788" --sha1 6e5552ef-cca0-578f-8259-bef23a9566d3

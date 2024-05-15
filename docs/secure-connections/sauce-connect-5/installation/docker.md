@@ -28,7 +28,8 @@ Here are some benefits/use cases for using containerized Sauce Connect Proxy:
    ```bash
    $ docker pull saucelabs/sauce-connect:5.0.1-amd64
    ```
-    <details><summary>Supported tags</summary>
+    <details>
+    <summary>Supported tags</summary>
       - 5, 5.0, 5.0.1, 5.0.1-amd64, 5.0.1-arm64v8<br/>
     </details>
 2. To run the Sauce Connect Proxy Docker image, modify and run the script below.

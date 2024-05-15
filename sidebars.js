@@ -895,11 +895,19 @@ module.exports = {
                                     label: 'Managing Users and Accounts',
                                     collapsed: true,
                                     items: [
-                                        'basics/acct-team-mgmt/concurrency-limits',
                                         'basics/acct-team-mgmt/adding-deactivating-users',
                                         'basics/acct-team-mgmt/managing-user-info',
                                         'basics/acct-team-mgmt/viewing-exporting-usage-data',
                                         'basics/acct-team-mgmt/switching-active-team',
+                                    ],
+                                },
+                                {
+                                    type: 'category',
+                                    label: 'Managing Concurrency',
+                                    collapsed: true,
+                                    items: [
+                                        'basics/acct-team-mgmt/concurrency/understanding-concurrency',
+                                        'basics/acct-team-mgmt/concurrency/managing-concurrency',
                                     ],
                                 },
                                 {
@@ -1544,6 +1552,15 @@ module.exports = {
                                 'web-apps/automated-testing/replay/yaml',
                             ],
                         },
+                        {
+                            type: 'category',
+                            label: 'CDP / BiDi (Beta)',
+                            collapsed: true,
+                            items: [
+                                'web-apps/automated-testing/cdp-bidi',
+                                'web-apps/automated-testing/cdp-bidi/examples',
+                            ],
+                        },
                     ],
                 },
                 'web-apps/automated-testing/web-automated-faq',
@@ -1709,6 +1726,7 @@ module.exports = {
                         'visual-testing/integrations/storybook',
                         'visual-testing/integrations/webdriverio',
                         'visual-testing/integrations/python',
+                        'visual-testing/integrations/python-robot-framework',
                     ],
                 },
                 'visual-testing/faq',

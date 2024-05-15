@@ -61,7 +61,8 @@ Sauce Connect is required to run a local test on an app or website located behin
 4. Log in to Sauce Labs.
 5. Go to the [**Tunnel Proxies**](https://app.saucelabs.com/tunnels) page.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsPage.png')} alt="Sauce Connect Proxy Tunnels page" width="400"/>
 6. Under step 2, **Authenticate & connect**, copy the code snippet.<br/><img src={useBaseUrl('img/sauce-connect/configureAuth.png')} alt="Sauce Connect Proxy Tunnels page snippet" width="300"/>
-   <details><summary>What is this?</summary>
+   <details>
+   <summary>What is this?</summary>
    This snippet contains your authentication credentials (username and access key), selects a Sauce Labs Data Center, and applies a name to your tunnel. Optionally, you can rename your tunnel by replacing the value after the <code>--tunnel-name</code> flag.
    </details>
 7. Paste the snippet into your terminal but **do not run it**. This snippet is for [Sauce Connect Proxy 5](/secure-connections/sauce-connect-5/quickstart/), it can only be used to get your username and your access key.
