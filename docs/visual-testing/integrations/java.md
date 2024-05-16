@@ -6,12 +6,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ClippingDescription from '../_partials/_clipping-description.md';
 import FullPageLimit from '../_partials/_fullpage-limit.md';
-import EnterpriseNote from '../_partials/_enterprise-note.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 
 # Java WebDriver Integration
-
-<EnterpriseNote />
 
 ## Introduction
 
@@ -389,6 +386,25 @@ CheckOptions options = new CheckOptions();
 options.setClipSelector(".your-css-selector");
 visual.sauceVisualCheck("Visible Sale Banner", options);
 ```
+
+#### Selective Diffing (BETA)
+
+[Selective regions](../selective-diffing.md) are an even more powerful way to control diffing.
+
+```java
+EnumSet<DiffingFlag> visualChanges = EnumSet.of(DiffingFlag.Visual);
+
+visual.sauceVisualCheck(
+        "Before Login",
+        new CheckOptions.Builder()
+            .withDiffingMethod(DiffingMethod.BALANCED)
+            .disable(EnumSet.of(DiffingFlag.Position, DiffingFlag.Dimensions))
+            .enable(visualChanges, loginPage.getInputUsername())
+            .disable(visualChanges, loginPage.getInputUsername())
+            .build());
+```
+
+You can find the full example in our [examples repo](#examples).
 
 ## Examples
 

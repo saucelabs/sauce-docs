@@ -2,13 +2,10 @@
 sidebar_label: Python
 ---
 
-import EnterpriseNote from '../_partials/_enterprise-note.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import PythonIntro from '../_partials/_python-shared-intro.md';
 
 # Python Integration
-
-<EnterpriseNote />
 
 ## Introduction
 

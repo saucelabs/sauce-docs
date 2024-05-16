@@ -2,14 +2,11 @@
 sidebar_label: Python (Robot Framework)
 ---
 
-import EnterpriseNote from '../_partials/_enterprise-note.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import PythonIntro from '../_partials/_python-shared-intro.md';
 import FullPageLimit from '../_partials/_fullpage-limit.md';
 
 # Python (Robot Framework) Integration
-
-<EnterpriseNote />
 
 ## Introduction
 

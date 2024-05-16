@@ -1552,6 +1552,57 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
+### `networkProfile`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">iOS BETA</span> |</small></p>
+
+Set a network profile with predefined network conditions at the beginning of the session. 
+Please refer to the [list of network profiles](https://docs.saucelabs.com/mobile-apps/features/network-throttling/#predefined-network-profiles) for more information about each profile's network conditions.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("networkProfile", "2G");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `networkConditions`
+
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">iOS BETA</span> |</small></p>
+
+Set custom network conditions for `downloadSpeed`, `uploadSpeed`, `latency` or `loss` at the beginning of the session.
+Not all parameters need to be specified and only the ones specified will have conditioning applied.
+Please refer to the [supported network conditions](https://docs.saucelabs.com/mobile-apps/features/network-throttling/#supported-network-conditions) for more information.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("networkConditions", ImmutableMap.of(
+		"downloadSpeed", 5000,
+		"uploadSpeed", 3000,
+		"latency", 200,
+		"loss", 2,
+));
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+:::important
+
+Each network condition has a supported value range:
+
+- `downloadSpeed`: 0 - 50000 kbps
+- `uploadSpeed`: 0 - 50000 kbps
+- `latency`: 0 - 3000 ms
+- `loss`: 0 - 100 %
+
+:::
+
+---
+
 ### `mobile: shell`
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">Android Only</span> |</small></p>
@@ -1982,6 +2033,28 @@ MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.setCapability("timeZone", "Los_Angeles");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
+
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">All Devices Since appium2-20240501</span> |</small></p>
+
+Both UiAutomator2 and XCUITest drivers allow to change the time zone using corresponding
+test session capabilities.
+
+**Android Devices**
+
+Provide a valid time zone identifier to `appium:timeZone` capability.
+The time zone identifier must be a valid name from the list of
+[available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones),
+for example `America/New_York`.
+The time zone is changed instantly on the *per-device* basis and is preserved until the next change.
+
+**iOS Devices**
+
+Provide a valid time zone identifier to `appium:appTimeZone` capability.
+The time zone identifier must be a valid name from the list of
+[available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), for example `America/New_York`.
+The time zone is changed on the *per-application* basis and is only valid for the application under test.
+The same behavior could be achieved by providing a custom value to the
+[TZ](https://developer.apple.com/forums/thread/86951#263395) environment variable via the `appium:processArguments` capability.
 
 ---
 
