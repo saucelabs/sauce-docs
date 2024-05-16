@@ -865,8 +865,8 @@ Download the device logs file for a specific job after it finished running on a 
      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a job running on a real device in the data center. You can look up job IDs using the <a href="#get-real-device-jobs">Get Real Device Jobs</a> endpoint.</p></td>
     </tr>
     <tr>
-     <td><code>compressed</code></td>
-     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Whether the compressed version of the file must be downloaded. Defaults to (<code>false</code>).</p></td>
+     <td><code>download</code></td>
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Whether to force the download of the compressed version of the file. Defaults to (<code>false</code>).</p></td>
     </tr>
   </tbody>
 </table>
