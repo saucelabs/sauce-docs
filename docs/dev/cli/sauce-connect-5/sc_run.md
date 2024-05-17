@@ -87,12 +87,13 @@ See [here](/secure-connections/sauce-connect/setup-configuration/high-availabili
 
 Deny requests to the matching domains.
 Prefix domains with '-' to exclude requests from being denied.
+Special keyword 'all' matches all domains.
 
 The following example denies requests to *.example.com and *.google.com.
-
 ```
 --deny-domains .*\.example\.com,.*\.google\.com
 ```
+
 
 ### `-D, --direct-domains` {#direct-domains}
 
@@ -104,13 +105,14 @@ Requests that don't match "direct domains" will be forwarded to customer-side ov
 You can specify --direct-domains or --tunnel-domains, but not both.
 Prefix domains with '-' to exclude requests from being forwarded directly.
 Note that direct domains are automatically excluded from being resigned.
+Special keyword 'all' matches all domains.
 
 The following example sends requests to *.example.com and *.google.com directly.
 It would tunnel all other domains.
-
 ```
 --direct-domains .*\.example\.com,.*\.google\.com
 ```
+
 
 ### `-B, --tls-passthrough-domains` {#tls-passthrough-domains}
 
@@ -118,15 +120,17 @@ It would tunnel all other domains.
 * Value Format: `[-]<regexp>,...`
 
 Pass matching requests to their origin server without SSL/TLS re-encryption.
+Requests that don't match will be re-encrypted.
 You can specify --tls-passthrough-domains or --tls-resign-domains, but not both.
 Prefix domains with '-' to exclude requests from being passed through.
 Note that direct domains will always be passed through.
+Special keyword 'all' matches all domains.
 
 The following example passes requests to *.example.com and *.google.com through without SSL/TLS re-encryption.
-
 ```
 --tls-passthrough-domains .*\.example\.com,.*\.google\.com
 ```
+
 
 ### `-b, --tls-resign-domains` {#tls-resign-domains}
 
@@ -137,12 +141,13 @@ Resign SSL/TLS certificates for matching requests.
 You can specify --tls-resign-domains or --tls-passthrough-domains, but not both.
 Prefix domains with '-' to exclude requests from being resigned.
 Note that direct domains will never be resigned.
+Special keyword 'all' matches all domains.
 
 The following example resigns SSL/TLS certificates for all requests to *.myorg.dev, except abc.myorg.dev.
-
 ```
 --tls-resign-domains .*\.myorg\.dev,-abc\.myorg\.dev
 ```
+
 
 ### `-T, --tunnel-domains` {#tunnel-domains}
 
@@ -154,12 +159,13 @@ Requests not matching "tunnel domains" will be forwarded to their origin server 
 This is the recommended option for the best performance since it minimizes the expensive tunnelled traffic and uses it only for internal domains that are not publicly available.
 You can specify --tunnel-domains or --direct-domains, but not both.
 Prefix domains with '-' to exclude requests from being forwarded over the SC Proxy connection.
+Special keyword 'all' matches all domains.
 
 The following example tunnels all requests to *.myorg.dev, except abc.myorg.com.
-
 ```
 --tunnel-domains .*\.myorg\.dev,-abc\.myorg\.com
 ```
+
 
 ## Proxy
 
@@ -171,11 +177,13 @@ The following example tunnels all requests to *.myorg.dev, except abc.myorg.com.
 Site or upstream proxy basic authentication credentials.
 The host and port can be set to "*" to match all hosts and ports respectively.
 The flag can be specified multiple times to add multiple credentials.
-Note: Requests to these hosts will be automatically resigned as if there were specified in --tls-resign-domains flag.
-Example: 
+Note that all the hosts are automatically resigned as if they were passed to --tls-resign-domains flag.
+
+Example:
 ```
 --proxy myproxy.org:3128 --proxy-sauce https://external.com:443 --auth user1:pass1@myproxy.org:3128,user2:pass2@external.com:*
 ```
+
 
 ### `-H, --header` {#header}
 
@@ -201,12 +209,12 @@ The data URI scheme is supported, the format is `data:base64,<encoded data>`.
 ### `-x, --proxy` {#proxy}
 
 * Environment variable: `SAUCE_PROXY`
-* Value Format: `[protocol://]host[:port]`
+* Value Format: `<[protocol://]host:port>`
 
-Upstream proxy to use for requests received from the Sauce Connect Server only.
-The supported protocols are: http, https, socks, socks5.
+Upstream proxy for test sessions.
+It is used for requests received from the Sauce Connect Server only.
+The supported protocols are: http, https, socks5.
 No protocol specified will be interpreted as an HTTP proxy.
-If the port number is not specified, it is assumed to be 1080.
 The basic authentication username and password can be specified in the host string, e.g.
 user:pass@host:port.
 Alternatively, you can specify the credentials using the -a, --auth flag.
@@ -224,8 +232,9 @@ By default, requests to localhost are denied.
 ### `--proxy-sauce` {#proxy-sauce}
 
 * Environment variable: `SAUCE_PROXY_SAUCE`
-* Value Format: `[protocol://]host[:port]`
+* Value Format: `<[protocol://]host:port>`
 
+Establish a tunnel through an upstream proxy.
 Proxy for requests to Sauce Labs REST API and Sauce Connect servers only.
 See the -x, --proxy flag for more details on the format.
 
