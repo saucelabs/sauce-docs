@@ -350,7 +350,7 @@ It's recommended to use the `HideAfterFirstScroll` option for fixed or sticky po
 Options:
 - `DelayAfterScrollMs`: Delay in ms after scrolling and before taking screenshots. The default value is 0. We recommend using this option for lazy loading content.
 - `DisableCSSAnimation`: Disable CSS animations and the input caret in the app. The default value is true.
-- `HideAfterFirstScroll`: Hide elements on the page after first scroll (uses css selectors).
+- `HideAfterFirstScroll`: One or more CSS selectors that we should remove from the page after the first scroll. Useful for hiding fixed elements such as headers, cookie banners, etc.
 - `HideScrollBars`: Hide all scrollbars in the app. The default value is true.
 - `ScrollLimit`: Limit the number of screenshots taken for scrolling and stitching. The default value is 10. The value needs to be between 1 and 10.
 
