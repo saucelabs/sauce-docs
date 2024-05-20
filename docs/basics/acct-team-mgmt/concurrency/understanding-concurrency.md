@@ -34,8 +34,8 @@ The Virtual Cloud is used to run business critical pipelines across large enterp
 
 The following table describes the maximum amount you are allowed to exceed your concurrency limit.
 
-| Subscription Amount | % You Can Exceed| Example | 
-|---------------------------------------|---------|
+| Subscription Amount | % You Can Exceed | Example | 
+|---------------------|-----------------|---------|
 |1-100| 200%| 50 -> 150|
 |101-500|100%|200 -> 400|
 |501-2000|50%|1000 -> 1500|
