@@ -348,10 +348,11 @@ It's recommended to use the `HideAfterFirstScroll` option for fixed or sticky po
 :::
 
 Options:
-
 - `DelayAfterScrollMs`: Delay in ms after scrolling and before taking screenshots. The default value is 0. We recommend using this option for lazy loading content.
-- `HideAfterFirstScroll`: Hide elements on the page after first scroll (uses css selectors)
-
+- `DisableCSSAnimation`: Disable CSS animations and the input caret in the app. The default value is true.
+- `HideAfterFirstScroll`: Hide elements on the page after first scroll (uses css selectors).
+- `HideScrollBars`: Hide all scrollbars in the app. The default value is true.
+- `ScrollLimit`: Limit the number of screenshots taken for scrolling and stitching. The default value is 10. The value needs to be between 1 and 10.
 
 Examples:
 
@@ -371,7 +372,10 @@ await VisualClient.VisualCheck("C# full page config",
         FullPageConfig = new FullPageConfig()
             {
                 DelayAfterScrollMs = 500,
-                HideAfterFirstScroll = new List<string> { ".header" }
+                DisableCSSAnimation = false,
+                HideAfterFirstScroll = new List<string> { ".header" },
+                HideScrollBars = false,
+                ScrollLimit = 5
             }
     });
 ```

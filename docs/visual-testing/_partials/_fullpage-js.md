@@ -15,7 +15,10 @@ await browser.sauceVisualCheck('Long content page', {
   // Enable full page screenshots and customize the behavior
   fullPage: {
     delayAfterScrollMs: 500,
+    disableCSSAnimation: false,
     hideAfterFirstScroll: ["#header"],
+    hideScrollBars: false,
+    scrollLimit: 5
   },
 });
 ```
