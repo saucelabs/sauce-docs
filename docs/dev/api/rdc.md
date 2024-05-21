@@ -851,7 +851,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Download a Specific Real Device Job's Device Logs File
 
-<details><summary><span className="api get">GET</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/deviceLogs</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/deviceLogs</code></summary>
 <p/>
 
 Download the device logs file for a specific job after it finished running on a real device at the data center.
