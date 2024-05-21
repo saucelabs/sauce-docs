@@ -131,9 +131,9 @@ The following table shows the predefined network profiles along with their corre
 
 ### Appium
 To use the Sauce Labs Network Throttling feature in your automated Appium test, you can add the sauce-specific capability
-[networkConditions](https://docs.saucelabs.com/dev/test-configuration-options/#network-conditions) to provide custom network conditions for
+[networkConditions](https://docs.saucelabs.com/dev/test-configuration-options/#networkconditions) to provide custom network conditions for
 the entire session.
-Alternatively, you can use the sauce-specific capability [networkProfile](https://docs.saucelabs.com/dev/test-configuration-options/#network-profile)
+Alternatively, you can use the sauce-specific capability [networkProfile](https://docs.saucelabs.com/dev/test-configuration-options/#networkprofile)
 to apply one of the predefined network profiles to your session.
 
 ## Upcoming
