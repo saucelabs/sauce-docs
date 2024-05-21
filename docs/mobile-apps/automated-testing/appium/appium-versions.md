@@ -214,20 +214,20 @@ The following list of custom Appium plugins are supported:
         <span className="sauceGreen">Active</span>
       </td>
       <td>
-          <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/march-2024" target="_blank">
+          <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/may-2024" target="_blank">
               Deque axe DevTools® Mobile Analyzer Accessibility plugin
           </a>
           helps you with automated accessibility testing. Contains only the latest version of Appium. The plugin helps to identify and to resolve accessibility issues. Requires Deque axe DevTools® license.
         <br />
         <ul>
             <li>
-                <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/march-2024" target="_blank">
-                    <code>axeDevToolsMobile Appium Plugin</code>: 2.0.0
+                <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/may-2024" target="_blank">
+                    <code>axeDevToolsMobile Appium Plugin</code>: 2.1.0
                 </a>
             </li>
             <li>
-                <a href="https://github.com/appium/appium/releases/tag/appium%402.5.1" target="_blank">
-                    <code>appium</code>: 2.5.1
+                <a href="https://github.com/appium/appium/releases/tag/appium%402.5.4" target="_blank">
+                    <code>appium</code>: 2.5.4
                 </a>
             </li>
         </ul>
