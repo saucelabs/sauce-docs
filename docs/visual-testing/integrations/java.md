@@ -346,7 +346,10 @@ Configuration should be specified using the `FullPageScreenshotConfig.Builder` o
 Methods available:
 
 - `withDelayAfterScrollMs(int delayAfterScrollMs)`: Delay in ms after scrolling and before taking screenshots. The default value is 0. We recommend using this option for lazy loading content.
-- `withHideAfterFirstScroll(String... hideAfterFirstScroll)`: Hide elements on the page after first scroll (uses css selectors)
+- `withDisableCSSAnimation(Boolean disableCSSAnimation)`: Disable CSS animations and the input caret in the app. The default value is true.
+- `withHideAfterFirstScroll(String... hideAfterFirstScroll)`: One or more CSS selectors that we should remove from the page after the first scroll. Useful for hiding fixed elements such as headers, cookie banners, etc.
+- `withHideScrollBars(Boolean hideScrollBars)`: Hide all scrollbars in the app. The default value is true.
+- `withScrollLimit(int scrollLimit)`: Limit the number of screenshots taken for scrolling and stitching. The default value is 10. The value needs to be between 1 and 10.
 
 Examples:
 
@@ -365,7 +368,10 @@ import com.saucelabs.visual.model.FullPageScreenshotConfig;
 CheckOptions options = new CheckOptions();
 FullPageScreenshotConfig config = new FullPageScreenshotConfig.Builder()
         .withDelayAfterScrollMs(500)
+        .withDisableCSSAnimation(false)
         .withHideAfterFirstScroll("#header")
+        .withHideScrollBars(false)
+        .withScrollLimit(5)
         .build();
 options.enableFullPageScreenshots(config);
 visual.sauceVisualCheck("Long content page", options);
