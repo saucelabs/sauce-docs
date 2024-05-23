@@ -1913,6 +1913,10 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 Disables step-by-step screenshots. In addition to capturing video, Sauce Labs captures step-by-step screenshots of every test you run. Most users find it very useful to get a quick overview of what happened without having to watch the complete video. However, this feature may add some extra time to your tests.
 
+:::caution Limitations
+The maximum number of screenshots is **150**. Once the limit is reached, further screenshots will no longer be taken.
+:::
+
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
