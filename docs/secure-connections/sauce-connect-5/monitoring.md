@@ -1,7 +1,6 @@
 ---
 id: monitoring
-title: Sauce Connect Proxy Monitoring
-sidebar_label: Monitoring
+title: Monitoring
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
