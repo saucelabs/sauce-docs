@@ -257,10 +257,51 @@ suites:
       KEY: value
 ```
 
+We provide a set of predefined environment variables for each suite. They include basic information about your account or
+a SauceLabs region you use to run tests. However, if you specify those variables in your configuration, we won't inject 
+the default value into them.
+
+<table id="table-cli">
+  <thead>
+    <tr>
+      <th>Environment variable</th>
+      <th>Example value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr>
+     <td>`SAUCE_USERNAME`</td>
+     <td>`awesome.saucer`</td>
+     <td>Username of the account triggering Sauce Orchestrate job</td>
+   </tr>
+   <tr>
+     <td>`SAUCE_ACCESS_KEY`</td>
+     <td>`0039e1dc-c1bf-4006-bc99-ab5672fb2f8c`</td>
+     <td>Access key for the account triggering Sauce Orchestrate job</td>
+   </tr>
+   <tr>
+     <td>`SAUCE_ONDEMAND_URL`</td>
+     <td>`https://ondemand.us-west-1.saucelabs.com/wd/hub`</td>
+     <td>Url for the closest <a href="/basics/data-center-endpoints/">OnDemand Data Center endpoint</a></td>
+   </tr>
+   <tr>
+     <td>`SAUCE_REGION`</td>
+     <td>`us-west-1`</td>
+     <td>Name of the <a href="/orchestrate/saucectl-configuration/#region">closest SauceLabs region</a></td>
+   </tr>
+   <tr>
+     <td>`SAUCE_API_URL`</td>
+     <td>`https://ondemand.us-west-1.saucelabs.com/wd/hub`</td>
+     <td>Url for the closest <a href="/dev/api/">SauceLabs REST API</a></td>
+   </tr>
+  </tbody>
+</table>
+
 :::note
 Environment variables set with the saucectl `--env` flag will overwrite those specified in the sauce config file.
 
-The order of precedence is as follows: --env flag > root-level environment variables > suite-level environment variables.
+The order of precedence is as follows: --env flag > root-level environment variables > suite-level environment variables > default environment variables.
 :::
 
 
