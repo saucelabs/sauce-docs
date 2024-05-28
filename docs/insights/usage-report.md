@@ -44,7 +44,7 @@ Shows the total concurrency, aggregating all devices grouped by team. This infor
 
 ### Real Device Concurrency and Usage
 
-With Suace Labs Real Device usage analytics your organization can get a view of both Public device concurrency usage as well as Private device usage to get the most of your Sauce Labs testing strategy. Our real dvice usage analytics give you many of the same benefits as our Virtual device usage reporting such as:
+With Sauce Labs Real Device usage analytics your organization can get a view of both Public device concurrency usage as well as Private device usage to get the most of your Sauce Labs testing strategy. Our real dvice usage analytics give you many of the same benefits as our Virtual device usage reporting such as:
 
 - Ability to visualize usage at organization level or by team level.
 - Access to expanded date range data and granularity options.
