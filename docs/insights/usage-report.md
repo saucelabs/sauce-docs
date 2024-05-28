@@ -42,13 +42,24 @@ Shows the total concurrency, aggregating all devices grouped by team. This infor
 - VM Concurrency: Shows the concurrent usage for tests executed on Linux Browsers, Windows Browsers and Android Emulators.
 - Mac VM Concurrency: Shows the concurrent usage for tests executed on Mac OS, Mac OSX and iOS Emulators.
 
-### Real Device Concurrency Usage
+### Real Device Concurrency and Usage
 
-:::note Public and Private Real Devices
-Public Device usage is generally available. Private Device usage will be generally available May 2024
-:::
+With Suace Labs Real Device usage analytics your organization can get a view of both Public device concurrency usage as well as Private device usage to get the most of your Sauce Labs testing strategy. Our real dvice usage analytics give you many of the same benefits as our Virtual device usage reporting such as:
 
+- Ability to visualize usage at organization level or by team level.
+- Access to expanded date range data and granularity options.
+- Comparison of usage between teams.
+- Visualize the maximum Public device usage as it approaches the contractual limit.
+- Visualize Private device usage to best utilize your organization's devices.
+- Access to usage data via the Sauce Labs UI and API.
+
+ #### Public Device Concurrency
+ 
 <img src={useBaseUrl('img/insights/ccy-org-month-rdc-public.png')} alt="Public Real Device concurrency usage at organization level"/>
+
+ #### Private Device Usage
+ 
+<img src={useBaseUrl('img/insights/Private-usage-hourly.png')} alt="Private Real Device usage at hourly granularity"/>
 
 ## Usage Reporting Email Notifications
 
