@@ -292,7 +292,7 @@ the default value into them.
    </tr>
    <tr>
      <td>`SAUCE_API_URL`</td>
-     <td>`https://ondemand.us-west-1.saucelabs.com/wd/hub`</td>
+     <td>`https://api.us-west-1.saucelabs.com/`</td>
      <td>Url for the closest <a href="/dev/api/">SauceLabs REST API</a></td>
    </tr>
   </tbody>
