@@ -1057,6 +1057,7 @@ module.exports = {
                             ],
                         },
                         'secure-connections/sauce-connect-5/migrating',
+                        'secure-connections/sauce-connect-5/monitoring',
                         {
                             type: 'category',
                             label: 'Setup and Configuration',
@@ -1066,7 +1067,6 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/operation/configuration',
                                 'secure-connections/sauce-connect-5/operation/proxies',
                                 'secure-connections/sauce-connect-5/operation/api-server',
-                                'secure-connections/sauce-connect-5/operation/monitoring',
                                 'secure-connections/sauce-connect-5/operation/readiness-checks',
                             ],
                         },
