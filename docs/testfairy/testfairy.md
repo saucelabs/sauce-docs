@@ -6,7 +6,7 @@ sidebar_label: Getting Started
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Welcome to TestFairy.
+Welcome to TestFairy, the App Center distribution alternative! Use our enterprise-grade app distribution capabilities to migrate from App Center before March 31, 2025! 
 
 ## Distribute App to Testers
 
