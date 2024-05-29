@@ -299,9 +299,12 @@ the default value into them.
 </table>
 
 :::note
-Environment variables set with the saucectl `--env` flag will overwrite those specified in the sauce config file.
-
-The order of precedence is as follows: --env flag > root-level environment variables > suite-level environment variables > default environment variables.
+Environment variables set with the saucectl `--env` flag will overwrite those specified in the sauce config file. 
+The order of precedence is as follows:
+1. `--env` flag
+2. root-level environment variables
+3. suite-level environment variables
+4. default environment variables
 :::
 
 
