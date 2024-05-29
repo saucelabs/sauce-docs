@@ -291,7 +291,7 @@ the default value into them.
      <td>Name of the <a href="/orchestrate/saucectl-configuration/#region">closest SauceLabs region</a></td>
    </tr>
    <tr>
-     <td>`SAUCE_API_URL`</td>
+     <td>`SAUCE_REST_ENDPOINT`</td>
      <td>`https://api.us-west-1.saucelabs.com/`</td>
      <td>Url for the closest <a href="/dev/api/">SauceLabs REST API</a></td>
    </tr>
