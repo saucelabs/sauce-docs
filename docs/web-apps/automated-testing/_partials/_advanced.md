@@ -147,6 +147,17 @@ npm:
     - lodash
 ```
 
+If a `package.json` file is specified, `saucectl` will automatically include all
+locally installed `dependencies` and `devDependencies` listed in the
+`package.json` file. While this may seem convenient at first, it can lead to
+long startup times if the `package.json` file includes dependencies that are
+not strictly required for the test run.
+```jsx title= "config.yml npm dependencies from package.json"
+npm:
+  dependencies:
+    - "package.json"
+```
+
 :::caution
 This feature is highly experimental.
 :::
