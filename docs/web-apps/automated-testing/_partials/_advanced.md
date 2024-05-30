@@ -158,7 +158,6 @@ npm:
     - "package.json"
 ```
 
-
 :::caution
 This feature is highly experimental.
 :::
