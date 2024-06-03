@@ -238,7 +238,7 @@ The following list of custom Appium plugins are supported:
         <code>appium2-20240601</code>
       </td>
       <td>
-        <span className="sauceGold">May 31th, 2025</span>
+        <span className="sauceGold">May 31st, 2025</span>
       </td>
       <td>
         This is a collection of drivers that were released in June 1st 2024 <br />
