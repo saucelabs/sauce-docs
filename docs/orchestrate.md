@@ -5,7 +5,7 @@ sidebar_label: Overview
 description: Fast and reliable test orchestration for mobile and web apps, at scale.
 ---
 
-Sauce Labs Orchestrate is a new and unique approach to web and mobile application testing that increases test execution speed and enables end-to-end test orchestration. Orchestrate allows you to:
+Sauce Orchestrate is a new and unique approach to web and mobile application testing that increases test execution speed and enables end-to-end test orchestration. Orchestrate allows you to:
 
 - **Test faster, from anywhere:** Sauce Orchestrate decreases network overhead and reduces the latency between the test and the device or browser.
 
