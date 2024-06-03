@@ -49,7 +49,7 @@ capabilities.setCapability("appium:automationName", "uiautomator2");
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
 // Check below for the available versions
-sauceOptions.put("appiumVersion", "latest"); 
+sauceOptions.put("appiumVersion", "latest");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
@@ -185,7 +185,7 @@ The following list of custom Appium plugins are supported:
         <ul>
           <li>
             <a href="https://github.com/appium/appium/releases/tag/appium%402.5.2" target="_blank">
-              <code>appium</code>: 2.5.2
+              <code>appium</code>: 2.6.0
             </a>
           </li>
           <li>
@@ -194,13 +194,13 @@ The following list of custom Appium plugins are supported:
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.1.0" target="_blank">
-              <code>appium-uiautomator2-driver</code>: 3.1.0
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.5.2" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 3.5.2
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.11.3" target="_blank">
-              <code>appium-xcuitest-driver</code>: 7.11.3
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.16.2" target="_blank">
+              <code>appium-xcuitest-driver</code>: 7.16.2
             </a>
           </li>
         </ul>
@@ -230,6 +230,39 @@ The following list of custom Appium plugins are supported:
                     <code>appium</code>: 2.5.4
                 </a>
             </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>appium2-20240601</code>
+      </td>
+      <td>
+        <span className="sauceGold">May 31st, 2025</span>
+      </td>
+      <td>
+        This is a collection of drivers that were released in June 1st 2024 <br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.6.0" target="_blank">
+              <code>appium</code>: 2.6.0
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.6.0" target="_blank">
+              <code>appium-flutter-driver</code>: 2.6.0
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.5.2" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 3.5.2
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.16.2" target="_blank">
+              <code>appium-xcuitest-driver</code>: 7.16.2
+            </a>
+          </li>
         </ul>
       </td>
     </tr>
