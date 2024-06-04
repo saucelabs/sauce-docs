@@ -60,10 +60,10 @@ If you need:
 - To test on a native framework like Espresso and Robotium.
 - To test scenarios that require carrier network connectivity (e.g., making phone calls and sending SMS messages to devices with SIM cards).
 
-### Supported OS version and devices
+### Supported OS versions and devices
 
-- Available major OS versions for iOS/iPadOS devices: 17.X, 16.X, 15.X, 14.X, 13.X, 12.X
-- Available major OS versions for Android devices: 14.X, 13.X, 12.X, 11.X, 10.X, 9.X
+- Available major OS versions for iOS/iPadOS real devices: 17.X, 16.X, 15.X, 14.X, 13.X, 12.X
+- Available major OS versions for Android real devices: 14.X, 13.X, 12.X, 11.X, 10.X, 9.X
 - Our support is limited to real devices manufactured within the last 6 years. 
 - Devices manufactured longer than 6 years ago are not supported.
 
