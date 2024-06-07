@@ -24,7 +24,7 @@ If you are an organization admin, you can create and delete teams and assign con
 <img src={useBaseUrl('img/team-mgmt/create-new-team.jpg')} alt="Create new team" width="400"/>
 
 4. In the **TO LINE OF BUSINESS** dropdown, select the line of business the team will be associated with.
-5. Under **TEAM VM CONCURRENCY LIMITS**, use the up and down arrows to set the number of concurrent virtual machines that the team can access. For more information about concurrency, see [Managing Concurrency](/basics/acct-team-mgmt/concurrency/managing-concurrency).
+5. Under **TEAM CONCURRENCY LIMITS**, set the number of concurrent virtual machines and real devices that the team can access. For more information about concurrency, see [Managing Concurrency](/basics/acct-team-mgmt/concurrency/managing-concurrency).
 6. Click **ADD TEAM**.
 
 ## Deleting Teams

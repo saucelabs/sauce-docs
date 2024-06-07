@@ -901,15 +901,7 @@ module.exports = {
                                         'basics/acct-team-mgmt/switching-active-team',
                                     ],
                                 },
-                                {
-                                    type: 'category',
-                                    label: 'Managing Concurrency',
-                                    collapsed: true,
-                                    items: [
-                                        'basics/acct-team-mgmt/concurrency/understanding-concurrency',
-                                        'basics/acct-team-mgmt/concurrency/managing-concurrency',
-                                    ],
-                                },
+                                'basics/acct-team-mgmt/concurrency/managing-concurrency',
                                 {
                                     type: 'category',
                                     label: 'Managing Teams',
