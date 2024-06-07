@@ -83,6 +83,8 @@ Once your organization attempts to run a test past the maximum amount you can ex
 
 If your subscription includes access to our Public Real Device Cloud, then your subscription quantity equals the amount of concurrent tests that can be run on Sauce Labs real devices.
 
+In case your organization has private real devices, check out how to [manage and assign your private devices](/basics/acct-team-mgmt/private-device-mgmt).
+
 ### Exceeding Public Real Device Cloud Concurrency
 
 If your organization attempts to run more tests than your subscription permits then your tests will be queued until an available concurrency slot becomes available. Your request for a device will queue for up to 15 minutes by default and it can be configured up to a maximum of 30 minutes by adjusting your [Test Configuration Options](/dev/test-configuration-options).
