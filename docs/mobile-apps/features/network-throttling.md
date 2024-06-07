@@ -7,9 +7,8 @@ sidebar_label: Network Throttling
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <p><small><span className="sauceGreen">Real Devices Only</span></small></p>
-<p><small><span className="sauceGreen">iOS BETA</span></small></p>
 
-With Sauce Labs Network Throttling, you can simulate and reproduce different network scenarios, ensuring that your mobile application performs optimally under 
+With Sauce Labs Network Throttling, you can simulate and reproduce different network scenarios on iOS and Android, ensuring that your mobile application performs optimally under 
 a huge variety of network conditions. From replicating slow network speeds to mimicking offline states, high latency, or connection disruptions,
 this feature allows you to identify network-related performance issues early in your pipeline.
 
@@ -19,6 +18,7 @@ you have the tools to replicate and troubleshoot any performance concerns stemmi
 ## What You'll Need
 
 - A Sauce Labs paid account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/))
+- Access to our Real Devices (iOS/Android)
 
 ## Supported Network Conditions
 
@@ -138,14 +138,15 @@ to apply one of the predefined network profiles to your session.
 
 ## Upcoming
 
-* Change your desired network conditions dynamically any time during your automated Appium test
 * Apply network throttling to your manual Live tests
+* Change your desired network conditions dynamically any time during your automated Appium test
 * Apply network throttling to your Espresso and XCUITest tests
 
 ## Limitations
 :::note Limitations
 
 - iOS network throttling is supported on iOS/iPadOS 14.0 and above.
+- Android network throttling is supported on Android 10 and above.
 
 :::
 
