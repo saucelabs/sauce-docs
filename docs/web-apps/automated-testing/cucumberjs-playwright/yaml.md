@@ -391,6 +391,10 @@ npm:
     - url: https://private.registry.company.org
       scope: "@company"
       authToken: secretToken
+      auth: base64SecretToken
+      username: myUsername
+      password: myPassword
+      email: myEmail 
 ```
 
 ---
@@ -436,6 +440,66 @@ npm:
   registries:
     - url: https://registry.npmjs.org
       authToken: secretToken
+```
+
+---
+
+#### `auth`
+
+Specifies the Base64-encoded authentication string for the registry entry.
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+```yaml
+npm:
+  registries:
+    - url: https://registry.npmjs.org
+      auth: base64SecretToken
+```
+
+---
+
+#### `username`
+
+Specifies the username for authentication with the registry.
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+```yaml
+npm:
+  registries:
+    - url: https://registry.npmjs.org
+      username: myName
+```
+
+---
+
+#### `password`
+
+Specifies the password for authentication with the registry.
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+```yaml
+npm:
+  registries:
+    - url: https://registry.npmjs.org
+      password: myPassword
+```
+
+---
+
+#### `email`
+
+Specifies the email associated with the registry account.
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+```yaml
+npm:
+  registries:
+    - url: https://registry.npmjs.org
+      email: myEmail
 ```
 
 ---
