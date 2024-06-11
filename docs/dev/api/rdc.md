@@ -14,7 +14,8 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ### Get Devices
 
-<details><summary><span className="api get">GET</span> <code>/v1/rdc/devices</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/devices</code></summary>
 <p/>
 
 Get the set of real devices located at the data center, as well as the operating system/browser combinations and identifying information for each device.
@@ -108,7 +109,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         "isAlternativeIoEnabled": true,
         "supportsManualWebTesting": true,
         "supportsMultiTouch": true,
-        "supportsXcuiTest": true
+        "supportsXcuiTest": false
     },
     {...more devices},
 ]
@@ -120,7 +121,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get a Specific Device
 
-<details><summary><span className="api get">GET</span> <code>/v1/rdc/devices/&#123;device_id&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/devices/&#123;device_id&#125;</code></summary>
 <p/>
 
 Get information about the device specified in the request.
@@ -230,7 +232,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Available Devices
 
-<details><summary><span className="api get">GET</span> <code>/v1/rdc/devices/available</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/devices/available</code></summary>
 <p/>
 
 Returns a list of Device IDs for all devices in the data center that are currently free for testing.
@@ -327,7 +330,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Devices Status
 
-<details><summary><span className="api get">GET</span> <code>/v1/rdc/devices/status</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/devices/status</code></summary>
 <p/>
 
 Returns a list of devices in the data center along with their current states. Each device is represented by a descriptor, 
@@ -566,7 +570,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Real Device Jobs
 
-<details><summary><span className="api get">GET</span> <code>/v1/rdc/jobs</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/jobs</code></summary>
 <p/>
 
 Get a list of jobs that are actively running on real devices in the data center.
@@ -676,7 +681,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get a Specific Real Device Job
 
-<details><summary><span className="api get">GET</span> <code>/v1/rdc/jobs/&#123;job_id&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/jobs/&#123;job_id&#125;</code></summary>
 <p/>
 
 Get information about a specific job running on a real device at the data center.
@@ -801,7 +807,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
       "supportsMinicapSocketConnection" : false,
       "supportsMockLocations" : true,
       "supportsMultiTouch" : true,
-      "supportsXcuiTest" : true
+      "supportsXcuiTest" : false
    },
    "device_log_url" : "https://api.eu-central-1.saucelabs.com/v1/rdc/jobs/51873a114a6141239c933042e948aa54/deviceLogs",
    "device_name" : "Samsung Galaxy S10",
@@ -840,11 +846,84 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 </details>
 
+
+---
+
+### Download a Specific Real Device Job's Device Logs File
+
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/deviceLogs</code></summary>
+<p/>
+
+Download the device logs file for a specific job after it finished running on a real device at the data center.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>job_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a job running on a real device in the data center. You can look up job IDs using the <a href="#get-real-device-jobs">Get Real Device Jobs</a> endpoint.</p></td>
+    </tr>
+    <tr>
+     <td><code>download</code></td>
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Whether to force the download of the compressed version of the file. Defaults to (<code>false</code>).</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/jobs/293d84fb2f634ff29a750c3f8eaee592/deviceLogs'
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/jobs/48c6d12f9ef944439453b5abc6715b54/deviceLogs'
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. File is returned and downloaded.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+</details>
+
 ---
 
 ### Stop a Job
 
-<details><summary><span className="api put">PUT</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/stop</code></summary>
+<details>
+<summary><span className="api put">PUT</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/stop</code></summary>
 <p/>
 
 Stops a running job described by the `job_id`.
@@ -956,7 +1035,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Update a Job
 
-<details><summary><span className="api put">PUT</span> <code>/v1/rdc/jobs/&#123;job_id&#125;</code></summary>
+<details>
+<summary><span className="api put">PUT</span> <code>/v1/rdc/jobs/&#123;job_id&#125;</code></summary>
 <p/>
 
 Edit job attributes based on parameters passed in the request, including setting the status and name of the job. Any parameter for which a new value is provided in the request will replace the existing value. For example, if you provide a set of tags, they will not be added to the current tags; they will replace them, so make sure you pass the entire set you wish to assign.
@@ -1169,6 +1249,75 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "test_report_type": "XCUITEST"
 }
 ```
+
+</details>
+
+---
+
+### Delete a Job
+
+<details>
+<summary><span className="api delete">DELETE</span> <code>/v1/rdc/jobs/&#123;job_id&#125;</code></summary>
+<p/>
+
+Delete a job and all of its assets from the Sauce Labs test history.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>job_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a job running on a real device in the data center. You can look up job IDs using the <a href="#get-real-device-jobs">Get Real Device Jobs</a> endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.us-west-1.saucelabs.com/v1/rdc/jobs/a2f60bf3ea5f43fa90126f82c0ba2cf6' | json_pp
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.eu-central-1.saucelabs.com/v1/rdc/jobs/a2f60bf3ea5f43fa90126f82c0ba2cf6' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Job successfully deleted.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+No payload is returned with the successful deletion.
 
 </details>
 

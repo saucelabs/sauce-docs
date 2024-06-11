@@ -37,6 +37,11 @@ To use Sauce Orchestrate:
 
 We will be using the [Sauce Labs Demo Java project](https://github.com/saucelabs-training/demo-java) to help walk through the steps.
 
+## Can I try it without creating my own project?
+
+In order to make it easier to try Sauce Orchestrate on your own, we've prepared [few examples for most popular languages
+and frameworks](https://github.com/saucelabs/saucectl-imagerunner-example).
+
 ## 1. Create a Container Image of Your Tests
 
 If you are already familiar with creating container images then there is nothing special about doing it for Sauce Orchestrate. However, if you are unfamiliar or would like a detailed walkthrough, see [Building Docker Images](/orchestrate/building-images/) page for a comprehensive guide on how to build an image.

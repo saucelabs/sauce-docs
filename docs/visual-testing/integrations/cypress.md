@@ -2,15 +2,12 @@
 sidebar_label: Cypress
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ClippingDescription from '../_partials/_clipping-description.md';
+import EnvironmentVariables from '../_partials/_environment-variables.md';
 
 # Cypress Integration
-
-:::note Important
-Access to this feature is currently limited to Enterprise customers as part of our commitment to providing tailored solutions. We are excited to announce that self-service access is under development and will be released shortly. Stay tuned!
-:::
 
 ## Introduction
 
@@ -158,6 +155,7 @@ Options:
 - `buildName`: Name of the build (default: `Cypress Visual Testing`)
 - `project`: Name of the project (default: `None`)
 - `branch`: Name of branch (default: `None`)
+- `defaultBranch`: Name of the main or default branch (default: `None`)  
 
 They need to be set through the `saucelabs` attribute of `e2e` configuration.
 
@@ -178,6 +176,18 @@ export default defineConfig({
 }
 ```
 
+### Environment variables
+
+Below are the environment variables available for the Sauce Visual for Cypress plugin. Keep in mind that the variables defined in Cypress configuration have precedence over these variables.
+
+<EnvironmentVariables />
+
+### Working with custom ID
+
+Linking all your Sauce Visual tests to one build ID can streamline your workflow, especially in CI setups. This enables easy management using the Sauce Visual CLI, like creating builds with custom IDs, adding snapshots, and completing builds. This way, you can efficiently handle multiple tests grouped under the same build in Sauce Visual.
+
+When you use `SAUCE_VISUAL_CUSTOM_ID`, Sauce Visual checks if there's an existing build with that ID. If found, your tests are linked to it; otherwise, Sauce Visual creates a new build. In contrast, using `SAUCE_VISUAL_BUILD_ID` requires an existing build with the provided ID; otherwise, an error occurs.
+
 ### Ignored regions
 
 #### Component-based ignored region
@@ -191,11 +201,11 @@ Those ignored components are specified when requesting a new snapshot.
 Example:
 
 ```javascript
-    cy.sauceVisualCheck('login-page', {
-      ignoredRegions: [
-        cy.get('[data-test="username"]'),
-      ]
-    });
+cy.sauceVisualCheck('login-page', {
+  ignoredRegions: [
+    cy.get('[data-test="username"]'),
+  ]
+});
 ```
 
 #### User-specified ignored region
@@ -204,23 +214,23 @@ Alternatively, ignored regions can be user-specified areas. A region is defined 
 
 - `x`, `y`: The location of the top-left corner of the ignored region
 - `width`: The width of the region to ignore
-- `height`: The heigh of the region to ignore
+- `height`: The height of the region to ignore
 
 _Note: all values are pixels_
 
 Example:
 
 ```javascript
-    cy.sauceVisualCheck('login-page', {
-      ignoredRegions: [
-        {
-          x: 240,
-          y: 800,
-          width: 1520,
-          height: 408
-        }
-      ],
-    });
+cy.sauceVisualCheck('login-page', {
+  ignoredRegions: [
+    {
+      x: 240,
+      y: 800,
+      width: 1520,
+      height: 408
+    }
+  ],
+});
 ```
 
 ### Specifying options for Cypress Screenshot
@@ -232,11 +242,49 @@ The field `cypress` from `options` will be transmitted as it to `cy.screenshot` 
 Example:
 
 ```javascript
-    cy.sauceVisualCheck('login-page', {
-      cypress: {
-        capture: 'viewport',
-      }
-    });
+cy.sauceVisualCheck('login-page', {
+  cypress: {
+    capture: 'viewport',
+  }
+});
+```
+
+### Capturing the DOM snapshot
+
+Sauce Visual does not capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
+
+Example:
+```javascript
+cy.sauceVisualCheck('login-page', {
+    captureDom: true
+});
+```
+
+### Full page screenshots
+
+Cypress natively offers full page screenshots -- you can pass options into our `sauceVisualCheck` function in order to enable it for your visual checks.
+
+Example:
+
+```javascript
+cy.sauceVisualCheck('Inventory Page', {
+    cypress: {
+        // One or more options to be passed directly to the cy.screenshot() function call.
+        capture: 'fullPage',
+    },
+});
+```
+
+### Clip to an element
+
+<ClippingDescription />
+
+Example:
+
+```javascript
+cy.sauceVisualCheck('Inventory Page', {
+    clipSelector: '.your-css-selector',
+});
 ```
 
 ## Limitations

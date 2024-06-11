@@ -21,10 +21,10 @@ If your integration path to Backtrace does not provide a way to upload minidump 
 
 A submission where the test.json attachment is included with the initial crash submission. You will need to modify the following to successfully submit to a project within your account:
 
-1. {Path_to_your_file}: Location of file containing crash data to send.
-1. {Path_to_your_attachment}: Location of file to be attached to the crash.
-1. {universe}: First part of the URL used to access your Backtrace account.
-1. {error-token}: An error token for the project you want to submit crash data to.
+1. \{Path_to_your_file}: Location of file containing crash data to send.
+1. \{Path_to_your_attachment}: Location of file to be attached to the crash.
+1. \{universe}: First part of the URL used to access your Backtrace account.
+1. \{error-token}: An error token for the project you want to submit crash data to.
 
 ```curl
 curl -v -F "upload_file=@<Path_to_your_file>/test.json" -H "Accept: application/json" -F "attachment_test.json=@<Path_to_your_file>/test.json; type=application/json" "https://<universe>.sp.backtrace.io/api/post?token=<error-token>&format=json"
@@ -34,9 +34,9 @@ curl -v -F "upload_file=@<Path_to_your_file>/test.json" -H "Accept: application/
 
 For this method, you will need the \_rxid value assigned to a submitted crash report. This value will be returned after a submitting a properly formatted request. The first curl command is the submission of the crash report. The second is the attachment of a file to the first.
 
-1. {Path_to_your_file}: Location of file containing crash data to send.
-1. {universe}: First part of the URL used to access your Backtrace account.
-1. {error-token}: An error token for the project you want to submit crash data to.
+1. \{Path_to_your_file}: Location of file containing crash data to send.
+1. \{universe}: First part of the URL used to access your Backtrace account.
+1. \{error-token}: An error token for the project you want to submit crash data to.
 
 ```curl
 curl -d <Path_to_your_file> -H "Accept: application/json" "https://<universe>.sp.backtrace.io/api/post?token=<error-token>&format=json"
@@ -50,8 +50,8 @@ A properly formatted submission should return a response like:
 
 To attach a file to this object you will need to copy the \_rxid returned.
 
-1. &object=<\_rxid>: Value returned from first HTTP submission.
-1. &attachment_name=<Path_to_your_attachment>: Location of file to be attached to the crash.
+1. &object=\<\_rxid>: Value returned from first HTTP submission.
+1. &attachment_name=\<Path_to_your_attachment>: Location of file to be attached to the crash.
 
 ```curl
 curl -v --data-binary "upload_file=@<your_file_path>/test.json" -H "Expect: gzip" -H "Content-Type:application/json" "https://<univers>.sp.backtrace.io/api/post?token=<error-token>&format=json&object=<_rxid>&attachment_name=<Path_to_your_attachment>"

@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 Access to this feature is currently limited to Enterprise customers as part of our commitment to providing tailored solutions. We are excited to announce that self-service access is under development and will be released shortly. Stay tuned!
 :::
 
-Get clear and instant visibility into the impact of code changes on your UI across browsers, devices, and operating systems with our automated visual testing solution, which generates side-by-side comparisons of your UI versions.
+Get clear and instant visibility into the impact of code changes on your UI across browsers, devices, and operating systems with our automated visual testing solution, which generates side-by-side comparisons of your UI versions with DOM diffs inspection.
 
 Know exactly where and what has changed so that you can deliver a consistent and intuitive user experience.
 
@@ -157,8 +157,11 @@ Sauce Visual provides integrations with different kind of frameworks:
   <h2>E2E Testing</h2>
   <ul>
       <li><a href="/visual-testing/integrations/cypress/">Cypress Integration</a></li>
+      <li><a href="/visual-testing/integrations/csharp/">C#/.Net Integration</a></li>
       <li><a href="/visual-testing/integrations/java/">Java Integration</a></li>
+      <li><a href="/visual-testing/integrations/nightwatch/">Nightwatch Integration</a></li>
       <li><a href="/visual-testing/integrations/webdriverio/">WebdriverIO Integration</a></li>
+      <li><a href="/visual-testing/integrations/python/">Python Integration</a></li>
   </ul>
   </div>
 </div>

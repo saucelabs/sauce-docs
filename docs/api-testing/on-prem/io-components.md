@@ -42,7 +42,7 @@ _**Parameters:**_
 | Mode     | 'json','xml', 'html','text' | Yes          |
 | Params   | String                      | No           |
 
-**Url:** the url of the resource you want to test. It could be the full url of the resource or a string with variables using the $. (i.e. 'https://domain/resourcename' or 'https://${domain}${endpoint}')
+**Url:** the url of the resource you want to test. It could be the full url of the resource or a string with variables using the $. (i.e. 'https://domain/resourcename' or 'https://$\{domain}$\{endpoint}')
 
 **Variable**: the name of the variable that contains the response. It will be the name you will refer during the test.
 

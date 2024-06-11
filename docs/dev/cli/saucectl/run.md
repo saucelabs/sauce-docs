@@ -183,6 +183,11 @@ Execute tests according to the environment, framework, and test suite specificat
      <td>The tunnel owner, if it is not the testing account.</td>
     </tr>
     <tr>
+     <td><span className="t-cli"><a href="#--tunnel-timeout">--tunnel-timeout</a></span></td>
+     <td></td>
+     <td>How long to wait for the specified tunnel to be ready. Supports duration values like '10s', '30m' etc. (default: 30s)</td>
+    </tr>
+    <tr>
      <td><span className="t-cli"><a href="#--upload-timeout">--upload-timeout</a></span></td>
      <td></td>
      <td>Set a max upload duration.</td>
@@ -538,6 +543,7 @@ Toggles saucectl's own junit reporting on/off. This only affects the reports tha
 ```bash
 saucectl run --reporters.junit.enabled=true
 ```
+
 </div>
 
 ### <span className="cli">--reporters.junit.filename</span>
@@ -699,6 +705,19 @@ Replaces the former `--tunnel-parent` option, which is deprecated.
 
 ```bash
 saucectl run --tunnel-name not-my-tunnel --tunnel-owner another.sauce.username
+```
+
+</div>
+
+### <span className="cli">--tunnel-timeout</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+How long to wait for the specified tunnel to be ready. Supports duration values like '10s', '30m' etc. (default: 30s)
+
+```bash
+saucectl run --tunnel-name who-knows-when-ready --tunnel-timeout 1m
 ```
 
 </div>

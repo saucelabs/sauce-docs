@@ -2,15 +2,11 @@
 sidebar_label: WebdriverIO
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import FullPageJS from '../_partials/_fullpage-js.md';
+import ClippingWDIO from '../_partials/_clipping-webdriver.md';
+import EnvironmentVariables from '../_partials/_environment-variables.md';
 
 # WebdriverIO Integration
-
-:::note Important
-Access to this feature is currently limited to Enterprise customers as part of our commitment to providing tailored solutions. We are excited to announce that self-service access is under development and will be released shortly. Stay tuned!
-:::
 
 ## Introduction
 
@@ -74,13 +70,13 @@ export const config: Options.Testrunner = {
 Add a check to one of your tests:
 
 ```ts
-    describe('Login Flow', () => {
-        it('should login with valid credentials', async () => {
-            //...
-            await browser.sauceVisualCheck('My Login Page')
-            //...
-        });
-    })
+describe('Login Flow', () => {
+    it('should login with valid credentials', async () => {
+        //...
+        await browser.sauceVisualCheck('My Login Page')
+        //...
+    });
+})
 ```
 
 ### Step 4: Configure your Sauce Labs credentials
@@ -101,7 +97,14 @@ Upon executing your tests for the first time under this step, a visual baseline 
 
 Remember, the baseline is established during the initial run, and any subsequent visual differences detected will be marked for review.
 
+
 ## Advanced usage
+
+### Customizing Your Builds (Environment Variables)
+
+Below are the environment variables available in the Sauce Visual WebdriverIO plugin. Keep in mind that the variables defined in WebdriverIO configuration have precedence over these variables.
+
+<EnvironmentVariables />
 
 ### Test results summary
 
@@ -139,7 +142,8 @@ Options:
 
 - `buildName`: Name of the build
 - `project`: Name of the project
-- `branch`: Name of branch
+- `branch`: Name of the branch, used for matching
+- `defaultBranch`: Name of the default branch, used for matching
 
 They need to be set through the `options` parameter.
 
@@ -177,12 +181,12 @@ Those ignored components are specified when requesting a new snapshot.
 Example:
 
 ```ts
-    await browser.sauceVisualCheck('Inventory Page', {
-        ignore: [
-            // addBackPackToCartButton will be ignored
-            InventoryPage.addBackPackToCartButton,
-        ],
-    });
+await browser.sauceVisualCheck('Inventory Page', {
+    ignore: [
+        // addBackPackToCartButton will be ignored
+        InventoryPage.addBackPackToCartButton,
+    ],
+});
 
 ```
 
@@ -192,7 +196,7 @@ Alternatively, ignored regions can be user-specified areas. A region is defined 
 
 - `x`, `y`: The location of the top-left corner of the ignored region
 - `width`: The width of the region to ignore
-- `height`: The heigh of the region to ignore
+- `height`: The height of the region to ignore
 
 _Note: all values are pixels_
 
@@ -210,6 +214,25 @@ await browser.sauceVisualCheck('Before Login', {
     ],
 });
 ```
+
+### Capturing the DOM snapshot
+
+Sauce Visual does not capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
+
+Example:
+```ts
+browser.sauceVisualCheck('Before Login', {
+    captureDom: true
+});
+```
+
+### Full page screenshots
+
+<FullPageJS />
+
+### Clip to an element
+
+<ClippingWDIO />
 
 ## Example
 

@@ -19,7 +19,7 @@ Try our [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platfo
 
 When setting up your test, you'll need to configure your script with settings called _capabilities_ that align with your test environment (e.g., desktop browser, mobile web browser, mobile app). While each environment has its own set of capabilities, they can also be combined. Some are required for a test to run in a given environment, while some are optional.
 
-You'll need to add these configurations to the [capabilities](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_Capabilities.html) or [options](https://www.selenium.dev/documentation/en/driver_idiosyncrasies/driver_specific_capabilities/) classes.
+You'll need to add these configurations to the [capabilities](https://www.selenium.dev/documentation/webdriver/drivers/options/) or [options](https://www.selenium.dev/documentation/en/driver_idiosyncrasies/driver_specific_capabilities/) classes.
 
 - **W3C WebDriver Capabilities**: Required for any test using Selenium or Appium to communicate with the browser. W3C WebDriver capabilities are universal capabilities for any test, and are usually combined with additional capabilities. See the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/#capabilities) for more information.
 - **Sauce Labs Capabilities**: Needed for running a test on the Sauce Labs Cloud, with different possible sets for different environments. Though there aren't any capabilities required, you will need to [configure the endpoint URL](/basics/data-center-endpoints) and should pass the test name and status as capabilities to the remote webdriver.
@@ -172,6 +172,21 @@ Describes the current session’s user prompt handler. The default value is `"di
 
 ```java
 "unhandledPromptBehavior": "ignore"
+```
+
+---
+
+### `webSocketUrl`
+
+<p><small>| BOOLEAN | <span className="sauceGreen">Desktop Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+
+Enables [W3C WebDriver BiDi](https://w3c.github.io/webdriver-bidi/) support. This allows Selenium 4 clients to use [Bi-Directional functionality](https://www.selenium.dev/documentation/webdriver/bidirectional/). It also enables BiDi for other test frameworks, like [WebDriverIO](https://webdriver.io/docs/api/webdriverBidi/). In particular, this capability exposes the WebSocket endpoint which is available under `webSocketUrl` field in session startup response body. This endpoint can be used to issue WebDriver BiDi commands as described by the [specification](https://w3c.github.io/webdriver-bidi/). The default value is `false`.
+
+The `webSocketUrl` capability is **not compatible** with [`extendedDebugging`](#extendeddebugging) capability.
+
+
+```java
+"webSocketUrl": true
 ```
 
 ---
@@ -341,6 +356,20 @@ Sets idle test timeout in seconds. As a safety measure to prevent tests from run
 
 ```java
 "idleTimeout": 90
+```
+
+---
+
+### `devTools`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Desktop Only</span> | <span className="sauceGreen">BETA</span> | </small></p>
+
+Enables [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) support, which is disabled by default on Sauce Labs platform. This allows Selenium 4 clients to use [Bi-Directional functionality](https://www.selenium.dev/documentation/webdriver/bidirectional/). In particular, this capability exposes the WebSocket endpoint which is available under `se:cdp` field in session startup response body. This endpoint can be used to issue Chrome DevTools Protocol commands as described by the [specification](https://chromedevtools.github.io/devtools-protocol/). The default value is `false`.
+
+The `devTools` capability is **not compatible** with [`extendedDebugging`](#extendeddebugging) capability.
+
+```java
+"devTools": true
 ```
 
 ---
@@ -1407,9 +1436,9 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `audioCapture`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span></small> |</p>
+<p><small>| OPTIONAL | BOOLEAN | </small></p>
 
-Enables audio recording in your iOS and Android native mobile app tests. The audio will be part of the **Test Results** page video file, which you can play back and download in our built-in media player. The default value is `false`.
+Enables audio recording in your automated tests. This feature is supported for Windows and macOS desktop tests as well as mobile Real Devices. The audio will be part of the **Test Results** page video file, which you can play back and download in our built-in media player. The default value is `false`.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -1519,6 +1548,77 @@ MutableCapabilities sauceOptions = new MutableCapabilities();
 // Set it to 5 minutes (5*60*1000=300000)
 sauceOptions.setCapability("sessionCreationRetry", 2);
 capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `networkProfile`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">iOS BETA</span> |</small></p>
+
+Set a network profile with predefined network conditions at the beginning of the session. 
+Please refer to the [list of network profiles](https://docs.saucelabs.com/mobile-apps/features/network-throttling/#predefined-network-profiles) for more information about each profile's network conditions.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("networkProfile", "2G");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `networkConditions`
+
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">iOS BETA</span> |</small></p>
+
+Set custom network conditions for `downloadSpeed`, `uploadSpeed`, `latency` or `loss` at the beginning of the session.
+Not all parameters need to be specified and only the ones specified will have conditioning applied.
+Please refer to the [supported network conditions](https://docs.saucelabs.com/mobile-apps/features/network-throttling/#supported-network-conditions) for more information.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("networkConditions", ImmutableMap.of(
+		"downloadSpeed", 5000,
+		"uploadSpeed", 3000,
+		"latency", 200,
+		"loss", 2,
+));
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+:::important
+
+Each network condition has a supported value range:
+
+- `downloadSpeed`: 0 - 50000 kbps
+- `uploadSpeed`: 0 - 50000 kbps
+- `latency`: 0 - 3000 ms
+- `loss`: 0 - 100 %
+
+:::
+
+---
+
+### `mobile: shell`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">Android Only</span> |</small></p>
+
+Execute ADB shell commands, through Appium's `mobile: shell` capability.
+
+:::note
+Sauce Labs now supports ADB commands for Appium. To use ADB and `mobile: shell` commands, please [sign up for our BETA through this form](https://forms.gle/42qv8U1RukqC62x86) and indicate the desired ADB commands you would like to run. We will be supporting a limited list of ADB commands through `mobile: shell`. Please refer to the list of [allowed commands](https://docs.saucelabs.com/mobile-apps/mobile-faq/#im-encountering-errors-when-executing-adb-shell-commands-what-could-be-the-issue) or contact support for assistance.
+:::
+
+
+```java
+driver.executeScript("mobile: shell", ImmutableMap.of(
+    "command", "input",
+    "args", ImmutableList.of("keyevent", "3")
+));
 ```
 
 ---
@@ -1813,6 +1913,10 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 Disables step-by-step screenshots. In addition to capturing video, Sauce Labs captures step-by-step screenshots of every test you run. Most users find it very useful to get a quick overview of what happened without having to watch the complete video. However, this feature may add some extra time to your tests.
 
+:::caution Limitations
+The maximum number of screenshots is **150**. Once the limit is reached, further screenshots will no longer be taken.
+:::
+
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
@@ -1933,6 +2037,28 @@ MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.setCapability("timeZone", "Los_Angeles");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
+
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">All Devices Since appium2-20240501</span> |</small></p>
+
+Both UiAutomator2 and XCUITest drivers allow to change the time zone using corresponding
+test session capabilities.
+
+**Android Devices**
+
+Provide a valid time zone identifier to `appium:timeZone` capability.
+The time zone identifier must be a valid name from the list of
+[available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones),
+for example `America/New_York`.
+The time zone is changed instantly on the *per-device* basis and is preserved until the next change.
+
+**iOS Devices**
+
+Provide a valid time zone identifier to `appium:appTimeZone` capability.
+The time zone identifier must be a valid name from the list of
+[available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), for example `America/New_York`.
+The time zone is changed on the *per-application* basis and is only valid for the application under test.
+The same behavior could be achieved by providing a custom value to the
+[TZ](https://developer.apple.com/forums/thread/86951#263395) environment variable via the `appium:processArguments` capability.
 
 ---
 

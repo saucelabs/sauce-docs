@@ -885,7 +885,7 @@ module.exports = {
                         'basics/environment-variables',
                         {
                             type: 'category',
-                            label: 'Account and Team Management',
+                            label: 'Account and Organization Management',
                             collapsed: true,
                             items: [
                                 'basics/acct-team-mgmt-hub',
@@ -895,13 +895,13 @@ module.exports = {
                                     label: 'Managing Users and Accounts',
                                     collapsed: true,
                                     items: [
-                                        'basics/acct-team-mgmt/concurrency-limits',
                                         'basics/acct-team-mgmt/adding-deactivating-users',
                                         'basics/acct-team-mgmt/managing-user-info',
                                         'basics/acct-team-mgmt/viewing-exporting-usage-data',
                                         'basics/acct-team-mgmt/switching-active-team',
                                     ],
                                 },
+                                'basics/acct-team-mgmt/concurrency/managing-concurrency',
                                 {
                                     type: 'category',
                                     label: 'Managing Teams',
@@ -1031,9 +1031,25 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'secure-connections/sauce-connect-5',
-                        'secure-connections/sauce-connect-5/installation',
                         'secure-connections/sauce-connect-5/quickstart',
+                        {
+                            link: {
+                                type: 'doc',
+                                id: 'secure-connections/sauce-connect-5/installation',
+                            },
+                            type: 'category',
+                            label: 'Installation',
+                            collapsed: true,
+                            items: [
+                                'secure-connections/sauce-connect-5/installation/linux',
+                                'secure-connections/sauce-connect-5/installation/macos',
+                                'secure-connections/sauce-connect-5/installation/windows',
+                                'secure-connections/sauce-connect-5/installation/docker',
+                                'secure-connections/sauce-connect-5/installation/kubernetes',
+                            ],
+                        },
                         'secure-connections/sauce-connect-5/migrating',
+                        'secure-connections/sauce-connect-5/monitoring',
                         {
                             type: 'category',
                             label: 'Setup and Configuration',
@@ -1043,11 +1059,7 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/operation/configuration',
                                 'secure-connections/sauce-connect-5/operation/proxies',
                                 'secure-connections/sauce-connect-5/operation/api-server',
-                                'secure-connections/sauce-connect-5/operation/monitoring',
                                 'secure-connections/sauce-connect-5/operation/readiness-checks',
-                                'secure-connections/sauce-connect-5/operation/docker',
-                                'secure-connections/sauce-connect-5/operation/kubernetes',
-                                'secure-connections/sauce-connect-5/operation/systemd',
                             ],
                         },
                         {
@@ -1354,6 +1366,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'mobile-apps/features/appium-inspector',
+                        'mobile-apps/features/network-throttling',
                         'mobile-apps/features/biometric-authentication',
                         'mobile-apps/features/camera-image-injection',
                         'mobile-apps/features/audio-capture',
@@ -1495,6 +1508,7 @@ module.exports = {
                             items: [
                                 'web-apps/automated-testing/playwright',
                                 'web-apps/automated-testing/playwright/quickstart',
+                                'web-apps/automated-testing/playwright/selenium-grid',
                                 'web-apps/automated-testing/playwright/yaml',
                                 'web-apps/automated-testing/playwright/advanced',
                             ],
@@ -1507,6 +1521,7 @@ module.exports = {
                                 'web-apps/automated-testing/cucumberjs-playwright/quickstart',
                                 'web-apps/automated-testing/cucumberjs-playwright/yaml',
                                 'web-apps/automated-testing/cucumberjs-playwright/advanced',
+                                'web-apps/automated-testing/cucumberjs-playwright/limitations',
                             ],
                         },
                         {
@@ -1530,8 +1545,18 @@ module.exports = {
                                 'web-apps/automated-testing/replay/yaml',
                             ],
                         },
+                        {
+                            type: 'category',
+                            label: 'CDP / BiDi (Beta)',
+                            collapsed: true,
+                            items: [
+                                'web-apps/automated-testing/cdp-bidi',
+                                'web-apps/automated-testing/cdp-bidi/examples',
+                            ],
+                        },
                     ],
                 },
+                'web-apps/automated-testing/web-automated-faq',
             ],
         },
         {
@@ -1679,6 +1704,7 @@ module.exports = {
                     items: [
                         'visual-testing/workflows/test-execution',
                         'visual-testing/workflows/review',
+                        'visual-testing/workflows/ci',
                     ],
                 },
                 {
@@ -1687,10 +1713,13 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'visual-testing/integrations/cypress',
+                        'visual-testing/integrations/csharp',
                         'visual-testing/integrations/java',
                         'visual-testing/integrations/nightwatch',
                         'visual-testing/integrations/storybook',
                         'visual-testing/integrations/webdriverio',
+                        'visual-testing/integrations/python',
+                        'visual-testing/integrations/python-robot-framework',
                     ],
                 },
                 'visual-testing/faq',

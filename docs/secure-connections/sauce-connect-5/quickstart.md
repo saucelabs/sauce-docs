@@ -31,7 +31,8 @@ See the [installation instructions](/secure-connections/sauce-connect-5/installa
 2. Log in to Sauce Labs.
 3. Go to the [**Tunnel Proxies**](https://app.saucelabs.com/tunnels) page.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsPage.png')} alt="Sauce Connect Proxy Tunnels page" width="400"/>
 4. Under step 2, **Authenticate & connect**, copy the code snippet.<br/><img src={useBaseUrl('img/sauce-connect/configureAuth.png')} alt="Sauce Connect Proxy Tunnels page snippet" width="300"/>
-   <details><summary>What is this?</summary>
+   <details>
+   <summary>What is this?</summary>
    This snippet contains your authentication credentials (username and access key), selects a Sauce Labs Data Center, and applies a name to your tunnel. Optionally, you can rename your tunnel by replacing the value after the <code>--tunnel-name</code> flag.
    </details>
 5. Paste the snippet into your terminal and run it. This will launch the tunnel.

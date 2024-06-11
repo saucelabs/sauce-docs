@@ -56,7 +56,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 14. In the **SAML Certificates** section for **Federation Metadata XML**, click **Download**.
     <img src={useBaseUrl('img/basics/sso/idp-config/azure/download-metadata.png')} alt="Download Metadata" width="700" />
 
-15. Use the metadata file from the previous step and set up the SSO integration at Sauce Labs in [Team Management Panel](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider).
+15. Use the metadata file from the previous step and set up the SSO integration at Sauce Labs in [Organization Management Panel](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider).
 
 16. Test the integration using the [IdP-initiated and the SP-initiated login](/basics/sso/logging-in-via-sso).
 

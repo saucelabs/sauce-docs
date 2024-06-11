@@ -3,14 +3,9 @@ sidebar_label: Storybook
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import EnvironmentVariables from '../_partials/_environment-variables.md';
 
 # Storybook Integration
-
-:::note Important
-Access to this feature is currently limited to Enterprise customers as part of our commitment to providing tailored solutions. We are excited to announce that self-service access is under development and will be released shortly. Stay tuned!
-:::
 
 An extension for [Storybook's test-runner](https://github.com/storybookjs/test-runner) powered by [Jest](https://jestjs.io/) and [Playwright](https://playwright.dev/) to integrate effortless visual testing with Sauce Visual.
 
@@ -23,7 +18,7 @@ All tests are run in a headless [browser](#different-browsers) on your local mac
 
 ## Compatibility
 
-This package leverage's Storybook's test-runner and metadata generation system for enabling automatic testing of Storybook stories. We recommend running Storybook `^6.4.0` and an up-to-date version of the Storybook test-runner (`>=0.13.0` at time of writing).
+This package leverage's Storybook's test-runner and metadata generation system for enabling automatic testing of Storybook stories. We recommend running Storybook `^7.0.0 || ^8.0.0` and an up-to-date version of the Storybook test-runner (`>=0.17.0` at time of writing).
 
 ## Getting Started
 
@@ -88,10 +83,10 @@ module.exports = {
 
 ```js
 // .storybook/test-runner.js
-const { postRender } = require('@saucelabs/visual-storybook');
+const { postVisit } = require('@saucelabs/visual-storybook');
 
 module.exports = {
-  postRender,
+  postVisit,
 };
 ```
 
@@ -128,17 +123,9 @@ npx test-storybook
 
 ## Customizing Your Builds (Environment Variables)
 
-Below are the environment variables available in the visual-storybook plugin:
+Below are the environment variables available in the visual-storybook plugin. Keep in mind that the variables defined in Storybook configuration have precedence over these.
 
-| Variable Name           |          | Description                                                                                                                                                                                                                      |
-| ----------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `SAUCE_USERNAME`        | required | Your Sauce Labs username. You can get this from the header of app.saucelabs.com                                                                                                                                                  |
-| `SAUCE_ACCESS_KEY`      | required | Your Sauce Labs access key. You can get this from the header of app.saucelabs.com                                                                                                                                                |
-| `SAUCE_REGION`          |          | The region you'd like to run your Visual tests in. Defaults to `us-west-1` if not supplied. Can be one of the following: <br/> `'eu-central-1'`, `'us-west-1'` or `'us-east-4'`                                                  |
-| `SAUCE_BUILD_NAME`      |          | The name you would like to appear in the Sauce Visual dashboard. Defaults to 'Storybook Build'                                                                                                                                   |
-| `SAUCE_BRANCH_NAME`     |          | The branch name or tag you would like to associate this build with. We recommend using your current VCS branch in CI.                                                                                                            |
-| `SAUCE_PROJECT_NAME`    |          | The label / project you would like to associated this build with.                                                                                                                                                                |
-| `SAUCE_VISUAL_BUILD_ID` |          | For advanced users, a custom build ID. Can be used to create builds in advance. This can be used to parallelize tests, shard, or more. <br/> By default, this is not set and we create / finish a build during setup / teardown. |
+<EnvironmentVariables />
 
 ## Story / Global Configuration
 
@@ -149,7 +136,8 @@ The below configuration options are also exported as the type `SauceVisualParams
 Parameters key: `sauceVisual`
 
 | Key            | Type      | Default           | Description                                                                                                                                                                                                                                                                                                                               |
-|----------------|-----------|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:---------------|:----------|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `captureDom`   | `boolean` | `true`            | Toggles DOM snapshot capture.                                                                                                                                                                                                                                                                                                             |
 | `clip`         | `boolean` | `true`            | If the story & layout supports it, will automatically clip to the `clipSelector` to remove extraneous whitespace. Recommended to be used in conjunction with [`centered` layout](https://storybook.js.org/docs/configure/story-layout#global-layout). Currently defaults to `false`, however, will default to `true` in a future version. |
 | `clipSelector` | `string`  | `#storybook-root` | The selector to clip to when `clip = true`. Defaults to Storybook's default root element, `#storybook-root`.                                                                                                                                                                                                                              |
 | `delay`        | `number`  | `0` (no delay)    | A number, in ms, that we should delay the snapshot by. Useful if the beginning of the story has unavoidable / javascript animations.                                                                                                                                                                                                      |
@@ -176,7 +164,7 @@ export default meta;
 
 ## Different Browsers and Devices
 
-By default the tests are run on your local machine/in your pipeline with Chromium. You have the option to run them on different [browser and device configurations](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json) preconfigured by playwright or define your own device, a combination or all of them. To do so, you need to add the following to your `test-runner-jest.config.js` file:
+By default, the tests are run on your local machine/in your pipeline with Chromium. You have the option to run them on different [browser and device configurations](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json) preconfigured by playwright or define your own device, a combination or all of them. To do so, you need to add the following to your `test-runner-jest.config.js` file:
 
 ```js
 const { getJestConfig } = require('@storybook/test-runner');
@@ -219,3 +207,7 @@ If you'd like to configure your own devices, please follow the configuration ste
 </div>
 
 We have a separate Storybook plugin, `@saucelabs/storybook-variants`, available for rendering all variants of a component in a grid to ease the testing and development process. Read the full [README on NPM](https://www.npmjs.com/package/@saucelabs/storybook-variants) for installation & usage.
+
+## Example
+
+An example project is available [here](https://github.com/saucelabs/visual-examples/tree/main/storybook).

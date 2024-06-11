@@ -51,7 +51,8 @@ Sauce Labs API Testing will validate the API producer (server) side by creating 
 
 Optionally, you can add further [assertions](/api-testing/composer/) here to your test, which will perform functional testing on top of your contract tests and fully validate the APIs are working as intended.
 
-<details><summary>What is functional testing?</summary>
+<details>
+<summary>What is functional testing?</summary>
 <i>Functional testing</i> is a more robust, data-driven method that checks the API logic and consumer flows. If your organization is creating a large-scale API program that will have public APIs with third-party consumers, for example, functional testing is ideal. That's where adding functional testing to complement your contract testing strategy can give your development team insight into how accurately your APIs render, and ultimately bring products to market faster.
 </details>
 
@@ -72,7 +73,8 @@ docker run --pull always -v "$(pwd)/myspec:/specs" \
 --logger https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{SAUCE_API_ENDPOINT}/{hook_id}/insights/events/_contract
 ```
 
-<details><summary>Want to run Piestry as part of a build?</summary>
+<details>
+<summary>Want to run Piestry as part of a build?</summary>
 
 Alternatively, you can run the command as a [build](/api-testing/project-dashboard/#test-build-reports) by issuing the following launch command instead of the above:
 

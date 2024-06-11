@@ -1,3 +1,4 @@
+const unwrapJsx = require('./src/plugins/unwrap-jsx');
 const docusaurusConfig = {
     title: 'Sauce Labs Documentation',
     tagline: 'Test all the things.',
@@ -7,7 +8,7 @@ const docusaurusConfig = {
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'throw',
-    favicon: 'img/favicon2023.png',
+    favicon: '/img/favicon.ico',
     organizationName: 'saucelabs',
     projectName: 'sauce-docs',
     customFields: {
@@ -129,6 +130,7 @@ const docusaurusConfig = {
                         'https://github.com/saucelabs/sauce-docs/edit/main/',
                     showLastUpdateAuthor: true,
                     showLastUpdateTime: true,
+                    remarkPlugins: [unwrapJsx],
                 },
                 googleAnalytics: {
                     trackingID: 'UA-6735579-1',
@@ -147,7 +149,7 @@ const docusaurusConfig = {
             },
         ],
     ],
-    themes: ['@saucelabs/theme-github-codeblock'],
+    themes: ['docusaurus-theme-github-codeblock'],
     plugins: ['./src/plugins/beamer'],
 };
 

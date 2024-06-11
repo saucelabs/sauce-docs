@@ -7,7 +7,6 @@ sidebar_label: Appium Inspector
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <p><small><span className="sauceGreen">Real Devices Only</span></small></p>
-<p><small><span className="sauceGreen">BETA</span></small></p>
 
 Appium Inspector is a powerful tool built on top of the Appium test automation framework to help simplify the process of writing/debugging tests for mobile applications on real devices. This helps to automate a new application or feature in your native application. The tool is designed to help you select specific elements in your application for test automation, so you will be able to debug issues in your test automation scripts in a timely manner.
 Our latest solution seamlessly integrates into the Sauce Labs environment, requires no additional configuration on your end and it removes the burden of installing a 3rd party tool. 
@@ -52,6 +51,8 @@ When you click on the desired UI element we will pin the App Source and the Sele
 The App Source view will get you the detailed breakdown of your native applications view hierarchy in an XML tree structure.
 We are using the same getPageSource command as Appium to get the detailed source elements, attributes, and view hierarchy. [See more here.](https://appium.io/docs/en/2.4/commands/base-driver/#getpagesource) 
 
+In addition, you can Copy and Download the App Source along with its attributes for seamless debugging and collaboration with colleagues for effective troubleshooting.
+
 <img src={useBaseUrl('img/mobile-apps/Appium-inspector-app-source.png')} alt="Appium Inspector App Source" width="450"/>
 
 ## Using Selected Element attributes
@@ -65,10 +66,13 @@ You can find unique locators or IDs for your automation script with the element 
 In addition, this helps to view Accessibility elements in your native application. This allows you to validate what an accessibility tool would see and what type of information can be read from your application source.
 
 List of Selectors: (These can be used for your automated test scripts) 
-Class Name 
-Xpath
-id
-Accessibility id
+* id
+* Accessibility id
+* Class Name (Android only)
+* Name (iOS only)
+* -ios class chain (iOS only)
+* -ios predicate string (iOS only)
+* Xpath
 
 Attributes: (These help with debugging or deciding what actions you can make with a given Selector)
 Displayed 
@@ -91,7 +95,21 @@ Width
 Height
 x/y coordinates
 
-### Limitations
+## Hybrid Apps / WebView
+
+Utilize [Dev Tools](https://docs.saucelabs.com/web-apps/live-testing/dev-tools/) to validate hybrid or web views within native applications. 
+This feature enables seamless validation of web content integrated within native apps, providing comprehensive testing capabilities for a 
+smooth user experience across different platforms.
+
+## More Tools
+
+### Find Element
+The Find Element functionality allows you to validate locating an element using various locator strategies directly within Appium Inspector. 
+Once the element is successfully located, you can effortlessly trigger a tap action on it, streamlining the element identification and 
+interaction process for efficient testing and debugging.
+
+
+## Limitations
 
 :::note Limitations
 

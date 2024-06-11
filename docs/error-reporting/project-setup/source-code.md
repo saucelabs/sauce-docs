@@ -37,12 +37,12 @@ Use the "Add a Github repository" button to begin configuring a repository.
 
 - Connection Information: Backtrace Source Control can integrate with GIT based systems. You must provide a Name, URL (HTTP or SSH based), and Authentication method (None, User Name / Password, SSH Key).
   - NOTE - You may need to work with your source control system to get the proper URL and credentials to provide access to your SCM.
-- Revisions: GIT systems take snapshots of the source code at different times and manage those as Revisions. You can specify the ordered list of Revisions to try when searching for matching source code. Acceptable revision types include branch names, tags, as well as short and long SHA-1 hashes. You can specify an attribute to be dynamically included in the revision string by using {attribute} template syntax.
+- Revisions: GIT systems take snapshots of the source code at different times and manage those as Revisions. You can specify the ordered list of Revisions to try when searching for matching source code. Acceptable revision types include branch names, tags, as well as short and long SHA-1 hashes. You can specify an attribute to be dynamically included in the revision string by using \{attribute} template syntax.
 
-By default, we'll check the main branch, but we expect you will want to specify more granular branches to be checked first. For example, a common pattern is to have 'release/{application}/{version}' as a standard way to tag releases. Other examples:
+By default, we'll check the main branch, but we expect you will want to specify more granular branches to be checked first. For example, a common pattern is to have 'release/\{application}/\{version}' as a standard way to tag releases. Other examples:
 
-- release/{version}
-- {commit}
+- release/\{version}
+- \{commit}
 - 729e0d9a
 - master
 - main
@@ -58,11 +58,11 @@ Use the "Add a Perforce Depot" button to begin configuring a repository.
 - Connection Information: Backtrace Source Control can integrate with Perforce systems using the p4 command line utility. You must provide a Name, Host and Port, User Name and Password.
 - Source Code Depot Paths: You will need to specify a list of depot paths to try, in order, when searching for matching source code.
 
-You can specify an attribute to be dynamically included in the path by using {attribute} template syntax.
-For example, you might choose to first search "//depot/releases/{version}/" followed by "//depot/develop/". If the version attribute is set to '1.15' on the error that you are inspecting, then it will be used to create a search path of "//depot/releases/1.15/".
+You can specify an attribute to be dynamically included in the path by using \{attribute} template syntax.
+For example, you might choose to first search "//depot/releases/\{version}/" followed by "//depot/develop/". If the version attribute is set to '1.15' on the error that you are inspecting, then it will be used to create a search path of "//depot/releases/1.15/".
 Some examples:
 
-- //depot/project/release/{version}
+- //depot/project/release/\{version}
 - //depot/project/main/
 - //depot/project/develop/
 
@@ -82,7 +82,7 @@ Some frame will get a 'Not enough information to locate source code'. That means
 
 ### Multiple Repositories and Rules
 
-By default, we search each repository in sequential order to try to find relevant source code. If you see incorrect information being displayed, you can "Add a rule" to nudge the system to one repository over another. Rules take the form "if a <attribute / file name / function name / object name> has a certain value, use or skip a specific repository.
+By default, we search each repository in sequential order to try to find relevant source code. If you see incorrect information being displayed, you can "Add a rule" to nudge the system to one repository over another. Rules take the form "if a \<attribute / file name / function name / object name> has a certain value, use or skip a specific repository.
 
 <img src={useBaseUrl('img/error-reporting/project-settings/source-code-rules.webp')} alt="" />
 

@@ -254,6 +254,21 @@ sauce:
 
 ---
 
+#### `timeout`
+
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+How long to wait for the specified tunnel to be ready. Supports duration values like '10s', '30m' etc. (default: 30s)
+
+```yaml
+sauce:
+  tunnel:
+    name: your_tunnel_name
+    timeout: 30s
+```
+
+---
+
 ### `visibility`
 
 <p><small>| OPTIONAL | STRING |</small></p>
@@ -376,6 +391,10 @@ npm:
     - url: https://private.registry.company.org
       scope: "@company"
       authToken: secretToken
+      auth: base64SecretToken
+      username: myUsername
+      password: myPassword
+      email: myEmail 
 ```
 
 ---
@@ -421,6 +440,66 @@ npm:
   registries:
     - url: https://registry.npmjs.org
       authToken: secretToken
+```
+
+---
+
+#### `auth`
+
+Specifies the Base64-encoded authentication string for the registry entry.
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+```yaml
+npm:
+  registries:
+    - url: https://registry.npmjs.org
+      auth: base64SecretToken
+```
+
+---
+
+#### `username`
+
+Specifies the username for authentication with the registry.
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+```yaml
+npm:
+  registries:
+    - url: https://registry.npmjs.org
+      username: myName
+```
+
+---
+
+#### `password`
+
+Specifies the password for authentication with the registry.
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+```yaml
+npm:
+  registries:
+    - url: https://registry.npmjs.org
+      password: myPassword
+```
+
+---
+
+#### `email`
+
+Specifies the email associated with the registry account.
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+```yaml
+npm:
+  registries:
+    - url: https://registry.npmjs.org
+      email: myEmail
 ```
 
 ---
@@ -520,6 +599,7 @@ Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP PO
 ```yaml
 reporters:
   json:
+    enabled: true
     webhookURL: https://my-webhook-url
 ```
 
@@ -534,6 +614,7 @@ Specifies the report filename. Defaults to "saucectl-report.json".
 ```yaml
 reporters:
   json:
+    enabled: true
     filename: my-saucectl-report.json
 ```
 
@@ -570,6 +651,35 @@ artifacts:
 
 ---
 
+### `retain`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Define directories to archive and retain as a test asset at the end of a test run. Archived test assets can
+be downloaded automatically using the `download` configuration, via the 
+[REST API](/dev/api/jobs/#get-a-job-asset-file), or through the test details page.
+
+```yaml
+artifacts:
+  retain:
+    source-directory: destination-archive.zip
+  download:
+    when: always
+    match:
+      - destination-archive.zip
+    directory: ./artifacts/
+```
+
+:::note
+The source and destination will be relative to the `rootDir` defined in your configuration.
+:::
+
+:::note
+The destination archive must have a .zip file extension.
+:::
+
+---
+
 ### `download`
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
@@ -578,6 +688,7 @@ Specifies the settings related to downloading artifacts from tests run by `sauce
 
 ```yaml
 artifacts:
+  cleanup: true
   download:
     when: always
     match:
@@ -600,6 +711,7 @@ Specifies when and under what circumstances to download artifacts. Valid values 
 
 ```yaml
 artifacts:
+  cleanup: true
   download:
     when: always
 ```
@@ -614,10 +726,11 @@ Specifies which artifacts to download based on whether they match the name or fi
 
 ```yaml
 artifacts:
+  cleanup: true
   download:
-    match:
-      - junit.xml
-      - "*.log"
+  match:
+    - junit.xml
+    - "*.log"
 ```
 
 ---
@@ -630,6 +743,7 @@ Specifies the path to the folder location in which to download artifacts. A sepa
 
 ```yaml
 artifacts:
+  cleanup: true
   download:
     directory: ./artifacts/
 ```
@@ -894,7 +1008,7 @@ Specifies the path to the Cucumber configuration file. See the [Cucumber.js Conf
 
 ```yaml
 suites:
-  - name: "saucy test"
+  - name: My Cucumber Test
     options:
       config: "my_cucumber_config.js"
 ```
@@ -909,7 +1023,7 @@ Specifies with regular expression matching which Cucumber scenarios to run. See 
 
 ```yaml
 suites:
-  - name: "saucy test"
+  - name: My Cucumber Test
     options:
       name: ".*My Cucumber Scenario"
 ```
@@ -924,7 +1038,7 @@ Paths to feature files. See the [Cucumber.js Configuration documentation](https:
 
 ```yaml
 suites:
-  - name: "saucy test"
+  - name: My Cucumber Test
     options:
       paths:
         - "features/**/*.feature"
@@ -940,7 +1054,7 @@ Excludes test files to skip the tests. You can use glob pattern to indicate all 
 
 ```yaml
 suites:
-  - name: "saucy test"
+  - name: My Cucumber Test
     options:
       excludedTestFiles: ["features/failed/**/*.feature"]
 ```
@@ -955,7 +1069,7 @@ Specifies whether to show the full backtrace for errors.
 
 ```yaml
 suites:
-  - name: "saucy test"
+  - name: My Cucumber Test
     options:
       backtrace: true
 ```
@@ -970,7 +1084,7 @@ Paths to your support code for CommonJS. See the [Cucumber.js Configuration docu
 
 ```yaml
 suites:
-  - name: "saucy test"
+  - name: My Cucumber Test
     options:
       require:
         - "features/support/*.js"
@@ -1002,7 +1116,7 @@ Tag expression to filter which Cucumber scenarios run. See the [Cucumber.js Filt
 
 ```yaml
 suites:
-  - name: "saucy test"
+  - name: My Cucumber Test
     options:
       tags:
         - "@smoke"
@@ -1019,7 +1133,7 @@ Name/path and (optionally) output file path of each formatter to use. See the [C
 
 ```yaml
 suites:
-  - name: "saucy test"
+  - name: My Cucumber Test
     options:
       format:
         - "json:my-cucumber.json"
@@ -1035,7 +1149,7 @@ Options to provide to formatters. See the [Cucumber.js Formatters documentation]
 
 ```yaml
 suites:
-  - name: "saucy test"
+  - name: My Cucumber Test
     options:
       formatOptions:
         someOption: true

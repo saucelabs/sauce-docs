@@ -4,6 +4,13 @@ title: Disabling CSS Animations
 sidebar_label: CSS Animations
 ---
 
+:::warning Screener End-of-life
+
+The Screener visual testing solution is going to be discontinued on May 31st, 2024. You can migrate to the new Sauce Labs Visual Testing solution by following the [integration steps](/visual-testing/).
+
+If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+:::
+
 ## CSS Animations
 
 Because CSS Animations may cause inconsistency in your screenshots and possible failure of your visual tests, we've automatically disabled CSS Animations to help ensure consistent results.

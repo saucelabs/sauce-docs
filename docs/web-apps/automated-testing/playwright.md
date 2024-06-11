@@ -37,6 +37,42 @@ Sauce Labs supports the following test configurations for Playwright:
   </tr>
   <tbody>
     <tr>
+      <td rowspan='2'>1.44.0</td>
+      <td rowspan='2'>20</td>
+      <td><b>macOS:</b> 12, 13</td>
+      <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
+      <td rowspan='2'>May 28, 2025</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='2'>1.43.1</td>
+      <td rowspan='2'>20</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
+      <td rowspan='2'>April 15, 2025</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='2'>1.41.2</td>
+      <td rowspan='2'>20</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
+      <td rowspan='2'>February 28, 2025</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
       <td rowspan='2'>1.41.0</td>
       <td rowspan='2'>20</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
@@ -119,30 +155,6 @@ Sauce Labs supports the following test configurations for Playwright:
       <td><b>Windows:</b> 10, 11</td>
     </tr>
   </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='2'>1.33.0</td>
-      <td rowspan='2'>18</td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
-      <td rowspan='2'>May 11, 2024</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='2'>1.31.1</td>
-      <td rowspan='2'>16</td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
-      <td rowspan='2'>Mar 01, 2024</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-    </tr>
-  </tbody>
 </table>
 
 ## How to Get Started
@@ -171,10 +183,6 @@ Local websites can still be loaded.
 
 Webkit is not working on macOS 11 since Playwright 1.29.0
 
-### Playwright + Cucumber
-
-Based on current Playwright test runner implementation, there is no way to run Playwright test runner with Cucumber.
-
 ### Playwright HTML Reporter + Trace Viewer
 
 Because of a limitation in how assets are stored on our platform, configuring your tests to use the built-in [HTML reporter](https://playwright.dev/docs/test-reporters#html-reporter) and Playwright's [Trace Viewer](https://playwright.dev/docs/trace-viewer-intro) feature will not work as expected.
@@ -188,3 +196,11 @@ browserType.launch: Chromium distribution 'chrome' is not found at C:\Users\sauc
 ```
 
 This is because playwright's project specific settings override the global configuration that Sauce Labs provides during runtime. In this case, the location of the browser binary. Make sure that `launchOptions` are not set when running on a Sauce VM.
+
+### Webkit + Windows
+
+There is a [known issue](https://github.com/microsoft/playwright/issues/24512) in Playwright that prevents some sites from loading in Webkit on Windows with the error `SSL peer certificate or SSH remote key was not OK`. We recommend running your Playwright + Webkit tests on our Mac VMs by setting the [platformName](https://docs.saucelabs.com/web-apps/automated-testing/playwright/yaml/#platformname) to either `macOS 13` or `macOS 12`.
+
+:::note
+Tests running through Sauce Tunnels are unaffected.
+:::

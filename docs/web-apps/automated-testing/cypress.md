@@ -36,6 +36,42 @@ Sauce Labs supports the following test configurations for Cypress:
   </tr>
   <tbody>
     <tr>
+      <td rowspan='2'>13.10.0</td>
+      <td rowspan='2'>20</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
+      <td rowspan='2'>May 28, 2025</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='2'>13.7.3</td>
+      <td rowspan='2'>20</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
+      <td rowspan='2'>April 15, 2025</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='2'>13.6.6</td>
+      <td rowspan='2'>20</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
+      <td rowspan='2'>February 28, 2025</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
       <td rowspan='2'>13.6.3</td>
       <td rowspan='2'>20</td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
@@ -113,30 +149,6 @@ Sauce Labs supports the following test configurations for Cypress:
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
       <td rowspan='2'>June 16, 2024</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='2'>12.11.0</td>
-      <td rowspan='2'>18</td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
-      <td rowspan='2'>May 11, 2024</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='2'>12.6.0</td>
-      <td rowspan='2'>16</td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
-      <td rowspan='2'>Mar 01, 2024</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>

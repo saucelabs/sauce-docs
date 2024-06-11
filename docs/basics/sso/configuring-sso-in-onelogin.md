@@ -22,7 +22,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 6. In the **More actions** menu, click **SAML Metadata**. You will download identity provider metadata.
    <img src={useBaseUrl('img/basics/sso/idp-config/onelogin/download-metadata.png')} alt="Download Metadata" width="250" />
 
-7. Use the metadata file from the previous step and set up the SSO integration at Sauce Labs in [Team Management Panel](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider).
+7. Use the metadata file from the previous step and set up the SSO integration at Sauce Labs in [Organization Management Panel](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider).
 8. Next, you assign users to the application in Auth0:
 
    1. In the **Users** menu select **Users**.
