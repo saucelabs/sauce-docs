@@ -34,6 +34,7 @@ Here are some benefits/use cases for using containerized Sauce Connect Proxy:
     </details>
 2. To run the Sauce Connect Proxy Docker image, modify and run the script below.
 
+<<<<<<< HEAD
    ```bash
    $ SAUCE_USERNAME="<enter username here>" SAUCE_ACCESS_KEY="<enter access key here>" SAUCE_REGION="us-west" SAUCE_TUNNEL_NAME="my-tunnel-name" \
    docker run \
@@ -43,6 +44,19 @@ Here are some benefits/use cases for using containerized Sauce Connect Proxy:
        -e SAUCE_TUNNEL_NAME=${SAUCE_TUNNEL_NAME} \
        --network="host" \
        -it saucelabs/sauce-connect:5.0
+=======
+   ```shell
+   #!/bin/bash
+
+# Note that while region value `us-west` is used, update to `eu-central` if you are using that data center.
+   docker run \
+       -e SAUCE_USERNAME="<enter username here>"  \
+       -e SAUCE_ACCESS_KEY="<enter access key here>"  \
+       -e SAUCE_REGION="us-west"  \
+       -e SAUCE_TUNNEL_NAME="<enter tunnel name here>" \
+       --network="host" \
+       -it saucelabs/sauce-connect:latest
+>>>>>>> 3e60aadb (docs: Update docs with feedback)
    ```
    If desired, you can specify any additional [`sc run` options](/dev/cli/sauce-connect-5/run/) as environment variables.
 
