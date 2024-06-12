@@ -912,6 +912,7 @@ module.exports = {
                                         'basics/acct-team-mgmt/sauce-connect-proxy-tunnels',
                                     ],
                                 },
+                                'basics/acct-team-mgmt/private-device-mgmt',
                             ],
                         },
                         {
