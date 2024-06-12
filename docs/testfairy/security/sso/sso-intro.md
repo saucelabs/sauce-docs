@@ -1,7 +1,7 @@
 ---
 id: sso-intro
 title: SSO
-sidebar_label: SSO
+sidebar_label: Getting Started
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
