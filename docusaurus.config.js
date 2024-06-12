@@ -91,6 +91,11 @@ const docusaurusConfig = {
                     to: '/visual-testing',
                 },
                 {
+                    label: 'Beta Testing',
+                    position: 'left',
+                    to: '/testfairy',
+                },
+                {
                     label: 'Error Reporting',
                     position: 'left',
                     to: '/error-reporting/getting-started',

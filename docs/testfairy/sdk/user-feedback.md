@@ -1,7 +1,7 @@
 ---
-id: feedback
-title: Getting Feedback
-sidebar_label: Getting Feedback
+id: user-feedback
+title: Submitting User Feedback
+sidebar_label: Submitting User Feedback
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
