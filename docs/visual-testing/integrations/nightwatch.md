@@ -355,6 +355,13 @@ module.exports = {
 };
 ```
 
+### Skip Execution of Visual Tests
+
+In the event you're running / debugging tests locally and would like to disable the Sauce Visual integration temporarily, you can use the `SAUCE_VISUAL_SKIP` environment variable with any truthy value. When provided, we'll skip build creation, taking snapshots, and all snapshot based assertions will be marked as successful.
+
+Available in `@saucelabs/nightwatch-sauce-visual-service@0.6.0` and later.
+
+
 ## Example
 
 An example project is available [here](https://github.com/saucelabs/visual-examples/tree/main/nightwatch).

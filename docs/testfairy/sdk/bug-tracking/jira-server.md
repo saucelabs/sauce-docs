@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 This documentation provides step-by-step instructions on how to integrate TestFairy Connect with Jira Server for bug tracking. By following these guidelines, you can seamlessly connect TestFairy to your on-premise Jira Server either using basic authentication (user/password token) or OAuth.
 
 :::note
-To connect TestFairy to Jira Server that is installed on-prem, start by installing [TestFairy Connect](/testfairy/testing-an-app/bug-tracking/tf-connect/).
+To connect TestFairy to Jira Server that is installed on-prem, start by installing [TestFairy Connect](/testfairy/sdk/bug-tracking/tf-connect/).
 :::
 
 
