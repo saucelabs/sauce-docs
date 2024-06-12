@@ -179,9 +179,13 @@ We recommend that you avoid the use of special characters when naming your tests
 When using Sauce-Connect, Webkit browser is unable to load any website that is hosted on the Internet.
 Local websites can still be loaded.
 
+### macOS 12 + Playwright 1.44+ + Webkit
+
+Webkit is not working on macOS 12 since Playwright 1.44.0.
+
 ### macOS 11 + Playwright 1.29+ + Webkit
 
-Webkit is not working on macOS 11 since Playwright 1.29.0
+Webkit is not working on macOS 11 since Playwright 1.29.0.
 
 ### Playwright HTML Reporter + Trace Viewer
 
