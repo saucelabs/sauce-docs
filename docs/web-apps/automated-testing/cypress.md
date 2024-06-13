@@ -201,3 +201,4 @@ Cypress does not currently work with Microsoft Edge 120+ on Windows.
 - Cypress only supports launching Webkit with a fixed resolution of 1280x720.
 - Cypress 12.6.0 does not work on Windows with Webkit browser.
 - Cypress 12+ does not work on macOS 11 with Webkit browser.
+- Cypress 13.10.0+ does not work on macOS 12 with Webkit browser.
