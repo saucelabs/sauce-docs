@@ -28,24 +28,29 @@ The following table shows the allowed range of supported network condition param
   <thead>
     <tr>
       <th>Network Condition</th>
+      <th>Parameter</th>
       <th>Range</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Download speed</td>
+      <td>downloadSpeed</td>
       <td>0 - 50000 kbps</td>
     </tr>
     <tr>
       <td>Upload speed</td>
+      <td>uploadSpeed</td>
       <td>0 - 50000 kbps</td>
     </tr>
     <tr>
       <td>Latency</td>
+      <td>latency</td>
       <td>0 - 3000 ms</td>
     </tr>
     <tr>
       <td>Packet loss</td>
+      <td>loss</td>
       <td>0 - 100 %</td>
     </tr>
   </tbody>
@@ -61,6 +66,7 @@ The following table shows the predefined network profiles along with their corre
   <thead>
     <tr>
       <th>Network Profile</th>
+      <th>ID</th>
       <th>Download Speed (kbps)</th>
       <th>Upload Speed (kbps)</th>
       <th>Latency (ms)</th>
@@ -69,6 +75,7 @@ The following table shows the predefined network profiles along with their corre
   </thead>
   <tbody>
     <tr>
+      <td>No Throttling</td>
       <td>no-throttling</td>
       <td>-</td>
       <td>-</td>
@@ -76,6 +83,7 @@ The following table shows the predefined network profiles along with their corre
       <td>-</td>
     </tr>
     <tr>
+      <td>No Network</td>
       <td>no-network</td>
       <td>-</td>
       <td>-</td>
@@ -83,6 +91,7 @@ The following table shows the predefined network profiles along with their corre
       <td>100</td>
     </tr>
     <tr>
+      <td>2G Packet Loss</td>
       <td>2G-packet-loss</td>
       <td>100</td>
       <td>50</td>
@@ -91,12 +100,14 @@ The following table shows the predefined network profiles along with their corre
     </tr>
     <tr>
       <td>2G</td>
+      <td>2G</td>
       <td>200</td>
       <td>100</td>
       <td>300</td>
       <td>1</td>
     </tr>
     <tr>
+      <td>3G Slow</td>
       <td>3G-slow</td>
       <td>500</td>
       <td>250</td>
@@ -104,6 +115,7 @@ The following table shows the predefined network profiles along with their corre
       <td>1</td>
     </tr>
     <tr>
+      <td>3G Fast</td>
       <td>3G-fast</td>
       <td>7000</td>
       <td>2500</td>
@@ -111,6 +123,7 @@ The following table shows the predefined network profiles along with their corre
       <td>-</td>
     </tr>
     <tr>
+      <td>4G Slow</td>
       <td>4G-slow</td>
       <td>8000</td>
       <td>4000</td>
@@ -118,6 +131,7 @@ The following table shows the predefined network profiles along with their corre
       <td>-</td>
     </tr>
     <tr>
+      <td>4G Fast</td>
       <td>4G-fast</td>
       <td>25000</td>
       <td>15000</td>
@@ -154,3 +168,4 @@ to apply one of the predefined network profiles to your session.
 ## More Information
 
 - Use [Network Capture](https://docs.saucelabs.com/mobile-apps/features/network-capture/) to debug the failures in the app.
+- Check out the [Java Appium examples](https://github.com/saucelabs-training/demo-java/tree/main/appium/appium-app/appium-app-examples/src/test/java/com/examples/network_throttling) for iOS and Android.
