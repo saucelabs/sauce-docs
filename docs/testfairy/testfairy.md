@@ -16,7 +16,7 @@ For more information, see [Managing Apps through API](/testfairy/api-reference/r
 
 ## Distribute App to Testers
 
-TestFairy offers enterprise-grade app distribution capabilities, allowing companies to easily and securely distribute the right apps to the right users. The platform allows admins to enforce corporate security policies during testing, and has the capability to automatically update apps to new versions or revoke access to installed apps or users.
+TestFairy offers enterprise-grade app distribution capabilities, allowing companies to easily and securely distribute the right apps to users like internal or external beta testers. The platform allows admins to enforce corporate security policies during testing, and has the capability to automatically update apps to new versions or revoke access to installed apps or users.
 
 For more information, see [Managing Testers](/testfairy/testers/managing-testers/).
 
