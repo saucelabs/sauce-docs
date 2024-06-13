@@ -17,9 +17,7 @@ Private device management allows an organization admin to view and manage the pr
 
 :::important
 
-- If a device is not assigned to a team, everyone in your organization can access it.
-- if a device is assigned to a team, only organization admins **and** team members can access the device.
-- **Only** organization admins can manage private devices.
+By assigning a private device to a team, you restrict access to that device to that team. **Note:** organization admins are not affected by this. Organization admins have access to all devices of their organization.
 
 :::
 
