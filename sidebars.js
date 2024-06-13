@@ -913,16 +913,6 @@ module.exports = {
                                     ],
                                 },
                                 'basics/acct-team-mgmt/private-device-mgmt',
-                                {
-                                    type: 'category',
-                                    label: 'Billing and Subscriptions',
-                                    collapsed: true,
-                                    items: [
-                                        'basics/acct-team-mgmt/managing-subscription',
-                                        'basics/acct-team-mgmt/updating-billing',
-                                        'basics/acct-team-mgmt/plan-details',
-                                    ],
-                                },
                             ],
                         },
                         {
