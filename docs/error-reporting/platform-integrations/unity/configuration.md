@@ -125,13 +125,21 @@ For more information about other data that is captured, see [Attributes](/error-
 | Symbols upload token                       | Required to automatically upload debug symbols to Backtrace. <br /> <br /> To generate a symbol upload token, in Backtrace go to Project Settings > Symbols > Access tokens > and select + to generate a new token.                                                                                                                                                                                                                    | String  |
 
 #### ProGuard Rules
-ProGuard obfuscation prevents the reflection used to get Java class names to setup a bridge between Unity and Java. Additional rules must be added to allow Backtrace to identify Java classes.
+ProGuard obfuscation prevents the reflection used to get Java class names to setup a bridge between Unity and Java. The ProGuard symbolication id must be passed to BacktraceClient, and additional ProGuard rules must be added to allow Backtrace to identify Java classes.
+<br/>
+Please follow [this guide](/error-reporting/platform-integrations/android/proguard-deobfuscation/) to enable ProGuard, and add the following:
 
-- Please follow [this guide](/error-reporting/platform-integrations/android/proguard-deobfuscation/) to enable ProGuard, and add the following rule to proguard_rules.pro:
+- Pass your ProGuard symbolication id to BacktraceClient:
+   ```java
+   var backtraceClient = GameObject.Find("manager name").GetComponent<BacktraceClient>();
+   final UUID proguardMappingUUID = UUID.fromString("f6c3e8d4-8626-4051-94ec-53e6daccce25");
+   backtraceClient.UseProguard(proguardMappingUUID.toString());
+   ```
+- Use these rules in proguard_rules.pro:
     ```
     -keep class backtraceio.unity.* { *; }
+    -keep class backtraceio.library.**.* { *; }
     ```
-
 
 #### Uploading Debug Symbols
 
