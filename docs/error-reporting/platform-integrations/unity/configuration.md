@@ -124,6 +124,15 @@ For more information about other data that is captured, see [Attributes](/error-
 | Enable client-side unwinding               | Enables callstack unwinding. If you're unable to upload all debug symbols for your app, you can use this setting to get debug information. Available only for supported versions of Android (NDK 19; Unity 2019+). <br /><br /> You can also enable this setting via the [`BacktraceConfiguration`](/error-reporting/platform-integrations/unity/configuration/#backtraceclient) object and the `.ClientSideUnwinding = true;` option. | Boolean | False   |
 | Symbols upload token                       | Required to automatically upload debug symbols to Backtrace. <br /> <br /> To generate a symbol upload token, in Backtrace go to Project Settings > Symbols > Access tokens > and select + to generate a new token.                                                                                                                                                                                                                    | String  |
 
+#### ProGuard Rules
+ProGuard obfuscation prevents the reflection used to get Java class names to setup a bridge between Unity and Java. Additional rules must be added to allow Backtrace to identify Java classes.
+
+- Please follow [this guide](/error-reporting/platform-integrations/android/proguard-deobfuscation/) to enable ProGuard, and add the following rule to proguard_rules.pro:
+    ```
+    -keep class backtraceio.unity.* { *; }
+    ```
+
+
 #### Uploading Debug Symbols
 
 You can configure the Backtrace client to automatically upload debug symbols in IL2CPP builds for Android apps.
