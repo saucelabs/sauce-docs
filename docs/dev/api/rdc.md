@@ -8,9 +8,16 @@ description: Retrieve information related to real device availability, device/pl
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Use the Real Device Cloud (RDC) API methods to look up device types and availability in your data center and view current activity on those devices.
+The Real Device Cloud (RDC) API allows you to manage real devices and jobs in your data center. Use the RDC API methods to:
+* Look up device types and availability
+* View current device activity
+* Manage real device jobs by stopping, deleting, or updating job details
+* Assign a private device to a team
+* Update private device settings
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
+
+## Real Devices
 
 ### Get Devices
 
@@ -567,6 +574,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </details>
 
 ---
+
+## Jobs
 
 ### Get Real Device Jobs
 
@@ -1322,3 +1331,44 @@ No payload is returned with the successful deletion.
 </details>
 
 ---
+
+## Private Real Device Management
+
+Learn more about how to [manage your private devices](/basics/acct-team-mgmt/private-device-mgmt).
+
+### Get Private Devices
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/deviceManagement/devices</code></summary>
+<p/>
+
+Get a list of private devices with their device information and settings.
+
+</details>
+
+### Assign Device to a Team
+<details>
+<summary><span className="api get">PUT</span> <code>/v1/rdc/deviceManagement/{device_descriptor_id}/team</code></summary>
+<p/>
+
+Assign a private device to a specific team.
+
+</details>
+
+### Remove Device Assignment from Team
+<details>
+<summary><span className="api get">DELETE</span> <code>/v1/rdc/deviceManagement/{device_descriptor_id}/team</code></summary>
+<p/>
+
+Remove the private device assignment from a team.
+
+</details>
+
+### Update Device Settings
+<details>
+<summary><span className="api get">PUT</span> <code>/v1/rdc/deviceManagement/{device_descriptor_id}/settings</code></summary>
+<p/>
+
+Update device settings to allow apps, system apps, and accounts to persist between sessions. Check out the 
+[available device settings](/basics/acct-team-management/#app-allow-list) for more information on each setting.
+
+</details>
