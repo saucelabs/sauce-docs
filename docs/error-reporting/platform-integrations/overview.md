@@ -27,7 +27,6 @@ Integrate Backtrace in your games and apps across languages and platforms with o
     <li><a href="/error-reporting/platform-integrations/unity/setup/">Unity</a></li>
     <li><a href="/error-reporting/platform-integrations/unreal/setup/">Unreal Engine</a></li>
     <li><a href="/error-reporting/platform-integrations/cryengine/">CryEngine</a></li>
-    <li><a href="/error-reporting/platform-integrations/stadia/">Stadia</a></li>
     <li><a href="/error-reporting/platform-integrations/nintendo/">Switch</a></li>
     <li><a href="/error-reporting/platform-integrations/ps4/">PlayStation 4</a></li>
     <li><a href="/error-reporting/platform-integrations/ps5/">PlayStation 5</a></li>
