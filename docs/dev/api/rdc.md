@@ -1343,6 +1343,9 @@ Learn more about how to [manage your private devices](/basics/acct-team-mgmt/pri
 
 Get a list of private devices with their device information and settings.
 
+#### Parameters
+#### Responses
+
 </details>
 
 ### Assign Device to a Team
@@ -1351,6 +1354,9 @@ Get a list of private devices with their device information and settings.
 <p/>
 
 Assign a private device to a specific team.
+
+#### Parameters
+#### Responses
 
 </details>
 
@@ -1361,6 +1367,9 @@ Assign a private device to a specific team.
 
 Remove the private device assignment from a team.
 
+#### Parameters
+#### Responses
+
 </details>
 
 ### Update Device Settings
@@ -1370,5 +1379,8 @@ Remove the private device assignment from a team.
 
 Update device settings to allow apps, system apps, and accounts to persist between sessions. Check out the 
 [available device settings](/basics/acct-team-management/#app-allow-list) for more information on each setting.
+
+#### Parameters
+#### Responses
 
 </details>
