@@ -135,8 +135,8 @@ Please follow [this guide](/error-reporting/platform-integrations/android/progua
 - Pass your ProGuard symbolication id to BacktraceClient:
    ```java
    var backtraceClient = GameObject.Find("manager name").GetComponent<BacktraceClient>();
-   final UUID proguardMappingUUID = UUID.fromString("f6c3e8d4-8626-4051-94ec-53e6daccce25");
-   backtraceClient.UseProguard(proguardMappingUUID.toString());
+   var symbolicationId = "f6c3e8d4-8626-4051-94ec-53e6daccce25";
+   backtraceClient.UseProguard(symbolicationId);
    ```
 - Use these rules in proguard_rules.pro:
     ```
