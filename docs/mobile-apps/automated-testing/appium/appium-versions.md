@@ -184,8 +184,8 @@ The following list of custom Appium plugins are supported:
         This is a collection of drivers that were released in this version <br />
         <ul>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%402.5.2" target="_blank">
-              <code>appium</code>: 2.6.0
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.10.3" target="_blank">
+              <code>appium</code>: 2.10.3
             </a>
           </li>
           <li>
@@ -194,13 +194,13 @@ The following list of custom Appium plugins are supported:
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.5.2" target="_blank">
-              <code>appium-uiautomator2-driver</code>: 3.5.2
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.5.4" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 3.5.4
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.16.2" target="_blank">
-              <code>appium-xcuitest-driver</code>: 7.16.2
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.17.5" target="_blank">
+              <code>appium-xcuitest-driver</code>: 7.17.5
             </a>
           </li>
         </ul>
