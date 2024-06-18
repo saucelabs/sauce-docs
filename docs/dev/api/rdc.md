@@ -1471,6 +1471,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </tbody>
 </table>
 
+No payload is returned with the successful assignment.
+
 </details>
 
 ---
@@ -1536,6 +1538,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   </tr>
 </tbody>
 </table>
+
+No payload is returned with the successful removal.
 
 </details>
 
