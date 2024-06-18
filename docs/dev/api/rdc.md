@@ -1338,49 +1338,320 @@ Learn more about how to [manage your private devices](/basics/acct-team-mgmt/pri
 
 ### Get Private Devices
 <details>
-<summary><span className="api get">GET</span> <code>/v1/rdc/deviceManagement/devices</code></summary>
+<summary><span className="api get">GET</span> <code>/v1/rdc/device-management/devices</code></summary>
 <p/>
 
 Get a list of private devices with their device information and settings.
 
 #### Parameters
+
+This method takes no parameters.
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices' | json_pp
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
 #### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. List of private devices is returned.</td>
+  </tr>
+</tbody>
+</table>
 
 </details>
 
+---
+
 ### Assign Device to a Team
 <details>
-<summary><span className="api get">PUT</span> <code>/v1/rdc/deviceManagement/{device_descriptor_id}/team</code></summary>
+<summary><span className="api put">PUT</span> <code>/v1/rdc/device-management/devices/&#123;device_id&#125;/team</code></summary>
 <p/>
 
 Assign a private device to a specific team.
 
 #### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>device_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a device in the Sauce Labs data center. You can look up device IDs using the <a href="#get-devices">Get Devices</a> endpoint.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>id</code></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The unique identifier of a team in the Sauce Labs organization.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/team' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"id": "8f0444d7762548bd81ae46722a14e1c6"
+}'
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/team' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"id": "8f0444d7762548bd81ae46722a14e1c6"
+}'
+```
+
+</TabItem>
+</Tabs>
+
 #### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Device successfully assigned.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Device not found.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>422</code></td>
+    <td colSpan='2'>Team not found.</td>
+  </tr>
+</tbody>
+</table>
 
 </details>
 
+---
+
 ### Remove Device Assignment from Team
 <details>
-<summary><span className="api get">DELETE</span> <code>/v1/rdc/deviceManagement/{device_descriptor_id}/team</code></summary>
+<summary><span className="api delete">DELETE</span> <code>/v1/rdc/device-management/devices/&#123;device_id&#125;/team</code></summary>
 <p/>
 
 Remove the private device assignment from a team.
 
 #### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>device_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a device in the Sauce Labs data center. You can look up device IDs using the <a href="#get-devices">Get Devices</a> endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/team' | json_pp
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/team' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
 #### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Device successfully removed from team.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Device not found.</td>
+  </tr>
+</tbody>
+</table>
 
 </details>
 
+---
+
 ### Update Device Settings
 <details>
-<summary><span className="api get">PUT</span> <code>/v1/rdc/deviceManagement/{device_descriptor_id}/settings</code></summary>
+<summary><span className="api put">PUT</span> <code>/v1/rdc/device-management/devices/&#123;device_id&#125;/settings</code></summary>
 <p/>
 
 Update device settings to allow apps, system apps, and accounts to persist between sessions. Check out the 
 [available device settings](/basics/acct-team-management/#app-allow-list) for more information on each setting.
 
 #### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>device_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a device in the Sauce Labs data center. You can look up device IDs using the <a href="#get-devices">Get Devices</a> endpoint.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>appWhitelist</code></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>Persist installed apps and app data between sessions.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>accountWhitelist</code></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>Preserve store and payment account sign-ins between sessions for each account email.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>systemAppAllowlist</code></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>Access iOS preinstalled applications.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>applePaySupportEnabled</code></td>
+       <td><p><small>| BODY | REQUIRED | BOOLEAN |</small></p><p>Enable to test Apple Pay.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>skipCleaningFolders</code></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>Retain specific file paths or folders on your private Android devices between sessions. </p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/settings' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"id": "string",
+    "appWhitelist": ["SauceLabs-Demo-App.ipa"],
+    "accountWhitelist": ["account@saucelabs.com"],
+    "systemAppAllowlist": ["com.android.chrome"],
+    "applePaySupportEnabled": false,
+    "skipCleaningFolders": []
+}'
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/settings' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"id": "string",
+    "appWhitelist": ["SauceLabs-Demo-App.ipa"],
+    "accountWhitelist": ["account@saucelabs.com"],
+    "systemAppAllowlist": ["com.apple.calculator"],
+    "applePaySupportEnabled": false,
+    "skipCleaningFolders": []
+}'
+```
+
+</TabItem>
+</Tabs>
+
 #### Responses
 
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Device settings successfully updated.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Device not found.</td>
+  </tr>
+</tbody>
+</table>
+
 </details>
+
+---
