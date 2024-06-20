@@ -28,6 +28,9 @@ To do this, you need to upload the ProGuard mapping file corresponding to the bu
    ```
    -keep class com.google.gson.**.* { *; }
    -keep class backtraceio.library.**.* { *; }
+
+   # Add this line for Unity projects:
+   -keep class backtraceio.unity.* { *; }
    ```
 
 1. Enable ProGuard mode in the `BacktraceClient`.
