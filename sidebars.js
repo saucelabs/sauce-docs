@@ -1225,6 +1225,7 @@ module.exports = {
                         'testfairy/ci-tools/bamboo',
                         'testfairy/ci-tools/bitbucket',
                         'testfairy/ci-tools/circle-ci',
+                        'testfairy/ci-tools/fastlane',
                         'testfairy/ci-tools/gitlab',
                         'testfairy/ci-tools/ms-app-ctr',
                         'testfairy/ci-tools/team-city',
