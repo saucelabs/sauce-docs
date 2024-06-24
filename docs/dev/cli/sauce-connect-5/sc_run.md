@@ -77,7 +77,6 @@ See [here](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels/).
 Denotes a tunnel as part of a high availability tunnel pool.
 See [here](/secure-connections/sauce-connect/setup-configuration/high-availability/).
 
-
 ## Tunnel traffic
 
 ### `-F, --deny-domains` {#deny-domains}
@@ -90,10 +89,10 @@ Prefix domains with '-' to exclude requests from being denied.
 Special keyword 'all' matches all domains.
 
 The following example denies requests to *.example.com and *.google.com.
+
 ```
 --deny-domains .*\.example\.com,.*\.google\.com
 ```
-
 
 ### `-D, --direct-domains` {#direct-domains}
 
@@ -109,10 +108,10 @@ Special keyword 'all' matches all domains.
 
 The following example sends requests to *.example.com and *.google.com directly.
 It would tunnel all other domains.
+
 ```
 --direct-domains .*\.example\.com,.*\.google\.com
 ```
-
 
 ### `-B, --tls-passthrough-domains` {#tls-passthrough-domains}
 
@@ -127,10 +126,10 @@ Note that direct domains will always be passed through.
 Special keyword 'all' matches all domains.
 
 The following example passes requests to *.example.com and *.google.com through without SSL/TLS re-encryption.
+
 ```
 --tls-passthrough-domains .*\.example\.com,.*\.google\.com
 ```
-
 
 ### `-b, --tls-resign-domains` {#tls-resign-domains}
 
@@ -144,10 +143,10 @@ Note that direct domains will never be resigned.
 Special keyword 'all' matches all domains.
 
 The following example resigns SSL/TLS certificates for all requests to *.myorg.dev, except abc.myorg.dev.
+
 ```
 --tls-resign-domains .*\.myorg\.dev,-abc\.myorg\.dev
 ```
-
 
 ### `-T, --tunnel-domains` {#tunnel-domains}
 
@@ -162,10 +161,10 @@ Prefix domains with '-' to exclude requests from being forwarded over the SC Pro
 Special keyword 'all' matches all domains.
 
 The following example tunnels all requests to *.myorg.dev, except abc.myorg.com.
+
 ```
 --tunnel-domains .*\.myorg\.dev,-abc\.myorg\.com
 ```
-
 
 ## Proxy
 
@@ -180,10 +179,10 @@ The flag can be specified multiple times to add multiple credentials.
 Note that all the hosts are automatically resigned as if they were passed to --tls-resign-domains flag.
 
 Example:
+
 ```
 --proxy myproxy.org:3128 --proxy-sauce https://external.com:443 --auth user1:pass1@myproxy.org:3128,user2:pass2@external.com:*
 ```
-
 
 ### `-H, --header` {#header}
 
@@ -191,11 +190,22 @@ Example:
 * Value Format: `<header>`
 
 Add or remove HTTP request headers.
-Use the format "name: value" to add a header, "name;" to set the header to empty value, "-name" to remove the header, "-name*" to remove headers by prefix.
+
+Use the format:
+
+- name:value to add a header
+- name; to set the header to empty value
+- -name to remove the header
+- -name* to remove headers by prefix
+
 The header name will be normalized to canonical form.
 The header value should not contain any newlines or carriage returns.
 The flag can be specified multiple times.
-Example: -H "Host: example.com" -H "-User-Agent" -H "-X-*".
+The following example removes the User-Agent header and all headers starting with X-.
+
+```
+-H "-User-Agent" -H "-X-*"
+```
 
 ### `-p, --pac` {#pac}
 
@@ -203,8 +213,13 @@ Example: -H "Host: example.com" -H "-User-Agent" -H "-X-*".
 * Value Format: `<path or URL>`
 
 Proxy Auto-Configuration file to use for upstream proxy selection.
-It can be a local file or a URL, you can also use '-' to read from stdin.
-The data URI scheme is supported, the format is `data:base64,<encoded data>`.
+
+Syntax:
+
+- File: `/path/to/file.pac`
+- URL: `http://example.com/proxy.pac`
+- Embed: `data:base64,<base64 encoded data>`
+- Stdin: `-`
 
 ### `-x, --proxy` {#proxy}
 
@@ -248,7 +263,6 @@ See the -x, --proxy flag for more details on the format.
 
 If more than one DNS server is specified with the --dns-server flag, passing this flag will enable round-robin selection.
 
-
 ### `-n, --dns-server` {#dns-server}
 
 * Environment variable: `SAUCE_DNS_SERVER`
@@ -269,7 +283,6 @@ The port is optional, if not specified the default port is 53.
 Timeout for dialing DNS servers.
 Only used if DNS servers are specified.
 
-
 ## HTTP client
 
 ### `--cacert-file` {#cacert-file}
@@ -279,8 +292,12 @@ Only used if DNS servers are specified.
 
 Add your own CA certificates to verify against.
 The system root certificates will be used in addition to any certificates in this list.
-Can be a path to a file or "data:" followed by base64 encoded certificate.
 Use this flag multiple times to specify multiple CA certificate files.
+
+Syntax:
+
+- File: `/path/to/file.pac`
+- Embed: `data:base64,<base64 encoded data>`
 
 ### `--http-dial-timeout` {#http-dial-timeout}
 
@@ -292,7 +309,6 @@ The maximum amount of time a dial will wait for a connect to complete.
 With or without a timeout, the operating system may impose its own earlier timeout.
 For instance, TCP timeouts are often around 3 minutes.
 
-
 ### `--http-idle-conn-timeout` {#http-idle-conn-timeout}
 
 * Environment variable: `SAUCE_HTTP_IDLE_CONN_TIMEOUT`
@@ -302,7 +318,6 @@ For instance, TCP timeouts are often around 3 minutes.
 The maximum amount of time an idle (keep-alive) connection will remain idle before closing itself.
 Zero means no limit.
 
-
 ### `--http-response-header-timeout` {#http-response-header-timeout}
 
 * Environment variable: `SAUCE_HTTP_RESPONSE_HEADER_TIMEOUT`
@@ -311,7 +326,6 @@ Zero means no limit.
 
 The amount of time to wait for a server's response headers after fully writing the request (including its body, if any).This time does not include the time to read the response body.
 Zero means no limit.
-
 
 ### `--http-tls-handshake-timeout` {#http-tls-handshake-timeout}
 
@@ -360,11 +374,25 @@ Path to the log file, if empty, logs to stdout.
 
 * Environment variable: `SAUCE_LOG_HTTP`
 * Value Format: `[api|proxy|control:]<none|short-url|url|headers|body|errors>,...`
+* Default value: `none`
 
 HTTP request and response logging mode.
-Setting this to none disables logging.
-The short-url mode logs [scheme://]host[/path] instead of the full URL.
-The error mode logs request line and headers if status code is greater than or equal to 500.
+
+Modes: 
+
+- none: no logging
+- short-url: logs [scheme://]host[/path] instead of the full URL
+- url: logs the full URL including query parameters
+- headers: logs request line and headers
+- body: logs request line, headers, and body
+- errors: logs request line and headers if status code is greater than or equal to 500
+
+Modes for different modules can be specified separated by commas.
+The following example specifies that the API module logs errors, the proxy module logs headers, and anything else logs full URL.
+
+```
+--log-http=api:errors,proxy:headers,url
+```
 
 ### `--log-level` {#log-level}
 
