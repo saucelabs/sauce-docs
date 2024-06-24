@@ -1182,6 +1182,7 @@ module.exports = {
                     label: 'Security',
                     collapsed: true,
                     items: [
+                        'testfairy/security/private-cloud',
                         {
                             type: 'category',
                             label: 'Single Sign On',
