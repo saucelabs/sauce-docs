@@ -219,6 +219,49 @@ Downloads the binary file uploaded to TestFairy.
 
 ---
 
+### Invite Additional Testers to Build
+
+<details>
+    <summary><span className="api post">POST</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/invites/</code></summary>
+<p></p>
+
+Invite one or more tester groups to this specific build. You can optionally send out an email.
+
+#### Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>groups</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>Comma separated list of tester group names or id.</p></td>
+		</tr>
+		<tr>
+			<td><code>comment</code></td>
+            <td><p><small>| OPTIONAL | STRING |</small></p><p>Additional text that will be added to the email, such as release notes.</p></td>
+		</tr>
+		<tr>
+			<td><code>notify</code></td>
+            <td><p><small>| OPTIONAL | STRING |</small></p><p>Set to <code>on</code> to send out an email to each tester. Default value is <code>off</code>.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+</details>
+
+
+---
+
 ### List All Recorded Sessions in Build
 
 <details>
