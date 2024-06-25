@@ -58,6 +58,12 @@ sudo systemctl start sauce-connect
 sudo systemctl status sauce-connect
 ```
 
+### Access logs
+
+```bash
+journalctl -u sauce-connect
+```
+
 ## RedHat/CentOS/Fedora
 
 Sauce Connect provides `.rpm` package with Systemd service for [Sauce Connect run](/dev/cli/sauce-connect-5/sc_run.md) command.
@@ -105,6 +111,12 @@ sudo systemctl start sauce-connect
 
 ```bash
 sudo systemctl status sauce-connect
+```
+
+### Access logs
+
+```bash
+journalctl -u sauce-connect
 ```
 
 ## Generic
