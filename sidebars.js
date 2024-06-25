@@ -1038,6 +1038,7 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/installation/kubernetes',
                             ],
                         },
+                        'secure-connections/sauce-connect-5/logging',
                         'secure-connections/sauce-connect-5/monitoring',
                         {
                             type: 'category',
