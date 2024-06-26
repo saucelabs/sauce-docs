@@ -60,7 +60,7 @@ Appium 2 does not have a default automation backend. Instead, the automation bac
 All Sauce Labs specific capabilities need to be put into a single object value which is called `sauce:options`. The Sauce Labs specific capabilities are can be found [here](/dev/test-configuration-options/#mobile-app-appium-capabilities-sauce-specific--optional)
 
 :::note Important
-To run your tests with Appium 2 you need to set the `appiumVersion` capability in your `sauce:options` object to `2.0.0`, see also [Appium Version](/dev/test-configuration-options/#appiumversion).
+To run your tests with Appium 2 you need to set the `appiumVersion` capability in your `sauce:options` object to `latest`, see also [Appium Version](/dev/test-configuration-options/#appiumversion).
 :::
 
 ### Driver-specific automation commands
@@ -124,7 +124,7 @@ capabilities.setCapability("appium:automationName", "uiautomator2");
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
 // appiumVersion is mandatory to use Appium 2
-sauceOptions.put("appiumVersion", "2.0.0-beta56");
+sauceOptions.put("appiumVersion", "2.0.0");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
@@ -144,7 +144,7 @@ capabilities.setCapability("appium:automationName", "xcuitest");
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
 // appiumVersion is mandatory to use Appium 2
-sauceOptions.put("appiumVersion", "2.0.0-beta56");
+sauceOptions.put("appiumVersion", "2.0.0");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
@@ -174,7 +174,7 @@ const capabilities = {
     'appium:automationName': 'uiautomator2',
     'sauce:options': {
         // appiumVersion is mandatory to use Appium 2
-        appiumVersion: '2.0.0-beta56'
+        appiumVersion: '2.0.0'
     }
 }
 ```
@@ -194,7 +194,7 @@ const capabilities = {
     'appium:automationName': 'xcuitest',
     'sauce:options': {
         // appiumVersion is mandatory to use Appium 2
-        appiumVersion: '2.0.0-beta56'
+        appiumVersion: '2.0.0'
     }
 }
 ```
@@ -226,7 +226,7 @@ capabilities = {
     'appium:automationName': 'uiautomator2',
     "sauce:options" : {
         # appiumVersion is mandatory to use Appium 2
-        "appiumVersion" : "2.0.0-beta56"
+        "appiumVersion" : "2.0.0"
     }
 }
 ```
@@ -246,7 +246,7 @@ capabilities = {
     'appium:automationName': 'xcuitest',
     "sauce:options" : {
         # appiumVersion is mandatory to use Appium 2
-        "appiumVersion" : "2.0.0-beta56"
+        "appiumVersion" : "2.0.0"
     }
 }
 ```
@@ -278,7 +278,7 @@ capabilities = {
     'appium:automationName' => 'uiautomator2',
     "sauce:options" => {
         # appiumVersion is mandatory to use Appium 2
-        "appiumVersion" => "2.0.0-beta56"
+        "appiumVersion" => "2.0.0"
     }
 }
 ```
@@ -298,7 +298,7 @@ capabilities = {
     'appium:automationName'=> 'xcuitest',
     "sauce:options" => {
         # appiumVersion is mandatory to use Appium 2
-        "appiumVersion" => "2.0.0-beta56"
+        "appiumVersion" => "2.0.0"
     }
 }
 ```
@@ -332,7 +332,7 @@ capabilities.AddAdditionalCapability("appium:automationName", "uiautomator2");
 
 HashMap<String, Object> sauceOptions = new Dictionary<string, object>();
 // appiumVersion is mandatory to use Appium 2
-sauceOptions.Add("appiumVersion", "2.0.0-beta56");
+sauceOptions.Add("appiumVersion", "2.0.0");
 capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 ```
 
@@ -353,7 +353,7 @@ capabilities.AddAdditionalCapability("appium:automationName", "xcuitest");
 
 HashMap<String, Object> sauceOptions = new Dictionary<string, object>();
 // appiumVersion is mandatory to use Appium 2
-sauceOptions.Add("appiumVersion", "2.0.0-beta56");
+sauceOptions.Add("appiumVersion", "2.0.0");
 capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 ```
 
@@ -400,7 +400,7 @@ capabilities.setCapability("appium:automationName", "uiautomator2");
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
 // appiumVersion is mandatory to use Appium 2 on Sauce Labs
-sauceOptions.put("appiumVersion", "2.0.0");
+sauceOptions.put("appiumVersion", "latest");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
@@ -421,7 +421,7 @@ capabilities.setCapability("appium:automationName", "xcuitest");
 
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
 // appiumVersion is mandatory to use Appium 2 on Sauce Labs
-sauceOptions.put("appiumVersion", "2.0.0");
+sauceOptions.put("appiumVersion", "latest");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
@@ -451,7 +451,7 @@ const capabilities = {
     'appium:automationName': 'uiautomator2',
     'sauce:options': {
         // appiumVersion is mandatory to use Appium 2 on Sauce Labs
-        appiumVersion: '2.0.0'
+        appiumVersion: 'latest'
     }
 }
 ```
@@ -471,7 +471,7 @@ const capabilities = {
     'appium:automationName': 'xcuitest',
     'sauce:options': {
         // appiumVersion is mandatory to use Appium 2 on Sauce Labs
-        appiumVersion: '2.0.0'
+        appiumVersion: 'latest'
     }
 }
 ```
@@ -503,7 +503,7 @@ capabilities = {
     'appium:automationName': 'uiautomator2',
     "sauce:options" : {
         # appiumVersion is mandatory to use Appium 2 on Sauce Labs
-        "appiumVersion" : "2.0.0"
+        "appiumVersion" : "latest"
     }
 }
 ```
@@ -523,7 +523,7 @@ capabilities = {
     'appium:automationName': 'xcuitest',
     "sauce:options" : {
         # appiumVersion is mandatory to use Appium 2 on Sauce Labs
-        "appiumVersion" : "2.0.0"
+        "appiumVersion" : "latest"
     }
 }
 ```
@@ -555,7 +555,7 @@ capabilities = {
     'appium:automationName' => 'uiautomator2',
     "sauce:options" => {
         # appiumVersion is mandatory to use Appium 2 on Sauce Labs
-        "appiumVersion" => "2.0.0"
+        "appiumVersion" => "latest"
     }
 }
 ```
@@ -575,7 +575,7 @@ capabilities = {
     'appium:automationName'=> 'xcuitest',
     "sauce:options" => {
         # appiumVersion is mandatory to use Appium 2 on Sauce Labs
-        "appiumVersion" => "2.0.0"
+        "appiumVersion" => "latest"
     }
 }
 ```
@@ -609,7 +609,7 @@ capabilities.AddAdditionalCapability("appium:automationName", "uiautomator2");
 
 HashMap<String, Object> sauceOptions = new Dictionary<string, object>();
 // appiumVersion is mandatory to use Appium 2 on Sauce Labs
-sauceOptions.Add("appiumVersion", "2.0.0");
+sauceOptions.Add("appiumVersion", "latest");
 capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 ```
 
@@ -630,7 +630,7 @@ capabilities.AddAdditionalCapability("appium:automationName", "xcuitest");
 
 HashMap<String, Object> sauceOptions = new Dictionary<string, object>();
 // appiumVersion is mandatory to use Appium 2 on Sauce Labs
-sauceOptions.Add("appiumVersion", "2.0.0");
+sauceOptions.Add("appiumVersion", "latest");
 capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 ```
 
