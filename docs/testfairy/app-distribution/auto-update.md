@@ -10,8 +10,6 @@ import TabItem from '@theme/TabItem';
 
 Auto-update is a feature that allows you to seamlessly push new versions of  your app to users, ensuring that everyone is always using the latest version. By enabling auto-update, users with older versions of the app will receive a notification prompting them to update the next time they use the app.
 
-Every app may have a single build that is marked for "Auto Update". Builds upload prior to the marked build may be updated, and builds uploads after won't trigger a request of update.
-
 :::note
 Auto-update is not available in production.
 :::
