@@ -308,6 +308,33 @@ browser
   .end();
 ```
 
+### Selective Diffing
+
+#### Area-specific configuration
+
+<SelectiveDiffingRegion />
+
+```typescript
+  const login = browser.page.login();
+  login
+    .navigate()
+    .waitForElementVisible('@username')
+    .sauceVisualCheck('Home Page', {
+      diffingMethod: DiffingMethod.Balanced,
+      captureDom: true,
+      regions: [
+        {
+          element: login.elements.username.selector,
+          enableOnly: [],
+        },
+        {
+          element: login.elements.password.selector,
+          enableOnly: ['style],
+        },
+      ],
+    });
+```
+
 ### Capturing the DOM snapshot
 
 Sauce Visual does not capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
