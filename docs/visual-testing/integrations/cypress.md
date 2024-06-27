@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ClippingDescription from '../_partials/_clipping-description.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
+import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # Cypress Integration
 
@@ -231,6 +232,26 @@ cy.sauceVisualCheck('login-page', {
     }
   ],
 });
+```
+
+### Selective Diffing
+
+#### Area-specific configuration
+
+<SelectiveDiffingRegion />
+
+Example:
+```javascript
+    cy.sauceVisualCheck('login-page', {
+      diffingMethod: DiffingMethod.Balanced,
+      captureDom: true,
+      regions: [
+        // All changes will be ignored.
+        { element: cy.get('[data-test="username"]'), enableOnly: [] },
+        // Only style changes  won't be ignored.
+        { element: cy.get('[data-test="password"]'), enableOnly: ['style'] },
+      ],
+    })
 ```
 
 ### Specifying options for Cypress Screenshot
