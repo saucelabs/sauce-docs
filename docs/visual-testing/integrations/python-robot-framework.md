@@ -145,12 +145,6 @@ Test Name
     Visual Snapshot    Valid Login (Simple)    full_page_config=True    capture_dom=True    ignore_elements=${elements}
 ```
 
-## Environment variables
-
-Below are the environment variables available in the Sauce Visual Python plugin. Keep in mind that the variables defined or overridden in Robot have precedence over these.
-
-<EnvironmentVariables />
-
 ### Selective Diffing
 
 #### Area-specific configuration
@@ -158,9 +152,25 @@ Below are the environment variables available in the Sauce Visual Python plugin.
 <SelectiveDiffingRegion />
 
 Example:
-```python
-TODO
+```robot
+    # Capture snapshot with selective regions
+    ${username_element}     Get Webelements     id:user-name
+    ${password_element}     Get Webelements     id:password
+    # Ignore all changes on ${username_element}
+    ${ignore_username} =    Visual Ignore Element       ${username_element}     diffing_options={}
+    # Only checks for style changes on ${password_element}
+    ${ignore_password} =    Visual Ignore Element       ${password_element}     diffing_options={"style":True}
+    ${ignore_regions} =     Create List     ${ignore_username}      ${ignore_password}
+    Visual Snapshot     Login Page     capture_dom=True        ignore_regions=${ignore_regions}        diffing_method=BALANCED
+
 ```
+
+## Environment variables
+
+Below are the environment variables available in the Sauce Visual Python plugin. Keep in mind that the variables defined or overridden in Robot have precedence over these.
+
+<EnvironmentVariables />
+
 ## Examples
 
 Example projects are available [here](https://github.com/saucelabs/visual-examples/blob/main/python/robot-framework).
