@@ -5,6 +5,7 @@ sidebar_label: WebdriverIO
 import FullPageJS from '../_partials/_fullpage-js.md';
 import ClippingWDIO from '../_partials/_clipping-webdriver.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
+import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # WebdriverIO Integration
 

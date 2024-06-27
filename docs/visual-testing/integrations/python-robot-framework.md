@@ -5,6 +5,7 @@ sidebar_label: Python (Robot Framework)
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import PythonIntro from '../_partials/_python-shared-intro.md';
 import FullPageLimit from '../_partials/_fullpage-limit.md';
+import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # Python (Robot Framework) Integration
 
@@ -150,6 +151,16 @@ Below are the environment variables available in the Sauce Visual Python plugin.
 
 <EnvironmentVariables />
 
+### Selective Diffing
+
+#### Area-specific configuration
+
+<SelectiveDiffingRegion />
+
+Example:
+```python
+TODO
+```
 ## Examples
 
 Example projects are available [here](https://github.com/saucelabs/visual-examples/blob/main/python/robot-framework).

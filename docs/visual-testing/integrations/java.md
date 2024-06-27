@@ -333,7 +333,7 @@ Example:
   WebElement passwordInput = driver.findElement(By.id("password"));
 
   visual.sauceVisualCheck(
-      "Before Login",
+      "login-page",
       new CheckOptions.Builder()
           .withDiffingMethod(DiffingMethod.BALANCED)
           .withCaptureDom(true)
