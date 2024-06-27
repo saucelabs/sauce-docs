@@ -246,7 +246,7 @@ Example:
       diffingMethod: DiffingMethod.Balanced,
       captureDom: true,
       regions: [
-        // All changes will be ignored.
+        // Any change will be ignored.
         { element: cy.get('[data-test="username"]'), enableOnly: [] },
         // Only style changes  won't be ignored.
         { element: cy.get('[data-test="password"]'), enableOnly: ['style'] },

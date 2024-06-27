@@ -6,6 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import FullPageLimit from '../_partials/_fullpage-limit.md';
+import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # C#/.Net WebDriver Integration
 
@@ -326,6 +327,31 @@ await VisualClient.VisualCheck("C# capture",
     {
         IgnoreRegions = new[] { new IgnoreRegion(10, 10, 100, 100) }
     });
+```
+
+### Selective Diffing
+
+#### Area-specific configuration
+
+<SelectiveDiffingRegion />
+
+Example:
+```csharp
+  var usernameElement = Driver.FindElement(By.CssSelector("#user-name"));
+  var passwordElement = Driver.FindElement(By.CssSelector("#password"));
+
+  await VisualClient.VisualCheck("login-page",
+      new VisualCheckOptions()
+      {
+          DiffingOptions = VisualCheckDiffingOptions.DisableOnly(DiffingOption.Visual),
+          Regions = new []
+          {
+              // Any change will be ignored.
+              SelectiveRegion.EnabledFor(usernameElement, DiffingOption.None),
+              // Only style changes won't be ignored.
+              SelectiveRegion.EnabledFor(passwordElement, DiffingOption.Style),
+          },
+      });
 ```
 
 ### Capturing the DOM snapshot
