@@ -216,6 +216,22 @@ await browser.sauceVisualCheck('Before Login', {
 });
 ```
 
+### Selective Diffing
+
+#### Area-specific configuration
+
+<SelectiveDiffingRegion />
+
+```typescript
+    await browser.sauceVisualCheck('login-page', {
+      regions: [
+        // Any change will be ignored.
+        { element: $('[id="user-name"]'), enableOnly: [] },
+        // Only style changes won't be ignored.
+        { element: $('[id="password"]'), enableOnly: ['style'] },
+      ],
+    });
+```
 ### Capturing the DOM snapshot
 
 Sauce Visual does not capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
