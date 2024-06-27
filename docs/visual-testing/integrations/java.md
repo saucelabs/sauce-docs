@@ -7,6 +7,7 @@ import TabItem from '@theme/TabItem';
 import ClippingDescription from '../_partials/_clipping-description.md';
 import FullPageLimit from '../_partials/_fullpage-limit.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
+import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # Java WebDriver Integration
 
@@ -318,6 +319,29 @@ IgnoreRegion ignoreRegion = new IgnoreRegion(
 );
 options.setIgnoreRegions(List.of(ignoreRegion));
 visual.sauceVisualCheck("Before Login", options);
+```
+
+### Selective Diffing
+
+#### Area-specific configuration
+
+<SelectiveDiffingRegion />
+
+Example:
+```java
+  WebElement usernameInput = driver.findElement(By.id("user-name"));
+  WebElement passwordInput = driver.findElement(By.id("password"));
+
+  visual.sauceVisualCheck(
+      "Before Login",
+      new CheckOptions.Builder()
+          .withDiffingMethod(DiffingMethod.BALANCED)
+          .withCaptureDom(true)
+          // Any change will be ignored.
+          .enableOnly(EnumSet.noneOf(DiffingFlag.class), usernameInput)
+          // Only style changes won't be ignored.
+          .enableOnly(EnumSet.of(DiffingFlag.Style), passwordInput)
+          .build());
 ```
 
 ### Capturing the DOM snapshot

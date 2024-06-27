@@ -248,7 +248,7 @@ Example:
       regions: [
         // Any change will be ignored.
         { element: cy.get('[data-test="username"]'), enableOnly: [] },
-        // Only style changes  won't be ignored.
+        // Only style changes won't be ignored.
         { element: cy.get('[data-test="password"]'), enableOnly: ['style'] },
       ],
     })
