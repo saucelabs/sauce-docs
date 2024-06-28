@@ -1705,6 +1705,7 @@ module.exports = {
                         'visual-testing/integrations/python-robot-framework',
                     ],
                 },
+                'visual-testing/selective-diffing',
                 'visual-testing/faq',
             ],
         },

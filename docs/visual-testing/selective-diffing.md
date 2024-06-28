@@ -1,6 +1,7 @@
 ---
 id: selective-diffing
 title: Sauce Labs Visual Testing
+sidebar_label: Selective Diffing
 ---
 
 import Tabs from '@theme/Tabs';
