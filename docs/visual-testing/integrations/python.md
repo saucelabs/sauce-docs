@@ -4,6 +4,8 @@ sidebar_label: Python
 
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import PythonIntro from '../_partials/_python-shared-intro.md';
+import SelectiveDiffing from '../_partials/_selective-diffing.md';
+import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
 import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # Python Integration

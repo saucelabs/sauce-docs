@@ -6,6 +6,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ClippingDescription from '../_partials/_clipping-description.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
+import SelectiveDiffing from '../_partials/_selective-diffing.md';
+import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
 import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # Cypress Integration

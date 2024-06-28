@@ -5,6 +5,8 @@ sidebar_label: Python (Robot Framework)
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import PythonIntro from '../_partials/_python-shared-intro.md';
 import FullPageLimit from '../_partials/_fullpage-limit.md';
+import SelectiveDiffing from '../_partials/_selective-diffing.md';
+import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
 import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # Python (Robot Framework) Integration
