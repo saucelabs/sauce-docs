@@ -12,6 +12,9 @@ To see all the testers you have for your app, invite new testers, or import/expo
 
 <img src={useBaseUrl('/img/test-fairy/group-testers.png')} alt="alt upload"/>
 
+## Manage testers through the API
+You can fully automate and control tester management through our APIs. For more details, refer to our [API documentation.](/testfairy/api-reference/rest-api/#testers).
+
 ## Inviting Testers by Email
 
 1. Login to [TestFairy](https://app.testfairy.com/).
