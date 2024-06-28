@@ -238,6 +238,29 @@ cy.sauceVisualCheck('login-page', {
 
 ### Selective Diffing
 
+<SelectiveDiffing />
+
+#### Screenshot-wide configuration
+
+<SelectiveDiffingGlobal />
+
+Example:
+```javascript
+    cy.sauceVisualCheck('login-page', {
+      diffingMethod: DiffingMethod.Balanced,
+      captureDom: true,
+      // Content changes won't be reported as a difference
+      diffingOptions: {
+        content: false,
+        dimensions: true,
+        position: true,
+        structure: true,
+        style: true,
+        visual: true,
+      },
+    });
+```
+
 #### Area-specific configuration
 
 <SelectiveDiffingRegion />
