@@ -6,6 +6,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import FullPageLimit from '../_partials/_fullpage-limit.md';
+import SelectiveDiffing from '../_partials/_selective-diffing.md';
+import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
 import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # C#/.Net WebDriver Integration
@@ -331,6 +333,34 @@ await VisualClient.VisualCheck("C# capture",
 
 ### Selective Diffing
 
+<SelectiveDiffing />
+
+#### Screenshot-wide configuration
+
+<SelectiveDiffingGlobal />
+
+Example:
+
+Ignoring only one kind:
+```csharp
+  await VisualClient.VisualCheck("login-page",
+      new VisualCheckOptions()
+      {
+          // Every content change will be ignored
+          DiffingOptions = VisualCheckDiffingOptions.DisableOnly(DiffingOption.Content),
+      });
+```
+
+Ignoring all kinds by one:
+```csharp
+  await VisualClient.VisualCheck("login-page",
+      new VisualCheckOptions()
+      {
+          // Only style changes will be considered as a diff
+          DiffingOptions = VisualCheckDiffingOptions.EnableOnly(DiffingOption.Style),
+      });
+```
+
 #### Area-specific configuration
 
 <SelectiveDiffingRegion />
@@ -346,10 +376,10 @@ Example:
           DiffingOptions = VisualCheckDiffingOptions.DisableOnly(DiffingOption.Visual),
           Regions = new []
           {
-              // Any change will be ignored.
+              // Ignore all kind of changes for element #user-name
               SelectiveRegion.EnabledFor(usernameElement, DiffingOption.None),
-              // Only style changes won't be ignored.
-              SelectiveRegion.EnabledFor(passwordElement, DiffingOption.Style),
+              // Ignore only style changes for element #password
+              SelectiveRegion.DisabledFor(passwordElement, DiffingOption.Style),
           },
       });
 ```
