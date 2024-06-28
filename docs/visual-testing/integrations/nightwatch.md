@@ -316,6 +316,7 @@ browser
 
 <SelectiveDiffingRegion />
 
+Example:
 ```typescript
   const login = browser.page.login();
   login
