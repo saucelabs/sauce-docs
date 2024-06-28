@@ -221,7 +221,7 @@ The following list of custom Appium plugins are supported:
         <br />
         <ul>
             <li>
-                <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/may-2024" target="_blank">
+                <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/june-2024-3" target="_blank">
                     <code>axeDevToolsMobile Appium Plugin</code>: 2.2.0
                 </a>
             </li>
