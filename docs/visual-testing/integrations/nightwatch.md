@@ -312,6 +312,8 @@ browser
 
 ### Selective Diffing
 
+<SelectiveDiffing />
+
 #### Area-specific configuration
 
 <SelectiveDiffingRegion />

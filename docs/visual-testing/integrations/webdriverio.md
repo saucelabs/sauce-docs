@@ -220,6 +220,22 @@ await browser.sauceVisualCheck('Before Login', {
 
 ### Selective Diffing
 
+<SelectiveDiffing />
+
+#### Screenshot-wide configuration
+
+<SelectiveDiffingGlobal />
+
+Example:
+```typescript
+    await browser.sauceVisualCheck('Inventory Page', {
+      diffingMethod: DiffingMethod.Balanced,
+      captureDom: true,
+      // Every content change will be ignored
+      disable: ['content'],
+    });
+```
+
 #### Area-specific configuration
 
 <SelectiveDiffingRegion />

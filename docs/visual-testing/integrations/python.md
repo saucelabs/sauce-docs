@@ -107,6 +107,8 @@ Below are the environment variables available in the Sauce Visual Python plugin.
 
 ### Selective Diffing
 
+<SelectiveDiffing />
+
 #### Area-specific configuration
 
 <SelectiveDiffingRegion />

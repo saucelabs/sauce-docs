@@ -149,6 +149,8 @@ Test Name
 
 ### Selective Diffing
 
+<SelectiveDiffing />
+
 #### Area-specific configuration
 
 <SelectiveDiffingRegion />

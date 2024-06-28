@@ -325,6 +325,8 @@ visual.sauceVisualCheck("Before Login", options);
 
 ### Selective Diffing
 
+<SelectiveDiffing />
+
 #### Area-specific configuration
 
 <SelectiveDiffingRegion />
