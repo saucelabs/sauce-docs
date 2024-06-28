@@ -327,6 +327,36 @@ visual.sauceVisualCheck("Before Login", options);
 
 <SelectiveDiffing />
 
+#### Screenshot-wide configuration
+
+<SelectiveDiffingGlobal />=
+
+Example:
+
+Ignoring only one kind:
+```java
+    visual.sauceVisualCheck(
+        "login-page",
+        new CheckOptions.Builder()
+            .withDiffingMethod(DiffingMethod.BALANCED)
+            .withCaptureDom(true)
+            // Every content change will be ignored
+            .disableOnly(EnumSet.of(DiffingFlag.Content))
+            .build());
+```
+
+Ignoring all kinds except one:
+```java
+    visual.sauceVisualCheck(
+        "login-page",
+        new CheckOptions.Builder()
+            .withDiffingMethod(DiffingMethod.BALANCED)
+            .withCaptureDom(true)
+            // Only style changes will be considered as a diff
+            .enableOnly(EnumSet.of(DiffingFlag.Style))
+            .build());
+```
+
 #### Area-specific configuration
 
 <SelectiveDiffingRegion />
