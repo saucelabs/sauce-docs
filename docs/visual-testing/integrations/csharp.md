@@ -356,6 +356,8 @@ Ignoring all kinds by one:
   await VisualClient.VisualCheck("login-page",
       new VisualCheckOptions()
       {
+          DiffingMethod = DiffingMethod.Balanced,
+          CaptureDom = true,
           // Only style changes will be considered as a diff
           DiffingOptions = VisualCheckDiffingOptions.EnableOnly(DiffingOption.Style),
       });
@@ -373,7 +375,8 @@ Example:
   await VisualClient.VisualCheck("login-page",
       new VisualCheckOptions()
       {
-          DiffingOptions = VisualCheckDiffingOptions.DisableOnly(DiffingOption.Visual),
+          DiffingMethod = DiffingMethod.Balanced,
+          CaptureDom = true,
           Regions = new []
           {
               // Ignore all kind of changes for element #user-name
