@@ -351,7 +351,7 @@ Ignoring only one kind:
       });
 ```
 
-Ignoring all kinds by one:
+Ignoring all kinds except one:
 ```csharp
   await VisualClient.VisualCheck("login-page",
       new VisualCheckOptions()
