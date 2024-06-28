@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Auto-update is a feature that allows you to seamlessly push new versions of your app to users, ensuring that everyone is always using the latest version. By enabling auto-update, users with older versions of the app will receive a notification prompting them to update the next time they use the app.
+Auto-update is a feature that allows you to seamlessly push new versions of  your app to users, ensuring that everyone is always using the latest version. By enabling auto-update, users with older versions of the app will receive a notification prompting them to update the next time they use the app.
 
 :::note
 Auto-update is not available in production.
@@ -16,17 +16,10 @@ Auto-update is not available in production.
 
 ## Configuring Auto-Update
 
-To enable auto-update for your app, you need to include the TestFairy SDK. There are three ways to configure auto-update for a specific build:
+There are two ways to configure auto-update for a specific build:
 
-- On upload
-- In build settings
 - Via Upload API
-
-### On Upload
-
-During the app or version upload process, you can select the **Auto-Update** checkbox to enable auto-update for that build.
-
-<img src={useBaseUrl('/img/testfairy/app-distribution/auto-update-img2.png')} alt="testfairy build settings"/>
+- In build settings
 
 ### In Build Settings
 
@@ -38,46 +31,46 @@ After uploading a build, access the build settings and navigate to the **App Dis
 
 When uploading a new build via the upload api /testfairy/api-reference/upload-api, set the `auto-update` parameter to `on`.
 
-### Verifying Auto-Update Setting
+### Implementing Auto Update in Your App
 
-To verify whether auto-update is enabled for an app, open the app and check the list of builds. In the right column, you will see an icon of a rounded arrow, indicating that it is an auto-update version.
+To detect if there is a new version, we will be using the `getDistributionStatus` 
+method. This method is also used to detect if the current version is still available
+for distribution. You can read more regarding [Invalidating Apps](/testfairy/app-distribution/app-expiration/).
 
-<img src={useBaseUrl('/img/testfairy/app-distribution/auto-update-dashboard-place.png')} alt="auto update dashboard"/>
+```jsx title="Sample Request"
+curl -XPOST \
+    "https://mobile.saucelabs.com/services/?method=testfairy.session.getDistributionStatus" \
+    -F token=$TESTFAIRY_APP_TOKEN \
+    -F platform=0 \
+    -F bundleIdentifier=com.saucelabs.mydemoapp.android \
+    -F bundleVersion=22 \
+    -F bundleShortVersion=2.0.1
+```
 
-### Using Auto-Update
+And the response would include to fields, "status" and "autoUpdateDownloadUrl" (optional). Like so:
 
-When auto-update is enabled, all previous installations of the app will be upgraded to the selected version. Here's how it works:
+```json title="Sample Response"
+{
+    "status": "enabled", 
+    "autoUpdateDownloadUrl": "https://mobile.saucelabs.com/download/XXXXXXX"
+}
+```
 
-1. When a user launches the app, the TestFairy SDK checks if a new version is available and marked for auto-update.
-2. If a new version is available, the user receives a notification informing them that a new version is ready to be installed.
-
-   <img src={useBaseUrl('/img/testfairy/app-distribution/auto-update-msg.png')} alt="auto update message"/>
-
-3. The user can choose to accept the update, in which case the new version is downloaded and installed.
-4. If the user declines the update, the app continues to run the old version.
-5. The user will be notified again the next time they launch the app, prompting them to update.
+- `status`: Is the distribution of the current version still allowed? Useful for invalidating specific versions after distribution.
+- `autoUpdateDownloadUrl`: Optional string, if available, points out to the url the end user needs to open in a browser.
 
 ### Reasons Auto-Update May Fail
 
 Auto-update may fail for the following reasons:
 
 - The version number and name of the new build are the same as the old one. Auto-update only works when versions are different.
-- The TestFairy SDK isn't integrated into both versions.
-- (Android) The sign certificates for each version is different. If an app does not sign with the same certificate, TestFairy can't perform the auto-update.
 - (iOS) The app is not signed with an ad-hoc or enterprise certificate.
+- (Android) The sign certificates for each version is different. If an app does not sign with the same certificate, auto-update is rejected. This is because it's impossible to install the new version without previously uninstalling the current one.
 
-### Forcing Auto-Update
+### Notes on Security
 
-In some cases, you may want to ensure that all users and testers of your app are running the latest version and cannot use older versions. To achieve this, you can use the following methods:
+`getDistributionStatus` is called from within your mobile app. It uses **TestFairy App Token**, which is a public token that cannot be used to make changes on the platform. 
 
-- **Android**: Use the `sessionStateListener` class, specifically the `onAutoUpdateDismissed` method. Refer to the [Android SessionStateListener](https://docs.testfairy.com/reference/android/com/testfairy/SessionStateListener.html#SessionStateListener) documentation for more details.
-- **iOS**: Implement the `testFairySessionStateDelegate` class and use the `autoUpdateDismissed` method. See the [iOS TestFairySessionStateDelegate](https://app.testfairy.com/reference/ios/Protocols/TestFairySessionStateDelegate.html) documentation for further information.
+If your app is publicly available for download, the returned url is for a direct download (only for Android). Otherwise, the returned url is of a download page, which will require re-authentication before build can be downloaded. 
 
-### Downgrading an App
-
-Auto-update only works when the new version is unique and uploaded after the old version. The version number or code of the app is not essential. If you need to downgrade your app from version 1.5 to 1.4, follow these steps:
-
-1. Re-upload version 1.4 using a new version name (for example, 1.41).
-2. Enable auto-update for the new version.
-
-It prompts the system to perform an auto-update of version 1.5 to version 1.41, downgrading your app to version 1.4.
+Also note, that there can be only 1 build version marked for auto-update. This may point to any version, not necessarily a version that the current tester has been invited to. Please plan your auto-update policy.

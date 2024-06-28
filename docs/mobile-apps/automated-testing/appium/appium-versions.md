@@ -182,7 +182,7 @@ The following list of custom Appium plugins are supported:
       <td>
         This will hold a collection of drivers that are compatible with the latest Appium server and driver versions that are installed in our cloud. We try to keep versions up to date every two weeks. <br />
         This is a collection of drivers that were released in this version <br />
-        <ul>
+       <ul>
           <li>
             <a href="https://github.com/appium/appium/releases/tag/appium%402.10.3" target="_blank">
               <code>appium</code>: 2.10.3
@@ -221,13 +221,13 @@ The following list of custom Appium plugins are supported:
         <br />
         <ul>
             <li>
-                <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/may-2024" target="_blank">
-                    <code>axeDevToolsMobile Appium Plugin</code>: 2.1.0
+                <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/june-2024-3" target="_blank">
+                    <code>axeDevToolsMobile Appium Plugin</code>: 2.2.0
                 </a>
             </li>
             <li>
-                <a href="https://github.com/appium/appium/releases/tag/appium%402.5.4" target="_blank">
-                    <code>appium</code>: 2.5.4
+                <a href="https://github.com/appium/appium/releases/tag/appium%402.11.0" target="_blank">
+                    <code>appium</code>: 2.11.0
                 </a>
             </li>
         </ul>
@@ -244,8 +244,8 @@ The following list of custom Appium plugins are supported:
         This is a collection of drivers that were released in June 1st 2024 <br />
         <ul>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%402.6.0" target="_blank">
-              <code>appium</code>: 2.6.0
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.10.3" target="_blank">
+              <code>appium</code>: 2.10.3
             </a>
           </li>
           <li>
@@ -254,13 +254,13 @@ The following list of custom Appium plugins are supported:
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.5.2" target="_blank">
-              <code>appium-uiautomator2-driver</code>: 3.5.2
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.5.4" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 3.5.4
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.16.2" target="_blank">
-              <code>appium-xcuitest-driver</code>: 7.16.2
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.17.5" target="_blank">
+              <code>appium-xcuitest-driver</code>: 7.17.5
             </a>
           </li>
         </ul>
@@ -586,187 +586,7 @@ The following list of custom Appium plugins are supported:
       <td>
         <span class="sauceGreen">Active</span>
       </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.1">
-          <code>1.22.1</code>
-        </a>
-      </td>
-      <td>
-        <span class="sauceGold">December 31st, 2023</span>
-      </td>
-      <td>
-          Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
-          <code>1.22.2</code>
-        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.22.0">
-          <code>1.22.0</code>
-        </a>
-      </td>
-      <td>
-        <span class="sauceGold">December 31st, 2023</span>
-      </td>
-      <td>
-          Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
-          <code>1.22.2</code>
-        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.21.0">
-          <code>1.21.0</code>
-        </a>
-      </td>
-      <td>
-        <span class="sauceGold">December 31st, 2023</span>
-      </td>
-      <td>
-          Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
-          <code>1.22.2</code>
-        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.20.1">
-          <code>1.20.1</code>
-        </a>
-      </td>
-      <td>
-        <span class="sauceGold">December 31st, 2023</span>
-      </td>
-      <td>
-          Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
-          <code>1.22.2</code>
-        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.19.0">
-          <code>1.19.0</code>
-        </a>
-      </td>
-      <td>
-        <span class="sauceGold">December 31st, 2023</span>
-      </td>
-      <td>
-          Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
-          <code>1.22.2</code>
-        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.18.1">
-          <code>1.18.1</code>
-        </a>
-      </td>
-      <td>
-        <span class="sauceGold">December 31st, 2023</span>
-      </td>
-      <td>
-          Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
-          <code>1.22.2</code>
-        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.17.1">
-          <code>1.17.1</code>
-        </a>
-      </td>
-      <td>
-        <span class="sauceGold">December 31st, 2023</span>
-      </td>
-      <td>
-          Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
-          <code>1.22.2</code>
-        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.17.0">
-          <code>1.17.0</code>
-        </a>
-      </td>
-      <td>
-        <span class="sauceGold">December 31st, 2023</span>
-      </td>
-      <td>
-          Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
-          <code>1.22.2</code>
-        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.16.0">
-          <code>1.16.0</code>
-        </a>
-      </td>
-      <td>
-        <span class="sauceGold">December 31st, 2023</span>
-      </td>
-      <td>
-          Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
-          <code>1.22.2</code>
-        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.15.1">
-          <code>1.15.1</code>
-        </a>
-      </td>
-      <td>
-        <span class="sauceGold">December 31st, 2023</span>
-      </td>
-      <td>
-          Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
-          <code>1.22.2</code>
-        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.15.0">
-          <code>1.15.0</code>
-        </a>
-      </td>
-      <td>
-        <span class="sauceGold">December 31st, 2023</span>
-      </td>
-      <td>
-          Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
-          <code>1.22.2</code>
-        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/appium/appium/releases/tag/v1.14.0">
-          <code>1.14.0</code>
-        </a>
-      </td>
-      <td>
-        <span class="sauceGold">December 31st, 2023</span>
-      </td>
-      <td>
-          Update to <a href="https://github.com/appium/appium/releases/tag/v1.22.2">
-          <code>1.22.2</code>
-        </a> or <a href="../appium-2-migration">migrate to Appium 2</a>
-      </td>
+      <td>Please migrate to the latest Appium 2 version for better performance.</td>
     </tr>
   </tbody>
 </table>
