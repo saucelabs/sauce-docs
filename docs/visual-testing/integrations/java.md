@@ -339,9 +339,9 @@ Example:
       new CheckOptions.Builder()
           .withDiffingMethod(DiffingMethod.BALANCED)
           .withCaptureDom(true)
-          // Any change will be ignored.
+          // Ignore all kind of changes for element #user-name
           .enableOnly(EnumSet.noneOf(DiffingFlag.class), usernameInput)
-          // Only style changes won't be ignored.
+          // Ignore only style changes for element #password
           .enableOnly(EnumSet.of(DiffingFlag.Style), passwordInput)
           .build());
 ```
