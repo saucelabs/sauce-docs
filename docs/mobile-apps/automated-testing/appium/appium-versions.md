@@ -226,7 +226,7 @@ The following list of custom Appium plugins are supported:
                 </a>
             </li>
             <li>
-                <a href="https://github.com/appium/appium/releases/tag/appium%402.5.4" target="_blank">
+                <a href="https://github.com/appium/appium/releases/tag/appium%402.11.0" target="_blank">
                     <code>appium</code>: 2.11.0
                 </a>
             </li>
