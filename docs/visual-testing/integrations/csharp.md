@@ -6,6 +6,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import FullPageLimit from '../_partials/_fullpage-limit.md';
+import SelectiveDiffing from '../_partials/_selective-diffing.md';
+import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
+import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # C#/.Net WebDriver Integration
 
@@ -326,6 +329,62 @@ await VisualClient.VisualCheck("C# capture",
     {
         IgnoreRegions = new[] { new IgnoreRegion(10, 10, 100, 100) }
     });
+```
+
+### Selective Diffing
+
+<SelectiveDiffing />
+
+#### Screenshot-wide configuration
+
+<SelectiveDiffingGlobal />
+
+Example:
+
+Ignoring only one kind:
+```csharp
+  await VisualClient.VisualCheck("login-page",
+      new VisualCheckOptions()
+      {
+          // Every content change will be ignored
+          DiffingOptions = VisualCheckDiffingOptions.DisableOnly(DiffingOption.Content),
+      });
+```
+
+Ignoring all kinds except one:
+```csharp
+  await VisualClient.VisualCheck("login-page",
+      new VisualCheckOptions()
+      {
+          DiffingMethod = DiffingMethod.Balanced,
+          CaptureDom = true,
+          // Only style changes will be considered as a diff
+          DiffingOptions = VisualCheckDiffingOptions.EnableOnly(DiffingOption.Style),
+      });
+```
+
+#### Area-specific configuration
+
+<SelectiveDiffingRegion />
+
+Example:
+```csharp
+  var usernameElement = Driver.FindElement(By.CssSelector("#user-name"));
+  var passwordElement = Driver.FindElement(By.CssSelector("#password"));
+
+  await VisualClient.VisualCheck("login-page",
+      new VisualCheckOptions()
+      {
+          DiffingMethod = DiffingMethod.Balanced,
+          CaptureDom = true,
+          Regions = new []
+          {
+              // Ignore all kind of changes for element #user-name
+              SelectiveRegion.EnabledFor(usernameElement, DiffingOption.None),
+              // Ignore only style changes for element #password
+              SelectiveRegion.DisabledFor(passwordElement, DiffingOption.Style),
+          },
+      });
 ```
 
 ### Capturing the DOM snapshot

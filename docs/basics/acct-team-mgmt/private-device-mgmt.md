@@ -17,13 +17,7 @@ Private device management allows an organization admin to view and manage the pr
 
 :::important
 
-- Everyone in an organization can access a device in the the default unassigned state.
-- **Only** organization admins can manage private devices.
-  - An organization admin can always re-assign a device to another team or set a device to the default unassigned state.
-- **Only** team members can access a device assigned to a team.
-  - This rule is enforced for all roles!
-    - i.e., to access a device, an organization admin **must** be a member of the team a device is assigned to.
-  - Devices automcatically return to the default unassigned state if their assigned team is deleted.
+By assigning a private device to a team, you restrict access to that device to that team. **Note:** organization admins are not affected by this. Organization admins have access to all devices of their organization.
 
 :::
 

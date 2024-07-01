@@ -2580,3 +2580,73 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </details>
 
 ---
+
+### Get your active team
+
+<details>
+<summary><span className="api post">GET</span> <code>/team-management/v1/users/me/active-team/</code></summary>
+<p/>
+
+Retrieves the Sauce Labs active team for the currently authenticated user.
+
+#### Parameters
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/users/me/active-team/' \
+--header 'Content-Type: application/json' | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/users/me/active-team/' \
+--header 'Content-Type: application/json' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. </td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>403</code></td>
+    <td colSpan='2'>Forbidden.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response" {7}
+{
+    "id": "d13cc39b78da4015aa3ca67b234ecb0b",
+    "name": "Team A",
+}
+```
+
+</details>

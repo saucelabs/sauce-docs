@@ -427,7 +427,6 @@ module.exports = {
                                     ],
                                 },
                                 'error-reporting/platform-integrations/cryengine',
-                                'error-reporting/platform-integrations/stadia',
                                 'error-reporting/platform-integrations/nintendo',
                                 'error-reporting/platform-integrations/ps4',
                                 'error-reporting/platform-integrations/ps5',
@@ -1183,6 +1182,7 @@ module.exports = {
                     label: 'Security',
                     collapsed: true,
                     items: [
+                        'testfairy/security/private-cloud',
                         {
                             type: 'category',
                             label: 'Single Sign On',
@@ -1225,6 +1225,7 @@ module.exports = {
                         'testfairy/ci-tools/bamboo',
                         'testfairy/ci-tools/bitbucket',
                         'testfairy/ci-tools/circle-ci',
+                        'testfairy/ci-tools/fastlane',
                         'testfairy/ci-tools/gitlab',
                         'testfairy/ci-tools/ms-app-ctr',
                         'testfairy/ci-tools/team-city',
@@ -1704,6 +1705,7 @@ module.exports = {
                         'visual-testing/integrations/python-robot-framework',
                     ],
                 },
+                'visual-testing/selective-diffing',
                 'visual-testing/faq',
             ],
         },

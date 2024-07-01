@@ -7,6 +7,9 @@ import TabItem from '@theme/TabItem';
 import FullPageJS from '../_partials/_fullpage-js.md'
 import ClippingWDIO from '../_partials/_clipping-webdriver.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
+import SelectiveDiffing from '../_partials/_selective-diffing.md';
+import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
+import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # Nightwatch Integration
 
@@ -305,6 +308,36 @@ browser
     ],
   })
   .end();
+```
+
+### Selective Diffing
+
+<SelectiveDiffing />
+
+#### Area-specific configuration
+
+<SelectiveDiffingRegion />
+
+Example:
+```typescript
+  const login = browser.page.login();
+  login
+    .navigate()
+    .waitForElementVisible('@username')
+    .sauceVisualCheck('Home Page', {
+      diffingMethod: DiffingMethod.Balanced,
+      captureDom: true,
+      regions: [
+        {
+          element: login.elements.username.selector,
+          enableOnly: [],
+        },
+        {
+          element: login.elements.password.selector,
+          enableOnly: ['style],
+        },
+      ],
+    });
 ```
 
 ### Capturing the DOM snapshot

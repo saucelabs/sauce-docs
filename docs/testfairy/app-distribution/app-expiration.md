@@ -23,7 +23,7 @@ After app distribution has been disabled, it could no longer be downloaded. Howe
 want to programmatically detect distribution status, and notify the end-user what they need to do next.
 
 For example:
-- App detects distribution has been disabled, then present an popup message on screen and stop the process.
+- App detects distribution has been disabled, then present a popup message on screen and stop the process.
 - App detects distribution has been disabled and opens browser to [Internal App Store](https://mobile.saucelabs.com/my) page.
 
 ## Programmatically Detecting Distribution Status

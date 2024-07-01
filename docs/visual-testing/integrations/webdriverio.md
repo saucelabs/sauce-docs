@@ -5,6 +5,9 @@ sidebar_label: WebdriverIO
 import FullPageJS from '../_partials/_fullpage-js.md';
 import ClippingWDIO from '../_partials/_clipping-webdriver.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
+import SelectiveDiffing from '../_partials/_selective-diffing.md';
+import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
+import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # WebdriverIO Integration
 
@@ -213,6 +216,41 @@ await browser.sauceVisualCheck('Before Login', {
         },
     ],
 });
+```
+
+### Selective Diffing
+
+<SelectiveDiffing />
+
+#### Screenshot-wide configuration
+
+<SelectiveDiffingGlobal />
+
+Example:
+```typescript
+    await browser.sauceVisualCheck('Inventory Page', {
+      diffingMethod: DiffingMethod.Balanced,
+      captureDom: true,
+      // Every content change will be ignored
+      disable: ['content'],
+    });
+```
+
+#### Area-specific configuration
+
+<SelectiveDiffingRegion />
+
+```typescript
+    await browser.sauceVisualCheck('login-page', {
+      diffingMethod: DiffingMethod.Balanced,
+      captureDom: true,
+      regions: [
+        // Any change will be ignored.
+        { element: $('[id="user-name"]'), enableOnly: [] },
+        // Only style changes won't be ignored.
+        { element: $('[id="password"]'), enableOnly: ['style'] },
+      ],
+    });
 ```
 
 ### Capturing the DOM snapshot
