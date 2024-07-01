@@ -136,12 +136,13 @@ The below configuration options are also exported as the type `SauceVisualParams
 
 Parameters key: `sauceVisual`
 
-| Key            | Type      | Default           | Description                                                                                                                                                                                                                                                                                                                               |
-|:---------------|:----------|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `captureDom`   | `boolean` | `true`            | Toggles DOM snapshot capture.                                                                                                                                                                                                                                                                                                             |
-| `clip`         | `boolean` | `true`            | If the story & layout supports it, will automatically clip to the `clipSelector` to remove extraneous whitespace. Recommended to be used in conjunction with [`centered` layout](https://storybook.js.org/docs/configure/story-layout#global-layout). Currently defaults to `false`, however, will default to `true` in a future version. |
-| `clipSelector` | `string`  | `#storybook-root` | The selector to clip to when `clip = true`. Defaults to Storybook's default root element, `#storybook-root`.                                                                                                                                                                                                                              |
-| `delay`        | `number`  | `0` (no delay)    | A number, in ms, that we should delay the snapshot by. Useful if the beginning of the story has unavoidable / javascript animations.                                                                                                                                                                                                      |
+| Key             | Type                     | Default           | Description                                                                                                                                                                                                                                                                                                                               |
+|:----------------|:-------------------------|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `captureDom`    | `boolean`                | `true`            | Toggles DOM snapshot capture.                                                                                                                                                                                                                                                                                                             |
+| `clip`          | `boolean`                | `true`            | If the story & layout supports it, will automatically clip to the `clipSelector` to remove extraneous whitespace. Recommended to be used in conjunction with [`centered` layout](https://storybook.js.org/docs/configure/story-layout#global-layout). Currently defaults to `false`, however, will default to `true` in a future version. |
+| `clipSelector`  | `string`                 | `#storybook-root` | The selector to clip to when `clip = true`. Defaults to Storybook's default root element, `#storybook-root`.                                                                                                                                                                                                                              |
+| `delay`         | `number`                 | `0` (no delay)    | A number, in ms, that we should delay the snapshot by. Useful if the beginning of the story has unavoidable / javascript animations.                                                                                                                                                                                                      |
+| `ignoreRegions` | `(RegionIn \| string)[]` | `[]` (empty)      | An array of manually created ignore regions, or CSS selectors in string form to ignore.  See the snipped below for a commented out example.                                                                                                                                                                                               |
 
 Component-level Example:
 
@@ -156,6 +157,7 @@ const meta = {
       clip: true,
       // clipSelector: '#custom-root-element',
       // delay: 200,
+      // ignoreRegions: ['.some-css-selector', '#another-css-selector', {x: 50, y: 50, width: 100, height: 100}],
     },
   },
 };
