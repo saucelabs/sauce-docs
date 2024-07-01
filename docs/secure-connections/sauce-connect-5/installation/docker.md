@@ -54,6 +54,11 @@ Here are some benefits/use cases for using containerized Sauce Connect Proxy:
        --network="host"\
        -it saucelabs/sauce-connect:5.0
    ```
+3. To access logs, use the `docker logs` command.
+
+   ```bash
+   $ docker logs <container-id>
+   ```
 
 See [Sauce Connect Proxy Readiness Checks](/secure-connections/sauce-connect-5/operation/readiness-checks) for more information on how to check if the tunnel is ready to accept jobs.
 
