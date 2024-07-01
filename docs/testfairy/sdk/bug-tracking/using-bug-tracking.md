@@ -13,12 +13,11 @@ Bug tracking is an essential part of the software development process to identif
 
 Before utilizing the bug-tracking features in TestFairy, ensure that you connect your TestFairy account to your preferred bug-tracking platform. TestFairy supports the following bug-tracking integrations:
 
-- [JIRA Cloud](/testfairy/testing-an-app/bug-tracking/jira-cloud/)
-- [JIRA Server](/testfairy/testing-an-app/bug-tracking/jira-server/)
-- [GitHub] (/testfairy/testing-an-app/bug-tracking/github/)
-- [Trello] (/testfairy/testing-an-app/bug-tracking/trello/)
-- [Connect (TFC)](/testfairy/testing-an-app/bug-tracking/tf-connect/)
-- [Micro Focus ALM Octane](/testfairy/testing-an-app/bug-tracking/micro-focus/)
+- [JIRA Cloud](/testfairy/sdk/bug-tracking/jira-cloud/)
+- [JIRA Server](/testfairy/sdk/bug-tracking/jira-server/)
+- [GitHub](/testfairy/sdk/bug-tracking/github/)
+- [Trello](/testfairy/sdk/bug-tracking/trello/)
+- [Connect (TFC)](/testfairy/sdk/bug-tracking/tf-connect/)
 
 Ensure that you follow the relevant documentation to establish a secure and authenticated connection between TestFairy and your bug-tracking platform.
 

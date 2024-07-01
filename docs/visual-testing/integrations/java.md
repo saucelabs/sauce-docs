@@ -7,6 +7,9 @@ import TabItem from '@theme/TabItem';
 import ClippingDescription from '../_partials/_clipping-description.md';
 import FullPageLimit from '../_partials/_fullpage-limit.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
+import SelectiveDiffing from '../_partials/_selective-diffing.md';
+import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
+import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # Java WebDriver Integration
 
@@ -318,6 +321,61 @@ IgnoreRegion ignoreRegion = new IgnoreRegion(
 );
 options.setIgnoreRegions(List.of(ignoreRegion));
 visual.sauceVisualCheck("Before Login", options);
+```
+
+### Selective Diffing
+
+<SelectiveDiffing />
+
+#### Screenshot-wide configuration
+
+<SelectiveDiffingGlobal />=
+
+Example:
+
+Ignoring only one kind:
+```java
+    visual.sauceVisualCheck(
+        "login-page",
+        new CheckOptions.Builder()
+            .withDiffingMethod(DiffingMethod.BALANCED)
+            .withCaptureDom(true)
+            // Every content change will be ignored
+            .disableOnly(EnumSet.of(DiffingFlag.Content))
+            .build());
+```
+
+Ignoring all kinds except one:
+```java
+    visual.sauceVisualCheck(
+        "login-page",
+        new CheckOptions.Builder()
+            .withDiffingMethod(DiffingMethod.BALANCED)
+            .withCaptureDom(true)
+            // Only style changes will be considered as a diff
+            .enableOnly(EnumSet.of(DiffingFlag.Style))
+            .build());
+```
+
+#### Area-specific configuration
+
+<SelectiveDiffingRegion />
+
+Example:
+```java
+  WebElement usernameInput = driver.findElement(By.id("user-name"));
+  WebElement passwordInput = driver.findElement(By.id("password"));
+
+  visual.sauceVisualCheck(
+      "login-page",
+      new CheckOptions.Builder()
+          .withDiffingMethod(DiffingMethod.BALANCED)
+          .withCaptureDom(true)
+          // Ignore all kind of changes for element #user-name
+          .enableOnly(EnumSet.noneOf(DiffingFlag.class), usernameInput)
+          // Ignore only style changes for element #password
+          .enableOnly(EnumSet.of(DiffingFlag.Style), passwordInput)
+          .build());
 ```
 
 ### Capturing the DOM snapshot

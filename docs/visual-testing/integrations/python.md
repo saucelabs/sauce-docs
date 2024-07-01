@@ -4,6 +4,9 @@ sidebar_label: Python
 
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import PythonIntro from '../_partials/_python-shared-intro.md';
+import SelectiveDiffing from '../_partials/_selective-diffing.md';
+import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
+import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # Python Integration
 
@@ -93,11 +96,44 @@ client.create_snapshot_from_webdriver(
 client.finish_build()
 ```
 
-## Environment variables
+## Advanced usage
+
+### Environment variables
 
 Below are the environment variables available in the Sauce Visual Python plugin. Keep in mind that the variables defined in code / configuration have precedence over these.
 
 <EnvironmentVariables />
+
+
+### Selective Diffing
+
+<SelectiveDiffing />
+
+#### Area-specific configuration
+
+<SelectiveDiffingRegion />
+
+Example:
+```python
+    visual_client.create_snapshot_from_webdriver(
+        "login-page",
+        session_id=session_id,
+        diffing_method=DiffingMethod.BALANCED,        
+        capture_dom=True,
+        ignore_elements=[
+            # Any change will be ignored.
+            IgnoreElementRegion(
+                element=driver.find_element(By.NAME, "user-name")
+                enable_only=[]
+            ),
+            # Only style changes won't be ignored.
+            IgnoreElementRegion(
+                element=driver.find_element(By.NAME, "password")
+                enable_only=['style']
+            ),
+        ],
+    )
+```
 
 ## Examples
 

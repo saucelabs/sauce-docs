@@ -59,7 +59,7 @@ The **Testers Dashboard** is where a tester can view the apps they were invited 
 
 Permissions manage app distribution to groups of testers/users and are defined for each app (including all its builds). This means all testers within a group can access all builds of the app.
 
-Permissions are based on defined groups of testers (see [Managing Testers](/testfairy/testing-an-app/testers/managing-testers)).
+Permissions are based on defined groups of testers (see [Managing Testers](/testfairy/testers/managing-testers)).
 
 Once groups are defined, they will appear on the **Permissions** page.
 

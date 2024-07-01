@@ -202,7 +202,6 @@ Write the new Sauce Connect 5 run command configuration to the specified file.
 
 	If set the run command will not be executed.
 
-
 ### `-d, --pidfile` {#pidfile}
 
 * Environment variable: `SAUCE_PIDFILE`

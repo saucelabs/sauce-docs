@@ -391,6 +391,10 @@ npm:
     - url: https://private.registry.company.org
       scope: "@company"
       authToken: secretToken
+      auth: base64SecretToken
+      username: myUsername
+      password: myPassword
+      email: myEmail 
 ```
 
 ---
@@ -436,6 +440,66 @@ npm:
   registries:
     - url: https://registry.npmjs.org
       authToken: secretToken
+```
+
+---
+
+#### `auth`
+
+Specifies the Base64-encoded authentication string for the registry entry.
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+```yaml
+npm:
+  registries:
+    - url: https://registry.npmjs.org
+      auth: base64SecretToken
+```
+
+---
+
+#### `username`
+
+Specifies the username for authentication with the registry.
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+```yaml
+npm:
+  registries:
+    - url: https://registry.npmjs.org
+      username: myName
+```
+
+---
+
+#### `password`
+
+Specifies the password for authentication with the registry.
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+```yaml
+npm:
+  registries:
+    - url: https://registry.npmjs.org
+      password: myPassword
+```
+
+---
+
+#### `email`
+
+Specifies the email associated with the registry account.
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+```yaml
+npm:
+  registries:
+    - url: https://registry.npmjs.org
+      email: myEmail
 ```
 
 ---
@@ -741,9 +805,11 @@ suites:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Sets the browser name for the test suite. `saucectl` passes `browserName` as an environment variable `$BROWSER_NAME`.
+Sets the browser name for the test suite. `saucectl` passes `browserName` as the
+environment variable `$BROWSER_NAME`.
 
-Launching the browser for Cucumber.js Playwright tests should be done on customer's side. Hence `saucectl` cannot guarantee the displayed browser name is matched with the actual browser name.
+The user is responsible for launching the correct browser via Cucumber.js.
+Using a different browser, than specified, results in mismatched job metadata.
 
 ```yaml
 suites:
@@ -874,7 +940,7 @@ The max attempt would be 4 times. If the test passed twice, it'd stop and be mar
 ```yaml
 sauce:
   retries: 3
-suite:
+suites:
   - name: My Saucy Test
     passThreshold: 2
 ```
@@ -890,7 +956,7 @@ Specifies the retry strategy to apply for that suite. Requires [retries](#retrie
 ```yaml
 sauce:
   retries: 3
-suite:
+suites:
   - name: My Saucy Test
     smartRetry:
       failedOnly: true
@@ -905,7 +971,7 @@ suite:
 When set to `true`, only the spec files that failed during the previous attempt are retried.
 
 ```yaml
-suite:
+suites:
   - name: My Saucy Test
     smartRetry:
       failedOnly: true
@@ -1033,9 +1099,11 @@ suites:
 Paths to your support code for ESM. See the [Cucumber.js ES Modules (experimental) documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/esm.md) for more information.
 
 ```yaml
-  options:
-    import:
-      - "features/support/*.js"
+suites:
+  - name: "saucy test"
+    options:
+      import:
+        - "features/support/*.js"
 ```
 
 ---

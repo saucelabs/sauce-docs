@@ -8,7 +8,7 @@ const docusaurusConfig = {
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'throw',
-    favicon: '/img/favicon.ico',
+    favicon: '/img/favicon-32x32.png',
     organizationName: 'saucelabs',
     projectName: 'sauce-docs',
     customFields: {
@@ -89,6 +89,11 @@ const docusaurusConfig = {
                     label: 'Visual (New)',
                     position: 'left',
                     to: '/visual-testing',
+                },
+                {
+                    label: 'Beta Testing',
+                    position: 'left',
+                    to: '/testfairy',
                 },
                 {
                     label: 'Error Reporting',

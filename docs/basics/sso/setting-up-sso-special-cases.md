@@ -27,10 +27,6 @@ The `contact_email` must be an email address not used by any other user in Sauce
 
 ## Single Identity Provider and Multiple Organizations at Sauce Labs
 
-:::note
-Integrating more than two Sauce Labs organizations with the same Identity Provider is not supported. If you have more than two organizations that you need integration with the same Identity Provider, contact your Customer Success Manager or [Sauce Labs Support](mailto:help@saucelabs.com).
-:::
-
 ### Problem Description
 
 Some identity providers do not allow creating more than one SAML integration with the same service provider. In other words, they require one unique entity ID for a service provider.
@@ -42,8 +38,14 @@ If your Identity Provider has this limitation and you have two organizations at 
 2. [Integrate the SAML SSO application](/basics/sso/setting-up-sso/#integrating-with-sauce-labs-service-provider) that you created in the previous step with one of your Sauce Labs organizations.
 3. In your Identity Provider set up another SAML SSO integration/application with the auxiliary Sauce Labs Service Provider. You cannot use a preconfigured Sauce Labs SAML application from your identity provider's catalog for this purpose. Instead, you must create a custom SAML application, as it requires different metadata than the preconfigured one.
 
-   - You have to use [different Sauce Labs metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp1).
-   - The metadata contains different entity ID and different ACS URLs (`sp1` instead of `sp`):
+   - You have to use different Sauce Labs metadata. Sauce Labs provides four auxiliary Service Providers with different entity IDs. You can find the metadata for each auxiliary Service Provider below:
+     - [sp1 metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp1)
+     - [sp2 metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp2)
+     - [sp3 metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp3)
+     - [sp4 metadata](https://accounts.saucelabs.com/am/sso/metadata/https%3A%2F%2Faccounts.saucelabs.com%2Fsp4)
+   - The metadata contains different entity ID and different ACS URLs (`spX` instead of `sp`), where `X` is a number from 1 to 4. 
+   - In this tutorial we will use the metadata for the auxiliary SP with entity ID `sp1`. But if you for example want to use the auxiliary **SP3, remember to put `sp3` in all places in the configuration in your IdP instead of `sp1`**.
+   - Here is an example of the attributes for the auxiliary Sauce Labs SP with entity ID `sp1` that differ from the standard setup with `sp`:
 
      | Setting                    | Value                                                                   |
      | -------------------------- | ----------------------------------------------------------------------- |

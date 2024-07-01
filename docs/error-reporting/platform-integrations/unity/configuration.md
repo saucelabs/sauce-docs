@@ -124,6 +124,26 @@ For more information about other data that is captured, see [Attributes](/error-
 | Enable client-side unwinding               | Enables callstack unwinding. If you're unable to upload all debug symbols for your app, you can use this setting to get debug information. Available only for supported versions of Android (NDK 19; Unity 2019+). <br /><br /> You can also enable this setting via the [`BacktraceConfiguration`](/error-reporting/platform-integrations/unity/configuration/#backtraceclient) object and the `.ClientSideUnwinding = true;` option. | Boolean | False   |
 | Symbols upload token                       | Required to automatically upload debug symbols to Backtrace. <br /> <br /> To generate a symbol upload token, in Backtrace go to Project Settings > Symbols > Access tokens > and select + to generate a new token.                                                                                                                                                                                                                    | String  |
 
+#### ProGuard Rules
+ProGuard obfuscation prevents the reflection used to invoke Java code from the Unity bridge. The ProGuard symbolication id must be passed to BacktraceClient, and additional ProGuard rules must be added to allow Backtrace to identify Java classes. 
+<br /> 
+Symbolication id is a UUID identifier created by the user. The same identifier value must be sent when uploading the source map and must be accessible in the game's runtime environment.
+
+<br/>
+Please follow [this guide](/error-reporting/platform-integrations/android/proguard-deobfuscation/) to enable ProGuard, and add the following:
+
+- Pass your ProGuard symbolication id to BacktraceClient:
+   ```java
+   var backtraceClient = GameObject.Find("manager name").GetComponent<BacktraceClient>();
+   var symbolicationId = "f6c3e8d4-8626-4051-94ec-53e6daccce25";
+   backtraceClient.UseProguard(symbolicationId);
+   ```
+- Use these rules in proguard_rules.pro:
+    ```
+    -keep class backtraceio.unity.* { *; }
+    -keep class backtraceio.library.**.* { *; }
+    ```
+
 #### Uploading Debug Symbols
 
 You can configure the Backtrace client to automatically upload debug symbols in IL2CPP builds for Android apps.

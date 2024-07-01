@@ -4,6 +4,7 @@ sidebar_label: Storybook
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
+import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # Storybook Integration
 

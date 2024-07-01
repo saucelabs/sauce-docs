@@ -1,12 +1,12 @@
 ---
-id: testfairy
-title: Using TestFairy
-sidebar_label: Getting Started
+id: app-center-alternative
+title: App Center Alternative
+sidebar_label: App Center Alternative
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Welcome to TestFairy, the App Center distribution alternative! Use our enterprise-grade app distribution capabilities to migrate from App Center before March 31, 2025! 
+Welcome to TestFairy, the App Center distribution alternative! Use our enterprise-grade app distribution capabilities to migrate from App Center before March 31, 2025!
 
 ## Distribute App to Testers
 

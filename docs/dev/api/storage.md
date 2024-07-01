@@ -658,7 +658,12 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
 <summary><span className="api post">POST</span> <code>/v1/storage/upload</code></summary>
 <p/>
 
-Uploads an app file to Sauce Storage for the purpose of mobile app testing and returns a unique file ID assigned to the app. Sauce Storage supports app files in \*.apk, \*.aab, \*.ipa, or \*.zip format, up to 4GB.
+Uploads an app file to Sauce Storage for the purpose of mobile app testing or generic files
+to be used as [Pre-Run Executables](/web-apps/automated-testing/selenium/pre-run-executables/)
+and returns a unique file ID assigned to the uploaded file.
+Sauce Storage supports mobile app packages in \*.apk, \*.aab, \*.ipa, or \*.zip
+format as well as any other file format.
+The maximum size of a single file is limited to 4GB.
 
 #### Parameters
 

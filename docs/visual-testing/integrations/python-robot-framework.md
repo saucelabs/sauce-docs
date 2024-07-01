@@ -5,6 +5,9 @@ sidebar_label: Python (Robot Framework)
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import PythonIntro from '../_partials/_python-shared-intro.md';
 import FullPageLimit from '../_partials/_fullpage-limit.md';
+import SelectiveDiffing from '../_partials/_selective-diffing.md';
+import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
+import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # Python (Robot Framework) Integration
 
@@ -142,6 +145,28 @@ Test Name
     # Merge multiple / single elements into a list. If you want to use `Get Webelements` to ignore multiple elements on a page at once you can use Robot's `Collections` library to merge those lists into a single one to pass here.
     ${elements} =    Create List    ${button}    ${images}
     Visual Snapshot    Valid Login (Simple)    full_page_config=True    capture_dom=True    ignore_elements=${elements}
+```
+
+### Selective Diffing
+
+<SelectiveDiffing />
+
+#### Area-specific configuration
+
+<SelectiveDiffingRegion />
+
+Example:
+```robot
+    # Capture snapshot with selective regions
+    ${username_element}     Get Webelements     id:user-name
+    ${password_element}     Get Webelements     id:password
+    # Ignore all changes on ${username_element}
+    ${ignore_username} =    Visual Ignore Element       ${username_element}     diffing_options={}
+    # Only checks for style changes on ${password_element}
+    ${ignore_password} =    Visual Ignore Element       ${password_element}     diffing_options={"style":True}
+    ${ignore_regions} =     Create List     ${ignore_username}      ${ignore_password}
+    Visual Snapshot     Login Page     capture_dom=True        ignore_regions=${ignore_regions}        diffing_method=BALANCED
+
 ```
 
 ## Environment variables

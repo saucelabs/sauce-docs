@@ -37,6 +37,18 @@ Sauce Labs supports the following test configurations for Playwright:
   </tr>
   <tbody>
     <tr>
+      <td rowspan='2'>1.45.0</td>
+      <td rowspan='2'>20</td>
+      <td><b>macOS:</b> 12, 13</td>
+      <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
+      <td rowspan='2'>June 26, 2025</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
       <td rowspan='2'>1.44.0</td>
       <td rowspan='2'>20</td>
       <td><b>macOS:</b> 12, 13</td>
@@ -143,18 +155,6 @@ Sauce Labs supports the following test configurations for Playwright:
       <td><b>Windows:</b> 10, 11</td>
     </tr>
   </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='2'>1.35.1</td>
-      <td rowspan='2'>18</td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
-      <td rowspan='2'>June 16, 2024</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-    </tr>
-  </tbody>
 </table>
 
 ## How to Get Started
@@ -179,9 +179,13 @@ We recommend that you avoid the use of special characters when naming your tests
 When using Sauce-Connect, Webkit browser is unable to load any website that is hosted on the Internet.
 Local websites can still be loaded.
 
+### macOS 12 + Playwright 1.44+ + Webkit
+
+Webkit is not working on macOS 12 since Playwright 1.44.0.
+
 ### macOS 11 + Playwright 1.29+ + Webkit
 
-Webkit is not working on macOS 11 since Playwright 1.29.0
+Webkit is not working on macOS 11 since Playwright 1.29.0.
 
 ### Playwright HTML Reporter + Trace Viewer
 
