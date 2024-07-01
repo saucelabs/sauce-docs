@@ -1551,7 +1551,7 @@ No payload is returned with the successful removal.
 <p/>
 
 Update device settings to allow apps, system apps, and accounts to persist between sessions. Check out the 
-[available device settings](/basics/acct-team-management/#app-allow-list) for more information on each setting.
+[available device settings](/basics/acct-team-mgmt/private-device-mgmt/#app-allow-list) for more information on each setting.
 
 #### Parameters
 
