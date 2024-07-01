@@ -235,39 +235,6 @@ The following list of custom Appium plugins are supported:
     </tr>
     <tr>
       <td>
-        <code>2.0.0</code>
-      </td>
-      <td>
-       <span className="sauceGold">July 31st, 2024</span>
-      </td>
-      <td>
-        This alias for getting the Appium 2 drivers that were installed in the Sauce Labs Real Device Cloud. <br /> The alias <code>2.0.0</code> is a collection of the following drivers <br />
-        <ul>
-          <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%402.0.1" target="_blank">
-              <code>appium</code>: 2.0.1
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v1.20.2" target="_blank">
-              <code>appium-flutter-driver</code>: 1.20.2
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v2.29.4" target="_blank">
-              <code>appium-uiautomator2-driver</code>: 2.29.4
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v4.33.2" target="_blank">
-              <code>appium-xcuitest-driver</code>: 4.33.2
-            </a>
-          </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <code>appium2-20240701</code>
       </td>
       <td>
@@ -624,6 +591,39 @@ The following list of custom Appium plugins are supported:
           <li>
             <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v4.35.0" target="_blank">
               <code>appium-xcuitest-driver</code>: 4.35.0
+            </a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>2.0.0</code>
+      </td>
+      <td>
+       <span className="sauceGold">July 31st, 2024</span>
+      </td>
+      <td>
+        This alias for getting the Appium 2 drivers that were installed in the Sauce Labs Real Device Cloud. <br /> The alias <code>2.0.0</code> is a collection of the following drivers <br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.0.1" target="_blank">
+              <code>appium</code>: 2.0.1
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v1.20.2" target="_blank">
+              <code>appium-flutter-driver</code>: 1.20.2
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v2.29.4" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 2.29.4
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v4.33.2" target="_blank">
+              <code>appium-xcuitest-driver</code>: 4.33.2
             </a>
           </li>
         </ul>
