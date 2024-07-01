@@ -238,7 +238,7 @@ The following list of custom Appium plugins are supported:
         <code>2.0.0</code>
       </td>
       <td>
-       <span className="sauceGold">July 30th, 2024</span>
+       <span className="sauceGold">July 31st, 2024</span>
       </td>
       <td>
         This alias for getting the Appium 2 drivers that were installed in the Sauce Labs Real Device Cloud. <br /> The alias <code>2.0.0</code> is a collection of the following drivers <br />
