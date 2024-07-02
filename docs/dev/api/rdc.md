@@ -1635,7 +1635,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request PUT 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices/iPhone_12_17_sl/settings' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-"id": "string",
+    "id": "iPhone_12_17_sl",
     "appWhitelist": ["com.google.chrome.ios"],
     "accountWhitelist": ["qa-tester@saucelabs.com"],
     "systemAppAllowlist": ["com.apple.calculator"],
@@ -1653,7 +1653,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --request PUT 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices/iPhone_12_17_sl/settings' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-"id": "string",
+    "id": "iPhone_12_17_sl",
     "appWhitelist": ["com.google.chrome.ios"],
     "accountWhitelist": ["qa-tester@saucelabs.com"],
     "systemAppAllowlist": ["com.apple.calculator"],
