@@ -143,11 +143,11 @@ The following table shows the predefined network profiles along with their corre
 
 ## Automated Testing
 
-### Appium
-To use the Sauce Labs Network Throttling feature in your automated Appium test, you can add the sauce-specific capability
+### Appium - Capability
+To use the Sauce Labs Network Throttling feature in your automated Appium test, you can add the Sauce-specific capability
 [networkConditions](https://docs.saucelabs.com/dev/test-configuration-options/#networkconditions) to provide custom network conditions for
 the entire session.
-Alternatively, you can use the sauce-specific capability [networkProfile](https://docs.saucelabs.com/dev/test-configuration-options/#networkprofile)
+Alternatively, you can use the Sauce-specific capability [networkProfile](https://docs.saucelabs.com/dev/test-configuration-options/#networkprofile)
 to apply one of the predefined network profiles to your session.
 
 ```java
@@ -171,10 +171,16 @@ sauceOptions.setCapability("networkProfile", "2G");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
-To change your desired network conditions dynamically any time during your automated Appium test, use our sauce-specific scripts for `((JavascriptExecutor)driver).executeScript`.
+### Appium - executeScript
 
-```java title="Network Condition
-driver.executeScript("sauce:network-conditions", ImmutableMap.of(
+To change your desired network conditions dynamically any time during your automated Appium test, use our Sauce-specific scripts 
+[sauce: network-conditions](/dev/test-configuration-options/#sauce-network-conditions) and [sauce: network-profile](/dev/test-configuration-options/#suace-network-profile) with
+[Appium's Execute Script](https://appium.io/docs/en/2.0/guides/execute-methods/).
+
+
+
+```java title="Dynamically set Network Conditions"
+driver.executeScript("sauce: network-conditions", ImmutableMap.of(
     "downloadSpeed", 5000,
     "uploadSpeed", 3000,
     "latency", 200,
@@ -182,8 +188,14 @@ driver.executeScript("sauce:network-conditions", ImmutableMap.of(
 ));
 ```
 
-```java title="Network Profile
-driver.executeScript("sauce:network-profile", "4G-fast");
+```java title="Dynamically set a Network Profile"
+driver.executeScript("sauce: network-profile", "4G-fast");
+```
+
+To disable network throttling, use the predefined network profile `no-throttling`:
+
+```java
+driver.executeScript("sauce: network-profile", "no-throttling");
 ```
 
 ## Live Testing
