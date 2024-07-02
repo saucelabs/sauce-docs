@@ -1632,13 +1632,13 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/settings' \
+--request PUT 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices/iPhone_12_17_sl/settings' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 "id": "string",
-    "appWhitelist": ["SauceLabs-Demo-App.ipa"],
-    "accountWhitelist": ["account@saucelabs.com"],
-    "systemAppAllowlist": ["com.android.chrome"],
+    "appWhitelist": ["com.google.chrome.ios"],
+    "accountWhitelist": ["qa-tester@saucelabs.com"],
+    "systemAppAllowlist": ["com.apple.calculator"],
     "applePaySupportEnabled": false,
     "skipCleaningFolders": []
 }'
@@ -1650,7 +1650,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/settings' \
+--request PUT 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices/iPhone_12_17_sl/settings' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 "id": "string",
