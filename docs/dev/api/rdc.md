@@ -1385,6 +1385,32 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </tbody>
 </table>
 
+```jsx title="Sample Response"
+[
+    {
+        "id": "iPhone_12_17_sl",
+        "name": "iPhone 12",
+        "os": {
+            "name": "iOS",
+            "version": "17.6"
+        },
+        "screenSize": 6.1,
+        "resolutionWidth": 1170,
+        "resolutionHeight": 2532,
+        "state": "AVAILABLE",
+        "team": null,
+        "appWhitelist": [
+            "com.google.chrome.ios"
+        ],
+        "accountWhitelist": [],
+        "systemAppAllowlist": [],
+        "applePaySupportEnabled": false,
+        "skipCleaningFolders": []
+    },
+    {...more devices},
+]
+```
+
 </details>
 
 ---
@@ -1628,8 +1654,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 --header 'Content-Type: application/json' \
 --data-raw '{
 "id": "string",
-    "appWhitelist": ["SauceLabs-Demo-App.ipa"],
-    "accountWhitelist": ["account@saucelabs.com"],
+    "appWhitelist": ["com.google.chrome.ios"],
+    "accountWhitelist": ["qa-tester@saucelabs.com"],
     "systemAppAllowlist": ["com.apple.calculator"],
     "applePaySupportEnabled": false,
     "skipCleaningFolders": []
@@ -1655,6 +1681,36 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
   </tr>
 </tbody>
 </table>
+
+```jsx title="Sample Response"
+[
+    {
+        "id": "iPhone_12_17_sl",
+        "name": "iPhone 12",
+        "os": {
+            "name": "iOS",
+            "version": "17.6"
+        },
+        "screenSize": 6.1,
+        "resolutionWidth": 1170,
+        "resolutionHeight": 2532,
+        "state": "AVAILABLE",
+        "team": null,
+        "appWhitelist": [
+            "com.google.chrome.ios"
+        ],
+        "accountWhitelist": [
+            "qa-tester@saucelabs.com"
+        ],
+        "systemAppAllowlist": [
+            "com.apple.calculator"
+        ],
+        "applePaySupportEnabled": false,
+        "skipCleaningFolders": []
+    },
+    {...more devices},
+]
+```
 
 </details>
 
