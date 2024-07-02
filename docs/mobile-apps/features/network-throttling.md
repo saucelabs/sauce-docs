@@ -174,7 +174,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 ### Appium - executeScript
 
 To change your desired network conditions dynamically any time during your automated Appium test, use our Sauce-specific scripts 
-[sauce: network-conditions](/dev/test-configuration-options/#sauce-network-conditions) and [sauce: network-profile](/dev/test-configuration-options/#suace-network-profile) with
+[sauce: network-conditions](/dev/test-configuration-options/#sauce-network-conditions) and [sauce: network-profile](/dev/test-configuration-options/#sauce-network-profile) with
 [Appium's Execute Script](https://appium.io/docs/en/2.0/guides/execute-methods/).
 
 
