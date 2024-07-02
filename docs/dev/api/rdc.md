@@ -1428,7 +1428,7 @@ Assign a private device to a specific team.
   <tbody>
     <tr>
      <td><code>device_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a device in the Sauce Labs data center. You can look up device IDs using the <a href="#get-devices">Get Devices</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a device in the Sauce Labs data center. You can look up device IDs using the <a href="#get-devices">Get Devices</a> endpoint. (Example: <code>iPhone_12_17_sl</code>)</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1516,7 +1516,7 @@ Remove the private device assignment from a team.
   <tbody>
     <tr>
      <td><code>device_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a device in the Sauce Labs data center. You can look up device IDs using the <a href="#get-devices">Get Devices</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a device in the Sauce Labs data center. You can look up device IDs using the <a href="#get-devices">Get Devices</a> endpoint. (Example: <code>iPhone_12_17_sl</code>)</p></td>
     </tr>
   </tbody>
 </table>
@@ -1585,37 +1585,37 @@ Update device settings to allow apps, system apps, and accounts to persist betwe
   <tbody>
     <tr>
      <td><code>device_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a device in the Sauce Labs data center. You can look up device IDs using the <a href="#get-devices">Get Devices</a> endpoint.</p></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a device in the Sauce Labs data center. You can look up device IDs using the <a href="#get-devices">Get Devices</a> endpoint.  (Example: <code>iPhone_12_17_sl</code>)</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>appWhitelist</code></td>
-       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>Persist installed apps and app data between sessions.</p></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p><a href="/basics/acct-team-mgmt/private-device-mgmt/#app-allow-list">Persist installed apps</a> and app data between sessions.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>accountWhitelist</code></td>
-       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>Preserve store and payment account sign-ins between sessions for each account email.</p></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>Preserve <a href="/basics/acct-team-mgmt/private-device-mgmt/#account-allow-list">store and payment account sign-ins</a> for Google accounts and Apple IDs between sessions for each account email.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>systemAppAllowlist</code></td>
-       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>Access iOS preinstalled applications.</p></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>Access <a href="/basics/acct-team-mgmt/private-device-mgmt/#system-app-allow-list-ios">iOS preinstalled applications</a>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>applePaySupportEnabled</code></td>
-       <td><p><small>| BODY | REQUIRED | BOOLEAN |</small></p><p>Enable to test Apple Pay.</p></td>
+       <td><p><small>| BODY | REQUIRED | BOOLEAN |</small></p><p>Enable to test Apple Pay. Please contact your CSM/SE or Sauce Labs Support for <a href="/basics/acct-team-mgmt/private-device-mgmt/#enable-apple-pay">additional configuration</a>.</p></td>
     </tr>
   </tbody>
   <tbody>
     <tr>
      <td><code>skipCleaningFolders</code></td>
-       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>Retain specific file paths or folders on your private Android devices between sessions. </p></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p><a href="/basics/acct-team-mgmt/private-device-mgmt/#retain-foldersfilepath-android">Retain specific file paths or folders</a> on your private Android devices between sessions. </p></td>
     </tr>
   </tbody>
 </table>
