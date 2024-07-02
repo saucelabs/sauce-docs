@@ -150,11 +150,65 @@ the entire session.
 Alternatively, you can use the sauce-specific capability [networkProfile](https://docs.saucelabs.com/dev/test-configuration-options/#networkprofile)
 to apply one of the predefined network profiles to your session.
 
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+
+// network conditions
+sauceOptions.setCapability("networkConditions", ImmutableMap.of(
+    "downloadSpeed", 5000,
+    "uploadSpeed", 3000,
+    "latency", 200,
+    "loss", 2,
+));
+
+// OR
+
+// network profile
+sauceOptions.setCapability("networkProfile", "2G");
+        
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+To change your desired network conditions dynamically any time during your automated Appium test, use our sauce-specific scripts for `((JavascriptExecutor)driver).executeScript`.
+
+```java title="Network Condition
+driver.executeScript("sauce:network-conditions", ImmutableMap.of(
+    "downloadSpeed", 5000,
+    "uploadSpeed", 3000,
+    "latency", 200,
+    "loss", 2,
+));
+```
+
+```java title="Network Profile
+driver.executeScript("sauce:network-profile", "4G-fast");
+```
+
+## Live Testing
+Apply network throttling dynamically to your manual Live tests by selecting a predefined profile or by providing network conditions. 
+
+1. In the live test window, in the left toolbar, click **Throttle Network** to open the network throttling tool.
+
+<img src={useBaseUrl('img/mobile-apps/throttle-network-1.png')} alt="Throttle Network tool" width="650"/>
+
+2. Select a predefined profile from the dropdown to start the network throttling.
+
+<img src={useBaseUrl('img/mobile-apps/throttle-network-2.png')} alt="Throttle Network profile selection" width="650"/>
+
+An active network throttling is indicated by the **pulsing red dot** on the top left of the **Throttle Network** tool.
+
+<img src={useBaseUrl('img/mobile-apps/throttle-network-3.png')} alt="Throttle Network profile selection" width="650"/>
+
+3. Click on the **pulsing red dot** to **pause** the network throttling. A paused throttling is indicated by the **pause icon**.
+
+<img src={useBaseUrl('img/mobile-apps/throttle-network-4.png')} alt="Throttle Network profile selection" width="650"/>
+
 ## Upcoming
 
-* Apply network throttling to your manual Live tests
-* Change your desired network conditions dynamically any time during your automated Appium test
-* Apply network throttling to your Espresso and XCUITest tests
+* Apply network throttling to your native Espresso and XCUITest tests
+
 
 ## Limitations
 :::note Limitations
