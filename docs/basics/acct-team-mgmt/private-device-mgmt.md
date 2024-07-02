@@ -127,3 +127,7 @@ Please send us a support ticket to set up Confirm with AssistiveTouch on your de
 This feature **requires** setting the Account Allow List.  
 Please see [Testing Apple Pay](/mobile-apps/live-testing/testing-apple-pay) for more information.  
 :::
+
+## Private Device Management API
+Easily manage your private real devices with our [Device Management API endpoints](/dev/api/rdc/#private-real-device-management) 
+to obtain device information, assign devices to a specific team, and update device settings efficiently. 
