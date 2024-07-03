@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 :::note
 
-To install your iOS app on our cloud devices we need to include our own provisioning profile in your app. We use a [resigning process](#sauce-labs-resigning-enablements) to include our provisioning profile in your app. While this process does not modify the functionality of the app, it touches the [certain entitlements in your app](#sauce-labs-resigning-enablements). It is possible to disable the resigining process by buying your own private devices with dedicated provisioning profiles, see [here](#private-devices).
+To install your iOS app on our cloud devices we need to include our own provisioning profile in your app. We use a [resigning process](#sauce-labs-resigning-enablements) to include our provisioning profile in your app. While this process does not modify the functionality of the app, it touches [certain entitlements in your app](#sauce-labs-resigning-enablements). It is possible to disable the resigining process by buying your own private devices with dedicated provisioning profiles, see [here](#private-devices).
 
 :::
 
