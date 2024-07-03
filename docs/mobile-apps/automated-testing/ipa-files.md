@@ -16,10 +16,6 @@ To install your iOS app on our cloud devices we need to include our own provisio
 
 ## Creating .ipa Files for Appium Testing
 
-If you need to maintain your own provisioning profile in the `.ipa` file, disable the **Instrumentation** option in "App Management > \{Your App} > App Settings", when you want to change the [App Settings](/mobile-apps/live-testing/live-mobile-app-testing/#app-settings) for your app in the cloud.
-
-You can also use the `sauce:options` [capability](/dev/test-configuration-options/#resigningenabled) `resigningEnabled=false` to disable app resigning for automation. This option is available for private devices only.
-
 ### Building an .app Bundle
 
 1. Open your app project in Xcode.
@@ -118,6 +114,11 @@ Sauce Labs applies its own resigning to apps that are installed on our public iO
 If your organization or application requires specific entitlements to be present, Sauce Labs allows you to [disable resigning](/dev/test-configuration-options/#resigningenabled) for private devices.
 To access our private device cloud, contact your Sauce Labs account executive or our support team. 
 When resigning is disabled, you may sign your app using your own provisioning profile, or install an application that is signed with an Enterprise certificate, which can include any entitlements.
+
+To disable the **Resigning**, you can either visit "App Management > \{Your App} > App Settings" ([App Settings](/mobile-apps/live-testing/live-mobile-app-testing/#app-settings)) to disable resigning globally for your app.
+
+You can also use the `sauce:options` [capability](/dev/test-configuration-options/#resigningenabled) `resigningEnabled=false` to disable app resigning for automation. This option is available for private devices only.
+
 
 ## Common Errors
 
