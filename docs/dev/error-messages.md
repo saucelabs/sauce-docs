@@ -389,7 +389,7 @@ If you're already using storage, check to make sure that:
 
 **Description**
 
-We do not allow more than ten concurrent Appium commands per Appium session. This limit prevents Appium-server overload caused by resource-intensive Appium commands. Note that the Appium-server processes commands sequentially, even though the protocol supports asynchronous commands. The Appium server queues all commands and processes them one at a time.
+We do not allow more than ten concurrent Appium commands per Appium session. This limit prevents an overload of the  Appium-server. Note that even though Appium itself defines asynchronous commands, the appium protocol is fundamentally a sequential protocol. The Appium server will never execute commands in parallel, instead it queues all commands it receives and processes them one at a time.
 
 **Cause(s)**
 
