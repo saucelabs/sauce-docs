@@ -184,23 +184,23 @@ The following list of custom Appium plugins are supported:
         This is a collection of drivers that were released in this version <br />
        <ul>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%402.10.3" target="_blank">
-              <code>appium</code>: 2.10.3
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.11.1" target="_blank">
+              <code>appium</code>: 2.11.1
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.6.0" target="_blank">
-              <code>appium-flutter-driver</code>: 2.6.0
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.8.0" target="_blank">
+              <code>appium-flutter-driver</code>: 2.8.0
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.5.4" target="_blank">
-              <code>appium-uiautomator2-driver</code>: 3.5.4
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.7.0" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 3.7.0
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.17.5" target="_blank">
-              <code>appium-xcuitest-driver</code>: 7.17.5
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.21.1" target="_blank">
+              <code>appium-xcuitest-driver</code>: 7.21.1
             </a>
           </li>
         </ul>
