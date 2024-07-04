@@ -98,6 +98,8 @@ sudo rpm -i https://saucelabs.com/downloads/sauce-connect/5.2.0/sauce-connect-5.
 
 ### Edit config file
 
+Edit the configuration file with your favorite editor:
+
 ```bash
 sudo vim /etc/sauce-connect/sauce-connect.yaml
 ```
@@ -187,6 +189,7 @@ sudo ln -s /opt/sauce-connect/completions/sc.bash /etc/bash_completion.d/sc
 This step is optional. You can use default configuration or configure Sauce Connect with flags or environment variables.
 See [CLI reference](/dev/cli/sauce-connect-5/) for more details.
 
+Edit the configuration file with your favorite editor:
 
 ```bash
 vim /opt/sauce-connect/sauce-connect.yaml
