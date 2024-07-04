@@ -24,6 +24,14 @@ brew install sauce-connect
 This step is optional. You can use default configuration or configure Sauce Connect with flags or environment variables.
 See [CLI reference](/dev/cli/sauce-connect-5/) for more details.
 
+Get the default configuration file:
+
+```bash
+sc run config-file > sauce-connect.yaml
+```
+
+Edit the configuration file with your favorite editor:
+
 ```bash
 vim sauce-connect.yaml
 ```
@@ -61,7 +69,6 @@ sudo ln -s /opt/sauce-connect/sc /usr/local/bin/sc
 
 ### Add completion
 
-
 <Tabs
 defaultValue="Zsh"
   values={[
@@ -88,6 +95,8 @@ echo 'source <(sc completion bash)' >>~/.bash_profile
 
 This step is optional. You can use default configuration or configure Sauce Connect with flags or environment variables.
 See [CLI reference](/dev/cli/sauce-connect-5/) for more details.
+
+Edit the configuration file with your favorite editor:
 
 ```bash
 vim /opt/sauce-connect/sauce-connect.yaml
