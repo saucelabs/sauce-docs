@@ -21,7 +21,7 @@ defaultValue="ARM64"
     {label: 'ARM64', value: 'ARM64'},
     {label: 'x86-64', value: 'x86-64'},
   ]}>
-    <TabItem value="ARM64">
+  <TabItem value="ARM64">
 
 ```bash
 curl -L -o sauce-connect.deb https://saucelabs.com/downloads/sauce-connect/5.1.1/sauce-connect_5.1.1.linux_arm64.deb
@@ -40,6 +40,8 @@ sudo dpkg -i sauce-connect.deb
 </Tabs>
 
 ### Edit config file
+
+Edit the configuration file with your favorite editor:
 
 ```bash
 sudo vim /etc/sauce-connect/sauce-connect.yaml
@@ -78,7 +80,7 @@ defaultValue="ARM64"
     {label: 'ARM64', value: 'ARM64'},
     {label: 'x86-64', value: 'x86-64'},
   ]}>
-<TabItem value="ARM64">
+  <TabItem value="ARM64">
 
 ```bash
 sudo rpm -i https://saucelabs.com/downloads/sauce-connect/5.1.1/sauce-connect-5.1.1_linux.aarch64.rpm
@@ -129,7 +131,7 @@ defaultValue="ARM64"
     {label: 'ARM64', value: 'ARM64'},
     {label: 'x86-64', value: 'x86-64'},
   ]}>
-<TabItem value="ARM64">
+  <TabItem value="ARM64">
 
 ```bash
 curl -L -o sauce-connect.tar.gz https://saucelabs.com/downloads/sauce-connect/5.1.1/sauce-connect-5.1.1_linux.aarch64.tar.gz
@@ -148,7 +150,6 @@ sudo tar -C /opt/sauce-connect -xzf sauce-connect.tar.gz
 
   </TabItem>
 </Tabs>
-
 
 ### Link the binary
 
