@@ -1603,6 +1603,38 @@ Each network condition has a supported value range:
 
 ---
 
+### `sauce: network-profile`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Set a network profile with predefined network conditions dynamically during your session.
+Please refer to the [list of network profiles](/mobile-apps/features/network-throttling/#predefined-network-profiles) for more information about each profile's network conditions.
+
+```java
+driver.executeScript("sauce: network-profile", "2G");
+```
+
+---
+
+### `sauce: network-conditions`
+
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Set custom network conditions for `downloadSpeed`, `uploadSpeed`, `latency` or `loss` dynamically during your session.
+Not all parameters need to be specified and only the ones specified will have conditioning applied.
+Please refer to [Network Throttling - executeScript](/mobile-apps/features/network-throttling/#appium---executescript) for more information.
+
+```java
+driver.executeScript("sauce: network-conditions", ImmutableMap.of(
+    "downloadSpeed", 5000,
+    "uploadSpeed", 3000,
+    "latency", 200,
+    "loss", 2,
+));
+```
+
+---
+
 ### `mobile: shell`
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">Android Only</span> |</small></p>

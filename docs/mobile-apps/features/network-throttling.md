@@ -143,18 +143,84 @@ The following table shows the predefined network profiles along with their corre
 
 ## Automated Testing
 
-### Appium
-To use the Sauce Labs Network Throttling feature in your automated Appium test, you can add the sauce-specific capability
+### Appium - Capability
+To use the Sauce Labs Network Throttling feature in your automated Appium test, you can add the Sauce-specific capability
 [networkConditions](https://docs.saucelabs.com/dev/test-configuration-options/#networkconditions) to provide custom network conditions for
 the entire session.
-Alternatively, you can use the sauce-specific capability [networkProfile](https://docs.saucelabs.com/dev/test-configuration-options/#networkprofile)
+Alternatively, you can use the Sauce-specific capability [networkProfile](https://docs.saucelabs.com/dev/test-configuration-options/#networkprofile)
 to apply one of the predefined network profiles to your session.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+
+// network conditions
+sauceOptions.setCapability("networkConditions", ImmutableMap.of(
+    "downloadSpeed", 5000,
+    "uploadSpeed", 3000,
+    "latency", 200,
+    "loss", 2,
+));
+
+// OR
+
+// network profile
+sauceOptions.setCapability("networkProfile", "2G");
+        
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+### Appium - executeScript
+
+To change your desired network conditions dynamically any time during your automated Appium test, use our Sauce-specific scripts 
+[sauce: network-conditions](/dev/test-configuration-options/#sauce-network-conditions) and [sauce: network-profile](/dev/test-configuration-options/#sauce-network-profile) with
+[Appium's Execute Script](https://appium.io/docs/en/2.0/guides/execute-methods/).
+
+
+
+```java title="Dynamically set Network Conditions"
+driver.executeScript("sauce: network-conditions", ImmutableMap.of(
+    "downloadSpeed", 5000,
+    "uploadSpeed", 3000,
+    "latency", 200,
+    "loss", 2,
+));
+```
+
+```java title="Dynamically set a Network Profile"
+driver.executeScript("sauce: network-profile", "4G-fast");
+```
+
+To disable network throttling, use the predefined network profile `no-throttling`:
+
+```java
+driver.executeScript("sauce: network-profile", "no-throttling");
+```
+
+## Live Testing
+Apply network throttling dynamically to your manual Live tests by selecting a predefined profile or by providing network conditions. 
+
+1. In the live test window, in the left toolbar, click **Throttle Network** to open the network throttling tool.
+
+<img src={useBaseUrl('img/mobile-apps/throttle-network-1.png')} alt="Throttle Network tool" width="650"/>
+
+2. Select a predefined profile from the dropdown to start the network throttling.
+
+<img src={useBaseUrl('img/mobile-apps/throttle-network-2.png')} alt="Throttle Network profile selection" width="650"/>
+
+An active network throttling is indicated by the **pulsing red dot** on the top left of the **Throttle Network** tool.
+
+<img src={useBaseUrl('img/mobile-apps/throttle-network-3.png')} alt="Throttle Network profile selection" width="650"/>
+
+3. Click on the **pulsing red dot** to **pause** the network throttling. A paused throttling is indicated by the **pause icon**.
+
+<img src={useBaseUrl('img/mobile-apps/throttle-network-4.png')} alt="Throttle Network profile selection" width="650"/>
 
 ## Upcoming
 
-* Apply network throttling to your manual Live tests
-* Change your desired network conditions dynamically any time during your automated Appium test
-* Apply network throttling to your Espresso and XCUITest tests
+* Apply network throttling to your native Espresso and XCUITest tests
+
 
 ## Limitations
 :::note Limitations
