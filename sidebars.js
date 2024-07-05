@@ -1021,6 +1021,7 @@ module.exports = {
                     items: [
                         'secure-connections/sauce-connect-5',
                         'secure-connections/sauce-connect-5/quickstart',
+                        'secure-connections/sauce-connect-5/migrating',
                         {
                             link: {
                                 type: 'doc',
@@ -1037,7 +1038,7 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/installation/kubernetes',
                             ],
                         },
-                        'secure-connections/sauce-connect-5/migrating',
+                        'secure-connections/sauce-connect-5/logging',
                         'secure-connections/sauce-connect-5/monitoring',
                         {
                             type: 'category',
