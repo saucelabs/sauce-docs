@@ -10,11 +10,11 @@ import TabItem from '@theme/TabItem';
 
 :::note
 
-+To install your iOS app on our real devices we need to include our own provisioning profile in your app. For that, we use a [resigning process](#sauce-labs-resigning-enablements) to include our provisioning profile in your app. While this process does not modify the functionality of the app, it touches [certain entitlements in your app](#sauce-labs-resigning-enablements). 
+To install your iOS app on our real devices we need to include our own provisioning profile in your app. For that, we use a [resigning process](#sauce-labs-resigning-enablements) to include our provisioning profile in your app. While this process does not modify the functionality of the app, it touches [certain entitlements in your app](#sauce-labs-resigning-enablements). 
 
-In order to disable the resigning process, you must buy your own private with dedicated provisioning profiles, see [here](#private-devices). Once you have such private devices, disabling can be achieved in one of these two ways:
-1. Use an [ad-hoc provisioning profile](https://developer.apple.com/help/account/manage-profiles/create-an-ad-hoc-provisioning-profile/) and you embed in it the private device's UDID.
-2. Use an [enterprise certificate](https://developer.apple.com/help/account/create-certificates/create-enterprise-distribution-certificates/): this does not require you to embed the device's UDID to the provisioning profile.
+In order to disable the resigning process, you must buy your own private devices with dedicated provisioning profiles, see [here](#private-devices). Once you have such private devices, disabling can be achieved in one of these two ways:
+1. Using an [ad-hoc provisioning profile](https://developer.apple.com/help/account/manage-profiles/create-an-ad-hoc-provisioning-profile/): embed  the private device's UDID in the profile.
+2. Using an [enterprise certificate](https://developer.apple.com/help/account/create-certificates/create-enterprise-distribution-certificates/): this does not require you to embed the device's UDID in the provisioning profile.
 
 :::
 
