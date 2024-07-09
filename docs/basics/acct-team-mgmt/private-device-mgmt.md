@@ -45,8 +45,18 @@ A device can be assigned to only 1 team at a time.
 2. On the **DEVICES** tab, in the **Team** dropdown, select a team to assign the device to.
    <img src={useBaseUrl('img/team-mgmt/device-mgmt-assign-team.png')} alt="Assign a team" width="600"/>
 
-## App Allow List
 
+# Customizing Private devices:
+
+1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
+2. On the **DEVICES** tab, click on the Pencil icon under Action column.
+3. Under the Action column, click the Pencil icon to edit a device.
+4. In the new device modal, you can configure your private device: App Allow List, Account Allow List, System App Allow List, Retain folders, Enable Apple Pay
+
+<img src={useBaseUrl('img/team-mgmt/private-device-management-edit.png')} alt="Private device management edit" width="450"/>
+<img src={useBaseUrl('img/team-mgmt/private-device-management-modal.png')} alt="Private device management modal view" width="450"/>
+
+## App Allow List
 The [device cleaning process](/mobile-apps/real-device-cleaning) will remove apps installed from [Sauce Storage](/mobile-apps/app-storage) and the App Store/Play Store between sessions. To have installed apps and app data persist between sessions, update this setting for each of the application identifiers. This might be the app you are testing or dependent apps, e.g. MFA app, Microsoft Authenticator, etc.
 
 :::important
