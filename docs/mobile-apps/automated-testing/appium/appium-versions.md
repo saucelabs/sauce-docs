@@ -670,10 +670,43 @@ The following list of custom Appium plugins are supported:
       <th>Recommended Appium Version</th>
     </tr>
   </thead>
-  <tbody><tr>
+  <tbody>
+    <tr>
+      <td>Android 15.0</td>
+      <td>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.11.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.11.0</code>
+        </a>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.11.0</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
       <td>Android 14.0</td>
       <td>
         <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.11.0</code>
+            </a>
+          </li>
           <li>
             <a href="#appium-2-versions">
               <code>2.0.0</code>
@@ -696,6 +729,11 @@ The following list of custom Appium plugins are supported:
       <td>Android 13.0</td>
       <td>
         <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.11.0</code>
+            </a>
+          </li>
           <li>
             <a href="#appium-2-versions">
               <code>2.0.0</code>
@@ -760,6 +798,11 @@ The following list of custom Appium plugins are supported:
         <ul>
           <li>
             <a href="#appium-2-versions">
+              <code>2.11.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
               <code>2.0.0</code>
             </a>
           </li>
@@ -820,6 +863,11 @@ The following list of custom Appium plugins are supported:
       <td>Android 11.0</td>
       <td>
         <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.11.0</code>
+            </a>
+          </li>
           <li>
             <a href="#appium-2-versions">
               <code>2.0.0</code>
@@ -902,6 +950,11 @@ The following list of custom Appium plugins are supported:
       <td>Android 10.0</td>
       <td>
         <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.11.0</code>
+            </a>
+          </li>
           <li>
             <a href="#appium-2-versions">
               <code>2.0.0</code>
@@ -1009,6 +1062,11 @@ The following list of custom Appium plugins are supported:
       <td>Android 9.0</td>
       <td>
         <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.11.0</code>
+            </a>
+          </li>
           <li>
             <a href="#appium-2-versions">
               <code>2.0.0</code>
@@ -1123,6 +1181,11 @@ The following list of custom Appium plugins are supported:
         <ul>
           <li>
             <a href="#appium-2-versions">
+              <code>2.11.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
               <code>2.0.0</code>
             </a>
           </li>
@@ -1233,6 +1296,11 @@ The following list of custom Appium plugins are supported:
       <td>Android 8.0</td>
       <td>
         <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.11.0</code>
+            </a>
+          </li>
           <li>
             <a href="#appium-2-versions">
               <code>2.0.0</code>
@@ -1347,6 +1415,11 @@ The following list of custom Appium plugins are supported:
         <ul>
           <li>
             <a href="#appium-2-versions">
+              <code>2.11.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
               <code>2.0.0</code>
             </a>
           </li>
@@ -1459,6 +1532,11 @@ The following list of custom Appium plugins are supported:
         <ul>
           <li>
             <a href="#appium-2-versions">
+              <code>2.11.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
               <code>2.0.0</code>
             </a>
           </li>
@@ -1569,6 +1647,11 @@ The following list of custom Appium plugins are supported:
       <td>Android 6.0</td>
       <td>
         <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.11.0</code>
+            </a>
+          </li>
           <li>
             <a href="#appium-2-versions">
               <code>2.0.0</code>
@@ -2854,6 +2937,33 @@ The Appium 2 versions for Virtual Devices are also collections of drivers that a
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>
+        <code>2.11.0</code>
+      </td>
+      <td>-</td>
+      <td>
+        The is a collection of the following drivers <br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.11.0" target="_blank">
+              <code>appium</code>: 2.11.0
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-espresso-driver/releases/tag/v2.44.0" target="_blank">
+              <code>appium-espresso-driver</code>: 2.44.0
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.8.0" target="_blank">
+              <code>appium-flutter-driver</code>: 2.8.0
+            </a>
+          </li>
+          <li><a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.7.0" target="_blank"><code>appium-uiautomator2-driver</code>: 3.7.0</a></li>
+        </ul>
+      </td>
+    </tr>
     <tr>
       <td>
         <code>2.0.0</code>
