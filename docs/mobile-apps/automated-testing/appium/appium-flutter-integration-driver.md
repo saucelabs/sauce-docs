@@ -15,6 +15,36 @@ This step includes instructions on how to prepare and build your app for both An
 you can [upload](#uploading-your-flutter-app-to-sauce-labs) it to Sauce Labs, [Configure your Appium capabilities](#configuring-your-appium-capabilities), and run your tests.
 
 
+## Native Flutter Integration Driver vs Appium Flutter Integration Driver
+
+| Use Cases                                                                                                                           | Native Flutter Driver | Appium Flutter Integration Driver |
+| ----------------------------------------------------------------------------------------------------------------------------------- | --------------------- | --------------------------------- |
+| Writing tests in languages other than Dart                                                                                          | ❌                    | ✔️                                |
+| Running integration tests for Flutter apps with embedded webview or native view, or existing native apps with embedded Flutter view | ❌                    | ✔️                                |
+| Running tests on multiple devices simultaneously                                                                                    | ❌                    | ✔️                                |
+| Running integration tests on device farms that offer Appium support                                                                 | ❌                    | ✔️                                |
+| App interactions beyond Flutter’s contextuality (e.g., sending an OTP from a message application)                                   | ❌                    | ✔️                                |
+
+## Differences from Appium Flutter Driver
+
+The current Appium Flutter Driver is built on top of the `flutter_test` SDK, which is deprecated. The potential deprecation ([Expand deprecation policy to package:flutter_driver](https://github.com/flutter/flutter/issues/139249)) means this driver may not work with future Flutter updates. It also does not handle all cases, such as permission dialog handling.
+
+## Why Use Appium Flutter Integration Driver?
+
+This driver is built using [Flutter Integration Test](https://docs.flutter.dev/cookbook/testing/integration/introduction).
+
+ **Strong Typing & Fluent APIs:** Ensures robust and easy-to-use interfaces.
+
+ **Element Handling**: Automatically waits for elements to attach to the DOM before interacting.
+
+ **Seamless Context Switching**: No need to switch between contexts, such as Flutter and native; the driver handles it effortlessly.
+
+ **Auto Wait for Render Cycles**: Automatically waits for frame render cycles, including animations and screen transitions.
+
+ **Simplified Powerful Gestures**: Supports powerful yet simplified gestures like LongPress, ScrollToElement, DragAndDrop, and DoubleClick.
+
+ **Element Chaining**: Allows chaining of elements, enabling you to find child elements under a specific parent easily.
+
 
 ## What You'll Need
 
