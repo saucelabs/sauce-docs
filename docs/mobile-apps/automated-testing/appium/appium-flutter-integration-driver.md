@@ -27,23 +27,25 @@ you can [upload](#uploading-your-flutter-app-to-sauce-labs) it to Sauce Labs, [C
 
 ## Differences from Appium Flutter Driver
 
-The current Appium Flutter Driver is built on top of the `flutter_test` SDK, which is deprecated. The potential deprecation ([Expand deprecation policy to package:flutter_driver](https://github.com/flutter/flutter/issues/139249)) means this driver may not work with future Flutter updates. It also does not handle all cases, such as permission dialog handling.
+The current Appium Flutter Driver is built on top of the `flutter_test` SDK, which is deprecated. 
+The potential deprecation ([Expand deprecation policy to package:flutter_driver](https://github.com/flutter/flutter/issues/139249)) 
+means this driver may not work with future Flutter updates. It also does not handle all cases, such as permission dialog handling.
 
 ## Why Use Appium Flutter Integration Driver?
 
 This driver is built using [Flutter Integration Test](https://docs.flutter.dev/cookbook/testing/integration/introduction).
 
- **Strong Typing & Fluent APIs:** Ensures robust and easy-to-use interfaces.
+ ***Strong Typing & Fluent APIs:*** Ensures robust and easy-to-use interfaces.
 
- **Element Handling**: Automatically waits for elements to attach to the DOM before interacting.
+ ***Element Handling***: Automatically waits for elements to attach to the DOM before interacting.
 
- **Seamless Context Switching**: No need to switch between contexts, such as Flutter and native; the driver handles it effortlessly.
+ ***Seamless Context Switching***: No need to switch between contexts, such as Flutter and native; the driver handles it effortlessly.
 
- **Auto Wait for Render Cycles**: Automatically waits for frame render cycles, including animations and screen transitions.
+ ***Auto Wait for Render Cycles***: Automatically waits for frame render cycles, including animations and screen transitions.
 
- **Simplified Powerful Gestures**: Supports powerful yet simplified gestures like LongPress, ScrollToElement, DragAndDrop, and DoubleClick.
+ ***Simplified Powerful Gestures***: Supports powerful yet simplified gestures like LongPress, ScrollToElement, DragAndDrop, and DoubleClick.
 
- **Element Chaining**: Allows chaining of elements, enabling you to find child elements under a specific parent easily.
+ ***Element Chaining***: Allows chaining of elements, enabling you to find child elements under a specific parent easily.
 
 
 ## What You'll Need
@@ -55,7 +57,7 @@ This driver is built using [Flutter Integration Test](https://docs.flutter.dev/c
 
 [*My Demo App Flutter*](https://github.com/saucelabs/my-demo-app-flutter) is a mobile application developed using Flutter based
 on [Flutter Counter example application](https://github.com/felangel/bloc/tree/master/examples/flutter_counter).
-Modified by the Sauce Labs team, this app is designed to demonstrate the robust capabilities of Sauce Labs'
+Modified by the Sauce Labs team, this app is designed to demonstrate the robust capabilities of Sauce Labs
 mobile devices cloud, with a particular focus on our integration with the [Appium Flutter Integration Driver](https://github.com/AppiumTestDistribution/appium-flutter-integration-driver).
 
 The apps can be found [here](https://github.com/saucelabs/my-demo-app-flutter/releases/tag/v1.0.0).
@@ -134,10 +136,6 @@ You can now upload the built apps with our [REST API](/dev/api/storage/#upload-f
 
 More information on how to write Appium tests for Flutter apps can be found in the [appium-flutter-integration-driver](https://github.com/AppiumTestDistribution/appium-flutter-integration-driver) repository. You can also find a sample Flutter app and tests in the [Demo JS - Appium Flutter Integration](https://github.com/saucelabs-training/demo-js/tree/docs-1.3/webdriverio/appium-app/examples/appium-flutter-integration)-repository.
 
-:::info W3C Capabilities
-We encourage you to use W3C capabilities for your tests. For more information on W3C capabilities, see [W3C Capabilities](/dev/test-configuration-options/#mobile-appium-capabilities).
-:::
-
 :::info APPIUM FLUTTER INTEGRATION DRIVER SUPPORT :
 [appium-flutter-integration-driver](https://github.com/AppiumTestDistribution/appium-flutter-integration-driver). This driver will now be included by default with Appium version latest and all subsequent versions released after July 1st.
 
@@ -151,7 +149,7 @@ groupId="capability-ex"
 defaultValue="java"
 values={[
 {label: 'Java', value: 'java'},
-{label: 'Node.js', value: 'js'},
+{label: 'WDIO', value: 'ts'},
 ]}>
 
 <TabItem value="java">
@@ -209,7 +207,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 </TabItem>
 </Tabs>
 </TabItem>
-<TabItem value="js">
+<TabItem value="ts">
 
 <Tabs
 groupId="capability-js"
@@ -221,7 +219,7 @@ values={[
 <TabItem value="android">
 
 <!-- prettier-ignore -->
-```js
+```ts
 const capabilities = {
     platformName: 'android',
     // W3C Protocol is mandatory for Appium 2
@@ -241,7 +239,7 @@ const capabilities = {
 <TabItem value="ios">
 
 <!-- prettier-ignore -->
-```js
+```ts
 const capabilities = {
     platformName: 'ios',
     // W3C Protocol is mandatory for Appium 2
