@@ -132,7 +132,7 @@ You can now upload the built apps with our [REST API](/dev/api/storage/#upload-f
 
 ## Configuring your Appium Capabilities
 
-More information on how to write Appium tests for Flutter apps can be found in the [appium-flutter-integration-driver](https://github.com/AppiumTestDistribution/appium-flutter-integration-driver) repository. You can also find a sample Flutter app and tests in the [Demo JS - Appium Flutter Integration](https://github.com/saucelabs-training/demo-js/tree/main/webdriverio/appium-app/examples/appium-flutter-integration)-repository.
+More information on how to write Appium tests for Flutter apps can be found in the [appium-flutter-integration-driver](https://github.com/AppiumTestDistribution/appium-flutter-integration-driver) repository. You can also find a sample Flutter app and tests in the [Demo JS - Appium Flutter Integration](https://github.com/saucelabs-training/demo-js/tree/docs-1.3/webdriverio/appium-app/examples/appium-flutter-integration)-repository.
 
 :::info W3C Capabilities
 We encourage you to use W3C capabilities for your tests. For more information on W3C capabilities, see [W3C Capabilities](/dev/test-configuration-options/#mobile-appium-capabilities).
