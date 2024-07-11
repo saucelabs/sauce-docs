@@ -9,6 +9,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::warning Appium Flutter Driver
+The [`appium-flutter-driver`](https://github.com/appium-userland/appium-flutter-driver/). is now considered a legacy driver by Appium, 
+meaning no bug fixes or updates will be released. However, it can still be used when running tests on Sauce Labs. 
+We advise transitioning to the [appium-flutter-integration-driver](https://github.com/AppiumTestDistribution/appium-flutter-integration-driver).
+A guide on how to run tests on Sauce Labs using the new driver can be found [here](/mobile-apps/automated-testing/appium/appium-flutter-integration-driver).
+:::
+
 Sauce Labs supports testing Flutter apps on Android and iOS virtual and real devices with Appium by supporting the [`appium-flutter-driver`](https://github.com/appium-userland/appium-flutter-driver/). The process to test Flutter apps with Appium involves an extra and important step, which is [preprocessing your app](#preprocessing-your-flutter-app). After that you can [build](#building-your-flutter-app) it, [upload](#uploading-your-flutter-app-to-sauce-labs) it to Sauce Labs, [configure your Appium capabilities](#configuring-your-appium-capabilities) and run your tests.
 
 ## What You'll Need
