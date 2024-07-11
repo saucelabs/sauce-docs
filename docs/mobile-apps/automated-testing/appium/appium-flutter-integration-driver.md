@@ -228,7 +228,7 @@ const capabilities = [
       'appium:app': 'storage:filename=sl_my_demo_flutter_app.apk',
       'appium:newCommandTimeout': 240,
       'sauce:options': {
-         name: "1st AppiumFlutterIntegrationDriver test using appium latest",
+         name: "1st AppiumFlutterIntegrationDriver test using appium",
          appiumVersion: "appium2-20240701"
       },
    }
@@ -249,7 +249,7 @@ const capabilities = [
       'appium:newCommandTimeout': 240,
       'appium:platformVersion': '^1(4.[3-9]|[5-9]).*',
       'sauce:options': {
-         name: "1st AppiumFlutterIntegrationDriver test using appium latest",
+         name: "1st AppiumFlutterIntegrationDriver test using appium",
          resigningEnabled: true,
          appiumVersion: "appium2-20240701",
       },
