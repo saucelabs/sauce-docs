@@ -85,9 +85,9 @@ The following table shows the predefined network profiles along with their corre
     <tr>
       <td>No Network</td>
       <td>no-network</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>100</td>
     </tr>
     <tr>
