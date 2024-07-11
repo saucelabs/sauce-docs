@@ -10,7 +10,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Sauce Labs supports testing Flutter apps on Android and iOS virtual and real devices with Appium by utilizing the [appium-flutter-integration-driver](https://github.com/AppiumTestDistribution/appium-flutter-integration-driver). 
-The process to test Flutter apps with Appium involves an additional and crucial step: [Prepare the app with Flutter Integration Server](#Prepare-the-app-with-Flutter-Integration-Server). 
+The process to test Flutter apps with Appium involves an additional and crucial step: [Prepare the app with Flutter Integration Server](#prepare-the-app-with-flutter-integration-server). 
 This step includes instructions on how to prepare and build your app for both Android and iOS platforms. After preparing your app, 
 you can [upload](#uploading-your-flutter-app-to-sauce-labs) it to Sauce Labs, [Configure your Appium capabilities](#configuring-your-appium-capabilities), and run your tests.
 
@@ -21,9 +21,9 @@ you can [upload](#uploading-your-flutter-app-to-sauce-labs) it to Sauce Labs, [C
 - Familiarity with creating, signing and building [Flutter apps](https://docs.flutter.dev/).
 - Familiarity writing and running [Appium tests](/mobile-apps/automated-testing/appium/).
 
-## Use Saucelabs `My Demo App Flutter`
+## Use Sauce Labs `My Demo App Flutter`
 
-*My Demo App Flutter* is a mobile application developed using Flutter based
+[*My Demo App Flutter*](https://github.com/saucelabs/my-demo-app-flutter) is a mobile application developed using Flutter based
 on [Flutter Counter example application](https://github.com/felangel/bloc/tree/master/examples/flutter_counter).
 Modified by the Sauce Labs team, this app is designed to demonstrate the robust capabilities of Sauce Labs'
 mobile devices cloud, with a particular focus on our integration with the [Appium Flutter Integration Driver](https://github.com/AppiumTestDistribution/appium-flutter-integration-driver).
