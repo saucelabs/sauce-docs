@@ -178,6 +178,8 @@ capabilities.setCapability("appium:app", "storage:filename=sl_my_demo_flutter_ap
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
 // appiumVersion is mandatory to use Appium 2 on Sauce Labs
 sauceOptions.put("appiumVersion", "appium-20240701");
+sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
+sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
@@ -199,6 +201,8 @@ capabilities.setCapability("appium:app", "storage:filename=sl_my_demo_flutter_ap
 HashMap<String, Object> sauceOptions = new HashMap<String, Object>();
 // appiumVersion is mandatory to use Appium 2 on Sauce Labs
 sauceOptions.put("appiumVersion", "appium-20240701");
+sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
+sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
