@@ -35,8 +35,6 @@ The apps can be found [here](https://github.com/saucelabs/my-demo-app-flutter/re
 
 ## Prepare the app with Flutter Integration Server
 
-The Appium Flutter Driver uses the [Dart VM Service Protocol](https://github.com/dart-lang/sdk/blob/master/runtime/vm/service/service.md) with extension `ext.flutter.driver`, similar to Flutter Driver, to control the Flutter app-under-test (AUT). This needs to be enabled in the AUT before the app can be tested with Appium Flutter Driver and can be done by following the steps below:
-
 1. Open your Flutter project in your favorite IDE.
 2. In your Flutter app's `pubspec.yaml`, add the following dependencies:
 
