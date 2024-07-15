@@ -17,7 +17,9 @@ The Sauce Visual CLI (command line interface) allows you to easily interact with
 - npx: Included with Node.js (version 10.x or higher)
 - Operating System: macOS 10.15+, Linux, or Windows 10/11
 
-With these requirements met, you can run the tool using:
+## Usage
+
+You can run Sauce Visual CLI using:
 
  `npx @saucelabs/visual build [command] [options]`
 
