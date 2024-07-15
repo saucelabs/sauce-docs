@@ -1,5 +1,5 @@
 ---
-id: visual-cli
+id: cli
 title: Sauce Visual CLI
 sidebar_label: Sauce Visual CLI
 ---
