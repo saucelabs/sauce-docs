@@ -35,7 +35,7 @@ Usage: `npx @saucelabs/visual build create [options]`
 
 #### Options
 
-- `-r`, `--region`: The Sauce Labs region. Options: `us-west-1`, `eu-central-1`, `us-east-4`. Default: `us-west-1`
+- `-r`, `--region`: The Sauce Labs region. Possible values: `us-west-1`, `eu-central-1`, `us-east-4`. Default: `us-west-1`
 - `--branch`: Branch name to associate the build with.
 - `--default-branch`: Main branch name to associate the build with. Usually `main` or `master`. Read more [here](https://docs.saucelabs.com/visual-testing/workflows/ci/)
 - `-p`, `--project`: Label/project to associate the build with.
@@ -49,14 +49,13 @@ Usage: `npx @saucelabs/visual build finish [options]`
 
 #### Required
 
+One of the following:
+
 - `-b`, `--build-id`: Build ID to finish. Format: `UUID`
-
-OR
-
 - `-c`, `--custom-id`: Custom ID associated with a build to finish.
 
 #### Options
-- `-r`, `--region`: The Sauce Labs region. Options: `us-west-1`, `eu-central-1`, `us-east-4`. Default: `us-west-1`
+- `-r`, `--region`: The Sauce Labs region. Possible values: `us-west-1`, `eu-central-1`, `us-east-4`. Default: `us-west-1`
 
 ### status
 
@@ -66,12 +65,11 @@ Usage: `npx @saucelabs/visual build status [options]`
 
 #### Required
 
+One of the following:
+
 - `-b`, `--build-id`: Build ID to finish. Format: `UUID`
-
-OR
-
 - `-c`, `--custom-id`: Custom ID associated with a build to finish.
 
 #### Options
 
-- `-r`, `--region`: The Sauce Labs region. Options: `us-west-1`, `eu-central-1`, `us-east-4`. Default: `us-west-1`
+- `-r`, `--region`: The Sauce Labs region. Possible values: `us-west-1`, `eu-central-1`, `us-east-4`. Default: `us-west-1`
