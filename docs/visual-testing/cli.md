@@ -69,8 +69,8 @@ Usage: `npx @saucelabs/visual build status [options]`
 
 One of the following:
 
-- `-b`, `--build-id`: Build ID to finish. Format: `UUID`
-- `-c`, `--custom-id`: Custom ID associated with a build to finish.
+- `-b`, `--build-id`: Build ID. Format: `UUID`
+- `-c`, `--custom-id`: Custom ID associated with a build.
 
 #### Options
 
