@@ -1484,6 +1484,7 @@ module.exports = {
                                     ],
                                 },
                                 'web-apps/automated-testing/cypress/advanced',
+                                'web-apps/automated-testing/cypress/limitations',
                             ],
                         },
                         {
@@ -1496,6 +1497,7 @@ module.exports = {
                                 'web-apps/automated-testing/playwright/selenium-grid',
                                 'web-apps/automated-testing/playwright/yaml',
                                 'web-apps/automated-testing/playwright/advanced',
+                                'web-apps/automated-testing/playwright/limitations',
                             ],
                         },
                         {
@@ -1518,6 +1520,7 @@ module.exports = {
                                 'web-apps/automated-testing/testcafe/quickstart',
                                 'web-apps/automated-testing/testcafe/yaml',
                                 'web-apps/automated-testing/testcafe/advanced',
+                                'web-apps/automated-testing/testcafe/limitations',
                             ],
                         },
                         {
