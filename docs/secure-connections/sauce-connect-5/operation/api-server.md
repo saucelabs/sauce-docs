@@ -8,14 +8,28 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Connect Proxy, optionally, exposes an API server that allows obtain information about the local Sauce Connect Proxy instance.
+Sauce Connect Proxy, optionally, exposes an API server that allows to obtain information about the local Sauce Connect Proxy instance.
 The API interface is configured with the [`--api-address`](/dev/cli/sauce-connect-5/run/#--api-address) flag.
 
 ```bash
 --api-address :8080 # listens on all the interfaces' port 8080
---api-address 127.0.0.1:8081 # listens on 127.0.0.1 port 8081
+--api-address 127.0.0.1:8080 # listens on 127.0.0.1 port 8080
 ```
 
+## Docker
+
+When running Sauce Connect Proxy in a container, the API server is enabled by default and listens on the containers' localhost port 10000.
+Due to configuration options order of precedence, to change the API server address, you need to use the `SAUCE_API_ADDRESS` environment variable.
+
+The following example shows how to start a Sauce Connect Proxy container with the API server accessible on port 8080 on the host machine.
+
+```bash
+docker run \
+  // your normal options
+  -e SAUCE_API_ADDRESS=':8080' \
+  -p 8080:8080
+  saucelabs/sauce-connect
+```
 
 ## Endpoints
 
