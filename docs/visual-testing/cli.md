@@ -9,7 +9,12 @@ The Sauce Visual CLI (command line interface) allows you to easily interact with
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings) to be set in `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables
+
+```sh
+export SAUCE_USERNAME=__YOUR_SAUCE_USERNAME__
+export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
+```
 
 ## System Requirements
 
@@ -21,11 +26,11 @@ The Sauce Visual CLI (command line interface) allows you to easily interact with
 
 You can run Sauce Visual CLI using:
 
- `npx @saucelabs/visual build [command] [options]`
+`npx @saucelabs/visual build [command] [options]`
 
 Run the following command to see the list of available commands:
 
- `npx @saucelabs/visual build`
+`npx @saucelabs/visual build`
 
 ## Commands
 
