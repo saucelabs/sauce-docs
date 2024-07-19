@@ -169,4 +169,4 @@ If you would prefer to stay in Cypress, try the new [Cypress Sauce Labs Plugin](
 
 ## Limitations
 
-Please check the [Limitation Page](cypress/limitations.md).
+Please check the [Limitations Page](cypress/limitations.md).

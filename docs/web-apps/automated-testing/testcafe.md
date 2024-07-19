@@ -168,4 +168,4 @@ If all you want is to publish your TestCafe test results to Sauce Labs (but not 
 
 ## Limitations
 
-Please check the [Limitation Page](testcafe/limitations.md).
+Please check the [Limitations Page](testcafe/limitations.md).

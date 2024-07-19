@@ -170,4 +170,4 @@ If you prefer to stay in Playwright, try the [Playwright Sauce Labs Reporter](ht
 
 ## Limitations
 
-Please check the [Limitation Page](playwright/limitations.md).
+Please check the [Limitations Page](playwright/limitations.md).
