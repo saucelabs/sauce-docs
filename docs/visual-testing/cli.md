@@ -29,14 +29,6 @@ Run the following command to see the list of available commands:
 
 ## Commands
 
-### help
-
-Displays help for a command
-
-Usage: `npx @saucelabs/visual build help [command]`
-
-Example: `npx @saucelabs/visual build help create`
-
 ### create 
 
 Creates a Sauce Visual build
@@ -87,3 +79,11 @@ One of the following:
 #### Options
 
 - `-r`, `--region`: The Sauce Labs region. Possible values: `us-west-1`, `eu-central-1`, `us-east-4`. Default: `us-west-1`
+
+### help
+
+Displays help for a command
+
+Usage: `npx @saucelabs/visual build help [command]`
+
+Example: `npx @saucelabs/visual build help create`
