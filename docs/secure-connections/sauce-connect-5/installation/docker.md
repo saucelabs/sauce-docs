@@ -1,6 +1,6 @@
 ---
 id: docker
-title: Sauce Connect Proxy 5 Docker Container
+title: Run Sauce Connect in Docker
 sidebar_label: Docker
 ---
 
