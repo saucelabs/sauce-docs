@@ -23,7 +23,19 @@ You can run Sauce Visual CLI using:
 
  `npx @saucelabs/visual build [command] [options]`
 
+Run the following command to see the list of available commands:
+
+ `npx @saucelabs/visual build`
+
 ## Commands
+
+### help
+
+Displays help for a command
+
+Usage: `npx @saucelabs/visual build help [command]`
+
+Example: `npx @saucelabs/visual build help create`
 
 ### create 
 
