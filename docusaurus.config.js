@@ -8,7 +8,7 @@ const docusaurusConfig = {
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'throw',
-    favicon: 'img/favicon-32x32.png',
+    favicon: 'favicon.ico',
     organizationName: 'saucelabs',
     projectName: 'sauce-docs',
     customFields: {
