@@ -4,7 +4,7 @@ title: Sauce Visual CLI
 sidebar_label: Sauce Visual CLI
 ---
 
-The Sauce Visual CLI (command line interface) allows you to easily interact with Sauce Visual, streamlining your visual testing workflows. With this tool, you can create new builds, mark builds as completed, and retrieve the current status of any build. This simplifies the process of integrating visual testing into your continuous integration and delivery pipelines, ensuring efficient and accurate visual validation of your web applications.
+The Sauce Visual CLI (command line interface) allows you to easily interact with Sauce Visual, streamlining your visual testing workflows. With this tool, you can create new builds, mark builds as completed, and retrieve the current status of any build. This simplifies the process of integrating visual testing into your continuous integration and delivery pipelines, ensuring efficient and accurate visual validation of your applications.
 
 ## What You'll Need
 
@@ -87,3 +87,5 @@ Displays help for a command
 Usage: `npx @saucelabs/visual build help [command]`
 
 Example: `npx @saucelabs/visual build help create`
+
+In addition to `help` command there's also `-h`, `--help` option available for every command to display the available options.
