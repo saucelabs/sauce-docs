@@ -1,5 +1,5 @@
 ---
-id: configure
+id: configure-cli
 title: saucectl configure
 sidebar_label: configure
 ---
