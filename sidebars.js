@@ -778,7 +778,7 @@ module.exports = {
                                     label: 'saucectl configure',
                                     collapsed: true,
                                     items: [
-                                        'dev/cli/saucectl/configure/configure-cli',
+                                        'dev/cli/saucectl/configure',
                                         'dev/cli/saucectl/configure/list',
                                     ],
                                 },
