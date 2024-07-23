@@ -777,10 +777,11 @@ module.exports = {
                                     type: 'category',
                                     label: 'saucectl configure',
                                     collapsed: true,
-                                    items: [
-                                        'dev/cli/saucectl/configure',
-                                        'dev/cli/saucectl/configure/list',
-                                    ],
+                                    link: {
+                                        type: 'doc',
+                                        id: 'dev/cli/saucectl/configure',
+                                    },
+                                    items: ['dev/cli/saucectl/configure/list'],
                                 },
                                 {
                                     type: 'category',
