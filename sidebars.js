@@ -779,7 +779,7 @@ module.exports = {
                                     collapsed: true,
                                     link: {
                                         type: 'doc',
-                                        id: 'dev/cli/saucectl/configure',
+                                        id: 'dev/cli/saucectl/configure/configure/configure',
                                     },
                                     items: ['dev/cli/saucectl/configure/list'],
                                 },
