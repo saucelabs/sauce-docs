@@ -1,4 +1,10 @@
-# API Lifecycle Documentation
+---
+id: api-lifecycle
+title: API Lifecycle
+sidebar_label: API Lifecycle
+---
+
+# API Lifecycle
 
 ## Introduction
 
