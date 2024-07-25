@@ -6,8 +6,6 @@ sidebar_label: API Lifecycle
 
 # API Lifecycle
 
-## Introduction
-
 This documentation provides a step-by-step guide on how to interact with Sauce Visual API. By following these steps, you'll be able to create builds, upload images, create snapshots, and finish builds. This guide is intended for users who wish to connect directly to the API or implement a binding on their own, including a link to our GraphQL API documentation for further reference.
 
 ## What You'll Need
