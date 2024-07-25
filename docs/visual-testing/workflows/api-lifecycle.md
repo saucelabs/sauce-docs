@@ -1,5 +1,3 @@
-To help customers effectively integrate with our API, especially those not using the specific technologies we provide bindings for, we provide a comprehensive guide on the lifecycle of interacting with our system. Below is a basic documentation outline to guide users through the necessary steps.
-
 # API Lifecycle Documentation
 
 ## Introduction
