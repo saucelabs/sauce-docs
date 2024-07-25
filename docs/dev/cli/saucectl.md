@@ -62,7 +62,7 @@ values={[
 [TestCafe on Sauce Docs](/web-apps/automated-testing/testcafe/)
 
 </TabItem>
-  
+
 <TabItem value="replay">
 
 [Replay on Sauce Docs](/web-apps/automated-testing/replay/)
@@ -180,7 +180,7 @@ Once you've got `saucectl` installed, you can customize your configurations base
 
 Your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` (available on your [User Settings](https://app.saucelabs.com/user-settings) page) are required to run tests through `saucectl`. You can pass your credentials to `saucectl` via several different methods:
 
-- Use the [`saucectl configure`](/dev/cli/saucectl/configure) CLI command to create a `credentials.yml` file from which `saucectl` can automatically pull your credentials.
+- Use the [`saucectl configure`](/dev/cli/saucectl/configure/configure) CLI command to create a `credentials.yml` file from which `saucectl` can automatically pull your credentials.
 - Set your credentials as [environment variables](/basics/environment-variables/) that `saucectl` can access at runtime.
 - Manually enter your credentials as options in the `saucectl run` command.
 
