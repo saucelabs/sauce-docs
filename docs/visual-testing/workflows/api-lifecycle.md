@@ -86,7 +86,7 @@ mutation {
 ```
 
 - `id`: Upload ID to use in the subsequent steps.
-- `uploadUrl`: The URL to use in the next step.
+- `uploadUrl`: The URL to upload the image in the next step.
 
 Next, send a `PUT` request to `uploadUrl` with image file in the body of the request. Only **PNG** files are supported.
 
