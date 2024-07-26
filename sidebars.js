@@ -478,6 +478,7 @@ module.exports = {
                             ],
                         },
                         'error-reporting/platform-integrations/source-map',
+                        'error-reporting/platform-integrations/session-replay',
                         'error-reporting/platform-integrations/apache',
                         'error-reporting/platform-integrations/minidump',
                         'error-reporting/platform-integrations/file-attachments',
