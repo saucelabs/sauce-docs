@@ -149,7 +149,7 @@ mutation {
 }
 ```
 - `buildUuid`: Build ID that was used in previous steps.
-- `uploadId`: Upload ID acquired with `createSnapshotUpload` in the previous step (`createSnapshotUpload` mutation response)
+- `uploadId`: Upload ID acquired with `createSnapshotUpload` in the previous step.
 - `operatingSystem`: The operating system used to take the snapshot. Strongly advised to be filled in. Available options: `ANDROID`, `IOS`, `LINUX`, `MACOS`, `WINDOWS`.
 - `operatingSystemVersion`: The operating system version. e.g. "14.5" for `MACOS` or "11" for `WINDOWS`.
 - `browser`: The browser used to take the snapshot. Strongly advised to be filled in (if available). Available options: `CHROME`, `EDGE`, `FIREFOX`, `PLAYWRIGHT_WEBKIT`, `SAFARI`.
