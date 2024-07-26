@@ -55,7 +55,7 @@ mutation {
 
 Next, upload an image to the build. This is a two step process. 
 
-First, get a placeholder URL for image upload using `createSnapshotUpload`.
+First, obtain a signed URL for uploading your image by using the `createSnapshotUpload` mutation.
 
 **GraphQL Mutation:**
 
@@ -94,12 +94,12 @@ Next, send a `PUT` request to `uploadUrl` with image file in the body of the req
 curl --request PUT \
   --url 'upload-url-here' \
   --header 'Content-Type: image/png' \
-  --data 'png-file-content'
+  --data '@my-screenshot.png'
 ```
 
 ### 3. Create Snapshot
 
-After uploading an image, create a snapshot to capture the current state of the build.
+After uploading your image, add your snapshot and its metadata to your build.
 
 **GraphQL Mutation:**
 
@@ -134,7 +134,7 @@ mutation {
 
 ### 4. Finish Build
 
-Finally, finish the build process to mark it as complete.
+Finally, finish the build to mark it as complete.
 
 **GraphQL Mutation:**
 
