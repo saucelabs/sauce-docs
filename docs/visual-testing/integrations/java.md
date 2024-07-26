@@ -329,7 +329,7 @@ visual.sauceVisualCheck("Before Login", options);
 
 #### Screenshot-wide configuration
 
-<SelectiveDiffingGlobal />=
+<SelectiveDiffingGlobal />
 
 Example:
 
