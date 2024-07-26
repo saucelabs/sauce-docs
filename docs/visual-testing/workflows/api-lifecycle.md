@@ -24,7 +24,7 @@ To start, you need to create a build. This initializes the process and prepares 
 
 ```graphql
 mutation {
-  createBuild(input: { name: "Your Build Name" }) {
+  createBuild(input: { name: "Your Build Name", branch: "Branch name", project: "Project name" }) {
     id
     name
     status
@@ -32,6 +32,9 @@ mutation {
   }
 }
 ```
+
+- `branch`: Branch name to associate the build with.
+- `project`: Label/project to associate the build with.
 
 **Expected Response:**
 
@@ -64,6 +67,7 @@ mutation {
   createSnapshotUpload(input: {buildId: "build-id-here"}) {
     id
     uploadUrl
+    domUploadUrl
   }
 }
 ```
@@ -77,7 +81,8 @@ mutation {
   "data": {
     "createSnapshotUpload": {
       "id": "upload-id-here",
-      "uploadUrl": "upload-url-here"
+      "uploadUrl": "image-upload-url-here",
+      "domUploadUrl": "dom-upload-url-here"
     }
   }
 }
@@ -85,37 +90,70 @@ mutation {
 
 - `id`: Upload ID to use in the subsequent steps.
 - `uploadUrl`: The URL to upload the image in the next step.
+- `domUploadUrl`: The URL to upload the DOM to (if available and desired). Explained in optional step below.
 
 Next, send a `PUT` request to `uploadUrl` with image file in the body of the request. Only **PNG** files are supported.
 
-**cURL Representation:**
+**cURL:**
 
 ```sh
 curl --request PUT \
   --url 'upload-url-here' \
+  --header 'Content-MD5: base64-encoded-md5-hash' \
   --header 'Content-Type: image/png' \
   --data '@my-screenshot.png'
 ```
 
+- `Content-MD5` header: Base64 encoded MD5 hash of the file (`my-screenshot.png`).
+- `Content-Type` header: Must be set to `image/png`. Not other extensions are supported.
+
+Optional: Upload DOM
+
+If desired (and available), DOM can be also uploaded to `domUploadUrl` obtained from `createSnapshotUpload` mutation.
+
+**cURL:**
+
+```sh
+curl --request PUT \
+  --url 'dom-upload-url-here' \
+  --header 'Content-MD5: base64-encoded-md5-hash' \
+  --header 'Content-Type: text/html' \
+  --data '@my-dom.html'
+```
+
+- `Content-MD5` header: Base64 encoded MD5 hash of the file (`my-dom.html`).
+- `Content-Type` header: Must be set to `text/html`. Not other extensions are supported.
+
 ### 3. Create Snapshot
 
-After uploading your image, add your snapshot and its metadata to your build.
+After uploading your image, add your snapshot along with its metadata to your build.
 
 **GraphQL Mutation:**
 
 ```graphql
 mutation {
   createSnapshot(
-    input: {buildUuid: "build-id-here", uploadId: "upload-id-here", name: "Your snapshot name"}
+    input: {
+      buildUuid: "build-id-here", 
+      uploadId: "upload-id-here", 
+      name: "Your snapshot name", 
+      operatingSystem: OS,
+      operatingSystemVersion: "os-version",
+    	browser: BROWSER,
+      browserVersion: "browser-version"
+    }
   ) {
     id
     uploadId
   }
 }
 ```
-
-- `uploadId`: Upload ID acquired with `createSnapshotUpload` in the previous step.
 - `buildUuid`: Build ID that was used in previous steps.
+- `uploadId`: Upload ID acquired with `createSnapshotUpload` in the previous step.
+- `operatingSystem`: The operating system used to take the snapshot. Strongly advised to be filled in. Available options: `ANDROID`, `IOS`, `LINUX`, `MACOS`, `WINDOWS`.
+- `operatingSystemVersion`: The operating system version. e.g. "14.5" for `MACOS` or "11" for `WINDOWS`.
+- `browser`: The browser used to take the snapshot. Strongly advised to be filled in (if available). Available options: `CHROME`, `EDGE`, `FIREFOX`, `PLAYWRIGHT_WEBKIT`, `SAFARI`.
+- `browserVersion`: The browser version. e.g. "120.0.6099.318", "128.0.2".
 
 **Expected Response:**
 
@@ -134,7 +172,9 @@ mutation {
 
 ### 4. Finish Build
 
-Finally, finish the build to mark it as complete.
+Finally, finish the build to mark it as complete. Keep in mind that this is a necessary step and the build cannot be reused after it's finished.
+
+It's also worth noting that unfinished builds will be automatically closed and set to `ERRORED` state after a certain period of time (default: 3 hours).
 
 **GraphQL Mutation:**
 
