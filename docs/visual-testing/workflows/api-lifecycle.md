@@ -90,11 +90,11 @@ mutation {
 
 - `id`: Upload ID to use in the subsequent steps.
 - `uploadUrl`: The URL to upload the image in the next step.
-- `domUploadUrl`: The URL to upload the DOM to (if available and desired). Explained in optional step below.
+- `domUploadUrl`: The URL to upload the DOM to (if desired and available). Explained in the optional step below.
 
 Next, send a `PUT` request to `uploadUrl` with image file in the body of the request. Only **PNG** files are supported.
 
-**cURL:**
+**cURL Request:**
 
 ```sh
 curl --request PUT \
@@ -111,7 +111,7 @@ Optional: Upload DOM
 
 If desired (and available), DOM can be also uploaded to `domUploadUrl` obtained from `createSnapshotUpload` mutation.
 
-**cURL:**
+**cURL Request:**
 
 ```sh
 curl --request PUT \
@@ -139,7 +139,7 @@ mutation {
       name: "Your snapshot name", 
       operatingSystem: OS,
       operatingSystemVersion: "os-version",
-    	browser: BROWSER,
+      browser: BROWSER,
       browserVersion: "browser-version"
     }
   ) {
@@ -149,7 +149,7 @@ mutation {
 }
 ```
 - `buildUuid`: Build ID that was used in previous steps.
-- `uploadId`: Upload ID acquired with `createSnapshotUpload` in the previous step.
+- `uploadId`: Upload ID acquired with `createSnapshotUpload` in the previous step (`createSnapshotUpload` mutation response)
 - `operatingSystem`: The operating system used to take the snapshot. Strongly advised to be filled in. Available options: `ANDROID`, `IOS`, `LINUX`, `MACOS`, `WINDOWS`.
 - `operatingSystemVersion`: The operating system version. e.g. "14.5" for `MACOS` or "11" for `WINDOWS`.
 - `browser`: The browser used to take the snapshot. Strongly advised to be filled in (if available). Available options: `CHROME`, `EDGE`, `FIREFOX`, `PLAYWRIGHT_WEBKIT`, `SAFARI`.
