@@ -329,7 +329,7 @@ visual.sauceVisualCheck("Before Login", options);
 
 #### Screenshot-wide configuration
 
-<SelectiveDiffingGlobal />=
+<SelectiveDiffingGlobal />
 
 Example:
 
@@ -450,25 +450,6 @@ CheckOptions options = new CheckOptions();
 options.setClipSelector(".your-css-selector");
 visual.sauceVisualCheck("Visible Sale Banner", options);
 ```
-
-#### Selective Diffing (BETA)
-
-[Selective regions](../selective-diffing.md) are an even more powerful way to control diffing.
-
-```java
-EnumSet<DiffingFlag> visualChanges = EnumSet.of(DiffingFlag.Visual);
-
-visual.sauceVisualCheck(
-        "Before Login",
-        new CheckOptions.Builder()
-            .withDiffingMethod(DiffingMethod.BALANCED)
-            .disable(EnumSet.of(DiffingFlag.Position, DiffingFlag.Dimensions))
-            .enable(visualChanges, loginPage.getInputUsername())
-            .disable(visualChanges, loginPage.getInputUsername())
-            .build());
-```
-
-You can find the full example in our [examples repo](#examples).
 
 ## Examples
 
