@@ -1624,3 +1624,17 @@ suite:
     smartRetry:
       failedOnly: true
 ```
+
+---
+
+### `esm`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When set to `true`, this option enables importing ECMAScript Modules (ESM) that do not support CommonJS. For more information, check the [TestCafe Documentation](https://testcafe.io/documentation/404258/guides/advanced-guides/esm-module-support).
+
+```yaml
+suite:
+  - name: My Saucy Test
+    esm: true
+```
