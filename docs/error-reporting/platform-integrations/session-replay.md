@@ -15,16 +15,16 @@ Session Replay is currently in beta and only available for web applications. Rep
 
 :::
 
-Session Replay allows you to capture a visual recreation of user sessions. This simplifies the replication of user errors to determine the root cause. Combining session replays with breadcrumbs and callstacks can give a complete view of the user experience. 
+Session Replay allows you to capture a visual recreation of a user session. This simplifies the replication of user errors to determine the root cause. Combining session replays with breadcrumbs and callstacks can give a complete view of the user experience. 
 
 ## Overview of Session Replay
-Session replay works by capturing the DOM state periodically when the user interacts wtih your application. The user session is then recreated when viewing the error in Backtrace. Unlike a video recording, these packages are lightweight and allow for additional processing prior to being sent and stored in Backtrace (i.e. masking for PII considerations). Currently, Backtrace SDK will snip the session around a triggering error, allowing your team to hone in on specific issues.
+Session replay works by capturing the DOM state periodically when the user interacts wtih your application. The user session is then recreated when viewing the error in Backtrace. Unlike a video recording, these packages are lightweight and allow for additional processing prior to being sent and stored in Backtrace (e.g. masking PII). Backtrace SDK snips the session around a triggering error so your team can hone in on a specific issue.
 
 The Backtrace implementation makes use of [rrweb](https://github.com/rrweb-io/rrweb/blob/master/guide.md).
 
 ## Prerequisites
 - A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
-- Follow the ([JavaScript integration guide](https://docs.saucelabs.com/error-reporting/language-integrations/javascript/)).
+- Follow the [JavaScript integration guide](https://docs.saucelabs.com/error-reporting/language-integrations/javascript/).
 
 ## Setting Up Session Replay
 
