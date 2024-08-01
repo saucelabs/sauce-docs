@@ -14,11 +14,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Sauce Labs currently supports the following test configurations for Electron.
 - Platforms
-  - Windows 10, 
-  - Windows 11 
-  - (Linux and MacOS 13 support to come)
+  - Windows 10 
+  - Windows 11
+  - MacOS 11
+  - MacOS 12
+  - MacOS 13
+  - (Linux support to be decided)
 - Electron versions
-  - versions 5 - 25
+  - versions 5 - 31 inclusive
 
 ## How to Get Started
 
@@ -48,7 +51,10 @@ then the `binary` value is `'Sauce Labs Test\SauceLabsElecronApp.exe'`.
 ### Configuring your tests
 
 You need to specify Electron as the [`browserName`](https://docs.saucelabs.com/dev/test-configuration-options/#browsername) along with the Electron version needed as the [`browserVersion`](https://docs.saucelabs.com/dev/test-configuration-options/#browserversion). You will also need to include either the file ID or file name of your uploaded zip file containing your Electron app, with the path to the binary inside that zip.
-Example written in Python with an Electron app test running on Windows 11 with Chromedriver 19 at US West:
+
+Because Electron is based on the Chromium browser, you need to specify the options using the `ChromeOptions` class.
+
+Example written in Python with an Electron app test running on Windows 11 with Electron 19 at US West:
 
 ```python
 options = ChromeOptions()
@@ -71,6 +77,6 @@ Test results are visible on the UI under “Automated Tests > Test Results.’ Y
 
 ## Limitations
 
-- Electron support is currently enabled only for automated testing on Windows 10 and 11. 
+- Electron support is currently enabled only for automated testing on Windows 10 and 11, and MacOS 11, 12 and 13. 
 - Electron apps uploaded via REST API are not currently visible within the App Management of the UI. 
 - Live testing and UI enhancements to come in a future release.
