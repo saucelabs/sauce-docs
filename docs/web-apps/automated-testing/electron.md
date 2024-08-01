@@ -55,12 +55,12 @@ You need to specify Electron as the [`browserName`](https://docs.saucelabs.com/d
 
 Because Electron is based on the Chromium browser, you need to specify the options using the `ChromeOptions` class.
 
-Example written in Python with an Electron app test running on Windows 11 with Electron 19 at US West:
+Example written in Python with an Electron app test running on Windows 11 with Electron 29 at US West:
 
 ```python
 options = ChromeOptions()
 options.set_capability('browserName', 'electron')
-options.browser_version = '19'
+options.browser_version = '29'
 options.platform_name = 'Windows 11'
 options.binary_location='<app_folder_name>\<app_file_name.exe>'
 sauce_options = {}
