@@ -34,6 +34,11 @@ module.exports = function (context) {
                             product_id : 'WyhkZHOU27797',
                             ${selector},
                             ${display},
+                            callback: function() {
+                                setTimeout(function() {
+                                    window.Beamer.enableFaviconNotification = false;
+                                }, 0);
+                            },
                         };`,
                     },
                     {

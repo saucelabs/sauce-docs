@@ -55,6 +55,7 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com. After that, i
 | ---------------------------- | ----------------------------------------------- |
 | OnDemand Endpoint            | https://ondemand.us-east-4.saucelabs.com/wd/hub |
 | REST API                     | api.us-east-4.saucelabs.com                     |
+| Sauce Connect Tunnel Servers | \*.tunnels.us-east-4.saucelabs.com:443          |
 
 ### EU Central Data Center
 

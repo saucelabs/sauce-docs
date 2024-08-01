@@ -778,10 +778,11 @@ module.exports = {
                                     type: 'category',
                                     label: 'saucectl configure',
                                     collapsed: true,
-                                    items: [
-                                        'dev/cli/saucectl/configure/configure',
-                                        'dev/cli/saucectl/configure/list',
-                                    ],
+                                    link: {
+                                        type: 'doc',
+                                        id: 'dev/cli/saucectl/configure/configure/configure',
+                                    },
+                                    items: ['dev/cli/saucectl/configure/list'],
                                 },
                                 {
                                     type: 'category',
@@ -1404,6 +1405,7 @@ module.exports = {
                                 'mobile-apps/automated-testing/appium/virtual-devices',
                                 'mobile-apps/automated-testing/appium/test-app-upgrades',
                                 'mobile-apps/automated-testing/appium/appium-flutter',
+                                'mobile-apps/automated-testing/appium/appium-flutter-integration-driver',
                             ],
                         },
                         {
@@ -1484,6 +1486,7 @@ module.exports = {
                                     ],
                                 },
                                 'web-apps/automated-testing/cypress/advanced',
+                                'web-apps/automated-testing/cypress/limitations',
                             ],
                         },
                         {
@@ -1496,6 +1499,7 @@ module.exports = {
                                 'web-apps/automated-testing/playwright/selenium-grid',
                                 'web-apps/automated-testing/playwright/yaml',
                                 'web-apps/automated-testing/playwright/advanced',
+                                'web-apps/automated-testing/playwright/limitations',
                             ],
                         },
                         {
@@ -1518,6 +1522,7 @@ module.exports = {
                                 'web-apps/automated-testing/testcafe/quickstart',
                                 'web-apps/automated-testing/testcafe/yaml',
                                 'web-apps/automated-testing/testcafe/advanced',
+                                'web-apps/automated-testing/testcafe/limitations',
                             ],
                         },
                         {
@@ -1690,6 +1695,7 @@ module.exports = {
                         'visual-testing/workflows/test-execution',
                         'visual-testing/workflows/review',
                         'visual-testing/workflows/ci',
+                        'visual-testing/workflows/api-lifecycle'
                     ],
                 },
                 {
@@ -1707,6 +1713,7 @@ module.exports = {
                         'visual-testing/integrations/python-robot-framework',
                     ],
                 },
+                'visual-testing/cli',
                 'visual-testing/selective-diffing',
                 'visual-testing/faq',
             ],
