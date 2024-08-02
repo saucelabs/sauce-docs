@@ -8,9 +8,9 @@ const docusaurusConfig = {
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'throw',
-    favicon: 'favicon.ico',
     organizationName: 'saucelabs',
     projectName: 'sauce-docs',
+    // TODO: I don't think google-site-verification is working at all, confirm with P.O.
     customFields: {
         headTags: [
             {
@@ -22,6 +22,26 @@ const docusaurusConfig = {
             },
         ],
     },
+    headTags: [
+        {
+            tagName: 'link',
+            attributes: {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '16x16',
+                href: '/img/favicon-16x16.png',
+            },
+        },
+        {
+            tagName: 'link',
+            attributes: {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '32x32',
+                href: '/img/favicon-32x32.png',
+            },
+        },
+    ],
     scripts: [
         '/scripts/hide.js',
         // Need Help? button
@@ -39,11 +59,6 @@ const docusaurusConfig = {
         },
     ],
     themeConfig: {
-        beamer: {
-            product_id: `'WyhkZHOU27797'`,
-            display: `'popup'`,
-            // selector: `'.beamerContainer'`,
-        },
         prism: {
             additionalLanguages: [
                 'java',
@@ -100,12 +115,6 @@ const docusaurusConfig = {
                     position: 'left',
                     to: '/error-reporting/getting-started',
                 },
-                {
-                    type: 'html',
-                    position: 'right',
-                    className: 'beamerTrigger',
-                    value: '<img src="/img/beamer.svg" width="22" height="22" class="beamer-navbar-bell" alt="Product Updates">',
-                },
             ],
         },
         /* this is a swizzled component, see inside theme folder */
@@ -155,7 +164,6 @@ const docusaurusConfig = {
         ],
     ],
     themes: ['docusaurus-theme-github-codeblock'],
-    plugins: ['./src/plugins/beamer'],
 };
 
 if (!process.env.SAUCE_DOCS_DEV) {
