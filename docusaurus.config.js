@@ -59,11 +59,6 @@ const docusaurusConfig = {
         },
     ],
     themeConfig: {
-        beamer: {
-            product_id: `'WyhkZHOU27797'`,
-            display: `'popup'`,
-            // selector: `'.beamerContainer'`,
-        },
         prism: {
             additionalLanguages: [
                 'java',
@@ -120,12 +115,6 @@ const docusaurusConfig = {
                     position: 'left',
                     to: '/error-reporting/getting-started',
                 },
-                {
-                    type: 'html',
-                    position: 'right',
-                    className: 'beamerTrigger',
-                    value: '<img src="/img/beamer.svg" width="22" height="22" class="beamer-navbar-bell" alt="Product Updates">',
-                },
             ],
         },
         /* this is a swizzled component, see inside theme folder */
@@ -175,7 +164,6 @@ const docusaurusConfig = {
         ],
     ],
     themes: ['docusaurus-theme-github-codeblock'],
-    plugins: ['./src/plugins/beamer'],
 };
 
 if (!process.env.SAUCE_DOCS_DEV) {
