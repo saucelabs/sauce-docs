@@ -8,9 +8,9 @@ const docusaurusConfig = {
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'throw',
-    favicon: 'favicon.ico',
     organizationName: 'saucelabs',
     projectName: 'sauce-docs',
+    // TODO: I don't think google-site-verification is working at all, confirm with P.O.
     customFields: {
         headTags: [
             {
@@ -22,6 +22,26 @@ const docusaurusConfig = {
             },
         ],
     },
+    headTags: [
+        {
+            tagName: 'link',
+            attributes: {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '16x16',
+                href: '/img/favicon-16x16.png',
+            },
+        },
+        {
+            tagName: 'link',
+            attributes: {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '32x32',
+                href: '/img/favicon-32x32.png',
+            },
+        },
+    ],
     scripts: [
         '/scripts/hide.js',
         // Need Help? button
