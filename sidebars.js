@@ -1694,7 +1694,7 @@ module.exports = {
                         'visual-testing/workflows/test-execution',
                         'visual-testing/workflows/review',
                         'visual-testing/workflows/ci',
-                        'visual-testing/workflows/api-lifecycle'
+                        'visual-testing/workflows/api-lifecycle',
                     ],
                 },
                 {
