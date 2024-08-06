@@ -840,6 +840,63 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 ---
 
+### `appium:timeZone`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">Android Only</span> |</small></p>
+
+Overrides the current device's time zone. This change is done on per-device basis and is
+preserved for the whole duration of the test session. The time zone identifier must be a
+valid name from [the list of available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones),
+for example `Europe/Paris`.
+
+:::note
+The iOS equivalent is [`appium:appTimeZone`](#appiumapptimezone).
+:::
+
+:::note
+This capability is only supported since UiAutomator2 driver version 3.1.0.
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:timeZone", "Europe/Paris");
+```
+
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
+---
+
+### `appium:appTimeZone`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">iOS Only</span> |</small></p>
+
+Defines the custom time zone override for the application under test.
+You can use `UTC`, `PST`, `EST`, as well as place-based timezone names such as `America/Los_Angeles`.
+See [the list of available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) f
+or more details. The same behavior could be achieved by providing a custom
+value to the `TZ` environment variable via the `appium:processArguments` capability.
+
+:::note
+The Android equivalent is [`appium:timeZone`](#appiumtimezone).
+:::
+
+:::note
+This capability is only supported since XCUITest driver version 7.10.0.
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:appTimeZone", "America/Los_Angeles");
+```
+
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
+---
+
 ## Mobile Appium Timeout Capabilities
 
 As with Selenium Tests, Appium also supports different types of timeouts like:
@@ -2047,8 +2104,8 @@ capabilities.setCapability("sauce:options", sauceOptions);
 Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
 
 - **For Desktop VMs**: can be configured with custom time zones. This feature should work on all operating systems, however, time zones on Windows VMs are approximate. The time zone defaults to UTC. Look for the "principal cities" examples on this [list of UTC time offsets](https://en.wikipedia.org/wiki/List_of_UTC_time_offsets).
-- **For iOS Virtual Devices**: you can use this capability to change the time on the Mac OS X VM, which will be picked up by the iOS simulator. Also, since XCUITest driver version 7.10.0 it is possible to update the per-application time zone on real and virtual devices via the [appium:appTimeZone](https://github.com/appium/appium-xcuitest-driver/blob/master/docs/reference/capabilities.md#app) capability.
-- **For Android Virtual Devices**: This capability is not supported for virtual Android devices. Although, since UiAutomator2 driver version 3.1.0 it is possible to update the device-wide time zone on real and virtual devices via the [appium:timeZone](https://github.com/appium/appium-uiautomator2-driver?tab=readme-ov-file#other) capability.
+- **For iOS Virtual Devices**: You can use this capability to change the time on the Mac OS X VM, which will be picked up by the iOS simulator.
+- **For Android Virtual Devices**: This capability is not supported for virtual Android devices. Consider using [appium:timeZone](#appiumtimezone) instead.
 
 :::note
 Most web apps serve localization content based on the computer's IP Address, not the time zone set
