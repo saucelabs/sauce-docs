@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-In addition to website testing, Sauce Visual also supports testing of native mobile apps for Android and iOS.
+In addition to website testing, Sauce Visual also supports testing of native mobile apps for Android and iOS with Appium.
 
 In principal, the process is the same as writing a visual test for a website, except that instead of a website, an app needs to be specified in the capabilities.
 
