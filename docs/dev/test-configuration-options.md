@@ -284,9 +284,12 @@ Always use the latest Selenium version. The Selenium developers are very conscie
 
 <p><small>| BOOLEAN |</small></p>
 
-Allows the browser to communicate directly with servers without going through a proxy. By default, Sauce routes traffic from Internet Explorer and Safari through an HTTP proxy server so that HTTPS connections with self-signed certificates will work. The proxy server can cause problems for some users, and this setting allows you to avoid it.
+Allows the browser to communicate directly with servers without going through a proxy that is shipped with Selenium versions prior to v3.
+By default, Sauce routes traffic from Internet Explorer and Safari through an HTTP proxy server so that HTTPS connections with self-signed certificates will work.
+The proxy server can cause problems for some users, and this setting allows you to avoid it.
 
 :::note
+This configuration is only relevant for Selenium versions 2.x and older.
 Any test run with a Sauce Connect tunnel has to use the proxy and this flag will be ignored.
 :::
 
