@@ -26,6 +26,6 @@ When writing a visual test for mobile apps, we recommend the following
 
 The following features are not available for mobile app testing:
 - Full page screenshots
-- [Selective diffing](./selective-diffing.md)
 - DOM capture and inspection
+- [Selective diffing](./selective-diffing.md)
 
