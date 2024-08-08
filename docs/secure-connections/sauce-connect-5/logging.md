@@ -18,8 +18,163 @@ Logs are automatically rotated when running Sauce Connect Proxy 5 as a Linux Sys
 For other setups, use the `logrotate` utility.
 
 :::note
-The logrotate integration in Linux and macOS will be available in upcoming **Sauce Connect Proxy 5.2**.
+The logrotate integration in Linux and macOS is available in **Sauce Connect Proxy 5.1.2** and later.
 :::
+
+### Linux
+
+When running as a Systemd service, logs are stored in `/var/log/sauce-connect` and rotated automatically.
+
+For standalone runs, configure logrotate as follows:
+
+1. Create a directory for log files:
+
+   First, create a directory for Sauce Connect log files or use existing one.
+   The directory needs to be writable by the user running Sauce Connect.
+
+   ```bash
+   mkdir -p /path/to/sauce-connect/logs
+   ```
+
+1. Adjust Sauce Connect configuration to write logs to the log file:
+
+   Command line:
+
+   ```bash
+   sc run ... --log-file /path/to/sauce-connect/logs/sc.log
+   ```
+   
+   Configuration file:
+
+   ```yaml
+   log-file: /path/to/sauce-connect/logs/sc.log
+   ```
+
+1. Configure logrotate:
+
+   Create a logrotate configuration file `/etc/logrotate.d/sauce-connect` with the following content:
+
+   ``` 
+   /path/to/sauce-connect/logs/sc.log {
+       size 100M
+       rotate 10
+       compress
+       maxage 30
+       postrotate
+           /usr/bin/killall -HUP sc
+       endscript
+   }
+   ```
+
+   This configuration rotates the log file when it reaches 100MB, keeps 10 rotated files, compresses rotated files, and deletes files older than 30 days.
+   You can adjust these values to suit your needs.
+
+   For information on available logrotate config file options, check [`man logrotate`](https://linux.die.net/man/8/logrotate).
+
+   You can test the configuration with the following command. 
+
+   ```bash
+   logrotate -d /etc/logrotate.d/sauce-connect
+   ```
+
+### MacOS
+
+1. Install logrotate:
+
+   First, ensure logrotate is installed via Homebrew.
+
+   ```bash
+   brew install logrotate
+   ```
+
+1. Create a directory for log files:
+
+   Create a directory for log Sauce Connect files or use existing one.
+   The directory needs to be writable by the user running Sauce Connect.
+
+   ```bash
+   mkdir -p /path/to/sauce-connect/logs
+   ```
+
+1. Adjust Sauce Connect configuration to write logs to the log file:
+
+   Command line:
+
+   ```bash
+   sc run ... --log-file /path/to/sauce-connect/logs/sc.log
+   ```
+
+   Configuration file:
+
+   ```yaml
+   log-file: /path/to/sauce-connect/logs/sc.log
+   ```
+
+1. Configure logrotate:
+
+   Create logrotate configration directory.
+
+   ```bash
+   sudo mkdir -p /usr/local/etc/logrotate.d
+   ```
+
+   Create a logrotate configuration file `/usr/local/etc/logrotate.d/sauce-connect` with the following content:
+
+   ```
+   /path/to/sauce-connect/logs/sc.log {
+       size 100M
+       rotate 10
+       compress
+       maxage 30
+       postrotate
+           /usr/bin/killall -HUP sc
+       endscript
+   }
+   ```
+
+   This configuration rotates the log file when it reaches 100MB, keeps 10 rotated files, compresses rotated files, and deletes files older than 30 days.
+   You can adjust these values to suit your needs.
+
+
+   For information on available logrotate config file options, check [`man logrotate`](https://linux.die.net/man/8/logrotate).
+
+   You can test the configuration with the following command.
+
+   ```bash
+   logrotate -d /usr/local/etc/logrotate.d/sauce-connect
+   ```
+
+1. Create run logrotate script:
+
+   Create `run_logrotate.sh` script with the following content:
+
+   ```bash
+   #!/bin/sh
+   /opt/homebrew/sbin/logrotate -s /opt/homebrew/var/run/logrotate.status /usr/local/etc/logrotate.d/*
+   ```
+
+   Set execute permissions for the script.
+
+   ```bash
+   chmod 755 run_logrotate.sh
+   ```
+
+1. Set up periodic job:
+
+   The `periodic` utility runs scripts located in specific directories at daily, weekly, or monthly intervals.
+   Place your script in `/etc/periodic/daily` for daily execution.
+
+   ```bash
+   sudo cp run_logrotate.sh /etc/periodic/daily/500.logrotate
+   ```
+
+   Manually run the script to test it.
+
+   ```bash
+   sudo periodic daily
+   ```
+
+   Check the logs or the logrotate results to ensure it is functioning as expected.
 
 ### Windows
 
