@@ -51,14 +51,23 @@ $ npm install @backtrace/node
 
 Add the following code to your application before all other scripts to report node errors to Backtrace.
 
+<Tabs
+groupId="applications"
+defaultValue="typescript"
+values={[
+{label: 'Typescript', value: 'typescript'},
+{label: 'JavaScript', value: 'javascript'},
+]}>
+
+<TabItem value="typescript">
+
 ```ts
-// Import the BacktraceClient from @backtrace/node with your favorite package manager.
+// Import BacktraceClient and BacktraceConfiguration from @backtrace/node
 import { BacktraceClient, BacktraceConfiguration } from '@backtrace/node';
 
-// Configure client options
+// Configure the submit url to send errors to your project
 const options: BacktraceConfiguration = {
-    // Submission url
-    // <universe> is the subdomain of your Backtrace instance (<universe>.backtrace.io)
+    // <universe> is the subdomain of your Backtrace instance (<universe>.sp.backtrace.io)
     // <token> can be found in Project Settings/Submission tokens
     url: 'https://submit.backtrace.io/<universe>/<token>/json',
 };
@@ -66,11 +75,35 @@ const options: BacktraceConfiguration = {
 // Initialize the client with the options
 const client = BacktraceClient.initialize(options);
 
-// By default, Backtrace will send an error for Uncaught Exceptions and Unhandled Promise Rejections
+// By default, Backtrace will send errors for Uncaught Exceptions and Unhandled Promise Rejections
 
-// Manually send an error
+// You may send errors manually
 client.send(new Error('Something broke!'));
 ```
+</TabItem>
+<TabItem value="javascript">
+
+```js
+// Import BacktraceClient from @backtrace/node
+const { BacktraceClient } = require('@backtrace/node');
+
+// Configure the submit url to send errors to your project
+const options = {
+    // <universe> is the subdomain of your Backtrace instance (<universe>.sp.backtrace.io)
+    // <token> can be found in Project Settings/Submission tokens
+    url: 'https://submit.backtrace.io/<universe>/<token>/json',
+};
+
+// Initialize the client with the options
+const client = BacktraceClient.initialize(options);
+
+// By default, Backtrace will send errors for Uncaught Exceptions and Unhandled Promise Rejections
+
+// You may send errors manually
+client.send(new Error('Something broke!'));
+```
+</TabItem>
+</Tabs>
 
 ### Upload source maps
 
