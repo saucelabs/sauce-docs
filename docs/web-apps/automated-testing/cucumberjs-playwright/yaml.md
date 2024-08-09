@@ -349,6 +349,7 @@ A parent property specifying the configuration details for any `npm` dependencie
 
 ```yaml
 npm:
+  strictSSL: true
   registry: https://registry.npmjs.org
   registries:
     - url: https://registry.npmjs.org
@@ -528,6 +529,43 @@ To use this feature, make sure that `node_modules` is not ignored via `.sauceign
 `saucectl` doesn't support running Cucumber.js tests with Playwright via installing Cucumber related packages on the fly.
 :::
 
+---
+
+### `packages`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Specifies any npm packages that are required to run tests and should, therefore, be installed on the Sauce Labs VM. See [Including Node Dependencies](#including-node-dependencies).
+
+```yaml
+npm:
+  packages:
+    lodash: "4.17.20"
+    "@babel/preset-typescript": "7.12"
+```
+
+:::caution
+Do not use `dependencies` and `packages` at the same time.
+:::
+
+---
+
+### `strictSSL`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Instructs npm to perform SSL key validation when making requests to the registry via HTTPS (`true`) or not (`false`). Defaults to `true` if not set.
+
+:::note
+When running tests and installing packages via a Sauce Connect tunnel, it is required to set `strictSSL` to `false`.
+:::
+
+```yaml
+npm:
+  strictSSL: false
+  package:
+    "lodash": "4.17.20"
+```
 ---
 
 ## `reporters`

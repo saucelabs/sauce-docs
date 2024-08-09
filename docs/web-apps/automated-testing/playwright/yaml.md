@@ -542,6 +542,24 @@ Do not use `dependencies` and `packages` at the same time.
 
 ---
 
+### `strictSSL`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Instructs npm to perform SSL key validation when making requests to the registry via HTTPS (`true`) or not (`false`). Defaults to `true` if not set.
+
+:::note
+When running tests and installing packages via a Sauce Connect tunnel, it is required to set `strictSSL` to `false`.
+:::
+
+```yaml
+npm:
+  strictSSL: false
+  package:
+    "lodash": "4.17.20"
+```
+---
+
 ## `reporters`
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
