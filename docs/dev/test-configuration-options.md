@@ -284,9 +284,12 @@ Always use the latest Selenium version. The Selenium developers are very conscie
 
 <p><small>| BOOLEAN |</small></p>
 
-Allows the browser to communicate directly with servers without going through a proxy. By default, Sauce routes traffic from Internet Explorer and Safari through an HTTP proxy server so that HTTPS connections with self-signed certificates will work. The proxy server can cause problems for some users, and this setting allows you to avoid it.
+Allows the browser to communicate directly with servers without going through a proxy that is shipped with Selenium versions prior to v3.
+By default, Sauce routes traffic from Internet Explorer and Safari through an HTTP proxy server so that HTTPS connections with self-signed certificates will work.
+The proxy server can cause problems for some users, and this setting allows you to avoid it.
 
 :::note
+This configuration is only relevant for Selenium versions 2.x and older.
 Any test run with a Sauce Connect tunnel has to use the proxy and this flag will be ignored.
 :::
 
@@ -832,6 +835,63 @@ The iOS equivalent is [`appium:autoAcceptAlerts`](#appiumautoacceptalerts).
 MutableCapabilities capabilities = new MutableCapabilities();
 // Handle all requested application permissions "yourself"
 capabilities.setCapability("appium:autoGrantPermissions", false);
+```
+
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
+---
+
+### `appium:timeZone`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">Android Only</span> |</small></p>
+
+Overrides the current device's time zone. This change is done on per-device basis and is
+preserved for the whole duration of the test session. The time zone identifier must be a
+valid name from [the list of available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones),
+for example `Europe/Paris`.
+
+:::note
+The iOS equivalent is [`appium:appTimeZone`](#appiumapptimezone).
+:::
+
+:::note
+This capability is only supported since UiAutomator2 driver version 3.1.0.
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:timeZone", "Europe/Paris");
+```
+
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
+---
+
+### `appium:appTimeZone`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">iOS Only</span> |</small></p>
+
+Defines the custom time zone override for the application under test.
+You can use `UTC`, `PST`, `EST`, as well as place-based timezone names such as `America/Los_Angeles`.
+See [the list of available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) f
+or more details. The same behavior could be achieved by providing a custom
+value to the `TZ` environment variable via the `appium:processArguments` capability.
+
+:::note
+The Android equivalent is [`appium:timeZone`](#appiumtimezone).
+:::
+
+:::note
+This capability is only supported since XCUITest driver version 7.10.0.
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:appTimeZone", "America/Los_Angeles");
 ```
 
 :::tip
@@ -1556,7 +1616,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
 
-Set a network profile with predefined network conditions at the beginning of the session. 
+Set a network profile with predefined network conditions at the beginning of the session.
 Please refer to the [list of network profiles](https://docs.saucelabs.com/mobile-apps/features/network-throttling/#predefined-network-profiles) for more information about each profile's network conditions.
 
 ```java
@@ -2047,15 +2107,8 @@ capabilities.setCapability("sauce:options", sauceOptions);
 Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
 
 - **For Desktop VMs**: can be configured with custom time zones. This feature should work on all operating systems, however, time zones on Windows VMs are approximate. The time zone defaults to UTC. Look for the "principal cities" examples on this [list of UTC time offsets](https://en.wikipedia.org/wiki/List_of_UTC_time_offsets).
-- **For iOS Virtual Devices**: you can use this capability to change the time on the Mac OS X VM, which will be picked up by the iOS simulator.
-- **For Android Virtual Devices**: this capability is not supported for Android devices, but for Android 7.2 or later, there is a workaround. Use the following ADB command to grant Appium notification read permission in order to use the time zone capability:
-
-```java
-adb shell cmd notification allow_listener
-io.appium.settings/io.appium.settings.NLService
-```
-
-    * See the [Appium Android documentation](http://appium.io/docs/en/writing-running-appium/android/android-shell/#mobile-shell) for additional support.
+- **For iOS Virtual Devices**: You can use this capability to change the time on the Mac OS X VM, which will be picked up by the iOS simulator.
+- **For Android Virtual Devices**: This capability is not supported for virtual Android devices. Consider using [appium:timeZone](#appiumtimezone) instead.
 
 :::note
 Most web apps serve localization content based on the computer's IP Address, not the time zone set
@@ -2164,13 +2217,6 @@ See [Sauce Labs Training on GitHub](https://github.com/saucelabs-training).
 While [Visual Testing](/visual) runs on Sauce Labs servers, the URL gets sent to `"https://hub.screener.io"`. This means that the [`username`](#username) and [`accessKey`](#accesskey) values are required.
 
 See [Visual Testing with WebDriver](/visual/e2e-testing/setup) and [Visual Commands and Options](/visual/e2e-testing/commands-options).
-
-### Unsupported Appium Capabilities
-
-These are currently not supported for real devices:
-
-- `Edit Timezone`: Appium does not provide a capability to edit the timezone of a device in automated testing on real devices.
-- See [Virtual Device Capabilities](#virtual-device-capabilities-sauce-specific--optional) for information about timezone capabilities in a virtual device testing.
 
 :::caution Limitations
 When running a test on a Virtual Device, be aware that each capability value has a 100 characters limitation. If the value exceeds this limit, it will be truncated, which can lead to further side effects or prevent a job from starting.

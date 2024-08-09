@@ -1,14 +1,12 @@
 ---
 id: selective-diffing
-title: Sauce Labs Visual Testing
+title: Selective Diffing
 sidebar_label: Selective Diffing
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-
-## Selective Diffing
 
 Sauce Visual allows you to ignore only certain types of changes.
 We support the following change types:
