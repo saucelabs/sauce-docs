@@ -22,14 +22,6 @@ Follow this guide to run integration tests for your Flutter app on Android.
 - A mobile app file If you don't have one, consider using our flutter Demo Apps:
     - [Sauce Labs Flutter Demo App](https://github.com/saucelabs/my-demo-app-flutter)
 
-[//]: # (:::note)
-
-[//]: # (This documentation takes the [Sauce Labs Flutter demo application]&#40;https://github.com/saucelabs/my-demo-app-flutter&#41; as a reference, )
-
-[//]: # (you can customize the test content to ensure it runs successfully on your own application.)
-
-[//]: # (:::)
-
 ## Prepare Your Flutter Application For Integration Testing
 
 1. Open your Flutter project in your favorite IDE.
@@ -42,7 +34,7 @@ Follow this guide to run integration tests for your Flutter app on Android.
       flutter_test:
          sdk: flutter
    ```
-3. Create an instrumentation test file in your application’s `android/app/src/androidTest/java/com/example/myapp` directory. Replace `com, example,` and `myapp` with the values from your app’s package name.
+3. Create an instrumentation test file in your application’s `android/app/src/androidTest/java/com/example/myapp` directory. Replace `com, example,` and `myApp` with the values from your app’s package name.
 
    Then, name this test file as `MainActivityTest.java` or another name of your choice.
     ```java
@@ -110,7 +102,7 @@ Follow this guide to run integration tests for your Flutter app on Android.
     }
    ```
 8. Use the following `Gradle` commands to build an instrumentation test `.apk` file(test suite) using the `MainActivityTest.java` created in the `androidTest` directory as mentioned in step 3.
-   ```shell
+   ```bash title="Terminal Command"
     # Go to the android folder which contains the "gradlew" script used for building Android apps from the terminal
     pushd android
     # Build an Android test APK (uses the MainActivityTest.java file created in step 1)
@@ -121,12 +113,7 @@ Follow this guide to run integration tests for your Flutter app on Android.
     # Go back to the root of the project
     popd
    ```
-   
-   [//]: # (9. Upload the app and the testing app to Sauce Labs app storage. )
-   
-   [//]: # (   * The `.apk` file will be located in `{project-root}/build/app/outputs/flutter-apk/`)
-   
-   [//]: # (   * The testing `.apk` file be located in `{project-root}/build/app/outputs/apk/androidTest/debug/`)
+
 9. Configure `saucectl` to run the test.
    * Create a folder `saucectl` in your project root directory. 
    * Inside this folder create a `flutter_integration_test.yaml` with the following content:
@@ -153,14 +140,14 @@ Follow this guide to run integration tests for your Flutter app on Android.
         directory: ./
    ```
    * run the following commands to start the test on Sauce Labs
-   ```shell
+   ```bash title="Terminal Command"
    saucectl configure -u USERNAME -a ACCESS_KEY
    saucectl run -c sauceconnect/flutter_integration_test.yaml
    ```
    * Check the status of you test on `app.saucelabs.com`
 
+## Example Implementation
 
-
-
-
-
+For a practical example of how to set up and run integration tests for Flutter apps, 
+you can refer to the [Sauce Labs Flutter demo application](https://github.com/saucelabs/my-demo-app-flutter) repository. 
+The steps outlined in this guide have already been implemented in that public repository. You can follow along with the demo app to see how everything is configured and run your tests accordingly.
