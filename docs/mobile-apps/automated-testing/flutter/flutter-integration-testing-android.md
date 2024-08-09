@@ -140,13 +140,69 @@ Follow this guide to run integration tests for your Flutter app on Android.
           - junit.xml
         directory: ./
    ```
-   * run the following commands to start the test on Sauce Labs
+   * Run the following commands to start the test on Sauce Labs
    ```bash title="Terminal Command"
    saucectl configure -u USERNAME -a ACCESS_KEY
    saucectl run -c sauceconnect/flutter_integration_test.yaml
    ```
    * Check the status of you test on `app.saucelabs.com`
-
+   ``` bash title="saucectl run command output"
+   12:24:52 INF Running Espresso in Sauce Labs
+                                         (.                          
+                                          #.                           
+                                          #.                           
+                              .####################                    
+                            #####////////*******/######                
+                          .##///////*****************###/              
+                         ,###////*********************###              
+                         ####//***********************####             
+                          ###/************************###              
+                           ######********************###. ##           
+                              (########################  ##     ##     
+                                      ,######(#*         ##*   (##     
+                                  /############*          #####        
+                              (########(  #########(    ###            
+                            .#######,    */  ############              
+                         ,##########  %#### , ########*                
+                       *### .#######/  ##  / ########                  
+                      ###   .###########//###########                  
+                  ######     ########################                  
+                (#(    *#(     #######.    (#######                    
+                       ##,    /########    ########                    
+                              *########    ########                    
+    _____        _    _  _____ ______    _____ _      ____  _    _ _____  
+   / ____|  /\  | |  | |/ ____|  ____|  / ____| |    / __ \| |  | |  __ \
+   | (___   /  \ | |  | | |    | |__    | |    | |   | |  | | |  | | |  | |
+   \___ \ / /\ \| |  | | |    |  __|   | |    | |   | |  | | |  | | |  | |
+   ____) / ____ \ |__| | |____| |____  | |____| |___| |__| | |__| | |__| |
+   |_____/_/    \_\____/ \_____|______|  \_____|______\____/ \____/|_____/
+      
+   12:24:52 INF Checking if ...../my-demo-app-flutter/build/app/outputs/flutter-apk/app-debug.apk has already been uploaded previously
+   12:24:52 INF Checksum: 1df0b6684973536fef4ae653d89661d6c48d6f699091511515b69735d6a80fbd
+   12:27:26 INF Application uploaded. durationMs=153173 storageId=77c424e9-7155-49c0-a7e7-66816ee31394
+   12:27:26 INF Checking if ...../build/app/outputs/apk/androidTest/debug/app-debug-androidTest.apk has already been uploaded previously
+   12:27:26 INF Checksum: b5b15cb741b78fe7a5df171406c17ec9ea8fd6ac52623abf7a8df519270e281d
+   12:27:26 INF Skipping upload, using storage:e11d4052-22ef-4c16-84de-afacd9389d1c
+   12:27:26 INF Launching workers. concurrency=1
+   12:27:26 INF Starting suite. region=us-west-1 suite="Sauce Labs Espresso with flutter integration tests"
+   12:27:27 INF Suite started. deviceId= deviceName="Google Pixel.*" platform=Android platformVersion= private=false suite="Sauce Labs Espresso with flutter integration tests" url=https://app.saucelabs.com/tests/133de59ee2af44378ca859e3916ce5f7
+   12:27:36 INF Suites in progress: 1
+   12:27:46 INF Suites in progress: 1
+   12:27:56 INF Suites in progress: 1
+   12:28:06 INF Suites in progress: 1
+   12:28:16 INF Suites in progress: 1
+   12:28:26 INF Suites in progress: 1
+   12:28:27 INF Suite finished. passed=true suite="Sauce Labs Espresso with flutter integration tests" url=https://app.saucelabs.com/tests/133de59ee2af44378ca859e3916ce5f7
+      
+   Results:
+          Name                                                  Duration    Status    Platform    Device            Attempts  
+   ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   ✔    Sauce Labs Espresso with flutter integration tests        1m0s    passed    Android     Google Pixel.*           1  
+   ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   ✔    All tests have passed                                     1m1s
+      
+   Build Link: https://app.saucelabs.com/builds/rdc/b1d0913f985b3d02ad8db391c898aa16
+   ```
 ## Example Implementation
 
 For a practical example of how to set up and run integration tests for Flutter apps, you can refer to the [Sauce Labs Flutter demo application](https://github.com/saucelabs/my-demo-app-flutter) repository. 
