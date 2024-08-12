@@ -550,7 +550,7 @@ Do not use `dependencies` and `packages` at the same time.
 Instructs npm to perform SSL key validation when making requests to the registry via HTTPS (`true`) or not (`false`). Defaults to `false` if not set.
 
 :::note
-When running tests and installing packages via a Sauce Connect tunnel, it is required to set `strictSSL` to `false`.
+If you're using a Sauce Connect tunnel, you must set `strictSSL` to `false`.
 :::
 
 ```yaml
