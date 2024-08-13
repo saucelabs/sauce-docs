@@ -69,6 +69,7 @@ Integrate Backtrace in your games and apps across languages and platforms with o
   <h2>Other Integrations</h2>
   <ul>
     <li><a href="/error-reporting/platform-integrations/source-map/">Source Maps</a></li>
+    <li><a href="/error-reporting/platform-integrations/session-replay/">Session Replay</a></li>
     <li><a href="/error-reporting/platform-integrations/apache/">Apache Traffic Server</a></li>
     <li><a href="/error-reporting/platform-integrations/minidump/">Minidump</a></li>
     <li><a href="/error-reporting/platform-integrations/file-attachments/">File Attachments</a></li>

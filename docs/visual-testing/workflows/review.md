@@ -174,7 +174,7 @@ Check our integration documentation to learn how to get started.
 [WebdriverIO](../../integrations/webdriverio/#ignored-regions), [Python](../../integrations/python/#ignored-regions),
 [Python (Robot Framework)](../../integrations/python-robot-framework/#ignored-regions)
 
-### UI ignored regions (available soon)
+### UI ignored regions
 
 :::note
 We recommend using Code ignored regions over UI ignore regions whenever possible
