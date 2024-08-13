@@ -9,17 +9,18 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Integration testing involves testing various modules of the software under development as a group to see whether they function together seamlessly.
-Ahead, we’ll take a closer look at how flutter supports the integration testing for Android.
+Unit tests and flutter widget tests validate individual classes, functions, or widgets.
+You will not be able to validate how individual pieces work together in whole or capture the performance of an app running on real devices.
+To perform these tasks you could use Flutters' integration test solution.
 
-Follow this guide to run integration tests for your Flutter app on Android.
+Follow this guide to run [integration tests](https://docs.flutter.dev/cookbook/testing/integration/introduction) for your Flutter app on Android.
 
 
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
-- A mobile app file If you don't have one, consider using our flutter Demo Apps:
+- Flutter mobile app. If you don't have one, you could use our Flutter Demo App:
     - [Sauce Labs Flutter Demo App](https://github.com/saucelabs/my-demo-app-flutter)
 
 ## Prepare Your Flutter Application For Integration Testing
