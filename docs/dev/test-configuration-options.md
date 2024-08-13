@@ -718,7 +718,7 @@ If set to `true` it prevents the device from resetting before the session startu
 
 **For Real Devices:**
 
-Set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#cacheId), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it with `cacheId`.
+Set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#cacheid), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it with `cacheId`.
 
 **For Virtual Devices:**
 
