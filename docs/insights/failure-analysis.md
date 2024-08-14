@@ -72,7 +72,7 @@ There is seamless integration between Failure Patterns and Test Results/Test Det
 
 <img src={useBaseUrl('img/insights/testDetails.png')} alt="failure patterns in test details"/>
 
-Once you have used Failure Analysis to identify the most pervasive patterns you'd like to investigate, click the test name on the Failure Analysis page to dig down into the individual test on the Test Details page. You will see a list of commands or steps contained within that test. To isolate the failure patterns we identified in the previous views and steps from the rest of the test commands, use the filter at the top of the command list to drill down and only surface test commands that have been identified in a failure pattern. 
+Once you have used Failure Analysis to identify the most pervasive patterns you'd like to investigate, click the test name on the Failure Analysis page to dig down into the individual test on the Test Details page. You will see a list of commands or steps contained within that test. To isolate the failure patterns we identified in the previous views and steps from the rest of the test commands, use the filter at the top of the command list to drill down and only surface test commands that have been identified in a failure pattern. To debug your tests faster you can click the time stamp next to the filtered command line to view the video of the test to verify the issue.
 
 <img src={useBaseUrl('img/insights/test-details-FA-filter.png')} alt="filter for failure patterns in test details"/>
 
