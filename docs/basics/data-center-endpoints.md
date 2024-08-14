@@ -37,7 +37,7 @@ To see your data center, check the upper-right corner of the Sauce Labs user int
 
 | Description        | Endpoint                      |
 | ------------------ | ----------------------------- |
-| Initial connection | https://saucelabs.com/rest/v1 |
+| Initial connection | <https://saucelabs.com/rest/v1> |
 
 Sauce Connect Proxy makes its initial connection to saucelabs.com. After that, it uses the data center-specific endpoints listed below.
 
@@ -45,7 +45,7 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com. After that, i
 
 | Description                  | Endpoint                                        |
 | ---------------------------- | ----------------------------------------------- |
-| OnDemand Endpoint            | https://ondemand.us-west-1.saucelabs.com/wd/hub |
+| OnDemand Endpoint            | <https://ondemand.us-west-1.saucelabs.com/wd/hub> |
 | REST API                     | api.us-west-1.saucelabs.com                     |
 | Sauce Connect Tunnel Servers | maki\*.miso.saucelabs.com:443                   |
 
@@ -53,7 +53,7 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com. After that, i
 
 | Description                  | Endpoint                                        |
 | ---------------------------- | ----------------------------------------------- |
-| OnDemand Endpoint            | https://ondemand.us-east-4.saucelabs.com/wd/hub |
+| OnDemand Endpoint            | <https://ondemand.us-east-4.saucelabs.com/wd/hub> |
 | REST API                     | api.us-east-4.saucelabs.com                     |
 | Sauce Connect Tunnel Servers | \*.tunnels.us-east-4.saucelabs.com:443          |
 
@@ -65,7 +65,7 @@ Depending on the framework or driver you use, you might need to make additional 
 
 | Description                  | Endpoint                                           |
 | ---------------------------- | -------------------------------------------------- |
-| OnDemand Endpoint            | https://ondemand.eu-central-1.saucelabs.com/wd/hub |
+| OnDemand Endpoint            | <https://ondemand.eu-central-1.saucelabs.com/wd/hub> |
 | REST API                     | api.eu-central-1.saucelabs.com                     |
 | Sauce Connect Tunnel Servers | maki\*.eu-central-1.miso.saucelabs.com:443         |
 
@@ -81,7 +81,7 @@ To set up an IP-address-based allowlist for outgoing connections, rather than us
 
 Sauce Connect Proxy makes its initial connection to saucelabs.com, which resolves to the IP address above. After that, it uses the data center-specific endpoints listed below.
 
-### US West Data Center
+### US West Region
 
 | Endpoints                          |
 | ---------------------------------- |
@@ -91,7 +91,15 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com, which resolve
 | 66.85.48.0/21                      |
 | 162.222.72.0/21                    |
 
-### EU Central Data Center
+### US East Region
+
+| Endpoints                          |
+| ---------------------------------- |
+| 66.85.48.0/21                      |
+| 162.222.72.0/21                    |
+| 34.145.254.128/27                  |
+
+### EU Central Reguion
 
 | Endpoints                          |
 | ---------------------------------- |
@@ -164,19 +172,19 @@ For details about setting up SSO for Sauce Labs, see [Setting Up Single Sign-On 
 
 | Signing/Encryption Certificate/Entity ID | Entity AssertionConsumeURL    |
 | ---------------------------------------- | ----------------------------- |
-| https://saucelabs.com/sso/metadata       | https://saucelabs.com/sso/acs |
+| <https://saucelabs.com/sso/metadata>       | <https://saucelabs.com/sso/acs> |
 
 #### US East Data Center
 
 | Signing/Encryption Certificate/Entity ID        | Entity AssertionConsumeURL                 |
 | ----------------------------------------------- | ------------------------------------------ |
-| https://us-east-4.saucelabs.com/sso/metadata | https://us-east-4.saucelabs.com/sso/acs |
+| <https://us-east-4.saucelabs.com/sso/metadata> | <https://us-east-4.saucelabs.com/sso/acs> |
 
 #### EU Central Data Center
 
 | Signing/Encryption Certificate/Entity ID        | Entity AssertionConsumeURL                 |
 | ----------------------------------------------- | ------------------------------------------ |
-| https://eu-central-1.saucelabs.com/sso/metadata | https://eu-central-1.saucelabs.com/sso/acs |
+| <https://eu-central-1.saucelabs.com/sso/metadata> | <https://eu-central-1.saucelabs.com/sso/acs> |
 
 ## Changing Your Data Center
 
