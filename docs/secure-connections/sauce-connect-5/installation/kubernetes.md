@@ -1,6 +1,6 @@
 ---
 id: kubernetes
-title: Sauce Connect Proxy in Kubernetes
+title: Run Sauce Connect in Kubernetes
 sidebar_label: Kubernetes
 ---
 

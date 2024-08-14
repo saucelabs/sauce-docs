@@ -18,15 +18,4 @@ The Account area in Sauce Labs provides several options for you to configure you
   </ul>
   </div>
 </div>
-<div className="box box2 card">
-  <div className="container">
-  <h2>Billing and Subscriptions</h2>
-  <p>Sauce Labs offers several options for managing your billing and subscription information.</p>
-  <ul>
-      <li><a href="/basics/acct-team-mgmt/plan-details">Viewing Plan Details</a></li>
-      <li><a href="/basics/acct-team-mgmt/updating-billing">Updating Your Billing Information</a></li>
-      <li><a href="/basics/acct-team-mgmt/managing-subscription">Managing Your Subscription</a></li>
-  </ul>
-  </div>
-</div>
 </div>

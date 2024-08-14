@@ -7,6 +7,9 @@ import TabItem from '@theme/TabItem';
 import ClippingDescription from '../_partials/_clipping-description.md';
 import FullPageLimit from '../_partials/_fullpage-limit.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
+import SelectiveDiffing from '../_partials/_selective-diffing.md';
+import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
+import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # Java WebDriver Integration
 
@@ -320,6 +323,61 @@ options.setIgnoreRegions(List.of(ignoreRegion));
 visual.sauceVisualCheck("Before Login", options);
 ```
 
+### Selective Diffing
+
+<SelectiveDiffing />
+
+#### Screenshot-wide configuration
+
+<SelectiveDiffingGlobal />
+
+Example:
+
+Ignoring only one kind:
+```java
+    visual.sauceVisualCheck(
+        "login-page",
+        new CheckOptions.Builder()
+            .withDiffingMethod(DiffingMethod.BALANCED)
+            .withCaptureDom(true)
+            // Every content change will be ignored
+            .disableOnly(EnumSet.of(DiffingFlag.Content))
+            .build());
+```
+
+Ignoring all kinds except one:
+```java
+    visual.sauceVisualCheck(
+        "login-page",
+        new CheckOptions.Builder()
+            .withDiffingMethod(DiffingMethod.BALANCED)
+            .withCaptureDom(true)
+            // Only style changes will be considered as a diff
+            .enableOnly(EnumSet.of(DiffingFlag.Style))
+            .build());
+```
+
+#### Area-specific configuration
+
+<SelectiveDiffingRegion />
+
+Example:
+```java
+  WebElement usernameInput = driver.findElement(By.id("user-name"));
+  WebElement passwordInput = driver.findElement(By.id("password"));
+
+  visual.sauceVisualCheck(
+      "login-page",
+      new CheckOptions.Builder()
+          .withDiffingMethod(DiffingMethod.BALANCED)
+          .withCaptureDom(true)
+          // Ignore all kind of changes for element #user-name
+          .enableOnly(EnumSet.noneOf(DiffingFlag.class), usernameInput)
+          // Ignore only style changes for element #password
+          .enableOnly(EnumSet.of(DiffingFlag.Style), passwordInput)
+          .build());
+```
+
 ### Capturing the DOM snapshot
 
 Sauce Visual does not capture dom snapshot by default. It can be changed in options.
@@ -392,25 +450,6 @@ CheckOptions options = new CheckOptions();
 options.setClipSelector(".your-css-selector");
 visual.sauceVisualCheck("Visible Sale Banner", options);
 ```
-
-#### Selective Diffing (BETA)
-
-[Selective regions](../selective-diffing.md) are an even more powerful way to control diffing.
-
-```java
-EnumSet<DiffingFlag> visualChanges = EnumSet.of(DiffingFlag.Visual);
-
-visual.sauceVisualCheck(
-        "Before Login",
-        new CheckOptions.Builder()
-            .withDiffingMethod(DiffingMethod.BALANCED)
-            .disable(EnumSet.of(DiffingFlag.Position, DiffingFlag.Dimensions))
-            .enable(visualChanges, loginPage.getInputUsername())
-            .disable(visualChanges, loginPage.getInputUsername())
-            .build());
-```
-
-You can find the full example in our [examples repo](#examples).
 
 ## Examples
 

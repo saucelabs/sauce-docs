@@ -343,6 +343,7 @@ A parent property specifying the configuration details for any `npm` dependencie
 
 ```yaml
 npm:
+  strictSSL: true
   registry: https://registry.npmjs.org
   registries:
     - url: https://registry.npmjs.org
@@ -501,7 +502,7 @@ npm:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Specifies any npm packages that are required to run tests and should, therefore, be installed on the Sauce Labs VM. See [Including Node Dependencies](#including-node-dependencies).
+Specifies any npm packages that are required to run tests and should, therefore, be installed on the Sauce Labs VM. See [Including Node Dependencies](advanced.md#including-node-dependencies).
 
 ```yaml
 npm:
@@ -544,6 +545,24 @@ This feature is highly experimental.
 Do not use `dependencies` and `packages` at the same time.
 :::
 
+---
+
+### `strictSSL`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Instructs npm to perform SSL key validation when making requests to the registry via HTTPS (`true`) or not (`false`). Defaults to `false` if not set.
+
+:::note
+If you're using a Sauce Connect tunnel, you must set `strictSSL` to `false`.
+:::
+
+```yaml
+npm:
+  strictSSL: false
+  package:
+    "lodash": "4.17.20"
+```
 ---
 
 ## `reporters`
@@ -1623,4 +1642,18 @@ suite:
   - name: My Saucy Test
     smartRetry:
       failedOnly: true
+```
+
+---
+
+### `esm`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When set to `true`, this option enables importing ECMAScript Modules (ESM) that do not support CommonJS. For more information, check the [TestCafe Documentation](https://testcafe.io/documentation/404258/guides/advanced-guides/esm-module-support).
+
+```yaml
+suite:
+  - name: My Saucy Test
+    esm: true
 ```

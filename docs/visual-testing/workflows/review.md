@@ -154,6 +154,57 @@ The process of reviewing and approving the visual differences is the same as des
 
 The user interface including the actions you can take are described in [User Interface](#user-interface).
 
+## Enhancing test accuracy
+
+Ignored regions are areas of a user interface excluded from visual checks. 
+These regions often contain dynamic content or non-critical elements that change frequently. 
+Defining ignore regions helps focus on significant UI discrepancies, reducing false positives and enhancing test accuracy.
+
+### Code ignored regions
+- **Definition**: defined only in the code and are linked to specific snapshots.
+- **Initialization**: can be added from the first run.
+- **Specification**: defined by provided dimensions or by elements.
+- **Auto-Adjustment**: automatically adjusted size with the corresponding element.
+- **Auto-Propagation**: populated across all screenshot variations (capabilities).
+
+Check our integration documentation to learn how to get started. 
+
+[Cypress](../../integrations/cypress/#ignored-regions), [C#/.Net](../../integrations/csharp/#ignored-regions),
+[Java](../../integrations/java/#ignored-regions), [Nightwatch](../../integrations/nightwatch/#ignored-regions),
+[WebdriverIO](../../integrations/webdriverio/#ignored-regions), [Python](../../integrations/python/#ignored-regions),
+[Python (Robot Framework)](../../integrations/python-robot-framework/#ignored-regions)
+
+### UI ignored regions
+
+:::note
+We recommend using Code ignored regions over UI ignore regions whenever possible
+:::
+
+- **Definition**: can be defined only on UI. Every modification will create a new baseline and link UI ignored regions to specific baseline.
+- **Initialization**: can be added after the first run and snapshot approval.
+- **Specification**: defined by provided dimensions.
+- **Manual-Adjustment**: defined size should adjust for changes in dimensions, like longer or wrapped text. 
+- **Manual-Propagation**: needs to be manually added to all screenshot variations (capabilities).
+
+#### Defining regions 
+
+Open "Ignored regions" in diff review overlay
+<img src={useBaseUrl('/img/sauce-visual/build-overlay-ignore.jpg')} alt="Open Ignored regions"/>
+
+Click "Add New Region"
+<img src={useBaseUrl('/img/sauce-visual/build-overlay-ignore-add.jpg')} alt="Add Ignored regions"/>
+
+1 - Adjust the region size and position by dragging it with the mouse<br/>
+1a - Optionally, you can change the ignoring types. Before using, please read [Selective Diffing](../../selective-diffing/)<br/>
+2 - Click "Save All"
+<img src={useBaseUrl('/img/sauce-visual/build-overlay-ignore-save.jpg')} alt="Save Ignored regions"/>
+
+Congratulations! You added a new UI ignored region. Now you can continue the review process.
+
+:::note
+Updated UI Ignored Regions will be reflected in both future and older builds.
+:::
+
 ## User Interface
 
 Selecting one of the builds allows you to get to the "Diff Review" page, where you can Accept or Reject detected diffs.
@@ -165,7 +216,7 @@ By default, you will see diffs in a Side-by-side view, which lets you easily com
 - Zoom in or out of the snapshots.
 - Zoom to 100% or fit snapshot to the screen.
 - Highlight or hide diffs for easier discovery of the changes.
-- Open Diff Inspection
+- Open Diff Inspector
 
 There are conditional actions you can use, depending on the type of view you have activated:
 
@@ -188,7 +239,8 @@ The list below shows the available actions and their keyboard shortcuts.
 |               <img src={useBaseUrl('/img/sauce-visual/hide-diffs.png')} alt="Hide diffs icon" width="25"/>                | Hide diffs \[H\]                                      |
 |           <img src={useBaseUrl('/img/sauce-visual/sync-actions.png')} alt="Sync pan and zoom icon" width="25"/>           | Sync pan and zoom \[P\]                               |
 |             <img src={useBaseUrl('/img/sauce-visual/view-current.png')} alt="View current icon" width="25"/>              | Toggle Baseline and Current snapshots \[T\]           |
-|            <img src={useBaseUrl('/img/sauce-visual/dom-diff.png')} alt="Show Diff Inspection" width="25"/>            | Toggle Diff Inspection \[I\]                          |
+|              <img src={useBaseUrl('/img/sauce-visual/dom-diff.png')} alt="Show Diff Inspector" width="25"/>               | Diff Inspector \[I\]                                  |
+|          <img src={useBaseUrl('/img/sauce-visual/ignored-regions.png')} alt="Show Ignored Regions" width="25"/>           | Ignored Regions \[J\]                                 |
 
 ### Additional Keyboard Actions
 

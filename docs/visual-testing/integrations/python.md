@@ -4,6 +4,9 @@ sidebar_label: Python
 
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import PythonIntro from '../_partials/_python-shared-intro.md';
+import SelectiveDiffing from '../_partials/_selective-diffing.md';
+import FullPageLimit from '../_partials/_fullpage-limit.md';
+import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # Python Integration
 
@@ -91,6 +94,139 @@ client.create_snapshot_from_webdriver(
 ```python
 # Finish the currently opened build associated with this instance
 client.finish_build()
+```
+
+## Visual Snapshot Options & Examples
+
+
+### Full Page Screenshots
+
+By default, only the current viewport is capture when taking a screenshot. By passing a `FullPageConfig` instance in the `full_page_config` named param you can enable and customize the behavior for our scroll-and-stitch snapshots. View the `FullPageConfig` class in our [visual SDKs](https://github.com/saucelabs/visual-sdks/blob/main/visual-python/src/saucelabs_visual/typing.py) for up to date inline docs for all properties.
+
+<FullPageLimit />
+
+```python
+from saucelabs_visual.typing import FullPageConfig
+# ...
+visual_client.create_snapshot_from_webdriver(
+    "Inventory Page",
+    session_id=session_id,
+    full_page_config=FullPageConfig(
+        # Can customize full page behavior by customizing values here. Or omit completely to
+        # disable full page screenshots:
+        # ex:
+        # scrollLimit=10,
+        # hideAfterFirstScroll=['.fixed-header', '#cookie-banner']
+        # delayAfterScrollMs=200,
+    ),
+)
+```
+
+### DOM Capture
+
+You can use the `capture_dom` named param with a value of `True` to enable DOM capture during a snapshot.
+
+```python
+visual_client.create_snapshot_from_webdriver(
+    "Inventory Page",
+    session_id=session_id,
+    capture_dom=True,
+)
+```
+
+### Clip to an Element
+
+If you'd like to test a specific component or area of a page you can use the `clip_selector` named param in combination with a CSS selector to clip the screenshot and DOM comparison. When enabled, we'll crop the screenshot to the coordinates of the element and constrain our DOM comparison to that area. We accept any `document.querySelector` compatible string / CSS selector as the value.
+
+```python
+visual_client.create_snapshot_from_webdriver(
+    "Inventory Page",
+    session_id=session_id,
+    clip_selector='.my-css-selector',
+)
+```
+
+Alternatively, you can also pass an element directly if you've already queried one from selenium using the `clip_element` named param:
+
+```python
+add_to_cart_button = driver.find_element(By.CSS_SELECTOR, '.btn_inventory')
+visual_client.create_snapshot_from_webdriver(
+    "Inventory Page",
+    session_id=session_id,
+    clip_element=add_to_cart_button,
+)
+```
+
+### Ignore Regions
+
+You can ignore one or more areas on the page by using the `ignore_regions` named param. Ignore regions accepts an array of full region definitions (width, height, x & y coordinates). We also support passing elements directly using the `ignore_elements` named param to bypass region calculation / creation. See below for examples for both.
+
+Regions:
+
+```python
+from saucelabs_visual.typing import IgnoreRegion
+# ...
+visual_client.create_snapshot_from_webdriver(
+    "Inventory Page",
+    session_id=session_id,
+    # Use coordinates on a page to create manual regions.
+    ignore_regions=[
+        IgnoreRegion(x=100, y=100, width=100, height=100)
+    ],
+)
+```
+
+Elements:
+
+```python
+from saucelabs_visual.typing import IgnoreElementRegion
+# ...
+add_to_cart_button = driver.find_element(By.CSS_SELECTOR, '.btn_inventory')
+visual_client.create_snapshot_from_webdriver(
+    "Inventory Page",
+    session_id=session_id,
+    # Ignore certain areas of a page using elements / selectors.
+    ignore_elements=[
+        IgnoreElementRegion(
+            # Ignore one or more elements returned by find_elements/find_element.
+            element=driver.find_elements(By.CSS_SELECTOR, '.inventory_item_img'),
+        ),
+        IgnoreElementRegion(
+            # Can also pass an element that has been previously found via the driver
+            element=add_to_cart_button,
+        ),
+    ],
+)
+```
+
+### Selective Diffing
+
+<SelectiveDiffing />
+
+#### Area-specific configuration
+
+<SelectiveDiffingRegion />
+
+Example:
+```python
+    visual_client.create_snapshot_from_webdriver(
+        "login-page",
+        session_id=session_id,
+        diffing_method=DiffingMethod.BALANCED,        
+        capture_dom=True,
+        ignore_elements=[
+            # Any change will be ignored.
+            IgnoreElementRegion(
+                element=driver.find_element(By.NAME, "user-name")
+                enable_only=[]
+            ),
+            # Only style changes won't be ignored.
+            IgnoreElementRegion(
+                element=driver.find_element(By.NAME, "password")
+                enable_only=['style']
+            ),
+        ],
+    )
 ```
 
 ## Environment variables
