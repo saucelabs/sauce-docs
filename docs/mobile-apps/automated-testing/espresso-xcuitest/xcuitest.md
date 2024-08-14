@@ -859,7 +859,7 @@ suites:
 
 ### `simulators`
 
-<p><small>| OPTIONAL | OBJECT |</small></p>
+<p><small>| OPTIONAL | ARRAY |</small></p>
 
 The parent property that defines details for running this suite on virtual devices using a Simulator. Check our [Platform Configurator](https://saucelabs.com/products/platform-configurator#/) to see which Simulator configurations are available.
 
@@ -875,6 +875,7 @@ suites:
     simulators:
       - name: "iPhone 13 Simulator"
         orientation: portrait
+        armRequired: false
         platformVersions:
           - "15.5"
           - "16.2"
@@ -910,6 +911,23 @@ suites:
     simulators:
       - name: "iPhone 13 Simulator"
         orientation: portrait
+```
+
+---
+
+#### `armRequired`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+If set to true, the simulator will run on an ARM-based Mac. If set to false, the
+simulator will run on an Intel-based Mac.
+
+```yaml
+suites:
+  - name: My Saucy Test
+    simulators:
+      - name: "iPhone 15 Pro Simulator"
+        armRequired: true
 ```
 
 ---
