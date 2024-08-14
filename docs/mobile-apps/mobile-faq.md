@@ -228,7 +228,7 @@ Yes, only on private devices that have SIM/eSIM cards and are connected to the C
 
 #### **What type of carriers can I test my SIM cards/eSIM cards with? **
 
-We support T-Mobile in US-West and US-East, Verizon in US-East, and Vodafone in the EU.
+We support: T-Mobile in US-West. AT&T, T-mobile and Verizon in US-East, and Vodafone in the EU.
 
 ### Live Testing
 
