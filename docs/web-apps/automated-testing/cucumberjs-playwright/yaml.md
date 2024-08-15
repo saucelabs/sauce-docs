@@ -925,6 +925,26 @@ To split tests in the most efficient way possible, use:
 
 ---
 
+### `shardTagsEnabled`
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When sharding is configured and the suite is configured to filter scenarios by [tags](#tags), it is possible for feature files to be allocated to VMs only to be skipped if the
+feature file doesn't contain any scenarios matching the specified tags.
+
+With `shardTagsEnabled` enabled, saucectl will filter out feature files that do not contain scenarios matching the given tags. This will prevent wasted VM allocations.
+
+```yaml
+suites:
+  - name: A shard with tags example suite
+    shard: spec
+    shardTagsEnabled: true
+    options:
+      tags:
+        - "@smoke and not @flakey"
+```
+
+---
+
 ### `timeout`
 
 <p><small>| OPTIONAL | DURATION |</small></p>
