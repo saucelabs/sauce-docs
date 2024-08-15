@@ -19,7 +19,8 @@ The Extended Debugging feature offers access to HAR files and JavaScript console
 1. Click **Job Overview**.
 1. Apply [filters](scope.md#using-filters-to-adjust-the-scope-of-your-data) to narrow down the list of tests within a specific range.
 
-## The **Job Overview** page offers three data visualizations on the Overview tab to give you insight into your tests over time. 
+## Job Overview Tab
+The **Job Overview** page offers three data visualizations on the Overview tab to give you insight into your tests over time. 
 
 ### Job Overview
 The Job Overview visualization gives you a bar chart with a few different categories reprsented to give you an overview of how your test suite has performed over a given period of time. This bar chart is usually broken down into five categories.
@@ -58,7 +59,8 @@ Job Breakdown gives you insight into your test suite by categorizing all your in
 Read more about how your testing strategy might benefit from our [Virtual and Real device clouds](/mobile-apps/supported-devices.md) to ensure proper coverage across your user base.
 :::
 
-## The **Job Overview** page also offers insight into your testing errors over time via the Errors tab.
+## Errors Tab 
+The **Job Overview** page also offers insight into your testing errors over time via the Errors tab.
 
 ### Errors
 
