@@ -554,11 +554,7 @@ Do not use `dependencies` and `packages` at the same time.
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Instructs npm to perform SSL key validation when making requests to the registry via HTTPS (`true`) or not (`false`). Defaults to `false` if not set.
-
-:::note
-If you're using a Sauce Connect tunnel, you must set `strictSSL` to `false`.
-:::
+Instructs npm to perform SSL key validation when making requests to the registry via HTTPS (`true`) or not (`false`). Defaults to npm's `strict-ssl` value if not set. See more [here](https://docs.npmjs.com/cli/v8/using-npm/config#strict-ssl).
 
 ```yaml
 npm:
