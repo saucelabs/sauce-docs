@@ -792,6 +792,25 @@ artifacts:
 
 ---
 
+#### `allAttempts`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+If you have your tests configured with [retries](#retries), you can set this option to `true` to download artifacts for every attempt. Otherwise, only artifacts of the last attempt
+will be downloaded.
+
+```yaml
+artifacts:
+  download:
+    match:
+      - console.log
+    when: always
+    allAttempts: true
+    directory: ./artifacts/
+```
+
+---
+
 ## `testcafe`
 
 <p><small>| REQUIRED | OBJECT |</small></p>
