@@ -8,6 +8,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+:::warning Screener End-of-life
+
+The Screener visual testing solution is going to be discontinued on May 31st, 2024. You can migrate to the new Sauce Labs Visual Testing solution by following the [integration steps](/visual-testing/).
+
+If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+:::
+
 > **Screener Docs are Now Sauce Docs**<br/>
 > As part of our effort to bring you a single, unified documentation site, we've migrated all Visual Docs from Screener.io to Sauce Docs.
 
@@ -146,7 +153,8 @@ accessKey: process.env.SAUCE_ACCESS_KEY
 <tbody>
   <tr>
     <td><code>storybookConfigDir</code> or <code>storybookStaticDir</code></td>
-    <td><p>These are your Storybook server options. To determine whether you need <code>storybookConfigDir</code> or <code>storybookStaticDir</code>, go to your project directory and find the <code>start-storybook</code> command, usually a script located in a <strong>package.json</strong> file.</p><br/><p>If the <code>-c</code> or <code>--config-dir</code> option is set, use <code>storybookConfigDir</code> and that value to your code snippet. If the <code>-s</code> or <code>--static-dir</code> option is set, use the <code>storybookStaticDir</code> with its value.</p>
+    <td>
+        <p>These are your Storybook server options. To determine whether you need <code>storybookConfigDir</code> or <code>storybookStaticDir</code>, go to your project directory and find the <code>start-storybook</code> command, usually a script located in a <strong>package.json</strong> file.</p><br/><p>If the <code>-c</code> or <code>--config-dir</code> option is set, use <code>storybookConfigDir</code> and that value to your code snippet. If the <code>-s</code> or <code>--static-dir</code> option is set, use the <code>storybookStaticDir</code> with its value.</p>
     </td>
   </tr>
 </tbody>
@@ -288,10 +296,9 @@ The test should take a few minutes to complete.
 
 :::tip
 
-<details><summary>Click <strong>Show Logs</strong> > <strong>View Logs on Sauce Labs</strong> to see your <a href="/test-results">test results</a> on Sauce Labs.</summary>
-
-<img src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')} alt="Visual E2E Quickstart accept state" width="205" /><br/><img src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')} alt="Visual E2E Quickstart accept state" width="250" />
-
+<details>
+    <summary>Click <strong>Show Logs</strong> > <strong>View Logs on Sauce Labs</strong> to see your <a href="/test-results">test results</a> on Sauce Labs.</summary>
+    <img src={useBaseUrl('img/visual/e2e-quickstart-view-logs.png')} alt="Visual E2E Quickstart accept state" width="205" /><br/><img src={useBaseUrl('img/visual/e2e-quickstart-view-on-sauce.png')} alt="Visual E2E Quickstart accept state" width="250" />
 </details>
 
 :::

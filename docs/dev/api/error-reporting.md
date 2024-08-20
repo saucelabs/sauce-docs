@@ -17,7 +17,8 @@ These API endpoints allow you to interact with Error Reporting (Backtrace) funct
 
 ## Submit Crash
 
-<details><summary><span className="api post">POST</span><code>http://api.backtrace.io/post</code></summary>
+<details>
+<summary><span className="api post">POST</span><code>http://api.backtrace.io/post</code></summary>
 <p/>
 
 Submits crash object to Backtrace instance.
@@ -176,7 +177,8 @@ Submits crash object to Backtrace instance.
                <li><code>sourcemap</code>.</li>
                <li><code>proguard</code>.</li>
             </ul>
-            </p>This should not be specified for client-symbolicated objects.
+            </p>
+             This should not be specified for client-symbolicated objects.
          </td>
       </tr>
    </tbody>
@@ -198,7 +200,8 @@ Submits crash object to Backtrace instance.
             <p>
               <ul>
                 <li><code>name</code> - On some systems the running program can be run with a different arch than the system itself. <code>attributes.uname.machine</code> has to do with the system arch; this field has to do with the running process arch.</li>
-                <li><code>registers</code> - It corresponds with registers in the stack frame. Specifies the names of the registers for this arch. The values are the types. Valid types are:
+                <li>
+                    <code>registers</code> - It corresponds with registers in the stack frame. Specifies the names of the registers for this arch. The values are the types. Valid types are:
                   <ul>
                     <li><code>i32</code></li>
                     <li><code>u32</code></li>

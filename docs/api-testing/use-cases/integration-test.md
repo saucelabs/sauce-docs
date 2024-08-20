@@ -32,7 +32,7 @@ To create an integration test to check the interaction between the endpoints:
 2. (Optionally) Add an assert-is component to verify that `productsPayload` is an array.
 
 :::tip
-You can use the Comment component and print the whole payload response inside your test report by writing ${productsPayload}
+You can use the Comment component and print the whole payload response inside your test report by writing $\{productsPayload}
 :::
 
 3. Add an `each` component and reference the `productsPayload` object.

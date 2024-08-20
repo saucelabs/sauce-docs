@@ -27,7 +27,7 @@ class Community extends Component {
                             />
                         </a>
                         <a
-                            href='https://support.saucelabs.com/hc/en-us'
+                            href='https://support.saucelabs.com'
                             target='_blank'
                             rel='noopener noreferrer'
                         >

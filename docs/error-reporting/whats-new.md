@@ -101,7 +101,7 @@ Tunable heuristic-based analysis spots new API signatures or changes further up 
 
 ## Case Insensitive Filtering (2020-08-24)
 
-By default, all filter operators are case sensitive. If you want to filter using case insensitivity, enter a regex or inverse regex within /{text}/i to invoke case insensitive search.
+By default, all filter operators are case sensitive. If you want to filter using case insensitivity, enter a regex or inverse regex within /\{text}/i to invoke case insensitive search.
 For example, if you want to search for "banana" or "Banana" or "BaNaNa", you can enter "/banana/i" and each search term will be included in the results.
 
 ## Aggregation Filters (2020-07-28)

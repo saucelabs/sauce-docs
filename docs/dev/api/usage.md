@@ -63,48 +63,59 @@ This call requires <code>org_id</code> parameter.
   <tbody>
     <tr>
      <td><code>source</code></td>
-    <td><p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
+    <td>
+        <p><small>| QUERY | OPTIONAL | ARRAY |</small></p>
+        <p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+        <p>
      <ul>
       <li><code>rdc</code> - Real Device Cloud</li>
       <li><code>vdc</code> - Virtual Device Cloud</li>
-    </ul></p>Default value is: <code>vdc</code>
-    </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>granularity</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results grouped by given granularity:</p><p>
-     <ul>
-      <li><code>hourly</code></li>
-      <li><code>weekly</code></li>
-      <li><code>daily</code></li>
-      <li><code>monthly</code></li>
-    </ul></p>Default value is: <code>daily</code>
-    </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>resource_type</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given resource type</p>
-     <p/>
-     For the Virtual Could tests:
-     <ul>
-      <li><code>virtual_machine</code></li>
-      <li><code>mac_virtual_machine</code></li>
-      <li><code>mac_arm_virtual_machine</code></li>
-      <li><code>total_virtual_machine</code></li>
     </ul>
-    For the Real Devices Could tests:
-     <ul>
-      <li><code>private_real_device</code></li>
-      <li><code>public_real_device</code></li>
-      <li><code>total_real_device</code></li>
-    </ul>
+    </p>
+        Default value is: <code>vdc</code>
     </td>
     </tr>
   </tbody>
+    <tbody>
+    <tr>
+        <td><code>granularity</code></td>
+        <td>
+            <p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results grouped by given granularity:</p>
+            <p>
+                <ul>
+                    <li><code>hourly</code></li>
+                    <li><code>weekly</code></li>
+                    <li><code>daily</code></li>
+                    <li><code>monthly</code></li>
+                </ul>
+            </p>
+            Default value is: <code>daily</code>
+        </td>
+    </tr>
+    </tbody>
+    <tbody>
+    <tr>
+        <td><code>resource_type</code></td>
+        <td>
+            <p><small>| QUERY | OPTIONAL | STRING |</small></p>
+            <p>Return results only for given resource type</p>
+            <p/>
+            For the Virtual Could tests:
+            <ul>
+                <li><code>virtual_machine</code></li>
+                <li><code>mac_virtual_machine</code></li>
+                <li><code>mac_arm_virtual_machine</code></li>
+                <li><code>total_virtual_machine</code></li>
+            </ul>
+            For the Real Devices Could tests:
+            <ul>
+                <li><code>private_real_device</code></li>
+                <li><code>public_real_device</code></li>
+                <li><code>total_real_device</code></li>
+            </ul>
+        </td>
+    </tr>
+    </tbody>
   <tbody>
     <tr>
      <td><code>start_date</code></td>
@@ -257,48 +268,58 @@ This call requires <code>org_id</code> and <code>team_id</code> parameters.
   <tbody>
     <tr>
      <td><code>source</code></td>
-    <td><p><small>| QUERY | OPTIONAL | ARRAY |</small></p><p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p><p>
-     <ul>
-      <li><code>rdc</code> - Real Device Cloud</li>
-      <li><code>vdc</code> - Virtual Device Cloud</li>
-    </ul></p>Default value is: <code>vdc</code>
+    <td>
+        <p><small>| QUERY | OPTIONAL | ARRAY |</small></p>
+        <p>Return results only for tests run in virtual device cloud or real device cloud. Supported values are:</p>
+        <p>
+         <ul>
+          <li><code>rdc</code> - Real Device Cloud</li>
+          <li><code>vdc</code> - Virtual Device Cloud</li>
+        </ul>
+        </p>
+        Default value is: <code>vdc</code>
     </td>
     </tr>
   </tbody>
-  <tbody>
+    <tbody>
     <tr>
-     <td><code>granularity</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results grouped by given granularity:</p><p>
-     <ul>
-      <li><code>hourly</code></li>
-      <li><code>weekly</code></li>
-      <li><code>daily</code></li>
-      <li><code>monthly</code></li>
-    </ul></p>Default value is: <code>daily</code>
-    </td>
+        <td><code>granularity</code></td>
+        <td>
+            <p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results grouped by given granularity:</p>
+            <p>
+                <ul>
+                    <li><code>hourly</code></li>
+                    <li><code>weekly</code></li>
+                    <li><code>daily</code></li>
+                    <li><code>monthly</code></li>
+                </ul>
+            </p>
+            Default value is: <code>daily</code>
+        </td>
     </tr>
-  </tbody>
-  <tbody>
+    </tbody>
+    <tbody>
     <tr>
-     <td><code>resource_type</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given resource type</p>
-     <p/>
-     For the Virtual Could tests:
-     <ul>
-      <li><code>virtual_machine</code></li>
-      <li><code>mac_virtual_machine</code></li>
-      <li><code>mac_arm_virtual_machine</code></li>
-      <li><code>total_virtual_machine</code></li>
-    </ul>
-    For the Real Devices Could tests:
-     <ul>
-      <li><code>private_real_device</code></li>
-      <li><code>public_real_device</code></li>
-      <li><code>total_real_device</code></li>
-    </ul>
-    </td>
+        <td><code>resource_type</code></td>
+        <td>
+            <p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Return results only for given resource type</p>
+            <p/>
+            For the Virtual Could tests:
+            <ul>
+                <li><code>virtual_machine</code></li>
+                <li><code>mac_virtual_machine</code></li>
+                <li><code>mac_arm_virtual_machine</code></li>
+                <li><code>total_virtual_machine</code></li>
+            </ul>
+            For the Real Devices Could tests:
+            <ul>
+                <li><code>private_real_device</code></li>
+                <li><code>public_real_device</code></li>
+                <li><code>total_real_device</code></li>
+            </ul>
+        </td>
     </tr>
-  </tbody>
+    </tbody>
   <tbody>
     <tr>
      <td><code>start_date</code></td>

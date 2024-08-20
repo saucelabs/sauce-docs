@@ -40,6 +40,7 @@ As part of our initial Sauce IPSec Proxy tunnel setup and configuration on your 
 
 - **Restricted**: Only organization admins can utilize Sauce IPSec Proxy tunnels
 - **Organization-wide**: All users in your organization can utilize Sauce IPSec Proxy tunnels
+- **Team-wide**: All users in a specific team can utilize Sauce IPSec Proxy tunnels
 
 If you're an organization admin who would like to change your sharing settings, please reach out to our Support Team.
 
@@ -171,4 +172,4 @@ To monitor tunnel stability, we recommend pinging the tunnel gateway or checking
 ## Additional Resources
 
 - [Overview of Sauce Labs Security Processes](https://saucelabs.com/resources/white-papers/overview-of-sauce-labs-security-processes)
-- [Sauce Connect Proxy™ Security Overview](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview)
+- [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview)

@@ -14,7 +14,7 @@ $ saucectl run [OPTIONS]
 
 ## Extended Description
 
-Execute tests according to the environment, framework, and test suite specifications defined in your [configuration file](/dev/cli/saucectl/configure) or via command line options described in this document.
+Execute tests according to the environment, framework, and test suite specifications defined in your [configuration file](/dev/cli/saucectl/configure/configure) or via command line options described in this document.
 
 ## Options Summary
 
@@ -88,19 +88,69 @@ Execute tests according to the environment, framework, and test suite specificat
      <td>Usage information for the <code>run</code> command.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--no-color">--no-color</a></span></td>
+     <td><span className="t-cli"><a href="#--launch-order">--launch-order</a></span></td>
      <td></td>
-     <td>Disable colored console output.</td>
+     <td>Modify the execution order of suites.</td>
     </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--live-logs">--live-logs</a></span></td>
+     <td></td>
+     <td>Tail the live log output from a running Sauce Orchestrate container.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--no-auto-tagging">--no-auto-tagging</a></span></td>
+     <td></td>
+     <td>Disable the automatic tagging of jobs with metadata, such as CI or Git information.</td>
+    </tr>
+    <tr>
+      <td><span className="t-cli"><a href="#--no-color">--no-color</a></span></td>
+      <td></td>
+      <td>Disable colored console output.</td>
+     </tr>
     <tr>
      <td><span className="t-cli"><a href="#--region">--region</a></span></td>
      <td><span className="t-cli">-r</span></td>
      <td>Sauce Labs target data center.</td>
     </tr>
     <tr>
+     <td><span className="t-cli"><a href="#--reportersjsonenabled">--reporters.json.enabled</a></span></td>
+     <td></td>
+     <td>Toggles saucectl's JSON test result reporting on/off.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--reportersjsonfilename">--reporters.json.filename</a></span></td>
+     <td></td>
+     <td>Specifies the report filename. (default "saucectl-report.json").</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--reportersjsonwebhookurl">--reporters.json.webhookURL</a></span></td>
+     <td></td>
+     <td>Specifies the webhook URL. When saucectl test is finished, it'll send a HTTP POST payload to the configured webhook URL.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--reportersjunitenabled">--reporters.junit.enabled</a></span></td>
+     <td></td>
+     <td>Toggles saucectl's own junit reporting on/off.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--reportersjunitfilename">--reporters.junit.filename</a></span></td>
+     <td></td>
+     <td>Specifies the report filename. (default "saucectl-report.xml").</td>
+    </tr>
+    <tr>
      <td><span className="t-cli"><a href="#--retries">--retries</a></span></td>
      <td></td>
      <td>Number of times to rerun a failed test suite.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--root-dir">--root-dir</a></span></td>
+     <td></td>
+     <td>Specifies the project directory. Not applicable to mobile frameworks. (default ".")</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--sauceignore">--sauceignore</a></span></td>
+     <td></td>
+     <td>Specifies the path to the .sauceignore file. (default ".sauceignore")</td>
     </tr>
     <tr>
      <td><span className="t-cli"><a href="#--select-suite">--select-suite</a></span></td>
@@ -119,13 +169,8 @@ Execute tests according to the environment, framework, and test suite specificat
     </tr>
     <tr>
      <td><span className="t-cli"><a href="#--timeout">--timeout</a></span></td>
-     <td></td>
-     <td>Set a max test duration.</td>
-    </tr>
-    <tr>
-     <td><span className="t-cli"><a href="#--uploadTimeout">--uploadTimeout</a></span></td>
-     <td></td>
-     <td>Set a max upload duration.</td>
+      <td><span className="t-cli">-t</span></td>
+     <td>Global timeout that limits how long saucectl can run in total. Supports duration values like '10s', '30m' etc. (default: no timeout).</td>
     </tr>
     <tr>
      <td><span className="t-cli"><a href="#--tunnel-name">--tunnel-name</a></span></td>
@@ -136,6 +181,16 @@ Execute tests according to the environment, framework, and test suite specificat
      <td><span className="t-cli"><a href="#--tunnel-owner">--tunnel-owner</a></span></td>
      <td></td>
      <td>The tunnel owner, if it is not the testing account.</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--tunnel-timeout">--tunnel-timeout</a></span></td>
+     <td></td>
+     <td>How long to wait for the specified tunnel to be ready. Supports duration values like '10s', '30m' etc. (default: 30s)</td>
+    </tr>
+    <tr>
+     <td><span className="t-cli"><a href="#--upload-timeout">--upload-timeout</a></span></td>
+     <td></td>
+     <td>Set a max upload duration.</td>
     </tr>
     <tr>
      <td><span className="t-cli"><a href="#--verbose">--verbose</a></span></td>
@@ -163,7 +218,7 @@ saucectl run --artifacts.cleanup true
 ### <span className="cli">--artifacts.download.directory</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | PATH | <span className="sauceGreen">RDC Only</span> |</small></p>
+<p><small>| OPTIONAL | PATH |</small></p>
 
 Specifies the path to the folder location in which to download artifacts. A separate subdirectory is generated in this location for each suite for which artifacts are downloaded. Must be set in conjunction with `--artifacts.download.match` and `--artifacts.download.when`.
 
@@ -218,9 +273,9 @@ Allows you to launch tests without waiting for results of the preceding tests. T
 ### <span className="cli">--build</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | STRING | <span className="sauceGreen">VDC Only</span> |</small></p>
+<p><small>| OPTIONAL | STRING |</small></p>
 
-Associates the tests with a build to support easy filtering of related test results in the Sauce Labs UI. This option is not yet supported for mobile real device tests.
+Associates the tests with a build to support easy filtering of related test results in the Sauce Labs UI.
 
 ```bash
 saucectl run --build myBuildID
@@ -366,6 +421,47 @@ Usage information for the `run` command.
 
 </div>
 
+### <span className="cli">--launch-order</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Modify the execution order of suites.
+
+Supported value `fail rate`: Jobs with the highest failure rate are prioritized for launch.
+
+```bash
+saucectl run --launch-order="fail rate"
+```
+
+</div>
+
+### <span className="cli">--live-logs</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Sauce Orchestrate Only</span> |</small></p>
+
+Tail the live log output from a running Sauce Orchestrate container.
+
+```bash
+saucectl run --live-logs
+```
+
+</div>
+
+### <span className="cli">--no-auto-tagging</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Disables the automatic tagging of jobs with metadata, such as CI or Git information.
+
+```bash
+saucectl run --no-auto-tagging
+```
+
+</div>
+
 ### <span className="cli">--no-color</span>
 
 <div className="cli-desc">
@@ -384,7 +480,7 @@ saucectl run --no-color
 <div className="cli-desc">
 <p><small>| REQUIRED | STRING |</small></p>
 
-Specifies the Sauce Labs data center through which tests will run. Valid values are: `us-west-1` (default) or `eu-central-1`.
+Specifies the Sauce Labs data center through which tests will run. Valid values are: `us-west-1`, `us-east-4` or `eu-central-1`.
 
 **Shorthand:** `-r`
 
@@ -394,15 +490,112 @@ saucectl run --region us-west-1
 
 </div>
 
+### <span className="cli">--reporters.json.enabled</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Toggles saucectl's JSON test result reporting on/off. This only affects the reports that saucectl itself generates as a summary of your tests.
+
+```bash
+saucectl run --reporters.json.enabled=true
+```
+
+</div>
+
+### <span className="cli">--reporters.json.filename</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | FILEPATH |</small></p>
+
+Sets the report filename, with the default being `saucectl-report.json`.
+
+To use this option, make sure to activate the JSON reporter by including `--reporters.json.enabled=true`.
+
+```bash
+saucectl run --reporters.json.enabled=true --reporters.json.filename="path/to/my_report.json"
+```
+
+</div>
+
+### <span className="cli">--reporters.json.webhookURL</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | URL |</small></p>
+
+Specifies the webhook URL. When saucectl test is finished, it'll send an HTTP POST payload to the configured webhook URL.
+
+To use this option, make sure to activate the JSON reporter by including `--reporters.json.enabled=true`.
+
+```bash
+saucectl run --reporters.json.enabled=true --reporters.json.webhookURL="my_webhook_url"
+```
+
+</div>
+
+### <span className="cli">--reporters.junit.enabled</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Toggles saucectl's own junit reporting on/off. This only affects the reports that saucectl itself generates as a summary of your tests. Each Job in Sauce Labs has an independent report regardless.
+
+```bash
+saucectl run --reporters.junit.enabled=true
+```
+
+</div>
+
+### <span className="cli">--reporters.junit.filename</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | FILEPATH |</small></p>
+
+Sets the report filename, with the default being `saucectl-report.xml`.
+
+To use this option, make sure to activate the JUnit reporter by including `--reporters.junit.enabled=true`.
+
+```bash
+saucectl run --reporters.junit.enabled=true --reporters.junit.filename="path/to/my_report.xml"
+```
+
+</div>
+
 ### <span className="cli">--retries</span>
 
 <div className="cli-desc">
-<p><small>| REQUIRED | INTEGER |</small></p>
+<p><small>| OPTIONAL | INTEGER |</small></p>
 
 Instructs `saucectl` to rerun failed tests this many times.
 
 ```bash
 saucectl run --retries 2
+```
+
+</div>
+
+### <span className="cli">--root-dir</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | FILEPATH |</small></p>
+
+Specifies the project directory. Not applicable to mobile frameworks. Default: `.`.
+
+```bash
+saucectl run --root-dir="path/to/my/root_dir"
+```
+
+</div>
+
+### <span className="cli">--sauceignore</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | FILEPATH |</small></p>
+
+Specifies the path to the .sauceignore file. Default: `.sauceignore`.
+
+```bash
+saucectl run --sauceignore="path/to/my/.sauceignore"
 ```
 
 </div>
@@ -440,9 +633,9 @@ saucectl run --show-console-log
 ### <span className="cli">--tags</span>
 
 <div className="cli-desc">
-<p><small>| OPTIONAL | LIST | <span className="sauceGreen">VDC Only</span> |</small></p>
+<p><small>| OPTIONAL | LIST |</small></p>
 
-A keyword that may help you distinguish the test in Sauce Labs, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you. This option is not yet supported for mobile real device tests.
+Keywords that may help you distinguish the test in Sauce Labs, and also help you apply filters to easily isolate tests based on metrics that are meaningful to you.
 
 ```bash
 saucectl run --tags e2e,team2
@@ -468,16 +661,16 @@ saucectl run --timeout 30m
 
 </div>
 
-### <span className="cli">--uploadTimeout</span>
+### <span className="cli">--upload-timeout</span>
 
 <div className="cli-desc">
 <p><small>| OPTIONAL | DURATION |</small></p>
 
-Upload timeout that limits how long saucectl will wait for an upload to finish. Supports duration values like '10s' '30m' etc. (default: 5m)
+Uploads timeout that limits how long saucectl will wait for an upload to finish. Supports duration values like '10s' '30m' etc. (default: 5m)
 
 ```bash
-saucectl run --uploadTimeout 10s
-saucectl run --uploadTimeout 30m
+saucectl run --upload-timeout 10s
+saucectl run --upload-timeout 30m
 ```
 
 </div>
@@ -487,7 +680,7 @@ saucectl run --uploadTimeout 30m
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies an active [Sauce Connect](/secure-connections/sauce-connect/proxy-tunnels/) tunnel to establish a secure connection to run this test on Sauce Labs.
+Specifies an active [Sauce Connect](/secure-connections) tunnel to establish a secure connection to run this test on Sauce Labs.
 
 :::note
 Replaces the former `--tunnel_id` option, which is deprecated.
@@ -512,6 +705,19 @@ Replaces the former `--tunnel-parent` option, which is deprecated.
 
 ```bash
 saucectl run --tunnel-name not-my-tunnel --tunnel-owner another.sauce.username
+```
+
+</div>
+
+### <span className="cli">--tunnel-timeout</span>
+
+<div className="cli-desc">
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+How long to wait for the specified tunnel to be ready. Supports duration values like '10s', '30m' etc. (default: 30s)
+
+```bash
+saucectl run --tunnel-name who-knows-when-ready --tunnel-timeout 1m
 ```
 
 </div>

@@ -6,6 +6,13 @@ sidebar_label: Review Workflow
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+:::warning Screener End-of-life
+
+The Screener visual testing solution is going to be discontinued on May 31st, 2024. You can migrate to the new Sauce Labs Visual Testing solution by following the [integration steps](/visual-testing/).
+
+If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+:::
+
 ## Main Review Workflow
 
 Learn the Screener workflow for reviewing UIs. Each UI state under test has one of the following statuses:
@@ -85,28 +92,30 @@ Each resolution item in the array is either:
   ```java
   { deviceName: 'iPhone 6' }
   ```
-     <details><summary>Supported <code>deviceName</code> value options (<strong>click here to expand</strong>):</summary>
-      <ul>
-      <li>iPad</li>
-      <li>iPad Pro</li>
-      <li>iPhone 4</li>
-      <li>iPhone 5</li>
-      <li>iPhone 6</li>
-      <li>iPhone 6 Plus</li>
-      <li>iPhone 7</li>
-      <li>iPhone 7 Plus</li>
-      <li>iPhone 8</li>
-      <li>iPhone 8 Plus</li>
-      <li>iPhone X</li>
-      <li>Galaxy S6</li>
-      <li>Galaxy S7</li>
-      <li>Galaxy S8</li>
-      <li>Nexus 4</li>
-      <li>Nexus 5</li>
-      <li>Nexus 5X</li>
-      <li>Nexus 6P</li>
-      <li>Nexus 7</li>
-      <li>Nexus 10</li></ul>
+     <details>
+         <summary>Supported <code>deviceName</code> value options (<strong>click here to expand</strong>):</summary>
+          <ul>
+              <li>iPad</li>
+              <li>iPad Pro</li>
+              <li>iPhone 4</li>
+              <li>iPhone 5</li>
+              <li>iPhone 6</li>
+              <li>iPhone 6 Plus</li>
+              <li>iPhone 7</li>
+              <li>iPhone 7 Plus</li>
+              <li>iPhone 8</li>
+              <li>iPhone 8 Plus</li>
+              <li>iPhone X</li>
+              <li>Galaxy S6</li>
+              <li>Galaxy S7</li>
+              <li>Galaxy S8</li>
+              <li>Nexus 4</li>
+              <li>Nexus 5</li>
+              <li>Nexus 5X</li>
+              <li>Nexus 6P</li>
+              <li>Nexus 7</li>
+              <li>Nexus 10</li>
+          </ul>
      </details>
 
 Example config using `resolutions`:

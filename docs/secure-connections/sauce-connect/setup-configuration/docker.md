@@ -4,7 +4,7 @@ title: Sauce Connect Proxy Docker Container
 sidebar_label: Docker
 ---
 
-As an alternative to downloading and installing the Sauce Connect Proxy in your CI/CD environment, you can leverage [Docker](https://www.docker.com/) to manage [Sauce Connect Docker container](https://github.com/saucelabs/sauce-connect-docker) maintained by the Sauce Labs [Open Source Program Office](https://opensource.saucelabs.com/).
+As an alternative to downloading and installing the Sauce Connect Proxy in your CI/CD environment, you can leverage [Docker](https://www.docker.com/) to manage [Sauce Connect Docker container](https://hub.docker.com/r/saucelabs/sauce-connect/) maintained by the Sauce Labs [Open Source Program Office](https://opensource.saucelabs.com/).
 
 Here are some benefits/use cases:
 
@@ -24,7 +24,8 @@ Here are some benefits/use cases:
    ```bash
    $ docker pull saucelabs/sauce-connect:4.9.2
    ```
-    <details><summary>Supported tags</summary>
+    <details>
+    <summary>Supported tags</summary>
       - 4.9.2, 4.9.2-ubuntu-22.04, 4.9.2-alpine-glibc, latest<br/>
       - 4.9.1, 4.9.1-ubuntu-22.04, 4.9.1-alpine-glibc<br/>
       - 4.9.0, 4.9.0-ubuntu-22.04, 4.9.0-alpine-glibc<br/>

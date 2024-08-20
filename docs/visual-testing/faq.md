@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Is Sauce Visual's image comparison pixel-based or DOM-based?
 
-The current implementation is Pixel-based only.
+The current implementation is Pixel-based by default, while DOM-based diffing can be turned on by setting the flag `captureDom`  to `true`. Read more in our integration guides.
 
 ### Does Sauce Visual support "ignore regions"?
 
@@ -71,6 +71,8 @@ When using Sauce Visual, the client libraries need to connect with Sauce Labs AP
        ```
 
      - To make this change permanent, add the export command to your shell's profile script (e.g., `.bash_profile` or `.bashrc`).
+  
+  **NOTE**: For WebdriverIO, make sure to check proxy settings described in the [official WebdriverIO documentation](https://webdriver.io/docs/proxy/#proxy-between-driver-and-test).
 
 3. **Run your Sauce Visual job**: After setting the `HTTPS_PROXY` variable, you can proceed to run your Sauce Visual tests as usual.
 

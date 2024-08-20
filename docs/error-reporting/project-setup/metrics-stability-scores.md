@@ -41,7 +41,7 @@ Note: If you are linking attributes for a metric group that you expect to receiv
 
 ### Create the Metrics
 
-Now we can start adding metrics, it’s good practice to have naming conventions like {metricGroupName}-{attributeName}{attributeValue} for each metric (i.e. minutesPlayed-version1.0, minutesPlayed-version1.1, etc).
+Now we can start adding metrics, it’s good practice to have naming conventions like \{metricGroupName}-\{attributeName}\{attributeValue} for each metric (i.e. minutesPlayed-version1.0, minutesPlayed-version1.1, etc).
 
 <img src={useBaseUrl('img/error-reporting/project-settings/create-metric.webp')} alt="" />
 
@@ -92,7 +92,7 @@ The results of your query will stored in the linked metric, so you may want to c
 
 ## View Stability Scores
 
-Once configured and populating, Stability Scores can be viewed in the Triage and Explore Views. You'll see a dropdown in the upper right for "Errors normalized by {metric group}".
+Once configured and populating, Stability Scores can be viewed in the Triage and Explore Views. You'll see a dropdown in the upper right for "Errors normalized by \{metric group}".
 
 ## Stability Scores in Triage
 

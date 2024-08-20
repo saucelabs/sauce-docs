@@ -8,13 +8,21 @@ description: Retrieve information related to real device availability, device/pl
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Use the Real Device Cloud (RDC) API methods to look up device types and availability in your data center and view current activity on those devices.
+The Real Device Cloud (RDC) API allows you to manage real devices and jobs in your data center. Use the RDC API methods to:
+* Look up device types and availability
+* View current device activity
+* Manage real device jobs by stopping, deleting, or updating job details
+* Assign a private device to a team
+* Update private device settings
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
+## Real Devices
+
 ### Get Devices
 
-<details><summary><span className="api get">GET</span> <code>/v1/rdc/devices</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/devices</code></summary>
 <p/>
 
 Get the set of real devices located at the data center, as well as the operating system/browser combinations and identifying information for each device.
@@ -108,7 +116,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
         "isAlternativeIoEnabled": true,
         "supportsManualWebTesting": true,
         "supportsMultiTouch": true,
-        "supportsXcuiTest": true
+        "supportsXcuiTest": false
     },
     {...more devices},
 ]
@@ -120,7 +128,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get a Specific Device
 
-<details><summary><span className="api get">GET</span> <code>/v1/rdc/devices/&#123;device_id&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/devices/&#123;device_id&#125;</code></summary>
 <p/>
 
 Get information about the device specified in the request.
@@ -230,10 +239,15 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Available Devices
 
-<details><summary><span className="api get">GET</span> <code>/v1/rdc/devices/available</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/devices/available</code></summary>
 <p/>
 
 Returns a list of Device IDs for all devices in the data center that are currently free for testing.
+
+:::note Deprecated Endpoint
+This endpoint is deprecated. Please transition to the status endpoint for continued service.
+:::
 
 #### Parameters
 
@@ -321,9 +335,252 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
+### Get Devices Status
+
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/devices/status</code></summary>
+<p/>
+
+Returns a list of devices in the data center along with their current states. Each device is represented by a descriptor, 
+indicating its model, and includes information on availability, usage status, and whether it is designated as a private device.
+
+:::note
+The `inUseBy` field is exposed only for private devices `isPrivateDevice: true`. 
+Users can view information about who is currently using the device only if they have the required permissions.
+Lack of permissions will result in the inUseBy field being omitted from the response for private devices.
+:::
+
+#### List of Available States:
+
+| State           | Description                                                     |
+|-----------------|-----------------------------------------------------------------|
+| `AVAILABLE`     | Device is available and ready to be allocated                   |
+| `IN_USE`        | Device is currently in use                                      |
+| `CLEANING`      | Device is being cleaned (only available for private devices)    |
+| `MAINTENANCE`   | Device is in maintenance (only available for private devices)   |
+| `REBOOTING`     | Device is rebooting (only available for private devices)        |
+| `OFFLINE`       | Device is offline (only available for private devices)          |
+
+#### Parameters
+
+This method takes no parameters.
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/devices/status' | json_pp
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/devices/status' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. Device info returned.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+    "devices": [
+        {
+            "descriptor": "iPhone_12_mini_16_real_private",
+            "state": "IN_USE",
+            "inUseBy": [
+                {
+                    "username": "user-name"
+                }
+            ],
+            "isPrivateDevice": true
+        },
+        {
+            "descriptor": "iPhone_12_16_real",
+            "state": "CLEANING",
+            "inUseBy": [],
+            "isPrivateDevice": true
+        },
+        {
+            "descriptor": "Google_Pixel_7_Pro_14_real",
+            "state": "MAINTENANCE",
+            "inUseBy": [],
+            "isPrivateDevice": true
+        },
+        {
+            "descriptor": "Samsung_Galaxy_S10_real",
+            "state": "REBOOTING",
+            "inUseBy": [],
+            "isPrivateDevice": true
+        },
+        {
+            "descriptor": "iPhone_XS_13_real",
+            "state": "OFFLINE",
+            "inUseBy": [],
+            "isPrivateDevice": true
+        },
+        {
+            "descriptor": "iPhone_8_Plus_13_4_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Google_Pixel_4_10_real",
+            "state": "IN_USE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Samsung_Galaxy_S21_5G_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Samsung_Galaxy_A7_2018_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPad_Pro_11_2021_17_real",
+            "state": "IN_USE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Google_Pixel_5_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Samsung_Galaxy_A9s_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPhone_SE_15_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPhone_13_mini_17_real_2",
+            "state": "IN_USE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Google_Pixel_4_XL_13_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Samsung_Galaxy_S23_14_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Samsung_Galaxy_Tab_S8_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Samsung_Galaxy_A8_2018_real",
+            "state": "IN_USE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPad_10_2_14_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPad_mini_2_12_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPad_10_2_2020_16_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Samsung_Galaxy_S21_5G_13_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "Huawei_Mate_30_Pro_real",
+            "state": "IN_USE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPad_Pro_10_5_2017_15_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        {
+            "descriptor": "iPad_Pro_11_2022_16_real",
+            "state": "AVAILABLE",
+            "inUseBy": [],
+            "isPrivateDevice": false
+        },
+        ...
+    ]
+}
+```
+
+</details>
+
+---
+
+## Jobs
+
 ### Get Real Device Jobs
 
-<details><summary><span className="api get">GET</span> <code>/v1/rdc/jobs</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/jobs</code></summary>
 <p/>
 
 Get a list of jobs that are actively running on real devices in the data center.
@@ -433,7 +690,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get a Specific Real Device Job
 
-<details><summary><span className="api get">GET</span> <code>/v1/rdc/jobs/&#123;job_id&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/jobs/&#123;job_id&#125;</code></summary>
 <p/>
 
 Get information about a specific job running on a real device at the data center.
@@ -558,7 +816,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
       "supportsMinicapSocketConnection" : false,
       "supportsMockLocations" : true,
       "supportsMultiTouch" : true,
-      "supportsXcuiTest" : true
+      "supportsXcuiTest" : false
    },
    "device_log_url" : "https://api.eu-central-1.saucelabs.com/v1/rdc/jobs/51873a114a6141239c933042e948aa54/deviceLogs",
    "device_name" : "Samsung Galaxy S10",
@@ -597,11 +855,84 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 </details>
 
+
+---
+
+### Download a Specific Real Device Job's Device Logs File
+
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/deviceLogs</code></summary>
+<p/>
+
+Download the device logs file for a specific job after it finished running on a real device at the data center.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>job_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a job running on a real device in the data center. You can look up job IDs using the <a href="#get-real-device-jobs">Get Real Device Jobs</a> endpoint.</p></td>
+    </tr>
+    <tr>
+     <td><code>download</code></td>
+     <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Whether to force the download of the compressed version of the file. Defaults to (<code>false</code>).</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/jobs/293d84fb2f634ff29a750c3f8eaee592/deviceLogs'
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/jobs/48c6d12f9ef944439453b5abc6715b54/deviceLogs'
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. File is returned and downloaded.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+</details>
+
 ---
 
 ### Stop a Job
 
-<details><summary><span className="api put">PUT</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/stop</code></summary>
+<details>
+<summary><span className="api put">PUT</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/stop</code></summary>
 <p/>
 
 Stops a running job described by the `job_id`.
@@ -713,7 +1044,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Update a Job
 
-<details><summary><span className="api put">PUT</span> <code>/v1/rdc/jobs/&#123;job_id&#125;</code></summary>
+<details>
+<summary><span className="api put">PUT</span> <code>/v1/rdc/jobs/&#123;job_id&#125;</code></summary>
 <p/>
 
 Edit job attributes based on parameters passed in the request, including setting the status and name of the job. Any parameter for which a new value is provided in the request will replace the existing value. For example, if you provide a set of tags, they will not be added to the current tags; they will replace them, so make sure you pass the entire set you wish to assign.
@@ -925,6 +1257,459 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
     "crash_log_url": null,
     "test_report_type": "XCUITEST"
 }
+```
+
+</details>
+
+---
+
+### Delete a Job
+
+<details>
+<summary><span className="api delete">DELETE</span> <code>/v1/rdc/jobs/&#123;job_id&#125;</code></summary>
+<p/>
+
+Delete a job and all of its assets from the Sauce Labs test history.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>job_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a job running on a real device in the data center. You can look up job IDs using the <a href="#get-real-device-jobs">Get Real Device Jobs</a> endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.us-west-1.saucelabs.com/v1/rdc/jobs/a2f60bf3ea5f43fa90126f82c0ba2cf6' | json_pp
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.eu-central-1.saucelabs.com/v1/rdc/jobs/a2f60bf3ea5f43fa90126f82c0ba2cf6' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Job successfully deleted.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found.</td>
+  </tr>
+</tbody>
+</table>
+
+No payload is returned with the successful deletion.
+
+</details>
+
+---
+
+## Private Real Device Management
+
+Learn more about how to [manage your private devices](/basics/acct-team-mgmt/private-device-mgmt).
+
+### Get Private Devices
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/device-management/devices</code></summary>
+<p/>
+
+Get a list of private devices with their device information and settings.
+
+#### Parameters
+
+This method takes no parameters.
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices' | json_pp
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. List of private devices is returned.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+[
+    {
+        "id": "iPhone_12_17_sl",
+        "name": "iPhone 12",
+        "os": {
+            "name": "iOS",
+            "version": "17.6"
+        },
+        "screenSize": 6.1,
+        "resolutionWidth": 1170,
+        "resolutionHeight": 2532,
+        "state": "AVAILABLE",
+        "team": null,
+        "appWhitelist": [
+            "com.google.chrome.ios"
+        ],
+        "accountWhitelist": [],
+        "systemAppAllowlist": [],
+        "applePaySupportEnabled": false,
+        "skipCleaningFolders": []
+    },
+    {...more devices},
+]
+```
+
+</details>
+
+---
+
+### Assign Device to a Team
+<details>
+<summary><span className="api put">PUT</span> <code>/v1/rdc/device-management/devices/&#123;device_id&#125;/team</code></summary>
+<p/>
+
+Assign a private device to a specific team.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>device_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a device in the Sauce Labs data center. You can look up device IDs using the <a href="#get-devices">Get Devices</a> endpoint. (Example: <code>iPhone_12_17_sl</code>)</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>id</code></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The unique identifier of a team in the Sauce Labs organization.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/team' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"id": "8f0444d7762548bd81ae46722a14e1c6"
+}'
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/team' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"id": "8f0444d7762548bd81ae46722a14e1c6"
+}'
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Device successfully assigned.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Device not found.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>422</code></td>
+    <td colSpan='2'>Team not found.</td>
+  </tr>
+</tbody>
+</table>
+
+No payload is returned with the successful assignment.
+
+</details>
+
+---
+
+### Remove Device Assignment from Team
+<details>
+<summary><span className="api delete">DELETE</span> <code>/v1/rdc/device-management/devices/&#123;device_id&#125;/team</code></summary>
+<p/>
+
+Remove the private device assignment from a team.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>device_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a device in the Sauce Labs data center. You can look up device IDs using the <a href="#get-devices">Get Devices</a> endpoint. (Example: <code>iPhone_12_17_sl</code>)</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/team' | json_pp
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/team' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Device successfully removed from team.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Device not found.</td>
+  </tr>
+</tbody>
+</table>
+
+No payload is returned with the successful removal.
+
+</details>
+
+---
+
+### Update Device Settings
+<details>
+<summary><span className="api put">PUT</span> <code>/v1/rdc/device-management/devices/&#123;device_id&#125;/settings</code></summary>
+<p/>
+
+Update device settings to allow apps, system apps, and accounts to persist between sessions. Check out the 
+[available device settings](/basics/acct-team-mgmt/private-device-mgmt/#app-allow-list) for more information on each setting.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>device_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a device in the Sauce Labs data center. You can look up device IDs using the <a href="#get-devices">Get Devices</a> endpoint.  (Example: <code>iPhone_12_17_sl</code>)</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>appWhitelist</code></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p><a href="/basics/acct-team-mgmt/private-device-mgmt/#app-allow-list">Persist installed apps</a> and app data between sessions.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>accountWhitelist</code></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>Preserve <a href="/basics/acct-team-mgmt/private-device-mgmt/#account-allow-list">store and payment account sign-ins</a> for Google accounts and Apple IDs between sessions for each account email.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>systemAppAllowlist</code></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>Access <a href="/basics/acct-team-mgmt/private-device-mgmt/#system-app-allow-list-ios">iOS preinstalled applications</a>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>applePaySupportEnabled</code></td>
+       <td><p><small>| BODY | REQUIRED | BOOLEAN |</small></p><p>Enable to test Apple Pay. Please contact your CSM/SE or Sauce Labs Support for <a href="/basics/acct-team-mgmt/private-device-mgmt/#enable-apple-pay">additional configuration</a>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>skipCleaningFolders</code></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p><a href="/basics/acct-team-mgmt/private-device-mgmt/#retain-foldersfilepath-android">Retain specific file paths or folders</a> on your private Android devices between sessions. </p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices/iPhone_12_17_sl/settings' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": "iPhone_12_17_sl",
+    "appWhitelist": ["com.google.chrome.ios"],
+    "accountWhitelist": ["qa-tester@saucelabs.com"],
+    "systemAppAllowlist": ["com.apple.calculator"],
+    "applePaySupportEnabled": false,
+    "skipCleaningFolders": []
+}'
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices/iPhone_12_17_sl/settings' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": "iPhone_12_17_sl",
+    "appWhitelist": ["com.google.chrome.ios"],
+    "accountWhitelist": ["qa-tester@saucelabs.com"],
+    "systemAppAllowlist": ["com.apple.calculator"],
+    "applePaySupportEnabled": false,
+    "skipCleaningFolders": []
+}'
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Device settings successfully updated.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Device not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+[
+    {
+        "id": "iPhone_12_17_sl",
+        "name": "iPhone 12",
+        "os": {
+            "name": "iOS",
+            "version": "17.6"
+        },
+        "screenSize": 6.1,
+        "resolutionWidth": 1170,
+        "resolutionHeight": 2532,
+        "state": "AVAILABLE",
+        "team": null,
+        "appWhitelist": [
+            "com.google.chrome.ios"
+        ],
+        "accountWhitelist": [
+            "qa-tester@saucelabs.com"
+        ],
+        "systemAppAllowlist": [
+            "com.apple.calculator"
+        ],
+        "applePaySupportEnabled": false,
+        "skipCleaningFolders": []
+    },
+    {...more devices},
+]
 ```
 
 </details>

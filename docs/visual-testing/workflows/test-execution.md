@@ -5,6 +5,7 @@ sidebar_label: Test Execution
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import IntegrationE2ELinks from '../_partials/_integration-e2e-links.md';
 
 # Test Execution Workflow
 
@@ -23,12 +24,7 @@ Sauce Visual provides integrations with different kind of frameworks:
 <div className="box box1 card">
   <div className="container">
   <h2>E2E Testing</h2>
-  <ul>
-      <li><a href="/visual-testing/integrations/cypress/">Cypress Integration</a></li>
-      <li><a href="/visual-testing/integrations/java/">Java Integration</a></li>
-      <li><a href="/visual-testing/integrations/nightwatch/">Nightwatch Integration</a></li>
-      <li><a href="/visual-testing/integrations/webdriverio/">WebdriverIO Integration</a></li>
-  </ul>
+    <IntegrationE2ELinks />
   </div>
 </div>
 <div className="box box2 card">
@@ -47,7 +43,7 @@ Alternatively, [check out our examples](../../visual-testing.md#examples).
 
 Upon executing your tests for the first time, a visual baseline is automatically created in our system. This baseline serves as the standard for all subsequent tests and matches based on the metadata as described in the [Baseline Matching](../../visual-testing.md#baseline-matching).
 
-The newly created baseline needs to be reviewed and approved by a user. This can be done in the [Sauce Visual Builds](https://app.saucelabs.com/visual/builds) page. Once approved, see [Reviewing and Approving baselines](./review.md#reviewing-and-approving-baselines), the baseline is "locked" and will be used for all subsequent tests.
+The newly created baseline needs to be reviewed and approved by a user. This can be done in the [Sauce Visual Builds](https://app.saucelabs.com/visual/builds) page. Once approved, see [Reviewing and Accepting baselines](./review.md#reviewing-and-accepting-baselines), the baseline is "locked" and will be used for all subsequent tests.
 
 ## Subsequent Test Executions
 

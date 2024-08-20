@@ -385,6 +385,23 @@ If you're already using storage, check to make sure that:
 - You're using the exact name you provided via the rest API, not the original filename. For example, if you uploaded a file named `my_app.apk` to `https://saucelabs.com/rest/v1/storage/YOUR_USERNAME/new_app_name.apk`, your file is available as `storage:filename=new_app_name.apk`.
 - Check the access permissions for the file before retrying. If you have confirmed you have permissions to access the file and you continue to get this error, contact our [Sauce Labs Support](https://saucelabs.com/training-support).
 
+### Rate limit exceeded
+
+**Description**
+
+We do not allow more than ten concurrent Appium commands per Appium session. This limit prevents an overload of the Appium server. Note that even though Appium itself defines asynchronous commands, the appium protocol is fundamentally a sequential protocol. The Appium server will never execute commands in parallel, instead it queues all commands it receives and processes them one at a time.
+
+**Cause(s)**
+
+- You may be running more than 10 concurrent Appium commands. This often occurs without being immediately visible in your testing scripts due to certain libraries or incorrect usage of the driver.
+- WebdriverIO: It is easy to accidentally send concurrent Appium commands with this driver. Common scenarios include:
+  1. **Incorrect Usage of `browser.call()`:** Misusing `browser.call()` to wrap async functions can lead to unintentional parallel execution of commands if not properly managed.
+  2. **Using `browser.executeAsync()`:** Developers may use `browser.executeAsync()` to run custom scripts in parallel, which can cause multiple commands to be sent simultaneously if not carefully controlled.
+  3. **Chainable Commands Without Proper Await:** Webdriver-IO allows chaining commands, and if developers forget to use `await` properly, it can lead to multiple commands being executed at once.
+  4. **Async/Await Mismanagement in Loops:** Using loops like `forEach` or `map` with async functions without proper await can cause all iterations to start simultaneously, leading to concurrent commands.
+- Ideally, your test scripts should implement a retry strategy with exponential backoff to prevent overloading the Appium server.
+
+
 ## Web App Testing Only
 
 ### Test Didn't See a New Command for 90 Seconds

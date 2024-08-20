@@ -63,7 +63,8 @@ This will generate a series of assertions for this specific API request.
 
 :::tip
 
-<details><summary>Viewing your test</summary>
+<details>
+<summary>Viewing your test</summary>
 
 **Visual** view shows your test as UI components:<br/><img src={useBaseUrl('img/api-testing/testVisual.png')} alt="Sample Test Visual View"/>
 

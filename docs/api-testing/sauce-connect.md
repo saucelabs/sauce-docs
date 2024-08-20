@@ -138,7 +138,8 @@ If the tunnel was launched successfully, you'll see a [CLI response](/secure-con
 :::tip Session Stickiness
 The **Tests** and **Compose** tabs have a _session stickiness_ feature (also known as session persistence) that binds your tunnel session to our API testing server. When you select a tunnel from the Sauce Connect Proxy dropdown, that tunnel will stay as the default selection, even if you close your browser.
 
-<details><summary>Learn more</summary>
+<details>
+<summary>Learn more</summary>
 
 This feature does not apply to the **HTTP Client** or **Schedule** tabs, where the tunnel dropdown will always default to **No Tunnel**.
 

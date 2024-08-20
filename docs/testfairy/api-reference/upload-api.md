@@ -38,7 +38,8 @@ Streamline your build process and upload APKs or IPAs directly to TestFairy.
 
 ### Upload API
 
-<details><summary><span className="api post">POST</span><code>https://upload.testfairy.com/api/upload/</code></summary>
+<details>
+<summary><span className="api post">POST</span><code>https://upload.testfairy.com/api/upload/</code></summary>
 <p></p>
 
 #### Parameters
