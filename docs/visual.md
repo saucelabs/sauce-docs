@@ -1,8 +1,15 @@
 ---
 id: visual
-title: Sauce Labs Visual Testing
+title: Screener Visual Testing
 sidebar_label: Getting Started
 ---
+
+:::warning Screener End-of-life
+
+The Screener visual testing solution is going to be discontinued on May 31st, 2024. You can migrate to the new Sauce Labs Visual Testing solution by following the [integration steps](/visual-testing/).
+
+If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+:::
 
 > **Screener Docs are Now Sauce Docs**<br/>
 > As part of our effort to bring you a single, unified documentation site, we've migrated all Visual Docs from [Screener.io](https://screener.io) to Sauce Docs.
@@ -26,8 +33,7 @@ Know exactly where and what has changed so that you can deliver a consistent and
 <div className="box box2 card">
   <div className="container">
   <h2>Visual Component Testing</h2>
-  <p>Perform front-end visual regression tests on isolated UI components across tools such as Storybook, React, Vue, Angular and HTML. No coding needed.
-  </p>
+  <p>Perform front-end visual regression tests on isolated UI components across tools such as Storybook, React, Vue, Angular and HTML. No coding needed.</p>
   <ul>
       <li><a href="/visual/component-testing/setup">Run Your First Test</a></li>
       <li><a href="/visual/component-testing/storybook-interactions-testing/">Component Interactions Testing</a></li>

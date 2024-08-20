@@ -17,13 +17,7 @@ Private device management allows an organization admin to view and manage the pr
 
 :::important
 
-- Everyone in an organization can access a device in the the default unassigned state.
-- **Only** organization admins can manage private devices.
-  - An organization admin can always re-assign a device to another team or set a device to the default unassigned state.
-- **Only** team members can access a device assigned to a team.
-  - This rule is enforced for all roles!
-    - i.e., to access a device, an organization admin **must** be a member of the team a device is assigned to.
-  - Devices automcatically return to the default unassigned state if their assigned team is deleted.
+By assigning a private device to a team, you restrict access to that device to that team. **Note:** organization admins are not affected by this. Organization admins have access to all devices of their organization.
 
 :::
 
@@ -31,13 +25,13 @@ Private device management allows an organization admin to view and manage the pr
 For more information about managing teams, see [Adding and Deleting Teams](/basics/acct-team-mgmt/adding-deleting-teams).
 
 Private devices are not included in VM or RDC concurrency limits.  
-For more details, please see [Concurrency Limits and Team Accounts](/basics/acct-team-mgmt/concurrency-limits).
+For more details, please see [Managing Concurrency](/basics/acct-team-mgmt/concurrency/managing-concurrency).
 :::
 
 ## Viewing an Organization’s Private Devices
 
-1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
-   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Team management navigation" width="450"/>
+1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
+   <img src={useBaseUrl('img/team-mgmt/team-mgmt-nav.png')} alt="Organization management navigation" width="450"/>
 2. Click the **DEVICES** tab. The devices assigned to your organization will be listed.
    <img src={useBaseUrl('img/team-mgmt/device-mgmt-devices-tab.png')} alt="Devices tab" width="600"/>
 
@@ -47,12 +41,22 @@ For more details, please see [Concurrency Limits and Team Accounts](/basics/acct
 A device can be assigned to only 1 team at a time.  
 :::
 
-1. On Sauce Labs, click **ACCOUNT** and then click **Team Management**.
+1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 2. On the **DEVICES** tab, in the **Team** dropdown, select a team to assign the device to.
    <img src={useBaseUrl('img/team-mgmt/device-mgmt-assign-team.png')} alt="Assign a team" width="600"/>
 
-## App Allow List
 
+# Customizing Private devices:
+
+1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
+2. On the **DEVICES** tab, click on the Pencil icon under Action column.
+3. Under the Action column, click the Pencil icon to edit a device.
+4. In the new device modal, you can configure your private device: App Allow List, Account Allow List, System App Allow List, Retain folders, Enable Apple Pay
+
+<img src={useBaseUrl('img/team-mgmt/private-device-management-edit.png')} alt="Private device management edit" width="450"/>
+<img src={useBaseUrl('img/team-mgmt/private-device-management-modal.png')} alt="Private device management modal view" width="450"/>
+
+## App Allow List
 The [device cleaning process](/mobile-apps/real-device-cleaning) will remove apps installed from [Sauce Storage](/mobile-apps/app-storage) and the App Store/Play Store between sessions. To have installed apps and app data persist between sessions, update this setting for each of the application identifiers. This might be the app you are testing or dependent apps, e.g. MFA app, Microsoft Authenticator, etc.
 
 :::important
@@ -65,6 +69,8 @@ This setting does **NOT** install the app. You must manually or via automation i
 `com.google.chrome.ios`  
 `com.apps.app1`  
 `com.ios.app2`  
+
+*Multiple entries must be comma-separated.*
 :::
 
 ## System App Allow List (iOS)
@@ -75,8 +81,10 @@ Certain iOS preinstalled apps are hidden by default, e.g. Messages, Mail, Notes.
 For a list of native iPhone and iPad apps and their corresponding bundle IDs, please follow the reference link below.  
 https://support.apple.com/en-gb/guide/deployment/depece748c41/web
 
-`com.apple.MobileSMS`  
-`com.apple.mobilenotes`  
+`com.apple.MobileSMS`
+`com.apple.mobilenotes`
+
+*Multiple entries must be comma-separated.*
 :::
 
 ## Account Allow List
@@ -89,6 +97,8 @@ Update this setting for each account email to preserve store and payment account
 :::important
 `account1@mydomain.com`  
 `account2@mydomain.com`  
+
+*Multiple entries must be comma-separated.*
 :::
 
 ## Retain folders/filepath (Android)
@@ -114,6 +124,8 @@ Invalid path: `/data/local/tmp/`
 :::important
 `/data/com.wavelink.velocity/files`  
 `/com.my.app/data/temp/folder`
+
+*Multiple entries must be comma-separated.*
 :::
 
 ## Enable Apple Pay
@@ -125,3 +137,7 @@ Please send us a support ticket to set up Confirm with AssistiveTouch on your de
 This feature **requires** setting the Account Allow List.  
 Please see [Testing Apple Pay](/mobile-apps/live-testing/testing-apple-pay) for more information.  
 :::
+
+## Private Device Management API
+Easily manage your private real devices with our [Device Management API endpoints](/dev/api/rdc/#private-real-device-management) 
+to obtain device information, assign devices to a specific team, and update device settings efficiently. 

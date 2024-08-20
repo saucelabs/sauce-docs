@@ -6,7 +6,7 @@ sidebar_label: Getting Started
 
 If your company has firewall rules that limit your ability to run tests on Sauce Labs, you can use our Secure Connection features to connect to Sauce Labs in the cloud without exposing your company's IT infrastructure to security risks.
 
-We offer two options to provide an extra layer of security to protect test data in flight between the Sauce Labs cloud and your app or site under test on your network. Both of these solutions, Sauce Connect Proxy™ and Sauce IPSec Proxy, support secure connectivity using TLS 1.2 or above.
+We offer two options to provide an extra layer of security to protect test data in flight between the Sauce Labs cloud and your app or site under test on your network. Both of these solutions, Sauce Connect Proxy and Sauce IPSec Proxy, support secure connectivity using TLS 1.2 or above.
 
 To determine which solution is best for you, see [Overview of Sauce Labs Security Processes](https://saucelabs.com/resources/white-papers/overview-of-sauce-labs-security-processes).
 
@@ -102,45 +102,31 @@ Sauce Connect Proxy and Sauce IPSec Proxy accomplish the same thing: establish a
 
 <table>
   <tr>
-   <td><strong>Sauce Connect Proxy</strong>
-   </td>
-   <td><strong>Sauce IPSec Proxy</strong>
-   </td>
+   <td><strong>Sauce Connect Proxy</strong></td>
+   <td><strong>Sauce IPSec Proxy</strong></td>
   </tr>
   <tr>
-   <td>By default, the Sauce Connect Proxy client starts a single tunnel. For high-volume testing, we recommend High Availability tunnel pools, which you can launch using designated <a href="/dev/cli/sauce-connect-proxy">Sauce Connect Proxy command-line options</a>.
-   </td>
-   <td>Sauce IPSec Proxy is a static setup with two tunnel gateways that are pre-configured in High Availability mode.
-   </td>
+   <td>By default, the Sauce Connect Proxy client starts a single tunnel. For high-volume testing, we recommend High Availability tunnel pools, which you can launch using designated <a href="/dev/cli/sauce-connect-proxy">Sauce Connect Proxy command-line options</a>.</td>
+   <td>Sauce IPSec Proxy is a static setup with two tunnel gateways that are pre-configured in High Availability mode.</td>
   </tr>
   <tr>
-   <td>You can manage tunnel lifespan by launching different types of tunnels: ephemeral (per-build) tunnels or long-running tunnels.
-   </td>
-   <td>Sauce IPSec Proxy tunnels are long-running, by default.
-   </td>
+   <td>You can manage tunnel lifespan by launching different types of tunnels: ephemeral (per-build) tunnels or long-running tunnels.</td>
+   <td>Sauce IPSec Proxy tunnels are long-running, by default.</td>
   </tr>
   <tr>
-   <td>Sauce Connect Proxy client (binary) runs within your network to establish the tunnels, which use proprietary protocol over TLS 1.2.
-   </td>
-   <td>Sauce IPSec Proxy tunnels use industry standards to establish connection and offer two options for routing traffic to sites and apps under test.
-   </td>
+   <td>Sauce Connect Proxy client (binary) runs within your network to establish the tunnels, which use proprietary protocol over TLS 1.2.</td>
+   <td>Sauce IPSec Proxy tunnels use industry standards to establish connection and offer two options for routing traffic to sites and apps under test.</td>
   </tr>
   <tr>
-   <td>Available to all Sauce Labs accountholders at no additional cost.
-   </td>
-   <td><a href="https://saucelabs.com/pricing">Enterprise Plans</a> only.
-   </td>
+   <td>Available to all Sauce Labs accountholders at no additional cost.</td>
+   <td><a href="https://saucelabs.com/pricing">Enterprise Plans</a> only.</td>
   </tr>
   <tr>
-   <td>Regardless of your license type (free-trial, self-serve, enterprise), you can download and use Sauce Connect Proxy.
-   </td>
-   <td>Requires a custom setup between your network and the Sauce Labs cloud prior to use.
-   </td>
+   <td>Regardless of your license type (free-trial, self-serve, enterprise), you can download and use Sauce Connect Proxy.</td>
+   <td>Requires a custom setup between your network and the Sauce Labs cloud prior to use.</td>
   </tr>
   <tr>
-   <td>Minimal setup time required; as little as 5-10 minutes.
-   </td>
-   <td>Setup time is appropriately four weeks; involves close collaboration and coordination between your organization and Sauce Labs.
-   </td>
+   <td>Minimal setup time required; as little as 5-10 minutes.</td>
+   <td>Setup time is appropriately four weeks; involves close collaboration and coordination between your organization and Sauce Labs.</td>
   </tr>
 </table>

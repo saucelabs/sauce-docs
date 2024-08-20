@@ -30,7 +30,7 @@ While you can use multiple files of different names or locations to specify your
 https://github.com/saucelabs/saucectl-replay-example/blob/main/.sauce/config.yml
 ```
 
-Each of the properties supported for running Playwright tests through `saucectl` is defined below.
+Each of the properties supported for replaying Chrome DevTools recordings through `saucectl` is defined below.
 
 ## `apiVersion`
 
@@ -248,6 +248,21 @@ sauce:
 
 ---
 
+#### `timeout`
+
+<p><small>| OPTIONAL | DURATION |</small></p>
+
+How long to wait for the specified tunnel to be ready. Supports duration values like '10s', '30m' etc. (default: 30s)
+
+```yaml
+sauce:
+  tunnel:
+    name: your_tunnel_name
+    timeout: 30s
+```
+
+---
+
 ### `visibility`
 
 <p><small>| OPTIONAL | STRING |</small></p>
@@ -400,6 +415,35 @@ artifacts:
 
 ---
 
+### `retain`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+Define directories to archive and retain as a test asset at the end of a test run. Archived test assets can
+be downloaded automatically using the `download` configuration, via the 
+[REST API](https://docs.saucelabs.com/dev/api/jobs/#get-a-job-asset-file), or through the test details page.
+
+```yaml
+artifacts:
+  retain:
+    source-directory: destination-archive.zip
+  download:
+    when: always
+    match:
+      - destination-archive.zip
+    directory: ./artifacts/
+```
+
+:::note
+The source and destination will be relative to the `rootDir` defined in your configuration.
+:::
+
+:::note
+The destination archive must have a .zip file extension.
+:::
+
+---
+
 ### `download`
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
@@ -460,6 +504,25 @@ Specifies the path to the folder location in which to download artifacts. A sepa
 ```yaml
 artifacts:
   download:
+    directory: ./artifacts/
+```
+
+---
+
+#### `allAttempts`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+If you have your tests configured with [retries](#retries), you can set this option to `true` to download artifacts for every attempt. Otherwise, only artifacts of the last attempt
+will be downloaded.
+
+```yaml
+artifacts:
+  download:
+    match:
+      - console.log
+    when: always
+    allAttempts: true
     directory: ./artifacts/
 ```
 

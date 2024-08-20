@@ -12,34 +12,24 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <table>
   <tr>
-    <td><b>Column</b>
-    </td>
-    <td><b>Description</b>
-    </td>
+    <td><b>Column</b></td>
+    <td><b>Description</b></td>
   </tr>
   <tr>
-    <td><b>Variable</b>
-    </td>
-    <td>The variables associated with the project. Click a variable name to modify its name or value.<br/><br/>Click the up or down arrow next to the column name to sort the table alphabetically by variable name.
-    </td>
+    <td><b>Variable</b></td>
+    <td>The variables associated with the project. Click a variable name to modify its name or value.<br/><br/>Click the up or down arrow next to the column name to sort the table alphabetically by variable name.</td>
   </tr>
   <tr>
-    <td><b>Value</b>
-    </td>
-    <td>Click the up or down arrow next to the column name to sort the table alphabetically by value.
-    </td>
+    <td><b>Value</b></td>
+    <td>Click the up or down arrow next to the column name to sort the table alphabetically by value.</td>
   </tr>
   <tr>
-    <td><b>Clone</b>
-    </td>
-    <td>Hover in the <b>Clone</b> column and then click the <b>Clone</b> button.
-    </td>
+    <td><b>Clone</b></td>
+    <td>Hover in the <b>Clone</b> column and then click the <b>Clone</b> button.</td>
   </tr>
   <tr>
-    <td><b>Delete</b>
-    </td>
-    <td>Hover in the <b>Delete</b> column and then click the <b>Delete</b> button.
-    </td>
+    <td><b>Delete</b></td>
+    <td>Hover in the <b>Delete</b> column and then click the <b>Delete</b> button.</td>
   </tr>
 </table>
 

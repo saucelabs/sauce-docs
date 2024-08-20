@@ -72,6 +72,27 @@ For example, with a subscription, you can test iPhone 12 devices with any of the
 
 Yes, by using virtual USB, but only on private Android devices. Currently, iOS does not have an option to upload or download files from real devices. See [Virtual USB Testing on Real Mobile Devices](/mobile-apps/features/virtual-usb) for more information.
 
+#### **I'm encountering errors when executing ADB shell commands. What could be the issue?**
+
+If you're facing challenges with ADB shell commands during your automated Appium tests, ensure that you are using the
+[mobile: shell script](https://docs.saucelabs.com/dev/test-configuration-options/#mobile-shell) correctly.
+
+We maintain an allowlist of commands that can be executed within our Real Device Cloud. Please refer to the list of allowed commands to ensure compatibility:
+* am start
+* am force-stop
+* pm clear
+* input
+* (ls|cp|mkdir|echo|grep|cut|pwd|dumpsys)
+* getprop
+* am compat enable
+* cmd connectivity airplane-mode (enable|disable)
+* settings put global (animator_duration_scale|transition_animation_scale|window_animation_scale) {`<value>`}
+* setprop debug.firebase.analytics.app {`<value>`}
+* setprop (log.tag.FA|log.tag.FA-SVC) (ERROR|WARN|INFO|DEBUG|VERBOSE)
+
+If the command you require is not listed, you can submit a request through this [form](https://docs.google.com/forms/d/1t4MCf6ClHlLxX80RP5bNU9wVJBhQOd4ll6IjP0ecMgc)
+or reach out to your Customer Success Manager or Sauce Labs Support for assistance.
+
 ### Security
 
 #### **Is my app safe in the Real Device Cloud?**
@@ -175,7 +196,7 @@ No.
 
 #### **Do you have any UI inspection tool built into your application like UI Automator viewer?**
 
-Not yet, this is in the works! For now, we recommend using [Appium Inspector](https://github.com/appium/appium-inspector).
+Yes, check out our integrated [Appium Inspector solution here](/mobile-apps/features/appium-inspector/).
 
 #### **Can I change the orientation of the device screen during a test?**
 
@@ -207,7 +228,7 @@ Yes, only on private devices that have SIM/eSIM cards and are connected to the C
 
 #### **What type of carriers can I test my SIM cards/eSIM cards with? **
 
-We support T-Mobile in US-West and US-East, Verizon in US-East, and Vodafone in the EU.
+We support: T-Mobile in US-West. AT&T, T-mobile and Verizon in US-East, and Vodafone in the EU.
 
 ### Live Testing
 

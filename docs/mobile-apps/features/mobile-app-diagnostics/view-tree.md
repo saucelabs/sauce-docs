@@ -11,8 +11,7 @@ Explore View Tree is a feature that is designed to help you discover all the vis
 Explore View Tree feature allows you to see, debug, analyze or determine the state of individual View components. It also informs you about global changes in the view tree.
 
 :::note
-This feature CANNOT be used as Appium Inspector. If you want to use Appium Inspector with Sauce, see the [Appium Inspector project](https://github.com/saucelabs/appium-inspector-saucelabs) in GitHub.
-Such global changes include, for example, a layout of the whole tree.
+You can use our [Appium Inspector capability](/mobile-apps/features/appium-inspector/) to inspect the App Source and attributes in real time during a Live Testing session! 
 :::
 
 The feature speeds up your debugging experience of QA SDET for automated test scripts, and expedites the debugging and validating View and UI-related issues. Finally, the Explore feature is a critical factor for easy validation of accessibility labels.

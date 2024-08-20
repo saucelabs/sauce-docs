@@ -1,12 +1,19 @@
 ---
 id: acct-team-mgmt
-title: Visual Testing Account and Team Management
+title: Screener Account and Team Management
 sidebar_label: Account and Team Management
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+:::warning Screener End-of-life
+
+The Screener visual testing solution is going to be discontinued on May 31st, 2024. You can migrate to the new Sauce Labs Visual Testing solution by following the [integration steps](/visual-testing/).
+
+If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+:::
 
 Teams Management allows you to create Teams for your Account, add users to your Teams, specify user roles, and specify which projects users have access to. In addition, you can assign a user to be an administrator for your Screener Account.
 
@@ -27,88 +34,53 @@ Before you create a team, it is useful to understand the different user roles in
 
 <table>
   <tr>
-   <td><strong> </strong>
-   </td>
-   <td><strong><small>Viewer</small></strong>
-   </td>
-   <td><strong><small>Tester</small></strong>
-   </td>
-   <td><strong><small>Administrator</small></strong>
-   </td>
-   <td><strong><small>Account Owner</small></strong>
-   </td>
+   <td><strong> </strong></td>
+   <td><strong><small>Viewer</small></strong></td>
+   <td><strong><small>Tester</small></strong></td>
+   <td><strong><small>Administrator</small></strong></td>
+   <td><strong><small>Account Owner</small></strong></td>
   </tr>
   <tr>
-   <td>View Projects & UI States
-   </td>
-   <td>x
-   </td>
-   <td>x
-   </td>
-   <td>x
-   </td>
-   <td>x
-   </td>
+   <td>View Projects & UI States</td>
+   <td>x</td>
+   <td>x</td>
+   <td>x</td>
+   <td>x</td>
   </tr>
   <tr>
-   <td>Change Status of UI States
-   </td>
-   <td>
-   </td>
-   <td>x
-   </td>
-   <td>x
-   </td>
-   <td>x
-   </td>
+   <td>Change Status of UI States</td>
+   <td></td>
+   <td>x</td>
+   <td>x</td>
+   <td>x</td>
   </tr>
   <tr>
-   <td>Delete Branches
-   </td>
-   <td>
-   </td>
-   <td>x
-   </td>
-   <td>x
-   </td>
-   <td>x
-   </td>
+   <td>Delete Branches</td>
+   <td></td>
+   <td>x</td>
+   <td>x</td>
+   <td>x</td>
   </tr>
   <tr>
-   <td>Add/Delete Projects
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>x
-   </td>
-   <td>x
-   </td>
+   <td>Add/Delete Projects</td>
+   <td></td>
+   <td></td>
+   <td>x</td>
+   <td>x</td>
   </tr>
   <tr>
-   <td>Manage Teams
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>x
-   </td>
-   <td>x
-   </td>
+   <td>Manage Teams</td>
+   <td></td>
+   <td></td>
+   <td>x</td>
+   <td>x</td>
   </tr>
   <tr>
-   <td>Manage Billing Information
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>x
-   </td>
+   <td>Manage Billing Information</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td>x</td>
   </tr>
 </table>
 

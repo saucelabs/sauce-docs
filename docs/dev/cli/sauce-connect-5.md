@@ -20,7 +20,7 @@ Below is a list of commands available with your Sauce Connect Proxy application.
 ## Commands
 
 - [sc run](/dev/cli/sauce-connect-5/run/)
-- `sc legacy`
+- [sc legacy](/dev/cli/sauce-connect-5/legacy/)
 - [sc completion](/dev/cli/sauce-connect-5/completion/)
 - `sc version`
 - `sc help`
@@ -31,26 +31,7 @@ The [sc run](/dev/cli/sauce-connect-5/run/) command is a main Sauce Connect Prox
 
 ### `sc legacy`
 
-The command runs Sauce Connect Proxy in compatibility mode with Sauce Connect Proxy 4.9.x. See [Sauce Connect Proxy 4.x.x CLI Reference](/dev/cli/sauce-connect-proxy). The command is intended to simplify the transition to Sauce Connect Proxy 5.x.x and will be removed in the future.
-
-Unsupported Sauce Connect Proxy 4.9.x flags:
-
-- [`--autodetect`](/dev/cli/sauce-connect-proxy/#--autodetect)
-- [`--doctor`](/dev/cli/sauce-connect-proxy/#--doctor)
-- [`--experimental`](/dev/cli/sauce-connect-proxy/#--experimental)
-- [`--extra-info`](/dev/cli/sauce-connect-proxy/#--extra-info)
-- [`--log-stats`](/dev/cli/sauce-connect-proxy/#--log-stats)
-- [`--max-logsize`](/dev/cli/sauce-connect-proxy/#--max-logsize)
-- [`--metadata`](/dev/cli/sauce-connect-proxy/#--metadata)
-- [`--no-autodetect`](/dev/cli/sauce-connect-proxy/#--no-autodetect)
-- [`--no-remove-colliding-tunnels`](/dev/cli/sauce-connect-proxy/#--no-remove-colliding-tunnels)
-- [`--ocsp`](/dev/cli/sauce-connect-proxy/#--ocsp)
-- [`--output-format`](/dev/cli/sauce-connect-proxy/#--output-format)
-- [`--pidfile`](/dev/cli/sauce-connect-proxy/#--pidfile)
-- [`--readyfile`](/dev/cli/sauce-connect-proxy/#--readyfile)
-- [`--tunnel-cainfo`](/dev/cli/sauce-connect-proxy/#--tunnel-cainfo)
-- [`--readyfile`](/dev/cli/sauce-connect-proxy/#--readyfile)
-- `--vm-version`
+The [sc legacy](/dev/cli/sauce-connect-5/legacy/) command runs Sauce Connect Proxy 5 in compatibility mode with Sauce Connect Proxy 4.
 
 ### `sc completion`
 

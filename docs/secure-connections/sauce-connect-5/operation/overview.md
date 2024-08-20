@@ -87,16 +87,16 @@ sc.exe run --username <your user> --access-key <your access key> --region <us-we
 
 ### Monitoring Tunnels
 
-See the [monitoring overview](/secure-connections/sauce-connect-5/operation/monitoring)
+See the [monitoring overview](/secure-connections/sauce-connect-5/monitoring)
 
 ### Service Management Tools
 
 Running Sauce Connect Proxy as a service is recommended when your tests often require an active secure connection and, operationally, it's complicated to set up a tunnel just before each test suite.
 The following options are available:
 
-- [Running Sauce Connect Proxy in Kubernetes](/secure-connections/sauce-connect-5/operation/kubernetes).
+- [Running Sauce Connect Proxy in Kubernetes](/secure-connections/sauce-connect-5/installation/kubernetes).
 - [Running a containerized Sauce Connect Proxy](/secure-connections/sauce-connect/setup-configuration/docker/#running-the-sauce-connect-proxy-container-indefinitely-in-kubernetes).
-- Running a [systemd service](/secure-connections/sauce-connect-5/operation/systemd/).
+- Running a [systemd service](/secure-connections/sauce-connect-5/installation/linux/).
 
 ## More Information
 

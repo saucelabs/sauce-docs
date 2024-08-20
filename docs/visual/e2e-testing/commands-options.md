@@ -8,9 +8,16 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::warning Screener End-of-life
+
+The Screener visual testing solution is going to be discontinued on May 31st, 2024. You can migrate to the new Sauce Labs Visual Testing solution by following the [integration steps](/visual-testing/).
+
+If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+:::
+
 ## Visual E2E Commands
 
-Visual E2E commands can be integrated into existing WebDriver test code simply and safely. Each command is simply a JavaScript comment placed in a WebDriver execute command &#8212; no need to install anything.
+Screener's Visual E2E commands can be integrated into existing WebDriver test code simply and safely. Each command is simply a JavaScript comment placed in a WebDriver execute command &#8212; no need to install anything.
 
 ### Init command
 
@@ -20,39 +27,27 @@ The Init command (`/*@visual.init*/`) is used to initialize and name a Visual te
 
 <table>
   <tr>
-   <td><strong>Argument</strong>
-   </td>
-   <td><strong>Type</strong>
-   </td>
-   <td><strong>Required</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+   <td><strong>Argument</strong></td>
+   <td><strong>Type</strong></td>
+   <td><strong>Required</strong></td>
+   <td><strong>Description</strong></td>
   </tr>
   <tr>
-   <td><code>name</code>
-   </td>
-   <td>String
-   </td>
-   <td>Yes
-   </td>
-   <td>Name of Visual test
-   </td>
+   <td><code>name</code></td>
+   <td>String</td>
+   <td>Yes</td>
+   <td>Name of Visual test</td>
   </tr>
   <tr>
-   <td><code>options</code>
-   </td>
-   <td>Object
-   </td>
-   <td>No
-   </td>
-   <td>Init command options. <p>Options available:</p>
-<ul><li><code>ignore</code>: comma-delimited list of css-selectors to ignore in all snapshots in test.</li></ul>
-
-```java title="Example"
-{ ignore: '.selector' }
-```
-
+   <td><code>options</code></td>
+   <td>Object</td>
+   <td>No</td>
+   <td>
+       Init command options. <p>Options available:</p>
+        <ul><li><code>ignore</code>: comma-delimited list of css-selectors to ignore in all snapshots in test.</li></ul>
+        ```java title="Example"
+        { ignore: '.selector' }
+        ```
    </td>
   </tr>
 </table>
@@ -117,38 +112,28 @@ The above Init command must be called first before any snapshots are taken, or a
 
 <table>
   <tr>
-   <td><strong>Argument</strong>
-   </td>
-   <td><strong>Type</strong>
-   </td>
-   <td><strong>Required</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+   <td><strong>Argument</strong></td>
+   <td><strong>Type</strong></td>
+   <td><strong>Required</strong></td>
+   <td><strong>Description</strong></td>
   </tr>
   <tr>
-   <td>name
-   </td>
-   <td>String
-   </td>
-   <td>Yes
-   </td>
-   <td>Name of Snapshot
-   </td>
+   <td>name</td>
+   <td>String</td>
+   <td>Yes</td>
+   <td>Name of Snapshot</td>
   </tr>
   <tr>
-   <td>options
-   </td>
-   <td>Object
-   </td>
-   <td>No
-   </td>
-   <td>Snapshot command options. <p>Options available:</p>
-<ul>
-<li><code>ignore</code>: comma-delimited list of css-selectors to ignore in snapshot.</li>
-<li><code>cropTo</code>: single css-selector to crop the snapshot to.</li>
-<li><code>scrollAndStitchScreenshot</code>: boolean option to capture a full-page screenshot using a scrolling and stitching strategy instead of using native browser full-page screenshot capabilities.</li>
-</ul>
+   <td>options</td>
+   <td>Object</td>
+   <td>No</td>
+   <td>
+       Snapshot command options. <p>Options available:</p>
+        <ul>
+            <li><code>ignore</code>: comma-delimited list of css-selectors to ignore in snapshot.</li>
+            <li><code>cropTo</code>: single css-selector to crop the snapshot to.</li>
+            <li><code>scrollAndStitchScreenshot</code>: boolean option to capture a full-page screenshot using a scrolling and stitching strategy instead of using native browser full-page screenshot capabilities.</li>
+        </ul>
    </td>
   </tr>
 </table>

@@ -12,7 +12,7 @@ Sauce Connect Proxy is required to run a test on an app or website located behin
 
 :::caution
 The Sauce Connect Proxy version 5 major release introduces CLI changes. Please refer to [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/) for details.
-An [`sc legacy`](/dev/cli/sauce-connect-5/#sc-legacy) command is introduced to help users transition from version 4.x.x to 5.0.x.
+An [`sc legacy`](/dev/cli/sauce-connect-5/legacy/) command is introduced to help users transition from version 4.x.x to 5.0.x.
 :::
 
 ## What You'll Need
@@ -31,15 +31,20 @@ See the [installation instructions](/secure-connections/sauce-connect-5/installa
 2. Log in to Sauce Labs.
 3. Go to the [**Tunnel Proxies**](https://app.saucelabs.com/tunnels) page.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsPage.png')} alt="Sauce Connect Proxy Tunnels page" width="400"/>
 4. Under step 2, **Authenticate & connect**, copy the code snippet.<br/><img src={useBaseUrl('img/sauce-connect/configureAuth.png')} alt="Sauce Connect Proxy Tunnels page snippet" width="300"/>
-   <details><summary>What is this?</summary>
+   <details>
+   <summary>What is this?</summary>
    This snippet contains your authentication credentials (username and access key), selects a Sauce Labs Data Center, and applies a name to your tunnel. Optionally, you can rename your tunnel by replacing the value after the <code>--tunnel-name</code> flag.
    </details>
-5. Paste the snippet into your terminal but **do not run it**. This snippet is not updated for Sauce Connect Proxy 5, it can only be used to get your username and your access key.
+5. Paste the snippet into your terminal and run it. This will launch the tunnel.
 6. Follow the steps in the [setup instructions](/secure-connections/sauce-connect-5/operation/overview/#running-sauce-connect-proxy) to start Sauce Connect Proxy 5 using the username and the access key obtained in the previous step.
 
 ## Verify Connection
 
-To confirm your tunnel is up, look for the confirmation message in your terminal:<br/><img src={useBaseUrl('img/sauce-connect/cli-tunnel-confirmation.png')} alt="Sauce Connect Tunnel Success" width="350"/>
+To confirm your tunnel is up, look for the confirmation message in your terminal:
+
+```bash
+Sauce Connect is up, you may start your tests
+```
 
 Alternatively, you can check your list of active tunnels on the **Tunnel Proxies** page:<br/><img src={useBaseUrl('img/sauce-connect/tunnelsuccess-ui.png')} alt="Sauce Connect Tunnel Success" width="500"/>
 
@@ -89,12 +94,25 @@ With your tunnel up and running, try doing a Live <!--or Automated--> local test
 
 ## Stop Tunnel
 
-When you've finished testing, you can stop your tunnel from the terminal where Sauce Connect is running by entering Ctrl+C.<br/><img src={useBaseUrl('img/sauce-connect/cli-tunnel-stop.png')} alt="Sauce Connect Proxy Tunnels page snippet" width="500"/>
+When you've finished testing, you can stop your tunnel from the terminal where Sauce Connect is running by entering Ctrl+C.
+If there are jobs that use Sauce Connect Proxy connection, it will wait for them to finish.
+
+```bash
+2024/01/23 15:19:33.152509 [control] [INFO] Sauce Connect is up, you may start your tests
+^C
+2024/01/23 15:29:12.617959 [control] [INFO] waiting for 1 active job(s) to finish, timeout: 3h0m0s
+2024/01/23 15:29:27.622295 [control] [INFO] waiting for 1 active job(s) to finish, timeout: 2h59m45s
+2024/01/23 15:29:42.600553 [control] [INFO] waiting for 1 active job(s) to finish, timeout: 2h59m30s
+2024/01/23 15:30:00.924115 [control] [INFO] tunnel was shutdown gracefully
+```
 
 Alternatively, you can go to the **Tunnel Proxies** page and click one of the **Stop Tunnels** buttons.<br/><img src={useBaseUrl('img/sauce-connect/tunnelstop-ui.png')} alt="Sauce Connect Tunnel Stop" width="800"/>
 
 ## More Information
 
-- [Sauce Connect Proxy Overview](/secure-connections/sauce-connect/)
+- [Sauce Connect Proxy Overview](/secure-connections/sauce-connect-5/)
 - [Sauce Connect Proxy Configuration](/secure-connections/sauce-connect-5/operation/configuration)
 - [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/)
+- [Uploading and Managing Mobile Apps in Sauce Labs](/mobile-apps/app-storage)
+- [Live Testing Web Apps](/web-apps/live-testing/live-cross-browser-testing/)
+- [Live Testing Mobile Apps](/mobile-apps/live-testing/live-mobile-app-testing/)

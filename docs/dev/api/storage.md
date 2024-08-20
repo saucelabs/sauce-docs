@@ -19,7 +19,8 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ### Get App Storage Files
 
-<details><summary><span className="api get">GET</span> <code>/v1/storage/files</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/storage/files</code></summary>
 <p/>
 
 Returns the set of files that have been uploaded to Sauce Storage by the requestor.
@@ -267,7 +268,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get App Storage Groups
 
-<details><summary><span className="api get">GET</span> <code>/v1/storage/groups</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/storage/groups</code></summary>
 <p/>
 
 Returns an array of groups (apps containing multiple files) currently in storage for the authenticated requestor.
@@ -435,7 +437,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get App Storage Group Settings
 
-<details><summary><span className="api get">GET</span> <code>/v1/storage/groups/&#123;group_id&#125;/settings</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/storage/groups/&#123;group_id&#125;/settings</code></summary>
 <p/>
 
 Returns the settings of an app group with the given ID.
@@ -526,7 +529,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
 
 ### Edit App Storage Group Settings
 
-<details><summary><span className="api put">PUT</span> <code>/v1/storage/groups/&#123;group_id&#125;/settings</code></summary>
+<details>
+<summary><span className="api put">PUT</span> <code>/v1/storage/groups/&#123;group_id&#125;/settings</code></summary>
 <p/>
 
 Adds or updates the settings of an app group with the given ID.
@@ -650,10 +654,16 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" \
 
 ### Upload File to App Storage
 
-<details><summary><span className="api post">POST</span> <code>/v1/storage/upload</code></summary>
+<details>
+<summary><span className="api post">POST</span> <code>/v1/storage/upload</code></summary>
 <p/>
 
-Uploads an app file to Sauce Storage for the purpose of mobile app testing and returns a unique file ID assigned to the app. Sauce Storage supports app files in \*.apk, \*.aab, \*.ipa, or \*.zip format, up to 4GB.
+Uploads an app file to Sauce Storage for the purpose of mobile app testing or generic files
+to be used as [Pre-Run Executables](/web-apps/automated-testing/selenium/pre-run-executables/)
+and returns a unique file ID assigned to the uploaded file.
+Sauce Storage supports mobile app packages in \*.apk, \*.aab, \*.ipa, or \*.zip
+format as well as any other file format.
+The maximum size of a single file is limited to 4GB.
 
 #### Parameters
 
@@ -784,7 +794,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Download a File from App Storage
 
-<details><summary><span className="api get">GET</span> <code>/v1/storage/download/&#123;file_id&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/storage/download/&#123;file_id&#125;</code></summary>
 <p/>
 
 Returns an app file from Sauce Storage as a payload object in the response.
@@ -857,7 +868,8 @@ PK
 
 ### Edit a Stored File
 
-<details><summary><span className="api put">PUT</span> <code>/v1/storage/files/&#123;file_id&#125;</code></summary>
+<details>
+<summary><span className="api put">PUT</span> <code>/v1/storage/files/&#123;file_id&#125;</code></summary>
 <p/>
 
 Adds or updates various attributes of the specified file.
@@ -988,7 +1000,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Delete an App Storage File
 
-<details><summary><span className="api delete">DELETE</span> <code>/v1/storage/files/&#123;file_id&#125;</code></summary>
+<details>
+<summary><span className="api delete">DELETE</span> <code>/v1/storage/files/&#123;file_id&#125;</code></summary>
 <p/>
 
 Deletes the specified file from Sauce Storage.
@@ -1086,7 +1099,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Delete a Group of App Storage Files
 
-<details><summary><span className="api delete">DELETE</span> <code>/v1/storage/groups/&#123;group_id&#125;</code></summary>
+<details>
+<summary><span className="api delete">DELETE</span> <code>/v1/storage/groups/&#123;group_id&#125;</code></summary>
 <p/>
 
 Deletes the specified group of files from Sauce Storage.
@@ -1153,7 +1167,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get File Icon
 
-<details><summary><span className="api get">GET</span> <code>/v1/storage/icons/&#123;icon_hash&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span> <code>/v1/storage/icons/&#123;icon_hash&#125;</code></summary>
 <p/>
 
 Returns the actual payload for the given icon hash. All icons are stored in .png format. This endpoint supports caching.
@@ -1216,7 +1231,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### List Tags
 
-<details><summary><span className="api get">GET</span><code>/v1/storage/tags</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/v1/storage/tags</code></summary>
 <p/>
 
 Returns the list of tags available for your team sorted alphabetically. Each tag name is only returned if assigned to at least one file.
@@ -1296,7 +1312,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ---
 ### List Projects
 
-<details><summary><span className="api get">GET</span><code>/v1/storage/projects</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/v1/storage/projects</code></summary>
 <p/>
 
 Returns an alphabetically sorted list of projects available for your team. Each project name is only returned if assigned to at least one file (group).

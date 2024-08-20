@@ -246,7 +246,7 @@ suites:
 
 ### `env`
 
-<p><small>| OPTIONAL | ARRAY |</small></p>
+<p><small>| OPTIONAL | OBJECT |</small></p>
 
 Environment variables to be injected into the container. Can be used for populating secrets used in your tests. These environment variables are not stored anywhere in Sauce Labs.
 
@@ -257,10 +257,102 @@ suites:
       KEY: value
 ```
 
-:::note
-Environment variables set with the saucectl `--env` flag will overwrite those specified in the sauce config file.
+We provide a set of predefined environment variables for each suite. They include basic information about your account or
+a SauceLabs region you use to run tests. However, if you specify those variables in your configuration, we won't inject 
+the default value into them.
 
-The order of precedence is as follows: --env flag > root-level environment variables > suite-level environment variables.
+<table id="table-cli">
+  <thead>
+    <tr>
+      <th>Environment variable</th>
+      <th>Example value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr>
+     <td>`SAUCE_USERNAME`</td>
+     <td>`awesome.saucer`</td>
+     <td>Username of the account triggering Sauce Orchestrate job</td>
+   </tr>
+   <tr>
+     <td>`SAUCE_ACCESS_KEY`</td>
+     <td>`0039e1dc-c1bf-4006-bc99-ab5672fb2f8c`</td>
+     <td>Access key for the account triggering Sauce Orchestrate job</td>
+   </tr>
+   <tr>
+     <td>`SAUCE_ONDEMAND_URL`</td>
+     <td>`https://ondemand.us-west-1.saucelabs.com/wd/hub`</td>
+     <td>Url for the closest <a href="/basics/data-center-endpoints/">OnDemand Data Center endpoint</a></td>
+   </tr>
+   <tr>
+     <td>`SAUCE_REGION`</td>
+     <td>`us-west-1`</td>
+     <td>Name of the <a href="/orchestrate/saucectl-configuration/#region">closest SauceLabs region</a></td>
+   </tr>
+   <tr>
+     <td>`SAUCE_REST_ENDPOINT`</td>
+     <td>`https://api.us-west-1.saucelabs.com/`</td>
+     <td>Url for the closest <a href="/dev/api/">SauceLabs REST API</a></td>
+   </tr>
+  </tbody>
+</table>
+
+:::note
+Environment variables set with the saucectl `--env` flag will overwrite those specified in the sauce config file. 
+The order of precedence is as follows:
+1. `--env` flag
+2. root-level environment variables
+3. suite-level environment variables
+4. default environment variables
+:::
+
+
+### `metadata`
+
+<p><small>| OPTIONAL | OBJECT |</small></p>
+
+This field's primary use case is for troubleshooting. Unless instructed by a
+Sauce Labs employee, setting any random values here will serve you no purpose.
+
+```yaml
+suites:
+  - name: "saucy test"
+    metadata:
+      KEY: value
+```
+
+
+### `services`
+
+<p><small>| OPTIONAL | ARRAY |</small></p>
+
+Define service containers that are required to run alongside the main container
+of the suite. The available configuration options for services are similar to
+those of the main container.
+
+
+```yaml
+suites:
+  - name: "saucy test"
+    services:
+      - name: "a service"
+        image: your-org/your-service-image:0.0.1
+        imagePullAuth:
+          user: sauceuser
+          token: "123"
+        entrypoint: mvn test
+        files:
+          - src: "runsauce.json"
+            dst: "/workdir/runsauce.json"
+        env:
+          KEY: value
+        resourceProfile: c1m1
+```
+
+:::note
+A service container may not be up and running by the time your main container
+starts. Please take that into account when writing your tests.
 :::
 
 ## `artifacts`
@@ -460,18 +552,33 @@ The main command to run a Sauce Orchestrate job. Must be executed at the root le
 saucectl run
 ```
 
-### `saucectl imagerunner logs`
+### `saucectl imagerunner` Commands
 
-Get logs of the container from a Sauce Orchestrate run.
+Supported commands:
 
-```bash
-saucectl imagerunner logs <runID>
-```
-
-### `saucectl imagerunner artifacts`
-
-Get artifacts/files of the container from a Sauce Orchestrate run. Only the files specified in `artifacts` configuration are downloaded.
-
-```bash
-saucectl imagerunner artifacts <runID>
-```
+<table id="table-cli">
+  <thead>
+    <tr>
+      <th>Operation</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr>
+     <td><a href="/dev/cli/saucectl/imagerunner/artifacts-download">Get artifacts</a></td>
+     <td>Get artifacts/files of the container from a Sauce Orchestrate run.</td>
+   </tr>
+   <tr>
+     <td><a href="/dev/cli/saucectl/imagerunner/list">List containers</a></td>
+     <td>Return the list of Sauce Orchestrate containers.</td>
+   </tr>
+   <tr>
+     <td><a href="/dev/cli/saucectl/imagerunner/logs">Get logs</a></td>
+     <td>Fetch the logs from an imagerunner run.</td>
+   </tr>
+   <tr>
+     <td><a href="/dev/cli/saucectl/imagerunner/stop">Stop a container</a></td>
+     <td>Stop a running Sauce Orchestrate container.</td>
+   </tr>
+  </tbody>
+</table>

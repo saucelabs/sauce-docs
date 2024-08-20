@@ -17,37 +17,42 @@ When integrating SAML Single Sign-On (SSO) into your system, it's crucial to ens
 
 ## Common Mistakes in SAML SSO Configuration
 
-1. **Incorrect Configuration in Identity Provider**
+### Incorrect Configuration in Identity Provider
 
-   - Double-check that you have entered the [correct values](/basics/sso/setting-up-sso#service-provider-saml-requirements) in the SAML app configuration in your identity provider. For ease and accuracy, consider using the preconfigured Sauce Labs app from your [identity provider app catalog](/basics/sso/setting-up-sso#setting-up-identity-provider).
+- Double-check that you have entered the [correct values](/basics/sso/setting-up-sso#service-provider-saml-requirements) in the SAML app configuration in your identity provider. For ease and accuracy, consider using the preconfigured Sauce Labs app from your [identity provider app catalog](/basics/sso/setting-up-sso#setting-up-identity-provider).
 
-2. **Incorrect [Name ID Attribute](/basics/sso/setting-up-sso#name-id) Format or Value**
+### Incorrect [Name ID Attribute](/basics/sso/setting-up-sso#name-id) Format or Value
 
-   - Ensure that the Name ID (also known as SAML_SUBJECT) in your identity provider configuration is set to a valid email address, not a username.
-   - Verify that the Name ID format is correctly set to `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+- Ensure that the Name ID (also known as SAML_SUBJECT) in your identity provider configuration is set to a valid email address, not a username.
+- Verify that the Name ID format is correctly set to `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
 
-3. **Misconfiguration on the Identity Provider's Side**
-   - An "Invalid Status code in Response" error indicates an authentication failure from your identity provider, not Sauce Labs.
-     <br/><img src={useBaseUrl('img/basics/sso/troubleshooting/invalid-status-code-in-response.png')} alt="Error: Invalid Status code in Response" width="900" />
-   - The error details can be found in the SAML Response, under the **StatusCode** and **StatusMessage** tags. Use a [SAML debugger](#how-to-debug-saml-sso-authentication) to capture the SAML response. For example, the error below says that you set wrong [Name ID format](/basics/sso/setting-up-sso#name-id).
-     <br/><img src={useBaseUrl('img/basics/sso/troubleshooting/saml-response-error.png')} alt="SAML Response Error" width="700" />
-4. **Wrong Metadata Uploaded (Error: "Issuer in Response is invalid")**
-   - This error indicates a mismatch between the Issuer (Identity Provider identifier) in the SAML request and the metadata uploaded to Sauce Labs.
-     <br/><img src={useBaseUrl('img/basics/sso/troubleshooting/invalid-metadata-issuer-error.png')} alt="Invalid Metadata Issuer Error" width="550" />
-   - Re-download the metadata from your identity provider's Sauce Labs SAML app and re-upload it in the [Team Management](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider) section.
-5. **Service Provider Initiated SSO Email Error**
+### Misconfiguration on the Identity Provider's Side
 
-   - If this error occurs, check that:
+- An "Invalid Status code in Response" error indicates an authentication failure from your identity provider, not Sauce Labs.
+  <br/><img src={useBaseUrl('img/basics/sso/troubleshooting/invalid-status-code-in-response.png')} alt="Error: Invalid Status code in Response" width="900" />
+- The error details can be found in the SAML Response, under the **StatusCode** and **StatusMessage** tags. Use a [SAML debugger](#how-to-debug-saml-sso-authentication) to capture the SAML response. For example, the error below says that you set wrong [Name ID format](/basics/sso/setting-up-sso#name-id).
+  <br/><img src={useBaseUrl('img/basics/sso/troubleshooting/saml-response-error.png')} alt="SAML Response Error" width="700" />
 
-   1. The account with the provided email is part of your Sauce Labs organization with SSO enabled.
-   2. Your [company email domains](/basics/sso/setting-up-sso#email-domains) are correctly assigned to your Sauce Labs organization.
-   3. SSO is enabled ([step 5 in the integration tutorial](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider)).
-      <br/><img src={useBaseUrl('img/basics/sso/troubleshooting/sp-initiated-sso-email-error.png')} alt="SP-initiated SSO email error" width="550" />
+### Wrong Metadata Uploaded (Error: "Issuer in Response is invalid")
 
-6. **Using Legacy SSO Endpoints**
-   - This error means that your identity provider's Sauce Labs SAML app is configured with legacy SSO endpoints.
-     <br/><img src={useBaseUrl('img/basics/sso/troubleshooting/legacy-sso-error.png')} alt="Legacy SSO Error" width="550" />
-   - Follow the [migration tutorial](/basics/sso/migration-from-deprecated-sso/#migration-tutorial) to ensure you use the [correct endpoints and configuration values](/basics/sso/setting-up-sso#service-provider-saml-requirements).
+- This error indicates a mismatch between the Issuer (Identity Provider identifier) in the SAML request and the metadata uploaded to Sauce Labs.
+  <br/><img src={useBaseUrl('img/basics/sso/troubleshooting/invalid-metadata-issuer-error.png')} alt="Invalid Metadata Issuer Error" width="550" />
+- Re-download the metadata from your identity provider's Sauce Labs SAML app and re-upload it in the [Organization Management](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider) section.
+
+### Service Provider Initiated SSO Email Error
+
+- If this error occurs, check that:
+
+1.  The account with the provided email is part of your Sauce Labs organization with SSO enabled.
+2.  Your [company email domains](/basics/sso/setting-up-sso#email-domains) are correctly assigned to your Sauce Labs organization.
+3.  SSO is enabled ([step 5 in the integration tutorial](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider)).
+    <br/><img src={useBaseUrl('img/basics/sso/troubleshooting/sp-initiated-sso-email-error.png')} alt="SP-initiated SSO email error" width="550" />
+
+### Using Legacy SSO Endpoints
+
+- This error means that your identity provider's Sauce Labs SAML app is configured with legacy SSO endpoints.
+  <br/><img src={useBaseUrl('img/basics/sso/troubleshooting/legacy-sso-error.png')} alt="Legacy SSO Error" width="550" />
+- Follow the [migration tutorial](/basics/sso/migration-from-deprecated-sso/#migration-tutorial) to ensure you use the [correct endpoints and configuration values](/basics/sso/setting-up-sso#service-provider-saml-requirements).
 
 ## How to Debug SAML SSO Authentication?
 

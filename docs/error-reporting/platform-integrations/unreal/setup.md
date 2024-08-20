@@ -20,6 +20,7 @@ The Backtrace Unreal plugin reports on the following types of errors:
 - Crashes - An end to the game play experience, where the game crashes or restarts.
 - Hangs (mobile only) - Errors that occur when a game or an app is non-responsive.
 - Out of memory crashes (mobile only) - Terminations of your game or app due to low memory conditions.
+- Asserts - Used to detect and diagnose unexpected or invalid runtime conditions during development.
 
 ## Supported Platforms
 

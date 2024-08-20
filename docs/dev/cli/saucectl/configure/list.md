@@ -1,7 +1,7 @@
 ---
 id: list
 title: saucectl configure list
-sidebar_label: saucectl configure list
+sidebar_label: list
 ---
 
 Display the origin of the credentials, which can be collected from environment variables or a configuration file.

@@ -9,60 +9,41 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-If you are submitting minidump files then you will need to ensure that debug symbols have been uploaded to Backtrace in order to have accurate classification, deduplication, and callstack rendering.
+## Introduction
 
-## Generating Debug Symbols
+Debug symbols are needed when crashes are reported from binaries that have information such as function names and line numbers stripped away. Debug symbols allow Backtrace to provide human-readable callstacks and effectively duplicate error reports. Symbols can be uploaded via the UI or API, or retrieved from a managed private symbol server. Symbols are compilation specific and are applied to crash reports based on matching debug or code ID’s and filename. 
+
+Please note that only a subset of reports sent to Backtrace require symbols (managed code and some integration paths do not require symbols).
+
+## Symbol formats
+
+The sections below cover general information about symbols built on the native tools for their platform. Please note that more information about symbols and other artifacts specific to other integration paths (such as [sourcemaps for Javascript](https://docs.saucelabs.com/error-reporting/platform-integrations/source-map/), [symbols for Unity](https://docs.saucelabs.com/error-reporting/platform-integrations/unity/configuration/#capturing-native-crashes), game consoles, etc) are available in the documentation specific to those integration paths. 
 
 <Tabs
 groupId="platforms"
 defaultValue="windows"
 values={[
 {label: 'Windows', value: 'windows'},
+{label: 'MacOS', value: 'macos'},
+{label: 'iOS', value: 'ios'},
+{label: 'Android', value: 'android'},
 {label: 'Linux', value: 'linux'},
-{label: 'macOS and iOS', value: 'macosios'},
 ]}>
 
 <TabItem value="windows">
 
+Debug information is stored in PDB files, and in the case of 64 bit applications, the corresponding .exe or .dll file with debug information.
+
+<b>With Visual Studio</b>
+
 In Visual Studio, your DEBUG build will generate .pdb symbol files. If you wish to generate symbol files in your RELEASE build or in a custom configuration, make sure that "Generate Debug Info" is turned on in your project's Configuration Properties.
 
-<b>C++</b>
-
-1. In Solution Explorer, select the project.
-1. Select the Properties icon.
-1. In the Configuration list, choose Debug or Release.
-1. In the side pane, choose Linker Debugging, then select options for Generate Debug Info.
-1. For detailed information on project settings for debug configurations in C++, see Project settings for a C++ debug configuration.
-1. Configure options for Generate Program Database Files.
-
-<b>C# and .NET</b>
-
-1. In Solution Explorer, select the project.
-1. Select the Properties icon.
-1. In the side pane, choose Build.
-1. In the Configuration list, choose Debug or Release.
-1. Select the Advanced button.
-1. In the Debugging information list, choose Full.
-
 </TabItem>
-<TabItem value="linux">
+<TabItem value="macos">
 
-Backtrace supports ELF and .sym file formats. We recommend uploading the unstripped executable file or the stripped executable file and corresponding .debug file.
+Debug information is stored in dSYM files. 
 
-<b>With Breakpad</b>
-
-Run this [Breakpad script](https://chromium.googlesource.com/chromium/src/+/master/components/crash/content/tools/generate_breakpad_symbols.py) to generate the symbols and proper directory structure. An example invocation looks like: `components/crash/content/tools/generate_breakpad_symbols.py --build-dir=out/gnand --symbols-dir=/tmp/my_symbols/ --binary=out/gnand/lib.unstripped/libchrome.so --clear`, but appropriate options may differ depending on your use case.
-
-Alternatively, to generate the .sym without the directory structure, you can use dump_syms on its own. Assuming the library in question is `/lib/libfoo.so` and its debugging symbol is `/usr/debug/lib/libfoo.so`, run: `dump_syms /lib/libfoo.so /usr/debug/lib /tmp/libfoo.so.sym`.
-
-You can find additional info in [Breakpad’s documentation](https://www.chromium.org/developers/decoding-crash-dumps/).
-
-</TabItem>
-<TabItem value="macosios">
-
-Backtrace supports the dSYM format.
-
-<b>With Xcode on macOS</b>
+<b>With Xcode</b>
 
 1. Click on the project’s Build-Settings.
 1. Search for and select "Debug Information Format", set to "DWARF with dSYM File".
@@ -72,162 +53,143 @@ Backtrace supports the dSYM format.
    - Not sure? Try the mdfind command (mdfind)
 
 </TabItem>
+<TabItem value="ios">
+
+Debug information is stored in dSYM files.
+
+<b>With Xcode</b>
+
+1. Click on the project’s Build-Settings.
+1. Search for and select "Debug Information Format", set to "DWARF with dSYM File".
+1. After building with this setting enabled, the dSYM file will be stored:
+   - Schema based builds: Derived Data setting in the Locations section of the Xcode preferences
+   - Archived apps: within package contents of the xcarchive file
+   - Not sure? Try the mdfind command (mdfind)
+
+</TabItem>
+<TabItem value="android">
+
+Debug information is stored in .so files. 
+
+<b>With Android Studio</b>
+
+This involves uploading the native libraries themselves, which are usually found in the APK bundle.
+
+</TabItem>
+<TabItem value="linux">
+
+Debug information is stored in ELF or .sym files. We recommend uploading the unstripped executable and/or library files. When uploading the unstripped binary to Backtrace, it must be contained in an archive and cannot be uploaded directly. Additional capabilities (e.g. local variables in debug views) are available if original files are uploaded rather than Breakpad SYM files. 
+
+<b>ELF file with debug info </b>
+
+To generate an ELF file with debug info, refer to compiler specific documentation. For example, this can be done with the -g switch in GCC. 
+
+<b>SYM file via Breakpad</b>
+
+Note that this approach should only be taken if it is impossible to provide the original binaries. Using .sym’s will result in less detailed information. 
+
+To generate a .sym, you can use Breakpad’s dump_syms. Assuming the library in question is /lib/libfoo.so and its debugging symbol is /usr/debug/lib/libfoo.so, run: dump_syms /lib/libfoo.so /usr/debug/lib /tmp/libfoo.so.sym.
+You can find additional info in [Breakpad’s documentation](https://www.chromium.org/developers/decoding-crash-dumps/).
+
+</TabItem>
 </Tabs>
 
-## Symbol Servers
+## Generate symbol access tokens
+Symbol access tokens are used to upload debug symbols. Go to Project Settings > Project > API Tokens to generate a token with the symbol:post capability. Additional details are available in [Creating API Tokens and Submission URLs](https://docs.saucelabs.com/error-reporting/project-setup/submission-url/#creating-api-tokens).
 
-To minimize the amount of symbols that users need to upload, Backtrace is configured to pull symbols from the following symbol servers, which are publicly available:
+## Upload to Backtrace
 
-- **Microsoft:** Windows OS symbols
-- **Mozilla:** macOS symbols
-- **AMD:** ATI (gpu) symbols
-- **Electron:** Electron framework symbols
-- **Unity:** Unity game engine symbols
-- **Intel**
-- **NVIDIA**
+### UI
+Navigate to Project settings > Symbols > Overview to review your symbol uploads, 
+including upload history, search functionality, symbol access tokens and more. Backtrace recommends uploading archives (a .tar.gz or .zip file containing one or more .sym, .pdb, .so, .dSYM, or ELF files) of symbols for every build you expect to see crashes for. These symbol files can be uploaded manually or by build automation scripts.
+You may also specify a tag to any of your symbol uploads in order to group symbols for ease of management. A tag is simply a group of symbols, like a folder on your filesystem. You may want to have different tags for different versions of your application or different platforms. If no tag is specified, symbols are placed into the anon tag.
 
-:::note Linux and macOS
-Since the symbolication process relies on the name of the application, these symbols will only match with Electron applications named Electron. Reach out to our support team via the in-app chat on the bottom right of your screen for assistance working around this (symbols will need to be adjusted or manually uploaded for renamed ones).
-:::
-
-### Additional and/or private symbol servers
-
-Backtrace can be configured to pull from additional public or private symbol servers. For more information, see [Connecting to symbol servers](/error-reporting/project-setup/symbol-servers/).
-
-## Symbol Formats and Upload Methods
-
-Navigate to your project configuration page and click on Symbols to see a record of all things symbol (including upload history, search functionality, symbol access tokens and more). Backtrace recommends uploading archives (a .tar.gz or .zip file containing one or more .sym ,.pdb , ELF or dSYM files) of symbols for every build you expect to see crashes for. These symbol files can be uploaded manually or hooked up into your build system so they are automatically uploaded.
-
-Symbols can be uploaded via the web browser, morgue, curl, and HTTP.
-
-<img src={useBaseUrl('img/error-reporting/project-settings/symbol-formats.png')} alt="" />
-
-The table above does not include .elf and dSYM files, which you can upload as an archive via Web Browser, curl, and HTTP.
-
-You may also specify a tag query string parameter to any of your symbol uploads in order to group symbols for ease of management. A tag is simply a group of symbols, like a folder on your filesystem. You may want to have different tags for different versions of your application or different platforms. If no tag is specified, symbols are placed into the anon tag.
-
-Regardless of your upload method, Backtrace provides visibility into symbol state. Backtrace supports .pdb + .sym (Breakpad symbol files), ELF + dSYM files and symbol archives (compressed or uncompressed archives containing the files). There are no restrictions on the layout of the files but you must ensure no relative paths are used and that files have the correct basename. For example, debug information for `Editor.exe` must be in a file called `Editor.pdb` or `Editor.sym`.
-
-:::note
-To ensure proper processing, make sure that your symbols files (.pdb .sym, etc) are uploaded before their corresponding .exe and .dll files or included in the same archive.
-:::
-
-## Uploading Symbols
-
-### Generating Symbol Access Tokens
-
-You can generate a symbol access token to upload the debug symbols for your project. To generate a symbol access token:
-
-1. Go to **Project Settings > Symbols > Access tokens**.
-1. To generate the token, click **+**.
-1. Copy the token and save it for later.
-
-:::note
-API tokens, under **Project Settings** > **API tokens**, with `symbol:post` capabilities, can also be used to upload symbols. 
-:::
-
-### Breakpad and Socorro
-
-Backtrace is compatible with existing Breakpad and Socorro integrations. You can upload the .sym files through an [HTTP POST](#http-api) or with Breakpad's `sym_upload` tool. You must provide a `token` (referring to your symbol access token) and a `format` query string parameter with the value `symbols`.
-
-Below is an example of a symbol upload using the `sym_upload` tool.
-
-```
-sym_upload null_read_av.sym 'https://submit.backtrace.io/{your-subdomain}/{symbol-access-token}/symbols'
-```
-
-To generate a symbol access token, see [Generating a Symbol Access Token](#generating-a-symbol-access-token).
-
-### HTTP API
+### API
 
 In order to build automation around symbol upload, such as integration into a build and release process, you'll want to interface directly with the HTTP API provided by Backtrace.
 
-Below is an example of a `curl` command to submit a symbol archive.
+Below is an example of a curl command to submit a symbol archive.
 
-```
-curl --data-binary @symbols.tar  -X POST  -H "Expect: gzip" "https://submit.backtrace.io/{your-subdomain}/{symbol-access-token}/symbols"
-```
+```curl --data-binary @symbols.tar  -X POST  -H "Expect: gzip" "https://submit.backtrace.io/{your-subdomain}/{symbol-access-token}/symbols"```
 
-:::note
-For large uploads, add the `-H "Expect: gzip"` flag to the `curl` command.
-:::
+Tags can be appended as a query parameter in the destination url (ie `"&tag=<tagValue>"`). 
 
-To generate a symbol access token, see [Generating a Symbol Access Token](#generating-a-symbol-access-token).
+### Supported archive formats
 
-### Web Browser
+Any archive format supported by libarchive 3.2.3 is supported such as .tar, .tar.gz, .zip. Archives should be pre-compressed and be no larger than 10GB where possible. 
 
-Navigate to your project configuration page and click on Symbols in order to manage symbols through your web browser. You are able to manually upload .pdb or .sym and compressed archives of .sym, .pdb , ELF or dSYM files directly in your web browser. We recommend uploading a .zip file of all symbols files, rather than individual files. Follow the on-screen instructions for more details.
+## Integrate custom symbol server with Backtrace
+
+Instead of uploading symbols to Backtrace, users may choose to host a symbol server and upload symbols there. The symbol server can be integrated with Backtrace so that symbols are requested as reports requiring them are processed. 
+
+symbold is the Backtrace service responsible for gathering symbols from connected symbol servers or stores. symbold comes pre configured by Backtrace to automatically download symbols from public third party symbol servers of commonly used libraries such as those from Microsoft, Electron, and others. We refer to these as default public symbol servers. You may also configure connections to your own private symbol servers to speed debugging time and minimize setup effort.
+
+See this [Microsoft guide](https://docs.microsoft.com/en-us/windows/win32/debug/symbol-servers-and-symbol-stores) about setting up symbol servers and symbol stores.
+
+### Symbol server requirements
+- Follow Microsoft's standard symbol structure, `<url>/<object_name>/<debug_id>/<file>`
+   - Use tools like Windows symstore to generate files in the required structure
+   - Run [this Breakpad script](https://chromium.googlesource.com/chromium/src/+/master/components/crash/content/tools/generate_breakpad_symbols.py) to generate the symbols and proper directory structure on Linux. An example invocation looks like: `components/crash/content/tools/generate_breakpad_symbols.py --build-dir=out/gnand --symbols-dir=/tmp/my_symbols/ --binary=out/gnand/lib.unstripped/libchrome.so --clear`, but appropriate options may differ depending on your use case.
+- Have a web frontend to serve the files via HTTP(S)
+   - Popular options include nginx, AWS, and Google Cloud buckets
+- Network access from Backtrace to the symbol server
+   - Firewall and network rules may need adjustments
+- If compressing files, must use CAB mechanism
+- [Optional] HTTP compression is also supported
+
+### Feature details
+
+Every time Backtrace receives a report, it is scanned for symbols that do not yet exist in that Backtrace project. A missing symbol event is generated for each of these symbols, and Backtrace then requests symbols from symbol servers accordingly.
+
+Backtrace may request symbols from symbol servers for the following debug file, debug id, code file, and code id combinations, to support a variety of customer upload patterns:
+- symbol_name = basename(debug_file); id = debug_id, if debug_file and debug _identifier are available
+- symbol_name = basename(code_file); id = code_id, if code_file and code_id are available and arch=x86_64
+- symbol_name = basename(code_file); id = debug_id, if code_file and debug_id are available and arch=x86_64
+
+For each of these, Backtrace will concurrently attempt to download from the following URLs from a symbol server. As the first successfully downloaded binary will be used for the purposes of symbolication it is advised to respond to only one of these URLs:
+- base-url/symbol_name/id/symbol_name
+- base-url/symbol_name/id/symbol_name_with_underscore_extension
+- base-url/symbol_name/id/symbol_name_with_sym_extension
+
+Where "symbol name with underscore extension" = replace last character of symbol name with underscore, '_' (this is typically used as the file extension for CAB compressed binaries on Windows) and where "symbol name with sym extension" = replace or append the extension ".sym" to the symbol name.
+
+For example, if symbol_name = foo.pdb and id = 123, the following URLs are queried:
+- base-url/foo.pdb/123/foo.pdb
+- base-url/foo.pdb/123/foo.pd_
+- base-url/foo.pdb/123/foo.sym
+
+It is important that symbol servers only host valid symbol files. Symbolication may fail if multiple files exist in these paths, with one containing a valid symbol file and others are invalid. 
+
+### Connecting Backtrace to symbol servers
+You will need the following information to connect:
+- URL - HTTPS URL to connect to the symbol server or S3 bucket. When using an AWS S3 bucket, use the HTTPS URL of the region the S3 bucket is hosted from.
+- Name - A descriptive name for this connection.
+- Allowlist - If Allowlist is enabled, then the system will only try to download the symbols specified in the allowlist (no other symbols will be downloaded). 
+- Credentials - Basic Auth, Google Cloud Storage with service secret, or AWS S3 Authentication with bucket name, S3 access key (AWS Key Identifier field), and S3 secret (AWS Secret Key field) are supported. Refer to AWS Account and Access Keys documentation for more information.
+- Proxy Options - If a proxy server is required, these options define the proxy credentials, host, and port.
+- Download Options - How many concurrent downloads to allow, and retry options before adding a symbol to the skip list.
+
+### Managing symbol servers
+
+The Symbol Servers Management UI is accessed under Project Settings > Symbols > Symbol Servers. Following is some brief information about each of the tabs and the data within them.
+- **Strongly recommended**: Allowlist - If the allowlist is enabled, then only symbol files in the allowlist will be downloaded. For the public symbol servers that are seeded by default, allowlists are enabled and commonly used symbols are listed for retrieval.
+- Statistics and Usage - This tab show information about how much has been data has been downloaded, and how many successful or failed downloads there have been since the Symbol Server was added to the system
+- Blocklist - Items in the blocklist will never be downloaded from the symbol server. Add items to the blocklist if they will not change stack trace information, will not add any additional debugging information, or might cause only networking problems (i.e files too big, they change too often, etc.).
+- Skip list - Items are automatically added to the skip list if they cannot be downloaded from the symbol server in the specified number of retries (default is 3). Symbols in the skip list will not be requested. The number of retries can be configured. Skip list items over 12 hours old are flushed.
+- Logs - Log information about successful and unsuccessful download and conversion attempts.
 
 ## Troubleshooting
 
-If you are blocked on uploading symbols from the command line, try uploading directly from your web browser. Instructions are available above.
+### Command line debugging
+If you are blocked on uploading symbols from the command line, try checking verbose output from a tool like curl or similar. Uploading an arhcive in the web browser may also expose additional information or errors. 
 
-### Invalid Token
+### Invalid token
 
-If you receive an "invalid token" error in the response when uploading symbols via HTTP, check to make sure that you're using a symbol access token and not a submission token. To generate a symbol access token, see [Generating a Symbol Access Token](#generating-a-symbol-access-token).
+If you receive an "invalid token" error in the response when uploading symbols via HTTP, check to make sure that you're using a symbol access token and not a submission token. To generate a symbol access token, see [Generating Symbol Access Tokens](#generate-symbol-access-tokens).
 
-### Missing Symbols
+### Missing symbols
 
-Sometimes, symbols can get missed during the symbol upload process. A list of missing symbols for a dump is available in the web debugger annotations pane. For more information about how to acquire this list, refer to the [Web Debugger guide](/error-reporting/web-console/debug/).
+See [Missing Symbols](https://docs.saucelabs.com/error-reporting/troubleshooting/#missing-symbols)
 
-After uploading missing symbols, you can reprocess objects to have the dumps with missing symbols reprocessed. Note that the grouping of dumps may change after missing symbols are uploaded. There are a couple of ways to reprocess objects.
-
-- System Administrators are able to reprocess all objects within a project right from the web browser by opening the menu from the top right of the screen, selecting project settings and navigating to the Reprocess Objects section.
-- System Administrators and Backtrace Support are able to reprocess more specific groups of crashes via the [morgue tool](/error-reporting/advanced/morgue/).
-
-If you’d like more information or assistance reprocessing objects, reach out to Backtrace Support via the in the in-app chat on the bottom right of your screen.
-
-#### Locating Missing Symbols
-
-The first step in locating missing symbol files is to determine the name of the symbol file and its debug identifier. There are two ways to do this via the Debugger UI:
-
-1. When viewing an error that's missing symbols, Backtrace will add a Missing Symbols branch to the Global annotations section at the lower part of the screen. When you expand an entry number, you can see the path to the corresponding executable, the name of the symbol file, the debug identifier, the exe or module (shown as "path"), and version information:
-
-<img src={useBaseUrl('img/error-reporting/project-settings/symbols-annotations.png')} alt="" />
-
-1. If an error is missing symbols, you can also see this in the callstack. In an affected frame, you will see a triangular warning symbol along with a memory address where the function signature would normally be. If you mouse over one of these frames, you'll see a yellow warning missing symbols pop-up. The debug identifier and the name of the symbol file are in the heading:
-
-<img src={useBaseUrl('img/error-reporting/project-settings/symbols-threads.png')} alt="" />
-
-If you have the morgue tool installed, you can also check the status of symbol uploads and obtain lists of missing symbols by using the morgue `symbol` commands. See https://github.com/backtrace-labs/backtrace-morgue for more information.
-
-You now have the information you need to check your in-house symbol archives for the missing symbol file. How to identify the symbol file depends on what kind of symbol files you're using:
-
-- .sym files - If you're using Breakpad .sym files, this is quite simple: The first line of Breakpad sym file is the MODULE record which lists the pdb name and debug identifier. For example `MODULE windows x86_64 D0489F894E07424AAB5E626FF8C943DD1 advapi32.pdb`.
-- .pdb files - (More Likely) If you're using .pdb files, you need to extract the debug identifier from .pdb files using one of the following methods, and find the matching one:
-
-  - dia2dump - From the [Microsoft MSDN site](https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2015/debugger/debug-interface-access/dia2dump-sample?view=vs-2015&redirectedfrom=MSDN).
-  - Since .exe and .pdb files are normally stored in the same location, you can use the Windows build tool dumpbin.exe to dump the executable's headers, which includes the matching symbols' name and debug identifier. For example, the following command suggests symbol bcrypt.pdb with id 5C82DF990DA04C46A2B22ABB82D6B66A1.
-
-    ```
-    dumpbin.exe /headers bcrypt.dll
-
-    Debug Directories
-
-    Time Type       Size      RVA  Pointer
-    -------- ------ -------- -------- --------
-    584A7C7E cv           23 00021A80    20C80    Format: RSDS, {5C82DF99-0DA0-4C46-A2B2-2ABB82D6B66A}, 1, bcrypt.pdb
-    ```
-
-    On Windows, the executable, libraries, and PDB files must be uploaded as some unwinding information required for symbolication is contained exclusively in the executable objects.
-
-- .dsym files - MacOS .dsym files are supported.
-- .elf files - ELF files are supported.
-
-Once you locate and upload missing symbols, make sure to Reprocess Objects, as described in the previous section on missing symbols.
-
-### Mismatched Module Name
-
-In addition to not having uploaded the proper symbol file, another cause for mixups is having a mismatched module name. When viewing missing symbol information, Backtrace will show the name of the module name (executable or dll/library file) that it's expecting that symbol file to match. This is "path" in the missing symbols section of annotations in the Debugger, or shown as "Library" when looking at the tooltip of a frame that's shown as missing symbols.
-
-If the name of the module doesn't match, Backtrace will show the symbol is missing, so make sure your symbol files reflect the correct module name, and if uploading exe/dll files, make sure these have the correct names.
-
-### Inaccurate Callstack
-
-#### Windows
-
-On Windows, applications store some unwinding information exclusively in the executable object (.exe or .dll file). For this reason, we advise to include the executable code of your application and library during symbol upload. These files can be uploaded as stand-alone files, but you must ensure that the file base name matches the base name of the .pdb file. For example, the debug information for `Editor.exe` is expected to be in `Editor.pdb`. It is important that the name of the executable is `Editor.exe` in this context to pair with `Editor.pdb`. If the executable was uploaded as `Word.exe`, then you are unable to pair with `Editor.pdb`. It is recommended that a symbol archive is used.
-
-#### Visual Studio
-
-If you are using Visual Studio, you'll need to ensure that symbols are being generated correctly. Additional details are available in the [Crashpad Visual Studio](/error-reporting/platform-integrations/crashpad/#ensure-symbol-generation) document.
+### Reading custom symbol server logs
+It’s important to note that some failures are expected, due to the wide net Backtrace casts (as explained in [Symbol server | Feature details](#feature-details)). To troubleshoot, search for the known good path on the symbol server (ie foo.pdb/123/foo.pdb). Successful symbol server requests log lines will include “Downloaded path”, and failed requests log lines will include “Download failed” with additional information about the error encountered.

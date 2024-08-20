@@ -1,3 +1,4 @@
+const unwrapJsx = require('./src/plugins/unwrap-jsx');
 const docusaurusConfig = {
     title: 'Sauce Labs Documentation',
     tagline: 'Test all the things.',
@@ -7,9 +8,9 @@ const docusaurusConfig = {
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'throw',
-    favicon: 'img/favicon2023.png',
     organizationName: 'saucelabs',
     projectName: 'sauce-docs',
+    // TODO: I don't think google-site-verification is working at all, confirm with P.O.
     customFields: {
         headTags: [
             {
@@ -21,6 +22,26 @@ const docusaurusConfig = {
             },
         ],
     },
+    headTags: [
+        {
+            tagName: 'link',
+            attributes: {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '16x16',
+                href: '/img/favicon-16x16.png',
+            },
+        },
+        {
+            tagName: 'link',
+            attributes: {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '32x32',
+                href: '/img/favicon-32x32.png',
+            },
+        },
+    ],
     scripts: [
         '/scripts/hide.js',
         // Need Help? button
@@ -38,11 +59,6 @@ const docusaurusConfig = {
         },
     ],
     themeConfig: {
-        beamer: {
-            product_id: `'WyhkZHOU27797'`,
-            display: `'popup'`,
-            // selector: `'.beamerContainer'`,
-        },
         prism: {
             additionalLanguages: [
                 'java',
@@ -90,15 +106,14 @@ const docusaurusConfig = {
                     to: '/visual-testing',
                 },
                 {
+                    label: 'Beta Testing',
+                    position: 'left',
+                    to: '/testfairy',
+                },
+                {
                     label: 'Error Reporting',
                     position: 'left',
                     to: '/error-reporting/getting-started',
-                },
-                {
-                    type: 'html',
-                    position: 'right',
-                    className: 'beamerTrigger',
-                    value: '<img src="/img/beamer.svg" width="22" height="22" class="beamer-navbar-bell" alt="Product Updates">',
                 },
             ],
         },
@@ -129,6 +144,7 @@ const docusaurusConfig = {
                         'https://github.com/saucelabs/sauce-docs/edit/main/',
                     showLastUpdateAuthor: true,
                     showLastUpdateTime: true,
+                    remarkPlugins: [unwrapJsx],
                 },
                 googleAnalytics: {
                     trackingID: 'UA-6735579-1',
@@ -147,8 +163,7 @@ const docusaurusConfig = {
             },
         ],
     ],
-    themes: ['@saucelabs/theme-github-codeblock'],
-    plugins: ['./src/plugins/beamer'],
+    themes: ['docusaurus-theme-github-codeblock'],
 };
 
 if (!process.env.SAUCE_DOCS_DEV) {

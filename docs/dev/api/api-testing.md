@@ -21,7 +21,8 @@ Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
 ### Get Project Details
 
-<details><summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;</code></summary>
+<details>
+    <summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;</code></summary>
 <p/>
 
 Returns the details of a project.
@@ -117,7 +118,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### List All Tests in a Project
 
-<details><summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests</code></summary>
 <p/>
 
 Returns a list of all tests within a project.
@@ -234,7 +236,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Upload a Test
 
-<details><summary><span className="api put">PUT</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests</code></summary>
+<details>
+    <summary><span className="api put">PUT</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests</code></summary>
 <p/>
 
 Uploads a new test, which you need to provide in the Request Body, to the Sauce Labs API Testing cloud. You can also use this method to modify (overwrite) an existing test.
@@ -365,7 +368,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Test Details
 
-<details><summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/&#123;testId&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/&#123;testId&#125;</code></summary>
 <p/>
 
 Returns the details of the specified test.
@@ -468,7 +472,8 @@ When you run an API test using one of these methods, you'll receive a response i
 
 ### Run a Test
 
-<details><summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/&#123;testId&#125;/_run</code></summary>
+<details>
+<summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/&#123;testId&#125;/_run</code></summary>
 <p></p>
 
 Runs a single test on Sauce Labs API Testing, creates a Log in your Dashboard, and sends notifications, the same way it would when you run a test through the UI.
@@ -587,7 +592,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Run All Tests
 
-<details><summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_run-all</code></summary>
+<details>
+<summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_run-all</code></summary>
 <p/>
 
 Runs all tests in a project.
@@ -700,7 +706,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Run Tests by Tag
 
-<details><summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_tag/&#123;tag&#125;/_run</code></summary>
+<details>
+<summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_tag/&#123;tag&#125;/_run</code></summary>
 <p/>
 
 Runs all tests in a project matching a tag.
@@ -819,7 +826,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Execute a Test
 
-<details><summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_exec</code></summary>
+<details>
+<summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_exec</code></summary>
 <p></p>
 
 Executes the test you send in the request body and saves the results into the cloud. It will create a Log in the project **Dashboard**, but the test itself will not populate in your project's **Tests** section.
@@ -960,7 +968,8 @@ When you run an API test synchronously, you'll receive a response containing gra
 
 ### Run a Test Synchronously
 
-<details><summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/&#123;testId&#125;/_run-sync</code></summary>
+<details>
+<summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/&#123;testId&#125;/_run-sync</code></summary>
 <p></p>
 
 Runs a single test synchronously.
@@ -1205,7 +1214,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Run All Tests Synchronously
 
-<details><summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_run-all-sync</code></summary>
+<details>
+<summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_run-all-sync</code></summary>
 <p/>
 
 Runs all tests in a project synchronously.
@@ -1488,7 +1498,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Run Tests by Tag Synchronously
 
-<details><summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_tag/&#123;tag&#125;/_run-sync</code></summary>
+<details>
+<summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_tag/&#123;tag&#125;/_run-sync</code></summary>
 <p/>
 
 Runs all tests in a project matching a tag synchronously.
@@ -1733,7 +1744,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Execute a Test Synchronously
 
-<details><summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_exec-sync</code></summary>
+<details>
+<summary><span className="api post">POST</span><code>/api-testing/rest/v4/&#123;hookId&#125;/tests/_exec-sync</code></summary>
 <p></p>
 
 Executes synchronously the test you send in the request body and saves the results into the cloud. It will create a Log in the project **Dashboard**, however, the test itself will not populate in your project's **Tests** section.
@@ -2302,7 +2314,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Create/Update a Build
 
-<details><summary><span className="api put">PUT</span><code>/api-testing/rest/v4/&#123;hookId&#125;/builds</code></summary>
+<details>
+<summary><span className="api put">PUT</span><code>/api-testing/rest/v4/&#123;hookId&#125;/builds</code></summary>
 <p></p>
 
 Creates or updates a build.
@@ -2422,7 +2435,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Builds
 
-<details><summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/builds</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/builds</code></summary>
 <p></p>
 
 Returns the list of builds.
@@ -2527,7 +2541,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Build Details
 
-<details><summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/builds/&#123;buildId&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/builds/&#123;buildId&#125;</code></summary>
 <p></p>
 
 Returns the details of the specified build.
@@ -2614,7 +2629,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Vault
 
-<details><summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/vault</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/vault</code></summary>
 <p></p>
 
 Returns the content of the project vault.
@@ -2698,7 +2714,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Update Vault
 
-<details><summary><span className="api put">PUT</span><code>/api-testing/rest/v4/&#123;hookId&#125;/vaults</code></summary>
+<details>
+<summary><span className="api put">PUT</span><code>/api-testing/rest/v4/&#123;hookId&#125;/vaults</code></summary>
 <p></p>
 
 Updates the content of the project vault.
@@ -2823,7 +2840,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### List All Events
 
-<details><summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/insights/events</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/insights/events</code></summary>
 <p></p>
 
 Lists all events in a project.
@@ -2946,7 +2964,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Event Details
 
-<details><summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/insights/events/&#123;eventId&#125;</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/insights/events/&#123;eventId&#125;</code></summary>
 <p></p>
 
 Returns the details of the specified event.
@@ -3112,7 +3131,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Get Metrics
 
-<details><summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/insights/metrics</code></summary>
+<details>
+<summary><span className="api get">GET</span><code>/api-testing/rest/v4/&#123;hookId&#125;/insights/metrics</code></summary>
 <p></p>
 
 Returns metrics for all tests in a project.

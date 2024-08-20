@@ -25,7 +25,8 @@ Logical components are a type of component that you can add to a test using the 
 
 Allows you to iterate over a collection of elements and execute the piece of code for each element.
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 <table id="table-api">
   <tbody>
@@ -89,7 +90,8 @@ For **Each** flights collection nested in `content` item, checks if `price.amoun
 ```
 
 </details>
-<details><summary><strong>Code View Examples</strong></summary>
+<details>
+<summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: each
@@ -121,7 +123,8 @@ For **Each** flights collection nested in `content` item, checks if `price.amoun
 
 Allows you to run a specific piece of code only if a specific condition is met.
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 <table id="table-api">
   <tbody>
@@ -145,7 +148,8 @@ If `_1.intermediate` exists then the code within the element is executed, otherw
 <img src={useBaseUrl('img/api-testing/ifexists.png')} alt="ifexists.png" />
 
 </details>
-<details><summary><strong>Code View Examples</strong></summary>
+<details>
+<summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: if
@@ -166,7 +170,8 @@ If `_1.intermediate` exists then the code within the element is executed, otherw
 
 Allows you to run a block of assertions as long as a condition is valid.
 
-<details><summary><strong>Parameters</strong></summary>
+<details>
+<summary><strong>Parameters</strong></summary>
 
 <table id="table-api">
   <tbody>
@@ -187,7 +192,8 @@ Allows you to run a block of assertions as long as a condition is valid.
 <img src={useBaseUrl('img/api-testing/while.png')} alt="while.png" />
 
 </details>
-<details><summary><strong>Code View Examples</strong></summary>
+<details>
+<summary><strong>Code View Examples</strong></summary>
 
 ```yaml
 - id: while
