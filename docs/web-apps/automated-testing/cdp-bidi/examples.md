@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The (Selenium) examples below are assuming that all prerequisits are met and you have successfully [initiated the webdriver](/web-apps/automated-testing/cdp-bidi/#1-using-selenium).
+The (Selenium) examples below are assuming that all prerequisites are met and you have successfully [initiated the webdriver](/web-apps/automated-testing/cdp-bidi/#1-using-selenium).
 
 ## CDP API
 The CDP API provides automatically generated classes (based on CDP domains) and bindings to respective methods and events.
