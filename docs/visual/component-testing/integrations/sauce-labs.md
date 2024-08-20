@@ -4,6 +4,13 @@ title: Sauce Labs Integration with Visual Component Testing
 sidebar_label: Sauce Labs
 ---
 
+:::warning Screener End-of-life
+
+The Screener visual testing solution is going to be discontinued on May 31st, 2024. You can migrate to the new Sauce Labs Visual Testing solution by following the [integration steps](/visual-testing/).
+
+If you have any questions, please reach out to your Customer Success Manager or Sauce Labs Support.
+:::
+
 Screener integrates with the Sauce Labs testing cloud for Cross-Browser Testing.
 
 To learn more about Screener's Cross-Browser Testing, see [Visual Component Cross-Browser Testing](/visual/component-testing/supported-browsers).
@@ -18,7 +25,7 @@ To learn more about Screener's Cross-Browser Testing, see [Visual Component Cros
 ## What You'll Need
 
 - A valid Sauce Labs account.
-- Access to enough [concurrency](/basics/acct-team-mgmt/concurrency-limits) in your Sauce account to run Screener tests. Each browser/resolution combination will use one concurrent machine.
+- Access to enough [concurrency](/basics/acct-team-mgmt/concurrency/managing-concurrency) in your Sauce account to run Screener tests. Each browser/resolution combination will use one concurrent machine.
 
 ## Adding Sauce Labs Browsers
 
@@ -65,22 +72,26 @@ module.exports = config;
     </tr>
     <tr>
      <td><strong>chrome</strong></td>
-     <td><ul>
+     <td>
+         <ul>
   <li>87.0</li>
   <li>86.0</li>
   <li>85.0</li>
   <li>84.0</li>
-  <li>83.0</li></ul>
+  <li>83.0</li>
+         </ul>
      </td>
     </tr>
     <tr>
      <td><strong>firefox</strong></td>
-     <td><ul>
+     <td>
+         <ul>
   <li>83.0</li>
   <li>82.0</li>
   <li>81.0</li>
   <li>80.0</li>
-  <li>79.0</li></ul>
+  <li>79.0</li>
+         </ul>
      </td>
     </tr>
     <tr>
@@ -89,21 +100,26 @@ module.exports = config;
     </tr>
     <tr>
      <td><strong>microsoftedge</strong></td>
-     <td><ul><li>87.0</li>
+     <td>
+         <ul>
+             <li>87.0</li>
   <li>86.0</li>
   <li>85.0</li>
   <li>84.0</li>
   <li>83.0</li>
   <li>18.17763</li>
-  <li>17.17134</li></ul>
+  <li>17.17134</li>
+         </ul>
      </td>
     </tr>
     <tr>
      <td><strong>safari</strong></td>
-     <td><ul>
+     <td>
+         <ul>
   <li>13.1</li>
   <li>12.1</li>
-  <li>11.1</li></ul>
+  <li>11.1</li>
+         </ul>
      </td>
     </tr>
   </table>

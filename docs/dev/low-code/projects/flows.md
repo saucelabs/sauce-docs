@@ -14,46 +14,32 @@ A flow is a set of steps that are linked for easy re-use. The **Flows** tab disp
 
 <table>
   <tr>
-    <td><b>Column</b>
-    </td>
-    <td><b>Description</b>
-    </td>
+    <td><b>Column</b></td>
+    <td><b>Description</b></td>
   </tr>
   <tr>
-    <td><b>Flow</b>
-    </td>
-    <td>The flows associated with the project. Click a flow name to open the <b>List Flow</b> window, where you can view and modify details about the flow.<br/><br/>Click the up or down arrow next to the column name to sort the table alphabetically by flow name.
-    </td>
+    <td><b>Flow</b></td>
+    <td>The flows associated with the project. Click a flow name to open the <b>List Flow</b> window, where you can view and modify details about the flow.<br/><br/>Click the up or down arrow next to the column name to sort the table alphabetically by flow name.</td>
   </tr>
   <tr>
-    <td><b>Created</b>
-    </td>
-    <td>The date the flow was created.<br/><br/>Click the up or down arrow next to the column name to sort the table by created date.
-    </td>
+    <td><b>Created</b></td>
+    <td>The date the flow was created.<br/><br/>Click the up or down arrow next to the column name to sort the table by created date.</td>
   </tr>
   <tr>
-    <td><b>Total Steps</b>
-    </td>
-    <td>The number of steps in the flow.<br/><br/>Click the up or down arrow next to the column name to sort the table by number of steps.
-    </td>
+    <td><b>Total Steps</b></td>
+    <td>The number of steps in the flow.<br/><br/>Click the up or down arrow next to the column name to sort the table by number of steps.</td>
   </tr>
   <tr>
-    <td><b>Clone</b>
-    </td>
-    <td>Hover in the <b>Clone</b> column and then click the <b>Clone</b> button.
-    </td>
+    <td><b>Clone</b></td>
+    <td>Hover in the <b>Clone</b> column and then click the <b>Clone</b> button.</td>
   </tr>
   <tr>
-    <td><b>Delete</b>
-    </td>
-    <td>Hover in the <b>Delete</b> column and then click the <b>Delete</b> button.
-    </td>
+    <td><b>Delete</b></td>
+    <td>Hover in the <b>Delete</b> column and then click the <b>Delete</b> button.</td>
   </tr>
   <tr>
-    <td><b>Download</b>
-    </td>
-    <td>Hover in the <b>Download</b> column and then click the <b>Download</b> button.
-    </td>
+    <td><b>Download</b></td>
+    <td>Hover in the <b>Download</b> column and then click the <b>Download</b> button.</td>
   </tr>
 </table>
 

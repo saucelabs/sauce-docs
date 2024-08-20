@@ -17,7 +17,7 @@ This is an enterprise feature. Contact support@backtrace.io to request it to be 
 
 Submission buckets provide advanced control over error data submission and attachments. They allow for conditional logic on the submission path based on previously seen error data attributes. For example, you may have large assets such as videos, screenshots, log files, or full dumps that are useful for root cause investigation. However, you may not want your users to incur the cost of generating and sending this data for every crash. Submission buckets allow you to control this behavior based on specific attribute combinations. For instance, you may want these assets to be generated and attached only once for each crash.
 
-Submission buckets are configured on `api_token` objects. Only one submission bucket can be defined for each token. The `api_token` must also have synchronous POST and error POOST capabilities (`sync:post` and `error:post` respectively).
+Submission buckets are configured on `api_token` objects. Only one submission bucket can be defined for each token. The `api_token` must also have synchronous POST and error POST capabilities (`sync:post` and `error:post` respectively).
 
 ## Step-By-Step
 

@@ -19,7 +19,7 @@ Try our [Sauce Labs Platform Configurator](https://saucelabs.com/platform/platfo
 
 When setting up your test, you'll need to configure your script with settings called _capabilities_ that align with your test environment (e.g., desktop browser, mobile web browser, mobile app). While each environment has its own set of capabilities, they can also be combined. Some are required for a test to run in a given environment, while some are optional.
 
-You'll need to add these configurations to the [capabilities](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_Capabilities.html) or [options](https://www.selenium.dev/documentation/en/driver_idiosyncrasies/driver_specific_capabilities/) classes.
+You'll need to add these configurations to the [capabilities](https://www.selenium.dev/documentation/webdriver/drivers/options/) or [options](https://www.selenium.dev/documentation/en/driver_idiosyncrasies/driver_specific_capabilities/) classes.
 
 - **W3C WebDriver Capabilities**: Required for any test using Selenium or Appium to communicate with the browser. W3C WebDriver capabilities are universal capabilities for any test, and are usually combined with additional capabilities. See the [official W3C Recommendations website](https://www.w3.org/TR/webdriver1/#capabilities) for more information.
 - **Sauce Labs Capabilities**: Needed for running a test on the Sauce Labs Cloud, with different possible sets for different environments. Though there aren't any capabilities required, you will need to [configure the endpoint URL](/basics/data-center-endpoints) and should pass the test name and status as capabilities to the remote webdriver.
@@ -176,6 +176,21 @@ Describes the current session’s user prompt handler. The default value is `"di
 
 ---
 
+### `webSocketUrl`
+
+<p><small>| BOOLEAN | <span className="sauceGreen">Desktop Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+
+Enables [W3C WebDriver BiDi](https://w3c.github.io/webdriver-bidi/) support. This allows Selenium 4 clients to use [Bi-Directional functionality](https://www.selenium.dev/documentation/webdriver/bidirectional/). It also enables BiDi for other test frameworks, like [WebDriverIO](https://webdriver.io/docs/api/webdriverBidi/). In particular, this capability exposes the WebSocket endpoint which is available under `webSocketUrl` field in session startup response body. This endpoint can be used to issue WebDriver BiDi commands as described by the [specification](https://w3c.github.io/webdriver-bidi/). The default value is `false`.
+
+The `webSocketUrl` capability is **not compatible** with [`extendedDebugging`](#extendeddebugging) capability.
+
+
+```java
+"webSocketUrl": true
+```
+
+---
+
 ## Desktop Browser Capabilities: Sauce-Specific – Optional
 
 Browser-specific optional capabilities you can add to the `sauce:options` block of your test session creation code.
@@ -269,9 +284,12 @@ Always use the latest Selenium version. The Selenium developers are very conscie
 
 <p><small>| BOOLEAN |</small></p>
 
-Allows the browser to communicate directly with servers without going through a proxy. By default, Sauce routes traffic from Internet Explorer and Safari through an HTTP proxy server so that HTTPS connections with self-signed certificates will work. The proxy server can cause problems for some users, and this setting allows you to avoid it.
+Allows the browser to communicate directly with servers without going through a proxy that is shipped with Selenium versions prior to v3.
+By default, Sauce routes traffic from Internet Explorer and Safari through an HTTP proxy server so that HTTPS connections with self-signed certificates will work.
+The proxy server can cause problems for some users, and this setting allows you to avoid it.
 
 :::note
+This configuration is only relevant for Selenium versions 2.x and older.
 Any test run with a Sauce Connect tunnel has to use the proxy and this flag will be ignored.
 :::
 
@@ -341,6 +359,20 @@ Sets idle test timeout in seconds. As a safety measure to prevent tests from run
 
 ```java
 "idleTimeout": 90
+```
+
+---
+
+### `devTools`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Desktop Only</span> | <span className="sauceGreen">BETA</span> | </small></p>
+
+Enables [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) support, which is disabled by default on Sauce Labs platform. This allows Selenium 4 clients to use [Bi-Directional functionality](https://www.selenium.dev/documentation/webdriver/bidirectional/). In particular, this capability exposes the WebSocket endpoint which is available under `se:cdp` field in session startup response body. This endpoint can be used to issue Chrome DevTools Protocol commands as described by the [specification](https://chromedevtools.github.io/devtools-protocol/). The default value is `false`.
+
+The `devTools` capability is **not compatible** with [`extendedDebugging`](#extendeddebugging) capability.
+
+```java
+"devTools": true
 ```
 
 ---
@@ -803,6 +835,63 @@ The iOS equivalent is [`appium:autoAcceptAlerts`](#appiumautoacceptalerts).
 MutableCapabilities capabilities = new MutableCapabilities();
 // Handle all requested application permissions "yourself"
 capabilities.setCapability("appium:autoGrantPermissions", false);
+```
+
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
+---
+
+### `appium:timeZone`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">Android Only</span> |</small></p>
+
+Overrides the current device's time zone. This change is done on per-device basis and is
+preserved for the whole duration of the test session. The time zone identifier must be a
+valid name from [the list of available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones),
+for example `Europe/Paris`.
+
+:::note
+The iOS equivalent is [`appium:appTimeZone`](#appiumapptimezone).
+:::
+
+:::note
+This capability is only supported since UiAutomator2 driver version 3.1.0.
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:timeZone", "Europe/Paris");
+```
+
+:::tip
+Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium:options`](#appiumoptions) for Real Devices instead.
+:::
+
+---
+
+### `appium:appTimeZone`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Virtual and Real Devices</span> | <span className="sauceGreen">iOS Only</span> |</small></p>
+
+Defines the custom time zone override for the application under test.
+You can use `UTC`, `PST`, `EST`, as well as place-based timezone names such as `America/Los_Angeles`.
+See [the list of available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) f
+or more details. The same behavior could be achieved by providing a custom
+value to the `TZ` environment variable via the `appium:processArguments` capability.
+
+:::note
+The Android equivalent is [`appium:timeZone`](#appiumtimezone).
+:::
+
+:::note
+This capability is only supported since XCUITest driver version 7.10.0.
+:::
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+capabilities.setCapability("appium:appTimeZone", "America/Los_Angeles");
 ```
 
 :::tip
@@ -1407,9 +1496,9 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `audioCapture`
 
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span></small> |</p>
+<p><small>| OPTIONAL | BOOLEAN | </small></p>
 
-Enables audio recording in your iOS and Android native mobile app tests. The audio will be part of the **Test Results** page video file, which you can play back and download in our built-in media player. The default value is `false`.
+Enables audio recording in your automated tests. This feature is supported for Windows and macOS desktop tests as well as mobile Real Devices. The audio will be part of the **Test Results** page video file, which you can play back and download in our built-in media player. The default value is `false`.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -1519,6 +1608,109 @@ MutableCapabilities sauceOptions = new MutableCapabilities();
 // Set it to 5 minutes (5*60*1000=300000)
 sauceOptions.setCapability("sessionCreationRetry", 2);
 capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `networkProfile`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+
+Set a network profile with predefined network conditions at the beginning of the session.
+Please refer to the [list of network profiles](https://docs.saucelabs.com/mobile-apps/features/network-throttling/#predefined-network-profiles) for more information about each profile's network conditions.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("networkProfile", "2G");
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `networkConditions`
+
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">BETA</span> |</small></p>
+
+Set custom network conditions for `downloadSpeed`, `uploadSpeed`, `latency` or `loss` at the beginning of the session.
+Not all parameters need to be specified and only the ones specified will have conditioning applied.
+Please refer to the [supported network conditions](https://docs.saucelabs.com/mobile-apps/features/network-throttling/#supported-network-conditions) for more information.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("networkConditions", ImmutableMap.of(
+		"downloadSpeed", 5000,
+		"uploadSpeed", 3000,
+		"latency", 200,
+		"loss", 2,
+));
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+:::important
+
+Each network condition has a supported value range:
+
+- `downloadSpeed`: 0 - 50000 kbps
+- `uploadSpeed`: 0 - 50000 kbps
+- `latency`: 0 - 3000 ms
+- `loss`: 0 - 100 %
+
+:::
+
+---
+
+### `sauce: network-profile`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Set a network profile with predefined network conditions dynamically during your session.
+Please refer to the [list of network profiles](/mobile-apps/features/network-throttling/#predefined-network-profiles) for more information about each profile's network conditions.
+
+```java
+driver.executeScript("sauce: network-profile", "2G");
+```
+
+---
+
+### `sauce: network-conditions`
+
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Set custom network conditions for `downloadSpeed`, `uploadSpeed`, `latency` or `loss` dynamically during your session.
+Not all parameters need to be specified and only the ones specified will have conditioning applied.
+Please refer to [Network Throttling - executeScript](/mobile-apps/features/network-throttling/#appium---executescript) for more information.
+
+```java
+driver.executeScript("sauce: network-conditions", ImmutableMap.of(
+    "downloadSpeed", 5000,
+    "uploadSpeed", 3000,
+    "latency", 200,
+    "loss", 2,
+));
+```
+
+---
+
+### `mobile: shell`
+
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">Android Only</span> |</small></p>
+
+Execute ADB shell commands, through Appium's `mobile: shell` capability.
+
+:::note
+Sauce Labs now supports ADB commands for Appium. To use ADB and `mobile: shell` commands, please [sign up for our BETA through this form](https://forms.gle/42qv8U1RukqC62x86) and indicate the desired ADB commands you would like to run. We will be supporting a limited list of ADB commands through `mobile: shell`. Please refer to the list of [allowed commands](https://docs.saucelabs.com/mobile-apps/mobile-faq/#im-encountering-errors-when-executing-adb-shell-commands-what-could-be-the-issue) or contact support for assistance.
+:::
+
+
+```java
+driver.executeScript("mobile: shell", ImmutableMap.of(
+    "command", "input",
+    "args", ImmutableList.of("keyevent", "3")
+));
 ```
 
 ---
@@ -1813,6 +2005,10 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 Disables step-by-step screenshots. In addition to capturing video, Sauce Labs captures step-by-step screenshots of every test you run. Most users find it very useful to get a quick overview of what happened without having to watch the complete video. However, this feature may add some extra time to your tests.
 
+:::caution Limitations
+The maximum number of screenshots is **150**. Once the limit is reached, further screenshots will no longer be taken.
+:::
+
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
@@ -1911,15 +2107,8 @@ capabilities.setCapability("sauce:options", sauceOptions);
 Allows you to set a custom time zone for your test based on a city name. Most major cities are supported.
 
 - **For Desktop VMs**: can be configured with custom time zones. This feature should work on all operating systems, however, time zones on Windows VMs are approximate. The time zone defaults to UTC. Look for the "principal cities" examples on this [list of UTC time offsets](https://en.wikipedia.org/wiki/List_of_UTC_time_offsets).
-- **For iOS Virtual Devices**: you can use this capability to change the time on the Mac OS X VM, which will be picked up by the iOS simulator.
-- **For Android Virtual Devices**: this capability is not supported for Android devices, but for Android 7.2 or later, there is a workaround. Use the following ADB command to grant Appium notification read permission in order to use the time zone capability:
-
-```java
-adb shell cmd notification allow_listener
-io.appium.settings/io.appium.settings.NLService
-```
-
-    * See the [Appium Android documentation](http://appium.io/docs/en/writing-running-appium/android/android-shell/#mobile-shell) for additional support.
+- **For iOS Virtual Devices**: You can use this capability to change the time on the Mac OS X VM, which will be picked up by the iOS simulator.
+- **For Android Virtual Devices**: This capability is not supported for virtual Android devices. Consider using [appium:timeZone](#appiumtimezone) instead.
 
 :::note
 Most web apps serve localization content based on the computer's IP Address, not the time zone set
@@ -1933,6 +2122,28 @@ MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.setCapability("timeZone", "Los_Angeles");
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
+
+<p><small>| OPTIONAL | STRING | <span className="sauceGreen">All Devices Since appium2-20240501</span> |</small></p>
+
+Both UiAutomator2 and XCUITest drivers allow to change the time zone using corresponding
+test session capabilities.
+
+**Android Devices**
+
+Provide a valid time zone identifier to `appium:timeZone` capability.
+The time zone identifier must be a valid name from the list of
+[available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones),
+for example `America/New_York`.
+The time zone is changed instantly on the *per-device* basis and is preserved until the next change.
+
+**iOS Devices**
+
+Provide a valid time zone identifier to `appium:appTimeZone` capability.
+The time zone identifier must be a valid name from the list of
+[available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), for example `America/New_York`.
+The time zone is changed on the *per-application* basis and is only valid for the application under test.
+The same behavior could be achieved by providing a custom value to the
+[TZ](https://developer.apple.com/forums/thread/86951#263395) environment variable via the `appium:processArguments` capability.
 
 ---
 
@@ -2006,13 +2217,6 @@ See [Sauce Labs Training on GitHub](https://github.com/saucelabs-training).
 While [Visual Testing](/visual) runs on Sauce Labs servers, the URL gets sent to `"https://hub.screener.io"`. This means that the [`username`](#username) and [`accessKey`](#accesskey) values are required.
 
 See [Visual Testing with WebDriver](/visual/e2e-testing/setup) and [Visual Commands and Options](/visual/e2e-testing/commands-options).
-
-### Unsupported Appium Capabilities
-
-These are currently not supported for real devices:
-
-- `Edit Timezone`: Appium does not provide a capability to edit the timezone of a device in automated testing on real devices.
-- See [Virtual Device Capabilities](#virtual-device-capabilities-sauce-specific--optional) for information about timezone capabilities in a virtual device testing.
 
 :::caution Limitations
 When running a test on a Virtual Device, be aware that each capability value has a 100 characters limitation. If the value exceeds this limit, it will be truncated, which can lead to further side effects or prevent a job from starting.

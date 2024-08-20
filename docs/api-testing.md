@@ -37,19 +37,11 @@ Use the API Testing platform to generate contract tests from an OpenAPI specific
 <p>
 Create functional tests from multiple locations:
 <ul>
-<li>
-<a href="/api-testing/quickstart">HTTP client</a></li>
-<li>
-<a href="/api-testing/import-postman-collection">Postman collection (in the HTTP client)</a></li>
-<li>
-<a href="/api-testing/build-from-spec">OpenAPI spec file</a>
-</li>
-<li>
-<a href="/api-testing/import-har-files/">Import from HAR file (including HAR files from RDC and VDC)</a>
-</li>
-<li>
-<a href="/api-testing/composer">Test composer</a>
-</li>
+<li><a href="/api-testing/quickstart">HTTP client</a></li>
+<li><a href="/api-testing/import-postman-collection">Postman collection (in the HTTP client)</a></li>
+<li><a href="/api-testing/build-from-spec">OpenAPI spec file</a></li>
+<li><a href="/api-testing/import-har-files/">Import from HAR file (including HAR files from RDC and VDC)</a></li>
+<li><a href="/api-testing/composer">Test composer</a></li>
 </ul>
 </p>
 </div>

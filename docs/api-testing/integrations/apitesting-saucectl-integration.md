@@ -26,12 +26,12 @@ To utilize `saucectl` functionalities, you'll need to generate a webhook for you
 To generate a webhook:
 
 1. Log in to Sauce Labs, then click **API Testing**.
-1. Navigate to your Project and select the **WebHooks** tab.<br/>
+2. Navigate to your Project and select the **WebHooks** tab.<br/>
    <img src={useBaseUrl('img/api-testing/webhook_tab.png')} alt="webhook screenshot" width="200"/>
-1. Select **Create Hook**.<br/><img src={useBaseUrl('img/api-testing/createHook.png')} alt="Create New WebHook" width="300"/>
-1. Enter a **Hook Name** for your webhook (**Description** is optional), then click **Save**.<br/>
+3. Select **Create Hook**.<br/><img src={useBaseUrl('img/api-testing/createHook.png')} alt="Create New WebHook" width="300"/>
+4. Enter a **Hook Name** for your webhook (**Description** is optional), then click **Save**.<br/>
    <img src={useBaseUrl('img/api-testing/sampleHook.png')} alt="sample webhook details" width="300" />
-1. The generated **Hook URL** will then appear.
+5. The generated **Hook URL** will then appear.
 
 ### Step 2: Install `saucectl`
 
@@ -95,142 +95,6 @@ git clone git@github.com:saucelabs/saucectl-apitest-example.git
 
 ## `saucectl` Commands
 
-### Vault
-
-Commands for interacting with API Testing project vaults.
-
-#### Get Vault
-
-It prints the vault content as json to the standard output stream (stdout). Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
-
-```bash
-saucectl apit vault get [--project "project_name"] [flags]
-```
-
-Check the list of [Global Flags](#global-flags) you can use.
-
----
-
-#### Get Variable
-
-Get a variable value from a project's vault. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
-
-```bash
-saucectl apit vault get-variable "variable_name" [--project "project_name"] [flags]
-```
-
-Check the list of [Global Flags](#global-flags) you can use.
-
----
-
-#### Set Variable
-
-Set/update a variable in a project's vault. If a `variable_name` is already in the vault, it is updated with the new one; otherwise, it adds a new variable. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
-
-```bash
-saucectl apit vault set-variable "variable_name" "variable_value" [--project "project_name" ][flags]
-```
-
-Check the list of [Global Flags](#global-flags) you can use.
-
----
-
-#### Get Snippet
-
-Get a snippet from a project's vault. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
-
-```bash
-saucectl apit vault get-snippet "snippet_name" [--project "project_name"] [flags]
-```
-
-Check the list of [Global Flags](#global-flags) you can use.
-
----
-
-#### Set Snippet
-
-Set/update a snippet in a project's vault. If a `snippet_name` is already in the vault, it is updated with the new one; otherwise, it adds a new snippet. You can set a snippet's value by providing a path to a file defining the snippet or using "-" to read from the standard input stream (stdin). Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
-
-```bash
-saucectl apit vault set-snippet "variable_name" FILE_NAME [--project "project_name"] [flags] # from a file
-```
-
-or
-
-```bash
-cat "file_name" | saucectl apit vault set-snippet "variable_name" - [--project "project_name"] [flags] #from stdin
-```
-
-Check the list of [Global Flags](#global-flags) you can use.
-
----
-
-#### List Files
-
-<p><span className="sauceGreen">From version 0.147.0</span></p>
-
-Get a list of files from a project's vault drive. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
-
-```bash
-saucectl apit vault list-files [--project "project_name"] [flags]
-```
-
-Check the list of [Global Flags](#global-flags) you can use.
-
----
-
-#### Upload File
-
-<p><span className="sauceGreen">From version 0.147.0</span></p>
-
-Upload a file in a project's vault drive. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
-
-```bash
-saucectl apit vault upload-file "filename" [--project "project_name"] [flags]
-```
-
-Check the list of [Global Flags](#global-flags) you can use.
-
----
-
-#### Download File
-
-<p><span className="sauceGreen">From version 0.147.0</span></p>
-
-Download a file from a project's vault drive. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
-
-```bash
-saucectl apit vault download-file "filename" [--project "project_name"] [flags]
-```
-
-Check the list of [Global Flags](#global-flags) you can use.
-
----
-
-#### Delete File
-
-<p><span className="sauceGreen">From version 0.147.0</span></p>
-
-Delete a file in a project's vault drive. Use `--project` to specify the project by its name or run without `--project` to choose from a list of projects.
-
-```bash
-saucectl apit vault delete-file "filename" [--project "project_name"] [flags]
-```
-
-Check the list of [Global Flags](#global-flags) you can use.
-
----
-
-#### Global Flags
-
-| Key                       | Shorthand | Description                                                                     |
-| ------------------------- | --------- | ------------------------------------------------------------------------------- |
-| `--help`                  | -h        | Help for the related command.                                                   |
-| `--region`                | -r        | The Sauce Labs region. Options: us-west-1, eu-central-1. (default "us-west-1"). |
-| `--disable-usage-metrics` |           | Disable usage metrics collection.                                               |
-| `--no-color `             |           | Disable colorized output.                                                       |
-| `--verbose `              |           | Turn on verbose logging.                                                        |
-
 ### Run
 
 Use the `run` command to execute the tests. The console displays the executing tests, distinguishing which mode is running. The results are available immediately following test completion in your [Sauce Labs account](https://app.saucelabs.com/api-testing/).
@@ -240,3 +104,55 @@ saucectl run
 ```
 
 You can refer to the [Command Reference](/dev/cli/saucectl/run/) for the complete list of options for the `run` command and [saucectl YAML Configuration](/api-testing/integrations/yaml) for more configuration options.
+
+
+### Vault
+
+Supported `saucectl vault` commands:
+
+<table id="table-cli">
+  <thead>
+    <tr>
+      <th>Operation</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr>
+     <td><a href="/dev/cli/saucectl/apit/vault/get">Get Vault</a></td>
+     <td>Print vault's content in JSON format to the stdout.</td>
+   </tr>
+   <tr>
+     <td><a href="/dev/cli/saucectl/apit/vault/get-variable">Get a Variable</a></td>
+     <td>Get a variable value from a project's vault.</td>
+   </tr>
+   <tr>
+     <td><a href="/dev/cli/saucectl/apit/vault/set-variable">Set a Variable</a></td>
+     <td>Set/update a variable in a project's vault.</td>
+   </tr>
+   <tr>
+     <td><a href="/dev/cli/saucectl/apit/vault/get-snippet">Get a Snippet</a></td>
+     <td>Get a snippet from a project's vault.</td>
+   </tr>
+   <tr>
+     <td><a href="/dev/cli/saucectl/apit/vault/set-snippet">Set a Snippet</a></td>
+     <td>Set/update a snippet in a project's vault.</td>
+   </tr>
+   <tr>
+     <td><a href="/dev/cli/saucectl/apit/vault/list-files">List Files</a></td>
+     <td>List files stored in the project's vault drive.</td>
+   </tr>
+   <tr>
+     <td><a href="/dev/cli/saucectl/apit/vault/upload-file">Upload a File</a></td>
+     <td>Upload a file to a project's vault drive.</td>
+   </tr>
+   <tr>
+     <td><a href="/dev/cli/saucectl/apit/vault/download-file">Download a File</a></td>
+     <td>Download a file from a project's vault drive.</td>
+   </tr>
+   <tr>
+     <td><a href="/dev/cli/saucectl/apit/vault/delete-file">Delete a File</a></td>
+     <td>Remove a file from a project's vault drive.</td>
+   </tr>
+  </tbody>
+</table>

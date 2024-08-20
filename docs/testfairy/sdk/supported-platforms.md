@@ -27,7 +27,7 @@ Along with native Android and iOS development, TestFairy supports a number of ot
 ## React Native
 
 - [Adding the SDK to your App](/testfairy/platforms/react-native)
-- [Hiding Sensitive Data](/testfairy/security/hiding-data)
+- [Hiding Sensitive Data](/testfairy/sdk/security/hiding-data)
 - [Identifying your Users](/testfairy/sdk/identifying-users)
 - [Session Attributes](/testfairy/sdk/session-attributes)
 - [Remote Logging](/testfairy/sdk/remote-logging)
@@ -35,7 +35,7 @@ Along with native Android and iOS development, TestFairy supports a number of ot
 ## Nativescript
 
 - [Adding the SDK to your App](/testfairy/platforms/nativescript)
-- [Hiding Sensitive Data](/testfairy/security/hiding-data)
+- [Hiding Sensitive Data](/testfairy/sdk/security/hiding-data)
 - [Identifying your Users](/testfairy/sdk/identifying-users)
 - [Session Attributes](/testfairy/sdk/session-attributes)
 - [Remote Logging](/testfairy/sdk/remote-logging)
@@ -50,7 +50,7 @@ Along with native Android and iOS development, TestFairy supports a number of ot
 ## Xamarin
 
 - [Adding the SDK to your App](/testfairy/platforms/xamarin)
-- [Hiding Sensitive Data](/testfairy/security/hiding-data)
+- [Hiding Sensitive Data](/testfairy/sdk/security/hiding-data)
 - [Identifying your Users](/testfairy/sdk/identifying-users)
 - [Session Attributes](/testfairy/sdk/session-attributes)
 - [Remote Logging](/testfairy/sdk/remote-logging)

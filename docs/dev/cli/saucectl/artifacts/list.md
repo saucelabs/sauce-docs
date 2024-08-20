@@ -1,7 +1,7 @@
 ---
 id: list
 title: saucectl artifacts list
-sidebar_label: saucectl artifacts list
+sidebar_label: list
 ---
 
 Lists artifacts for a job from Sauce Labs.
@@ -41,9 +41,9 @@ $ saucectl artifacts list jobID [flags]
 ### <span className="cli">--out</span>
 
 <div className="cli-desc">
-<p><small>| REQUIRED | STRING |</small></p>
+<p><small>| OPTIONAL | STRING |</small></p>
 
-Save files to target directory. Defaults to current working directory.
+Specifies the output format for the console. Options include: "text" or "json". The default setting is "text".
 
 **Shorthand:** `-o <text/json>`
 

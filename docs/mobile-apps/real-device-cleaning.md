@@ -69,7 +69,6 @@ The following settings are allowed ONLY on Private devices, these are blocked on
 - Proxy configuration
 - Network settings
 
-Those settings are fully available on our private device cloud offering. Please contact your account executive or our support team for access.
 :::
 
 :::note

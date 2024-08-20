@@ -1,27 +1,27 @@
 {
-  "name": "saucedocs-crawler",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/saucelabs/saucedocs-crawler.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/saucelabs/saucedocs-crawler/issues"
-  },
-  "homepage": "https://github.com/saucelabs/saucedocs-crawler#readme",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "cheerio": "^1.0.0-rc.10",
-    "fast-csv": "^4.3.6",
-    "fs": "^0.0.1-security",
-    "@actions/core": "^1.7.0",
-    "moment": "^2.29.1"
-  }
+	"name": "saucedocs-crawler",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "wait-on http://127.0.0.1:8000 && node index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/saucelabs/saucedocs-crawler.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/saucelabs/saucedocs-crawler/issues"
+	},
+	"homepage": "https://github.com/saucelabs/saucedocs-crawler#readme",
+	"dependencies": {
+		"@actions/core": "^1.7.0",
+		"axios": "^1.7.4",
+		"cheerio": "^1.0.0-rc.10",
+		"fast-csv": "^4.3.6",
+		"moment": "^2.29.1",
+		"wait-on": "7.2.0"
+	}
 }

@@ -22,7 +22,7 @@ Does your API or test require random full names, valid/invalid ids, or various t
 
 There are a couple of ways you can generate this data:
 
-- You can directly reference the method within your variable, API call, or anywhere in the test where you can type in the following syntax: "${F.zipCode()}"
+- You can directly reference the method within your variable, API call, or anywhere in the test where you can type in the following syntax: "$\{F.zipCode()}"
   For example:
 
   <img src={useBaseUrl('img/api-fortress/2019/07/Screen-Shot-2019-07-19-at-11.33.10-AM.png')} alt="screenshot" />

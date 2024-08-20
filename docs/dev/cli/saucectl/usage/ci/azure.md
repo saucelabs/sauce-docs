@@ -21,11 +21,11 @@ These examples can apply to virtually any Azure DevOps deployment, provided that
 To run tests on Sauce Labs from Azure DevOps, you need to make your Sauce Labs credentials available to your Pipelines. We'll set a secret variable in the UI.
 
 1. Log in to Azure DevOps.
-1. Go to the **Pipelines** page, select a pipeline, then **Edit**.
-1. Click on **Variables**, then **New Variable**.
-1. Enter the name `sauceUsername` and set the value to your Sauce Labs username and click **OK**.
-1. Add another variable, this time named `sauceAccessKey`, set it to your Sauce Labs access key, select the `Keep this value secret` option, and click **OK**.
-1. Click **Save**.
+2. Go to the **Pipelines** page, select a pipeline, then **Edit**.
+3. Click on **Variables**, then **New Variable**.
+4. Enter the name `sauceUsername` and set the value to your Sauce Labs username and click **OK**.
+5. Add another variable, this time named `sauceAccessKey`, set it to your Sauce Labs access key, select the `Keep this value secret` option, and click **OK**.
+6. Click **Save**.
 
 ## Add Azure Pipeline Configuration
 

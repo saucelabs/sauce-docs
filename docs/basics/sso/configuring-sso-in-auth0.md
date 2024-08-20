@@ -27,6 +27,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 7. Copy the link to the identity provider metadata and open it in a new tab. You will download an XML file with metadata.
    <img src={useBaseUrl('img/basics/sso/idp-config/auth0/download-metadata.png')} alt="Download Metadata" width="800" />
 
-8. Use the metadata from the previous step and set up the SSO integration at Sauce Labs in [Team Management Panel](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider).
+8. Use the metadata from the previous step and set up the SSO integration at Sauce Labs in [Organization Management Panel](/basics/sso/setting-up-sso#integrating-with-sauce-labs-service-provider).
 
 9. Test the integration using the [IdP-initiated and the SP-initiated login](/basics/sso/logging-in-via-sso).

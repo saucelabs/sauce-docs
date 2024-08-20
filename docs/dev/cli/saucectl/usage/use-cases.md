@@ -18,6 +18,8 @@ The configuration file is flexible enough to allow for any customizations and de
 - [Configure Espresso](/mobile-apps/automated-testing/espresso-xcuitest/espresso)
 - [Configure XCUITest](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest)
 - [Configure Replay](/web-apps/automated-testing/replay/yaml)
+- [Configure API Testing](/api-testing/integrations/apitesting-saucectl-integration)
+- [Configure Sauce Orchestrate](/orchestrate/saucectl-configuration)
 
 ## Setting an Alternative Configuration File
 
@@ -47,14 +49,13 @@ The `metadata` parameter in the configuration file allows you to provide additio
 
 ```yaml
 sauce:
-metadata:
-name: Testing Cypress Support
-build: RC 10.4.a
-tags:
-- e2e
-- release team
-- beta
-- featurex
+  metadata:
+    build: RC 10.4.a
+    tags:
+      - e2e
+      - release team
+      - beta
+      - featurex
 ```
 
 ## Concurrency
@@ -63,7 +64,7 @@ You can configure `saucectl` to run test suites in parallel up to the concurrenc
 
 ```yaml
 sauce:
-concurrency: 10
+  concurrency: 10
 ```
 
 If needed, you can also override the file setting at runtime by specifying a concurrency value as an inline parameter of the `saucectl run` command:
@@ -74,19 +75,19 @@ saucectl run --ccy 10
 
 A setting of `10` runs up to 10 test suites at the same time. If the test has more suites than that, excess suites are queued and run in order as currently running suites complete and new slots are available.
 
-When running on Sauce Cloud, the maximum concurrency that you can use is defined by your [account settings](/basics/acct-team-mgmt/concurrency-limits/).
+When running on Sauce Cloud, the maximum concurrency that you can use is defined by your [account settings](/basics/acct-team-mgmt/concurrency/managing-concurrency).
 
 ## Sauce Connect
 
 `saucectl` supports using Sauce Connect to establish a secure connection when running your tests on Sauce Labs. To do so:
 
-1. Download and launch [Sauce Connect](/secure-connections/sauce-connect).
+1. Download and launch [Sauce Connect](/secure-connections).
 2. Provide the tunnel identifier in your config file:
 
 ```yaml title="config.yml tunnel setting"
 sauce:
-tunnel:
-id: my_tunnel_id
+  tunnel:
+    id: my_tunnel_id
 ```
 
 :::note Choose the Correct Tunnel Identifier
@@ -134,9 +135,10 @@ You can incorporate your `saucectl` tests as part of your CI pipeline workflow. 
 `saucectl` provides instructions for integrating with the following CI tools:
 
 - [CircleCI](/dev/cli/saucectl/usage/ci/circleci)
-- [Jenkins](/dev/cli/saucectl/usage/ci/jenkins)
 - [GitHub Actions](/dev/cli/saucectl/usage/ci/github-actions)
 - [GitLab](/dev/cli/saucectl/usage/ci/gitlab)
+- [Jenkins](/dev/cli/saucectl/usage/ci/jenkins)
+- [Azure](/dev/cli/saucectl/usage/ci/azure)
 
 ## Tailoring Your Test File Bundle
 
@@ -270,7 +272,9 @@ npm:
 Alternatively, you can let `saucectl` selectively include already installed dependencies from the `node_modules` folder.
 
 ```jsx title= "config.yml npm dependencies"
-npm: dependencies: -lodash
+npm:
+  dependencies:
+    - lodash
 ```
 
 :::caution

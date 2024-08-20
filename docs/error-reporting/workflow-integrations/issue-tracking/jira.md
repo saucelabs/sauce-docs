@@ -225,10 +225,31 @@ With data synchronization, Backtrace will sync resolution Status and Assignee fi
 
 - **Data synchronization from Backtrace to Jira**: The Status and Assignee fields will be updated in Jira when issues are updated in Backtrace.
 - **Data synchronization from Jira to Backtrace**: The Status and Assignee fields will be updated in Backtrace when issues are updated in Jira.
+- **Assignee and Status Synchronization on Linking**: Select the source of truth in the event of a mismatch of these fields between Backtrace and Jira.
 
 <img src={useBaseUrl('img/error-reporting/workflow-integrations/jira-two-way-sync.png')} alt="Shows how to enable two-way sync from Backtrace and Jira." width="700" />
 
 We recommend that you enable both settings for two-way sync.
+
+#### Manual Jira to Backtrace synchronization setup
+
+You may want to create the webhook manually, if any of these are true:
+
+- you do not want to give Workflows administration access to your Jira Server instance,
+- you want to customize the webhook JQL to limit synchronized issues,
+- you use OAuth 2.0 with Jira Server, which does not allow managing of webhooks.
+
+To do that, save the integration with **Manual setup** selected under **Data synchronization from Jira to Backtrace**, and create the webhook in Jira:
+
+1. Go to **Jira settings** > **System** > **Advanced** > **WebHooks**.
+2. Click **Create a WebHook**.
+3. Set the following:
+   - **URL**:
+     - for Jira Cloud: https://workflows.backtrace.io/api/workflows/plugins/jira/external/events/issue/updated
+     - for Jira Server: https://workflows.backtrace.io/api/workflows/plugins/jira-server/external/events/issue/updated
+   - Enable **Events** > **Issue related events** > **Issue** > **updated**,
+   - Make sure that **Exclude body** is disabled.
+4. Click **Save**.
 
 ### Jira Template
 
