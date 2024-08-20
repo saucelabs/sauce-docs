@@ -109,10 +109,15 @@ Specify a proxy password to be set on the device.
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
-The name of an active [Sauce Connect](/secure-connections/sauce-connect/) tunnel to use for secure connectivity to the Sauce Labs platform.
+Specifies the name of an active [Sauce Connect](/secure-connections/sauce-connect/) tunnel to use for secure connectivity to the Sauce Labs platform.   
+Use the `--tunnelIdentifier` option with the tunnel identifier in the format:
+```java title="tunnel identifier format"
+--tunnelIdentifier tunnel-identifier:<tunnel-name>,<tunnel-owner>
+```    
 
 :::note Identifying a Tunnel
-The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, not the Tunnel ID numerical value.
+- `tunnel-name`: The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, not the Tunnel ID numerical value.
+- `tunnel-owner`: The name of the tunnel owner. This is the value shown under the **Owner** column on the Sauce Labs Tunnels page.   
 :::
 
 </div>
@@ -141,5 +146,5 @@ java -jar virtual-usb-client.jar startSession \
     --deviceName iPhone_XS \
     --serverHost http://127.0.0.1 \
     --serverPort 8080 \
-    --tunnelIdentifier my-tunnel
+    --tunnelIdentifier tunnel-identifier:my-tunnel,my-owner
 ```

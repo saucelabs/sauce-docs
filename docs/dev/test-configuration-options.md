@@ -718,7 +718,7 @@ If set to `true` it prevents the device from resetting before the session startu
 
 **For Real Devices:**
 
-Set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#`cacheId`), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it with `cacheId`.
+Set `noReset` to `true` to keep a device allocated to you during the device cleaning process, as described under [`cacheId`](#cacheid), allowing you to continue testing on the same device. Default value is `false`. To use `noReset`, you must pair it with `cacheId`.
 
 **For Virtual Devices:**
 
@@ -1378,7 +1378,7 @@ If [`noReset`](#noreset) is also set to `true`, the app under test and its data 
 Changing [`noReset`](#noreset) has no impact here. The app will not be removed, will stay on the phone/tablet and will keep it's state. This is caused by the re-signing process of the app.
 :::
 
-If you are running multiple test suites in parallel, the values for `cacheId` should be unique for each suite (to avoid mixing up the devices), and the value for `cacheId` must be the same for all test methods that you want to run on the cached device. In addition, the app and project ID used for the tests must remain the same, along with the values for these capabilities:
+If you are running multiple test suites in parallel, the values for `cacheId` should be unique for each suite (to avoid mixing up the devices), and the value for `cacheId` must be the same for all test methods that you want to run on the cached device. The value itself can be any (random) string. In addition, the app and project ID used for the tests must remain the same, along with the values for these capabilities:
 
 - `platformName`
 - `appium:deviceName`
