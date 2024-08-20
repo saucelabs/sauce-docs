@@ -33,9 +33,26 @@ To enable network traffic capturing in your tests:
    - [Espresso via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#networkcapture)
    - [XCUITest via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#networkcapture)
 
-Now you can start your live or automated testing session. Your network logs will be captured and displayed in the test results page.
+Now you can start your live or automated testing session. Your network logs will be captured and displayed in the test results page as well as inside the live testing window.
 
-## Accessing HAR Files
+## Accessing Network Traffic in Realtime (Live Testing)
+
+To be able to observe network traffic in realtime:
+
+1. Enable network capture for your app like described above. You can skip this step for cross browser testing.
+2. Navigate to **Live** -> **Mobile App**/**Cross Browser**
+3. Choose device and start a session.
+4. Launch the network inspector
+
+<img src={useBaseUrl('img/mobile-apps/network-capture-1.png')} alt="Select Developer Options" width="650"/>
+<img src={useBaseUrl('img/mobile-apps/network-capture-2.png')} alt="Start capture" width="650"/>
+<img src={useBaseUrl('img/mobile-apps/network-capture-3.png')} alt="Inspect network logs" width="650"/>
+
+A copy of what you see in the inspector can be downloaded in HAR format with the following button.
+
+<img src={useBaseUrl('img/mobile-apps/network-capture-4.png')} alt="Inspect network logs" width="650"/>
+
+## Accessing HAR Files (Live and Automated Testing)
 
 To download HAR files from Sauce Labs:
 
@@ -50,6 +67,13 @@ You can also download a HAR file programmatically using the following API reques
 curl --compressed \
 -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}.saucelabs.com/v1/rdc/jobs/{JOB_ID}/network.har
 ```
+
+It is also possible to downloadthe HAR file during a live testing session.
+
+1. Launch a new li
+2.  Launch the network inspector
+3. Start the capture before the intended
+4. Interact with the device to 
 
 ### Viewing HAR Files
 
@@ -77,9 +101,9 @@ Alternatively, some other commonly used HAR viewers include:
 
 - Android Emulators
 - iOS Simulators
-- Hybrid Applications (React Native, Cordova, Flutter)
-- Android Chrome Browser
-- iOS Safari Browser
+- Hybrid Applications in automated tests (React Native, Cordova, Flutter)
+- Android Chrome Browser in automated tests
+- iOS Safari Browser in automated tests
 
 :::
 
