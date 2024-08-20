@@ -68,13 +68,6 @@ curl --compressed \
 -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}.saucelabs.com/v1/rdc/jobs/{JOB_ID}/network.har
 ```
 
-It is also possible to downloadthe HAR file during a live testing session.
-
-1. Launch a new li
-2.  Launch the network inspector
-3. Start the capture before the intended
-4. Interact with the device to 
-
 ### Viewing HAR Files
 
 You'll need a HAR viewer to read HAR files. Sauce Labs provides a [React Network Viewer](https://opensource.saucelabs.com/network-viewer/) HAR viewer for your convenience. For step-by-step usage instructions, see our [Visualize HAR Files with the New React Network Viewer](https://opensource.saucelabs.com/blog/react_network_viewer/) blog article.
