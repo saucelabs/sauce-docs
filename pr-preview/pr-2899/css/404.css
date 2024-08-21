@@ -1,0 +1,165 @@
+@import url("https://use.typekit.net/bte6qhg.css");
+
+.tk-museo-sans {
+    font-family: "museo-sans", sans-serif;
+}
+.tk-museo-sans-rounded {
+    font-family: "museo-sans-rounded", sans-serif;
+}
+.tk-museo-sans-condensed {
+    font-family: "museo-sans-condensed", sans-serif;
+}
+.tk-museo-sans-display {
+    font-family: "museo-sans-display", sans-serif;
+}
+
+body {
+    font-family: museo-sans, sans-serif;
+    font-weight: semi-bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #e2231a;
+    font-family: museo-sans, sans-serif;
+    font-weight: 500;
+}
+
+h2,
+.h2 {
+    padding-bottom: 5px;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    justify-content: center;
+}
+@media (min-width: 500px) and (max-width: 600px) {
+    .container {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 250px;
+        grid-template-areas:
+            "hd"
+            "sb"
+            "mt";
+        grid-gap: 15px;
+        margin: auto;
+        justify-content: center;
+    }
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    grid-area: hd;
+}
+
+.sauce_bot {
+    grid-area: sb;
+}
+
+.gif {
+    width: 30%;
+    height: auto;
+}
+.message {
+    font-size: 20px;
+    grid-area: mt;
+}
+
+.button_base {
+    font-size: 18px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-top: 25px;
+    margin-left: -100px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-user-select: none;
+    cursor: default;
+    background: linear-gradient(270deg, rgb(238, 68, 57), rgb(217, 37, 25));
+    border-radius: 50px;
+}
+.button_base a {
+    color: #e2231a;
+    text-decoration: none;
+}
+
+.button_base:hover a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.button_base:hover {
+    cursor: pointer;
+}
+
+/*button animation*/
+
+.slide_in {
+    overflow: hidden;
+    border: #e2231a solid 1px;
+}
+
+.slide_in div {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 10px;
+}
+
+.slide_in div:nth-child(1) {
+    color: #e2231a;
+    background-color: #ffffff;
+}
+
+.slide_in div:nth-child(2) {
+    background-color: #e2231a;
+    transition: top 0.1s ease;
+    -webkit-transition: top 0.1s ease;
+    -moz-transition: top 0.1s ease;
+    top: -50px;
+}
+
+.slide_in div:nth-child(3) {
+    color: #ffffff;
+    transition: opacity 0.1s ease;
+    -webkit-transition: opacity 0.1s ease;
+    -moz-transition: opacity 0.1s ease;
+    opacity: 0;
+}
+
+.slide_in:hover div:nth-child(2) {
+    top: 0px;
+    transition: top 0.1s ease;
+    -webkit-transition: top 0.1s ease;
+    -moz-transition: top 0.1s ease;
+}
+
+.slide_in:hover div:nth-child(3) {
+    opacity: 1;
+    transition: opacity 0.1s ease;
+    -webkit-transition: opacity 0.1s ease;
+    -moz-transition: opacity 0.1s ease;
+}
