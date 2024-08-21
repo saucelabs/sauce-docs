@@ -4,7 +4,7 @@
   <ShortName>Sauce Labs Documentation</ShortName>
   <Description>Search Sauce Labs Documentation</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Url type="text/html" method="get" template="https://docs.saucelabs.com/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://docs.saucelabs.com/opensearch.xml" />
-  <moz:SearchForm>https://docs.saucelabs.com/</moz:SearchForm>
+  <Url type="text/html" method="get" template="https://docs.saucelabs.com/sauce-docs/pr-preview/pr-2897/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://docs.saucelabs.com/sauce-docs/pr-preview/pr-2897/opensearch.xml" />
+  <moz:SearchForm>https://docs.saucelabs.com/sauce-docs/pr-preview/pr-2897/</moz:SearchForm>
 </OpenSearchDescription>
