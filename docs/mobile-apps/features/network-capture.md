@@ -40,14 +40,20 @@ Now you can start your live or automated testing session. Your network logs will
 To be able to observe network traffic in realtime:
 
 1. Navigate to **Live** -> **Mobile App**/**Cross Browser**
-2. Choose device and start a session.
+2. Choose device and start a session
 3. Launch the network inspector
 
-<img src={useBaseUrl('img/mobile-apps/network-capture-1.png')} alt="Select Developer Options" width="650"/>
+<img src={useBaseUrl('img/mobile-apps/network-capture-1.png')} alt="Select Developer Options" width="300"/>
+
+    * Start the capture.
+   
 <img src={useBaseUrl('img/mobile-apps/network-capture-2.png')} alt="Start capture" width="650"/>
+
+    * Inspect network logs as they arrive
+ 
 <img src={useBaseUrl('img/mobile-apps/network-capture-3.png')} alt="Inspect network logs" width="650"/>
 
-A copy of what you see in the inspector can be downloaded in HAR format with the following button.
+    * A copy of what you see in the inspector can be downloaded in HAR format with the following button.
 
 <img src={useBaseUrl('img/mobile-apps/network-capture-4.png')} alt="Inspect network logs" width="650"/>
 
