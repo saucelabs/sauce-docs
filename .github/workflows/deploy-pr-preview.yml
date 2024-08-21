@@ -1,4 +1,4 @@
-name: Deploy to Dev
+name: Deploy PR Preview
 
 on:
   pull_request:
@@ -24,7 +24,7 @@ env:
 concurrency: preview-${{ github.ref }}
 
 jobs:
-  deploy-dev:
+  deploy-pr-preview:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
