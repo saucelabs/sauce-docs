@@ -33,16 +33,15 @@ To enable network traffic capturing in your tests:
    - [Espresso via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#networkcapture)
    - [XCUITest via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#networkcapture)
 
-Now you can start your live or automated testing session. Your network logs will be captured and displayed in the test results page as well as inside the live testing window.
+Now you can start your live or automated testing session. Your network logs will be captured and displayed in the test results page as well as During a Live Testing session with the Developer Options window.
 
 ## Accessing Network Traffic in Realtime (Live Testing)
 
 To be able to observe network traffic in realtime:
 
-1. Enable network capture for your app like described above. You can skip this step for cross browser testing.
-2. Navigate to **Live** -> **Mobile App**/**Cross Browser**
-3. Choose device and start a session.
-4. Launch the network inspector
+1. Navigate to **Live** -> **Mobile App**/**Cross Browser**
+2. Choose device and start a session.
+3. Launch the network inspector
 
 <img src={useBaseUrl('img/mobile-apps/network-capture-1.png')} alt="Select Developer Options" width="650"/>
 <img src={useBaseUrl('img/mobile-apps/network-capture-2.png')} alt="Start capture" width="650"/>
