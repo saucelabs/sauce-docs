@@ -33,9 +33,31 @@ To enable network traffic capturing in your tests:
    - [Espresso via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#networkcapture)
    - [XCUITest via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#networkcapture)
 
-Now you can start your live or automated testing session. Your network logs will be captured and displayed in the test results page.
+Now you can start your live or automated testing session. Your network logs will be captured and displayed in the test results page as well as During a Live Testing session with the Developer Options window.
 
-## Accessing HAR Files
+## Accessing Network Traffic in Realtime (Live Testing)
+
+To be able to observe network traffic in realtime:
+
+1. Navigate to **Live** -> **Mobile App**/**Cross Browser**
+2. Choose device and start a session
+3. Launch the network inspector
+
+<img src={useBaseUrl('img/mobile-apps/network-capture-1.png')} alt="Select Developer Options" width="300"/>
+
+    * Start the capture.
+   
+<img src={useBaseUrl('img/mobile-apps/network-capture-2.png')} alt="Start capture" width="650"/>
+
+    * Inspect network logs as they arrive
+ 
+<img src={useBaseUrl('img/mobile-apps/network-capture-3.png')} alt="Inspect network logs" width="650"/>
+
+    * A copy of what you see in the inspector can be downloaded in HAR format with the following button.
+
+<img src={useBaseUrl('img/mobile-apps/network-capture-4.png')} alt="Inspect network logs" width="650"/>
+
+## Accessing HAR Files (Live and Automated Testing)
 
 To download HAR files from Sauce Labs:
 
@@ -77,9 +99,9 @@ Alternatively, some other commonly used HAR viewers include:
 
 - Android Emulators
 - iOS Simulators
-- Hybrid Applications (React Native, Cordova, Flutter)
-- Android Chrome Browser
-- iOS Safari Browser
+- Hybrid Applications in automated tests (React Native, Cordova, Flutter)
+- Android Chrome Browser in automated tests
+- iOS Safari Browser in automated tests
 
 :::
 
