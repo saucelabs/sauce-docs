@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Get up and running quickly with your first Selenium WebDriver automated test on the Sauce Labs cloud.
 
-## What You'll Need
+## What You'll Need To Do
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - Your Sauce Labs [Username](https://app.saucelabs.com/user-settings) and [Access Key](https://app.saucelabs.com/user-settings).
