@@ -39,6 +39,10 @@ jobs:
           path: |
             build
           key: ${{ runner.os }}-${{ github.sha }}
+
+      - name: Set preview path
+        run: echo "PREVIEW_PATH=sauce-docs/pr-preview/pr-${{ github.event.number }}" >> "$GITHUB_ENV"
+    
       - name: Install Dependencies
         if: steps.cache-build.outputs.cache-hit != 'true' && github.event.action != 'closed' # Skip if the PR was closed
         run: |
