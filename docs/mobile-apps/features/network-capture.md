@@ -35,9 +35,9 @@ To enable network traffic capturing in your tests:
 
 Now you can start your live or automated testing session. Your network logs will be captured and displayed in the test results page as well as During a Live Testing session with the Developer Options window.
 
-## Accessing Network Traffic in Realtime (Live Testing)
+## Accessing Network Traffic in real-time (Live Testing)
 
-To be able to observe network traffic in realtime:
+To be able to observe network traffic in real-time:
 
 1. Navigate to **Live** -> **Mobile App**/**Cross Browser**
 2. Choose device and start a session
