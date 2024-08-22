@@ -42,45 +42,19 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
    <td>
     <a href="https://saucelabs.com/downloads/sc-4.9.1-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.9.1-linux-arm64.tar.gz">Linux ARM64</a>, <a href="https://saucelabs.com/downloads/sc-4.9.1-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.9.1-win32.zip">Windows</a>
    </td>
-
   </tr>
    <tr>
    <td>4.9.0</td>
    <td>
     <a href="https://saucelabs.com/downloads/sc-4.9.0-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.9.0-linux-arm64.tar.gz">Linux ARM64</a>, <a href="https://saucelabs.com/downloads/sc-4.9.0-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.9.0-win32.zip">Windows</a>
    </td>
-
-  </tr>
-  <tr>
-   <td rowspan="4" >4.8</td>
-   <td>4.8.3</td>
-   <td>
-    <a href="https://saucelabs.com/downloads/sc-4.8.3-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.8.3-linux-arm64.tar.gz">Linux ARM64</a>, <a href="https://saucelabs.com/downloads/sc-4.8.3-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.8.3-win32.zip">Windows</a>
-   </td>
-   <td rowspan="4" >May. 29, 2024</td>
-  </tr>
- <tr>
-  <td>4.8.2</td>
-  <td>
-    <a href="https://saucelabs.com/downloads/sc-4.8.2-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.8.2-linux-arm64.tar.gz">Linux ARM64</a>, <a href="https://saucelabs.com/downloads/sc-4.8.2-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.8.2-win32.zip">Windows</a>
-  </td>
- </tr>
- <tr>
-  <td>4.8.1</td>
-  <td>
-    <a href="https://saucelabs.com/downloads/sc-4.8.1-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.8.1-linux-arm64.tar.gz">Linux ARM64</a>, <a href="https://saucelabs.com/downloads/sc-4.8.1-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.8.1-win32.zip">Windows</a>
-  </td>
- </tr>
-  <tr>
-   <td>4.8.0</td>
-   <td>
-    <a href="https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz">Linux</a>, <a href="https://saucelabs.com/downloads/sc-4.8.0-linux-arm64.tar.gz">Linux ARM64</a>, <a href="https://saucelabs.com/downloads/sc-4.8.0-osx.zip">Mac</a>, <a href="https://saucelabs.com/downloads/sc-4.8.0-win32.zip">Windows</a>
-   </td>
-  </tr>
-  <tr>
   </tr>
 </table>
 
 :::note
 MacOS is not supported in version 4.9.2.
+:::
+
+:::note
+Versions 4.8 and below of the Sauce Connect client are no longer supported. Please ensure that you are using a supported version to maintain compatibility and receive the latest updates and support.
 :::
