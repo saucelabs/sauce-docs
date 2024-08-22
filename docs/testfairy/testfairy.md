@@ -6,11 +6,13 @@ sidebar_label: Getting Started
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Welcome to TestFairy, the App Center distribution alternative! Use our enterprise-grade app distribution capabilities to migrate from App Center before March 31, 2025! 
+Welcome to TestFairy, the App Center distribution alternative! Use our enterprise-grade app distribution capabilities to migrate from [App Center before March 31, 2025](https://saucelabs.com/testfairy-sauce-labs)! 
 
 ## Store and Manage Apps
 
-TestFairy offers robust, enterprise-grade app storage capabilities, enabling companies to securely upload, download, and manage their apps with ease. With TestFairy, you can efficiently organize and deliver the right apps to the right users while maintaining high security standards.
+TestFairy offers robust, enterprise-grade app storage capabilities, enabling companies to securely upload, download, and manage their apps with ease.
+With TestFairy, you can efficiently organize and deliver the right apps to the right users while maintaining high security standards.
+Our default data retention policy is 180 days. Our Enterprise customers can set custom data retention policies, anything between 15-365 days.
 
 For more information, see [Managing Apps through API](/testfairy/api-reference/rest-api/).
 
