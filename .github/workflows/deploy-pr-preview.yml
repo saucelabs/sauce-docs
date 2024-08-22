@@ -40,11 +40,18 @@ jobs:
             build
           key: ${{ runner.os }}-${{ github.sha }}
 
+      - uses: actions/cache@v2
+        id: cache-npm-packages
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
+
       - name: Set preview path
         run: echo "PREVIEW_PATH=sauce-docs/pr-preview/pr-${{ github.event.number }}" >> "$GITHUB_ENV"
     
       - name: Install Dependencies
-        if: steps.cache-build.outputs.cache-hit != 'true' && github.event.action != 'closed' # Skip if the PR was closed
+        if: steps.cache-npm-packages.outputs.cache-hit != 'true' && github.event.action != 'closed' # Skip if the PR was closed
         run: |
           npm install
 

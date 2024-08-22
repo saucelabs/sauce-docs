@@ -53,6 +53,7 @@ jobs:
           npm run build
 
   deploy-staging:
+    needs: build
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/main' }}
 
@@ -81,6 +82,13 @@ jobs:
           path: |
             build
           key: ${{ runner.os }}-${{ github.sha }}
+
+      - uses: actions/cache@v2
+        id: cache-npm-packages
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
 
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
@@ -122,20 +130,27 @@ jobs:
           version: '290.0.1'
           project_id: ${{ secrets.RUN_PROJECT_PROD }}
           service_account_key: ${{ secrets.RUN_SA_KEY_PROD }}
-#      - uses: actions/cache@v2
-#        id: cache-build
-#        with:
-#          path: |
-#            build
-#          key: ${{ runner.os }}-${{ github.sha }}
+      - uses: actions/cache@v2
+        id: cache-build
+        with:
+          path: |
+            build
+          key: ${{ runner.os }}-${{ github.sha }}
+
+      - uses: actions/cache@v2
+        id: cache-npm-packages
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
 
       - name: Install Dependencies
-#         if: steps.cache-build.outputs.cache-hit != 'true'
+        if: steps.cache-build.outputs.cache-hit != 'true'
         run: |
           npm install
 
       - name: Run Build
-#         if: steps.cache-build.outputs.cache-hit != 'true'
+        if: steps.cache-build.outputs.cache-hit != 'true'
         run: |
           npm run build
 
