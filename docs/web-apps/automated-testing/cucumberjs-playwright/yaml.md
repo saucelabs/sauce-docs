@@ -920,10 +920,14 @@ suites:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-When sharding is configured, `saucectl` automatically splits the tests (e.g., by spec or concurrency) so that they can easily run in parallel.
-For sharding by concurrency, `saucectl` splits test files into several groups (the number of groups is determined by the concurrency setting). Each group will then run as an individual job.
+When sharding is enabled, `saucectl` automatically distributes the tests (by spec, concurrency, or scenario) to run in parallel.
 
-Selectable values: `spec` to shard by spec file, `concurrency` to shard by concurrency. Remove this field or leave it empty `""` for no sharding.
+Selectable options:
+- `spec`: Shards by spec file. `saucectl` starts a separate job for each spec file.
+- `concurrency`: Shards by concurrency level. `saucectl` divides test files into multiple groups based on the specified concurrency setting. Each group runs as an individual job.
+- `scenario`: Shards by scenario name. `saucectl` gathers scenario names from the test files and starts a job for each scenario name. Scenarios with the same name are grouped into a single job.
+
+To disable sharding, either remove this field or set it to `""`.
 
 ```yaml
 suites:
