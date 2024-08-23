@@ -920,7 +920,7 @@ suites:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-When sharding is enabled, `saucectl` automatically distributes the tests (by spec, concurrency, or scenario) to run in parallel.
+When sharding is enabled, `saucectl` automatically distributes the tests to run in parallel.
 
 Selectable options:
 - `spec`: Shards by spec file. `saucectl` starts a separate job for each spec file.
