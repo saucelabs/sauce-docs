@@ -5,6 +5,10 @@ sidebar_label: Cross Browser / OS
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import BaselineOverridesWDIO from '../_partials/_baseline-overrides-wdio.md';
+import BaselineOverridesCSharp from '../_partials/_baseline-overrides-csharp.md';
+import BaselineOverridesPython from '../_partials/_baseline-overrides-python.md';
+import BaselineOverridesPythonRobot from '../_partials/_baseline-overrides-python-robot.md';
 
 # Cross Browser / OS Visual Testing
 
@@ -60,7 +64,6 @@ You may want to target a browser height of ~1200px. We'll be using 1920x1200 as 
                     return [window.outerWidth - window.innerWidth + arguments[0],
                           window.outerHeight - window.innerHeight + arguments[1]];
                     `, [1920, 1200]);
-                //
                 await browser.setWindowRect(0, 0, width, height);
             },
         }
@@ -109,14 +112,49 @@ With your new configuration use a binding & test framework of your choice create
 
 ### 3. Configure baseline overrides
 
-With the baselines of your target browser saved gather the keys of the baseline run you wish to compare against. For cross browser / OS this will likely be the following:
+With the baselines of your target browser saved gather the keys of the baseline run you wish to compare against. You can do this in the UI by navigating into a build, selecting a diff, viewing the snapshot meta, and clicking 'Copy as JSON.'
+
+<video style={{width: '100%', height: 'auto'}} autoPlay loop title="Copy baseline hash keys">
+    <source src={useBaseUrl('/img/sauce-visual/snapshot-metadata.webm')}  />
+</video>
+
+For cross browser / OS testing you will likely want the following:
 
 - `operatingSystem`
 - `operatingSystemVersion`
 - `browser`
 - `device`
 
+Use the baseline override feature of your binding (see the documentation for your specific binding on the sidebar). A few examples are included below for reference:
+
+<Tabs
+    defaultValue="wdio"
+    values={[
+        { label: 'WDIO', value: 'wdio' },
+        { label: 'C#', value: 'csharp' },
+        { label: 'Python', value: 'python' },
+        { label: 'Python (Robot)', value: 'robot' },
+    ]}
+>
+    <TabItem value="wdio">
+        <BaselineOverridesWDIO />
+    </TabItem>
+    <TabItem value="csharp">
+        <BaselineOverridesCSharp />
+    </TabItem>
+    <TabItem value="python">
+        <BaselineOverridesPython />
+    </TabItem>
+    <TabItem value="robot">
+        <BaselineOverridesPythonRobot />
+    </TabItem>
+</Tabs>
+
+### 4. Run your build
+
+Run a new build for each browser you wish to compare with and optionally approve the snapshots for each browser to allow them to take over their own baselines.
+
 ## Limitations
 
-- Scrollbars rendered in browser on Windows
-- Browser dimensions need to be the same for the best results
+- Scrollbars on Windows generally take up space which can cause invalid / incorrect viewport dimensions for snapshots. You can use workarounds such as [setting the scrollbar width](https://developer.mozilla.org/docs/Web/CSS/scrollbar-width) to disable them temporarily. We'll do our best to do this automatically while using a Sauce Visual runner.
+- Browser dimensions need to be the same for the best results. While having a uniform width can cover most cases, having a uniform height will ensure that pages which center content (and do not have enough content to scroll) will match enough to be visually diffed.
