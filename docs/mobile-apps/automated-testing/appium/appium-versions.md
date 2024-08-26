@@ -1911,6 +1911,28 @@ The following list of custom Appium plugins are supported:
   </thead>
   <tbody>
     <tr>
+      <td>iOS 17.0</td>
+      <td>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.1.3</code>
+            </a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.1.3</code>
+        </a>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.1.3</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
       <td>iOS 16.2</td>
       <td>
         <ul>
