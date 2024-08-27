@@ -2,7 +2,7 @@
 extends: existence
 message: "Improve SEO and accessibility by rewriting '%s' in the link text."
 level: warning
-scope: link
+scope: raw
 ignorecase: true
 tokens:
   - here
