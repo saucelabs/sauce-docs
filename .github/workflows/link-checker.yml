@@ -1,4 +1,4 @@
-name: Sauce Docs Link Checker
+name: Link Checker
 
 on:
   pull_request:
