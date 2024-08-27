@@ -21,27 +21,35 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v4
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          node-version: 18.x
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
+          python-version: '3.12'
+
       - name: Build and Run Docusaurus Site
         working-directory: ./
         run: |
           npm install && npm run build
           # Expose website
           cd build/ && python3 -m http.server 8000 &
+
       - name: Install Test Dependencies
         run: |
           npm install
+
       - name: Set GitHub Action Job URL
         run: |
           echo $GITHUB_RUN_ID
+
       - name: Start Link Checker Script
         run: |
           npm start -- $GITHUB_RUN_ID
