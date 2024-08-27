@@ -11,7 +11,7 @@ jobs:
       - name: Lint
         uses: errata-ai/vale-action@reviewdog
         with:
-          reporter: github-pr-check
+          reporter: github-pr-review
           level: error
           fail_on_error: false
         env:
