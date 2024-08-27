@@ -16,7 +16,7 @@ Apple allows app distribution for testing on registered devices using an **Ad-Ho
 ## Prerequisites
 
 Before proceeding with the steps below, ensure that you have completed the following:
-1. **Register Test Devices** Register all the test devices on which you intend to install and test your app. You can follow the instructions in the [Registering Your iOS Device UDID Number](https://docs.saucelabs.com/testfairy/testing-an-app/testers/reg-ios-device/) to complete this step.
+1. **Register Test Devices** Register all the test devices on which you intend to install and test your app. You can follow the instructions in the [Registering Your iOS Device UDID Number](https://docs.saucelabs.com/testfairy/testers/reg-ios-device/) to complete this step.
 2. **Create Ad Hoc Provisioning Profile** - Make sure you have created an Ad Hoc provisioning profile on the Apple Developer Portal. This provisioning profile should specify an App ID that matches your app, a list of test devices, and a single distribution certificate.
 3. **Archive Your App** - Create an archive of your app using Xcode. This archive will be used to generate the Ad Hoc IPA file.
 

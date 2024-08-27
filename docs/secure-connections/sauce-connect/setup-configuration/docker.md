@@ -24,14 +24,11 @@ Here are some benefits/use cases:
    ```bash
    $ docker pull saucelabs/sauce-connect:4.9.2
    ```
-    <details><summary>Supported tags</summary>
+    <details>
+    <summary>Supported tags</summary>
       - 4.9.2, 4.9.2-ubuntu-22.04, 4.9.2-alpine-glibc, latest<br/>
       - 4.9.1, 4.9.1-ubuntu-22.04, 4.9.1-alpine-glibc<br/>
       - 4.9.0, 4.9.0-ubuntu-22.04, 4.9.0-alpine-glibc<br/>
-      - 4.8.3, 4.8.3-ubuntu-22.04, 4.8.3-alpine-glibc<br/>
-      - 4.8.2, 4.8.2-ubuntu-22.04, 4.8.2-alpine-glibc<br/>
-      - 4.8.1, 4.8.1-ubuntu-22.04, 4.8.1-alpine-glibc<br/>
-      - 4.8.0, 4.8.0-alpine-glibc<br/>
     </details>
 2. To run the Sauce Connect Proxy Docker image, run the script below.
 

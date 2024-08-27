@@ -2,15 +2,16 @@
 sidebar_label: Nightwatch
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import FullPageJS from '../_partials/_fullpage-js.md'
+import ClippingWDIO from '../_partials/_clipping-webdriver.md';
+import EnvironmentVariables from '../_partials/_environment-variables.md';
+import SelectiveDiffing from '../_partials/_selective-diffing.md';
+import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
+import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # Nightwatch Integration
-
-:::note Important
-Access to this feature is currently limited to Enterprise customers as part of our commitment to providing tailored solutions. We are excited to announce that self-service access is under development and will be released shortly. Stay tuned!
-:::
 
 ## Introduction
 
@@ -167,6 +168,12 @@ More information about the status can be found [here](#sauce-visual-assertion)
 
 ## Advanced usage
 
+### Customizing Your Builds (Environment Variables)
+
+Below are the environment variables available in the Sauce Visual Nightwatch plugin. Keep in mind that the variables defined in Nightwatch configuration have precedence over these.
+
+<EnvironmentVariables />
+
 ### Sauce Visual Assertion
 
 :::note
@@ -219,7 +226,9 @@ Options:
 
 - `buildName`: Name of the build, not used for matching, only for display purposes
 - `project`: Name of the project, used for matching
-- `branch`: Name of branch, used for matching
+- `branch`: Name of the branch, used for matching
+- `defaultBranch`: Name of the default branch, used for matching
+- `captureDom`: Enable DOM capture globally, can also be enabled on a per-screenshot basis
 
 ```ts
 // ...
@@ -234,6 +243,7 @@ module.exports = {
         buildName: 'Nightwatch Visual Demo Test',
         project: 'Nightwatch Project',
         branch: 'main',
+        // captureDom: true,
       },
       // ...
     },
@@ -300,6 +310,58 @@ browser
   .end();
 ```
 
+### Selective Diffing
+
+<SelectiveDiffing />
+
+#### Area-specific configuration
+
+<SelectiveDiffingRegion />
+
+Example:
+```typescript
+  const login = browser.page.login();
+  login
+    .navigate()
+    .waitForElementVisible('@username')
+    .sauceVisualCheck('Home Page', {
+      diffingMethod: DiffingMethod.Balanced,
+      captureDom: true,
+      regions: [
+        {
+          element: login.elements.username.selector,
+          enableOnly: [],
+        },
+        {
+          element: login.elements.password.selector,
+          enableOnly: ['style],
+        },
+      ],
+    });
+```
+
+### Capturing the DOM snapshot
+
+Sauce Visual does not capture dom snapshot by default. It can be changed in `sauceVisualCheck` options.
+
+Example:
+```ts
+browser
+  .url('https://saucedemo.com')
+  .sauceVisualCheck('Home Page', {
+    captureDom: true
+  })
+  .end();
+```
+
+### Full page screenshots
+
+<FullPageJS />
+
+### Clip to an element
+
+<ClippingWDIO />
+
 ### Fail on failures
 
 By default, Sauce Visual will not fail the test if there are any failures during the comparison process. A failure will be logged in the Sauce Labs Visual dashboard, but the test will continue to run.
@@ -325,6 +387,13 @@ module.exports = {
   // ...
 };
 ```
+
+### Skip Execution of Visual Tests
+
+In the event you're running / debugging tests locally and would like to disable the Sauce Visual integration temporarily, you can use the `SAUCE_VISUAL_SKIP` environment variable with any truthy value. When provided, we'll skip build creation, taking snapshots, and all snapshot based assertions will be marked as successful.
+
+Available in `@saucelabs/nightwatch-sauce-visual-service@0.6.0` and later.
+
 
 ## Example
 

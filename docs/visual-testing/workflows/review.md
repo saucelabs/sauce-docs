@@ -54,7 +54,7 @@ or the "Build > Build Details" page.
 Using this option will accept **all** snapshots with the following statuses:
 
 - All snapshots that don't have a baseline image, marked as "For Review" in the "Build Details" page and labeled "New" in the "Diff Review" page.
-- All snapshots that have a baseline image where Sauce Visual detected a difference. They are marked as "For Review" in the "Build Details" page and labeled as "{number} changes" in the "Diff Review" page.
+- All snapshots that have a baseline image where Sauce Visual detected a difference. They are marked as "For Review" in the "Build Details" page and labeled as "\{number} changes" in the "Diff Review" page.
 - All snapshots with "Rejected" status
 - All snapshots with "No changes" status
 
@@ -93,20 +93,20 @@ When for example, the status "For Review" is selected, you can review and accept
 
 ##### Grouping and Filtering
 
-The list of snapshots can be grouped and filtered by using the "Group by and "Filter" dropdowns.
+The list of snapshots can be grouped and filtered by using the "Group By" and "Filter" dropdowns.
 
 <img src={useBaseUrl('/img/sauce-visual/build-details-grouping-filtering.jpg')} alt="Build Details Grouping and Filtering"/>
 
 The grouping can be done by:
 
-| Group by            | Description                                                                                          | Determined by                                             |
-| ------------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| Suite Name          | The Name of the Suite/Class                                                                          | This will automatically be determined by the used binding |
-| Test Name           | The Name of the Test that holds the visual checks                                                    | This will automatically be determined by the used binding |
-| Device              | The Device that has been used to take the snapshot. This can be a Desktop browser or a Mobile Device | This will automatically be determined by the used binding |
-| OS                  | The OS that has been used to take the snapshot.                                                      | This will automatically be determined by the used binding |
-| Storybook (Depth 1) | The name of the Storybook library you used.                                                          | This will automatically be determined by the used binding |
-| Storybook (Depth 2) | The name of the Storybook component that was used to create the snapshot.                            | This will automatically be determined by the used binding |
+| Group by            | Description                                                                                          | Determined by                                              |
+|:--------------------|:-----------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|
+| Suite Name          | The Name of the Suite/Class                                                                          | This will automatically be determined by the used binding  |
+| Test Name           | The Name of the Test that holds the visual checks                                                    | This will automatically be determined by the used binding  |
+| Device              | The Device that has been used to take the snapshot. This can be a Desktop browser or a Mobile Device | This will automatically be determined by the used binding  |
+| OS                  | The OS that has been used to take the snapshot.                                                      | This will automatically be determined by the used binding  |
+| Storybook (Depth 1) | The name of the Storybook library you used.                                                          | This will automatically be determined by the used binding  |
+| Storybook (Depth 2) | The name of the Storybook component that was used to create the snapshot.                            | This will automatically be determined by the used binding  |
 
 #### Diff Review-overlay
 
@@ -124,6 +124,25 @@ There is also an option to reject the snapshot. This will mark the snapshot as "
 
 More information about reviewing and approving diffs can be found in [Subsequent Test Execution Review](#subsequent-test-execution-review).
 
+##### Diff inspection
+
+The Diff Inspection Tool is a valuable utility that helps identify and verify which DOM changes have impacted the UI. It offers a visual representation of the differences between two versions, making it easy to spot modified, added, or removed elements.
+
+It detects changes in:
+- HTML
+- computed CSS styles
+- position
+- dimensions
+
+The `captureDom` option is disabled by default. For information on how to enable this option or for examples, please refer to the integration page.
+
+:::note
+To generate the DOM diff, it is important to ensure that both the baseline and snapshot have accurately captured the DOM.
+Bear in mind that [Bulk Accept](#bulk-accept) will not update baselines for snapshots with `No Changes` status.
+:::
+
+<img src={useBaseUrl('/img/sauce-visual/dom-diff-inspection.jpg')} alt="DOM diff inspection"/>
+
 ## Subsequent Test Execution Review
 
 Every subsequent test execution will generate a new "Visual Build" and will be marked as ["For Review"](#visual-statuses). This is because:
@@ -134,6 +153,57 @@ Every subsequent test execution will generate a new "Visual Build" and will be m
 The process of reviewing and approving the visual differences is the same as described in [Reviewing and Accepting baselines](#reviewing-and-accepting-baselines).
 
 The user interface including the actions you can take are described in [User Interface](#user-interface).
+
+## Enhancing test accuracy
+
+Ignored regions are areas of a user interface excluded from visual checks. 
+These regions often contain dynamic content or non-critical elements that change frequently. 
+Defining ignore regions helps focus on significant UI discrepancies, reducing false positives and enhancing test accuracy.
+
+### Code ignored regions
+- **Definition**: defined only in the code and are linked to specific snapshots.
+- **Initialization**: can be added from the first run.
+- **Specification**: defined by provided dimensions or by elements.
+- **Auto-Adjustment**: automatically adjusted size with the corresponding element.
+- **Auto-Propagation**: populated across all screenshot variations (capabilities).
+
+Check our integration documentation to learn how to get started. 
+
+[Cypress](../../integrations/cypress/#ignored-regions), [C#/.Net](../../integrations/csharp/#ignored-regions),
+[Java](../../integrations/java/#ignored-regions), [Nightwatch](../../integrations/nightwatch/#ignored-regions),
+[WebdriverIO](../../integrations/webdriverio/#ignored-regions), [Python](../../integrations/python/#ignored-regions),
+[Python (Robot Framework)](../../integrations/python-robot-framework/#ignored-regions)
+
+### UI ignored regions
+
+:::note
+We recommend using Code ignored regions over UI ignore regions whenever possible
+:::
+
+- **Definition**: can be defined only on UI. Every modification will create a new baseline and link UI ignored regions to specific baseline.
+- **Initialization**: can be added after the first run and snapshot approval.
+- **Specification**: defined by provided dimensions.
+- **Manual-Adjustment**: defined size should adjust for changes in dimensions, like longer or wrapped text. 
+- **Manual-Propagation**: needs to be manually added to all screenshot variations (capabilities).
+
+#### Defining regions 
+
+Open "Ignored regions" in diff review overlay
+<img src={useBaseUrl('/img/sauce-visual/build-overlay-ignore.jpg')} alt="Open Ignored regions"/>
+
+Click "Add New Region"
+<img src={useBaseUrl('/img/sauce-visual/build-overlay-ignore-add.jpg')} alt="Add Ignored regions"/>
+
+1 - Adjust the region size and position by dragging it with the mouse<br/>
+1a - Optionally, you can change the ignoring types. Before using, please read [Selective Diffing](../../selective-diffing/)<br/>
+2 - Click "Save All"
+<img src={useBaseUrl('/img/sauce-visual/build-overlay-ignore-save.jpg')} alt="Save Ignored regions"/>
+
+Congratulations! You added a new UI ignored region. Now you can continue the review process.
+
+:::note
+Updated UI Ignored Regions will be reflected in both future and older builds.
+:::
 
 ## User Interface
 
@@ -146,6 +216,7 @@ By default, you will see diffs in a Side-by-side view, which lets you easily com
 - Zoom in or out of the snapshots.
 - Zoom to 100% or fit snapshot to the screen.
 - Highlight or hide diffs for easier discovery of the changes.
+- Open Diff Inspector
 
 There are conditional actions you can use, depending on the type of view you have activated:
 
@@ -156,18 +227,20 @@ There are conditional actions you can use, depending on the type of view you hav
 
 The list below shows the available actions and their keyboard shortcuts.
 
-| Icon                                                                                                                      | Action \[Keyboard Shortcut\]                          |
-| ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| <img src={useBaseUrl('/img/sauce-visual/accept.png')} alt="Accept changes icon" width="25"/>                              | Accept changes \[A\] or Undo \[U\]                    |
-| <img src={useBaseUrl('/img/sauce-visual/reject.png')} alt="Reject changes icon" width="25"/>                              | Reject changes \[R\] or Undo \[U\]                    |
+|                                                           Icon                                                            | Action \[Keyboard Shortcut\]                          |
+|:-------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------|
+|               <img src={useBaseUrl('/img/sauce-visual/accept.png')} alt="Accept changes icon" width="25"/>                | Accept changes \[A\] or Undo \[U\]                    |
+|               <img src={useBaseUrl('/img/sauce-visual/reject.png')} alt="Reject changes icon" width="25"/>                | Reject changes \[R\] or Undo \[U\]                    |
 | <img src={useBaseUrl('/img/sauce-visual/cycle-through-diffs.png')} alt="Cycle through snapshots arrows icon" width="50"/> | Cycle through snapshots \[&#x27F5;\] and \[&#x27F6;\] |
-| <img src={useBaseUrl('/img/sauce-visual/zoom-in.png')} alt="Zoom in icon" width="25"/>                                    | Zoom in \[=\]                                         |
-| <img src={useBaseUrl('/img/sauce-visual/zoom-out.png')} alt="Zoom out icon" width="25"/>                                  | Zoom out \[-\]                                        |
-| <img src={useBaseUrl('/img/sauce-visual/fit-to-100.png')} alt="Fit to 100% or to screen icon" width="25"/>                | Zoom to fit \[1\] or Zoom to 100% \[0\]               |
-| <img src={useBaseUrl('/img/sauce-visual/highlight-diffs.png')} alt="Emphasize diffs icon" width="25"/>                    | Emphasize diffs \[E\]                                 |
-| <img src={useBaseUrl('/img/sauce-visual/hide-diffs.png')} alt="Hide diffs icon" width="25"/>                              | Hide diffs \[H\]                                      |
-| <img src={useBaseUrl('/img/sauce-visual/sync-actions.png')} alt="Sync pan and zoom icon" width="25"/>                     | Sync pan and zoom \[P\]                               |
-| <img src={useBaseUrl('/img/sauce-visual/view-current.png')} alt="View current icon" width="25"/>                          | Toggle Baseline and Current snapshots \[T\]           |
+|                  <img src={useBaseUrl('/img/sauce-visual/zoom-in.png')} alt="Zoom in icon" width="25"/>                   | Zoom in \[=\]                                         |
+|                 <img src={useBaseUrl('/img/sauce-visual/zoom-out.png')} alt="Zoom out icon" width="25"/>                  | Zoom out \[-\]                                        |
+|        <img src={useBaseUrl('/img/sauce-visual/fit-to-100.png')} alt="Fit to 100% or to screen icon" width="25"/>         | Zoom to fit \[1\] or Zoom to 100% \[0\]               |
+|          <img src={useBaseUrl('/img/sauce-visual/highlight-diffs.png')} alt="Emphasize diffs icon" width="25"/>           | Emphasize diffs \[E\]                                 |
+|               <img src={useBaseUrl('/img/sauce-visual/hide-diffs.png')} alt="Hide diffs icon" width="25"/>                | Hide diffs \[H\]                                      |
+|           <img src={useBaseUrl('/img/sauce-visual/sync-actions.png')} alt="Sync pan and zoom icon" width="25"/>           | Sync pan and zoom \[P\]                               |
+|             <img src={useBaseUrl('/img/sauce-visual/view-current.png')} alt="View current icon" width="25"/>              | Toggle Baseline and Current snapshots \[T\]           |
+|              <img src={useBaseUrl('/img/sauce-visual/dom-diff.png')} alt="Show Diff Inspector" width="25"/>               | Diff Inspector \[I\]                                  |
+|          <img src={useBaseUrl('/img/sauce-visual/ignored-regions.png')} alt="Show Ignored Regions" width="25"/>           | Ignored Regions \[J\]                                 |
 
 ### Additional Keyboard Actions
 
@@ -179,7 +252,7 @@ The list below shows the available actions and their keyboard shortcuts.
 Visual uses different statuses:
 
 | Status          | Description                                                                                                                                                                                                                                                     |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Accepted        | All detected changes were accepted. This is considered a success state.                                                                                                                                                                                         |
 | No&nbsp;Changes | The snapshots assigned to your build matched your baseline. It is considered a success because your assertions were successful.                                                                                                                                 |
 | Running         | These builds have not been finished yet.                                                                                                                                                                                                                        |

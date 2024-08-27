@@ -1,56 +1,34 @@
 ---
 id: ms-app-center
-title: Microsoft App Center Integration
-sidebar_label: MS App Center
+title: Microsoft App Center Alternative
+sidebar_label: MS App Center Alternative
 ---
 
-This topic describes how to migrate your apps from Microsoft App Center to a Sauce Labs Data Center by creating a [post-build script](https://docs.microsoft.com/en-us/appcenter/build/custom/scripts/#post-build) in Microsoft App Center.
+Migrate now from App Center Mobile App Distribution to Sauce Labs! This is how you can get started with our [Mobile App Distribution and Beta Testing solution](/testfairy). 
 
 ## What You'll Need
 
 - A Sauce Labs account
-- A [Microsoft App Center account](https://docs.microsoft.com/en-us/appcenter/)
-- A [Project Source Code Repository](https://docs.microsoft.com/en-us/appcenter/build/#getting-started)
+- [Mobile Beta Testing access (https://mobile.saucelabs.com/)
 
-## Creating the Post-Build Script
+## Start migrating now from App Center! Upload your apps to TestFairy!
 
-1. Link your project source code to your App Center project.
+Once your account is created and verified, you can upload your app. Click New Upload to upload an app.
 
-2. Create a script called `appcenter-post-build.sh` and add it to your project source code repository.
+We recommend using the Upload API method to enable the Jenkins plugin, Gradle plugin, or Command line uploader like Fastlane. 
 
-3. If you're testing a cross-platform app using a framework such as React Native, add the following environment variables: `APP_NAME` and `BUILD_NAME`. If you're building a single project (iOS or Android), skip to the last step.
+## Distribute App to Testers
 
-```bash
-#!/usr/bin/env bash
-APP_NAME="your.app.name"
-# You can find this name in the build logs of a previous project.
-# For now, we'll create an empty variable and change it based on the
-# project that's using this script.
-BUILD_NAME="your.build.name"
-```
+TestFairy offers enterprise-grade app distribution capabilities, allowing companies to easily and securely distribute the right apps to the right users. The platform allows admins to enforce corporate security policies during testing, and has the capability to automatically update apps to new versions or revoke access to installed apps or users.
 
-4. Set the correct app name based on the app platform.
+For more information, see [Managing Testers](/testfairy/testers/managing-testers/).
 
-```bash reference
-https://github.com/saucelabs/sample-app-mobile/blob/main/appcenter-post-build.sh#L30-L36
-```
+## Security
 
-5. You can optionally set a console message to appear in your App Center logs.
+TestFairy is available as a private cloud or an on-premise installation and can integrate with any SAML single sign-on service. TestFairy is the only platform that provides end-to-end data encryption using your private/public keys, so your data remains private.
 
-```bash reference
-https://github.com/saucelabs/sample-app-mobile/blob/main/appcenter-post-build.sh#L41-L45
-```
-
-6. Add the following command to push to the Sauce Labs Data Center that contains your target real device you want to test on.
-   - **Push to US Data Center**
-     ```bash reference
-     https://github.com/saucelabs/sample-app-mobile/blob/main/appcenter-post-build.sh#L54-L57
-     ```
-   - **Push to EU Data Center**
-   ```bash reference
-   https://github.com/saucelabs/sample-app-mobile/blob/main/appcenter-post-build.sh#L62-L65
-   ```
+For more information, see [End to End Data Encryption](/testfairy/sdk/security/data-encryption/).
 
 :::tip
-Use the [App Storage](/mobile-apps/app-storage) API to retrieve a specific build or obtain information regarding the build that ran during this operation.
+Use the [TestFairy](/testfairy/api-reference/upload-api/) API to upload, or retrieve your mobile applications. 
 :::

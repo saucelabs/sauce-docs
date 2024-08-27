@@ -26,7 +26,7 @@ However, in a multi-environment testing strategy, the ID of the test may not be 
 
 The Fact component can be added to any test, and is meant to add some extra information (facts) about the nature of the execution, and can contain static or dynamic data.
 
-A FACT has an ID (which should be unique within the test), a label (to help the understanding of the fact), and a value (that is a string supporting the template language ${...}).
+A FACT has an ID (which should be unique within the test), a label (to help the understanding of the fact), and a value (that is a string supporting the template language $\{...}).
 
 A specific FACT can be used to control the incident behavior previously discussed.
 

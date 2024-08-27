@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## Debian/Ubuntu
 
-Sauce Connect provides `.deb` package with Systemd service for [Sauce Connect run](/dev/cli/sauce-connect-5/run.md) command. 
+Sauce Connect provides `.deb` package with Systemd service for [Sauce Connect run](/dev/cli/sauce-connect-5/sc_run.md) command.
 Other commands are available as well, but you will need to start them manually.
 
 ### Install package
@@ -24,7 +24,7 @@ defaultValue="ARM64"
     <TabItem value="ARM64">
 
 ```bash
-curl -L -o sauce-connect.deb https://saucelabs.com/downloads/sauce-connect/5.0.0/sauce-connect_5.0.0.linux_arm64.deb
+curl -L -o sauce-connect.deb https://saucelabs.com/downloads/sauce-connect/5.1.3/sauce-connect_5.1.3.linux_arm64.deb
 sudo dpkg -i sauce-connect.deb
 ```
   </TabItem>
@@ -32,57 +32,8 @@ sudo dpkg -i sauce-connect.deb
   <TabItem value="x86-64">
 
 ```bash
-curl -L -o sauce-connect.deb https://saucelabs.com/downloads/sauce-connect/5.0.0/sauce-connect_5.0.0.linux_amd64.deb
+curl -L -o sauce-connect.deb https://saucelabs.com/downloads/sauce-connect/5.1.3/sauce-connect_5.1.3.linux_amd64.deb
 sudo dpkg -i sauce-connect.deb
-```
-
-  </TabItem>
-</Tabs>
-
-### Edit config file 
-
-```bash
-sudo vim /etc/sauce-connect/sauce-connect.yaml
-```
-
-### Enable and start Sauce Connect service
-
-```bash
-sudo systemctl enable sauce-connect
-sudo systemctl start sauce-connect
-```
-
-### Check Sauce Connect Status
-
-```bash
-sudo systemctl status sauce-connect
-```
-
-## RedHat/CentOS/Fedora
-
-Sauce Connect provides `.rpm` package with Systemd service for [Sauce Connect run](/dev/cli/sauce-connect-5/run.md) command.
-Other commands are available as well, but you will need to start them manually.
-
-
-### Install package
-
-<Tabs
-defaultValue="ARM64"
-  values={[
-    {label: 'ARM64', value: 'ARM64'},
-    {label: 'x86-64', value: 'x86-64'},
-  ]}>
-<TabItem value="ARM64">
-
-```bash
-sudo rpm -i https://saucelabs.com/downloads/sauce-connect/5.0.0/sauce-connect-5.0.0_linux.aarch64.rpm
-```
-  </TabItem>
-
-  <TabItem value="x86-64">
-
-```bash
-sudo rpm -i https://saucelabs.com/downloads/sauce-connect/5.0.0/sauce-connect-5.0.0_linux.x86_64.rpm
 ```
 
   </TabItem>
@@ -107,6 +58,67 @@ sudo systemctl start sauce-connect
 sudo systemctl status sauce-connect
 ```
 
+### Access logs
+
+```bash
+journalctl -u sauce-connect
+```
+
+## RedHat/CentOS/Fedora
+
+Sauce Connect provides `.rpm` package with Systemd service for [Sauce Connect run](/dev/cli/sauce-connect-5/sc_run.md) command.
+Other commands are available as well, but you will need to start them manually.
+
+
+### Install package
+
+<Tabs
+defaultValue="ARM64"
+  values={[
+    {label: 'ARM64', value: 'ARM64'},
+    {label: 'x86-64', value: 'x86-64'},
+  ]}>
+<TabItem value="ARM64">
+
+```bash
+sudo rpm -i https://saucelabs.com/downloads/sauce-connect/5.1.3/sauce-connect-5.1.3_linux.aarch64.rpm
+```
+  </TabItem>
+
+  <TabItem value="x86-64">
+
+```bash
+sudo rpm -i https://saucelabs.com/downloads/sauce-connect/5.1.3/sauce-connect-5.1.3_linux.x86_64.rpm
+```
+
+  </TabItem>
+</Tabs>
+
+### Edit config file
+
+```bash
+sudo vim /etc/sauce-connect/sauce-connect.yaml
+```
+
+### Enable and start Sauce Connect service
+
+```bash
+sudo systemctl enable sauce-connect
+sudo systemctl start sauce-connect
+```
+
+### Check Sauce Connect Status
+
+```bash
+sudo systemctl status sauce-connect
+```
+
+### Access logs
+
+```bash
+journalctl -u sauce-connect
+```
+
 ## Generic
 
 ### Unpack the tarball
@@ -120,7 +132,7 @@ defaultValue="ARM64"
 <TabItem value="ARM64">
 
 ```bash
-curl -L -o sauce-connect.tar.gz https://saucelabs.com/downloads/sauce-connect/5.0.0/sauce-connect-5.0.0_linux.aarch64.tar.gz
+curl -L -o sauce-connect.tar.gz https://saucelabs.com/downloads/sauce-connect/5.1.3/sauce-connect-5.1.3_linux.aarch64.tar.gz
 sudo mkdir -p /opt/sauce-connect
 sudo tar -C /opt/sauce-connect -xzf sauce-connect.tar.gz
 ```
@@ -129,7 +141,7 @@ sudo tar -C /opt/sauce-connect -xzf sauce-connect.tar.gz
   <TabItem value="x86-64">
 
 ```bash
-curl -L -o sauce-connect.tar.gz https://saucelabs.com/downloads/sauce-connect/5.0.0/sauce-connect-5.0.0_linux.x86_64.tar.gz
+curl -L -o sauce-connect.tar.gz https://saucelabs.com/downloads/sauce-connect/5.1.3/sauce-connect-5.1.3_linux.x86_64.tar.gz
 sudo mkdir -p /opt/sauce-connect
 sudo tar -C /opt/sauce-connect -xzf sauce-connect.tar.gz
 ```
@@ -144,7 +156,7 @@ sudo tar -C /opt/sauce-connect -xzf sauce-connect.tar.gz
 sudo ln -s /opt/sauce-connect/sc /usr/local/bin/sc
 ```
 
-### Add bash completion 
+### Add bash completion
 
 <Tabs
 defaultValue="User"
@@ -169,9 +181,9 @@ sudo ln -s /opt/sauce-connect/completions/sc.bash /etc/bash_completion.d/sc
   </TabItem>
 </Tabs>
 
-### Edit config file 
+### Edit config file
 
-This step is optional. You can use default configuration or configure Sauce Connect with flags or environment variables. 
+This step is optional. You can use default configuration or configure Sauce Connect with flags or environment variables.
 See [CLI reference](/dev/cli/sauce-connect-5/) for more details.
 
 

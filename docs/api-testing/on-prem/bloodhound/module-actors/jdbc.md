@@ -18,7 +18,7 @@ The module implements multiple actors involving the connection to JDBC databases
 
 An upstream actor that acts as a backend for a route.
 
-::note
+:: note
 The current implementation is **synchronous**
 :::
 

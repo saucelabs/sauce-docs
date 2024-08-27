@@ -97,8 +97,6 @@ x/y coordinates
 
 ## Hybrid Apps / WebView
 
-<p><span className="sauceGreen">iOS Only</span></p>
-
 Utilize [Dev Tools](https://docs.saucelabs.com/web-apps/live-testing/dev-tools/) to validate hybrid or web views within native applications. 
 This feature enables seamless validation of web content integrated within native apps, providing comprehensive testing capabilities for a 
 smooth user experience across different platforms.

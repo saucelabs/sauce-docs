@@ -26,6 +26,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 - macOS 10.13+
 - tvOS 11+
 
+### Privacy manifest
+
+The iOS SDK contains a privacy manifest to declare the types of data accessed on the device. Please refer to this [source document](https://github.com/backtrace-labs/backtrace-cocoa/blob/master/PrivacyInfo.xcprivacy) for the specific types of data collected by the SDK.
+
 ## What You'll Need
 
 - A Backtrace account ([log in](https://backtrace.io/login) or sign up for a [free trial license](https://backtrace.io/sign-up)).
@@ -60,7 +64,8 @@ You can install the SDK with Swift Package Manager (SPM) or CocoaPods. The SPM p
    Add the following to your <code>Podfile</code>:
    <ol>
    <li>Specify <code>use_frameworks!</code>.</li>
-   <li>Add the <code>Backtrace</code> pod:
+   <li>
+       Add the <code>Backtrace</code> pod:
 
 ```
 pod 'Backtrace'
