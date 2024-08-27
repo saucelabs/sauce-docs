@@ -8,6 +8,7 @@ on:
       - opened
       - reopened
       - synchronize
+      - closed
     paths-ignore:
       - '.docsearch/**'
       - 'README.md'
@@ -40,10 +41,12 @@ jobs:
         run: echo "PREVIEW_PATH=sauce-docs/pr-preview/pr-${{ github.event.number }}" >> "$GITHUB_ENV"
 
       - name: Install Dependencies
+        if: github.event.action != 'closed' # Skip if the PR was closed
         run: |
           npm install
 
       - name: Build
+        if: github.event.action != 'closed' # Skip if the PR was closed
         run: |
           npm run build
 
