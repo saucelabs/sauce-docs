@@ -15,6 +15,10 @@ env:
   ALGOLIA_APP_ID: ${{secrets.ALGOLIA_APP_ID}}
   ALGOLIA_KEY: ${{secrets.ALGOLIA_KEY}}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   deploy-staging:
     runs-on: ubuntu-latest
