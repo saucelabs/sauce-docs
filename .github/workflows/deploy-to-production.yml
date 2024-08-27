@@ -12,7 +12,6 @@ on:
   workflow_dispatch:
 
 env:
-  NO_INDEX: true
   ALGOLIA_APP_ID: ${{secrets.ALGOLIA_APP_ID}}
   ALGOLIA_KEY: ${{secrets.ALGOLIA_KEY}}
 
@@ -20,6 +19,8 @@ jobs:
   deploy-staging:
     needs: build
     runs-on: ubuntu-latest
+    env:
+      NO_INDEX: true
 
     steps:
       - uses: actions/checkout@v4
