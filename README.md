@@ -36,8 +36,7 @@ documentation about Sauce Labs and its products and is built on top of
 ## Prerequisites
 
 -   [`git`](https://git-scm.com/downloads)
--   [Node.js](https://nodejs.org/en/download/) `version >= 14.15.0` or above (which can be checked by running node -v). You can use nvm for managing multiple Node versions on a single machine installed
--   [Yarn](https://yarnpkg.com/en/) `version >= 1.22.5` (which can be checked by running yarn version). Yarn is a performant package manager for JavaScript and replaces the npm client. It is not strictly necessary but highly encouraged.
+-   [Node.js](https://nodejs.org/en/download/) `version >= 18` or above (which can be checked by running node -v). You can use nvm for managing multiple Node versions on a single machine installed
 -   [Docker](https://docs.docker.com/get-docker/) (optional if you want to deploy locally via a container or to test before you deploy)
 
 ## Installation
