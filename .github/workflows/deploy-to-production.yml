@@ -40,12 +40,17 @@ jobs:
       - name: Install CRCMOD
         run: pip install crcmod
 
-      - name: Setup Cloud SDK
-        uses: 'google-github-actions/setup-gcloud@v0'
+      - name: Google Cloud Login
+        uses: google-github-actions/auth@v2
         with:
-          version: '290.0.1'
+          credentials_json: '${{ secrets.RUN_SA_KEY }}'
+
+      - name: Setup Google Cloud SDK
+        uses: 'google-github-actions/setup-gcloud@v2'
+        with:
           project_id: ${{ secrets.RUN_PROJECT }}
-          service_account_key: ${{ secrets.RUN_SA_KEY }}
+        env:
+          CLOUDSDK_PYTHON: ${{ env.pythonLocation }}/python
 
       - name: Install Dependencies
         run: |
@@ -84,12 +89,17 @@ jobs:
       - name: Install CRCMOD
         run: pip install crcmod
 
-      - name: Set up Cloud SDK
-        uses: 'google-github-actions/setup-gcloud@v0'
+      - name: Google Cloud Login
+        uses: google-github-actions/auth@v2
         with:
-          version: '290.0.1'
+          credentials_json: '${{ secrets.RUN_SA_KEY_PROD }}'
+
+      - name: Setup Google Cloud SDK
+        uses: 'google-github-actions/setup-gcloud@v2'
+        with:
           project_id: ${{ secrets.RUN_PROJECT_PROD }}
-          service_account_key: ${{ secrets.RUN_SA_KEY_PROD }}
+        env:
+          CLOUDSDK_PYTHON: ${{ env.pythonLocation }}/python
 
       - name: Install Dependencies
         run: |
