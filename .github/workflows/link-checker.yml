@@ -13,10 +13,6 @@ env:
   SLACK_LINK: ${{secrets.SLACK_LINK}}
   GITLAB_TOKEN: ${{secrets.GITLAB_TOKEN}}
 
-defaults:
-  run:
-    working-directory: tests/sauce-docs-checker
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -35,21 +31,25 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Build and Run Docusaurus Site
-        working-directory: ./
-        run: |
-          npm install && npm run build
-          # Expose website
-          cd build/ && python3 -m http.server 8000 &
-
-      - name: Install Test Dependencies
+      - name: Install Dependencies
         run: |
           npm install
 
-      - name: Set GitHub Action Job URL
+      - name: Build
         run: |
-          echo $GITHUB_RUN_ID
+          npm run build
 
-      - name: Start Link Checker Script
+      - name: Serve Docs
+        working-directory: build
+        run: |
+          python3 -m http.server 8000 &
+
+      - name: Install Test Dependencies
+        working-directory: tests/sauce-docs-checker
+        run: |
+          npm install
+
+      - name: Check Links
+        working-directory: tests/sauce-docs-checker
         run: |
           npm start -- $GITHUB_RUN_ID
