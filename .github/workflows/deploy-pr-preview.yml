@@ -8,7 +8,7 @@ on:
       - opened
       - reopened
       - synchronize
-      - closed      
+      - closed
     paths-ignore:
       - '.docsearch/**'
       - 'README.md'
@@ -26,46 +26,46 @@ jobs:
   deploy-pr-preview:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        name: Checkout Repository
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
-        name: Setup Node.js
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 18.x
 
-      - uses: actions/cache@v4
-        name: Cache NPM Packages
+      - name: Cache NPM Packages
+        uses: actions/cache@v4
         id: cache-npm-packages
         with:
           path: |
             **/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
 
-      - uses: actions/cache@v4
-        name: Cache Build
+      - name: Cache Build
+        uses: actions/cache@v4
         id: cache-build
         with:
           path: |
             build
           key: ${{ runner.os }}-${{ github.sha }}
 
-
-      - name: Set preview path
+      - name: Set Preview Path
         run: echo "PREVIEW_PATH=sauce-docs/pr-preview/pr-${{ github.event.number }}" >> "$GITHUB_ENV"
-    
+
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true' && github.event.action != 'closed' # Skip if the PR was closed
         run: |
           npm install
 
-      - name: Run Build
+      - name: Build
         if: steps.cache-build.outputs.cache-hit != 'true' && github.event.action != 'closed' # Skip if the PR was closed
         run: |
           npm run build
 
-      - name: Deploy PR preview
+      - name: Deploy PR
         uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: ./build/
