@@ -10,7 +10,6 @@ on:
       - synchronize
       - closed      
     paths-ignore:
-      - '.github/**'
       - '.docsearch/**'
       - 'README.md'
       - '.gitpod.yml'
