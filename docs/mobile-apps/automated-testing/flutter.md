@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Are your iOS and Android apps built with Flutter? Sauce Labs supports testing Flutter apps on real devices.  
+Are your iOS and Android apps built with Flutter? Sauce Labs supports testing Flutter apps on Real Devices.  
 
 [Flutter](https://flutter.dev/) is a popular open-source framework created by Google to build natively compiled 
 applications for mobile, web, and desktop from a single codebase. You can run your tests on Sauce Labs to benefit 
@@ -26,19 +26,21 @@ from speed, parallelization, failure analysis, simple setup, and more.
 
 ## Choosing a Flutter Integration Driver for Testing
 
-There are two drivers that you can use to test your Flutter app on Sauce Labs: Native Flutter Integration Driver or
-Appium Flutter Integration Driver. 
+There are two drivers that you can use to test your Flutter app on Sauce Labs: 
+[Native Flutter Integration Driver Devices - Android](/mobile-apps/automated-testing/flutter/flutter-integration-testing-android) 
+or [Appium Flutter Integration Driver](/mobile-apps/automated-testing/appium/appium-flutter-integration-driver). 
 
 ### Appium Flutter Integration Driver
 
-With the Appium Flutter Integration Driver, you can write tests in for both Android and iOS devices using the Appium
-framework. The Appium Flutter Integration Driver is a wrapper around the Appium framework that allows you to write tests
-in languages other than Dart, such as Java, Python, Ruby, and more.
+With the [Appium Flutter Integration Driver](/mobile-apps/automated-testing/appium/appium-flutter-integration-driver), 
+you can write tests in for both Android and iOS devices using the Appium framework. The Appium Flutter Integration 
+Driver is a wrapper around the Appium framework that allows you to write tests in languages other than Dart, such as 
+Java, Python, Ruby, and more.
 
 ### Native Flutter Integration Driver
 
-With the Native Flutter Integration Driver, you can write tests in Dart and run them on Sauce Labs. Only Android is 
-currently supported.
+With the [Native Flutter Integration Driver Devices](/mobile-apps/automated-testing/flutter/flutter-integration-testing-android), 
+you can write tests in Dart and run them on Sauce Labs. Only Android is currently supported.
 
 :::info iOS Support
 
