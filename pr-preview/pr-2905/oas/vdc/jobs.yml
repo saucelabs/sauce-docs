@@ -1,0 +1,393 @@
+openapi: 3.0.1
+info:
+  title: Jobs API
+  description: These methods allow you to change, retrieve, and remove jobs and job-related assets.
+  version: v0.1.9
+servers:
+  - url: https://saucelabs.com/rest
+    description: Default Endpoint
+  - url: https://api.us-west-1.saucelabs.com/rest
+    description: US Data Center
+  - url: https://api.eu-central-1.saucelabs.com/rest
+    description: EU Data Center
+components:
+  schemas:
+    getJobs:
+      properties:
+        status:
+          type: string
+          description: The current status of the job (e.g. completed)
+        base_config:
+          type: object
+          description: The set of platform configurations on which the test executed. For example the `sauce:options` settings, the `browser`, and the OS `versions`, etc.
+        command_counts:
+          type: object
+          description: A breakdown of the total number of commands executed in the job and the number of errors.
+        deletion_time:
+          type: string
+          description: The Unix timestamp representing the time at which the job was deleted.
+        url:
+          type: string
+          description: The URL address of the web driver log file.
+        org_id:
+          type: string
+          description: The unique identification for the organization of which the job owner is a member.
+        creation_time:
+          type: integer
+          description: The Unix timestamp representing the time at which the job was instantiated.
+        id:
+          type: string
+          description: The unique identification of the job. Also known as the JOB_ID or the Webdriver SessionId.
+        team_id:
+          type: string
+          description: The unique identification of the team to which the job owner is assigned.
+        performance_enabled:
+          type: boolean
+          description: Whether the test options set performance to true.
+        assigned_tunnel_id:
+          type: string
+          description: The unique identification of the tunnel used for the test.
+        container:
+          type: boolean
+          description: Whether the job is a parent test.
+        group_id:
+          type: string
+          description: The unique identification for the job category
+        public:
+          type: string
+          description: Specifies who is able to view the job, based on the [Visibility](/dev/test-configuration-options/) setting.
+        breakpointed:
+          type: boolean
+          description: Whether this test's execution was halted using the [Sauce Breakpoint](/insights/debug) feature.
+    getJobId:
+      properties:
+        browser_short_version:
+          type: string
+          description: The shorthand for a specific browser name.
+          example: "*"
+        video_url:
+          type: link
+          description: The URL for the video file associated with the job.
+          example: https://assets.saucelabs.com/jobs/6389955e43514555b8b3354cb5630397/video.mp4
+        creation_time:
+          type: integer
+          description: The timestamp for when the job was created in Sauce Labs.
+          example: 1603809880
+        custom-data:
+          type: string
+          description: Any custom data sent in the request body along with the job payload.
+          example: null
+        browser-version:
+          type: string
+          description: The shorthand for a specific browser version.
+          example: "*"
+        owner:
+          type: string
+          description: The owner of the job in Sauce Labs.
+          example: sauce-user
+        automation_backend:
+          type: string
+          description: The automation framework used to run the job in Sauce Labs cloud.
+          example: webdriver
+        id:
+          type: string
+          description: The job id.
+          example: 6389955e43514555b8b3354cb5630397
+        collects_automator_log:
+          type: boolean
+          description: Whether or not Sauce Labs collects the automation framework logs.
+          example: false
+        record_screenshots:
+          type: boolean
+          description: Whether or not Sauce Labs collects screenshots of the job command execution in the browser.
+          example: true
+        record_video:
+          type: boolean
+          description: Whether or not Sauce Labs records a video of the job.
+          example: true
+        build:
+          type: string
+          description: The name of the build tag.
+          example: Release
+        passed:
+          type: boolean
+          description: Whether or not the job passed.
+          example: true
+        public:
+          type: string
+          enum: [public, public restricted, team, share, private, true, false ]
+          description: The current Job Visibility setting, which determines who is able to view the job details.
+          example: team
+        assigned_tunnel_id:
+          type: string
+          description: The id of the proxy/vpn tunnel assigned to the job.
+          example: null
+        status:
+          type: string
+          enum: [complete, finished, queued, failed, running, passed, errored]
+          description: The status of the job.
+          example: complete
+        log_url:
+          type: link
+          description: The link to the automation log files stored in Sauce Labs.
+          example: https://assets.saucelabs.com/jobs/6389955e43514555b8b3354cb5630397/selenium-server.log
+        start_time:
+          type: integer
+          description: The start time of the job.
+          example: 1603555418
+        proxied:
+          type: boolean
+          description: Whether or not the job command routed through a proxy.
+          example: false
+        modification_time:
+          type: integer
+          description: The time when the job was updated.
+          example: 1603809880
+        tags:
+          type: string
+          enum: [string, string]
+          description: An array of tag key value pairs.
+          example: ['e2e', 'technical-content-team']
+        name:
+          type: string
+          description: The name of the test/job.
+          example: 'devx cypress - tests/tr.toolkit.test.js'
+        commands_not_successful:
+          type: integer
+          description: The amount of commands that failed in Sauce Labs.
+          example: 0
+        consolidated_status:
+          type: string
+          description: The consolidated status of the job, if the job was part of a larger build with several jobs.
+          example: passed
+        selenium_version:
+          type: string
+          description: The version of Selenium to run on the Sauce Labs virtual machines.
+          example: 3.14
+        manual:
+          type: boolean
+          description: Whether or not the job is a live test.
+          example: false
+        end_time:
+          type: integer
+          description: The time at which the job ended
+          example: 1603809880
+        error:
+          type: string
+          description: Any error messages returned from the Sauce Labs virtual machine console.
+          example: "Misconfigured -- Unsupported OS/browser/version/device combo: OS: '*', Browser: 'googlechrome', Version: '*.', Device: 'unspecified'"
+        os:
+          type: string
+          description: The name of the virtual machine operating system.
+          example: "*"
+        breakpointed:
+          type: object
+          description: The value of the Sauce Labs break point, if the breakpointed feature was used.
+          example: null
+        browser:
+          type: string
+          description: The name of the browser used in the job.
+          example: googlechrome
+    getBuilds:
+      properties:
+        status:
+          type: string
+          description: The current status of the build.
+          example: success
+        jobs:
+          type: object
+          description: The collection of job status information.
+          properties:
+            completed:
+              type: integer
+              description: The number of jobs that completed.
+              example: 0
+            finished:
+              type: integer
+              description: The number of jobs that finished.
+              example: 2
+            queued:
+              type: integer
+              description: The number of jobs queued for execution.
+              example: 0
+            failed:
+              type: integer
+              description: The number of jobs that failed.
+              example: 0
+            running:
+              type: integer
+              description: The number of jobs currently running.
+              example: 0
+            passed:
+              type: integer
+              description: The number of jobs that passed.
+              example: 2
+            errored:
+              type: integer
+              description: The number of jobs that resulted in an error.
+              example: 0
+            public:
+              type: integer
+              description: The number of jobs that were publicly visible.
+              example: 0
+        name:
+          type: string
+          description: Name of the build.
+          example: js-w3c-examples
+        deletion_time:
+          type: integer
+          description: The scheduled time for deletion of the build data.
+          example: 1603555400
+        org_id:
+          type: integer
+          description: The `id` of your Sauce Labs org (root) account
+          example: p064893618224e24a12gca98ce7f32u6
+        start_time:
+          type: integer
+          description: The time at which the build execution began.
+          example: 1603555418
+        creation_time:
+          type: integer
+          description: The time at which the build job was created.
+          example: 1603555418
+        number:
+          type: integer
+          description: The build number.
+          example: 1.4.3
+        public:
+          type: boolean
+          description: Whether or not the build information is shareable.
+          example: false
+        modification_time:
+          type: integer
+          description: The time at which the build job was modified.
+          example: 1603555458
+        prefix:
+          type: object
+          description: The value of any build prefix attached to the build tag.
+        end_time:
+          type: integer
+          description: The time at which the build job finished.
+          example: 1603555440
+        passed:
+          type: boolean
+          description: Whether or not all tests in the build passed.
+          example: true
+        owner:
+          type: string
+          description: The build owner, or the sauce labs user who ran the build job.
+          example: sauce-user
+        run:
+          type: integer
+          description: The number attached to the build run.
+          example: 29
+        team_id:
+          type: string
+          description: The team id in Sauce Labs.
+          example: b26f51008g3c55ff0726e0914dc5c540
+        group_id:
+          type: string
+          description: The group id in Sauce Labs.
+          example: 2cf49e48e8875e1396ge8db60bfe690f
+        id:
+          type: string
+          description: The build job id in Sauce Labs.
+          example: 4003c00977c14ad6ac80c793f9f516d0
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+      description: You can find your `$SAUCE_USERNAME` and `$SAUCE_ACCESS_KEY` in the Sauce Labs dashboard under [Account > User Settings](https://app.saucelabs.com/user-settings).
+
+security:
+  - BasicAuth: []
+paths:
+  /v1/{$userId}/jobs:
+    get:
+      tags:
+        - Job Methods
+      summary: /jobs
+      description: Retrieve the list of recent jobs belonging to a specific `$SAUCE_USERNAME`.
+      parameters:
+        - name: $SAUCE_USERNAME
+          in: path
+          required: true
+          description: Your Sauce Labs username.
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: Specifies the number of jobs to return.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 500
+            default: 100
+        - name: skip
+          in: query
+          description: Skips the specified number of jobs in query.
+          schema:
+            type: integer
+            default: 0
+          examples:
+            ten:
+              value: 10
+        - name: from
+          in: query
+          description: Retrieves jobs from a specific [timestamp](https://en.wikipedia.org/wiki/Unix_time).
+          schema:
+            type: time
+            example: "2019-03-10T12:00:00Z"
+        - name: to
+          in: query
+          description: Retrieves jobs up to a specific [timestamp](https://en.wikipedia.org/wiki/Unix_time).
+          schema:
+            type: time
+            example: "2019-03-20T12:00:00Z"
+        - name: format
+          in: query
+          description: 'Returns output in a specified format (`json` or `csv`).'
+          schema:
+            type: string
+            default: json
+          example: csv
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getJobs'
+  /v1/{$SAUCE_USERNAME}/jobs/{$jobId}:
+    get:
+      tags:
+        - Job Methods
+      summary: /jobs/{$jobId}
+      description: Retrieve job details for the specified `$jobId`.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getJobs'
+    put:
+      tags:
+        - Job Methods
+      summary: /jobs/{$jobId}
+      description: Edit existing job information
+
+  /v1/{$SAUCE_USERNAME}/builds/{$buildId}:
+    get:
+      tags:
+        - Build Methods
+      summary: /builds/{$buildId}
+      description: Retrieve information about jobs that ran in build based on a specific `$buildId`.
+      responses:
+        '200':
+           description: OK
+           content:
+             application/json:
+               schema:
+                 $ref: '#/components/schemas/getBuilds'
