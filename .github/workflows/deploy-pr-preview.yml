@@ -36,6 +36,7 @@ jobs:
           node-version: 18.x
 
       - uses: actions/cache@v4
+        if: github.event.action != 'closed' # Skip if the PR was closed
         name: Cache NPM Packages
         id: cache-npm-packages
         with:
@@ -44,6 +45,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
 
       - uses: actions/cache@v4
+        if: github.event.action != 'closed' # Skip if the PR was closed
         name: Cache Build
         id: cache-build
         with:
