@@ -1,7 +1,6 @@
 name: Deploy to Production
 
 on:
-  pull_request:
   push:
     branches:
       - main
@@ -21,14 +20,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        name: Checkout Repository
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
+        name: Setup Node.js
         with:
           node-version: 18.x
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
+        name: Cache NPM Packages
         id: cache-npm-packages
         with:
           path: |
@@ -40,7 +42,8 @@ jobs:
         run: |
           npm install
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
+        name: Cache Build
         id: cache-build
         with:
           path: |
@@ -58,10 +61,12 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+        name: Checkout Repository
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v4
+        name: Setup Node.js
         with:
           node-version: 18.x
       - name: Install Python
@@ -69,6 +74,7 @@ jobs:
         with:
           python-version: 3.7
       - run: pip install crcmod
+        name: Install crcmod
       - name: Set up Cloud SDK
         uses: 'google-github-actions/setup-gcloud@v0'
         with:
@@ -76,19 +82,21 @@ jobs:
           project_id: ${{ secrets.RUN_PROJECT }}
           service_account_key: ${{ secrets.RUN_SA_KEY }}
 
-      - uses: actions/cache@v2
-        id: cache-build
-        with:
-          path: |
-            build
-          key: ${{ runner.os }}-${{ github.sha }}
-
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
+        name: Cache NPM Packages
         id: cache-npm-packages
         with:
           path: |
             **/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
+
+      - uses: actions/cache@v4
+        name: Cache Build
+        id: cache-build
+        with:
+          path: |
+            build
+          key: ${{ runner.os }}-${{ github.sha }}
 
       - name: Install Dependencies
         if: steps.cache-npm-packages.outputs.cache-hit != 'true'
@@ -113,10 +121,12 @@ jobs:
       NO_INDEX: false
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+        name: Checkout Repository
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v4
+        name: Setup Node.js
         with:
           node-version: 18.x
       - name: Install Python
@@ -124,25 +134,29 @@ jobs:
         with:
           python-version: 3.7
       - run: pip install crcmod
+        name: Install crcmod
       - name: Set up Cloud SDK
         uses: 'google-github-actions/setup-gcloud@v0'
         with:
           version: '290.0.1'
           project_id: ${{ secrets.RUN_PROJECT_PROD }}
           service_account_key: ${{ secrets.RUN_SA_KEY_PROD }}
-      - uses: actions/cache@v2
-        id: cache-build
-        with:
-          path: |
-            build
-          key: ${{ runner.os }}-${{ github.sha }}
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
+        name: Cache NPM Packages
         id: cache-npm-packages
         with:
           path: |
             **/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
+
+      - uses: actions/cache@v4
+        name: Cache Build
+        id: cache-build
+        with:
+          path: |
+            build
+          key: ${{ runner.os }}-${{ github.sha }}
 
       - name: Install Dependencies
         if: steps.cache-build.outputs.cache-hit != 'true'
