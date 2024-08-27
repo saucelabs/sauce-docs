@@ -15,7 +15,9 @@
     <img src="https://app.saucelabs.com/browser-matrix/saucy-docs.svg?auth=495eb49379a16a1e211eb5d27444fa76" alt= "Sauce Labs Browser Matrix"/>
 </p>
 
-Welcome to the `sauce-docs` repository. This website contains all technical documentation about Sauce Labs and its products. This website uses [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
+Welcome to the `sauce-docs` repository. This website contains all technical
+documentation about Sauce Labs and its products and is built on top of
+[Docusaurus](https://docusaurus.io/), a modern static website generator.
 
 **Table of Contents**
 
