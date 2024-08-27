@@ -20,7 +20,6 @@ jobs:
   deploy-staging:
     needs: build
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/main' }}
 
     steps:
       - uses: actions/checkout@v4
@@ -78,7 +77,6 @@ jobs:
   deploy-production:
     needs: deploy-staging
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/main' }}
     env:
       NO_INDEX: false
 
