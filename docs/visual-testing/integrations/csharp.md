@@ -441,6 +441,20 @@ await VisualClient.VisualCheck("C# full page config",
 
 <FullPageLimit />
 
+### Clip to an element
+
+<ClippingDescription />
+
+Example:
+
+```csharp
+await VisualClient.VisualCheck("Visible Sale Banner",
+    new VisualCheckOptions()
+    {
+        ClipSelector = ".your-css-selector",
+    });
+```
+
 ## Examples
 
 Two examples are available:
