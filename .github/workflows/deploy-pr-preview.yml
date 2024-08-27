@@ -34,15 +34,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18.x
-
-      - name: Cache NPM Packages
-        uses: actions/cache@v4
-        id: cache-npm-packages
-        with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
+          node-version-file: '.nvmrc'
+          cache: 'npm'
 
       - name: Cache Build
         uses: actions/cache@v4
