@@ -67,20 +67,23 @@ jobs:
       NO_INDEX: false
 
     steps:
-      - uses: actions/checkout@v4
-        name: Checkout Repository
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v4
-        name: Setup Node.js
-        with:
-          node-version: 18.x
-      - name: Install Python
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Setup Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.7
-      - run: pip install crcmod
-        name: Install crcmod
+
+      - name: Install CRCMOD
+        run: pip install crcmod
+
       - name: Set up Cloud SDK
         uses: 'google-github-actions/setup-gcloud@v0'
         with:
@@ -88,33 +91,15 @@ jobs:
           project_id: ${{ secrets.RUN_PROJECT_PROD }}
           service_account_key: ${{ secrets.RUN_SA_KEY_PROD }}
 
-      - uses: actions/cache@v4
-        name: Cache NPM Packages
-        id: cache-npm-packages
-        with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
-
-      - uses: actions/cache@v4
-        name: Cache Build
-        id: cache-build
-        with:
-          path: |
-            build
-          key: ${{ runner.os }}-${{ github.sha }}
-
       - name: Install Dependencies
-        if: steps.cache-build.outputs.cache-hit != 'true'
         run: |
           npm install
 
-      - name: Run Build
-        if: steps.cache-build.outputs.cache-hit != 'true'
+      - name: Build
         run: |
           npm run build
 
-      - name: Deploy to Bucket
+      - name: Deploy
+        working-directory: build
         run: |-
-          cd build
           gsutil -m rsync -R -d . ${{ secrets.GCS_PROD_BUCKET }}
