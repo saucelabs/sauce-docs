@@ -15,6 +15,9 @@ env:
   ALGOLIA_APP_ID: ${{secrets.ALGOLIA_APP_ID}}
   ALGOLIA_KEY: ${{secrets.ALGOLIA_KEY}}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+
 jobs:
   deploy-staging:
     runs-on: ubuntu-latest
@@ -24,6 +27,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # For correct author and date information on pages.
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -70,6 +75,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # For correct author and date information on pages.
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
