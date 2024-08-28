@@ -7,7 +7,6 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 const handleDragStart = (e) => e.preventDefault();
 
 const items = [
-    // eslint-disable-next-line react/jsx-key
     <div className='quickstart' onDragStart={handleDragStart}>
         <a
             href='/mobile-apps/automated-testing/appium/quickstart/'
