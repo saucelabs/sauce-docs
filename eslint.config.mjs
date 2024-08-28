@@ -13,7 +13,7 @@ export default [
         ...react.configs.flat.recommended,
     },
     {
-        ignores: ['.docusaurus/', '**/*tests/', '**/*webdriver/', '**/*build/'],
+        ignores: ['.docusaurus/', '**/*tests/', '**/*build/'],
     },
     {
         languageOptions: {
