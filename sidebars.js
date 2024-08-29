@@ -1138,7 +1138,7 @@ module.exports = {
         },
         {
             type: 'category',
-            label: 'App Distribution(TestFairy)',
+            label: 'App Distribution (TestFairy)',
             collapsed: true,
             items: [
                 'testfairy/testfairy',
