@@ -35,6 +35,11 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'npm'
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
       - name: Google Cloud Login
         uses: google-github-actions/auth@v2
         with:
