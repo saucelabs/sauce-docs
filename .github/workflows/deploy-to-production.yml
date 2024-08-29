@@ -1,7 +1,6 @@
 name: Deploy to Production
 
 on:
-  pull_request:
   push:
     branches:
       - main
@@ -13,148 +12,104 @@ on:
   workflow_dispatch:
 
 env:
-  NO_INDEX: true
   ALGOLIA_APP_ID: ${{secrets.ALGOLIA_APP_ID}}
   ALGOLIA_KEY: ${{secrets.ALGOLIA_KEY}}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
-
-      - uses: actions/cache@v2
-        id: cache-npm-packages
-        with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
-
-      - name: Install Dependencies
-        if: steps.cache-npm-packages.outputs.cache-hit != 'true'
-        run: |
-          npm install
-
-      - uses: actions/cache@v2
-        id: cache-build
-        with:
-          path: |
-            build
-          key: ${{ runner.os }}-${{ github.sha }}
-
-      - name: Run Build
-        if: steps.cache-build.outputs.cache-hit != 'true'
-        run: |
-          npm run build
-
   deploy-staging:
-    needs: build
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/main' }}
+    env:
+      NO_INDEX: true
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v1
+          fetch-depth: 0 # For correct author and date information on pages.
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
-      - name: Install Python
-        uses: actions/setup-python@v2
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.7
-      - run: pip install crcmod
-      - name: Set up Cloud SDK
-        uses: 'google-github-actions/setup-gcloud@v0'
+          python-version: '3.12'
+
+      - name: Google Cloud Login
+        uses: google-github-actions/auth@v2
         with:
-          version: '290.0.1'
+          credentials_json: '${{ secrets.RUN_SA_KEY }}'
+
+      - name: Setup Google Cloud SDK
+        uses: 'google-github-actions/setup-gcloud@v2'
+        with:
           project_id: ${{ secrets.RUN_PROJECT }}
-          service_account_key: ${{ secrets.RUN_SA_KEY }}
-
-      - uses: actions/cache@v2
-        id: cache-build
-        with:
-          path: |
-            build
-          key: ${{ runner.os }}-${{ github.sha }}
-
-      - uses: actions/cache@v2
-        id: cache-npm-packages
-        with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
+        env:
+          CLOUDSDK_PYTHON: ${{ env.pythonLocation }}/python
 
       - name: Install Dependencies
-        if: steps.cache-npm-packages.outputs.cache-hit != 'true'
         run: |
           npm install
 
-      - name: Run Build
-        if: steps.cache-build.outputs.cache-hit != 'true'
+      - name: Build
         run: |
           npm run build
 
-      - name: Deploy to Bucket
+      - name: Deploy
+        working-directory: build
         run: |-
-          cd build
           gsutil -m rsync -R -d . ${{ secrets.GCS_BUCKET }}
 
   deploy-production:
     needs: deploy-staging
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/main' }}
     env:
       NO_INDEX: false
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 18.x
-      - name: Install Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.7
-      - run: pip install crcmod
-      - name: Set up Cloud SDK
-        uses: 'google-github-actions/setup-gcloud@v0'
-        with:
-          version: '290.0.1'
-          project_id: ${{ secrets.RUN_PROJECT_PROD }}
-          service_account_key: ${{ secrets.RUN_SA_KEY_PROD }}
-      - uses: actions/cache@v2
-        id: cache-build
-        with:
-          path: |
-            build
-          key: ${{ runner.os }}-${{ github.sha }}
+          fetch-depth: 0 # For correct author and date information on pages.
 
-      - uses: actions/cache@v2
-        id: cache-npm-packages
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Google Cloud Login
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{ secrets.RUN_SA_KEY_PROD }}'
+
+      - name: Setup Google Cloud SDK
+        uses: 'google-github-actions/setup-gcloud@v2'
+        with:
+          project_id: ${{ secrets.RUN_PROJECT_PROD }}
+        env:
+          CLOUDSDK_PYTHON: ${{ env.pythonLocation }}/python
 
       - name: Install Dependencies
-        if: steps.cache-build.outputs.cache-hit != 'true'
         run: |
           npm install
 
-      - name: Run Build
-        if: steps.cache-build.outputs.cache-hit != 'true'
+      - name: Build
         run: |
           npm run build
 
-      - name: Deploy to Bucket
+      - name: Deploy
+        working-directory: build
         run: |-
-          cd build
           gsutil -m rsync -R -d . ${{ secrets.GCS_PROD_BUCKET }}

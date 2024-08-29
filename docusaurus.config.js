@@ -1,8 +1,8 @@
 const unwrapJsx = require('./src/plugins/unwrap-jsx');
 
 // Enabling PR previews
-let siteBaseUrl = "/"
-if (process.env.PREVIEW_PATH) siteBaseUrl += process.env.PREVIEW_PATH
+let siteBaseUrl = '/';
+if (process.env.PREVIEW_PATH) siteBaseUrl += process.env.PREVIEW_PATH;
 
 const docusaurusConfig = {
     title: 'Sauce Labs Documentation',

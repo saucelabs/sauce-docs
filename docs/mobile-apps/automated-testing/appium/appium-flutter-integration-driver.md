@@ -17,13 +17,11 @@ you can [upload](#uploading-your-flutter-app-to-sauce-labs) it to Sauce Labs, [C
 
 ## Native Flutter Integration Driver vs Appium Flutter Integration Driver
 
-| Use Cases                                                                                                                           | Native Flutter Driver | Appium Flutter Integration Driver |
-| ----------------------------------------------------------------------------------------------------------------------------------- | --------------------- | --------------------------------- |
-| Writing tests in languages other than Dart                                                                                          | ❌                    | ✔️                                |
-| Running integration tests for Flutter apps with embedded webview or native view, or existing native apps with embedded Flutter view | ❌                    | ✔️                                |
-| Running tests on multiple devices simultaneously                                                                                    | ❌                    | ✔️                                |
-| Running integration tests on device farms that offer Appium support                                                                 | ❌                    | ✔️                                |
-| App interactions beyond Flutter’s contextuality (e.g., sending an OTP from a message application)                                   | ❌                    | ✔️                                |
+The Appium Flutter Integration Driver is a wrapper around the Appium framework and uses the Flutter Integration Test SDK
+to enable you to write tests in languages other than Dart, such as Java, Python, Ruby, and more. The driver is designed to
+run integration tests for Flutter apps with embedded WebViews or native views, or existing native apps with embedded Flutter views.
+
+For more information, see [Choosing a Flutter Integration Driver for Testing](/mobile-apps/automated-testing/flutter/#choosing-a-flutter-integration-driver-for-testing).
 
 ## Differences from Appium Flutter Driver
 

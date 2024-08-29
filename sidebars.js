@@ -1433,6 +1433,7 @@ module.exports = {
                             label: 'Flutter',
                             collapsed: true,
                             items: [
+                                'mobile-apps/automated-testing/flutter',
                                 'mobile-apps/automated-testing/flutter/flutter-integration-testing-android',
                             ],
                         },
