@@ -46,7 +46,7 @@ jobs:
           credentials_json: '${{ secrets.RUN_SA_KEY_DEV }}'
 
       - name: Setup Google Cloud SDK
-        uses: 'google-github-actions/setup-gcloud@v2'
+        uses: google-github-actions/setup-gcloud@v2
         with:
           project_id: ${{ secrets.RUN_PROJECT_DEV }}
         env:
@@ -65,13 +65,14 @@ jobs:
         run: |
           npm run build
 
-      - name: Deploy to Bucket
+      - name: Deploy
+        if: github.event.action != 'closed' # Skip if the PR was closed
         working-directory: build
         run: |-
           gsutil -m rsync -R -d . ${{ secrets.GCS_DEV_BUCKET }}/${{ env.PREVIEW_PATH }}
 
       - name: Deploy Message
-        if: success()
+        if: github.event.action != 'closed' # Skip if the PR was closed
         uses: unsplash/comment-on-pr@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -79,3 +80,8 @@ jobs:
           msg: |
             Deploy preview ready for ${{ github.event.number }}!
             https://docs.dev.saucelabs.net/${{ env.PREVIEW_PATH }}
+
+      - name: Cleanup
+        if: github.event.action == 'closed' # Cleanup action only on PR closure
+        run: |-
+          gsutil rm -r ${{ secrets.GCS_DEV_BUCKET }}/${{ env.PREVIEW_PATH }}
