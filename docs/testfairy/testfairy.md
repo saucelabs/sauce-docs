@@ -6,7 +6,7 @@ sidebar_label: Getting Started
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Welcome to our Mobile App Distribution (TestFairy) solution, the App Center distribution alternative. Use our enterprise-grade app distribution capabilities to migrate from [App Center before March 31, 2025](https://saucelabs.com/testfairy-sauce-labs)! 
+Welcome to our Mobile App Distribution (TestFairy) solution, the App Center distribution alternative. Use our enterprise-grade app distribution capabilities to migrate from [App Center before March 31, 2025](https://saucelabs.com/testfairy-sauce-labs). 
 
 ## Store and Manage Apps
 
