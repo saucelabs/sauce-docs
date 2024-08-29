@@ -321,7 +321,7 @@ cy.sauceVisualCheck('Inventory Page', {
 });
 ```
 
-### Clip to an element
+### Clip to an Element
 
 <ClippingDescription />
 

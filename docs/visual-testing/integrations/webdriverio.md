@@ -269,7 +269,7 @@ browser.sauceVisualCheck('Before Login', {
 
 <FullPageJS />
 
-### Clip to an element
+### Clip to an Element
 
 <ClippingWDIO />
 

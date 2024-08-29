@@ -438,7 +438,7 @@ visual.sauceVisualCheck("Long content page", options);
 
 <FullPageLimit />
 
-### Clip to an element
+### Clip to an Element
 
 <ClippingDescription />
 

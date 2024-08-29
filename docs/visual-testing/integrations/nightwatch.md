@@ -359,7 +359,7 @@ browser
 
 <FullPageJS />
 
-### Clip to an element
+### Clip to an Element
 
 <ClippingWDIO />
 

@@ -443,7 +443,7 @@ await VisualClient.VisualCheck("C# full page config",
 
 <FullPageLimit />
 
-### Clip to an element
+### Clip to an Element
 
 <ClippingDescription />
 
