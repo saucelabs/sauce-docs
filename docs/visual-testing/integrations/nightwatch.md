@@ -362,6 +362,17 @@ browser
 
 <ClippingWDIO />
 
+<ClippingElement />
+
+Example:
+
+```ts
+await browser.sauceVisualCheck('Visible Sale Banner', {
+  // An element that we should crop the screenshot to
+  clipElement: browser.element('.your-css-selector')
+})
+```
+
 ### Fail on failures
 
 By default, Sauce Visual will not fail the test if there are any failures during the comparison process. A failure will be logged in the Sauce Labs Visual dashboard, but the test will continue to run.

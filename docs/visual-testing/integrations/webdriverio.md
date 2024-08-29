@@ -4,6 +4,7 @@ sidebar_label: WebdriverIO
 
 import FullPageJS from '../_partials/_fullpage-js.md';
 import ClippingWDIO from '../_partials/_clipping-webdriver.md';
+import ClippingElement from '../_partials/_clipping-element.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import SelectiveDiffing from '../_partials/_selective-diffing.md';
 import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
@@ -271,6 +272,17 @@ browser.sauceVisualCheck('Before Login', {
 ### Clip to an element
 
 <ClippingWDIO />
+
+<ClippingElement />
+
+Example:
+
+```ts
+await browser.sauceVisualCheck('Visible Sale Banner', {
+  // An element that we should crop the screenshot to
+  clipElement: await $('.your-css-selector')
+})
+```
 
 ## Example
 
