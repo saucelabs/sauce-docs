@@ -1,0 +1,1 @@
+Alternatively, you can also pass an element directly if you've already queried one from Selenium:
