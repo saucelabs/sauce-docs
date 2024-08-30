@@ -9,13 +9,13 @@ import TabItem from '@theme/TabItem';
 
 <p><small><span className="sauceGreen">Real Devices Only</span></small></p>
 
-Network Traffic Capture is a feature that allows you to record and analyze HTTP/HTTPS network traffic, during mobile app tests on real Android and iOS/iPadOS devices. 
+Network Traffic Capture is a feature that allows you to record and analyze HTTP/HTTPS network traffic, during mobile app tests on real Android and iOS/iPadOS devices.
 This functionality provides detailed insights into how an app interacts with network services, making it an essential tool for debugging,
 performance optimization, and identifying issues in the app's data exchange processes. By capturing network traffic, users can pinpoint
 the exact moment and nature of a failure, such as identifying requests that time out, pinpointing requests that slow down the loading process,
 or locating faulty API calls. This enables quicker resolution and ensures a more precise assignment of responsibility when passed on to developers.
 
-The captured traffic is presented in the [HTTP Archive (HAR) file format](https://en.wikipedia.org/wiki/HAR_(file_format)), which offers a
+The captured traffic is presented in the [HTTP Archive (HAR) file format](<https://en.wikipedia.org/wiki/HAR_(file_format)>), which offers a
 comprehensive view of the request and response cycles, including headers, payloads, and timings, enabling in-depth troubleshooting and performance analysis.
 
 ## What You'll Need
