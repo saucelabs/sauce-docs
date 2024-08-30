@@ -31,7 +31,6 @@ This comprehensive approach provides a holistic view of network activity, giving
 you deeper insights into how various components of the device interact with external services. To ensure the captured data remains relevant and manageable,
 our system filters out some OS-specific services that can otherwise create unnecessary noise.
 
-
 On iOS/iPadOS devices, this feature works seamlessly without requiring any [resigning](/mobile-apps/automated-testing/ipa-files/#sauce-labs-resigning-enablements) 
 or changes to the app, making it simple and efficient to use.
 
