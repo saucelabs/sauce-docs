@@ -18,6 +18,9 @@ or locating faulty API calls. This enables quicker resolution and ensures a more
 The captured traffic is presented in the [HTTP Archive (HAR) file format](<https://en.wikipedia.org/wiki/HAR_(file_format)>), which offers a
 comprehensive view of the request and response cycles, including headers, payloads, and timings, enabling in-depth troubleshooting and performance analysis.
 
+In combination with our [Network Throttle](/mobile-apps/features/network-throttling/) functionality to simulate various network scenarios,
+you have the tools to replicate and troubleshoot any performance concerns stemming from network operations.
+
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
@@ -237,4 +240,3 @@ Alternatively, some other commonly used HAR viewers include:
 - Google Admin Toolbox [HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/)
 - Software is Hard blog [HTTP Archive Viewer](http://www.softwareishard.com/har/viewer/)
 - Firefox network monitoring builtin [HAR imports](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/toolbar/index.html)
-
