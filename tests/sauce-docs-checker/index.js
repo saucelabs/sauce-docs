@@ -170,22 +170,16 @@ function get_links(map,title) {
 }
 
 async function parse_wiki_map() {
-  let API_BASE_URL = `https://raw.githubusercontent.com/`;
-  let url = API_BASE_URL+`saucelabs/sauce-docs/fix-link-checker-workflow/tests/sauce-docs-checker/map.conf`;
-  let res = await axios.get(url);
-  let text = res.data;
-  // console.log(text);
+  const text = fs.readFileSync('map.conf', 'utf-8')
   let arr = text.split('\n');
   for(let i=0;i<arr.length;i++) {
     let line = arr[i];
     if(line.startsWith('    /')) {
       line = line.trim().replace(';','').replace('\t',' ').replace(/\s+/g,' ');
-      // console.log(line)
       let map = line.split(' ');
       let from = wiki_url + map[0];
       let to = 'https://' + map[1];
       wiki_map[from] = to;
-      // console.log(from,'=>',to);
     }
   }
 }
