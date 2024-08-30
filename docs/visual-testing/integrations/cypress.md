@@ -323,7 +323,7 @@ cy.sauceVisualCheck('Inventory Page', {
 
 ### Clip to an Element
 
-<ClippingDescription />
+You can clip to a specific element on the page by using the `clipSelector` option when calling Sauce Visual.
 
 Example:
 

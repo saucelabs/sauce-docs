@@ -5,7 +5,6 @@ sidebar_label: Java
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ClippingDescription from '../_partials/_clipping-description.md';
-import ClippingElement from '../_partials/_clipping-element.md';
 import FullPageLimit from '../_partials/_fullpage-limit.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import SelectiveDiffing from '../_partials/_selective-diffing.md';

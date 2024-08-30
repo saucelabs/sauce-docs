@@ -3,7 +3,6 @@ sidebar_label: WebdriverIO
 ---
 
 import FullPageJS from '../_partials/_fullpage-js.md';
-import ClippingWDIO from '../_partials/_clipping-webdriver.md';
 import ClippingElement from '../_partials/_clipping-element.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import SelectiveDiffing from '../_partials/_selective-diffing.md';

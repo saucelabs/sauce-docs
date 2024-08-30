@@ -1,4 +1,4 @@
-You can clip to a specific element on the page by using the `clipElement` option when calling Sauce visual.
+You can clip to a specific element on the page by using the `clipElement` option when calling Sauce Visual.
 
 Notes:
 
