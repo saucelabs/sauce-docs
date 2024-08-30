@@ -10,12 +10,12 @@ import TabItem from '@theme/TabItem';
 <p><small><span className="sauceGreen">Real Devices Only</span></small></p>
 
 Network Traffic Capture is a feature that allows you to record and analyze HTTP/HTTPS network traffic, during mobile app tests on real Android and iOS/iPadOS devices. 
-This functionality provides detailed insights into how an app interacts with network services, making it an essential tool for debugging, 
-performance optimization, and identifying issues within the app's data exchange processes. By capturing network traffic, users can pinpoint 
-the exact moment and nature of a failure, such as identifying requests that time out, pinpointing requests that slow down the loading process, 
+This functionality provides detailed insights into how an app interacts with network services, making it an essential tool for debugging,
+performance optimization, and identifying issues in the app's data exchange processes. By capturing network traffic, users can pinpoint
+the exact moment and nature of a failure, such as identifying requests that time out, pinpointing requests that slow down the loading process,
 or locating faulty API calls. This enables quicker resolution and ensures a more precise assignment of responsibility when passed on to developers.
 
-The captured traffic is presented in the [HTTP Archive (HAR) file format](https://en.wikipedia.org/wiki/HAR_(file_format)), which offers a 
+The captured traffic is presented in the [HTTP Archive (HAR) file format](https://en.wikipedia.org/wiki/HAR_(file_format)), which offers a
 comprehensive view of the request and response cycles, including headers, payloads, and timings, enabling in-depth troubleshooting and performance analysis.
 
 ## What You'll Need
@@ -25,16 +25,16 @@ comprehensive view of the request and response cycles, including headers, payloa
 
 ## System-wide Network Capture
 
-Our system-wide network capture feature enhances network monitoring by capturing all HTTP/HTTPS requests made from the device, 
-offering visibility beyond just a single app or service. It works seamlessly regardless of the app’s framework or if it’s a hybrid application.
-This comprehensive approach provides a holistic view of network activity, giving 
-you deeper insights into how various components of the device interact with external services. To ensure the captured data remains relevant and manageable,
-our system filters out some OS-specific services that can otherwise create unnecessary noise.
+Our system-wide network capture feature enhances network monitoring by capturing all HTTP/HTTPS requests made from the device, offering
+visibility beyond just a single app or service. It works seamlessly regardless of the app’s framework or if it’s a hybrid application.
+This comprehensive approach provides a holistic view of network activity, giving you deeper insights into how various components of the
+device interact with external services. To ensure the captured data remains relevant and manageable, our system filters out some OS-specific
+services that can otherwise create unnecessary noise.
 
-On iOS/iPadOS devices, this feature works seamlessly without requiring any [resigning](/mobile-apps/automated-testing/ipa-files/#sauce-labs-resigning-enablements) 
+On iOS/iPadOS devices, this feature works seamlessly without requiring any [resigning](/mobile-apps/automated-testing/ipa-files/#sauce-labs-resigning-enablements)
 or changes to the app, making it simple and efficient to use.
 
-For Android devices, a minor modification in the manifest is necessary, but all required changes will be handled by us. This means no 
+For Android devices, a minor modification in the manifest is necessary, but all required changes will be handled by us. This means no
 complete resigning or additional instrumentation is needed, ensuring a smooth feature enablement.
 
 
@@ -57,12 +57,12 @@ To be able to observe network traffic in real-time:
 <img src={useBaseUrl('img/mobile-apps/network-capture-3.png')} alt="Inspect network logs" width="700"/>
 
 ### Sauce Labs Network Viewer
-The [Sauce Labs Network Viewer](https://github.com/saucelabs/network-viewer) is a visualization tool for HAR files that presents requests 
+The [Sauce Labs Network Viewer](https://github.com/saucelabs/network-viewer) is a visualization tool for HAR files that presents requests
 in a table view with a range of advanced filtering options.
 
 #### Pause / Resume
-Pause and resume the display of new network traffic without affecting the **network.har** test asset. 
-The final **network.har** file contains all network traffic from the moment the network capture was initiated and will be available after the 
+Pause and resume the display of new network traffic without affecting the **network.har** test asset.
+The final **network.har** file contains all network traffic from the moment the network capture was initiated and will be available after the
 session is closed.
 <img src={useBaseUrl('img/mobile-apps/network-capture-pause-resume.png')} alt="Inspect network logs" width="700"/>
 
@@ -76,7 +76,7 @@ with a network issue, making it easier to share with developers for debugging.
 <img src={useBaseUrl('img/mobile-apps/network-capture-export.png')} alt="Inspect network logs" width="700"/>
 
 #### Filter by status
-Use the status filter dropdown to filter network logs based on their status code.
+Use the status filter dropdown list to filter network logs based on their status code.
 <img src={useBaseUrl('img/mobile-apps/network-capture-status-filter.png')} alt="Inspect network logs" width="700"/>
 
 #### Search by URL
@@ -84,7 +84,7 @@ Search for specific network logs using the request URL.
 <img src={useBaseUrl('img/mobile-apps/network-capture-search.png')} alt="Inspect network logs" width="700"/>
 
 #### Filter by content type
-Filter requests by their content type (e.g., XHR, JS, CSS, Image, Media, Font, Doc, WebSocket, Manifest) by selecting the desired type.
+Filter requests by their content type by selecting the desired category from the options available.
 <img src={useBaseUrl('img/mobile-apps/network-capture-type-filter.png')} alt="Inspect network logs" width="700"/>
 
 #### Requests table
@@ -98,7 +98,7 @@ The main table displays all captured requests with the following columns:
 * Time: The total duration from the start of the request to the receipt of the final byte in the response.
 * Waterfall: A visual representation of the timeline for all network requests.
 
-Each request is color-coded based on their state. Red entries indicate errors with status codes of 400 or higher, while light grey entries 
+Each request is color-coded based on their state. Red entries indicate errors with status codes of 400 or higher, while light grey entries
 represent still pending requests.
 <img src={useBaseUrl('img/mobile-apps/network-capture-request-table.png')} alt="Inspect network logs" width="700"/>
 
@@ -108,12 +108,12 @@ This helps to gain a deeper understanding of the request's timeline.
 <img src={useBaseUrl('img/mobile-apps/network-capture-waterfall.png')} alt="Inspect network logs" width="700"/>
 
 #### Request details
-Clicking on a specific request opens the Request Details view, which includes general information about the request, along with the request and 
+Clicking on a specific request opens the Request Details view, which includes general information about the request, along with the request and
 response headers, and the request and response payloads.
 <img src={useBaseUrl('img/mobile-apps/network-capture-request-details.png')} alt="Inspect network logs" width="700"/>
 
 #### Stats Row
-The Stats row in the footer provides details on the number of requests, transferred data size, resource sizes, and time metrics such as 
+The Stats row in the footer provides details on the number of requests, transferred data size, resource sizes, and time metrics such as
 Page Load, DOMContentLoaded, and Finished time.
 <img src={useBaseUrl('img/mobile-apps/network-capture-stats-row.png')} alt="Inspect network logs" width="700"/>
 
@@ -122,7 +122,7 @@ Page Load, DOMContentLoaded, and Finished time.
 
 - iOS network capture is supported on iOS/iPadOS 14.0 and above.
 - Android network capture is supported on Android 10 and above.
-- only HTTP/HTTPS network traffic is captured
+- Only HTTP/HTTPS network traffic is captured.
 
 :::
 
