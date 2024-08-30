@@ -5,7 +5,7 @@ sidebar_label: Nightwatch
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import FullPageJS from '../_partials/_fullpage-js.md'
-import ClippingElement from '../_partials/_clipping-element.md';
+import ClippingDescription from '../_partials/_clipping-description.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import SelectiveDiffing from '../_partials/_selective-diffing.md';
 import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
@@ -360,7 +360,7 @@ browser
 
 ### Clip to an Element
 
-<ClippingElement />
+<ClippingDescription />
 
 Example:
 
