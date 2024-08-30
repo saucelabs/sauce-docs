@@ -361,8 +361,6 @@ browser
 
 ### Clip to an Element
 
-<ClippingWDIO />
-
 <ClippingElement />
 
 Example:

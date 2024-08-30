@@ -450,18 +450,6 @@ await VisualClient.VisualCheck("C# full page config",
 Example:
 
 ```csharp
-await VisualClient.VisualCheck("Visible Sale Banner",
-    new VisualCheckOptions()
-    {
-        ClipSelector = ".your-css-selector",
-    });
-```
-
-<ClippingElement />
-
-Example:
-
-```csharp
 var element = Driver.FindElementByCssSelector(".your-css-selector");
 await VisualClient.VisualCheck("Visible Sale Banner",
     new VisualCheckOptions()

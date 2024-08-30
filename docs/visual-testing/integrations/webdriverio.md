@@ -271,8 +271,6 @@ browser.sauceVisualCheck('Before Login', {
 
 ### Clip to an Element
 
-<ClippingWDIO />
-
 <ClippingElement />
 
 Example:

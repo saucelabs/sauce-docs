@@ -446,18 +446,6 @@ Example:
 
 ```java
 import com.saucelabs.visual.CheckOptions;
-
-CheckOptions options = new CheckOptions();
-options.setClipSelector(".your-css-selector");
-visual.sauceVisualCheck("Visible Sale Banner", options);
-```
-
-<ClippingElement />
-
-Example:
-
-```java
-import com.saucelabs.visual.CheckOptions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -465,10 +453,9 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 RemoteWebDriver driver;
 ...
 
-CheckOptions options = new CheckOptions();
 WebElement element = driver.findElement(By.cssSelector(".your-css-selector"));
-options.setClipElement(element);
-visual.sauceVisualCheck("Visible Sale Banner", options);
+visual.sauceVisualCheck(
+        "Visible Sale Banner", new CheckOptions.Builder().withClipElement(element).build());
 ```
 
 ## Examples
