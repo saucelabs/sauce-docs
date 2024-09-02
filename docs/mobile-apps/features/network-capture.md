@@ -1,4 +1,4 @@
----
+<img width="436" alt="image" src="https://github.com/user-attachments/assets/99f10a13-df8d-496e-9e34-36697b492712">---
 id: network-capture
 title: Network Traffic Capture
 ---
@@ -168,6 +168,12 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ## Instrumented Network Traffic Capture
 
+:::note Android Only
+
+For Android applications, a minor modification in the manifest is necessary to disable SSL pinning and accept our own certificate by your application. 
+
+:::
+
 To enable network traffic capturing in your tests:
 
 1. On Sauce Labs, click **Live** > **Mobile App**.
@@ -189,7 +195,6 @@ Now you can start your live or automated testing session. Your network logs will
 
 - Android Emulators
 - iOS Simulators
-- Hybrid Applications in automated tests (React Native, Cordova, Flutter)
 - Android Chrome Browser in automated tests
 - iOS Safari Browser in automated tests
 
