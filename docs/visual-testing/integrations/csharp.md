@@ -4,6 +4,7 @@ sidebar_label: C#/.Net
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ClippingDescription from '../_partials/_clipping-description.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import FullPageLimit from '../_partials/_fullpage-limit.md';
 import SelectiveDiffing from '../_partials/_selective-diffing.md';
@@ -440,6 +441,21 @@ await VisualClient.VisualCheck("C# full page config",
 ```
 
 <FullPageLimit />
+
+### Clip to an Element
+
+<ClippingDescription />
+
+Example:
+
+```csharp
+var element = Driver.FindElementByCssSelector(".your-css-selector");
+await VisualClient.VisualCheck("Visible Sale Banner",
+    new VisualCheckOptions()
+    {
+        ClipElement = element,
+    });
+```
 
 ## Examples
 
