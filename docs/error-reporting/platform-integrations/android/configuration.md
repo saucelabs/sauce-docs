@@ -384,9 +384,11 @@ BacktraceLogger.setLevel(LogLevel.DEBUG);
 ```
 
 You can replace internal BacktraceLogger with your custom implementation using code below.
+
 ```java
 BacktraceLogger.setLogger(customLoggerInstance);
 ```
+
 Your custom logger implementation has to implement [Logger](https://github.com/backtrace-labs/backtrace-android/blob/master/backtrace-library/src/main/java/backtraceio/library/logger/Logger.java) interface.
 
 ## Monitoring Custom Threads
