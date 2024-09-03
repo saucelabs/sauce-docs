@@ -5,7 +5,7 @@ sidebar_label: Nightwatch
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import FullPageJS from '../_partials/_fullpage-js.md'
-import ClippingWDIO from '../_partials/_clipping-webdriver.md';
+import ClippingDescription from '../_partials/_clipping-description.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import SelectiveDiffing from '../_partials/_selective-diffing.md';
 import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
@@ -358,9 +358,18 @@ browser
 
 <FullPageJS />
 
-### Clip to an element
+### Clip to an Element
 
-<ClippingWDIO />
+<ClippingDescription />
+
+Example:
+
+```ts
+await browser.sauceVisualCheck('Visible Sale Banner', {
+  // An element that we should crop the screenshot to
+  clipElement: browser.element('.your-css-selector')
+})
+```
 
 ### Fail on failures
 

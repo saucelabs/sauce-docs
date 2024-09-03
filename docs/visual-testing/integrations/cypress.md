@@ -4,7 +4,6 @@ sidebar_label: Cypress
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ClippingDescription from '../_partials/_clipping-description.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import SelectiveDiffing from '../_partials/_selective-diffing.md';
 import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
@@ -321,9 +320,9 @@ cy.sauceVisualCheck('Inventory Page', {
 });
 ```
 
-### Clip to an element
+### Clip to an Element
 
-<ClippingDescription />
+You can clip to a specific element on the page by using the `clipSelector` option.
 
 Example:
 
