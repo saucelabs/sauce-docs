@@ -1,4 +1,4 @@
-<img width="436" alt="image" src="https://github.com/user-attachments/assets/99f10a13-df8d-496e-9e34-36697b492712">---
+---
 id: network-capture
 title: Network Traffic Capture
 ---
@@ -94,8 +94,8 @@ Filter requests by their content type by selecting the desired category from the
 The main table displays all captured requests with the following columns:
 * Path: The name of the request. Hover over it to view the full resource, including the domain name.
 * Domain: The domain of the request.
-* Status: The HTTP status code.
-* Method: The HTTP method used.
+* Status: The HTTP/HTTPS status code.
+* Method: The HTTP/HTTPS method used.
 * Type: The MIME type of the requested resource.
 * Size: The total size of the response headers plus the response body, as delivered by the server.
 * Time: The total duration from the start of the request to the receipt of the final byte in the response.
@@ -170,7 +170,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 :::note Android Only
 
-For Android applications, a minor modification in the manifest is necessary to disable SSL pinning and accept our own certificate by your application. 
+For Android applications, a minor modification in the manifest is necessary to disable SSL pinning and accept our own certificate by your application.
+In addition, we require the debug version of the application. If your application includes SecureSDK, please ensure the repackaging prevention feature is disabled.
 
 :::
 
@@ -185,6 +186,12 @@ To enable network traffic capturing in your tests:
     - [Appium](/dev/test-configuration-options/#networkcapture)
     - [Espresso via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#networkcapture)
     - [XCUITest via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#networkcapture)
+
+:::note Coming soon
+
+System-wide network capture for Automated Testing will be available soon.
+
+:::
 
 Now you can start your live or automated testing session. Your network logs will be captured and displayed in the test results page as well as during a Live Testing session with the Developer Options window.
 
@@ -241,6 +248,8 @@ viewer for your convenience.
 
 Alternatively, some other commonly used HAR viewers include:
 
+- [Charles Proxy](https://www.charlesproxy.com/)
+- [Telerik Fiddler](https://www.telerik.com/fiddler)
 - Chrome DevTools builtin [HAR imports](https://developer.chrome.com/blog/new-in-devtools-62/#har-imports)
 - Google Admin Toolbox [HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/)
 - Software is Hard blog [HTTP Archive Viewer](http://www.softwareishard.com/har/viewer/)
