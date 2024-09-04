@@ -106,7 +106,7 @@ const docusaurusConfig = {
                     to: '/dev/cli',
                 },
                 {
-                    label: 'Visual (New)',
+                    label: 'Visual',
                     position: 'left',
                     to: '/visual-testing',
                 },
