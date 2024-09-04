@@ -1428,6 +1428,15 @@ module.exports = {
                                 },
                             ],
                         },
+                        {
+                            type: 'category',
+                            label: 'Flutter',
+                            collapsed: true,
+                            items: [
+                                'mobile-apps/automated-testing/flutter',
+                                'mobile-apps/automated-testing/flutter/flutter-integration-testing-android',
+                            ],
+                        },
                         'mobile-apps/automated-testing/ipa-files',
                         'mobile-apps/automated-testing/app-files',
                     ],

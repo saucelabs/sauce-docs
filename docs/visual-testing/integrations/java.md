@@ -437,7 +437,7 @@ visual.sauceVisualCheck("Long content page", options);
 
 <FullPageLimit />
 
-### Clip to an element
+### Clip to an Element
 
 <ClippingDescription />
 
@@ -445,10 +445,16 @@ Example:
 
 ```java
 import com.saucelabs.visual.CheckOptions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
-CheckOptions options = new CheckOptions();
-options.setClipSelector(".your-css-selector");
-visual.sauceVisualCheck("Visible Sale Banner", options);
+RemoteWebDriver driver;
+...
+
+WebElement element = driver.findElement(By.cssSelector(".your-css-selector"));
+visual.sauceVisualCheck(
+        "Visible Sale Banner", new CheckOptions.Builder().withClipElement(element).build());
 ```
 
 ## Examples

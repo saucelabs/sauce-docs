@@ -1,4 +1,4 @@
-name: Sauce Docs Link Checker
+name: Link Checker
 
 on:
   pull_request:
@@ -13,35 +13,43 @@ env:
   SLACK_LINK: ${{secrets.SLACK_LINK}}
   GITLAB_TOKEN: ${{secrets.GITLAB_TOKEN}}
 
-defaults:
-  run:
-    working-directory: tests/sauce-docs-checker
-
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v4
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          node-version: 18.x
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-      - name: Build and Run Docusaurus Site
-        working-directory: ./
-        run: |
-          npm install && npm run build
-          # Expose website
-          cd build/ && python3 -m http.server 8000 &
-      - name: Install Test Dependencies
+          python-version: '3.12'
+
+      - name: Install Dependencies
         run: |
           npm install
-      - name: Set GitHub Action Job URL
+
+      - name: Build
         run: |
-          echo $GITHUB_RUN_ID
-      - name: Start Link Checker Script
+          npm run build
+
+      - name: Serve Docs
+        working-directory: build
+        run: |
+          python3 -m http.server 8000 &
+
+      - name: Install Test Dependencies
+        working-directory: tests/sauce-docs-checker
+        run: |
+          npm install
+
+      - name: Check Links
+        working-directory: tests/sauce-docs-checker
         run: |
           npm start -- $GITHUB_RUN_ID

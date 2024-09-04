@@ -551,11 +551,7 @@ Do not use `dependencies` and `packages` at the same time.
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Instructs npm to perform SSL key validation when making requests to the registry via HTTPS (`true`) or not (`false`). Defaults to `false` if not set.
-
-:::note
-If you're using a Sauce Connect tunnel, you must set `strictSSL` to `false`.
-:::
+Instructs npm to perform SSL key validation when making requests to the registry via HTTPS (`true`) or not (`false`). Defaults to npm's `strict-ssl` value if not set. See more [here](https://docs.npmjs.com/cli/v8/using-npm/config#strict-ssl).
 
 ```yaml
 npm:
@@ -791,6 +787,25 @@ Specifies the path to the folder location in which to download artifacts. A sepa
 ```yaml
 artifacts:
   download:
+    directory: ./artifacts/
+```
+
+---
+
+#### `allAttempts`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+If you have your tests configured with [retries](#retries), you can set this option to `true` to download artifacts for every attempt. Otherwise, only artifacts of the last attempt
+will be downloaded.
+
+```yaml
+artifacts:
+  download:
+    match:
+      - console.log
+    when: always
+    allAttempts: true
     directory: ./artifacts/
 ```
 

@@ -14,8 +14,16 @@ Using Failure Analysis:
 - Validates investment in test automation by showing larger patterns as a source of failure, allowing for global mitigation and faster time-to-market with better quality
 
 :::note
-Failure Analysis supports Playwright, Selenium and Appium. However, for Selenium and Appium to be effective, the tests must be configured to [report a pass/fail outcome](/basics/test-config-annotation/test-annotation#setting-passfail). Additionally, Appium is supported only for mobile web applications and not for native applications.
+Failure Analysis supports Playwright, Selenium and Appium on Virtual and Real devices. At this time Visual testing does not work with Failure Analysis. However, for Selenium and Appium to be effective, the tests must be configured to [report a pass/fail outcome](/basics/test-config-annotation/test-annotation#setting-passfail). Additionally, Appium is supported only for mobile web applications and not for native applications.
 :::
+
+## Where to access Failure Analysis 
+
+Failure Analysis can be accessed from a few different places within the Sauce Labs platform. Failure Analysis is primiarly avaliable via the left-hand navigation, under the Insights heading. Clicking the Failure Analysis heading will take you straight to your Failure Analysis based on the tests of your team or organization for the past 7 days by default. As we talk about below, Failure Analysis can also be accessed directly from Test Details within Live or Automated Test Results. Both these views and entry points can give you a sense of how individual tests are performing and their associated failure patterns. 
+
+Analyzing failures across builds can also be extremely helpful to understand trends over time of your builds. This view can help you identify pervasive failures in invidvidual builds, debug those failures swiftly, and get your code to production quicker. Accessing Failure Analysis from builds is simple. Navigate to Automated tests and then the build menu. Select the build you want to analyze or debug deeper and then select Failure Patterns from the drop-down to starting debugging. 
+
+<img src={useBaseUrl('img/insights/FA-builds-entry.png')} alt="builds entry point for Failure Analysis"/>
 
 ## How it Works
 
@@ -25,6 +33,10 @@ Failure Analysis utilizes your test data to identify potential failure patterns 
 - Aggregates failures on test names
 - Detects common failure patterns
 - Ranks and prioritizes patterns by most pervasive impact
+
+As of August 2024 Failure Analysis uses an improved command decoder to help you identify what actions have been taken during a test. Normally, test commands can be difficult to read because they contain hashes or element IDs that don't mean much to a human being, but are necessary for the test to know what is happening. Sauce Labs' improved decoding gives a near test command like structure and language convention to these failure patterns. When viewing Failure Patterns, Sauce Labs now gives you an improved naming scheme that more closely resembles what is happening during a test step as seen below. This enhanced decoder is accessible through any of the views below.
+
+<img src={useBaseUrl('img/insights/FA-enhanced-decoder.png')} alt="Failure Analysis enhanced decoder"/>
 
 ## Available Views
 
@@ -54,10 +66,14 @@ Clicking on a specific pattern reveals detailed information, including the perce
 
 In the following image, you can see a pattern with a high impact on the test since it impacted 623 tests corresponding to 49% of the total. Additionally, it shows the test involved with the related details.
 
-<img src={useBaseUrl('img/insights/viewByFP-details.png')} alt="view by failure patterns"/>
+<img src={useBaseUrl('img/insights/viewByFP-details.png')} alt="view by failure patterns details"/>
 
 There is seamless integration between Failure Patterns and Test Results/Test Details in the Live and Automated sections. By clicking on a test name in the Failure Analysis view, you will be redirected to the related Test Details page, providing specific details about that particular test. If you aim to identify trends across failures and builds, the Failure Patterns view is a great starting point, followed by exploring the Test Results/Test Details page. Conversely, if you are investigating the root cause of a specific test failure, you can begin with the Test Results/Test Details and then explore Failure Patterns to understand its impact on your overall test strategy.
 
 <img src={useBaseUrl('img/insights/testDetails.png')} alt="failure patterns in test details"/>
+
+Once you have used Failure Analysis to identify the most pervasive patterns you'd like to investigate, click the test name on the Failure Analysis page to dig down into the individual test on the Test Details page. You will see a list of commands or steps contained within that test. To isolate the failure patterns we identified in the previous views and steps from the rest of the test commands, use the filter at the top of the command list to drill down and only surface test commands that have been identified in a failure pattern. To debug your tests faster you can click the time stamp next to the filtered command line to view the video of the test to verify the issue.
+
+<img src={useBaseUrl('img/insights/test-details-FA-filter.png')} alt="filter for failure patterns in test details"/>
 
 To enhance the power of the Failure Analysis tool, it is recommended to [Provide Context for Selenium Commands with the JavaScript Executor](/basics/test-config-annotation/test-annotation#selenium-javascript-executor).
