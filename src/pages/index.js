@@ -89,7 +89,7 @@ function Home() {
                             <a href='/visual-testing/'>
                                 <Button
                                     className='button-light'
-                                    name='Sauce Visual (New)'
+                                    name='Sauce Visual'
                                 />
                             </a>
                         </span>
