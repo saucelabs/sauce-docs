@@ -1693,7 +1693,7 @@ module.exports = {
 
         {
             type: 'category',
-            label: 'Visual (NEW)',
+            label: 'Visual',
             collapsed: true,
             items: [
                 'visual-testing',
