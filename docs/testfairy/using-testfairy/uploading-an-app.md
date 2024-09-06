@@ -49,3 +49,8 @@ To update a build, upload the same file again (that is., the same build with the
 ### Uploading a New Version
 
 To upload a new build (a new version of the same app), upload the new version as you uploaded the old version. TestFairy identifies that both apps have the same package name (bundle identifier) and group them together in the same project.
+
+### Symbols or Mapping file
+
+In iOS and Android development, symbols or mapping files refer to files used to help debug and analyze crash reports. They are essential when apps are built with optimization settings, such as code obfuscation or stripping debug information, which make crash reports harder to read.
+If you're using the API to upload your app, you can attach this file to your build for easy retrieval later if needed.
