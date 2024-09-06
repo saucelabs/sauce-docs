@@ -1668,6 +1668,7 @@ module.exports = {
             items: [
                 'insights',
                 'insights/scope',
+                'insights/overview',
                 'insights/history',
                 'insights/trends',
                 'insights/usage-report',
