@@ -177,7 +177,8 @@ saucectl run --ccy 5
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-Sets the number of times to retry a failed suite. For more settings, you can refer to [passThreshold](#passThreshold).
+Sets the number of times to retry a failed suite. For more settings, you can
+refer to [passThreshold](#passthreshold).
 
 ```yaml
 sauce:
@@ -319,7 +320,11 @@ The order of precedence is as follows: --env flag > root-level environment varia
 
 <p><small>| REQUIRED | OBJECT |</small></p>
 
-The directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Tailoring Your Test File Bundle](#tailoring-your-test-file-bundle) for more details. The following examples show the different relative options for setting this value.
+The directory of files that need to be bundled and uploaded for the tests to
+run. Ignores what is specified in `.sauceignore`.
+See [Tailoring Your Test File Bundle](/web-apps/automated-testing/testcafe/advanced/#tailoring-your-test-file-bundle)
+for more details. The following examples show the different relative options for
+setting this value.
 
 ```yaml
 rootDir: "./" # Use the current directory
@@ -363,7 +368,9 @@ npm:
 This setting is supported up to TestCafe 2.6.2. For newer versions, use `registries`.
 :::
 
-Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
+Specifies the location of the npm registry source. If the registry source is a
+private address, and you are running tests on Sauce Cloud, you can provide
+access to the registry source using [Sauce Connect](/dev/cli/saucectl/usage/use-cases/#sauce-connect).
 
 ```yaml
 npm:
@@ -376,7 +383,9 @@ npm:
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Specifies the location of the npm registry, scope, and credentials. Only one scopeless registry is allowed. If the registry is inside a private network, you must establish a tunnel using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
+Specifies the location of the npm registry, scope, and credentials. Only one
+scopeless registry is allowed. If the registry is inside a private network, you
+must establish a tunnel using [Sauce Connect](/dev/cli/saucectl/usage/use-cases/#sauce-connect).
 
 ```yaml
 npm:
