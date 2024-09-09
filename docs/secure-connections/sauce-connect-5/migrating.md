@@ -181,13 +181,17 @@ SC5 leaves log management to third party tools such as journald. It can log to s
 
 Sauce Connect 5 no longer uses the `HTTP(S)_PROXY` and `NO_PROXY` environment variables.
 
-To send REST API (ie, starting or stopping a tunnel) traffic through the proxy, use the [--proxy-sauce](/dev/cli/sauce-connect-proxy#--proxy-sauce) option.
+To send REST API (ie, starting or stopping a tunnel) traffic through the proxy,
+use the [--proxy-sauce](/dev/cli/sauce-connect-5/run/#proxy-sauce) option.
 
-To send tunnel (site under test) traffic through a proxy, use the [--proxy](/dev/cli/sauce-connect-proxy#--proxy) option.
+To send tunnel (site under test) traffic through a proxy, use the [--proxy](/dev/cli/sauce-connect-5/run/#proxy)
+option.
 
 Most proxy combinations can be controlled with these two options.
-However, if you were using the `NO_PROXY` option to exclude various sites under test from using a parent proxy, you will likely need to use a [PAC file](/dev/cli/sauce-connect-proxy#--pac) instead.
-The endpoints listed in the `NO_PROXY` option would use a 'DIRECT' mode in the PAC, and the default would be the proxy.
+However, if you were using the `NO_PROXY` option to exclude various sites under
+test from using a parent proxy, you will likely need to use a [PAC file](/dev/cli/sauce-connect-5/run/#pac)
+instead. The endpoints listed in the `NO_PROXY` option would use a 'DIRECT' mode
+in the PAC, and the default would be the proxy.
 
 For example, if you wanted [https://example.com](https://example.com) to skip the proxy, and everything else to go through the proxy, you would use the following PAC file:
 
