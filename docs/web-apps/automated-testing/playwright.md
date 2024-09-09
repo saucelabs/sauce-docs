@@ -31,14 +31,16 @@ Sauce Labs supports the following test configurations for Playwright:
   <tr>
     <th>Playwright Version</th>
     <th>Node.js Version</th>
-    <th>Supported Platforms</th>
-    <th>Supported Browsers</th>
-    <th>End of Life</th>
+    <th width="10%">Supports Configurable Node.js</th>
+    <th width="20%">Supported Platforms</th>
+    <th width="30%">Supported Browsers</th>
+    <th width="30%">End of Life</th>
   </tr>
   <tbody>
     <tr>
       <td rowspan='2'>1.46.1</td>
-      <td rowspan='2'>20, Version Configurable</td>
+      <td rowspan='2'>20</td>
+      <td rowspan='2'>✅</td>
       <td><b>macOS:</b> 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>August 28, 2025</td>
@@ -51,6 +53,7 @@ Sauce Labs supports the following test configurations for Playwright:
     <tr>
       <td rowspan='2'>1.45.2</td>
       <td rowspan='2'>20</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>July 23, 2025</td>
@@ -63,6 +66,7 @@ Sauce Labs supports the following test configurations for Playwright:
     <tr>
       <td rowspan='2'>1.45.0</td>
       <td rowspan='2'>20</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>June 26, 2025</td>
@@ -75,6 +79,7 @@ Sauce Labs supports the following test configurations for Playwright:
     <tr>
       <td rowspan='2'>1.44.0</td>
       <td rowspan='2'>20</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>May 28, 2025</td>
@@ -87,6 +92,7 @@ Sauce Labs supports the following test configurations for Playwright:
     <tr>
       <td rowspan='2'>1.43.1</td>
       <td rowspan='2'>20</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>April 15, 2025</td>
@@ -99,6 +105,7 @@ Sauce Labs supports the following test configurations for Playwright:
     <tr>
       <td rowspan='2'>1.41.2</td>
       <td rowspan='2'>20</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>February 28, 2025</td>
@@ -111,6 +118,7 @@ Sauce Labs supports the following test configurations for Playwright:
     <tr>
       <td rowspan='2'>1.41.0</td>
       <td rowspan='2'>20</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>January 22, 2025</td>
@@ -123,6 +131,7 @@ Sauce Labs supports the following test configurations for Playwright:
     <tr>
       <td rowspan='2'>1.40.1</td>
       <td rowspan='2'>20</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>December 6, 2024</td>
@@ -135,6 +144,7 @@ Sauce Labs supports the following test configurations for Playwright:
     <tr>
       <td rowspan='2'>1.39.0</td>
       <td rowspan='2'>20</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>November 7, 2024</td>
@@ -147,6 +157,7 @@ Sauce Labs supports the following test configurations for Playwright:
     <tr>
       <td rowspan='2'>1.38.1</td>
       <td rowspan='2'>18</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>September 28, 2024</td>
@@ -159,6 +170,7 @@ Sauce Labs supports the following test configurations for Playwright:
     <tr>
       <td rowspan='2'>1.37.1</td>
       <td rowspan='2'>18</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>August 31, 2024</td>
