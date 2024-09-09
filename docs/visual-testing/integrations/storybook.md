@@ -15,7 +15,9 @@ An extension for [Storybook's test-runner](https://github.com/storybookjs/test-r
 This guide requires an existing Storybook setup.<br />
 You can alternatively take a look to our [example repository](#example).
 
-All tests are run in a headless [browser](#different-browsers) on your local machine/in your pipeline, so you don't need to worry about setting up a browser driver.
+All tests are run in a headless [browser](#different-browsers-and-devices) on
+your local machine or CI pipeline, so you don't need to worry about setting up a
+browser driver.
 
 ## Compatibility
 
