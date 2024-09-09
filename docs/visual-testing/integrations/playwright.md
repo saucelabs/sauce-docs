@@ -70,7 +70,7 @@ export default defineConfig({
 
 Though this step is optional it is _highly recommended_ for ease of use / developer experience. By creating a custom Playwright fixture you can enable quick and convenient access to the Sauce Visual service, as well as setting and configuring global defaults which can be overridden on a per-test basis. See the [Playwright Fixtures Docs Page](https://playwright.dev/docs/test-fixtures#creating-a-fixture) for more information and other examples of the benefits.
 
-If you already have a custom fixture file, simply append the body of the example `base.extend` below to it; otherwise, create a `custom-test.ts` file with the included contents.
+If you already have a custom fixture file, append the body of the example `base.extend` below to it; otherwise, create a `custom-test.ts` file with the included contents.
 
 <details>
     <summary>`custom-test.ts` File contents</summary>
@@ -147,7 +147,7 @@ test('has title', async ({ page }, testInfo) => {
     </TabItem>
 </Tabs>
 
-### Step 5 - Configure your Sauce Labs credentials
+### Step 5 - Configure Your Sauce Labs Credentials
 
 Sauce Visual relies on environment variables for authentication.<br />
 Both `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` need to be set prior starting your Playwright tests.
