@@ -17,4 +17,4 @@ import AdvancedNodejs, {toc as AdvancedNodejsTOC} from '../\_partials/\_advanced
 
 <!-- Using partials breaks table of contents. Using this workaround to get it working again. -->
 
-export const toc = [AdvancedNodejsTOC, ...AdvancedTOC, ...AdvancedCypressTOC];
+export const toc = [...AdvancedNodejsTOC, ...AdvancedTOC, ...AdvancedCypressTOC];
