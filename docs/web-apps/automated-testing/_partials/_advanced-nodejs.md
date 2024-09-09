@@ -2,7 +2,7 @@
 
 Since `saucectl` v0.185.0 and above, you can specify Node.js runtime version on Sauce Cloud.
 
-Only supported test runners can use configurable Node.js versions. Check the following pages for supported framework versions that allow configurable Node.js versions.
+Please note, only supported test runners can use configurable Node.js versions. Check the following pages for supported framework versions that allow configurable Node.js versions.
 
 - [Cypress](../cypress.md#supported-testing-platforms)
 - [Playwright](../playwright.md#supported-testing-platforms)
