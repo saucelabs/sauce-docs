@@ -24,9 +24,41 @@ The code of our command line uploader, Jenkins plugin, and Gradle plugin is open
 - **iOS**: TestFairy supports uploading and distributing iOS applications. You can sign iOS apps with AdHoc, Development, or Enterprise certificates. Distributing iOS apps with TestFairy must be packaged as a `.ipa` file.
 - **MacOS**: MacOS apps are bundled as `.app` files, however, to distribute MacOS apps with TestFairy, those `.app` files must be zipped into a `.zip` file.
 
-### Choose your Build File
+### Expanding iOS Platform Support: Now Including VisionOS (XROS)
 
-In the first stage you need to choose the file you want to upload. It can be an **.ipa** (for iOS), **.apk** (for Android), or **.zip** (for MacOS) file.
+We now support VisionOS in addition to all other iOS platforms. Below is the complete list of platforms. Note that **XROS** is used to indicate support for VisionOS:
+
+- iPhoneOS
+- WatchOS
+- MacOSX
+- AppleTVOS
+- DriverKit
+- XROS (VisionOS)
+
+### Supporting Both APK and AAB Formats for Android Apps
+
+For Android apps, we support both APK and AAB formats. Here’s how it works:
+
+- **APK Support:**
+
+  - If you provide your app in APK format, we handle it directly.
+
+- **AAB Support:**
+  - If you upload your app as an AAB (Android App Bundle), we convert it to APK for distribution.
+  - We also keep a copy of your original AAB format attached to your project. This allows you to download the AAB file if needed.
+
+Feel free to upload your app in either format, and we'll ensure it’s properly managed and available for your needs.
+
+### Choose Your Build File
+
+In the first stage, you need to select the file you want to upload. The supported file types are:
+
+- **iOS:** `.ipa`
+- **Android:** `.apk` or `.aab`
+- **MacOS:** `.zip`
+- **Windows:** Typically `.exe` or `.zip` (Please contact support for further assistance)
+
+Choose the appropriate file type based on your platform to proceed with the upload.
 
 ### Project Settings
 

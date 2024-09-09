@@ -81,4 +81,4 @@ To download your symbols file through the Sauce Labs dashboard, follow these ste
 
 By following these steps, you can easily access and download your symbols file from the dashboard.
 
-<img src={useBaseUrl('/img/testfairy/app-distribution/download-symbols-file-dashboard.png')} alt="add tester email"/>
+<img src={useBaseUrl('/img/testfairy/app-distribution/download-symbols-file-dashboard.png')} alt="Download Symbols file"/>
