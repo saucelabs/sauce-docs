@@ -118,6 +118,6 @@ flag.
 
 :::note
 The [`--proxy-sauce`](/dev/cli/sauce-connect-5/run/#proxy-sauce) flag configures
-the Sauce Labs REST API and a tunnel server traffic only. Use the [`--proxy`](#proxy)
+the Sauce Labs REST API and a tunnel server traffic only. Use the [`--proxy`](#--proxy)
 flag to configure a proxy for the test traffic.
 :::
