@@ -16,7 +16,7 @@ Sauce Labs supports the following Node.js versions:
 <table id="table-nodejs">
   <tr>
     <th>Node.js Version</th>
-    <th>Alias Name</th>
+    <th>Alias</th>
     <th>End of Life</th>
     <th>Removal Date</th>
   </tr>
