@@ -18,7 +18,9 @@ In addition to testing the efficiency of your app rendering, Sauce Labs also pro
 ### What You'll Need
 
 - Google Chrome (no older than 3 versions from latest)
-- Test configuration must have performance enabled. See [Set Performance Capabilities](/performance/transitions#set-performance-capabilities) for instructions.
+- Test configuration must have performance enabled.
+  See [Set Performance Capabilities](/performance/transitions/#setting-performance-capabilities)
+  for instructions.
 
 ## What is Jankiness?
 
