@@ -30,7 +30,9 @@ Sauce Labs supports the following features:
 ## Special Cases
 
 - If your company has more than one organization at Sauce Labs to be integrated with SAML SSO and your Identity Provider requires a unique entity ID for Service Providers, [see these special setup steps](/basics/sso/setting-up-sso-special-cases#single-identity-provider-and-multiple-organizations-at-sauce-labs).
-- If your company has multiple organizations at Sauce Labs to be integrated with SAML SSO, and you want to use the same [email domain](#email-domains) across multiple organizations, please refer to [this section](/basics/sso/setting-up-sso-special-cases#the-same-email-domain-is-used-in-multiple-organizations-at-sauce-labs).
+- If your company has multiple organizations at Sauce Labs to be integrated with
+SAML SSO, and you want to use the same [email domain](#email-domains) across 
+multiple organizations, please refer to [this section](/basics/sso/setting-up-sso-special-cases/#multiple-organizations-with-the-same-email-domain-at-sauce-labs).
 
 ## Setup Overview
 
