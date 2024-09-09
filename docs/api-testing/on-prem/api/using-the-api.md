@@ -39,18 +39,6 @@ https://mastiff.apifortress.com/app/api/rest/v3/34d8mm70-c03e-267a-9fa1-90b9flsb
 >
 > This is useful for later.
 
-**Jump to a Section**
-
-- [Unauthenticated Endpoints](#unauthenticated-endpoints)
-  - [Run Tests](#test-run)
-  - [Insights (Data & Information)](#insights-data--information)
-- [Authenticated endpoints](#authenticated-endpoints)
-  - [Authentication](#authentication)
-  - [Insights (Data & Information)](#insights)
-  - [Update Tests](#update-tests)
-  - [Creating Tests Outside of API Fortress](#creating-tests-outside-of-api-fortress)
-  - [Converting to JUnit Format](#converting-to-junit-format)
-
 # Unauthenticated Endpoints
 
 ## Test Run

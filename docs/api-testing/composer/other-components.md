@@ -22,7 +22,7 @@ Here are some other components that you can add to a test using the Composer. Th
 
 The Tag component within the Composer enables you to dynamically tag the resulting document of a test execution. You can add different tags based on dynamic events happening during the test execution, such as a certain value retrieved in the payload. You can assign multiple tags to each test by adding more 'tag' components to it.
 
-This is different from the tags applied when you first [create the test](/api-testing/composer/#create-a-composer-test). That feature enables you to search for that tag(s) filter in your Project **Tests** tab or [**Dashboard**](/api-testing/project-dashboard) tab.
+This is different from the tags applied when you first [create the test](/api-testing/composer/#create-a-test). That feature enables you to search for that tag(s) filter in your Project **Tests** tab or [**Dashboard**](/api-testing/project-dashboard) tab.
 
 <details>
 <summary><strong>Parameters</strong></summary>
@@ -317,7 +317,7 @@ This component allows you to pause or stop a test entirely.
 
 #### Examples
 
-This component is especially useful when combined with the [`If` component](#if). See the examples below:
+This component is especially useful when combined with the [`If` component](/api-testing/composer/logical-components/#if). See the examples below:
 
 <img src={useBaseUrl('img/api-testing/flow_stop.png')} alt="flow_stop.png"/>
 
