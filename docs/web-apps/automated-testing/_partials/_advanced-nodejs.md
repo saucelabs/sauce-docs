@@ -1,6 +1,6 @@
 ## Using Node.js Runtime on Sauce Cloud
 
-Since `saucectl` v0.185.0 and above, you can specify Node.js runtime version on Sauce Cloud.
+Since `saucectl` v0.185.0, you can specify Node.js runtime version on Sauce Cloud.
 
 Only supported test runners can use configurable Node.js versions. Check the following pages for supported framework versions that allow configurable Node.js versions.
 
