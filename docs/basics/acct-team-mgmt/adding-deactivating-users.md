@@ -50,7 +50,12 @@ If you invite a user by email, you will need to wait until they accept your invi
 
 ### SSO Considerations
 
-If SSO and the **Require Single Sign-On** option are enabled for your organization (see [Single Sign-On Settings](/basics/acct-team-mgmt/org-settings/#single-sign-on-settings)), new users will be outside your IdP. This means they will not be able to log in to Sauce Labs using the credentials you provided when you created their account (they will be able to run test automation, however). In this situation, you should add users manually.
+If SSO and the **Require Single Sign-On** option is enabled for your
+organization (see [Single Sign-On Settings](/basics/acct-team-mgmt/org-settings/#sso-advanced-options)),
+new users will be outside your IdP. This means they will not be able to log in
+to Sauce Labs using the credentials you provided when you created their account
+(they will be able to run test automation, however). In this situation, you
+should add users manually.
 
 If SSO is enabled but the **Require Single Sign-On** option is not, you can add new users manually, but not via email.
 

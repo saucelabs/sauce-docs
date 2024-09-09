@@ -108,7 +108,12 @@ For more information on Sauce Connect and IPSec settings available to Organizati
 
 ## User Settings
 
-The User Settings screen allows you to view and change your password and email address. You can also regenerate an access key, as well as copy a driver string (for more information, see [Regenerating Access Keys](/basics/acct-team-mgmt/managing-user-info/#regenerating-access-keys) and [Create a RemoteWebDriver Instance](/web-apps/automated-testing/selenium/#step-1-create-a-remotewebdriver-instance)). If you are an admin and want to change the settings for users in your org, see [Updating User Information](/basics/acct-team-mgmt/managing-user-info/#updating-user-information).
+The User Settings screen allows you to view and change your password and email
+address. You can also regenerate an access key, as well as copy a driver string
+(for more information, see [Regenerating Access Keys](/basics/acct-team-mgmt/managing-user-info/#regenerating-access-keys)
+and [Create a Remote Session](/web-apps/automated-testing/selenium/#step-1-create-a-remote-session)).
+If you are an admin and want to change the settings for users in your org, see
+[Updating User Information](/basics/acct-team-mgmt/managing-user-info/#updating-user-information).
 
 To access the User Settings screen, on Sauce Labs, click **ACCOUNT** and then click **User settings**.
 <img src={useBaseUrl('img/team-mgmt/user-settings-nav.png')} alt="User Settings navigation" width="350"/>
