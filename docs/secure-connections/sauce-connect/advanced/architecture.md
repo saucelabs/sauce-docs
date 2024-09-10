@@ -29,7 +29,9 @@ Here is an overview of how these components interact with the user environment:
 
 ### Sauce Connect Proxy Client
 
-The [client (also known as SC)](/secure-connections/sauce-connect/installation/#download-latest-version) is distributed as a single binary that contains several distinct components. These include:
+The [client (also known as SC)](/secure-connections/sauce-connect/installation)
+is distributed as a single binary that contains several distinct components.
+These include:
 
 - SC Client controller: the “brain” of the SC client. It issues requests to the Sauce Labs REST API, starts all the other included components and ensures that everything is working as expected.
 - KGP Client: the client side implementation of [KGP, Sauce Labs proprietary protocol](/secure-connections/sauce-connect/advanced/kgp).

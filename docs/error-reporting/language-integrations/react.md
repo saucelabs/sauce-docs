@@ -358,8 +358,8 @@ The following options are available for the BacktraceClientOptions passed when i
 
 ### Manually send an error
 
-There are several ways to send an error to Backtrace. For more details on the definition of `client.send()` see
-[Methods](#methods) below.
+There are several ways to send an error to Backtrace. For more details on the
+definition of `client.send()` see methods below.
 
 ```ts
 // send as a string

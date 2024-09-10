@@ -22,7 +22,6 @@ Sauce Visual introduce a new Cypress command:
 
 - `cy.sauceVisualCheck()`: Takes a screenshot and send it to Sauce Visual for comparison.
 - `cy.sauceVisualResults()`: Waits for diff calculations to complete and returns a summary of results.
-  See [Test results summary](#test-results-summary) for more details about summary format and sample usage.
 
 :::note Important
 Running Cypress tests on Sauce Labs requires SauceCTL to be installed and configured.

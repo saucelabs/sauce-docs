@@ -49,7 +49,10 @@ Use the latest version of the Selenium library in your code for the most up-to-d
 
 <p><small>| STRING |</small></p>
 
-Identifies the user agent. See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-browser-name) for more information. This setting also applies to emulators, simulators and real devices when automating with a mobile browser. It must be set when [App Name](#app) is not set.
+Identifies the user agent. See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-browser-name) for more
+information. This setting also applies to emulators, simulators and real devices
+when automating with a mobile browser. It must be set when [App Name](#appiumapp)
+is not set.
 
 - For Android v5 and below, the value needs to be `"Browser"`, v6 and above, it is `"Chrome"`.
 - For iOS, the value needs to be `"Safari"`.
@@ -1372,10 +1375,10 @@ Keeps the device allocated to you between test sessions and bypasses the device 
 
 :::note
 **For Android:**
-If [`noReset`](#noreset) is also set to `true`, the app under test and its data will remain as-is on the device.
+If [`noReset`](#appiumnoreset) is also set to `true`, the app under test and its data will remain as-is on the device.
 
 **For iOS**
-Changing [`noReset`](#noreset) has no impact here. The app will not be removed, will stay on the phone/tablet and will keep it's state. This is caused by the re-signing process of the app.
+Changing [`noReset`](#appiumnoreset) has no impact here. The app will not be removed, will stay on the phone/tablet and will keep it's state. This is caused by the re-signing process of the app.
 :::
 
 If you are running multiple test suites in parallel, the values for `cacheId` should be unique for each suite (to avoid mixing up the devices), and the value for `cacheId` must be the same for all test methods that you want to run on the cached device. The value itself can be any (random) string. In addition, the app and project ID used for the tests must remain the same, along with the values for these capabilities:

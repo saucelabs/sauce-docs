@@ -68,9 +68,9 @@ The way to define capabilities in recent versions of Selenium is with browser op
 
 - Ensure you have the session you want (e.g., browser name, browser version, operating system).
 - Set the behavior you want in your session. There are three types of options that set behavior:
-  - [Common options](/dev/test-configuration-options/#browser-w3c-capabilities--optional):
+  - [Common options](/dev/test-configuration-options/#w3c-webdriver-browser-capabilities--optional):
     these include things such as page load timeouts, and insecure certificate behavior.
-  - [Browser options](/dev/test-configuration-options/#browser-vendor-capabilities)
+  - [Browser options](/dev/test-configuration-options/#desktop-browser-capabilities-sauce-specific--optional)
   - Sauce Labs options: see [Test Configuration](/dev/test-configuration-options)
     for a complete guide to our available capabilities.
 
