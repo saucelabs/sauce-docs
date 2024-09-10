@@ -1366,8 +1366,8 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'mobile-apps/features/mobile-app-diagnostics/app-logs',
-                                'mobile-apps/features/mobile-app-diagnostics/app-crash-logs',
                                 'mobile-apps/features/mobile-app-diagnostics/device-vitals',
+                                'mobile-apps/features/mobile-app-diagnostics/crash-error-reporting',
                                 'mobile-apps/features/mobile-app-diagnostics/interactions',
                                 'mobile-apps/features/mobile-app-diagnostics/view-tree',
                                 'mobile-apps/features/network-capture',
