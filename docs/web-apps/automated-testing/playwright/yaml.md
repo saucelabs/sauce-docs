@@ -56,6 +56,25 @@ kind: playwright
 
 ---
 
+## `nodeVersion`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the Node.js version for Sauce Cloud, supporting SemVer notation and aliases. For more details, refer to the [Advanced Configuration Page](./advanced.md#using-nodejs-runtime-on-sauce-cloud).
+
+Examples: `v20`, `v20.14.0`, `v20.14`, `iron`, `lts`.
+
+:::note
+This feature is available in `saucectl` version v0.185.0+ and supported test runners. For details on supported test runners, see [Supported Testing Platforms](../playwright.md#supported-testing-platforms).
+
+:::
+
+```yaml
+nodeVersion: v20
+```
+
+---
+
 ## `showConsoleLog`
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
