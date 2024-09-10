@@ -90,7 +90,7 @@ async function setCookie() {
 </TabItem>
 </Tabs>
 
-See also [alternative implementations](https://www.selenium.dev/documentation/webdriver/bidirectional/chrome_devtools/cdp_api/#set-cookie)
+See also [alternative implementations](https://www.selenium.dev/documentation/webdriver/bidi/cdp/network/#setting-cookies)
 
 ### Basic Auth
 Basic Auth allows you to test websites that have basic access authentication implemented.
@@ -145,7 +145,7 @@ async function myTest() {
 </TabItem>
 </Tabs>
 
-See also [alternative implementations](https://www.selenium.dev/documentation/webdriver/bidirectional/chrome_devtools/cdp_api/#basic-authentication)
+See also [alternative implementations](https://www.selenium.dev/documentation/webdriver/bidi/cdp/network/#basic-authentication)
 
 
 ## BiDi API
@@ -199,7 +199,7 @@ async function captureConsoleLogs() {
 </TabItem>
 </Tabs>
 
-See also [alternative implementations](https://www.selenium.dev/documentation/webdriver/bidirectional/chrome_devtools/bidi_api/#console-logs-and-errors)
+See also [alternative implementations](https://www.selenium.dev/documentation/webdriver/bidi/cdp/logging/#console-logs)
 
 ### Network Interception
 Network events can be intercepted for both requests and responses in order to consume or transform them.
@@ -274,4 +274,4 @@ async function captureContentTypes() {
 </TabItem>
 </Tabs>
 
-See also [alternative implementations](https://www.selenium.dev/documentation/webdriver/bidirectional/chrome_devtools/bidi_api/#response-information) or [WebdriverIO reference on CDP](https://webdriver.io/docs/devtools-service/#chrome-devtools-access)
+See also [alternative implementations](https://www.selenium.dev/documentation/webdriver/bidi/cdp/network/#network-interception) or [WebdriverIO reference on CDP](https://webdriver.io/docs/devtools-service/#chrome-devtools-access)
