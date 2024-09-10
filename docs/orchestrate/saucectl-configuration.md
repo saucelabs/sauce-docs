@@ -144,7 +144,8 @@ sauce:
 
 <p><small>| REQUIRED | OBJECT |</small></p>
 
-The set of properties providing details about the test suites to run. May contain multiple suite definitions. See the full [example config](#example-configuration) for an illustration of multiple suite definitions.
+The set of properties providing details about the test suites to run. May
+contain multiple suite definitions.
 
 ---
 

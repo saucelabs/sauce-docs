@@ -24,7 +24,6 @@ Sauce Visual plugin provides a library exposing a `VisualClient` class that prov
 
 - `VisualCheck`: Takes a screenshot and sends it to Sauce Visual for comparison.
 - `VisualResults`: Waits for all diff calculations to complete and returns a summary of results.
-  See [Test results summary](#test-results-summary) for more details about summary format and sample usage.
 
 ## Quickstart
 

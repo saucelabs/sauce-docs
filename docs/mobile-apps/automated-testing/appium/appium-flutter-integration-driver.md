@@ -137,7 +137,8 @@ More information on how to write Appium tests for Flutter apps can be found in t
 :::info APPIUM FLUTTER INTEGRATION DRIVER SUPPORT :
 [appium-flutter-integration-driver](https://github.com/AppiumTestDistribution/appium-flutter-integration-driver). This driver will now be included by default with Appium version latest and all subsequent versions released after July 1st.
 
-More information regarding the available [appium versions](/mobile-apps/automated-testing/appium/appium-versions/#Real-Devices) we support at Sauce Sabs.
+More information regarding the available [appium versions](/mobile-apps/automated-testing/appium/appium-versions/#real-devices)
+we support at Sauce Labs.
 :::
 
 ### Real Devices

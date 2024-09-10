@@ -11,7 +11,9 @@ To run Screener against a static Storybook build, instead of starting the Storyb
 
 ## What You'll Need
 
-- If you haven't already, follow the steps under the [Quickstart](/visual/component-testing/setup/) to integrate Sauce Labs Visual Component Testing (Screener) with Storybook and [set your Sauce credentials as environment variables](/visual/component-testing/setup/#set-environment-variables).
+- If you haven't already, follow the steps under the [Quickstart](/visual/component-testing/setup/)
+to integrate Sauce Labs Visual Component Testing (Screener) with Storybook and
+[set your Sauce credentials as environment variables](/visual/component-testing/setup/#link-your-sauce-labs-account).
 - An existing [Storybook project](https://storybook.js.org/basics/quick-start-guide/) with some [component stories](https://storybook.js.org/basics/writing-stories/).
 
 ## Run a Static Storybook Build

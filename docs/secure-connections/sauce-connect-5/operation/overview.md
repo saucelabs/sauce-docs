@@ -21,20 +21,29 @@ We recommend using a single Sauce Connect Proxy tunnel or tunnel pool for each t
 
 ### Security Considerations
 
-We recommend using a [config file](/secure-connections/sauce-connect-5/operation/configuration/#config-file) or [setting environment variables](/secure-connections/sauce-connect-5/operation/configuration/#environment-variables/) to hide sensitive information like your password ([--access-key](/dev/cli/sauce-connect-5/run/#--access-key)) and proxy credentials. This way, they won't be visible in the list of running processes.
+We recommend using a [config file](/secure-connections/sauce-connect-5/operation/configuration/#config-file)
+or [setting environment variables](/secure-connections/sauce-connect-5/operation/configuration/#environment-variables)
+to hide sensitive information like your password ([--access-key](/dev/cli/sauce-connect-5/run/#access-key))
+and proxy credentials. This way, they won't be visible in the list of running
+processes.
 
 [Sauce Connect Proxy white paper](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview) contains an in-depth overview of the proxy and its security.
 
 ### Shared Tunnels
 
-Sauce Connect Proxy tunnel can be shared between multiple accounts in the same organization. To share a tunnel, start Sauce Connect Proxy with the [`--shared all`](/dev/cli/sauce-connect-5/run/#--shared) flag.
-For most Sauce Labs customers, your access to shared tunnels is determined by the permissions of the user who creates them.
-Organization admins can create tunnels that any user on any team can use.
-Team admins can create tunnels that any member of their team can use. Team members cannot share tunnels they create with any other team member.
+Sauce Connect Proxy tunnel can be shared between multiple accounts in the same
+organization. To share a tunnel, start Sauce Connect Proxy with the [`--shared all`](/dev/cli/sauce-connect-5/run/#shared)
+flag. For most Sauce Labs customers, your access to shared tunnels is determined
+by the permissions of the user who creates them. Organization admins can create
+tunnels that any user on any team can use. Team admins can create tunnels that
+any member of their team can use. Team members cannot share tunnels they create
+with any other team member.
 
 For more information about user roles and permissions, see [User Roles](/basics/acct-team-mgmt/managing-user-info).
 
-In order to use a tunnel that an admin or team member shares with you, you'll need to add [`tunnelOwner`](https://docs.saucelabs.com/dev/test-configuration-options/#tunnelowner) to your test capabilities and specify that person's username.
+In order to use a tunnel that an admin or team member shares with you, you'll
+need to add [`tunnelOwner`](/dev/test-configuration-options/#tunnelowner)
+to your test capabilities and specify that person's username.
 
 ### Running Sauce Connect Proxy
 

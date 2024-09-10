@@ -75,7 +75,7 @@ As an important step prior to downloading Sauce Connect Proxy, you or your syste
    - [https://api.eu-central-1.saucelabs.com](https://api.eu-central-1.saucelabs.com/) for EU-Central region
 
    If you can get a `200 OK` response from all URLs above, you are ready to start Sauce Connect!
-   As an alternative, you can just try to [start a tunnel](/secure-connections/sauce-connect/setup-configuration/basic-setup/#validating-your-basic-setup)
+   As an alternative, you can just try to [start a tunnel](/secure-connections/sauce-connect/quickstart/#start-tunnel)
    and check the console output.
 
 ## Configuring Your System to Use Sauce Connect

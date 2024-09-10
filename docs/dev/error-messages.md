@@ -278,7 +278,9 @@ Our device pool is available to all subscribed Sauce users and (as you might ima
 Instead of passing a specific `deviceName`:
 
 - When you select a device from the pool, use `appium:deviceName` to [select the device dynamically](/mobile-apps/supported-devices/#dynamic-device-allocation). This way you can specify the type of device (make, model, OS) instead of a specific device, which increases the likelihood of finding an appropriate device that is available for your test to run on.
-- If you are looking for a specific OS version instead of a specific make and model, you can use the [`appium:platformVersion`](/dev/test-configuration-options/#appium) option to fetch a device with that OS regardless of make and model.
+- If you are looking for a specific OS version instead of a specific make and
+model, you can use the [`appium:platformVersion`](/dev/test-configuration-options#appiumplatformversion)
+option to fetch a device with that OS regardless of make and model.
 
 ```java
 // specific deviceId

@@ -57,5 +57,12 @@ Within the high level process described above, there are many nuances that can a
 
 By default, automated tests that are running on real devices in the Sauce Labs data centers can run for up to **60 minutes**. However, that duration can be affected by other factors:
 
-- If the test is idle (not actively interacting with the device) for more than 60 seconds, the test will timeout and end the session, so consider writing tests that do not include waits that may trigger this timeout. For Appium tests, you have the option to increase the idle timeout value to a maximum of 90 seconds using the [`newCommandTimeout`](/dev/test-configuration-options/#newCommandTimeout) capability.
-- If you are running multiple Appium tests concurrently on the same device, consider setting the [cache ID](/dev/test-configuration-options/#cacheId) to bypass the default device cleaning process and session exit between tests.
+- If the test is idle (not actively interacting with the device) for more than
+60 seconds, the test will timeout and end the session, so consider writing tests
+that do not include waits that may trigger this timeout. For Appium tests, you
+have the option to increase the idle timeout value to a maximum of 90 seconds
+using the [`newCommandTimeout`](/dev/test-configuration-options/#appiumnewcommandtimeout)
+capability.
+- If you are running multiple Appium tests concurrently on the same device,
+consider setting the [cache ID](/dev/test-configuration-options/#cacheid) to
+bypass the default device cleaning process and session exit between tests.

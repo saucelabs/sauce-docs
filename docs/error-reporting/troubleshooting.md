@@ -40,7 +40,7 @@ The following example focuses on an unsymbolicated Electron crash:
 
 1. To upload the symbol, it is best practice to add it to an active zip or tar archive. You can then use curl or the webUI to upload the archive containing the symbol(s). The following support documents provide guidance for both processes:
 
-   - [HTTP API](/error-reporting/project-setup/symbolication/#http-api)
+   - [HTTP API](/error-reporting/project-setup/symbolication/#api)
    - [Missing Symbols](#missing-symbols)
 
 1. All crash data present in a project before uploading the symbols must be reprocessed to account for the newly added symbols. Subsequent reports are processed with the newly added symbols. For more information, see [Object Reprocessing](/error-reporting/project-setup/object-reprocessing/).

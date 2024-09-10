@@ -25,7 +25,9 @@ See also [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections
 
 To share a tunnel, start a tunnel with the [`--shared-tunnel`](/dev/cli/sauce-connect-proxy/#--shared-tunnel) flag. For most Sauce Labs customers, your access to shared tunnels is determined by the permissions of the user who creates them. Organization admins can create tunnels that any user on any team can use. Team admins can create tunnels that any member of their team can use. Team members cannot share tunnels they create with any other team member.
 
-In order to use a tunnel that an admin or team member shares with you, you'll need to add [`tunnelOwner`](https://docs.saucelabs.com/dev/test-configuration-options/#tunnelowner) to your test capabilities and specify that person's username.
+In order to use a tunnel that an admin or team member shares with you, you'll
+need to add [`tunnelOwner`](/dev/test-configuration-options/#tunnelowner)
+to your test capabilities and specify that person's username.
 
 ## How can I use Sauce Connect Proxy to test graceful degradation?
 

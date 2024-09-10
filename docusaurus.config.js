@@ -11,6 +11,7 @@ const docusaurusConfig = {
     noIndex: process.env.NO_INDEX,
     trailingSlash: true,
     baseUrl: siteBaseUrl,
+    onBrokenAnchors: 'throw',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'throw',
     organizationName: 'saucelabs',

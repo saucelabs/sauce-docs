@@ -24,7 +24,6 @@ Sauce Visual plugin provides a library exposing a `VisualApi` object that provid
 
 - `visual.sauceVisualCheck()`: Takes a screenshot and send it to Sauce Visual for comparison.
 - `visual.sauceVisualResults()`: Waits for all diff calculations to complete and returns a summary of results.
-  See [Test results summary](#test-results-summary) for more details about summary format and sample usage.
 
 ## Quickstart
 

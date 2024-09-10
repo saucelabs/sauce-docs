@@ -1668,6 +1668,7 @@ module.exports = {
             items: [
                 'insights',
                 'insights/scope',
+                'insights/overview',
                 'insights/history',
                 'insights/trends',
                 'insights/usage-report',
@@ -1720,6 +1721,7 @@ module.exports = {
                         'visual-testing/integrations/webdriverio',
                         'visual-testing/integrations/python',
                         'visual-testing/integrations/python-robot-framework',
+                        'visual-testing/integrations/playwright',
                     ],
                 },
                 'visual-testing/cli',

@@ -100,7 +100,7 @@ values={[
 - An existing test, if available.
 - Create a new test using an example from [Sauce Labs Demonstration Scripts](https://github.com/saucelabs-training). Follow those instructions to configure the test before proceeding to the next step.
 
-4. If you are using a name for your tunnel, add the [`TUNNEL_NAME`](/dev/test-configuration-options/#tunnelName) to the capabilities section of your test script. Use the same name you used in Step 1.
+4. If you are using a name for your tunnel, add the [`TUNNEL_NAME`](/dev/test-configuration-options#tunnelname) to the capabilities section of your test script. Use the same name you used in Step 1.
 
 <Tabs
 defaultValue="Java"
@@ -149,7 +149,7 @@ caps.SetCapability("tunnelName", "TUNNEL_NAME");
   </TabItem>
   </Tabs>
 
-5. When you see `connected`, [verify that your tunnel is active](/secure-connections/sauce-connect/quickstart/#verifying-a-tunnel).
+5. When you see `connected`, [verify that your tunnel is active](/secure-connections/sauce-connect/quickstart/#verify-connection).
 
 Once you've confirmed that your network is configured for Sauce Connect Proxy, you can start new tunnels as needed. As a best practice, we recommend creating a new tunnel for each test suite or build and tearing it down at the end of your test.
 
@@ -173,7 +173,7 @@ When launching a Sauce Connect Proxy tunnel for automated web and mobile app tes
 - Launch a Sauce Connect tunnel as-is, without naming it. That default, unnamed tunnel will automatically be used for all automated tests. This can be useful for small organizations with a limited number of tests.
 - **Recommended**: Assign a name to help distinguish tunnels in a way that is meaningful to your organization. To accomplish this:
   - Use the [ `--tunnel-name` flag](/dev/cli/sauce-connect-proxy/#--tunnel-name) when you launch a tunnel.
-  - Specify the named tunnel in your automated tests by adding the [`tunnelName`](/dev/test-configuration-options#tunnelName) capability.
+  - Specify the named tunnel in your automated tests by adding the [`tunnelName`](/dev/test-configuration-options#tunnelname) capability.
 
 #### Example Configurations
 
@@ -207,7 +207,7 @@ values={[
 
 - Ensure that your network configuration allows for communication between the `SC Host`, the Tunnel VM, and the SUT (site under test). See the basic network configuration diagram for further explanation.
 - Select an example from [Sauce Labs Demonstration Scripts](https://github.com/saucelabs-training) and follow the instructions to configure the test in your dev environment.
-- Navigate to the desired test script and add the [`tunnelName`](/dev/test-configuration-options#tunnelName) capability to your [`sauce:options`](/dev/w3c-webdriver-capabilities).
+- Navigate to the desired test script and add the [`tunnelName`](/dev/test-configuration-options#tunnelname) capability to your [`sauce:options`](/dev/w3c-webdriver-capabilities).
 
 <Tabs
 defaultValue="Java"
