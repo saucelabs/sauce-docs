@@ -41,7 +41,9 @@ with any other team member.
 
 For more information about user roles and permissions, see [User Roles](/basics/acct-team-mgmt/managing-user-info).
 
-In order to use a tunnel that an admin or team member shares with you, you'll need to add [`tunnelOwner`](https://docs.saucelabs.com/dev/test-configuration-options#tunnelowner) to your test capabilities and specify that person's username.
+In order to use a tunnel that an admin or team member shares with you, you'll
+need to add [`tunnelOwner`](/dev/test-configuration-options/#tunnelowner)
+to your test capabilities and specify that person's username.
 
 ### Running Sauce Connect Proxy
 
