@@ -858,13 +858,94 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-### Download a Specific Real Device Job's Device Logs File
+### Download a Specific Real Device Job's Asset
 
 <details>
-<summary><span className="api get">GET</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/deviceLogs</code></summary>
+<summary><span className="api get">GET</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/&#123;asset_type&#125;</code></summary>
 <p/>
 
-Download the device logs file for a specific job after it finished running on a real device at the data center.
+Download a specific asset for a job after it has completed running on a real device at the data center. The assets available for a specific job depend on the test framework and whether the corresponding feature was enabled during the test.
+
+#### Assets
+
+<table id="table-api">
+  <thead>
+    <tr>
+     <td>Asset Type</td>
+     <td>Path</td>
+     <td>Test Framework</td>
+     <td>Feature</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     <td>Device Logs</td>
+     <td>deviceLogs</td>
+     <td>Appium, Espresso, XCUITest</td>
+     <td>-</td>
+    </tr>
+    <tr>
+     <td>Appium Logs</td>
+     <td>appiumLogs</td>
+     <td>Appium</td>
+     <td>-</td>
+    </tr>
+    <tr>
+     <td>Appium Requests</td>
+     <td>appiumRequests</td>
+     <td>Appium</td>
+     <td>-</td>
+    </tr>
+    <tr>
+     <td>JUnit XML</td>
+     <td>junit.xml</td>
+     <td>Espresso, XCUITest</td>
+     <td>-</td>
+    </tr>
+    <tr>
+     <td>XCUITest Logs</td>
+     <td>xcuitestLogs</td>
+     <td>XCUITest</td>
+     <td>-</td>
+    </tr>
+    <tr>
+     <td>Video</td>
+     <td>video.mp4</td>
+     <td>Appium, Espresso, XCUITest</td>
+     <td>-</td>
+    </tr>
+    <tr>
+     <td>Screenshots</td>
+     <td>screenshots.zip</td>
+     <td>Appium, Espresso</td>
+     <td><a href="/mobile-apps/automated-testing/espresso-xcuitest/espresso-capture/">Espresso Screenshot Capture</a></td>
+    </tr>
+    <tr>
+     <td>App Logs</td>
+     <td>deviceLogs</td>
+     <td>Appium, Espresso, XCUITest</td>
+     <td><a href="/mobile-apps/features/mobile-app-diagnostics/app-logs/">App Logs</a></td>
+    </tr>
+    <tr>
+     <td>Network Logs</td>
+     <td>network.har</td>
+     <td>Appium, Espresso, XCUITest</td>
+     <td><a href="/mobile-apps/features/network-capture/">Network Capture</a></td>
+    </tr>
+    <tr>
+     <td>Device Vitals</td>
+     <td>insights.json</td>
+     <td>Appium, Espresso, XCUITest</td>
+     <td><a href="/mobile-apps/features/mobile-app-diagnostics/device-vitals/">Device Vitals</a></td>
+    </tr>
+    <tr>
+     <td>Crash Logs</td>
+     <td>crash.json</td>
+     <td>Appium</td>
+     <td><a href="/mobile-apps/features/mobile-app-diagnostics/crash-error-reporting/">Crash/Error Reporting</a></td>
+    </tr>
+  </tbody>
+</table>
 
 #### Parameters
 
@@ -873,6 +954,10 @@ Download the device logs file for a specific job after it finished running on a 
     <tr>
      <td><code>job_id</code></td>
      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a job running on a real device in the data center. You can look up job IDs using the <a href="#get-real-device-jobs">Get Real Device Jobs</a> endpoint.</p></td>
+    </tr>
+    <tr>
+     <td><code>asset_type</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The specific file path for the asset.</p></td>
     </tr>
     <tr>
      <td><code>download</code></td>
@@ -1434,7 +1519,7 @@ Assign a private device to specified teams, or remove its assignment by providin
   <tbody>
     <tr>
      <td><code>ids</code></td>
-     <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>List of unique identifiers of teams in the Sauce Labs organization.</p></td>
+     <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>List of unique identifiers of teams in the Sauce Labs organization. New team assignments will replace the existing ones.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1509,7 +1594,7 @@ No payload is returned with the successful assignment.
 <p/>
 
 Update device settings to allow apps, system apps, and accounts to persist between sessions. Check out the 
-[available device settings](/basics/acct-team-mgmt/private-device-mgmt/#app-allow-list) for more information on each setting.
+[available device settings](/basics/acct-team-mgmt/private-device-mgmt/#app-allow-list) for more information on each setting. The old values will be replaced with the new ones.
 
 #### Parameters
 
