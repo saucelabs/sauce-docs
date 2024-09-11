@@ -1166,6 +1166,7 @@ module.exports = {
                         'testfairy/app-distribution/app-expiration',
                         'testfairy/app-distribution/release-notes',
                         'testfairy/app-distribution/tags',
+                        'testfairy/app-distribution/symbols-file',
                     ],
                 },
                 {
