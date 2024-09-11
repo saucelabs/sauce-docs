@@ -179,4 +179,4 @@ These options can be defined globally during fixture initialization (see [Step 3
 
 ## Example
 
-An example project is available in our [visual examples repo](https://github.com/saucelabs/visual-examples/tree/main/playwright-js).
+An example project is available in our [visual examples repository](https://github.com/saucelabs/visual-examples/tree/main/playwright-js).
