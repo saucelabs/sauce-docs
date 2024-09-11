@@ -59,15 +59,15 @@ Here’s an example of the relevant portion of the API response:
 
 ## Accessing Symbols File Through the Dashboard
 
-To download your symbols file through the Sauce Labs dashboard, follow these steps:
+To download your symbols file through the TestFairy dashboard, follow these steps:
 
 1. **Log In to Your Dashboard**
 
-   Log in to your [Sauce Labs dashboard](https://saucelabs.com).
+   Log in to your [Sauce Labs dashboard](https://mobile.saucelabs.com).
 
 2. **Navigate to Uploaded Apps**
 
-   From the sidebar menu go to Mobile Testing and to the section where your uploaded apps are listed. Find the app that has the symbols file attached to it.
+   From the apps list, find the app that has the symbols file attached to it.
 
 3. **Access App Details**
 
