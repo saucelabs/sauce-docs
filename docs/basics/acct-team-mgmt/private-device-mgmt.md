@@ -37,6 +37,10 @@ For more details, please see [Managing Concurrency](/basics/acct-team-mgmt/concu
 
 ## Assigning a Private Device to a Team
 
+:::note
+A device can be assigned to only 1 team at a time.  
+:::
+
 1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 2. On the **DEVICES** tab, in the **Team** dropdown, select a team to assign the device to.
    <img src={useBaseUrl('img/team-mgmt/device-mgmt-assign-team.png')} alt="Assign a team" width="600"/>
@@ -136,4 +140,4 @@ Please see [Testing Apple Pay](/mobile-apps/live-testing/testing-apple-pay) for 
 
 ## Private Device Management API
 Easily manage your private real devices with our [Device Management API endpoints](/dev/api/rdc/#private-real-device-management) 
-to obtain device information, assign devices to specific teams, and update device settings efficiently. 
+to obtain device information, assign devices to a specific team, and update device settings efficiently. 
