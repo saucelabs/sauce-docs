@@ -864,7 +864,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 <summary><span className="api get">GET</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/&#123;asset_type&#125;</code></summary>
 <p/>
 
-Download a specific asset for a job after it has completed running on a real device at the data center. The assets available for a specific job depend on the test framework and whether the corresponding feature was enabled during the test.
+Download a specific asset for a job after it has completed running on a real device at the data center. The available assets for a specific job depend on the test framework and whether the corresponding feature was enabled during the test.
 
 #### Assets
 
