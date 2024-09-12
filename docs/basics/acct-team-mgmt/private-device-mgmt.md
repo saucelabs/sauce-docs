@@ -39,7 +39,8 @@ For more details, please see [Managing Concurrency](/basics/acct-team-mgmt/concu
 1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 2. On the **DEVICES** tab, click on the Pencil icon under the Action column to edit a device.
    <img src={useBaseUrl('img/team-mgmt/device-mgmt-device-edit.png')} alt="Private device management edit" width="700"/>
-3. In the device modal, you can configure your private device: Team Assignment, App Allow List, Account Allow List, System App Allow List, Retain folders, Enable Apple Pay
+3. In the device modal, you can configure your private device: Team Assignment, App Allow List, Account Allow List, System App Allow List, Retain folders, Enable Apple Pay.
+   
    <img src={useBaseUrl('img/team-mgmt/device-mgmt-device-edit-modal.png')} alt="Private device management modal view" width="450" height="600"/>
 
 ### Assigning a Private Device to Teams
