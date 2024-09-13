@@ -171,6 +171,40 @@ The following list of custom Appium plugins are supported:
     </tr>
   </thead>
   <tbody>
+     <tr>
+      <td>
+        <code>stable</code>
+      </td>
+      <td>
+        <span className="sauceGreen">Active</span>
+      </td>
+      <td>
+        This is a our LTS image with drivers that we only change when major functionality breaks or after ENTER-DATE-HERE.<br />
+        Please note: This image currently supports the deprecated /touch API. This API is deprecated in future driver releases and replaced by the w3c Action API. We strongly recommend that you migrate to the new API to avoid your tests breaking in the future.<br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.4.1" target="_blank">
+              <code>appium</code>: 2.4.1
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.4.1" target="_blank">
+              <code>appium-flutter-driver</code>: 2.4.1
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v2.43.4" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 2.43.4
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v5.15.1" target="_blank">
+              <code>appium-xcuitest-driver</code>: 5.15.1
+            </a>
+          </li>
+        </ul>
+      </td>
+    </tr>
     <tr>
       <td>
         <code>latest</code>
