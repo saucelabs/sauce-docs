@@ -133,8 +133,7 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 
 Our Appium 2 release strategy is as follows:
 
-- On the 2nd of each month, we release a 'bundled' version of Appium 2 that includes all the latest drivers available up to the 1st of that month. This 'bundled' version allows you to maintain a stable testing environment, saving you the effort required to individually update drivers. The version is named with a timestamp in the `appiumVersion` capability, such as `appium2-YYYYMMDD`, for easy tracking. These versions have an 11-month lifespan post-release, giving you plenty of time to plan your upgrade strategy.
-
+- We offer a `stable` image, which is our LTS image. We change this image as conservatively as possible. The regular update schedule is x years. We will inform you when this image will be updated and we will offer a migration guide for all breaking changes from one `stable` image to a new `stable` image. We can unfortunately not guarantee that the `stable` image will never change. This is because the OS versions of our devices naturally evolve, which introduces breaking changes to Drivers, if this breaks certain devices, we will update the drivers in the `stable` image as well.
 - Additionally, we offer a `latest` version, updated bi-weekly on the 2nd and 16th of each month. This version includes all the most recent Appium 2 drivers and server released up to the 1st and 15th of each month. This rapid update cycle enables you to quickly access new features and fixes, so you can continually enhance your testing workflows. The bi-weekly `latest` version does not have a fixed lifespan, allowing you to stay on the cutting edge.
 
 This strategy is designed to ease the complexities you face in mobile app testing.
