@@ -1415,12 +1415,12 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-### Assign Device to a Team
+### Manage Device Assignment to Teams
 <details>
-<summary><span className="api put">PUT</span> <code>/v1/rdc/device-management/devices/&#123;device_id&#125;/team</code></summary>
+<summary><span className="api put">PUT</span> <code>/v1/rdc/device-management/devices/&#123;device_id&#125;/teams</code></summary>
 <p/>
 
-Assign a private device to a specific team.
+Assign a private device to specified teams, or remove its assignment by providing an empty list or a new set of teams.
 
 #### Parameters
 
@@ -1433,8 +1433,8 @@ Assign a private device to a specific team.
   </tbody>
   <tbody>
     <tr>
-     <td><code>id</code></td>
-     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The unique identifier of a team in the Sauce Labs organization.</p></td>
+     <td><code>ids</code></td>
+     <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>List of unique identifiers of teams in the Sauce Labs organization.</p></td>
     </tr>
   </tbody>
 </table>
@@ -1451,10 +1451,10 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/team' \
+--request PUT 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/teams' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-"id": "8f0444d7762548bd81ae46722a14e1c6"
+"ids": ["8f0444d7762548bd81ae46722a14e1c6, 1ae46722a14e1c68f0444d7762548bd8"]
 }'
 ```
 
@@ -1464,10 +1464,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request PUT 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/team' \
+--request PUT 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/teams' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-"id": "8f0444d7762548bd81ae46722a14e1c6"
+"ids": ["8f0444d7762548bd81ae46722a14e1c6, 1ae46722a14e1c68f0444d7762548bd8"]
 }'
 ```
 
@@ -1498,74 +1498,6 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </table>
 
 No payload is returned with the successful assignment.
-
-</details>
-
----
-
-### Remove Device Assignment from Team
-<details>
-<summary><span className="api delete">DELETE</span> <code>/v1/rdc/device-management/devices/&#123;device_id&#125;/team</code></summary>
-<p/>
-
-Remove the private device assignment from a team.
-
-#### Parameters
-
-<table id="table-api">
-  <tbody>
-    <tr>
-     <td><code>device_id</code></td>
-     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a device in the Sauce Labs data center. You can look up device IDs using the <a href="#get-devices">Get Devices</a> endpoint. (Example: <code>iPhone_12_17_sl</code>)</p></td>
-    </tr>
-  </tbody>
-</table>
-
-<Tabs
-groupId="dc-url"
-defaultValue="us"
-values={[
-{label: 'United States', value: 'us'},
-{label: 'Europe', value: 'eu'},
-]}>
-
-<TabItem value="us">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/team' | json_pp
-```
-
-</TabItem>
-
-<TabItem value="eu">
-
-```jsx title="Sample Request"
-curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/team' | json_pp
-```
-
-</TabItem>
-</Tabs>
-
-#### Responses
-
-<table id="table-api">
-<tbody>
-  <tr>
-    <td><code>200</code></td>
-    <td colSpan='2'>Device successfully removed from team.</td>
-  </tr>
-</tbody>
-<tbody>
-  <tr>
-    <td><code>404</code></td>
-    <td colSpan='2'>Device not found.</td>
-  </tr>
-</tbody>
-</table>
-
-No payload is returned with the successful removal.
 
 </details>
 

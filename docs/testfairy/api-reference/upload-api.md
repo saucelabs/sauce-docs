@@ -60,7 +60,7 @@ Streamline your build process and upload APKs or IPAs directly to TestFairy.
  <tbody>
  <tr>
  <td><code>symbols_file</code></td>
- <td><p><small>| OPTIONAL |</small></p><p>Symbols mapping file. For iOS, this is a path to the <strong>zipped</strong> symbols file. For Android, this is the path to the mappings.txt file</p></td>
+ <td><p><small>| OPTIONAL |</small></p><p>Symbols mapping file. For iOS, this is a path to the <strong>zipped</strong> symbols file (dSYM). For Android, this is the path to the <strong>.txt</strong> file</p></td>
  </tr>
  </tbody>
  <tbody>
@@ -180,7 +180,7 @@ In the case of an error, TestFairy returns a JSON with `status` => `fail` and `c
  <td colSpan='2'>Invalid file.</td>
  </tr>
  </tbody>
- 
+
 </table>
 
 ```json title="Sample Response"
@@ -220,3 +220,9 @@ curl https://upload.testfairy.com/api/upload \
 ```
 
 Metadata is displayed and can be searched on in App Versions page by clicking on an app from the Dashboard. You can also view them on a single version's settings page.
+
+### Can I attach the symbols file to my app to download it later?
+
+Yes! You can attach your dSYM zipped for iOS / Text file .txt for Android app while uploading the app. Check out the [Upload/Download Symbols file] documentation for more details.
+
+[Upload/Download Symbols file]: /testfairy/app-distribution/symbols-file/

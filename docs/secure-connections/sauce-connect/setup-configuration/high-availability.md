@@ -112,7 +112,7 @@ Tunnel pools do not self-heal (see [Self-management](<https://en.wikipedia.org/w
 
 When in High Availability mode, we recommend restarting Sauce Connect Proxy tunnels every 24 hours. The tunnel will stay open until all tests associated with it have completed. At the same time, once the shutdown command has been sent, the tunnel is marked inactive in the eyes of the pool, and no new jobs will use it.
 
-- Windows users: [Running as a Microsoft Windows Service](/secure-connections/sauce-connect/proxy-tunnels/#running-as-a-microsoft-windows-service)
+- Windows users: [Running as a Microsoft Windows Service](/secure-connections/sauce-connect/proxy-tunnels/#running-nssm-for-windows)
 - Linux users: [Monitoring with Service Management Tools](/secure-connections/sauce-connect/proxy-tunnels/#service-management-tools)
 
 ### Using Multiple Machines for Failover Functionality
@@ -123,4 +123,4 @@ If you're using the same machine for multiple tunnels, you should start Sauce Co
 
 ## More Information
 
-- [Sauce Connect Proxy Performance Metrics](/secure-connections/sauce-connect/proxy-tunnels/#performance-metrics)
+- [Sauce Connect Proxy Performance Metrics](/secure-connections/sauce-connect/proxy-tunnels/#improving-sauce-connect-proxy-performance)

@@ -42,7 +42,7 @@ If your Appium tests are intended to test a native mobile app on real devices, t
 The following app file types are supported for real device tests:
 
 - \*.apk or \*.aab for Android app files
-- \*.ipa for iOS app files (See [Create .ipa Files for Appium](/mobile-apps/automated-testing/ipa-files/#real-devices))
+- \*.ipa for iOS app files (See [Create .ipa Files for Appium](/mobile-apps/automated-testing/ipa-files/#creating-ipa-files-for-appium-testing))
 
 See [Appium Versions](./appium-versions.md) for information about Appium versions supported for real device testing.
 

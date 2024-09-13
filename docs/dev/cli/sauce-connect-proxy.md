@@ -109,7 +109,7 @@ You can view the entire list of CLI options by running the `--help` flag.
 
 **Description**: Assigns a name to a Sauce Connect Proxy tunnel. It can also assign a name to a group of tunnels in the same [High Availability pool](/secure-connections/sauce-connect/setup-configuration/high-availability), when used with [`--tunnel-pool`](#--tunnel-pool). Must be in ASCII format.
 
-You can run tests using this tunnel by specifying the [`tunnelName`](/dev/test-configuration-options/#tunnelname) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
+You can run tests using this tunnel by specifying the [`tunnelName`](/dev/test-configuration-options#tunnelname) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
 **Environment variable**: `SAUCE_TUNNEL_IDENTIFIER`<br/>
 **Shorthand**: `-i`
 
@@ -129,7 +129,7 @@ This flag is deprecated and will be removed in future versions. It is replaced b
 
 **Description**: Assigns a name to a Sauce Connect Proxy tunnel. It can also assign a name to a group of tunnels in the same [High Availability pool](/secure-connections/sauce-connect/setup-configuration/high-availability), when used with [`--tunnel-pool`](#--tunnel-pool). Must be in ASCII format.
 
-You can run tests using this tunnel by specifying the [`tunnelName`](/dev/test-configuration-options/#tunnelname) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
+You can run tests using this tunnel by specifying the [`tunnelName`](/dev/test-configuration-options#tunnelname) in your test capabilities. To learn about the syntax for setting this as a capability, see [Test Configuration Options](/dev/test-configuration-options).<br/>
 **Environment variable**: `SAUCE_TUNNEL_NAME`<br/>
 **Shorthand**: `-i`
 
@@ -389,7 +389,9 @@ Use `--logfile -` to print your log to the console window (stdout) instead of th
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">4.8.x</span> <span className="sauceGreen">4.9.x</span> | </small></p>
 
-**Description**: Use this option to define the host:port for the internal web server used to expose the Sauce Connect Proxy runtime info. See the [Sauce Connect Proxy Monitoring](/secure-connections/sauce-connect/proxy-tunnels/#sauce-connect-proxy-monitoring) for more info. Disabled by default.<br/>
+**Description**: Use this option to define the host:port for the internal web
+server used to expose the Sauce Connect Proxy runtime info. See [Sauce Connect Proxy Monitoring](/secure-connections/sauce-connect/proxy-tunnels/#monitoring-tunnels)
+for more info. Disabled by default.<br/>
 **Environment variable**: `SAUCE_STATUS_ADDRESS`<br/>
 **Shorthand**: n/a
 

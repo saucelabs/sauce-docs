@@ -100,7 +100,13 @@ options = {browser_name: browser_name,
 
 ## Implementing the Performance Command Assertion
 
-The custom `sauce:performance` command measures the performance output against a baseline of previously accepted performance values. If no baseline has been set, the Performance test will create one by measuring performance output 10 times to get an aggregate baseline. The command returns `pass` when the current results are within the baseline allowances or `fail` when the results fall outside the baseline. A fail result gives you the option to handle [regressions](#handle-regressions).
+The custom `sauce:performance` command measures the performance output against
+a baseline of previously accepted performance values. If no baseline has been
+set, the Performance test will create one by measuring performance output 10
+times to get an aggregate baseline. The command returns `pass` when the current
+results are within the baseline allowances or `fail` when the results fall
+outside the baseline. A fail result gives you the option to handle
+[regressions](#handling-regressions).
 
 :::caution
 Enabling performance capturing can add up to 60 seconds per URL change in a test. We, therefore, advise separating your performance tests from your functional tests. See our [Performance Requirements and Recommendations](https://docs.saucelabs.com/performance/about/#sauce-performance-requirements-and-recommendations) for more advice on optimizing your performance test results.
@@ -268,7 +274,14 @@ performanceLogs[metric] < value`metric ${metric} is over the performance budget`
 
 ## Handling Regressions
 
-When one or more metric evaluations fail because the result falls outside the established baseline, it is considered a regression and the tester has an option to either troubleshoot and resolve the source of the regression to get the test back into the baseline range or [update the baseline](/performance/analyze#reset-baselines-for-a-failed-test) with the new performance values. If new baselines are accepted, the command will measure performance against those new values until another regression is detected, when you will again have the option to troubleshoot or update the baselines.
+When one or more metric evaluations fail because the result falls outside the
+established baseline, it is considered a regression and the tester has an option
+to either troubleshoot and resolve the source of the regression to get the test
+back into the baseline range or [update the baseline](/performance/analyze/#resetting-baselines-for-a-failed-test)
+with the new performance values. If new baselines are accepted, the command will
+measure performance against those new values until another regression is
+detected, when you will again have the option to troubleshoot or update the
+baselines.
 
 Since the command can be called throughout the test script, create tests that check for performance regressions across core business flows and screens. For example, evaluate pages that load following a successful login event or require multiple steps to trigger.
 

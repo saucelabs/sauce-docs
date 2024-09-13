@@ -81,7 +81,7 @@ To set up an IP-address-based allowlist for outgoing connections, rather than us
 
 Sauce Connect Proxy makes its initial connection to saucelabs.com, which resolves to the IP address above. After that, it uses the data center-specific endpoints listed below.
 
-### US West Data Center
+### US West Region
 
 | Endpoints                          |
 | ---------------------------------- |
@@ -91,7 +91,15 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com, which resolve
 | 66.85.48.0/21                      |
 | 162.222.72.0/21                    |
 
-### EU Central Data Center
+### US East Region
+
+| Endpoints                          |
+| ---------------------------------- |
+| 66.85.48.0/21                      |
+| 162.222.72.0/21                    |
+| 34.145.254.128/27                  |
+
+### EU Central Reguion
 
 | Endpoints                          |
 | ---------------------------------- |
@@ -170,7 +178,7 @@ For details about setting up SSO for Sauce Labs, see [Setting Up Single Sign-On 
 
 | Signing/Encryption Certificate/Entity ID        | Entity AssertionConsumeURL                 |
 | ----------------------------------------------- | ------------------------------------------ |
-| https://us-east-4.saucelabs.com/sso/metadata | https://us-east-4.saucelabs.com/sso/acs |
+| https://us-east-4.saucelabs.com/sso/metadata    | https://us-east-4.saucelabs.com/sso/acs    |
 
 #### EU Central Data Center
 

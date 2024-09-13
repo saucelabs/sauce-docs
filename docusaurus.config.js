@@ -1,11 +1,17 @@
 const unwrapJsx = require('./src/plugins/unwrap-jsx');
+
+// Enabling PR previews
+let siteBaseUrl = '/';
+if (process.env.PREVIEW_PATH) siteBaseUrl += process.env.PREVIEW_PATH;
+
 const docusaurusConfig = {
     title: 'Sauce Labs Documentation',
     tagline: 'Test all the things.',
     url: 'https://docs.saucelabs.com',
     noIndex: process.env.NO_INDEX,
     trailingSlash: true,
-    baseUrl: '/',
+    baseUrl: siteBaseUrl,
+    onBrokenAnchors: 'throw',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'throw',
     organizationName: 'saucelabs',
@@ -101,7 +107,7 @@ const docusaurusConfig = {
                     to: '/dev/cli',
                 },
                 {
-                    label: 'Visual (New)',
+                    label: 'Visual',
                     position: 'left',
                     to: '/visual-testing',
                 },

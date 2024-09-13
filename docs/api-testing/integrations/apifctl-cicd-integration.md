@@ -489,7 +489,7 @@ Identifies the ID of the event you want to see. For use with the **[`event`](#ev
 
 <p><small>| STRING |</small></p>
 
-Adding this parameter allows you to specify the build ID you want to run your tests against. For use with the **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, and **[`exec`](#exec)** commands. For more information, see [Test Builds](/api-testing/project-dashboard/#test-builds).
+Adding this parameter allows you to specify the build ID you want to run your tests against. For use with the **[`run`](#run)**, **[`run-all`](#run-all)**, **[`run-tag`](#run-tag)**, and **[`exec`](#exec)** commands. For more information, see [Test Builds](/api-testing/project-dashboard/#test-build-reports).
 
 ```bash
 -b build-12345

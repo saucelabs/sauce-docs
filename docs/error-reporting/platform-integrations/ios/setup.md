@@ -103,7 +103,7 @@ BacktraceCredentials *backtraceCredentials = [[BacktraceCredentials alloc] initW
 
 After compiling your application with the new backtrace-cocoa library, make sure symbol files are generated in dSYM format and are uploaded to Backtrace to symbolicate incoming crashes.
 
-For information on how to upload debug symbols, see [Symbol Formats and Upload Methods](/error-reporting/project-setup/symbolication/#symbol-formats-and-upload-methods).
+For information on how to upload debug symbols, see [Symbol Formats and Upload Methods](/error-reporting/project-setup/symbolication).
 
 ### Set Debug Symbol Format
 

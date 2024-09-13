@@ -64,15 +64,15 @@ First, obtain a signed URL for uploading your image by using the `createSnapshot
 
 ```graphql
 mutation {
-  createSnapshotUpload(input: {buildId: "build-id-here"}) {
+  createSnapshotUpload(input: {buildUuid: "build-id-here"}) {
     id
-    uploadUrl
+    imageUploadUrl
     domUploadUrl
   }
 }
 ```
 
-- `buildId`: The ID of the build created in the previous step.
+- `buildUuid`: The ID of the build created in the previous step.
 
 **Expected Response:**
 
@@ -81,7 +81,7 @@ mutation {
   "data": {
     "createSnapshotUpload": {
       "id": "upload-id-here",
-      "uploadUrl": "image-upload-url-here",
+      "imageUploadUrl": "image-upload-url-here",
       "domUploadUrl": "dom-upload-url-here"
     }
   }
@@ -89,10 +89,10 @@ mutation {
 ```
 
 - `id`: Upload ID to use in the subsequent steps.
-- `uploadUrl`: The URL to upload the image in the next step.
+- `imageUploadUrl`: The URL to upload the image in the next step.
 - `domUploadUrl`: The URL to upload the DOM to (if desired and available). Explained in the optional step below.
 
-Next, send a `PUT` request to `uploadUrl` with image file in the body of the request. Only **PNG** files are supported.
+Next, send a `PUT` request to `imageUploadUrl` with image file in the body of the request. Only **PNG** files are supported.
 
 **cURL Request:**
 
@@ -135,7 +135,7 @@ mutation {
   createSnapshot(
     input: {
       buildUuid: "build-id-here", 
-      uploadId: "upload-id-here", 
+      uploadUuid: "upload-id-here", 
       name: "Your snapshot name", 
       operatingSystem: OS,
       operatingSystemVersion: "os-version",
@@ -149,7 +149,7 @@ mutation {
 }
 ```
 - `buildUuid`: Build ID that was used in previous steps.
-- `uploadId`: Upload ID acquired with `createSnapshotUpload` in the previous step.
+- `uploadUuid`: Upload ID acquired with `createSnapshotUpload` in the previous step.
 - `operatingSystem`: The operating system used to take the snapshot. Strongly advised to be filled in. Available options: `ANDROID`, `IOS`, `LINUX`, `MACOS`, `WINDOWS`.
 - `operatingSystemVersion`: The operating system version. e.g. "14.5" for `MACOS` or "11" for `WINDOWS`.
 - `browser`: The browser used to take the snapshot. Strongly advised to be filled in (if available). Available options: `CHROME`, `EDGE`, `FIREFOX`, `PLAYWRIGHT_WEBKIT`, `SAFARI`.

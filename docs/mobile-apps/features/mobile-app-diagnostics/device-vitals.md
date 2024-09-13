@@ -8,6 +8,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<p><small><span className="sauceGreen">Real Devices Only</span></small></p>
+
 Device Vitals is a functionality that allows you to debug and observe an app’s performance during test execution for both, [Live](/mobile-apps/live-testing/live-mobile-app-testing/) and [Automated](/mobile-apps/automated-testing/) testing. With this feature, the app's performance is recorded during the test session and displayed for your test results.
 
 ## What You'll Need
@@ -17,17 +19,16 @@ Device Vitals is a functionality that allows you to debug and observe an app’s
 
 ## Using Device Vitals for Real Devices
 
-By default, Device Vitals is enabled if the instrumentation feature is enabled.
-To enable device instrumentation:
+To use Device Vitals, you must ensure that the functionality is enabled for your app.
 
 1. In Sauce Labs, from the left navigation, click **App Management**.
-   <img src={useBaseUrl('img/mobile-apps/app-logs5.png')} alt="App Logs" width="300"/>
+   <img src={useBaseUrl('img/mobile-apps/app-management.png')} alt="App Management" width="700"/>
 2. Upload your mobile app.
    <img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="700"/>
-3. After you’ve uploaded your app, hover your mouse over your app, then select **Settings**.
-   <img src={useBaseUrl('img/mobile-apps/app-logs-6.png')} alt="App Logs" width="700"/>
-4. Under **Real Device Settings** toggle **Instrumentation** to **Enabled**.
-   <img src={useBaseUrl('img/mobile-apps/app-logs-7.png')} alt="App Logs" width="700"/>
+3. After you’ve uploaded your app, locate it in the table and select **Settings** from the corresponding row.
+   <img src={useBaseUrl('img/mobile-apps/app-management-select-settings.png')} alt="Select Settings" width="700"/>
+4. Under **Real Device Settings** first enable **Instrumentation** and then toggle **Device Vitals** on.
+   <img src={useBaseUrl('img/mobile-apps/device-vitals-app-setting.png')} alt="Device Vitals App Setting" width="700"/>
 
 Now you can start your live or automated testing session. Your Device Vitals will be captured and be part of your test results.
 

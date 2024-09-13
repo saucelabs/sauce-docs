@@ -82,4 +82,4 @@ Use "sc <command> --help" for more information about a given command.
 ## Additional Resources
 
 - [Sauce Connect Proxy Basic Setup](/secure-connections/sauce-connect-5/installation/).
-- [Sauce Connect Proxy Environment Variables](/secure-connections/sauce-connect-5/operation/configuration/#environment-variables/).
+- [Sauce Connect Proxy Environment Variables](/secure-connections/sauce-connect-5/operation/configuration/#environment-variables).

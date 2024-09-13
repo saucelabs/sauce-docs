@@ -34,12 +34,7 @@ Sauce Connect Proxy can be configured using:
 * Command line arguments.
 
 All of these options are supported in containers, and you can use them interchangeably.
-
-:::note
-At the moment `api-address` may only be specified as environment variable `SAUCE_API_ADDRESS`, and not in the configuration file.
-See [Sauce Connect Proxy API Server](/secure-connections/sauce-connect-5/operation/api-server#docker) for more information.
-:::
-
+ 
 ### Configuration file
 
 To use a configuration file, mount the file to the container at `/etc/sauce-connect/sauce-connect.yaml`.

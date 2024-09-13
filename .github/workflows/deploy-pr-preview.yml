@@ -1,0 +1,87 @@
+name: Deploy PR Preview
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+    paths-ignore:
+      - '.docsearch/**'
+      - 'README.md'
+      - '.gitpod.yml'
+  workflow_dispatch:
+
+env:
+  ALGOLIA_APP_ID: ${{secrets.ALGOLIA_APP_ID}}
+  ALGOLIA_KEY: ${{secrets.ALGOLIA_KEY}}
+  NO_INDEX: true
+
+concurrency: preview-${{ github.ref }}
+
+jobs:
+  deploy-pr-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Google Cloud Login
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{ secrets.RUN_SA_KEY_DEV }}'
+
+      - name: Setup Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ secrets.RUN_PROJECT_DEV }}
+        env:
+          CLOUDSDK_PYTHON: ${{ env.pythonLocation }}/python
+
+      - name: Set Preview Path
+        run: echo "PREVIEW_PATH=pr-preview/pr-${{ github.event.number }}" >> "$GITHUB_ENV"
+
+      - name: Install Dependencies
+        if: github.event.action != 'closed' # Skip if the PR was closed
+        run: |
+          npm install
+
+      - name: Build
+        if: github.event.action != 'closed' # Skip if the PR was closed
+        run: |
+          npm run build
+
+      - name: Deploy
+        if: github.event.action != 'closed' # Skip if the PR was closed
+        working-directory: build
+        run: |-
+          gsutil -m rsync -R -d . ${{ secrets.GCS_DEV_BUCKET }}/${{ env.PREVIEW_PATH }}
+
+      - name: Deploy Message
+        if: github.event.action != 'closed' # Skip if the PR was closed
+        uses: unsplash/comment-on-pr@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          msg: |
+            Deploy preview ready for ${{ github.event.number }}!
+            https://docs.dev.saucelabs.net/${{ env.PREVIEW_PATH }}
+
+      - name: Cleanup
+        if: github.event.action == 'closed' # Cleanup action only on PR closure
+        run: |-
+          gsutil rm -r ${{ secrets.GCS_DEV_BUCKET }}/${{ env.PREVIEW_PATH }}

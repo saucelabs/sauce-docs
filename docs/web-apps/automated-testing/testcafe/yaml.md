@@ -56,6 +56,25 @@ kind: testcafe
 
 ---
 
+## `nodeVersion`
+
+<p><small>| OPTIONAL | STRING |</small></p>
+
+Specifies the Node.js version for Sauce Cloud, supporting SemVer notation and aliases. For more details, refer to the [Advanced Configuration Page](./advanced.md#using-nodejs-runtime-on-sauce-cloud).
+
+Examples: `v20`, `v20.14.0`, `v20.14`, `iron`, `lts`.
+
+:::note
+This feature is available in `saucectl` version v0.185.0+ and supported test runners. For details on supported test runners, see [Supported Testing Platforms](../testcafe.md#supported-testing-platforms).
+
+:::
+
+```yaml
+nodeVersion: v20
+```
+
+---
+
 ## `showConsoleLog`
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
@@ -177,7 +196,8 @@ saucectl run --ccy 5
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-Sets the number of times to retry a failed suite. For more settings, you can refer to [passThreshold](#passThreshold).
+Sets the number of times to retry a failed suite. For more settings, you can
+refer to [passThreshold](#passthreshold).
 
 ```yaml
 sauce:
@@ -319,7 +339,11 @@ The order of precedence is as follows: --env flag > root-level environment varia
 
 <p><small>| REQUIRED | OBJECT |</small></p>
 
-The directory of files that need to be bundled and uploaded for the tests to run. Ignores what is specified in `.sauceignore`. See [Tailoring Your Test File Bundle](#tailoring-your-test-file-bundle) for more details. The following examples show the different relative options for setting this value.
+The directory of files that need to be bundled and uploaded for the tests to
+run. Ignores what is specified in `.sauceignore`.
+See [Tailoring Your Test File Bundle](/web-apps/automated-testing/testcafe/advanced/#tailoring-your-test-file-bundle)
+for more details. The following examples show the different relative options for
+setting this value.
 
 ```yaml
 rootDir: "./" # Use the current directory
@@ -343,6 +367,7 @@ A parent property specifying the configuration details for any `npm` dependencie
 
 ```yaml
 npm:
+  strictSSL: true
   registry: https://registry.npmjs.org
   registries:
     - url: https://registry.npmjs.org
@@ -362,7 +387,9 @@ npm:
 This setting is supported up to TestCafe 2.6.2. For newer versions, use `registries`.
 :::
 
-Specifies the location of the npm registry source. If the registry source is a private address and you are running tests on Sauce Cloud, you can provide access to the registry source using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
+Specifies the location of the npm registry source. If the registry source is a
+private address, and you are running tests on Sauce Cloud, you can provide
+access to the registry source using [Sauce Connect](/dev/cli/saucectl/usage/use-cases/#sauce-connect).
 
 ```yaml
 npm:
@@ -375,7 +402,9 @@ npm:
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Specifies the location of the npm registry, scope, and credentials. Only one scopeless registry is allowed. If the registry is inside a private network, you must establish a tunnel using [Sauce Connect](/dev/cli/saucectl/#run-tests-on-sauce-labs-with-sauce-connect).
+Specifies the location of the npm registry, scope, and credentials. Only one
+scopeless registry is allowed. If the registry is inside a private network, you
+must establish a tunnel using [Sauce Connect](/dev/cli/saucectl/usage/use-cases/#sauce-connect).
 
 ```yaml
 npm:
@@ -501,7 +530,7 @@ npm:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Specifies any npm packages that are required to run tests and should, therefore, be installed on the Sauce Labs VM. See [Including Node Dependencies](#including-node-dependencies).
+Specifies any npm packages that are required to run tests and should, therefore, be installed on the Sauce Labs VM. See [Including Node Dependencies](advanced.md#including-node-dependencies).
 
 ```yaml
 npm:
@@ -544,6 +573,20 @@ This feature is highly experimental.
 Do not use `dependencies` and `packages` at the same time.
 :::
 
+---
+
+### `strictSSL`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Instructs npm to perform SSL key validation when making requests to the registry via HTTPS (`true`) or not (`false`). Defaults to npm's `strict-ssl` value if not set. See more [here](https://docs.npmjs.com/cli/v8/using-npm/config#strict-ssl).
+
+```yaml
+npm:
+  strictSSL: false
+  package:
+    "lodash": "4.17.20"
+```
 ---
 
 ## `reporters`
@@ -772,6 +815,25 @@ Specifies the path to the folder location in which to download artifacts. A sepa
 ```yaml
 artifacts:
   download:
+    directory: ./artifacts/
+```
+
+---
+
+#### `allAttempts`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+If you have your tests configured with [retries](#retries), you can set this option to `true` to download artifacts for every attempt. Otherwise, only artifacts of the last attempt
+will be downloaded.
+
+```yaml
+artifacts:
+  download:
+    match:
+      - console.log
+    when: always
+    allAttempts: true
     directory: ./artifacts/
 ```
 
