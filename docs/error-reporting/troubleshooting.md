@@ -9,6 +9,16 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+## What does the 000... fingerprint mean?
+A report being grouped into the 000 fingerprint means that there’s either no faulting callstack, or the faulting callstack doesn’t have any module information (shows addresses only with no accompanying .exe or binary). This could be caused by the report being
+- generated on a non-faulting process
+- a custom json report without a thread marked as faulted
+- a corrupt dump
+- or having obfuscation issues
+This can sometimes be fixed by
+- using an error processing modifier to mark a thread as faulting
+- correcting/adjusting report generation to include a faulting thread and module info
+
 ## Can I Use Backtrace In Conjunction With Another Crash And Error Reporting Library?
 
 For example, can I use Backtrace with Firebase Crashlytics?
