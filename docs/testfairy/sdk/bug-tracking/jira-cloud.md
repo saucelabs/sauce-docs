@@ -71,7 +71,8 @@ If you choose not to use the TestFairy Chrome Extension, you can add the TestFai
 To leverage the full capabilities of the TestFairy Jira integration, it's recommended to map Jira custom fields. This feature allows you to automatically populate any field in Jira when creating a new issue, using standard TestFairy data or your custom session attributes. Follow these steps to map Jira custom fields:
 
 
-1. First, you need to connect a Jira account. Follow the [instructions](#1-creating-a-jira-api-token) above.
+1. First, you need to connect a Jira account. Follow the [instructions](#creating-a-jira-api-token)
+   above.
 
 2. Choose one of the apps you want to connect to and press **Activate**.
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-connect-proj-map1.png')} alt="Activate apps"/>

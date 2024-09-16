@@ -30,14 +30,34 @@ Sauce Labs supports the following test configurations for TestCafe:
   <tr>
     <th>TestCafe Version</th>
     <th>Node.js Version</th>
-    <th>Supported Platforms</th>
-    <th>Supported Browsers</th>
-    <th>End of Life</th>
+    <th width="10%">Supports Configurable Node.js</th>
+    <th width="30%">Supported Platforms</th>
+    <th width="30%">Supported Browsers</th>
+    <th width="30%">End of Life</th>
   </tr>
+  <tbody>
+    <tr>
+      <td rowspan='3'>3.6.2</td>
+      <td rowspan='3'>20</td>
+      <td rowspan='3'>✅</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
+      <td rowspan='3'>August 28, 2025</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+      <td>Chrome, Firefox, Microsoft Edge</td>
+    </tr>
+    <tr>
+      <td><b>iOS:</b> 13.4, 14.5, 15.4, 16.0, 16.1, 16.2</td>
+      <td>Safari</td>
+    </tr>
+  </tbody>
   <tbody>
     <tr>
       <td rowspan='3'>3.6.1</td>
       <td rowspan='3'>20</td>
+      <td rowspan='3'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td>Safari, Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='3'>June 26, 2025</td>
@@ -55,6 +75,7 @@ Sauce Labs supports the following test configurations for TestCafe:
     <tr>
       <td rowspan='3'>3.6.0</td>
       <td rowspan='3'>20</td>
+      <td rowspan='3'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td>Safari, Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='3'>May 28, 2025</td>
@@ -72,6 +93,7 @@ Sauce Labs supports the following test configurations for TestCafe:
     <tr>
       <td rowspan='3'>3.5.0</td>
       <td rowspan='3'>20</td>
+      <td rowspan='3'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td>Safari, Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='3'>April 15, 2025</td>
@@ -89,6 +111,7 @@ Sauce Labs supports the following test configurations for TestCafe:
     <tr>
       <td rowspan='3'>3.4.0</td>
       <td rowspan='3'>20</td>
+      <td rowspan='3'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td>Safari, Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='3'>December 6, 2024</td>
@@ -106,6 +129,7 @@ Sauce Labs supports the following test configurations for TestCafe:
     <tr>
       <td rowspan='3'>3.3.0</td>
       <td rowspan='3'>18</td>
+      <td rowspan='3'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td>Safari, Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='3'>September 28, 2024</td>
@@ -123,26 +147,10 @@ Sauce Labs supports the following test configurations for TestCafe:
     <tr>
       <td rowspan='3'>3.2.0</td>
       <td rowspan='3'>18</td>
+      <td rowspan='3'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td>Safari, Chrome, Firefox, Microsoft Edge</td>
       <td rowspan='3'>August 31, 2024</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-      <td>Chrome, Firefox, Microsoft Edge</td>
-    </tr>
-    <tr>
-      <td><b>iOS:</b> 13.4, 14.5, 15.4, 16.0, 16.1</td>
-      <td>Safari</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='3'>3.0.1</td>
-      <td rowspan='3'>18</td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td>Safari, Chrome, Firefox, Microsoft Edge</td>
-      <td rowspan='3'>August 1, 2024</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>
@@ -168,52 +176,4 @@ If all you want is to publish your TestCafe test results to Sauce Labs (but not 
 
 ## Limitations
 
-### Special Characters in Test Names
-
-We recommend that you avoid using special characters when naming your tests. If your test name contains any special characters, your test may not run, or its artifacts may not be visible on our platform.
-
-### TestCafe 3.0.1 + Chrome/Edge + Sauce Connect
-
-When using Sauce-Connect, Chrome, and Edge browsers cannot load any website through the tunnel. It will behave as if there is no tunnel defined.
-
-### TestCafe Native Automation + Chrome + Sauce Connect
-
-If your tests are issuing [TestCafe HTTP requests](https://testcafe.io/documentation/403971/guides/intermediate-guides/api-testing#proxy-settings)
-and require a Sauce Connect tunnel, you will need to either [set the proxy manually](https://testcafe.io/documentation/403971/guides/intermediate-guides/api-testing#proxy-settings) or disable TestCafe's Native Automation.
-
-#### Disable Native Automation
-
-This is the recommended approach, which poses less of a hassle.
-Disable Native Automation in your `.testcaferc.js`:
-```javascript
-module.exports = {
-  disableNativeAutomation: true,
-};
-```
-
-and then ensure that our runner picks up the TestCafe config file by also
-specifying it in the saucectl yaml config:
-```yaml
-testcafe:
-  version: 3.4.0
-  configFile: .testcaferc.js
-```
-
-#### Manually Setting the Request Proxy:
-
-Alternatively, you can apply the proxy settings as you make requests:
-```javascript
-// HTTP_PROXY is pre-populated when using Sauce Connect
-const items = process.env.HTTP_PROXY.split(':');
-const host = items[1].replaceAll('/', '');
-const port = items[2];
-const response = await t.request({
-  url: `http://some-internal-resource.example.com/`,
-  method: 'get',
-  proxy: {
-    protocol: 'http',
-    host,
-    port,
-  }
-});
-```
+Please check the [Limitations Page](testcafe/limitations.md).

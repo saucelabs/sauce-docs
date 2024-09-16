@@ -65,3 +65,19 @@ To retain the previous app build, you have two options:
 2. Change the app package name (or bundle identifier).
 
 Since apps are grouped by package name, uploading an app with a new package name creates a new project. For example, apps with the package name `com.company.app` are grouped separately from those with `com.company.app.debug`.
+
+## Download Your AAB File
+
+If you uploaded an AAB file to us, we will convert it to an APK for distribution. However, you can still access your original AAB file by following these steps:
+
+1. Navigate to Your Build: Go to the build where you uploaded the AAB file.
+
+2. Find the App: Locate the app within the build details.
+
+3. Access the Detail Page: Click on the app to open its detail page.
+
+4. Download the AAB File: Click on **More**. If the app was originally an AAB, you will find a download link in the **Attachments** section.
+
+Use this link to download the original AAB file if needed.
+
+<img src={useBaseUrl('/img/testfairy/app-distribution/download-aab-file.png')} alt="Download AAB file"/>

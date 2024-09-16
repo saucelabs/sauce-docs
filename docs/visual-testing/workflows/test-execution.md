@@ -5,6 +5,7 @@ sidebar_label: Test Execution
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import IntegrationE2ELinks from '../_partials/_integration-e2e-links.md';
 
 # Test Execution Workflow
 
@@ -23,12 +24,7 @@ Sauce Visual provides integrations with different kind of frameworks:
 <div className="box box1 card">
   <div className="container">
   <h2>E2E Testing</h2>
-  <ul>
-      <li><a href="/visual-testing/integrations/cypress/">Cypress Integration</a></li>
-      <li><a href="/visual-testing/integrations/java/">Java Integration</a></li>
-      <li><a href="/visual-testing/integrations/nightwatch/">Nightwatch Integration</a></li>
-      <li><a href="/visual-testing/integrations/webdriverio/">WebdriverIO Integration</a></li>
-  </ul>
+    <IntegrationE2ELinks />
   </div>
 </div>
 <div className="box box2 card">
@@ -40,8 +36,6 @@ Sauce Visual provides integrations with different kind of frameworks:
   </div>
 </div>
 </div>
-
-Alternatively, [check out our examples](../../visual-testing.md#examples).
 
 ## First Test Execution
 

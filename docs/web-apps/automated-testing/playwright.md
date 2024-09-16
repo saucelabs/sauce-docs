@@ -31,14 +31,42 @@ Sauce Labs supports the following test configurations for Playwright:
   <tr>
     <th>Playwright Version</th>
     <th>Node.js Version</th>
-    <th>Supported Platforms</th>
-    <th>Supported Browsers</th>
-    <th>End of Life</th>
+    <th width="10%">Supports Configurable Node.js</th>
+    <th width="20%">Supported Platforms</th>
+    <th width="30%">Supported Browsers</th>
+    <th width="30%">End of Life</th>
   </tr>
+  <tbody>
+    <tr>
+      <td rowspan='2'>1.46.1</td>
+      <td rowspan='2'>20</td>
+      <td rowspan='2'>✅</td>
+      <td><b>macOS:</b> 12, 13</td>
+      <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
+      <td rowspan='2'>August 28, 2025</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='2'>1.45.2</td>
+      <td rowspan='2'>20</td>
+      <td rowspan='2'></td>
+      <td><b>macOS:</b> 12, 13</td>
+      <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
+      <td rowspan='2'>July 23, 2025</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
   <tbody>
     <tr>
       <td rowspan='2'>1.45.0</td>
       <td rowspan='2'>20</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>June 26, 2025</td>
@@ -51,6 +79,7 @@ Sauce Labs supports the following test configurations for Playwright:
     <tr>
       <td rowspan='2'>1.44.0</td>
       <td rowspan='2'>20</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>May 28, 2025</td>
@@ -63,6 +92,7 @@ Sauce Labs supports the following test configurations for Playwright:
     <tr>
       <td rowspan='2'>1.43.1</td>
       <td rowspan='2'>20</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>April 15, 2025</td>
@@ -75,6 +105,7 @@ Sauce Labs supports the following test configurations for Playwright:
     <tr>
       <td rowspan='2'>1.41.2</td>
       <td rowspan='2'>20</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>February 28, 2025</td>
@@ -87,6 +118,7 @@ Sauce Labs supports the following test configurations for Playwright:
     <tr>
       <td rowspan='2'>1.41.0</td>
       <td rowspan='2'>20</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>January 22, 2025</td>
@@ -99,6 +131,7 @@ Sauce Labs supports the following test configurations for Playwright:
     <tr>
       <td rowspan='2'>1.40.1</td>
       <td rowspan='2'>20</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>December 6, 2024</td>
@@ -111,6 +144,7 @@ Sauce Labs supports the following test configurations for Playwright:
     <tr>
       <td rowspan='2'>1.39.0</td>
       <td rowspan='2'>20</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>November 7, 2024</td>
@@ -123,6 +157,7 @@ Sauce Labs supports the following test configurations for Playwright:
     <tr>
       <td rowspan='2'>1.38.1</td>
       <td rowspan='2'>18</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>September 28, 2024</td>
@@ -135,21 +170,10 @@ Sauce Labs supports the following test configurations for Playwright:
     <tr>
       <td rowspan='2'>1.37.1</td>
       <td rowspan='2'>18</td>
+      <td rowspan='2'></td>
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
       <td rowspan='2'>August 31, 2024</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='2'>1.36.2</td>
-      <td rowspan='2'>18</td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td rowspan='2'>Chromium, Chrome, Firefox, Webkit</td>
-      <td rowspan='2'>August 1, 2024</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>
@@ -170,41 +194,4 @@ If you prefer to stay in Playwright, try the [Playwright Sauce Labs Reporter](ht
 
 ## Limitations
 
-### Special Characters in Test Names
-
-We recommend that you avoid the use of special characters when naming your tests. If your test name contains any special characters, your test may not run or its artifacts may not be visible in our platform.
-
-### Playwright 1.31.1 + Webkit + Sauce-Connect
-
-When using Sauce-Connect, Webkit browser is unable to load any website that is hosted on the Internet.
-Local websites can still be loaded.
-
-### macOS 12 + Playwright 1.44+ + Webkit
-
-Webkit is not working on macOS 12 since Playwright 1.44.0.
-
-### macOS 11 + Playwright 1.29+ + Webkit
-
-Webkit is not working on macOS 11 since Playwright 1.29.0.
-
-### Playwright HTML Reporter + Trace Viewer
-
-Because of a limitation in how assets are stored on our platform, configuring your tests to use the built-in [HTML reporter](https://playwright.dev/docs/test-reporters#html-reporter) and Playwright's [Trace Viewer](https://playwright.dev/docs/trace-viewer-intro) feature will not work as expected.
-
-### Chrome launchOptions
-
-If you use project specific `launchOptions` along with setting Chrome as the browser, you'll encounter the following error:
-
-```
-browserType.launch: Chromium distribution 'chrome' is not found at C:\Users\sauce\AppData\Local\Google\Chrome\Application\chrome.exe
-```
-
-This is because playwright's project specific settings override the global configuration that Sauce Labs provides during runtime. In this case, the location of the browser binary. Make sure that `launchOptions` are not set when running on a Sauce VM.
-
-### Webkit + Windows
-
-There is a [known issue](https://github.com/microsoft/playwright/issues/24512) in Playwright that prevents some sites from loading in Webkit on Windows with the error `SSL peer certificate or SSH remote key was not OK`. We recommend running your Playwright + Webkit tests on our Mac VMs by setting the [platformName](https://docs.saucelabs.com/web-apps/automated-testing/playwright/yaml/#platformname) to either `macOS 13` or `macOS 12`.
-
-:::note
-Tests running through Sauce Tunnels are unaffected.
-:::
+Please check the [Limitations Page](playwright/limitations.md).

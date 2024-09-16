@@ -24,7 +24,6 @@ Sauce Visual plugin provides a library exposing a `VisualApi` object that provid
 
 - `visual.sauceVisualCheck()`: Takes a screenshot and send it to Sauce Visual for comparison.
 - `visual.sauceVisualResults()`: Waits for all diff calculations to complete and returns a summary of results.
-  See [Test results summary](#test-results-summary) for more details about summary format and sample usage.
 
 ## Quickstart
 
@@ -329,7 +328,7 @@ visual.sauceVisualCheck("Before Login", options);
 
 #### Screenshot-wide configuration
 
-<SelectiveDiffingGlobal />=
+<SelectiveDiffingGlobal />
 
 Example:
 
@@ -437,7 +436,7 @@ visual.sauceVisualCheck("Long content page", options);
 
 <FullPageLimit />
 
-### Clip to an element
+### Clip to an Element
 
 <ClippingDescription />
 
@@ -445,30 +444,17 @@ Example:
 
 ```java
 import com.saucelabs.visual.CheckOptions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
-CheckOptions options = new CheckOptions();
-options.setClipSelector(".your-css-selector");
-visual.sauceVisualCheck("Visible Sale Banner", options);
-```
+RemoteWebDriver driver;
+...
 
-#### Selective Diffing (BETA)
-
-[Selective regions](../selective-diffing.md) are an even more powerful way to control diffing.
-
-```java
-EnumSet<DiffingFlag> visualChanges = EnumSet.of(DiffingFlag.Visual);
-
+WebElement element = driver.findElement(By.cssSelector(".your-css-selector"));
 visual.sauceVisualCheck(
-        "Before Login",
-        new CheckOptions.Builder()
-            .withDiffingMethod(DiffingMethod.BALANCED)
-            .disable(EnumSet.of(DiffingFlag.Position, DiffingFlag.Dimensions))
-            .enable(visualChanges, loginPage.getInputUsername())
-            .disable(visualChanges, loginPage.getInputUsername())
-            .build());
+        "Visible Sale Banner", new CheckOptions.Builder().withClipElement(element).build());
 ```
-
-You can find the full example in our [examples repo](#examples).
 
 ## Examples
 

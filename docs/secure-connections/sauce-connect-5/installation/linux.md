@@ -24,7 +24,7 @@ defaultValue="ARM64"
     <TabItem value="ARM64">
 
 ```bash
-curl -L -o sauce-connect.deb https://saucelabs.com/downloads/sauce-connect/5.1.1/sauce-connect_5.1.1.linux_arm64.deb
+curl -L -o sauce-connect.deb https://saucelabs.com/downloads/sauce-connect/5.1.3/sauce-connect_5.1.3.linux_arm64.deb
 sudo dpkg -i sauce-connect.deb
 ```
   </TabItem>
@@ -32,7 +32,7 @@ sudo dpkg -i sauce-connect.deb
   <TabItem value="x86-64">
 
 ```bash
-curl -L -o sauce-connect.deb https://saucelabs.com/downloads/sauce-connect/5.1.1/sauce-connect_5.1.1.linux_amd64.deb
+curl -L -o sauce-connect.deb https://saucelabs.com/downloads/sauce-connect/5.1.3/sauce-connect_5.1.3.linux_amd64.deb
 sudo dpkg -i sauce-connect.deb
 ```
 
@@ -56,6 +56,12 @@ sudo systemctl start sauce-connect
 
 ```bash
 sudo systemctl status sauce-connect
+```
+
+### Access logs
+
+```bash
+journalctl -u sauce-connect
 ```
 
 ## RedHat/CentOS/Fedora
@@ -75,14 +81,14 @@ defaultValue="ARM64"
 <TabItem value="ARM64">
 
 ```bash
-sudo rpm -i https://saucelabs.com/downloads/sauce-connect/5.1.1/sauce-connect-5.1.1_linux.aarch64.rpm
+sudo rpm -i https://saucelabs.com/downloads/sauce-connect/5.1.3/sauce-connect-5.1.3_linux.aarch64.rpm
 ```
   </TabItem>
 
   <TabItem value="x86-64">
 
 ```bash
-sudo rpm -i https://saucelabs.com/downloads/sauce-connect/5.1.1/sauce-connect-5.1.1_linux.x86_64.rpm
+sudo rpm -i https://saucelabs.com/downloads/sauce-connect/5.1.3/sauce-connect-5.1.3_linux.x86_64.rpm
 ```
 
   </TabItem>
@@ -107,6 +113,12 @@ sudo systemctl start sauce-connect
 sudo systemctl status sauce-connect
 ```
 
+### Access logs
+
+```bash
+journalctl -u sauce-connect
+```
+
 ## Generic
 
 ### Unpack the tarball
@@ -120,7 +132,7 @@ defaultValue="ARM64"
 <TabItem value="ARM64">
 
 ```bash
-curl -L -o sauce-connect.tar.gz https://saucelabs.com/downloads/sauce-connect/5.1.1/sauce-connect-5.1.1_linux.aarch64.tar.gz
+curl -L -o sauce-connect.tar.gz https://saucelabs.com/downloads/sauce-connect/5.1.3/sauce-connect-5.1.3_linux.aarch64.tar.gz
 sudo mkdir -p /opt/sauce-connect
 sudo tar -C /opt/sauce-connect -xzf sauce-connect.tar.gz
 ```
@@ -129,7 +141,7 @@ sudo tar -C /opt/sauce-connect -xzf sauce-connect.tar.gz
   <TabItem value="x86-64">
 
 ```bash
-curl -L -o sauce-connect.tar.gz https://saucelabs.com/downloads/sauce-connect/5.1.1/sauce-connect-5.1.1_linux.x86_64.tar.gz
+curl -L -o sauce-connect.tar.gz https://saucelabs.com/downloads/sauce-connect/5.1.3/sauce-connect-5.1.3_linux.x86_64.tar.gz
 sudo mkdir -p /opt/sauce-connect
 sudo tar -C /opt/sauce-connect -xzf sauce-connect.tar.gz
 ```

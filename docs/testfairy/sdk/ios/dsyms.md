@@ -31,7 +31,8 @@ You can upload multiple dSYMs per build. Some developers have frameworks develop
 
 ## Fatal: Can't find .dSYM folder!
 
-If while compiling you get the error `Fatal: Can't find .dSYM folder!`, your project is not configured to [generate debug symbols](#generate-symbols).
+If while compiling you get the error `Fatal: Can't find .dSYM folder!`, your
+project is not configured to [generate debug symbols](#generating-symbols-in-xcode).
 
 ## Handling missing DSYMs
 
@@ -48,7 +49,7 @@ If your build is missing dSYMs, you can find them and upload them manually to Te
 5. Open a command line terminal and run the following command to locate the DSYMs folder name for one of the listed required UUIDs (replace `<UUID>` with the actual UUID string): `mdfind "com_apple_xcode_dsym_uuids == <UUID>" | grep dSYM`
     
 6. Create a zip file with the content of the DSYM directory (you can call the zip file any name you like) `zip -r /tmp/symbols.zip <YOUR_DSYM_LOCATION>/*`
-7. Proceed to upload the zip as described [here](#upload-symbols).
+7. Proceed to upload the zip as described [here](#uploading-multiple-dsyms).
 
 If you can't locate your dSYMS using `mfind`, follow these instructions:
 
@@ -56,7 +57,7 @@ If you can't locate your dSYMS using `mfind`, follow these instructions:
 2. Control-Click the relevant build, and select "Show in Finder".
 3. In Finder, Control-Click the archive and select "Show Package Contents".
 4. The archive will contain a folder called dSYM.
-5. Create a zip with the contents of the folder and proceed to upload the zip to TestFairy as explained [here](#upload-symbols).
+5. Create a zip with the contents of the folder and proceed to upload the zip to TestFairy as explained [here](#uploading-multiple-dsyms).
 
 ## Locating dSYMs for Bitcode builds.
 
@@ -65,4 +66,4 @@ If you enabled Bitcode for your build and released it to the store or submitted 
 1. In Xcode, open the organizer window.
 2. Click on the relevant build.
 3. From the right side menu, click "download dSYMs".
-4. Manually upload the dSYMs to TestFairy, [as described here](#upload-symbols)
+4. Manually upload the dSYMs to TestFairy, [as described here](#uploading-multiple-dsyms)

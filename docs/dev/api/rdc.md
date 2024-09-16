@@ -8,9 +8,16 @@ description: Retrieve information related to real device availability, device/pl
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Use the Real Device Cloud (RDC) API methods to look up device types and availability in your data center and view current activity on those devices.
+The Real Device Cloud (RDC) API allows you to manage real devices and jobs in your data center. Use the RDC API methods to:
+* Look up device types and availability
+* View current device activity
+* Manage real device jobs by stopping, deleting, or updating job details
+* Assign a private device to a team
+* Update private device settings
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
+
+## Real Devices
 
 ### Get Devices
 
@@ -568,6 +575,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
+## Jobs
+
 ### Get Real Device Jobs
 
 <details>
@@ -849,13 +858,94 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
-### Download a Specific Real Device Job's Device Logs File
+### Download a Specific Real Device Job's Asset
 
 <details>
-<summary><span className="api get">GET</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/deviceLogs</code></summary>
+<summary><span className="api get">GET</span> <code>/v1/rdc/jobs/&#123;job_id&#125;/&#123;asset_type&#125;</code></summary>
 <p/>
 
-Download the device logs file for a specific job after it finished running on a real device at the data center.
+Download a specific asset for a job after it has completed running on a real device at the data center. The available assets for a specific job depend on the test framework and whether the corresponding feature was enabled during the test.
+
+#### Assets
+
+<table id="table-api">
+  <thead>
+    <tr>
+     <td>Asset Type</td>
+     <td>Path</td>
+     <td>Test Framework</td>
+     <td>Feature</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     <td>Device Logs</td>
+     <td>deviceLogs</td>
+     <td>Appium, Espresso, XCUITest</td>
+     <td>-</td>
+    </tr>
+    <tr>
+     <td>Appium Logs</td>
+     <td>appiumLogs</td>
+     <td>Appium</td>
+     <td>-</td>
+    </tr>
+    <tr>
+     <td>Appium Requests</td>
+     <td>appiumRequests</td>
+     <td>Appium</td>
+     <td>-</td>
+    </tr>
+    <tr>
+     <td>JUnit XML</td>
+     <td>junit.xml</td>
+     <td>Espresso, XCUITest</td>
+     <td>-</td>
+    </tr>
+    <tr>
+     <td>XCUITest Logs</td>
+     <td>xcuitestLogs</td>
+     <td>XCUITest</td>
+     <td>-</td>
+    </tr>
+    <tr>
+     <td>Video</td>
+     <td>video.mp4</td>
+     <td>Appium, Espresso, XCUITest</td>
+     <td>-</td>
+    </tr>
+    <tr>
+     <td>Screenshots</td>
+     <td>screenshots.zip</td>
+     <td>Appium, Espresso</td>
+     <td><a href="/mobile-apps/automated-testing/espresso-xcuitest/espresso-capture/">Espresso Screenshot Capture</a></td>
+    </tr>
+    <tr>
+     <td>App Logs</td>
+     <td>deviceLogs</td>
+     <td>Appium, Espresso, XCUITest</td>
+     <td><a href="/mobile-apps/features/mobile-app-diagnostics/app-logs/">App Logs</a></td>
+    </tr>
+    <tr>
+     <td>Network Logs</td>
+     <td>network.har</td>
+     <td>Appium, Espresso, XCUITest</td>
+     <td><a href="/mobile-apps/features/network-capture/">Network Capture</a></td>
+    </tr>
+    <tr>
+     <td>Device Vitals</td>
+     <td>insights.json</td>
+     <td>Appium, Espresso, XCUITest</td>
+     <td><a href="/mobile-apps/features/mobile-app-diagnostics/device-vitals/">Device Vitals</a></td>
+    </tr>
+    <tr>
+     <td>Crash Logs</td>
+     <td>crash.json</td>
+     <td>Appium</td>
+     <td><a href="/mobile-apps/features/mobile-app-diagnostics/crash-error-reporting/">Crash/Error Reporting</a></td>
+    </tr>
+  </tbody>
+</table>
 
 #### Parameters
 
@@ -864,6 +954,10 @@ Download the device logs file for a specific job after it finished running on a 
     <tr>
      <td><code>job_id</code></td>
      <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a job running on a real device in the data center. You can look up job IDs using the <a href="#get-real-device-jobs">Get Real Device Jobs</a> endpoint.</p></td>
+    </tr>
+    <tr>
+     <td><code>asset_type</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The specific file path for the asset.</p></td>
     </tr>
     <tr>
      <td><code>download</code></td>
@@ -1318,6 +1412,322 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 </table>
 
 No payload is returned with the successful deletion.
+
+</details>
+
+---
+
+## Private Real Device Management
+
+Learn more about how to [manage your private devices](/basics/acct-team-mgmt/private-device-mgmt).
+
+### Get Private Devices
+<details>
+<summary><span className="api get">GET</span> <code>/v1/rdc/device-management/devices</code></summary>
+<p/>
+
+Get a list of private devices with their device information and settings.
+
+#### Parameters
+
+This method takes no parameters.
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices' | json_pp
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. List of private devices is returned.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+[
+    {
+        "id": "iPhone_12_17_sl",
+        "name": "iPhone 12",
+        "os": {
+            "name": "iOS",
+            "version": "17.6"
+        },
+        "screenSize": 6.1,
+        "resolutionWidth": 1170,
+        "resolutionHeight": 2532,
+        "state": "AVAILABLE",
+        "team": null,
+        "appWhitelist": [
+            "com.google.chrome.ios"
+        ],
+        "accountWhitelist": [],
+        "systemAppAllowlist": [],
+        "applePaySupportEnabled": false,
+        "skipCleaningFolders": []
+    },
+    {...more devices},
+]
+```
+
+</details>
+
+---
+
+### Manage Device Assignment to Teams
+<details>
+<summary><span className="api put">PUT</span> <code>/v1/rdc/device-management/devices/&#123;device_id&#125;/teams</code></summary>
+<p/>
+
+Assign a private device to specified teams, or remove its assignment by providing an empty list or a new set of teams.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>device_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a device in the Sauce Labs data center. You can look up device IDs using the <a href="#get-devices">Get Devices</a> endpoint. (Example: <code>iPhone_12_17_sl</code>)</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>ids</code></td>
+     <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>List of unique identifiers of teams in the Sauce Labs organization. New team assignments will replace the existing ones.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/teams' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"ids": ["8f0444d7762548bd81ae46722a14e1c6, 1ae46722a14e1c68f0444d7762548bd8"]
+}'
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices/iPad_Pro_11_14_2018_real/teams' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"ids": ["8f0444d7762548bd81ae46722a14e1c6, 1ae46722a14e1c68f0444d7762548bd8"]
+}'
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Device successfully assigned.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Device not found.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>422</code></td>
+    <td colSpan='2'>Team not found.</td>
+  </tr>
+</tbody>
+</table>
+
+No payload is returned with the successful assignment.
+
+</details>
+
+---
+
+### Update Device Settings
+<details>
+<summary><span className="api put">PUT</span> <code>/v1/rdc/device-management/devices/&#123;device_id&#125;/settings</code></summary>
+<p/>
+
+Update device settings to allow apps, system apps, and accounts to persist between sessions. Check out the 
+[available device settings](/basics/acct-team-mgmt/private-device-mgmt/#app-allow-list) for more information on each setting. The old values will be replaced with the new ones.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>device_id</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of a device in the Sauce Labs data center. You can look up device IDs using the <a href="#get-devices">Get Devices</a> endpoint.  (Example: <code>iPhone_12_17_sl</code>)</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>appWhitelist</code></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p><a href="/basics/acct-team-mgmt/private-device-mgmt/#app-allow-list">Persist installed apps</a> and app data between sessions.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>accountWhitelist</code></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>Preserve <a href="/basics/acct-team-mgmt/private-device-mgmt/#account-allow-list">store and payment account sign-ins</a> for Google accounts and Apple IDs between sessions for each account email.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>systemAppAllowlist</code></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p>Access <a href="/basics/acct-team-mgmt/private-device-mgmt/#system-app-allow-list-ios">iOS preinstalled applications</a>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>applePaySupportEnabled</code></td>
+       <td><p><small>| BODY | REQUIRED | BOOLEAN |</small></p><p>Enable to test Apple Pay. Please contact your CSM/SE or Sauce Labs Support for <a href="/basics/acct-team-mgmt/private-device-mgmt/#enable-apple-pay">additional configuration</a>.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>skipCleaningFolders</code></td>
+       <td><p><small>| BODY | REQUIRED | ARRAY |</small></p><p><a href="/basics/acct-team-mgmt/private-device-mgmt/#retain-foldersfilepath-android">Retain specific file paths or folders</a> on your private Android devices between sessions. </p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.us-west-1.saucelabs.com/v1/rdc/device-management/devices/iPhone_12_17_sl/settings' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": "iPhone_12_17_sl",
+    "appWhitelist": ["com.google.chrome.ios"],
+    "accountWhitelist": ["qa-tester@saucelabs.com"],
+    "systemAppAllowlist": ["com.apple.calculator"],
+    "applePaySupportEnabled": false,
+    "skipCleaningFolders": []
+}'
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PUT 'https://api.eu-central-1.saucelabs.com/v1/rdc/device-management/devices/iPhone_12_17_sl/settings' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": "iPhone_12_17_sl",
+    "appWhitelist": ["com.google.chrome.ios"],
+    "accountWhitelist": ["qa-tester@saucelabs.com"],
+    "systemAppAllowlist": ["com.apple.calculator"],
+    "applePaySupportEnabled": false,
+    "skipCleaningFolders": []
+}'
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Device settings successfully updated.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Device not found.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+[
+    {
+        "id": "iPhone_12_17_sl",
+        "name": "iPhone 12",
+        "os": {
+            "name": "iOS",
+            "version": "17.6"
+        },
+        "screenSize": 6.1,
+        "resolutionWidth": 1170,
+        "resolutionHeight": 2532,
+        "state": "AVAILABLE",
+        "team": null,
+        "appWhitelist": [
+            "com.google.chrome.ios"
+        ],
+        "accountWhitelist": [
+            "qa-tester@saucelabs.com"
+        ],
+        "systemAppAllowlist": [
+            "com.apple.calculator"
+        ],
+        "applePaySupportEnabled": false,
+        "skipCleaningFolders": []
+    },
+    {...more devices},
+]
+```
 
 </details>
 

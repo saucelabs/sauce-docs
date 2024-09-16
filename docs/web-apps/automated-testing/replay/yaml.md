@@ -177,7 +177,8 @@ saucectl run --ccy 5
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-Sets the number of times to retry a failed suite. For more settings, you can refer to [passThreshold](#passThreshold).
+Sets the number of times to retry a failed suite. For more settings, you can
+refer to [passThreshold](#passthreshold).
 
 ```yaml
 sauce:
@@ -504,6 +505,25 @@ Specifies the path to the folder location in which to download artifacts. A sepa
 ```yaml
 artifacts:
   download:
+    directory: ./artifacts/
+```
+
+---
+
+#### `allAttempts`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+If you have your tests configured with [retries](#retries), you can set this option to `true` to download artifacts for every attempt. Otherwise, only artifacts of the last attempt
+will be downloaded.
+
+```yaml
+artifacts:
+  download:
+    match:
+      - console.log
+    when: always
+    allAttempts: true
     directory: ./artifacts/
 ```
 

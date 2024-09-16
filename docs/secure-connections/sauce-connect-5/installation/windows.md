@@ -20,7 +20,7 @@ defaultValue="ARM64"
 
 ```bash
 mkdir C:\sauce-connect
-Invoke-WebRequest -Uri https://saucelabs.com/downloads/sauce-connect/5.1.1/sauce-connect-5.1.1_windows.aarch64.zip -OutFile sauce-connect.zip
+Invoke-WebRequest -Uri https://saucelabs.com/downloads/sauce-connect/5.1.3/sauce-connect-5.1.3_windows.aarch64.zip -OutFile sauce-connect.zip
 Expand-Archive -Path sauce-connect.zip -DestinationPath C:\sauce-connect
 ```
   </TabItem>
@@ -29,7 +29,7 @@ Expand-Archive -Path sauce-connect.zip -DestinationPath C:\sauce-connect
 
 ```bash
 mkdir C:\sauce-connect
-Invoke-WebRequest -Uri https://saucelabs.com/downloads/sauce-connect/5.1.1/sauce-connect-5.1.1_windows.x86_64.zip -OutFile sauce-connect.zip
+Invoke-WebRequest -Uri https://saucelabs.com/downloads/sauce-connect/5.1.3/sauce-connect-5.1.3_windows.x86_64.zip -OutFile sauce-connect.zip
 Expand-Archive -Path sauce-connect.zip -DestinationPath C:\sauce-connect
 ```
 

@@ -744,6 +744,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 Retrieve one of the asset files associated with a job, such as a log file, video, or screenshot. The response contains the output of the requested file.
 
+:::note NOTE
+To improve performance, some assets can be compressed in transit. This is indicated by the use of `Content-Encoding: gzip` header in the response. In those cases the client needs to decompress the data upon retrieval. For `curl` this is done through the `--compressed` flag.
+:::
+
 #### Parameters
 
 <table id="table-api">

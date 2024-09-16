@@ -478,6 +478,7 @@ module.exports = {
                             ],
                         },
                         'error-reporting/platform-integrations/source-map',
+                        'error-reporting/platform-integrations/session-replay',
                         'error-reporting/platform-integrations/apache',
                         'error-reporting/platform-integrations/minidump',
                         'error-reporting/platform-integrations/file-attachments',
@@ -777,10 +778,11 @@ module.exports = {
                                     type: 'category',
                                     label: 'saucectl configure',
                                     collapsed: true,
-                                    items: [
-                                        'dev/cli/saucectl/configure/configure',
-                                        'dev/cli/saucectl/configure/list',
-                                    ],
+                                    link: {
+                                        type: 'doc',
+                                        id: 'dev/cli/saucectl/configure/configure/configure',
+                                    },
+                                    items: ['dev/cli/saucectl/configure/list'],
                                 },
                                 {
                                     type: 'category',
@@ -1021,6 +1023,7 @@ module.exports = {
                     items: [
                         'secure-connections/sauce-connect-5',
                         'secure-connections/sauce-connect-5/quickstart',
+                        'secure-connections/sauce-connect-5/migrating',
                         {
                             link: {
                                 type: 'doc',
@@ -1037,7 +1040,7 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/installation/kubernetes',
                             ],
                         },
-                        'secure-connections/sauce-connect-5/migrating',
+                        'secure-connections/sauce-connect-5/logging',
                         'secure-connections/sauce-connect-5/monitoring',
                         {
                             type: 'category',
@@ -1163,6 +1166,7 @@ module.exports = {
                         'testfairy/app-distribution/app-expiration',
                         'testfairy/app-distribution/release-notes',
                         'testfairy/app-distribution/tags',
+                        'testfairy/app-distribution/symbols-file',
                     ],
                 },
                 {
@@ -1363,8 +1367,8 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'mobile-apps/features/mobile-app-diagnostics/app-logs',
-                                'mobile-apps/features/mobile-app-diagnostics/app-crash-logs',
                                 'mobile-apps/features/mobile-app-diagnostics/device-vitals',
+                                'mobile-apps/features/mobile-app-diagnostics/crash-error-reporting',
                                 'mobile-apps/features/mobile-app-diagnostics/interactions',
                                 'mobile-apps/features/mobile-app-diagnostics/view-tree',
                                 'mobile-apps/features/network-capture',
@@ -1402,6 +1406,7 @@ module.exports = {
                                 'mobile-apps/automated-testing/appium/virtual-devices',
                                 'mobile-apps/automated-testing/appium/test-app-upgrades',
                                 'mobile-apps/automated-testing/appium/appium-flutter',
+                                'mobile-apps/automated-testing/appium/appium-flutter-integration-driver',
                             ],
                         },
                         {
@@ -1422,6 +1427,15 @@ module.exports = {
                                         'mobile-apps/automated-testing/espresso-xcuitest/espresso-capture',
                                     ],
                                 },
+                            ],
+                        },
+                        {
+                            type: 'category',
+                            label: 'Flutter',
+                            collapsed: true,
+                            items: [
+                                'mobile-apps/automated-testing/flutter',
+                                'mobile-apps/automated-testing/flutter/flutter-integration-testing-android',
                             ],
                         },
                         'mobile-apps/automated-testing/ipa-files',
@@ -1482,6 +1496,7 @@ module.exports = {
                                     ],
                                 },
                                 'web-apps/automated-testing/cypress/advanced',
+                                'web-apps/automated-testing/cypress/limitations',
                             ],
                         },
                         {
@@ -1494,6 +1509,7 @@ module.exports = {
                                 'web-apps/automated-testing/playwright/selenium-grid',
                                 'web-apps/automated-testing/playwright/yaml',
                                 'web-apps/automated-testing/playwright/advanced',
+                                'web-apps/automated-testing/playwright/limitations',
                             ],
                         },
                         {
@@ -1516,6 +1532,7 @@ module.exports = {
                                 'web-apps/automated-testing/testcafe/quickstart',
                                 'web-apps/automated-testing/testcafe/yaml',
                                 'web-apps/automated-testing/testcafe/advanced',
+                                'web-apps/automated-testing/testcafe/limitations',
                             ],
                         },
                         {
@@ -1652,6 +1669,7 @@ module.exports = {
             items: [
                 'insights',
                 'insights/scope',
+                'insights/overview',
                 'insights/history',
                 'insights/trends',
                 'insights/usage-report',
@@ -1676,7 +1694,7 @@ module.exports = {
 
         {
             type: 'category',
-            label: 'Visual (NEW)',
+            label: 'Visual',
             collapsed: true,
             items: [
                 'visual-testing',
@@ -1688,6 +1706,7 @@ module.exports = {
                         'visual-testing/workflows/test-execution',
                         'visual-testing/workflows/review',
                         'visual-testing/workflows/ci',
+                        'visual-testing/workflows/api-lifecycle',
                     ],
                 },
                 {
@@ -1703,92 +1722,14 @@ module.exports = {
                         'visual-testing/integrations/webdriverio',
                         'visual-testing/integrations/python',
                         'visual-testing/integrations/python-robot-framework',
+                        'visual-testing/integrations/playwright',
                     ],
                 },
+                'visual-testing/cli',
                 'visual-testing/selective-diffing',
+                'visual-testing/mobile-native-testing',
+                'visual-testing/diffing-engines',
                 'visual-testing/faq',
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Screener',
-            collapsed: true,
-            items: [
-                'visual',
-                {
-                    type: 'category',
-                    label: 'E2E Testing',
-                    collapsed: true,
-                    items: [
-                        'visual/e2e-testing/setup',
-                        {
-                            type: 'category',
-                            label: 'Integrations',
-                            collapsed: true,
-                            items: [
-                                'visual/e2e-testing/integrations/continuous-integration',
-                                'visual/e2e-testing/integrations/webhooks',
-                            ],
-                        },
-                        {
-                            type: 'category',
-                            label: 'Workflow',
-                            collapsed: true,
-                            items: [
-                                'visual/e2e-testing/workflow/review-workflow',
-                                'visual/e2e-testing/workflow/baseline-branch',
-                                'visual/e2e-testing/workflow/change-details',
-                                'visual/e2e-testing/workflow/visual-history',
-                                'visual/e2e-testing/workflow/ignoring-changes',
-                            ],
-                        },
-                        'visual/e2e-testing/commands-options',
-                        'visual/e2e-testing/code-examples',
-                        'visual/e2e-testing/supported-browsers',
-                        'visual/e2e-testing/troubleshooting',
-                    ],
-                },
-                {
-                    type: 'category',
-                    label: 'Component Testing',
-                    collapsed: true,
-                    items: [
-                        'visual/component-testing/setup',
-                        {
-                            type: 'category',
-                            label: 'Integrations',
-                            collapsed: true,
-                            items: [
-                                'visual/component-testing/integrations/sauce-labs',
-                                'visual/component-testing/integrations/continuous-integration',
-                                'visual/component-testing/integrations/slack',
-                                'visual/component-testing/integrations/webhooks',
-                                'visual/component-testing/integrations/github',
-                                'visual/component-testing/integrations/visual-studio-team-services',
-                            ],
-                        },
-                        {
-                            type: 'category',
-                            label: 'Workflow',
-                            collapsed: true,
-                            items: [
-                                'visual/component-testing/workflow/review-workflow',
-                                'visual/component-testing/workflow/baseline-branch',
-                                'visual/component-testing/workflow/change-details',
-                                'visual/component-testing/workflow/visual-history',
-                                'visual/component-testing/workflow/ignoring-changes',
-                                'visual/component-testing/workflow/include-exclude-settings',
-                            ],
-                        },
-                        'visual/component-testing/supported-browsers',
-                        'visual/component-testing/storybook-interactions-testing',
-                        'visual/component-testing/storybook-static',
-                    ],
-                },
-                'visual/css-animations',
-                'visual/acct-team-mgmt',
-                'visual/notifications',
-                'visual/faq',
             ],
         },
         {

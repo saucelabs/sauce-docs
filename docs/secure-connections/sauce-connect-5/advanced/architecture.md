@@ -29,7 +29,9 @@ Here is an overview of how these components interact with the user environment:
 
 ### Sauce Connect Proxy Client components
 
-The [client (also known as SC)](/secure-connections/sauce-connect-5/installation/#download-latest-version) is distributed as a single binary that contains several distinct components. These include:
+The [client (also known as SC)](/secure-connections/sauce-connect-5/installation)
+is distributed as a single binary that contains several distinct components.
+These include:
 
 - SC Client controller: the “brain” of the SC client. It issues requests to the Sauce Labs REST API, starts all the other included components and ensures that everything is working as expected.
 - API Server: this is an HTTP server providing an API to query the SC Client controller and exposing the client-side metrics
