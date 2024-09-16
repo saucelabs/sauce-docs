@@ -133,7 +133,7 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 
 Our Appium 2 release strategy is as follows:
 
-- We offer a `stable` image, which is our LTS image. We change this image as conservatively as possible. The regular update schedule is x years. We will inform you when this image will be updated and we will offer a migration guide for all breaking changes from one `stable` image to a new `stable` image. We can unfortunately not guarantee that the `stable` image will never change, because the OS versions of our devices naturally evolve, which introduces breaking changes to drivers. If this breaks some of our core device functionality we will update the drivers in our `stable` image.
+- We offer a `stable` image, which is our LTS image. We change this image as conservatively as possible. The regular update schedule is 2 years. We will inform you when this image will be updated and we will offer a migration guide for all breaking changes from one `stable` image to a new `stable` image. We can unfortunately not guarantee that the `stable` image will never change, because the OS versions of our devices naturally evolve, which introduces breaking changes to drivers. If this breaks some of our core device functionality we will update the drivers in our `stable` image.
 - Additionally, we offer a `latest` version, updated bi-weekly on the 2nd and 16th of each month. This version includes all the most recent Appium 2 drivers and server released up to the 1st and 15th of each month. This rapid update cycle enables you to quickly access new features and fixes, so you can continually enhance your testing workflows. The bi-weekly `latest` version does not have a fixed lifespan, allowing you to stay on the cutting edge.
 
 This strategy is designed to ease the complexities you face in mobile app testing.
@@ -179,7 +179,7 @@ The following list of custom Appium plugins are supported:
         <span className="sauceGreen">Active</span>
       </td>
       <td>
-        This is a our LTS image with drivers that we only change when major functionality breaks or after ENTER-DATE-HERE.<br />
+        This is a our LTS image with drivers that we only change when major functionality breaks or after 31.08.2026.<br />
         Please note: This image currently supports the deprecated /touch API. This API is deprecated in future driver releases and replaced by the w3c Action API. We strongly recommend that you migrate to the new API to avoid your tests breaking in the future.<br />
         <ul>
           <li>
