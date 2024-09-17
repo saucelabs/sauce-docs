@@ -608,7 +608,7 @@ values={[
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1.1/jobs/a521fd8a78c4426fb10ab765ab1f6831' | json_pp
+--request DELETE 'https://api.us-west-1.saucelabs.com/rest/v1/jsmith/jobs/a521fd8a78c4426fb10ab765ab1f6831' | json_pp
 ```
 
 </TabItem>
@@ -617,7 +617,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ```jsx title="Sample Request"
 curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
---request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1.1/jobs/a521fd8a78c4426fb10ab765ab1f6831' | json_pp
+--request DELETE 'https://api.eu-central-1.saucelabs.com/rest/v1/jsmith/jobs/a521fd8a78c4426fb10ab765ab1f6831' | json_pp
 ```
 
 </TabItem>
