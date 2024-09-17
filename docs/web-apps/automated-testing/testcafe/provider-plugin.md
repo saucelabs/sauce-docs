@@ -65,7 +65,7 @@ returned:
 testcafe "sauce:chrome@latest:Windows 11" path/to/test/file.js --reporter saucelabs
 ```
 
-# Limitations
+## Limitations
 
 - TestCafe may incorrectly report the platform of a remote browser session, such
 as mistaking Windows 11 for Windows 10.
