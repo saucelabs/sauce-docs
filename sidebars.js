@@ -1166,6 +1166,7 @@ module.exports = {
                         'testfairy/app-distribution/app-expiration',
                         'testfairy/app-distribution/release-notes',
                         'testfairy/app-distribution/tags',
+                        'testfairy/app-distribution/symbols-file',
                     ],
                 },
                 {
@@ -1366,8 +1367,8 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'mobile-apps/features/mobile-app-diagnostics/app-logs',
-                                'mobile-apps/features/mobile-app-diagnostics/app-crash-logs',
                                 'mobile-apps/features/mobile-app-diagnostics/device-vitals',
+                                'mobile-apps/features/mobile-app-diagnostics/crash-error-reporting',
                                 'mobile-apps/features/mobile-app-diagnostics/interactions',
                                 'mobile-apps/features/mobile-app-diagnostics/view-tree',
                                 'mobile-apps/features/network-capture',
@@ -1433,6 +1434,7 @@ module.exports = {
                             label: 'Flutter',
                             collapsed: true,
                             items: [
+                                'mobile-apps/automated-testing/flutter',
                                 'mobile-apps/automated-testing/flutter/flutter-integration-testing-android',
                             ],
                         },
@@ -1668,6 +1670,7 @@ module.exports = {
             items: [
                 'insights',
                 'insights/scope',
+                'insights/overview',
                 'insights/history',
                 'insights/trends',
                 'insights/usage-report',
@@ -1692,7 +1695,7 @@ module.exports = {
 
         {
             type: 'category',
-            label: 'Visual (NEW)',
+            label: 'Visual',
             collapsed: true,
             items: [
                 'visual-testing',
@@ -1720,6 +1723,7 @@ module.exports = {
                         'visual-testing/integrations/webdriverio',
                         'visual-testing/integrations/python',
                         'visual-testing/integrations/python-robot-framework',
+                        'visual-testing/integrations/playwright',
                     ],
                 },
                 'visual-testing/cli',

@@ -37,8 +37,6 @@ Sauce Visual provides integrations with different kind of frameworks:
 </div>
 </div>
 
-Alternatively, [check out our examples](../../visual-testing.md#examples).
-
 ## First Test Execution
 
 Upon executing your tests for the first time, a visual baseline is automatically created in our system. This baseline serves as the standard for all subsequent tests and matches based on the metadata as described in the [Baseline Matching](../../visual-testing.md#baseline-matching).

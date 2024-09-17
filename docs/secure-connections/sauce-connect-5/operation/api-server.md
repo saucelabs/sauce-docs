@@ -9,7 +9,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Sauce Connect Proxy, optionally, exposes an API server that allows to obtain information about the local Sauce Connect Proxy instance.
-The API interface is configured with the [`--api-address`](/dev/cli/sauce-connect-5/run/#--api-address) flag.
+The API interface is configured with the [`--api-address`](/dev/cli/sauce-connect-5/run/#api-address)
+flag.
 
 ```bash
 --api-address :8080 # listens on all the interfaces' port 8080
@@ -35,15 +36,15 @@ docker run \
 
 The table below summarizes available endpoints.
 
-| Path       | Description                                                                                            |
-| :--------- | :----------------------------------------------------------------------------------------------------- |
-| `/readyz`  | Returns 200 response code when Sauce Connect Proxy is ready, 503 otherwise.                            |
-| `/healthz` | Returns 200 response code when Sauce Connect Proxy is connected, 503 otherwise.                        |
-| `/info`    | Returns runtime information about the tunnel instance.                                                 |
-| `/metrics` | Exposes [Prometheus](https://prometheus.io/) metrics.                                                  |
-| `/configz` | Returns the configuration values.                                                                      |
-| `/pac`     | Returns the PAC content being configured with the [`--pac`](/dev/cli/sauce-connect-5/run/#--pac) flag. |
-| `/version` | Returns the Sauce Connect Proxy instance version and build info.                                       |
+| Path       | Description                                                                                          |
+| :--------- |:-----------------------------------------------------------------------------------------------------|
+| `/readyz`  | Returns 200 response code when Sauce Connect Proxy is ready, 503 otherwise.                          |
+| `/healthz` | Returns 200 response code when Sauce Connect Proxy is connected, 503 otherwise.                      |
+| `/info`    | Returns runtime information about the tunnel instance.                                               |
+| `/metrics` | Exposes [Prometheus](https://prometheus.io/) metrics.                                                |
+| `/configz` | Returns the configuration values.                                                                    |
+| `/pac`     | Returns the PAC content being configured with the [`--pac`](/dev/cli/sauce-connect-5/run/#pac) flag. |
+| `/version` | Returns the Sauce Connect Proxy instance version and build info.                                     |
 
 ### Info
 

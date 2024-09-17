@@ -135,7 +135,7 @@ To use the Key/Value Store in other tests in the same Organization, you have to 
 - Key - for example `token`
 - Variable - for example `my_token`
 
-`token` is the **Key** you assigned in the [first step](/#saving-a-token-in-a-keyvalue-store) of the previous example.
+`token` is the **Key** you assigned in the [first step](#saving-a-token-in-a-keyvalue-store) of the previous example.
 `my_token` is the variable name you will use inside the test for referencing it.
 
 ## Refreshing the Token

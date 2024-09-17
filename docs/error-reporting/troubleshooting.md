@@ -9,6 +9,17 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+## What does the 000... fingerprint mean?
+A report being grouped into the 000 fingerprint means that there’s either no faulting callstack, or the faulting callstack doesn’t have any module information (shows addresses only with no accompanying .exe or binary). This could be caused by the report being
+- generated on a non-faulting process
+- a custom json report without a thread marked as faulted
+- a corrupt dump
+- or having obfuscation issues
+
+This can sometimes be fixed by
+- using an [error processing modifier](/error-reporting/advanced/error-processing-modifiers/) to mark a thread as faulting
+- correcting/adjusting report generation to include a faulting thread and module info
+
 ## Can I Use Backtrace In Conjunction With Another Crash And Error Reporting Library?
 
 For example, can I use Backtrace with Firebase Crashlytics?
@@ -40,7 +51,7 @@ The following example focuses on an unsymbolicated Electron crash:
 
 1. To upload the symbol, it is best practice to add it to an active zip or tar archive. You can then use curl or the webUI to upload the archive containing the symbol(s). The following support documents provide guidance for both processes:
 
-   - [HTTP API](/error-reporting/project-setup/symbolication/#http-api)
+   - [HTTP API](/error-reporting/project-setup/symbolication/#api)
    - [Missing Symbols](#missing-symbols)
 
 1. All crash data present in a project before uploading the symbols must be reprocessed to account for the newly added symbols. Subsequent reports are processed with the newly added symbols. For more information, see [Object Reprocessing](/error-reporting/project-setup/object-reprocessing/).

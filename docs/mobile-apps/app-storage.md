@@ -360,7 +360,10 @@ Dependent apps inherit the configuration of the main app under test for [`Device
 
 ### Appium Capability
 
-For [Appium](/dev/test-configuration-options#mobile-app-capabilities-sauce-specific--optional) tests, you can specify up to seven apps that have already been uploaded to App Storage using one of the previously described methods by setting the `otherApps` desired capability and referencing the app's storage ID or filename.
+For [Appium](/dev/test-configuration-options/#appiumotherapps)
+tests, you can specify up to seven apps that have already been uploaded to App
+Storage using one of the previously described methods by setting the `otherApps`
+desired capability and referencing the app's storage ID or filename.
 
 ```
 caps.setCapability("otherApps", "storage:filename=<file-name>")

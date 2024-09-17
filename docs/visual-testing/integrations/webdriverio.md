@@ -3,7 +3,7 @@ sidebar_label: WebdriverIO
 ---
 
 import FullPageJS from '../_partials/_fullpage-js.md';
-import ClippingWDIO from '../_partials/_clipping-webdriver.md';
+import ClippingDescription from '../_partials/_clipping-description.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import SelectiveDiffing from '../_partials/_selective-diffing.md';
 import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
@@ -22,7 +22,6 @@ Sauce Visual adds new commands to the WebdriverIO's `browser` object:
 
 - `browser.sauceVisualCheck()`: Takes a screenshot and send it to Sauce Visual for comparison.
 - `browser.sauceVisualResults()`: Waits for diff calculations to complete and returns a summary of results.
-  See [Test results summary](#test-results-summary) for more details about summary format and sample usage.
 
 ## Quickstart
 
@@ -268,9 +267,18 @@ browser.sauceVisualCheck('Before Login', {
 
 <FullPageJS />
 
-### Clip to an element
+### Clip to an Element
 
-<ClippingWDIO />
+<ClippingDescription />
+
+Example:
+
+```ts
+await browser.sauceVisualCheck('Visible Sale Banner', {
+  // An element that we should crop the screenshot to
+  clipElement: await $('.your-css-selector')
+})
+```
 
 ## Example
 

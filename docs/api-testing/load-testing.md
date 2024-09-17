@@ -103,7 +103,10 @@ Load test reports include the following details:
 - **Virtual Users** - The number of virtual users for the execution of the test.
 - **Failed Tests** - The number of load test execution failures. This will only be visible if there were failures.
 
-The **Footprint** dropdown shows all the endpoints the test is calling, which you can use to filter to a specific endpoint. The default value shows the data for All the endpoints. For best results, set up footprints to ensure the report is readable. For more information, see [Improving Metrics](/api-testing/composer#improving-metrics).
+The **Footprint** dropdown shows all the endpoints the test is calling, which
+you can use to filter to a specific endpoint. The default value shows the data
+for All the endpoints. For best results, set up footprints to ensure the report
+is readable. For more information, see [Improving Metrics](/api-testing/use-cases/working-with-headers/#improving-metrics).
 
 <img src={useBaseUrl('/img/api-testing/load-test-footprint.png')} alt="The Footprint dropdown" width="200"/>
 

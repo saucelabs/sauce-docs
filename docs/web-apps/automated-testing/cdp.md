@@ -25,7 +25,7 @@ Selenium has stated in their reference that they will eventually move away from 
 
 ## Enabling CDP / BiDi
 
-In order to make use of the CDP / BiDi functionality, you have three possibilities:
+In order to make use of the CDP / BiDi functionality, you have two possibilities:
 
 ### 1. Using Selenium
 

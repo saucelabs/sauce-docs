@@ -1,6 +1,6 @@
 // Author: James Tacker i.e. spider-sauce
 
-import React, { Fragment, useState } from 'react';
+import React from 'react';
 const axios = require('axios');
 
 export default class scTable extends React.Component {
@@ -45,9 +45,15 @@ export default class scTable extends React.Component {
             console.log(err);
         }
     };
+
     componentDidMount() {
-        this.getData().then(() => this.setState({ loading: false }));
+        this.getData()
+            .then(() => this.setState({ loading: false }))
+            .catch((err) => {
+                console.error(err);
+            });
     }
+
     render() {
         let content = this.state.loading ? (
             'Fetching data, please wait...'
