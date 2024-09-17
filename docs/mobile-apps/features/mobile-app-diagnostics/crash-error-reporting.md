@@ -98,6 +98,7 @@ curl --compressed \
 
 - Does not capture hangs and cross-platform development frameworks, like React Native and .NET MAUI
 - Emulators/Simulators are not supported.
+- Espresso and XCUITest tests are not supported.
 - If you have a native crash reporting SDK in your application (including Backtrace), this feature will override it; therefore, you will not see the crash report in your existing system.
 
 :::
