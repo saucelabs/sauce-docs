@@ -16,6 +16,10 @@ project setup flexibility.
 We recommend that you give both approaches a try and pick the one that suits
 your use case best.
 
+🚧 This plugin is currently in beta. We caution against using it in production
+pipelines. We do seek feedback and encourage you to report any issues you
+encounter.
+
 ## Requirements
 
 - Node.js 20+
