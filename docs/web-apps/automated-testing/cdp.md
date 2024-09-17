@@ -176,6 +176,7 @@ For more information, please refer to the [Playwright Selenium Grid documentatio
 
 - CDP / BiDi Sessions are currently limited to 10mins
 - Extended debugging cannot be used along CDP / BiDi
+- CDP /BiDi is NOT available on legacy OS versions: MacOS Sierra (10.12), MacOS El Capitan (10.11), MacOS Yosemite (10.10)
 
 ## Resources
 
