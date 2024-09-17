@@ -26,6 +26,10 @@ The `backtracepython` package supports both Python 2 and 3.
 ## Basic Usage
 
 ```
+python -m pip install backtracepython
+```
+
+```python
 import backtracepython as bt
 bt.initialize(
     endpoint="https://submit.backtrace.io/{universe}/{token}/json"
@@ -34,20 +38,20 @@ bt.initialize(
 
 ### Sending Reports from Unhandled Exceptions
 
-By default, the backtracepython module will automatically capture unhandled exceptions and create and send error reports from them.  This behavior can be adjusted with the `disable_global_handler` option to `bt.initialize` (see below).
+By default, the `backtracepython` module automatically captures unhandled exceptions and creates and sends error reports from them. This behavior can be adjusted with the `disable_global_handler` option in `bt.initialize` (see below).
 
 ### Sending Reports Manually
 
-You can also send error reports manually within code.  However, in order to get a correct callstack and source code context, you must send an error with a python exception context.  To do this, you can raise a python exception then immediately send a report via the `send_last_exception call`.  A simple example:
+You can also send error reports manually in your code. However, to get a correct callstack and source code context, you must send an error with a Python exception context. To do this, you can raise a Python exception and then immediately send a report using the `send_last_exception` call. Here's an example:
 
-```
+```python
 try:
     raise Exception("This report was sent manually.")
 except:
     bt.send_last_exception()
 ```
 
-## Reference
+## Documentation
 
 ### bt.initialize
 
@@ -55,7 +59,7 @@ except:
 
 - endpoint  - Required. Example: https://yourcompany.sp.backtrace.io:6098 or https://submit.backtrace.io/{universe}/{token}/json.  Sets the HTTP/HTTPS endpoint that error reports will be sent to. If submit.backtrace.io url is provided, the token argument is not required.
   token  -  Required only if endpoint is not set to submit.backtrace.io. Example: 51cc8e69c5b62fa8c72dc963e730f1e8eacbd243aeafc35d08d05ded9a024121  Sets the token that will be used for authentication when sending an error report.
-- attributes  - Dictionary that contains additional attributes to be sent along with every error report. These can be overridden on an individual report with report.set_attribute  Example: { 'application': "ApplicationName", 'serverId': "foo" }. Attributes values should be set to a primitive value such as boolean, integer or string.
+- attributes  - Dictionary that contains additional attributes to be sent along with every error report. These can be overridden on an individual report with `report.set_attribute`  Example: `{ 'application': "ApplicationName", 'serverId': "foo" }`. Attributes values should be set to a primitive value such as boolean, integer or string.
 - attachments - A list of file paths that will be sent with each report.
 - ignore_ssl_certificate - Defaults to False. If True, ssl verification will be ignored during HTTP submission.
 - timeout  - Defaults to 4. Maximum amount of seconds to wait for error report processing and sending before concluding it failed.
@@ -108,11 +112,11 @@ error  is an Error object. Backtrace will extract information from this object 
 
 This is the same as report.set_exception(\*sys.exc_info())
 
-`report.log(line) `
+`report.log(line)`
 
 Adds a timestamped log message to the report. Log output is available when you view a report.
 
-`report.send() `
+`report.send()`
 
 Sends the error report to the endpoint specified in initialize.
 
