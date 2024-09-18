@@ -8,7 +8,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-[TestCafe](https://github.com/DevExpress/testcafe) is a testing framework that you can use to test your web apps remotely on Sauce Labs cloud using the [`saucectl` CLI](/dev/cli/saucectl).
+[TestCafe](https://github.com/DevExpress/testcafe) is a testing framework that
+you can use to test your web apps remotely on Sauce Labs cloud using the [`saucectl` CLI](/dev/cli/saucectl).
 
 ## System Requirements
 
@@ -171,9 +172,13 @@ Sauce Labs supports the following test configurations for TestCafe:
 
 ### TestCafe Plugins for Sauce Labs
 
-If you prefer to stay in TestCafe, try the new [TestCafe Sauce Labs Plugin](https://github.com/DevExpress/testcafe-browser-provider-saucelabs). Connect to your Sauce Labs account from within your TestCafe project to configure and run your tests directly from TestCafe.
-If all you want is to publish your TestCafe test results to Sauce Labs (but not run on Sauce Labs), check out our [TestCafe reporter](https://github.com/saucelabs/testcafe-reporter)!
+If you prefer to run your tests directly from TestCafe against a remote Sauce
+Labs browser, try our [TestCafe Provider Plugin](provider-plugin).
+
+If all you want is to publish your TestCafe test results to Sauce Labs, but not
+run _on_ Sauce Labs or use a Sauce Labs provided browser, check out our
+[TestCafe Reporter](https://github.com/saucelabs/testcafe-reporter)!
 
 ## Limitations
 
-Please check the [Limitations Page](testcafe/limitations.md).
+Please check the [Limitations Page](limitations).
