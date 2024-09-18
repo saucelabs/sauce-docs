@@ -62,7 +62,7 @@ options = ChromeOptions()
 options.set_capability('browserName', 'electron')
 options.browser_version = '29'
 options.platform_name = 'Windows 11'
-options.binary_location='<app_folder_name>\<app_file_name.exe>'
+options.binary_location='<app_folder_name>\\<app_file_name.exe>'
 sauce_options = {}
 sauce_options['username'] = ‘<username>’
 sauce_options['accessKey'] = ‘<accesskey>’
