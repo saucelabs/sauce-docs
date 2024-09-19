@@ -50,7 +50,7 @@ Returns a list of all projects (iOS and Android apps) in this account.
     "status": "ok",
     "projects": [
         {
-            "id": "19-groupshot",
+            "id": "6905338",
             "self": "/projects/19-groupshot",
             "name":"GroupShot",
             "packageName":"com.groupshot",
@@ -89,7 +89,7 @@ Get all builds in a specific project. Each build is a distinct version that is e
     "status": "ok",
     "builds": [
         {
-            "id":8830728,
+            "id":"8830728",
             "self":"/projects/6806100-myapplication/builds/8830728",
             "projectId":"6806100",
             "appName":"My Application",
@@ -140,7 +140,7 @@ Get a specific build of a specific project. Query the /api/1/projects/&#123;proj
 {
     "status": "ok",
     "build": {
-        "id":8830728,
+        "id":"8830728",
         "self":"/projects/6806100-myapplication/builds/8830728",
         "projectId":"6806100",
         "appName":"My Application",
