@@ -10,7 +10,7 @@ TestCafe can also connect to Sauce Labs _remotely_ via our [Provider Plugin](htt
 
 While [saucectl](/dev/cli/saucectl/) directly runs your TestCafe tests on a
 Sauce Labs VM, the Sauce Labs Provider Plugin enables remote browser sessions.
-This offers greater project flexibility, as tests execute in your environment.
+This offers greater project flexibility, as tests run in your environment.
 You maintain full control over the Node.js versions, dependency management, and
 build systems.
 
