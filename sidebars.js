@@ -1530,6 +1530,7 @@ module.exports = {
                             items: [
                                 'web-apps/automated-testing/testcafe',
                                 'web-apps/automated-testing/testcafe/quickstart',
+                                'web-apps/automated-testing/testcafe/provider-plugin',
                                 'web-apps/automated-testing/testcafe/yaml',
                                 'web-apps/automated-testing/testcafe/advanced',
                                 'web-apps/automated-testing/testcafe/limitations',
