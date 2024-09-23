@@ -60,7 +60,7 @@ The app settings screen is only available for real device testing. Any changes y
 TODO: To change settings for emulator/simulator runs, go where? only API? link
 :::
 
-TODO: some generic intro text or something
+TODO: some generic intro text or something + access restriction information
 
 #### Default App Settings
 
