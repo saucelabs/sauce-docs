@@ -18,6 +18,8 @@ With Sauce Labs, you can test your mobile apps on a variety of Android and iOS/i
   - [iOS Demo App](https://github.com/saucelabs/my-demo-app-ios/releases)
   - [Android Demo App](https://github.com/saucelabs/my-demo-app-android/releases)
 
+## App Management
+
 ### Uploading an App
 
 You can upload your app via the Sauce Labs UI or via the REST API. For information about uploading via the API, see [Upload Files with the REST API](/mobile-apps/app-storage).
@@ -39,7 +41,7 @@ To delete an app, on the **App Management** page, hover over the app and then cl
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-management-delete.png')} alt="Delete an app" width="850"/>
 
-### App Settings
+## App Settings
 
 To view or change the app settings, on the **App Management** page, hover over the app and then click **Settings**.
 
@@ -49,22 +51,25 @@ To easily copy a test's file name or ID, hover over the test and then click the 
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-management-copy.png')} alt="Copy a file name or ID" width="850"/>
 
-:::note
-The app settings screen is only available for real device testing.
+
+
+### Real Device Settings
+:::note Limitation
+The app settings screen is only available for real device testing. Any changes you make to the app settings will affect all uploaded versions of the app.
+
+TODO: To change settings for emulator/simulator runs, go where? only API? link
 :::
 
-To view your recent configurations, click **Recents**.
-
-<img src={useBaseUrl('img/live-testing/live-testing-recent-tests-nav.png')} alt="Recent tests" width="550"/>
+TODO: some generic intro text or something
 
 #### Default App Settings
 
 | Setting                                                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| :----------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|:-------------------------------------------------------------------------------------------| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Device Language                                                                            | Use the dropdown to select the device language. The language selector will tell your application that the locale of the device and region is set to the selected parameter. You won't need to change the language of the OS manually during a session inside iOS/Android settings. For more information about the locale setting, see the documentation for [iOS](https://developer.apple.com/documentation/foundation/locale) and [Android](https://developer.android.com/reference/java/util/Locale).                                                                                     |
 | Device Orientation                                                                         | Use the dropdown to set the device orientation (Landscape or Portrait).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Proxy                                                                                      | Enable/disable the use of a proxy. Enter the **Hostname** and **Port** and then click **Update**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Device Passcode <br/><p><span className="sauceGreen">Real Devices Only</span></p>          | Enable/disable the device passcode for your apps. If your app requires a device passcode/screenlock to launch, you can enable this setting to run your tests on a passcode-protected device. On Android we are setting 000000, on iOS 089675 as passcode. This is available during Live Testing sessions, see it below in the [Live Testing interface section](/mobile-apps/live-testing/live-mobile-app-testing/#live-test-interface).                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Device Passcode                                                                            | Enable/disable the device passcode for your apps. If your app requires a device passcode/screenlock to launch, you can enable this setting to run your tests on a passcode-protected device. On Android we are setting 000000, on iOS 089675 as passcode. This is available during Live Testing sessions, see it below in the [Live Testing interface section](/mobile-apps/live-testing/live-mobile-app-testing/#live-test-interface).                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Instrumentation                                                                            | Enable/disable device instrumentation. Enabling allows you to use advanced features when testing your app in the real device cloud, like image injection and taking screenshots of secure views.                                                                                                                                                                                                                                                                                                                                                                                            |
 | Image Injection                                                                            | Enable/disable image injection. Image injection allows you to mimic camera behavior when testing apps by letting you upload an image and present it to the app as if it were read by the device camera.                                                                                                                                                                                                                                                                                                                                                                                     |
 | Bypass Screenshot Restriction <br/><p><span className="sauceGreen">Android Only</span></p> | Enable/disable Bypass Screenshot Restriction (not supported on apps uploaded to the legacy sauce storage). If you're testing Android mobile apps on Sauce Labs and see a black screen in your live testing session, you might need to enable the <b>Bypass Screenshot Restriction</b>. This allows Sauce Labs to work around a setting on those apps that prevents screenshots or videos from being taken. However, there are other details to keep in mind. To effectively test apps that have this setting, see [Bypass Screenshot Restriction](/mobile-apps/features/bypass-screenshot). |
@@ -73,20 +78,20 @@ To view your recent configurations, click **Recents**.
 | Group Folder Redirect <br/><p><span className="sauceGreen">iOS Only</span></p>             | Enable/disable a group directory redirect. Enabling allows you to use your app's private app container directory instead of the shared app group container directory. When your app gets resigned, the shared directory is not accessible.                                                                                                                                                                                                                                                                                                                                                  |
 
 :::note
-Any changes you make to the app settings will affect all uploaded versions of the app.
+Most settings update automatically, however, when you make changes to the proxy setting, click **Update** to finish.
 :::
 
-**Example Settings - iOS**
+#### Example Settings - iOS
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-management-ios.png')} alt="App settings - iOS" width="750"/>
 
-**Example Settings - Android**
+#### Example Settings - Android
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-management-android.png')} alt="App settings - Android" width="780"/>
 
-Most settings update automatically, however, when you make changes to the proxy setting, click **Update** to finish.
 
-### Selecting a Device
+
+## Selecting a Device
 
 You must select a device prior to launching a session.
 
@@ -106,17 +111,15 @@ To mark a device as a favorite so you can find it easily in the future, click th
 
 The default sorting for the device list is **Pinned First**.
 
-#### Real Devices
+To view your recent configurations, click **Recents**.
+
+<img src={useBaseUrl('img/live-testing/live-testing-recent-tests-nav.png')} alt="Recent tests" width="550"/>
+
+### Real Devices
 
 On the device selection page, click the **Mobile Real** tab. Use the search box and filters to find the device you want to test on, or select the device in the grid.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-management-real.png')} alt="Mobile Real tab" width="750"/>
-
-#### Virtual Devices
-
-On the device selection page, click the **Mobile Virtual** tab. Use the dropdowns to select the details for the virtual device you want to test on, and then click **Start Test**.
-
-<img src={useBaseUrl('img/live-testing/live-mobile-app-management-virtual.png')} alt="Mobile Virtual tab" width="550"/>
 
 #### **Public vs. Private Devices**
 
@@ -132,7 +135,13 @@ There is a distinction between **Public Devices** and **Private Devices**.
 If you are interested in upgrading to an enterprise plan, contact your Sauce Labs Sales Engineer or Customer Success Manager.
 :::
 
-### Launching a Test
+### Virtual Devices
+
+On the device selection page, click the **Mobile Virtual** tab. Use the dropdowns to select the details for the virtual device you want to test on, and then click **Start Test**.
+
+<img src={useBaseUrl('img/live-testing/live-mobile-app-management-virtual.png')} alt="Mobile Virtual tab" width="550"/>
+
+## Launching a Test
 
 You can launch a test from the following screens:
 
@@ -151,7 +160,7 @@ You'll see a loading screen, and then the app will launch in a live test window 
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-management-demo-app.png')} alt="Mobile real device test interface" width="550"/>
 
-#### Time Limits and Timeouts for Real Devices
+### Time Limits and Timeouts for Real Devices
 
 - Live tests for free users have a 10 minute limit from session start
 - Live tests for all other users are limited to six hours
