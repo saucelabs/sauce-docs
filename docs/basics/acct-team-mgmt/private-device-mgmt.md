@@ -35,7 +35,7 @@ For more details, please see [Managing Concurrency](/basics/acct-team-mgmt/concu
    <img src={useBaseUrl('img/team-mgmt/device-mgmt-devices-tab.png')} alt="Devices tab" width="700"/>
 
 ## Assigning a Private Device to Teams
-Select multiple devices from the table to assign them to one or more teams. By assigning a private device to teams, you restrict access to that device to only the teams it is assigned to. However, this restriction does not apply to organization admins, who continue to have access to all devices within their organization. To grant access to the device for all teams, remove any current team assignments.
+Select multiple devices from the table to assign them to one or more teams. By assigning a private device to teams, you restrict access only to the teams it is assigned to. However, this restriction does not apply to organization admins, who continue to have access to all devices within their organization. To grant access to the device for all teams, remove any current team assignments.
 
 :::note
 Any new team assignments will override the existing ones.
