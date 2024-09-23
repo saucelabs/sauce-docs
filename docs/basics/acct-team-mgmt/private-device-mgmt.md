@@ -34,23 +34,39 @@ For more details, please see [Managing Concurrency](/basics/acct-team-mgmt/concu
 2. Click the **DEVICES** tab. The devices assigned to your organization will be listed.
    <img src={useBaseUrl('img/team-mgmt/device-mgmt-devices-tab.png')} alt="Devices tab" width="700"/>
 
-## Customizing Private Devices
-
-1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
-2. On the **DEVICES** tab, click on the Pencil icon under the Action column to edit a device.
-   <img src={useBaseUrl('img/team-mgmt/device-mgmt-device-edit.png')} alt="Private device management edit" width="700"/>
-3. In the device modal, you can configure your private device: Team Assignment, App Allow List, Account Allow List, System App Allow List, Retain folders, Enable Apple Pay.
-   
-   <img src={useBaseUrl('img/team-mgmt/device-mgmt-device-edit-modal.png')} alt="Private device management modal view" width="450" height="600"/>
-
-### Assigning a Private Device to Teams
-Select one or more teams from the dropdown menu to assign the private device. By assigning a private device to one or more teams, you restrict access to that device to only the teams it is assigned to. However, this restriction does not apply to organization admins, who continue to have access to all devices within their organization. To grant access to the device for all teams, remove any current team assignments.
+## Assigning a Private Device to Teams
+Select multiple devices from the table to assign them to one or more teams. By assigning a private device to teams, you restrict access to that device to only the teams it is assigned to. However, this restriction does not apply to organization admins, who continue to have access to all devices within their organization. To grant access to the device for all teams, remove any current team assignments.
 
 :::note
 Any new team assignments will override the existing ones.
 :::
 
-<img src={useBaseUrl('img/team-mgmt/device-mgmt-team-assignment.png')} alt="Assign teams" width="700"/>
+1. Select one or more devices you want to assign and then click on the **Assign Device To Team** button.
+
+<img src={useBaseUrl('img/team-mgmt/device-mgmt-devices-select.png')} alt="Assign teams" width="700"/>
+
+2. Select one or more teams from the dropdown menu and then click on the **Next** button.
+
+<img src={useBaseUrl('img/team-mgmt/device-mgmt-team-assign.png')} alt="Assign teams" width="700"/>
+
+3. Preview the new team assignments for each device, with changes from the previous assignment highlighted. 
+
+<img src={useBaseUrl('img/team-mgmt/device-mgmt-team-assign-preview.png')} alt="Assign teams" width="700"/>
+
+4. You can turn off the comparison with the previous assignment to view only the new team assignment.
+
+<img src={useBaseUrl('img/team-mgmt/device-mgmt-team-assign-preview-2.png')} alt="Assign teams" width="700"/>
+
+5. **Confirm** the assignment or go **Back to Edit** the selected devices or teams.
+
+## Customizing Private Devices
+
+1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
+2. On the **DEVICES** tab, click on the Pencil icon under the Action column to edit a device.
+   <img src={useBaseUrl('img/team-mgmt/device-mgmt-device-edit.png')} alt="Private device management edit" width="700"/>
+3. In the device modal, you can configure your private device: App Allow List, Account Allow List, System App Allow List, Retain folders, Enable Apple Pay.
+   
+   <img src={useBaseUrl('img/team-mgmt/device-mgmt-device-edit-modal.png')} alt="Private device management modal view" width="450" height="600"/>
 
 ### App Allow List
 The [device cleaning process](/mobile-apps/real-device-cleaning) will remove apps installed from [Sauce Storage](/mobile-apps/app-storage) and the App Store/Play Store between sessions. To have installed apps and app data persist between sessions, update this setting for each of the application identifiers. This might be the app you are testing or dependent apps, e.g. MFA app, Microsoft Authenticator, etc.
