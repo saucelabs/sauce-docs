@@ -42,25 +42,28 @@ To delete an app, on the **App Management** page, hover over the app and then cl
 <img src={useBaseUrl('img/live-testing/live-mobile-app-management-delete.png')} alt="Delete an app" width="850"/>
 
 ## App Settings
+:::warning Limitation
+The Real Device Settings are only applicable for real device testing. Any changes you make to the app settings will affect all uploaded versions of the app.
+:::
 
 To view or change the app settings, on the **App Management** page, hover over the app and then click **Settings**.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-management-settings.png')} alt="App settings" width="850"/>
 
-To easily copy a test's file name or ID, hover over the test and then click the clipboard icon.
+To easily copy an app's file name or ID, hover over the app and then click the clipboard icon.
 
 <img src={useBaseUrl('img/live-testing/live-mobile-app-management-copy.png')} alt="Copy a file name or ID" width="850"/>
 
 
-
 ### Real Device Settings
-:::note Limitation
-The app settings screen is only available for real device testing. Any changes you make to the app settings will affect all uploaded versions of the app.
+A range of device and app settings can be configured to serve as the default for both manual and automated test runs.
+To prevent unexpected inconsistencies across test frameworks, it is recommended to explicitly define these settings in your automated test scripts, ensuring stable configurations across multiple test runs.
 
-TODO: To change settings for emulator/simulator runs, go where? only API? link
+:::warning Limitation
+Only organization and team admins have permission to modify these settings.
+If an organization admin wants to grant a member permission to modify these settings, they can [promote the member](/basics/acct-team-mgmt/managing-user-info/#changing-a-users-role) to Team Admin.
+For further assistance, reach out to your Customer Success Manager or Sauce Labs Support.
 :::
-
-TODO: some generic intro text or something + access restriction information
 
 #### Default App Settings
 
@@ -83,11 +86,11 @@ Most settings update automatically, however, when you make changes to the proxy 
 
 #### Example Settings - iOS
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-management-ios.png')} alt="App settings - iOS" width="750"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-management-ios.png')} alt="App settings - iOS" width="800"/>
 
 #### Example Settings - Android
 
-<img src={useBaseUrl('img/live-testing/live-mobile-app-management-android.png')} alt="App settings - Android" width="780"/>
+<img src={useBaseUrl('img/live-testing/live-mobile-app-management-android.png')} alt="App settings - Android" width="800"/>
 
 
 
@@ -105,7 +108,7 @@ The device selection page will open, with the option to test on a real device or
 If you are testing an iOS app, the device selection will only display the type (real/virtual) configured on the app.
 :::
 
-To mark a device as a favorite so you can find it easily in the future, click the pin icon next to the device name.
+To mark a device as a favorite, so you can find it easily in the future, click the pin icon next to the device name.
 
 <img src={useBaseUrl('img/live-testing/device-favorite.png')} alt="Favorite a device" width="350"/>
 
