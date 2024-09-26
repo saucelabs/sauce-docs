@@ -104,8 +104,10 @@ import { test, expect } from '@playwright/test'
 with
 
 ```js
-import { test, expect } from './custom-test'
+import { test, expect } from '../custom-test'
 ```
+
+(or the location of the custom test file relative to the current directory)
 
 ### Step 4 - Use Sauce Visual in Your Tests
 
@@ -119,8 +121,8 @@ import { test, expect } from '../custom-test';
 // Add the `sauceVisual` fixture into each test you want to capture a snapshot in
 // -------------------------------- here ▼ --------------------------------------
 test('has title', async ({ page, sauceVisual }) => {
-    await page.goto('https://playwright.dev/');
-    await expect(page).toHaveTitle(/Playwright/);
+    await page.goto('https://docs.saucelabs.com/visual-testing/');
+    await expect(page).toHaveTitle(/Sauce Visual/);
 
     // Call `visualCheck` using the fixture and optionally apply any additional
     // options as the second argument.
@@ -136,8 +138,8 @@ import { sauceVisualCheck } from '@saucelabs/visual-playwright';
 
 // Expose the `testInfo` argument here ▼ -------
 test('has title', async ({ page }, testInfo) => {
-    await page.goto('https://docs.saucelabs.com/visual-testing/integrations/playwright/');
-    await expect(page).toHaveTitle(/Playwright/);
+    await page.goto('https://docs.saucelabs.com/visual-testing/');
+    await expect(page).toHaveTitle(/Sauce Visual/);
 
     // Pass the current page object and test info into the `sauceVisualCheck` call, and optionally
     // customize the options via the fourth argument.
@@ -174,3 +176,7 @@ These options can be defined globally during fixture initialization (see [Step 3
 | `delay`         | `number`                 | `0` (no delay)           | A number, in ms, that we should delay before taking the snapshot.                                                                                                                                  |
 | `ignoreRegions` | `(RegionIn \| string)[]` | `[]` (empty)             | An array of manually created ignore regions, or CSS selectors in string form to ignore.                                                                                                            |
 | `diffingMethod` | `DiffingMethod`          | `DiffingMethod.Balanced` | The diffing method from the backend that we should use when performing visual differences. This can be customized by using the `DiffingMethod` enum exported from our `@saucelabs/visual` package. |
+
+## Example
+
+An example project is available in our [visual examples repository](https://github.com/saucelabs/visual-examples/tree/main/playwright-js).

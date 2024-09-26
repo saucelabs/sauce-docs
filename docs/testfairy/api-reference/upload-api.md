@@ -60,7 +60,7 @@ Streamline your build process and upload APKs or IPAs directly to TestFairy.
  <tbody>
  <tr>
  <td><code>symbols_file</code></td>
- <td><p><small>| OPTIONAL |</small></p><p>Symbols mapping file. For iOS, this is a path to the <strong>zipped</strong> symbols file. For Android, this is the path to the mappings.txt file</p></td>
+ <td><p><small>| OPTIONAL |</small></p><p>Symbols mapping file. For iOS, this is a path to the <strong>zipped</strong> symbols file (dSYM). For Android, this is the path to the <strong>.txt</strong> file</p></td>
  </tr>
  </tbody>
  <tbody>
@@ -180,16 +180,30 @@ In the case of an error, TestFairy returns a JSON with `status` => `fail` and `c
  <td colSpan='2'>Invalid file.</td>
  </tr>
  </tbody>
- 
+
 </table>
 
 ```json title="Sample Response"
 {
- "status": "ok",
- "app_name": "Jigsaw Puzzlers",
- "app_version": "0.9.5",
- "app_url": "https://app.testfairy.com/download/6CWKJCHD60PPVWYJHGM4AADJQYA4SDR0/filename.apk",
- "landing_page_url": "https://tsfr.io/3tajti",
+    "status": "ok",
+    "build_id": "106410",
+    "project_id": "61545",
+    "app_name": "My Demo App",
+    "app_version": "2.0.2",
+    "file_size": 2319620,
+    "build_url": "https://app.testfairy.com/projects/61545/builds/106410",
+    "download_page_url": "https://tsfr.io/31thr2",
+    "app_url": "https://app.testfairy.com/download/64R3CE1R6GRK0B9AXMCY77GJWBAW5K7XYV8K0T0CW/getapp",
+    "invite_testers_url": "https://app.testfairy.com/projects/61545/builds/106410/invite",
+    "icon_url": "https://s3.amazonaws.com/testfairy/icons/876033/230c74eece00376eb476516755.png",
+    "options": "video-quality=medium,screenshot-interval=1,session-length=60m,video,logcat,shake,cpu,memory,phone-signal,battery,wifi",
+    "platform": "iOS",
+    "tags": [],
+    "metadata": [],
+    "has_testfairy_sdk": true,
+    "symbols_download_url": "https://app.testfairy.com/api/1/projects/61545/builds/106410/symbols/download/",
+    "attachments": null,
+    "landing_page_url": "https://tsfr.io/31thr2"
 }
 ```
 
@@ -220,3 +234,9 @@ curl https://upload.testfairy.com/api/upload \
 ```
 
 Metadata is displayed and can be searched on in App Versions page by clicking on an app from the Dashboard. You can also view them on a single version's settings page.
+
+### Can I attach the symbols file to my app to download it later?
+
+Yes! You can attach your dSYM zipped for iOS / Text file .txt for Android app while uploading the app. Check out the [Upload/Download Symbols file] documentation for more details.
+
+[Upload/Download Symbols file]: /testfairy/app-distribution/symbols-file/

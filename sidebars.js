@@ -1166,6 +1166,7 @@ module.exports = {
                         'testfairy/app-distribution/app-expiration',
                         'testfairy/app-distribution/release-notes',
                         'testfairy/app-distribution/tags',
+                        'testfairy/app-distribution/symbols-file',
                     ],
                 },
                 {
@@ -1366,8 +1367,8 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'mobile-apps/features/mobile-app-diagnostics/app-logs',
-                                'mobile-apps/features/mobile-app-diagnostics/app-crash-logs',
                                 'mobile-apps/features/mobile-app-diagnostics/device-vitals',
+                                'mobile-apps/features/mobile-app-diagnostics/crash-error-reporting',
                                 'mobile-apps/features/mobile-app-diagnostics/interactions',
                                 'mobile-apps/features/mobile-app-diagnostics/view-tree',
                                 'mobile-apps/features/network-capture',
@@ -1529,6 +1530,7 @@ module.exports = {
                             items: [
                                 'web-apps/automated-testing/testcafe',
                                 'web-apps/automated-testing/testcafe/quickstart',
+                                'web-apps/automated-testing/testcafe/provider-plugin',
                                 'web-apps/automated-testing/testcafe/yaml',
                                 'web-apps/automated-testing/testcafe/advanced',
                                 'web-apps/automated-testing/testcafe/limitations',

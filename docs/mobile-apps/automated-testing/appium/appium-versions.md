@@ -133,8 +133,7 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 
 Our Appium 2 release strategy is as follows:
 
-- On the 2nd of each month, we release a 'bundled' version of Appium 2 that includes all the latest drivers available up to the 1st of that month. This 'bundled' version allows you to maintain a stable testing environment, saving you the effort required to individually update drivers. The version is named with a timestamp in the `appiumVersion` capability, such as `appium2-YYYYMMDD`, for easy tracking. These versions have an 11-month lifespan post-release, giving you plenty of time to plan your upgrade strategy.
-
+- We offer a `stable` image, which is our LTS (Long-time support) image. We change this image as conservatively as possible. The regular update schedule is 2 years. We will inform you when this image will be updated and offer a migration guide for all breaking changes from one `stable` image to a new `stable` image. The stable image is subject to change, to ensure the latest OS versions and device models are continuously supported with the latest Appium drivers. If OS changes break some of our core device functionality we will update the drivers in our `stable` image.
 - Additionally, we offer a `latest` version, updated bi-weekly on the 2nd and 16th of each month. This version includes all the most recent Appium 2 drivers and server released up to the 1st and 15th of each month. This rapid update cycle enables you to quickly access new features and fixes, so you can continually enhance your testing workflows. The bi-weekly `latest` version does not have a fixed lifespan, allowing you to stay on the cutting edge.
 
 This strategy is designed to ease the complexities you face in mobile app testing.
@@ -172,6 +171,40 @@ The following list of custom Appium plugins are supported:
     </tr>
   </thead>
   <tbody>
+     <tr>
+      <td>
+        <code>stable</code>
+      </td>
+      <td>
+        <span className="sauceGreen">Active</span>
+      </td>
+      <td>
+        This is a our LTS (Long-time support) image with drivers that we only change when major functionality breaks or after 31.09.2025.<br />
+        Please note: This image currently supports the deprecated /touch API. This API is deprecated in future driver releases and replaced by the W3C Action API. We strongly recommend that you migrate to the new API to avoid your tests breaking in the future. <a href="https://github.com/appium/appium-uiautomator2-driver/pull/738" target="_blank">See here for more details.</a> <br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.4.1" target="_blank">
+              <code>appium</code>: 2.4.1
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.4.1" target="_blank">
+              <code>appium-flutter-driver</code>: 2.4.1
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v2.43.4" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 2.43.4
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v5.15.1" target="_blank">
+              <code>appium-xcuitest-driver</code>: 5.15.1
+            </a>
+          </li>
+        </ul>
+      </td>
+    </tr>
     <tr>
       <td>
         <code>latest</code>
