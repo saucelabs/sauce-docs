@@ -29,7 +29,7 @@ In order to make use of the CDP / BiDi functionality, you have two possibilities
 
 ### 1. Using Selenium
 
-If you're using Selenium, you can enable CDP / BiDi by setting the `devTools` parameter in `sauce:options` to `true`.
+If you're using Selenium, you can enable CDP / BiDi by setting the `webSocketUrl` capability to `true` (recommended) OR `devTools` parameter in `sauce:options`  to `true` (legacy)
 <Tabs
 groupId="lang-ex"
 defaultValue="Python"
@@ -57,6 +57,7 @@ public class SauceLabsTest {
         sauceOptions.put("name", "My Selenium CDP Test");
 
         options.setCapability("sauce:options", sauceOptions);
+        options.setCapability("webSocketUrl", true);
 
         String sauceUrl = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
         // Alternatively use EU datacenter
@@ -84,6 +85,7 @@ sauce_options = {'username': os.environ["SAUCE_USERNAME"],
                  'name': 'My Selenium CDP Test'}
 
 options.set_capability('sauce:options', sauce_options)
+options.set_capability('webSocketUrl', true)
 sauce_url = "https://ondemand.us-west-1.saucelabs.com/wd/hub"
 # Alternatively use EU datacenter
 # sauce_url = "https://ondemand.eu-central-1.saucelabs.com/wd/hub"
@@ -113,6 +115,7 @@ const sauce_options = {
 };
 
 options.set_capability('sauce:options', sauce_options);
+options.set_capability('websocketUrl', true);
 
 const sauce_url = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
 // Alternatively use EU datacenter
@@ -176,7 +179,20 @@ For more information, please refer to the [Playwright Selenium Grid documentatio
 
 - CDP / BiDi Sessions are currently limited to 10mins
 - Extended debugging cannot be used along CDP / BiDi
-- CDP /BiDi is NOT available on legacy OS versions: MacOS Sierra (10.12), MacOS El Capitan (10.11), MacOS Yosemite (10.10)
+- CDP /BiDi is NOT available on legacy OS versions
+  - MacOS Sierra (10.12)
+  - MacOS El Capitan (10.11)
+  - MacOS Yosemite (10.10)
+
+## Troubleshooting
+
+### JAVA - WebDriver instance must support BiDi protocol
+
+If you encounter `java.lang.IllegalArgumentException: WebDriver instance must support BiDi protocol` error it might mean that you need to add:
+```java
+driver = new Augmenter().augment(driver);
+```
+to you test code.
 
 ## Resources
 
