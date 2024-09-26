@@ -53,11 +53,11 @@ public class SauceLabsTest {
         HashMap<String, Object> sauceOptions = new HashMap<>();
         sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
-        sauceOptions.put("devTools", true);
+        sauceOptions.put("devTools", true);  // Legacy
         sauceOptions.put("name", "My Selenium CDP Test");
 
         options.setCapability("sauce:options", sauceOptions);
-        options.setCapability("webSocketUrl", true);
+        options.setCapability("webSocketUrl", true); // Recommended 
 
         String sauceUrl = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
         // Alternatively use EU datacenter
@@ -81,11 +81,11 @@ options.platform_name = 'Windows 10'
 
 sauce_options = {'username': os.environ["SAUCE_USERNAME"],
                  'accessKey': os.environ["SAUCE_ACCESS_KEY"],
-                 'devTools': True,
+                 'devTools': True, # Legacy
                  'name': 'My Selenium CDP Test'}
 
 options.set_capability('sauce:options', sauce_options)
-options.set_capability('webSocketUrl', True)
+options.set_capability('webSocketUrl', True) # Recommended
 sauce_url = "https://ondemand.us-west-1.saucelabs.com/wd/hub"
 # Alternatively use EU datacenter
 # sauce_url = "https://ondemand.eu-central-1.saucelabs.com/wd/hub"
@@ -110,12 +110,12 @@ options.platform_name = 'Windows 10';
 const sauce_options = {
   'username': SAUCE_USERNAME,
   'accessKey': SAUCE_ACCESS_KEY,
-  'devTools': true,
+  'devTools': true, // Legacy
   'name': 'My Selenium CDP Test'
 };
 
 options.set_capability('sauce:options', sauce_options);
-options.set_capability('websocketUrl', true);
+options.set_capability('websocketUrl', true); // Recommended
 
 const sauce_url = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
 // Alternatively use EU datacenter
