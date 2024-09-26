@@ -85,7 +85,7 @@ sauce_options = {'username': os.environ["SAUCE_USERNAME"],
                  'name': 'My Selenium CDP Test'}
 
 options.set_capability('sauce:options', sauce_options)
-options.set_capability('webSocketUrl', true)
+options.set_capability('webSocketUrl', True)
 sauce_url = "https://ondemand.us-west-1.saucelabs.com/wd/hub"
 # Alternatively use EU datacenter
 # sauce_url = "https://ondemand.eu-central-1.saucelabs.com/wd/hub"
