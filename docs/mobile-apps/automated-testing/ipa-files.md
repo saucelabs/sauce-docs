@@ -59,7 +59,7 @@ We highly recommend to use Ad-hoc and Development targets to get the most out of
 9. When the file generation process completes, click **Export** and choose where to save the `.ipa` file.
 10. Your `.ipa` file is now ready for upload to Sauce Labs.
 
-## Creating an XCUITest Package
+## Creating an .ipa File from a XCUITest Package
 
 :::note
 
@@ -73,9 +73,13 @@ We highly recommend to use Ad-hoc and Development targets to get the most out of
    <img src={useBaseUrl('img/xcuitest/xcode-build.png')} alt="Xcode Build Options" width="800" />
 
 4. Generate your test package by selecting **Product** > **Build For** > **Testing**.
-5. Navigate to your Xcode project's **Products** directory and find the generated **.app** files.
+5. Navigate to your Xcode project's **Products** directory and find the generated **.app** file.
+6. Create an empty directory with the name `Payload`.
+7. Move the **.app** file inside the `Payload` directory.
+8. Compress the `Payload` directory into an archive (.zip file) and give it a new name with .ipa appended to the end of the file name.
+9. Your `.ipa` file is now ready for upload to Sauce Labs.
 
-## Creating .ipa Files for XCUITest Testing
+## Setting iOS Deployment Target for XCUITest Compatibility
 
 Make sure that you set the same iOS version for your app and test runner **iOS Deployment Target**. If they don't match, your tests will run locally, but fail when you run them against Sauce Labs real devices.
 
