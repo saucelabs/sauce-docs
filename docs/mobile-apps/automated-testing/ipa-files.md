@@ -23,8 +23,8 @@ In order to disable the resigning process, you must buy your own private devices
 ### Building an .app Bundle
 
 1. Open your app project in Xcode.
-2. Select a **Generic iOS Device** or **Any iOS Device (arm64)** as your product's device target.
-3. In the **Product** menu, select **Clean**.
+2. Select a **Any iOS Device (arm64)** as your product's device target.
+3. In the **Product** menu, select **Clean Build Folder**.
 4. In the **Product** menu, select **Build**.
 5. Navigate to your Xcode project's **Products** directory and find the generated **.app** file.
 
@@ -47,16 +47,15 @@ We highly recommend to use Ad-hoc and Development targets to get the most out of
 
 1. Open your app project in Xcode.
 2. Select **Generic iOS Device** or **Any iOS Device (arm64)** as your project's device target.
-3. In the **Product** menu, select **Clean**.
+3. In the **Product** menu, select **Clean Build Folder**.
 4. In the **Product** menu, select **Archive**. When the archiving process completes, you'll see your app listed under **Archives**.
-5. Select your app and click **Export**.
-6. When prompted for an export method, select **Ad Hoc**, **Development** or **Enterprise**.
-7. Set these **Distribution** options:
+5. Select your app and click **Distribute App**.
+6. When prompted for a distribution method, select **Custom**, and click **Next**.
+7. On the next step, select **Release Testing**, and click **Next**.
+7. Set these **distribution** options:
    1. App Thinning: None.
-   2. Clear the selection **Rebuild from Bitcode**.
-   3. **Strip Swift symbols** is optional.
-   4. Clear the selection **Include manifest for over-the-air installation**.
-8. Select your **Distribution Certificate** and **Provisioning Profile** (**Automatic** or **Manual**). This will generate the `.ipa` file.
+   2. Clear the selection **Include manifest for over-the-air installation**.
+8. Select your **Distribution Certificate**, **Provisioning Profile** (**Automatic** or **Manual**), and click **Next**. This will generate the `.ipa` file.
 9. When the file generation process completes, click **Export** and choose where to save the `.ipa` file.
 10. Your `.ipa` file is now ready for upload to Sauce Labs.
 
