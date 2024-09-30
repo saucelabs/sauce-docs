@@ -152,11 +152,17 @@ You can also upload and store other file types for generic use, such as a pre-ru
 Sauce Labs only supports valid .zip files that can be extracted by standard unzip tools.
 :::
 
-## Team Management Sync
+## Access Restrictions
+### Team Management Sync
 
 All uploaded files are shared with the same team. Members can only access files that are shared with the team where you contribute/participate. Organization admins have access to all files in your organization.
 
 For more information about managing access to your organization, see [Managing User Information](/basics/acct-team-mgmt/managing-user-info).
+
+### Manage Real Device Settings
+A range of device and app settings can be configured to serve as the default for both manual and automated test runs on real devices. Only organization and team admins have permission to modify these settings.
+
+For more information about managing your device and app settings, see [Real Device Settings](/mobile-apps/live-testing/live-mobile-app-testing/#real-device-settings).
 
 ## Using Application Storage with Automated Test Builds
 
