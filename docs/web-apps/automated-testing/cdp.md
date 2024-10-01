@@ -39,7 +39,7 @@ values={[
 {label: 'WebdriverIO', value: 'WebdriverIO'},
 ]}>
 
-<TabItem value="Java">
+<TabItem value="Java (recommended)">
 
 ```java
 public class SauceLabsTest {
@@ -53,7 +53,6 @@ public class SauceLabsTest {
         HashMap<String, Object> sauceOptions = new HashMap<>();
         sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
-        sauceOptions.put("devTools", true); // Alternative way of enabling CDP
         sauceOptions.put("name", "My Selenium CDP Test");
 
         options.setCapability("sauce:options", sauceOptions);
@@ -71,7 +70,60 @@ public class SauceLabsTest {
 ```
 
 </TabItem>
-<TabItem value="Python">
+<TabItem value="Java (alternative)">
+
+```java
+public class SauceLabsTest {
+
+    public static void main(String[] args) {
+
+        ChromeOptions options = new ChromeOptions();
+        options.setBrowserVersion("latest");
+        options.setPlatformName("Windows 10");
+
+        HashMap<String, Object> sauceOptions = new HashMap<>();
+        sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
+        sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
+        sauceOptions.put("devTools", true); // Alternative way of enabling CDP
+        sauceOptions.put("name", "My Selenium CDP Test");
+
+        options.setCapability("sauce:options", sauceOptions);
+        
+        String sauceUrl = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
+        // Alternatively use EU datacenter
+        // String sauceUrl = "https://ondemand.eu-central-1.saucelabs.com/wd/hub";
+
+        WebDriver driver = new RemoteWebDriver(new URL(sauceUrl), options);
+
+        driver.quit();
+    }
+}
+```
+
+</TabItem>
+<TabItem value="Python (recommended)">
+
+
+```py
+options = ChromeOptions()
+options.browser_version = 'latest'
+options.platform_name = 'Windows 10'
+
+sauce_options = {'username': os.environ["SAUCE_USERNAME"],
+                 'accessKey': os.environ["SAUCE_ACCESS_KEY"],
+                 'name': 'My Selenium CDP Test'}
+
+options.set_capability('sauce:options', sauce_options)
+options.set_capability('webSocketUrl', True) # Recommended way of enabling CDP
+sauce_url = "https://ondemand.us-west-1.saucelabs.com/wd/hub"
+# Alternatively use EU datacenter
+# sauce_url = "https://ondemand.eu-central-1.saucelabs.com/wd/hub"
+
+driver = webdriver.Remote(command_executor=sauce_url, options=options)
+```
+
+</TabItem>
+<TabItem value="Python (alternative)">
 
 
 ```py
@@ -85,7 +137,6 @@ sauce_options = {'username': os.environ["SAUCE_USERNAME"],
                  'name': 'My Selenium CDP Test'}
 
 options.set_capability('sauce:options', sauce_options)
-options.set_capability('webSocketUrl', True) # Recommended way of enabling CDP
 sauce_url = "https://ondemand.us-west-1.saucelabs.com/wd/hub"
 # Alternatively use EU datacenter
 # sauce_url = "https://ondemand.eu-central-1.saucelabs.com/wd/hub"
@@ -110,12 +161,11 @@ options.platform_name = 'Windows 10';
 const sauce_options = {
   'username': SAUCE_USERNAME,
   'accessKey': SAUCE_ACCESS_KEY,
-  'devTools': true, // Alternative way of enabling CDP
   'name': 'My Selenium CDP Test'
 };
 
 options.set_capability('sauce:options', sauce_options);
-options.set_capability('webSocketUrl', true); // Recommended
+options.set_capability('webSocketUrl', true); // Recommended way of enabling CDP
 
 const sauce_url = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
 // Alternatively use EU datacenter
