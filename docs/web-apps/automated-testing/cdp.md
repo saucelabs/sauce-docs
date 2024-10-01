@@ -282,7 +282,7 @@ For more information, please refer to the [Playwright Selenium Grid documentatio
 
 ## Troubleshooting
 
-### JAVA - WebDriver instance must support BiDi protocol
+### WebDriver instance must support BiDi protocol
 
 If you encounter `java.lang.IllegalArgumentException: WebDriver instance must support BiDi protocol` error it might mean that you need to add:
 ```java
