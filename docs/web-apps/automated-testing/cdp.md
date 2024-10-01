@@ -29,7 +29,7 @@ In order to make use of the CDP / BiDi functionality, you have two possibilities
 
 ### 1. Using Selenium
 
-If you're using Selenium, you can enable CDP / BiDi by setting the `webSocketUrl` capability to `true` (recommended) OR `devTools` parameter in `sauce:options`  to `true` (legacy)
+If you're using Selenium, you can enable CDP / BiDi by setting the `webSocketUrl` capability to `true` (recommended) OR `devTools` parameter in `sauce:options`  to `true` (alternative)
 <Tabs
 groupId="lang-ex"
 defaultValue="Python"
@@ -53,11 +53,11 @@ public class SauceLabsTest {
         HashMap<String, Object> sauceOptions = new HashMap<>();
         sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
         sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
-        sauceOptions.put("devTools", true);  // Legacy
+        sauceOptions.put("devTools", true); // Alternative way of enabling CDP
         sauceOptions.put("name", "My Selenium CDP Test");
 
         options.setCapability("sauce:options", sauceOptions);
-        options.setCapability("webSocketUrl", true); // Recommended 
+        options.setCapability("webSocketUrl", true); // Recommended way of enabling CDP
 
         String sauceUrl = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
         // Alternatively use EU datacenter
@@ -81,11 +81,11 @@ options.platform_name = 'Windows 10'
 
 sauce_options = {'username': os.environ["SAUCE_USERNAME"],
                  'accessKey': os.environ["SAUCE_ACCESS_KEY"],
-                 'devTools': True, # Legacy
+                 'devTools': True, # Alternative way of enabling CDP
                  'name': 'My Selenium CDP Test'}
 
 options.set_capability('sauce:options', sauce_options)
-options.set_capability('webSocketUrl', True) # Recommended
+options.set_capability('webSocketUrl', True) # Recommended way of enabling CDP
 sauce_url = "https://ondemand.us-west-1.saucelabs.com/wd/hub"
 # Alternatively use EU datacenter
 # sauce_url = "https://ondemand.eu-central-1.saucelabs.com/wd/hub"
@@ -94,7 +94,7 @@ driver = webdriver.Remote(command_executor=sauce_url, options=options)
 ```
 
 </TabItem>
-<TabItem value="WebdriverIO">
+<TabItem value="WebdriverIO v8 and previous">
 
 ```javascript
 const { ChromeOptions } = require('selenium-webdriver');
@@ -110,12 +110,57 @@ options.platform_name = 'Windows 10';
 const sauce_options = {
   'username': SAUCE_USERNAME,
   'accessKey': SAUCE_ACCESS_KEY,
-  'devTools': true, // Legacy
+  'devTools': true, // Alternative way of enabling CDP
   'name': 'My Selenium CDP Test'
 };
 
 options.set_capability('sauce:options', sauce_options);
-options.set_capability('websocketUrl', true); // Recommended
+options.set_capability('webSocketUrl', true); // Recommended
+
+const sauce_url = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
+// Alternatively use EU datacenter
+// const sauce_url = "https://ondemand.eu-central-1.saucelabs.com/wd/hub";
+
+(async () => {
+  try {
+    const driver = await new Builder().forBrowser('chrome').remote(sauce_url, options).build();
+
+    await driver.get('https://www.example.com'); // Replace with your test URL
+
+    const element = await driver.findElement(By.id('search-box'));
+    await element.sendKeys('Selenium Test');
+    await element.sendKeys(Key.ENTER);
+
+    await driver.quit();
+  } catch (error) {
+    console.error(error);
+  }
+})();
+```
+
+</TabItem>
+<TabItem value="WebdriverIO v9+">
+
+```javascript
+const { ChromeOptions } = require('selenium-webdriver');
+const { Builder, By, Key } = require('selenium-webdriver');
+
+const SAUCE_USERNAME = process.env.SAUCE_USERNAME;
+const SAUCE_ACCESS_KEY = process.env.SAUCE_ACCESS_KEY;
+
+const options = new ChromeOptions();
+options.browser_version = 'latest';
+options.platform_name = 'Windows 10';
+
+const sauce_options = {
+  'username': SAUCE_USERNAME,
+  'accessKey': SAUCE_ACCESS_KEY,
+  'name': 'My Selenium CDP Test'
+};
+
+options.set_capability('sauce:options', sauce_options);
+
+// WDIO v9 automatically sets `webSocketUrl: True` capability, https://webdriver.io/blog/2024/08/15/webdriverio-v9-release/#new-features
 
 const sauce_url = "https://ondemand.us-west-1.saucelabs.com/wd/hub";
 // Alternatively use EU datacenter
@@ -177,6 +222,7 @@ For more information, please refer to the [Playwright Selenium Grid documentatio
 
 ## Limitations
 
+- CDP / BiDi Sessions require Selenium 4+
 - CDP / BiDi Sessions are currently limited to 10mins
 - Extended debugging cannot be used along CDP / BiDi
 - CDP /BiDi is NOT available on legacy OS versions
