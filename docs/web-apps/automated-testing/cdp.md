@@ -32,7 +32,7 @@ In order to make use of the CDP / BiDi functionality, you have two possibilities
 If you're using Selenium, you can enable CDP / BiDi by setting the `webSocketUrl` capability to `true` (recommended) OR `devTools` parameter in `sauce:options`  to `true` (alternative)
 <Tabs
 groupId="lang-ex"
-defaultValue="Python"
+defaultValue="Python (recommended)"
 values={[
 {label: 'Java (recommended)', value: 'Java (recommended)'},
 {label: 'Java (alternative)', value: 'Java (alternative)'},
