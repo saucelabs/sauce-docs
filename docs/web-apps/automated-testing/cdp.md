@@ -34,9 +34,9 @@ If you're using Selenium, you can enable CDP / BiDi by setting the `webSocketUrl
 groupId="lang-ex"
 defaultValue="Python"
 values={[
-{label: 'Java (recommneded)', value: 'Java (recommneded)'},
+{label: 'Java (recommended)', value: 'Java (recommended)'},
 {label: 'Java (alternative)', value: 'Java (alternative)'},
-{label: 'Python (recommneded)', value: 'Python (recommneded)'},
+{label: 'Python (recommended)', value: 'Python (recommended)'},
 {label: 'Python (alternative)', value: 'Python (alternative)'},
 {label: 'WebdriverIO v8 and previous', value: 'WebdriverIO v8 and previous'},
 {label: 'WebdriverIO v9+', value: 'WebdriverIO v9+'},
