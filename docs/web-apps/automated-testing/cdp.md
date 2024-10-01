@@ -34,9 +34,12 @@ If you're using Selenium, you can enable CDP / BiDi by setting the `webSocketUrl
 groupId="lang-ex"
 defaultValue="Python"
 values={[
-{label: 'Java', value: 'Java'},
-{label: 'Python', value: 'Python'},
-{label: 'WebdriverIO', value: 'WebdriverIO'},
+{label: 'Java (recommneded)', value: 'Java (recommneded)'},
+{label: 'Java (alternative)', value: 'Java (alternative)'},
+{label: 'Python (recommneded)', value: 'Python (recommneded)'},
+{label: 'Python (alternative)', value: 'Python (alternative)'},
+{label: 'WebdriverIO v8 and previous', value: 'WebdriverIO v8 and previous'},
+{label: 'WebdriverIO v9+', value: 'WebdriverIO v9+'},
 ]}>
 
 <TabItem value="Java (recommended)">
@@ -102,7 +105,6 @@ public class SauceLabsTest {
 
 </TabItem>
 <TabItem value="Python (recommended)">
-
 
 ```py
 options = ChromeOptions()
