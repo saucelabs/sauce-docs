@@ -58,7 +58,7 @@ Now you can start your live or automated testing session. Your network logs will
 For Android applications, a minor modification in the manifest is necessary to disable SSL pinning and accept our own certificate by your application.
 In addition, we require the debug version of the application. If your application includes SecureSDK, please ensure the repackaging prevention feature is disabled.
 
-For tests runs on Android devices, enabling network capture may cause third-party apps to crash due to SSL pinning.
+For tests that run on Android devices, enabling network capture may cause issues in third-party SDKs due to SSL pinning. 
 :::
 
 ### Automated Testing
