@@ -9,27 +9,60 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Orchestrate fully integrates with Sauce Connect. If the service or site you are testing is already accessed via Sauce Connect, no change to your code is needed.
-If your code makes direct calls to any backend service, such as an API or database that is behind a firewall on your private network, follow the steps below to launch a secure trusted connection between your network and the Sauce Orchestrate runner.
+Sauce Orchestrate fully integrates with Sauce Connect Proxy. If the application or site you are testing is already accessed via Sauce Connect, no change to your code is needed.
+If your **test code** running in a Sauce Orchestrate container requires an access to a service behind a firewall or on your private network, follow the steps below to launch a secure trusted connection between your network and the Sauce Orchestrate runner.
+
+:::note
+[Sauce Connect Proxy 4](/secure-connections/sauce-connect/) and [Sauce Connect Proxy 5](/secure-connections/sauce-connect-5/) are configured differently.
+:::
 
 
+## Configure Sauce Connect Proxy
 
+Sauce Connect Proxy configuration to be used with Sauce Orchestrate differ between [Sauce Connect Proxy 4](/secure-connections/sauce-connect/) and [Sauce Connect Proxy 5](/secure-connections/sauce-connect-5/).
 
-## Configure a Sauce Connect Tunnel with Access to the Management Services
+<Tabs
+  defaultValue="sc5"
+  values={[
+    {label: 'Sauce Connect 5', value: 'sc5'},
+    {label: 'Sauce Connect 4', value: 'sc4'},
+  ]}>
+
+<TabItem value="sc5">
+
+1.  The specific configuration needed for Sauce Orchestrate is setting the [metadata](/dev/cli/sauce-connect-5/run/#metadata) `vm-version=v2alpha2` to the fixed value listed below and adding the domains of backend services to the [`tunnel-domains`](/dev/cli/sauce-connect-5/run/#tunnel-domains) list.
+2.  All other steps and configuration are the same. Refer to the [Sauce Connect Proxy 5 Quickstart](/secure-connections/sauce-connect-5/quickstart/).
+
+```yaml
+---
+metadata: 'vm_version=v2alpha2'
+tunnel-domains: []
+```
+
+</TabItem>
+<TabItem value="sc4">
 
 1.  The specific configuration needed for Sauce Orchestrate is setting the `vm-version` to the fixed value listed below and adding the domains of backend services to the [`tunnel-domains`](/dev/cli/sauce-connect-proxy/#--tunnel-domains) list.
-2.  All other steps and configuration are the same. Refer to the [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/).
-
+2.  All other steps and configuration are the same. Refer to the [Sauce Connect Proxy 4 Quickstart](/secure-connections/sauce-connect/quickstart/).
 
 ```yaml
 ---
 vm-version: 'v2alpha2'
-tunnel-domains: [ ]
+tunnel-domains: []
 ```
+
+</TabItem>
+</Tabs>
 
 ## Configure the Sauce Orchestrate Runner to Use This Management Tunnel
 
 1. Add the [`tunnel`](/orchestrate/saucectl-configuration/#tunnel) key to the runner configuration.
+
+```yaml
+sauce:
+  tunnel:
+    name: my_sauce_orchestrate_only_tunnel_name
+```
 
 ## Container Configuration
 
@@ -55,9 +88,8 @@ http_proxy=http://host.sauceconnect.internal:1080
 
 ### Standard Proxy Configuration
 
-In most programing language (Go, Python, Node.js...) the standard proxy environment
-variables are supported, and there is no extra step to configure the 
-Sauce Connect.
+In most programming languages (such as Go, Python, and Node.js),
+the standard proxy environment variables are supported, so no additional steps are required to configure Sauce Connect Proxy.
 
 ### Java
 
@@ -82,11 +114,11 @@ In Maven this may be done in several place
     </properties>
 ```
 
-This should me enough for libraries using the standard Java HTTP client. Some libraries
-however differ from the standard and require the proxy configuration to be implemented
-within code.
+This should suffice for libraries that use the standard Java HTTP client.
+However, some libraries require proxy configuration to be explicitly implemented in the code.
 
 ## More Information
 
-- [Using Sauce Connect Proxy](/secure-connections/sauce-connect)
-- [Using Additional Proxies with Sauce Connect Setups](/secure-connections/sauce-connect/setup-configuration/additional-proxies)
+- [Sauce Connect Proxy 5 Setup and Configuration](/secure-connections/sauce-connect-5/operation/overview)
+- [Using Sauce Connect Proxy 4](/secure-connections/sauce-connect)
+- [Using Additional Proxies with Sauce Connect](/secure-connections/sauce-connect/setup-configuration/additional-proxies)
