@@ -17,7 +17,7 @@ Inspecting tunnel traffic is available in **Sauce Connect Proxy 5.2** and later.
   Make sure you have the Wireshark command line tool `tshark` available.
 - [Sauce Connect Proxy 5](/secure-connections/sauce-connect-5/installation) must be installed and configured.
 
-## TLS key logging
+## TLS Key Logging
 
 There is more than one way to enable TLS key logging in Sauce Connect Proxy 5:
 
@@ -43,7 +43,7 @@ Configuration file:
 tunnel-tls-keylog-file: /path/to/sslkeylog.log
 ```
 
-## TLS resigning
+## TLS Resigning
 
 Setting `SSLKEYLOGFILE` will allow you to inspect HTTP requests made by the tunnel client.
 If you want to inspect HTTPS requests, you need to run Sauce Connect Proxy with TLS resigning enabled. 
@@ -51,7 +51,7 @@ This is because Sauce Connect Proxy does not have access to the client's private
 
 See [--tls-resign-domains](/dev/cli/sauce-connect-5/run/#tls-resign-domains) flag for more information on how to enable TLS resigning.
 
-## Traffic capture
+## Traffic Capture
 
 Follow these steps to inspect tunnel traffic using Wireshark:
 
@@ -124,7 +124,7 @@ Follow these steps to inspect tunnel traffic using Wireshark:
    ...
    ```
    
-### Customizing display filters
+### Customizing Display Filters
 
 WireShark provides a powerful display filter language that allows you to filter the traffic you want to inspect.
 For example, to capture only [HTTP/2 HEADERS frames](https://httpwg.org/specs/rfc7540.html#HEADERS) in a format that is easier to further process, you can use the following command:
@@ -146,7 +146,7 @@ Output:
 
 Check [Wireshark display filter reference](https://www.wireshark.org/docs/dfref/h/http2.html) for more information on available filters for HTTP/2. 
 
-### Using tcpdump
+### Using Tcpdump
 
 You can also use `tcpdump` to capture traffic and save it to a file for later analysis.
 Make sure to start `tcpdump` before starting the Sauce Connect Proxy.
@@ -158,7 +158,7 @@ tshark -r /path/to/capture.pcap -o "tls.keylog_file:/path/to/sslkeylog.log" -Y h
 
 This is particularly useful to experiment with different display filters and inspect the traffic in more detail.
 
-## Additional resources
+## Additional Resources
 
 * [Display Filter Reference: HyperText Transfer Protocol 2](https://www.wireshark.org/docs/dfref/h/http2.html)
 * [Wireshark TLS](https://wiki.wireshark.org/TLS)
