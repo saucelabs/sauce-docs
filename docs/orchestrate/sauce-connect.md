@@ -1,8 +1,8 @@
 ---
 id: sauce-connect
-title: Using Sauce Connect Tunnels with Sauce Orchestrate
+title: Using Sauce Connect Proxy with Sauce Orchestrate
 sidebar_label: Using Sauce Connect
-description: Get a Sauce Connect tunnel up and running quickly for your Sauce Orchestrate tests.
+description: Get a Sauce Connect Proxy up and running quickly for your Sauce Orchestrate tests.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -30,31 +30,33 @@ Sauce Connect Proxy configuration to be used with Sauce Orchestrate differ betwe
 
 <TabItem value="sc5">
 
-1.  The specific configuration needed for Sauce Orchestrate is setting the [metadata](/dev/cli/sauce-connect-5/run/#metadata) `vm-version=v2alpha2` to the fixed value listed below and adding the domains of backend services to the [`tunnel-domains`](/dev/cli/sauce-connect-5/run/#tunnel-domains) list.
-2.  All other steps and configuration are the same. Refer to the [Sauce Connect Proxy 5 Quickstart](/secure-connections/sauce-connect-5/quickstart/).
+1. The specific configuration required for Sauce Orchestrate involves setting the [metadata](/dev/cli/sauce-connect-5/run/#metadata) option to the fixed value listed below and adding the backend service domains to the [`tunnel-domains`](/dev/cli/sauce-connect-5/run/#tunnel-domains) list.
+2. Make sure the tunnel has a unique [name](/dev/cli/sauce-connect-5/run/#tunnel-name) to distinguish it from other instances of Sauce Connect Proxy. For example: 'my_sauce_orchestrate_only_tunnel_name'.
+3. Refer to the [Sauce Connect Proxy 5 Quickstart](/secure-connections/sauce-connect-5/quickstart/) for other steps and configuration required to start Sauce Connect Proxy 5.
 
 ```yaml
 ---
 metadata: 'vm_version=v2alpha2'
-tunnel-domains: []
+tunnel-domains: ['.*your.domain']
 ```
 
 </TabItem>
 <TabItem value="sc4">
 
-1.  The specific configuration needed for Sauce Orchestrate is setting the `vm-version` to the fixed value listed below and adding the domains of backend services to the [`tunnel-domains`](/dev/cli/sauce-connect-proxy/#--tunnel-domains) list.
-2.  All other steps and configuration are the same. Refer to the [Sauce Connect Proxy 4 Quickstart](/secure-connections/sauce-connect/quickstart/).
+1. The specific configuration required for Sauce Orchestrate involves setting the `vm-version` option to the fixed value listed below and adding the backend service domains to the [`tunnel-domains`](/dev/cli/sauce-connect-proxy/#--tunnel-domains) list.
+2. Make sure the tunnel has a unique [name](/dev/cli/sauce-connect-proxy/#--tunnel-name) to distinguish it from other instances of Sauce Connect Proxy. For example: 'my_sauce_orchestrate_only_tunnel_name'.
+3. Refer to the [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/) for other steps and configuration required to start Sauce Connect Proxy 4.
 
 ```yaml
 ---
 vm-version: 'v2alpha2'
-tunnel-domains: []
+tunnel-domains: ['.your.domain']
 ```
 
 </TabItem>
 </Tabs>
 
-## Configure the Sauce Orchestrate Runner to Use This Management Tunnel
+## Configure the Sauce Orchestrate Runner to Use Sauce Connect
 
 1. Add the [`tunnel`](/orchestrate/saucectl-configuration/#tunnel) key to the runner configuration.
 
