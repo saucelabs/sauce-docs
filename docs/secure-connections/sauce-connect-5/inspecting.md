@@ -24,7 +24,7 @@ There is more than one way to enable TLS key logging in Sauce Connect Proxy 5:
 * Using the `SSLKEYLOGFILE=<path>` environment variable -
   enables logging of all TLS keys to the specified file,
   this includes both tunnel connections and connections to upstream servers.
-* Using the `--tunnel-tls-keylog-file=<path>` flag - 
+* Using the `--tunnel-tls-keylog-file=<path>` flag -
   enables logging of TLS keys for tunnel connections to Sauce Labs servers only.
 * Using the `--http-tls-keylog-file=<path>` flag -
   enables logging of TLS keys for both tunnel connections and connections to upstream servers.
@@ -46,7 +46,7 @@ tunnel-tls-keylog-file: /path/to/sslkeylog.log
 ## TLS Resigning
 
 Setting `SSLKEYLOGFILE` will allow you to inspect HTTP requests made by the tunnel client.
-If you want to inspect HTTPS requests, you need to run Sauce Connect Proxy with TLS resigning enabled. 
+If you want to inspect HTTPS requests, you need to run Sauce Connect Proxy with TLS resigning enabled.
 This is because Sauce Connect Proxy does not have access to the client's private keys, which are required to decrypt HTTPS traffic.
 
 See [--tls-resign-domains](/dev/cli/sauce-connect-5/run/#tls-resign-domains) flag for more information on how to enable TLS resigning.
@@ -58,7 +58,7 @@ Follow these steps to inspect tunnel traffic using Wireshark:
 1. Start capturing traffic using `tshark` before starting the Sauce Connect Proxy:
 
    ```bash
-   tshark -f "tcp port 443" -o "tls.keylog_file:/path/to/sslkeylog.log" -Y http2 -O http2 
+   tshark -f "tcp port 443" -o "tls.keylog_file:/path/to/sslkeylog.log" -Y http2 -O http2
    ```
    Replace `/path/to/sslkeylog.log` with the path to the file where the TLS keys are logged.
    Note that if tshark is started after the Sauce Connect Proxy, it will not be able to decrypt the traffic.
@@ -90,7 +90,7 @@ Follow these steps to inspect tunnel traffic using Wireshark:
            0... .... .... .... .... .... .... .... = Reserved: 0x0
            .000 0000 0000 0000 0000 0000 0000 0000 = Stream Identifier: 0
            Ping: 9db0139a0702fc8b
-   
+
    Frame 49731: 155 bytes on wire (1240 bits), 155 bytes captured (1240 bits) on interface en4, id 0
    Ethernet II, Src: CompalBroadb_e8:b4:78 (ac:22:05:e8:b4:78), Dst: BelkinIntern_cd:b6:0b (e8:9f:80:cd:b6:0b)
    Internet Protocol Version 4, Src: 185.94.26.247, Dst: 192.168.0.206
@@ -123,7 +123,7 @@ Follow these steps to inspect tunnel traffic using Wireshark:
                Index: 1
    ...
    ```
-   
+
 ### Customizing Display Filters
 
 WireShark provides a powerful display filter language that allows you to filter the traffic you want to inspect.
@@ -144,7 +144,7 @@ Output:
 ...
 ```
 
-Check [Wireshark display filter reference](https://www.wireshark.org/docs/dfref/h/http2.html) for more information on available filters for HTTP/2. 
+Check [Wireshark display filter reference](https://www.wireshark.org/docs/dfref/h/http2.html) for more information on available filters for HTTP/2.
 
 ### Using Tcpdump
 
