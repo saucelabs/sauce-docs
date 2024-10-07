@@ -37,4 +37,4 @@ saucectl run --env CYPRESS_TAGS="(@smoke or @ui) and (not @slow)"
 
 ## Component Testing
 
-Due to an issue from Cypress, `saucectl` doesn't currently support Component Testing.
+`saucectl` doesn't currently support Component Testing.
