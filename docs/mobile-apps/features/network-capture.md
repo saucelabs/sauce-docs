@@ -55,10 +55,11 @@ Now you can start your live or automated testing session. Your network logs will
 
 :::note Android Only
 
-For Android applications, a minor modification in the manifest is necessary to disable SSL pinning and accept our own certificate by your application.
-In addition, we require the debug version of the application. If your application includes SecureSDK, please ensure the repackaging prevention feature is disabled.
+For Android applications, a minor modification in the manifest is necessary to make your app trust our proxy certificate. We'll do this for you automatically when you upload the app to the platform.
 
-For tests that run on Android devices, enabling network capture may cause issues in third-party SDKs due to SSL pinning. 
+We require a debug build of the application and if your app includes a Secure SDK, please ensure the repackaging prevention feature is disabled.
+
+If your app utilizes 3rd party SDKs for networking or Secure SDKs that support network protection, make sure all runtime checks for SSL pinning are also disabled otherwise your app will accidentally mark Sauce's proxy as untrustworthy and internet access for HTTPS will be limited.
 :::
 
 ### Automated Testing
@@ -259,9 +260,7 @@ Our network capture feature depends on the fact that these classes are not obfus
 
 #### iOS
 
-- Network capture works if the app uses [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession) or a library (like [Alamofire](https://github.com/Alamofire/Alamofire) or [AFNetworking](https://github.com/AFNetworking/AFNetworking)) that uses NSURLSession inside.
-- Calls made by [NSURLConnection](https://developer.apple.com/documentation/foundation/nsurlconnection) (deprecated by Apple), will not be captured.
-
+- Network capture works if the app uses [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession) or a library (like [Alamofire](https://github.com/Alamofire/Alamofire) or [AFNetworking](https://github.com/AFNetworking/AFNetworking)) that uses NSURLSession internally.
 
 ## More Information
 
