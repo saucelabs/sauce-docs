@@ -58,8 +58,12 @@ Now you can start your live or automated testing session. Your network logs will
 For Android applications, a minor modification in the manifest is necessary to make your app trust our proxy certificate. We'll do this for you automatically when you upload the app to the platform.
 
 We require a debug build of the application and if your app includes a Secure SDK, please ensure the repackaging prevention feature is disabled.
+:::
+
+:::note All platforms
 
 If your app utilizes 3rd party SDKs for networking or Secure SDKs that support network protection, make sure all runtime checks for SSL pinning are also disabled otherwise your app will accidentally mark Sauce's proxy as untrustworthy and internet access for HTTPS will be limited.
+
 :::
 
 ### Automated Testing
