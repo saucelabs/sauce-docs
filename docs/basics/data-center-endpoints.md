@@ -99,7 +99,7 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com, which resolve
 | 162.222.72.0/21                    |
 | 34.145.254.128/27                  |
 
-### EU Central Reguion
+### EU Central Region
 
 | Endpoints                          |
 | ---------------------------------- |
