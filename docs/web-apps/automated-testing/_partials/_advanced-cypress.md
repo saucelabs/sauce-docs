@@ -37,4 +37,5 @@ saucectl run --env CYPRESS_TAGS="(@smoke or @ui) and (not @slow)"
 
 ## Component Testing
 
-`saucectl` doesn't currently support Component Testing.
+[This example](https://github.com/saucelabs/saucectl-cypress-example/tree/main/v1/examples/component-testing-react-cra5)
+showcases how use Cypress' Compontent Testing with saucectl.
