@@ -34,7 +34,9 @@ If you are already using a tunnel, note that the version has been updated, and t
   defaultValue="US Data Center"
   values={[
     {label: 'US Data Center', value: 'US Data Center'},
+    {label: 'US Data Center (SC5)', value: 'US Data Center (SC5)'},
     {label: 'EU Data Center', value: 'EU Data Center'},
+    {label: 'EU Data Center (SC5)', value: 'EU Data Center (SC5)'},
   ]}>
 
   <TabItem value="US Data Center">
@@ -46,6 +48,18 @@ user: '$SAUCE_USERNAME'
 api-key: '$SAUCE_ACCESS_KEY'
 vm-version: 'v2alpha'
 tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
+```
+
+  </TabItem>
+  <TabItem value="US Data Center (SC5)">
+
+```yaml
+---
+access-key: '$SAUCE_ACCESS_KEY'
+metadata: vm-version=v2alpha2
+region: us-west
+tunnel-name: '$SAUCE_USERNAME_TUNNEL'
+user: '$SAUCE_USERNAME'
 ```
 
   </TabItem>
@@ -61,12 +75,24 @@ tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
 ```
 
   </TabItem>
+  <TabItem value="EU Data Center (SC5)">
+
+```yaml
+---
+access-key: '$SAUCE_ACCESS_KEY'
+metadata: vm-version=v2alpha2
+region: eu-central
+tunnel-name: '$SAUCE_USERNAME_TUNNEL'
+user: '$SAUCE_USERNAME'
+```
+
+  </TabItem>
   </Tabs>
 
 2. In the **api-config.yaml** file:
-   - Leave the `rest-url` and `vm-version` values as-is
-   - Set the `user` and `api-key` values as your own Sauce username and access key, respectively
-   - Set the `tunnel-identifier` value to whatever you'd like to name your tunnel
+   - Leave the `rest-url`/`region` and `vm-version` values as-is
+   - Set the `user` and `api-key`/`access-key` values as your own Sauce username and access key, respectively
+   - Set the `tunnel-identifier`/`tunnel-name` value to whatever you'd like to name your tunnel
 3. Save the **api-config.yaml** file to the Sauce Connect Proxy root folder on your local machine. <br/>
    <img src={useBaseUrl('img/api-testing/sauceconnect-folders.png')} alt="API Testing Sauce Connect folder structure" width="350" />
 4. Open your terminal and navigate to the Sauce Connect Proxy folder. If your folder is in your home directory, you'd run:
@@ -77,6 +103,7 @@ tunnel-identifier: '$SAUCE_USERNAME_TUNNEL'
     {label: 'Linux', value: 'Linux'},
     {label: 'Windows', value: 'Windows'},
 {label: 'Mac', value: 'Mac'},
+{label: 'Linux/Mac/Windows (SC5)', value: 'Linux/Mac/Windows (SC5)'},
   ]}>
 
   <TabItem value="Linux">
@@ -100,6 +127,13 @@ cd sc-4.9.1-osx
 ```
 
   </TabItem>
+  <TabItem value="Linux/Mac/Windows (SC5)">
+
+  If the Sauce Connect client was installed via package manager, it will be in
+  your PATH. If installed manually from an archive file, it will be in the
+  directory where the archive file was extracted.
+
+  </TabItem>
   </Tabs>
 
 5. Start your tunnel by issuing:
@@ -109,6 +143,8 @@ cd sc-4.9.1-osx
   values={[
     {label: 'Mac/Linux', value: 'Mac/Linux'},
     {label: 'Windows', value: 'Windows'},
+    {label: 'Mac/Linux (SC5)', value: 'Mac/Linux (SC5)'},
+    {label: 'Windows (SC5)', value: 'Windows (SC5)'},
   ]}>
 
   <TabItem value="Mac/Linux">
@@ -122,6 +158,20 @@ bin/sc -c api-config.yaml
 
 ```bash
 bin\sc.exe -c api-config.yaml
+```
+
+  </TabItem>
+  <TabItem value="Mac/Linux (SC5)">
+
+```bash
+sc run -c api-config.yaml
+```
+
+  </TabItem>
+  <TabItem value="Windows (SC5)">
+
+```bash
+sc.exe run -c api-config.yaml
 ```
 
   </TabItem>
