@@ -112,7 +112,7 @@ const docusaurusConfig = {
                     to: '/visual-testing',
                 },
                 {
-                    label: 'Beta Testing',
+                    label: 'App Distribution (TestFairy)',
                     position: 'left',
                     to: '/testfairy',
                 },
