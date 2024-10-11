@@ -25,7 +25,7 @@ This package leverage's Storybook's test-runner and metadata generation system f
 
 ## Getting Started
 
-### Step 1 - Install & Configure the Test Runner
+### Step 1 - Install and Configure the Test Runner
 
 Follow [Storybook's instructions](https://github.com/storybookjs/test-runner/blob/next/README.md#getting-started) for setting up, installing, and configuring the test-runner if you haven't done so already. If you have already used or enabled the test-runner, you can skip this step.
 
@@ -47,7 +47,7 @@ npm i --save-dev playwright
 
 :::
 
-### Step 3 - Eject & Configure The Jest Test Runner
+### Step 3 - Eject and Configure The Jest Test Runner
 
 :::note
 If you already have a custom jest config file for the test-runner, typically in `test-runner-jest.config.js`, you can skip the below command. If not see below or read through the [storybook-runner docs](https://github.com/storybookjs/test-runner#ejecting-configuration) to eject the default test configuration.
@@ -111,9 +111,9 @@ export SAUCE_USERNAME=__YOUR_SAUCE_USER_NAME__
 export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 ```
 
-### Step 6 - Run Storybook & the Test Runner
+### Step 6 - Run Storybook and the Test Runner
 
-Run your Storybook instance (or point to a built one), set the required environment variables ([see here](https://www.npmjs.com/package/@saucelabs/visual-storybook#customizing-your-builds-environment-variables) for all available / required fields), and run the test-runner! We'll take snapshots of all known Storybook stories and upload them into Sauce Visual.
+Run your Storybook instance (or point to a built one), set the required environment variables ([see here](https://www.npmjs.com/package/@saucelabs/visual-storybook#customizing-your-builds-environment-variables) for all available / required fields), and run the test-runner. We'll take snapshots of all known Storybook stories and upload them into Sauce Visual.
 
 ```sh
 # Spin up your storybook instance in a separate terminal window if you're not using a live /
@@ -134,7 +134,7 @@ npx @storybook/test-runner
 
 ### Step 7 - Review Your Build
 
-Review your changes in the [Sauce Visual Dashboard](https://app.saucelabs.com/visual/builds)!
+Review your changes in the [Sauce Visual Dashboard](https://app.saucelabs.com/visual/builds).
 
 ## Customizing Your Builds (Environment Variables)
 
