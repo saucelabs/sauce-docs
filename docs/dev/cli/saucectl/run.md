@@ -314,7 +314,7 @@ saucectl run -c ./path/to/{config-file}.yml
 ```
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. If you are less comfortable with YAML, any of a wide variety of free online YAML/JSON validator tools may be helpful.
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. If you are less comfortable with YAML, any of a wide variety of free online [YAML](https://yamline.com/validator/)/[JSON validator](https://jsonlint.com/) tools may be helpful.
 :::
 
 </div>
