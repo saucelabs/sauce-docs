@@ -53,18 +53,24 @@ complete resigning or additional instrumentation is needed, ensuring a smooth fe
 
 Now you can start your live or automated testing session. Your network logs will be captured and displayed in the test results page as well as during a Live Testing session with the Developer Options window.
 
+:::note All platforms
+
+In order to be able to see network traffic in your test report and ensure a smooth and error free testing experience, please make sure:
+
+- Network protection features in 3rd party networking SDKs and Secure SDKs are disabled.
+- All runtime checks for SSL pinning ([iOS](https://developer.apple.com/news/?id=g9ejcf8y)/[Android](https://developer.android.com/privacy-and-security/security-ssl)) are disabled.
+- Upload a debug build of your application. ([iOS](https://developer.apple.com/documentation/xcode/customizing-the-build-schemes-for-a-project)/[Android](https://developer.android.com/build/build-variants))
+
+Otherwise your app will accidentally mark Sauce's capture as untrustworthy and internet access for HTTPS will be limited.
+
+:::
+
 :::note Android Only
 
 For Android applications, a minor modification in the manifest is necessary to make your app trust our proxy certificate. We'll do this for you automatically when you upload the app to the platform.
 
-We require a debug build ([iOS](https://developer.apple.com/documentation/xcode/customizing-the-build-schemes-for-a-project)/[Android](https://developer.android.com/build/build-variants)) of the application and if your app includes a Secure SDK, please ensure the repackaging prevention feature is disabled.
 :::
 
-:::note All platforms
-
-If your app utilizes 3rd party SDKs for networking or Secure SDKs that support network protection, make sure all runtime checks for SSL pinning ([iOS](https://developer.apple.com/news/?id=g9ejcf8y)/[Android](https://developer.android.com/privacy-and-security/security-ssl)) are also disabled otherwise your app will accidentally mark Sauce's proxy as untrustworthy and internet access for HTTPS will be limited.
-
-:::
 
 ### Automated Testing
 

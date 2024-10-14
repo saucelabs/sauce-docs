@@ -48,7 +48,7 @@ You will be able to mute and unmute the sound during your session by clicking on
 - TalkBack Audio is ONLY supported on Private devices, reach out to our Support Team or your Sauce Labs representative to get this configured.
 - Audio Streaming is supported on iOS/iPadOS 13.2 and above.
 - Audio Streaming is supported on Android 10 and above.
-- When Audio Streaming is enabled, we are not attaching the audio to the test results after the session ends.
+- When Audio Streaming is enabled, we are not attaching the audio to the test results after the session ends on Android 12 and below.
 - Website testing is not yet available on Android.
 
 :::
