@@ -54,7 +54,7 @@ This driver is built using [Flutter Integration Test](https://docs.flutter.dev/c
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
 - Familiarity with creating, signing and building [Flutter apps](https://docs.flutter.dev/).
 - Familiarity writing and running [Appium tests](/mobile-apps/automated-testing/appium/).
-- Note: The Appium Flutter Integration Driver is only supported for real devices on Sauce Labs.
+- Note: The Appium Flutter Integration Driver is only available for real devices on Sauce Labs.
 
 ## Use Sauce Labs `My Demo App Flutter`
 
