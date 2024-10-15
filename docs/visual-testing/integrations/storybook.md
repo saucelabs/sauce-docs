@@ -25,9 +25,13 @@ This package leverage's Storybook's test-runner and metadata generation system f
 
 ## Getting Started
 
-1. Follow [Storybook's instructions](https://github.com/storybookjs/test-runner/blob/next/README.md#getting-started) for setting up, installing, and configuring the test-runner if you haven't done so already. If you have already used or enabled the test-runner, you can skip this step.
+### Step 1 - Install and Configure the Test Runner
 
-2. Install this plugin in an existing project from the root:
+Follow [Storybook's instructions](https://github.com/storybookjs/test-runner/blob/next/README.md#getting-started) for setting up, installing, and configuring the test-runner if you haven't done so already. If you have already used or enabled the test-runner, you can skip this step.
+
+### Step 2 - Install the Visual Package
+
+Install this plugin in an existing project from the root:
 
 ```sh
 npm i --save-dev @saucelabs/visual-storybook
@@ -43,14 +47,14 @@ npm i --save-dev playwright
 
 :::
 
-3. Eject your test-runner config and append the Sauce Visual storybook configuration:
+### Step 3 - Eject and Configure The Jest Test Runner
 
 :::note
-If you already have a custom config file for the test-runner you can skip to the next step for appending our configuration bootstrap. If not see below or read through the [storybook-runner docs](https://github.com/storybookjs/test-runner#ejecting-configuration) to eject the default test configuration.
+If you already have a custom jest config file for the test-runner, typically in `test-runner-jest.config.js`, you can skip the below command. If not see below or read through the [storybook-runner docs](https://github.com/storybookjs/test-runner#ejecting-configuration) to eject the default test configuration.
 :::
 
 ```sh
-npx test-storybook --eject
+npx @storybook/test-runner --eject
 ```
 
 The above should have created a file in the root directory, `test-runner-jest.config.js`. Edit this file and add an import for the sauce visual plugin:
@@ -82,7 +86,9 @@ module.exports = {
 };
 ```
 
-4. Create a `test-runner.js` file in your storybook configuration directory (`<root>/.storybook` by default) if you do not already have one, and append our `postRender` hook into it. You can read more about this file in the [hook API](https://github.com/storybookjs/test-runner#experimental-test-hook-api) section. It should look something like below:
+### Step 4 - Configure the Storybook Test Runner
+
+Create a `test-runner.js` file in your storybook configuration directory (`<root>/.storybook` by default) if you do not already have one, and append our `postVisit` hook into it. You can read more about this file in the [hook API](https://github.com/storybookjs/test-runner#experimental-test-hook-api) section. It should look something like below:
 
 ```js
 // .storybook/test-runner.js
@@ -93,8 +99,10 @@ module.exports = {
 };
 ```
 
-5. Sauce Visual relies on environment variables for authentications.<br />
-   Both `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` need to be set prior starting your Storybook Testrunner job.
+### Step 5 - Authenticate Your Session
+Sauce Visual relies on environment variables for authentication.
+
+Both `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` need to be set prior starting your Storybook Testrunner job.
 
 Username and Access Key can be retrieved from https://app.saucelabs.com/user-settings.
 
@@ -103,7 +111,9 @@ export SAUCE_USERNAME=__YOUR_SAUCE_USER_NAME__
 export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 ```
 
-6. Run your Storybook instance (or point to a built one), set the required environment variables ([see here](https://www.npmjs.com/package/@saucelabs/visual-storybook#customizing-your-builds-environment-variables) for all available / required fields), and run the test-runner! We'll take snapshots of all known Storybook stories and upload them into Sauce Visual.
+### Step 6 - Run Storybook and the Test Runner
+
+Run your Storybook instance (or point to a built one), set the required environment variables ([see here](https://www.npmjs.com/package/@saucelabs/visual-storybook#customizing-your-builds-environment-variables) for all available / required fields), and run the test-runner. We'll take snapshots of all known Storybook stories and upload them into Sauce Visual.
 
 ```sh
 # Spin up your storybook instance in a separate terminal window if you're not using a live /
@@ -119,10 +129,12 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 # need to supply the --url parameter followed by the root url for your storybook instance. See the
 # test-runner docs for more details / examples of config parameters.
 # ex: --url http://localhost:6006
-npx test-storybook
+npx @storybook/test-runner
 ```
 
-7. Review your changes in the [Sauce Visual Dashboard](https://app.saucelabs.com/visual/builds)!
+### Step 7 - Review Your Build
+
+Review your changes in the [Sauce Visual Dashboard](https://app.saucelabs.com/visual/builds).
 
 ## Customizing Your Builds (Environment Variables)
 
