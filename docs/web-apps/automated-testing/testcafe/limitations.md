@@ -1,5 +1,5 @@
 ---
-id: limitations 
+id: limitations
 title: Limitations for TestCafe
 sidebar_label: Limitations
 ---
@@ -8,6 +8,12 @@ sidebar_label: Limitations
 ### Special Characters in Test Names
 
 We recommend that you avoid using special characters when naming your tests. If your test name contains any special characters, your test may not run, or its artifacts may not be visible on our platform.
+
+### Chrome 130+
+
+TestCafe 3.6.2 and lower are [currently not working](https://github.com/DevExpress/testcafe/issues/8286)
+with Chrome 130+. [Disable native automation](#disable-native-automation) as a
+workaround.
 
 ### TestCafe 3.0.1 + Chrome/Edge + Sauce Connect
 
