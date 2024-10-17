@@ -69,26 +69,26 @@ SAUCE_ACCESS_KEY=<your access key>
   <TabItem value="Mac/Linux">
 
 ```bash
-sc run --tunnel-name $SAUCE_TUNNEL_NAME --region <us-west|eu-central>
+sc run --tunnel-name $SAUCE_TUNNEL_NAME --region <us-west|us-east|eu-central>
 ```
 
 Or without environment variables:
 
 ```bash
-sc run --username <your user> --access-key <your access key> --region <us-west|eu-central> --tunnel-name $SAUCE_TUNNEL_NAME
+sc run --username <your user> --access-key <your access key> --region <us-west|us-east|eu-central> --tunnel-name $SAUCE_TUNNEL_NAME
 ```
 
   </TabItem>
   <TabItem value="Windows">
 
 ```bash
-sc.exe run --tunnel-name $SAUCE_TUNNEL_NAME --region <us-west|eu-central>
+sc.exe run --tunnel-name $SAUCE_TUNNEL_NAME --region <us-west|us-east|eu-central>
 ```
 
 Or without environment variables:
 
 ```bash
-sc.exe run --username <your user> --access-key <your access key> --region <us-west|eu-central> --tunnel-name $SAUCE_TUNNEL_NAME
+sc.exe run --username <your user> --access-key <your access key> --region <us-west|us-east|eu-central> --tunnel-name $SAUCE_TUNNEL_NAME
 ```
 
   </TabItem>
