@@ -17,7 +17,9 @@ workaround.
 
 ### Chrome/Edge + Sauce Connect
 
-When using Sauce-Connect, Chrome, and Edge browsers cannot load any website through the tunnel. It will behave as if there is no tunnel defined.
+When using Sauce-Connect, the browsers Chrome and Edge will not make use of the
+tunnel when browsing a website. They will behave as if there is no tunnel
+defined.
 
 ### TestCafe Native Automation + Chrome + Sauce Connect
 
