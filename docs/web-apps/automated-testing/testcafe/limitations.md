@@ -11,7 +11,7 @@ We recommend that you avoid using special characters when naming your tests. If 
 
 ### Chrome 130+
 
-TestCafe 3.6.2 and lower are [currently not working](https://github.com/DevExpress/testcafe/issues/8286)
+TestCafe 3.6.2 and lower [do not work](https://github.com/DevExpress/testcafe/issues/8286)
 with Chrome 130+. [Disable native automation](#disable-native-automation) as a
 workaround.
 
