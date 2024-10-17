@@ -15,7 +15,7 @@ TestCafe 3.6.2 and lower are [currently not working](https://github.com/DevExpre
 with Chrome 130+. [Disable native automation](#disable-native-automation) as a
 workaround.
 
-### TestCafe 3.0.1 + Chrome/Edge + Sauce Connect
+### Chrome/Edge + Sauce Connect
 
 When using Sauce-Connect, Chrome, and Edge browsers cannot load any website through the tunnel. It will behave as if there is no tunnel defined.
 
