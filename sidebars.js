@@ -1145,7 +1145,7 @@ module.exports = {
                 'testfairy/testfairy',
                 {
                     type: 'category',
-                    label: 'Using TestFairy',
+                    label: 'Using App Distribution (TestFairy)',
                     collapsed: true,
                     items: [
                         'testfairy/using-testfairy/uploading-an-app',
