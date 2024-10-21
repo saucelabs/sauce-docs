@@ -1139,13 +1139,13 @@ module.exports = {
         },
         {
             type: 'category',
-            label: 'TestFairy',
+            label: 'App Distribution',
             collapsed: true,
             items: [
                 'testfairy/testfairy',
                 {
                     type: 'category',
-                    label: 'Using TestFairy',
+                    label: 'Using App Distribution (TestFairy)',
                     collapsed: true,
                     items: [
                         'testfairy/using-testfairy/uploading-an-app',
