@@ -16,12 +16,12 @@ Getting started with the REST API can be done via the command line with any prog
 
 Supported Public Cloud endpoints:
 
-## US-East-1
+### US-East-1
 ```bash
 curl -u "john@example.com:00001234cafecafe" "https://mobile.saucelabs.com/api/1/projects/"
 ```
 
-## EU-Central-1 (Access keys are different in each Data Center)
+### EU-Central-1 (Access keys are different in each Data Center)
 ```bash
 curl -u "john@example.com:coffee00001234" "https://mobile.eu-central-1.saucelabs.com/api/1/projects/"
 ```
