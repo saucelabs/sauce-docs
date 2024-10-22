@@ -26,12 +26,13 @@ curl -u "john@example.com:00001234cafecafe" "https://mobile.saucelabs.com/api/1/
 curl -u "john@example.com:00001234cafecafe" "https://mobile.eu-central-1.saucelabs.com/api/1/projects/"
 ```
 
-A project is either an iOS app or an Android app (two apps with the same package name but on different platforms are considered two projects.)
-
+## Previous TestFairy US-East endpoint:
 
 ```bash
 curl -u "john@example.com:00001234cafecafe" "https://api.testfairy.com/api/1/projects/"
 ```
+
+A project is either an iOS app or an Android app (two apps with the same package name but on different platforms are considered two projects.)
 
 In the example above, you can see that our user is `john@example.com` and the API key is `0001234cafecafe`. This user authentication token is required for all requests to the REST server.
 
