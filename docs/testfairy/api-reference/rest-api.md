@@ -14,7 +14,20 @@ In this document you can find the reference for the TestFairy REST API. This API
 
 Getting started with the REST API can be done via the command line with any programming language. Let's begin with an example: by listing all our projects.
 
+Supported Public Cloud endpoints:
+
+## US-East-1
+```bash
+curl -u "john@example.com:00001234cafecafe" "https://mobile.saucelabs.com/api/1/projects/"
+```
+
+## EU-Central-1
+```bash
+curl -u "john@example.com:00001234cafecafe" "https://mobile.eu-central-1.saucelabs.com/api/1/projects/"
+```
+
 A project is either an iOS app or an Android app (two apps with the same package name but on different platforms are considered two projects.)
+
 
 ```bash
 curl -u "john@example.com:00001234cafecafe" "https://api.testfairy.com/api/1/projects/"
