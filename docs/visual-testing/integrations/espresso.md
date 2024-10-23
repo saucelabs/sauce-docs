@@ -2,14 +2,7 @@
 sidebar_label: Espresso
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import ClippingDescription from '../_partials/_clipping-description.md';
-import FullPageLimit from '../_partials/_fullpage-limit.md';
-import EnvironmentVariables from '../_partials/_environment-variables.md';
-import SelectiveDiffing from '../_partials/_selective-diffing.md';
-import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
-import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 
 # Espresso Integration
 
@@ -249,4 +242,4 @@ visualClient.sauceVisualCheck("Visible Sale Banner",
 
 ## Examples
 
-Click [here](https://github.com/saucelabs/visual-examples/tree/main/espresso)
+Click [here](https://github.com/saucelabs/visual-examples/tree/main/espresso) to see the example project.
