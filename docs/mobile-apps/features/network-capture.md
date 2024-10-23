@@ -67,7 +67,7 @@ Otherwise your app will accidentally mark Sauce's capture as untrustworthy and i
 
 :::note Android Only
 
-For Android applications, a minor modification in the manifest is necessary to make your app trust our proxy certificate. We'll do this for you automatically when you upload the app to the platform.
+For Android applications, a minor modification in the manifest is necessary to make your app trust our proxy certificate. We'll do this for you automatically on the fly, right before we install the app to the target device. 
 
 :::
 
@@ -77,13 +77,25 @@ For Android applications, a minor modification in the manifest is necessary to m
 The [App Settings](/mobile-apps/live-testing/live-mobile-app-testing/#app-settings) act as default configurations, but can be overridden by the capabilities specified in your test script. 
 To control whether network capture is enabled or disabled, add the **networkCapture** capability to your test script.
 
-   - [Sauce-specific Appium capability networkCapture](/dev/test-configuration-options/#networkcapture)
+#### Appium
 
-:::note Coming soon
+Enable the following capability when you execute your tests.
 
-System-wide network capture for Espresso and XCUITest will be available soon.
+- [Sauce-specific Appium capability networkCapture](/dev/test-configuration-options/#networkcapture)
 
-:::
+#### Native Tests (Espresso/XCUITest)
+
+Upload your mobile app to Sauce Labs [through our UI](/mobile-apps/app-storage/#uploading-apps-via-ui) or [our REST API](/mobile-apps/app-storage/#uploading-apps-via-rest-api). 
+
+Navigate to **App Management** and locate your app's settings to enable the feature by default for all tests.
+
+<br/><img src={useBaseUrl('img/mobile-apps/networkcapturescr.png')} alt="Mobile app settings navigation" width="600" />
+<br/><img src={useBaseUrl('img/mobile-apps/networkcapturescr2.png')} alt="Mobile app settings navigation" width="800" />
+
+Alternatively, define it in your **saucectl** configuration the following way:
+
+- [Espresso via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#networkcapture)
+- [XCUITest via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#networkcapture)
 
 ### Accessing Network Traffic in real-time (Live Testing)
 
@@ -102,6 +114,13 @@ To be able to observe network traffic in real-time:
 5. Inspect network logs in the [Sauce Labs Network Viewer](/mobile-apps/features/network-capture/#sauce-labs-network-viewer) as they arrive.
  
 <img src={useBaseUrl('img/mobile-apps/network-capture-3.png')} alt="Inspect network logs" width="700"/>
+
+#### Cross Browser 
+
+System capture for Cross Browser works the same way it does for Live Testing. In the live test window, in the left toolbar, open the **Developer Options** and select the **Network tab**.
+
+If you need to localize the capture context with just the browser and omit all network calls from the system entirely, then prefer 
+ using our [DevTools](/web-apps/live-testing/dev-tools/) solution. It will allow you isolate network calls from individual browser tabs and provide a reacher debugging experience.
 
 ### Limitations
 :::note Limitations
@@ -214,27 +233,6 @@ The Stats row in the footer provides details on the number of requests, transfer
 Page Load, DOMContentLoaded, and Finished time.
 <img src={useBaseUrl('img/mobile-apps/network-capture-stats-row.png')} alt="Inspect network logs" width="700"/>
 
-## Instrumented Network Traffic Capture
-<p><small><span className="sauceGreen">Espresso and XCUITest Only</span></small></p>
-
-To use network capture for automated Espresso and XCUITest tests, instrumentation must be enabled.
-
-To enable network traffic capturing in your tests:
-
-1. On Sauce Labs, click **Live** > **Mobile App**.
-2. Upload your mobile app to Sauce Labs [through our UI](/mobile-apps/app-storage/#uploading-apps-via-ui) or [our REST API](/mobile-apps/app-storage/#uploading-apps-via-rest-api).
-3. After you’ve uploaded your app, return to the **Live** > **Mobile App** page, hover your mouse over your app, then select **Settings**.<br/><img src={useBaseUrl('img/mobile-apps/networkcapturescr.png')} alt="Mobile app settings navigation" width="600"/>
-4. Under **Default Settings**, toggle Instrumentation and Network Capture to enable the feature.<br/><img src={useBaseUrl('img/mobile-apps/networkcapturescr2.png')} alt="Mobile app settings navigation" width="800"/>
-5. Alternatively, the **networkCapture** capability can be added to your test script:
-   - [Espresso via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#networkcapture)
-   - [XCUITest via saucectl](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#networkcapture)
-
-:::note Coming soon
-
-System-wide network capture for Espresso and XCUITest will be available soon.
-
-:::
-
 ### Limitations
 
 <!-- prettier-ignore -->
@@ -242,35 +240,8 @@ System-wide network capture for Espresso and XCUITest will be available soon.
 
 - Android Emulators
 - iOS Simulators
-- Android Chrome Browser in automated tests
-- iOS Safari Browser in automated tests
 
 :::
-
-#### Android
-
-Our network capture feature depends on the fact that these classes are not obfuscated:
-
-[OkHTTP](https://square.github.io/okhttp/)
-
-- okhttp3.Interceptor
-- okhttp3.OkHttpClient
-- okhttp3.Request
-- okhttp3.Response
-- okhttp3.ResponseBody
-- okio.Buffer
-
-[Volley](https://github.com/google/volley)
-
-- com.android.volley.AuthFailureError
-- com.android.volley.NetworkResponse
-- com.android.volley.Request
-- com.android.volley.RequestQueue
-- com.android.volley.Response
-
-#### iOS
-
-- Network capture works if the app uses [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession) or a library (like [Alamofire](https://github.com/Alamofire/Alamofire) or [AFNetworking](https://github.com/AFNetworking/AFNetworking)) that uses NSURLSession internally.
 
 ## More Information
 
