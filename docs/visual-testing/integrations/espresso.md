@@ -86,7 +86,7 @@ void checkAppCatalog() {
 ### Step 4: Configure your Sauce Labs credentials
 
 Sauce Visual Espresso expects Sauce Labs username and access key to be passed when initiating the client.  
-It's recommended to define and pass your Sauce Labs credentials to `VisualClient` as custom `BuildConfig` fields.
+It's recommended to define and pass your Sauce Labs credentials to `VisualClient` as custom `BuildConfig` fields.  
 
 ```groovy
 android {
@@ -94,7 +94,6 @@ android {
         buildConfigField "String", "SAUCE_ACCESS_KEY", "YOUR_SAUCE_ACCESS_KEY"
     }
 ```
-Username and Access Key can be retrieved from https://app.saucelabs.com/user-settings.
 
 ```java
 import com.saucelabs.visual.VisualClient;
@@ -105,6 +104,8 @@ static VisualClient visualClient = VisualClient.builder(
         .buildName("Espresso Basic Sample")
         .build();
 ```
+
+Username and Access Key can be retrieved from https://app.saucelabs.com/user-settings.  
 
 ### Step 5: Run the test
 
