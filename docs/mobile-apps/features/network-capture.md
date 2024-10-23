@@ -120,7 +120,7 @@ To be able to observe network traffic in real-time:
 System capture for Cross Browser works the same way it does for Live Testing. In the live test window, in the left toolbar, open the **Developer Options** and select the **Network tab**.
 
 If you need to localize the capture context with just the browser and omit all network calls from the system entirely, then prefer 
- using our [DevTools](/web-apps/live-testing/dev-tools/) solution. It will allow you isolate network calls from individual browser tabs and provide a richer debugging experience.
+ using our [DevTools](/web-apps/live-testing/dev-tools/) solution. It will allow you to isolate network calls from individual browser tabs and provide a richer debugging experience.
 
 ### Limitations
 :::note Limitations
