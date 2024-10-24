@@ -36,7 +36,7 @@ import com.saucelabs.visual.VisualClient;
 
 static VisualClient visual = VisualClient.builder(sauceUsername, sauceAccessKey)
         .buildName("Sauce Demo Test")
-        .build();;
+        .build();
 ```
 
 To enhance efficiency in managing tests, it's important to provide a specific test name and suite name for each test. This practice allows Sauce Visual to effectively organize snapshots into coherent groups. As a result, it simplifies the review process, saving time and effort in navigating through test results and understanding the context of each snapshot.
@@ -201,7 +201,7 @@ visualClient.sauceVisualCheck("Inventory Page",
 
 ### Capturing the DOM snapshot
 
-Sauce Visual does not capture DOM snapshot by default. It can be changed in options.
+Sauce Visual does not capture DOM snapshots by default. This setting can be changed globally via the build options.
 
 Example:
 ```java
