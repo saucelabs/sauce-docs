@@ -26,15 +26,15 @@ export SAUCE_ACCESS_KEY=__YOUR_SAUCE_ACCESS_KEY__
 
 You can run Sauce Visual CLI using:
 
-`npx @saucelabs/visual build [command] [options]`
+`npx @saucelabs/visual [command] [subcommand] [options]`
 
 Run the following command to see the list of available commands:
 
-`npx @saucelabs/visual build`
+`npx @saucelabs/visual help`
 
 ## Commands
 
-### create 
+### build create
 
 Creates a Sauce Visual build
 
@@ -52,7 +52,7 @@ Usage: `npx @saucelabs/visual build create [options]`
 - `-p`, `--project`: Label/project to associate the build with.
 - `-c`, `--custom-id`: User-supplied custom ID to associate the build with. For advanced users.
 
-### finish
+### build finish
 
 Finishes a Sauce Visual build
 
@@ -68,7 +68,7 @@ One of the following:
 #### Options
 - `-r`, `--region`: The Sauce Labs region. Possible values: `us-west-1`, `eu-central-1`, `us-east-4`. Default: `us-west-1`
 
-### status
+### build status
 
 Fetches status from a Sauce Visual build
 
@@ -85,12 +85,29 @@ One of the following:
 
 - `-r`, `--region`: The Sauce Labs region. Possible values: `us-west-1`, `eu-central-1`, `us-east-4`. Default: `us-west-1`
 
+### baselines merge
+
+Merges baselines in a project from one branch to another. Useful for branching behavior in CI environments.
+
+Usage: `npx @saucelabs/visual baselines merge [options]`
+
+#### Required
+
+All the following:
+
+- `-p`, `--project` \<project>       Project name
+- `-s`, `--source-branch` \<branch>  Branch from which to copy the baselines
+- `-t`, `--target-branch` \<branch>  Branch into which to copy the baselines
+
+#### Options
+
+- `-r`, `--region`: The Sauce Labs region. Possible values: `us-west-1`, `eu-central-1`, `us-east-4`. Default: `us-west-1`
+
+
 ### help
 
-Displays help for a command
+Displays all available commands. In addition to the `help` command there's also the `-h`, `--help` option available for every command to display the available options.
 
-Usage: `npx @saucelabs/visual build help [command]`
+Usage: `npx @saucelabs/visual help`
 
-Example: `npx @saucelabs/visual build help create`
-
-In addition to `help` command there's also `-h`, `--help` option available for every command to display the available options.
+Example: `npx @saucelabs/visual baselines merge --help`
