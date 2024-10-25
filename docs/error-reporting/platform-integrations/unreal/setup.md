@@ -42,7 +42,7 @@ For on-premise (self-hosted) users, the integration for Unreal Engine requires s
 
 ### System Requirements
 
-- Unreal Engine version 4.16 to 5.2
+- Unreal Engine version 4.16 to 5.4+
 
 ## Initialize the Backtrace Client
 
@@ -183,29 +183,18 @@ To change the default configuration settings for the Backtrace client, you can c
 </TabItem>
 <TabItem value="ios">
 
-Integrate the [backtrace-cocoa](https://github.com/backtrace-labs/backtrace-cocoa) error reporting library with your Unreal Engine game for iOS written in Swift or Objective-C.
+Integrate the [backtrace-cocoa](https://github.com/backtrace-labs/backtrace-cocoa) native error reporting library with your iOS Unreal Engine game.
 
-1. From [Assets](https://github.com/backtrace-labs/backtrace-cocoa/releases/tag/1.7.0), download and extract the `Backtrace.framework.zip` and the `Backtrace_PLCrashReporter.framework.zip` files.
-1. Copy and paste the `Backtrace.framework.zip` and the `Backtrace_PLCrashReporter.framework.zip` folders into the directory for your Unreal Engine project.
+1. From [Releases](https://github.com/backtrace-labs/backtrace-cocoa/releases), download the `Archive_UE.tar.gz` archive.
+1. Unarchive and Copy the `Backtrace.xcframework` into the directory of your Unreal Engine project.
 1. Locate your app or game's `Build.cs` file.
 1. In the `Build.cs` file, add the following lines at the end of the `ModuleRules` class constructor:
 
    ```
-   if (Target.Platform == UnrealTargetPlatform.IOS)
-   {
-     PublicAdditionalFrameworks.AddRange(
-       new Framework[]
-     {
-       new Framework("Backtrace", "/Library/Frameworks/Backtrace.framework", "", true),
-       new Framework("Backtrace_PLCrashReporter", "/Library/Frameworks/Backtrace_PLCrashReporter.framework", "", true)
-     }
-       );
-   }
+   if (Target.Platform == UnrealTargetPlatform.IOS) {
+    PublicAdditionalFrameworks.Add(new Framework("Backtrace", "../Path/To/Framework/Backtrace.xcframework/ios-arm64/Backtrace.framework", null, true));
+    }
    ```
-
-:::note
-Make sure to reflect the path to where you've placed both frameworks in your game project.
-:::
 
 5. To initialize the Backtrace client, use the following to import `Backtrace-Swift.h` from `Backtrace.framework/Headers`:
 
