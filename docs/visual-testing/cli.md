@@ -40,6 +40,8 @@ Creates a Sauce Visual build
 
 Usage: `npx @saucelabs/visual build create [options]`
 
+Example: `npx @saucelabs/visual build create -n "My Build Name"`
+
 #### Required
 
 - `-n`, `--name`: Build name
