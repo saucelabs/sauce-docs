@@ -6,6 +6,8 @@ import ClippingDescription from '../_partials/_clipping-description.md';
 
 # Espresso Integration
 
+You can use the Sauce Visual Espresso plugin to set up an integration with the Sauce Labs platform and start comparing the visual snapshots generated during your tests.
+
 ## Introduction
 
 This guide requires an existing Android JUnit setup.  
@@ -109,7 +111,7 @@ Username and Access Key can be retrieved from https://app.saucelabs.com/user-set
 
 ### Step 5: Run the test
 
-Upon executing your tests for the first time under this step, a visual baseline is automatically created in our system. This baseline serves as the standard for all subsequent WebDriver tests. As new tests are run, they are compared to this original baseline, with any deviations highlighted to signal visual changes. These comparisons are integral for detecting any unintended visual modifications early in your development cycle. All test builds, including the initial baseline and subsequent runs, can be monitored and managed through the Sauce Labs platform at [Sauce Visual Builds](https://app.saucelabs.com/visual/builds).
+Upon executing your tests for the first time under this step, a visual baseline is automatically created in our system. This baseline serves as the standard for all subsequent tests. As new tests are run, they are compared to this original baseline, with any deviations highlighted to signal visual changes. These comparisons are integral for detecting any unintended visual modifications early in your development cycle. All test builds, including the initial baseline and subsequent runs, can be monitored and managed through the Sauce Labs platform at [Sauce Visual Builds](https://app.saucelabs.com/visual/builds).
 
 Remember, the baseline is established during the initial run, and any subsequent visual differences detected will be marked for review.
 
@@ -208,8 +210,8 @@ Example:
 import com.saucelabs.visual.VisualCheckOptions;
 
 static VisualClient visualClient = VisualClient.builder(
-                BuildConfig.SAUCE_USERNAME,
-                BuildConfig.SAUCE_ACCESS_KEY)
+                sauceUsername,
+                sauceAccessKey)
         .buildName("Espresso Basic Sample")
         .captureDom(true)
         .build();
