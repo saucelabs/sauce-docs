@@ -167,6 +167,27 @@ The following example tunnels all requests to *.myorg.dev, except abc.myorg.com.
 --tunnel-domains .*\.myorg\.dev,-abc\.myorg\.com
 ```
 
+## Tunnel capacity
+
+### `--tunnel-connections` {#tunnel-connections}
+
+* Environment variable: `SAUCE_TUNNEL_CONNECTIONS`
+* Value Format: `<count>`
+* Default value: `16`
+
+Number of connections to the Sauce Connect server.
+By default it is set to the number of CPUs on the machine.
+Total number of concurrent requests that can be handled is limited by the number of connections multiplied by the number of streams, see --tunnel-max-concurrent-streams flag.
+For example with 4 connections and 256 streams, the total number of concurrent requests is 1024.
+
+### `--tunnel-max-concurrent-streams` {#tunnel-max-concurrent-streams}
+
+* Environment variable: `SAUCE_TUNNEL_MAX_CONCURRENT_STREAMS`
+* Value Format: `<count>`
+* Default value: `256`
+
+Maximal number of concurrent HTTP/2 streams per TCP connection.
+
 ## Proxy
 
 ### `-a, --auth` {#auth}
