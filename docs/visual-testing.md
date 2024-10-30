@@ -37,7 +37,7 @@ Sauce Visual Testing stands for:
 
 ## What You'll Need
 
-- A [Sauce Labs Enterprise account](https://saucelabs.com/pricing) with access to Visual Testing. To request access, contact your CSM or Sauce Labs Support.
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)) to access Visual Testing.
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 
 ## Workflows
