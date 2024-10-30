@@ -79,7 +79,7 @@ Add a check to one of your tests:
 import org.junit.Test;
 
 @Test
-void checkAppCatalog() {
+void checkLogin() {
   
   visual.sauceVisualCheck("Before Login");
 }
