@@ -971,19 +971,8 @@ You can also set the browser arguments profile for Firefox using the `SAUCE_FIRE
 suites:
   - name: "saucy test"
     env:
-      SAUCE_FIREFOX_BROWSER_PROFILE: "/Volumes/Sauce/saucectl-runners/sauce-testcafe-runner/3.10.0/bundle/__project__/firefox_test_profile"
+      SAUCE_FIREFOX_BROWSER_PROFILE: "relative_path_to/firefox_test_profile"
 ```
-
-:::warning
-The browser profile path includes a reference to the runner version, as shown by '3.10.0' in this example.
-Note that the runner version corresponds to, but is not identical to, the requested TestCafe version.
-You can find the runner version in the startup logs:
-
-```
-Sauce TestCafe Runner 3.10.0
-Running TestCafe 3.6.2
-```
-:::
 
 ---
 
