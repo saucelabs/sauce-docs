@@ -965,6 +965,15 @@ suites:
     browserArgs: ["--no-sandbox", "--disable-features=site-per-process"]
 ```
 
+You can also set the browser arguments profile for Firefox using the `SAUCE_FIREFOX_BROWSER_PROFILE` environment variable.
+
+```yaml
+suites:
+  - name: "saucy test"
+    env:
+      SAUCE_FIREFOX_BROWSER_PROFILE: "relative_path_to/firefox_test_profile"
+```
+
 ---
 
 ### `headless`
