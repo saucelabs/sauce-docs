@@ -4,6 +4,8 @@ title: Baseline Management (BETA)
 sidebar_label: Baseline Management (BETA)
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Baseline Management
 
 The Baseline Management feature lets you oversee the approved visual snapshots from your tests. It allows you to track visual regressions through time and check baselines for different branches and projects. Additionally, you can view the baseline history, download images, and view associated build details.
@@ -34,7 +36,7 @@ Once inside Baseline History view, you can perform the following actions by clic
 
 <img src={useBaseUrl('img/sauce-visual/baseline-history-options.jpg')} alt="Baseline history options dropdown showing three options" />
 
-## Accessing Baseline History from Build details
+## Accessing Baseline History From Build Details
 
 For easier reviewing experience and navigating to and from baselines, the test runs with pre-approved baselines will show a link to Baseline history at the top.
 
