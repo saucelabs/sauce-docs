@@ -1,7 +1,7 @@
 ---
 id: baseline-management
-title: Baseline Management (Beta)
-sidebar_label: Baseline Management (Beta)
+title: Baseline Management (BETA)
+sidebar_label: Baseline Management (BETA)
 ---
 
 # Baseline Management
