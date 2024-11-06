@@ -594,15 +594,11 @@ the version defined in your saucectl config.
 ```yaml
 npm:
   usePackageLock: true
-  packages:
-    lodash: "4.17.20"
-    "@babel/preset-typescript": "7.12"
 ```
 
-:::note
-You can optionally omit the `packages` configuration when using
-`usePackageLock`. If omitted, the packages defined in your `package.json` will
-be installed.
+:::tip
+You can use this option with `packages` to define packages to install in
+addition to those defined in your `package-lock.json`.
 :::
 
 ---
