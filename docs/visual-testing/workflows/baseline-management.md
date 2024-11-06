@@ -14,7 +14,7 @@ While logged in to Sauce Labs, navigate to this feature by clicking the "Visual 
 
 ## Baselines Page
 
-Baselines page allows you to view all accepted snapshots within a project and branch. Select a Project at the top and then Branch to view baselines. If these are not set for your tests, all baselines will be displayed toghether under the `(not set)` option. 
+Baselines page allows you to view all accepted snapshots in a project and branch. Select a Project at the top and then Branch to view baselines. If these are not set for your tests, all baselines will be displayed toghether under the `(not set)` option.
 
 You can further filter baselines by OS, browser, or device. Options to sort and group are also available.
 
@@ -22,14 +22,20 @@ You can further filter baselines by OS, browser, or device. Options to sort and 
 
 ## Baseline History View
 
-Baseline History allows you to view and manage historical snapshots of a single test baseline. This view opens once you click on any snapshot from the Baselines page.
+Baseline History allows you to view and manage historical snapshots of a single test baseline. This view opens after you click on any snapshot from the Baselines page.
 
 <img src={useBaseUrl('img/sauce-visual/baseline-history.jpg')} alt="Baseline history view displaying a snapshot with list of changes in time" />
 
-Once inside Baseline History view, you can perform the following actions by clicking the `...` button on any item in the list: 
+Once inside Baseline History view, you can perform the following actions by clicking the `...` button on any item in the list:
 
 - Set as New Baseline: Mark older approvals of a snapshot as the new baseline for visual comparison.
 - Download Image: Download individual snapshot for local viewing or archiving.
 - View Build: Access visual build details where a certain version of the snapshot was approved.
 
 <img src={useBaseUrl('img/sauce-visual/baseline-history-options.jpg')} alt="Baseline history options dropdown showing three options" />
+
+## Accessing Baseline History from Build details
+
+For easier reviewing experience and navigating to and from baselines, the test runs with pre-approved baselines will show a link to Baseline history at the top.
+
+<img src={useBaseUrl('img/sauce-visual/build-overlay-history.jpg')} alt="Build run displaying a link to Baseline history at the top" />
