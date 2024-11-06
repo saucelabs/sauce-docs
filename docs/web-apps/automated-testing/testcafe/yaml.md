@@ -595,10 +595,6 @@ npm:
 To use this feature, make sure that `node_modules` is not ignored via `.sauceignore`.
 
 :::caution
-This feature is highly experimental.
-:::
-
-:::caution
 Do not use `dependencies` and `packages` at the same time.
 :::
 
@@ -992,6 +988,15 @@ Pass flags to configure how TestCafe launches the selected browser. Review suppo
 suites:
   - name: "saucy test"
     browserArgs: ["--no-sandbox", "--disable-features=site-per-process"]
+```
+
+You can also set the browser arguments profile for Firefox using the `SAUCE_FIREFOX_BROWSER_PROFILE` environment variable.
+
+```yaml
+suites:
+  - name: "saucy test"
+    env:
+      SAUCE_FIREFOX_BROWSER_PROFILE: "relative_path_to/firefox_test_profile"
 ```
 
 ---
