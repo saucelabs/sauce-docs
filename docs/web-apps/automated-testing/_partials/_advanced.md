@@ -158,10 +158,6 @@ npm:
     - "package.json"
 ```
 
-:::caution
-This feature is highly experimental.
-:::
-
 ## Attaching Test Assets
 
 By default, any test assets created by your tests at runtime (such as logs, screenshots or reports) you wish to retain along with your test results must be placed in the `__assets__` directory of your project root folder. On Sauce Labs VMs, this path is relative to the current working directory.
