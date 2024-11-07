@@ -14,7 +14,7 @@ While logged in to Sauce Labs, navigate to this feature by clicking the "Visual 
 
 ## Baselines Page
 
-Baselines page allows you to view all accepted snapshots in a project and branch. Select a Project at the top and then Branch to view baselines. If these are not set for your tests, all baselines will be displayed toghether under the `(not set)` option.
+The Baselines page allows you to view all accepted snapshots in a project and branch. Select a project at the top and then Branch to view baselines. If these are not set for your tests, all baselines will be displayed together under the `(not set)` option.
 
 You can further filter baselines by OS, browser, or device. Options to sort and group are also available.
 
