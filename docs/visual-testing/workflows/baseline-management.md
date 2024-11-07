@@ -6,7 +6,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Baseline Management
 
-The Baseline Management feature lets you oversee the approved visual snapshots from your tests. It allows you to track visual regressions through time and check baselines for different branches and projects. Additionally, you can view the baseline history, download images, and view associated build details.
+The Baseline Management feature lets you oversee the approved visual snapshots from your tests. 
+It allows you to track visual regressions through time and check baselines for different branches and projects. 
+Additionally, you can view the baseline history, download images, and view associated build details.
 
 While logged in to Sauce Labs, navigate to this feature by clicking the "Visual -> Baselines" in the side navigation.
 
@@ -14,7 +16,9 @@ While logged in to Sauce Labs, navigate to this feature by clicking the "Visual 
 
 ## Baselines Page
 
-The Baselines page allows you to view all accepted snapshots in a project and branch. Select a project at the top and then Branch to view baselines. If these are not set for your tests, all baselines will be displayed together under the `(not set)` option.
+The Baselines page allows you to view all accepted snapshots in a project and branch. 
+Select a Project at the top and then Branch to view baselines. 
+If these are not set for your tests, all baselines will be displayed together under the `(not set)` option.
 
 You can further filter baselines by OS, browser, or device. Options to sort and group are also available.
 
@@ -22,7 +26,8 @@ You can further filter baselines by OS, browser, or device. Options to sort and 
 
 ## Baseline History View
 
-Baseline History allows you to view and manage historical snapshots of a single test baseline. This view opens after you click on any snapshot from the Baselines page.
+Baseline History allows you to view and manage historical snapshots of a single test baseline. 
+This view opens after you click on any snapshot from the Baselines page.
 
 <img src={useBaseUrl('img/sauce-visual/baseline-history.jpg')} alt="Baseline history view displaying a snapshot with list of changes in time" />
 
