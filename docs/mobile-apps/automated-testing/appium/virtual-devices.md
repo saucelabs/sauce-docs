@@ -50,7 +50,7 @@ Here are some tips for configuring your Appium tests:
 ### Set the Location of Your Mobile App
 
 Set the value of `app` to the location for where it can be accessed. This can be a full URL, or it can use
-[Sauce Labs App Storage](/mobile-apps/app-storage/#using-application-storage-with-automated-test-builds)
+[Sauce Labs App Storage](/mobile-apps/app-storage/#using-app-storage-with-automated-test-builds)
 
 :::note
 Sauce Labs only allows you to set either `browserName` or `app`. If you have a value set for `browserName` Sauce will

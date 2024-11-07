@@ -133,7 +133,7 @@ Bingo! You are ready to run your tests using Appium Flutter Integration Driver.
 
 ## Uploading your Flutter App to Sauce Labs
 
-You can now upload the built apps with our [REST API](/dev/api/storage/#upload-file-to-app-storage), or manually upload them to the preferred Data Center. See [Manually Uploading an App](/mobile-apps/live-testing/live-mobile-app-testing/#uploading-an-app) for more information.
+You can now upload the built apps with our [REST API](/dev/api/storage/#upload-file-to-app-storage), or manually upload them to the preferred Data Center. See [Manually Uploading an App](/mobile-apps/app-storage/#uploading-apps) for more information.
 
 ## Configuring your Appium Capabilities
 

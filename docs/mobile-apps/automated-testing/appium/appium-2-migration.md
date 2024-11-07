@@ -84,7 +84,7 @@ Below you can find an example of a capabilities object for running a test on Sau
 See [Appium 2 for Real devices](/mobile-apps/automated-testing/appium/appium-versions/#real-devices) or [Appium 2 for Virtual devices](/mobile-apps/automated-testing/appium/appium-versions/#virtual-devices) to see which Appium 2 versions are available on Sauce Labs.
 
 :::note
-The below examples are for Mobile Web Testing, for Mobile App Testing please remove the `browserName` and add the [`appium:app`-capability](/mobile-apps/app-storage#using-application-storage-with-automated-test-builds)
+The below examples are for Mobile Web Testing, for Mobile App Testing please remove the `browserName` and add the [`appium:app`-capability](/mobile-apps/app-storage#using-app-storage-with-automated-test-builds)
 :::
 
 ### Android Emulators and iOS Simulators
