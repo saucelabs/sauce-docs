@@ -546,6 +546,31 @@ Do not use `dependencies` and `packages` at the same time.
 
 ---
 
+### `usePackageLock`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Specifies whether to use the project's package-lock.json when installing npm
+dependencies. If true, package-lock.json will be used during package
+installation which can improve the speed of installation.
+
+To use this feature, additional pre-requisites must be met:
+* A package-lock.json must be present in your project.
+* The `testcafe` version in your package.json must **exactly** match
+the version defined in your saucectl config.
+
+```yaml
+npm:
+  usePackageLock: true
+```
+
+:::tip
+You can use this option with `packages` to define packages to install in
+addition to those defined in your `package-lock.json`.
+:::
+
+---
+
 ### `dependencies`
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
