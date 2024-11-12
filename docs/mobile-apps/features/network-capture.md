@@ -44,7 +44,7 @@ complete resigning or additional instrumentation is needed, ensuring a smooth fe
 
 1. In Sauce Labs, from the left navigation, click **App Management**.
    <img src={useBaseUrl('img/mobile-apps/app-management.png')} alt="App Management" width="750"/>
-2. Upload your mobile app to Sauce Labs [through our UI](/mobile-apps/app-storage/#uploading-apps-via-ui) or [our REST API](/mobile-apps/app-storage/#uploading-apps-via-rest-api).
+2. Upload your mobile app to Sauce Labs [through our UI](/mobile-apps/app-storage/#upload-apps-via-ui) or [our REST API](/mobile-apps/app-storage/#upload-apps-via-rest-api).
    <img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="750"/>
 3. After you’ve uploaded your app, locate it in the table and select **Settings** from the corresponding row.
    <img src={useBaseUrl('img/mobile-apps/app-management-select-settings.png')} alt="Select Settings" width="750"/>
@@ -74,7 +74,7 @@ For Android applications, a minor modification in the manifest is necessary to m
 
 ### Automated Testing
 
-The [App Settings](/mobile-apps/live-testing/live-mobile-app-testing/#app-settings) act as default configurations, but can be overridden by the capabilities specified in your test script. 
+The [App Settings](/mobile-apps/live-testing/live-mobile-app-testing/#app-and-device-settings) act as default configurations, but can be overridden by the capabilities specified in your test script.
 To control whether network capture is enabled or disabled, add the **networkCapture** capability to your test script.
 
 #### Appium
@@ -85,7 +85,7 @@ Enable the following capability when you execute your tests.
 
 #### Native Tests (Espresso/XCUITest)
 
-Upload your mobile app to Sauce Labs [through our UI](/mobile-apps/app-storage/#uploading-apps-via-ui) or [our REST API](/mobile-apps/app-storage/#uploading-apps-via-rest-api). 
+Upload your mobile app to Sauce Labs [through our UI](/mobile-apps/app-storage/#upload-apps-via-ui) or [our REST API](/mobile-apps/app-storage/#upload-apps-via-rest-api).
 
 Navigate to **App Management** and locate your app's settings to enable the feature by default for all tests.
 

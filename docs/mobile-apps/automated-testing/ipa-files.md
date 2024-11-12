@@ -122,7 +122,7 @@ If your organization or application requires specific entitlements to be present
 To access our private device cloud, contact your Sauce Labs account executive or our support team. 
 When resigning is disabled, you may sign your app using your own provisioning profile, or install an application that is signed with an Enterprise certificate, which can include any entitlements.
 
-To disable the **Resigning**, you can either visit "App Management > \{Your App} > App Settings" ([App Settings](/mobile-apps/live-testing/live-mobile-app-testing/#app-settings)) to disable resigning globally for your app.
+To disable the **Resigning**, you can either visit "App Management > \{Your App} > App Settings" ([App Settings](/mobile-apps/live-testing/live-mobile-app-testing/#app-and-device-settings)) to disable resigning globally for your app.
 
 You can also use the `sauce:options` [capability](/dev/test-configuration-options/#resigningenabled) `resigningEnabled=false` to disable app resigning for automation. This option is available for private devices only.
 
