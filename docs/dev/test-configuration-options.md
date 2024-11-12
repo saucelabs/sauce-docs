@@ -1517,7 +1517,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span></small> |</p>
 
-Enables mobile app instrumentation (Android or iOS) and recording of HTTP/HTTPS network traffic for debugging purposes. API calls are collected into a HAR file, which you can view and download from your **Test Results** > **Network** tab console. The default value is `false`.
+Enables recording of HTTP/HTTPS network traffic for debugging purposes. Regardless of the framework in use (Native, Hybrid, Web), system-wide capture from all Android and iOS apps as well as browsers are supported. API calls are collected into a HAR file, which you can view and download from your **Test Results** > **Network** tab console. The default value is `false`.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
