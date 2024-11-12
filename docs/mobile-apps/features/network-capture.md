@@ -74,7 +74,7 @@ For Android applications, a minor modification in the manifest is necessary to m
 
 ### Automated Testing
 
-The [App Settings](/mobile-apps/live-testing/live-mobile-app-testing/#app-and-device-settings) act as default configurations, but can be overridden by the capabilities specified in your test script. 
+The [App Settings](/mobile-apps/live-testing/live-mobile-app-testing/#app-and-device-settings) act as default configurations, but can be overridden by the capabilities specified in your test script.
 To control whether network capture is enabled or disabled, add the **networkCapture** capability to your test script.
 
 #### Appium
@@ -85,7 +85,7 @@ Enable the following capability when you execute your tests.
 
 #### Native Tests (Espresso/XCUITest)
 
-Upload your mobile app to Sauce Labs [through our UI](/mobile-apps/app-storage/#upload-apps-via-ui) or [our REST API](/mobile-apps/app-storage/#upload-apps-via-rest-api). 
+Upload your mobile app to Sauce Labs [through our UI](/mobile-apps/app-storage/#upload-apps-via-ui) or [our REST API](/mobile-apps/app-storage/#upload-apps-via-rest-api).
 
 Navigate to **App Management** and locate your app's settings to enable the feature by default for all tests.
 
