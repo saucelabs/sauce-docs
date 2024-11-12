@@ -10,7 +10,7 @@ The Baseline Management feature lets you oversee the approved visual snapshots f
 It allows you to track visual regressions through time and check baselines for different branches and projects.
 Additionally, you can view the baseline history, download images, and view associated build details.
 
-While logged in to Sauce Labs, navigate to this feature by clicking the "Visual -> Baselines" in the side navigation.
+While logged in to Sauce Labs, you can access this feature by clicking "Visual -> Baselines" in the side navigation.
 
 <img src={useBaseUrl('img/sauce-visual/baselines-navigation.jpg')} alt="Baselines navigation item" />
 
