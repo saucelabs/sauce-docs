@@ -76,13 +76,13 @@ On the main **App Management** page, you can select an app to test by clicking *
 
 <img src={useBaseUrl('img/live-testing/select-app-from-main-page.png')} alt="App settings - Android" width="800"/>
 
-### from App Management - App Builds
+### From App Management - App Builds
 In the **App Builds tab** of a selected app group, you can start a test by clicking **Start Test** in the row of the specific app build you wish to test. This is helpful for conducting A/B testing or for documenting and validating feature parity across different versions of the same app.
 
 <img src={useBaseUrl('img/live-testing/select-app-from-app-builds.png')} alt="App settings - Android" width="800"/>
 
-### from Live - Mobile Apps
-On the **Live Mobile Apps Testing** page, you can search for and select the desired app build from the dropdown menu to begin testing.
+### From Live - Mobile Apps
+On the **Live Mobile Apps Testing** page, you can search for and select the desired app build from the dropdown list to begin testing.
 
 <img src={useBaseUrl('img/live-testing/select-app-from-live-mobile-apps.png')} alt="App settings - Android" width="800"/>
 

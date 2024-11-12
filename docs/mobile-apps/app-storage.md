@@ -36,7 +36,7 @@ Make sure you have a debuggable AND non-obfuscated version of your application u
 ## Uploading Apps
 ### Accepted File Types
 
-App storage recognizes \*.apk and \*.aab files as Android apps and \*.ipa or \*.zip files as iOS apps. \*.zip files (for simulator tests only) are parsed to determine whether a valid \*.app bundle exists.
+App storage recognizes \*.apk and \*.aab files as Android apps and \*.ipa or \*.zip files as iOS apps. \*.zip files (for Simulator tests only) are parsed to determine whether a valid \*.app bundle exists.
 
 :::caution AAB App Signing
 To install an \*.apk app that is extracted from an \*.aab file, Sauce Labs must sign the \*.apk using its own signature. In such cases, Sauce Labs signs both the `app` and `testApp` to ensure matching signatures, even if instrumentation is disabled. Otherwise, the app installation will fail. For more information, see [Android App Bundles](https://developer.android.com/guide/app-bundle).
@@ -169,7 +169,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ### Rate Limiting
 
-To increase service stability and prevent overload by a high volume of incoming traffic, we have set the following rate limits for uploading your mobile apps (effective from 14.11.2022):
+To increase service stability and prevent overload by a high volume of incoming traffic, we have set the following rate limits for uploading your mobile apps (effective from November 14th, 2022):
 
 |             | Trial Users                                                                      | Non Trial Users                                                                      |
 | :---------- | :------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
@@ -182,23 +182,23 @@ All uploaded files are shared within the same team, and members can only access 
 
 For more information about managing access to your organization, see [Managing User Information](/basics/acct-team-mgmt/managing-user-info).
 
-### Share apps with another team
+### Share Apps with another Team
 App groups can be shared across teams within an organization, but only organization admins have the permission to share an app group with other teams.
 
 <img src={useBaseUrl('img/mobile-apps/app-management-org-admin.png')} alt="Upload an app" width="800"/>
 
-Shared apps will appear under the **Shared With Me** tab on the **App Management** page for non-organization admin users, and team members can use these apps just as they would with apps from their own team.
+Shared apps will appear under the **Shared With Me** tab on the **App Management** page for non-organization admins, and team members can use these apps just as they would with apps from their own team.
 However, teams with a shared app group cannot delete it, ensuring the app remains accessible to all assigned teams.
 
 <img src={useBaseUrl('img/mobile-apps/app-management-shared-with-me.png')} alt="Upload an app" width="800"/>
 
-#### Share an app group
+#### Share an App Group
 1. Navigate to **App Management** and click on **More Actions** on the app group row you want to share.
 2. Select **Share** to open the Share Modal.
 
 <img src={useBaseUrl('img/mobile-apps/app-management-share-action.png')} alt="Upload an app" width="800"/>
 
-3. From the dropdown, choose the teams you want to share the app group with.
+3. From the dropdown list, choose the teams you want to share the app group with.
 
 <img src={useBaseUrl('img/mobile-apps/app-management-share-select.png')} alt="Upload an app" width="800"/>
 
@@ -216,7 +216,7 @@ To view all app builds under one app group or change the app settings, on the **
 The version number shown is the most recently uploaded file, not necessarily the latest version of the app. Deleting an app in Sauce Labs will delete the whole app group (i.e., the group of builds belonging to the same app package).
 
 ### App Builds
-The App Builds tab displays a table of all app builds within the selected app group. To quickly copy an app's file name or ID, simply hover over the app and click the clipboard icon. Available actions include starting a test, downloading the app build, and viewing build details. Deleting an app build is restricted to organization and team admins.
+The App Builds tab displays a table of all app builds within the selected app group. To quickly copy an app's file name or ID, hover over the app and click the clipboard icon. Available actions include starting a test, downloading the app build, and viewing build details. Deleting an app build is restricted to organization and team admins.
 
 <img src={useBaseUrl('img/mobile-apps/app-management-app-builds-tab.png')} alt="Copy a file name or ID" width="800"/>
 
@@ -472,10 +472,10 @@ otherApps:
 
 <p> <small><span className="sauceGreen">Real Devices Only</span></small></p>
 
-If your app is downloadable from a remote location (e.g., AWS S3 bucket, a GitHub repository), you can provide a URL as the value for the `app` capability in your test, which will install the app onto the real devices prior to test execution.
+If your app is downloadable from a remote location (for example, AWS S3 bucket, a GitHub repository), you can provide a URL as the value for the `app` capability in your test, which will install the app onto the real devices prior to test execution.
 
 :::note
-Appium cannot log into secure locations, so apps installed via remote download must be accessible, so are then removed from the real device immediately following test completion, providing an added layer of security.
+Appium cannot log in to secure locations, so apps installed via remote download must be accessible, so are then removed from the real device immediately following test completion, providing an added layer of security.
 :::
 
 To install a remote app on a real device for a test:
