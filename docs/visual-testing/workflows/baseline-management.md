@@ -31,7 +31,7 @@ This view opens after you click on any snapshot from the Baselines page.
 
 <img src={useBaseUrl('img/sauce-visual/baseline-history.jpg')} alt="Baseline history view displaying a snapshot with list of changes in time" />
 
-Once inside Baseline History view, you can perform the following actions by clicking the `...` button on any item in the list:
+Once inside the Baseline History view, you can perform the following actions by clicking the `...` button on any item in the list:
 
 - **Set as New Baseline**: Mark older approvals of a snapshot as the new baseline for visual comparison.
 - **Download Image**: Download individual snapshot for local viewing or archiving.
