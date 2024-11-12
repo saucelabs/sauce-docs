@@ -39,7 +39,7 @@ Once inside the Baseline History view, you can perform the following actions by 
 
 <img src={useBaseUrl('img/sauce-visual/baseline-history-options.jpg')} alt="Baseline history options dropdown showing three options" />
 
-## Accessing Baseline History From Build Details
+## Accessing Baseline History from Diff Overlay
 
 For easier reviewing experience and navigating to and from baselines, the test runs with pre-approved baselines will show a link to Baseline history at the top.
 
