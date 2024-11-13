@@ -121,11 +121,9 @@ This feature ensures that selected data remains intact during the device cleanin
 - Filepaths or folders associated with specific applications can be retained.
 - This is especially useful for retaining data that is crucial for continuous testing or for maintaining certain app states.
 
-By default, the following folders are not cleaned on your private Android devices, ensuring that their contents are retained between sessions (iOS/Android):
-- Documents
-- Pictures
-- Downloads
-- DCIM
+You can specify multiple folders (comma-separated) ensuring that their contents are retained between sessions (iOS/Android):
+
+![private-device-skip-folder.png](..%2F..%2Fassets%2Fprivate-device-skip-folder.png)
 
 :::note
 You can only retain specific folders created inside tmp. You cannot retain the whole tmp folder.

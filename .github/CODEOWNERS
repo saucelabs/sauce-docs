@@ -15,8 +15,8 @@
 
 # Dev/API:
 /docs/dev/api/error-reporting/ @rick-bt @peter-shao
-/docs/dev/api/rdc/ @kristofmuhi
-/docs/dev/api/storage/ @kristofmuhi
+/docs/dev/api/rdc/ @saucelabs/rdcdev
+/docs/dev/api/storage/ @saucelabs/rdcdev
 
 # Dev:
 /docs/dev/cli/ @saucelabs/devx
@@ -29,7 +29,7 @@
 /docs/orchestrate.md @saucelabs/sauce-orchestrate-team
 
 # Mobile apps:
-/docs/mobile-apps/ @kristofmuhi
+/docs/mobile-apps/ @saucelabs/rdcdev
 
 # Web apps:
 /docs/web-apps/ @saucelabs/devx
