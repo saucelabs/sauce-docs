@@ -44,7 +44,7 @@ You can find more details on Sauce Labs' [Appium versions documentation](/mobile
 - You can use the `axe-appium-xcuitest-driver` only for devices with iOS 17 or above.
   :::
 - ****Backward Compatibility with Deprecated Plugin:**** While Deque’s  [axeDevToolsMobile Appium Plugin](https://docs.deque.com/devtools-mobile/2024.2.14/en/june-2024-3) 
-has been deprecated, Sauce Labs will continue hosting it until January 31st, allowing users time to migrate to the new drivers.
+has been deprecated, Sauce Labs will continue hosting it until January 31st 2025, allowing users time to migrate to the new drivers.
 - ****Powered by Appium :**** This version is built on version [2.12.1](https://github.com/appium/appium/releases/tag/appium%402.12.1) of appium, 
 ensuring the latest Appium features and compatibility enhancements.
 
