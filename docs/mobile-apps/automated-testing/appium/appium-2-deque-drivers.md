@@ -88,7 +88,7 @@ const capabilities = {
 ```js
 const capabilities = {
   platformName: 'iOS',
-  'appium:platformVersion': '^1(7|8).*$', // The ios Drvier will work only on ios 17 devices and above
+  'appium:platformVersion': '^1(7|8).*$', // The iOS driver will work only on devices running iOS 17 and above
   'appium:automationName': 'AxeXCUITEST', // New Automation name goes here
   'appium:app': 'storage:filename=XXXXXXXXXx',
   'appium:appPackage': 'xxxxxxxxxx',
