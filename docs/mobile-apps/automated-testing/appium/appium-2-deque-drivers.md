@@ -37,7 +37,7 @@ You can find more details on Sauce Labs' [Appium versions documentation](/mobile
 
 ## Key Features of `appium2-deque-accessibility`
 
-- ****Includes Deque Drivers :**** This version incorporates the following accessibility drivers developed by Deque:
+- ****Includes Deque Drivers :**** This version incorporates the following accessibility drivers provided by Deque:
     - [axe-appium-uiautomator2-driver](https://docs.deque.com/devtools-mobile/2024.9.18/en/appium-setup#configure-your-tests): Automation name is `AxeUIAutomator2`
     - [axe-appium-xcuitest-driver](https://docs.deque.com/devtools-mobile/2024.9.18/en/appium-setup#configure-your-tests): Automation name is `AxeXCUITEST`
 :::info Min iOS Version for `axe-appium-xcuitest-driver`:
