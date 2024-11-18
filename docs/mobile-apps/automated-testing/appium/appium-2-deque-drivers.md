@@ -125,7 +125,7 @@ describe("Test appium2-deque-accessibility - Using Drivers Android/iOS", () => {
 ```
 ## Migrating from the Deprecated `axeDevToolsMobile` Plugin to Deque Drivers
 
-Deque's axeDevToolsMobile Appium Plugin is deprecated and will no longer be supported after January 31st. Moving forward, 
+Deque's axeDevToolsMobile Appium Plugin is deprecated and will no longer be supported after January 31st 2025. Moving forward, 
 the following drivers should be used to ensure compatibility and continued support for accessibility testing:
 
 - Android: [axe-appium-uiautomator2-driver](https://docs.deque.com/devtools-mobile/2024.9.18/en/appium-setup#configure-your-tests): Automation name is `AxeUIAutomator2`
