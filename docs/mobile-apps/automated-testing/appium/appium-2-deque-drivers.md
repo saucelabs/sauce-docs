@@ -17,7 +17,7 @@ allowing you to integrate automated accessibility testing directly into your App
 With this SDK, you can scan mobile app content, identify accessibility issues, and improve compliance with accessibility standards.
 
 The following guide explains how to set up the Sauce Labs integration with [axe DevTools® for Mobile](https://docs.deque.com/devtools-mobile/appium). 
-This integration enables you to run mobile accessibility tests securely and efficiently using Sauce Labs' private cloud infrastructure.
+This integration enables you to run mobile accessibility tests securely and efficiently using Sauce Labs' cloud infrastructure.
 
 ## What You'll Need
 
