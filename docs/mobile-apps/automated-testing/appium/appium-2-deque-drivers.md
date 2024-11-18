@@ -170,5 +170,5 @@ await driver.execute('mobile: axeScan', scanSettings);
 - Ensure your Appium server is correctly set up to use the `appium2-deque-accessibility` version. 
 - Validate that your app and environment meet the OS version requirements for the selected Deque drivers. 
 - For iOS, remember that the AxeXCUITEST driver only works on devices running iOS 17 or later.
-- The axeDevToolsMobile plugin will remain available in the Sauce Labs private cloud until January 31st.
+- The axeDevToolsMobile plugin will remain available in the Sauce Labs cloud until January 31st 2025.
 - Use the Deque [documentation](https://docs.deque.com/devtools-mobile/2024.2.14/en/appium-setup) for further driver-specific details.
