@@ -1408,6 +1408,7 @@ module.exports = {
                                 'mobile-apps/automated-testing/appium/test-app-upgrades',
                                 'mobile-apps/automated-testing/appium/appium-flutter',
                                 'mobile-apps/automated-testing/appium/appium-flutter-integration-driver',
+                                'mobile-apps/automated-testing/appium/appium-deque-drivers',
                             ],
                         },
                         {
