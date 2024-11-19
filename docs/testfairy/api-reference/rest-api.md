@@ -17,11 +17,13 @@ Getting started with the REST API can be done via the command line with any prog
 Supported Public Cloud endpoints:
 
 ### US-East-1
+
 ```bash
 curl -u "john@example.com:00001234cafecafe" "https://mobile.saucelabs.com/api/1/projects/"
 ```
 
 ### EU-Central-1 (Access keys are different in each Data Center)
+
 ```bash
 curl -u "john@example.com:coffee00001234" "https://mobile.eu-central-1.saucelabs.com/api/1/projects/"
 ```
@@ -210,6 +212,47 @@ Delete a specific build. When all builds of a project are deleted, the project i
 
 ---
 
+### Copy a Specific Build to a Folder
+
+<details>
+<summary><span className="api post">POST</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/copy</code></summary>
+<p></p>
+
+Use this endpoint to copy a specific build to a specified folder. You can either create a new folder or copy the build to an existing one.
+#### Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>folder_name</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>The name or path of the target folder. Examples: Folder1 or /Project1/Folder1.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "build_id": "1000",
+    "folder_path": "/Project1/Folder1"
+}
+```
+
+</details>
+
+---
+
 ### Download the Uploaded Artifact
 
 <details>
@@ -272,7 +315,6 @@ Invite one or more tester groups to this specific build. You can optionally send
 </table>
 
 </details>
-
 
 ---
 
@@ -555,6 +597,102 @@ Delete a single tester, remove them from any tester-groups they might be in, and
 ```json title="Sample Response"
 {
     "status": "ok"
+}
+```
+
+</details>
+
+---
+
+### Add a Tester to a Group
+
+<details>
+<summary><span className="api post">POST</span><code>/api/1/testers/groups/&#123;group-id&#125;</code></summary>
+<p></p>
+
+Add a single or multiple testers to a specific group.
+
+#### Parameters
+
+<table id="table-api">
+  	<tbody>
+		<tr>
+			<td><code>email</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>One or more email addresses, separated by commas, to be added to a group.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+  "status": "ok",
+  "testers": [
+    {
+      "email": "tester1@saucelabs.com"
+    },
+    {
+      "email": "tester2@saucelabs.com"
+    }
+  ]
+}
+```
+
+</details>
+
+---
+
+### Remove a Tester from a Group
+
+<details>
+<summary><span className="api delete">DELETE</span><code>/api/1/testers/groups/&#123;group-id&#125;</code></summary>
+<p></p>
+
+Remove a single or multiple testers from a specific group.
+
+#### Parameters
+
+<table id="table-api">
+  	<tbody>
+		<tr>
+			<td><code>email</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>One or more email addresses, separated by commas, to be removed from a group.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+  "status": "ok",
+  "testers": [
+    {
+      "email": "tester1@saucelabs.com"
+    },
+    {
+      "email": "tester2@saucelabs.com"
+    }
+  ]
 }
 ```
 
