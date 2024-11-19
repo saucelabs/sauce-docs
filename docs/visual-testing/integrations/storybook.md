@@ -308,13 +308,11 @@ const meta = {
 
 ### Storybook Variants Plugin
 
-We also offer a separate npm plugin which will render the story and all variations in a grid and can capture them in a single snapshot. This can be used for smaller components, but can be limited with large components or many variations.
+We also have a separate Storybook plugin, `@saucelabs/storybook-variants`, available for rendering all variants of a component in a grid to ease the testing and development process. This can be used for smaller components, but can be limited with large components or many variations. Read the full [README on NPM](https://www.npmjs.com/package/@saucelabs/storybook-variants) for installation & usage.
 
 <div className="text--center">
 <img src={useBaseUrl('/img/sauce-visual/visual-variants.png')} alt="Visual variant grid example"/>
 </div>
-
-We have a separate Storybook plugin, `@saucelabs/storybook-variants`, available for rendering all variants of a component in a grid to ease the testing and development process. Read the full [README on NPM](https://www.npmjs.com/package/@saucelabs/storybook-variants) for installation & usage.
 
 ## Example
 
