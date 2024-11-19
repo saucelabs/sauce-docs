@@ -17,11 +17,13 @@ Getting started with the REST API can be done via the command line with any prog
 Supported Public Cloud endpoints:
 
 ### US-East-1
+
 ```bash
 curl -u "john@example.com:00001234cafecafe" "https://mobile.saucelabs.com/api/1/projects/"
 ```
 
 ### EU-Central-1 (Access keys are different in each Data Center)
+
 ```bash
 curl -u "john@example.com:coffee00001234" "https://mobile.eu-central-1.saucelabs.com/api/1/projects/"
 ```
@@ -314,7 +316,6 @@ Invite one or more tester groups to this specific build. You can optionally send
 
 </details>
 
-
 ---
 
 ### List All Recorded Sessions in Build
@@ -596,6 +597,102 @@ Delete a single tester, remove them from any tester-groups they might be in, and
 ```json title="Sample Response"
 {
     "status": "ok"
+}
+```
+
+</details>
+
+---
+
+### Add a Tester to a Group
+
+<details>
+<summary><span className="api post">POST</span><code>/api/1/testers/groups/&#123;group-id&#125;</code></summary>
+<p></p>
+
+Add a single or multiple testers to a specific group.
+
+#### Parameters
+
+<table id="table-api">
+  	<tbody>
+		<tr>
+			<td><code>email</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>One or more email addresses, separated by commas, to be added to a group.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+  "status": "ok",
+  "testers": [
+    {
+      "email": "tester1@saucelabs.com"
+    },
+    {
+      "email": "tester2@saucelabs.com"
+    }
+  ]
+}
+```
+
+</details>
+
+---
+
+### Remove a Tester from a Group
+
+<details>
+<summary><span className="api delete">DELETE</span><code>/api/1/testers/groups/&#123;group-id&#125;</code></summary>
+<p></p>
+
+Remove a single or multiple testers from a specific group.
+
+#### Parameters
+
+<table id="table-api">
+  	<tbody>
+		<tr>
+			<td><code>email</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>One or more email addresses, separated by commas, to be removed from a group.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+  "status": "ok",
+  "testers": [
+    {
+      "email": "tester1@saucelabs.com"
+    },
+    {
+      "email": "tester2@saucelabs.com"
+    }
+  ]
 }
 ```
 
