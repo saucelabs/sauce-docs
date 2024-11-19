@@ -157,7 +157,7 @@ Parameters key: `sauceVisual`
 | `clipSelector`  | `string`                 | `#storybook-root` | The selector to clip to when `clip = true`. Defaults to Storybook's default root element, `#storybook-root`.                                                                                                                                                                                                                              |
 | `delay`         | `number`                 | `0` (no delay)    | A number, in ms, that we should delay the snapshot by. Useful if the beginning of the story has unavoidable / javascript animations.                                                                                                                                                                                                      |
 | `ignoreRegions` | `(RegionIn \| string)[]` | `[]` (empty)      | An array of manually created ignore regions, or CSS selectors in string form to ignore.  See the snipped below for a commented out example.                                                                                                                                                                                               |
-| `variations`    | `SnapshotVariation[]`    | `[]` (empty)      | An array of Story variations to test. See [Testing Variations](#testing-variations) below for details.                                                                                                                                                                                                                                    |
+| `variations`    | `StoryVariation[]`       | `[]` (empty)      | An array of Story variations to test. See [Testing Variations](#testing-variations) below for details.                                                                                                                                                                                                                                    |
 
 Component-level Example:
 
@@ -308,7 +308,7 @@ const meta = {
 
 ### Storybook Variants Plugin
 
-We also offer a separate NPM plugin which will render the story and all variations in a grid and can capture them in a single snapshot. This can be helpful for smaller components, but can be limited with large components or many variations.
+We also offer a separate npm plugin which will render the story and all variations in a grid and can capture them in a single snapshot. This can be used for smaller components, but can be limited with large components or many variations.
 
 <div className="text--center">
 <img src={useBaseUrl('/img/sauce-visual/visual-variants.png')} alt="Visual variant grid example"/>
