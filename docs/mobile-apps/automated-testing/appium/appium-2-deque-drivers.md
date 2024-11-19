@@ -124,6 +124,15 @@ This key is required to authenticate and initiate accessibility scans during you
 3. Prepare Your Testing Script
 Once you have your API key, include it in your test script to perform a scan using the `mobile: axeScan` command. Below is an example script:
 
+<Tabs
+groupId="appium-deque-2-example"
+defaultValue="TestingScript"
+values={[
+{label: 'Testing Script', value: 'TestingScript'},
+]}>
+
+<TabItem value="TestingScript">
+
 ```js
 describe("Test appium2-deque-accessibility - Using Drivers Android/iOS", () => {
     it('test appium2-deque-accessibility', async () => {
@@ -134,6 +143,10 @@ describe("Test appium2-deque-accessibility - Using Drivers Android/iOS", () => {
     });
 });
 ```
+</TabItem>
+
+</Tabs>
+
 ## Migrating from the Deprecated Plugin to Deque New Drivers
 
 Deque's axeDevToolsMobile Appium Plugin is deprecated and will no longer be supported after January 31st 2025. Moving forward, 
