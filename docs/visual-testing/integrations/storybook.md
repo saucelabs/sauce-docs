@@ -157,6 +157,7 @@ Parameters key: `sauceVisual`
 | `clipSelector`  | `string`                 | `#storybook-root` | The selector to clip to when `clip = true`. Defaults to Storybook's default root element, `#storybook-root`.                                                                                                                                                                                                                              |
 | `delay`         | `number`                 | `0` (no delay)    | A number, in ms, that we should delay the snapshot by. Useful if the beginning of the story has unavoidable / javascript animations.                                                                                                                                                                                                      |
 | `ignoreRegions` | `(RegionIn \| string)[]` | `[]` (empty)      | An array of manually created ignore regions, or CSS selectors in string form to ignore.  See the snipped below for a commented out example.                                                                                                                                                                                               |
+| `variations`    | `SnapshotVariation[]`    | `[]` (empty)      | An array of Story variations to test. See [Testing Variations](#testing-variations) below for details.                                                                                                                                                                                                                                    |
 
 Component-level Example:
 
@@ -217,7 +218,97 @@ module.exports = {
 
 If you'd like to configure your own devices, please follow the configuration steps inside the [playwright docs](https://playwright.dev/docs/emulation#devices).
 
-## Auto Testing Variations
+## Testing Variations
+
+Variations of a story can be tested using the `variations` key inside the `sauceVisual` Storybook parameter. Passing an array of values (see structure below) in this param will instruct the Storybook test-runner to take additional snapshots of a story while updating or changing one or more arguments.
+
+Structure:
+
+```ts
+export interface StoryVariation<Args> {
+  /**
+   * A string to prepend prior to the story name when taking a snapshot.
+   */
+  prefix?: string;
+  /**
+   * A string to append after the story name when taking a snapshot.
+   */
+  postfix?: string;
+  /**
+   * One or more Args to overwrite in your Storybook stories. Will take a screenshot for each
+   * requested variation and upload it to Sauce Labs.
+   */
+  args?: Args;
+  /**
+   * A name to optionally use instead of the default story name.
+   */
+  name?: string;
+}
+```
+
+Example:
+
+```ts
+import type { Meta, StoryObj } from "@storybook/react";
+import { SauceVisualParams } from "@saucelabs/visual-storybook";
+import { Button, ButtonProps } from "./Button";
+
+const meta = {
+  title: "Example/Button",
+  component: Button,
+  parameters: {
+    sauceVisual: {
+      // An array of StoryVariations that Sauce Visual should capture.
+      variations: [
+        {
+          // Prefixes the story name with `[disabled]` -- eg: `Example/Button/[disabled] Button`.
+          prefix: '[disabled] ',
+          args: {
+            disabled: true,
+          },
+        },
+        // Examples to test multiple sizes of a single component
+        {
+          prefix: '[small] ',
+          args: {
+            size: "small",
+          },
+        },
+        {
+          prefix: '[medium] ',
+          args: {
+            size: "medium",
+          },
+        },
+        {
+          prefix: '[large] ',
+          args: {
+            size: "large",
+          },
+        },
+        {
+          // postfixes the story name with ` Primary` -- eg: `Example/Button/Button Primary`.
+          postfix: ' Primary',
+          args: {
+            primary: true,
+          },
+        },
+        {
+          // Overrides the name completely. -- eg `Example/Button/Btn primary=true`
+          name: 'Btn primary=true',
+          args: {
+            primary: true,
+          },
+        },
+      ],
+    } satisfies SauceVisualParams<ButtonProps>,
+  },
+} satisfies Meta<typeof Button>;
+```
+
+### Storybook Variants Plugin
+
+We also offer a separate NPM plugin which will render the story and all variations in a grid and can capture them in a single snapshot. This can be helpful for smaller components, but can be limited with large components or many variations.
 
 <div className="text--center">
 <img src={useBaseUrl('/img/sauce-visual/visual-variants.png')} alt="Visual variant grid example"/>
