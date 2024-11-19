@@ -210,6 +210,47 @@ Delete a specific build. When all builds of a project are deleted, the project i
 
 ---
 
+### Copy a Specific Build to a Folder
+
+<details>
+<summary><span className="api post">POST</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/copy</code></summary>
+<p></p>
+
+Use this endpoint to copy a specific build to a specified folder. You can either create a new folder or copy the build to an existing one.
+#### Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>folder_name</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>The name or path of the target folder. Examples: Folder1 or /Project1/Folder1.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "build_id": "1000",
+    "folder_path": "/Project1/Folder1"
+}
+```
+
+</details>
+
+---
+
 ### Download the Uploaded Artifact
 
 <details>
