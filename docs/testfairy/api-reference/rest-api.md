@@ -763,13 +763,14 @@ List all tester groups in this account.
 
 ---
 
-### Add a Tester Group
+### Create a Tester Group
 
 <details>
 <summary><span className="api post">POST</span><code>/api/1/testers/groups</code></summary>
 <p></p>
 
 Create a new tester group
+
 #### Parameters
 
 <table id="table-api">
