@@ -219,6 +219,7 @@ Delete a specific build. When all builds of a project are deleted, the project i
 <p></p>
 
 Use this endpoint to copy a specific build to a specified folder. You can either create a new folder or copy the build to an existing one.
+
 #### Parameters
 
 <table id="table-api">
@@ -660,6 +661,9 @@ Add a single or multiple testers to a specific group.
 
 Remove a single or multiple testers from a specific group.
 
+<p></p>
+**Note:** Groups without any members will be discarded.
+
 #### Parameters
 
 <table id="table-api">
@@ -697,6 +701,109 @@ Remove a single or multiple testers from a specific group.
 ```
 
 </details>
+
+---
+
+### List All Tester groups
+
+<details>
+<summary><span className="api get">GET</span><code>/api/1/testers/groups</code></summary>
+<p></p>
+
+List all tester groups in this account.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+  "status": "ok",
+  "groups": [
+    {
+      "id": 14,
+      "name": "group1",
+      "testers": [
+        [
+          {
+            "email": "tester1@saucelabs.com"
+          },
+          {
+            "email": "tester2@saucelabs.com"
+          },
+          {
+            "email": "tester3@saucelabs.com"
+          }
+        ]
+      ]
+    },
+    {
+      "id": 39,
+      "name": "group2",
+      "testers": [
+        [
+          {
+            "email": "tester1@saucelabs.com"
+          }
+        ]
+      ]
+    }
+  ]
+}
+```
+
+</details>
+
+---
+
+### Create a Tester Group
+
+<details>
+<summary><span className="api post">POST</span><code>/api/1/testers/groups</code></summary>
+<p></p>
+
+Create a new tester group
+
+#### Parameters
+
+<table id="table-api">
+  	<tbody>
+		<tr>
+			<td><code>groupName</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>Specify a group name.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "id": "40",
+    "name": "group3"
+}
+```
+
+</details>
+
+---
 
 ## Feedbacks
 
