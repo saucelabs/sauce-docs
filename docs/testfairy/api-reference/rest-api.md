@@ -766,10 +766,20 @@ List all tester groups in this account.
 ### Add a Tester Group
 
 <details>
-<summary><span className="api post">POST</span><code>/api/1/testers/groups&#123;tester-id&#125;/block/</code></summary>
+<summary><span className="api post">POST</span><code>/api/1/testers/groups</code></summary>
 <p></p>
 
 Create a new tester group
+#### Parameters
+
+<table id="table-api">
+  	<tbody>
+		<tr>
+			<td><code>groupName</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>Specify a group name.</p></td>
+		</tr>
+	</tbody>
+</table>
 
 #### Responses
 
