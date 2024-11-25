@@ -24,6 +24,10 @@ Return run data for all tests that match the request criteria.
 
 #### Parameters
 
+:::note
+This call requires <code>start</code> and <code>end</code> parameters OR the <code>time_range</code> parameter.
+:::
+
 <table id="table-api">
   <tbody>
     <tr>
@@ -411,6 +415,10 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 Return a set of data "buckets" representing tests that were run in each time interval defined by the request parameters.
 
 #### Parameters
+
+:::note
+This call requires <code>start</code> and <code>end</code> parameters OR the <code>time_range</code> parameter.
+:::
 
 <table id="table-api">
   <tbody>
