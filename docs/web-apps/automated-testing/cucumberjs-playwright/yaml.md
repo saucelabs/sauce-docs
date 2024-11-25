@@ -423,7 +423,7 @@ npm:
       auth: base64SecretToken
       username: myUsername
       password: myPassword
-      email: myEmail 
+      email: myEmail
 ```
 
 ---
@@ -743,7 +743,7 @@ artifacts:
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Define directories to archive and retain as a test asset at the end of a test run. Archived test assets can
-be downloaded automatically using the `download` configuration, via the 
+be downloaded automatically using the `download` configuration, via the
 [REST API](/dev/api/jobs/#get-a-job-asset-file), or through the test details page.
 
 ```yaml
@@ -1125,7 +1125,7 @@ suites:
       require:
         - "features/support/*.js"
       format:
-        - "json:my-cucumber.json"
+        - '"json":"my-cucumber.json"'
 ```
 
 ---
@@ -1259,14 +1259,23 @@ suites:
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-Name/path and (optionally) output file path of each formatter to use. See the [Cucumber.js Formatters documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md) for more information.
+Specifies the name or path of each formatter to use, along with an optional output file path. If no output file path is specified, the output defaults to stdout.
+The name or path, as well as the optional output file path, must be enclosed in quotes. See the [Cucumber.js Formatters documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md) for more information.
+
+:::warning
+Cucumber deprecated the previous `format` configuration in version **9.6.0** and will remove it in **11.0.0** or later.
+If you're still using a `format` setting without quotes, please migrate to the latest pattern.
+For more details, see the [Cucumber.js Deprecations documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/deprecations.md#ambiguous-colons-in-formats).
+
+The `file://my_formatter/implementation:output_file` is an example of ambiguous colon usage and is not allowed in Sauce Labs now. Please migrate to the quoted pattern.
+:::
 
 ```yaml
 suites:
   - name: My Cucumber Test
     options:
       format:
-        - "json:my-cucumber.json"
+        - '"json":"my-cucumber.json"'
 ```
 
 ---
