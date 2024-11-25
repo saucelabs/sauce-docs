@@ -457,7 +457,7 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
      <td><code>interval</code></td>
      <td>
          <p><small>| QUERY | OPTIONAL | STRING |</small></p>
-         <p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p>
+         <p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 minute)</li><li><code>15m</code> (15 minutes)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p>
      </td>
     </tr>
   </tbody>
@@ -1803,8 +1803,8 @@ Return an array of errors with occurrence count on all tests run in the specifie
             <p><small>| QUERY | OPTIONAL | STRING |</small></p>
             <p>
                 Relative date filter. Available values are: <ul>
-                <li><code>1m</code> (1 month)</li>
-                <li><code>15m</code> (15 months)</li>
+                <li><code>1m</code> (1 minute)</li>
+                <li><code>15m</code> (15 minutes)</li>
                 <li><code>1h</code> (1 hour)</li>
                 <li><code>6h</code> (6 hours)</li>
                 <li><code>12h</code> (12 hours)</li>
@@ -1970,7 +1970,7 @@ Return past and current data about errors for comparison.
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 minute)</li><li><code>15m</code> (15 minutes)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2595,7 +2595,7 @@ Return an array of test cases (grouped by name) with statistical details.
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 minute)</li><li><code>15m</code> (15 minutes)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -2811,7 +2811,7 @@ Return an array of test cases (grouped by name) with statistical details as a CS
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 minute)</li><li><code>15m</code> (15 minutes)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -3007,7 +3007,7 @@ Return an array of test cases (grouped by name) with statistical details.
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 minute)</li><li><code>15m</code> (15 minutes)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -3521,7 +3521,7 @@ Return information about tests coverage for the specified <code>coverage_field</
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 minute)</li><li><code>15m</code> (15 minutes)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -3805,7 +3805,7 @@ Return information about tests coverage for the specified `coverage_field` in a 
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 minute)</li><li><code>15m</code> (15 minutes)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -4041,7 +4041,7 @@ Return an array of buckets with aggregations, such as number of tests run on a s
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 minute)</li><li><code>15m</code> (15 minutes)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -4327,7 +4327,7 @@ Return an array of buckets with aggregations, such as the number of tests from a
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 minute)</li><li><code>15m</code> (15 minutes)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -4625,7 +4625,7 @@ Return statistics for errors that occurred in tests run in the specified period.
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 minute)</li><li><code>15m</code> (15 minutes)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
     </tr>
   </tbody>
   <tbody>
@@ -5009,7 +5009,7 @@ Return information about builds and tests run included in the build. Also, it pr
   <tbody>
     <tr>
      <td><code>interval</code></td>
-     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
+     <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 minute)</li><li><code>15m</code> (15 minutes)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p></td>
     </tr>
   </tbody>
   <tbody>
