@@ -29,6 +29,24 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
 :::
 
 <table id="table-api">
+    <tbody>
+    <tr>
+     <td><code>start</code></td>
+       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>end</code></td>
+       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>time_range</code></td>
+       <td><p><small>| QUERY | REQUIRED | DURATION + UNIT |</small></p><p>The amount of time backward from the current time that represents the period during which the test runs are executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
+    </tr>
+  </tbody>
   <tbody>
     <tr>
      <td><code>build</code></td>
@@ -45,12 +63,6 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
     <tr>
      <td><code>descending</code></td>
      <td><p><small>| QUERY | OPTIONAL | BOOLEAN |</small></p><p>Sort results by test creation time. Default value is <code>true</code>.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>end</code></td>
-       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -101,12 +113,6 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
   </tbody>
   <tbody>
     <tr>
-     <td><code>start</code></td>
-       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
      <td><code>status</code></td>
         <td>
             <p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p>
@@ -119,15 +125,6 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
                     <li><code>complete</code></li>
                 </ul>
             </p>
-        </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>time_range</code></td>
-        <td>
-            <p><small>| QUERY | OPTIONAL | STRING |</small></p>
-            <p>The amount of time backward from the current time that represents the period during which the test runs are executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p>
         </td>
     </tr>
   </tbody>
@@ -421,6 +418,24 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
 :::
 
 <table id="table-api">
+    <tbody>
+    <tr>
+     <td><code>start</code></td>
+       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>end</code></td>
+       <td><p><small>| QUERY | REQUIRED | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>time_range</code></td>
+       <td><p><small>| QUERY | REQUIRED | DURATION + UNIT |</small></p><p>The amount of time backward from the current time that represents the period during which the test runs are executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
+    </tr>
+  </tbody>
   <tbody>
     <tr>
      <td><code>scope</code></td>
@@ -444,24 +459,6 @@ This call requires <code>start</code> and <code>end</code> parameters OR the <co
          <p><small>| QUERY | OPTIONAL | STRING |</small></p>
          <p>Relative date filter. Available values are: <ul><li><code>1m</code> (1 month)</li><li><code>15m</code> (15 months)</li><li><code>1h</code> (1 hour)</li><li><code>6h</code> (6 hours)</li><li><code>12h</code> (12 hours)</li><li><code>1d</code> (1 day)</li><li><code>7d</code> (7 days)</li><li><code>30d</code> (30 days)</li></ul>Default value is <code>1d</code></p>
      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>time_range</code></td>
-       <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>The amount of time backward from the current time that represents the period during which the test runs are executed. Acceptable units include <code>d</code> (day); <code>h</code> (hour); <code>m</code> (minute); <code>s</code> (second).</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>start</code></td>
-       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The starting date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-     <td><code>end</code></td>
-       <td><p><small>| QUERY | OPTIONAL | DATE |</small></p><p>The ending date of the period during which the test runs executed, in <code>YYYY-MM-DDTHH:mm:ssZ</code> (UTC) format.</p></td>
     </tr>
   </tbody>
   <tbody>
