@@ -1264,10 +1264,10 @@ The name or path, as well as the optional output file path, must be enclosed in 
 
 :::warning
 Cucumber deprecated the previous `format` configuration in version **9.6.0** and will remove it in **11.0.0** or later.
-If you're still using a `format` setting without quotes, please migrate to the latest pattern.
+If you're still using a `format` setting without quotes, migrate to the latest pattern.
 For more details, see the [Cucumber.js Deprecations documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/deprecations.md#ambiguous-colons-in-formats).
 
-The `file://my_formatter/implementation:output_file` is an example of ambiguous colon usage and is not allowed in Sauce Labs now. Please migrate to the quoted pattern.
+The `file://my_formatter/implementation:output_file` is an example of ambiguous colon usage and is not allowed in Sauce Labs now. You should migrate to the quoted pattern.
 :::
 
 ```yaml
