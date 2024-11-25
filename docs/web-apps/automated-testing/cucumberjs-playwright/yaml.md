@@ -1263,7 +1263,7 @@ Specifies the name or path of each formatter to use, along with an optional outp
 The name or path, as well as the optional output file path, must be enclosed in quotes. See the [Cucumber.js Formatters documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/formatters.md) for more information.
 
 :::warning
-Cucumber deprecated the previous `format` configuration in version **9.6.0** and will remove it in **11.0.0** or later.
+Cucumber deprecated the previous `format` configuration without quotes in version **9.6.0** and will remove it in **11.0.0** or later.
 If you're still using a `format` setting without quotes, migrate to the latest pattern.
 For more details, see the [Cucumber.js Deprecations documentation](https://github.com/cucumber/cucumber-js/blob/main/docs/deprecations.md#ambiguous-colons-in-formats).
 
