@@ -394,11 +394,11 @@ visual.sauceVisualCheck("Inventory Page", options);
 
 By default, only the current viewport is captured when `.sauceVisualCheck` is used. You can opt in to capturing the entire page by using the `enableFullPageScreenshots` option. It will capture everything by scrolling and stitching multiple screenshots together.
 
-:::note
-It's recommended to use the `withHideAfterFirstScroll` method for fixed or sticky position elements such as sticky headers or consent banners.
-:::
-
 Configuration should be specified using the `FullPageScreenshotConfig.Builder` object.
+
+<FullPageLimit />
+
+#### Web
 
 Methods available:
 
@@ -407,6 +407,10 @@ Methods available:
 - `withHideAfterFirstScroll(String... hideAfterFirstScroll)`: One or more CSS selectors that we should remove from the page after the first scroll. Useful for hiding fixed elements such as headers, cookie banners, etc.
 - `withHideScrollBars(Boolean hideScrollBars)`: Hide all scrollbars in the app. The default value is true.
 - `withScrollLimit(int scrollLimit)`: Limit the number of screenshots taken for scrolling and stitching. The default value is 10. The value needs to be between 1 and 10.
+
+:::note
+It's recommended to use the `withHideAfterFirstScroll` method for fixed or sticky position elements such as sticky headers or consent banners.
+:::
 
 Examples:
 
@@ -434,7 +438,87 @@ options.enableFullPageScreenshots(config);
 visual.sauceVisualCheck("Long content page", options);
 ```
 
-<FullPageLimit />
+#### Mobile Native (beta)
+
+Methods available:
+- `withDelayAfterScrollMs(int delayAfterScrollMs)`: Delay in ms after scrolling and before taking screenshots. The default value is 0. We recommend using this option for lazy loading content.
+- `withNativeClipSelector(SelectorIn nativeClipSelector)`: Selector used to identify the first element to which clipping will be applied.
+- `withScrollElement(WebElement scrollElement)`: Scrollable element used for scrolling. The default is root element.
+- `withScrollLimit(int scrollLimit)`: Limit the number of screenshots taken for scrolling and stitching. The default value is 10. The value needs to be between 1 and 10.
+
+:::note
+It is recommended to define the `withScrollElement` as the appropriate scrollable container.
+:::
+
+```java
+import com.saucelabs.visual.CheckOptions;
+import com.saucelabs.visual.model.FullPageScreenshotConfig;
+
+RemoteWebDriver driver;
+...
+
+WebElement scrollElement = driver.findElement(AppiumBy.xpath("//XCUIElementTypeCollectionView"));
+CheckOptions options = new CheckOptions();
+FullPageScreenshotConfig config = new FullPageScreenshotConfig.Builder()
+    .withScrollElement(scrollElement)
+    .withScrollLimit(5)
+    .build();
+options.enableFullPageScreenshots(config);
+visual.sauceVisualCheck("Long content page", options);
+```
+
+Use only XPath selectors for ignore regions and clipping to an element.
+
+:::note
+On iOS, selectors must be contained within the `scrollElement`.
+:::
+
+```java
+import com.saucelabs.visual.CheckOptions;
+import com.saucelabs.visual.model.FullPageScreenshotConfig;
+
+RemoteWebDriver driver;
+...
+
+WebElement scrollElement = driver.findElement(AppiumBy.xpath("//XCUIElementTypeCollectionView"));
+CheckOptions options = new CheckOptions();
+FullPageScreenshotConfig config = new FullPageScreenshotConfig.Builder()
+        .withScrollElement(scrollElement)
+        .build();
+options.enableFullPageScreenshots(config);
+List<IgnoreSelectorIn> ignoreSelectors = List.of(
+        new IgnoreSelectorIn.Builder()
+                .withSelector(
+                        new SelectorIn.Builder()
+                                .withValue(
+                                        "//XCUIElementTypeCollectionView//XCUIElementTypeStaticText")
+                                .withType(SelectorType.XPATH)
+                                .build())
+                .build());
+options.setIgnoreSelectors(ignoreSelectors);
+visual.sauceVisualCheck("Long content page", options);
+```
+
+```java
+import com.saucelabs.visual.CheckOptions;
+import com.saucelabs.visual.model.FullPageScreenshotConfig;
+
+RemoteWebDriver driver;
+...
+
+WebElement scrollElement = driver.findElement(AppiumBy.xpath("//XCUIElementTypeCollectionView"));
+CheckOptions options = new CheckOptions();
+SelectorIn nativeClipSelector = new SelectorIn.Builder()
+    .withType(SelectorType.XPATH)
+    .withValue("//XCUIElementTypeCollectionView/XCUIElementTypeOther")
+    .build();
+FullPageScreenshotConfig config = new FullPageScreenshotConfig.Builder()
+    .withScrollElement(scrollElement)
+    .withNativeClipSelector(nativeClipSelector)
+    .build();
+options.enableFullPageScreenshots(config);
+visual.sauceVisualCheck("Long content page", options);
+```
 
 ### Clip to an Element
 
