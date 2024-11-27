@@ -1711,6 +1711,7 @@ module.exports = {
                         'visual-testing/workflows/baseline-management',
                         'visual-testing/workflows/ci',
                         'visual-testing/workflows/api-lifecycle',
+                        'visual-testing/workflows/cross-browser-os',
                     ],
                 },
                 {
