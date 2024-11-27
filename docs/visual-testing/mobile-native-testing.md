@@ -27,3 +27,10 @@ When writing a visual test for mobile apps, we recommend the following:
 The following features are not yet available for mobile app testing:
 - DOM capture and inspection
 - [Selective diffing](./selective-diffing.md)
+
+Native full page screenshots are in beta and may have bugs.
+Possible issues include:
+- Slow screenshot capture
+- Baseline and snapshot differences on iOS tablets
+- Ignoring and clipping limited to elements within scrollElement on iOS
+- Missing sticky elements at the bottom of the screen
