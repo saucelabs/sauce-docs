@@ -271,7 +271,7 @@ const meta = {
 } satisfies Meta<typeof Button>;
 ```
 
-To assist in debugging and writing tests, we've also integrated this with the Interactions UI within Storybook -- giving you insight _when_ your screenshots will be taken, and allowing you to replay the history up to those points.
+To assist in debugging and writing tests, we've also integrated this with the Interactions UI in Storybook -- giving you insight _when_ your screenshots will be taken, and allowing you to replay the history up to those points.
 
 <div className="text--center">
     <img src={useBaseUrl('/img/sauce-visual/storybook-interaction-tests.png')} alt="Visual assertions in the Interactions UI"/>
