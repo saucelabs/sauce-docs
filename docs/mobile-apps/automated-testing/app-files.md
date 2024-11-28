@@ -171,7 +171,7 @@ Replace `/path/to/your/project/` with the actual path to your project's director
 
 ### Appium
 
-For Appium, you can upload your mobile app programmatically using the [File Storage API Methods](/dev/api/storage). For more information, see [Uploading Apps via Rest API](/mobile-apps/app-storage/#uploading-apps-via-rest-api).
+For Appium, you can upload your mobile app programmatically using the [File Storage API Methods](/dev/api/storage). For more information, see [Uploading Apps via Rest API](/mobile-apps/app-storage/#upload-apps-via-rest-api).
 
 ### XCUITest
 

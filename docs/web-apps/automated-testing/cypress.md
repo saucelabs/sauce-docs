@@ -37,6 +37,45 @@ Sauce Labs supports the following test configurations for Cypress:
   </tr>
   <tbody>
     <tr>
+      <td rowspan='2'>13.15.2</td>
+      <td rowspan='2'>20</td>
+      <td rowspan='2'>✅</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
+      <td rowspan='2'>November 13, 2025</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='2'>13.15.1</td>
+      <td rowspan='2'>20</td>
+      <td rowspan='2'>✅</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
+      <td rowspan='2'>November 05, 2025</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td rowspan='2'>13.14.2</td>
+      <td rowspan='2'>20</td>
+      <td rowspan='2'>✅</td>
+      <td><b>macOS:</b> 11.00, 12, 13</td>
+      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
+      <td rowspan='2'>September 27, 2025</td>
+    </tr>
+    <tr>
+      <td><b>Windows:</b> 10, 11</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
       <td rowspan='2'>13.13.3</td>
       <td rowspan='2'>20</td>
       <td rowspan='2'>✅</td>
@@ -147,32 +186,6 @@ Sauce Labs supports the following test configurations for Cypress:
       <td><b>macOS:</b> 11.00, 12, 13</td>
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
       <td rowspan='2'>November 7, 2024</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='2'>13.3.0</td>
-      <td rowspan='2'>18</td>
-      <td rowspan='2'></td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
-      <td rowspan='2'>September 28, 2024</td>
-    </tr>
-    <tr>
-      <td><b>Windows:</b> 10, 11</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td rowspan='2'>12.17.4</td>
-      <td rowspan='2'>18</td>
-      <td rowspan='2'></td>
-      <td><b>macOS:</b> 11.00, 12, 13</td>
-      <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
-      <td rowspan='2'>August 31, 2024</td>
     </tr>
     <tr>
       <td><b>Windows:</b> 10, 11</td>

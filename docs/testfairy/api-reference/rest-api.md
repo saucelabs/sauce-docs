@@ -14,11 +14,27 @@ In this document you can find the reference for the TestFairy REST API. This API
 
 Getting started with the REST API can be done via the command line with any programming language. Let's begin with an example: by listing all our projects.
 
-A project is either an iOS app or an Android app (two apps with the same package name but on different platforms are considered two projects.)
+Supported Public Cloud endpoints:
+
+### US-East-1
+
+```bash
+curl -u "john@example.com:00001234cafecafe" "https://mobile.saucelabs.com/api/1/projects/"
+```
+
+### EU-Central-1 (Access keys are different in each Data Center)
+
+```bash
+curl -u "john@example.com:coffee00001234" "https://mobile.eu-central-1.saucelabs.com/api/1/projects/"
+```
+
+## Previous TestFairy US-East endpoint:
 
 ```bash
 curl -u "john@example.com:00001234cafecafe" "https://api.testfairy.com/api/1/projects/"
 ```
+
+A project is either an iOS app or an Android app (two apps with the same package name but on different platforms are considered two projects.)
 
 In the example above, you can see that our user is `john@example.com` and the API key is `0001234cafecafe`. This user authentication token is required for all requests to the REST server.
 
@@ -196,6 +212,48 @@ Delete a specific build. When all builds of a project are deleted, the project i
 
 ---
 
+### Copy a Specific Build to a Folder
+
+<details>
+<summary><span className="api post">POST</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/copy</code></summary>
+<p></p>
+
+Use this endpoint to copy a specific build to a specified folder. You can either create a new folder or copy the build to an existing one.
+
+#### Parameters
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>folder_name</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>The name or path of the target folder. Examples: Folder1 or /Project1/Folder1.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "build_id": "1000",
+    "folder_path": "/Project1/Folder1"
+}
+```
+
+</details>
+
+---
+
 ### Download the Uploaded Artifact
 
 <details>
@@ -258,7 +316,6 @@ Invite one or more tester groups to this specific build. You can optionally send
 </table>
 
 </details>
-
 
 ---
 
@@ -545,6 +602,208 @@ Delete a single tester, remove them from any tester-groups they might be in, and
 ```
 
 </details>
+
+---
+
+### Add a Tester to a Group
+
+<details>
+<summary><span className="api post">POST</span><code>/api/1/testers/groups/&#123;group-id&#125;</code></summary>
+<p></p>
+
+Add a single or multiple testers to a specific group.
+
+#### Parameters
+
+<table id="table-api">
+  	<tbody>
+		<tr>
+			<td><code>email</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>One or more email addresses, separated by commas, to be added to a group.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+  "status": "ok",
+  "testers": [
+    {
+      "email": "tester1@saucelabs.com"
+    },
+    {
+      "email": "tester2@saucelabs.com"
+    }
+  ]
+}
+```
+
+</details>
+
+---
+
+### Remove a Tester from a Group
+
+<details>
+<summary><span className="api delete">DELETE</span><code>/api/1/testers/groups/&#123;group-id&#125;</code></summary>
+<p></p>
+
+Remove a single or multiple testers from a specific group.
+
+<p></p>
+**Note:** Groups without any members will be discarded.
+
+#### Parameters
+
+<table id="table-api">
+  	<tbody>
+		<tr>
+			<td><code>email</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>One or more email addresses, separated by commas, to be removed from a group.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+  "status": "ok",
+  "testers": [
+    {
+      "email": "tester1@saucelabs.com"
+    },
+    {
+      "email": "tester2@saucelabs.com"
+    }
+  ]
+}
+```
+
+</details>
+
+---
+
+### List All Tester groups
+
+<details>
+<summary><span className="api get">GET</span><code>/api/1/testers/groups</code></summary>
+<p></p>
+
+List all tester groups in this account.
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+  "status": "ok",
+  "groups": [
+    {
+      "id": 14,
+      "name": "group1",
+      "testers": [
+        [
+          {
+            "email": "tester1@saucelabs.com"
+          },
+          {
+            "email": "tester2@saucelabs.com"
+          },
+          {
+            "email": "tester3@saucelabs.com"
+          }
+        ]
+      ]
+    },
+    {
+      "id": 39,
+      "name": "group2",
+      "testers": [
+        [
+          {
+            "email": "tester1@saucelabs.com"
+          }
+        ]
+      ]
+    }
+  ]
+}
+```
+
+</details>
+
+---
+
+### Create a Tester Group
+
+<details>
+<summary><span className="api post">POST</span><code>/api/1/testers/groups</code></summary>
+<p></p>
+
+Create a new tester group
+
+#### Parameters
+
+<table id="table-api">
+  	<tbody>
+		<tr>
+			<td><code>groupName</code></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>Specify a group name.</p></td>
+		</tr>
+	</tbody>
+</table>
+
+#### Responses
+
+<table id="table-api">
+	<tbody>
+		<tr>
+			<td><code>200</code></td>
+			<td colSpan='2'>Success.</td>
+		</tr>
+	</tbody>
+</table>
+
+```json title="Sample Response"
+{
+    "status": "ok",
+    "id": "40",
+    "name": "group3"
+}
+```
+
+</details>
+
+---
 
 ## Feedbacks
 

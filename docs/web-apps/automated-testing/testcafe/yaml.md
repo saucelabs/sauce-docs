@@ -546,6 +546,31 @@ Do not use `dependencies` and `packages` at the same time.
 
 ---
 
+### `usePackageLock`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Specifies whether to use the project's package-lock.json when installing npm
+dependencies. If true, package-lock.json will be used during package
+installation which can improve the speed of installation.
+
+To use this feature, additional pre-requisites must be met:
+* A package-lock.json must be present in your project.
+* The `testcafe` version in your package.json must **exactly** match
+the version defined in your saucectl config.
+
+```yaml
+npm:
+  usePackageLock: true
+```
+
+:::tip
+You can use this option with `packages` to define packages to install in
+addition to those defined in your `package-lock.json`.
+:::
+
+---
+
 ### `dependencies`
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
@@ -564,10 +589,6 @@ npm:
 ```
 
 To use this feature, make sure that `node_modules` is not ignored via `.sauceignore`.
-
-:::caution
-This feature is highly experimental.
-:::
 
 :::caution
 Do not use `dependencies` and `packages` at the same time.
@@ -963,6 +984,15 @@ Pass flags to configure how TestCafe launches the selected browser. Review suppo
 suites:
   - name: "saucy test"
     browserArgs: ["--no-sandbox", "--disable-features=site-per-process"]
+```
+
+You can also set the browser arguments profile for Firefox using the `SAUCE_FIREFOX_BROWSER_PROFILE` environment variable.
+
+```yaml
+suites:
+  - name: "saucy test"
+    env:
+      SAUCE_FIREFOX_BROWSER_PROFILE: "relative_path_to/firefox_test_profile"
 ```
 
 ---

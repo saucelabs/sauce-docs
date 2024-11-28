@@ -6,7 +6,7 @@ sidebar_label: App Center Alternative
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Welcome to TestFairy, the App Center distribution alternative! Use our enterprise-grade app distribution capabilities to migrate from App Center before March 31, 2025!
+Welcome to App Distribution (TestFairy), the App Center distribution alternative! Use our enterprise-grade app distribution capabilities to migrate from App Center before March 31, 2025!
 
 ## Distribute App to Testers
 
@@ -29,5 +29,6 @@ For more information, see [Getting Feedback](/testfairy/sdk/user-feedback/).
 ## Security
 
 TestFairy is available as a private cloud or an on-premise installation and can integrate with any SAML single sign-on service. TestFairy is the only platform that provides end-to-end data encryption using your private/public keys, so your data remains private.
+App Distribution Public Cloud is available in the EU-Central-1 and US-East-1 data centers. The Private Cloud is available in various regions, customizable based on specific preferences. 
 
 For more information, see [End to End Data Encryption](/testfairy/sdk/security/data-encryption/).

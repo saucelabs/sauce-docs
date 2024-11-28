@@ -29,7 +29,7 @@ For additional security, we recommend setting this as an environment variable.
 * Value Format: `<data center>`
 
 Sauce Labs region name, ex.
-us-west or eu-central.
+us-west, us-east, or eu-central.
 More details [here](/basics/data-center-endpoints).
 
 ### `-i, --tunnel-name` {#tunnel-name}
@@ -135,6 +135,7 @@ The following example passes requests to *.example.com and *.google.com through 
 
 * Environment variable: `SAUCE_TLS_RESIGN_DOMAINS`
 * Value Format: `[-]<regexp>,...`
+* Default value: `[.*]`
 
 Resign SSL/TLS certificates for matching requests.
 You can specify --tls-resign-domains or --tls-passthrough-domains, but not both.
@@ -165,6 +166,27 @@ The following example tunnels all requests to *.myorg.dev, except abc.myorg.com.
 ```
 --tunnel-domains .*\.myorg\.dev,-abc\.myorg\.com
 ```
+
+## Tunnel capacity
+
+### `--tunnel-connections` {#tunnel-connections}
+
+* Environment variable: `SAUCE_TUNNEL_CONNECTIONS`
+* Value Format: `<count>`
+* Default value: `16`
+
+Number of connections to the Sauce Connect server.
+By default it is set to the number of CPUs on the machine.
+Total number of concurrent requests that can be handled is limited by the number of connections multiplied by the number of streams, see --tunnel-max-concurrent-streams flag.
+For example with 4 connections and 256 streams, the total number of concurrent requests is 1024.
+
+### `--tunnel-max-concurrent-streams` {#tunnel-max-concurrent-streams}
+
+* Environment variable: `SAUCE_TUNNEL_MAX_CONCURRENT_STREAMS`
+* Value Format: `<count>`
+* Default value: `256`
+
+Maximal number of concurrent HTTP/2 streams per TCP connection.
 
 ## Proxy
 
@@ -303,7 +325,7 @@ Syntax:
 
 * Environment variable: `SAUCE_HTTP_DIAL_TIMEOUT`
 * Value Format: `<duration>`
-* Default value: `30s`
+* Default value: `25s`
 
 The maximum amount of time a dial will wait for a connect to complete.
 With or without a timeout, the operating system may impose its own earlier timeout.
@@ -335,6 +357,15 @@ Zero means no limit.
 
 The maximum amount of time waiting to wait for a TLS handshake.
 Zero means no limit.
+
+### `--http-tls-keylog-file` {#http-tls-keylog-file}
+
+* Environment variable: `SAUCE_HTTP_TLS_KEYLOG_FILE`
+* Value Format: `<path>`
+
+File to log TLS master secrets in NSS key log format.
+By default, the value is taken from the SSLKEYLOGFILE environment variable.
+It can be used to allow external programs such as Wireshark to decrypt TLS connections.
 
 ## API server
 
@@ -369,6 +400,7 @@ The maximum amount of time to wait for the next request before closing connectio
 * Value Format: `<path>`
 
 Path to the log file, if empty, logs to stdout.
+The file is reopened on SIGHUP to allow log rotation using external tools.
 
 ### `--log-http` {#log-http}
 

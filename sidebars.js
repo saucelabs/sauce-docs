@@ -1042,6 +1042,7 @@ module.exports = {
                         },
                         'secure-connections/sauce-connect-5/logging',
                         'secure-connections/sauce-connect-5/monitoring',
+                        'secure-connections/sauce-connect-5/inspecting',
                         {
                             type: 'category',
                             label: 'Setup and Configuration',
@@ -1138,13 +1139,13 @@ module.exports = {
         },
         {
             type: 'category',
-            label: 'TestFairy',
+            label: 'App Distribution',
             collapsed: true,
             items: [
                 'testfairy/testfairy',
                 {
                     type: 'category',
-                    label: 'Using TestFairy',
+                    label: 'Using App Distribution (TestFairy)',
                     collapsed: true,
                     items: [
                         'testfairy/using-testfairy/uploading-an-app',
@@ -1407,6 +1408,7 @@ module.exports = {
                                 'mobile-apps/automated-testing/appium/test-app-upgrades',
                                 'mobile-apps/automated-testing/appium/appium-flutter',
                                 'mobile-apps/automated-testing/appium/appium-flutter-integration-driver',
+                                'mobile-apps/automated-testing/appium/appium-deque-accessibility-testing',
                             ],
                         },
                         {
@@ -1706,8 +1708,10 @@ module.exports = {
                     items: [
                         'visual-testing/workflows/test-execution',
                         'visual-testing/workflows/review',
+                        'visual-testing/workflows/baseline-management',
                         'visual-testing/workflows/ci',
                         'visual-testing/workflows/api-lifecycle',
+                        'visual-testing/workflows/cross-browser-os',
                     ],
                 },
                 {

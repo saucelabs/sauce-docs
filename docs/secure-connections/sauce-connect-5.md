@@ -38,8 +38,6 @@ Sauce Connect Proxy 5 major changes are listed below.
 flag is no longer optional. It's done to improve security and usability—tests
 that use Sauce Connect must explicitly specify the [tunnel name](/dev/test-configuration-options#tunnelname).
 - There is no default Sauce Labs region value, [`--region`](/dev/cli/sauce-connect-5/run/#region) is required to ensure that the correct region is explicitly specified.
-- [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) is not enabled for all domains, by default.
-  - [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) is fully supported and additional flags are added to fine-tune the configuration.
 - Proxy auto-detection is not supported, all proxies must be specified with
 explicit flags — [`--proxy`](/dev/cli/sauce-connect-5/run/#proxy) or [`--pac`](/dev/cli/sauce-connect-5/run/#pac)
 for SUT requests and [`--proxy-sauce`](/dev/cli/sauce-connect-5/run/#proxy-sauce)

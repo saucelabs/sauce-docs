@@ -37,7 +37,7 @@ Sauce Visual Testing stands for:
 
 ## What You'll Need
 
-- A [Sauce Labs Enterprise account](https://saucelabs.com/pricing) with access to Visual Testing. To request access, contact your CSM or Sauce Labs Support.
+- A Sauce Labs account ([Log in](https://accounts.saucelabs.com) or sign up for a [free trial license](https://saucelabs.com/sign-up)) to access Visual Testing.
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
 
 ## Workflows
@@ -122,8 +122,6 @@ The following snapshot metadata keys are used to determine the appropriate basel
 | `browser`                | `string` | The browser used to take the snapshot. This will automatically be determined by Sauce Visual.                                                                             |
 | `operatingSystem`        | `string` | The operating system used to take the snapshot. This will automatically be determined by Sauce Visual.                                                                    |
 | `operatingSystemVersion` | `string` | The operating system version used to take the snapshot. This will automatically be determined by Sauce Visual.                                                            |
-| `viewportWidth`          | `string` | The viewport width used to take the snapshot. This will automatically be determined by Sauce Visual.                                                                      |
-| `viewportHeight`         | `string` | The viewport height used to take the snapshot. This will automatically be determined by Sauce Visual.                                                                     |
 | `project`                | `string` | The project name. This can be set during service initiation, for more information see the language bindings.                                                              |
 | `branch`                 | `string` | The branch name. This can be set during service initiation, for more information see the language bindings.                                                               |
 | `device`                 | `string` | The device name. This will automatically be determine by Sauce Visual.                                                                                                    |

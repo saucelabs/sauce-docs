@@ -8,75 +8,105 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-### Unpack the zip file
+## With Winget
 
-<Tabs
-defaultValue="ARM64"
-  values={[
-    {label: 'ARM64', value: 'ARM64'},
-    {label: 'x86-64', value: 'x86-64'},
-  ]}>
-<TabItem value="ARM64">
+On Windows 10 and newer you can install Sauce Connect with the builtin [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/) package manager.
+This is the recommended way to install Sauce Connect on Windows.
 
-```bash
-mkdir C:\sauce-connect
-Invoke-WebRequest -Uri https://saucelabs.com/downloads/sauce-connect/5.1.3/sauce-connect-5.1.3_windows.aarch64.zip -OutFile sauce-connect.zip
-Expand-Archive -Path sauce-connect.zip -DestinationPath C:\sauce-connect
-```
-  </TabItem>
+### Install
 
-  <TabItem value="x86-64">
+Open Terminal and run the following command to install Sauce Connect:
 
-```bash
-mkdir C:\sauce-connect
-Invoke-WebRequest -Uri https://saucelabs.com/downloads/sauce-connect/5.1.3/sauce-connect-5.1.3_windows.x86_64.zip -OutFile sauce-connect.zip
-Expand-Archive -Path sauce-connect.zip -DestinationPath C:\sauce-connect
+```powershell
+winget install SauceLabs.SauceConnect
 ```
 
-  </TabItem>
-</Tabs>
+### Set SC Alias
 
-### Add the binary to PATH
+Sauce Connect for Windows installs the `sauce-connect` command not `sc`.
+This is due to the fact that the `sc` command is already used by the system.
+To work around this issue, you can set an alias for the `sauce-connect` command.
 
-Add `C:\sauce-connect` to `PATH` environment variable.
+In Terminal run the following command to permanently set the `sc` alias for `sauce-connect`:
 
-```bash
-$currentPath = [System.Environment]::GetEnvironmentVariable('PATH', [System.EnvironmentVariableTarget]::Machine)
-$newPath = "$currentPath;C:\sauce-connect"
-[System.Environment]::SetEnvironmentVariable('PATH', $newPath, [System.EnvironmentVariableTarget]::Machine)
+```powershell
+if (-Not (Test-Path -Path $PROFILE)) {
+    New-Item -ItemType File -Path $PROFILE -Force
+}
+Add-Content -Path $PROFILE -Value "Set-Alias -Name 'sc' -Value 'sauce-connect' -Option 'AllScope' -Force"
 ```
 
-### Add completion
+Open a new Terminal window to use the `sc` command for Sauce Connect.
 
-Open PowerShell and check if you already have a profile.
+### Add Command Completion
 
-```bash
-Test-Path $PROFILE
+In Terminal run the following script to add `sc` command completion to PowerShell:
+
+```powershell
+if (-Not (Test-Path -Path $PROFILE)) {
+    New-Item -ItemType File -Path $PROFILE -Force
+}
+Add-Content -Path $PROFILE -Value "Invoke-Expression (sauce-connect completion powershell | Out-String)"
 ```
 
-If the command returns `False`, create a new profile.
+Open a new Terminal window to use the `sc` command with completion.
 
-```bash
-New-Item -ItemType File -Path $PROFILE -Force
-```
-
-Add PowerShell completion to the profile.
-
-```bash
-Add-Content -Path $PROFILE -Value ". C:\sauce-connect\completions\sc.ps1"
-```
-
-### Edit config file
+### Edit Config File
 
 This step is optional. You can use default configuration or configure Sauce Connect with flags or environment variables.
 See [CLI reference](/dev/cli/sauce-connect-5/) for more details.
 
-```bash
-notepad C:\sauce-connect\sauce-connect.yaml
+Get the default configuration file:
+
+```powershell
+sc run config-file > sauce-connect.yaml
+```
+
+Edit the configuration file with your favorite editor:
+
+```powershell
+notepad sauce-connect.yaml
 ```
 
 ### Start Sauce Connect
 
-```bash
-sc.exe run --config-file C:\sauce-connect\sauce-connect.yaml
+```powershell
+sc run --config-file sauce-connect.yaml
+```
+
+## With Zip Package
+
+Sauce Connect provides `.zip` package that can be used on older Windows versions that do not support winget.
+
+### Unpack Zip File
+
+```powershell
+mkdir C:\sauce-connect
+Invoke-WebRequest -Uri https://saucelabs.com/downloads/sauce-connect/5.2.2/sauce-connect-5.2.2_windows.x86_64.zip -OutFile sauce-connect.zip
+Expand-Archive -Path sauce-connect.zip -DestinationPath C:\sauce-connect
+Rename-Item -Path C:\sauce-connect\sauce-connect.exe -NewName C:\sauce-connect\sc.exe
+```
+
+### Edit Config File
+
+This step is optional. You can use default configuration or configure Sauce Connect with flags or environment variables.
+See [CLI reference](/dev/cli/sauce-connect-5/) for more details.
+
+Get the default configuration file:
+
+```powershell
+cd C:\sauce-connect
+./sc.exe run config-file > sauce-connect.yaml
+```
+
+Edit the configuration file with your favorite editor:
+
+```powershell
+notepad sauce-connect.yaml
+```
+
+### Start Sauce Connect
+
+```powershell
+./sc.exe run --config-file sauce-connect.yaml
 ```

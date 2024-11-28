@@ -72,6 +72,7 @@ As an important step prior to downloading Sauce Connect Proxy, you or your syste
 3. Use cURL (or equivalent tool) to reach the below URLs, as needed. For example:
 
    - [https://api.us-west-1.saucelabs.com/rest/v1](https://api.us-west-1.saucelabs.com/rest/v1) for US-WEST region
+   - [https://api.us-east-4.saucelabs.com/rest/v1](https://api.us-east-4.saucelabs.com/rest/v1) for US-EAST region
    - [https://api.eu-central-1.saucelabs.com](https://api.eu-central-1.saucelabs.com/) for EU-Central region
 
    If you can get a `200 OK` response from all URLs above, you are ready to start Sauce Connect!
@@ -252,6 +253,7 @@ groupId="dc-url"
 defaultValue="US-West-1"
 values={[
 {label: 'US-West-1', value: 'US-West-1'},
+{label: 'US-East-4', value: 'US-East-4'},
 {label: 'EU-Central-1', value: 'EU-Central-1'},
 ]}>
 
@@ -269,6 +271,13 @@ values={[
 | `https://api.eu-central-1.saucelabs.com/rest/v1`       |
 
 </TabItem>
+<TabItem value="US-East-4">
+
+| Real Device Cloud + Sauce Connect                      |
+| :----------------------------------------------------- |
+| `https://api.us-east-4.saucelabs.com/rest/v1`          |
+
+</TabItem>
 </Tabs>
 
 <br/>
@@ -282,6 +291,7 @@ groupId="dc-url"
 defaultValue="US-West-1"
 values={[
 {label: 'US-West-1', value: 'US-West-1'},
+{label: 'US-East-4', value: 'US-East-4'},
 {label: 'EU-Central-1', value: 'EU-Central-1'},
 ]}>
 
@@ -297,6 +307,13 @@ values={[
 | Virtual Device Cloud/Real Device Cloud + Sauce Connect |
 | :----------------------------------------------------- |
 | `*.eu-central-1.miso.saucelabs.com`                    |
+
+</TabItem>
+<TabItem value="US-East-4">
+
+| Real Device Cloud + Sauce Connect                      |
+| :----------------------------------------------------- |
+| `*.tunnels.us-east-4.saucelabs.com`                    |
 
 </TabItem>
 </Tabs>

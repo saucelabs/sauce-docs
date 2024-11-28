@@ -4,6 +4,7 @@ sidebar_label: WebdriverIO
 
 import FullPageJS from '../_partials/_fullpage-js.md';
 import ClippingDescription from '../_partials/_clipping-description.md';
+import BaselineOverridesWDIO from '../_partials/_baseline-overrides-wdio.md';
 import EnvironmentVariables from '../_partials/_environment-variables.md';
 import SelectiveDiffing from '../_partials/_selective-diffing.md';
 import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
@@ -279,6 +280,10 @@ await browser.sauceVisualCheck('Visible Sale Banner', {
   clipElement: await $('.your-css-selector')
 })
 ```
+
+### Using Baseline Overrides
+
+<BaselineOverridesWDIO />
 
 ## Example
 
