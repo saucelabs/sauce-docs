@@ -25,8 +25,7 @@ When writing a visual test for mobile apps, we recommend the following:
 ## Limitations
 
 The following features are not yet available for mobile app testing:
-- DOM capture and inspection
-- [Selective diffing](./selective-diffing.md)
+- [Selective diffing](./selective-diffing.md) is constrained by what is available in Appium's page source.
 
 Native full-page screenshots are currently in beta and may have unexpected behavior.
 Possible issues include:
