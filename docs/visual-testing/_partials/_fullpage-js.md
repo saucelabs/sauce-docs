@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 import FullPageLimit from './_fullpage-limit.md';
 
 By default, only the current viewport is captured when `.sauceVisualCheck` is used. You can opt in to capturing the entire page by using the `fullPage` option. It will capture everything by scrolling and stitching multiple screenshots together.
@@ -51,15 +54,30 @@ Options:
 It is recommended to define the `scrollElement` as the appropriate scrollable container.
 :::
 
-```ts
-await browser.sauceVisualCheck('Long content page', {
-  // Enable full page screenshot and customize the behavior
-  fullPage: {
-    scrollElement: $('//XCUIElementTypeCollectionView'),
-    scrollLimit: 5
-  },
-});
-```
+<Tabs>
+    <TabItem value="ios" label="iOS">
+        ```ts
+        await browser.sauceVisualCheck('Long content page', {
+            // Enable full page screenshot and customize the behavior
+            fullPage: {
+                scrollElement: $('//XCUIElementTypeCollectionView'),
+                scrollLimit: 5
+            },
+        });
+        ```
+    </TabItem>
+    <TabItem value="android" label="Android">
+        ```ts
+        await browser.sauceVisualCheck('Long content page', {
+            // Enable full page screenshot and customize the behavior
+            fullPage: {
+                scrollElement: $('//androidx.recyclerview.widget.RecyclerView'),  
+                scrollLimit: 5
+            },
+        });
+        ```
+    </TabItem>
+</Tabs>
 
 Use only XPath selectors for ignore regions and clipping to an element.
 
@@ -67,24 +85,68 @@ Use only XPath selectors for ignore regions and clipping to an element.
 On iOS, selectors must be contained within the `scrollElement`.
 :::
 
-```ts
-await browser.sauceVisualCheck('Ignore regions - Long content page', {
-  // Enable full page screenshot and ignore elements
-  ignore: [
-    { selector: { value: '//XCUIElementTypeCollectionView/XCUIElementTypeCell', type: 'XPATH' }}
-  ],
-  fullPage: {
-    scrollElement: $('//XCUIElementTypeCollectionView'),
-  },
-});
-```
+<Tabs>
+    <TabItem value="ios" label="iOS">
+        ```ts
+        await browser.sauceVisualCheck('Ignore regions - Long content page', {
+            // Enable full page screenshot and ignore elements
+            ignore: [
+                { 
+                    selector: { 
+                        value: '//XCUIElementTypeStaticText[@name="Product Price"]',
+                        type: 'XPATH' 
+                    }
+                }
+            ],
+            fullPage: {
+                scrollElement: $('//XCUIElementTypeCollectionView'),
+            },
+        });
+        ```
+    </TabItem>
+    <TabItem value="android" label="Android">
+        ```ts
+        await browser.sauceVisualCheck('Ignore regions - Long content page', {
+            // Enable full page screenshot and ignore elements
+            ignore: [
+                { 
+                    selector: {
+                        value: '//android.widget.TextView[@content-desc="Product Price"]',
+                        type: 'XPATH' 
+                    }
+                }
+            ],
+            fullPage: {
+                scrollElement: $('//androidx.recyclerview.widget.RecyclerView'),  
+            },
+        });
+        ```
+    </TabItem>
+</Tabs>
 
-```ts
-await browser.sauceVisualCheck('Clip - Long content page', {
-  // Enable full page screenshot and clip to an element
-  fullPage: {
-    scrollElement: $('//XCUIElementTypeCollectionView'),
-    nativeClipSelector: { value: '//XCUIElementTypeCollectionView/XCUIElementTypeOther', type: 'XPATH' }
-  },
-});
-```
+<Tabs>
+    <TabItem value="ios" label="iOS">
+        ```ts
+        await browser.sauceVisualCheck('Clip - Long content page', {
+            // Enable full page screenshot and clip to an element
+            fullPage: {
+                scrollElement: $('//XCUIElementTypeCollectionView'),
+                nativeClipSelector: { value: '//XCUIElementTypeCollectionView/XCUIElementTypeOther', type: 'XPATH' }
+            },
+        });
+        ```
+    </TabItem>
+    <TabItem value="android" label="Android">
+        ```ts
+        await browser.sauceVisualCheck('Clip - Long content page', {
+            // Enable full page screenshot and clip to an element
+            fullPage: {
+                scrollElement: $('//androidx.recyclerview.widget.RecyclerView'),
+                nativeClipSelector: { value: '//androidx.recyclerview.widget.RecyclerView[@content-desc="Displays all products of catalog"]', type: 'XPATH' }
+            },
+        });
+        ```
+    </TabItem>
+</Tabs>
+
+Learn more about mobile native testing [here](/visual-testing/mobile-native-testing/) 
