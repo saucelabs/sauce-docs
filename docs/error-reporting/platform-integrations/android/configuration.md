@@ -318,7 +318,7 @@ try {
 
 :::warning Inner and suppressed exception support
 
-The new inner and suppressed exception support is available starting backtrace-android@3.9.0
+Support for inner and suppressed exceptions is available starting backtrace-android@3.9.0
 :::
 
 Backtrace clients allow sending Inner and suppressed exceptions. By default, this option is disabled. To enable inner and suppressed exception support, use the code shown below.
