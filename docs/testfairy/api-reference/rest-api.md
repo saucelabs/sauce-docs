@@ -228,6 +228,11 @@ Use this endpoint to copy a specific build to a specified folder. You can either
 			<td><code>folder_name</code></td>
 			<td><p><small>| REQUIRED | STRING |</small></p><p>The name or path of the target folder. Examples: Folder1 or /Project1/Folder1.</p></td>
 		</tr>
+        <tr>
+			<td><code>app_name</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>Defines a new name for the application when copying the build to the target folder.<br /> If specified, the build is renamed to the given <code>app_name</code>.
+                <br />If not specified, the original application name is preserved.</p></td>
+		</tr>
 	</tbody>
 </table>
 
@@ -246,7 +251,8 @@ Use this endpoint to copy a specific build to a specified folder. You can either
 {
     "status": "ok",
     "build_id": "1000",
-    "folder_path": "/Project1/Folder1"
+    "folder_path": "/Project1/Folder1",
+    "app_name": "My Application"
 }
 ```
 
