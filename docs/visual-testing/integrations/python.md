@@ -77,10 +77,9 @@ Take a visual snapshot in each test where you'd like to check for visual changes
 We recommend creating a helper class / function within your framework of choice to reduce the duplication / need to pass the test metadata (such as test / suite name) into each call.
 
 ```python
-session_id = 'YOUR_SESSION_ID'  # Get your Selenium session ID from your framework
 client.create_snapshot_from_webdriver(
     name="Snapshot Name",
-    session_id=session_id,
+    driver=driver, # pass the remote driver instance from selenium/appium
     # Other optional items to customize your snapshots / associate them with the current test run
     # test_name="TEST_NAME_FROM_YOUR_FRAMEWORK",
     # suite_name="SUITE_NAME_FROM_YOUR_FRAMEWORK",
@@ -110,7 +109,7 @@ from saucelabs_visual.typing import FullPageConfig
 # ...
 visual_client.create_snapshot_from_webdriver(
     "Inventory Page",
-    session_id=session_id,
+    driver=driver,
     full_page_config=FullPageConfig(
         # Can customize full page behavior by customizing values here. Or omit completely to
         # disable full page screenshots:
@@ -129,7 +128,7 @@ You can use the `capture_dom` named param with a value of `True` to enable DOM c
 ```python
 visual_client.create_snapshot_from_webdriver(
     "Inventory Page",
-    session_id=session_id,
+    driver=driver,
     capture_dom=True,
 )
 ```
@@ -141,7 +140,7 @@ If you'd like to test a specific component or area of a page you can use the `cl
 ```python
 visual_client.create_snapshot_from_webdriver(
     "Inventory Page",
-    session_id=session_id,
+    driver=driver,
     clip_selector='.my-css-selector',
 )
 ```
@@ -152,7 +151,7 @@ Alternatively, you can also pass an element directly if you've already queried o
 add_to_cart_button = driver.find_element(By.CSS_SELECTOR, '.btn_inventory')
 visual_client.create_snapshot_from_webdriver(
     "Inventory Page",
-    session_id=session_id,
+    driver=driver,
     clip_element=add_to_cart_button,
 )
 ```
@@ -168,7 +167,7 @@ from saucelabs_visual.typing import IgnoreRegion
 # ...
 visual_client.create_snapshot_from_webdriver(
     "Inventory Page",
-    session_id=session_id,
+    driver=driver,
     # Use coordinates on a page to create manual regions.
     ignore_regions=[
         IgnoreRegion(x=100, y=100, width=100, height=100)
@@ -184,7 +183,7 @@ from saucelabs_visual.typing import IgnoreElementRegion
 add_to_cart_button = driver.find_element(By.CSS_SELECTOR, '.btn_inventory')
 visual_client.create_snapshot_from_webdriver(
     "Inventory Page",
-    session_id=session_id,
+    driver=driver,
     # Ignore certain areas of a page using elements / selectors.
     ignore_elements=[
         IgnoreElementRegion(
@@ -211,7 +210,7 @@ Example:
 ```python
     visual_client.create_snapshot_from_webdriver(
         "login-page",
-        session_id=session_id,
+        driver=driver,
         diffing_method=DiffingMethod.BALANCED,        
         capture_dom=True,
         ignore_elements=[

@@ -88,13 +88,14 @@ module.exports = {
 
 ### Step 4 - Configure the Storybook Test Runner
 
-Create a `test-runner.js` file in your storybook configuration directory (`<root>/.storybook` by default) if you do not already have one, and append our `postVisit` hook into it. You can read more about this file in the [hook API](https://github.com/storybookjs/test-runner#experimental-test-hook-api) section. It should look something like below:
+Create a `test-runner.js` file in your storybook configuration directory (`<root>/.storybook` by default) if you do not already have one, and append our `preVisit` and `postVisit` hooks into it. You can read more about this file in the [hook API](https://github.com/storybookjs/test-runner#experimental-test-hook-api) section. It should look something like below:
 
 ```js
 // .storybook/test-runner.js
-const { postVisit } = require('@saucelabs/visual-storybook');
+const { postVisit, preVisit } = require('@saucelabs/visual-storybook');
 
 module.exports = {
+  preVisit,
   postVisit,
 };
 ```
@@ -217,6 +218,64 @@ module.exports = {
 ```
 
 If you'd like to configure your own devices, please follow the configuration steps inside the [playwright docs](https://playwright.dev/docs/emulation#devices).
+
+## Testing Interactions
+
+Utilizing the Test Runner, Interactions Addon, and our Storybook integration you can interact with stories and take snapshots along the way. This exposes the ability to both do component testing and visual testing in a single location. Follow the steps on the [Storybook Component Testing](https://storybook.js.org/docs/writing-tests/component-testing#set-up-the-interactions-addon) for installing and writing component tests in storybook.
+
+You'll need the following:
+
+- The [Interactions Addon](https://storybook.js.org/docs/writing-tests/component-testing#set-up-the-interactions-addon) installed and setup
+- Version 0.9.0+ of our Storybook integration
+- The `preVisit` hook added in your `.storybook/test-runner.(js|ts)` setup. See [Step 4](#step-4---configure-the-storybook-test-runner) in our guide if you're updating to use this feature or are missing the hook
+- (optional) You'll also likely need to increase your test `testTimeout` in your `test-runner-jest.config.js` to account for the additional time it will take to both complete the interaction tests and take snapshots. Configure / tweak this as necessary.
+
+After updating and configuring Storybook, you can add an import to your story for our `takeVisualSnapshot` function from the new `play` entrypoint which can only be used in a Test Runner `play` context.
+
+```ts
+import { takeVisualSnapshot } from "@saucelabs/visual-storybook/play";
+```
+
+Once setup, you can use the `play` function in a story to interact with a component and take snapshots of individual states. See the full example below of a 'Button' component -- paying specific attention to the `play` property in the story declaration.
+
+```ts
+import type { Meta, StoryObj } from "@storybook/react";
+import { Button } from "./Button";
+import { takeVisualSnapshot } from "@saucelabs/visual-storybook/play";
+import { expect, userEvent, within } from '@storybook/test';
+
+const meta = {
+  title: "Example/Button",
+  component: Button,
+  // Our interaction _and_ Visual test, combined in one.
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button');
+    await userEvent.hover(button);
+
+    // focus the button, so we can see the 'focus' outline behavior in all browsers
+    await button.focus();
+    await expect(button).toHaveFocus();
+    // Take a screenshot of the focus styles
+    await takeVisualSnapshot('Button Focused');
+
+    await userEvent.click(button);
+    await takeVisualSnapshot('Button Clicked / Active');
+
+    // Unfocus / reset the element to reset it for the remaining screenshots / variations.
+    await button.blur();
+  },
+  parameters: {
+    layout: "centered",
+  },
+} satisfies Meta<typeof Button>;
+```
+
+To assist in debugging and writing tests, we've also integrated this with the Interactions UI in Storybook -- giving you insight _when_ your screenshots will be taken, and allowing you to replay the history up to those points.
+
+<div className="text--center">
+    <img src={useBaseUrl('/img/sauce-visual/storybook-interaction-tests.png')} alt="Visual assertions in the Interactions UI"/>
+</div>
 
 ## Testing Variations
 
