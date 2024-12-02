@@ -10,6 +10,7 @@ import EnvironmentVariables from '../_partials/_environment-variables.md';
 import SelectiveDiffing from '../_partials/_selective-diffing.md';
 import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
 import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
+import FullPageLimitation from '../_partials/_fullpage-limitation.md';
 
 # Java WebDriver Integration
 
@@ -392,7 +393,7 @@ visual.sauceVisualCheck("Inventory Page", options);
 
 ### Full page screenshots
 
-By default, only the current viewport is captured when `.sauceVisualCheck` is used. You can opt in to capturing the entire page by using the `enableFullPageScreenshots` option. It will capture everything by scrolling and stitching multiple screenshots together.
+By default, only the viewport is captured when `.sauceVisualCheck` is used. You can opt in to capturing the entire page by using the `enableFullPageScreenshots` option. It will capture everything by scrolling and stitching multiple screenshots together.
 
 Configuration should be specified using the `FullPageScreenshotConfig.Builder` object.
 
@@ -598,7 +599,7 @@ On iOS, selectors must be contained within the `scrollElement`.
     </TabItem>
 </Tabs>
 
-Learn more about mobile native testing [here](/visual-testing/mobile-native-testing/)
+<FullPageLimitation/>
 
 ### Clip to an Element
 

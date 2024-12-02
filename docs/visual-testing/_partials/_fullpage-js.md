@@ -2,8 +2,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 import FullPageLimit from './_fullpage-limit.md';
+import FullPageLimitation from './_fullpage-limitation.md';
 
-By default, only the current viewport is captured when `.sauceVisualCheck` is used. You can opt in to capturing the entire page by using the `fullPage` option. It will capture everything by scrolling and stitching multiple screenshots together.
+By default, only the viewport is captured when `.sauceVisualCheck` is used. You can opt in to capturing the entire page by using the `fullPage` option. It will capture everything by scrolling and stitching multiple screenshots together.
 
 <FullPageLimit />
 
@@ -51,7 +52,7 @@ Options:
 - `scrollLimit`: Limit the number of screenshots taken for scrolling and stitching. The default value is 10. The value needs to be between 1 and 10.
 
 :::note
-It is recommended to define the `scrollElement` as the appropriate scrollable container.
+It is recommended to set `scrollElement` to the appropriate scrollable container.
 :::
 
 <Tabs>
@@ -155,4 +156,4 @@ On iOS, selectors must be contained within the `scrollElement`.
     </TabItem>
 </Tabs>
 
-Learn more about mobile native testing [here](/visual-testing/mobile-native-testing/) 
+<FullPageLimitation/>
