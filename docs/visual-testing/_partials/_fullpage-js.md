@@ -131,7 +131,10 @@ On iOS, selectors must be contained within the `scrollElement`.
             // Enable full page screenshot and clip to an element
             fullPage: {
                 scrollElement: $('//XCUIElementTypeCollectionView'),
-                nativeClipSelector: { value: '//XCUIElementTypeCollectionView/XCUIElementTypeOther', type: 'XPATH' }
+                nativeClipSelector: { 
+                    value: '//XCUIElementTypeCollectionView/XCUIElementTypeOther',
+                    type: 'XPATH' 
+                }
             },
         });
         ```
@@ -142,7 +145,10 @@ On iOS, selectors must be contained within the `scrollElement`.
             // Enable full page screenshot and clip to an element
             fullPage: {
                 scrollElement: $('//androidx.recyclerview.widget.RecyclerView'),
-                nativeClipSelector: { value: '//androidx.recyclerview.widget.RecyclerView[@content-desc="Displays all products of catalog"]', type: 'XPATH' }
+                nativeClipSelector: { 
+                    value: '//androidx.recyclerview.widget.RecyclerView[@content-desc="Displays all products of catalog"]',
+                    type: 'XPATH' 
+                }
             },
         });
         ```

@@ -28,8 +28,8 @@ The following features are not yet available for mobile app testing:
 - [Selective diffing](./selective-diffing.md) is constrained by what is available in Appium's page source.
 
 Native full-page screenshots are currently in beta and may have unexpected behavior.
-Possible issues include:
+Identified limitations:
 - Slow screenshot capture
-- Baseline and snapshot differences on iOS tablets
-- Ignoring and clipping limited to elements within `scrollElement` on iOS
-- Missing sticky elements at the bottom of the screen
+- 1 pixel shifts in the screenshot (iOS tablets only)
+- Ignoring and clipping limited to elements within `scrollElement` (iOS only)
+- Sticky elements missing at the bottom of the screen

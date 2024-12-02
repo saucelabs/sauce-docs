@@ -409,7 +409,7 @@ Methods available:
 - `withScrollLimit(int scrollLimit)`: Limit the number of screenshots taken for scrolling and stitching. The default value is 10. The value needs to be between 1 and 10.
 
 :::note
-It's recommended to use the `withHideAfterFirstScroll` method for fixed or sticky position elements such as sticky headers or consent banners.
+It's recommended to use the `withHideAfterFirstScroll` method for elements with a fixed or sticky position, such as sticky headers or consent banners.
 :::
 
 Examples:
