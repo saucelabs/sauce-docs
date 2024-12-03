@@ -330,7 +330,7 @@ backtraceClient.sendInnerExceptions(true);
 backtraceClient.sendSuppressedExceptions(true);
 ```
 
-Once inner or suppressed exceptions are enabled, The Backtrace client will verify the `BacktraceReport` or `exception` object passed to the `send` method. If inner/suppressed exceptions are detected, the report with the same attributes will be created for each. In addition to that, the following attributes will be generated:
+When enabled, the Backtrace client will send an additional report for each inner and/or suppressed exception detected. The additional reports will contain the same attributes as the parent. Linking attributes will also be added to each report to define the connection and relationships between the reports:
 
 | Attribute name | Attribute description                                                               |
 | -------------- | ----------------------------------------------------------------------------------- |
