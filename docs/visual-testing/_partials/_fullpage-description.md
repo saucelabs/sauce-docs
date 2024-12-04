@@ -1,0 +1,1 @@
+Full Page Screenshots capture the entire webpage, including content beyond the visible viewport, to ensure comprehensive visual testing. This feature helps teams identify layout or rendering issues across the full page and ensures consistency across devices and browsers.

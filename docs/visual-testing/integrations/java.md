@@ -11,6 +11,7 @@ import SelectiveDiffing from '../_partials/_selective-diffing.md';
 import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
 import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 import FullPageLimitation from '../_partials/_fullpage-limitation.md';
+import FullPageDescription from '../_partials/_fullpage-description.md';
 
 # Java WebDriver Integration
 
@@ -393,6 +394,7 @@ visual.sauceVisualCheck("Inventory Page", options);
 
 ### Full page screenshots
 
+<FullPageDescription/>
 By default, only the viewport is captured when `.sauceVisualCheck` is used. You can opt in to capturing the entire page by using the `enableFullPageScreenshots` option. It will capture everything by scrolling and stitching multiple screenshots together.
 
 Configuration should be specified using the `FullPageScreenshotConfig.Builder` object.

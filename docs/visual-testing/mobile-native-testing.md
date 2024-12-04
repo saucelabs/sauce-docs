@@ -34,3 +34,10 @@ Identified limitations:
 - Ignoring and clipping limited to elements within `scrollElement` (iOS only)
 - Sticky elements missing at the bottom of the screen
 - The DOM capturing, inspection and selective diffing features have not yet been implemented
+
+Learn more about native full-page options on the integration pages:
+<ul>
+  <li><a href="/visual-testing/integrations/java/#full-page-screenshots">Java</a></li>
+  <li><a href="/visual-testing/integrations/nightwatch/#full-page-screenshots">Nightwatch</a></li>
+  <li><a href="/visual-testing/integrations/webdriverio/#full-page-screenshots">WebdriverIO</a></li>
+</ul>

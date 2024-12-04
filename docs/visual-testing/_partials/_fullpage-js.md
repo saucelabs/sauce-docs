@@ -3,7 +3,9 @@ import TabItem from '@theme/TabItem';
 
 import FullPageLimit from './_fullpage-limit.md';
 import FullPageLimitation from './_fullpage-limitation.md';
+import FullPageDescription from './_fullpage-description.md';
 
+<FullPageDescription/>
 By default, only the viewport is captured when `.sauceVisualCheck` is used. You can opt in to capturing the entire page by using the `fullPage` option. It will capture everything by scrolling and stitching multiple screenshots together.
 
 <FullPageLimit />
