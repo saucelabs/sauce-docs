@@ -253,7 +253,7 @@ When creating the service in `VisualApi`, extra fields can be set to define the 
 
 It needs to be defined through the `VisualApi.Builder` object.
 
-Methods available:
+Available methods:
 
 - `withBuild(String build)`: Sets the name of the build
 - `withProject(String project)`: Sets the name of the project
@@ -401,7 +401,7 @@ Configuration should be specified using the `FullPageScreenshotConfig.Builder` o
 
 #### Web
 
-Methods available:
+Available methods:
 
 - `withDelayAfterScrollMs(int delayAfterScrollMs)`: Delay in ms after scrolling and before taking screenshots. The default value is 0. We recommend using this option for lazy loading content.
 - `withDisableCSSAnimation(Boolean disableCSSAnimation)`: Disable CSS animations and the input caret in the app. The default value is true.
@@ -441,15 +441,17 @@ visual.sauceVisualCheck("Long content page", options);
 
 #### Mobile Native (beta)
 
-Methods available:
+Available methods:
 - `withDelayAfterScrollMs(int delayAfterScrollMs)`: Delay in ms after scrolling and before taking screenshots. The default value is 0. We recommend using this option for lazy loading content.
 - `withNativeClipSelector(SelectorIn nativeClipSelector)`: Selector used to identify the first element to which clipping will be applied.
 - `withScrollElement(WebElement scrollElement)`: Scrollable element used for scrolling. The default is root element.
 - `withScrollLimit(int scrollLimit)`: Limit the number of screenshots taken for scrolling and stitching. The default value is 10. The value needs to be between 1 and 10.
 
 :::note
-It is recommended to define the `withScrollElement` as the appropriate scrollable container.
+It is recommended to use the `withScrollElement` method to set the appropriate scrollable container.
 :::
+
+Examples:
 
 <Tabs>
     <TabItem value="ios" label="iOS">
@@ -490,10 +492,10 @@ It is recommended to define the `withScrollElement` as the appropriate scrollabl
     </TabItem>
 </Tabs>
 
-Use only XPath selectors for ignore regions and clipping to an element.
+Only XPath selectors can be used for ignore regions and clipping to an element.
 
 :::note
-On iOS, selectors must be contained within the `scrollElement`.
+On iOS, selectors **must** be contained within the `scrollElement`.
 :::
 
 
