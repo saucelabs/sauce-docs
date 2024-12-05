@@ -156,8 +156,8 @@ The current end-of-life strategy outlined above is specific to Real Devices. We 
 
 :::info Supported Custom Appium Plugins:
 The following list of custom Appium plugins are supported:
-- [Appium Images Plugin](https://www.npmjs.com/package/@appium/images-plugin). This plugin will now be included by default with Appium version `latest` and all subsequent versions released after April 1st.
-- [Deque axe DevTools® Mobile Analyzer Accessibility plugin](https://docs.deque.com/devtools-mobile/appium). This plugin helps you with automated accessibility testing. Empower your team to focus on identifying and resolving accessibility issues. Requires Deque axe DevTools® Mobile license.
+- [Appium Images Plugin](https://www.npmjs.com/package/@appium/images-plugin). This plugin will now be included by default with Appium version `latest` and all subsequent versions released after April 1st 2024.
+- [Deque axe DevTools® Mobile Analyzer Accessibility plugin](https://docs.deque.com/devtools-mobile/appium). This plugin helps you with automated accessibility testing. Empower your team to focus on identifying and resolving accessibility issues. Requires Deque axe DevTools® Mobile license. <b>Deprecated:</b> support for it will be removed on January 31st 2025.
 :::
 
 ### Appium 2.x
@@ -171,7 +171,7 @@ The following list of custom Appium plugins are supported:
     </tr>
   </thead>
   <tbody>
-     <tr>
+    <tr>
       <td>
         <code>stable</code>
       </td>
@@ -253,19 +253,29 @@ The following list of custom Appium plugins are supported:
       </td>
       <td>
           <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/june-2024-3" target="_blank">
-              Deque axe DevTools® Mobile Analyzer Accessibility plugin
+              Deque axe DevTools® Mobile Analyzer Accessibility tools
           </a>
-          &nbsp;helps you with automated accessibility testing. Contains only the latest version of Appium. The plugin helps to identify and to resolve accessibility issues. Requires Deque axe DevTools® license.
+          &nbsp;help you with automated accessibility testing. Contains only the latest version of Appium. The tools help to identify and to resolve accessibility issues. Requires Deque axe DevTools® license. See the <a href="../appium-deque-accessibility-testing">detailed usage documentation</a>, including a [migration guide](../appium-deque-accessibility-testing/#migrating-from-the-deprecated-plugin-to-deque-new-drivers) if you still use the deprecated plugin.
         <br />
         <ul>
             <li>
-                <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/june-2024-3" target="_blank">
-                    <code>axeDevToolsMobile Appium Plugin</code>: 2.2.0
+                <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/appium-setup" target="_blank">
+                    <code>axe-appium-xcuitest-driver </code>: 1.0.1
                 </a>
             </li>
             <li>
-                <a href="https://github.com/appium/appium/releases/tag/appium%402.11.0" target="_blank">
-                    <code>appium</code>: 2.11.0
+                <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/appium-setup" target="_blank">
+                    <code>axe-appium-uiautomator2-driver </code>: 1.1.0
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/appium/appium/releases/tag/appium%402.12.1" target="_blank">
+                    <code>appium</code>: 2.12.1
+                </a>
+            </li>
+            <li>
+                <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/june-2024-3" target="_blank">
+                    <code>axeDevToolsMobile Appium Plugin</code>: 2.2.0 <b>Deprecated</b>
                 </a>
             </li>
         </ul>

@@ -36,7 +36,7 @@ ADB can already be used during live testing.
 
 If your Appium tests are intended to test a native mobile app on real devices, the app file must be available to Sauce Labs so it can be installed on the devices selected for testing. Sauce Labs provides a variety of methods for doing this, including:
 
-- Upload your app to Sauce App Storage using the [Sauce Labs UI](/mobile-apps/app-storage/#uploading-apps-via-ui) or [REST API](/mobile-apps/app-storage/#uploading-apps-via-rest-api)
+- Upload your app to Sauce App Storage using the [Sauce Labs UI](/mobile-apps/app-storage/#upload-apps-via-ui) or [REST API](/mobile-apps/app-storage/#upload-apps-via-rest-api)
 - Install your app to a real device from a remote location [How?](/mobile-apps/app-storage/#installing-apps-from-a-remote-location)
 
 The following app file types are supported for real device tests:
@@ -162,7 +162,7 @@ driver.installApp(
 :::note Limitations
 
 - The provided app path needs to be publicly available as this method does not have access to your local path/storage.
-- This method does not have access to apps in Sauce Storage. Only apps that are publicly available can be installed with this command. Therefore, we also can't re-sign and instrument the app. The Instrumentation will not work for apps installed using the `driver.installApp('path-to-app')` command (see [App Settings](/mobile-apps/live-testing/live-mobile-app-testing/#app-settings) to learn more).
+- This method does not have access to apps in Sauce Storage. Only apps that are publicly available can be installed with this command. Therefore, we also can't re-sign and instrument the app. The Instrumentation will not work for apps installed using the `driver.installApp('path-to-app')` command (see [App Settings](/mobile-apps/live-testing/live-mobile-app-testing/#app-and-device-settings) to learn more).
 - This method will not work for iOS due to signing. Each iOS app needs to be resigned so it is allowed to be installed on our devices. To make this work you must use a private device and add the UDID of the private device to the provisioning profile for iOS (see our [resigning process](/mobile-apps/automated-testing/ipa-files/) to learn more).
 
 :::

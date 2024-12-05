@@ -129,15 +129,21 @@ saucectl run
 
 ### Set NPM Packages in `config.yml`
 
-You can avoid installing or uninstalling dependencies prior to each bundling operation by defining a default set of NPM packages to install in your sauce configuration file using the `npm` parameter, as shown in the following example:
+You can avoid installing or uninstalling dependencies prior to each bundling
+operation by defining a default set of NPM packages to install in your sauce
+configuration file using the `npm` parameter, as shown in the following example:
 
 ```jsx title= "config.yml npm example"
 npm:
   registries:
     - url: https://registry.npmjs.org
+  usePackageLock: true
   packages:
     "lodash": "4.17.20"
 ```
+
+Setting `usePackageLock: true` will in most cases reduce the time required for
+installation.
 
 Alternatively, you can let `saucectl` selectively include already installed dependencies from the `node_modules` folder.
 
@@ -157,10 +163,6 @@ npm:
   dependencies:
     - "package.json"
 ```
-
-:::caution
-This feature is highly experimental.
-:::
 
 ## Attaching Test Assets
 

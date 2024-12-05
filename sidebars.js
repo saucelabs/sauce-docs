@@ -1408,6 +1408,7 @@ module.exports = {
                                 'mobile-apps/automated-testing/appium/test-app-upgrades',
                                 'mobile-apps/automated-testing/appium/appium-flutter',
                                 'mobile-apps/automated-testing/appium/appium-flutter-integration-driver',
+                                'mobile-apps/automated-testing/appium/appium-deque-accessibility-testing',
                             ],
                         },
                         {
@@ -1707,8 +1708,10 @@ module.exports = {
                     items: [
                         'visual-testing/workflows/test-execution',
                         'visual-testing/workflows/review',
+                        'visual-testing/workflows/baseline-management',
                         'visual-testing/workflows/ci',
                         'visual-testing/workflows/api-lifecycle',
+                        'visual-testing/workflows/cross-browser-os',
                     ],
                 },
                 {
