@@ -35,6 +35,9 @@ Identified limitations:
 - Sticky elements missing at the bottom of the screen
 - The DOM capturing, inspection and selective diffing features have not yet been implemented
 
+
+## Integrations
+
 Learn more about native full-page options on the integration pages:
 <ul>
   <li><a href="/visual-testing/integrations/java/#full-page-screenshots">Java</a></li>
