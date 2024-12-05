@@ -25,6 +25,21 @@ When writing a visual test for mobile apps, we recommend the following:
 ## Limitations
 
 The following features are not yet available for mobile app testing:
-- Full page screenshots
-- DOM capture and inspection
 - [Selective diffing](./selective-diffing.md)
+
+Native full-page screenshots are currently in beta and may have unexpected behavior.
+Identified limitations:
+- Slow screenshot capture
+- 1 pixel shifts in the screenshot (iOS tablets only)
+- Ignoring and clipping limited to elements within `scrollElement` (iOS only)
+- Sticky elements missing at the bottom of the screen
+- DOM capture is not available
+
+
+## Integrations
+
+Learn more about native full-page options on the integration pages:
+<ul>
+  <li><a href="/visual-testing/integrations/java/#full-page-screenshots">Java</a></li>
+  <li><a href="/visual-testing/integrations/webdriverio/#full-page-screenshots">WebdriverIO</a></li>
+</ul>
