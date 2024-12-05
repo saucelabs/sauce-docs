@@ -399,7 +399,7 @@ VisualClient.CaptureDom = true;
 
 ### Full page screenshots
 
-By default, only the current viewport is captured when `.VisualCheck` is used. You can opt in to capturing the entire page by using the `FullPage` option. It will capture everything by scrolling and stitching multiple screenshots together.
+By default, only the viewport is captured when `.VisualCheck` is used. You can opt in to capturing the entire page by using the `FullPage` option. It will capture everything by scrolling and stitching multiple screenshots together.
 Additionally, you have the option to configure full page settings using the `FullPageConfig` option.
 
 :::note
