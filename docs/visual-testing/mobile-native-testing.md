@@ -33,7 +33,7 @@ Identified limitations:
 - 1 pixel shifts in the screenshot (iOS tablets only)
 - Ignoring and clipping limited to elements within `scrollElement` (iOS only)
 - Sticky elements missing at the bottom of the screen
-- The DOM capturing, inspection and selective diffing features have not yet been implemented
+- DOM capture is not available
 
 
 ## Integrations
