@@ -1421,7 +1421,7 @@ When set to `true`, Sauce Labs will resign the app under test with its own signa
 
 - [Network Capture](#networkcapture)
 - [Image Injection](#imageInjection)
-- [Biometrics interception](#allowtouchidenroll)
+- [Biometrics interception](#biometricsInterception)
 
 And many more. This value can be set to `false` to allow testing of specific behaviors that are not permitted under the Sauce Labs provisioning. See [Resigning Enablements](/mobile-apps/automated-testing/ipa-files/#sauce-labs-resigning-enablements) for more information. This capability can only be set to `false` for iOS private devices.
 
@@ -1431,7 +1431,7 @@ When set to `true`, Sauce Labs will instrument the app under test with its own s
 
 - [Network Capture](#networkcapture)
 - [Image Injection](#imageInjection)
-- [Biometrics interception](#allowtouchidenroll)
+- [Biometrics interception](#biometricsInterception)
 
 and many more. This value can be set to `false` and can be used for private and public devices.
 
@@ -1481,7 +1481,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
-### `allowTouchIdEnroll`
+### `biometricsInterception`
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
@@ -1491,7 +1491,7 @@ Enables the interception of biometric input, allowing the test to simulate Touch
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("allowTouchIdEnroll", true);
+sauceOptions.setCapability("biometricsInterception", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
