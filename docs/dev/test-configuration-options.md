@@ -1465,7 +1465,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
-### `sauceLabsBypassScreenshotRestriction`
+### `bypassScreenshotRestriction`
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">Android Only</span> |</small></p>
 
@@ -1475,7 +1475,7 @@ Bypasses the restriction on taking screenshots for secure screens (i.e., secure 
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("sauceLabsBypassScreenshotRestriction", true);
+sauceOptions.setCapability("bypassScreenshotRestriction", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
