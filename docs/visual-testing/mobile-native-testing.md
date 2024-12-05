@@ -41,6 +41,5 @@ Identified limitations:
 Learn more about native full-page options on the integration pages:
 <ul>
   <li><a href="/visual-testing/integrations/java/#full-page-screenshots">Java</a></li>
-  <li><a href="/visual-testing/integrations/nightwatch/#full-page-screenshots">Nightwatch</a></li>
   <li><a href="/visual-testing/integrations/webdriverio/#full-page-screenshots">WebdriverIO</a></li>
 </ul>
