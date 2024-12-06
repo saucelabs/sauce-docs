@@ -880,8 +880,7 @@ Using Appium 2? Prevent `appium:`-prefix repetitiveness and start using [`appium
 
 Defines the custom time zone override for the application under test.
 You can use `UTC`, `PST`, `EST`, as well as place-based timezone names such as `America/Los_Angeles`.
-See [the list of available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) f
-or more details. The same behavior could be achieved by providing a custom
+See [the list of available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for more details. The same behavior could be achieved by providing a custom
 value to the `TZ` environment variable via the `appium:processArguments` capability.
 
 :::note
