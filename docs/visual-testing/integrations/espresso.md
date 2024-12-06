@@ -253,7 +253,7 @@ Sauce Visual Espresso allows you to capture the entire scrollable area of your a
 
 This tailored approach ensures precise testing and highlights the elements critical to your application’s user experience.
 
-**Note**: Full-page screenshots for Espresso are currently in beta and may exhibit unexpected behavior, and DOM capture is not available for these screenshots.
+**Note**: Full-page screenshots for Espresso are in beta and may exhibit unexpected behavior, and DOM capture is not available for these screenshots.
 
 Example:
 
