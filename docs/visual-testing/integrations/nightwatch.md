@@ -353,10 +353,6 @@ browser
   .end();
 ```
 
-### Full page screenshots
-
-<FullPageJS />
-
 ### Clip to an Element
 
 <ClippingDescription />
