@@ -144,7 +144,7 @@ During an automated test, you'll pass an image to the image injection endpoint. 
 
 In your test script, you'll need to input the desired capabilities specific to Camera Image Injection (see below code snippets). The code will execute your image upload and opening of the device camera.
 
-1. First, add the camera instrumentation desired capability command, `sauceLabsImageInjectionEnabled`, to your test script. This capability enables image injection functionality.
+1. First, add the camera instrumentation desired capability command, `imageInjection`, to your test script. This capability enables image injection functionality.
 
 <Tabs
 defaultValue="Webdriver.io example"
@@ -165,7 +165,7 @@ platformName: 'Android',
 platformVersion: '10',
 automationName: 'UiAutomator2',
 // Enable image-injection on RDC
-sauceLabsImageInjectionEnabled: true
+imageInjection: true
 }
 ]
 //...
@@ -181,7 +181,7 @@ desiredCapabilities.setCapability("deviceName", "Samsung Galaxy S10");
 desiredCapabilities.setCapability("platformVersionName", "10");
 ...
 // Enable image-injection on RDC
-desiredCapabilities.setCapability("sauceLabsImageInjectionEnabled", true);
+desiredCapabilities.setCapability("imageInjection", true);
 ```
 
 </TabItem>
