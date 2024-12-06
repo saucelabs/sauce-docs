@@ -24,7 +24,7 @@ Sauce Visual Espresso plugin provides a library exposing a `VisualClient` object
 Add [Sauce Visual](https://central.sonatype.com/artifact/com.saucelabs.visual/visual-espresso) dependency to your build.gradle
 
 ```groovy reference
-https://github.com/saucelabs/visual-examples/blob/main/espresso/app/build.gradle#L106
+https://github.com/saucelabs/my-demo-app-android/blob/main/app/build.gradle#L96
 ```
 
 _Note: You can find the latest versions available [here](https://central.sonatype.com/artifact/com.saucelabs.visual/visual-espresso)._
@@ -43,7 +43,7 @@ static VisualClient visual = VisualClient.builder(sauceUsername, sauceAccessKey)
 
 To enhance efficiency in managing tests, it's important to provide a specific test name and suite name for each test. This practice allows Sauce Visual to effectively organize snapshots into coherent groups. As a result, it simplifies the review process, saving time and effort in navigating through test results and understanding the context of each snapshot.
 
-Moreover, our Espresso binding offers an automated solution to this process. By integrating the following code snippet into your tests, the Java Binding can automatically assign appropriate test names and suite names, streamlining your testing workflow.
+Moreover, our Espresso binding offers an automated solution to this process. By integrating the following code snippet into your tests, the Sauce Visual can automatically assign appropriate test names and suite names, streamlining your testing workflow.
 
 ```java
 import com.saucelabs.visual.junit.TestMetaInfoRule;
@@ -240,6 +240,29 @@ import com.saucelabs.visual.VisualCheckOptions;
 visualClient.sauceVisualCheck("Visible Sale Banner",
         VisualCheckOptions.builder()
                 .clipElement(withId(R.id.changeTextBt))
+                .build());
+```
+### Full page screenshots
+
+Sauce Visual Espresso allows you to capture the entire scrollable area of your application, ensuring thorough visual testing that includes content beyond the visible viewport.
+
+**Key Behaviors:**
+- Capture of Scrollable Areas: The tool focuses exclusively on scrollable content within the defined area, providing an accurate representation of your app's primary interface.
+- Exclusions: Static elements outside the scrollable area, such as headers, footers, or overlaying menus, are not included in the full-page screenshot.
+- Comparison to Web Page Screenshots: Unlike full-page screenshots for web pages—where the page is scrolled and stitched together from multiple screenshots—Sauce Visual Espresso captures only the designated scrollable area in one seamless snapshot.
+
+This tailored approach ensures precise testing and highlights the elements critical to your application’s user experience.
+
+**Note**: Full-page screenshots for Espresso are currently in beta and may exhibit unexpected behavior, and DOM capture is not available for these screenshots.
+
+Example:
+
+```java
+import com.saucelabs.visual.VisualCheckOptions;
+
+visualClient.sauceVisualCheck("Long content page",
+        VisualCheckOptions.builder()
+                .fullPageScreenshot(withId(R.id.scrollView))
                 .build());
 ```
 
