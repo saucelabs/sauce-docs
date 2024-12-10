@@ -191,7 +191,6 @@ SSL Bumping is enabled by default for Sauce Connect Proxy, but there are some si
 
 - If you're working with sites that are highly dependent on AJAX
 - Some network components, such as browsers and servers that use WebSockets, won’t work if the traffic to them has been altered, which Sauce Connect Proxy appears to do
-- If you're testing with iOS 10.3 on iPad Pro (12.9 inch) simulator or iPad Pro (9.7 inch) simulator
 - If you're testing with Android Real Devices
 
 #### How to Disable SSL Bumping

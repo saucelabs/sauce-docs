@@ -80,7 +80,7 @@ If this value is not set, an older default value may be used instead.
 
 ## iOS Code Examples
 
-Below are examples of an iPhone 8 project using iOS version 12.2:
+Below are examples of an iPhone 8 project using iOS version 14.0:
 
 <Tabs
 defaultValue="Java"
@@ -99,7 +99,7 @@ DesiredCapabilities caps = DesiredCapabilities.iphone();
     caps.setCapability("appiumVersion", "1.13.0");
     caps.setCapability("deviceName","iPhone 8 Simulator");
     caps.setCapability("deviceOrientation", "portrait");
-    caps.setCapability("platformVersion","12.2");
+    caps.setCapability("platformVersion","14.0");
     caps.setCapability("platformName", "iOS");
     caps.setCapability("browserName", "");
     caps.setCapability("app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.2.0/iOS.Simulator.SauceLabs.Mobile.Sample.app.2.1.0.zip");
