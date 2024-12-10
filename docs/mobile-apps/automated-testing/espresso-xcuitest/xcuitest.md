@@ -1327,12 +1327,18 @@ suites:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-When shard is configured as `concurrency`, saucectl automatically splits the tests into several groups (the number of groups is determined by the concurrency setting). Each group will then run as an individual job.
+Configures saucectl to automatically split the tests of a suite to more easily
+run in parallel. Valid values are `concurrency` and `testList`.
 
-Selectable values: `concurrency` to shard by concurrency. Remove this field or leave it empty `""` for no sharding.
+In `concurrency` mode, saucectl automatically splits the
+tests into several groups (the number of groups is determined by the
+concurrency setting). Each group will then run as an individual job.
+
+In `testList` mode, saucectl will use the provided [testListFile](#testlistfile)
+and run each entry defined there in parallel.
 
 :::note
-When shard is set for a suite, the [class](#class) setting is automatically ignored.
+When sharding is enabled, the [class](#class) setting is automatically ignored.
 :::
 
 ```yaml
