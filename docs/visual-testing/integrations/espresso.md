@@ -43,7 +43,7 @@ static VisualClient visual = VisualClient.builder(sauceUsername, sauceAccessKey)
 
 To enhance efficiency in managing tests, it's important to provide a specific test name and suite name for each test. This practice allows Sauce Visual to effectively organize snapshots into coherent groups. As a result, it simplifies the review process, saving time and effort in navigating through test results and understanding the context of each snapshot.
 
-Moreover, our Espresso binding offers an automated solution to this process. By integrating the following code snippet into your tests, the Sauce Visual can automatically assign appropriate test names and suite names, streamlining your testing workflow.
+Moreover, our Espresso binding offers an automated solution to this process. By integrating the following code snippet into your tests, Sauce Visual can automatically assign appropriate test names and suite names, streamlining your testing workflow.
 
 ```java
 import com.saucelabs.visual.junit.TestMetaInfoRule;
