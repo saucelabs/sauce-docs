@@ -20,7 +20,7 @@ The `saucectl` command line interface orchestrates the relationship between your
 Supported OS:
 
 - Windows 10 / Windows 11
-- macOS 11+
+- macOS 10.15+
 - Linux
 
 ## Supported Frameworks and Browsers
