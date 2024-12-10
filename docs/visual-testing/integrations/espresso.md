@@ -23,8 +23,8 @@ Sauce Visual Espresso plugin provides a library exposing a `VisualClient` object
 
 Add [Sauce Visual](https://central.sonatype.com/artifact/com.saucelabs.visual/visual-espresso) dependency to your build.gradle
 
-```groovy reference
-https://github.com/saucelabs/my-demo-app-android/blob/main/app/build.gradle#L96
+```groovy
+androidTestImplementation 'com.saucelabs.visual:visual-espresso:0.0.1'
 ```
 
 _Note: You can find the latest versions available [here](https://central.sonatype.com/artifact/com.saucelabs.visual/visual-espresso)._
