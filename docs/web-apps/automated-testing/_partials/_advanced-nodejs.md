@@ -22,10 +22,22 @@ Sauce Labs supports the following Node.js versions:
   </tr>
   <tbody>
     <tr>
-      <td>20.14.0</td>
-      <td>iron, lts</td>
-      <td>October 22, 2024</td>
+      <td>22.11.0</td>
+      <td>jod, lts</td>
+      <td>April 30, 2027</td>
+      <td>July 30, 2027</td>
+    </tr>
+    <tr>
+      <td>20.18.1</td>
+      <td>iron, maintenance</td>
       <td>April 30, 2026</td>
+      <td>July 30, 2026</td>
+    </tr>
+    <tr>
+      <td>20.14.0</td>
+      <td />
+      <td>April 30, 2026</td>
+      <td>July 30, 2026</td>
     </tr>
   </tbody>
 </table>
