@@ -1327,12 +1327,12 @@ suites:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Configures saucectl to automatically split the tests of a suite to more easily
-run in parallel. Valid values are `concurrency` and `testList`.
+Configures saucectl to automatically split the tests of a suite to run in
+parallel. Valid values are `concurrency` and `testList`.
 
-In `concurrency` mode, saucectl automatically splits the
-tests into several groups (the number of groups is determined by the
-concurrency setting). Each group will then run as an individual job.
+In `concurrency` mode, saucectl automatically splits the tests into several
+groups (the number of groups is determined by the concurrency setting). Each
+group will then run as an individual job.
 
 In `testList` mode, saucectl will use the provided [testListFile](#testlistfile)
 and run each entry defined there in parallel.
