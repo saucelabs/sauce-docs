@@ -30,7 +30,7 @@ Now you can start your automated testing session. Your audio recording will be c
 
 <p><small><span className="sauceGreen">Real Devices Only</span></small></p>
 
-You just need to launch a Live Testing session on a real device, and the audio will be streamed to your browser automatically without any configuration.
+You just need to launch a Live Testing session on a real device, and the audio will be streamed to your browser automatically without any configuration. If it doesn't launch for you, you can manually launch it by clicking **Performance Mode** butoon under **Device Settings** menu in the live testing toolbar.
 
 The Audio Streaming feature ensures a better digital experience by validating audio playback and testing user flows that require audio testing in the early stages of the development lifecycle.
 
@@ -46,10 +46,10 @@ You will be able to mute and unmute the sound during your session by clicking on
 :::note Limitations
 
 - Android TalkBack is ONLY supported on Private devices, reach out to our Support Team or your Sauce Labs representative to get this configured.
-- Audio live streaming is not supported on automated tests.
-- Audio Streaming is supported on iOS/iPadOS 13.2 and above.
-- Audio Streaming is supported on Android 10 and above.
-- When Audio Streaming is enabled, we are not attaching the audio to the test results after the session ends on Android 12 and below.
+- Audio Live Streaming is not supported on automated tests.
+- Audio Live Streaming is supported on iOS/iPadOS 13.2 and above.
+- Audio Live Streaming is supported on Android 10 and above.
+- When Audio Live Streaming is enabled, we are not attaching the audio to the test results after the session ends on Android 12 and below.
 - Website testing is not yet available on Android.
 
 :::
@@ -92,6 +92,8 @@ For further information, you can refer to the official documentation on [TalkBac
 
 <img src={useBaseUrl('/img/mobile-apps/talkBack-live.png')} alt="Sauce Labs TalkBack" width="751"/>
 <img src={useBaseUrl('/img/mobile-apps/voiceOver-live.png')} alt="Sauce Labs Voiceover" width="751"/>
+
+### Text to Speech
 
 Text to speech audio of the focused element will be streamed to your browser as you interact with the devices.
 
