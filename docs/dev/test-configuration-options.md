@@ -1419,6 +1419,7 @@ Controls Sauce Labs default resigning (iOS) or instrumentation (Android) of mobi
 
 When set to `true`, Sauce Labs will resign the app under test with its own signature. This is required for iOS apps to be installed on our devices, but also to support features like:
 
+- [Vitals](#vitals)
 - [Network Capture](#networkcapture)
 - [Image Injection](#imageinjection)
 - [Biometrics interception](#biometricsinterception)
@@ -1430,6 +1431,7 @@ And many more. This value can be set to `false` to allow testing of specific beh
 
 When set to `true`, Sauce Labs will instrument the app under test with its own signature. This is required for Android apps if you want to use features like:
 
+- [Vitals](#vitals)
 - [Network Capture](#networkcapture)
 - [Image Injection](#imageinjection)
 - [Biometrics interception](#biometricsinterception)
@@ -1446,6 +1448,22 @@ MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
 sauceOptions.setCapability("resigningEnabled", true);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `vitals`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Vitals enables memory, cpu, performance stats alongside UI interactions during the session.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("vitals", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
