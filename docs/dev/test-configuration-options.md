@@ -1420,8 +1420,8 @@ Controls Sauce Labs default resigning (iOS) or instrumentation (Android) of mobi
 When set to `true`, Sauce Labs will resign the app under test with its own signature. This is required for iOS apps to be installed on our devices, but also to support features like:
 
 - [Network Capture](#networkcapture)
-- [Image Injection](#imageInjection)
-- [Biometrics interception](#biometricsInterception)
+- [Image Injection](#imageinjection)
+- [Biometrics interception](#biometricsinterception)
 
 And many more. This value can be set to `false` to allow testing of specific behaviors that are not permitted under the Sauce Labs provisioning. See [Resigning Enablements](/mobile-apps/automated-testing/ipa-files/#sauce-labs-resigning-enablements) for more information. This capability can only be set to `false` for iOS private devices.
 
@@ -1430,8 +1430,8 @@ And many more. This value can be set to `false` to allow testing of specific beh
 When set to `true`, Sauce Labs will instrument the app under test with its own signature. This is required for Android apps if you want to use features like:
 
 - [Network Capture](#networkcapture)
-- [Image Injection](#imageInjection)
-- [Biometrics interception](#biometricsInterception)
+- [Image Injection](#imageinjection)
+- [Biometrics interception](#biometricsinterception)
 
 and many more. This value can be set to `false` and can be used for private and public devices.
 
