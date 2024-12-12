@@ -16,7 +16,7 @@ you can use to test your web apps remotely on Sauce Labs cloud using the [`sauce
 Supported OS:
 
 - Windows 10 / Windows 11
-- macOS 11+
+- macOS 10.15+
 - Linux
 
 ## Supported Languages

@@ -20,7 +20,7 @@ Cucumber.js is not directly supported by Playwright. However, Playwright can be 
 Supported OS:
 
 - Windows 10 / Windows 11
-- macOS 11+
+- macOS 10.15+
 - Linux
 
 ## Supported Testing Platforms
