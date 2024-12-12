@@ -93,7 +93,7 @@ This setting cannot be used for mobile browsers, as your test will use the defau
 Identifies the name of the operating system the browser or mobile device should be running on. You can use this for [dynamic device allocation](/mobile-apps/supported-devices#static-and-dynamic-device-allocation). Values are not case-sensitive (i.e., `"ios"` is the same as `"iOS"`). See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-platform-name) for more information.
 
 ```java
-"platformName": "macOS 10.13"
+"platformName": "macOS 11"
 ```
 
 ---
