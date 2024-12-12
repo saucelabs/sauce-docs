@@ -104,12 +104,12 @@ To use biometric interception in a live mobile app test, you must ensure that th
 
 To enable fingerprint and facial recognition on iOS and Android real devices:
 
-1. Add the `allowTouchIdEnroll` capability to your test configuration and set it to `true`.
+1. Add the `biometricsInterception` capability to your test configuration and set it to `true`.
    :::note
 
-   Setting `allowTouchIdEnroll` does not update your app's biometric interception setting in Sauce Labs. It only sets the capability for the test in the event that the app setting in Sauce Labs is _different_ from the test script capability.
+   Setting `biometricsInterception` does not update your app's biometric interception setting in Sauce Labs. It only sets the capability for the test in the event that the app setting in Sauce Labs is _different_ from the test script capability.
 
-   - If biometric interception is ENABLED for the app in Sauce Labs, setting `allowTouchIdEnroll=true` or omitting it will have no effect, but setting `allowTouchIdEnroll=false` will disable the enrollment for the test, overriding the app setting.
+   - If biometric interception is ENABLED for the app in Sauce Labs, setting `biometricsInterception=true` or omitting it will have no effect, but setting `biometricsInterception=false` will disable the enrollment for the test, overriding the app setting.
    - The opposite is true if biometric interception is DISABLED for the app in Sauce Labs.
 
    :::
@@ -135,8 +135,8 @@ Testing biometric interception on Sauce Labs iOS Simulators or on your local mac
    ```js reference title="WebdriverIO Biometrics Check Sample"
    https://github.com/saucelabs-training/demo-js/blob/docs-1.1/webdriverio/appium-app/examples/biometric-login/test/specs/biometrics.emusim.spec.ts#L10-L31
    ```
-   :::note Setting allowTouchIdEnroll capability is optional
-   You can set the desired capability `allowTouchIdEnroll` to `true` to enable enrollment by default for your app, but if you are checking the enrollment in your script anyway, this is not required.
+   :::note Setting biometricsInterception capability is optional
+   You can set the desired capability `biometricsInterception` to `true` to enable enrollment by default for your app, but if you are checking the enrollment in your script anyway, this is not required.
    :::
 2. If biometrics is disabled, call the `driver.toggleEnrollTouchId(true)` method to enable it.
    ```js reference title="WebdriverIO Toggle Biometrics Sample"
