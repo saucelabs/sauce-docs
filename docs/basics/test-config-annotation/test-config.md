@@ -36,7 +36,7 @@ All examples are for Java, but you can use our Platform Configurator to configur
 
 ### Default Selenium Version
 
-By default, Sauce Labs will use the following version of Selenium, depending on your selected combination of browser and operating system. While Selenium 3 is not yet fully implemented as a default version, it is supported for all Chrome and Firefox browsers on Mac and Windows platforms, for Safari 14+ on macOS 11 and higher, and for Microsoft Edge and IE browsers version 10 and above. Currently Sauce Labs supports Selenium 3.4.0+ for Firefox and Safari and Selenium 3.5.0+ for Microsoft Edge and Chrome.
+By default, Sauce Labs will use the following version of Selenium, depending on your selected combination of browser and operating system. While Selenium 3 is not yet fully implemented as a default version, it is supported for all Chrome and Firefox browsers on Mac and Windows platforms, for Safari 14+ on macOS 11 and higher, and for Microsoft Edge and IE browsers version 10 and above. Sauce Labs supports Selenium 3.4.0+ for Firefox and Safari and Selenium 3.5.0+ for Microsoft Edge and Chrome.
 
 | Browser Name      | Default Selenium Version                                  |
 | ----------------- | --------------------------------------------------------- |
