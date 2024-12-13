@@ -2006,38 +2006,6 @@ Appium tests for the Real Device Cloud using the W3C protocol MUST use `tunnelNa
 
 ---
 
-### `recordVideo`
-
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
-
-Use this to disable video recording. By default, Sauce Labs records a video of every test you run. Disabling video recording can be useful for debugging failing tests as well as having a visual confirmation that a certain feature works (or still works). However, there is an added wait time for screen recording during a test run.
-
-```java
-MutableCapabilities capabilities = new MutableCapabilities();
-//...
-MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("recordVideo", false);
-capabilities.setCapability("sauce:options", sauceOptions);
-```
-
----
-
-### `videoUploadOnPass`
-
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
-
-Disables video upload for passing tests. `videoUploadOnPass` is an alternative to `recordVideo`; it lets you discard videos for tests you've marked as passing. It disables video post-processing and uploading that may otherwise consume some extra time after your test is complete.
-
-```java
-MutableCapabilities capabilities = new MutableCapabilities();
-//...
-MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("videoUploadOnPass", false);
-capabilities.setCapability("sauce:options", sauceOptions);
-```
-
----
-
 ### `recordScreenshots`
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
@@ -2139,6 +2107,22 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
+### `recordVideo`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Use this to disable video recording. By default, Sauce Labs records a video of every test you run. Disabling video recording can be useful for debugging failing tests as well as having a visual confirmation that a certain feature works (or still works). However, there is an added wait time for screen recording during a test run.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("recordVideo", false);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
 ### `timeZone`
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">Desktop and Virtual Devices Only</span> |</small></p>
@@ -2183,6 +2167,22 @@ The time zone identifier must be a valid name from the list of
 The time zone is changed on the *per-application* basis and is only valid for the application under test.
 The same behavior could be achieved by providing a custom value to the
 [TZ](https://developer.apple.com/forums/thread/86951#263395) environment variable via the `appium:processArguments` capability.
+
+---
+
+### `videoUploadOnPass`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+Disables video upload for passing tests. `videoUploadOnPass` is an alternative to `recordVideo`; it lets you discard videos for tests you've marked as passing. It disables video post-processing and uploading that may otherwise consume some extra time after your test is complete.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("videoUploadOnPass", false);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
 
 ---
 
