@@ -416,7 +416,7 @@ npm:
       auth: base64SecretToken
       username: myUsername
       password: myPassword
-      email: myEmail 
+      email: myEmail
 ```
 
 ---
@@ -548,7 +548,7 @@ Do not use `dependencies` and `packages` at the same time.
 
 ### `usePackageLock`
 
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">TestCafe 3.6.2+</span> | <span className="sauceGreen">saucectl 0.187.0+</span> |</small></p>
 
 Specifies whether to use the project's package-lock.json when installing npm
 dependencies. If true, package-lock.json will be used during package
@@ -751,7 +751,7 @@ artifacts:
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 Define directories to archive and retain as a test asset at the end of a test run. Archived test assets can
-be downloaded automatically using the `download` configuration, via the 
+be downloaded automatically using the `download` configuration, via the
 [REST API](/dev/api/jobs/#get-a-job-asset-file), or through the test details page.
 
 ```yaml

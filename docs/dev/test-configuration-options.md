@@ -93,7 +93,7 @@ This setting cannot be used for mobile browsers, as your test will use the defau
 Identifies the name of the operating system the browser or mobile device should be running on. You can use this for [dynamic device allocation](/mobile-apps/supported-devices#static-and-dynamic-device-allocation). Values are not case-sensitive (i.e., `"ios"` is the same as `"iOS"`). See the [WebDriver W3C Specification](https://w3c.github.io/webdriver/#dfn-platform-name) for more information.
 
 ```java
-"platformName": "macOS 10.13"
+"platformName": "macOS 11"
 ```
 
 ---
@@ -1418,9 +1418,11 @@ Controls Sauce Labs default resigning (iOS) or instrumentation (Android) of mobi
 
 When set to `true`, Sauce Labs will resign the app under test with its own signature. This is required for iOS apps to be installed on our devices, but also to support features like:
 
+- [Vitals](#vitals)
 - [Network Capture](#networkcapture)
-- [Image Injection](#saucelabsimageinjectionenabled)
-- [Biometrics interception](#allowtouchidenroll)
+- [Image Injection](#imageinjection)
+- [Biometrics interception](#biometricsinterception)
+- [Crash Reporting](#crashreporting)
 
 And many more. This value can be set to `false` to allow testing of specific behaviors that are not permitted under the Sauce Labs provisioning. See [Resigning Enablements](/mobile-apps/automated-testing/ipa-files/#sauce-labs-resigning-enablements) for more information. This capability can only be set to `false` for iOS private devices.
 
@@ -1428,9 +1430,11 @@ And many more. This value can be set to `false` to allow testing of specific beh
 
 When set to `true`, Sauce Labs will instrument the app under test with its own signature. This is required for Android apps if you want to use features like:
 
+- [Vitals](#vitals)
 - [Network Capture](#networkcapture)
-- [Image Injection](#saucelabsimageinjectionenabled)
-- [Biometrics interception](#allowtouchidenroll)
+- [Image Injection](#imageinjection)
+- [Biometrics interception](#biometricsinterception)
+- [Crash Reporting](#crashreporting)
 
 and many more. This value can be set to `false` and can be used for private and public devices.
 
@@ -1448,7 +1452,23 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
-### `sauceLabsImageInjectionEnabled`
+### `vitals`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Vitals enables memory, cpu, performance stats alongside UI interactions during the session.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("vitals", true);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `imageInjection`
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
@@ -1458,13 +1478,13 @@ Enables the [camera image injection](/mobile-apps/features/camera-image-injectio
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("sauceLabsImageInjectionEnabled", true);
+sauceOptions.setCapability("imageInjection", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
-### `sauceLabsBypassScreenshotRestriction`
+### `bypassScreenshotRestriction`
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">Android Only</span> |</small></p>
 
@@ -1474,13 +1494,13 @@ Bypasses the restriction on taking screenshots for secure screens (i.e., secure 
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("sauceLabsBypassScreenshotRestriction", true);
+sauceOptions.setCapability("bypassScreenshotRestriction", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
 ---
 
-### `allowTouchIdEnroll`
+### `biometricsInterception`
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
@@ -1490,7 +1510,23 @@ Enables the interception of biometric input, allowing the test to simulate Touch
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
-sauceOptions.setCapability("allowTouchIdEnroll", true);
+sauceOptions.setCapability("biometricsInterception", true);
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `crashReporting`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Enables capturing and inclusion of detailed stack traces in the test results, providing insights into any application crashes that occur during testing.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("crashReporting", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
 
