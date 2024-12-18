@@ -61,6 +61,12 @@ With Sauce Labs Real Device usage analytics your organization can get a view of 
  
 <img src={useBaseUrl('img/insights/Private-usage-hourly.png')} alt="Private Real Device usage at hourly granularity"/>
 
+### Visual Snapshot Usage
+
+Visual Usage Analytics helps to maintain a consistent assessment of snapshot usage and uncover trends. Compare monthly data with daily granularity to track usage over time, use filters to identify key trends, or drill down into team-by-team usage. Empower your organization to make more informed decisions with on-demand data, directly available in the Sauce Labs UI.
+
+<img src={useBaseUrl('img/insights/visual_usage.png')} alt="Visual Snapshot Usage"/>
+
 ## Usage Reporting Email Notifications
 
 Get clear and consistent updates delivered directly to your inbox when your organization is reaching or approaching different limits of your concurrency subscription. All the benefits of our Usage reporting like visualizing the concurrency usage at an organization level or by team level, comparing concurrency usage between teams, and visualizing the maximum concurrency usage as it approaches the subscription limit are still present in the Usage tab, now with the added benefit of getting better visibility into your subscription usage on a consistent basis via email.
