@@ -199,20 +199,20 @@ https://github.com/saucelabs-training/demo-ruby/blob/docs-1.0/sauce-features/acc
 </TabItem>
 <TabItem value="csharp">
 
-To get accessibility results with C# and .NET, we recommend using [Selenium.Axe for .NET](https://github.com/TroyWalshProf/SeleniumAxeDotnet/), version 3.0 or higher.
+To get accessibility results with C# and .NET, we recommend using [Deque.AxeCore.Selenium for .NET](https://www.nuget.org/packages/Deque.AxeCore.Selenium/), version 3.0 or higher.
 
 **Requirements**
 
 1. Install via NuGet, in the Package Manager Console.
 
 ```shell
-Install-Package Selenium.Axe
+Install-Package Deque.AxeCore.Selenium
 ```
 
 1. Import the namespace.
 
 ```csharp
-using Selenium.Axe;
+using Deque.AxeCore.Selenium;
 ```
 
 **Usage**
@@ -223,7 +223,7 @@ This method populates results on the Sauce Labs Accessibility tab:
 AxeResult axeResult = new AxeBuilder(webDriver).Analyze();
 ```
 
-For more detailed usage, see [Selenium.Axe for .NET](https://troywalshprof.github.io/SeleniumAxeDotnet/#/).
+For more detailed usage, see [Deque.AxeCore.Selenium for .NET](https://www.nuget.org/packages/Deque.AxeCore.Selenium/).
 
 </TabItem>
 </Tabs>
@@ -237,4 +237,4 @@ For more detailed usage, see [Selenium.Axe for .NET](https://troywalshprof.githu
 - [Sa11y - Selenium Accessibility for Python & Ruby](https://github.com/saucelabs/sa11y)
 - [Deque `axe-core` Example WebdriverIO Project](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/webdriverio)
 - [Documentation about the chainable `axe` API for WebdriverIO](https://www.npmjs.com/package/@axe-core/webdriverio)
-- [Selenium.Axe for .NET](https://github.com/TroyWalshProf/SeleniumAxeDotnet/)
+- [Deque.AxeCore.Selenium for .NET](https://www.nuget.org/packages/Deque.AxeCore.Selenium/)
