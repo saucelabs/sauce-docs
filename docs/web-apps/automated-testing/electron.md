@@ -31,9 +31,9 @@ Upload a zip or dmg archive file containing your Electron app via [REST API](/mo
 
 ### Binary location
 
-The `binary_location` is the folderpath and filename of your Electron executable within your archive file structure.
+The `binary_location` is the folderpath and filename of your Electron executable in your archive file structure.
 
-You don't normally need to provide this field. If you omit it, our systems will do their best to find the executable within the file you uploaded.
+You don't normally need to provide this field. If you omit it, our systems will do their best to find the executable in the file you uploaded.
 
 If that fails, provide the binary path as described below.
 
