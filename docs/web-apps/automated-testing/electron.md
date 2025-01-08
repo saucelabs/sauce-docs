@@ -21,19 +21,23 @@ Sauce Labs currently supports the following test configurations for Electron.
   - MacOS 13
   - (Linux support to be decided)
 - Electron versions
-  - versions 5 - 31 inclusive
+  - versions 5 - 32 inclusive
 
 ## How to Get Started
 
 ### App management
 
-Upload a zip file containing your Electron app via [REST API](/mobile-apps/app-storage/#upload-apps-via-rest-api). You can refer to uploaded apps by either the file ID or filename. Note that as with mobile apps, Electron apps are accessible only to members of the same team, and retained for 60 days.
+Upload a zip or dmg archive file containing your Electron app via [REST API](/mobile-apps/app-storage/#upload-apps-via-rest-api). You can refer to uploaded apps by either the file ID or filename. Note that as with mobile apps, Electron apps are accessible only to members of the same team, and retained for 60 days.
 
 ### Binary location
 
-The `binary_location` is the folderpath and filename of your Electron executable within your zip file structure.
+The `binary_location` is the folderpath and filename of your Electron executable in your archive file structure.
 
-For example, if your zip file is structured like this:
+You don't normally need to provide this field. If you omit it, our systems will do their best to find the executable in the file you uploaded.
+
+If that fails, provide the binary path as described below.
+
+If your archive file is structured like this:
 ```
 SauceLabsElectronAppv1.zip
 -- [ Sauce Labs Test ]
