@@ -4,6 +4,5 @@ title: Downloading Sauce Connect Proxy
 sidebar_label: Download
 ---
 
-Sauce Connect 4 has entered end-of-life status. The servers will be turned off on May 5, 2025.
-
-We recommend upgrading to [Sauce Connect 5](/secure-connections/sauce-connect-5/installation).
+Sauce Connect 4 is reaching end-of-life status.
+Starting May 5, 2025, servers will no longer support Sauce Connect version 4 traffic. To avoid interruptions, upgrade to [Sauce Connect 5](/secure-connections/sauce-connect-5/migrating) at your earliest convenience.
