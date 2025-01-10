@@ -46,6 +46,7 @@ Sauce Connect Proxy makes its initial connection to saucelabs.com. After that, i
 | Description                  | Endpoint                                        |
 | ---------------------------- | ----------------------------------------------- |
 | OnDemand Endpoint            | https://ondemand.us-west-1.saucelabs.com/wd/hub |
+| Websocket Endpoint           | wss://ws.us-west-4-i3er.saucelabs.com:443       |
 | REST API                     | api.us-west-1.saucelabs.com                     |
 | Sauce Connect Tunnel Servers | maki\*.miso.saucelabs.com:443                   |
 
