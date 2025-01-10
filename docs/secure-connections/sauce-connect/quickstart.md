@@ -8,8 +8,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::caution Sauce Connect Proxy 5 is released
-Please refer to [Sauce Connect Proxy 5 Quickstart Guide](/secure-connections/sauce-connect-5/quickstart/) for the latest quickstart guide.
+:::caution Important Notice: Sauce Connect 4 is reaching end-of-life status.
+Starting May 5, 2025, servers will no longer support Sauce Connect version 4 traffic. To avoid interruptions, upgrade to [Sauce Connect 5](/secure-connections/sauce-connect-5/migrating) at your earliest convenience.
 :::
 
 Sauce Connect is required to run a local test on an app or website located behind a firewall. Get up and running with a basic Sauce Connect Proxy tunnel in minutes using the steps below.
