@@ -168,13 +168,13 @@ Test names are limited to 255 characters. The use of emojis is not supported in 
 
 You can run multiple live test sessions at the same time, with the number of tests limited by the concurrency allowance associated with your account. To run tests in parallel, open a new browser tab and follow the steps to set up the new session. You can switch back and forth between the sessions by clicking on the browser tabs.
 
-### Time Limits and Timeouts for Cross Broswer Testing
+### Time Limits and Timeouts for Cross Browser Testing
 
 For VDC and EmuSIM, the global limitations for the live session duration are:
 
-- Cross Browser tests for free users have a 11 minute limit from session start.
+- Cross Browser tests for free users have an 11-minute limit from the session start.
 - Cross Browser tests for paid users are limited to three hours.
-- Cross Browser tests for all accounts will timeout after 90 seconds if the session is not active (that is, has no active channels).
+- Cross Browser tests for all accounts will timeout after 90 seconds if the session is not active (that is, it has no active channels).
 
 If there is no activity a user is automatically logged out after 30 min.
 

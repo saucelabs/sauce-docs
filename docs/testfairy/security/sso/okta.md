@@ -32,3 +32,6 @@ To import groups each time a user signs into TestFairy:
 1. Open the TestFairy app in your OKTA account, select **Sign On**, and click **Edit**.
 1. Click on **Attributes**.
 1. Under **Group Attribute Statements**, add a rule with the name: "groups" (in **lowercase**) and filter "Matches regex" with value `.*`. (dot asterisk).
+1. Note: We recommend adding at least one **Attribute Statement** (e.g., email), as shown below. Failing to do so may prevent SAML from including group data in the response. 
+
+<img src={useBaseUrl('img/test-fairy/security/okta-groups-attributes.png')} alt="Okta groups attributes" width="700"/>
