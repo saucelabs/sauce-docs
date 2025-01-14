@@ -217,22 +217,22 @@ The following list of custom Appium plugins are supported:
         This is a collection of drivers that were released in this version <br />
        <ul>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%402.11.2" target="_blank">
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.13.1" target="_blank">
               <code>appium</code>: 2.13.1
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.9.0" target="_blank">
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.11.0" target="_blank">
               <code>appium-flutter-driver</code>: 2.11.0
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.7.4" target="_blank">
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.9.6" target="_blank">
               <code>appium-uiautomator2-driver</code>: 3.9.6
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.24.6" target="_blank">
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.35.0" target="_blank">
               <code>appium-xcuitest-driver</code>: 7.35.0
             </a>
           </li>
@@ -292,22 +292,22 @@ The following list of custom Appium plugins are supported:
         This is a collection of drivers that were released in January 1st 2025 <br />
         <ul>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%402.11.2" target="_blank">
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.13.1" target="_blank">
               <code>appium</code>: 2.13.1
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.9.0" target="_blank">
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.11.0" target="_blank">
               <code>appium-flutter-driver</code>: 2.11.0
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.7.4" target="_blank">
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.9.6" target="_blank">
               <code>appium-uiautomator2-driver</code>: 3.9.6
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.24.6" target="_blank">
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.35.0" target="_blank">
               <code>appium-xcuitest-driver</code>: 7.35.0
             </a>
           </li>
@@ -330,22 +330,22 @@ The following list of custom Appium plugins are supported:
         This is a collection of drivers that were released in September 1st 2024 <br />
         <ul>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%402.11.2" target="_blank">
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.11.3" target="_blank">
               <code>appium</code>: 2.11.3
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.9.0" target="_blank">
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.9.2" target="_blank">
               <code>appium-flutter-driver</code>: 2.9.2
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.7.4" target="_blank">
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.7.8" target="_blank">
               <code>appium-uiautomator2-driver</code>: 3.7.8
             </a>
           </li>
           <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.24.6" target="_blank">
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.25.0" target="_blank">
               <code>appium-xcuitest-driver</code>: 7.25.0
             </a>
           </li>
