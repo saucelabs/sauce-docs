@@ -244,7 +244,7 @@ https://app.saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
 To embed the page for EU DC test, you need to use the `app.eu-central-1.saucelabs.com` domain.
 
 ```js
-https://app.[eu-central-1|us-east-1].saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
+https://app.eu-central-1.saucelabs.com/video-embed/YOUR_JOB_ID.js?auth=AUTH_TOKEN
 ```
 
 ### Embedding Full Test Pages

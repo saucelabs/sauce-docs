@@ -26,7 +26,7 @@
           "description":"region of datacenter",
           "enum":[
             "us-west-1",
-            "us-east-1",
+            "us-east-4",
             "eu-central-1",
             "staging"
           ]
