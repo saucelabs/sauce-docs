@@ -1333,7 +1333,7 @@ Instrumentation settings for real device tests.
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Overwrite app settings for real device to enable vitals.
+Configure app settings for real device to enable vitals.
 
 ```yaml
     vitals: true
@@ -1357,7 +1357,7 @@ Record network traffic for HTTP/HTTPS requests during app tests on real devices.
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Overwrite app settings for real device to intercept biometric authentication.
+Configure app settings for real device to intercept biometric authentication.
 
 ```yaml
     biometrics: true
@@ -1369,7 +1369,7 @@ Overwrite app settings for real device to intercept biometric authentication.
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Overwrite app settings for real device to enable screenshot restriction.
+Configure app settings for real device to enable bypassing of screenshot restriction.
 
 ```yaml
     bypassScreenshotRestriction: true
@@ -1381,7 +1381,7 @@ Overwrite app settings for real device to enable screenshot restriction.
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Overwrite app settings for real device to inject provided images in the user app.
+Configure app settings for real device to inject provided images in the user app.
 
 ```yaml
     imageInjection: true
