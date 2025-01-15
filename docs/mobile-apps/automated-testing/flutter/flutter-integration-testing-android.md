@@ -72,7 +72,7 @@ Follow this guide to run [integration tests](https://docs.flutter.dev/cookbook/t
 5. Create a directory called `integration_test` in the root of your Flutter project.
 6. Create a file called `flutter_integration_test.dart` in the `integration_test` directory.
 7. Update your testing dart file `flutter_integration_test.dart` to include the ***tearDownAll***, 
-   The purpose for this is to make sure we close the connection to the driver after the tests have completed.
+   The purpose for this is to make sure we close the connection to the device after the tests have completed.
     ```dart
     import 'package:flutter/material.dart';
     import 'package:flutter_test/flutter_test.dart';
@@ -118,7 +118,7 @@ Follow this guide to run [integration tests](https://docs.flutter.dev/cookbook/t
 
 9. Configure `saucectl` to run the test.
    * Create a folder `saucectl` in your project root directory. 
-   * Inside this folder create a `flutter_integration_test.yaml` with the following content:
+   * Inside this folder create a `flutter_integration_test_android.yaml` with the following content:
    ```yaml
    apiVersion: v1alpha
    kind: espresso
