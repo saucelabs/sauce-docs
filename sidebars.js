@@ -1438,6 +1438,7 @@ module.exports = {
                             items: [
                                 'mobile-apps/automated-testing/flutter',
                                 'mobile-apps/automated-testing/flutter/flutter-integration-testing-android',
+                                'mobile-apps/automated-testing/flutter/flutter-integration-testing-ios',
                             ],
                         },
                         'mobile-apps/automated-testing/ipa-files',
@@ -1728,7 +1729,7 @@ module.exports = {
                         'visual-testing/integrations/python',
                         'visual-testing/integrations/python-robot-framework',
                         'visual-testing/integrations/playwright',
-                        'visual-testing/integrations/espresso'
+                        'visual-testing/integrations/espresso',
                     ],
                 },
                 'visual-testing/cli',
