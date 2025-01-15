@@ -858,7 +858,7 @@ suites:
 
 ---
 
-#### `networkCapture`
+##### `networkCapture`
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
