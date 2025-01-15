@@ -842,6 +842,22 @@ suites:
 
 ---
 
+##### `vitals`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Configure app settings for real device to enable vitals.
+
+```yaml
+suites:
+   - name: My Saucy Test
+     appSettings:
+        instrumentation:
+          vitals: true
+```
+
+---
+
 #### `networkCapture`
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
@@ -854,6 +870,70 @@ suites:
     appSettings:
       instrumentation:
         networkCapture: true
+```
+
+---
+
+##### `biometrics`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Configure app settings for real device to intercept biometric authentication.
+
+```yaml
+suites:
+   - name: My Saucy Test
+     appSettings:
+        instrumentation:
+          biometrics: true
+```
+
+---
+
+##### `groupDirectory`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Configure app settings for real device to enable group directory access.
+
+```yaml
+suites:
+   - name: My Saucy Test
+     appSettings:
+        instrumentation:
+          groupDirectory: true
+```
+
+---
+
+##### `sysAlertsDelay`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Configure app settings for real device to delay system alerts.
+
+```yaml
+suites:
+   - name: My Saucy Test
+     appSettings:
+        instrumentation:
+          sysAlertsDelay: true
+```
+
+---
+
+##### `imageInjection`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Configure app settings for real device to inject provided images in the user app.
+
+```yaml
+suites:
+   - name: My Saucy Test
+     appSettings:
+        instrumentation:
+          imageInjection: true
 ```
 
 ---
