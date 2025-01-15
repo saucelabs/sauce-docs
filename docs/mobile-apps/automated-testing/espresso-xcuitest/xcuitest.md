@@ -846,7 +846,7 @@ suites:
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Overwrite app settings for real device to enable vitals.
+Configure app settings for real device to enable vitals.
 
 ```yaml
 suites:
@@ -878,7 +878,7 @@ suites:
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Overwrite app settings for real device to intercept biometric authentication.
+Configure app settings for real device to intercept biometric authentication.
 
 ```yaml
 suites:
@@ -894,7 +894,7 @@ suites:
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Overwrite app settings for real device to enable group directory access.
+Configure app settings for real device to enable group directory access.
 
 ```yaml
 suites:
@@ -910,7 +910,7 @@ suites:
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Overwrite app settings for real device to delay system alerts.
+Configure app settings for real device to delay system alerts.
 
 ```yaml
 suites:
@@ -926,7 +926,7 @@ suites:
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Overwrite app settings for real device to inject provided images in the user app.
+Configure app settings for real device to inject provided images in the user app.
 
 ```yaml
 suites:
