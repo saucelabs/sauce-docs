@@ -36,6 +36,10 @@ Streamline your build process and upload APKs or IPAs directly to TestFairy.
 
 [Lumberyard](/testfairy/platforms/lumberyard)
 
+:::note
+For the EU based instance, please use `https://mobile.eu-central-1.saucelabs.com/api/upload`
+
+
 ### Upload API
 
 <details>
