@@ -20,6 +20,7 @@ Flutter compiles iOS [integration tests](https://docs.flutter.dev/cookbook/testi
 1. [How to compile your flutter-ios app into an `.ipa` file.](#1-how-to-compile-your-flutter-ios-app-into-an-ipa-file)
 2. [How to generate the `.xctestrun` config file.](#2-how-to-generate-the-xctestrun-config-file)
 3. [How to run the flutter-ios integration test on Sauce Labs infrastructure.](#3-how-to-run-flutter-ios-integration-tests-on-sauce-labs-infrastructure)
+4. [Sample Implementation](#example-implementation)
 
 
 ## What You'll Need
@@ -90,7 +91,7 @@ To run your flutter XCTest on sauce you have two options: use `saucectl` or inte
 
 ### Run XCTests via saucectl
 
-1. Install [saucectl](/docs/dev/cli/saucectl.md#installing-saucectl).
+First install [saucectl](/docs/dev/cli/saucectl.md#installing-saucectl). Then, ...
 
 ```shell
 # if you did not setup saucectl yet, run:
@@ -105,7 +106,7 @@ saucectl run
 
 For further configuration options and info on how to use `saucectl` visit [/docs/mobile-apps/automated-testing/espresso-xcuitest/xcuitest.md](/docs/mobile-apps/automated-testing/espresso-xcuitest/xcuitest.md)
 
-### Run XCtests without saucectl
+### Run XCTests without saucectl
 
 If you prefer not to use saucectl, you can also directly integrate with our APIs. 
 
