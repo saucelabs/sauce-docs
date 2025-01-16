@@ -222,6 +222,14 @@ In the case of an error, TestFairy returns a JSON with `status` => `fail` and `c
 
 To get your API KEY, open your account preferences at https://app.testfairy.com/settings/ and click on **Upload API Key**.
 
+:::note
+For the EU instance please use the link listed below.
+
+```text
+https://mobile.eu-central-1.saucelabs.com/settings/access-key
+```
+:::
+
 ### How Can I Create a New API Key?
 
 To create a new API KEY, click on **Regenerate API Key** on your account preferences page.
