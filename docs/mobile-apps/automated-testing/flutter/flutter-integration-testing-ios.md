@@ -13,7 +13,7 @@ Flutter compiles iOS [integration tests](https://docs.flutter.dev/cookbook/testi
 
 **To run a XCTest (or 'flutter test') on Sauce Labs we need two test artifacts from you:** 
 1. Your flutter-ios app compiled as an `.ipa` or `.app` file.
-2. The`.xctestrun` file for that app. The [.xctestrun file](https://keith.github.io/xcode-man-pages/xcodebuild.xctestrun.5.html) is the config for your test, this is the same config that xcode uses when it runs your tests on your development machine.
+2. The `.xctestrun` file for that app. The [.xctestrun file](https://keith.github.io/xcode-man-pages/xcodebuild.xctestrun.5.html) is the config for your test, this is the same config that xcode uses when it runs your tests on your development machine.
 
 
 ## Contents
@@ -23,7 +23,7 @@ Flutter compiles iOS [integration tests](https://docs.flutter.dev/cookbook/testi
 4. [Sample Implementation](#example-implementation)
 
 
-## What You'll Need
+:::info What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for
   a [free trial license](https://saucelabs.com/sign-up))
@@ -33,15 +33,16 @@ Flutter compiles iOS [integration tests](https://docs.flutter.dev/cookbook/testi
     - [Sauce Labs Flutter Demo App](https://github.com/saucelabs/my-demo-app-flutter)
 - `xcodebuild` tools
 - `zip` and/or `saucectl`
-
+:::
 
 ## 1. How to compile your flutter-ios app into an `.ipa` file
 
-:::note
+:::note You need an '.app' and '.xctestrun' file
+
 Before you compile your application into an `.ipa` file please ensure that you have setup the `integration_tests` for your flutter-ios app correctly. You can follow the [flutter documentation](https://github.com/flutter/flutter/tree/main/packages/integration_test#integration_test) to do so, the most relevant section is the part on [iOS Device Testing](https://github.com/flutter/flutter/tree/main/packages/integration_test#ios-device-testing). You can stop following flutters guide after you have executed the `xcodebuild build-for-testing` command. This command will generate the `.app` and `.xctestrun` file.
 :::
 
-An `ipa` file is basically just a zip of your `.app` file, where the `.app` is located in a `/Payload` directory. As in `/Payload/SaucelabsDemo.app`. You can either manually create the `.ipa` file with the following guide, **Or you can let `saucectl` handle this for you automatically**, by passing the `.app` file directly to `saucectl`. **In this case you can skip immediatly to the next section:** [How to generate the `.xctestrun` config file](#2-how-to-generate-the-xctestrun-config-file).
+An `ipa` file is basically just a zip of your `.app` file, where the `.app` is located in a `/Payload` directory, as in: `/Payload/SaucelabsDemo.app`. You can either manually create the `.ipa` file with the following guide, **Or you can let `saucectl` handle this for you automatically**, by passing the `.app` file directly to `saucectl`. **In this case you can skip immediatly to the next section:** [How to generate the `.xctestrun` config file](#2-how-to-generate-the-xctestrun-config-file).
 
 ```shell
 # build your app with xcode according to your app configuration. 
