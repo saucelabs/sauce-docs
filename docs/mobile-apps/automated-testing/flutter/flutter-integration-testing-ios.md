@@ -38,11 +38,11 @@ Before you continue, please ensure that you have set up your flutter app correct
 ## 1. How to compile your flutter-ios app into an `.ipa` file
 
 :::note
-Before you compile your application into an `.ipa` file please ensure that you have setup the `integration_tests` for your flutter-ios app correctly. You can follow the [flutter documentation](https://github.com/flutter/flutter/tree/main/packages/integration_test) to do so, the most relevant section is the part on [iOS Device Testing](https://github.com/flutter/flutter/tree/main/packages/integration_test#ios-device-testing).
+Before you compile your application into an `.ipa` file please ensure that you have setup the `integration_tests` for your flutter-ios app correctly. You can follow the [flutter documentation](https://github.com/flutter/flutter/tree/main/packages/integration_test) to do so, the most relevant section is the part on [iOS Device Testing](https://github.com/flutter/flutter/tree/main/packages/integration_test#ios-device-testing). You can stop following flutters guide after you have executed the `xcodebuild build-for-testing` command. This command will generate the `.app` and `.xctestrun` file.
 :::
 
 
-An ipa file is basically just a zip of your `.app` file, where the `.app` is located in a `/Payload` folder. As in `/Payload/SaucelabsDemo.app`. You can either manually create the `.ipa` file with the following guide, **Or you can let `saucectl` handle this for you automatically**, by passing the `.app` file directly to `saucectl`. **In this case you can skip immediatly to the next section:** [How to generate the `.xctestrun` config file.](#2-how-to-generate-the-xctestrun-config-file)
+An ipa file is basically just a zip of your `.app` file, where the `.app` is located in a `/Payload` folder. As in `/Payload/SaucelabsDemo.app`. You can either manually create the `.ipa` file with the following guide, **Or you can let `saucectl` handle this for you automatically**, by passing the `.app` file directly to `saucectl`. **In this case you can skip immediatly to the next section:** [How to generate the `.xctestrun` config file](#2-how-to-generate-the-xctestrun-config-file).
 
 ```shell
 # build your app with xcode according to your app configuration and then locate the output folder.
