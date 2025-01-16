@@ -259,18 +259,18 @@ The following list of custom Appium plugins are supported:
         <br />
         <ul>
             <li>
-                <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/appium-setup" target="_blank">
-                    <code>axe-appium-xcuitest-driver </code>: 1.0.1
+                <a href="https://docs.deque.com/devtools-mobile/2024.9.18/en/appium-setup" target="_blank">
+                    <code>axe-appium-xcuitest-driver </code>: 1.1.0
                 </a>
             </li>
             <li>
-                <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/appium-setup" target="_blank">
-                    <code>axe-appium-uiautomator2-driver </code>: 1.1.0
+                <a href="https://docs.deque.com/devtools-mobile/2024.9.18/en/appium-setup" target="_blank">
+                    <code>axe-appium-uiautomator2-driver </code>: 1.2.0
                 </a>
             </li>
             <li>
-                <a href="https://github.com/appium/appium/releases/tag/appium%402.12.1" target="_blank">
-                    <code>appium</code>: 2.12.1
+                <a href="https://github.com/appium/appium/releases/tag/appium%402.15.0" target="_blank">
+                    <code>appium</code>: 2.15.0
                 </a>
             </li>
             <li>

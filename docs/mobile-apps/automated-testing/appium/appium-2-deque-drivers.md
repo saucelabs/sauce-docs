@@ -51,7 +51,7 @@ You can find more details on Sauce Labs' [Appium versions documentation](/mobile
     - axe-appium-uiautomator2-driver: Automation name is `AxeUIAutomator2`
     - axe-appium-xcuitest-driver: Automation name is `AxeXCUITEST`
 :::info Min iOS Version for `axe-appium-xcuitest-driver`:
-- You can use the `axe-appium-xcuitest-driver` only for devices with iOS 17 or above. 
+- You can use the `axe-appium-xcuitest-driver` only for devices with iOS 16 or above. 
 - To ensure compatibility, set the appium:platformVersion capability in your Appium configuration based on the iOS versions 
 supported by the axe-appium-xcuitest-driver. Refer to the [Deque documentation](https://docs.deque.com/devtools-mobile/appium-sauce) 
 for detailed requirements and supported versions.
@@ -99,7 +99,7 @@ const capabilities = {
 ```js
 const capabilities = {
   platformName: 'iOS',
-  'appium:platformVersion': '^1(7|8).*$', // The iOS driver will work only on devices running iOS 17 and above
+  'appium:platformVersion': '^1(6|7|8).*$', // The iOS driver will work only on devices running iOS 16 and above
   'appium:automationName': 'AxeXCUITEST', // New Automation name goes here
   'appium:app': 'storage:filename=XXXXXXXXXx',
   'appium:appPackage': 'xxxxxxxxxx',
@@ -158,7 +158,7 @@ the following drivers should be used to ensure compatibility and continued suppo
 ### Why Migrate?
 - Continued Support: The plugin will no longer receive updates, fixes, or enhancements.
 - Expanded Capabilities: The drivers offer better integration and updated functionalities for Android and iOS platforms.
-- Compliance with Modern Requirements: For iOS, the new driver supports devices running iOS 17 and above.
+- Compliance with Modern Requirements: For iOS, the new driver supports devices running iOS 16 and above.
 
 ### Migration Steps
 1. ****Update Your Appium Capabilities****
@@ -200,7 +200,7 @@ const capabilities = {
 ```js
 const capabilities = {
   platformName: 'iOS',
-  'appium:platformVersion': '^1(7|8).*$', // The iOS driver will work only on devices running iOS 17 and above
+  'appium:platformVersion': '^1(6|7|8).*$', // The iOS driver will work only on devices running iOS 16 and above
   'appium:automationName': 'AxeXCUITEST', // New Automation name goes here
   ...
   'sauce:options': {
@@ -237,6 +237,6 @@ await driver.execute('mobile: axeScan', scanSettings);
 
 - Ensure your Appium server is correctly set up to use the `appium2-deque-accessibility` version. 
 - Validate that your app and environment meet the OS version requirements for the selected Deque drivers. 
-- For iOS, remember that the AxeXCUITEST driver only works on devices running iOS 17 or above.
+- For iOS, remember that the AxeXCUITEST driver only works on devices running iOS 16 or above.
 - The axeDevToolsMobile plugin will remain available in the Sauce Labs cloud until January 31st 2025.
 - Use the Deque [documentation](https://docs.deque.com/devtools-mobile/appium-setup) for further driver-specific details.
