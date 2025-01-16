@@ -9,17 +9,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Flutter compiles iOS [integration tests](https://docs.flutter.dev/cookbook/testing/integration/introduction) into [XCTests](https://developer.apple.com/documentation/xctest) so that they can be executed on apple devices. In the following we will explain how to run XCTests on Sauce Labs infrastructure.
+Flutter compiles iOS [integration tests](https://docs.flutter.dev/cookbook/testing/integration/introduction) into [XCTests](https://developer.apple.com/documentation/xctest) so that they can be executed on apple devices. In the following we will explain how to run your XCTests on Sauce Labs infrastructure.
 
-To run a XCTest on Sauce Labs we need two test artifacts from you. First, your flutter-ios app compiled as an `.ipa` file, and second we need the `.xctestrun` file for that app. The [.xctestrun file](https://keith.github.io/xcode-man-pages/xcodebuild.xctestrun.5.html) is the config for your test, this is the same config that xcode uses when it runs your tests on your development machine.
+To run a XCTest (or 'flutter test') on Sauce Labs we need two test artifacts from you. First, your flutter-ios app compiled as an `.ipa` file, and second we need the `.xctestrun` file for that app. The [.xctestrun file](https://keith.github.io/xcode-man-pages/xcodebuild.xctestrun.5.html) is the config for your test, this is the same config that xcode uses when it runs your tests on your development machine.
 
+## Contents
 1. [How to compile your flutter-ios app into an `.ipa` file.](#1-how-to-compile-your-flutter-ios-app-into-an-ipa-file)
 2. [How to generate the `.xctestrun` config file.](#2-how-to-generate-the-xctestrun-config-file)
-3. [How to run the flutter-ios integration test on Sauce Labs infrastructure.](#3-how-to-run-the-flutter-ios-integration-test-on-sauce-labs-infrastructure)
-
-:::note
-Before you continue, please ensure that you have set up your flutter app correctly for ios integration testing and that your app contains a flutter integration test. [You can read up on that here in the official flutter doc](https://github.com/flutter/flutter/tree/main/packages/integration_test).
-:::
+3. [How to run the flutter-ios integration test on Sauce Labs infrastructure.](#3-how-to-run-flutter-ios-integration-tests-on-sauce-labs-infrastructure)
 
 
 ## What You'll Need
@@ -38,14 +35,13 @@ Before you continue, please ensure that you have set up your flutter app correct
 ## 1. How to compile your flutter-ios app into an `.ipa` file
 
 :::note
-Before you compile your application into an `.ipa` file please ensure that you have setup the `integration_tests` for your flutter-ios app correctly. You can follow the [flutter documentation](https://github.com/flutter/flutter/tree/main/packages/integration_test) to do so, the most relevant section is the part on [iOS Device Testing](https://github.com/flutter/flutter/tree/main/packages/integration_test#ios-device-testing). You can stop following flutters guide after you have executed the `xcodebuild build-for-testing` command. This command will generate the `.app` and `.xctestrun` file.
+Before you compile your application into an `.ipa` file please ensure that you have setup the `integration_tests` for your flutter-ios app correctly. You can follow the [flutter documentation](https://github.com/flutter/flutter/tree/main/packages/integration_test#integration_test) to do so, the most relevant section is the part on [iOS Device Testing](https://github.com/flutter/flutter/tree/main/packages/integration_test#ios-device-testing). You can stop following flutters guide after you have executed the `xcodebuild build-for-testing` command. This command will generate the `.app` and `.xctestrun` file.
 :::
 
-
-An ipa file is basically just a zip of your `.app` file, where the `.app` is located in a `/Payload` folder. As in `/Payload/SaucelabsDemo.app`. You can either manually create the `.ipa` file with the following guide, **Or you can let `saucectl` handle this for you automatically**, by passing the `.app` file directly to `saucectl`. **In this case you can skip immediatly to the next section:** [How to generate the `.xctestrun` config file](#2-how-to-generate-the-xctestrun-config-file).
+An `ipa` file is basically just a zip of your `.app` file, where the `.app` is located in a `/Payload` directory. As in `/Payload/SaucelabsDemo.app`. You can either manually create the `.ipa` file with the following guide, **Or you can let `saucectl` handle this for you automatically**, by passing the `.app` file directly to `saucectl`. **In this case you can skip immediatly to the next section:** [How to generate the `.xctestrun` config file](#2-how-to-generate-the-xctestrun-config-file).
 
 ```shell
-# build your app with xcode according to your app configuration and then locate the output folder.
+# build your app with xcode according to your app configuration. 
 # For example: 
 output="../build/ios_integ"
 xcodebuild build-for-testing \
@@ -56,9 +52,10 @@ xcodebuild build-for-testing \
   -derivedDataPath \
   $output -sdk iphoneos
 
-# Next we create the folder structure of the `.ipa` file, copy the `.app` into it and zip everything.
+# Now we create the .ipa file:
+# We create the expected /Payload directory, then we copy the `.app` into the /Payload dir and zip everything.
 mkdir Payload
-cp -r PATH_TO_APP/Runner.app Payload
+cp -r PATH_TO_BUILD_FOLDER/Runner.app Payload
 zip -r Payload.zip Payload
 zip -r Runner.ipa Payload
 ```
@@ -69,16 +66,29 @@ TODO the last zip command smells.
 
 By default xcode will not persist the `.xctestrun` file if you kick off a XCTest on your development machine. To persist the `.xctestrun` file we need to use the `xcodebuild` tool. You can follow [the offical flutter documentation](https://github.com/flutter/flutter/tree/main/packages/integration_test#ios-device-testing) until the `xcodebuild build-for-testing` step, to build your `.app` and `.xctestrun` file.  
 
-After the 'xcodebuild build-for-testing' command ran sucessfully the `.xctestrun` file will be located in your output directory (`Products/Release-iphoneos` by default). Remember the path to the `.xctestrun` file, we will need it in the next step.
+```shell
+# Here is a sample xcodebuild command to generate the app and .xctestrun file. 
+# You will need to adjust the config according to your app.
+output="../build/ios_integ"
+xcodebuild build-for-testing \
+  -workspace Runner.xcworkspace \
+  -scheme Runner \
+  -xcconfig Flutter/Release.xcconfig \
+  -configuration Release \
+  -derivedDataPath \
+  $output -sdk iphoneos
+```
+
+After the `xcodebuild build-for-testing` command ran sucessfully the `.xctestrun` file will be located in your output directory (`Products/Release-iphoneos` by default). Remember the path to the `.xctestrun` file, we will need it in the next step.
 
 
-## 3. How to run the flutter-ios integration test on Sauce Labs infrastructure.
+## 3. How to run flutter-ios integration tests on Sauce Labs infrastructure.
 
-To run your flutter XCTest on sauce you have two options: use `saucectl` or integrate with our APIs yourself. Using `saucectl` is very simple to get started. 
+To run your flutter XCTest on sauce you have two options: use `saucectl` or integrate with our APIs yourself. If you are unfamiliar with our APIs we recommed using `saucectl` for ease of use and getting you started quickly.
 
 ### Run XCTests via saucectl
 
-Install [saucectl](/docs/dev/cli/saucectl.md#installing-saucectl).
+1. Install [saucectl](/docs/dev/cli/saucectl.md#installing-saucectl).
 
 ```shell
 # if you did not setup saucectl yet, run:
