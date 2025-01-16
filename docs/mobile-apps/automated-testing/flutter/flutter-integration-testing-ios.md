@@ -11,7 +11,10 @@ import TabItem from '@theme/TabItem';
 
 Flutter compiles iOS [integration tests](https://docs.flutter.dev/cookbook/testing/integration/introduction) into [XCTests](https://developer.apple.com/documentation/xctest) so that they can be executed on apple devices. In the following we will explain how to run your XCTests on Sauce Labs infrastructure.
 
-To run a XCTest (or 'flutter test') on Sauce Labs we need two test artifacts from you. First, your flutter-ios app compiled as an `.ipa` file, and second we need the `.xctestrun` file for that app. The [.xctestrun file](https://keith.github.io/xcode-man-pages/xcodebuild.xctestrun.5.html) is the config for your test, this is the same config that xcode uses when it runs your tests on your development machine.
+**To run a XCTest (or 'flutter test') on Sauce Labs we need two test artifacts from you:** 
+1. Your flutter-ios app compiled as an `.ipa` or `.app` file.
+2. The`.xctestrun` file for that app. The [.xctestrun file](https://keith.github.io/xcode-man-pages/xcodebuild.xctestrun.5.html) is the config for your test, this is the same config that xcode uses when it runs your tests on your development machine.
+
 
 ## Contents
 1. [How to compile your flutter-ios app into an `.ipa` file.](#1-how-to-compile-your-flutter-ios-app-into-an-ipa-file)
@@ -27,9 +30,8 @@ To run a XCTest (or 'flutter test') on Sauce Labs we need two test artifacts fro
 - Access to Sauce Labs Real Devices. Sauce Labs currently only supports XCTests on Real Devices, not virtual.
 - Flutter mobile app. If you don't have one, you could use our Flutter Demo App:
     - [Sauce Labs Flutter Demo App](https://github.com/saucelabs/my-demo-app-flutter)
-- `xcode` build tools
-- possibly `zip`
-- possibly `saucectl`
+- `xcodebuild` tools
+- `zip` and/or `saucectl`
 
 
 ## 1. How to compile your flutter-ios app into an `.ipa` file
