@@ -1017,7 +1017,7 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ### Start a XCTest, XCUITest or Espresso Job
 
 <details>
-<summary><span className="api post">POST</span> <code>/v1/rdc/native-composer/tests;</code></summary>
+<summary><span className="api post">POST</span> <code>/v1/rdc/native-composer/tests</code></summary>
 <p/>
 
 Start a XCTest.
