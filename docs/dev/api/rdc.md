@@ -1014,6 +1014,156 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ---
 
+### Start a XCTest, XCUITest or Espresso Job
+
+<details>
+<summary><span className="api post">POST</span> <code>/v1/rdc/native-composer/tests;</code></summary>
+<p/>
+
+Start a XCTest.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>test_framework</code></td>
+       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The type of 'native' test you want to run, either 'XCUITEST', 'XCTEST', or 'ANDROID_INSTRUMENTATION' (espresso).</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>app_id</code></td>
+       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The id of the app you want to test. The app must be uploaded to Sauce Labs AppStorage. Format: `storage://filename=AnApp.ipa`, or `storage://{file_id}`, or just `{file_id}`.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>xc_test_run_file</code></td>
+       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The id of the `xctestrun` file (the xctest config). The file must be uploaded to Sauce Labs AppStorage. Format: `storage://filename=Runner.xctestrun`, or `storage://{file_id}`, or just `{file_id}`.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>device_query</code></td>
+       <td><p><small>| BODY | REQUIRED | OBJECT |</small></p><p>Defines on which device you want to run you test. The available attributes are:<ul><li><code>type</code> - <small>String of 'DynamicDeviceQuery'</small></li><li><code>device_name</code> - <small>String - regex to select a device.</small></li><li><code>os_version</code> - <small>String - regex to select a device version.</small></li></ul></p><p>The <code>type</code> parameter is required..</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tunnel_name</code></td>
+       <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>Assign a sauce connect tunnel to the job.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tunnel_owner</code></td>
+       <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>Define the name of the tunnel owner of the sauce connect tunnel you want to use.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>settings_overwrite</code></td>
+       <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>Define instrumentations settings you want to apply to your app.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>test_name</code></td>
+       <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>Assign a name to the job, to be displayed in the UI.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>build</code></td>
+       <td><p><small>| BODY | OPTIONAL | STRING |</small></p><p>Assign the job to a build. You can specify an existing build name or create a new one.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>tags</code></td>
+       <td><p><small>| BODY | OPTIONAL | ARRAY |</small></p><p>The set of tags to apply to the job.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/v1/rdc/native-composer/tests' \
+--header 'Content-Type: application/json'
+--data-raw '{
+    "test_framework": "XCTEST",
+    "test_name": "Your XCTest POC",
+    "app_id": "9349d683-5d26-46eb-a943-267cbe8b4deb",
+    "xc_test_run_file": "37eef454-a7f8-4a6d-a340-d39865ad6db3",
+    "device_query": {
+      "type": "DynamicDeviceQuery"
+    }
+}'
+```
+
+</TabItem>
+
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/v1/rdc/native-composer/tests' \
+--header 'Content-Type: application/json'
+--data-raw '{
+    "test_framework": "XCTEST",
+    "test_name": "Your XCTest POC",
+    "app_id": "9349d683-5d26-46eb-a943-267cbe8b4deb",
+    "xc_test_run_file": "37eef454-a7f8-4a6d-a340-d39865ad6db3",
+    "device_query": {
+      "type": "DynamicDeviceQuery"
+    }
+}'
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success.</td>
+  </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>400</code></td>
+    <td colSpan='2'>Bad Request.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+  "test_report": {
+    "id": "ef6058735d8d4dfa9e0077d250757aac",
+    "url": "https://api.eu-central-1.saucelabs.com/tests/ef6058735d8d4dfa9e0077d250757aac"
+  }
+}
+```
+
+</details>
+
+---
+
 ### Stop a Job
 
 <details>
