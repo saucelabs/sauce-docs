@@ -1028,7 +1028,7 @@ Start a XCTest.
   <tbody>
     <tr>
      <td><code>test_framework</code></td>
-       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The type of 'native' test you want to run, either 'XCUITEST', 'XCTEST', or 'ANDROID_INSTRUMENTATION' (espresso).</p></td>
+       <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The type of 'native' test you want to run, either 'XCUITEST', 'XCTEST', or 'ANDROID_INSTRUMENTATION' (Espresso).</p></td>
     </tr>
   </tbody>
   <tbody>
@@ -1046,7 +1046,7 @@ Start a XCTest.
   <tbody>
     <tr>
      <td><code>device_query</code></td>
-       <td><p><small>| BODY | REQUIRED | OBJECT |</small></p><p>Defines on which device you want to run you test. The available attributes are:<ul><li><code>type</code> - <small>String of 'DynamicDeviceQuery'</small></li><li><code>device_name</code> - <small>String - regex to select a device.</small></li><li><code>os_version</code> - <small>String - regex to select a device version.</small></li></ul></p><p>The <code>type</code> parameter is required..</p></td>
+       <td><p><small>| BODY | REQUIRED | OBJECT |</small></p><p>Defines on which device you want to run you test. The available attributes are:<ul><li><code>type</code> - <small>String of 'DynamicDeviceQuery'</small></li><li><code>device_name</code> - <small>String - regular expression to select a device.</small></li><li><code>os_version</code> - <small>String - regular expression to select a device version.</small></li></ul></p><p>The <code>type</code> parameter is required..</p></td>
     </tr>
   </tbody>
   <tbody>
