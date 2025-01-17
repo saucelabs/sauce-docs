@@ -208,11 +208,3 @@ Follow this guide to run [integration tests](https://docs.flutter.dev/cookbook/t
 
 For a practical example of how to set up and run integration tests for Flutter apps, you can refer to the [Sauce Labs Flutter demo application](https://github.com/saucelabs/my-demo-app-flutter) repository. 
 The steps outlined in this guide have already been implemented in that repository. You can follow along with the demo app to see how everything is configured and run your tests accordingly.
-
-## What's Next
-
-:::info Next step
-
-We're excited to share that Sauce Labs is actively working on expanding support for Flutter integration tests on iOS.
-Stay tuned for updates as we continue to develop this capability!
-:::
