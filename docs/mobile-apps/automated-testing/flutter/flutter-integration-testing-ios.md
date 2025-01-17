@@ -117,42 +117,10 @@ If you prefer not to use saucectl, you can also directly integrate with our APIs
 
 **Fourth**, you will need to poll the state of the job and wait until the `status` is `passed|failed|error|complete`. You can do this through the [Jobs API](/docs/dev/api/jobs.md#get-job-details).
 
+
 ## Example Implementation
 
 For a practical example of how to set up and run integration tests for Flutter apps, you can refer to
 the [Sauce Labs Flutter demo application](https://github.com/saucelabs/my-demo-app-flutter) repository.
 The steps outlined in this guide have already been implemented in that repository. You can follow along with the demo app to see how
 everything is configured and run your tests accordingly.
-
-## Open questions
-
-1. Select your `Team` for both Targets in the `Signing & Capabilities` section.
-1. Update your testing dart file `flutter_integration_test.dart` to include the ***tearDownAll***,
-    The purpose for this is to make sure we close the connection to the device after the tests have completed.
-     ```dart
-    // Add as app because we want to make sure the app loaded correctly on the device by calling the main function in the main dart file.
-     import 'package:my_demo/main.dart' as app;
-     void main() {
-    
-       // Ensure IntegrationTestWidgetsFlutterBinding is initialized
-       final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized() as IntegrationTestWidgetsFlutterBinding;
-    
-    
-       group('E2E Test With Flutter', (){
-         tearDownAll(() async {
-           // Signal that the test is complete
-           binding.reportData = <String, dynamic>{
-             'completed': true,
-           };
-         });
-    
-         testWidgets("Your flutter test", 
-         (tester) async {
-           app.main();
-           await tester.pumpAndSettle(); // wait for app to be ready. 
-          
-           ...
-         });
-       });
-     }
-    ```
