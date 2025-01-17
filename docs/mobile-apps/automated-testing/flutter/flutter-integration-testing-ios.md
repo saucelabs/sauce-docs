@@ -64,7 +64,7 @@ zip -r Runner.ipa Payload
 ```
 
 
-## 2. How to generate the '.xctestrun' config file.
+## 2. How to generate the '.xctestrun' config file
 
 By default xcode will not persist the `.xctestrun` file if you kick off a XCTest on your development machine. To persist the `.xctestrun` file we need to use the `xcodebuild` tool. You can follow [the offical flutter documentation](https://github.com/flutter/flutter/tree/main/packages/integration_test#ios-device-testing) until the `xcodebuild build-for-testing` step, to build your `.app` and `.xctestrun` file.
 
