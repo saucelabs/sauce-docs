@@ -35,6 +35,13 @@ In order to disable the resigning process, you must buy your own private devices
 3. Compress the `Payload` directory into an archive (.zip file) and give it a new name with .ipa appended to the end of the file name.
 4. Your `.ipa` file is now ready for upload to Sauce Labs.
 
+```shell
+# example for building an '.ipa' file out of an '.app'
+mkdir Payload
+cp -r PATH_TO_BUILD_FOLDER/Runner.app Payload
+zip -r Runner.ipa Payload
+```
+
 ### Building an .ipa File
 
 You can use any of the existing methods of distribution for your iOS app, except for the **App Store** type. This means that you can choose any of the three other export methods: **Ad Hoc**, **Enterprise**, or **Development**.
