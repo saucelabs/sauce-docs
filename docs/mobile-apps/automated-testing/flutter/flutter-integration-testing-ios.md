@@ -115,7 +115,7 @@ If you prefer not to use saucectl, you can also directly integrate with our APIs
 
 **Third**, you will need to call our native testing API with the AppStorage ids of the two files you just uploaded, see [RDC native /test API](/docs/dev/api/rdc.md#start-a-xctest-xcuitest-or-espresso-job).
 
-**Fourth**, you will need to poll the state of the job and wait until the `status` is `passed|failed|error|complete`. You can do this through the [Jobs API](/docs/dev/api/jobs.md#get-job-details).
+**Fourth**, you will need to poll the state of the job and wait until the `status` is `passed|failed|error|complete`. You can do this through the [Jobs API](/docs/dev/api/rdc.md#get-a-specific-real-device-job).
 
 
 ## Example Implementation
