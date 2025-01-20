@@ -17,8 +17,8 @@ Flutter compiles iOS [integration tests](https://docs.flutter.dev/cookbook/testi
 
 
 ## Contents
-1. [How to compile your flutter-iOS app into an `.ipa` file.](#1-how-to-compile-your-flutter-ios-app-into-an-ipa-file)
-2. [How to generate the `.xctestrun` config file.](#2-how-to-generate-the-xctestrun-config-file)
+1. [How to compile your flutter-iOS app into an '.app' or '.ipa' file.](#1-how-to-compile-your-flutter-ios-app-into-an-ipa-or-app-file)
+2. [How to generate the '.xctestrun' config file.](#2-how-to-generate-the-xctestrun-config-file)
 3. [How to run the flutter-iOS integration test on Sauce Labs infrastructure.](#3-how-to-run-flutter-ios-integration-tests-on-sauce-labs-infrastructure)
 4. [Sample Implementation](#example-implementation)
 
@@ -35,18 +35,22 @@ Flutter compiles iOS [integration tests](https://docs.flutter.dev/cookbook/testi
 - `zip` and/or `saucectl`
 :::
 
-## 1. How to compile your flutter-iOS app into an '.ipa' file
+## 1. How to compile your flutter-iOS app into an '.ipa' or '.app' file
 
 :::note You need an '.app' and '.xctestrun' file
 
-Before you compile your application into an `.ipa` file ensure that you have setup the `integration_tests` for your flutter-ios app correctly. You can follow the [flutter documentation](https://github.com/flutter/flutter/tree/main/packages/integration_test#integration_test) to do so, the most relevant section is the part on [iOS Device Testing](https://github.com/flutter/flutter/tree/main/packages/integration_test#ios-device-testing). You can stop following flutters guide after you have executed the `xcodebuild build-for-testing` command. This command will generate the `.app` and `.xctestrun` file.
+Before you compile your application into an `.ipa` or `.app` file ensure that you have setup the `integration_tests` for your flutter-ios app correctly. You can follow the [flutter documentation](https://github.com/flutter/flutter/tree/main/packages/integration_test#integration_test) to do so, the most relevant section is the part on [iOS Device Testing](https://github.com/flutter/flutter/tree/main/packages/integration_test#ios-device-testing). You can stop following flutters guide after you have executed the `xcodebuild build-for-testing` command. This command will generate the `.app` and `.xctestrun` file.
 :::
 
-An `ipa` file is basically just a zip of your `.app` file, where the `.app` is located in a `/Payload` directory, as in: `/Payload/SaucelabsDemo.app`. You can either manually create the `.ipa` file with the following guide, **Or you can let `saucectl` handle this for you automatically**, by passing the `.app` file directly to `saucectl`. **In this case you can skip immediatly to the next section:** [How to generate the `.xctestrun` config file](#2-how-to-generate-the-xctestrun-config-file).
+To execute your xctest, we require your app (which must be packaged together with your XCTests) in '.app' or '.ipa' format. If you have that already you can skip to [step 2](#2-how-to-generate-the-xctestrun-config-file).
+
+`saucectl` will accept both formats. If you don't want to use saucectl you will need to repackage your '.app' file into an '.ipa' file. [This guide explains how to transform you '.app' into an '.ipa'](/docs/mobile-apps/automated-testing/ipa-files.md#building-an-ipa-from-an-app-bundle).
+
+To compile your flutter app into a iOS '.app' file, you will need to use the `xcodebuild build-for-testing` command. Make sure you are using the correct `scheme` so it includes your integration tests.
 
 ```shell
-# build your app with xcode according to your app configuration.
-# For example:
+# Example of the xcodebuild command to build the application.
+# You will need to adjust the args according to your app.
 output="../build/ios_integ"
 xcodebuild build-for-testing \
   -workspace Runner.xcworkspace \
@@ -56,11 +60,7 @@ xcodebuild build-for-testing \
   -derivedDataPath \
   $output -sdk iphoneos
 
-# Now we create the .ipa file:
-# We create the expected /Payload directory, then we copy the `.app` into the /Payload dir and zip everything.
-mkdir Payload
-cp -r PATH_TO_BUILD_FOLDER/Runner.app Payload
-zip -r Runner.ipa Payload
+# The app will now be present in your output directory. In this case: `build/ios_integ/Products/Release-iphoneos`
 ```
 
 
@@ -70,7 +70,7 @@ By default xcode will not persist the `.xctestrun` file if you kick off a XCTest
 
 ```shell
 # Example of the xcodebuild command to build the application and generate the .xctestrun file.
-# You will need to adjust the config according to your app.
+# You will need to adjust the args according to your app.
 output="../build/ios_integ"
 xcodebuild build-for-testing \
   -workspace Runner.xcworkspace \
