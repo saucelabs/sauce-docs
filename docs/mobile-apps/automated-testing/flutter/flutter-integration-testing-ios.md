@@ -44,7 +44,7 @@ Before you compile your application into an `.ipa` or `.app` file ensure that yo
 
 To execute your xctest, we require your app (which must be packaged together with your XCTests) in '.app' or '.ipa' format. If you have that already you can skip to [step 2](#2-how-to-generate-the-xctestrun-config-file).
 
-`saucectl` will accept both formats. If you don't want to use saucectl you will need to repackage your '.app' file into an '.ipa' file. [This guide explains how to transform you '.app' into an '.ipa'](/docs/mobile-apps/automated-testing/ipa-files.md#building-an-ipa-from-an-app-bundle).
+`saucectl` will accept both formats. If you **don't want to use saucectl** you will need to repackage your '.app' file into an '.ipa' file. [This guide explains how to transform you '.app' into an '.ipa'](/docs/mobile-apps/automated-testing/ipa-files.md#building-an-ipa-from-an-app-bundle).
 
 To compile your flutter app into a iOS '.app' file, you will need to use the `xcodebuild build-for-testing` command. Make sure you are using the correct `scheme` so it includes your integration tests.
 
