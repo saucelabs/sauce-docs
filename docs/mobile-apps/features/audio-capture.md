@@ -21,7 +21,6 @@ To enable Audio Capture in your automated tests, you need to use the following c
 Click the link below that corresponds to your framework:
 
 - [Espresso](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#audiocapture)
-- [XCUITest](/mobile-apps/automated-testing/espresso-xcuitest/xcuitest/#audiocapture)
 - [Appium](/dev/test-configuration-options/#audiocapture)
 
 Now you can start your automated testing session. Your audio recording will be captured and be part of the video recording on the Test Results page.
