@@ -16,7 +16,9 @@ Audio Capture is a functionality that gives you the ability to record the audio 
 
 ## Using Audio Capture for Automated Tests on Real Devices
 
-To enable Audio Capture in your automated tests, you need to use the following capabilities:
+Audio capture works out of box for automated tests on iOS. On Android, if the app does not define any restrictions in its manifest, then it will also work out of box. 
+
+To bypass audio capture restrictions defined in manifests of Android apps, you need to use the following capabilities:
 
 Click the link below that corresponds to your framework:
 
