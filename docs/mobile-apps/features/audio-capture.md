@@ -20,8 +20,6 @@ Audio capture works out of box for automated tests on iOS. On Android, if the ap
 
 To bypass audio capture restrictions defined in manifests of Android apps, you need to use the following capabilities:
 
-Click the link below that corresponds to your framework:
-
 - [Espresso](/mobile-apps/automated-testing/espresso-xcuitest/espresso/#audiocapture)
 - [Appium](/dev/test-configuration-options/#audiocapture)
 
