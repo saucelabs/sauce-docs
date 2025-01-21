@@ -18,7 +18,7 @@ Flutter compiles iOS [integration tests](https://docs.flutter.dev/cookbook/testi
 
 ## Contents
 1. [How to build the '.app' and '.xctestrun' files for your Flutter app.](#1-how-to-build-the-app-and-xctestrun-files-for-your-flutter-app)
-2. [How to run the flutter-iOS integration test on Sauce Labs infrastructure.](#3-how-to-run-flutter-ios-integration-tests-on-sauce-labs-infrastructure)
+2. [How to run the flutter-iOS integration test on Sauce Labs infrastructure.](#2-how-to-run-flutter-ios-integration-tests-on-sauce-labs-infrastructure)
 3. [Sample Implementation](#example-implementation)
 
 
