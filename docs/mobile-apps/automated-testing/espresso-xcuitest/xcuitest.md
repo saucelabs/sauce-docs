@@ -804,7 +804,6 @@ Application settings for real device tests.
 suites:
   - name: My Saucy Test
     appSettings:
-      audioCapture: true
       instrumentation:
         networkCapture: true
 ```
