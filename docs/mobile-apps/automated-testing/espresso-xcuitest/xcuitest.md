@@ -811,6 +811,21 @@ suites:
 
 ---
 
+#### `resigningEnabled`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Enables resigning of the app so that it can run on RDC devices. Set to `true` by default. It must be kept as `true` in order for instrumentation features to work. Can be set to `false` for private devices to install the APP to the device as is.
+
+```yaml
+suites:
+  - name: My Saucy Test
+    appSettings:
+      resigningEnabled: true
+```
+
+---
+
 #### `audioCapture`
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
