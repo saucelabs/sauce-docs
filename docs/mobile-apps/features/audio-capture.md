@@ -103,7 +103,7 @@ Text to speech audio of the focused element will be streamed to your browser as 
 
 ## Using Audio Capture on iOS/iPadOS
 
-You will be able to capture audio from iOS 10 and above. Additionally, you can validate the sounds produced by your application, enable VoiceOver, and verify its output.
+Audio capture is supported on all our iOS devices. Additionally, you can validate the sounds produced by your application, enable VoiceOver, and verify its output.
 
 ## Accessing the Audio in Your Test Tesults for Automated Test
 
