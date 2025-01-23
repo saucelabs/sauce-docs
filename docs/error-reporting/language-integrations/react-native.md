@@ -443,7 +443,7 @@ const client = BacktraceClient.initialize({
 
 ### Automatically upload source maps
 
-@Backtrace/react allows for easy integration and automatic sending of generated source maps. Thanks to them, generated functions or unreadable reference to a line or column in the code will point to the correct place.
+@Backtrace/react provides CI tooling to easily post source maps to Backtrace. Posting source maps enables Backtrace to symbolicate minified code, allowing error reports to be displayed with the original source code highlighting the correct faulting line.
 
 To integrate an application source maps in react-native with Backtrace you need:
 - create a `.backtracejsrc` file in the main application folder,
