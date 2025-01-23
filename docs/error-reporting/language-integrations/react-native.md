@@ -453,7 +453,7 @@ To integrate an application source maps in react-native with Backtrace you need:
 
 #### Modifying `metro.config.js` 
 
-Backtrace is compatible with metro build system. To enable source map support, set a `customSerializer` method in the `metro.config.js` file to the `processSourceMap` function available in `@backtrace/react-native/scripts/processSourceMap`.
+Backtrace is compatible with the metro build system. To enable source map support, set a `customSerializer` method in the `metro.config.js` file to the `processSourceMap` function available in `@backtrace/react-native/scripts/processSourceMap`.
 
 ```
 const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
