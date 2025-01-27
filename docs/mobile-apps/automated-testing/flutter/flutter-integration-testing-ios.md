@@ -66,18 +66,10 @@ xcodebuild build-for-testing \
 
 To run your Flutter XCTest on Sauce Labs, you have two options: use `saucectl` or integrate with our APIs yourself. If you are unfamiliar with our APIs, we recommend using `saucectl` for ease of use and getting you started quickly.
 
-:::note `saucectl` version requirement
-This feature is supported in `saucectl` version `0.192.0` or higher. To ensure compatibility, verify the version of `saucectl` installed on your system by running the following command:
-
-```shell
-saucectl --version
-```
-If your version is older than `0.192.0`, please update to the latest version. You can find the release notes and download the latest version [here](https://github.com/saucelabs/saucectl/releases).
-:::
 
 ### Run XCTests via saucectl
 
-First install [saucectl](/docs/dev/cli/saucectl.md#installing-saucectl). Then you can use `saucectl` command to configure and run your test on Sauce Labs infrastructure.
+First install [saucectl](/docs/dev/cli/saucectl.md#installing-saucectl). **Note: minimum version is `0.192.0`.** Then you can use `saucectl` command to configure and run your test on Sauce Labs infrastructure.
 
 ```shell
 # If it's the first time you're using saucectl, run:
