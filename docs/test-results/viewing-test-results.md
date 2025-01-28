@@ -110,3 +110,28 @@ To find logging specific to your OS:
 
 - For iOS: The iOS Simulator log is embedded in the Appium log. The information from the iOS Simulator is grayed out throughout the Appium log and has the tag name `info: [IOS_SYSLOG_ROW]`.
 - For Android: Android Emulator logs are in the `Logcat.log` file. This file contains all the information from the Android Emulator log.
+
+### CI Tags
+
+You can find information about CI Tags in the Metadata Beta tab. When running tests on a supported CI platform,
+such as GitHub Actions, GitLab CI/CD, Jenkins, or CircleCI, `saucectl` can automatically detect the CI environment
+and tag your tests with relevant information.
+
+<img src={useBaseUrl('/img/test-results/ci-tags.png')} alt="CI Tags on Metadata Beta Tab" width="600" />
+
+| Field      | Description                | Tag Pattern           |
+|------------|----------------------------|-----------------------|
+| URL        | URL of the repository      | `ci:url:{repo_url}`   |
+| Repo       | Name of the repository     | `ci:repo:{repo_name}` |
+| Ref        | Branch or tag              | `ci:ref:{ref}`        |
+| Commit SHA | Short SHA of the commit    | `ci:ssha:{short_sha}` |
+
+:::note  
+`saucectl` currently supports automatic detection on a variety of CI platforms, including: AppVeyor, AWS, Azure, Bamboo, Bitbucket, BuildKite, Buddy, CircleCI, Codeship, Drone, GitHub, GitLab, Gitpod, Jenkins, Semaphore, Travis, and TeamCity.
+:::
+
+:::note  
+If you are running WebDriver or Appium tests, you need to manually add tags to your tests using the specified CI tag pattern.
+
+Tags that follow the CI tag patterns can be parsed and displayed in the Metadata Beta tab, even for platforms not listed above.
+:::  
