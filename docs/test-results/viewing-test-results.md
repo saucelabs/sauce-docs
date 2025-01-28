@@ -126,7 +126,7 @@ and tag your tests with relevant information.
 | Ref        | Branch or tag              | `ci:ref:{ref}`        |
 | Commit SHA | Short SHA of the commit    | `ci:ssha:{short_sha}` |
 
-:::note  
+:::note
 `saucectl` supports automatic detection on a variety of CI platforms, including: AppVeyor, AWS, Azure, Bamboo, Bitbucket, BuildKite, Buddy, CircleCI, Codeship, Drone, GitHub, GitLab, Gitpod, Jenkins, Semaphore, Travis, and TeamCity.
 
 Tags that follow the CI tag patterns can be parsed and displayed in the Metadata Beta tab, even for platforms not listed above.
