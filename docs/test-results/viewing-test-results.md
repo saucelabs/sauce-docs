@@ -128,10 +128,10 @@ and tag your tests with relevant information.
 
 :::note  
 `saucectl` supports automatic detection on a variety of CI platforms, including: AppVeyor, AWS, Azure, Bamboo, Bitbucket, BuildKite, Buddy, CircleCI, Codeship, Drone, GitHub, GitLab, Gitpod, Jenkins, Semaphore, Travis, and TeamCity.
+
+Tags that follow the CI tag patterns can be parsed and displayed in the Metadata Beta tab, even for platforms not listed above.
 :::
 
 :::note
 If you are running WebDriver or Appium tests, you need to manually add tags to your tests using the specified CI tag pattern.
-
-Tags that follow the CI tag patterns can be parsed and displayed in the Metadata Beta tab, even for platforms not listed above.
-:::  
+:::
