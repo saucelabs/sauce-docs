@@ -37,7 +37,7 @@ To automatically deply your Android or iOS Apps to [TestFairy](https://www.testf
    Copy the following command into the **Custom script** text field:
 
    ```bash
-   curl https://upload.testfairy.com/api/upload -F api_key=${env.TESTFAIRY_API_KEY} -F comment="TeamCity build" -F file=@android.apk
+   curl https://app.testfairy.com/api/upload -F api_key=${env.TESTFAIRY_API_KEY} -F comment="TeamCity build" -F file=@android.apk
    ```
 
    :::note

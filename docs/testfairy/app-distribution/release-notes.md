@@ -37,7 +37,7 @@ To add release notes, use the `comment` field.
 For example:
 
 ```bash
-curl https://upload.testfairy.com/api/upload \
+curl https://app.testfairy.com/api/upload \
     -F api_key='your_api_key' \
     -F file=@sample.apk \
     -F symbols_file=@sample_mapping.txt \

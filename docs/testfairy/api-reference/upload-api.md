@@ -39,7 +39,7 @@ Streamline your build process and upload APKs or IPAs directly to TestFairy.
 ### Upload API
 
 <details>
-<summary><span className="api post">POST</span><code>https://upload.testfairy.com/api/upload/</code></summary>
+<summary><span className="api post">POST</span><code>https://app.testfairy.com/api/upload/</code></summary>
 <p></p>
 
 #### Parameters
@@ -130,7 +130,7 @@ values={[
 <TabItem value="required">
 
 ```bash title="Sample Request with Required Params"
-curl https://upload.testfairy.com/api/upload -F api_key='your_api_key' -F file=@sample.apk
+curl https://app.testfairy.com/api/upload -F api_key='your_api_key' -F file=@sample.apk
 ```
 
 </TabItem>
@@ -138,7 +138,7 @@ curl https://upload.testfairy.com/api/upload -F api_key='your_api_key' -F file=@
 <TabItem value="optional">
 
 ```bash title="Sample Request with Optional Params"
-curl https://upload.testfairy.com/api/upload \
+curl https://app.testfairy.com/api/upload \
  -F api_key='your_api_key' \
  -F file=@sample.apk \
  -F symbols_file=@sample_mapping.txt \
@@ -212,11 +212,11 @@ In the case of an error, TestFairy returns a JSON with `status` => `fail` and `c
 
 ### Where Can I Find My API Key?
 
-To get your API KEY, open your account preferences at https://app.testfairy.com/settings/ and click on **Upload API Key**.
+To get your API KEY, open your account preferences at https://app.testfairy.com/settings/ and click on **TestFairy Access Key**.
 
 ### How Can I Create a New API Key?
 
-To create a new API KEY, click on **Regenerate API Key** on your account preferences page.
+To create a new API KEY, click on **Regenerate** on your account preferences page.
 
 ### Why Is My API Key Empty?
 
@@ -227,7 +227,7 @@ In cases TestFairy identifies that by mistake, you initialize the SDK by using y
 Yes. Any POST parameter prefixed with "metadata." in the name is considered custom data and stored along with the upload. For example, consider this command:
 
 ```bash
-curl https://upload.testfairy.com/api/upload \
+curl https://app.testfairy.com/api/upload \
  -F api_key='your_api_key' \
  -F file=@sample.apk \
  -F metadata.branch=master \

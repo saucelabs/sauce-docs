@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Upload a new build to TestFairy using Fastlane. You can find your API Key in the [TestFairy Settings](https://free.testfairy.com/settings/) page.
+Upload a new build to TestFairy using Fastlane. You can find your API Key in the [TestFairy Settings](https://app.testfairy.com/settings/) page.
 
 ```
 testfairy(
@@ -34,7 +34,7 @@ testfairy(
 | ipa            | 	Path to your IPA file for iOS	                                           |                              |
 | apk            | 	Path to your APK file for Android	                                       |                              |
 | symbols_file   | 	Symbols mapping file	                                                    |                              |
-| upload_url     | 	Upload API URL for TestFairy	                                            | https://upload.testfairy.com |
+| upload_url     | 	Upload API URL for TestFairy	                                            | https://app.testfairy.com |
 | testers_groups | 	Array of tester groups to be notified	                                   | []                           |
 | comment        | 	Additional release notes for this upload. Will be added to sent emails 	 | No comment                   |
 | notify         | 	Send email to testers	                                                   | off                          |
