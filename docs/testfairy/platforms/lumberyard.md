@@ -99,7 +99,7 @@ Once your APK is built, you can choose your favourite upload method to finalize 
 To upload with **curl**, run the following command in **lumberyard_version\dev\BinAndroidCPU_ARCHClang** folder. Make sure your APK filename is set correctly.
 
 ```bash
-curl https://upload.testfairy.com/api/upload -F api_key='your_api_key' -F file=@ProjectName.apk
+curl https://app.testfairy.com/api/upload -F api_key='your_api_key' -F file=@ProjectName.apk
 ```
 
 Optionally, you can download and use [TestFairy command line uploader](https://github.com/testfairy/command-line-uploader) if you don't have **curl** installed.

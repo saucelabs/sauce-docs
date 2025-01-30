@@ -21,7 +21,7 @@ This guide provides instructions for Visual Studio Team Services (VSTS) users to
 3. Configure the task and add the following line to arguments:
 
    ```bash
-   https://upload.testfairy.com/api/upload -F api_key=abcdabcdgfdsgfds56 -F file=@sample.apk
+   https://app.testfairy.com/api/upload -F api_key=abcdabcdgfdsgfds56 -F file=@sample.apk
    ```
 
    :::note
