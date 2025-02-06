@@ -13,4 +13,8 @@ Backtrace is able to ingest crash reports for your PS4 games.
 
 ## Details
 
-Authorized PlayStation developers can access more details in our [PS4 Detailed Integration Guide](https://support.backtrace.io/hc/en-us/articles/360056839772). Contact our support team if you need access.
+Authorized PlayStation developers can access details in our PS4 Detailed Integration Guide, shared directly with users after developer status is verified. Contact our support team if you need access.
+
+## Publication Date
+
+The latest publication date of our PS4 Detailed Integration Guide is 2025-02-06.
