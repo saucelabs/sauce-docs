@@ -13,4 +13,8 @@ Backtrace is able to ingest crash reports from your Xbox One, Series X | S games
 
 ## Details
 
-Authorized Xbox developers can access more details in our [Xbox Detailed Integration Guide](https://support.backtrace.io/hc/en-us/articles/360050846011). Contact our support team if you need access.
+Authorized Xbox developers can access details in our Xbox Detailed Integration Guide, shared directly with users after developer status is verified. Contact our support team at to request a copy.
+
+## Publication Date
+
+The latest publication date of our PS4 Detailed Integration Guide is 2025-02-06.
