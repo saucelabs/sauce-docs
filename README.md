@@ -1,5 +1,5 @@
 <h1 align="center">
-  <p align="center">Sauce Labs Docs</p>
+  <p align="center">Sauce Labs Docs</p> 
 </h1>
 
 <p align="center">
