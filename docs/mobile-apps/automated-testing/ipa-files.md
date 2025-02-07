@@ -151,9 +151,8 @@ We recommend that you try the following workaround:
 We do not have control over Apple's signature verification process. It is recommended to work with your network administrator to ensure that Apple's signature check is not blocked by the proxy.
 
 ### Unable to access Downloads folder using 'fileImporter' SwiftUI API
-Apple prevents access to private sandbox data via fileImporter (and likely other APIs) after re-signing an app. 
-
-For instrumentation, Sauce Labs must re-sign the app using our certificates and provisioning profiles, and change the bundle identifier to Sauce Labs wildcard identifier. 
+For instrumentation, Sauce Labs must resign the app using our certificates and provisioning profiles, and change the bundle identifier to Sauce Labs wildcard identifier.
+Apple prevents access to private sandbox data via fileImporter (and likely other APIs) after resigning an app.
 
 This is an inherent limitation of the Apple system.
 The solution for the client is to not use instrumentation when accessing data using `fileImporter `. 
