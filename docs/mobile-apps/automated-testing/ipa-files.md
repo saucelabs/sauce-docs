@@ -162,5 +162,5 @@ Tried to call delegate -documentBrowser:didPickDocumentURLs: with an empty array
 ```
 
 This is an inherent limitation of the Apple system.
-The solution is to not use instrumentation when accessing data using `fileImporter`.
+The only currently known workaround is to not use instrumentation when accessing data using `fileImporter`.
 
