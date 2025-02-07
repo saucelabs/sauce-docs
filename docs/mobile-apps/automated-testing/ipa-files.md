@@ -152,7 +152,15 @@ We do not have control over Apple's signature verification process. It is recomm
 
 ### Unable to access Downloads folder using 'fileImporter' SwiftUI API
 For instrumentation, Sauce Labs must resign the app using our certificates and provisioning profiles, and change the bundle identifier to Sauce Labs wildcard identifier.
-Apple prevents access to private sandbox data via fileImporter (and likely other APIs) after resigning an app.
+Apple prevents access to private sandbox data via `fileImporter` (and likely other APIs) after resigning an app.
+
+The console may contain one of the following error messages:
+```
+Could not resolve bookmark
+Failed to create a url from bookmarkableString
+Tried to call delegate -documentBrowser:didPickDocumentURLs: with an empty array of item
+```
 
 This is an inherent limitation of the Apple system.
-The solution for the client is to not use instrumentation when accessing data using `fileImporter `. 
+The solution is to not use instrumentation when accessing data using `fileImporter`.
+
