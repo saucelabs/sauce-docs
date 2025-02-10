@@ -13,4 +13,8 @@ Backtrace is able to ingest crash reports from your Nintendo Switch games.
 
 ## Details
 
-Authorized Nintendo Switch developers can access more details in our [Nintendo Switch Detailed Integration Guide](https://support.backtrace.io/hc/en-us/articles/360057383912). Contact our support team if you need access.
+Authorized Nintendo developers can access details in our Nintendo Switch Detailed Integration Guide, shared directly with users after developer status is verified. [Contact our support team](https://support.saucelabs.com/s/submit-a-request?language=en_US) to request a copy.
+
+## Publication Date
+
+The latest publication date of our Nintendo Switch Detailed Integration Guide is 2025-02-06.

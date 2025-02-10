@@ -38,7 +38,7 @@ Now you can start your automated testing session. Your audio recording will be c
 
 <p><small><span className="sauceGreen">Real Devices Only</span></small></p>
 
-You need to launch a Live Testing session on a real device, and the audio will be streamed to your browser automatically without any configuration. If it doesn't launch for you, you can manually launch it by clicking **Performance Mode** butoon under **Device Settings** menu in the live testing toolbar.
+You need to launch a Live Testing session on a real device, and the audio will be streamed to your browser automatically without any configuration. If it doesn't launch for you, you can manually launch it by clicking **Performance Mode** button under **Device Settings** menu in the live testing toolbar.
 
 The Audio Streaming feature ensures a better digital experience by validating audio playback and testing user flows that require audio testing in the early stages of the development lifecycle.
 

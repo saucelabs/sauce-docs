@@ -13,4 +13,8 @@ Backtrace is able to ingest crash reports for your PS5 games.
 
 ## Details
 
-Authorized PlayStation developers can access more details in our [PS5 Detailed Integration Guide](https://support.backtrace.io/hc/en-us/articles/360057377352). Contact our support team if you need access.
+Authorized PlayStation developers can access details in our PS5 Detailed Integration Guide, shared directly with users after developer status is verified. [Contact our support team](https://support.saucelabs.com/s/submit-a-request?language=en_US) to request a copy.
+
+## Publication Date
+
+The latest publication date of our PS5 Detailed Integration Guide is 2025-02-06.
