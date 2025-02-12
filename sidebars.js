@@ -1362,6 +1362,7 @@ module.exports = {
                         'mobile-apps/features/gestures',
                         'mobile-apps/features/ios-version-management',
                         'mobile-apps/features/virtual-usb',
+                        'mobile-apps/features/xctest-plan',
                         {
                             type: 'category',
                             label: 'Mobile App Diagnostics',
@@ -1418,6 +1419,7 @@ module.exports = {
                             items: [
                                 'mobile-apps/automated-testing/espresso-xcuitest',
                                 'mobile-apps/automated-testing/espresso-xcuitest/xcuitest-introduction',
+                                'mobile-apps/automated-testing/espresso-xcuitest/xctest',
                                 'mobile-apps/automated-testing/espresso-xcuitest/espresso',
                                 'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
 
