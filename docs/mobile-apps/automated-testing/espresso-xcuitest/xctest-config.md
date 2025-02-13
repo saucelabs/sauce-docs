@@ -574,7 +574,7 @@ suites:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Sets the test application on the suite level. See the full [usage](#app). If this property is not set, `saucectl` will use the default `app`.
+Sets the test application on the suite level. See the full [usage](#app). If this property is not set, `saucectl` will use the default `app` 
 
 ```yaml
 suites:
@@ -588,7 +588,7 @@ suites:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies description for the uploaded test app on the suite level. If `app` is not set on suite level, `saucectl` will use the default `appDescription` from the [`XCTest`](#XCTest) level.
+Specifies description for the uploaded test app on the suite level. If `app` is not set on suite level, `saucectl` will use the default `appDescription`.
 
 ```yaml
 suites:
