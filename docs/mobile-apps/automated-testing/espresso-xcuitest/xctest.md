@@ -57,7 +57,7 @@ Explanation:
 5. `-derivedDataPath` (optional) defines where the test artifacts should be written to.
 
 
-## 2. How to run flutter-iOS integration tests on Sauce Labs infrastructure
+## 2. How to run your XCTest plan on Sauce Labs infrastructure
 To run your Flutter XCTest on Sauce Labs, you have two options: use `saucectl` or integrate with our APIs yourself. If you are unfamiliar with our APIs, we recommend using `saucectl` for ease of use and getting you started quickly.
 
 
