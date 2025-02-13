@@ -1420,6 +1420,7 @@ module.exports = {
                                 'mobile-apps/automated-testing/espresso-xcuitest',
                                 'mobile-apps/automated-testing/espresso-xcuitest/xcuitest-introduction',
                                 'mobile-apps/automated-testing/espresso-xcuitest/xctest',
+                                'mobile-apps/automated-testing/espresso-xcuitest/xctest-config',
                                 'mobile-apps/automated-testing/espresso-xcuitest/espresso',
                                 'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
 
