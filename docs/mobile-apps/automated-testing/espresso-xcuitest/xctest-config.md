@@ -574,7 +574,7 @@ suites:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Sets the test application on the suite level. See the full [usage](#app). If this property is not set, `saucectl` will use the default `app` from the [`XCTest`](#XCTest) level.
+Sets the test application on the suite level. See the full [usage](#app). If this property is not set, `saucectl` will use the default `app`.
 
 ```yaml
 suites:
