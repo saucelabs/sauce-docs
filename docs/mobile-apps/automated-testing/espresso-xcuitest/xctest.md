@@ -15,6 +15,7 @@ Apple has two native test frameworks, [XCTest](https://developer.apple.com/docum
 2. All XCUITest apps that are part of your XCTest plan as an `.app` or `.ipa` file (only if your Test plan actually includes a UI test).
 3. The `.xctestrun` file for your XCTest plan. The [.xctestrun file](https://keith.github.io/xcode-man-pages/xcodebuild.xctestrun.5.html) is a compiled version of your XCTest plan and contains all the configuration for your tests. This is the same config that Xcode uses when it runs your tests on your development machine.
 
+
 ### Content
 1. [How to build the '.app' and '.xctestrun' files from your XCode project.](#1-how-to-build-the-app-and-xctestrun-files)
 2. [How to run your entire XCTest plan on Sauce Labs infrastructure.](#2-how-to-run-your-xctest-plan-on-sauce-labs-infrastructure)
@@ -23,7 +24,6 @@ Apple has two native test frameworks, [XCTest](https://developer.apple.com/docum
 
 
 ## 1. How to build the '.app' and '.xctestrun' files
-
 By default, Xcode will not persist the `.xctestrun` file if you kick off an XCTest on your development machine. To persist the `.xctestrun` file we need to use the `xcodebuild build-for-testing` command. Make sure you are using the correct `scheme` so it includes your desired tests.
 
 ```shell

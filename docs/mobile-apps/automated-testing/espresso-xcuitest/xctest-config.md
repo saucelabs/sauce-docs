@@ -82,7 +82,7 @@ defaults:
 
 <p><small>| OPTIONAL | DURATION |</small></p>
 
-Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. You can override this setting for individual suites using the `timeout` setting within the [`suites`](#suites) object. If not set, the default value is `0` (unlimited).
+Instructs how long (in `ms`, `s`, `m`, or `h`) `saucectl` should wait for each suite to complete. If not set, the default value is `0` (unlimited).
 
 :::caution Real Device Max Duration
 When setting the timeout values for your suites, consider that native framework tests on real devices enforce a maximum test duration limit of 90 minutes.
@@ -1006,65 +1006,6 @@ A property containing one or more environment variables that may be referenced i
 ```yaml
   env:
     FOO: bar
-```
-
----
-
-### `testOptions`
-
-<p><small>| OPTIONAL | OBJECT |</small></p>
-
-A set of parameters allowing you to provide additional details about which test class should be run for the suite and how to apply them.
-
-```yaml
-suites:
-  - name: My Saucy Test
-
-```
-
----
-
-### `shard`
-
-<p><small>| OPTIONAL | STRING |</small></p>
-
-Configures saucectl to automatically split the tests of a suite to run in
-parallel. Valid values are `concurrency` and `testList`.
-
-In `concurrency` mode, saucectl automatically splits the tests into several
-groups (the number of groups is determined by the concurrency setting). Each
-group will then run as an individual job.
-
-In `testList` mode, saucectl will use the provided [testListFile](#testlistfile)
-and run each entry defined there in parallel.
-
-:::note
-When sharding is enabled, the [class](#class) setting is automatically ignored.
-:::
-
-```yaml
-suites:
-  - name: "I am sharded"
-    shard: concurrency
-```
-
----
-
-### `testListFile`
-
-<p><small>| OPTIONAL | STRING |</small></p>
-
-The file containing a list of tests is used in sharding by concurrency. It's a `txt` file and each line contains a test. Click [Sharding XCTest introduction](./XCTest-introduction.md#sharding-XCTest) to see how to generate this file.
-
-```
-# Devices
-SwagLabsMobileAppUITests.LoginTests/testSuccessfulLogin
-SwagLabsMobileAppUITests.LoginTests/testNoUsernameLogin
-SwagLabsMobileAppUITests.LoginTests
-# Simulators
-SwagLabsMobileAppUITests/LoginTests/testSuccessfulLogin
-SwagLabsMobileAppUITests/LoginTests/testNoUsernameLogin
-SwagLabsMobileAppUITests/LoginTests
 ```
 
 ---
