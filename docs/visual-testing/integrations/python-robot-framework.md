@@ -8,6 +8,7 @@ import FullPageLimit from '../_partials/_fullpage-limit.md';
 import SelectiveDiffing from '../_partials/_selective-diffing.md';
 import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
 import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
+import Frames from '../_partials/_frames.md';
 
 # Python (Robot Framework) Integration
 
@@ -167,6 +168,18 @@ Example:
     ${ignore_regions} =     Create List     ${ignore_username}      ${ignore_password}
     Visual Snapshot     Login Page     capture_dom=True        ignore_regions=${ignore_regions}        diffing_method=BALANCED
 
+```
+
+### Frames
+
+<Frames/>
+
+Example:
+
+```robot
+Test Name
+    Select Frame    index=0    
+    Visual Snapshot    My Snapshot Name    full_page_config=True
 ```
 
 ## Environment variables

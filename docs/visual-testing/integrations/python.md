@@ -7,6 +7,7 @@ import PythonIntro from '../_partials/_python-shared-intro.md';
 import SelectiveDiffing from '../_partials/_selective-diffing.md';
 import FullPageLimit from '../_partials/_fullpage-limit.md';
 import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
+import Frames from '../_partials/_frames.md';
 
 # Python Integration
 
@@ -227,6 +228,27 @@ Example:
         ],
     )
 ```
+
+### Frames
+
+<Frames/>
+
+Example:
+
+```python
+frame_element = driver.find_element(By.TAG_NAME, "iframe")
+driver.switch_to.frame(frame_element)
+
+visual_client.create_snapshot_from_webdriver(
+    "Frame capture",
+    driver=driver,
+    full_page_config=FullPageConfig(
+        scrollLimit=10,
+    ),
+)
+```
+
+
 
 ## Environment variables
 
