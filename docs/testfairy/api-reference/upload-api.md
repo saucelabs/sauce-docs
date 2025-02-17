@@ -36,6 +36,14 @@ Streamline your build process and upload APKs or IPAs directly to TestFairy.
 
 [Lumberyard](/testfairy/platforms/lumberyard)
 
+:::note
+For the EU based instance, please the endpoint listed below.
+```text
+https://mobile.eu-central-1.saucelabs.com/api/upload
+```
+ 
+:::
+
 ### Upload API
 
 <details>
@@ -213,6 +221,14 @@ In the case of an error, TestFairy returns a JSON with `status` => `fail` and `c
 ### Where Can I Find My API Key?
 
 To get your API KEY, open your account preferences at https://app.testfairy.com/settings/ and click on **TestFairy Access Key**.
+
+:::note
+For the EU instance please use the link listed below.
+
+```text
+https://mobile.eu-central-1.saucelabs.com/settings/access-key
+```
+:::
 
 ### How Can I Create a New API Key?
 
