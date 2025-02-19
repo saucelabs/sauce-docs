@@ -371,6 +371,8 @@ await browser.sauceVisualCheck('Visible Sale Banner', {
 
 <Frames/>
 
+Example:
+
 ```ts
 
 browser

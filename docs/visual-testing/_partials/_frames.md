@@ -4,5 +4,5 @@ The screenshot will include only the content within the selected frame.
 Any captured DOM elements, ignored regions or clip elements must be specified within the current frame.
 
 :::note
-Frames support is available only for full page screenshots on desktop
+Frames support is available only for full page screenshots on desktop.
 :::
