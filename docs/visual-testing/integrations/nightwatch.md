@@ -374,7 +374,6 @@ await browser.sauceVisualCheck('Visible Sale Banner', {
 Example:
 
 ```ts
-
 browser
   .frame(0)
   .sauceVisualCheck('Frame capture', {
