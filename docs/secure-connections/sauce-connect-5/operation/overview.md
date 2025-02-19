@@ -8,6 +8,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::note
+[Service accounts](/basics/acct-team-mgmt/managing-service-accounts) are not supported by Sauce Connect Proxy and cannot start or manage tunnels. Only user accounts can manage tunnels.
+:::
+
 Sauce Connect Proxy operations and administration involve everything required to install, configure, maintain and use secure connections.
 
 ## Installation and Configuration

@@ -8,6 +8,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 If you're new to Sauce Orchestrate, this list of frequently asked questions can help you with what you need to know.
 
+## Can I Run Rests in Sauce Orchestrate Using Service Account Credentials?
+
+No, Sauce Orchestrate does not support service accounts. Only user accounts are supported. For more information, refer to the [Service Accounts](/basics/acct-team-mgmt/managing-service-accounts) page.
+
 ## Will Sauce Connect Continue to Work?
 
 Yes, Sauce Connect will continue to work. Sauce Orchestrate is all about running your test scripts from in the Sauce Labs grid and does not change anything about the connection between the underlying Virtual Machine or Real Device and your Application Under Test (AUT).
