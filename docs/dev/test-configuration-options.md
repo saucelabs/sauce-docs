@@ -1818,6 +1818,8 @@ You can either set `"username"` in capabilities or specify it in the Sauce URL a
 
 :::tip
 You can find your `username` value under **Account** > **User Settings**.
+
+Alternatively, you can use the `username` of a [service account](/basics/acct-team-mgmt/managing-service-accounts) for running tests.
 :::
 
 :::warning
@@ -1844,6 +1846,8 @@ You can either set `"accessKey"` in capabilities or specify it in the Sauce URL 
 
 :::tip
 You can find your `accessKey` value under **Account** > **User Settings**.
+
+Alternatively, you can use the `accessKey` of a [service account](/basics/acct-team-mgmt/managing-service-accounts) for running tests.
 :::
 
 :::warning
@@ -2157,14 +2161,14 @@ Provide a valid time zone identifier to `appium:timeZone` capability.
 The time zone identifier must be a valid name from the list of
 [available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones),
 for example `America/New_York`.
-The time zone is changed instantly on the *per-device* basis and is preserved until the next change.
+The time zone is changed instantly on the _per-device_ basis and is preserved until the next change.
 
 **iOS Devices**
 
 Provide a valid time zone identifier to `appium:appTimeZone` capability.
 The time zone identifier must be a valid name from the list of
 [available time zone identifiers](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), for example `America/New_York`.
-The time zone is changed on the *per-application* basis and is only valid for the application under test.
+The time zone is changed on the _per-application_ basis and is only valid for the application under test.
 The same behavior could be achieved by providing a custom value to the
 [TZ](https://developer.apple.com/forums/thread/86951#263395) environment variable via the `appium:processArguments` capability.
 
