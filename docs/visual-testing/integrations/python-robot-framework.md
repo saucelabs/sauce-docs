@@ -178,7 +178,7 @@ Example:
 
 ```robot
 Test Name
-    Select Frame    index=0    
+    Select Frame    index=0
     Visual Snapshot    My Snapshot Name    full_page_config=True
 ```
 
