@@ -2650,3 +2650,569 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 ```
 
 </details>
+
+---
+
+## Service account
+
+### Lookup Service Accounts
+
+<details>
+<summary><span className="api get">GET</span> <code>/team-management/v1/service-accounts/</code></summary>
+<p/>
+
+Lists existing service accounts in your organization. You can filter the results using the query parameters below.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+      <td><code>id</code></td>
+      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Comma-separated service account IDs.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>username</code></td>
+      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Substring username search phrase.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>teams</code></td>
+      <td><p><small>| QUERY | OPTIONAL | STRING |</small></p><p>Comma-separated team IDs.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>limit</code></td>
+      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>Number of results to return per page.</p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><code>offset</code></td>
+      <td><p><small>| QUERY | OPTIONAL | INTEGER |</small></p><p>The initial index from which to return the results.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/service-accounts/?limit=100&offset=0' | json_pp
+```
+
+```jsx title="Sample Request with Filters"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/service-accounts/?id=7ddb81628f5f4e77b5f74d9dec4980db,8ec1b3d47a5e4f25a7b6c8e9f0123456&username=bot-automation&teams=bd8466c7c94f4f2a8641a1fd4ac1a89d,c7a2b3d4e5f67890abcdef1234567890&limit=10&offset=0' | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/service-accounts/?limit=100&offset=0' | json_pp
+```
+
+```jsx title="Sample Request with Filters"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/service-accounts/?id=7ddb81628f5f4e77b5f74d9dec4980db,8ec1b3d47a5e4f25a7b6c8e9f0123456&username=bot-automation&teams=bd8466c7c94f4f2a8641a1fd4ac1a89d,c7a2b3d4e5f67890abcdef1234567890&limit=10&offset=0' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+  <tbody>
+    <tr>
+      <td><code>200</code></td>
+      <td colSpan="2">Success. Service account list returned.</td>
+    </tr>
+    <tr>
+      <td><code>403</code></td>
+      <td colSpan="2">Forbidden. You do not have permission to look up service accounts.</td>
+    </tr>
+
+  </tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+  "count": 2,
+  "links": {
+    "first": "https://api.us-west-1.saucelabs.com/team-management/v1/service-accounts/?limit=10&offset=0",
+    "last": "https://api.us-west-1.saucelabs.com/team-management/v1/service-accounts/?limit=10&offset=0",
+    "next": null,
+    "previous": null
+  },
+  "results": [
+    {
+      "id": "7ddb81628f5f4e77b5f74d9dec4980db",
+      "username": "bot-automation-service-account-d2164",
+      "name": "Automation Service Account",
+      "team": {
+        "id": "bd8466c7c94f4f2a8641a1fd4ac1a89d",
+        "name": "QA Automation Team"
+      },
+      "creator": {
+        "id": "504e6c7223fd4159815a08c38f677701",
+        "username": "john.doe",
+        "email": "john.doe@example.com"
+      }
+    },
+    {
+      "id": "8ec1b3d47a5e4f25a7b6c8e9f0123456",
+      "username": "bot-automation-service-account-565ad",
+      "name": "Staging Automation Account",
+      "team": {
+        "id": "c7a2b3d4e5f67890abcdef1234567890",
+        "name": "Staging Team"
+      },
+      "creator": {
+        "id": "e1f2g3h4i5j6k7l8m9n0o1p2q3r4s5t6",
+        "username": "jane.doe",
+        "email": "jane.doe@example.com"
+      }
+    }
+  ]
+}
+```
+
+</details>
+
+---
+
+### Get a Specific Service Account
+
+<details>
+<summary><span className="api get">GET</span> <code>/team-management/v1/service-accounts/&#123;uuid&#125;/</code></summary>
+<p/>
+
+Retrieves details of the specified service account.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>uuid</code></td>
+     <td><p><small>| PATH | REQUIRED | STRING |</small></p><p>The unique identifier of the service account. You can find the <code>uuid</code> in the URL of the [service account details view](/basics/acct-team-mgmt/managing-service-accounts/#accessing-the-service-account-details-view) in the Sauce Labs UI. You can also look up the <code>uuid</code> using the [Lookup Service Accounts](#lookup-service-accounts) endpoint.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.us-west-1.saucelabs.com/team-management/v1/service-accounts/<uuid>' | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request GET 'https://api.eu-central-1.saucelabs.com/team-management/v1/service-accounts/<uuid>' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+<tbody>
+  <tr>
+    <td><code>200</code></td>
+    <td colSpan='2'>Success. Service account details returned.</td>
+  </tr>
+</tbody>
+<tbody>
+    <tr>
+      <td><code>403</code></td>
+      <td colSpan="2">Forbidden. You do not have permission to access this resource.</td>
+    </tr>
+</tbody>
+<tbody>
+  <tr>
+    <td><code>404</code></td>
+    <td colSpan='2'>Not found. The specified service account does not exist.</td>
+  </tr>
+</tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+    "id": "7ddb81628f5f4e77b5f74d9dec4980db",
+    "username": "bot-automation-service-account-d2164",
+    "name": "Automation Service Account",
+    "created_at": "2024-10-24T14:45:43.606414Z",
+    "updated_at": "2025-01-23T15:57:32.520638Z",
+    "last_activity_time": "2025-02-15T11:22:10.123456Z",
+    "creator": {
+        "id": "504e6c7223fd4159815a08c38f677701",
+        "username": "john.doe",
+        "email": "john.doe@example.com"
+    },
+    "team": {
+        "id": "bd8466c7c94f4f2a8641a1fd4ac1a89d",
+        "name": "QA Automation Team"
+    }
+}
+```
+
+</details>
+
+---
+
+### Create a Service Account
+
+<details>
+<summary><span className="api post">POST</span> <code>/team-management/v1/service-accounts/</code></summary>
+<p/>
+
+Creates a new service account. Provide the required fields to generate a service account with an automatically generated username and access key.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+     <td><code>name</code></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>A user-friendly display name for the service account. Must be between 1 and 128 characters.</p></td>
+    </tr>
+    <tr>
+     <td><code>team_uuid</code></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>The unique identifier of the team to which the service account will be assigned. You can look up team IDs using the [Lookup Teams](#lookup-teams) endpoint. <br/><strong>Note:</strong> Team admins can only create accounts in their [active team](/basics/acct-team-mgmt/switching-active-team/).</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/service-accounts/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "name": "Team A bot",
+  "team_uuid": "bd8466c7c94f4f2a8641a1fd4ac1a89d"
+}' | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/service-accounts/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "name": "Team A bot",
+  "team_uuid": "bd8466c7c94f4f2a8641a1fd4ac1a89d"
+}' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+  <tbody>
+    <tr>
+      <td><code>201</code></td>
+      <td colSpan="2">Success. Service account created successfully.</td>
+    </tr>
+    <tr>
+      <td><code>403</code></td>
+      <td colSpan="2">Forbidden. You do not have permission to create a service account.</td>
+    </tr>
+  </tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+  "id": "7ddb81628f5f4e77b5f74d9dec4980db",
+  "access_key": "8e27aba8-be73-4ef3-9c2b-20f796b5ebff",
+  "username": "bot-automation-service-account-d2164"
+}
+```
+
+</details>
+
+---
+
+### Update a Service Account
+
+<details>
+<summary><span className="api patch">PATCH</span> <code>/team-management/v1/service-accounts/&#123;uuid&#125;/</code></summary>
+<p/>
+
+Updates the details of an existing service account. You can only update the **name** field, which is a user-friendly, editable display name. The username remains immutable.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+      <td><code>uuid</code></td>
+      <td>
+        <p><small>| PATH | REQUIRED | STRING |</small></p>
+        <p>The unique identifier of the service account. You can find the <code>uuid</code> in the URL of the [service account details view](/basics/acct-team-mgmt/managing-service-accounts/#accessing-the-service-account-details-view) in the Sauce Labs UI. You can also look up the <code>uuid</code> using the [Lookup Service Accounts](#lookup-service-accounts) endpoint.</p>
+      </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+     <td><code>name</code></td>
+     <td><p><small>| BODY | REQUIRED | STRING |</small></p><p>A user-friendly display name for the service account. Must be between 1 and 128 characters.</p></td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PATCH 'https://api.us-west-1.saucelabs.com/team-management/v1/service-accounts/<uuid>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "name": "Bot Foo Bar"
+}' | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request PATCH 'https://api.eu-central-1.saucelabs.com/team-management/v1/service-accounts/<uuid>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "name": "Bot Foo Bar"
+}' | json_pp
+```
+
+</TabItem> 
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+  <tbody>
+    <tr>
+      <td><code>200</code></td>
+      <td colspan="2">Success. Service account updated successfully.</td>
+    </tr>
+    <tr>
+      <td><code>403</code></td>
+      <td colspan="2">Forbidden. You do not have permission to update this service account.</td>
+    </tr>
+    <tr>
+      <td><code>404</code></td>
+      <td colspan="2">Not found. The specified service account does not exist.</td>
+    </tr>
+  </tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+  "id": "7ddb81628f5f4e77b5f74d9dec4980db",
+  "username": "bot-automation-service-account-d2164",
+  "name": "Bot Foo Bar",
+}
+```
+
+</details>
+
+---
+
+### Delete a Service Account
+
+<details>
+<summary><span className="api delete">DELETE</span> <code>/team-management/v1/service-accounts/&#123;uuid&#125;/</code></summary>
+<p/>
+
+Deletes the specified service account from your organization.
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+      <td><code>uuid</code></td>
+      <td>
+        <p><small>| PATH | REQUIRED | STRING |</small></p>
+        <p>The unique identifier of the service account. You can find the <code>uuid</code> in the URL of the [service account details view](/basics/acct-team-mgmt/managing-service-accounts/#accessing-the-service-account-details-view) in the Sauce Labs UI. You can also look up the <code>uuid</code> using the [Lookup Service Accounts](#lookup-service-accounts) endpoint.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.us-west-1.saucelabs.com/team-management/v1/service-accounts/<uuid>'
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request DELETE 'https://api.eu-central-1.saucelabs.com/team-management/v1/service-accounts/<uuid>'
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+  <tbody>
+    <tr>
+      <td><code>204</code></td>
+      <td colSpan="2">Success. Service account deleted successfully. No content returned.</td>
+    </tr>
+    <tr>
+      <td><code>403</code></td>
+      <td colSpan="2">Forbidden. You do not have permission to delete this service account.</td>
+    </tr>
+    <tr>
+      <td><code>404</code></td>
+      <td colSpan="2">Not found. The specified service account does not exist.</td>
+    </tr>
+  </tbody>
+</table>
+
+</details>
+
+---
+
+### Reset Service Account Access Key
+
+<details>
+<summary><span className="api post">POST</span> <code>/team-management/v1/service-accounts/&#123;uuid&#125;/reset-access-key/</code></summary>
+<p/>
+
+Resets the access key for the specified service account. A new access key is generated and returned in the response.
+
+:::warning
+Regenerating an access key invalidates the previous key. Any tests or configurations using the previous key will fail, so make sure to update all tests and credential environment variables with the new key.
+:::
+
+#### Parameters
+
+<table id="table-api">
+  <tbody>
+    <tr>
+      <td><code>uuid</code></td>
+      <td>
+        <p><small>| PATH | REQUIRED | STRING |</small></p>
+        <p>The unique identifier of the service account. You can find the <code>uuid</code> in the URL of the [service account details view](/basics/acct-team-mgmt/managing-service-accounts/#accessing-the-service-account-details-view) in the Sauce Labs UI. You can also look up the <code>uuid</code> using the [Lookup Service Accounts](#lookup-service-accounts) endpoint.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<Tabs
+groupId="dc-url"
+defaultValue="us"
+values={[
+{label: 'United States', value: 'us'},
+{label: 'Europe', value: 'eu'},
+]}>
+
+<TabItem value="us">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.us-west-1.saucelabs.com/team-management/v1/service-accounts/<uuid>/reset-access-key/' | json_pp
+```
+
+</TabItem>
+<TabItem value="eu">
+
+```jsx title="Sample Request"
+curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
+--request POST 'https://api.eu-central-1.saucelabs.com/team-management/v1/service-accounts/<uuid>/reset-access-key/' | json_pp
+```
+
+</TabItem>
+</Tabs>
+
+#### Responses
+
+<table id="table-api">
+  <tbody>
+    <tr>
+      <td><code>200</code></td>
+      <td colSpan="2">Success. Service account access key was rotated.</td>
+    </tr>
+    <tr>
+      <td><code>403</code></td>
+      <td colSpan="2">Forbidden. You do not have permission to reset the access key for this service account.</td>
+    </tr>
+    <tr>
+      <td><code>404</code></td>
+      <td colSpan="2">Not found. The specified service account does not exist.</td>
+    </tr>
+  </tbody>
+</table>
+
+```jsx title="Sample Response"
+{
+  "access_key": "3f78c473-3396-432d-b6d1-48e2dd7c57b1"
+}
+```
+
+</details>
