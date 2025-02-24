@@ -10,6 +10,7 @@ import FullPageLimit from '../_partials/_fullpage-limit.md';
 import SelectiveDiffing from '../_partials/_selective-diffing.md';
 import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
 import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
+import Frames from '../_partials/_frames.md';
 
 # C#/.Net WebDriver Integration
 
@@ -453,6 +454,21 @@ await VisualClient.VisualCheck("Visible Sale Banner",
     new VisualCheckOptions()
     {
         ClipElement = element,
+    });
+```
+
+### Frames
+
+<Frames/>
+
+Example:
+
+```csharp
+Driver.SwitchTo().Frame(0);
+await VisualClient.VisualCheck("Frame capture",
+    new VisualCheckOptions()
+    {
+        FullPage = true,
     });
 ```
 

@@ -12,6 +12,7 @@ import SelectiveDiffingGlobal from '../_partials/_selective-diffing-global.md';
 import SelectiveDiffingRegion from '../_partials/_selective-diffing-region.md';
 import FullPageLimitation from '../_partials/_fullpage-limitation.md';
 import FullPageDescription from '../_partials/_fullpage-description.md';
+import Frames from '../_partials/_frames.md';
 
 # Java WebDriver Integration
 
@@ -623,6 +624,22 @@ RemoteWebDriver driver;
 WebElement element = driver.findElement(By.cssSelector(".your-css-selector"));
 visual.sauceVisualCheck(
         "Visible Sale Banner", new CheckOptions.Builder().withClipElement(element).build());
+```
+
+### Frames
+
+<Frames/>
+
+Example:
+
+```java
+import com.saucelabs.visual.CheckOptions;
+RemoteWebDriver driver;
+
+driver.switchTo().frame(0);
+CheckOptions options = new CheckOptions();
+options.enableFullPageScreenshots();
+visual.sauceVisualCheck("Frame capture", options);
 ```
 
 ## Examples
