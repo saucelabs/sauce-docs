@@ -44,8 +44,6 @@ You can integrate your TestFairy account with different services to customize an
 
 - Slack - See [Slack](/testfairy/integrations/slack) for information about integrating your Slack account with TestFairy.
 
-- Zendesk - See [ZenDesk](/testfairy/integrations/zendesk) for information about integrating your Zendesk account with TestFairy.
-
 - Webhooks - You can use TestFairy webhooks to connect to services. See [Microsoft Teams](/testfairy/integrations/ms-teams) for more information.
 
 <img src={useBaseUrl('img/testfairy/acct-settings-integrations.png')} alt="Integrations page" width="700"/>
@@ -78,8 +76,3 @@ On the **Account** page you can access the following settings:
 
 <img src={useBaseUrl('img/testfairy/acct-settings-account.png')} alt="Account page" width="700"/>
 
-## Users Allowlist
-
-Allows recording of specific users instead of recording all user sessions. This can help in cases in which customer support teams want to record users who are having issues.
-
-<img src={useBaseUrl('img/testfairy/acct-settings-allowlist.png')} alt="Users Allowlist page" width="700"/>
