@@ -44,8 +44,6 @@ You can integrate your TestFairy account with different services to customize an
 
 - Slack - See [Slack](/testfairy/integrations/slack) for information about integrating your Slack account with TestFairy.
 
-- Zendesk - See [ZenDesk](/testfairy/integrations/zendesk) for information about integrating your Zendesk account with TestFairy.
-
 - Webhooks - You can use TestFairy webhooks to connect to services. See [Microsoft Teams](/testfairy/integrations/ms-teams) for more information.
 
 <img src={useBaseUrl('img/testfairy/acct-settings-integrations.png')} alt="Integrations page" width="700"/>
