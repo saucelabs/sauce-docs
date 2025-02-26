@@ -14,7 +14,6 @@ import TabItem from '@theme/TabItem';
   - We recommend using [cURL](https://curl.se/docs/) or an equivalent tool.
 - Check to see if you have any proxies that are required to access the public Internet.
 - Review the [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for instructions on how to set your Sauce Labs username and access key and launch a tunnel.
-- If you're using Jenkins, or GitHub Actions, be sure to review [Sauce Connect Proxy CI/CD Integration](/secure-connections/sauce-connect/setup-configuration/ci-cd-integration).
 
 ## Best Practice for Using Tunnels
 
