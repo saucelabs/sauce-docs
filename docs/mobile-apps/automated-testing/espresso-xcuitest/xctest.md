@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Apple has two native test frameworks, [XCTest](https://developer.apple.com/documentation/xctest) for unit testing and [XCUITest](https://developer.apple.com/documentation/xctest/user-interface-tests) for UI testing. You can execute both XCTest and XCUITest on Sauce Labs Real Devices. Apple allows you to organize and configure your tests into [Test Plans](https://developer.apple.com/documentation/xcode/organizing-tests-to-improve-feedback). This allows you to bundle multiple Test Targets in one test run. 
+Apple's native testing framework, [XCTest](https://developer.apple.com/documentation/xctest) , supports the creation of unit tests, UI tests, and performance tests. Within XCTest, [XCUITest](https://developer.apple.com/documentation/xctest/user-interface-tests) is specifically designed for UI testing. Additionally, Apple allows you to organize and configure your tests into [Test Plans](https://developer.apple.com/documentation/xcode/organizing-tests-to-improve-feedback), enabling you to bundle multiple test targets into a single test run.
 
 **To execute your XCTest plan on Sauce Labs infrastructure we require the following test artifacts from you:**
 1. All iOS apps that are part of your XCTest plan as an `.app` or `.ipa` file.
