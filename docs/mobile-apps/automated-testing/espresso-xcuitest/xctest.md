@@ -8,12 +8,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Apple's native testing framework, [XCTest](https://developer.apple.com/documentation/xctest) , supports the creation of unit tests, UI tests, and performance tests. Within XCTest, [XCUITest](https://developer.apple.com/documentation/xctest/user-interface-tests) is specifically designed for UI testing. Additionally, Apple allows you to organize and configure your tests into [Test Plans](https://developer.apple.com/documentation/xcode/organizing-tests-to-improve-feedback), enabling you to bundle multiple test targets into a single test run.
+Apple's native testing framework, [XCTest](https://developer.apple.com/documentation/xctest) , supports the creation of unit tests, UI tests, and performance tests. In XCTest, [XCUITest](https://developer.apple.com/documentation/xctest/user-interface-tests) is specifically designed for UI testing. Additionally, Apple allows you to organize and configure your tests into [Test Plans](https://developer.apple.com/documentation/xcode/organizing-tests-to-improve-feedback), enabling you to bundle multiple test targets into a single test run.
 
-**To execute your XCTest plan on Sauce Labs infrastructure we require the following test artifacts from you:**
+**To run your XCTest plan on Sauce Labs infrastructure we require the following test artifacts from you:**
 1. All iOS apps that are part of your XCTest plan as an `.app` or `.ipa` file.
 2. All XCUITest apps that are part of your XCTest plan as an `.app` or `.ipa` file (only if your Test plan actually includes a UI test).
-3. The `.xctestrun` file for your XCTest plan. The [.xctestrun file](https://keith.github.io/xcode-man-pages/xcodebuild.xctestrun.5.html) is a compiled version of your XCTest plan and contains all the configuration for your tests. This is the same config that Xcode uses when it runs your tests on your development machine.
+3. The `.xctestrun` file for your XCTest plan. The [.xctestrun file](https://keith.github.io/xcode-man-pages/xcodebuild.xctestrun.5.html) is a compiled version of your XCTest plan and contains all the configuration for your tests. This file contains the same config that Xcode uses when it runs your tests on your development machine.
 
 
 ### Content
@@ -45,7 +45,7 @@ Explanation:
 5. `-derivedDataPath` (optional) defines where the test artifacts should be written to.
 
 
-## 2. How to run your XCTest plan on Sauce Labs infrastructure
+## 2. How to Run Your XCTest Plan on Sauce Labs Infrastructure
 To run your XCTest plan on Sauce Labs, you have two options: use `saucectl` or integrate with our APIs yourself. If you are unfamiliar with our APIs, we recommend using `saucectl` for ease of use and getting you started quickly.
 
 
@@ -65,11 +65,11 @@ saucectl run
 
 For further configuration options and info on how to use `saucectl` visit [/docs/mobile-apps/automated-testing/espresso-xcuitest/xcuitest.md](/docs/mobile-apps/automated-testing/espresso-xcuitest/xcuitest.md)
 
-### 2.2. Run XCTests without saucectl
+### 2.2. Run XCTests Without Saucectl
 
 If you prefer not to use saucectl, you can directly integrate with our APIs.
 
-**First**, compile your `.app` as an `.ipa` file as described [here](/docs/mobile-apps/automated-testing/ipa-files.md#building-an-ipa-from-an-app-bundle). 
+**First**, compile your `.app` as an `.ipa` file as described [here](/docs/mobile-apps/automated-testing/ipa-files.md#building-an-ipa-from-an-app-bundle).
 
 **Second**, upload your `.ipa` and `.xctestrun` files to our AppStorage backend, see [AppStorage APIs](/docs/mobile-apps/app-storage.md#upload-apps-via-rest-api).
 
@@ -78,12 +78,12 @@ If you prefer not to use saucectl, you can directly integrate with our APIs.
 **Fourth**, poll the state of the job and wait until the `status` is `passed|failed|error|complete`. You can do this through the [Jobs API](/docs/dev/api/rdc.md#get-a-specific-real-device-job).
 
 
-## 3. Special cases and trouble shooting
+## 3. Special Cases And Trouble Shooting
 
-### 3.1. XCTest plan contains a XCUITest
+### 3.1. XCTest Plan Contains A XCUITest
 XCUITests require a second app that simulates the user interactions with your app under test. They usually have the suffix `UITests-Runner.app`. Before we can run this as part of your tests, this app will need to be installed on the device, just like any other app. You can do this through the [otherApps capability](/docs/mobile-apps/automated-testing/espresso-xcuitest/xcuitest.md#otherapps).
 
-### 3.2. XCTest plan contains a Target that is for a different app
+### 3.2. XCTest Plan Contains A Target That Is For A Different App
 A XCTest plan can contain multiple Test Targets, even for different apps. If this is the case they will need to be installed on the device before we can run the tests. If a scheme or XCTest plan contains multiple apps, they will be written to the same directory that you defined in [step 1](#1-how-to-build-the-app-and-xctestrun-files). To install them on a device you can use the [otherApps capability](/docs/mobile-apps/automated-testing/espresso-xcuitest/xcuitest.md#otherapps).
 
 
