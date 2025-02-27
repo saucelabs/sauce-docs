@@ -26,6 +26,10 @@ Make sure your organization is enrolled to use Sauce Orchestrate, otherwise you 
 
 ## How It Works
 
+:::note
+[Service accounts](/basics/acct-team-mgmt/managing-service-accounts/) are not supported in Sauce Orchestrate. Only user accounts can use this feature.
+:::
+
 Sauce Orchestrate utilizes container technology to package and run your tests in the Sauce Labs cloud.
 
 To use Sauce Orchestrate:
