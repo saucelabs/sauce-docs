@@ -1188,6 +1188,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'testfairy/security/private-cloud',
+                        'testfairy/security/bring-your-own-storage',
                         {
                             type: 'category',
                             label: 'Single Sign On',
