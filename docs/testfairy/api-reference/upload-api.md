@@ -12,10 +12,6 @@ Streamline your build process and upload APKs or IPAs directly to TestFairy.
 
 ### Usage
 
-[Command line uploader](https://github.com/testfairy/command-line-uploader/blob/master/testfairy-uploader.sh)
-
-[Jenkins](https://plugins.jenkins.io/TestFairy)
-
 [Gradle](https://github.com/testfairy/testfairy-gradle-plugin)
 
 [fastlane](https://docs.fastlane.tools/actions/testfairy/)
@@ -24,17 +20,11 @@ Streamline your build process and upload APKs or IPAs directly to TestFairy.
 
 [Bitrise](https://www.bitrise.io/integrations/steps/testfairy-deploy)
 
-[Visual Studio Team Services](/testfairy/ci-tools/vs-team)
-
 [NetBeans](http://plugins.netbeans.org/plugin/52087/)
-
-[Bamboo](/testfairy/ci-tools/bamboo)
 
 [TeamCity](/testfairy/ci-tools/team-city)
 
 [GitLab](/testfairy/ci-tools/gitlab)
-
-[Lumberyard](/testfairy/platforms/lumberyard)
 
 ### Upload API
 
