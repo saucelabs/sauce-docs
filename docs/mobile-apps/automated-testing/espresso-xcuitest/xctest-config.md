@@ -20,7 +20,11 @@ saucectl run -c ./path/to/{config-file}.yml
 While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g., [Visual Studio Code](/dev/cli/saucectl/usage/ide/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
 :::
 
-## Configuration
+## Example Configuration
+
+```yaml reference
+https://github.com/saucelabs-training/demo-xctest/blob/main/.sauce/xctest_1.yaml
+```
 
 Each of the properties supported for running XCTest tests through `saucectl` is defined below.
 
