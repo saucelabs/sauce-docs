@@ -93,11 +93,11 @@ For a practical example of how to set up and run your XCTest and XCUITest plans 
 the [demo-xctest repository](https://github.com/saucelabs-training/demo-xctest).
 
 This repository contains multiple examples of how to run XCTest plan on Sauce Labs cloud, along with the source code for the demonstration app
-used in these examples. By leveraging `xctestplan` and `xctestrun` configuration files, this demo shows how to execute an XCTest plan, similar to
+used in these examples. By leveraging `xctestplan` and `xctestrun` configuration files, this demo shows how to run an XCTest plan, similar to
 using the following xcodebuild command:
 
 ```shell
 xcodebuild test-without-building -xctestrun $(PATH_TO_XCTESTRUN_FILE)
 ```
 
-Visit the repo to see how everything is configured and try running your own XCTest plan on Sauce Labs' real devices.
+Visit the repository to see how everything is configured and try running your own XCTest plan on Sauce Labs' real devices.

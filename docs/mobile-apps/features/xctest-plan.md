@@ -26,7 +26,7 @@ efficiency, scalability, and reliability. Here’s why running XCTest Plans on S
 
 - ✅ ***Seamless Integration***
     * Run your existing XCTest Plans on Sauce Labs' real devices with minimal setup.
-    * No need to modify test code—simply upload your test artifacts and start testing.
+    * No need to modify test code. Upload your test artifacts and start testing.
 - 🎯 ***Granular Test Selection & Configuration***
     * Use different XCTest Plan configurations to run specific test groups.
     * Define test priorities, set environment variables, and control execution behaviors—all without modifying your test suite.
@@ -46,7 +46,7 @@ Using XCTest Plans on Sauce Labs is simple. Just follow these steps:
 
 1. Prepare Your XCTest Plan – Ensure your test suite includes an .xctestplan file configured in Xcode.
 1. Upload Your Test Artifacts – Provide your .xctestrun file and associated test bundle when starting a test on Sauce Labs.
-1. Run Tests in the Cloud – Execute your test plan using Sauce Labs' test runner, specifying your desired configurations.
+1. Run Tests in the Cloud – Run your test plan using Sauce Labs' test runner, specifying your desired configurations.
 1. Analyze Results – View test reports, logs, and insights directly in the Sauce Labs dashboard.
 
 ## Get Started Today

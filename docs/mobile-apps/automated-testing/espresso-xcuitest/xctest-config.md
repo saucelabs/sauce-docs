@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-`saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your XCTest tests, simply modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running XCTest tests.
+`saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your XCTest tests, modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running XCTest tests.
 
 Use the following configuration at runtime to direct `saucectl` to use any configuration file you choose:
 
@@ -17,7 +17,7 @@ saucectl run -c ./path/to/{config-file}.yml
 ```
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (e.g., [Visual Studio Code](/dev/cli/saucectl/usage/ide/vscode)) can help you out by validating the YAML files and provide handy suggestions, so make sure to check them out!
+While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (for example: [Visual Studio Code](/dev/cli/saucectl/usage/ide/vscode)) can help you out by validating the YAML files and provide suggestions.
 :::
 
 ## Example Configuration
@@ -135,7 +135,7 @@ sauce:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-The set of properties that allows you to provide additional information about your project that helps distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to easily isolate tests based on metrics that are meaningful to you.
+The set of properties that allows you to provide additional information about your project that helps distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to isolate tests based on metrics that are meaningful to you.
 
 ```yaml
 sauce:
@@ -154,7 +154,7 @@ sauce:
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-Sets the maximum number of suites to execute at the same time. If the test defines more suites than the max, excess suites are queued and run in order as each suite completes.
+Sets the maximum number of suites to run at the same time. If the test defines more suites than the max, excess suites are queued and run in order as each suite completes.
 
 :::caution
 Set this value to equal or less than your Sauce concurrency allowance, as setting a higher value may result in jobs dropped by the server.
@@ -249,7 +249,7 @@ sauce:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the execution order for your test suites. When set to `fail rate`, test suites with the highest failure rate will execute first. If unspecified, test suites will execute in the order in which they are written in the configuration file.
+Specifies the execution order for your test suites. When set to `fail rate`, test suites with the highest failure rate will run first. If unspecified, test suites will run in the order in which they are written in the configuration file.
 
 ```yaml
 sauce:
@@ -475,7 +475,7 @@ XCTest:
 :::caution
 
 `saucectl` supports running XCTests on Real Devices only. Simulators only support [XCUITest](/docs/mobile-apps/automated-testing/espresso-xcuitest/xcuitest.md):
-You need to configure your devices via: 
+You need to configure your devices via:
 - `devices`, see [Devices](#devices)
 
 :::
@@ -486,7 +486,7 @@ You need to configure your devices via:
 
 <p><small>| REQUIRED | STRING |</small></p>
 
-Specifies a local path, url, or storage identifier to the app under test. This property supports expanded environment variables. Supports `*.ipa`, `*.app` and `*.zip` file types.
+Specifies a local path, URL, or storage identifier to the app under test. This property supports expanded environment variables. Supports `*.ipa`, `*.app` and `*.zip` file types.
 
 ```yaml
 XCTest:
@@ -573,7 +573,7 @@ suites:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Sets the test application on the suite level. See the full [usage](#app). If this property is not set, `saucectl` will use the default `app` 
+Sets the test application on the suite level. See the full [usage](#app). If this property is not set, `saucectl` will use the default `app`.
 
 ```yaml
 suites:
@@ -891,25 +891,19 @@ suites:
 
 Allows you to set the mobile OS platform version that you want to use in your test.
 
-:::note
-Android and iOS platform versions are based on [Semantic Versioning](https://semver.org/), also known as SEMVER. This means that the versions will have the format `MAJOR.MINOR.PATCH`.
-:::
-
-*Real Devices**
-
-This is optional for Real Devices. There are three options you can use to determine which version you want to use for your automated Appium, Espresso, or XCTest tests:
+The platformVersion configuration is optional for Real Devices. There are three options you can use to determine which version you want to use for your automated Appium, Espresso, or XCTest tests:
 
 1. Don't provide a `platformVersion`, this will result in any available Android or iOS device, no matter the version.
 2. Provide a `platformVersion` that starts with your provided `platformVersion` string:
    - **`12`:** matches all minors and patches for `platformVersion: "12"`. For example `12.1.0|12.1.1|12.2.0|...`
    - **`12.1`:** matches all patches for `platformVersion: "12.1"`. For example `12.1.0|12.1.1`, it will **not** match `12.2.x|12.3.x` and higher
    - **`12.1.1`:** matches all devices that have **this exact** platform version
-3. In/exclude a specific version and or a range of versions by using a regular expression (regex). You don't need to provide the forward slashes (`/{your-regex}/`) as you would normally do with regex. Keep in mind that the regex needs to match the format `MAJOR.MINOR.PATCH`. The possibilities are endless, but here are just a few examples:
+3. In/exclude a specific version and or a range of versions by using a regular expression (regex). You don't need to provide the forward slashes (`/{your-regex}/`) as you would normally do with regular expression. Keep in mind that the regular expression needs to match the format `MAJOR.MINOR.PATCH`. The possibilities are endless, but here are just a few examples:
    - **`^1[3-4|6].*`:** Will match `13`, `14` and `16`, but not 15, see [example](https://regex101.com/r/ExICgZ/1).
    - **`^(?!15).*`:** Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1).
 
 :::note
-The stricter the `platformVersions` is, the smaller the pool of available devices will be and the longer you might need to wait for the available device. We recommend using only the major version or using the regex option to get the best results and an available device in the fastest way.
+The stricter the `platformVersions` is, the smaller the pool of available devices will be and the longer you might need to wait for the available device. We recommend using only the major version or using the regular expression option to get the best results and an available device in the fastest way.
 :::
 
 ```yaml title="Use complete version for Real Devices"
