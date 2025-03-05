@@ -1,6 +1,6 @@
 ---
 id: xctest-plan
-title: Run XCTest plans on SauceLabs
+title: Run XCTest plans on Sauce Labs
 sidebar_label: XCTest plan
 ---
 
