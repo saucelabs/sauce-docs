@@ -44,7 +44,7 @@ apiVersion: v1alpha
 
 <p><small>| REQUIRED | STRING/ENUM |</small></p>
 
-Specifies which framework is associated with the automation tests configured in this specification.
+Specifies the framework associated with the automation tests configured in this specification.
 
 ```yaml
 kind: xctest
