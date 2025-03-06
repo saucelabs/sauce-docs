@@ -26,7 +26,7 @@ While you can use multiple files of different names or locations to specify your
 https://github.com/saucelabs-training/demo-xctest/blob/main/.sauce/xctest_1.yaml
 ```
 
-Each of the properties supported for running XCTest tests through `saucectl` is defined below.
+Each property supported for running XCTest tests through `saucectl` is defined below.
 
 ## `apiVersion`
 
