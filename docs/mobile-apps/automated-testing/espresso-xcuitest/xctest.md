@@ -99,5 +99,9 @@ using the following xcodebuild command:
 ```shell
 xcodebuild test-without-building -xctestrun $(PATH_TO_XCTESTRUN_FILE)
 ```
+:::info Test Execution Scope
+We aim to replicate the `xcodebuild test-without-building` functionality. Currently, this executes all test configurations in the `xctestrun`
+file. Future updates will support `-skip-test-configuration` and `-only-test-configuration` options.
+:::
 
 Visit the repository to see how everything is configured and try running your own XCTest plan on Sauce Labs' real devices.
