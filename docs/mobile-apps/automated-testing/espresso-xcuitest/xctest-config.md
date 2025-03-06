@@ -98,7 +98,7 @@ defaults:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-The parent property containing all settings related to how tests are run and identified in the Sauce Labs platform.
+The parent property that encompasses all settings concerning how tests are executed and identified in the Sauce Labs platform.
 
 ```yaml
 sauce:
