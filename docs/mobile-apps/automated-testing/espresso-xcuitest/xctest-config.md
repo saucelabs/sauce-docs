@@ -363,7 +363,7 @@ reporters:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-The parent property specifying how to manage test output, such as logs, videos, and screenshots.
+The parent property indicating how to manage test output, including logs, videos, and screenshots.
 
 ```yaml
 artifacts:
