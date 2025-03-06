@@ -262,7 +262,7 @@ sauce:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-The parent property containing all reporting capabilities provided by `saucectl`.
+The parent property that encompasses all reporting capabilities provided by `saucectl`.
 
 ```yaml
 reporters:
