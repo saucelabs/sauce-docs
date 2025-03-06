@@ -184,7 +184,7 @@ sauce:
   retries: 1
 ```
 
-Alternatively, you can override the file setting at runtime by setting the retries flag as an inline parameter of the `saucectl run` command:
+Alternatively, you can override the file setting at runtime by specifying the retries flag as an inline parameter of the `saucectl run` command:
 
 ```bash
 saucectl run --retries 1
