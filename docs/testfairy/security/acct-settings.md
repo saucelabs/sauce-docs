@@ -76,8 +76,3 @@ On the **Account** page you can access the following settings:
 
 <img src={useBaseUrl('img/testfairy/acct-settings-account.png')} alt="Account page" width="700"/>
 
-## Users Allowlist
-
-Allows recording of specific users instead of recording all user sessions. This can help in cases in which customer support teams want to record users who are having issues.
-
-<img src={useBaseUrl('img/testfairy/acct-settings-allowlist.png')} alt="Users Allowlist page" width="700"/>

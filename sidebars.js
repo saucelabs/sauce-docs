@@ -1188,6 +1188,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'testfairy/security/private-cloud',
+                        'testfairy/security/bring-your-own-storage',
                         {
                             type: 'category',
                             label: 'Single Sign On',
@@ -1227,7 +1228,6 @@ module.exports = {
                         'testfairy/ci-tools/fastlane',
                         'testfairy/ci-tools/gitlab',
                         'testfairy/ci-tools/team-city',
-                        'testfairy/ci-tools/vs-team',
                     ],
                 },
                 {
@@ -1274,7 +1274,6 @@ module.exports = {
                                         'testfairy/platforms/expo',
                                         'testfairy/platforms/flutter',
                                         'testfairy/platforms/ionic',
-                                        'testfairy/platforms/lumberyard',
                                         'testfairy/platforms/nativescript',
                                         'testfairy/platforms/neptune',
                                         'testfairy/platforms/react-native',
