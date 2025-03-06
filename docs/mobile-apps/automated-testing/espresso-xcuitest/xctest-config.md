@@ -279,7 +279,7 @@ reporters:
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
 The spotlight reporter highlights failed or otherwise interesting jobs.
-It may include an excerpt of failed tests or other information that may be useful for troubleshooting.
+It may include an excerpt of failed tests or additional information that could be useful for troubleshooting.
 
 ```yaml
 reporters:
