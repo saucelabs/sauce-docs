@@ -430,7 +430,7 @@ artifacts:
 
 <p><small>| OPTIONAL | STRING/ARRAY |</small></p>
 
-Specifies which artifacts to download based on whether they match the name or file type pattern provided. Supports the wildcard character `*` (use quotes for best parsing results with wildcard).
+Specifies which artifacts to download based on whether they match the provided name or file type pattern. Supports the use of the wildcard character `*` (use quotes for optimal parsing results with wildcard).
 
 ```yaml
 artifacts:
