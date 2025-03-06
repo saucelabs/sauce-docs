@@ -306,7 +306,7 @@ reporters:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-The JSON reporter gathers test results from all jobs and combines them into a single report.
+The JSON reporter collects test results from all jobs and merges them into a single report.
 
 ```yaml
 reporters:
