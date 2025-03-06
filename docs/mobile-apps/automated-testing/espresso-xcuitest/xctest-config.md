@@ -696,7 +696,7 @@ suites:
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Enables resigning the app to allow it to run on RDC devices. By default, it is set to `true`. It must remain `true` for instrumentation features to function. It can be set to `false` for private devices to install the app on the device as is.
+Enables resigning the app to allow it to run on RDC devices. By default, it is set to `true`. It must remain `true` for instrumentation features to function. It can be set to `false` for private devices to install the app on the device as is. [This section describes the resigning enabled capability in more detail](/docs/dev/test-configuration-options.md#resigningenabled)
 
 ```yaml
 suites:
