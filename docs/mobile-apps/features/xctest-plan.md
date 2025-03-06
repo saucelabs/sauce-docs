@@ -10,9 +10,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ### XCTest Plan Support at Sauce Labs
 
-Sauce Labs offers native support for XCTest Plans, making it easier than ever to run your entire iOS test suite in the cloud with
-minimal configuration changes. With this new capability, you can leverage XCTest Plans to organize, customize, and scale your test runs
-efficiently on ***Sauce Labs' real devices.***
+Sauce Labs provides native support for XCTest Plans, making it easier than ever to run your entire iOS test suite in the cloud with
+minimal configuration changes. With this new feature, you can leverage XCTest Plans to organize, customize, and efficiently scale your test runs
+on Sauce Labs' real devices.***
 
 ### What is an XCTest Plan?
 
@@ -21,7 +21,7 @@ organization, selective execution of test cases, and more granular control over 
 
 ### Why Use XCTest Plans on Sauce Labs?
 
-XCTest Plans provide greater flexibility and control over test execution, and with Sauce Labs' real device cloud, you can maximize
+XCTest Plans offer increased flexibility and control over test execution. With Sauce Labs' real device cloud, you can maximize
 efficiency, scalability, and reliability. Here’s why running XCTest Plans on Sauce Labs is a game-changer:
 
 - ✅ ***Seamless Integration***
