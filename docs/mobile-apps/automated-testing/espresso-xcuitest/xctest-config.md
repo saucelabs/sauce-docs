@@ -411,7 +411,7 @@ artifacts:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies when and under what circumstances to download artifacts. Valid values are:
+Specifies when and under which circumstances to download artifacts. Valid values are:
 
 - `always`: Always download artifacts.
 - `never`: Never download artifacts.
