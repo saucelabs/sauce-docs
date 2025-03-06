@@ -177,8 +177,7 @@ saucectl run --ccy 5
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-Sets the number of times to retry a failed suite. For more settings, you can
-refer to [passThreshold](#passthreshold).
+Sets the number of attempts to retry a failed suite. Please refer to [passThreshold](#passthreshold) for additional settings.
 
 ```yaml
 sauce:
