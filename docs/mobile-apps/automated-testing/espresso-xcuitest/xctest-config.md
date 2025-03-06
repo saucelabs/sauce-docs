@@ -135,7 +135,7 @@ sauce:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-The set of properties that allows you to provide additional information about your project that helps distinguish it in the various environments in which it is used and reviewed, and also helps you apply filters to isolate tests based on metrics that are meaningful to you.
+The set of properties that enable you to provide additional information about your project that helps distinguish it across the various environments in which it is used and reviewed. It also assists in applying filters to isolate tests based on metrics that are meaningful to you.
 
 ```yaml
 sauce:
