@@ -211,7 +211,7 @@ sauce:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Identifies an active Sauce Connect tunnel to use for secure connectivity to the Sauce Labs cloud.
+Identifies an active Sauce Connect tunnel for secure connectivity to the Sauce Labs cloud.
 
 :::note
 This property replaces the former `id` property, which is deprecated.
