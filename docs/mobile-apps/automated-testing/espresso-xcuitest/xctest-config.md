@@ -292,7 +292,7 @@ reporters:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-The JUnit reporter gathers JUnit reports from all jobs and combines them into a single report.
+The JUnit reporter collects JUnit reports from all jobs and merges them into a single report.
 
 ```yaml
 reporters:
