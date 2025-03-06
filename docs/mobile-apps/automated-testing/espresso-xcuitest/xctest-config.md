@@ -84,7 +84,7 @@ defaults:
 Specifies the duration (in `ms`, `s`, `m`, or `h`) that `saucectl` should wait for each suite to finish. If not configured, the default value is `0` (unlimited).
 
 :::caution Real Device Max Duration
-When setting the timeout values for your suites, consider that native framework tests on real devices enforce a maximum test duration limit of 90 minutes.
+When setting the timeout values for your suites, note that native framework tests on real devices enforce a maximum test duration limit of 90 minutes.
 :::
 
 ```yaml
