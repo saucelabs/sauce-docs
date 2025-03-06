@@ -17,7 +17,7 @@ saucectl run -c ./path/to/{config-file}.yml
 ```
 
 :::note YAML Required
-While you can use multiple files of different names or locations to specify your configurations, each file must be a `*.yml` and follow the `saucectl` syntax. Our IDE Integrations (for example: [Visual Studio Code](/dev/cli/saucectl/usage/ide/vscode)) can help you out by validating the YAML files and provide suggestions.
+While you can utilize multiple files with different names or locations to specify your configurations, each file must be a `*.yml` and adhere to the `saucectl` syntax. Our IDE integrations (for example: [Visual Studio Code](/dev/cli/saucectl/usage/ide/vscode)) can assist you by validating the YAML files and offering suggestions.
 :::
 
 ## Example Configuration
