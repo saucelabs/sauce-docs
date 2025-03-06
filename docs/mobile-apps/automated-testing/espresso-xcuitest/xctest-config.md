@@ -232,7 +232,7 @@ sauce:
 Identifies the Sauce Labs user who created the specified tunnel, which is required if the user running the tests did not create the tunnel.
 
 :::note
-This property replaces the former `parent` property, which is deprecated.
+This property supersedes the previous `parent` property, which is deprecated.
 :::
 
 ```yaml
