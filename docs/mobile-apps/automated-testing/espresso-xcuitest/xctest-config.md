@@ -248,7 +248,7 @@ sauce:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the execution order for your test suites. When set to `fail rate`, test suites with the highest failure rate will run first. If unspecified, test suites will run in the order in which they are written in the configuration file.
+Specifies the sequence in which your test suites are executed. When set to `fail rate`, test suites with the highest failure rate will run first. If not specified, test suites will run in the order they are listed in the configuration file.
 
 ```yaml
 sauce:
