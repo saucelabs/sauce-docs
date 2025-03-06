@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-`saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your XCTest tests, modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running XCTest tests.
+`saucectl` uses a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` for running your XCTest tests, adjust the properties of the YAML file as needed. This page outlines the configuration properties specific to running XCTest tests.
 
 Utilize the following configuration at runtime to instruct `saucectl` to use any configuration file of your choice:
 
