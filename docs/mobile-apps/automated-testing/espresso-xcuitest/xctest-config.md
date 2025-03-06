@@ -56,7 +56,7 @@ kind: xctest
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-Controls whether the contents of `console.log` are always shown in the local output of saucectl. By default (false), `console.log` is only shown for failed suites.
+Controls whether the contents of `console.log` are always displayed in the local output of `saucectl`. By default (false), `console.log` is only visible for failed suites.
 
 ```yaml
 showConsoleLog: true
