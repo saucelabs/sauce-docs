@@ -10,7 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 `saucectl` relies on a YAML specification file to determine exactly which tests to run and how to run them. To customize `saucectl` to run your XCTest tests, modify the properties of the YAML file accordingly. This page defines each of the configuration properties specific to running XCTest tests.
 
-Use the following configuration at runtime to direct `saucectl` to use any configuration file you choose:
+Utilize the following configuration at runtime to instruct `saucectl` to use any configuration file of your choice:
 
 ```bash
 saucectl run -c ./path/to/{config-file}.yml
