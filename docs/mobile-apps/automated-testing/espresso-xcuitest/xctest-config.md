@@ -154,7 +154,7 @@ sauce:
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-Sets the maximum number of suites to run at the same time. If the test defines more suites than the max, excess suites are queued and run in order as each suite completes.
+Sets the maximum number of suites that can run simultaneously. If the test specifies more suites than the maximum, the excess suites are placed in a queue and executed in order as each suite completes.
 
 :::caution
 Set this value to equal or less than your Sauce concurrency allowance, as setting a higher value may result in jobs dropped by the server.
