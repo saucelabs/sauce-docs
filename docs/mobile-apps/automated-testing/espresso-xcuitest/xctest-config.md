@@ -394,7 +394,7 @@ artifacts:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Specifies the settings related to downloading artifacts from tests run by `saucectl`.
+Specifies the settings for downloading artifacts from tests run by `saucectl`.
 
 ```yaml
 artifacts:
