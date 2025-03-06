@@ -165,7 +165,7 @@ sauce:
   concurrency: 5
 ```
 
-Alternatively, you can override the file setting at runtime by setting the concurrency flag as an inline parameter of the `saucectl run` command:
+Alternatively, you can override the file setting at runtime by specifying the concurrency flag as an inline parameter for the `saucectl run` command:
 
 ```bash
 saucectl run --ccy 5
