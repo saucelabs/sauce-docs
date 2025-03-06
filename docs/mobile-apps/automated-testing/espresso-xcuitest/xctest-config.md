@@ -485,7 +485,7 @@ You need to configure your devices via:
 
 <p><small>| REQUIRED | STRING |</small></p>
 
-Specifies a local path, URL, or storage identifier to the app under test. This property supports expanded environment variables. Supports `*.ipa`, `*.app` and `*.zip` file types.
+Specifies a local path, URL, or storage identifier for the app under test. This property supports expanded environment variables and accepts `*.ipa`, `*.app`, and `*.zip` file types.
 
 ```yaml
 XCTest:
@@ -514,7 +514,7 @@ XCTest:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies description for the uploaded app.
+Specifies the description for the uploaded app.
 
 ```yaml
 XCTest:
@@ -527,11 +527,11 @@ XCTest:
 
 <p><small>| OPTIONAL | ARRAY |</small></p>
 
-If your Test plan spans multiple app targets, or contains XCUITests, provide them here. See [`app`](#app) for more app details.
+If your test plan spans multiple app targets or includes XCUITests, please provide them here. Refer to [`app`](#app) for additional app details.
 
 :::note
 
-1. Apps specified as `otherApps` inherit the configuration of the main app under test for [`Device Language`, `Device Orientation`, and `Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of any differences that may be applied through the Sauce Labs UI, because the settings are specific to the device under test. For example, if the dependent app is intended to run in landscape orientation, but the main app is set to portrait, the dependent app will run in portrait for the test, which may have unintended consequences.
+1. Apps specified as `otherApps` inherit the configuration of the main app under test for [`Device Language`, `Device Orientation`, and `Proxy`](https://app.saucelabs.com/live/app-testing#group-details), regardless of any differences that may be applied through the Sauce Labs UI, since the settings are specific to the device being tested. For instance, if the dependent app is designed to operate in landscape orientation while the main app is set to portrait, the dependent app will run in portrait during the test, which may lead to unintended consequences.
 
 :::
 
@@ -551,7 +551,7 @@ XCTest:
 
 <p><small>| REQUIRED | OBJECT |</small></p>
 
-The set of properties providing details about the test suites to run. May contain multiple suite definitions. See the full [example config](#example-configuration) for an illustration of multiple suite definitions.
+The set of properties providing details about the test suites to run. May contain multiple suite definitions. Refer to the full [example config](#example-configuration) for an illustration of multiple suite definitions.
 
 ---
 
@@ -572,7 +572,7 @@ suites:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Sets the test application on the suite level. See the full [usage](#app). If this property is not set, `saucectl` will use the default `app`.
+Sets the test application at the suite level. Refer to the full [usage](#app). If this property is not set, `saucectl` will use the default `app`.
 
 ```yaml
 suites:
@@ -586,7 +586,7 @@ suites:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies description for the uploaded test app on the suite level. If `app` is not set on suite level, `saucectl` will use the default `appDescription`.
+Specifies the description for the uploaded test app at the suite level. If `app` is not set at the suite level, `saucectl` will use the default `appDescription`.
 
 ```yaml
 suites:
@@ -620,11 +620,10 @@ suites:
 
 <p><small>| OPTIONAL | INTEGER |</small></p>
 
-Specifies the minimum number of successful attempts for a suite to be considered as `passed`. It should be used along with [retries](#retries).
+Specifies the minimum number of successful attempts for a suite to be deemed `passed`. It should be used in conjunction with [retries](#retries).
 
 :::note
-For example, setting `retries` to 3 and `passThreshold` to 2.
-The max attempt would be 4 times. If the test passed twice, it'd stop and be marked as `passed`. Otherwise, it'd be marked as `failed`.
+For example, setting `retries` to 3 and `passThreshold` to 2 means the maximum attempts would be 4. If the test passes twice, it will stop and be marked as `passed`. Otherwise, it will be marked as `failed`.
 :::
 
 ```yaml
@@ -641,7 +640,7 @@ suites:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-Specifies the retry strategy to apply for that suite. It should be used along with [retries](#retries).
+Specifies the retry strategy to apply to that suite. It should be used in conjunction with [retries](#retries).
 
 ```yaml
 sauce:
@@ -658,7 +657,7 @@ suites:
 
 <p><small>| OPTIONAL | BOOLEAN |</small></p>
 
-When set to `true`, `saucectl` collects any failed tests from the previous run and performs an automatic retry on them.
+When set to `true`, `saucectl` collects any failed tests from the previous run and automatically retries them.
 
 ```yaml
 suites:
@@ -697,7 +696,7 @@ suites:
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Enables resigning of the app so that it can run on RDC devices. Set to `true` by default. It must be kept as `true` in order for instrumentation features to work. Can be set to `false` for private devices to install the app to the device as is.
+Enables resigning the app to allow it to run on RDC devices. By default, it is set to `true`. It must remain `true` for instrumentation features to function. It can be set to `false` for private devices to install the app on the device as is.
 
 ```yaml
 suites:
@@ -760,7 +759,7 @@ suites:
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Configure app settings for real device to intercept biometric authentication.
+Configure app settings for real devices to intercept biometric authentication.
 
 ```yaml
 suites:
@@ -776,7 +775,7 @@ suites:
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Configure app settings for real device to enable group directory access.
+Configure app settings for real devices to enable group directory access.
 
 ```yaml
 suites:
@@ -792,7 +791,7 @@ suites:
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Configure app settings for real device to delay system alerts.
+Configure app settings for real devices to delay system alerts.
 
 ```yaml
 suites:
@@ -808,7 +807,7 @@ suites:
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Configure app settings for real device to inject provided images in the user app.
+Configure app settings for real devices to inject the provided images into the user app.
 
 ```yaml
 suites:
@@ -824,13 +823,13 @@ suites:
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-The parent property that defines how to select real devices on which to run the test suite. You can request a specific device using its ID, or you can specify a set of criteria to choose the first available device that matches the specifications.
+The parent property that defines how to select real devices on which to run the test suite. You can request a specific device using its ID or specify a set of criteria to choose the first available device that matches the specifications.
 
 When an ID is specified, it supersedes the other settings.
 
 :::caution
 
-A `device` or a `simulator` is required to run your tests. You can **NOT** combine them in one `suite`.
+A `device` or a `simulator` is required to run your tests. You **CANNOT** combine them into a single `suite`.
 
 :::
 
@@ -866,7 +865,7 @@ suites:
 
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Find a device for this test suite that matches the device name or portion of the name ([Dynamic Device Allocation](/mobile-apps/supported-devices/#dynamic-device-allocation)), which may provide a larger pool of available devices of the type you want.
+Find a device for this test suite that matches the device name or part of the name ([Dynamic Device Allocation](/mobile-apps/supported-devices/#dynamic-device-allocation)), which might offer a broader selection of available devices of the type you want.
 
 ```yaml title="Use Complete Name"
 suites:
@@ -888,21 +887,21 @@ suites:
 
 <p><small>| MANDATORY <span className="sauceGreen">for Virtual Devices</span> | OPTIONAL <span className="sauceGreen">for Real Devices</span> | STRING |</small></p>
 
-Allows you to set the mobile OS platform version that you want to use in your test.
+Allows you to select the mobile OS platform version you wish to use in your test.
 
-The platformVersion configuration is optional for Real Devices. There are three options you can use to determine which version you want to use for your automated Appium, Espresso, or XCTest tests:
+The `platformVersion` configuration is optional for real devices. There are three options available to determine which version you want to use for your automated Appium, Espresso, or XCTest tests:
 
-1. Don't provide a `platformVersion`, this will result in any available Android or iOS device, no matter the version.
-2. Provide a `platformVersion` that starts with your provided `platformVersion` string:
-   - **`12`:** matches all minors and patches for `platformVersion: "12"`. For example `12.1.0|12.1.1|12.2.0|...`
-   - **`12.1`:** matches all patches for `platformVersion: "12.1"`. For example `12.1.0|12.1.1`, it will **not** match `12.2.x|12.3.x` and higher
+1. Do not provide a `platformVersion`; this will result in using any available Android or iOS device, regardless of the version.
+2. Provide a `platformVersion` that begins with the `platformVersion` string you provided:
+   - **`12`:** matches all minor and patch versions for `platformVersion: "12"`. For example `12.1.0|12.1.1|12.2.0|...`
+   - **`12.1`:** matches all patch versions for `platformVersion: "12.1"`. For example `12.1.0|12.1.1` will **not** match `12.2.x|12.3.x` and higher
    - **`12.1.1`:** matches all devices that have **this exact** platform version
-3. In/exclude a specific version and or a range of versions by using a regular expression (regex). You don't need to provide the forward slashes (`/{your-regex}/`) as you would normally do with regular expression. Keep in mind that the regular expression needs to match the format `MAJOR.MINOR.PATCH`. The possibilities are endless, but here are just a few examples:
-   - **`^1[3-4|6].*`:** Will match `13`, `14` and `16`, but not 15, see [example](https://regex101.com/r/ExICgZ/1).
-   - **`^(?!15).*`:** Will exclude version `15` with all it's minors and patches, but will match all other versions, see [example](https://regex101.com/r/UqqYrM/1).
+3. Include or exclude a specific version and/or a range of versions using a regular expression (regex). You don't need to provide the forward slashes (`/{your-regex}/`) as you typically would with regular expressions. Remember that the regular expression must match the format `MAJOR.MINOR.PATCH`. The possibilities are endless; here are just a few examples:
+   - **`^1[3-4|6].*`:** This will match `13`, `14`, and `16`, but not `15`. See [example](https://regex101.com/r/ExICgZ/1).
+   - **`^(?!15).*`:** This will exclude version `15` along with all its minor and patch versions while matching all other versions. See [example](https://regex101.com/r/UqqYrM/1).
 
 :::note
-The stricter the `platformVersions` is, the smaller the pool of available devices will be and the longer you might need to wait for the available device. We recommend using only the major version or using the regular expression option to get the best results and an available device in the fastest way.
+The stricter the `platformVersions` configuration, the narrower the selection of available devices will be, and the longer you may have to wait for a device. We recommend using only the major version or the regular expression option to achieve the best results and to access an available device more quickly.
 :::
 
 ```yaml title="Use complete version for Real Devices"
@@ -934,7 +933,7 @@ suites:
 
 <p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-A parent property to further specify desired device attributes within the pool of devices that match the `name` and `version` criteria.
+A parent property that further specifies the desired device attributes within the selection of devices that match the `name` and `version` criteria.
 
 ---
 
@@ -942,7 +941,7 @@ A parent property to further specify desired device attributes within the pool o
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Request that the matching device is also connected to a cellular network.
+Request that the matching device be connected to a cellular network.
 
 ```yaml
 suites:
@@ -959,7 +958,7 @@ suites:
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Request that the matching device is a specific type of device. Valid values are: `ANY`, `TABLET`, or `PHONE`.
+Request that the matching device must be a particular type. Valid values are `ANY`, `TABLET`, or `PHONE`.
 
 ```yaml
 suites:
@@ -976,7 +975,7 @@ suites:
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Request that the matching device is from your organization's private pool.
+Request that the matching device be from your organization's private pool.
 
 ```yaml
 suites:
@@ -993,7 +992,7 @@ suites:
 
 <p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Virtual Devices Only</span> |</small></p>
 
-A property containing one or more environment variables that may be referenced in the tests for this suite. Expanded environment variables are supported. Values set here will be overwritten by values set in the global `env` property.
+A property containing one or more environment variables that can be referenced in the tests for this suite. Expanded environment variables are supported. Values specified here will be overwritten by those set in the global `env` property.
 
 ```yaml
   env:
@@ -1004,11 +1003,11 @@ A property containing one or more environment variables that may be referenced i
 
 ## Advanced Configuration Considerations
 
-The configuration file is flexible enough to allow for any customizations and definitions that are required for any of the supported frameworks. The following sections describe some of the most common configurations.
+The configuration file is flexible enough to accommodate any necessary customizations and definitions for the supported frameworks. The following sections outline some of the most common configurations.
 
 ### Setting up a Proxy
 
-If you need to go through a proxy server, you can set it through the following variables:
+If you need traffic to pass through a proxy server, you can configure it using the following variables:
 
 - `HTTP_PROXY`: Proxy to use to access HTTP websites
 - `HTTPS_PROXY`: Proxy to use to access HTTPS websites
