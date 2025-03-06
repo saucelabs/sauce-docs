@@ -32,7 +32,7 @@ Each of the properties supported for running XCTest tests through `saucectl` is 
 
 <p><small>| REQUIRED | STRING |</small></p>
 
-Identifies the version of the underlying configuration schema. At this time, `v1alpha` is the only supported value.
+Identifies the version of the underlying configuration schema. Currently, `v1alpha` is the only supported version value.
 
 ```yaml
 apiVersion: v1alpha
