@@ -1435,7 +1435,7 @@ suites:
 
 The file containing a list of tests is used when sharding tests. It's a `txt`
 file and each line contains a test.
-Click [Sharding XCUITest introduction](./xcuitest-introduction.md#sharding-xcuitest)
+Read the [Sharding XCUITest introduction](./xcuitest-introduction.md#sharding-xcuitest)
 to see how to generate this file.
 
 ```
