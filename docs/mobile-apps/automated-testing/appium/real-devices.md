@@ -76,10 +76,33 @@ The following examples illustrate this difference in the respective specificatio
 groupId="protocol"
 defaultValue="jwp"
 values={[
+{label: 'W3C', value: 'w3c'}
 {label: 'JWP', value: 'jwp'},
-{label: 'W3C', value: 'w3c'},
 ]}>
 
+<TabItem value="w3c">
+
+```
+"capabilities": {
+    "firstMatch": [
+      {
+        "platformName" : "android",                    #standard capability
+        "appium:app","storage:filename=mapp.apk";       #Appium capabilities
+        "appium:deviceName" : "Samsung.*Galaxy.*",
+        "appium:orientation" : "PORTRAIT",
+        "appium:platformVersion" : "8.1",
+        "sauce:options" : {                           #Sauce custom capabilities
+           "appiumVersion" : "stable",
+           "sessionCreationRetry" : "2",
+           "sessionCreationTimeout" : "300000",
+           "name" : "MobileWebsiteTest (w3c)"
+        }
+      }
+    ]
+}
+```
+
+</TabItem>
 <TabItem value="jwp">
 
 ```
@@ -94,29 +117,6 @@ values={[
     "sessionCreationTimeout" : "300000",
     "name" : "MobileWebsiteTest (jwp)"
  }
-```
-
-</TabItem>
-<TabItem value="w3c">
-
-```
-"capabilities": {
-    "firstMatch": [
-      {
-        "platformName" : "android",                    #standard capability
-        "appium:app","storage:filename=mapp.apk";       #Appium capabilities
-        "appium:deviceName" : "Samsung.*Galaxy.*",
-        "appium:orientation" : "PORTRAIT",
-        "appium:platformVersion" : "8.1",
-        "sauce:options" : {                           #Sauce custom capabilities
-           "appiumVersion" : "1.21.0",
-           "sessionCreationRetry" : "2",
-           "sessionCreationTimeout" : "300000",
-           "name" : "MobileWebsiteTest (w3c)"
-        }
-      }
-    ]
-}
 ```
 
 </TabItem>
