@@ -74,12 +74,29 @@ The following examples illustrate this difference in the respective specificatio
 
 <Tabs
 groupId="protocol"
-defaultValue="jwp"
+defaultValue="w3c"
 values={[
-{label: 'W3C', value: 'w3c'}
 {label: 'JWP', value: 'jwp'},
+{label: 'W3C', value: 'w3c'},
 ]}>
 
+<TabItem value="jwp">
+
+```
+"desiredCapabilities": {
+    "platformName" : "android",
+    "app","storage:filename=mapp.pk",
+    "deviceName" : "Samsung.*Galaxy.*",
+    "orientation" : "PORTRAIT",
+    "platformVersion" : "8.1",
+    "appiumVersion" : "1.21.0",
+    "sessionCreationRetry" : "2",
+    "sessionCreationTimeout" : "300000",
+    "name" : "MobileWebsiteTest (jwp)"
+ }
+```
+
+</TabItem>
 <TabItem value="w3c">
 
 ```
@@ -100,23 +117,6 @@ values={[
       }
     ]
 }
-```
-
-</TabItem>
-<TabItem value="jwp">
-
-```
-"desiredCapabilities": {
-    "platformName" : "android",
-    "app","storage:filename=mapp.pk",
-    "deviceName" : "Samsung.*Galaxy.*",
-    "orientation" : "PORTRAIT",
-    "platformVersion" : "8.1",
-    "appiumVersion" : "1.21.0",
-    "sessionCreationRetry" : "2",
-    "sessionCreationTimeout" : "300000",
-    "name" : "MobileWebsiteTest (jwp)"
- }
 ```
 
 </TabItem>
