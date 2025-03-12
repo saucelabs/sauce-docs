@@ -28,4 +28,10 @@ For instructions on running your TeamCity build with Sauce Connect Proxy enabled
 
 WebdriverIO is a next-gen browser and mobile automation test framework for Node.js.
 
-For instructions on using it with Sauce Connect Proxy enable, see [Sauce Service](https://webdriver.io/docs/sauce-service/#installation)
+### Using WebdriverIO with Sauce Connect Proxy
+
+To enable testing through Sauce Connect Proxy, you can use the Sauce Service integration in WebdriverIO. For detailed instructions on configuring WebdriverIO with Sauce Connect Proxy, refer to the [Sauce Service documentation](https://webdriver.io/docs/sauce-service/#installation).
+
+### Version Compatibility
+
+The earliest WebdriverIO version that supports Sauce Connect 5 is `v9.8.0`. Ensure that you are using this version or later to leverage the latest features and improvements related to Sauce Connect integration.

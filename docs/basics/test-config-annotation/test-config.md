@@ -144,11 +144,13 @@ caps.setCapability("platformName","Android");
 
 ```
 {
-deviceName:'iPhone 6 Device',
-platformName:'iOS',
-platformVersion:'8.0',
-browserName:'Safari',
-"appium-version":"1.5.1"
+appium:deviceName:'iPhone 6 Device',
+appium:platformName:'iOS',
+appium:platformVersion:'8.0',
+appium:browserName:'Safari',
+sauce:options: {
+   "appium-version":"stable"
+   }
 }
 ```
 
@@ -184,7 +186,7 @@ This following includes tips and examples of how to configure your mobile native
 
 #### Setting `appiumVersion`
 
-If you omit the `appiumVersion` in your test configuration, your test will be running with our default Appium version. Sauce recommends that you specify one of the newer Appium versions that provides a more extended API and fixes to known bugs.
+If you omit the `appiumVersion` in your test configuration, your test will be running with our default Appium version. Sauce recommends that you specify one of the newer Appium versions that provides a more extended API and fixes to known bugs. [You can find out more about appium versions here](/docs/mobile-apps/automated-testing/appium/appium-versions.md)
 
 #### Checking the Appium Version for Your Test
 
