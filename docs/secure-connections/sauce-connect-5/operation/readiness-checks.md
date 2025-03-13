@@ -94,7 +94,7 @@ to wait for the sc container to be healthy before starting the test container.
 Sauce Connect provides a local [API server](/secure-connections/sauce-connect-5/operation/api-server) that contains readiness and liveness endpoints. 
 The readiness endpoint `/readyz` returns a 200 response code when Sauce Connect Proxy is ready, and 503 otherwise.
 
-To use the API server, you need to start Sauce Connect with the `--api-address` option or set the `SC_API_ADDRESS` environment variable.
+To use the API server, you need to start Sauce Connect with the `--api-address` option or set the `SAUCE_API_ADDRESS` environment variable.
 
 ```bash
 sc --api-address :8032 …
