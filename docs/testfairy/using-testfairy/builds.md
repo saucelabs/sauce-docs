@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The build feature is a vital component of our app development and testing platform. It provides an overview of all the versions of your app that have been uploaded and tested within the system. With build feature, you gain valuable insights into the performance, stability, and user feedback of each app version, helping you ensure a seamless and successful user exper
+The build feature is a vital component of our app development and testing platform. It provides an overview of all the versions of your app that have been uploaded and tested within the system. With build feature, you gain valuable insights into the performance, stability, and user feedback of each app version, helping you ensure a seamless and successful user experience.
 
 ## Accessing Build View
 
