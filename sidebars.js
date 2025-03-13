@@ -893,7 +893,7 @@ module.exports = {
                                 'basics/acct-team-mgmt/org-settings',
                                 {
                                     type: 'category',
-                                    label: 'Managing Users and Accounts',
+                                    label: 'Managing Users',
                                     collapsed: true,
                                     items: [
                                         'basics/acct-team-mgmt/adding-deactivating-users',
@@ -902,6 +902,7 @@ module.exports = {
                                         'basics/acct-team-mgmt/switching-active-team',
                                     ],
                                 },
+                                'basics/acct-team-mgmt/managing-service-accounts',
                                 'basics/acct-team-mgmt/concurrency/managing-concurrency',
                                 {
                                     type: 'category',

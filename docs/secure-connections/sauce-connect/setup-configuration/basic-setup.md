@@ -15,7 +15,8 @@ It is also a key step for any Sauce Connect Proxy deployment as a way to verify 
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+- [Username and access key](https://app.saucelabs.com/user-settings) of you Sauce Labs user.
+  - Only user accounts can manage tunnels. [Service accounts](/basics/acct-team-mgmt/managing-service-accounts) are not supported by Sauce Connect Proxy and cannot start or manage tunnels.
 - Have Sauce Connect Proxy [installed on your local machine](/secure-connections/sauce-connect/installation). Make sure it's the latest version - otherwise, you may run into technical issues.
   - Review [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements) to confirm that your system and network architecture will be compatible with Sauce Connect Proxy.
 - Know your regional [Sauce Labs Data Center](/dev/cli/sauce-connect-proxy/#--region).
