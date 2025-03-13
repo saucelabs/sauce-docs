@@ -498,7 +498,8 @@ Add a new tester to account. Optionally can add them to a group.
 	<tbody>
 		<tr>
 			<td><code>notify</code></td>
-			<td><p><small>| OPTIONAL | STRING |</small></p><p>Pass <code>notify=on</code> to send out a welcome email when inviting this tester. The email sent is the "Tester Welcome Email" template and can be configured. Default value is <code>off</code>.</p></td>
+			<td><p><small>| OPTIONAL | STRING | INTEGER </small></p><p>Pass <code>notify=on</code> or <code>notify=1</code> to send a welcome email when inviting this tester.
+                <br /> The email will use the "Tester Welcome Email" template, which can be customized.<br /> By default, email sending is disabled.</p></td>
 		</tr>
 	</tbody>
 </table>
