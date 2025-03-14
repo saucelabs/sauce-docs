@@ -1018,7 +1018,7 @@ module.exports = {
                 'secure-connections',
                 {
                     type: 'category',
-                    label: 'Sauce Connect 5 (New)',
+                    label: 'Sauce Connect 5',
                     collapsed: true,
                     items: [
                         'secure-connections/sauce-connect-5',
@@ -1068,7 +1068,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Sauce Connect 4',
+                    label: 'Sauce Connect 4 (deprecated)',
                     collapsed: true,
                     items: [
                         'secure-connections/sauce-connect',
