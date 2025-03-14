@@ -177,6 +177,12 @@ Tracking process state through a PID file is error-prone and no longer recommend
 
 SC5 leaves log management to third party tools such as journald. It can log to stdout or a single file.
 
+### Selenium Relay
+
+Selenium Relay was introduced as a reverse proxy for development environments. Over time, enterprise customers adopted it for production scenarios where more robust communication channels with the Sauce Labs WebDriver endpoint were needed.
+
+With established alternatives like Envoy, Nginx, and HAProxy offering better security, performance, and support, we have deprecated Selenium Relay. We recommend adopting one of these solutions for a more robust and maintainable setup.
+
 ## Proxy Updates
 
 Sauce Connect 5 no longer uses the `HTTP(S)_PROXY` and `NO_PROXY` environment variables.
