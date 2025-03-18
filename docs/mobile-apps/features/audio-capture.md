@@ -49,6 +49,10 @@ You will be able to mute and unmute the sound during your session by clicking on
 <img src={useBaseUrl('img/audio.png')} alt="Mobile app settings navigation" width="300"/>
 :::
 
+:::caution Network Requirements
+We are using Twilio's webrtc service in order to stream audio from a Real Device to your computer. If you can't hear any audio, please make sure your network does not block connection to the service. You can check it by running a dedicated [Network Test](https://networktest.twilio.com/). If your network team allows to open only specific IPs you can find the list here: [https://www.twilio.com/docs/voice/sdks/network-connectivity-requirements](https://www.twilio.com/docs/voice/sdks/network-connectivity-requirements)
+:::
+
 ## Live Streaming Limitations
 
 :::note Limitations
@@ -90,7 +94,9 @@ Follow these steps:
 
 4. Skip with OK or Cancel the native Talkback/VoiceOver guide.
 
-5. On Android you can use the Arrow keys (Up-Down-Left-Right) to navigate through the elements, and by hitting the ENTER key, you are able to activate a specific element.
+5. Keyboard navigation:
+  * On Android you can use the Arrow keys (Up-Down-Left-Right) to navigate through the elements, and by hitting the ENTER key, you are able to activate a specific element.
+  * On iOS Keyboard navigation **is not supported** for VoiceOver.
 
 For further information, you can refer to the official documentation on [TalkBack](https://support.google.com/accessibility/android/answer/6006598?sjid=17999569893329555730-EU), [VoiceOver](https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios).
 
