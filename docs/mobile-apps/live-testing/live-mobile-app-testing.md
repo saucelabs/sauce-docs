@@ -36,8 +36,7 @@ Navigate to the **Settings** tab to view the app and device settings.
 
 <img src={useBaseUrl('img/live-testing/app-management-settings-tab.png')} alt="App settings" width="800"/>
 
-A range settings can be configured to serve as the default for both manual and automated test runs.
-To prevent unexpected inconsistencies across test frameworks, it is recommended to explicitly define these settings in your automated test scripts, ensuring stable configurations across multiple test runs.
+A range of settings can be configured to serve as the default for **manual** test runs (automated tests are running based on the settings defined directly in the test script).
 
 #### App Settings
 

@@ -1018,7 +1018,7 @@ module.exports = {
                 'secure-connections',
                 {
                     type: 'category',
-                    label: 'Sauce Connect 5 (New)',
+                    label: 'Sauce Connect 5',
                     collapsed: true,
                     items: [
                         'secure-connections/sauce-connect-5',
@@ -1068,7 +1068,7 @@ module.exports = {
                 },
                 {
                     type: 'category',
-                    label: 'Sauce Connect 4',
+                    label: 'Sauce Connect 4 (deprecated)',
                     collapsed: true,
                     items: [
                         'secure-connections/sauce-connect',
@@ -1188,6 +1188,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'testfairy/security/private-cloud',
+                        'testfairy/security/bring-your-own-storage',
                         {
                             type: 'category',
                             label: 'Single Sign On',
@@ -1227,7 +1228,6 @@ module.exports = {
                         'testfairy/ci-tools/fastlane',
                         'testfairy/ci-tools/gitlab',
                         'testfairy/ci-tools/team-city',
-                        'testfairy/ci-tools/vs-team',
                     ],
                 },
                 {
@@ -1274,7 +1274,6 @@ module.exports = {
                                         'testfairy/platforms/expo',
                                         'testfairy/platforms/flutter',
                                         'testfairy/platforms/ionic',
-                                        'testfairy/platforms/lumberyard',
                                         'testfairy/platforms/nativescript',
                                         'testfairy/platforms/neptune',
                                         'testfairy/platforms/react-native',
@@ -1355,6 +1354,7 @@ module.exports = {
                         'mobile-apps/features/gestures',
                         'mobile-apps/features/ios-version-management',
                         'mobile-apps/features/virtual-usb',
+                        'mobile-apps/features/xctest-plan',
                         {
                             type: 'category',
                             label: 'Mobile App Diagnostics',
@@ -1411,6 +1411,8 @@ module.exports = {
                             items: [
                                 'mobile-apps/automated-testing/espresso-xcuitest',
                                 'mobile-apps/automated-testing/espresso-xcuitest/xcuitest-introduction',
+                                'mobile-apps/automated-testing/espresso-xcuitest/xctest',
+                                'mobile-apps/automated-testing/espresso-xcuitest/xctest-config',
                                 'mobile-apps/automated-testing/espresso-xcuitest/espresso',
                                 'mobile-apps/automated-testing/espresso-xcuitest/xcuitest',
 

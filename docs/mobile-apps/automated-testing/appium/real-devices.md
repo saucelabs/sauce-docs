@@ -74,7 +74,7 @@ The following examples illustrate this difference in the respective specificatio
 
 <Tabs
 groupId="protocol"
-defaultValue="jwp"
+defaultValue="w3c"
 values={[
 {label: 'JWP', value: 'jwp'},
 {label: 'W3C', value: 'w3c'},
@@ -109,7 +109,7 @@ values={[
         "appium:orientation" : "PORTRAIT",
         "appium:platformVersion" : "8.1",
         "sauce:options" : {                           #Sauce custom capabilities
-           "appiumVersion" : "1.21.0",
+           "appiumVersion" : "stable",
            "sessionCreationRetry" : "2",
            "sessionCreationTimeout" : "300000",
            "name" : "MobileWebsiteTest (w3c)"

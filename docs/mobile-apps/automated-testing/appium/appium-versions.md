@@ -129,18 +129,6 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 </TabItem>
 </Tabs>
 
-## Release Strategy
-
-Our Appium 2 release strategy is as follows:
-
-- We offer a `stable` image, which is our LTS (Long-time support) image. We change this image as conservatively as possible. The regular update schedule is 2 years. We will inform you when this image will be updated and offer a migration guide for all breaking changes from one `stable` image to a new `stable` image. The stable image is subject to change, to ensure the latest OS versions and device models are continuously supported with the latest Appium drivers. If OS changes break some of our core device functionality we will update the drivers in our `stable` image.
-- Additionally, we offer a `latest` version, updated bi-weekly on the 2nd and 16th of each month. This version includes all the most recent Appium 2 drivers and server released up to the 1st and 15th of each month. This rapid update cycle enables you to quickly access new features and fixes, so you can continually enhance your testing workflows. The bi-weekly `latest` version does not have a fixed lifespan, allowing you to stay on the cutting edge.
-
-This strategy is designed to ease the complexities you face in mobile app testing.
-
-:::info
-The current release strategy outlined above is specific to Real Devices. We are actively working to extend this to Emulators and Simulators and will announce it shortly.
-:::
 
 ## End-of-Life
 
@@ -153,6 +141,15 @@ The current end-of-life strategy outlined above is specific to Real Devices. We 
 :::
 
 ## Real Devices
+
+### Real Device Appium Images
+
+The release strategy for Appium images in RDC is the following:
+
+- We provide a `stable` image, which is our Long-Term Support (LTS) image. We update this image as conservatively as possible. Our regular update schedule is every 12 months. We will notify you when we update this image and provide a migration guide for any breaking changes from the previous `stable` image to the new one. The stable image is subject to change to ensure continuous support for the latest OS versions and device models with the latest Appium drivers. When we release a new `stable` image, we will first issue a preview, such as `stable-2025`. You can adjust to this new stable image before we officially promote it to the new `stable` image.
+
+- Additionally, we offer the `latest` version. The regular update schedule for this image is every 3 months. However, we may update this image on demand if a device-OS update introduces a widespread breaking change that can only be resolved by updating Appium drivers. This version includes the most recent Appium 2 server and drivers available at the time of release. This image does not have an EOL since it is updated regularly. You can use this image to take advantage of the latest Appium bug fixes and features in your tests, but be aware that your tests may break if you use deprecated Appium functionality.
+
 
 :::info Supported Custom Appium Plugins:
 The following list of custom Appium plugins are supported:
