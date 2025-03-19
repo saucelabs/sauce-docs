@@ -50,7 +50,7 @@ You will be able to mute and unmute the sound during your session by clicking on
 :::
 
 :::caution Network Requirements
-We are using Twilio's webrtc service in order to stream audio from a Real Device to your computer. If you can't hear any audio, please make sure your network does not block connection to the service. You can check it by running a dedicated [Network Test](https://networktest.twilio.com/). If your network team allows to open only specific IPs you can find the list here: [https://www.twilio.com/docs/video/ip-addresses](https://www.twilio.com/docs/video/ip-addresses)
+We are using Twilio's webrtc service in order to stream audio from a Real Device to your computer. If audio can't be heard, make sure the [network requirements](https://www.twilio.com/docs/video/ip-addresses) from Twilio are respected. It is possible to check compliance using the following [network test](https://networktest.twilio.com/).
 :::
 
 ## Live Streaming Limitations
