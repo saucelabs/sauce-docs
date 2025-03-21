@@ -1728,6 +1728,7 @@ module.exports = {
                     ],
                 },
                 'visual-testing/cli',
+                'visual-testing/snapshots-cli',
                 'visual-testing/selective-diffing',
                 'visual-testing/mobile-native-testing',
                 'visual-testing/diffing-engines',
