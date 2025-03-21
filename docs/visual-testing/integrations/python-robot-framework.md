@@ -91,7 +91,7 @@ You can customize the behavior by using the following options:
 | `delay_after_scroll_ms`   | `0`     | `300`                                                             | Delay in ms after scrolling and before taking screenshots. The default value is 0. We recommend using this option for lazy loading content.                            |
 | `disable_css_animation`   | `True`  | `False`                                                           | Disable CSS animations and the input caret in the app. The default value is true.                                                                                      |
 | `hide_after_first_scroll` | `[]`    | `['.your-class-name','#an-id-example','div.more-specific-class']` | One or more CSS selectors that we should remove from the page after the first scroll. Useful for hiding fixed elements such as headers, cookie banners, etc. |
-| `hide_scroll_bars`        | `True`  | `False`                                                           | Hide all scrollbars in the app. The default value is true.                                                                                                             |
+| `hide_scroll_bars` <span className="sauceGold">Deprecated</span>       | `True`  | `False`                                                           | Use `hide_scroll_bars` from `Visual Snapshot` instead |
 | `scroll_limit`            | `10`    | `5`                                                               | Limit the number of screenshots taken for scrolling and stitching. The default value is 10. The value needs to be between 1 and 10.                                    |
 
 <FullPageLimit />
