@@ -8,9 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The TestFairy SDK does not require location permissions and does track location out of the box.
+The App Distribution SDK does not require location permissions and does track location out of the box.
 
-To send location information to TestFairy, add location permissions to your app and use the code below to call `TestFairy.updateLocation`. The location will then be presented on a map as part of the session page.
+To send location information to App Distribution, add location permissions to your app and use the code below to call `TestFairy.updateLocation`. The location will then be presented on a map as part of the session page.
 
 <Tabs
 groupId="sdk"

@@ -8,9 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To automatically deply your Android or iOS Apps to [TestFairy](https://app.testfairy.com/) by using GitLab, follow the steps below:
+To automatically deply your Android or iOS Apps to [App Distribution](https://app.testfairy.com/) by using GitLab, follow the steps below:
 
-1. On the TestFairy dashboard, navigate to **Preferences** > **[TestFairy Access Key](https://app.testfairy.com/settings/access-key)**.
+1. On the App Distribution dashboard, navigate to **Preferences** > **[TestFairy Access Key](https://app.testfairy.com/settings/access-key)**.
 
    <img src={useBaseUrl('/img/testfairy/ci-tools/testfairy_upload_key.png')} alt="testfairy upload key"/>
 

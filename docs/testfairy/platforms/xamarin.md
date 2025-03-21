@@ -8,11 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy allows you to gather insights and valuable data about your Xamarin-based Android and iOS applications. 
+App Distribution allows you to gather insights and valuable data about your Xamarin-based Android and iOS applications. 
 
 ## Installation
 
-TestFairy is available for both Android and iOS. You can install TestFairy bindings for Xamarin in one of two ways:
+App Distribution is available for both Android and iOS. You can install App Distribution bindings for Xamarin in one of two ways:
 
 1. Download the latest binding DLL directly from [GitHub](https://github.com/testfairy/testfairy-xamarin/releases) for your specific platform.
 
@@ -40,19 +40,19 @@ public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 
 ### Identifying Your Users
 
-To learn how to identify users and set session attributes using the TestFairy SDK in Xamarin, refer to the [identifying users section](/testfairy/sdk/identifying-users/) in the SDK Documentation.
+To learn how to identify users and set session attributes using the App Distribution SDK in Xamarin, refer to the [identifying users section](/testfairy/sdk/identifying-users/) in the SDK Documentation.
 
 ### Session Attributes
 
-For information on how to set session attributes using the TestFairy Xamarin SDK, please refer to the [SDK Documentation on session attributes](/testfairy/sdk/session-attributes/).
+For information on how to set session attributes using the App Distribution Xamarin SDK, please refer to the [SDK Documentation on session attributes](/testfairy/sdk/session-attributes/).
 
 ### Remote Logging
 
-To understand how to perform remote logging with the TestFairy SDK in Xamarin, refer to the [remote logging section](/testfairy/sdk/remote-logging/) in the SDK Documentation.
+To understand how to perform remote logging with the App Distribution SDK in Xamarin, refer to the [remote logging section](/testfairy/sdk/remote-logging/) in the SDK Documentation.
 
 ## Uploading dSYM
 
-With TestFairy, symbolicating crash reports are as easy as pie. A simple Build Phase script can automatically upload the compressed .dSYM file for future symbolicaton.
+With App Distribution, symbolicating crash reports are as easy as pie. A simple Build Phase script can automatically upload the compressed .dSYM file for future symbolicaton.
 
 To enable automatic uploads of .dSYM files, follow these steps:
 
@@ -81,15 +81,15 @@ sh upload-dsym.sh UPLOAD_API_KEY -p DSYM_PATH
 
 ### Xamarin Insights Integration
 
-With Insights, Xamarin developers can review their app usage using the Xamarin Insights component. TestFairy fills in the gap by providing additional metrics, such as CPU usage and memory allocation and even video capture from the device. Any questions you may have as a developer will be answered in the TestFairy session reports.
+With Insights, Xamarin developers can review their app usage using the Xamarin Insights component. App Distribution fills in the gap by providing additional metrics, such as CPU usage and memory allocation and even video capture from the device. Any questions you may have as a developer will be answered in the App Distribution session reports.
 
 <img src={useBaseUrl('/img/testfairy/platform/xamarin-insights-integration.png')} alt="xamarin insights integration"/>
 
-In the left sidebar of **Insights**, you see a link to the session recorded by TestFairy.
+In the left sidebar of **Insights**, you see a link to the session recorded by App Distribution.
 
 ## Integration
 
-By adding the following code, the session recorded by TestFairy is also associated with Xamarin Insights (as seen in the screenshot above). Place this snippet right after initializing Xamarin.Insights and TestFairy.
+By adding the following code, the session recorded by App Distribution is also associated with Xamarin Insights (as seen in the screenshot above). Place this snippet right after initializing Xamarin.Insights and App Distribution.
 
 ```csharp
 NSNotificationCenter.DefaultCenter.AddObserver (TestFairy.SessionStartedNotification, delegate (NSNotification n) {
@@ -118,14 +118,14 @@ public class MainActivity : Activity {
 }
 ```
 
-## Telling TestFairy What To Record
+## Telling App Distribution What To Record
 
-TestFairy can record screen casts, monitor CPU consumption, memory allocations, grab logs, and enable user feedback by shaking their devices. To configure what TestFairy records, visit your **Build Settings** after calling Begin() at least once.
+App Distribution can record screen casts, monitor CPU consumption, memory allocations, grab logs, and enable user feedback by shaking their devices. To configure what App Distribution records, visit your **Build Settings** after calling Begin() at least once.
 
 
-To configure how and what TestFairy records, visit your **Build Settings**. You see the build after calling `Begin ()` at least once.
+To configure how and what App Distribution records, visit your **Build Settings**. You see the build after calling `Begin ()` at least once.
 
 ## Mixing With Other Crash Handlers
 
-TestFairy can work alongside other crash handlers without any issues.
+App Distribution can work alongside other crash handlers without any issues.
 

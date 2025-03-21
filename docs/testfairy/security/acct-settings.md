@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To access the Settings page, click **Account** and then click **TestFairy Settings**.
+To access the Settings page, click **Account** and then click **App Distribution Settings**.
 
 <img src={useBaseUrl('img/testfairy/acct-settings-nav.png')} alt="Accessing Settings page" width="250"/>
 
@@ -16,13 +16,13 @@ To access the Settings page, click **Account** and then click **TestFairy Settin
 
 <img src={useBaseUrl('img/testfairy/acct-settings-sdk-token.png')} alt="SDK App Token page" width="700"/>
 
-Your app token initializes the TestFairy SDK. See [Adding the TestFairy SDK to your App](/testfairy/sdk/adding-tf-sdk) for more information.
+Your app token initializes the App Distribution SDK. See [Adding the App Distribution SDK to your App](/testfairy/sdk/adding-tf-sdk) for more information.
 
-## TestFairy Access Key
+## App Distribution Access Key
 
-<img src={useBaseUrl('img/testfairy/acct-settings-tf-access-key.png')} alt="TestFairy Access Key page" width="700"/>
+<img src={useBaseUrl('img/testfairy/acct-settings-tf-access-key.png')} alt="App Distribution Access Key page" width="700"/>
 
-You can use the TestFairy API to upload builds and invite testers directly. For more information, see [Upload API](/testfairy/api-reference/upload-api).
+You can use the App Distribution API to upload builds and invite testers directly. For more information, see [Upload API](/testfairy/api-reference/upload-api).
 
 ## App Distribution
 
@@ -38,19 +38,19 @@ On the Notifications page, you can define what types of messages you want to rec
 
 ## Integrations
 
-You can integrate your TestFairy account with different services to customize and streamline your work processes.
+You can integrate your App Distribution account with different services to customize and streamline your work processes.
 
 - Simple Mail Transfer Protocol (SMTP) and Gmail - See [SMTP and Gmail](/testfairy/integrations/smtp-gmail) for information about connecting your SMTP email server or Gmail account. This ensures you send the emails from the same account you used to register.
 
-- Slack - See [Slack](/testfairy/integrations/slack) for information about integrating your Slack account with TestFairy.
+- Slack - See [Slack](/testfairy/integrations/slack) for information about integrating your Slack account with App Distribution.
 
-- Webhooks - You can use TestFairy webhooks to connect to services. See [Microsoft Teams](/testfairy/integrations/ms-teams) for more information.
+- Webhooks - You can use App Distribution webhooks to connect to services. See [Microsoft Teams](/testfairy/integrations/ms-teams) for more information.
 
 <img src={useBaseUrl('img/testfairy/acct-settings-integrations.png')} alt="Integrations page" width="700"/>
 
 ## Email Templates
 
-TestFairy lets you customize the invitation emails it sends. This feature is available only if you use a custom email server. See [SMTP and Gmail](/testfairy/integrations/smtp-gmail) for more information.
+App Distribution lets you customize the invitation emails it sends. This feature is available only if you use a custom email server. See [SMTP and Gmail](/testfairy/integrations/smtp-gmail) for more information.
 
 The email is HTML based and can use custom tags.
 

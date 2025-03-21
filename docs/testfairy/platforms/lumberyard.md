@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To distribute Lumberyard Apps to TestFairy, follow the steps provided in this guide.
+To distribute Lumberyard Apps to App Distribution, follow the steps provided in this guide.
 
 ## What You'll Need
 
@@ -92,7 +92,7 @@ Close the editor and all of its componenets. Then, open **lumberyard_version\dev
    lmbr_waf.bat -p all build_android_armv8_clang_release --package-projects-automatically=True
    ```
 
-## Uploading To TestFairy
+## Uploading To App Distribution
 
 Once your APK is built, you can choose your favourite upload method to finalize distribution. Make sure the correct CPU architecture is set for the project binaries path.
 
@@ -102,4 +102,4 @@ To upload with **curl**, run the following command in **lumberyard_version\dev\B
 curl https://app.testfairy.com/api/upload -F api_key='your_api_key' -F file=@ProjectName.apk
 ```
 
-Optionally, you can download and use [TestFairy command line uploader](https://github.com/testfairy/command-line-uploader) if you don't have **curl** installed.
+Optionally, you can download and use [App Distribution command line uploader](https://github.com/testfairy/command-line-uploader) if you don't have **curl** installed.

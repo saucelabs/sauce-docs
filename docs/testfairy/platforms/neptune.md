@@ -9,12 +9,12 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-TestFairy for Neptune plugin allows you to integrate TestFairy functionality into your Neptune project. By following the steps below, you can enable the TestFairy plugin and initialize the TestFairy SDK in your Neptune application.
+App Distribution for Neptune plugin allows you to integrate App Distribution functionality into your Neptune project. By following the steps below, you can enable the App Distribution plugin and initialize the App Distribution SDK in your Neptune application.
 
 
-## Enable the TestFairy Plugin
+## Enable the App Distribution Plugin
 
-To enable the TestFairy plugin in your Neptune project, follow these steps:
+To enable the App Distribution plugin in your Neptune project, follow these steps:
 
 1. Open the Neptune Cockpit.
 2. Add the following to the `config.xml` file in the Neptune Cockpit under **Run** > **Mobile Client** > **Device**:
@@ -23,9 +23,9 @@ To enable the TestFairy plugin in your Neptune project, follow these steps:
 <plugin name="com.testfairy.cordova-plugin" source="npm"/>
 ```
 
-## Initialize the TestFairy SDK:
+## Initialize the App Distribution SDK:
 
-After enabling the TestFairy plugin, you need to initialize the TestFairy SDK in your Neptune application. Follow these steps:
+After enabling the App Distribution plugin, you need to initialize the App Distribution SDK in your Neptune application. Follow these steps:
 
 1. Open the App Designer in Neptune.
 2. Add the following code to your `init` script:
@@ -37,6 +37,6 @@ document.addEventListener("deviceready", function() {
 ```
 
 :::note
-Ensure that you replace **APP TOKEN** with your actual TestFairy app token. You can find the app token in your TestFairy [User Preferences](https://app.testfairy.com/settings/).
+Ensure that you replace **APP TOKEN** with your actual App Distribution app token. You can find the app token in your App Distribution [User Preferences](https://app.testfairy.com/settings/).
 :::
 

@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-TestFairy's crash handler is a robust feature that allows you to identify and analyze crashes occurring within your iOS mobile applications. By incorporating the TestFairy library, you can deliberately trigger controlled crashes in your app and gain insights into the stacktrace associated with each crash. 
+App Distribution's crash handler is a robust feature that allows you to identify and analyze crashes occurring within your iOS mobile applications. By incorporating the App Distribution library, you can deliberately trigger controlled crashes in your app and gain insights into the stacktrace associated with each crash. 
 
 
 
@@ -20,7 +20,7 @@ This feature is available starting from iOS SDK version 1.19.8.
 ## What You'll Need
 
 - A working iOS app project.
-- The TestFairy library integrated into your iOS app project.
+- The App Distribution library integrated into your iOS app project.
 - Basic knowledge of iOS development using either Objective-C or Swift.
 
 ## Testing the Crash Handler Example

@@ -1,6 +1,6 @@
 ---
 id: jira-cloud
-title: Connecting TestFairy to JIRA Cloud
+title: Connecting App Distribution (TestFairy) to JIRA Cloud
 sidebar_label: Jira Cloud
 ---
 
@@ -10,23 +10,23 @@ import TabItem from '@theme/TabItem';
 
 ## Creating a Jira API Token
 
-To connect TestFairy to Jira Cloud, you'll need to create an API token in Jira. This token will be used to authenticate TestFairy when accessing your Jira account. Follow these steps to create the API token:
+To connect App Distribution to Jira Cloud, you'll need to create an API token in Jira. This token will be used to authenticate App Distribution when accessing your Jira account. Follow these steps to create the API token:
 
 1. Log in to [https://id.atlassian.com/manage/api-tokens#](https://id.atlassian.com/manage/api-tokens#) and click on **Create API token**.
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-create-api.png')} alt="Create Jira API Token"/>
 
 1. Label the new token `TestFairy`.
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-label.png')} alt="Set TestFairy Jira Key"/>
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-label.png')} alt="Set App Distribution Jira Key"/>
 
 1. Copy the API Token.
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-token.png')} alt="Copy the API Token"/>
 
-## Configuring Jira in Your TestFairy Settings
+## Configuring Jira in Your App Distribution Settings
 
-To connect TestFairy to Jira, you'll need to configure Jira settings in your TestFairy account. Follow these steps to complete the configuration:
+To connect App Distribution to Jira, you'll need to configure Jira settings in your App Distribution account. Follow these steps to complete the configuration:
 
-1. Open your TestFairy account Preferences .
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-cloud-1.png')} alt="Open TestFairy preferences"/>
+1. Open your App Distribution account Preferences .
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-cloud-1.png')} alt="Open App Distribution preferences"/>
 
 2. Choose **Integrations**, scroll to Jira and press **Add integration**.
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-cloud-1-1.png')} alt="Jira cloud"/>
@@ -34,13 +34,13 @@ To connect TestFairy to Jira, you'll need to configure Jira settings in your Tes
 3. Enter your Jira Username, API Token, and JIRA URL in the next screen and press **Update Jira Settings**.
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-cloud-2.png')} alt="Configure Jira Cloud"/>
 
-## (Optional) Installing the TestFairy Chrome Extension
+## (Optional) Installing the App Distribution Chrome Extension
 
-The TestFairy Chrome Extension is available at [https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee](https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee). With this Chrome extension, every JIRA issue that has a link to a TestFairy session will contain the proper TestFairy session, timeline, logs, and crash reports embedded in the Jira issue. Follow these steps to install the Chrome extension:
+The App Distribution Chrome Extension is available at [https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee](https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee). With this Chrome extension, every JIRA issue that has a link to a App Distribution session will contain the proper App Distribution session, timeline, logs, and crash reports embedded in the Jira issue. Follow these steps to install the Chrome extension:
 
-## (Optional) Adding the TestFairy Jira Add-on to Your Jira Account
+## (Optional) Adding the App Distribution Jira Add-on to Your Jira Account
 
-If you choose not to use the TestFairy Chrome Extension, you can add the TestFairy Jira Add-on to your Jira account. This add-on allows you to include TestFairy videos in Jira issues. Follow these steps to add the TestFairy Jira Add-on:
+If you choose not to use the App Distribution Chrome Extension, you can add the App Distribution Jira Add-on to your Jira account. This add-on allows you to include App Distribution videos in Jira issues. Follow these steps to add the App Distribution Jira Add-on:
 
 
 1. Open **Jira Settings**.
@@ -52,11 +52,11 @@ If you choose not to use the TestFairy Chrome Extension, you can add the TestFai
 3. In the Apps menu, press **Find new apps**.
    <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-find-apps.png')} alt="Find new apps"/>
 
-4. Add **TestFairy for Jira** to your account.
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-discover.png')} alt="TestFairy for Jira"/>
+4. Add **App Distribution for Jira** to your account.
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-discover.png')} alt="App Distribution for Jira"/>
 
-5. On the first issue created, click on the "3 dots" icon and choose **TestFairy Session**.
-   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-3-dots.png')} alt="TestFairy session"/>
+5. On the first issue created, click on the "3 dots" icon and choose **App Distribution Session**.
+   <img src={useBaseUrl('/img/testfairy/testing-an-app/bug-tracking/jira-3-dots.png')} alt="App Distribution session"/>
 
    After the installation, the Jira issue looks like the following:
 
@@ -68,7 +68,7 @@ If you choose not to use the TestFairy Chrome Extension, you can add the TestFai
 
 <p><span className="sauceGreen">Highly Recommended</span></p>
 
-To leverage the full capabilities of the TestFairy Jira integration, it's recommended to map Jira custom fields. This feature allows you to automatically populate any field in Jira when creating a new issue, using standard TestFairy data or your custom session attributes. Follow these steps to map Jira custom fields:
+To leverage the full capabilities of the App Distribution Jira integration, it's recommended to map Jira custom fields. This feature allows you to automatically populate any field in Jira when creating a new issue, using standard App Distribution data or your custom session attributes. Follow these steps to map Jira custom fields:
 
 
 1. First, you need to connect a Jira account. Follow the [instructions](#creating-a-jira-api-token)
@@ -108,7 +108,7 @@ When defining fields in the Configure Fields window, follow the below convention
 - You can also choose from the fixed predefined values in the list below:
   - `{user.id}` - the UserId of the session running.
   - `{session.timestamp}` - the timestamp of the session.
-  - `{session.url}` - the session URL on the TestFairy dashboard.
+  - `{session.url}` - the session URL on the App Distribution dashboard.
   - `{session.ipAddress}` - the IP address of the device running the session.
   - `{device.os}` - the running device OS
   - `{device.model}` - the device model of the handset

@@ -1,26 +1,26 @@
 ---
 id: adding-tf-sdk
-title: Adding the TestFairy SDK to your App
-sidebar_label: Adding the TestFairy SDK
+title: Adding the App Distribution (TestFairy) SDK to your App
+sidebar_label: Adding the App Distribution SDK
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The TestFairy SDK helps you understand how users interact with your app. It can handle problems like crashes and on-screen error messages and integrate with your current development workflow.
+The App Distribution SDK helps you understand how users interact with your app. It can handle problems like crashes and on-screen error messages and integrate with your current development workflow.
 
-TestFairy SDK features include:
+App Distribution SDK features include:
 
 - Recording videos of how users interact with your apps.
 - Handling crashes and exceptions.
-- Sending logs to the TestFairy dashboard for later inspection.
+- Sending logs to the App Distribution dashboard for later inspection.
 - Identifying and tagging users for searching and custom reports.
 - Auto updates to ensure your users are on the latest version.
 
 ## Supported Platforms
 
-To add the TestFairy SDK to your app, see the instructions for the relevant development platform:
+To add the App Distribution SDK to your app, see the instructions for the relevant development platform:
 
 - [Android](/testfairy/sdk/android/integrating-android)
 - [iOS](/testfairy/sdk/ios/integrating-ios)
@@ -111,7 +111,7 @@ var MyComponent = React.createClass({
 
 ## Attaching Files To Sessions
 
-TestFairy allows developers to attach files to sessions. As a developer, you can upload up to five files to a given session, with a maximum size of 15MB per file. Files must be local to the device.
+App Distribution allows developers to attach files to sessions. As a developer, you can upload up to five files to a given session, with a maximum size of 15MB per file. Files must be local to the device.
 
 Be sure to check the device logs for any problems uploading files. Only file extensions .jpeg, .jpg, .png, .txt, and .sqlite are supported.
 

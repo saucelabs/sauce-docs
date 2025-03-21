@@ -8,9 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy can show you crash reports to help you identify the place in the code that is causing a problem. TestFairy crash reports are easier to understand when they show actual debug symbols instead of addresses. 
+App Distribution can show you crash reports to help you identify the place in the code that is causing a problem. App Distribution crash reports are easier to understand when they show actual debug symbols instead of addresses. 
 
-TestFairy requires your app's debug symbols (dSYMs) to clearly show you the names of the methods in your code. DSYM files are created by Xcode when you build your app. There are a couple of ways to upload them to TestFairy. 
+App Distribution requires your app's debug symbols (dSYMs) to clearly show you the names of the methods in your code. DSYM files are created by Xcode when you build your app. There are a couple of ways to upload them to App Distribution. 
 
 ## Generating Symbols in Xcode 
 
@@ -22,7 +22,7 @@ First, make sure your Xcode project is configured to generate the debug symbols:
 <br/><img src={useBaseUrl('img/mobile-apps/generate-symbol.png')} alt="Gereating Symbols" width="600"/> 
 
 :::note
-To upload symbols to TestFairy, you'll need to have your <strong>UPLOAD_API_KEY</strong> ready, which can be found from your [user preferences page](https://app.testfairy.com/settings/api-key/).
+To upload symbols to App Distribution, you'll need to have your <strong>UPLOAD_API_KEY</strong> ready, which can be found from your [user preferences page](https://app.testfairy.com/settings/api-key/).
 :::
 
 ## Uploading multiple dSYMs
@@ -36,13 +36,13 @@ project is not configured to [generate debug symbols](#generating-symbols-in-xco
 
 ## Handling missing DSYMs
 
-If you see a message in TestFairy about missing DSYMs or if you've published your app to the AppStore with Bitcode enabled, follow these instructions to locate and upload DSYMs.
+If you see a message in App Distribution about missing DSYMs or if you've published your app to the AppStore with Bitcode enabled, follow these instructions to locate and upload DSYMs.
 
 ## Locating dSYMs on your hard-drive
 
-If your build is missing dSYMs, you can find them and upload them manually to TestFairy.
+If your build is missing dSYMs, you can find them and upload them manually to App Distribution.
 
-1. Login to TestFairy and go to the App overview page by clicking the name of your app.
+1. Login to App Distribution and go to the App overview page by clicking the name of your app.
 2. Click on the name of your app build to reach the build overview page.
 3. Click on  **Settings** from the Build menu, then select the **Symbolication** section.
 4. This section lists several required UUIDs (representing binary app builds for different device architecture or binary builds for frameworks you're using). To see crash reports with your classes and method names, you'll need to upload dSYMs for each UUID that is specified as required.
@@ -57,13 +57,13 @@ If you can't locate your dSYMS using `mfind`, follow these instructions:
 2. Control-Click the relevant build, and select "Show in Finder".
 3. In Finder, Control-Click the archive and select "Show Package Contents".
 4. The archive will contain a folder called dSYM.
-5. Create a zip with the contents of the folder and proceed to upload the zip to TestFairy as explained [here](#uploading-multiple-dsyms).
+5. Create a zip with the contents of the folder and proceed to upload the zip to App Distribution as explained [here](#uploading-multiple-dsyms).
 
 ## Locating dSYMs for Bitcode builds.
 
-If you enabled Bitcode for your build and released it to the store or submitted to TestFlight, take note that Apple will generate new dSYMs for your app and you'll need to download the new dSYMs from Xcode, and then upload them to TestFairy.
+If you enabled Bitcode for your build and released it to the store or submitted to TestFlight, take note that Apple will generate new dSYMs for your app and you'll need to download the new dSYMs from Xcode, and then upload them to App Distribution.
 
 1. In Xcode, open the organizer window.
 2. Click on the relevant build.
 3. From the right side menu, click "download dSYMs".
-4. Manually upload the dSYMs to TestFairy, [as described here](#uploading-multiple-dsyms)
+4. Manually upload the dSYMs to App Distribution, [as described here](#uploading-multiple-dsyms)

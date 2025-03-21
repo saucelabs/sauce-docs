@@ -41,7 +41,7 @@ The menu contains the option to view the apps and devices in the account, as wel
 
 If an iOS application does not install on your device, we recommend that you run the Troubleshooting tool:
 
-1. Open your TestFairy account via the link [my.testfairy.com](https://my.testfairy.com) on the device you want to test.
+1. Open your App Distribution account via the link [my.testfairy.com](https://my.testfairy.com) on the device you want to test.
 
 2. Click the **Tester** icon <img src={useBaseUrl('/img/testfairy/testing-an-app/tester-icon-1.png')} alt="tester icon"/> menu and then click **Troubleshooting**.
 

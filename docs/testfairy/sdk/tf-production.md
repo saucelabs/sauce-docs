@@ -1,18 +1,18 @@
 ---
 id: tf-production
-title: TestFairy in Production
-sidebar_label: TestFairy in Production
+title: App Distribution (TestFairy) in Production
+sidebar_label: App Distribution in Production
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Running TestFairy in production offers numerous benefits, such as gaining valuable insights into user behavior, detecting and resolving issues promptly, and continuously improving your app's performance. With TestFairy, you can proactively monitor your production environment, gather valuable data, and make informed decisions to deliver a superior app to your users.
+Running App Distribution in production offers numerous benefits, such as gaining valuable insights into user behavior, detecting and resolving issues promptly, and continuously improving your app's performance. With App Distribution, you can proactively monitor your production environment, gather valuable data, and make informed decisions to deliver a superior app to your users.
 
-## Running TestFairy in Production
+## Running App Distribution in Production
 
-When running TestFairy in production, you may record sensitive data such as medical information, financial data or photos.
+When running App Distribution in production, you may record sensitive data such as medical information, financial data or photos.
 
 Therefore it is important to follow these guidelines:
 
@@ -21,11 +21,11 @@ Therefore it is important to follow these guidelines:
 
 1. On Android, call disableAutoUpdate() to comply with [Play Store Developer Distribution Agreement](https://play.google.com/about/developer-distribution-agreement.html).
 
-1. When recording sensitive data you **must** use TestFairy's end-to-end encryption with your own private keys, so that only your team can see your sessions.
+1. When recording sensitive data you **must** use App Distribution's end-to-end encryption with your own private keys, so that only your team can see your sessions.
 
 1. You **must** hide sensitive data such as credit card numbers, passwords, or other PII, so that this info will not be uploaded to the server.
 
-1. In case you are using TestFairy for customer support to better understand your users in case of a technical issue,
+1. In case you are using App Distribution for customer support to better understand your users in case of a technical issue,
    it is recomended to add a button to your app menu (call it "advanced support"?) and have that button call `TestFairy.begin()`.
    Before calling `begin()` ask the user if this is ok to record their screen for quality assurance purposes.
    When doing that, make sure that session duration is set to 2-3 minutes, just enough to identify the cause of a problem.
@@ -33,11 +33,11 @@ Therefore it is important to follow these guidelines:
 1. You **must** include a proper disclaimer in your app terms of service document.
    You must explain exactly what data you collect, and how to request deletion of that data.
 
-1. Never use TestFairy Auto-update with apps that are shipped to production. This is a clear violation of both Apple and Google's terms.
+1. Never use App Distribution Auto-update with apps that are shipped to production. This is a clear violation of both Apple and Google's terms.
 
-## Disabling TestFairy in Production
+## Disabling App Distribution in Production
 
-When it comes to using TestFairy in a production environment, there may be instances where you need to disable TestFairy's functionality temporarily or permanently. Disabling TestFairy in production can be necessary for a variety of reasons, such as complying with platform guidelines or eliminating potential performance impacts.. The SDK is very modular and is built to handle the your and your company's needs.
+When it comes to using App Distribution in a production environment, there may be instances where you need to disable App Distribution's functionality temporarily or permanently. Disabling App Distribution in production can be necessary for a variety of reasons, such as complying with platform guidelines or eliminating potential performance impacts.. The SDK is very modular and is built to handle the your and your company's needs.
 
 ### iOS
 
@@ -103,9 +103,9 @@ The link phases that are explained in the integration document only apply to Deb
 
 This solution still requires use of `#ifdef` or `#if` as before, but can also completely omit the library from being linked with the app.
 
-Navigate to project build settings and locate **Excluded Source File Name** option. Expand the list and find the build scheme you want to exclude TestFairy from. Double click the row add two entries to the excluded file list, one for **TestFairy.h**, one for **libTestFairy.a** files.
+Navigate to project build settings and locate **Excluded Source File Name** option. Expand the list and find the build scheme you want to exclude App Distribution from. Double click the row add two entries to the excluded file list, one for **TestFairy.h**, one for **libTestFairy.a** files.
 
-Try building your project. If the compilation fails, locate the lines where TestFairy is used and wrap them with `#ifdef` or `#if` directives explained in Option 1.
+Try building your project. If the compilation fails, locate the lines where App Distribution is used and wrap them with `#ifdef` or `#if` directives explained in Option 1.
 
 <a name="ios-noop"></a>
 
@@ -127,7 +127,7 @@ Your Gradle variants can alter the code path of your app. Use debug flavor to ca
 
 If you are not used to working with build variants, refer to [this post](https://blog.testfairy.com/create-a-custom-build-in-android/) the learn how.
 
-In order for ProGuard to fully crop the TestFairy SDK from the final binary, you may use a wrapper class that differs in each of your flavors.
+In order for ProGuard to fully crop the App Distribution SDK from the final binary, you may use a wrapper class that differs in each of your flavors.
 
 - Create a new Java folder for your **release** variant.
 - Create a Java class somewhere in the shared (main) variant.
@@ -154,11 +154,11 @@ public class TestFairyWrapper {
 
 - Call `TestFairyWrapper.begin()` in your main activity.
 
-Without any calls to any of the TestFairy SDK, Proguard removes the entire compiled code from the result `classes.dex` and the final APK.
+Without any calls to any of the App Distribution SDK, Proguard removes the entire compiled code from the result `classes.dex` and the final APK.
 
 #### Option 2: Use a Class Loader
 
-Android allows advanced developers to load classes into memory on-the-fly. You can use Java reflections to load TestFairy class into memory only on a Debug build.
+Android allows advanced developers to load classes into memory on-the-fly. You can use Java reflections to load App Distribution class into memory only on a Debug build.
 
 Replace the code where you call `TestFairy.begin()` with the code below.
 
