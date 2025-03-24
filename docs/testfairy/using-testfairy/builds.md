@@ -12,7 +12,7 @@ The build feature is a vital component of our app development and testing platfo
 
 ## Accessing Build View
 
-To access the build menu, click **Apps** on your App Distribution Dashboard and select the App from the list.
+To access the build menu, click **Apps** on your Sauce Mobile App Distribution Dashboard and select the App from the list.
 <img src={useBaseUrl('/img/test-fairy/build-accessing.png')} alt="Accessing build view"/>
 
 The **Builds** page displays a list of all the builds for the app. For each build, you can view the following information:
@@ -35,7 +35,7 @@ The **Builds** page displays a list of all the builds for the app. For each buil
   - Build has release notes <img src={useBaseUrl('/img/testfairy/using-tf/status-icon-comment.png')} alt="builds has release notes"/>
   - Build distribution is disabled <img src={useBaseUrl('/img/testfairy/using-tf/ic_close_black_36.png')} alt="build distribution is disabled"/>
   - Build was signed with a different certificate than the previous build <img src={useBaseUrl('/img/testfairy/using-tf/ic_error_red_48dp.png')} alt="builds signed with different certificate"/>
-  - Build does not contain the App Distribution SDK <img src={useBaseUrl('/img/testfairy/using-tf/status-icon-no-sdk.png')} alt="build without App Distribution SDK"/>
+  - Build does not contain the Sauce Mobile App Distribution SDK <img src={useBaseUrl('/img/testfairy/using-tf/status-icon-no-sdk.png')} alt="build without Sauce Mobile App Distribution SDK"/>
 
 
 

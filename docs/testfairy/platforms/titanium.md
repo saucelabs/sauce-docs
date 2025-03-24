@@ -8,12 +8,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The TiTestFairy Module extends the Appcelerator Titanium Mobile framework with the App Distribution Android and iOS SDKs. By integrating App Distribution, you gain valuable insights into how your app performs on real devices, understand user behavior, and collect metrics to optimize your user experience and code.
+The TiTestFairy Module extends the Appcelerator Titanium Mobile framework with the Sauce Mobile App Distribution Android and iOS SDKs. By integrating Sauce Mobile App Distribution, you gain valuable insights into how your app performs on real devices, understand user behavior, and collect metrics to optimize your user experience and code.
 
 
 ## Installation
 
-To integrate App Distribution into your Titanium Mobile project, follow these steps:
+To integrate Sauce Mobile App Distribution into your Titanium Mobile project, follow these steps:
 
 1. Add the following lines to your `tiapp.xml` file:
 
@@ -48,22 +48,22 @@ For more detailed code examples take a look at our [example app](https://github.
 
 ## Identifying Your Users
 
-To learn how to identify users and set session attributes using the App Distribution SDK in Titanium, refer to the [identifying users section](/testfairy/sdk/identifying-users/) in the SDK Documentation.
+To learn how to identify users and set session attributes using the Sauce Mobile App Distribution SDK in Titanium, refer to the [identifying users section](/testfairy/sdk/identifying-users/) in the SDK Documentation.
 
 
 ## Session Attributes
 
-For information on how to set session attributes using the App Distribution Titanium SDK, please refer to the [SDK Documentation on session attributes](/testfairy/sdk/session-attributes/).
+For information on how to set session attributes using the Sauce Mobile App Distribution Titanium SDK, please refer to the [SDK Documentation on session attributes](/testfairy/sdk/session-attributes/).
 
 ## Remote Logging
 
-To understand how to perform remote logging with the App Distribution SDK in Titanium, refer to the [remote logging section](/testfairy/sdk/remote-logging/) in the SDK Documentation.
+To understand how to perform remote logging with the Sauce Mobile App Distribution SDK in Titanium, refer to the [remote logging section](/testfairy/sdk/remote-logging/) in the SDK Documentation.
 
 ## Reference
 
 The TestFairy Titanium module exposes the following methods:
 
-`TiTestFairy.version;` - Returns the version of the App Distribution SDK.
+`TiTestFairy.version;` - Returns the version of the Sauce Mobile App Distribution SDK.
 
 `TiTestFairy.setCorrelationId(correlationId)` - Sets an identifier that can be looked up through dashboard.
 
@@ -79,6 +79,6 @@ The TestFairy Titanium module exposes the following methods:
 
 `TiTestFairy.resume()` - Resumes a paused session.
 
-`TiTestFairy.sessionUrl()` - Returns the address of the recorded session on App Distribution's developer portal. Will return nil if recording has not started yet.
+`TiTestFairy.sessionUrl()` - Returns the address of the recorded session on Sauce Mobile App Distribution's developer portal. Will return nil if recording has not started yet.
 
 `TiTestFairy.takeScreenshot()` - Takes a screenshot.

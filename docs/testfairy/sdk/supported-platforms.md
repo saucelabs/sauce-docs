@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Along with native Android and iOS development, App Distribution supports a number of other platforms. See below for a list of each supported platform, and the supported features on each platform.
+Along with native Android and iOS development, Sauce Mobile App Distribution supports a number of other platforms. See below for a list of each supported platform, and the supported features on each platform.
 
 ## Cordova / PhoneGap
 

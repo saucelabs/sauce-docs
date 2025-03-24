@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-App Distribution gives you the ability to log all your network requests. It gives you an effortless way to monitor your app's network access.
+Sauce Mobile App Distribution gives you the ability to log all your network requests. It gives you an effortless way to monitor your app's network access.
 
 <img src={useBaseUrl('/img/testfairy/sdk/logHttp.png')} alt="example issues"/>
 
@@ -33,7 +33,7 @@ Example
 If you are using `OkHttp` or `Retrofit` all you need to do is add `CustomHttpInterceptor` to your client:
 
 ```js
-// Be sure to import App Distribution
+// Be sure to import Sauce Mobile App Distribution
 import com.testfairy.TestFairy;
 
 public class CustomHttpInterceptor implements Interceptor {
@@ -84,7 +84,7 @@ If you have `AFNetworking` added to your project, network requests are automatic
 :::
 
 ```js
-// Be sure to import App Distribution
+// Be sure to import Sauce Mobile App Distribution
 #import "TestFairy.h"
 
 __block NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -140,7 +140,7 @@ NotificationCenter.default.addObserver(forName: Request.didComplete, object: nil
 
 Example
 
-App Distribution supports network logging for `Fetch API`. Call the following method to start capturing network calls.
+Sauce Mobile App Distribution supports network logging for `Fetch API`. Call the following method to start capturing network calls.
 
 ```js
 // Capture network logs
@@ -158,7 +158,7 @@ TestFairy.disableNetworkLogging(window);
 
 ## Exception Logging
 
-App Distribution allows developers to log up to five exceptions or errors for a session.
+Sauce Mobile App Distribution allows developers to log up to five exceptions or errors for a session.
 
 :::note
 
@@ -187,7 +187,7 @@ TestFairy.logThrowable(<throwable exception>);
 Example
 
 ```js
-// Be sure to import App Distribution
+// Be sure to import Sauce Mobile App Distribution
 import com.testfairy.TestFairy;
 
 TestFairy.logThrowable(new Throwable("Some Message"));
@@ -205,7 +205,7 @@ TestFairy.logThrowable(new Throwable("Some Message"));
 Example
 
 ```js
-// Be sure to import App Distribution
+// Be sure to import Sauce Mobile App Distribution
 #import "TestFairy.h"
 
 [TestFairy logError:[NSError errorWithDomain:@"com.your.domain" code:-1 userInfo:@{NSLocalizedDescriptionKey: @"Some Message"}]];
@@ -261,14 +261,14 @@ TestFairy.logException(<Error>);
 Example
 
 ```js
-// Be sure to import App Distribution
+// Be sure to import Sauce Mobile App Distribution
 const TestFairy = require('react-native-testfairy');
 
 var error = new Error("Some Message");
 TestFairy.logException(error);
 ```
 
-We recommend replacing the `Global Handler` with a custom method, automatically sending the exception to App Distribution sessions. One suggestion we have is to add a method that looks like this:
+We recommend replacing the `Global Handler` with a custom method, automatically sending the exception to Sauce Mobile App Distribution sessions. One suggestion we have is to add a method that looks like this:
 
 ```js
 var ErrorUtils = require('ErrorUtils');
@@ -290,14 +290,14 @@ TestFairySDK.logException(<Error>);
 Example
 
 ```js
-// Be sure to import App Distribution
+// Be sure to import Sauce Mobile App Distribution
 import { TestFairySDK } from 'nativescript-testfairy';
 
 var error = new Error("Some Message");
 TestFairySDK.logException(error);
 ```
 
-We recommend adding a listener to the window to capture error statements, automatically sending the exception to App Distribution sessions. One suggestion we have is to add a method that looks like this:
+We recommend adding a listener to the window to capture error statements, automatically sending the exception to Sauce Mobile App Distribution sessions. One suggestion we have is to add a method that looks like this:
 
 ```js
 window.addEventListener("error", function(e) {

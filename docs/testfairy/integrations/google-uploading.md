@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 To enable the feature, reach out to support.
 :::
 
-App Distribution allows you to upload your production app directory to the Google Play Store.
+Sauce Mobile App Distribution allows you to upload your production app directory to the Google Play Store.
 
 ## Configuring the Integration
 
@@ -39,7 +39,7 @@ You see an upload dialog summarizing what will be uploaded to Google Play Store.
 <img src={useBaseUrl('/img/testfairy/integrations/google-play/08.png')} alt="Google Play Store summary"/>
 
 :::caution
-App Distribution does not publish your app publically; it only uploads the build to the store in a draft state. The app owner in Google must publish the app itself publically.
+Sauce Mobile App Distribution does not publish your app publically; it only uploads the build to the store in a draft state. The app owner in Google must publish the app itself publically.
 :::
 
 After uploading, the dialog displays the uploaded state of the app.

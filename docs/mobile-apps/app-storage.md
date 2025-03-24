@@ -221,8 +221,8 @@ The App Builds tab displays a table of all app builds within the selected app gr
 <img src={useBaseUrl('img/mobile-apps/app-management-app-builds-tab.png')} alt="Copy a file name or ID" width="800"/>
 
 ### Distribution
-Distribute your app to internal and external beta testers through App Distribution to gain early feedback before production.
-Learn more about [app distribution powered by App Distribution](/testfairy/app-center-alternative/).
+Distribute your app to internal and external beta testers through Sauce Mobile App Distribution to gain early feedback before production.
+Learn more about [app distribution powered by Sauce Mobile App Distribution](/testfairy/app-center-alternative/).
 
 <img src={useBaseUrl('img/mobile-apps/app-management-distribution-tab.png')} alt="Copy a file name or ID" width="800"/>
 

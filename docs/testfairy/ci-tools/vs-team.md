@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This guide provides instructions for Visual Studio Team Services (VSTS) users to upload their apps (_.apk/_.ipa) to App Distribution. By following these steps, you can easily integrate App Distribution into your existing build process and streamline the app deployment and testing workflow.
+This guide provides instructions for Visual Studio Team Services (VSTS) users to upload their apps (_.apk/_.ipa) to Sauce Mobile App Distribution. By following these steps, you can easily integrate Sauce Mobile App Distribution into your existing build process and streamline the app deployment and testing workflow.
 
 #### Adding UploadToTestFairy (or any other task name) to your existing build
 

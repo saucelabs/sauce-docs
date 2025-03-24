@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-You can install the App Distribution enterprise suite on a private cloud on any AWS location in the US, Europe, Asia, or South America. According to your security policy, servers can be protected by custom firewall rules allowing access only from your offices.
+You can install the Sauce Mobile App Distribution enterprise suite on a private cloud on any AWS location in the US, Europe, Asia, or South America. According to your security policy, servers can be protected by custom firewall rules allowing access only from your offices.
 
 With this installation, all data is stored privately using your resources.
 
@@ -40,7 +40,7 @@ TestFairy.setServerEndpoint("<your private cloud url here>");
 Example
 
 ```js
-// Be sure to import App Distribution
+// Be sure to import Sauce Mobile App Distribution
 import com.testfairy.TestFairy;
 
 TestFairy.setServerEndpoint("my-subdomain.testfairy.com");
@@ -58,7 +58,7 @@ TestFairy.begin(context, "<your app token here>");
 Example
 
 ```js
-// Be sure to import App Distribution
+// Be sure to import Sauce Mobile App Distribution
 #import "TestFairy.h"
 
 [TestFairy setServerEndpoint:@"my-subdomain.testfairy.com"];
@@ -91,7 +91,7 @@ TestFairy.setServerEndpoint("<your private cloud url here>");
 Example
 
 ```js
-// Be sure to import App Distribution
+// Be sure to import Sauce Mobile App Distribution
 const TestFairy = require('react-native-testfairy');
 
 TestFairy.setServerEndpoint("my-subdomain.testfairy.com");
@@ -109,7 +109,7 @@ TestFairySDK.setServerEndpoint("<your private cloud url here>");
 Example
 
 ```js
-// Be sure to import App Distribution
+// Be sure to import Sauce Mobile App Distribution
 import { TestFairySDK } from 'nativescript-testfairy';
 
 TestFairySDK.setServerEndpoint("my-subdomain.testfairy.com");
@@ -127,7 +127,7 @@ TestFairy.SetServerEndpoint ("<your private cloud url here>");
 Example
 
 ```js
-// Be sure to import App Distribution
+// Be sure to import Sauce Mobile App Distribution
 using TestFairyLib;
 
 TestFairy.SetServerEndpoint ("my-subdomain.testfairy.com");
@@ -145,7 +145,7 @@ TestFairy.setServerEndpoint("<your private cloud url here>");
 Example
 
 ```js
-// Be sure to import App Distribution
+// Be sure to import Sauce Mobile App Distribution
 using TestFairyUnity;
 
 TestFairy.setServerEndpoint("my-subdomain.testfairy.com");
@@ -163,7 +163,7 @@ AirTestFairy.setServerEndpoint("<your private cloud url here>");
 Example
 
 ```js
-// Be sure to import App Distribution
+// Be sure to import Sauce Mobile App Distribution
 import com.testfairy.AirTestFairy;
 
 AirTestFairy.setServerEndpoint("my-subdomain.testfairy.com");
@@ -181,7 +181,7 @@ TiTestFairy.setServerEndpoint("<your private cloud url here>");
 Example
 
 ```js
-// Be sure to import App Distribution
+// Be sure to import Sauce Mobile App Distribution
 var TiTestFairy = require('com.testfairy.titestfairy');
 
 TiTestFairy.setServerEndpoint("my-subdomain.testfairy.com");

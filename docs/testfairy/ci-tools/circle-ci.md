@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 [CircleCI](https://circleci.com) is a cloud-based CI/CD service that helps developers automate their development process with CI hosted in the cloud or on a private server.
 
-App Distribution has a CircleCI "ORB", allowing you to upload builds to App Distribution smoothly.
+Sauce Mobile App Distribution has a CircleCI "ORB", allowing you to upload builds to Sauce Mobile App Distribution smoothly.
 
 To use the ORB, add the following line to the `orbs` section of your `.circleci/config.yml`:
 
@@ -34,4 +34,4 @@ jobs:
 
 `TESTFAIRY_API_KEY` is the environment variable name containing your API key. Environment variables are the best practice, so you don't commit secret values into your code repository.
 
-You can see the complete list of supported commands by visiting the [CircleCI App Distribution ORB Repository](https://circleci.com/orbs/registry/orb/testfairy/uploader).
+You can see the complete list of supported commands by visiting the [CircleCI Sauce Mobile App Distribution ORB Repository](https://circleci.com/orbs/registry/orb/testfairy/uploader).

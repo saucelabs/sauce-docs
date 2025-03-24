@@ -20,9 +20,9 @@ The code of our command line uploader, Jenkins plugin, and Gradle plugin is open
 
 ### Supported Platforms
 
-- **Android**: App Distribution supports uploading and distributing Android Applications. Distributing Android apps with App Distribution must be packaged as a `.apk` or `.aab` file.
-- **iOS**: App Distribution supports uploading and distributing iOS applications. You can sign iOS apps with AdHoc, Development, or Enterprise certificates. Distributing iOS apps with App Distribution must be packaged as a `.ipa` file.
-- **MacOS**: MacOS apps are bundled as `.app` files, however, to distribute MacOS apps with App Distribution, those `.app` files must be zipped into a `.zip` file.
+- **Android**: Sauce Mobile App Distribution supports uploading and distributing Android Applications. Distributing Android apps with Sauce Mobile App Distribution must be packaged as a `.apk` or `.aab` file.
+- **iOS**: Sauce Mobile App Distribution supports uploading and distributing iOS applications. You can sign iOS apps with AdHoc, Development, or Enterprise certificates. Distributing iOS apps with Sauce Mobile App Distribution must be packaged as a `.ipa` file.
+- **MacOS**: MacOS apps are bundled as `.app` files, however, to distribute MacOS apps with Sauce Mobile App Distribution, those `.app` files must be zipped into a `.zip` file.
 
 ### Expanding iOS Platform Support: Now Including VisionOS (XROS)
 
@@ -80,7 +80,7 @@ To update a build, upload the same file again (that is., the same build with the
 
 ### Uploading a New Version
 
-To upload a new build (a new version of the same app), upload the new version as you uploaded the old version. App Distribution identifies that both apps have the same package name (bundle identifier) and group them together in the same project.
+To upload a new build (a new version of the same app), upload the new version as you uploaded the old version. Sauce Mobile App Distribution identifies that both apps have the same package name (bundle identifier) and group them together in the same project.
 
 ### Symbols or Mapping file
 

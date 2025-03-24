@@ -8,13 +8,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Webhooks allow integration between App Distribution and your backend. Using these webhooks, you can subscribe for specific events and receive an HTTP POST request whenever such an event occurs.
+Webhooks allow integration between Sauce Mobile App Distribution and your backend. Using these webhooks, you can subscribe for specific events and receive an HTTP POST request whenever such an event occurs.
 
 You can use the webhooks when, for example, you'd like to receive a notification when a new build is uploaded and send it to the development team. Another example may be that you'd like to save the feedback received in your database or backend.
 
 To configure webhooks, open the Webhooks tab in your [User Preferences](https://app.testfairy.com/settings/) page. You can configure more than one webhook, and each webhook applies to selected projects and selected events.
 
-App Distribution automatically detects Slack endpoints and sends an appropriate payload. Follow the [Slack integration guide](/testfairy/integrations/slack).
+Sauce Mobile App Distribution automatically detects Slack endpoints and sends an appropriate payload. Follow the [Slack integration guide](/testfairy/integrations/slack).
 
 ## Supported Events
 

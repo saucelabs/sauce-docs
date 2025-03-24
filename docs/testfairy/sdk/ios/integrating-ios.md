@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/DhRX5UukvPM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-Integrating the App Distribution SDK into your app helps you better understand how your app performs on real devices. It tells you when and how people are using your app, and provides you with any metrics you may need to optimize your user experience and code.
+Integrating the Sauce Mobile App Distribution SDK into your app helps you better understand how your app performs on real devices. It tells you when and how people are using your app, and provides you with any metrics you may need to optimize your user experience and code.
 You get to:
 
 * Track app use.
@@ -45,11 +45,11 @@ Requires Xcode 12+. Screenshots taken from Xcode 13.1
 4. Click the '+' icon to add a package.
 <img src={useBaseUrl('img/mobile-apps/xcframework-1.png')} alt="" width="800"/>
 
-1. In the newly opened dialog search for the App Distribution package repository using the URL: https://github.com/testfairy/testfairy-ios-sdk-swift-package in the top right search bar.
+1. In the newly opened dialog search for the Sauce Mobile App Distribution package repository using the URL: https://github.com/testfairy/testfairy-ios-sdk-swift-package in the top right search bar.
 2. Click the **Add Pacakge** button.
 <img src={useBaseUrl('img/mobile-apps/xcframework-2.png')} alt="" width="800"/>
 
-1. After the package has been downloaded, in the newly opened dialog, make sure the App Distribution package is selcted in the "Package Product" column
+1. After the package has been downloaded, in the newly opened dialog, make sure the Sauce Mobile App Distribution package is selcted in the "Package Product" column
 2. Make sure the right target is selected in the "Add to target" column
 3. Click the **Add Pacakge** button
 <img src={useBaseUrl('img/mobile-apps/xcframework-3.png')} alt="" width="800"/>
@@ -57,7 +57,7 @@ Requires Xcode 12+. Screenshots taken from Xcode 13.1
 </TabItem>
 <TabItem value="Cocoapods">
 
-1. Add the App Distribution pod to your Podfile by inserting the following line where applicable:
+1. Add the Sauce Mobile App Distribution pod to your Podfile by inserting the following line where applicable:
 ```java
 pod 'TestFairy'
 ```           
@@ -72,7 +72,7 @@ Once you have Carthage installed, you can begin adding frameworks to your projec
 
 1. Add `binary "https://app.testfairy.com/sdk/ios/carthage.json"` to your Cartfile.
 2. Run `carthage update`.
-3. On your application targets’ “General” settings tab, in the “Linked Frameworks and Libraries” section, drag and drop the App Distribution framework from the [Carthage/Build][] folder on disk.
+3. On your application targets’ “General” settings tab, in the “Linked Frameworks and Libraries” section, drag and drop the Sauce Mobile App Distribution framework from the [Carthage/Build][] folder on disk.
 <br/><img src={useBaseUrl('/img/mobile-apps/carthage-1.png')} alt="Carthage Integration" width="600"/>
 
 4. On your application targets’ “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script in which you specify your shell (ex: bin/sh), add the following contents to the script area below the shell:
