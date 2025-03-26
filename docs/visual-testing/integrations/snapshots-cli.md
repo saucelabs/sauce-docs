@@ -9,7 +9,7 @@ The Sauce Visual Snapshots CLI (command line interface) allows you to create Vis
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings). For your convenience, you can save them in environment variables.
+- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings) to be set in `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables
 
 ```sh
 export SAUCE_USERNAME=__YOUR_SAUCE_USERNAME__
