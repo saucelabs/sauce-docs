@@ -1,7 +1,7 @@
 ---
 id: using-app-dist
-title: Using App Distribution
-sidebar_label: Using App Distribution
+title: Using Sauce Mobile App Distribution
+sidebar_label: Using Sauce Mobile App Distribution
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

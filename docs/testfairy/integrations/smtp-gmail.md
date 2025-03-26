@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Connect your TestFairy account to your Simple Mail Transfer Protocol (SMTP), G-suite Gmail service, or private Gmail account to increase deliverability and open rates of email messages sent to system users.
+Connect your Sauce Mobile App Distribution account to your Simple Mail Transfer Protocol (SMTP), G-suite Gmail service, or private Gmail account to increase deliverability and open rates of email messages sent to system users.
 
 This way, your users get emails from a familiar email address and can reply directly to you. In addition, you are able to track outgoing messages by checking your `Sent Items` folder in your email account.
 
@@ -33,7 +33,7 @@ To integrate your Gmail or SMTP Email account, follow the below steps.
 3. Select the account you want to use:
    <img src={useBaseUrl('/img/testfairy/integrations/smtp-gmail/gmail-2.png')} alt="select account"/>
 
-4. **Allow** TestFairy access to the account:
+4. **Allow** Sauce Mobile App Distribution access to the account:
    <img src={useBaseUrl('/img/testfairy/integrations/smtp-gmail/gmail-3.png')} alt="allow access"/>
 
    You get a **confirmation message** instead of the **Authorize Google Apps (Gmail API)** for successful integration.

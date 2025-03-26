@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy integrates with Microsoft Teams seamlessly, providing human-readable, real-time notifications for your selected events.
+Sauce Mobile App Distribution integrates with Microsoft Teams seamlessly, providing human-readable, real-time notifications for your selected events.
 
 1. Create a new channel, or use an existing one to deliver notifications. In the image below, a new channel named `TestFairy-Notifications` is created.
    <img src={useBaseUrl('/img/testfairy/integrations/ms-teams/01-create-channel.png')} alt="create channel"/>
@@ -25,7 +25,7 @@ TestFairy integrates with Microsoft Teams seamlessly, providing human-readable, 
 1. Copy the webhook endpoint from the dialog.
    <img src={useBaseUrl('/img/testfairy/integrations/ms-teams/04-copy-webhook-endpoint.png')} alt="copy webhook endpoint"/>
 
-1. From your account at [TestFairy](http://app.testfairy.com), go to Preferences.
+1. From your account at [Sauce Mobile App Distribution](http://app.testfairy.com), go to Preferences.
    <img src={useBaseUrl('/img/testfairy/integrations/ms-teams/05-go-to-preferences.png')} alt="go to preference"/>
 
 1. From the Preferences, select **Webhooks** and choose **+ Add Webhook**

@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 To enable the feature, reach out to support.
 :::
 
-TestFairy allows you to upload your production app directory to the Apple App Store.
+Sauce Mobile App Distribution allows you to upload your production app directory to the Apple App Store.
 
 ## Configuring the Integration
 
@@ -20,7 +20,7 @@ On the **Account Preferences**, next to **Apple App Store**, click **Add Integra
 
 <img src={useBaseUrl('/img/testfairy/int-apple-nav.png')} alt="Add Apple App Store integration"/>
 
-You have to create credentials from Apple iTunesConnect to upload apps. You can get the credentials by going to the [User and Access](http://appstoreconnect.apple.com/access/api), selecting the **Keys** tab, and then choosing **App Store Connect API**. Click **+** to add a new set of keys. Be sure to download the .p8 file used to sign API requests, and take note of the `Issuer ID` and the `Key ID`. You have to give **Admin access** to these keys to upload an app from TestFairy to the Apple App Store.
+You have to create credentials from Apple iTunesConnect to upload apps. You can get the credentials by going to the [User and Access](http://appstoreconnect.apple.com/access/api), selecting the **Keys** tab, and then choosing **App Store Connect API**. Click **+** to add a new set of keys. Be sure to download the .p8 file used to sign API requests, and take note of the `Issuer ID` and the `Key ID`. You have to give **Admin access** to these keys to upload an app from Sauce Mobile App Distribution to the Apple App Store.
 
 Once you have the Issuer ID, Key ID, and the private key (.p8), go back to the settings page, fill in the form with the necessary keys, and upload the private key.
 
@@ -51,7 +51,7 @@ After uploading the metadata, you see an upload dialog summarizing what will be 
 <img src={useBaseUrl('/img/testfairy/integrations/10.png')} alt="upload app"/>
 
 :::caution
-TestFairy will not publish your app publically; it only uploads the build to the store. The app owner in Apple iTunesConnect must publish the app itself publically.
+Sauce Mobile App Distribution will not publish your app publically; it only uploads the build to the store. The app owner in Apple iTunesConnect must publish the app itself publically.
 :::
 
 After uploading, the dialog will display the uploaded state of the app.

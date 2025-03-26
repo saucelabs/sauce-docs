@@ -24,12 +24,12 @@ import TabItem from '@theme/TabItem';
    - Allow the following permissions: `Write users and companies` and `Write conversations`.
      <img src={useBaseUrl('/img/testfairy/integrations/intercom_3.png')} alt="permissions"/>
 
-3. In TestFairy, go to Preferences > [Integrations](https://app.testfairy.com/settings/integrations/) > Add integration (next to the Intercom row).
+3. In App Distribution, go to Preferences > [Integrations](https://app.testfairy.com/settings/integrations/) > Add integration (next to the Intercom row).
    <img src={useBaseUrl('/img/testfairy/integrations/intercom_4.png')} alt="Add integration"/>
 
 4. Paste the Intercom `Access Token` into the input field and click **Save Settings**.
    <img src={useBaseUrl('/img/testfairy/integrations/intercom_5.png')} alt="Access token"/>
 
-5. (Optional) Install the [TestFairy Chrome Extension](https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee)
+5. (Optional) Install the [App Distribution Chrome Extension](https://chrome.google.com/webstore/detail/testfairy-for-jira/joaafaemekbkgekhjbaldlllcnjifcee)
 
-You've added the Intercom integration to TestFairy and will receive new feedback directly in Intercom.
+You've added the Intercom integration to App Distribution and will receive new feedback directly in Intercom.

@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy allows developers to log items with a session without logging into the console output. In some cases, workarounds allow you to wrap the TestFairy remote logging method in a way that both log to the console and the session.
+Sauce Mobile App Distribution allows developers to log items with a session without logging into the console output. In some cases, workarounds allow you to wrap the Sauce Mobile App Distribution remote logging method in a way that both log to the console and the session.
 
 <Tabs
 groupId="sdk"
@@ -35,7 +35,7 @@ TestFairy.log("<tag>", "<message>");
 Example
 
 ```js
-// Be sure to import TestFairy
+// Be sure to import Sauce Mobile App Distribution
 import com.testfairy.TestFairy;
 
 TestFairy.log("Tag", "Hello, TestFairy!");
@@ -53,7 +53,7 @@ TFLog(@"<message with format>", <arguments>);
 Example
 
 ```js
-// Be sure to import TestFairy
+// Be sure to import Sauce Mobile App Distribution
 #import "TestFairy.h"
 
 TFLog(@"Hello, %@", @"TestFairy!");
@@ -61,7 +61,7 @@ TFLog(@"Hello, %@", @"TestFairy!");
 ```
 
 We recommend sending all calls to <code>NSLog</code> to TestFairy so you can continue to use <code>NSLog</code> and see all your log statements in your session.<br/>
-To enable sending logs to TestFairy, you have to redefine <code>NSLog</code> using a macro with the following lines. This macro allows you to continue using <code>NSLog</code> in your code while also adding the logs to the matching session in TestFairy).
+To enable sending logs to TestFairy, you have to redefine <code>NSLog</code> using a macro with the following lines. This macro allows you to continue using <code>NSLog</code> in your code while also adding the logs to the matching session in Sauce Mobile App Distribution).
 
 ### Changing Your Prefix Header
 

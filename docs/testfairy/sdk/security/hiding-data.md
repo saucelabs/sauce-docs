@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy offers a valuable feature that allows developers to conceal sensitive information from recorded sessions, ensuring that sensitive data, such as credit card information, remains protected during testing and debugging. 
+Sauce Mobile App Distribution offers a valuable feature that allows developers to conceal sensitive information from recorded sessions, ensuring that sensitive data, such as credit card information, remains protected during testing and debugging. 
 
 
 For example, you might want to prevent all information related to credit card data from appearing in the session:
@@ -60,7 +60,7 @@ public class MyActivity extends Activity {
 
 <TabItem value="ios">
 
-To hide a view from video, all you need to do is call the static instance method hideView in the TestFairy class:
+To hide a view from video, all you need to do is call the static instance method hideView in the Sauce Mobile App Distribution class:
 
 ```js
 UIView *view = ...
@@ -90,13 +90,13 @@ Example
 
 <TabItem value="react">
 
-To hide views from your recorded session, you must pass a reference to a view to TestFairy. First, give the element to be hidden as a ref attribute. For example:
+To hide views from your recorded session, you must pass a reference to a view to Sauce Mobile App Distribution. First, give the element to be hidden as a ref attribute. For example:
 
 ```xml
 <Text ref="instructions">This will be hidden</Text>
 ```
 
-Next, in a component callback, such as componentDidMount, pass the reference ID back to TestFairy by invoking hideView.
+Next, in a component callback, such as componentDidMount, pass the reference ID back to Sauce Mobile App Distribution by invoking hideView.
 
 Example
 
@@ -172,7 +172,7 @@ Below is a screen taken from a demo video: on the left, you can see what an app 
 <br clear="both"/>
 
 :::note
-- Hidden views are automatically removed from the video before being sent to TestFairy's servers, ensuring that sensitive data is never captured or exposed.
+- Hidden views are automatically removed from the video before being sent to Sauce Mobile App Distribution's servers, ensuring that sensitive data is never captured or exposed.
 - Developers can hide multiple views within a session to protect various sensitive elements in the application.
 - It is permissible to add the same view multiple times for hiding without any additional checks.
 :::
