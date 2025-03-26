@@ -1139,13 +1139,13 @@ module.exports = {
         },
         {
             type: 'category',
-            label: 'Sauce Mobile App Distribution',
+            label: 'App Distribution',
             collapsed: true,
             items: [
                 'testfairy/testfairy',
                 {
                     type: 'category',
-                    label: 'Using Sauce Mobile App Distribution (TestFairy)',
+                    label: 'Using App Distribution (TestFairy)',
                     collapsed: true,
                     items: [
                         'testfairy/using-testfairy/uploading-an-app',
@@ -1157,7 +1157,7 @@ module.exports = {
                 'testfairy/app-center-alternative',
                 {
                     type: 'category',
-                    label: 'Sauce Mobile App Distribution',
+                    label: 'App Distribution',
                     collapsed: true,
                     items: [
                         'testfairy/app-distribution/managing-dist',
