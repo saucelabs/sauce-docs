@@ -127,6 +127,7 @@ curl --compressed \ -O https://{SAUCE_USERNAME}:{SAUCE_ACCESS_KEY}@{DATA_CENTER}
 
 - Emulators and simulators are not supported.
 - Website testing is not yet available on Android.
+- Streaming and recording audio from phone calls is not supported.
 
 :::
 
