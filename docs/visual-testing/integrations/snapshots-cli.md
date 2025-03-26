@@ -40,7 +40,7 @@ Creates Visual snapshots of each page of provided PDF document
 
 Usage: `npx @saucelabs/visual-snapshots pdf [options]`
 
-Example: `npx @saucelabs/visual-snapshots pdf ./example.pdf`
+Example: `npx @saucelabs/visual-snapshots pdf ./example.pdf ./dir_with_pdfs ./some_dir/**/*.pdf`
 
 #### Required
 
