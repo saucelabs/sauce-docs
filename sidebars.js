@@ -1725,6 +1725,7 @@ module.exports = {
                         'visual-testing/integrations/python-robot-framework',
                         'visual-testing/integrations/playwright',
                         'visual-testing/integrations/espresso',
+                        'visual-testing/integrations/snapshots-cli',
                     ],
                 },
                 'visual-testing/cli',
