@@ -1,8 +1,8 @@
 ---
-id: snapshots-cli
-title: Sauce Visual Snapshots CLI
 sidebar_label: Sauce Visual Snapshots CLI
 ---
+
+# Sauce Visual Snapshots CLI
 
 The Sauce Visual Snapshots CLI (command line interface) allows you to create Visual snapshots of provided PDF documents.
 
