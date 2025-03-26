@@ -4,7 +4,7 @@ title: Microsoft App Center Alternative
 sidebar_label: MS App Center Alternative
 ---
 
-Migrate now from App Center Sauce Mobile App Distribution to Sauce Labs! This is how you can get started with our [Sauce Mobile App Distribution and Beta Testing solution](/testfairy). 
+Migrate now from App Center App Distribution to Sauce Labs! This is how you can get started with our [Sauce Mobile App Distribution and Beta Testing solution](/testfairy). 
 
 ## What You'll Need
 
