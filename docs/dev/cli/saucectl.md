@@ -182,15 +182,13 @@ Your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` (available on your [User Settings](
 
 - Use the [`saucectl configure`](/dev/cli/saucectl/configure/configure) CLI command to create a `credentials.yml` file from which `saucectl` can automatically pull your credentials.
 - Set your credentials as [environment variables](/basics/environment-variables/) that `saucectl` can access at runtime.
-- Manually enter your credentials as options in the `saucectl run` command.
 
 <!-- prettier-ignore-start -->
 :::note Credentials Order of Preference
-If you set your credentials using more than one of the methods above, `saucectl` will apply the values in the following order or preference:
+If you set your credentials using more than one of the methods above, `saucectl` will apply the values in the following order of preference:
 
 1. Environment Variables
-2. `saucectl run` command
-3. `credentials.yml` file
+2. `credentials.yml` file
 :::
 
 ### Check Out Your Framework Demo Repo
