@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy can collect additional information from your session, which can help you generate better insights.
+Sauce Mobile App Distribution can collect additional information from your session, which can help you generate better insights.
 
 <Tabs
 groupId="sdk"
@@ -34,7 +34,7 @@ TestFairy.setAttribute("<key>", "<value>");
 Example
 
 ```js
-// Be sure to import TestFairy
+// Be sure to import Sauce Mobile App Distribution
 import com.testfairy.TestFairy;
 
 TestFairy.setAttribute("payment-method","free");
@@ -54,7 +54,7 @@ TestFairy.setAttribute("level","20");
 Example
 
 ```js
-// Be sure to import TestFairy
+// Be sure to import Sauce Mobile App Distribution
 #import "TestFairy.h"
 
 [TestFairy setAttribute:@"name" withValue:@"John Snow"];
@@ -91,7 +91,7 @@ TestFairy.setAttribute("<key>", "<value>");
 Example
 
 ```js
-// Be sure to import TestFairy
+// Be sure to import Sauce Mobile App Distribution
 const TestFairy = require('react-native-testfairy');
 
 TestFairy.setAttribute("name","John Snow");
@@ -111,7 +111,7 @@ TestFairySDK.setAttribute("<key>", "<value>");
 Example
 
 ```js
-// Be sure to import TestFairy
+// Be sure to import Sauce Mobile App Distribution
 import { TestFairySDK } from 'nativescript-testfairy';
 
 TestFairySDK.setAttribute("name","John Snow");
@@ -131,7 +131,7 @@ TestFairy.SetAttribute ("<key>", "<value>");
 Example
 
 ```js
-// Be sure to import TestFairy
+// Be sure to import Sauce Mobile App Distribution
 using TestFairyLib;
 
 TestFairy.SetAttribute ("name","John Snow");
@@ -151,7 +151,7 @@ TestFairy.setAttribute("<key>", "<value>");
 Example
 
 ```js
-// Be sure to import TestFairy
+// Be sure to import Sauce Mobile App Distribution
 using TestFairyUnity;
 
 TestFairy.setAttribute("name","John Snow");
@@ -171,7 +171,7 @@ AirTestFairy.setAttribute("<key>", "<value>");
 Example
 
 ```js
-// Be sure to import TestFairy
+// Be sure to import Sauce Mobile App Distribution
 import com.testfairy.AirTestFairy;
 
 AirTestFairy.setAttribute("name","John Snow");
@@ -191,7 +191,7 @@ TiTestFairy.setAttribute("<key>", "<value>");
 Example
 
 ```js
-// Be sure to import TestFairy
+// Be sure to import Sauce Mobile App Distribution
 var TiTestFairy = require('com.testfairy.titestfairy');
 
 TiTestFairy.setAttribute("name","John Snow");

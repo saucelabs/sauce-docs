@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TestFairy requires that you call `begin` to start recording your sessions. However, developers can override the build settings to determine what is enabled during a session recording.
+Sauce Mobile App Distribution requires that you call `begin` to start recording your sessions. However, developers can override the build settings to determine what is enabled during a session recording.
 
 Some commonly used options:
 
@@ -30,9 +30,9 @@ values={[
 
 ### Crash Reporting
 
-TestFairy provides a means of capturing and recording stack traces if your application crashes. Stack traces can be vital to understanding any underlying bugs in your app. However, some apps may want to disable TestFairy's crash handling. Invoke `enableCrashHandler` or `disableCrashHandler` before calling `begin`.
+Sauce Mobile App Distribution provides a means of capturing and recording stack traces if your application crashes. Stack traces can be vital to understanding any underlying bugs in your app. However, some apps may want to disable Sauce Mobile App Distribution's crash handling. Invoke `enableCrashHandler` or `disableCrashHandler` before calling `begin`.
 
-Once you enable the TestFairy crash handler, it cannot be disabled unless the app is restarted.
+Once you enable the Sauce Mobile App Distribution crash handler, it cannot be disabled unless the app is restarted.
 
 #### Syntax
 
@@ -43,7 +43,7 @@ TestFairy.disableCrashHandler();
 
 #### Code Example
 
-In the following example, the TestFairy crash handler will be disabled.
+In the following example, the Sauce Mobile App Distribution crash handler will be disabled.
 
 ```java
 import com.testfairy.TestFairy;
@@ -63,7 +63,7 @@ Once logged in, your app token is available from your [account preferences](http
 
 ### Video Recording
 
-TestFairy provides an option to enable or disable video recording and control the recording parameters. Invoke `disableVideo` or `enableVideo` before `begin`.
+Sauce Mobile App Distribution provides an option to enable or disable video recording and control the recording parameters. Invoke `disableVideo` or `enableVideo` before `begin`.
 
 #### Syntax
 
@@ -96,7 +96,7 @@ Once logged in, your app token is available from your [account preferences](http
 
 ### Recorded Metrics
 
-TestFairy can collect several different metrics from your app. Developers can override the metrics defined in their app's build settings.
+Sauce Mobile App Distribution can collect several different metrics from your app. Developers can override the metrics defined in their app's build settings.
 
 Developers can call `enableMetric` or `disableMetric` before invoking `begin` with the metric they wish to enable or disable recording.
 
@@ -136,7 +136,7 @@ Once logged in, your app token is available from your [account preferences](http
 
 ### Max Session Length
 
-TestFairy only records for a fixed period. Developers can override the maximum recording period by calling `setMaxSessionLength` before calling `begin`.
+Sauce Mobile App Distribution only records for a fixed period. Developers can override the maximum recording period by calling `setMaxSessionLength` before calling `begin`.
 
 :::note
 The value passed into this method must be less than or equal to the value defined in the build settings. A value larger than the one in the build settings will be ignored.
@@ -168,7 +168,7 @@ Once logged in, your app token is available from your [account preferences](http
 
 ### Feedback Form
 
-TestFairy provides an option to enable or disable feedback collection. Invoke `disableFeedbackForm` or `enableFeedbackForm` before `begin`.
+Sauce Mobile App Distribution provides an option to enable or disable feedback collection. Invoke `disableFeedbackForm` or `enableFeedbackForm` before `begin`.
 
 #### Syntax
 
@@ -205,9 +205,9 @@ Once logged in, your app token is available from your [account preferences](http
 
 ### Crash Reporting
 
-TestFairy provides a means of capturing and recording stack traces if your application crashes. Stack traces can be vital to understanding any underlying bugs in your app. However, some apps may want to disable TestFairy's crash handling. Invoke `enableCrashHandler` or `disableCrashHandler` before calling `begin`.
+Sauce Mobile App Distribution provides a means of capturing and recording stack traces if your application crashes. Stack traces can be vital to understanding any underlying bugs in your app. However, some apps may want to disable Sauce Mobile App Distribution's crash handling. Invoke `enableCrashHandler` or `disableCrashHandler` before calling `begin`.
 
-Once you enable the TestFairy crash handler, it cannot be disabled unless the app is restarted.
+Once you enable the Sauce Mobile App Distribution crash handler, it cannot be disabled unless the app is restarted.
 
 #### Syntax
 
@@ -218,7 +218,7 @@ Once you enable the TestFairy crash handler, it cannot be disabled unless the ap
 
 #### Code Example
 
-In the following example, the TestFairy crash handler will be disabled.
+In the following example, the Sauce Mobile App Distribution crash handler will be disabled.
 
 ```java
 @implementation AppDelegate
@@ -261,7 +261,7 @@ Once logged in, your app token is available from your [account preferences](http
 
 ### Recorded Metrics
 
-TestFairy can collect several different metrics from your app. Developers can override the metrics defined in their app's build settings.
+Sauce Mobile App Distribution can collect several different metrics from your app. Developers can override the metrics defined in their app's build settings.
 
 Developers can call `enableMetric` or `disableMetric` before invoking `begin` with the metric they wish to enable or disable recording.
 

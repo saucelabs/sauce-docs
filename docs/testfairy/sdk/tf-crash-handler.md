@@ -1,14 +1,14 @@
 ---
 id: tf-crash-handler
-title: TestFairy Crash Handler
-sidebar_label: TestFairy Crash Handler
+title: Sauce Mobile App Distribution (TestFairy) Crash Handler
+sidebar_label: Sauce Mobile App Distribution Crash Handler
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To use the TestFairy SDK as a crash handler without any other TestFairy feature, use the code example below.
+To use the Sauce Mobile App Distribution SDK as a crash handler without any other Sauce Mobile App Distribution feature, use the code example below.
 
 <Tabs
 groupId="sdk"

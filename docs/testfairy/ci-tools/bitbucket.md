@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Set up Bitbucket Pipelines to upload your build artifacts (IPA or APK) directly to TestFairy for distribution.
+Set up Bitbucket Pipelines to upload your build artifacts (IPA or APK) directly to Sauce Mobile App Distribution for distribution.
 
 ## Setting Up
 

@@ -10,9 +10,9 @@ import TabItem from '@theme/TabItem';
 
 ## One-Click Integration
 
-TestFairy integrates with Slack seamlessly, providing human-readable, real-time notifications for your selected events.
+Sauce Mobile App Distribution integrates with Slack seamlessly, providing human-readable, real-time notifications for your selected events.
 
-1. Head over to your TestFairy Dashboard, and select **Account Preferences**.
+1. Head over to your Sauce Mobile App Distribution Dashboard, and select **Account Preferences**.
    <img src={useBaseUrl('/img/testfairy/integrations/slack/preferences-link.png')} alt="account preferences"/>
 
 1. Select **Integrations**, then click **Add integration**.
@@ -24,7 +24,7 @@ TestFairy integrates with Slack seamlessly, providing human-readable, real-time 
 1. It determines where your notifications appear. You may select an existing channel or create a new channel. Choose your channel and select **Authorize**.
    <img src={useBaseUrl('/img/testfairy/integrations/slack/slack-1c.png')} alt="authorize channel"/>
 
-1. You are returned to your TestFairy page with the `URL` and `Events` already filled in and selected.
+1. You are returned to your Sauce Mobile App Distribution page with the `URL` and `Events` already filled in and selected.
 
    - Click **Test URL** to test the webhook.
    - Select **Save webhook** to add and confirm the Slack integration.
@@ -54,7 +54,7 @@ If you need to create a manual integration with Slack, follow these steps:
 
 1. Go to the **Integrations**, and press **Add Integration** for Slack.
 
-1. Open your TestFairy Preferences, go to **Integrations** and click **Add integration** next to WEBHOOK.
+1. Open your Sauce Mobile App Distribution Preferences, go to **Integrations** and click **Add integration** next to WEBHOOK.
    <img src={useBaseUrl('/img/testfairy/integrations/slack/account-settings-4.png')} alt="Add integration"/>
 
 1. Paste the Webhook URL into the URL field and then **Save webhook**.

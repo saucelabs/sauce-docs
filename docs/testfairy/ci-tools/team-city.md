@@ -8,9 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To automatically deply your Android or iOS Apps to [TestFairy](https://www.testfairy.com/) by using TeamCity, follow the steps below:
+To automatically deply your Android or iOS Apps to [Sauce Mobile App Distribution](https://www.testfairy.com/) by using TeamCity, follow the steps below:
 
-1. On the TestFairy dashboard, navigate to the **Preferences**.
+1. On the Sauce Mobile App Distribution dashboard, navigate to the **Preferences**.
 
    <img src={useBaseUrl('/img/testfairy/ci-tools/testfairy-open-preferences.png')} alt="open preferences"/>
 
@@ -22,7 +22,7 @@ To automatically deply your Android or iOS Apps to [TestFairy](https://www.testf
 
    <img src={useBaseUrl('/img/testfairy/ci-tools/teamcity-configuration-4.png')} alt="build configuration"/>
 
-4. Name the parameter `env.TESTFAIRY_API_KEY` and give it the value you copied from the TestFairy preferences page, and Save.
+4. Name the parameter `env.TESTFAIRY_API_KEY` and give it the value you copied from the Sauce Mobile App Distribution preferences page, and Save.
 
    <img src={useBaseUrl('/img/testfairy/ci-tools/teamcity-configuration-5.png')} alt=" add environment variable"/>
 
@@ -44,4 +44,4 @@ To automatically deply your Android or iOS Apps to [TestFairy](https://www.testf
    Replace the `-F file=@android.apk` argument with a path to your own APK or IPA.
    :::
 
-For a complete list of available options, visit the [TestFairy Upload API documentation](/testfairy/api-reference/upload-api).
+For a complete list of available options, visit the [Sauce Mobile App Distribution Upload API documentation](/testfairy/api-reference/upload-api).

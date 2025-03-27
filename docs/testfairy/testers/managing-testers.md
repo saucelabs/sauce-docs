@@ -17,7 +17,7 @@ You can fully automate and control tester management through our APIs. For more 
 
 ## Inviting Testers by Email
 
-1. Login to [TestFairy](https://app.testfairy.com/).
+1. Login to [Sauce Mobile App Distribution](https://app.testfairy.com/).
 2. To invite testers by email, click on the **Add Testers**.
    <img src={useBaseUrl('/img/test-fairy/add-testers1.png')} alt="alt upload"/>
 3. In the Email box, add the email addresses of the testers you wish to invite. Each email address should be entered on a separate row.
