@@ -25,6 +25,7 @@ When SSO is configured into your account, the login page is replaced with a **Lo
 1. Return to the menu and select **Single sign-on**.
 1. Select **SAML**.
 1. Click the pencil icon to edit the **Basic SAML Configuration** - `Identifier` and `Reply URL` fields. Add `https://acme.testfairy.com/` to the `Identifier` field and `https://acme.testfairy.com/login/sso` to the `Reply URL`. Change `acme` to your own **TestFairy** subdomain.
+    - Please [contact Sauce Labs Support](https://support.saucelabs.com/s/submit-a-request?language=en_US) to provision a custom subdomain 
 1. Download the XML file in the `Federation Data`. You need it later for uploading to your TestFairy Dashboard Security settings.
 
 ## Adding Users to the Application
