@@ -22,7 +22,8 @@ When SSO is configured into your account, the login page is replaced with a **Lo
 
 1. Type in the ACS URL and Entity ID. For `ACS URL`, use the following format `https://acme.testfairy.com/login/sso`, and replace 'acme' with your subdomain.
 
-For **Entity ID**, use the same format, **https://acme.testfairy.com**, and again, replace **acme** with your subdomain.
+    - For **Entity ID**, use the same format, **https://acme.testfairy.com**, and again, replace **acme** with your subdomain.
+    - Please [contact Sauce Labs Support](https://support.saucelabs.com/s/submit-a-request?language=en_US) to provision a custom subdomain 
 
 1. Click **Continue to Next Step**.
 
