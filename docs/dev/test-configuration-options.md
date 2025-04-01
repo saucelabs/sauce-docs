@@ -1452,7 +1452,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Vitals enables memory, cpu, performance stats alongside UI interactions during the session.
+Vitals enables memory, cpu, performance stats alongside UI interactions during the session. [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -1516,7 +1516,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Enables capturing and inclusion of detailed stack traces in the test results, providing insights into any application crashes that occur during testing.
+Enables capturing and inclusion of detailed stack traces in the test results, providing insights into any application crashes that occur during testing. [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
