@@ -1458,6 +1458,7 @@ Vitals enables memory, cpu, performance stats alongside UI interactions during t
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("resigningEnabled", true);
 sauceOptions.setCapability("vitals", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
@@ -1474,6 +1475,7 @@ Enables the [camera image injection](/mobile-apps/features/camera-image-injectio
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("resigningEnabled", true);
 sauceOptions.setCapability("imageInjection", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
@@ -1490,6 +1492,7 @@ Bypasses the restriction on taking screenshots for secure screens (i.e., secure 
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("resigningEnabled", true);
 sauceOptions.setCapability("bypassScreenshotRestriction", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
@@ -1506,6 +1509,7 @@ Enables the interception of biometric input, allowing the test to simulate Touch
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("resigningEnabled", true);
 sauceOptions.setCapability("biometricsInterception", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
@@ -1522,6 +1526,7 @@ Enables capturing and inclusion of detailed stack traces in the test results, pr
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("resigningEnabled", true);
 sauceOptions.setCapability("crashReporting", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
