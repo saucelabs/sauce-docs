@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To access the Settings page, click **Account** and then click **TestFairy Settings**.
+To access the Settings page, click **Account** and then click **Sauce Mobile App Distribution Settings**.
 
 <img src={useBaseUrl('img/testfairy/acct-settings-nav.png')} alt="Accessing Settings page" width="250"/>
 
@@ -16,19 +16,19 @@ To access the Settings page, click **Account** and then click **TestFairy Settin
 
 <img src={useBaseUrl('img/testfairy/acct-settings-sdk-token.png')} alt="SDK App Token page" width="700"/>
 
-Your app token initializes the TestFairy SDK. See [Adding the TestFairy SDK to your App](/testfairy/sdk/adding-tf-sdk) for more information.
+Your app token initializes the Sauce Mobile App Distribution SDK. See [Adding the Sauce Mobile App Distribution SDK to your App](/testfairy/sdk/adding-tf-sdk) for more information.
 
-## TestFairy Access Key
+## Sauce Mobile App Distribution Access Key
 
-<img src={useBaseUrl('img/testfairy/acct-settings-tf-access-key.png')} alt="TestFairy Access Key page" width="700"/>
+<img src={useBaseUrl('img/testfairy/acct-settings-tf-access-key.png')} alt="Sauce Mobile App Distribution Access Key page" width="700"/>
 
-You can use the TestFairy API to upload builds and invite testers directly. For more information, see [Upload API](/testfairy/api-reference/upload-api).
+You can use the Sauce Mobile App Distribution API to upload builds and invite testers directly. For more information, see [Upload API](/testfairy/api-reference/upload-api).
 
-## App Distribution
+## Sauce Mobile App Distribution
 
-On the App Distribution page you can access the **Rename version number if file already exists** setting.
+On the Sauce Mobile App Distribution page you can access the **Rename version number if file already exists** setting.
 
-<img src={useBaseUrl('img/testfairy/acct-settings-app-distribution.png')} alt="App Distribution page" width="450"/>
+<img src={useBaseUrl('img/testfairy/acct-settings-app-distribution.png')} alt="Sauce Mobile App Distribution page" width="450"/>
 
 ## Notifications
 
@@ -38,19 +38,19 @@ On the Notifications page, you can define what types of messages you want to rec
 
 ## Integrations
 
-You can integrate your TestFairy account with different services to customize and streamline your work processes.
+You can integrate your Sauce Mobile App Distribution account with different services to customize and streamline your work processes.
 
 - Simple Mail Transfer Protocol (SMTP) and Gmail - See [SMTP and Gmail](/testfairy/integrations/smtp-gmail) for information about connecting your SMTP email server or Gmail account. This ensures you send the emails from the same account you used to register.
 
-- Slack - See [Slack](/testfairy/integrations/slack) for information about integrating your Slack account with TestFairy.
+- Slack - See [Slack](/testfairy/integrations/slack) for information about integrating your Slack account with Sauce Mobile App Distribution.
 
-- Webhooks - You can use TestFairy webhooks to connect to services. See [Microsoft Teams](/testfairy/integrations/ms-teams) for more information.
+- Webhooks - You can use Sauce Mobile App Distribution webhooks to connect to services. See [Microsoft Teams](/testfairy/integrations/ms-teams) for more information.
 
 <img src={useBaseUrl('img/testfairy/acct-settings-integrations.png')} alt="Integrations page" width="700"/>
 
 ## Email Templates
 
-TestFairy lets you customize the invitation emails it sends. This feature is available only if you use a custom email server. See [SMTP and Gmail](/testfairy/integrations/smtp-gmail) for more information.
+Sauce Mobile App Distribution lets you customize the invitation emails it sends. This feature is available only if you use a custom email server. See [SMTP and Gmail](/testfairy/integrations/smtp-gmail) for more information.
 
 The email is HTML based and can use custom tags.
 
