@@ -173,7 +173,6 @@ Sauce Labs supports the following test configurations for Playwright:
 - [Quickstart](/web-apps/automated-testing/playwright/quickstart): Use our demo repository to quickly set up and run a sample Playwright project and test to see the results.
 - [Run your own tests](/web-apps/automated-testing/playwright/yaml): Customize `saucectl` to run your existing tests just by modifying the `config.yml` file for your project.
 - [Incorporate `saucectl` in your pipeline](/dev/cli/saucectl/usage/use-cases/#integrating-saucectl-in-your-ci-pipeline): Playwright on Sauce supports CI integrations with Circle CI, GitLab, Jenkins, and GitHub Actions.
-- [Run your tests in Orchestrate](/orchestrate/quickstart/playwright): Use `saucectl` to run tests with a containerized test runner.
 
 ## Playwright Reporter for Sauce Labs
 
