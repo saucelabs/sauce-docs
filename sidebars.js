@@ -1025,6 +1025,7 @@ module.exports = {
                         'secure-connections/sauce-connect-5/logging',
                         'secure-connections/sauce-connect-5/monitoring',
                         'secure-connections/sauce-connect-5/inspecting',
+                        'secure-connections/sauce-connect-5/system-requirements',
                         {
                             type: 'category',
                             label: 'Setup and Configuration',
