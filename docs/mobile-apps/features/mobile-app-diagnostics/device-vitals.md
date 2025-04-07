@@ -19,18 +19,24 @@ Device Vitals is a functionality that allows you to debug and observe an app’s
 
 ## Using Device Vitals for Real Devices
 
-To use Device Vitals, you must ensure that the functionality is enabled for your app.
+To use Device Vitals, you must ensure that the functionality is enabled for your app. You need to specify this separately for your Live and Automated tests.
 
+### Upload Your App
 1. In Sauce Labs, from the left navigation, click **App Management**.
    <img src={useBaseUrl('img/mobile-apps/app-management.png')} alt="App Management" width="700"/>
 2. Upload your mobile app.
    <img src={useBaseUrl('img/mobile-apps/app-logs-8.png')} alt="App Logs" width="700"/>
-3. After you’ve uploaded your app, locate it in the table and select **Settings** from the corresponding row.
+
+### Enabling Device Vitals for a Live Test
+1. After you’ve uploaded your app, locate it in the table and select **Settings** from the corresponding row.
    <img src={useBaseUrl('img/mobile-apps/app-management-select-settings.png')} alt="Select Settings" width="700"/>
-4. Under **Real Device Settings** first enable **Instrumentation** and then toggle **Device Vitals** on.
+2. Under **Real Device Settings** first enable **Instrumentation** and then toggle **Device Vitals** on.
    <img src={useBaseUrl('img/mobile-apps/device-vitals-app-setting.png')} alt="Device Vitals App Setting" width="700"/>
 
-Now you can start your live or automated testing session. Your Device Vitals will be captured and be part of your test results.
+Now you can start your live testing session. Your Device Vitals will be captured and be part of your test results.
+
+### Enabling Device Vitals for an Automated Test
+After you’ve uploaded your app, follow the [test configuration](/dev/test-configuration-options/#resigningenabled) instructions. Once you run your automated test the Device Vitals will be captured and be part of your test results.
 
 ## Device Vitals Metrics Overview
 

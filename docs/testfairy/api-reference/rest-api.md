@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-In this document you can find the reference for the TestFairy REST API. This API allows the developer to access and interact with TestFairy data remotely.
+In this document you can find the reference for the Sauce Mobile App Distribution REST API. This API allows the developer to access and interact with Sauce Mobile App Distribution data remotely.
 
 ## Getting Started
 
@@ -28,7 +28,7 @@ curl -u "john@example.com:00001234cafecafe" "https://mobile.saucelabs.com/api/1/
 curl -u "john@example.com:coffee00001234" "https://mobile.eu-central-1.saucelabs.com/api/1/projects/"
 ```
 
-## Previous TestFairy US-East endpoint:
+## Previous Sauce Mobile App Distribution US-East endpoint:
 
 ```bash
 curl -u "john@example.com:00001234cafecafe" "https://api.testfairy.com/api/1/projects/"
@@ -87,7 +87,7 @@ Returns a list of all projects (iOS and Android apps) in this account.
 <summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/</code></summary>
 <p></p>
 
-Get all builds in a specific project. Each build is a distinct version that is either uploaded or created by the TestFairy SDK.
+Get all builds in a specific project. Each build is a distinct version that is either uploaded or created by the Sauce Mobile App Distribution SDK.
 
 #### Responses
 
@@ -266,7 +266,7 @@ Use this endpoint to copy a specific build to a specified folder. You can either
     <summary><span className="api get">GET</span><code>/api/1/projects/&#123;project-id&#125;/builds/&#123;build-id&#125;/download/</code></summary>
 <p></p>
 
-Downloads the binary file uploaded to TestFairy.
+Downloads the binary file uploaded to Sauce Mobile App Distribution.
 
 #### Responses
 
