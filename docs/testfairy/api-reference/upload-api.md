@@ -47,6 +47,21 @@ Streamline your build process and upload APKs or IPAs directly to Sauce Mobile A
  <td><p><small>| REQUIRED |</small></p><p>Android Package Kit (APK), Android App Bundle (AAB), iOS package App Store (IPA), or ZIP (MacOS) file data.</p></td>
  </tr>
  </tbody>
+<tbody>
+  <tr>
+    <td><code>app_name</code></td>
+    <td>
+      <p><small>| OPTIONAL |</small></p>
+      <p>
+        Use this parameter to customize the app name displayed on the dashboard.
+      </p>
+      <p>
+        <strong>Note:</strong> If not provided, the app name will be automatically extracted from the uploaded file.
+        To change the app name before uploading, see the [App Versioning: Display Name](/testfairy/app-distribution/app-versioning/#display-name) documentation.
+      </p>
+    </td>
+  </tr>
+</tbody>
  <tbody>
  <tr>
  <td><code>symbols_file</code></td>
