@@ -321,7 +321,8 @@ Invite one or more tester groups to this specific build. You can optionally send
 		</tr>
 		<tr>
 			<td><code>notify</code></td>
-            <td><p><small>| OPTIONAL | STRING |</small></p><p>Set to <code>on</code> to send out an email to each tester. Default value is <code>off</code>.</p></td>
+			<td><p><small>| OPTIONAL | STRING | INTEGER </small></p><p>Pass <code>notify=on</code> or <code>notify=1</code> to send out an email to each tester.
+            <br />By default, email sending is disabled.</p></td>
 		</tr>
 	</tbody>
 </table>
