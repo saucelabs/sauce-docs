@@ -194,7 +194,8 @@ In the case of an error, Sauce Mobile App Distribution returns a JSON with `stat
     "symbols_download_url": "https://app.testfairy.com/api/1/projects/61545/builds/106410/symbols/download/",
     "attachments": null,
     "landing_page_url": "https://app.testfairy.com/join/31thr2",
-    "build_specific_landing_page_url": "https://app.testfairy.com/join/31thr2?id=106410"
+    "build_specific_landing_page_url": "https://app.testfairy.com/join/31thr2?id=106410",
+    "landing_page_mode": "closed"
 }
 ```
 
