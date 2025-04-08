@@ -100,13 +100,6 @@ Your CI/CD process needs automated testing in order to be successful. Sauce Labs
         </a>
     </div>
   </div>
-  <div className="box box2 card">
-    <div className="container">
-        <a href="/basics/integrations/evinced"> <img src={useBaseUrl('img/integrations/evinced.png')} alt="Evinced logo" width="50"/>
-        <h3>Evinced</h3>
-        </a>
-    </div>
-  </div>
 </div>
 
 ## Automation Tools
