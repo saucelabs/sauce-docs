@@ -71,7 +71,8 @@ Returns a list of all projects (iOS and Android apps) in this account.
             "name":"GroupShot",
             "packageName":"com.groupshot",
             "platform":"Android",
-            "icon":"[URL TO APP ICON]"
+            "icon":"[URL TO APP ICON]",
+            "landingPageMode": "open"
         }
     ]
 }
@@ -114,6 +115,7 @@ Get all builds in a specific project. Each build is a distinct version that is e
             "appDisplayName":"My Application - DemoApp (20)",
             "iconUrl":"[APP ICON URL]",
             "appUrl":"[URL TO APK OR IPA FILE]",
+            "landingPageMode": "closed",
             "sessions":6,
             "crashes":0,
             "testers":0,
@@ -165,6 +167,7 @@ Get a specific build of a specific project. Query the /api/1/projects/&#123;proj
         "appDisplayName":"My Application - DemoApp (20)",
         "iconUrl":"[APP ICON URL]",
         "appUrl":"[URL TO APK OR IPA FILE]",
+        "landingPageMode": "closed",
         "sessions":6,
         "crashes":0,
         "testers":0,
