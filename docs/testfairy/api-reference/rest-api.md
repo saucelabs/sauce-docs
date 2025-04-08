@@ -238,7 +238,7 @@ Use this endpoint to copy a specific build to a specified folder. You can either
 		</tr>
         <tr>
 			<td><code>groups</code></td>
-			<td><p><small>| OPTIONAL | STRING |</small></p><p>Comma separated list of tester group names or ids.</p></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>A comma-separated list of tester group names or IDs.</p></td>
 		</tr>
 	</tbody>
 </table>
@@ -313,7 +313,7 @@ Invite one or more tester groups to this specific build. You can optionally send
 	<tbody>
 		<tr>
 			<td><code>groups</code></td>
-			<td><p><small>| REQUIRED | STRING |</small></p><p>Comma separated list of tester group names or id.</p></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>A comma-separated list of tester group names or IDs.</p></td>
 		</tr>
 		<tr>
 			<td><code>comment</code></td>
