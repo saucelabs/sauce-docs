@@ -57,8 +57,7 @@ Streamline your build process and upload APKs or IPAs directly to TestFairy.
       </p>
       <p>
         <strong>Note:</strong> By default, the app name is extracted from the file itself. 
-        To change it before uploading, refer to the 
-        [App Versioning: Display Name](/testfairy/app-distribution/app-versioning/#display-name) documentation.
+        To change it before uploading, refer to the [App Versioning: Display Name](/testfairy/app-distribution/app-versioning/#display-name) documentation.
       </p>
     </td>
   </tr>
