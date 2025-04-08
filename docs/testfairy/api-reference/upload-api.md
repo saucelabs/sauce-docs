@@ -47,6 +47,22 @@ Streamline your build process and upload APKs or IPAs directly to TestFairy.
  <td><p><small>| REQUIRED |</small></p><p>Android Package Kit (APK), Android App Bundle (AAB), iOS package App Store (IPA), or ZIP (MacOS) file data.</p></td>
  </tr>
  </tbody>
+<tbody>
+  <tr>
+    <td><code>app_name</code></td>
+    <td>
+      <p><small>| OPTIONAL |</small></p>
+      <p>
+        Use this parameter to customize the app name displayed on the dashboard.
+      </p>
+      <p>
+        <strong>Note:</strong> By default, the app name is extracted from the file itself. 
+        To change it before uploading, refer to the 
+        [App Versioning: Display Name](/testfairy/app-distribution/app-versioning/#display-name) documentation.
+      </p>
+    </td>
+  </tr>
+</tbody>
  <tbody>
  <tr>
  <td><code>symbols_file</code></td>
