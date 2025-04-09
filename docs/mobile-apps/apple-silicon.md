@@ -2,6 +2,10 @@
 
 Sauce Labs now supports **iOS 17.5 and iOS 18** on Apple Silicon-based simulators. These environments offer improved performance, modern architecture alignment, and compatibility with Xcode's latest features. This release enables you to test apps in the most current Apple environments across iPhone and iPad simulators.
 
+:::caution Enteprise Only
+iOS 17.5 and iOS 18 simulators on Apple Silicon are currently only available to Enterprise customers with the appropriate subscription
+:::
+
 ## Key Benefits
 
 - High-fidelity iOS testing environments on M-series macOS VMs  
