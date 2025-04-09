@@ -228,6 +228,17 @@ Clicking on a specific request opens the Request Details view, which includes ge
 response headers, and the request and response payloads.
 <img src={useBaseUrl('img/mobile-apps/network-capture-request-details.png')} alt="Inspect network logs" width="700"/>
 
+#### Failed requests
+Some requests will fail before even sending any HTTP data, these will also appear in the requests table in red, with a status of "failed" (instead of a legitimate HTTP status code). Usually these are caused by SSL errors, likely because either:
+- The SSL certificate is misconfigured or expired
+- Your app uses [SSL pinning](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)
+
+<img src={useBaseUrl('img/mobile-apps/network-capture-failed-requests.png')} alt="Network capture failed requests" width="700"/>
+
+When an app uses SSL pinning, SSL requests will fail while network capture is active, because  outgoing requests will be signed a Sauce Labs certificate, instead of the one included with your app.
+
+If you see failed network requests to domains you're trying to test, try to rule out (and remove) SSL pinning from your app first. Even if it was not implemented deliberately, SSL pinning may sometimes come included out-of-the-box with some mobile SDKs or libraries.
+
 #### Stats Row
 The Stats row in the footer provides details on the number of requests, transferred data size, resource sizes, and time metrics such as
 Page Load, DOMContentLoaded, and Finished time.
