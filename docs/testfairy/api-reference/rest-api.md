@@ -71,7 +71,8 @@ Returns a list of all projects (iOS and Android apps) in this account.
             "name":"GroupShot",
             "packageName":"com.groupshot",
             "platform":"Android",
-            "icon":"[URL TO APP ICON]"
+            "icon":"[URL TO APP ICON]",
+            "landingPageMode": "open"
         }
     ]
 }
@@ -114,6 +115,7 @@ Get all builds in a specific project. Each build is a distinct version that is e
             "appDisplayName":"My Application - DemoApp (20)",
             "iconUrl":"[APP ICON URL]",
             "appUrl":"[URL TO APK OR IPA FILE]",
+            "landingPageMode": "closed",
             "sessions":6,
             "crashes":0,
             "testers":0,
@@ -165,6 +167,7 @@ Get a specific build of a specific project. Query the /api/1/projects/&#123;proj
         "appDisplayName":"My Application - DemoApp (20)",
         "iconUrl":"[APP ICON URL]",
         "appUrl":"[URL TO APK OR IPA FILE]",
+        "landingPageMode": "closed",
         "sessions":6,
         "crashes":0,
         "testers":0,
@@ -233,6 +236,10 @@ Use this endpoint to copy a specific build to a specified folder. You can either
 			<td><p><small>| OPTIONAL | STRING |</small></p><p>Defines a new name for the application when copying the build to the target folder.<br /> If specified, the build is renamed to the given <code>app_name</code>.
                 <br />If not specified, the original application name is preserved.</p></td>
 		</tr>
+        <tr>
+			<td><code>groups</code></td>
+			<td><p><small>| OPTIONAL | STRING |</small></p><p>A comma-separated list of tester group names or IDs.</p></td>
+		</tr>
 	</tbody>
 </table>
 
@@ -252,7 +259,16 @@ Use this endpoint to copy a specific build to a specified folder. You can either
     "status": "ok",
     "build_id": "1000",
     "folder_path": "/Project1/Folder1",
-    "app_name": "My Application"
+    "app_name": "My Application",
+    "assigned_groups": [
+      "13",
+      "14",
+      "12"
+    ],
+    "invalid_groups": [
+      "abcd",
+      "efgd"
+    ]
 }
 ```
 
@@ -297,7 +313,7 @@ Invite one or more tester groups to this specific build. You can optionally send
 	<tbody>
 		<tr>
 			<td><code>groups</code></td>
-			<td><p><small>| REQUIRED | STRING |</small></p><p>Comma separated list of tester group names or id.</p></td>
+			<td><p><small>| REQUIRED | STRING |</small></p><p>A comma-separated list of tester group names or IDs.</p></td>
 		</tr>
 		<tr>
 			<td><code>comment</code></td>
@@ -305,7 +321,8 @@ Invite one or more tester groups to this specific build. You can optionally send
 		</tr>
 		<tr>
 			<td><code>notify</code></td>
-            <td><p><small>| OPTIONAL | STRING |</small></p><p>Set to <code>on</code> to send out an email to each tester. Default value is <code>off</code>.</p></td>
+			<td><p><small>| OPTIONAL | STRING | INTEGER </small></p><p>Pass <code>notify=on</code> or <code>notify=1</code> to send out an email to each tester.
+            <br />By default, email sending is disabled.</p></td>
 		</tr>
 	</tbody>
 </table>
