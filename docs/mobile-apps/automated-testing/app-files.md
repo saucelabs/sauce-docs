@@ -12,9 +12,7 @@ Welcome to the documentation on creating Simulator .app files for Appium and XCU
 
 :::caution Important
 
-At the moment Sauce Labs Simulators only support apps that have been built with the `x86_64` -architecture for Intel-based Macs. `arm64`-based applications, built for Apple Silicon Macs, are not yet supported and will result in the following error:
-
-<img src={useBaseUrl('img/mobile-apps/ios-simulator-arm-error.jpg')} alt="iOS Simulators ARM64 error" width="500"/>
+Sauce Labs Simulators version 16.2 and below only support apps that have been built with the `x86_64` -architecture for Intel-based Macs. `arm64`-based applications, built for Apple Silicon Macs, will only run on versions 17.0 and above, see [Virtual Devices on Apple Silicon](../virtual-apple-silicon.md) for details:
 
 :::
 
