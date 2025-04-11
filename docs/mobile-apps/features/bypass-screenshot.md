@@ -48,7 +48,7 @@ If you are testing your company’s proprietary app on a real device, you might 
 
 ### Live Testing
 
-#### What You’ll Need
+To bypass screenshot restriction in Live Tests, you'll need to have:
 
 - An app added to Sauce Labs app storage (see [Mobile App Storage](/mobile-apps/app-storage) for more information)
 - An understanding of the limitations of this option (see [Workarounds for FLAG_SECURE Apps](#workarounds-for-flag_secure-apps))
