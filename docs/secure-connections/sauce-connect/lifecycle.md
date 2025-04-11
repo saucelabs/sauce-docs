@@ -7,7 +7,7 @@ sidebar_label: Lifecycle
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 :::caution Important Notice: Sauce Connect 4 is reaching end-of-life status.
-Starting May 5, 2025, servers will no longer support Sauce Connect version 4 traffic. To avoid interruptions, upgrade to [Sauce Connect 5](/secure-connections/sauce-connect-5/migrating) at your earliest convenience.
+Starting Jan 31, 2026, servers will no longer support Sauce Connect version 4 traffic. To avoid interruptions, upgrade to [Sauce Connect 5](/secure-connections/sauce-connect-5/migrating) at your earliest convenience.
 :::
 
 <table>
