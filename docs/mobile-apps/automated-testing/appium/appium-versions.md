@@ -1856,6 +1856,50 @@ The following list of custom Appium plugins are supported:
   </thead>
   <tbody>
     <tr>
+      <td>iOS 18.0</td>
+      <td>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.11.3</code>
+            </a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.11.3</code>
+        </a>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.11.3</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>iOS 17.5</td>
+      <td>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.1.3</code>
+            </a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.1.3</code>
+        </a>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.1.3</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
       <td>iOS 17.0</td>
       <td>
         <ul>
@@ -2442,6 +2486,34 @@ The Appium 2 versions for Virtual Devices are also collections of drivers that a
   <tbody>
     <tr>
       <td>
+        <code>2.11.3</code>
+      </td>
+      <td>-</td>
+      <td>
+        The is a collection of the following drivers <br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.11.3" target="_blank">
+              <code>appium</code>: 2.11.3
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.9.2" target="_blank">
+              <code>appium-flutter-driver</code>: 2.9.2
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/AppiumTestDistribution/appium-flutter-integration-driver/releases/tag/v1.1.3" target="_blank">
+              <code>appium-flutter-integration-driver</code>: 1.1.3
+            </a>
+          </li>
+          <li><a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.24.18" target="_blank"><code>appium-xcuitest-driver</code>: 7.24.18</>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code>2.11.0</code>
       </td>
       <td>-</td>
@@ -2464,6 +2536,28 @@ The Appium 2 versions for Virtual Devices are also collections of drivers that a
             </a>
           </li>
           <li><a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.7.0" target="_blank"><code>appium-uiautomator2-driver</code>: 3.7.0</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>2.1.3</code>
+      </td>
+      <td>-</td>
+      <td>
+        The is a collection of the following drivers <br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.11.0" target="_blank">
+              <code>appium</code>: 2.1.3
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.9.2" target="_blank">
+              <code>appium-flutter-driver</code>: 2.9.2
+            </a>
+          </li>
+          <li><a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v5.4.1" target="_blank"><code>appium-xcuitest-driver</code>: 5.4.1</a></li>
         </ul>
       </td>
     </tr>
