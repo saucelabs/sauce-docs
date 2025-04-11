@@ -1045,8 +1045,20 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'secure-connections/sauce-connect-5/advanced/architecture',
+                                'secure-connections/sauce-connect-5/advanced/security-authentication',
                             ],
                         },
+                        {
+                            type: 'category',
+                            label: 'Specifications',
+                            collapsed: true,
+                            items: [
+                                'secure-connections/sauce-connect-5/specifications/localhost-ports',
+                            ],
+                        },
+                        // DO NOT include these sections before checked and improved
+                        //'secure-connections/sauce-connect-5/troubleshooting',
+                        //'secure-connections/sauce-connect-5/faq',
                     ],
                 },
                 {
