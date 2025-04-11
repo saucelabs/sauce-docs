@@ -48,17 +48,19 @@ If you are testing your company’s proprietary app on a real device, you might 
 
 ### Live Testing
 
+#### What You’ll Need
+
 - An app added to Sauce Labs app storage (see [Mobile App Storage](/mobile-apps/app-storage) for more information)
 - An understanding of the limitations of this option (see [Workarounds for FLAG_SECURE Apps](#workarounds-for-flag_secure-apps))
 
 #### Editing the App
 
-1. Go to **Live > Mobile App**.
+1. Go to **App Management**.
 2. Hover over the app you want to test.
-3. Click **Settings**.
-4. Under **Default Settings > Instrumentation** on the right, find **Bypass Screenshot Restriction**.
+3. Click **Settings and App Versions**.
+4. Under **Settings > App Settings > Instrumentation** on the right, find **Bypass Screenshot Restriction**.
 5. Click the slider to **Enabled**.
-6. Click **Back to App Selection** at the top to test your app.
+6. Click **App Management** at the top to test your app.
 
 ### Appium Test
 
