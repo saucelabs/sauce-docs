@@ -2507,7 +2507,8 @@ The Appium 2 versions for Virtual Devices are also collections of drivers that a
               <code>appium-flutter-integration-driver</code>: 1.1.3
             </a>
           </li>
-          <li><a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.24.18" target="_blank"><code>appium-xcuitest-driver</code>: 7.24.18</a>
+          <li><a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.24.18" target="_blank"><code>appium-xcuitest-driver</code>: 7.24.18
+          </a>
           </li>
         </ul>
       </td>
