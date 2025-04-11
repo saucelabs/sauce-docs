@@ -1,7 +1,7 @@
 ---
-id: apple-silicon
+id: virtual-apple-silicon
 title: iOS Virtual Devices on Apple Silicon
-sidebar_label: Apple Silicon
+sidebar_label: Virtual Devices on Apple Silicon
 description: Using Virtual Devices on Apple Silicon
 ---
 
@@ -150,43 +150,6 @@ caps.setCapability("sauce:options", sauceOptions);
 
 ---
 
-## Selenium Capabilities for macOS Desktop (Safari on Apple Silicon)
-
-To run Safari browser tests on Apple Silicon VMs:
-
-```json
-{
-  "platformName": "macOS 14",
-  "browserName": "Safari",
-  "browserVersion": "18",
-  "sauce:options": {
-    "armRequired": true,
-    "name": "<your test name>",
-    "username": "<env.SAUCE_USERNAME>",
-    "accessKey": "<env.SAUCE_ACCESS_KEY>"
-  }
-}
-```
-
-### Java Example for Safari
-
-```java
-SafariOptions caps = new SafariOptions();
-caps.setCapability("platformName", "macOS 14");
-caps.setCapability("browserVersion", "18");
-caps.setCapability("browserName", "Safari");
-
-Map<String, Object> sauceOptions = new HashMap<>();
-sauceOptions.put("armRequired", true);
-sauceOptions.put("name", "<your test name>");
-sauceOptions.put("username", System.getenv("SAUCE_USERNAME"));
-sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
-
-caps.setCapability("sauce:options", sauceOptions);
-```
-
----
-
 ## Known Issues and Migration Notes
 
 As you upgrade to iOS 17.5 and 18, be aware that Appium and related driver updates may require updates to existing tests to remove deprecated features no longer supported. 
@@ -194,6 +157,8 @@ As you upgrade to iOS 17.5 and 18, be aware that Appium and related driver updat
 Check [Appium Version Details](./automated-testing/appium/appium-versions.md#appium-2x) for full bundle details on versions 2.1.3 and 2.11.3.
 
 ### Changes to Content Scope
+
+
 
 | Appium Version | iOS Versions Affected | Content Scope |
 |----------------|-----------------------|---------------|
