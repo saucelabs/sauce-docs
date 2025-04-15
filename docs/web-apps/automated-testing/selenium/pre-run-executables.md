@@ -105,26 +105,12 @@ defaults write com.apple.Safari WarnAboutFraudulentWebsites false
 You can use a pre-run executable script to download files from a public location to the Sauce Labs virtual machine running your tests. This topic contains example scripts for downloading remote files on different operating systems, and details configuring the prerun capability in your tests.
 
 <Tabs
-defaultValue="macOS"
+defaultValue="Windows"
 values={[
-{label: 'macOS', value: 'macOS'},
 {label: 'Windows', value: 'Windows'},
 {label: 'Windows XP', value: 'Windows XP'},
 {label: 'Linux', value: 'Linux'},
 ]}>
-
-<TabItem value="macOS">
-
-### OS X 10.6, 10.8, 10.9, 10.10
-
-This shell script will fetch the file at the URL and save it to **/Users/chef/file.txt**.
-
-```js
-#!/bin/bash
-curl -o /Users/chef/file.txt http://mywebsite.com/file.txt
-```
-
-</TabItem>
 
 <TabItem value="Windows">
 
