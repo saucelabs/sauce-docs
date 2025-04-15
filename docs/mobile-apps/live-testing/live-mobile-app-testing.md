@@ -170,7 +170,7 @@ If you upload an app that is signed with an enterprise certificate, and **Instru
 
 :::caution
 
-Starting with iOS 18 adding a certificate requires restarting a device and it's no longer possible to add a certificate by yourself. Please contact our Support team for assistance.
+Due to constraints introduced by Apple starting from iOS18 it's no longer possible to add enterprise certificates during a running test session in our platform. Please contact our Support team for assistance.
 
 :::
 
