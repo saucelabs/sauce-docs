@@ -72,7 +72,7 @@ To test your app on Apple Silicon Simulators, use the following capabilities:
 | OS Version | Appium Version | Device Name          | `armRequired` |
 |------------|----------------|-----------------------|---------------|
 | iOS 17.5   | 2.1.3          | iPhone 15 Simulator    | true          |
-| iOS 18.0   | 2.11.3         | iPhone 15/16 Simulator | true          |
+| iOS 18.0   | 2.11.3         | iPhone 16 Simulator | true          |
 
 ```json
 {
