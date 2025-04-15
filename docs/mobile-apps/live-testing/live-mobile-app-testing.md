@@ -158,6 +158,7 @@ You'll see a loading screen, and then the app will launch in a live test window 
 - Live tests for paid users will timeout after 15 minutes of inactivity
 
 ### Trusting Enterprise Certificates
+<small><span className="sauceGreen">Private Devices Only</span></small>
 
 If you upload an app that is signed with an enterprise certificate, and **Instrumentation** is DISABLED in app settings, you must manually trust the certificate before it will successfully launch.
 
@@ -166,6 +167,12 @@ If you upload an app that is signed with an enterprise certificate, and **Instru
 1. Under **Profiles & Device Management**, tap the app you are trying to install and test.
 1. Tap **Trust "app name"** and then tap **Trust**.
 1. Reopen the app to continue the test.
+
+:::caution
+
+Starting with iOS 18 adding a certificate requires restarting a device and it's no longer possible to add a certificate by yourself. Please contact our Support team for assistance.
+
+:::
 
 ### Adding a Test Name and Outcome for Your Test
 
