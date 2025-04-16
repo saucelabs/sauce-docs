@@ -8,7 +8,7 @@ hide_table_of_contents: true
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 :::info
-Sauce Labs Low Code will reach its End of Life (EOL) on September 1, 2025. As such, we will not be accepting new customers. For existing customers, your account team will work with you to provide the appropriate transition
+Sauce Labs Low Code will reach its End of Life (EOL) on September 1, 2025. For existing customers, your account team will work with you to provide the appropriate transition
 :::
 
 Sauce Labs Low Code lets you create automated end-to-end testing with no programming experience. Sauce Low Code learns and evolves as your applications do.
