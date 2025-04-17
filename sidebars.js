@@ -1025,6 +1025,7 @@ module.exports = {
                         'secure-connections/sauce-connect-5/logging',
                         'secure-connections/sauce-connect-5/monitoring',
                         'secure-connections/sauce-connect-5/inspecting',
+                        'secure-connections/sauce-connect-5/system-requirements',
                         {
                             type: 'category',
                             label: 'Setup and Configuration',
@@ -1044,8 +1045,20 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'secure-connections/sauce-connect-5/advanced/architecture',
+                                'secure-connections/sauce-connect-5/advanced/security-authentication',
                             ],
                         },
+                        {
+                            type: 'category',
+                            label: 'Specifications',
+                            collapsed: true,
+                            items: [
+                                'secure-connections/sauce-connect-5/specifications/localhost-ports',
+                            ],
+                        },
+                        // DO NOT include these sections before checked and improved
+                        //'secure-connections/sauce-connect-5/troubleshooting',
+                        //'secure-connections/sauce-connect-5/faq',
                     ],
                 },
                 {
