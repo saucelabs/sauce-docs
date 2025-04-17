@@ -45,7 +45,7 @@ Appium only needs the test app to be built, so you can create a new build using 
 
 ```bash
 xcodebuild \
-  ARCHS=arm64 x86_64 \ 
+  ARCHS=arm64 x86_64 \
   clean build \
   -project testApp.xcodeproj \
   -scheme testApp \

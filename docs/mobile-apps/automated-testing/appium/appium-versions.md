@@ -2551,7 +2551,7 @@ The Appium 2 versions for Virtual Devices are also collections of drivers that a
         The is a collection of the following drivers <br />
         <ul>
           <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%402.11.0" target="_blank">
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.1.3" target="_blank">
               <code>appium</code>: 2.1.3
             </a>
           </li>
