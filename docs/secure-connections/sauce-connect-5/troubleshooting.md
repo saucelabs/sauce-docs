@@ -8,161 +8,147 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Below are some tips to help troubleshoot Sauce Connect Proxy.
+This guide covers the most common failure scenarios with Sauce Connect 5:
+
+ - **Unable to Start the SC Client**
+
+Follow the sections below based on your issue.
 
 :::caution Important
-Make sure you're using the latest version of Sauce Connect, which you can download [here](/secure-connections/sauce-connect-5/installation/). Using older versions may cause technical issues. If you run into an error trying to launch a tunnel, this should be your first step.
+Make sure you're using the latest version of Sauce Connect, which you can download from the [installation page](/secure-connections/sauce-connect-5/installation/). Using older versions may cause technical issues. If you run into an error trying to launch a tunnel, this should be your first step.
 :::
 
-:::note
-Content from SC4 troubleshooting below
-:::
+## Unable to Start the SC Client
 
-## Generating Tunnel Logs to Help with Troubleshooting
+When Sauce Connect 5 fails to start, it’s almost always due to network issues preventing the client from reaching Sauce Labs’ infrastructure. Before launching SC, perform the following checks.
 
-To generate a tunnel log file, which is a great tool to troubleshoot Sauce Connect Proxy, use the `–l (--log-file <file>)` command line option. The log provides details on network transactions and Sauce Connect Proxy activity.
+### Allowlist Sauce Labs Domains at Corporate Firewall / VPN
 
-By default, Sauce Connect Proxy names the log file `sc.log`, and writes to your local operating system's temporary folder. On Linux / Mac OS X, this is usually `/tmp`. On Windows, it varies by individual release. You can also specify a specific location for the output in the `<file>` of the command-line `–l (--log-file <file>)`.
+Make sure that sc host is able to reach `*.saucelabs.com` and [Sauce Labs Data Center Endpoints](/basics/data-center-endpoints/#data-center-endpoints).
 
-You can enable verbose logging, which increases the logging level of Sauce Connect Proxy, with the `--verbose` command-line. Verbose output will be sent to the Sauce Connect Proxy log file, rather than standard out. To send all logging to stdout, set a value of `-` for the `--log-file` command (i.e., `--log-file -`) when starting Sauce Connect Proxy.
-
-## Network Configuration with Firewalls and Proxies
-
-Is there a firewall or proxy server in place between your machine running Sauce Connect Proxy and Sauce Labs (`*.saucelabs.com:443`)? You may need to allow access in your firewall rules or configure Sauce Connect Proxy to use an additional proxy. For more information, see [Sauce Connect 5 Setup with Additional Proxies](/secure-connections/sauce-connect-5/operation/proxies).
-
-Sauce Connect Proxy needs to establish outbound connections to both \*.saucelabs.com (or a [specific data center](/basics/data-center-endpoints)) on `port 443` and to a tunnel VM with an IP in the [Sauce Labs ranges](/basics/data-center-endpoints).
-
-For information on setting up Sauce Connect Proxy within various network environments, see [Security and Authentication](/secure-connections/sauce-connect-5/advanced/security-authentication).
-
-## Checking Network Connectivity to Sauce Labs
-
-It is essential to make sure that the Sauce Labs REST API is accessible from the machine running Sauce Connect Proxy.
-
-A typical error message that the Sauce Connect Proxy prints when it fails to connect to Sauce Labs would say something like this:
-
-```bash
-Sauce Connect failed to start - Failed to reach https://saucelabs.com/rest/v1/USERNAME/tunnels/info/updates.
-Please visit https://docs.saucelabs.com/secure-connections/sauce-connect/troubleshooting
-```
-
-The Sauce Labs connectivity can be tested by issuing a telnet, or cURL command to saucelabs.com and/or to a [specific data center](/basics/data-center-endpoints) endpoint from the machine's command line interface.
-
-If any of these commands fail, you should work with your internal network team to resolve them.
+### Check DNS Resolution
 
 <Tabs
-defaultValue="curl"
+defaultValue="us-west"
 values={[
-{label: 'cURL', value: 'curl'},
-{label: 'telnet', value: 'telnet'},
-{label: 'Sauce Connect Proxy', value: 'sc'}, ]}>
+{label: 'us-west', value: 'us-west'},
+{label: 'us-east', value: 'us-east'},
+{label: 'eu-central', value: 'eu-central'}, ]}>
 
-<TabItem value="curl">
+<TabItem value="us-west">
 
-```curl
-curl -v https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions
+```bash
+nslookup api.us-west-1.saucelabs.com
 ```
-
-This command should return 200 and a text containing Sauce Connect versions.
 
 </TabItem>
 
-<TabItem value="telnet">
+<TabItem value="us-east">
 
 ```bash
-telnet saucelabs.com 443
+nslookup api.us-east-4.saucelabs.com
 ```
-
-This command should return an IP address of 34.96.70.78 and "Connected to saucelabs.com".
 
 </TabItem>
 
-<TabItem value="sc">
+<TabItem value="eu-central">
 
 ```bash
-sc -c /path/to/your/config.yaml
+nslookup api.eu-central-1.saucelabs.com
 ```
-
-This command should return the error message "Failed to reach https://saucelabs.com/rest/v1/USERNAME/tunnels/info/updates" if Sauce Connect Proxy fails to connect to `saucelabs.com`.
 
 </TabItem>
 </Tabs>
 
-## SSL Bumping
+If DNS fails check your corporate proxy / firewall settings.
 
-To combat test failures caused by websites without valid SSL certificates, Sauce Connect Proxy has a security feature called SSL Bumping that automatically re-signs certificates in the course of testing.
+### Verify Connectivity To Sauce Labs
 
-SSL Bumping is enabled by default when you download Sauce Connect Proxy. However, depending on your test scenario, SSL Bumping may occasionally cause problems for some sites. You can disable SSL Bumping for some or all domains by adding the `-B all` flag to your Sauce Connect Proxy startup commands. For more information on SSL Bumping and scenarios that would warrant disabling it, see [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication).
+<Tabs
+defaultValue="us-west"
+values={[
+{label: 'us-west', value: 'us-west'},
+{label: 'us-east', value: 'us-east'},
+{label: 'eu-central', value: 'eu-central'}, ]}>
 
-### Long Common Names in Bumped Certificates
+<TabItem value="us-west">
 
-There is a limit of 64 characters in Common Names in certificates according to RFC 5280. SSL Bumping will fail if a certificate's Common Name (CN) is longer than 64 characters.
+```bash
+curl -I -v https://api.us-west-1.saucelabs.com/rest/v1/public/tunnels/info/versions
+```
 
-## Errors Running Tests on CORS-Enabled Sites
+</TabItem>
 
-Cross-Origin Resource Sharing (CORS) errors could be caused by a variety of reasons. We recommend the following solutions:
+<TabItem value="us-east">
 
-- Make sure that the [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) of your machine is at least 64000, which is the recommend value for Sauce Connect Proxy use.
-- Start a Sauce Connect Proxy instance using the `-B` flag. For more information about flags see the [Sauce Connect 5 CLI Reference](/dev/cli/sauce-connect-5/run).
+```bash
+curl -I -v https://api.us-east-4.saucelabs.com/rest/v1/public/tunnels/info/versions
+```
 
-## Common Mistakes in Network Configurations {#sc5netmistakes}
+</TabItem>
 
-As a primer, the diagram below is the ideal network configuration with regards to Sauce Connect Proxy. Your firewall only needs to allow for outbound connections to Sauce Labs. Sauce Connect Proxy establishes a TLS connection (tunnel) to a dedicated tunnel endpoint server hosted in the Sauce Labs cloud. For best performance, Sauce Connect Proxy should be running close to the Site Under Test or App Under Test.
+<TabItem value="eu-central">
 
-<img src={useBaseUrl('img/sauce-connect/correct-network-config.webp')} alt="Correct network configuration" width="400"/>
+```bash
+curl -I -v https://api.eu-central-1.saucelabs.com/rest/v1/public/tunnels/info/versions
+```
 
-The diagrams below illustrate common configuration mistakes that result in dysfunctional setups.
+</TabItem>
+</Tabs>
 
-### Dysfunctional Geographic Domain Configuration
+You should see an HTTP 200 OK response.
 
-The problem with this network configuration is that the SC Host is in the same VPN--and the same internal network--as the Site Under Test (SUT), but they live in separate geographic locations.
+If you recieve a timeout, DNS error, or non-200 status, confirm that:
+- Your network allows outbound HTTPS on port 443.
+- Any corporate proxy is correctly configured (check `$HTTPS_PROXY`/`$HTTP_PROXY`).
+- No internal firewall is blocking traffic to `*.saucelabs.com`.
 
-For example, if an SC Host is in Berlin and the SUT is located in a data center in Chicago, the connection would require a number of network hops, which would delay communication with the test virtual machine at Sauce Labs. This means that requests from Sauce Connect Proxy to the SUT would need to reach back through the internet to be completed, rather than over the same internal network.
+### Start Sauce Connect
 
-The way to prevent this is to ensure the SC Host is placed in the same geographic domain as the SUT.
+After you’ve confirmed connectivity, launch the SC binary.
 
-<img src={useBaseUrl('img/sauce-connect/dys-geo-config.webp')} alt="Dysfunctional geographic domain configuration" width="400"/>
+```bash
+sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r <region> -i <tunnel-name>
+```
 
-**Diagram Legend**
+You should see the following log lines:
 
-| Term                               | Definition                                                               |
-| :--------------------------------- | :----------------------------------------------------------------------- |
-| SC Host (Sauce Connect Host)       | Machine in your network on which the Sauce Connect Proxy app is running. |
-| SUT (Site Under Test)              | The site that you're testing.                                            |
-| Tunnel VM (Tunnel Virtual Machine) | Virtual machine that hosts Sauce Connect Proxy on the Sauce Labs side.   |
+```
+[control] [INFO] please wait for 'you may start your tests' to start your tests
+[control] [INFO] provisioning Sauce Connect region=<region> name=<tunnel-name>
+```
 
-### Dysfunctional DMZ + SUT Network Configuration
+#### Tunnel Creation Error
 
-Another common mistake is placing the SUT in the same network as the [Demilitarized Zone (DMZ)](<https://en.wikipedia.org/wiki/DMZ_(computing)>). It's exposed to the internet, but isolated from the internal network.
+If you see an error like:
 
-<img src={useBaseUrl('img/sauce-connect/dys-dmz-config.webp')} alt="Dysfunctional DMZ + SUT network configuration" width="400"/>
+```
+[ERROR] fatal error exiting: create tunnel: <error message>
+```
 
-**Diagram Legend**
+That indicates one of the following:
+- Network or DNS failure. Double-check the steps above.
+- Invalid credentials or permissions. Ensure your $SAUCE_USERNAME and $SAUCE_ACCESS_KEY are correct.
+- Tunnel limit exceeded. You've hit your current tunnel quota.
 
-| Term                               | Definition                                                               |
-| :--------------------------------- | :----------------------------------------------------------------------- |
-| SC Host (Sauce Connect Host)       | Machine in your network on which the Sauce Connect Proxy app is running. |
-| SUT (Site Under Test)              | The site that you're testing.                                            |
-| Tunnel VM (Tunnel Virtual Machine) | Virtual machine that hosts Sauce Connect Proxy on the Sauce Labs side.   |
+Review the exact `<error message>` to pinpoint the cause, address it, and then retry.
 
-## Known Issues and Workarounds
+#### Tunnel Connectivity Error
 
-### HTTP and Chrome 120 and newer
+If you see the following log lines:
 
-Chrome 120 automatically attempts to upgrade connections from HTTP to HTTPS, and the error detection fails when using a proxy. In this case, the Sauce Connect architecture uses a proxy to route traffic from the browser through the secure tunnel. The HTTP proxy returns HTTP error codes (500) which Chrome interprets as a response from the non-existent HTTPS server.
+```
+[control] [INFO] Sauce Connect running id=<id>
+[tunnel] [INFO] waiting for Sauce Connect server to be reachable
+```
 
-In an interactive session with a keyboard, a second attempt falls back to HTTP, however there is no workaround when controlling the browser through an automated test.
+That's a good news. Your sauce connect instance has been registered and created in our system.
 
-If you encounter errors when using HTTP URLs with Chrome 120, the only solution is to update your endpoint to HTTPS.
+If you see an error like:
 
-## Additional Support
+```
+[tunnel] [INFO] Sauce Connect server is not reachable after 5s
+[tunnel] [ERROR] connect failed address=maki1234.us-west-1.miso.saucelabs.com:443 backoff=100ms: <error message>
+```
 
-For additional help, please reach out to the Sauce Labs Support Team. To better assist you, include the following information with your request:
-
-- Link to your Sauce Labs test from the Test Results page on Sauce Labs, showing reproduction of the problem
-- Your Sauce Connect Proxy verbose log, which you can get by adding the `--log-level debug` and `--log-file sc.log` options to your Sauce Connect Proxy command line:
-
-  ```bash
-  ./sc run -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY --log-level debug --log-file sc.log
-  ```
-
-Then, attach the resulting `sc.log` file to your support request.
+That indicates network or DNS failure. Review the exact `<error message>` to pinpoint the cause, address it, and then retry.
