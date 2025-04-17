@@ -13,7 +13,7 @@ Scheduled reports are e-mail digests containing the latest trends and anomalies 
 
 <img src={useBaseUrl('img/error-reporting/project-settings/scheduled-report.png')} alt="" />
 
-The report includes trends for the current reporting period, the previous reporting period, histograms of attribute values, classifiers as well as an activity of recent unique crashes.
+The report includes trends for the current reporting period, the previous reporting period, histograms of attribute values, classifiers as well as an activity of recent unique crashes. If your project is configured with Stability Monitoring, the report will also include error free user metrics (percentage of users who have not experienced an error).
 
 ## Creating and Modifying Reports
 
@@ -62,6 +62,10 @@ You are able to save the report with Save and Close. If you would like to save t
 In the scheduled report list, you are able to click on the Preview button to have a report scheduled for immediate delivery to your e-mail for review.
 
 ## Common Questions
+
+### How can I see only fatal errors in my report?
+
+In the filter settings, you can enter `error.type` equals `crash`. This will modify the statistics to only reflect crashes. Error-free user rate would reflect the crash-free user rates. `error.type` can be used for hangs, exceptions, and other values as well.
 
 ### Can I have individual users opt-out of reports?
 
