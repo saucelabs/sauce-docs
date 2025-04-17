@@ -12,7 +12,7 @@ Welcome to the documentation on creating Simulator .app files for Appium and XCU
 
 :::caution Important
 
-Sauce Labs Simulators version 16.2 and below only support apps that have been built with the `x86_64` -architecture for Intel-based Macs. `arm64`-based applications, built for Apple Silicon Macs, will only run on versions 17.0 and above, see [Virtual Devices on Apple Silicon](../virtual-apple-silicon.md) for details:
+Sauce Labs Simulators version 16.2 and below only support apps that have been built with the `x86_64` -architecture for Intel-based Macs. `arm64`-based applications, built for Apple Silicon Macs, will only run on versions 17.0 and above, see [Virtual Devices on Apple Silicon](../virtual-apple-silicon.md) for details. For universal capability, apps can be built with both `x86_64 arm64` architectures
 
 :::
 
@@ -45,7 +45,7 @@ Appium only needs the test app to be built, so you can create a new build using 
 
 ```bash
 xcodebuild \
-  ARCHS=x86_64 \
+  ARCHS=arm64 x86_64 \ 
   clean build \
   -project testApp.xcodeproj \
   -scheme testApp \
@@ -60,7 +60,7 @@ xcodebuild \
 
 ```bash
 xcodebuild \
-  ARCHS=x86_64 \
+  ARCHS=arm64 x86_64 \
   clean build \
   -workspace testApp.xcworkspace \
   -scheme testApp \
@@ -87,7 +87,7 @@ xcodebuild \
   -scheme testApp \
   -derivedDataPath './customFolder' \
   -sdk iphonesimulator \
-  -arch x86_64 \
+  -arch arm64 x86_64 \
   -configuration Debug \
   CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 ```
@@ -101,7 +101,7 @@ xcodebuild \
   -scheme testApp \
   -derivedDataPath './customFolder' \
   -sdk iphonesimulator \
-  -arch x86_64 \
+  -arch arm64 x86_64 \
   -configuration Debug \
   CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 ```
@@ -112,7 +112,7 @@ Here is a breakdown of the command arguments:
 
 - **`clean build`**: This cleans any previous build files and then builds the project and is mostly used for Appium.
 - **`clean build-for-testing`**: This cleans any previous build files and then builds the project to prepare it for testing and is mostly used for XCUItest.
-- **`ARCHS=x86_64`**: This specifies the architecture to build for. Multiple values are possible but it needs to be `x86_64` for the Sauce Labs Simulator cloud.
+- **`ARCHS=arm64 x86_64`**: This specifies the architecture to build for. Multiple values are possible for universal compatability Sauce Labs supports arm64 builds on 17.5 and above.
 - **`-project`**: This specifies the Xcode project file to use. Rename `testApp.xcodeproj` with the name of your project. This is optional because if it’s not provided it will automatically choose the first `xcodeproj`-file
 - **`-workspace`**: This specifies the Xcode workspace file to use. Rename `testApp.xcworkspace` with the name of your workspace.
 - **`-scheme`**: This specifies the scheme to build. Rename `testApp` with the name of your scheme
@@ -122,7 +122,7 @@ Here is a breakdown of the command arguments:
   - **`platform=iOS Simulator`**: This specifies that you're targeting the iOS Simulator platform.
   - **`name=iPhone 11 Pro Max`**: This specifies the exact type of simulator or device for consistency. This is important especially if you have multiple versions of the "iPhone 11 Pro Max" simulator installed.
   - **`OS=14.5`**: This specifies the OS version of the simulator you're targeting. This is important especially if you have multiple versions of the "iPhone 11 Pro Max" simulator installed.
-- **`-arch`**: This specifies the architecture to build for. Multiple values are possible but it needs to be `x86_64` for the Sauce Labs Simulator cloud.
+- **`-arch`**:This specifies the architecture to build for. Multiple values are possible for universal compatability Sauce Labs supports arm64 builds on 17.5 and above.
 - **`-configuration Release|Debug`**: This sets the build configuration to `Release` or `Debug`. `Debug` includes symbols for debugging and is usually used during development and testing with XCUITest.
 - **`CODE_SIGN_IDENTITY="", CODE_SIGNING_REQUIRED=NO, CODE_SIGNING_ALLOWED=NO`**: These disable code signing, which is typically not required when building for the simulator.
 
