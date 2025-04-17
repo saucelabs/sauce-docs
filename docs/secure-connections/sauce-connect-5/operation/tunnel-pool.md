@@ -46,7 +46,7 @@ Flow:
 
 ### Launching Tunnels for a Tunnel Pool
 
-You must start multiple tunnels with the same name and the [--tunnel-pool](/dev/cli/sauce-connect-5/run/#tunnel-pool) flag. Each tunnel should be started from a separate VM for maximum fault tolerance.
+You must start multiple tunnels with the same [`tunnel-name`] and the [`--tunnel-pool`](/dev/cli/sauce-connect-proxy#--tunnel-pool) flag. Each tunnel should be started from a separate VM for maximum fault tolerance.
 
 <Tabs
 defaultValue="maclinux"
@@ -58,7 +58,7 @@ values={[
 <TabItem value="maclinux">
 
 ```bash
-./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
+sc run --username $SAUCE_USERNAME --access-key $SAUCE_ACCESS_KEY \
   --tunnel-name tunnel_name_here \
   --tunnel-pool
 ```
@@ -68,7 +68,7 @@ values={[
 <TabItem value="windows">
 
 ```bash
-.\sc.exe -u %SAUCE_USERNAME% -k %SAUCE_ACCESS_KEY% ^
+sc.exe run --username %SAUCE_USERNAME% --access-key %SAUCE_ACCESS_KEY% ^
   --tunnel-name tunnel_name_here ^
   --tunnel-pool
 ```
@@ -78,7 +78,7 @@ values={[
 
 #### Avoiding Colliding Tunnels
 
-Without [--tunnel-pool](/dev/cli/sauce-connect-proxy#--tunnel-pool), launching multiple tunnels with the same [`--tunnel-name`](/dev/cli/sauce-connect-proxy#--tunnel-name) will cause older instances to shut down. Always use the --tunnel-pool flag to allow multiple tunnels with the same name to coexist as a pool.
+Without [`--tunnel-pool`](/dev/cli/sauce-connect-proxy#--tunnel-pool), launching multiple tunnels with the same [`--tunnel-name`](/dev/cli/sauce-connect-proxy#--tunnel-name) will cause older instances to shut down. Always use the [`--tunnel-pool`](/dev/cli/sauce-connect-proxy#--tunnel-pool) flag to allow multiple tunnels with the same name to coexist as a pool.
 
 ### Running Tests using Tunnel Pool
 
@@ -92,7 +92,6 @@ In your test script, specify the tunnel pool name using the [`tunnelName`](/dev/
 ### Load Balancing and Failover
 
 Tunnel pools use a round-robin algorithm to distribute test traffic evenly. If a tunnel fails, traffic is routed to another in the pool. For optimal resilience run Sauce Connect Proxy on separate machines.
-* Monitor the [Sauce Labs Tunnels Dashboard](https://app.saucelabs.com/tunnels)
 
 ### Monitoring and Maintenance
 
