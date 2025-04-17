@@ -14,7 +14,7 @@ This guide covers the most common failure scenarios with Sauce Connect 5:
 
 Follow the sections below based on your issue.
 
-:::caution Important
+:::important
 Make sure you're using the latest version of Sauce Connect, which you can download from the [installation page](/secure-connections/sauce-connect-5/installation/). Using older versions may cause technical issues. If you run into an error trying to launch a tunnel, this should be your first step.
 :::
 
