@@ -20,7 +20,7 @@ Within your infrastructure, Sauce Connect Proxy must be able to reach the app or
 
 We recommend running Sauce Connect Proxy in a firewalled DMZ on a dedicated machine and setting up firewall rules to restrict access from that DMZ to your internal network. Use caution when locating and configuring Sauce Connect in a DMZ.
 
-For more information, see [DMZ (computing)](<https://en.wikipedia.org/wiki/DMZ_(computing)>) and [Common Mistakes in Network Configurations](/secure-connections/sauce-connect-5/troubleshooting/#sc5netmistakes).
+For more information, see [DMZ (computing)](<https://en.wikipedia.org/wiki/DMZ_(computing)>) and [Common Mistakes in Network Configurations](/secure-connections/sauce-connect-5/troubleshooting/).
 
 ## Securing Sauce Connect Proxy
 
