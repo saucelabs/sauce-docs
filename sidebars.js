@@ -1035,6 +1035,7 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/operation/configuration',
                                 'secure-connections/sauce-connect-5/operation/proxies',
                                 'secure-connections/sauce-connect-5/operation/api-server',
+                                'secure-connections/sauce-connect-5/operation/tunnel-pool',
                                 'secure-connections/sauce-connect-5/operation/ci-cd-integration',
                                 'secure-connections/sauce-connect-5/operation/readiness-checks',
                             ],
@@ -1305,6 +1306,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'mobile-apps/supported-devices',
+                        'mobile-apps/virtual-apple-silicon',
                         'mobile-apps/real-device-cleaning',
                         'mobile-apps/mdm-support',
                     ],
