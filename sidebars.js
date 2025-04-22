@@ -1306,6 +1306,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'mobile-apps/supported-devices',
+                        'mobile-apps/virtual-apple-silicon',
                         'mobile-apps/real-device-cleaning',
                         'mobile-apps/mdm-support',
                     ],
