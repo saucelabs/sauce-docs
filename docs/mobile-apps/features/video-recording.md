@@ -9,7 +9,12 @@ Sauce Labs captures a recording of the device screen during your tests. For most
 
 <p><small><span className="sauceGreen">Real Devices Documentation</span></small></p>
 
-For testing on real devices, we employ two video recording methods. The primary method involves on-device recording. As a more reliable fallback, we also utilize a low-frame-rate stream of device screenshots, leveraging the built-in screenshot functionality of all devices. While the screenshot-based video offers lower resolution and frame rates compared to on-device recordings, it ensures video availability in a wider range of scenarios.
+For testing on real devices, video recording is done in one of two ways:
+- On-device recording
+  - Provides higher video quality and framerate, but requires an agent app running on the device
+- External screenshot-based recording
+  - Lower quality and framerate, but requires less set-up on the device
+The method of recording is decided automatically at the start of each test, based on device support (with a preference towards on-device recording).
 
 Once your test job concludes, the recorded video (either from the device or generated from screenshots) is encoded, either directly on the device or within our infrastructure. Subsequently, the encoded video is downloaded from the device and uploaded to our long-term storage. Please be aware that videos are automatically deleted after 60 days, or upon explicit deletion of the associated job.
 
@@ -25,7 +30,7 @@ While your test job is active, you can access a live video stream of the device 
 
 Access to this stream requires Basic Auth.
 
-Please be aware that this is a raw data stream and requires parsing to be viewable. The video stream adheres to the open stf standard.
+Please be aware that this is a raw data stream and requires parsing to be viewable. The video stream adheres to the [OpenSTF](https://github.com/openstf/stf) standard.
 
 
 ## Known Issues
