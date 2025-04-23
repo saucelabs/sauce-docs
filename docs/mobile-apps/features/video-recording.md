@@ -21,7 +21,7 @@ It's important to note that a test job will not be marked as finished until the 
 
 While your test job is active, you can access a live video stream of the device if you have the job's device_session_id. This live stream is accessible via WebSocket at the following URL:
 
-wss://api.<sauce_region>.saucelabs.com/v1/rdc/socket/alternativeIo/<device_session_id>
+wss://api.{{sauce_region}}.saucelabs.com/v1/rdc/socket/alternativeIo/{{device_session_id}}
 
 Access to this stream requires Basic Auth.
 
