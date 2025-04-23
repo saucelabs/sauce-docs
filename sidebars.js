@@ -1317,13 +1317,15 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'mobile-apps/features/appium-inspector',
-                        'mobile-apps/features/network-throttling',
-                        'mobile-apps/features/biometric-authentication',
-                        'mobile-apps/features/camera-image-injection',
                         'mobile-apps/features/audio-capture',
+                        'mobile-apps/features/biometric-authentication',
                         'mobile-apps/features/bypass-screenshot',
+                        'mobile-apps/features/camera-image-injection',
                         'mobile-apps/features/gestures',
+                        'mobile-apps/features/instant-booted-simulators',
                         'mobile-apps/features/ios-version-management',
+                        'mobile-apps/features/network-throttling',
+                        'mobile-apps/features/video-recording',
                         'mobile-apps/features/virtual-usb',
                         'mobile-apps/features/xctest-plan',
                         {
