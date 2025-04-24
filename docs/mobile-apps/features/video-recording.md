@@ -16,9 +16,9 @@ For testing on real devices, video recording is done in one of two ways:
   - Lower quality and framerate, but requires less set-up on the device
 The method of recording is decided automatically at the start of each test, based on device support (with a preference towards on-device recording).
 
-Once your test job concludes, the recorded video (either from the device or generated from screenshots) is encoded, either directly on the device or within our infrastructure. Subsequently, the encoded video is downloaded from the device and uploaded to our long-term storage. Please be aware that videos are automatically deleted after 60 days, or upon explicit deletion of the associated job.
+Once your test job concludes, the recorded video (either from the device or generated from screenshots) is encoded, either directly on the device or in our infrastructure. Subsequently, the encoded video is downloaded from the device and uploaded to our long-term storage. Be aware that videos are automatically deleted after 60 days, or upon explicit deletion of the associated job.
 
-It's important to note that a test job will not be marked as finished until the video has been successfully uploaded to long-term storage. Consequently, very long-running test sessions will experience a more extended post-processing phase, thus increasing the overall duration of the job.
+A test job will not be marked as finished until the video has been successfully uploaded to long-term storage. Consequently, very long-running test sessions will experience a more extended post-processing phase, thus increasing the overall duration of the job. A long session also makes it more likely that there will be encoding issues. We therefore recommend to limit the session duration, if the video is important to you.
 
 ## Live Stream
 
@@ -30,7 +30,7 @@ While your test job is active, you can access a live video stream of the device 
 
 Access to this stream requires Basic Auth.
 
-Please be aware that this is a raw data stream and requires parsing to be viewable. The video stream adheres to the [OpenSTF](https://github.com/openstf/stf) standard.
+Be aware that this is a raw data stream and requires parsing to be viewable. The video stream adheres to the [OpenSTF](https://github.com/openstf/stf) standard.
 
 
 ## Known Issues
