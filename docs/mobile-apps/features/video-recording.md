@@ -33,16 +33,10 @@ Access to this stream requires Basic Auth.
 Be aware that this is a raw data stream and requires parsing to be viewable. The video stream adheres to the [OpenSTF](https://github.com/openstf/stf) standard.
 
 
-## Known Issues
+## Limitations
 
 ### Missing or Corrupted Videos
 
-We maintain approximately 99% reliability for video recordings across our real device test jobs. We have internal Service Level Objectives (SLOs) in place to monitor this metric and continuously make incremental improvements to our video recording infrastructure.
-
-Achieving this level of reliability is particularly challenging given our extensive device fleet, which encompasses a wide range of device models and operating system versions, each with its own unique characteristics and recording capabilities.
-
-Our teams actively monitor video availability and work to optimize the recording processes while balancing reliability with performance considerations.
-
-In rare cases (usually 1% of all test runs), a job might lack a video in the video_url property, or the provided video file might be corrupted. These situations typically occur due to unexpected errors during video encoding or temporary unavailability in our long-term storage systems. Should you experience reproducible issues with missing videos or notice a pattern of video failures, please contact our support team so we can investigate potential systemic issues.
+We maintain approximately 99% reliability for video recordings across our real device test jobs. In rare cases, a job might lack a video in the video_url property, or the provided video file might be corrupted. These situations typically occur due to unexpected errors during video encoding or unexpected networking or hardware issues. Should you experience reproducible systematic issues with missing videos or notice a pattern of video failures, please contact our support team.
 
 When such instances do occur, we prioritize delivering your test results quickly rather than delaying job completion with multiple retry attempts. This approach ensures you receive timely test data and can maintain your development velocity, even in the unlikely event of a missing video recording.
