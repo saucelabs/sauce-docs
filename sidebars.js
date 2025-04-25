@@ -703,7 +703,6 @@ module.exports = {
                 'dev/api/connect',
                 'dev/api/insights',
                 'dev/api/usage',
-                'dev/api/orchestrate',
                 'dev/api/performance',
                 'dev/api/platform',
                 'dev/api/rdc',
@@ -783,23 +782,6 @@ module.exports = {
                                         id: 'dev/cli/saucectl/configure/configure/configure',
                                     },
                                     items: ['dev/cli/saucectl/configure/list'],
-                                },
-                                {
-                                    type: 'category',
-                                    label: 'saucectl docker',
-                                    collapsed: true,
-                                    items: ['dev/cli/saucectl/docker/push'],
-                                },
-                                {
-                                    type: 'category',
-                                    label: 'saucectl imagerunner',
-                                    collapsed: true,
-                                    items: [
-                                        'dev/cli/saucectl/imagerunner/artifacts-download',
-                                        'dev/cli/saucectl/imagerunner/list',
-                                        'dev/cli/saucectl/imagerunner/logs',
-                                        'dev/cli/saucectl/imagerunner/stop',
-                                    ],
                                 },
                                 'dev/cli/saucectl/init',
                                 {
@@ -1043,6 +1025,7 @@ module.exports = {
                         'secure-connections/sauce-connect-5/logging',
                         'secure-connections/sauce-connect-5/monitoring',
                         'secure-connections/sauce-connect-5/inspecting',
+                        'secure-connections/sauce-connect-5/system-requirements',
                         {
                             type: 'category',
                             label: 'Setup and Configuration',
@@ -1052,6 +1035,7 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/operation/configuration',
                                 'secure-connections/sauce-connect-5/operation/proxies',
                                 'secure-connections/sauce-connect-5/operation/api-server',
+                                'secure-connections/sauce-connect-5/operation/tunnel-pool',
                                 'secure-connections/sauce-connect-5/operation/ci-cd-integration',
                                 'secure-connections/sauce-connect-5/operation/readiness-checks',
                             ],
@@ -1062,8 +1046,20 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'secure-connections/sauce-connect-5/advanced/architecture',
+                                'secure-connections/sauce-connect-5/advanced/security-authentication',
                             ],
                         },
+                        {
+                            type: 'category',
+                            label: 'Specifications',
+                            collapsed: true,
+                            items: [
+                                'secure-connections/sauce-connect-5/specifications/localhost-ports',
+                            ],
+                        },
+                        // DO NOT include these sections before checked and improved
+                        //'secure-connections/sauce-connect-5/troubleshooting',
+                        //'secure-connections/sauce-connect-5/faq',
                     ],
                 },
                 {
@@ -1109,32 +1105,6 @@ module.exports = {
                     ],
                 },
                 'secure-connections/ipsec-vpn',
-            ],
-        },
-        {
-            type: 'category',
-            label: 'Orchestrate',
-            collapsed: true,
-            items: [
-                'orchestrate',
-                'orchestrate/getting-started',
-                {
-                    type: 'category',
-                    label: 'Quickstart',
-                    collapsed: true,
-                    items: [
-                        'orchestrate/quickstart/playwright',
-                        'orchestrate/quickstart/webdriverio',
-                    ],
-                },
-                'orchestrate/saucectl-configuration',
-                'orchestrate/building-images',
-                'orchestrate/authenticated-pulls',
-                'orchestrate/best-practices',
-                'orchestrate/sauce-connect',
-                'orchestrate/saucelabs-private-registry',
-                'orchestrate/faq',
-                'orchestrate/architecture',
             ],
         },
         {
@@ -1336,6 +1306,7 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'mobile-apps/supported-devices',
+                        'mobile-apps/virtual-apple-silicon',
                         'mobile-apps/real-device-cleaning',
                         'mobile-apps/mdm-support',
                     ],
