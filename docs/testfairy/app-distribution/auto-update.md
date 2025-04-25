@@ -23,7 +23,7 @@ There are two ways to configure auto-update for a specific build:
 
 ### In Build Settings
 
-After uploading a build, access the build settings and navigate to the **App Distribution** section. Here, you can select the **Auto-Update** checkbox to enable auto-update for the build.
+After uploading a build, access the build settings and navigate to the **Sauce Mobile App Distribution** section. Here, you can select the **Auto-Update** checkbox to enable auto-update for the build.
 
 <img src={useBaseUrl('/img/testfairy/app-distribution/auto-update-img1.png')} alt="testfairy build settings"/>
 
