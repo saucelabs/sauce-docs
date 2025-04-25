@@ -1,6 +1,6 @@
 ---
 id: flutter
-title: Adding TestFairy to Your Flutter Project
+title: Adding Sauce Mobile App Distribution to Your Flutter Project
 sidebar_label: Flutter
 ---
 
@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-If you are developing your app in Flutter, follow the instructions in this document add the TestFairy SDK.
+If you are developing your app in Flutter, follow the instructions in this document add the Sauce Mobile App Distribution SDK.
 
 ## Installation
 
@@ -99,9 +99,9 @@ void main() {
 
 ## How to Compile With the Latest Flutter and null-safe Dart?
 
-To use TestFairy with the latest **stable** Flutter channel, you must set the minimum version for the plugin as 2.1.0.
+To use Sauce Mobile App Distribution with the latest **stable** Flutter channel, you must set the minimum version for the plugin as 2.1.0.
 
-To use TestFairy with the latest **unstable** Flutter channel, you must clone this repository and use it as an offline dependency instead of the published version in pub.
+To use Sauce Mobile App Distribution with the latest **unstable** Flutter channel, you must clone this repository and use it as an offline dependency instead of the published version in pub.
 
 1. Clone this [repository](https://github.com/testfairy/testfairy-flutter).
 
@@ -123,13 +123,13 @@ To use TestFairy with the latest **unstable** Flutter channel, you must clone th
 
   Launch your Runner workspace and add `x86_64` to `VALID_ARCHS` under **Build Settings**.
 
-- **I see `Specs satisfying the TestFairy dependency were found, but they required a higher minimum deployment target.` when I build an iOS app.**
+- **I see `Specs satisfying the Sauce Mobile App Distribution dependency were found, but they required a higher minimum deployment target.` when I build an iOS app.**
 
   You have to update the native SDK alongside with CocoaPods repository.
 
   Run `pod repo update` and update the plugin in _pubspec.yaml_. Then run `cd ios; pod update TestFairy; cd ..`.
 
-- **I have my own `HttpOverrides.global` setup. How can I make it work with TestFairy?**
+- **I have my own `HttpOverrides.global` setup. How can I make it work with Sauce Mobile App Distribution?**
 
   Copy [this](https://github.com/testfairy/testfairy-flutter/blob/master/lib/src/network_logging.dart) file to your project. Add the necessary functionality and assign an instance from your new implementation to `HttpOverrides.global`.
 
@@ -176,9 +176,9 @@ To use TestFairy with the latest **unstable** Flutter channel, you must clone th
 
 - **I see `Automatically assigning platform ios with version 8.0` when I build.**
 
-  TestFairy supports iOS 9.0 and above. Change the build target accordingly in your Xcode project.
+  Sauce Mobile App Distribution supports iOS 9.0 and above. Change the build target accordingly in your Xcode project.
 
-- **I see `Looks like TestFairy has an upgrade to do... 1.X.Y+hotfixZ is the latest stable branch` or errors related to Jetifier in the logs when I call an SDK method.**
+- **I see `Looks like Sauce Mobile App Distribution has an upgrade to do... 1.X.Y+hotfixZ is the latest stable branch` or errors related to Jetifier in the logs when I call an SDK method.**
 
   Migrate your Android project to AndroidX by following [this](https://flutter.dev/docs/development/androidx-migration) guide.
 
@@ -209,13 +209,13 @@ To use TestFairy with the latest **unstable** Flutter channel, you must clone th
   end
   ```
 
-- **CocoaPods could not find compatible versions for pod "TestFairy".**
+- **CocoaPods could not find compatible versions for pod "Sauce Mobile App Distribution".**
 
   This error is an old bug in the plugin pubspec file. First, run `flutter clean` in your root directory.
 
   Move _ios/Podfile.lock_ into a temporary place before running `pod repo update; pod install` in your _ios_ directory.
 
-  If some of the libraries you use need to be at specific versions, copy the necessary lines from your backed-up _Podfile.lock_ into the newly created one. Keep the lines related to TestFairy (note the title case in the name) untouched.
+  If some of the libraries you use need to be at specific versions, copy the necessary lines from your backed-up _Podfile.lock_ into the newly created one. Keep the lines related to Sauce Mobile App Distribution (note the title case in the name) untouched.
 
   Finally, run `pod repo update; pod install; pod update TestFairy` again to re-download libraries from the replaced lines.
 

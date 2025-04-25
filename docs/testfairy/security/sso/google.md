@@ -15,12 +15,12 @@ When SSO is configured into your account, the login page is replaced with the `L
 1. Log in to Google Apps as admin, go to the admin console and select **Apps**, click on **SAML apps**, and click on **Add**.
 1. In the popup window, select **Setup my custom app**.
 1. Click on **Option 2: IDP metadata** to download an xml file, and click **next**.
-1. Enter **TestFairy** as the application's name, and then click **Next**.
-1. Add the service provider details. Change `acme` to your enterprise subdomain name on testfairy.com in the ACS URL.
-    - Please [contact Sauce Labs Support](https://support.saucelabs.com/s/submit-a-request?language=en_US) to provision a custom subdomain 
+1. Enter **Sauce Mobile App Distribution** as the application's name, and then click **Next**.
+1. Add the service provider details. Change `acme` to your enterprise subdomain name on TestFairy.com in the ACS URL.
+    -[Contact Sauce Labs Support](https://support.saucelabs.com/s/submit-a-request?language=en_US) to provision a custom subdomain 
 1. Review and click **Next** and then click **Finish** when done.
 1. Ensure the service is `on` to finish the setup. If it isn't, go to **EDIT SERVICE** and change it to **ON** for everyone.
-1. Go to your TestFairy account, click on **Account Preferences** in the top-right menu, and select **Security** from the left menu. Paste the previously saved file contents in the `ID Provider metadata`. Click on **Update SAML ID Provider metadata** when done. Log out and make sure you can see the **Login with Google** button.
+1. Go to your Sauce Mobile App Distribution account, click on **Account Preferences** in the top-right menu, and select **Security** from the left menu. Paste the previously saved file contents in the `ID Provider metadata`. Click on **Update SAML ID Provider metadata** when done. Log out and make sure you can see the **Login with Google** button.
 
 ## Troubleshooting
 

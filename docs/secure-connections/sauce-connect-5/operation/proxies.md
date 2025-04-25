@@ -1,6 +1,6 @@
 ---
 id: proxies
-title: Sauce Connect Proxy Setup with Additional Proxies
+title: Sauce Connect 5 Setup with Additional Proxies
 sidebar_label: Additional Proxies
 ---
 
