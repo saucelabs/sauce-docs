@@ -1452,12 +1452,13 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Vitals enables memory, cpu, performance stats alongside UI interactions during the session.
+Vitals enables memory, cpu, performance stats alongside UI interactions during the session. [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("resigningEnabled", true);
 sauceOptions.setCapability("vitals", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
@@ -1474,6 +1475,7 @@ Enables the [camera image injection](/mobile-apps/features/camera-image-injectio
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("resigningEnabled", true);
 sauceOptions.setCapability("imageInjection", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
@@ -1490,6 +1492,7 @@ Bypasses the restriction on taking screenshots for secure screens (i.e., secure 
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("resigningEnabled", true);
 sauceOptions.setCapability("bypassScreenshotRestriction", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
@@ -1506,6 +1509,7 @@ Enables the interception of biometric input, allowing the test to simulate Touch
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("resigningEnabled", true);
 sauceOptions.setCapability("biometricsInterception", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
@@ -1516,12 +1520,13 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
-Enables capturing and inclusion of detailed stack traces in the test results, providing insights into any application crashes that occur during testing.
+Enables capturing and inclusion of detailed stack traces in the test results, providing insights into any application crashes that occur during testing. [`resigningEnabled`](#resigningenabled) needs to be enabled if this is set to `true`.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
 MutableCapabilities sauceOptions = new MutableCapabilities();
+sauceOptions.setCapability("resigningEnabled", true);
 sauceOptions.setCapability("crashReporting", true);
 capabilities.setCapability("sauce:options", sauceOptions);
 ```

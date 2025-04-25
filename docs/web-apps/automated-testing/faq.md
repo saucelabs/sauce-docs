@@ -49,9 +49,3 @@ details.
 Due to a current limitation of the platform, nested assets are stored **flat** in Sauce Labs. 
 That means an artifact like `__assets__/log_dir/log.txt` is stored and downloaded simply as
 `log.txt`.
-
-#### **I use pnpm/nx to manage my dependencies. Can I run my tests with saucectl?**
-
-Yes you can, but only with [Sauce Orchestrate](https://docs.saucelabs.com/orchestrate/),
-Sauce Labs' containerized testing solution. See the [Getting Started](https://docs.saucelabs.com/orchestrate/getting-started/)
-for information on how to get setup.

@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The "Private Cloud" deployment provides a completely isolated environment for a single tenant of TestFairy. This ensures 
+The "Private Cloud" deployment provides a completely isolated environment for a single tenant of Sauce Mobile App Distribution. This ensures 
 dedicated resources and enhanced security, making it ideal for organizations with stringent data privacy and compliance
 requirements. 
 
