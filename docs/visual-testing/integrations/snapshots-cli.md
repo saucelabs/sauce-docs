@@ -51,16 +51,24 @@ Example: `npx @saucelabs/visual-snapshots pdf ./example.pdf ./dir_with_pdfs ./so
 #### Options
 
 - `-r`, `--region`: The Sauce Labs region. Possible values: `us-west-1`, `eu-central-1`, `us-east-4`. If not provided, the value of `SAUCE_REGION` environment variable will be checked. Default: `us-west-1`.
-- `-n`, `--build-name`: The name you would like to appear in the Sauce Visual dashboard. If not provided, the value of `SAUCE_VISUAL_BUILD_NAME` environment variable will be checked. Default: `undefined` (appears as `Unnamed Build` in the Sauce Visual dashboard).
+- `-n`, `--build-name`: The name you would like to appear in the Sauce Visual dashboard. If not provided, the value of `SAUCE_VISUAL_BUILD_NAME` environment variable will be checked. Default: `Sauce Visual Build`.
 - `-b`, `--branch`: The branch name you would like to associate this build with. We recommend using your current VCS branch in CI. If not provided, the value of `SAUCE_VISUAL_BRANCH` environment variable will be checked. Default: `undefined`.
 - `-d`, `--default-branch`: Main branch name to associate the build with. Usually `main` or `master`. Read more [here](/visual-testing/workflows/ci/). If not provided, the value of `SAUCE_VISUAL_DEFAULT_BRANCH` environment variable will be checked. Default: `undefined`.
 - `-p`, `--project`: Label/project to associate the build with. If not provided, the value of `SAUCE_VISUAL_PROJECT` environment variable will be checked. Default: `undefined`.
 - `--build-id`: For advanced users: A user-supplied Sauce Labs Visual build ID. Can be used to create builds in advance using the GraphQL API. This can be used to parallelize tests with multiple browsers, shard, or more. If not provided, the value of `SAUCE_VISUAL_BUILD_ID` environment variable will be checked. Default: `undefined`.
 - `--custom-id`: For advanced users. A user-supplied custom ID to identify this build. Can be used in CI to identify / check / re-check the status of a single build. Usage suggestions: CI pipeline ID. If not provided, the value of `SAUCE_VISUAL_CUSTOM_ID` environment variable will be checked. Default: `undefined`.
-- `--suite-name`: The name of the suite you would like to appear in the Sauce Visual dashboard. Default: `undefined` (appears as `Unknown` in the Sauce Visual dashboard).
-- `--test-name`: The name of the test you would like to appear in the Sauce Visual dashboard. Supports the following parameters: `{filename}`. Default: `{filename}`.
-- `--snapshot-name` The name of the snapshot you would like to appear in the Sauce Visual dashboard. Supports the following parameters: `{filename}`, `{page}`. Default: `{filename}-{page}`.
+- `--suite-name`: The name of the suite you would like to appear in the Sauce Visual dashboard. Default: `undefined` (appears as `Unknown` in the Sauce Visual dashboard). Supports the following parameters: `{filename}, {ext}, {directory}, {directoryRelative}, {page}`. Default: `{directoryRelative}`.
+- `--test-name`: The name of the test you would like to appear in the Sauce Visual dashboard. Supports the following parameters: `{filename}, {ext}, {directory}, {directoryRelative}, {page}`. Default: `{filename}{ext}`.
+- `--snapshot-name` The name of the snapshot you would like to appear in the Sauce Visual dashboard. Supports the following parameters: `{filename}, {ext}, {directory}, {directoryRelative}, {page}`. Default: `{filename}-page-{page}`.
 - `-j`, `--concurrency`: Maximum count of simultaneous uploads. Default: the number of CPUs.
+
+##### Suite name, test name and snapshots name paameters
+
+- `filename` - name of the PDF file without the extension
+- `ext` - file extension (_.pdf_)
+- `page` - page number, staring from 1
+- `directory` - name of the directory the PDF file is located at
+- `directoryRelative` - relative path from the current directory to the file (excluding the filename) 
 
 ### help
 
