@@ -8,9 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Mobile App Distribution on a Private Cloud instance, allows you to *Bring Your Own Storage* and store the app artifacts on your own bucket.
+Sauce Mobile Sauce Mobile App Distribution on a Private Cloud instance, allows you to *Bring Your Own Storage* and store the app artifacts on your own bucket.
 
-This document explains how to create a new bucket that can be then used by Mobile App Distribution.
+This document explains how to create a new bucket that can be then used by Sauce Mobile Sauce Mobile App Distribution.
 
 ### Creating a bucket
 
@@ -71,7 +71,7 @@ Here is what's required:
     "Id": "mobile_app_distribution_key_policy",
     "Statement": [
       {
-        "Sid": "Allow Mobile App Distribution",
+        "Sid": "Allow Sauce Mobile Sauce Mobile App Distribution",
         "Effect": "Allow",
         "Principal": {
           "AWS": "<will be provided to you>"

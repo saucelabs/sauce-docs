@@ -31,6 +31,6 @@ When SSO is configured into your account, the login page is replaced with a **Lo
 
 1. Download **SAML Metadata**.
 
-1. Login to TestFairy, and select **Preferences**.
+1. Login to Sauce Mobile App Distribution, and select **Preferences**.
 
 1. Copy the contents of the file you just downloaded, and paste it into the textbox. Click on **Update SAML ID Provider Metadata**.

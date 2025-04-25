@@ -1,6 +1,6 @@
 ---
 id: configuration
-title: Sauce Connect Proxy Configuration
+title: Sauce Connect 5 Configuration
 sidebar_label: Configuration
 ---
 
@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The explicit way to launch a Sauce Connect Proxy tunnel is to run a single command line comprised of all [flags](/dev/cli/sauce-connect-5/run/) and any optional [flags](/dev/cli/sauce-connect-5/run/) you want to use to customize tunnel behavior.
+The explicit way to launch a Sauce Connect tunnel is to run a single command line comprised of all [flags](/dev/cli/sauce-connect-5/run/) and any optional [flags](/dev/cli/sauce-connect-5/run/) you want to use to customize tunnel behavior.
 It's also possible to pass the same command-line arguments through a config file, and as environment variables.
 If you pass the same argument through multiple methods, the order of precedence is as follows (from highest to lowest):
 
@@ -18,7 +18,7 @@ If you pass the same argument through multiple methods, the order of precedence 
 
 ## Config File
 
-The Sauce Connect Proxy config file may contain any CLI flag. It may also
+The Sauce Connect config file may contain any CLI flag. It may also
 contain comments that could help make its content more readable, for example:
 
 ```yaml
@@ -384,6 +384,16 @@ You can persist Sauce Connect Proxy environment variables by adding them to one 
 
 </TabItem>
 </Tabs>
+
+## Configuring Mobile Devices for testing `localhost` {#sc5localhost}
+
+Testing with the address `localhost` (or the IP address `127.0.0.1`) is not supported with iOS or Android real devices in Sauce Connect.
+
+To work around this, you'll need to edit your `hosts` file on the machine on which you are running Sauce Connect. Add an entry for a placeholder hostname (such as `localtestsite`) and the IP address `127.0.0.1`. Requests for `localtestsite` in your tests will then be sent through your Sauce Connect tunnel to `localhost`, which is the machine on which you are running Sauce Connect.
+
+For example, adding `127.0.0.1   mockserver` to your `/etc/hosts` file, then starting a server on `localhost:3333` will route mockserver:3333 HTTP calls to your local server. Mobile tests using Sauce Connect will then be able to find your local server regardless of the nature of your test.
+
+For tips on how to edit your `hosts` file, see [How to Edit Hosts File in Linux, Windows, or Mac](https://phoenixnap.com/kb/how-to-edit-hosts-file-in-windows-mac-or-linux).
 
 ## More Information
 
