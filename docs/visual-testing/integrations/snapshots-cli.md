@@ -62,7 +62,7 @@ Example: `npx @saucelabs/visual-snapshots pdf ./example.pdf ./dir_with_pdfs ./so
 - `--snapshot-name` The name of the snapshot you would like to appear in the Sauce Visual dashboard. Supports the following parameters: `{filename}, {ext}, {directory}, {directoryRelative}, {page}`. Default: `{filename}-page-{page}`.
 - `-j`, `--concurrency`: Maximum count of simultaneous uploads. Default: the number of CPUs.
 
-##### Suite name, test name and snapshots name paameters
+##### Suite name, test name and snapshots name parameters
 
 - `filename` - name of the PDF file without the extension
 - `ext` - file extension (_.pdf_)
