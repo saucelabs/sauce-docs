@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 This guide covers the most common failure scenarios with Sauce Connect 5:
 
- - **Unable to Start the SC Client**
+ - **Unable to Start the Sauce Connect Client**
 
 Follow the sections below based on your issue.
 
@@ -18,7 +18,7 @@ Follow the sections below based on your issue.
 Make sure you're using the latest version of Sauce Connect, which you can download from the [installation page](/secure-connections/sauce-connect-5/installation/). Using older versions may cause technical issues. If you run into an error trying to launch a tunnel, this should be your first step.
 :::
 
-## Unable to Start the SC Client
+## Unable to Start the Sauce Connect Client
 
 When Sauce Connect 5 fails to start, it’s almost always due to network issues preventing the client from reaching Sauce Labs’ infrastructure. Before launching SC, perform the following checks.
 
