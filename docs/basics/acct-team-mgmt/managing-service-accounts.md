@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 <p><span className="sauceGreen">Paid Plans Only</span></p>
 
 :::note
-Service accounts are available only on paid plans. Free trial accounts cannot create service accounts.
+Service accounts are available only in Public Beta.
 :::
 
 ## Overview
