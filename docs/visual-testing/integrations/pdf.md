@@ -1,5 +1,5 @@
 ---
-sidebar_label: PDF (Snapshots CLI)
+sidebar_label: PDF
 ---
 
 # Sauce Visual Snapshots CLI
