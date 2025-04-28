@@ -68,7 +68,7 @@ Example: `npx @saucelabs/visual-snapshots pdf ./example.pdf ./dir_with_pdfs ./so
 - `ext` - file extension (_.pdf_)
 - `page` - page number, starting from 1
 - `directory` - name of the directory the PDF file is located at
-- `directoryRelative` - relative path from the current directory to the file (excluding the filename) 
+- `directoryRelative` - relative path from current working directory to the directory containing the PDF file
 
 ### help
 
