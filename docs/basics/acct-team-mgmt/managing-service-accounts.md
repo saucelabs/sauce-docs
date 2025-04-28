@@ -41,7 +41,6 @@ Key characteristics:
   - manage private real devices ([Private Real Device API](/dev/api/rdc/#private-real-device-management))
   - use the [API Testing API](/dev/api/api-testing/)
   - submit a crash in the [Crash/Error Reporting](/dev/api/error-reporting/)
-  - use the [Sauce Orchestrate](/orchestrate)
   - use the [Virtual USB CLI](/dev/cli/virtual-usb/)
 
 ## Creating a Service Account
