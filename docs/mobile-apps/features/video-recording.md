@@ -37,6 +37,6 @@ Be aware that this is a raw data stream and requires parsing to be viewable. The
 
 ### Missing or Corrupted Videos
 
-We maintain approximately 99% reliability for video recordings across our real device test jobs. In rare cases, a job might lack a video in the video_url property, or the provided video file might be corrupted. These situations typically occur due to unexpected errors during video encoding or unexpected networking or hardware issues. Should you experience reproducible systematic issues with missing videos or notice a pattern of video failures, please contact our support team.
+We maintain approximately 99% reliability for video recordings across our real device test jobs. In rare cases, recordings might be missing or corrupted due to unexpected hardware of software failures. Should you experience reproducible systematic issues with missing videos or notice a pattern of video failures, please contact our support team.
 
 When such instances do occur, we prioritize delivering your test results quickly rather than delaying job completion with multiple retry attempts. This approach ensures you receive timely test data and can maintain your development velocity, even in the unlikely event of a missing video recording.
