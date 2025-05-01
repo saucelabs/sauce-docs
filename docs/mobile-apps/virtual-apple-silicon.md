@@ -170,7 +170,11 @@ Check [Appium Version Details](./automated-testing/appium/appium-versions.md#app
 
 Changes to Appium XCUITest Driver v7+ have modified how System alerts are interacted with, potentially requiring modifications to tests run on iOS 18 Simulators.
 
-**Solution**: set `respectSystemsAlerts` setting to `true` — for more details and alernative options see the [Appium documentation](https://appium.github.io/appium-xcuitest-driver/latest/guides/troubleshooting/#interact-with-dialogs-managed-by-comapplespringboard).
+**Solution**: set `respectSystemsAlerts` setting to `true` as in this example:
+```java
+options.setSetting("respectSystemAlerts", true);
+```
+For more details and alernative options see the [Appium documentation](https://appium.github.io/appium-xcuitest-driver/latest/guides/troubleshooting/#interact-with-dialogs-managed-by-comapplespringboard).
 
 ### Changes to Gestures
 
