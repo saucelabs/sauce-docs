@@ -27,7 +27,7 @@ iOS 17.5 and iOS 18 Simulators on Apple Silicon are only available to Enterprise
 
 ### Building Your iOS/iPadOS App
 
-By default, Xcode builds apps for Simulators that support both `arm64` and `x86_64` architectures.
+Xcode can builds apps for Simulators that support both `arm64` and `x86_64` architectures.
 
 To build specifically for **Apple Silicon (arm64)** Simulators:
 
@@ -174,7 +174,7 @@ Changes to Appium XCUITest Driver v7+ have modified how System alerts are intera
 ```java
 options.setSetting("respectSystemAlerts", true);
 ```
-For more details and alernative options see the [Appium documentation](https://appium.github.io/appium-xcuitest-driver/latest/guides/troubleshooting/#interact-with-dialogs-managed-by-comapplespringboard).
+For more details and alternative options see the [Appium documentation](https://appium.github.io/appium-xcuitest-driver/latest/guides/troubleshooting/#interact-with-dialogs-managed-by-comapplespringboard).
 
 ### Changes to Gestures
 
