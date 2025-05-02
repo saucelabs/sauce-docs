@@ -170,7 +170,7 @@ Check [Appium Version Details](./automated-testing/appium/appium-versions.md#app
 
 Changes to Appium XCUITest Driver v7+ have modified how System alerts are interacted with, potentially requiring modifications to tests run on iOS 18 Simulators.
 
-**Solution**: Use the `respectSystemsAlerts` setting ([Settings](https://appium.github.io/appium-xcuitest-driver/latest/reference/settings/), not [Capabilities](https://appium.github.io/appium-xcuitest-driver/latest/reference/capabilities/) to `true` as in this Java example:
+**Solution**: Use the `respectSystemsAlerts` setting ([Settings](https://appium.github.io/appium-xcuitest-driver/latest/reference/settings/), not [Capabilities](https://appium.github.io/appium-xcuitest-driver/latest/reference/capabilities/)) to `true` as in this Java example:
 ```java
 options.setSetting("respectSystemAlerts", true);
 ```
