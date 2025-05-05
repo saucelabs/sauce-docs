@@ -99,7 +99,7 @@ curl -I -v https://api.eu-central-1.saucelabs.com/rest/v1/public/tunnels/info/ve
 
 You should see an HTTP 200 OK response.
 
-If you recieve a timeout, DNS error, or non-200 status, confirm that:
+If you receive a timeout, DNS error, or non-200 status, confirm that:
 - Your network allows outbound HTTPS on port 443.
 - Any corporate proxy is correctly configured (check `$HTTPS_PROXY`/`$HTTP_PROXY`).
 - No internal firewall is blocking traffic to `*.saucelabs.com`.
