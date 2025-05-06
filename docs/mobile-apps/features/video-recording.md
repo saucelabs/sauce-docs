@@ -30,7 +30,7 @@ While your test job is active, you can access a live video stream of the device 
 
 Access to this stream requires Basic Auth.
 
-Be aware that this is a raw data stream and requires parsing to be viewable. The video stream adheres to the [OpenSTF](https://github.com/openstf/minicap?tab=readme-ov-file#usage) standard. Each message that you receive on this web socket represents a screenshot taken on the device.
+Be aware that this is a raw data stream and requires parsing to be viewable. Each message received on this stream represents a screenshot taken on the device in `mjpeg` format.
 
 
 ## Limitations
