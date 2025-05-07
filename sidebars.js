@@ -1033,7 +1033,7 @@ module.exports = {
                             items: [
                                 'secure-connections/sauce-connect-5/operation/overview',
                                 'secure-connections/sauce-connect-5/operation/configuration',
-                                'secure-connections/sauce-connect-5/operation/api-server',
+                                'secure-connections/sauce-connect-5/guides/api-server',
                                 'secure-connections/sauce-connect-5/guides/readiness-checks',
                                 'secure-connections/sauce-connect-5/logging',
                                 'secure-connections/sauce-connect-5/monitoring',
