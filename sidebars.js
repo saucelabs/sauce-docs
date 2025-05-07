@@ -1031,7 +1031,7 @@ module.exports = {
                             label: 'Guides',
                             collapsed: true,
                             items: [
-                                'secure-connections/sauce-connect-5/operation/overview',
+                                'secure-connections/sauce-connect-5/guides/overview',
                                 'secure-connections/sauce-connect-5/guides/configuration',
                                 'secure-connections/sauce-connect-5/guides/api-server',
                                 'secure-connections/sauce-connect-5/guides/readiness-checks',

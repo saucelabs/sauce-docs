@@ -29,7 +29,7 @@ See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/
 </div>
     <div className="box box3 card">
       <div className="container">
-      <h3><a href="/secure-connections/sauce-connect-5/operation/overview">Setup and Configuration</a></h3>
+      <h3><a href="/secure-connections/sauce-connect-5/guides/overview">Setup and Configuration</a></h3>
       <p>Learn how to launch a basic Sauce Connect Proxy tunnel configuration. Once you’re connected, use our code samples to run your first test.</p>
       </div>
     </div>
