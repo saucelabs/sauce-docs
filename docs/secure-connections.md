@@ -59,7 +59,7 @@ See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/
     </div>
     <div className="box box8 card">
       <div className="container">
-      <h3><a href="/secure-connections/sauce-connect-5/operation/tunnel-pool/">Tunnel Pool Setup</a></h3>
+      <h3><a href="/secure-connections/sauce-connect-5/guides/tunnel-pool/">Tunnel Pool Setup</a></h3>
       <p>Set up a high volume of tests to run parallel through multiple Sauce Connect Proxy tunnels to save time.</p>
       </div>
     </div>

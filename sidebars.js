@@ -1039,7 +1039,7 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/monitoring',
                                 'secure-connections/sauce-connect-5/guides/proxies',
                                 'secure-connections/sauce-connect-5/guides/ci-cd-integration',
-                                'secure-connections/sauce-connect-5/operation/tunnel-pool',
+                                'secure-connections/sauce-connect-5/guides/tunnel-pool',
                             ],
                         },
                         {
