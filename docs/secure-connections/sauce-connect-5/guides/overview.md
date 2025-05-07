@@ -100,7 +100,7 @@ sc.exe run --username <your user> --access-key <your access key> --region <us-we
 
 ### Monitoring Tunnels
 
-See the [monitoring overview](/secure-connections/sauce-connect-5/monitoring)
+See the [monitoring overview](/secure-connections/sauce-connect-5/guides/monitoring)
 
 ### Service Management Tools
 
