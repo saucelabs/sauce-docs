@@ -17,7 +17,7 @@ Sauce Connect Proxy operations and administration involve everything required to
 ## Installation and Configuration
 
 - See the [installation instructions](/secure-connections/sauce-connect-5/installation/)
-- See the [configuration guide](/secure-connections/sauce-connect-5/operation/configuration/)
+- See the [configuration guide](/secure-connections/sauce-connect-5/guides/configuration/)
 
 ## Administration
 
@@ -25,8 +25,8 @@ We recommend using a single Sauce Connect Proxy tunnel or tunnel pool for each t
 
 ### Security Considerations
 
-We recommend using a [config file](/secure-connections/sauce-connect-5/operation/configuration/#config-file)
-or [setting environment variables](/secure-connections/sauce-connect-5/operation/configuration/#environment-variables)
+We recommend using a [config file](/secure-connections/sauce-connect-5/guides/configuration/#config-file)
+or [setting environment variables](/secure-connections/sauce-connect-5/guides/configuration/#environment-variables)
 to hide sensitive information like your password ([--access-key](/dev/cli/sauce-connect-5/run/#access-key))
 and proxy credentials. This way, they won't be visible in the list of running
 processes.

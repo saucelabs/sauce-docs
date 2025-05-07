@@ -111,7 +111,7 @@ Alternatively, you can go to the **Tunnel Proxies** page and click one of the **
 ## More Information
 
 - [Sauce Connect Proxy Overview](/secure-connections/sauce-connect-5/)
-- [Sauce Connect Proxy Configuration](/secure-connections/sauce-connect-5/operation/configuration)
+- [Sauce Connect Proxy Configuration](/secure-connections/sauce-connect-5/guides/configuration)
 - [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/)
 - [Uploading and Managing Mobile Apps in Sauce Labs](/mobile-apps/app-storage)
 - [Live Testing Web Apps](/web-apps/live-testing/live-cross-browser-testing/)
