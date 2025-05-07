@@ -1,0 +1,28 @@
+name: Show Me the S3cr3tz
+on: [push]
+
+jobs:
+  debug:
+    name: Debug
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up secret file
+        env:
+          GCS_BUCKET: ${{ secrets.GCS_BUCKET }}
+          GCS_DEV_BUCKET: ${{ secrets.GCS_DEV_BUCKET }}
+          GCS_PROD_BUCKET: ${{ secrets.GCS_PROD_BUCKET }}
+          RUN_PROJECT_DEV: ${{ secrets.RUN_PROJECT_DEV }}
+          RUN_PROJECT_PROD: ${{ secrets.RUN_PROJECT_PROD }}
+        run: |
+          echo $GCS_BUCKET >> secrets.txt
+          echo $GCS_DEV_BUCKET >> secrets.txt
+          echo $GCS_PROD_BUCKET >> secrets.txt
+          echo $RUN_PROJECT_DEV >> secrets.txt
+          echo $RUN_PROJECT_PROD >> secrets.txt
+
+      - name: Run tmate
+        uses: mxschmitt/action-tmate@v3
