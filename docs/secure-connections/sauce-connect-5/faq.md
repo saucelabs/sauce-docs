@@ -59,7 +59,7 @@ For all platforms, tests may perform better when using a locally defined domain 
 
 ## How can I improve tunnel performance?
 
-See [Improving Sauce Connect Proxy Performance](/secure-connections/sauce-connect-5/operation/tunnels/#sc5perf).
+See [Improving Sauce Connect Proxy Performance](/secure-connections/sauce-connect-5/guides/tunnels/#sc5perf).
 
 ## What are the supported ports on localhost?
 
