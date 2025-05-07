@@ -24,7 +24,7 @@ Port 443 is the typical default port for HTTPS traffic. Sauce Connect will use p
 
 You can use the [`-x / --proxy`](/dev/cli/sauce-connect-5/run/#proxy) command-line option (or `SAUCE_PROXY` environment variable) to specify the `hostname:port` of the proxy for all Sauce Connect Proxy traffic to the site(s) under test. In some companies you MUST pass traffic through a proxy to reach the internet.
 
-See also [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-5/operation/proxies).
+See also [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-5/guides/proxies).
 
 ## How can I share a Sauce Connect tunnel between multiple accounts?
 

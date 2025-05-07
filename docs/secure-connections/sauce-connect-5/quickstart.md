@@ -19,7 +19,7 @@ An [`sc legacy`](/dev/cli/sauce-connect-5/legacy/) command is introduced to help
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - If you haven't already, make sure you can access the website or mobile app that you'll be testing from the Sauce Connect Proxy host.
-- Check to see if you have any [proxies](/secure-connections/sauce-connect-5/operation/proxies/) that are required to access the public Internet.
+- Check to see if you have any [proxies](/secure-connections/sauce-connect-5/guides/proxies/) that are required to access the public Internet.
 
 ## Installing Sauce Connect Proxy
 
