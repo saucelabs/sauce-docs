@@ -210,7 +210,3 @@ function FindProxyForURL(url, host) {
   return "PROXY localhost:3128";
 }
 ```
-
-## Transition Timeline
-
-Sauce Connect version 5 was released January 16, 2024 and Sauce Connect version 4 is now in maintenance mode until its scheduled End of Life on December 31, 2024. During this period, other than security patches and bug fixes, all new features for Sauce Connect will be released on version 5 only.
