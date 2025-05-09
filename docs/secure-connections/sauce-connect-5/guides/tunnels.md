@@ -46,7 +46,7 @@ It can also be used to simulate non-loading of scripts, styles, or other resourc
 - Use wildcards to include subdomains by prefixing domain name with a dot `.`
   - Example: `.mydomain.com` will include `sub.mydomain.com` and `sub1.mydomain.com` but not `sub.myotherdomain.com`
 - See [`Formatting domains for CLI`](/dev/cli/sauce-connect-5/run/#formatting-domains)
-- Configuring domains in [YAML config file](/secure-connections/sauce-connect-5/operation/configuration/#config-file)
+- Configuring domains in [YAML config file](/secure-connections/sauce-connect-5/guides/configuration/#config-file)
   ```yaml
   ---
   # this will include all subdomains of example.com as well as dev.httpbin.org

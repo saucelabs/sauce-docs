@@ -19,7 +19,7 @@ An [`sc legacy`](/dev/cli/sauce-connect-5/legacy/) command is introduced to help
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - If you haven't already, make sure you can access the website or mobile app that you'll be testing from the Sauce Connect Proxy host.
-- Check to see if you have any [proxies](/secure-connections/sauce-connect-5/operation/proxies/) that are required to access the public Internet.
+- Check to see if you have any [proxies](/secure-connections/sauce-connect-5/guides/proxies/) that are required to access the public Internet.
 
 ## Installing Sauce Connect Proxy
 
@@ -36,7 +36,7 @@ See the [installation instructions](/secure-connections/sauce-connect-5/installa
    This snippet contains your authentication credentials (username and access key), selects a Sauce Labs Data Center, and applies a name to your tunnel. Optionally, you can rename your tunnel by replacing the value after the <code>--tunnel-name</code> flag.
    </details>
 5. Paste the snippet into your terminal and run it. This will launch the tunnel.
-6. Follow the steps in the [setup instructions](/secure-connections/sauce-connect-5/operation/overview/#running-sauce-connect-proxy) to start Sauce Connect Proxy 5 using the username and the access key obtained in the previous step.
+6. Follow the steps in the [setup instructions](/secure-connections/sauce-connect-5/guides/overview/#running-sauce-connect-proxy) to start Sauce Connect Proxy 5 using the username and the access key obtained in the previous step.
 
 ## Verify Connection
 
@@ -111,7 +111,7 @@ Alternatively, you can go to the **Tunnel Proxies** page and click one of the **
 ## More Information
 
 - [Sauce Connect Proxy Overview](/secure-connections/sauce-connect-5/)
-- [Sauce Connect Proxy Configuration](/secure-connections/sauce-connect-5/operation/configuration)
+- [Sauce Connect Proxy Configuration](/secure-connections/sauce-connect-5/guides/configuration)
 - [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/)
 - [Uploading and Managing Mobile Apps in Sauce Labs](/mobile-apps/app-storage)
 - [Live Testing Web Apps](/web-apps/live-testing/live-cross-browser-testing/)
