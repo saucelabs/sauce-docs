@@ -302,7 +302,7 @@ To launch a tunnel using a **config.yml** file option.
   <TabItem value="Windows">
 
 ```bash
-sc.exe run -c %HOMEPATH%\sc\config.yml
+sauce-connect.exe run -c %HOMEPATH%\sc\config.yml
 ```
 
   </TabItem>
@@ -379,7 +379,7 @@ You can persist Sauce Connect Proxy environment variables by adding them to one 
 6. Confirm that your environment variables have been set by typing `echo %SAUCE_USERNAME%` in your terminal. The response should be your username value. Then do the same for your access key.
 7. Starting a new Sauce Connect Proxy will not require adding required flags.
    ```bash
-   sc.exe
+   sauce-connect.exe
    ```
 
 </TabItem>

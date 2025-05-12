@@ -6,7 +6,7 @@ sidebar_label: Sharing Sauce Connect Proxy Tunnels
 
 You can share Sauce Connect Proxy tunnels based on the hierarchical structure of your [user roles](/basics/acct-team-mgmt/managing-user-info/#user-roles). You can also verify which tunnels are available on the **Tunnels** page in Sauce Labs.
 
-For instructions on running a job using a shared tunnel, refer to the [shared tunnels guide](/secure-connections/sauce-connect-5/guides/overview/#shared-tunnels).
+For instructions on running a job using a shared tunnel, refer to the [shared tunnels guide](/secure-connections/sauce-connect-5/quickstart/#shared-tunnels).
 
 | Role Creating Tunnel | Sharing Options (live testing or test automation)                                         | Use Tunnels (live testing or test automation)              | Stop options (from tunnels page)                  |
 | -------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------- |
