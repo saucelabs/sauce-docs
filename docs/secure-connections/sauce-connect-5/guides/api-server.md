@@ -65,5 +65,5 @@ The `/readyz` response is used to determine when Sauce Connect Proxy is ready to
 
 ## More Information
 
-- [Sauce Connect Proxy Overview](/secure-connections/sauce-connect/)
+- [Sauce Connect Proxy Overview](/secure-connections/sauce-connect-5/)
 - [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/)
