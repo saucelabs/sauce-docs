@@ -1,9 +1,4 @@
-// Load default export (must be a function)
-const unwrapJsx = require('./src/plugins/unwrap-jsx').default;
-
-if (typeof unwrapJsx !== 'function') {
-    throw new Error('unwrapJsx plugin is not a function');
-}
+const unwrapJsx = require('./src/plugins/unwrap-jsx');
 
 // Enabling PR previews
 let siteBaseUrl = '/';
