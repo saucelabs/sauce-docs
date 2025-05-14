@@ -1039,6 +1039,7 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/guides/ci-cd-integration',
                                 'secure-connections/sauce-connect-5/guides/tunnel-pool',
                                 'secure-connections/sauce-connect-5/guides/sharing-tunnel',
+                                'secure-connections/sauce-connect-5/guides/upstream-auth',
                             ],
                         },
                         {

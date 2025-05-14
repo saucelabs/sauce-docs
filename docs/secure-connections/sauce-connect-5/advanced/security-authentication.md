@@ -83,32 +83,6 @@ Having our own cloud enables us to provide our services faster, and with higher 
 
 For an overview of the services offered by Sauce Labs, our methods for securing the transmission of test data and results, and our security policies and procedures, see our white paper, [Overview of Sauce Labs Security Processes](https://saucelabs.com/resources/white-papers/overview-of-sauce-labs-security-processes).
 
-## Authentication Using `--auth`
-
-This approach to authentication works by configuring Sauce Connect Proxy to send authentication details to any URL requesting them. It works for all requests, even those where you're asked for credentials in response to a click or form submission.
-
-For each URL where you need to bypass HTTP authentication, add this to your Sauce Connect Proxy startup command:
-
-```bash
---auth host:port:username:password
-```
-
-If your website doesn't need a port, you can use the default port, `port 80`. Let's say that your website under test is `mysite.com`, your username is `awesometester`, and your password is `supersekrit`. Here's how you'd write your Sauce Connect Proxy startup command:
-
-```bash
---auth mysite.com:80:awesometester:supersekrit
-```
-
-You can use this option multiple times in a row:
-
-```bash
---auth mysite.com:80:awesometester:supersekrit \
---auth myothersite.com:443:awesometester:supersekrit \
---auth mythirdsite.com:80:awesometester:supersekrit
-```
-
-For more information, see [Using Environment Variables for Authentication Credentials](/basics/environment-variables).
-
 ## Certificate Handling
 
 The security of Sauce Connect Proxy communication to both the Sauce Labs API and the virtual machine hosting your tests in the Sauce Labs cloud is managed through [public key certificates](https://en.wikipedia.org/wiki/Public_key_certificate).
