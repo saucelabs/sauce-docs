@@ -1049,7 +1049,6 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'secure-connections/sauce-connect-5/advanced/architecture',
-                                'secure-connections/sauce-connect-5/advanced/security-authentication',
                             ],
                         },
                         {
