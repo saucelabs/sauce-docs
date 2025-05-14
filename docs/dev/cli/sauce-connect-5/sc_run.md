@@ -66,7 +66,7 @@ This flag is, primarily, used by Sauce Labs to assign custom properties to the t
 
 Share the tunnel within the same org unit.
 Only the 'all' option is currently supported.
-See [here](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels/).
+See [here](/secure-connections/sauce-connect-5/guides/sharing-tunnel/).
 
 ### `-t, --tunnel-pool` {#tunnel-pool}
 

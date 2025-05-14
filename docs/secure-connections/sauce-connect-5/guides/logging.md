@@ -18,7 +18,7 @@ Logs are automatically rotated when running Sauce Connect Proxy 5 as a Linux Sys
 For other setups, use the `logrotate` utility.
 
 :::note
-The logrotate integration in Linux and macOS is available in **Sauce Connect Proxy 5.1.2** and later.
+The logrotate integration in Linux and macOS is available since **Sauce Connect Proxy 5.1.2**.
 :::
 
 ### Linux
