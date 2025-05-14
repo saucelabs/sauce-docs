@@ -1035,6 +1035,7 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/guides/logging',
                                 'secure-connections/sauce-connect-5/guides/monitoring',
                                 'secure-connections/sauce-connect-5/guides/proxies',
+                                'secure-connections/sauce-connect-5/guides/tls-resigning',
                                 'secure-connections/sauce-connect-5/guides/inspecting',
                                 'secure-connections/sauce-connect-5/guides/ci-cd-integration',
                                 'secure-connections/sauce-connect-5/guides/tunnel-pool',

@@ -27,7 +27,7 @@ An [`sc legacy`](/dev/cli/sauce-connect-5/legacy/) command is introduced to help
 4. Observability improvement.
    Sauce Connect Proxy 5 comes with [Prometheus](https://prometheus.io/) metrics and a [Grafana dashboard](https://grafana.com/grafana/dashboards/20232-sauce-connect/).
 5. Easier installation and upgrade process. Sauce Connect Proxy 5 release contains deb and rpm packages for Linux, brew support for macOS, as well as x86_64 and arm64 architectures support for all platforms.
-6. Secure [WebSocket](https://en.wikipedia.org/wiki/WebSocket) support with [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) enabled.
+6. Secure [WebSocket](https://en.wikipedia.org/wiki/WebSocket) support with [TLS Resigning](/secure-connections/sauce-connect-5/guides/tls-resigning/) enabled.
 7. [SOCKS5](https://datatracker.ietf.org/doc/html/rfc1928) support for upstream proxies.
 
 ### Major changes
