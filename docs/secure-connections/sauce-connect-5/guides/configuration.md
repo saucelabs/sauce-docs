@@ -492,16 +492,6 @@ You can persist Sauce Connect Proxy environment variables by adding them to one 
 </TabItem>
 </Tabs>
 
-## Configuring Mobile Devices for testing `localhost` {#sc5localhost}
-
-Testing with the address `localhost` (or the IP address `127.0.0.1`) is not supported with iOS or Android real devices in Sauce Connect.
-
-To work around this, you'll need to edit your `hosts` file on the machine on which you are running Sauce Connect. Add an entry for a placeholder hostname (such as `localtestsite`) and the IP address `127.0.0.1`. Requests for `localtestsite` in your tests will then be sent through your Sauce Connect tunnel to `localhost`, which is the machine on which you are running Sauce Connect.
-
-For example, adding `127.0.0.1   mockserver` to your `/etc/hosts` file, then starting a server on `localhost:3333` will route mockserver:3333 HTTP calls to your local server. Mobile tests using Sauce Connect will then be able to find your local server regardless of the nature of your test.
-
-For tips on how to edit your `hosts` file, see [How to Edit Hosts File in Linux, Windows, or Mac](https://phoenixnap.com/kb/how-to-edit-hosts-file-in-windows-mac-or-linux).
-
 ## More Information
 
 - [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect-5/quickstart)
