@@ -8,37 +8,53 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sauce Connect Proxy is required to run a test on an app or website located behind a firewall. Get up and running with a basic Sauce Connect Proxy tunnel in minutes using the steps below.
+Sauce Connect Proxy is essential for securely testing applications or websites that are hosted behind a firewall or on a local network.
+This guide walks you through the fastest way to get up and running with a basic Sauce Connect 5 tunnel, so you can start testing in just a few minutes.
 
-:::caution
-The Sauce Connect Proxy version 5 major release introduces CLI changes. Please refer to [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/) for details.
-An [`sc legacy`](/dev/cli/sauce-connect-5/legacy/) command is introduced to help users transition from version 4.x.x to 5.0.x.
-:::
-
-## What You'll Need
+## Prerequisites
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - If you haven't already, make sure you can access the website or mobile app that you'll be testing from the Sauce Connect Proxy host.
-- Check to see if you have any [proxies](/secure-connections/sauce-connect-5/guides/proxies/) that are required to access the public Internet.
+- Sauce Connect Proxy 5 client installed on your machine. See the [installation instructions](/secure-connections/sauce-connect-5/installation/)
 
-## Installing Sauce Connect Proxy
+## Getting Started
 
-See the [installation instructions](/secure-connections/sauce-connect-5/installation/)
+### Run Sauce Connect Proxy
 
-## Starting Sauce Connect Proxy
+1. Make sure that the directory containing the `sc` binary (or `sauce-connect.exe`, for Windows) is in the `$PATH`. Otherwise, you will have to specify the path to the binary in the command line, i.e. `/path/to/sc`
+2. Define environment variables containing sensitive data: your username and access key
 
-1. Make sure that the directory containing the `sc` binary (`sc.exe` for Windows) is in the `$PATH`. Otherwise, you will have to specify the path to the binary in the command line, `/path/to/sc`
-2. Log in to Sauce Labs.
-3. Go to the [**Tunnel Proxies**](https://app.saucelabs.com/tunnels) page.<br/><img src={useBaseUrl('img/sauce-connect/tunnelsPage.png')} alt="Sauce Connect Proxy Tunnels page" width="400"/>
-4. Under step 2, **Authenticate & connect**, copy the code snippet.<br/><img src={useBaseUrl('img/sauce-connect/configureAuth.png')} alt="Sauce Connect Proxy Tunnels page snippet" width="300"/>
-   <details>
-   <summary>What is this?</summary>
-   This snippet contains your authentication credentials (username and access key), selects a Sauce Labs Data Center, and applies a name to your tunnel. Optionally, you can rename your tunnel by replacing the value after the <code>--tunnel-name</code> flag.
-   </details>
-5. Paste the snippet into your terminal and run it. This will launch the tunnel.
-6. Follow the steps in the [setup instructions](/secure-connections/sauce-connect-5/guides/overview/#running-sauce-connect-proxy) to start Sauce Connect Proxy 5 using the username and the access key obtained in the previous step.
+```bash
+SAUCE_USERNAME=<username>
+SAUCE_ACCESS_KEY=<your access key>
+```
 
-## Verify Connection
+3. Start Sauce Connect Proxy
+
+<Tabs
+  defaultValue="Mac/Linux"
+  values={[
+    {label: 'Mac/Linux', value: 'Mac/Linux'},
+    {label: 'Windows', value: 'Windows'},
+  ]}>
+
+  <TabItem value="Mac/Linux">
+
+```bash
+sc run --tunnel-name $SAUCE_TUNNEL_NAME --region <us-west|us-east|eu-central>
+```
+
+  </TabItem>
+  <TabItem value="Windows">
+
+```bash
+sauce-connect.exe run --tunnel-name $SAUCE_TUNNEL_NAME --region <us-west|us-east|eu-central>
+```
+
+  </TabItem>
+  </Tabs>
+
+### Verify Connection
 
 To confirm your tunnel is up, look for the confirmation message in your terminal:
 
@@ -48,7 +64,7 @@ Sauce Connect is up, you may start your tests
 
 Alternatively, you can check your list of active tunnels on the **Tunnel Proxies** page:<br/><img src={useBaseUrl('img/sauce-connect/tunnelsuccess-ui.png')} alt="Sauce Connect Tunnel Success" width="500"/>
 
-## Run Test
+### Run Test
 
 With your tunnel up and running, try doing a Live <!--or Automated--> local test.
 
@@ -92,7 +108,7 @@ With your tunnel up and running, try doing a Live <!--or Automated--> local test
 </TabItem>
 </Tabs>
 
-## Stop Tunnel
+### Stop Tunnel
 
 When you've finished testing, you can stop your tunnel from the terminal where Sauce Connect is running by entering Ctrl+C.
 If there are jobs that use Sauce Connect Proxy connection, it will wait for them to finish.
@@ -108,10 +124,14 @@ If there are jobs that use Sauce Connect Proxy connection, it will wait for them
 
 Alternatively, you can go to the **Tunnel Proxies** page and click one of the **Stop Tunnels** buttons.<br/><img src={useBaseUrl('img/sauce-connect/tunnelstop-ui.png')} alt="Sauce Connect Tunnel Stop" width="800"/>
 
+## Best Practices
+
+- **Security**: Store credentials securely via [config file](/secure-connections/sauce-connect-5/guides/configuration/#config-file) or [environment variables](/secure-connections/sauce-connect-5/guides/configuration/#environment-variables).
+- **Monitoring**: See [monitoring guide](/secure-connections/sauce-connect-5/guides/monitoring).
+- **Readiness Check**: See [readiness check guide](/secure-connections/sauce-connect-5/guides/readiness-checks/).
+
 ## More Information
 
-- [Sauce Connect Proxy Overview](/secure-connections/sauce-connect-5/)
-- [Sauce Connect Proxy Configuration](/secure-connections/sauce-connect-5/guides/configuration)
 - [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/)
 - [Uploading and Managing Mobile Apps in Sauce Labs](/mobile-apps/app-storage)
 - [Live Testing Web Apps](/web-apps/live-testing/live-cross-browser-testing/)

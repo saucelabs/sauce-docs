@@ -15,21 +15,15 @@ To determine which solution is best for you, see [Overview of Sauce Labs Securit
 See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview) white paper for information about optimizing your network and development environment for Sauce Connect Proxy performance.
 
 <div className="box-wrapper" markdown="1">
-<div className="box box1 card">
-  <div className="container">
-  <h3><a href="/secure-connections/sauce-connect-5">Sauce Connect Proxy Overview</a></h3>
-  <p>Learn about Sauce Connect Proxy and why we recommend it over allowlisting individual IP addresses.</p>
-  </div>
-</div>
-<div className="box box2 card">
-  <div className="container">
-  <h3><a href="/secure-connections/sauce-connect-5/quickstart/">Quickstart</a></h3>
-  <p>Get up and running with Sauce Connect Proxy in minutes.</p>
-  </div>
-</div>
+    <div className="box box1 card">
+      <div className="container">
+      <h3><a href="/secure-connections/sauce-connect-5">Sauce Connect Proxy Overview</a></h3>
+      <p>Learn about Sauce Connect Proxy and why we recommend it over allowlisting individual IP addresses.</p>
+      </div>
+    </div>
     <div className="box box3 card">
       <div className="container">
-      <h3><a href="/secure-connections/sauce-connect-5/guides/overview">Setup and Configuration</a></h3>
+      <h3><a href="/secure-connections/sauce-connect-5/quickstart/">Quickstart</a></h3>
       <p>Learn how to launch a basic Sauce Connect Proxy tunnel configuration. Once you’re connected, use our code samples to run your first test.</p>
       </div>
     </div>

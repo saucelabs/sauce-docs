@@ -310,7 +310,7 @@ Which one is right for you? That depends on your testing goals, number of parall
 
 Regarding of the type of tunnel you launch, it is important to be diligent about assigning names (tunnel identifiers) to each tunnel to distinguish them and ensure smooth testing.
 
-We also recommend verifying if your team has a tunnels setup that you can share. Please note that tunnel sharing should only be undertaken by well-coordinated users. For more information on sharing Sauce Connect Proxy tunnels within your organization, see [Sharing Sauce Connect Proxy Tunnels](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels).
+We also recommend verifying if your team has a tunnels setup that you can share. Please note that tunnel sharing should only be undertaken by well-coordinated users. For more information on sharing Sauce Connect Proxy tunnels within your organization, see [Sharing Sauce Connect Proxy Tunnels](/secure-connections/sauce-connect-5/guides/sharing-tunnel/).
 
 ### Ephemeral (Short-Lived) Tunnels
 

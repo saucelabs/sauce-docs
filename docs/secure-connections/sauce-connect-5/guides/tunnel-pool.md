@@ -68,7 +68,7 @@ sc run --username $SAUCE_USERNAME --access-key $SAUCE_ACCESS_KEY \
 <TabItem value="windows">
 
 ```bash
-sc.exe run --username %SAUCE_USERNAME% --access-key %SAUCE_ACCESS_KEY% ^
+sauce-connect.exe run --username %SAUCE_USERNAME% --access-key %SAUCE_ACCESS_KEY% ^
   --tunnel-name tunnel_name_here ^
   --tunnel-pool
 ```

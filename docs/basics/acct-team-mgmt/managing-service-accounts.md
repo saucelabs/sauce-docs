@@ -141,4 +141,4 @@ Jobs run by service accounts are displayed on the [Automated Test Results page](
 
 ### Using Sauce Connect Proxy with a Service Account
 
-If you plan to run tests through a [Sauce Connect Proxy tunnel](/secure-connections/), be mindful of tunnel sharing options. Service accounts cannot create or manage tunnels, so you must use a tunnel that has been shared with the service account’s assigned team. For detailed configuration instructions, refer to the [shared tunnels section](/secure-connections/sauce-connect-5/guides/overview/#shared-tunnels).
+If you plan to run tests through a [Sauce Connect Proxy tunnel](/secure-connections/), be mindful of tunnel sharing options. Service accounts cannot create or manage tunnels, so you must use a tunnel that has been shared with the service account’s assigned team. For detailed configuration instructions, refer to the [sharing tunnel guide](/secure-connections/sauce-connect-5/guides/sharing-tunnel/).

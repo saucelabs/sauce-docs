@@ -893,7 +893,6 @@ module.exports = {
                                     items: [
                                         'basics/acct-team-mgmt/adding-deleting-teams',
                                         'basics/acct-team-mgmt/assigning-removing-users-teams',
-                                        'basics/acct-team-mgmt/sauce-connect-proxy-tunnels',
                                     ],
                                 },
                                 'basics/acct-team-mgmt/private-device-mgmt',
@@ -1039,6 +1038,7 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/guides/inspecting',
                                 'secure-connections/sauce-connect-5/guides/ci-cd-integration',
                                 'secure-connections/sauce-connect-5/guides/tunnel-pool',
+                                'secure-connections/sauce-connect-5/guides/sharing-tunnel',
                             ],
                         },
                         {

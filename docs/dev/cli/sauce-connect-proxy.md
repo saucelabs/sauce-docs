@@ -97,7 +97,7 @@ You can view the entire list of CLI options by running the `--help` flag.
 
 <p><small>| OPTIONAL | <span className="sauceGreen">4.8.x</span> <span className="sauceGreen">4.9.x</span> | </small></p>
 
-**Description**: Changes tunnel sharing permissions so that all users in an organization can use Sauce Connect Proxy tunnels, rather than just the tunnel owner (admin). For more information, see [Sharing Sauce Connect Proxy Tunnels](/basics/acct-team-mgmt/sauce-connect-proxy-tunnels).<br/>
+**Description**: Changes tunnel sharing permissions so that all users in an organization can use Sauce Connect Proxy tunnels, rather than just the tunnel owner (admin). For more information, see [Sharing Sauce Connect Proxy Tunnels](/secure-connections/sauce-connect-5/guides/sharing-tunnel/).<br/>
 **Environment variable**: `SAUCE_SHARED_TUNNEL`<br/>
 **Shorthand**: `-s`
 
