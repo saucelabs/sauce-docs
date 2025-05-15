@@ -167,7 +167,7 @@ You can also prefix the option with a `-` character to remove it from the list, 
 
 ### Readiness Checks
 
-SC5 has been designed to integrate with Kubernetes and other container management systems. The `readyfile` and `status-address` options have been replaced by the `api-address` option. See [Readiness Checks](https://docs.saucelabs.com/secure-connections/sauce-connect-5/guides/readiness-checks/) for more details.
+SC5 has been designed to integrate with Kubernetes and other container management systems. The `readyfile` and `status-address` options have been replaced by the `api-address` option. See [Readiness Checks](/secure-connections/sauce-connect-5/guides/readiness-checks/) for more details.
 
 ### PID Files
 
