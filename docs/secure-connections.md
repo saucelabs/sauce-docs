@@ -4,51 +4,51 @@ title: Sauce Trusted Connection
 sidebar_label: Getting Started
 ---
 
-If your company has firewall rules that limit your ability to run tests on Sauce Labs, you can use our Secure Connection features to connect to Sauce Labs in the cloud without exposing your company's IT infrastructure to security risks.
+If firewall restrictions at your company limit your ability to run tests on Sauce Labs, our Secure Connection solutions enable you to safely connect to the Sauce Labs cloud without exposing your internal IT infrastructure.
 
-We offer two options to provide an extra layer of security to protect test data in flight between the Sauce Labs cloud and your app or site under test on your network. Both of these solutions, Sauce Connect Proxy and Sauce IPSec Proxy, support secure connectivity using TLS 1.2 or above.
+We offer two secure connectivity options - Sauce Connect and Sauce IPSec Proxy - both of which encrypt test data in transit using TLS 1.2 or higher, providing an additional layer of security between the Sauce Labs cloud and your application or website.
 
-To determine which solution is best for you, see [Overview of Sauce Labs Security Processes](https://saucelabs.com/resources/white-papers/overview-of-sauce-labs-security-processes).
+To select the best solution for your needs, review our [Overview of Sauce Labs Security Processes](https://saucelabs.com/resources/white-papers/overview-of-sauce-labs-security-processes).
 
-## Sauce Connect Proxy
+## Sauce Connect
 
-See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview) white paper for information about optimizing your network and development environment for Sauce Connect Proxy performance.
+For guidance on optimizing your network and development environment for Sauce Connect performance, see our [Sauce Connect Security Overview](https://saucelabs.com/resources/white-papers/sauce-connect-proxy-security-overview) white paper.
 
 <div className="box-wrapper" markdown="1">
     <div className="box box1 card">
       <div className="container">
-      <h3><a href="/secure-connections/sauce-connect-5">Sauce Connect Proxy Overview</a></h3>
-      <p>Learn about Sauce Connect Proxy and why we recommend it over allowlisting individual IP addresses.</p>
+      <h3><a href="/secure-connections/sauce-connect-5">Sauce Connect Overview</a></h3>
+      <p>Learn about Sauce Connect and why we recommend it over allowlisting individual IP addresses.</p>
       </div>
     </div>
     <div className="box box2 card">
       <div className="container">
       <h3><a href="/secure-connections/sauce-connect-5/quickstart/">Quickstart</a></h3>
-      <p>Learn how to launch a basic Sauce Connect Proxy tunnel configuration. Once you’re connected, use our code samples to run your first test.</p>
+      <p>Follow our step-by-step instructions to quickly set up and launch Sauce Connect.</p>
       </div>
     </div>
     <div className="box box3 card">
       <div className="container">
       <h3><a href="/dev/cli/sauce-connect-5">CLI Reference</a></h3>
-      <p>Learn how to use our CLI flags to communicate with the Sauce Labs cloud from your private network.</p>
+      <p>Learn how to use CLI flags to configure Sauce Connect.</p>
       </div>
     </div>
     <div className="box box4 card">
       <div className="container">
       <h3><a href="/secure-connections/sauce-connect-5/guides/ci-cd-integration">CI/CD Integration</a></h3>
-      <p>Streamline your Sauce Connect Proxy automated functional testing by integrating your preferred build provider with Sauce Labs.</p>
+      <p>Integrate Sauce Connect with your CI/CD pipeline to enable seamless, automated functional testing behind your firewall.</p>
       </div>
     </div>
     <div className="box box5 card">
       <div className="container">
-      <h3><a href="/secure-connections/sauce-connect/proxy-tunnels">Using Tunnels</a></h3>
-      <p>Best practices for starting, stopping, and monitoring tunnels.</p>
+      <h3><a href="/secure-connections/sauce-connect-5/system-requirements">System Requirements</a></h3>
+      <p>Learn about Sauce Connect System Requirements.</p>
       </div>
     </div>
     <div className="box box6 card">
       <div className="container">
       <h3><a href="/secure-connections/sauce-connect-5/guides/tunnel-pool/">Tunnel Pool Setup</a></h3>
-      <p>Set up a high volume of tests to run parallel through multiple Sauce Connect Proxy tunnels to save time.</p>
+      <p>Run high volumes of parallel tests efficiently by configuring multiple Sauce Connect tunnels in a pool.</p>
       </div>
     </div>
   </div>
@@ -86,23 +86,23 @@ Sauce IPSec Proxy establishes a VPN connection between two IPSec gateways, and a
 
 ## Choosing the Right Solution
 
-Sauce Connect Proxy and Sauce IPSec Proxy accomplish the same thing: establish a secure connection between apps hosted on your private network and Sauce Labs cloud virtual machines and real devices. The main differences are:
+Sauce Connect and Sauce IPSec Proxy accomplish the same thing: establish a secure connection between apps hosted on your private network and Sauce Labs cloud virtual machines and real devices. The main differences are:
 
 <table>
   <tr>
-   <td><strong>Sauce Connect Proxy</strong></td>
+   <td><strong>Sauce Connect</strong></td>
    <td><strong>Sauce IPSec Proxy</strong></td>
   </tr>
   <tr>
-   <td>By default, the Sauce Connect Proxy client starts a single tunnel. For high-volume testing, we recommend High Availability tunnel pools, which you can launch using designated <a href="/dev/cli/sauce-connect-proxy">Sauce Connect Proxy command-line options</a>.</td>
-   <td>Sauce IPSec Proxy is a static setup with two tunnel gateways that are pre-configured in High Availability mode.</td>
+   <td>By default, the Sauce Connect client starts a single tunnel. For high-volume testing, we recommend tunnel pools, which you can launch using designated <a href="/secure-connections/sauce-connect-5/guides/tunnel-pool/">Sauce Connect options</a>.</td>
+   <td>Sauce IPSec Proxy is a static setup with two tunnel gateways that are pre-configured in pool mode.</td>
   </tr>
   <tr>
    <td>You can manage tunnel lifespan by launching different types of tunnels: ephemeral (per-build) tunnels or long-running tunnels.</td>
    <td>Sauce IPSec Proxy tunnels are long-running, by default.</td>
   </tr>
   <tr>
-   <td>Sauce Connect Proxy client (binary) runs within your network to establish the tunnels, which use proprietary protocol over TLS 1.2.</td>
+   <td>Sauce Connect client (binary) runs within your network to establish the tunnels, which use proprietary protocol over TLS 1.2.</td>
    <td>Sauce IPSec Proxy tunnels use industry standards to establish connection and offer two options for routing traffic to sites and apps under test.</td>
   </tr>
   <tr>
@@ -110,7 +110,7 @@ Sauce Connect Proxy and Sauce IPSec Proxy accomplish the same thing: establish a
    <td><a href="https://saucelabs.com/pricing">Enterprise Plans</a> only.</td>
   </tr>
   <tr>
-   <td>Regardless of your license type (free-trial, self-serve, enterprise), you can download and use Sauce Connect Proxy.</td>
+   <td>Regardless of your license type (free-trial, self-serve, enterprise), you can download and use Sauce Connect.</td>
    <td>Requires a custom setup between your network and the Sauce Labs cloud prior to use.</td>
   </tr>
   <tr>
