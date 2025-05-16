@@ -16,7 +16,7 @@ By using the [`--auth`](/dev/cli/sauce-connect-5/run/#auth) flag, you can instru
 - Authentication challenges triggered by clicks or form submissions.
 
 :::note
-All domains specified via the [`--auth`](/dev/cli/sauce-connect-5/run/#auth) flag are automatically [resigned](https://docs.saucelabs.com/secure-connections/sauce-connect-5/advanced/security-authentication/#ssl-certificate-bumping), as if they were passed using the [`--tls-resign-domains`](/dev/cli/sauce-connect-5/run/#tls-resign-domains) flag.
+All domains specified via the [`--auth`](/dev/cli/sauce-connect-5/run/#auth) flag are automatically [resigned](/secure-connections/sauce-connect-5/guides/tls-resigning/), as if they were passed using the [`--tls-resign-domains`](/dev/cli/sauce-connect-5/run/#tls-resign-domains) flag.
 :::
 
 ## Usage

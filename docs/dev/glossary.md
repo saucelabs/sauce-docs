@@ -618,7 +618,7 @@ An end-to-end process used to develop, plan, design, build, test, and deploy sof
 
 ### SSL Bumping
 
-A feature of Sauce Connect Proxy that automatically re-signs self-signed and invalid SSL certificates, which are not trusted by stock browsers like those installed on the Sauce Labs infrastructure. With SSL Bumping, your tests will not be interrupted with security warnings that can't be dismissed by Selenium. More information: [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping).
+A feature of Sauce Connect Proxy that automatically re-signs self-signed and invalid SSL certificates, which are not trusted by stock browsers like those installed on the Sauce Labs infrastructure. With SSL Bumping, your tests will not be interrupted with security warnings that can't be dismissed by Selenium. More information: [SSL Certificate Bumping](/secure-connections/sauce-connect-5/guides/tls-resigning/).
 
 ### Stacktrace
 

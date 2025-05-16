@@ -21,37 +21,31 @@ See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/
       <p>Learn about Sauce Connect Proxy and why we recommend it over allowlisting individual IP addresses.</p>
       </div>
     </div>
-    <div className="box box3 card">
+    <div className="box box2 card">
       <div className="container">
       <h3><a href="/secure-connections/sauce-connect-5/quickstart/">Quickstart</a></h3>
       <p>Learn how to launch a basic Sauce Connect Proxy tunnel configuration. Once you’re connected, use our code samples to run your first test.</p>
       </div>
     </div>
-    <div className="box box4 card">
+    <div className="box box3 card">
       <div className="container">
       <h3><a href="/dev/cli/sauce-connect-5">CLI Reference</a></h3>
       <p>Learn how to use our CLI flags to communicate with the Sauce Labs cloud from your private network.</p>
       </div>
     </div>
-    <div className="box box5 card">
+    <div className="box box4 card">
       <div className="container">
       <h3><a href="/secure-connections/sauce-connect-5/guides/ci-cd-integration">CI/CD Integration</a></h3>
       <p>Streamline your Sauce Connect Proxy automated functional testing by integrating your preferred build provider with Sauce Labs.</p>
       </div>
     </div>
-    <div className="box box6 card">
+    <div className="box box5 card">
       <div className="container">
       <h3><a href="/secure-connections/sauce-connect/proxy-tunnels">Using Tunnels</a></h3>
       <p>Best practices for starting, stopping, and monitoring tunnels.</p>
       </div>
     </div>
-    <div className="box box7 card">
-      <div className="container">
-      <h3><a href="/secure-connections/sauce-connect/security-authentication">Security and Authentication</a></h3>
-      <p>Settings and tips for configuring Sauce Connect Proxy with your network.</p>
-      </div>
-    </div>
-    <div className="box box8 card">
+    <div className="box box6 card">
       <div className="container">
       <h3><a href="/secure-connections/sauce-connect-5/guides/tunnel-pool/">Tunnel Pool Setup</a></h3>
       <p>Set up a high volume of tests to run parallel through multiple Sauce Connect Proxy tunnels to save time.</p>
