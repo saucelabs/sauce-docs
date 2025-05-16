@@ -53,7 +53,7 @@ Entering this code -- `(www.)?google-analytics.com,(www.)?googletagmanager.com,(
 
 You can access `localhost` through Sauce Connect on Virtual Desktop Browser tests. However, you cannot proxy `localhost` or 127.0.0.1 connections on any Mobile tests, whether they are Emulators, Simulators, or Real Devices.
 
-When using Sauce Connect Proxy, local websites running on commonly used ports are available to test at `localhost` or 127.0.0.1 URLs. The exception is when testing on Real or Virtual Mobile Devices. Real and Virtual Mobile tests require changes to the `/etc/hosts` file where Sauce Connect Proxy is hosted. For more information, see [Testing Mobile Devices Against localhost](/secure-connections/sauce-connect-5/specifications/localhost-ports/#configuring-mobile-devices-for-testing-localhost).
+When using Sauce Connect Proxy, local websites running on commonly used ports are available to test at `localhost` or 127.0.0.1 URLs. The exception is when testing on Real or Virtual Mobile Devices. Real and Virtual Mobile tests require changes to the `/etc/hosts` file where Sauce Connect Proxy is hosted. For more information, see [Testing Mobile Devices Against localhost](/secure-connections/sauce-connect-5/guides/localhost-proxying/#configuring-mobile-devices-for-testing-localhost).
 
 For all platforms, tests may perform better when using a locally defined domain name (which can be set in your [`hosts` file](http://en.wikipedia.org/wiki/Hosts_file)) rather than `localhost`. Using a locally defined domain name also allows access to apps on any port. If you are using a parent proxy with Sauce Connect, you may need the [`--proxy-localhost` flag](/dev/cli/sauce-connect-5/run/#proxy-localhost).
 
@@ -63,7 +63,7 @@ See [Improving Sauce Connect Proxy Performance](/secure-connections/sauce-connec
 
 ## What are the supported ports on localhost?
 
-See [Ports for proxying localhost traffic](/secure-connections/sauce-connect-5/specifications/localhost-ports).
+See [Ports for proxying localhost traffic](/secure-connections/sauce-connect-5/guides/localhost-proxying).
 
 ## What are the optimal open file settings? {#sc5openfiles}
 
