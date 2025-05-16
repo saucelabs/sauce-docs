@@ -1,123 +1,97 @@
 ---
 id: proxies
 title: Sauce Connect 5 Setup with Additional Proxies
-sidebar_label: Additional Proxies
+sidebar_label: Proxies
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::caution
-The Sauce Connect Proxy 4.x.x version of this article is [here](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
-:::
+This guide explains how to configure additional proxies for routing network traffic originating from a Sauce Connect 5 client. Setting up proxies can help meet your organization's requirements for:
 
+- Network security and traffic control
+- Compliance with corporate internet usage policies
+- Traffic monitoring or caching mechanisms
 
-This guide is intended for users who need to set up additional proxies to route traffic originated from their Sauce Connect Proxy client. Additional proxies may be configured for various purposes
-such as improved network security, corporate internet usage policy, traffic monitoring, or caching. Sauce Connect Proxy network traffic includes:
+Sauce Connect 5 handles two types of network traffic:
 
-- Traffic between Sauce Labs and a Sauce Connect Proxy client.
-  - Connections are initiated by a Sauce Connect Proxy client.
-  - Requests between a Sauce Connect Proxy client and the Sauce Labs REST API service, such as start and stop requests and status updates.
-  - Sauce Connect Proxy long-lived HTTP/2 tunnel connection.
-- Traffic between Sauce Connect Proxy and the internet or internal servers serving data that your tests running on Sauce Labs infrastructure use.
-  - This traffic originates from Sauce Labs-hosted browsers and mobile devices that are running your tests.
+- **Sauce Labs Traffic:**
+  - REST API communication (e.g., start/stop requests, status updates)
+  - Long-lived HTTP/2 tunnel connection between the client and Sauce Connect servers
+- **Test Traffic:**
+  - Requests from Sauce Labs browsers or devices to the Site Under Test (SUT) on your internal or public network
 
-## Setting Up Sauce Connect With Your Proxy Server
+## Configuring Sauce Connect 5 with Proxies
 
-Two types of network traffic that are relevant to using proxy servers with Sauce Connect Proxy:
+You can route traffic through proxy servers by using the following command-line options (see the [CLI reference](/dev/cli/sauce-connect-5/run)):
 
-- **Test Traffic:** The Sauce Connect Proxy communicates with the Site Under Test (SUT) running in your network or public internet.
-- **Sauce Labs traffic**
-  - **REST API Traffic:** The Sauce Connect Proxy client running on your network communicates to our REST API service some basic information about the Sauce Connect Proxy's status (for example, starting up, ready, stopping).
-  - **Tunnel Traffic:** The Sauce Connect Proxy client establishes a secure long-lived connection to the Sauce Connect Proxy server in the Sauce Labs cloud to multiplex the SUT-bound traffic.
+- [`--proxy`](/dev/cli/sauce-connect-5/run/#proxy): proxy for test traffic (SUT)
+- [`--pac`](/dev/cli/sauce-connect-5/run/#pac): proxy auto-configuration for test traffic
+- [`--proxy-sauce`](/dev/cli/sauce-connect-5/run/#proxy-sauce): proxy for Sauce Labs REST API and tunnel
+- [`--auth`](/dev/cli/sauce-connect-5/run/#auth): configuring proxy authentication separately
 
-To configure Sauce Connect Proxy to use your proxy or proxies, you will need to include one or more Sauce Connect command-line options (see the [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-5/run)).
+### Proxied Site Under Test (SUT)
 
-- [`-x`/`--proxy`](/dev/cli/sauce-connect-5/run/#proxy) allows configuring proxy
-for SUT (test) traffic.
-- [`--pac`](/dev/cli/sauce-connect-5/run/#pac) allows configuring proxy for SUT
-(test) traffic via Proxy Auto-Configuration (PAC).
-- [`--proxy-sauce`](/dev/cli/sauce-connect-5/run/#proxy-sauce) allows
-configuring proxy for Sauce Labs REST API traffic and the tunnel traffic.
-- [`--auth`](/dev/cli/sauce-connect-5/run/#auth) allows configuring proxy authentication separately.
+In this configuration, the Site Under Test (SUT) is behind a proxy (sometimes also called an upstream proxy).
+This setup controls access to the SUT by IP allow-listing or by restricting proxy access to users with valid username/password credentials.
+Depending on your setup, this proxy may or may not be able to access the public internet.
 
-## Proxied Site Under Test (SUT)
+#### `--proxy`
 
-In this configuration, the Site Under Test (SUT) is behind a proxy (sometimes also called an upstream proxy), see the diagram below. This setup controls access to the SUT by IP allow-listing or by restricting proxy access to users with valid username/password credentials. Depending on your setup, this proxy may or may not be able to access the public internet.
+Use the [`--proxy`](/dev/cli/sauce-connect-5/run/#proxy) flag to define a proxy for test traffic in the format:
+`[protocol://][user:pass@host:port]`
 
-<img src={useBaseUrl('img/sauce-connect/scp5-sut-proxy.png')} alt="Site Under Test (SUT) behind a proxy" width="800"/>
+Supported protocols are HTTP, HTTPS, SOCKS, and SOCKS5. If not specified, the default protocol is HTTP.
+* HTTP: `--proxy local.dev:8080`
+* HTTP: `--proxy http://local.dev:8080`
+* HTTPS: `--proxy https://local.dev:4443`
+* SOCKS5: `--proxy socks5//stunnel.local.dev:4443`
 
-### `--proxy`
-
-The [`-x`/`--proxy`](/dev/cli/sauce-connect-5/run/#proxy) sets a proxy using
-the following format: `[protocol://][user:pass@host:port]`. For example,
-`https://user:auth@internal.dev:443`.
-
-- Supported protocols are HTTP, HTTPS, SOCKS, and SOCKS5. If not specified, the default protocol is HTTP. Examples of different protocols:
-  - HTTP: `--proxy local.dev:8080`
-  - HTTP: `--proxy http://local.dev:8080`
-  - HTTPS: `--proxy https://local.dev:4443`
-  - SOCKS5: `--proxy socks5//stunnel.local.dev:4443`
-- Authentication is optional and added if your proxy requires it. Alternatively,
-the authentication can be configured via the [`--auth`](/dev/cli/sauce-connect-5/run/#auth) flag. For example:
-  - `--proxy https://user:auth@local.dev:4443` or `--proxy https://local.dev:4443 --auth user:auth@local.dev:4443`
+Authentication is optional and added if your proxy requires it. Alternatively, the authentication can be configured via the [`--auth`](#--auth) flag. For example:
+* `--proxy https://user:auth@local.dev:4443`
+* `--proxy https://local.dev:4443 --auth user:auth@local.dev:4443`
 
 :::note
-The [`--proxy`](/dev/cli/sauce-connect-5/run/#proxy) flag configures the proxy
-for test traffic only. Use the [`--proxy-sauce`](#--proxy-sauce) flag to configure
-a proxy for the Sauce Labs REST API and Sauce Connect Server traffic.
+The `--proxy` flag applies only to test traffic. To configure a proxy for communication with Sauce Labs services, use [`--proxy-sauce`](#--proxy-sauce)
 :::
 
-### `--pac`
+#### `--pac`
 
-Sometimes, proxy configuration for test traffic is more complex having just a single proxy for all resources. For example, your organization may have multiple proxy servers that allow access to different URL types i.e. one proxy for internal sites and another one for the public internet.
-Sauce Connect Proxy allows configuring multiple proxies using industry-standard Proxy Auto-Configuration (PAC) with the [`--pac`](/dev/cli/sauce-connect-5/run/#pac) flag. The argument can be a local path or a URL. For example:
+For more complex setups, Sauce Connect allows configuring multiple proxies using industry-standard Proxy Auto-Configuration (PAC) with the [`--pac`](/dev/cli/sauce-connect-5/run#pac) flag.
+The argument can be a local path or a URL.
 
-- A relative path to a file, `--pac ../../relative/directory/my.pac`
-- An absolute path to a file, `--pac /path/to/my.pac`
-- A local file URL, `--pac file:///path/to/my.pac`
-- A remote URL, `--pac http://internal.dev:8080/my.pac`
+* Relative path: `--pac ../../relative/path/proxy.pac`
+* Absolute path: `--pac /etc/sc5/proxy.pac`
+* File URL: `--pac file:///etc/sc5/proxy.pac`
+* Remote URL: `--pac http://proxy.local/proxy.pac`
 
-If needed, proxy authentication can be specified with [`--auth`](#--auth)
+Authentication can be configured via [`--auth`](#--auth) if required.
 
 :::note
-The [`--pac`](/dev/cli/sauce-connect-5/run/#pac) flag configures the proxy for
-test traffic only. Use the [`--proxy-sauce`](#--proxy-sauce) flag to configure a
-proxy for the Sauce Labs REST API and Sauce Connect Server traffic.
+The `--pac` flag configures proxies for test traffic only. To proxy Sauce Labs API and tunnel traffic, use [`--proxy-sauce`](#--proxy-sauce).
 :::
 
-### `--auth`
+#### `--auth`
 
-Allows setting site or upstream proxy basic authentication credentials in the format `username:password@host:port`.
-Either host or port can be set to `"*"` to match all. The flag can be specified multiple times to add multiple credentials.
+Use the [`--auth`](/dev/cli/sauce-connect-5/run#auth) flag to provide credentials for authenticating with an upstream proxy that requires them.
+Networks that enforce access control on proxy usage require this flag for successful authentication.
+For detailed usage see the [Upstream Authentication guide](/secure-connections/sauce-connect-5/guides/upstream-auth/).
 
-Examples:
+### Proxied Sauce Labs REST API and Tunnel Server
 
-- Set authentication for an upstream proxy on port 4443: `--proxy https://local.dev:4443 --auth user:auth@local.dev:4443`
-- Set authentication for an upstream proxy on all ports: `--proxy https://local.dev:4443 --auth "user:auth@local.dev:*"`
-- Set authentication to a website: `--auth "user:auth@httpbin.org*"`
-- Set authentication for different proxies returned by PAC: `--auth user1:auth1@proxy.myorg.net:443 --auth user2:auth2@local.dev:4443 --pac ./mypac.pac`
+Use this configuration when Sauce Connect Client must reach Sauce Labs services via a corporate proxy. This proxy must allow outbound access to Sauce Labs over the public internet.
 
-## Proxied Sauce Labs REST API and Sauce Connect Server
+#### `--proxy-sauce`
 
-In this configuration, requests to Sauce Labs are behind a proxy, see the diagram below. This proxy must be able to access Sauce Labs over the public internet.
+Use the [`--proxy-sauce`](/dev/cli/sauce-connect-5/run/#proxy-sauce) flag to specify a proxy for:
+* REST API traffic
+* Long-lived tunnel connections to the Sauce Connect server
 
-<img src={useBaseUrl('img/sauce-connect/scp5-sauce-proxy.png')} alt="Sauce behind a proxy" width="800"/>
+Format: `[protocol://][user:pass@host:port]`
 
-### `--proxy-sauce`
-
-The [`--proxy-sauce`](/dev/cli/sauce-connect-5/run/#proxy-sauce) defines a proxy
-that Sauce Connect should use to route requests to the Sauce Labs REST API
-service and Sauce Connect Proxy Server. The proxy URL format is the same as for
-the [`--proxy`](#--proxy) flag.
-
-This flag is introduced in version 5.0.0 to allow separate proxy configuration
-for test traffic and the tunnel traffic without using a more complex [`--pac`](/dev/cli/sauce-connect-5/run/#pac)
-flag.
+This lets you route Sauce Labs communication through a separate proxy from your test traffic, without relying on a PAC file.
 
 :::note
-The [`--proxy-sauce`](/dev/cli/sauce-connect-5/run/#proxy-sauce) flag configures
-the Sauce Labs REST API and a tunnel server traffic only. Use the [`--proxy`](#--proxy)
-flag to configure a proxy for the test traffic.
+The `--proxy-sauce` flag configures only the Sauce Labs API and tunnel traffic. Use [`--proxy`](#--proxy) or [`--pac`](#--pac) for test traffic.
 :::
