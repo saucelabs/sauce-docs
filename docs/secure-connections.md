@@ -41,8 +41,8 @@ See our [Sauce Connect Proxy Security Overview](https://saucelabs.com/resources/
     </div>
     <div className="box box5 card">
       <div className="container">
-      <h3><a href="/secure-connections/sauce-connect/proxy-tunnels">Using Tunnels</a></h3>
-      <p>Best practices for starting, stopping, and monitoring tunnels.</p>
+      <h3><a href="/secure-connections/sauce-connect-5/system-requirements">System Requirements</a></h3>
+      <p>Learn about Sauce Connect System Requirements.</p>
       </div>
     </div>
     <div className="box box6 card">
