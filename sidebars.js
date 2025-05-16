@@ -1034,6 +1034,7 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/guides/readiness-checks',
                                 'secure-connections/sauce-connect-5/guides/logging',
                                 'secure-connections/sauce-connect-5/guides/monitoring',
+                                'secure-connections/sauce-connect-5/guides/localhost-proxying',
                                 'secure-connections/sauce-connect-5/guides/proxies',
                                 'secure-connections/sauce-connect-5/guides/tls-resigning',
                                 'secure-connections/sauce-connect-5/guides/inspecting',
@@ -1049,14 +1050,6 @@ module.exports = {
                             collapsed: true,
                             items: [
                                 'secure-connections/sauce-connect-5/advanced/architecture',
-                            ],
-                        },
-                        {
-                            type: 'category',
-                            label: 'Specifications',
-                            collapsed: true,
-                            items: [
-                                'secure-connections/sauce-connect-5/specifications/localhost-ports',
                             ],
                         },
                         // DO NOT include these sections before checked and improved
