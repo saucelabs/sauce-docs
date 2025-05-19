@@ -50,7 +50,7 @@ The example above uses `--network="host"` docker option to allow Sauce Connect i
 
 ## Configuring Sauce Connect Proxy Using Environment Variables
 
-It is convenient to configure Sauce Connect Proxy Docker via [environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/#command-line-options-environment-variables) when it is used as a Gitlab service or [GitHub Action](https://github.com/saucelabs/sauce-connect-action).
+It is convenient to configure Sauce Connect Proxy Docker via [environment variables](/secure-connections/sauce-connect-4/setup-configuration/environment-variables/#command-line-options-environment-variables) when it is used as a Gitlab service or [GitHub Action](https://github.com/saucelabs/sauce-connect-action).
 
 Below is an example of configuring Sauce Connect Proxy using environment variables. The example uses 4.8.x specific options that could not work with the previous versions.
 

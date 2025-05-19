@@ -62,7 +62,7 @@ With Sauce Labs you can run live tests of your web apps using native browsers fo
 
 ### What You'll Need
 
-Know if your app is designed to run on internal or otherwise restricted networks. If it does and you're testing on real devices, use Sauce Connect Proxy to connect. For more information, see the [Sauce Connect Proxy setup for Real Device Cloud](/secure-connections/sauce-connect/setup-configuration/specialized-environments).
+Know if your app is designed to run on internal or otherwise restricted networks. If it does and you're testing on real devices, use Sauce Connect Proxy to connect. For more information, see the [Sauce Connect Proxy setup for Real Device Cloud](/secure-connections/sauce-connect-4/setup-configuration/specialized-environments).
 
 ### Real Device
 
@@ -118,7 +118,7 @@ When you are done testing, [you can opt to select an outcome and enter a name fo
    <img src={useBaseUrl('img/live-testing/live-mobile-virtual-nav.png')} alt="Live mobile virtual device test navigation" width="650"/>
 
 3. In the **URL** field, enter the URL of the website you want to test.
-4. If you are using Sauce Connect Proxy to access the web app you want to test, select the tunnel from the dropdown list. For more information about Sauce Connect Proxy, see [Using Sauce Connect Proxy](/secure-connections/sauce-connect).
+4. If you are using Sauce Connect Proxy to access the web app you want to test, select the tunnel from the dropdown list. For more information about Sauce Connect Proxy, see [Using Sauce Connect Proxy](/secure-connections/sauce-connect-4).
 5. In the **Manufacturer**, **Device**, and **OS Version** dropdowns, select the specifications for the virtual device you want to use.
 6. Click **Start Test**.
    The loading screen appears, and then the URL you entered launches in a live test window using the virtual device you selected.
@@ -207,7 +207,7 @@ If you're on an older version, this may cause incompatibilities. Update your bro
 
 #### Check Your Firewall
 
-Make sure that your machine allows full access for the interactive stream over the required ports (see the [Sauce Connect Proxy FAQ](/secure-connections/sauce-connect/faq)).
+Make sure that your machine allows full access for the interactive stream over the required ports (see the [Sauce Connect Proxy FAQ](/secure-connections/sauce-connect-4/faq)).
 
 #### Confirm That Your Internet Connection is Stable
 

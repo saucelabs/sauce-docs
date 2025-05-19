@@ -16,7 +16,7 @@ Keep in mind that these are guidelines. Most environments have their own workloa
 
 - Minimum 2 core x 8 GB Machine.
 - We recommend using the [cURL command line](https://curl.haxx.se/download.html) or an equivalent tool to ensure that any error messages you receive are precise and actionable. If you're not familiar with the tool, [review their docs here](https://curl.se/docs) and then install cURL on your local machine.
-- For macOS and other Unix-based systems, set your [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) to at least 64000. See [What are the optimal open file settings?](/secure-connections/sauce-connect/faq/#what-are-the-optimal-open-file-settings).
+- For macOS and other Unix-based systems, set your [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-linux/) to at least 64000. See [What are the optimal open file settings?](/secure-connections/sauce-connect-4/faq/#what-are-the-optimal-open-file-settings).
 
 ## Supported Operating Systems
 
@@ -76,7 +76,7 @@ As an important step prior to downloading Sauce Connect Proxy, you or your syste
    - [https://api.eu-central-1.saucelabs.com](https://api.eu-central-1.saucelabs.com/) for EU-Central region
 
    If you can get a `200 OK` response from all URLs above, you are ready to start Sauce Connect!
-   As an alternative, you can just try to [start a tunnel](/secure-connections/sauce-connect/quickstart/#start-tunnel)
+   As an alternative, you can just try to [start a tunnel](/secure-connections/sauce-connect-4/quickstart/#start-tunnel)
    and check the console output.
 
 ## Configuring Your System to Use Sauce Connect
@@ -171,8 +171,8 @@ The below recommendations are for Linux VMs.
 
 - If you're running **50 or more parallel tests**, we recommend a minimum network bandwidth of 450 Mbps to support the high volume of network traffic.
 - If you're running **100 or more parallel tests**, we recommend a minimum network bandwidth of 750 Mbps to support the high volume of network traffic.
-- For best performance, stability, and security, we recommend using a dedicated server for each tunnel (see [Sauce Connect Proxy Network Security](/secure-connections/sauce-connect/security-authentication)).
-- If you're running **60 or more parallel tests**, we recommend launching more than one tunnel and using the [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
+- For best performance, stability, and security, we recommend using a dedicated server for each tunnel (see [Sauce Connect Proxy Network Security](/secure-connections/sauce-connect-4/security-authentication)).
+- If you're running **60 or more parallel tests**, we recommend launching more than one tunnel and using the [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect-4/setup-configuration/high-availability).
 
 These are recommendations for the number of Sauce Connect tunnels by number of tests running in parallel:
 
@@ -215,7 +215,7 @@ These are recommendations for the number of Sauce Connect tunnels by number of t
 
 Sauce Connect Proxy must be set up on the same network as your test devices. It does not, however, need to be set up on the same machine as the website or app you're testing.
 
-[What Not to Do: Common Mistakes in Sauce Connect Proxy Network Configurations](/secure-connections/sauce-connect/troubleshooting) illustrates some examples of network architectures in which Sauce Connect will not be able to create a tunnel or will be too slow to carry out effective testing.
+[What Not to Do: Common Mistakes in Sauce Connect Proxy Network Configurations](/secure-connections/sauce-connect-4/troubleshooting) illustrates some examples of network architectures in which Sauce Connect will not be able to create a tunnel or will be too slow to carry out effective testing.
 
 ## Configuring Your Network to Use Sauce Connect
 
@@ -236,7 +236,7 @@ When your tests are running through a Sauce Connect tunnel, the client on your n
 
 ### Allowlisting for Restricted Networks
 
-If you're testing in a restricted network setting, you may need to allowlist the Sauce Labs domains below to allow outbound communication to Sauce Labs Selenium and Appium endpoints. Allowlisting for inbound traffic coming into your network is not necessary. To confirm your setup is successful, try running a test using the [basic setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
+If you're testing in a restricted network setting, you may need to allowlist the Sauce Labs domains below to allow outbound communication to Sauce Labs Selenium and Appium endpoints. Allowlisting for inbound traffic coming into your network is not necessary. To confirm your setup is successful, try running a test using the [basic setup](/secure-connections/sauce-connect-4/setup-configuration/basic-setup).
 
 You need to use the set of domains for your corresponding Sauce Labs data center: US data center (US West 1) or European data center (EU Central 1). The data center you're connected to is indicated in your navigation.<br/>
 
@@ -334,4 +334,4 @@ Here are the Sauce Connect Proxy network requirements for TLS and SSL traffic:
 
 ## Certificate Management
 
-Public key certificates are used to manage the security of Sauce Connect Proxy communication to both the Sauce Labs API and to the Virtual Machine hosting your tests in the Sauce Labs cloud. For information on saucelabs.com certificate authentication, see [Sauce Connect Proxy Certificate Handling](/secure-connections/sauce-connect/security-authentication).
+Public key certificates are used to manage the security of Sauce Connect Proxy communication to both the Sauce Labs API and to the Virtual Machine hosting your tests in the Sauce Labs cloud. For information on saucelabs.com certificate authentication, see [Sauce Connect Proxy Certificate Handling](/secure-connections/sauce-connect-4/security-authentication).

@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
-  - We recommend setting these values as [environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/) to protect your username and api key from exposure, and also for future convenience.
+  - We recommend setting these values as [environment variables](/secure-connections/sauce-connect-4/setup-configuration/environment-variables/) to protect your username and api key from exposure, and also for future convenience.
 - The name of your closest regional Sauce Labs Data Center (see the [SC CLI](/dev/cli/sauce-connect-proxy/#--region) and [Data Center Endpoints](/basics/data-center-endpoints/).
 - For the Docker Setup, you'll need to have [Docker installed and configured](https://docs.docker.com/get-docker/).
 
@@ -46,11 +46,11 @@ For tips on how to edit your `hosts` file, see [How to Edit Hosts File in Linux,
 
 #### SSL Bumping
 
-While rare, there are some test cases that will require you to disable SSL Bumping when using Sauce Connect Proxy to avoid certificate issues. For more information, see [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication).
+While rare, there are some test cases that will require you to disable SSL Bumping when using Sauce Connect Proxy to avoid certificate issues. For more information, see [SSL Certificate Bumping](/secure-connections/sauce-connect-4/security-authentication).
 
 ### Selecting the Tunnel to Use
 
-Sauce Connect Proxy can have multiple tunnels running simultaneously, as described in [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability). You can select which tunnel to use in a real device test in the same way as you would any other type of automated test.
+Sauce Connect Proxy can have multiple tunnels running simultaneously, as described in [High Availability Setup](/secure-connections/sauce-connect-4/setup-configuration/high-availability). You can select which tunnel to use in a real device test in the same way as you would any other type of automated test.
 
 1. Start Sauce Command Proxy from the command line, using the [`-u (--user)`](/dev/cli/sauce-connect-proxy/#--user), [`-k (--api-key)`](/dev/cli/sauce-connect-proxy/#--api-key), [`-r (--region`)](/dev/cli/sauce-connect-proxy/#--region), and [`--tunnel-name`](/dev/cli/sauce-connect-proxy/#--tunnel-name) flags.
 
@@ -58,7 +58,7 @@ Sauce Connect Proxy can have multiple tunnels running simultaneously, as describ
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r $SAUCE_DATA_CENTER --tunnel-name $TUNNEL_NAME
 ```
 
-In this example, we'll [set our credentials (username/access key) as environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/), start a tunnel in US West Data Center and name the tunnel `rdc-on-sauce-tunnel-us`.
+In this example, we'll [set our credentials (username/access key) as environment variables](/secure-connections/sauce-connect-4/setup-configuration/environment-variables/), start a tunnel in US West Data Center and name the tunnel `rdc-on-sauce-tunnel-us`.
 
 ```bash
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west --tunnel-name rdc-on-sauce-tunnel-us
