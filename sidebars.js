@@ -1005,6 +1005,7 @@ module.exports = {
                     items: [
                         'secure-connections/sauce-connect-5',
                         'secure-connections/sauce-connect-5/quickstart',
+                        'secure-connections/sauce-connect-5/faq',
                         'secure-connections/sauce-connect-5/troubleshooting',
                         'secure-connections/sauce-connect-5/migrating',
                         {
@@ -1052,8 +1053,6 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/advanced/architecture',
                             ],
                         },
-                        // DO NOT include these sections before checked and improved
-                        //'secure-connections/sauce-connect-5/faq',
                     ],
                 },
                 {
