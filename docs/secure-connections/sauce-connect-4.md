@@ -1,5 +1,5 @@
 ---
-id: sauce-connect
+id: sauce-connect-4
 title: Sauce Connect Proxy 4
 sidebar_label: Overview
 ---
