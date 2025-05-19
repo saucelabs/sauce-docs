@@ -21,7 +21,7 @@ Sauce Connect is required to run a local test on an app or website located behin
 
 ## Start Tunnel
 
-1. [Download the Sauce Connect Proxy 4 client](/secure-connections/sauce-connect/installation/) on your machine.
+1. [Download the Sauce Connect Proxy 4 client](/secure-connections/sauce-connect-4/installation/) on your machine.
    :::caution Always use the latest version
    Using older Sauce Connect versions may impact your ability to launch a tunnel or cause other technical issues.
    We recommend using the newer [Sauce Connect Proxy 5](/secure-connections/sauce-connect-5/quickstart/) version.
@@ -132,7 +132,7 @@ Alternatively, you can go to the **Tunnel Proxies** page and click one of the **
 
 - [Sauce Connect Proxy 5 Quickstart Guide](/secure-connections/sauce-connect-5/quickstart/)
 - [Sauce Connect Proxy 4 CLI](/dev/cli/sauce-connect-proxy/)
-- [Setting Sauce Labs Environment Variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/)
+- [Setting Sauce Labs Environment Variables](/secure-connections/sauce-connect-4/setup-configuration/environment-variables/)
 - [Uploading and Managing Mobile Apps in Sauce Labs](/mobile-apps/app-storage)
 - [Live Testing Web Apps](/web-apps/live-testing/live-cross-browser-testing/)
 - [Live Testing Mobile Apps](/mobile-apps/live-testing/live-mobile-app-testing/)

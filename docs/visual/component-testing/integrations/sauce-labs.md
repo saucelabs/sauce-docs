@@ -148,4 +148,4 @@ module.exports = {
 - Sauce Connect tunnel cannot be used together with the tunnel: option.
 - A unique `tunnelIdentifier` will be automatically generated for you when using the Sauce Connect integration. An error will be thrown if you try to set `tunnelIdentifier` manually.
 - When running Sauce Connect tunnels on your localhost, please note that Sauce Connect only supports a limited set of valid ports.
-- For additional information, see the [Sauce Connect Proxy documentation](/secure-connections/sauce-connect).
+- For additional information, see the [Sauce Connect Proxy documentation](/secure-connections/sauce-connect-4).

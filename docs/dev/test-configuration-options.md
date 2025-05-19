@@ -1920,9 +1920,9 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | STRING | </small></p>
 
-Specify a [Sauce Connect](/secure-connections/sauce-connect) tunnel to establish connectivity with Sauce Labs for your test. Tunnels allow you to test an app that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
+Specify a [Sauce Connect](/secure-connections/sauce-connect-4/) tunnel to establish connectivity with Sauce Labs for your test. Tunnels allow you to test an app that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
 
-See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information.
+See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect-4/setup-configuration/basic-setup) for more information.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -1938,7 +1938,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
 
-Specify a [Sauce Connect tunnel name](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) to establish connectivity with a Sauce Labs test platform. This is an alias for [tunnelName](#tunnelname).
+Specify a [Sauce Connect tunnel name](/secure-connections/sauce-connect-4/setup-configuration/basic-setup/#using-tunnel-names) to establish connectivity with a Sauce Labs test platform. This is an alias for [tunnelName](#tunnelname).
 
 :::caution Deprecation notice
 `tunnelIdentifier` is being deprecated in favor of `tunnelName`.
@@ -1948,7 +1948,7 @@ Specify a [Sauce Connect tunnel name](/secure-connections/sauce-connect/setup-co
 The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.
 :::
 
-See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
+See [Using Tunnel Names](/secure-connections/sauce-connect-4/setup-configuration/basic-setup/#using-tunnel-names) for more information.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -1972,7 +1972,7 @@ If the [tunnelName](#tunnelname) you've specified to establish connectivity with
 The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.
 :::
 
-See [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names) for more information.
+See [Using Tunnel Names](/secure-connections/sauce-connect-4/setup-configuration/basic-setup/#using-tunnel-names) for more information.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();

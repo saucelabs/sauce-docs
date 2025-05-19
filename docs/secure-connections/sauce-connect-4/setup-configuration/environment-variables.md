@@ -10,7 +10,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 The standard way to launch a Sauce Connect Proxy tunnel is to run a single command line comprised of all [required flags](/dev/cli/sauce-connect-proxy/#main) and any [optional flags](/dev/cli/sauce-connect-proxy/) you want to use to customize tunnel behavior.
-It's also possible to pass the same command-line arguments through a [YAML config file](/secure-connections/sauce-connect/setup-configuration/yaml-config/), and as environment variables.
+It's also possible to pass the same command-line arguments through a [YAML config file](/secure-connections/sauce-connect-4/setup-configuration/yaml-config/), and as environment variables.
 If you pass the same argument through multiple methods, the order of precedence is as follows (from highest to lowest):
 
 - command-line option
@@ -51,7 +51,7 @@ We recommend configuring options via environment variables in the following scen
 
 ## Proxy Environment Variables
 
-Sauce Connect Proxy supports the following [proxy auto-configuration](/secure-connections/sauce-connect/setup-configuration/additional-proxies/#proxy-auto-configuration-automatic) environment variables, but we strongly advise using Sauce Connect Proxy specific variables, such as `SAUCE_PROXY` or `SAUCE_PROXY_TUNNEL` instead, since the auto-configuration variables listed here behave differently on different platforms.
+Sauce Connect Proxy supports the following [proxy auto-configuration](/secure-connections/sauce-connect-4/setup-configuration/additional-proxies/#proxy-auto-configuration-automatic) environment variables, but we strongly advise using Sauce Connect Proxy specific variables, such as `SAUCE_PROXY` or `SAUCE_PROXY_TUNNEL` instead, since the auto-configuration variables listed here behave differently on different platforms.
 
 | Environment Variable                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Platforms    |
 | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
