@@ -1008,6 +1008,8 @@ module.exports = {
                         'secure-connections/sauce-connect-5/faq',
                         'secure-connections/sauce-connect-5/troubleshooting',
                         'secure-connections/sauce-connect-5/migrating',
+                        'secure-connections/sauce-connect-5/architecture',
+                        'secure-connections/sauce-connect-5/system-requirements',
                         {
                             link: {
                                 type: 'doc',
@@ -1024,8 +1026,6 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/installation/kubernetes',
                             ],
                         },
-                        'secure-connections/sauce-connect-5/architecture',
-                        'secure-connections/sauce-connect-5/system-requirements',
                         {
                             type: 'category',
                             label: 'Guides',
@@ -1041,9 +1041,9 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/guides/tls-resigning',
                                 'secure-connections/sauce-connect-5/guides/inspecting',
                                 'secure-connections/sauce-connect-5/guides/ci-cd-integration',
-                                'secure-connections/sauce-connect-5/guides/tunnel-pool',
                                 'secure-connections/sauce-connect-5/guides/sharing-tunnel',
                                 'secure-connections/sauce-connect-5/guides/upstream-auth',
+                                'secure-connections/sauce-connect-5/guides/tunnel-pool',
                             ],
                         },
                     ],
