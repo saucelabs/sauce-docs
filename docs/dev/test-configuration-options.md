@@ -1734,6 +1734,21 @@ driver.executeScript("sauce: network-conditions", ImmutableMap.of(
 
 ---
 
+### `sauce:logFilters`
+
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Set custom network log-fiters for appium server logs. This will allow you mask sensitive data from your test report.
+
+Please refer to the official Appium documentation on [Filtering the Appium Log](https://appium.io/docs/en/2.18/guides/log-filters/) for more information.
+
+```java
+driver.executeScript("sauce:logFilters", List.of(
+	ImmutableMap.of("text","text-to-be-replace")));
+```
+
+---
+
 ### `mobile: shell`
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">Android Only</span> |</small></p>
