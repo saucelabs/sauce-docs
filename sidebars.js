@@ -1024,6 +1024,7 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/installation/kubernetes',
                             ],
                         },
+                        'secure-connections/sauce-connect-5/architecture',
                         'secure-connections/sauce-connect-5/system-requirements',
                         {
                             type: 'category',
@@ -1043,14 +1044,6 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/guides/tunnel-pool',
                                 'secure-connections/sauce-connect-5/guides/sharing-tunnel',
                                 'secure-connections/sauce-connect-5/guides/upstream-auth',
-                            ],
-                        },
-                        {
-                            type: 'category',
-                            label: 'Advanced',
-                            collapsed: true,
-                            items: [
-                                'secure-connections/sauce-connect-5/advanced/architecture',
                             ],
                         },
                     ],
