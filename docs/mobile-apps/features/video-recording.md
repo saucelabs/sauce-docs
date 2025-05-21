@@ -9,9 +9,9 @@ Sauce Labs captures a recording of the device screen during your tests. For most
 
 <p><small><span className="sauceGreen">Real Devices Documentation</span></small></p>
 
-Once your test job concludes, the recorded video is encoded, downloaded from the device and uploaded to our long-term storage. Be aware that videos are automatically deleted after 30 days.
+Once your test job is complete, the recorded video is encoded, downloaded from the device, and uploaded to our long-term storage. Please note that videos are automatically deleted after 30 days.
 
-A test job will not be marked as finished until the video has been successfully uploaded from your device to the long-term storage. Consequently, very long-running test sessions might experience a more extended post-processing phase, thus increasing the time the device will be busy.
+A test job will only be marked as finished once the video has been successfully uploaded from the device to long-term storage. As a result, lengthy test sessions may face a longer post-processing phase, which can prolong the time the device remains busy.
 
 ## Live Stream
 
