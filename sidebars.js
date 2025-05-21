@@ -1008,6 +1008,8 @@ module.exports = {
                         'secure-connections/sauce-connect-5/faq',
                         'secure-connections/sauce-connect-5/troubleshooting',
                         'secure-connections/sauce-connect-5/migrating',
+                        'secure-connections/sauce-connect-5/architecture',
+                        'secure-connections/sauce-connect-5/system-requirements',
                         {
                             link: {
                                 type: 'doc',
@@ -1024,7 +1026,6 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/installation/kubernetes',
                             ],
                         },
-                        'secure-connections/sauce-connect-5/system-requirements',
                         {
                             type: 'category',
                             label: 'Guides',
@@ -1040,17 +1041,9 @@ module.exports = {
                                 'secure-connections/sauce-connect-5/guides/tls-resigning',
                                 'secure-connections/sauce-connect-5/guides/inspecting',
                                 'secure-connections/sauce-connect-5/guides/ci-cd-integration',
-                                'secure-connections/sauce-connect-5/guides/tunnel-pool',
                                 'secure-connections/sauce-connect-5/guides/sharing-tunnel',
                                 'secure-connections/sauce-connect-5/guides/upstream-auth',
-                            ],
-                        },
-                        {
-                            type: 'category',
-                            label: 'Advanced',
-                            collapsed: true,
-                            items: [
-                                'secure-connections/sauce-connect-5/advanced/architecture',
+                                'secure-connections/sauce-connect-5/guides/tunnel-pool',
                             ],
                         },
                     ],
@@ -1229,13 +1222,15 @@ module.exports = {
                     collapsed: true,
                     items: [
                         'mobile-apps/features/appium-inspector',
-                        'mobile-apps/features/network-throttling',
-                        'mobile-apps/features/biometric-authentication',
-                        'mobile-apps/features/camera-image-injection',
                         'mobile-apps/features/audio-capture',
+                        'mobile-apps/features/biometric-authentication',
                         'mobile-apps/features/bypass-screenshot',
+                        'mobile-apps/features/camera-image-injection',
                         'mobile-apps/features/gestures',
+                        'mobile-apps/features/instant-booted-simulators',
                         'mobile-apps/features/ios-version-management',
+                        'mobile-apps/features/network-throttling',
+                        'mobile-apps/features/video-recording',
                         'mobile-apps/features/virtual-usb',
                         'mobile-apps/features/xctest-plan',
                         {
