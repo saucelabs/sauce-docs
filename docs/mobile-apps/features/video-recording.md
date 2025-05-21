@@ -23,7 +23,7 @@ While your test job is active, you can access a live video stream of the device 
 
 Access to this stream requires Basic Auth.
 
-Be aware that this is a raw data stream and requires parsing to be viewable. Each message received on this stream represents a screenshot taken on the device in `jpeg` format.
+Please note that this is a raw data stream and must be parsed for viewing. Each message received in this stream corresponds to a screenshot taken on the device in `jpeg` format.
 
 
 ## Limitations
