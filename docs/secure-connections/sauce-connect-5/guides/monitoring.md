@@ -26,7 +26,7 @@ You can manage and monitor all Sauce Connect Proxy tunnel activity from the Sauc
 ## Grafana Dashboard
 
 [Prometheus](https://prometheus.io/) can be used to monitor Sauce Connect Proxy.
-The `/metrics` endpoint is available on [the local API server](/secure-connections/sauce-connect-5/operation/api-server).
+The `/metrics` endpoint is available on [the local API server](/secure-connections/sauce-connect-5/guides/api-server).
 Note that the API server must be enabled with the `--api-address` option, and by default it's disabled.
 
 Grafana dashboard using these metrics is available at [Grafana Dashboards](https://grafana.com/grafana/dashboards/20232-sauce-connect/).

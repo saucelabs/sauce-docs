@@ -19,8 +19,8 @@ flag.
 
 ## Docker
 
-When running Sauce Connect Proxy in a container, the API server is enabled by default and listens on the containers' localhost port 10000.
-Due to configuration options order of precedence, to change the API server address, you need to use the `SAUCE_API_ADDRESS` environment variable.
+When running Sauce Connect Proxy in a container, the API server is enabled by default and listens on a Unix domain socket at `/tmp/sc.sock` inside the container.
+To expose the API server over TCP (e.g., to access it from the host), use the `SAUCE_API_ADDRESS` environment variable or the [`--api-address`](/dev/cli/sauce-connect-5/run/#api-address) CLI flag.
 
 The following example shows how to start a Sauce Connect Proxy container with the API server accessible on port 8080 on the host machine.
 
@@ -65,5 +65,5 @@ The `/readyz` response is used to determine when Sauce Connect Proxy is ready to
 
 ## More Information
 
-- [Sauce Connect Proxy Overview](/secure-connections/sauce-connect/)
+- [Sauce Connect Proxy Overview](/secure-connections/sauce-connect-5/)
 - [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/)

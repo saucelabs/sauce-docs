@@ -48,72 +48,107 @@ and their usage.
 
 # access-key <UUID>
 #
-# Sauce Labs Access Key, you can get it from the User Settings page. For
-# additional security, we recommend setting this as an environment variable.
-#access-key:
+# Sauce Labs Access Key, you can get it from the User Settings page:
+# https://app.saucelabs.com/user-settings. For additional security, we recommend
+# setting this as an environment variable.
+#access-key: 
 
 # region <data center>
 #
-# Sauce Labs region name, ex. us-west or eu-central.
-#region:
+# Sauce Labs region name, ex. us-west, us-east, or eu-central. More details
+# here: https://docs.saucelabs.com/basics/data-center-endpoints.
+#region: 
 
 # tunnel-name <name>
 #
 # Name of the tunnel or tunnel pool. You can run tests using this tunnel by
-# specifying the tunnelName value in your test capabilities.
-#tunnel-name:
+# specifying the tunnelName value in your test capabilities, see here:
+# https://docs.saucelabs.com/dev/test-configuration-options/. It can also assign
+# a name to a group of tunnels in the same high availability pool, see here:
+# https://docs.saucelabs.com/secure-connections/sauce-connect/setup-configuration/high-availability/.
+#tunnel-name: 
 
 # username <username>
 #
 # Sauce Labs username. For additional security, we recommend setting this as an
 # environment variable.
-#username:
+#username: 
 
 # --- Options ---
 
 # metadata <key=value>,...
 #
-# Custom metadata key-value pairs.
-#metadata:
+# Custom metadata key-value pairs. This flag is, primarily, used by Sauce Labs
+# to assign custom properties to the tunnel for reporting purposes.
+#metadata: 
 
 # shared <all>
 #
 # Share the tunnel within the same org unit. Only the 'all' option is currently
-# supported.
-#shared:
+# supported. See here:
+# https://docs.saucelabs.com/basics/acct-team-mgmt/sauce-connect-proxy-tunnels/.
+#shared: 
 
 # tunnel-pool <value>
 #
-# Denotes a tunnel as part of a high availability tunnel pool.
+# Denotes a tunnel as part of a high availability tunnel pool. See here:
+# https://docs.saucelabs.com/secure-connections/sauce-connect/setup-configuration/high-availability/.
 #tunnel-pool: false
 
 # --- Tunnel traffic ---
 
 # deny-domains [-]<regexp>,...
 #
-# Deny requests to the matching domains.
-#deny-domains:
+# Deny requests to the matching domains. Prefix domains with '-' to exclude
+# requests from being denied. Special keyword 'all' matches all domains. 
+# 
+# The following example denies requests to *.example.com and *.google.com.
+# 
+# --deny-domains .*\.example\.com,.*\.google\.com
+#deny-domains: 
 
 # direct-domains [-]<regexp>,...
 #
 # Forward matching requests to their origin server over the public internet.
 # Requests that don't match "direct domains" will be forwarded to customer-side
 # over the Sauce Connect Proxy connection. You can specify --direct-domains or
-# --tunnel-domains, but not both.
-#direct-domains:
+# --tunnel-domains, but not both. Prefix domains with '-' to exclude requests
+# from being forwarded directly. Note that direct domains are automatically
+# excluded from being resigned. Special keyword 'all' matches all domains. 
+# 
+# The following example sends requests to *.example.com and *.google.com
+# directly. It would tunnel all other domains.
+# 
+# --direct-domains .*\.example\.com,.*\.google\.com
+#direct-domains: 
 
 # tls-passthrough-domains [-]<regexp>,...
 #
 # Pass matching requests to their origin server without SSL/TLS re-encryption.
-# You can specify --tls-passthrough-domains or --tls-resign-domains, but not
-# both.
-#tls-passthrough-domains:
+# Requests that don't match will be re-encrypted. You can specify
+# --tls-passthrough-domains or --tls-resign-domains, but not both. Prefix
+# domains with '-' to exclude requests from being passed through. Note that
+# direct domains will always be passed through. Special keyword 'all' matches
+# all domains. 
+# 
+# The following example passes requests to *.example.com and *.google.com
+# through without SSL/TLS re-encryption.
+# 
+# --tls-passthrough-domains .*\.example\.com,.*\.google\.com
+#tls-passthrough-domains: 
 
 # tls-resign-domains [-]<regexp>,...
 #
 # Resign SSL/TLS certificates for matching requests. You can specify
-# --tls-resign-domains or --tls-passthrough-domains, but not both.
-#tls-resign-domains:
+# --tls-resign-domains or --tls-passthrough-domains, but not both. Prefix
+# domains with '-' to exclude requests from being resigned. Note that direct
+# domains will never be resigned. Special keyword 'all' matches all domains. 
+# 
+# The following example resigns SSL/TLS certificates for all requests to
+# *.myorg.dev, except abc.myorg.dev.
+# 
+# --tls-resign-domains .*\.myorg\.dev,-abc\.myorg\.dev
+#tls-resign-domains: [.*]
 
 # tunnel-domains [-]<regexp>,...
 #
@@ -122,8 +157,31 @@ and their usage.
 # the public internet. This is the recommended option for the best performance
 # since it minimizes the expensive tunnelled traffic and uses it only for
 # internal domains that are not publicly available. You can specify
-# --tunnel-domains or --direct-domains, but not both.
-#tunnel-domains:
+# --tunnel-domains or --direct-domains, but not both. Prefix domains with '-' to
+# exclude requests from being forwarded over the SC Proxy connection. Special
+# keyword 'all' matches all domains. 
+# 
+# The following example tunnels all requests to *.myorg.dev, except
+# abc.myorg.com.
+# 
+# --tunnel-domains .*\.myorg\.dev,-abc\.myorg\.com
+#tunnel-domains: 
+
+# --- Tunnel capacity ---
+
+# tunnel-connections <count>
+#
+# Number of connections to the Sauce Connect server. By default it is set to the
+# number of CPUs on the machine. Total number of concurrent requests that can be
+# handled is limited by the number of connections multiplied by the number of
+# streams, see --tunnel-max-concurrent-streams flag. For example with 4
+# connections and 256 streams, the total number of concurrent requests is 1024.
+#tunnel-connections: 16
+
+# tunnel-max-concurrent-streams <count>
+#
+# Maximal number of concurrent HTTP/2 streams per TCP connection.
+#tunnel-max-concurrent-streams: 256
 
 # --- Proxy ---
 
@@ -131,35 +189,54 @@ and their usage.
 #
 # Site or upstream proxy basic authentication credentials. The host and port can
 # be set to "*" to match all hosts and ports respectively. The flag can be
-# specified multiple times to add multiple credentials.
-#auth:
+# specified multiple times to add multiple credentials. Note that all the hosts
+# are automatically resigned as if they were passed to --tls-resign-domains
+# flag. 
+# 
+# Example:
+# 
+# --proxy myproxy.org:3128 --proxy-sauce https://external.com:443 --auth
+# user1:pass1@myproxy.org:3128,user2:pass2@external.com:*
+#auth: 
 
 # header <header>
 #
-# Add or remove HTTP request headers. Use the format "name: value" to add a
-# header, "name;" to set the header to empty value, "-name" to remove the
-# header, "-name*" to remove headers by prefix. The header name will be
-# normalized to canonical form. The header value should not contain any newlines
-# or carriage returns. The flag can be specified multiple times. Example: -H
-# "Host: example.com" -H "-User-Agent" -H "-X-*".
-#header:
+# Add or remove HTTP request headers. 
+# 
+# Use the format:
+# - name:value to add a header
+# - name; to set the header to empty value
+# - -name to remove the header
+# - -name* to remove headers by prefix
+# 
+# The header name will be normalized to canonical form. The header value should
+# not contain any newlines or carriage returns. The flag can be specified
+# multiple times. The following example removes the User-Agent header and all
+# headers starting with X-. 
+# 
+# -H "-User-Agent" -H "-X-*"
+#header: 
 
 # pac <path or URL>
 #
-# Proxy Auto-Configuration file to use for upstream proxy selection. It can be a
-# local file or a URL, you can also use '-' to read from stdin. The data URI
-# scheme is supported, the format is data:base64,<encoded data>.
-#pac:
+# Proxy Auto-Configuration file to use for upstream proxy selection. 
+# 
+# Syntax:
+# - File: /path/to/file.pac
+# - URL: http://example.com/proxy.pac
+# - Embed: data:base64,<base64 encoded data>
+# - Stdin: -
+#pac: 
 
-# proxy [protocol://]host[:port]
+# proxy <[protocol://]host:port>
 #
-# Upstream proxy to use for requests received from the Sauce Connect Server
-# only. The supported protocols are: http, https, socks, socks5. No protocol
-# specified will be interpreted as an HTTP proxy. If the port number is not
-# specified, it is assumed to be 1080. The basic authentication username and
-# password can be specified in the host string, e.g. user:pass@host:port.
-# Alternatively, you can specify the credentials using the -a, --auth flag.
-#proxy:
+# Upstream proxy for test sessions. It is used for requests received from the
+# Sauce Connect Server only. The supported protocols are: http, https, socks5.
+# No protocol specified will be interpreted as an HTTP proxy. The basic
+# authentication username and password can be specified in the host string, e.g.
+# user:pass@host:port. Alternatively, you can specify the credentials using the
+# -a, --auth flag.
+#proxy: 
 
 # proxy-localhost <allow|deny|direct>
 #
@@ -169,11 +246,12 @@ and their usage.
 # denied.
 #proxy-localhost: deny
 
-# proxy-sauce [protocol://]host[:port]
+# proxy-sauce <[protocol://]host:port>
 #
-# Proxy for requests to Sauce Labs REST API and Sauce Connect servers only. See
-# the -x, --proxy flag for more details on the format.
-#proxy-sauce:
+# Establish a tunnel through an upstream proxy. Proxy for requests to Sauce Labs
+# REST API and Sauce Connect servers only. See the -x, --proxy flag for more
+# details on the format.
+#proxy-sauce: 
 
 # --- DNS ---
 
@@ -190,7 +268,7 @@ and their usage.
 # in a list is used as primary, the rest are used as fallbacks. Round robin: the
 # servers are used in a round-robin fashion. The port is optional, if not
 # specified the default port is 53.
-#dns-server:
+#dns-server: 
 
 # dns-timeout <duration>
 #
@@ -202,17 +280,20 @@ and their usage.
 # cacert-file <path or base64>
 #
 # Add your own CA certificates to verify against. The system root certificates
-# will be used in addition to any certificates in this list. Can be a path to a
-# file or "data:" followed by base64 encoded certificate. Use this flag multiple
-# times to specify multiple CA certificate files.
-#cacert-file:
+# will be used in addition to any certificates in this list. Use this flag
+# multiple times to specify multiple CA certificate files.
+# 
+# Syntax:
+# - File: /path/to/file.pac
+# - Embed: data:base64,<base64 encoded data>
+#cacert-file: 
 
 # http-dial-timeout <duration>
 #
 # The maximum amount of time a dial will wait for a connect to complete. With or
 # without a timeout, the operating system may impose its own earlier timeout.
 # For instance, TCP timeouts are often around 3 minutes.
-#http-dial-timeout: 10s
+#http-dial-timeout: 25s
 
 # http-idle-conn-timeout <duration>
 #
@@ -233,33 +314,59 @@ and their usage.
 # limit.
 #http-tls-handshake-timeout: 10s
 
+# http-tls-keylog-file <path>
+#
+# File to log TLS master secrets in NSS key log format. By default, the value is
+# taken from the SSLKEYLOGFILE environment variable. It can be used to allow
+# external programs such as Wireshark to decrypt TLS connections.
+#http-tls-keylog-file: 
+
 # --- API server ---
 
 # api-address <host:port>
 #
 # The server address to listen on. If the host is empty, the server will listen
 # on all available interfaces.
-#api-address:
+#api-address: 
 
 # api-basic-auth <username[:password]>
 #
 # Basic authentication credentials to protect the server.
-#api-basic-auth:
+#api-basic-auth: 
+
+# api-idle-timeout <duration>
+#
+# The maximum amount of time to wait for the next request before closing
+# connection.
+#api-idle-timeout: 1h0m0s
 
 # --- Logging ---
 
 # log-file <path>
 #
-# Path to the log file, if empty, logs to stdout.
-#log-file:
+# Path to the log file, if empty, logs to stdout. The file is reopened on SIGHUP
+# to allow log rotation using external tools.
+#log-file: 
 
-# log-http [api|proxy|control:]<none|short-url|url|headers|body|errors>,...
+# log-http [api|proxy|control:]<none|short-url|url|headers|body|errors>,... 
 #
-# HTTP request and response logging mode. Setting this to none disables logging.
-# The short-url mode logs [scheme://]host[/path] instead of the full URL. The
-# error mode logs request line and headers if status code is greater than or
-# equal to 500.
-#log-http:
+# HTTP request and response logging mode. 
+# 
+# Modes: 
+# - none: no logging
+# - short-url: logs [scheme://]host[/path] instead of the full URL
+# - url: logs the full URL including query parameters
+# - headers: logs request line and headers
+# - body: logs request line, headers, and body
+# - errors: logs request line and headers if status code is greater than or
+# equal to 500
+# 
+# Modes for different modules can be specified separated by commas. The
+# following example specifies that the API module logs errors, the proxy module
+# logs headers, and anything else logs full URL. 
+# 
+# --log-http=api:errors,proxy:headers,url
+#log-http: none
 
 # log-level <error|info|debug>
 #
@@ -302,7 +409,7 @@ To launch a tunnel using a **config.yml** file option.
   <TabItem value="Windows">
 
 ```bash
-sc.exe run -c %HOMEPATH%\sc\config.yml
+sauce-connect.exe run -c %HOMEPATH%\sc\config.yml
 ```
 
   </TabItem>
@@ -379,21 +486,11 @@ You can persist Sauce Connect Proxy environment variables by adding them to one 
 6. Confirm that your environment variables have been set by typing `echo %SAUCE_USERNAME%` in your terminal. The response should be your username value. Then do the same for your access key.
 7. Starting a new Sauce Connect Proxy will not require adding required flags.
    ```bash
-   sc.exe
+   sauce-connect.exe
    ```
 
 </TabItem>
 </Tabs>
-
-## Configuring Mobile Devices for testing `localhost` {#sc5localhost}
-
-Testing with the address `localhost` (or the IP address `127.0.0.1`) is not supported with iOS or Android real devices in Sauce Connect.
-
-To work around this, you'll need to edit your `hosts` file on the machine on which you are running Sauce Connect. Add an entry for a placeholder hostname (such as `localtestsite`) and the IP address `127.0.0.1`. Requests for `localtestsite` in your tests will then be sent through your Sauce Connect tunnel to `localhost`, which is the machine on which you are running Sauce Connect.
-
-For example, adding `127.0.0.1   mockserver` to your `/etc/hosts` file, then starting a server on `localhost:3333` will route mockserver:3333 HTTP calls to your local server. Mobile tests using Sauce Connect will then be able to find your local server regardless of the nature of your test.
-
-For tips on how to edit your `hosts` file, see [How to Edit Hosts File in Linux, Windows, or Mac](https://phoenixnap.com/kb/how-to-edit-hosts-file-in-windows-mac-or-linux).
 
 ## More Information
 

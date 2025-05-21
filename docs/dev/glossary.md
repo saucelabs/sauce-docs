@@ -11,6 +11,10 @@ description: A glossary of terminology used across Sauce Labs products.
 
 ## **A**
 
+### Account
+
+An account in Sauce Labs refers to an entity that allows access to Sauce Labs services. It can represent either a [user account](#user-user-account) (associated with an individual) or a [service account](#service-account) (a non-human account designed for automated processes).
+
 ### Action RPG (ARPG)
 
 This is typically a smaller role-playing game, usually small parties of 1-10 players, without all the depth of play offered by a full-fledged RPG. ARPGs will have tight, compact game experiences, where you have characters and loot that "persist" from session to session, but where the world the user plays in will be auto-generated at run-time.
@@ -123,7 +127,7 @@ See also: [http client](#http-client).
 
 ### Concurrency Limit
 
-The maximum number of total Sauce Labs tests -- both automated and manual -- that you can run simultaneously across all user accounts within your organization. Concurrency limits vary according to pricing plan. Once you and/or your teammates have used all concurrency slots, additional tests will not launch until an existing test has finished. More information: [Managing Concurrency](/basics/acct-team-mgmt/concurrency/managing-concurrency).
+The maximum number of total Sauce Labs tests -- both automated and manual -- that you can run simultaneously across all user and service accounts in your organization. Concurrency limits vary according to pricing plan. After you and/or your teammates have used all concurrency slots, additional tests will not launch until an existing test has finished. More information: [Managing Concurrency](/basics/acct-team-mgmt/concurrency/managing-concurrency).
 
 ### Continuous Deployment (CD)
 
@@ -378,7 +382,7 @@ See: _[Playtest](#playtest)_.
 
 ### Organization Admin
 
-The Sauce Labs account admin role that can manage permissions levels for all users, oversee Sauce Labs test settings and activity for their organization, create Teams and Team Admins, designate other Organization Admins, and set concurrency allocations among different Teams. More information: [Account and Organization Management](/basics/acct-team-mgmt-hub).
+The Sauce Labs account admin role that can manage permissions levels for all users and service accounts, oversee Sauce Labs test settings and activity for their organization, create Teams and Team Admins, designate other Organization Admins, and set concurrency allocations among different Teams. More information: [Account and Organization Management](/basics/acct-team-mgmt-hub).
 
 See also: _[team admin](#team-admin)_.
 
@@ -546,7 +550,9 @@ The Sauce Labs framework agnostic test orchestrator CLI (command line interface)
 
 ### Sauce Labs Access Key
 
-A randomly generated string of alphanumeric characters assigned to your Sauce Labs account that you must include in your test scripts along with your Sauce Labs username to authenticate your request and allow access to the resources on your Sauce Labs account. Also known as Access Key in [Sauce Labs](https://app.saucelabs.com/user-settings) and `SAUCE_ACCESS_KEY` as an environment variable.
+A randomly generated string of alphanumeric characters assigned to your Sauce Labs account that you must include in your test scripts along with your Sauce Labs username to authenticate your request and allow access to the resources on your Sauce Labs account. Both [user accounts](#user-user-account) and [service accounts](#service-account) have an access key.
+
+Also known as Access Key in [Sauce Labs](https://app.saucelabs.com/user-settings) and `SAUCE_ACCESS_KEY` as an environment variable.
 
 ### Sauce Labs Continuous Testing Benchmark
 
@@ -554,7 +560,9 @@ A Sauce Labs white paper – compiled periodically – that leverages anonymized
 
 ### Sauce Labs User Name
 
-An ID name that you define when you create your Sauce Labs account. You must include this (along with your Sauce Labs Access Key) in your test scripts to authenticate your request and allow access to the resources on your Sauce Labs account. Also known as Username in [Sauce Labs](https://app.saucelabs.com/user-settings) and `SAUCE_USERNAME` as an environment variable.
+An ID name assigned to your Sauce Labs account, used alongside your Sauce Labs Access Key to authenticate requests and access account resources. For [user accounts](#user-user-account), this username is defined during account creation. For [service accounts](#service-account), the username is automatically generated based on the display name provided during account creation.
+
+Also known as Username in [Sauce Labs](https://app.saucelabs.com/user-settings) and `SAUCE_USERNAME` as an environment variable.
 
 ### Selenium
 
@@ -588,6 +596,10 @@ More information: [Sauce Labs Pricing](https://saucelabs.com/pricing).
 
 See also: _[unmanaged customer](#unmanaged-customer)_.
 
+### Service Account
+
+A service account is a non-human account designed for automated processes, such as CI/CD pipelines and integrations. Service accounts are not associated with a specific user or email address and cannot sign in to the Sauce Labs UI. They are used primarily for running tests and API access using a username and access key.
+
 ### Simulator
 
 A virtual machine environment used to mimic the overall behavior (i.e., software variables, configurations) of the iOS mobile app you're testing in Sauce Labs.
@@ -606,7 +618,7 @@ An end-to-end process used to develop, plan, design, build, test, and deploy sof
 
 ### SSL Bumping
 
-A feature of Sauce Connect Proxy that automatically re-signs self-signed and invalid SSL certificates, which are not trusted by stock browsers like those installed on the Sauce Labs infrastructure. With SSL Bumping, your tests will not be interrupted with security warnings that can't be dismissed by Selenium. More information: [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping).
+A feature of Sauce Connect Proxy that automatically re-signs self-signed and invalid SSL certificates, which are not trusted by stock browsers like those installed on the Sauce Labs infrastructure. With SSL Bumping, your tests will not be interrupted with security warnings that can't be dismissed by Selenium. More information: [SSL Certificate Bumping](/secure-connections/sauce-connect-5/guides/tls-resigning/).
 
 ### Stacktrace
 
@@ -646,6 +658,8 @@ See also: _[organization admin](#organization-admin), [team admin](#team-admin),
 ### Team Member
 
 A Sauce Labs user with permission to edit their own user info, run tests, and view tests run by teammates. Depending on their Organization Admin's Team Job Sharing settings, they can also view jobs that were run by members of other teams.
+
+[Service accounts](#service-account) assigned to the team have the same visibility permissions as Team Members but, among other limitations, cannot access the Sauce Labs UI.
 
 See also: _[organization admin](#organization-admin), [team admin](#team-admin)_.
 
@@ -730,6 +744,10 @@ See also: _[Game Engine](#game-engine)_.
 ### Upstart
 
 See: _[systemd](#systemd)_.
+
+### User (User Account)
+
+A user account is an account tied to an individual person and linked to an email address. User accounts are used to access the Sauce Labs UI, manage settings, run tests, and perform administrative tasks depending on the assigned role.
 
 ## **V**
 
