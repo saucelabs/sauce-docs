@@ -1740,7 +1740,7 @@ driver.executeScript("sauce: network-conditions", ImmutableMap.of(
 
 Set custom filters for Appium server logs. This will allow you to mask sensitive data from your test report.
 
-Please refer to the official Appium documentation on [Filtering the Appium Log](https://appium.io/docs/en/2.18/guides/log-filters/) for more information.
+For more information, please refer to the official Appium documentation on [Filtering the Appium Log](https://appium.io/docs/en/2.18/guides/log-filters/).
 
 ```java
 driver.executeScript("sauce:logFilters", List.of(
