@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 - If you haven't already, make sure you can access the website or mobile app that you'll be testing from the Sauce Connect Proxy host.
   - We recommend using [cURL](https://curl.se/docs/) or an equivalent tool.
 - Check to see if you have any proxies that are required to access the public Internet.
-- Review the [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for instructions on how to set your Sauce Labs username and access key and launch a tunnel.
+- Review the [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect-4/setup-configuration/basic-setup) for instructions on how to set your Sauce Labs username and access key and launch a tunnel.
 
 ## Best Practice for Using Tunnels
 
@@ -23,13 +23,13 @@ If you're using a continuous integration platform like Jenkins, you can use the 
 
 ### Security Considerations
 
-If your Sauce Connect client is running on a multi-user system, we recommend using a [YAML config file](/secure-connections/sauce-connect/setup-configuration/yaml-config/) or [setting environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/) to hide sensitive information like your password (`--api-key`) and proxy credentials. This way, they won't be visible in the list of running processes.
+If your Sauce Connect client is running on a multi-user system, we recommend using a [YAML config file](/secure-connections/sauce-connect-4/setup-configuration/yaml-config/) or [setting environment variables](/secure-connections/sauce-connect-4/setup-configuration/environment-variables/) to hide sensitive information like your password (`--api-key`) and proxy credentials. This way, they won't be visible in the list of running processes.
 
 ## Starting Tunnels
 
 Every Sauce Connect Proxy tunnel spins up a fresh virtual machine (VM) that is used only for your tests. Once the tunnel is closed, VMs are destroyed. For information about user roles and permissions, see [User Roles](/basics/acct-team-mgmt/managing-user-info).
 
-Tunnels must be started from the command line of the machine where the Sauce Connect Proxy client is installed. As a shortcut, you can copy the run command (see **Tunnels** page > Step 3) and paste it into your CLI. Optionally, you can add [tunnel configuration parameters](/dev/cli/sauce-connect-proxy/). See [Quickstart](/secure-connections/sauce-connect/quickstart/) and [Sauce Connect Proxy Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) for instructions.
+Tunnels must be started from the command line of the machine where the Sauce Connect Proxy client is installed. As a shortcut, you can copy the run command (see **Tunnels** page > Step 3) and paste it into your CLI. Optionally, you can add [tunnel configuration parameters](/dev/cli/sauce-connect-proxy/). See [Quickstart](/secure-connections/sauce-connect-4/quickstart/) and [Sauce Connect Proxy Basic Setup](/secure-connections/sauce-connect-4/setup-configuration/basic-setup) for instructions.
 
 ## Monitoring Tunnels
 
@@ -204,7 +204,7 @@ Look for the **Active Tunnel** confirmation.<br/><img src={useBaseUrl('img/sauce
 
 #### CI/CD System
 
-If you're starting ephemeral tunnels from a CI/CD system, there are multiple ways to automatically check for [tunnel readiness](/secure-connections/sauce-connect/setup-configuration/readiness-checks/#cicd-testing).
+If you're starting ephemeral tunnels from a CI/CD system, there are multiple ways to automatically check for [tunnel readiness](/secure-connections/sauce-connect-4/setup-configuration/readiness-checks/#cicd-testing).
 
 ## Stopping Tunnels
 
@@ -238,7 +238,7 @@ Another way to stop an individual tunnel via command line is to use the `kill` c
 - `kill` or `kill -15` sends a `SIGTERM` signal, which interrupts the program for a graceful shutdown. This is what we'll use in the below example.
 - `kill -9` sends a kill signal (SIGKILL), which forces the program to shut down. It's not recommended.
 
-1. Start a Sauce Connect Proxy tunnel [per standard procedure](/secure-connections/sauce-connect/quickstart).
+1. Start a Sauce Connect Proxy tunnel [per standard procedure](/secure-connections/sauce-connect-4/quickstart).
 2. Fetch and save the process IDs for later use.
 
 ```bash
@@ -362,7 +362,7 @@ You can also launch Ephemeral tunnels from a continuous integration (CI) build s
    - Script starts your tunnel on the server.
    - Your tests start on Sauce Labs.
 
-2. Determine the number of tunnels you'll need for your tests. For this example, we'll use one tunnel. As a rule of thumb, if you're running less than 200 parallel tests, one tunnel is fine; for 200 or more parallel tests, you'll need two tunnels. For more information, see [System and Network Requirements](/secure-connections/sauce-connect/system-requirements).
+2. Determine the number of tunnels you'll need for your tests. For this example, we'll use one tunnel. As a rule of thumb, if you're running less than 200 parallel tests, one tunnel is fine; for 200 or more parallel tests, you'll need two tunnels. For more information, see [System and Network Requirements](/secure-connections/sauce-connect-4/system-requirements).
 
 3. How you start your tunnel is up to you. You can run a Bash shell script (or PowerShell script, if you're in Windows) that executes the start commands as if you were starting it locally:
 
@@ -370,7 +370,7 @@ You can also launch Ephemeral tunnels from a continuous integration (CI) build s
 ./sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -r us-west --tunnel-name $TUNNEL_NAME
 ```
 
-4. Wait until the tunnel is ready. To verify that your tunnel is up and running, you can use one of the options in [Sauce Connect Proxy Readiness Checks](/secure-connections/sauce-connect/setup-configuration/readiness-checks).
+4. Wait until the tunnel is ready. To verify that your tunnel is up and running, you can use one of the options in [Sauce Connect Proxy Readiness Checks](/secure-connections/sauce-connect-4/setup-configuration/readiness-checks).
 
 Once you've established your automated loop, you should be able to kick off builds as needed, automatically.
 
@@ -382,7 +382,7 @@ Long-running tunnels are especially useful for large enterprise customers, who o
 - If you have a test automation infrastructure that can utilize the Sauce Connect Proxy service and wish to have your Sauce Connect client component up and running for a long time (i.e., 12-48 hours).
 - If you plan to share tunnels across teams.
 
-Long-running tunnels go hand in hand with our [High Availability (HA) Setup](/secure-connections/sauce-connect/setup-configuration/high-availability), which allows you to run multiple tunnels to support a very high number of parallel tests. If you're part of a team of multiple people and/or departments running tests simultaneously on Sauce Labs, we strongly recommend utilizing long-running tunnels in HA mode. Once you (or your systems administrator) set your long-running tunnel configuration for your account on Sauce Labs, the settings will be remembered in your account and you won't have to set them again. Here are some benefits to this:
+Long-running tunnels go hand in hand with our [High Availability (HA) Setup](/secure-connections/sauce-connect-4/setup-configuration/high-availability), which allows you to run multiple tunnels to support a very high number of parallel tests. If you're part of a team of multiple people and/or departments running tests simultaneously on Sauce Labs, we strongly recommend utilizing long-running tunnels in HA mode. Once you (or your systems administrator) set your long-running tunnel configuration for your account on Sauce Labs, the settings will be remembered in your account and you won't have to set them again. Here are some benefits to this:
 
 - When provisioning new user accounts, these tunnel settings will be ready and waiting for them when they log in.
 - All Sauce Labs users in your organization will have immediate access to existing, launched tunnels.
@@ -478,7 +478,7 @@ It can also be used to simulate non-loading of scripts, styles, or other resourc
 - Use wildcards to include subdomains by prefixing domain name with a dot `.`
   - Example: `.mydomain.com` will include `sub.mydomain.com` and `sub1.mydomain.com` but not `sub.myotherdomain.com`
 - See [`Formatting domains for CLI`](/dev/cli/sauce-connect-proxy/#formatting-domains)
-- Configuring domains in [YAML config file](/secure-connections/sauce-connect/setup-configuration/yaml-config/)
+- Configuring domains in [YAML config file](/secure-connections/sauce-connect-4/setup-configuration/yaml-config/)
   ```yaml
   ---
   # this will include all subdomains of example.com as well as dev.httpbin.org
@@ -498,7 +498,7 @@ It can also be used to simulate non-loading of scripts, styles, or other resourc
   - Comma-separated
   - No spaces between each regexp
   - Example: `--fast-fail-regexp ".*.mydomain.*,.*.example.com"`
-- Configuring regexps in [YAML config file](/secure-connections/sauce-connect/setup-configuration/yaml-config/)
+- Configuring regexps in [YAML config file](/secure-connections/sauce-connect-4/setup-configuration/yaml-config/)
   ```yaml
   ---
   fast-fail-regexps:
@@ -508,7 +508,7 @@ It can also be used to simulate non-loading of scripts, styles, or other resourc
 
 ### Sauce Connect Proxy Host Performance Optimization
 
-Insufficient Sauce Connect Proxy host resources may cause performance degradation that may be difficult to diagnose. Please see the [Configuring Your System to Use Sauce Connect](/secure-connections/sauce-connect/system-requirements/#configuring-your-system-to-use-sauce-connect) guidelines to ensure that your system has enough resources such as:
+Insufficient Sauce Connect Proxy host resources may cause performance degradation that may be difficult to diagnose. Please see the [Configuring Your System to Use Sauce Connect](/secure-connections/sauce-connect-4/system-requirements/#configuring-your-system-to-use-sauce-connect) guidelines to ensure that your system has enough resources such as:
 
 - Memory
 - CPU
@@ -534,7 +534,7 @@ Here's how to set it up:
 sudo adduser --system --no-create-home --group --disabled-login --home /nonexistent sauceconnect
 ```
 
-2. [Download Sauce Connect Proxy](/secure-connections/sauce-connect/installation/).
+2. [Download Sauce Connect Proxy](/secure-connections/sauce-connect-4/installation/).
 
 ```bash
 wget https://saucelabs.com/downloads/sc-<VERSION>-linux.tar.gz
@@ -635,7 +635,7 @@ sudo systemctl stop sc
 
 ### Running NSSM for Windows
 
-If you haven't yet, download the latest version of Sauce Connect Proxy (see [Downloading Sauce Connect Proxy](/secure-connections/sauce-connect/installation).
+If you haven't yet, download the latest version of Sauce Connect Proxy (see [Downloading Sauce Connect Proxy](/secure-connections/sauce-connect-4/installation).
 
 1. Download [NSSM (Non-Sucking Service Manager)](http://nssm.cc/download), a free Microsoft Windows Service manager utility that manages background and foreground services and processes. Please note that this is a third-party tool, not a product of Sauce Labs.
 2. Once you've downloaded NSSM, expand the program.
@@ -668,7 +668,7 @@ Leveraging Sauce Connect Proxy as a Selenium Relay is not recommended because:
 
 - Added traffic can impact performance of the server where Sauce Connect Proxy is running.
 - Selenium Relay itself is an extra dependency that can impact test performance.
-- It's not compatible with our [HA Setup](/secure-connections/sauce-connect/setup-configuration/high-availability) because all traffic must be routed through a specific listener.
+- It's not compatible with our [HA Setup](/secure-connections/sauce-connect-4/setup-configuration/high-availability) because all traffic must be routed through a specific listener.
 
 For best test performance, we recommend [sticking with HTTPS](#recommended-connecting-directly-to-sauce-labs-over-https) to connect with Sauce Labs or if you use a corporate proxy to control outbound traffic.
 

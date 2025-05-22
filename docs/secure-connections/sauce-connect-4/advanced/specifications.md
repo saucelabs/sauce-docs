@@ -13,7 +13,7 @@ If you use Sauce Connect Proxy as part of your CI/CD pipeline, you may find it u
 
 ## What You'll Need
 
-- Review [Using Sauce Connect Proxy Tunnels](/secure-connections/sauce-connect/proxy-tunnels).
+- Review [Using Sauce Connect Proxy Tunnels](/secure-connections/sauce-connect-4/proxy-tunnels).
 
 ## Security Specifications
 
