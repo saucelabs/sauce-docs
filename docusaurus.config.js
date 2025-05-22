@@ -116,7 +116,7 @@ const docusaurusConfig = {
                     to: '/visual-testing',
                 },
                 {
-                    label: 'App Distribution',
+                    label: 'Sauce Mobile App Distribution',
                     position: 'left',
                     to: '/testfairy',
                 },
