@@ -14,6 +14,6 @@
     }
   },
   "latest_version": "Localhost test; URLs and checksums will update once pushed to production",
-  "info_url": "https://docs.saucelabs.com/secure-connections/sauce-connect/installation",
+  "info_url": "https://docs.saucelabs.com/secure-connections/sauce-connect-4/installation",
   "warning": ["Client host platform is not specified, download URL cannot be determined"]
 }

@@ -27,7 +27,7 @@ iOS 17.5 and iOS 18 Simulators on Apple Silicon are only available to Enterprise
 
 ### Building Your iOS/iPadOS App
 
-By default, Xcode builds apps for Simulators that support both `arm64` and `x86_64` architectures.
+Xcode can build apps for Simulators that support both `arm64` and `x86_64` architectures.
 
 To build specifically for **Apple Silicon (arm64)** Simulators:
 
@@ -170,7 +170,11 @@ Check [Appium Version Details](./automated-testing/appium/appium-versions.md#app
 
 Changes to Appium XCUITest Driver v7+ have modified how System alerts are interacted with, potentially requiring modifications to tests run on iOS 18 Simulators.
 
-**Solution**: set `respectSystemsAlerts` setting to `true` — for more details and alernative options see the [Appium documentation](https://appium.github.io/appium-xcuitest-driver/latest/guides/troubleshooting/#interact-with-dialogs-managed-by-comapplespringboard).
+**Solution**: Use the `respectSystemsAlerts` setting ([Settings](https://appium.github.io/appium-xcuitest-driver/latest/reference/settings/), not [Capabilities](https://appium.github.io/appium-xcuitest-driver/latest/reference/capabilities/)) to `true` as in this Java example:
+```java
+options.setSetting("respectSystemAlerts", true);
+```
+For more details and alternative options see the [Appium documentation](https://appium.github.io/appium-xcuitest-driver/latest/guides/troubleshooting/#interact-with-dialogs-managed-by-comapplespringboard).
 
 ### Changes to Gestures
 

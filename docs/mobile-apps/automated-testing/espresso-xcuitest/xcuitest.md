@@ -205,7 +205,7 @@ saucectl run --retries 1
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect/proxy-tunnels/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
+`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect-4/proxy-tunnels/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
 
 ```yaml
 sauce:

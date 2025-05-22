@@ -17,7 +17,8 @@ You can check the current accessibility of any Sauce Labs system on the [Sauce L
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- [Username and access key](https://app.saucelabs.com/user-settings) of your Sauce Labs user account.
+  - Alternatively, you can use the credentials of a [service account](/basics/acct-team-mgmt/managing-service-accounts). The username and access key for a service account are provided during [its creation](/basics/acct-team-mgmt/managing-service-accounts/#creating-a-service-account).
 
 ## Accessing the APIs
 
@@ -38,6 +39,8 @@ The request examples throughout the API documentation utilize variables in place
 :::
 
 The Sauce Labs API uses API keys to authenticate requests. You can view and manage your API key under your [Sauce Labs User Settings](https://app.saucelabs.com/user-settings).
+
+Alternatively, you can use the username and access key of a [service account](/basics/acct-team-mgmt/managing-service-accounts) to authenticate API requests. Service account credentials are generated during [account creation](/basics/acct-team-mgmt/managing-service-accounts/#creating-a-service-account).
 
 Authentication to the API is performed via [HTTP Basic Auth](http://en.wikipedia.org/wiki/Basic_access_authentication). Provide your username and API key as the basic auth username and password values, respectively. All requests must be made over HTTPS. Calls made over HTTP or without proper authentication will fail.
 
@@ -115,7 +118,7 @@ The Sauce Labs REST API places rate limits on some endpoints in order to prevent
 
 For example:
 
-- Incoming authenticated API requests have rate limits imposed against the individual user accounts.
+- Incoming authenticated API requests have rate limits imposed against the individual account.
 - Incoming unauthenticated API requests have rate limits imposed against the IP addresses.
 
 Requests received after the rate limit is reached return a [429 response code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429#:~:text=The%20HTTP%20429%20Too%20Many,before%20making%20a%20new%20request) indicating that the number of allowable requests has been exceeded.
