@@ -93,11 +93,6 @@ Execute tests according to the environment, framework, and test suite specificat
      <td>Modify the execution order of suites.</td>
     </tr>
     <tr>
-     <td><span className="t-cli"><a href="#--live-logs">--live-logs</a></span></td>
-     <td></td>
-     <td>Tail the live log output from a running Sauce Orchestrate container.</td>
-    </tr>
-    <tr>
      <td><span className="t-cli"><a href="#--no-auto-tagging">--no-auto-tagging</a></span></td>
      <td></td>
      <td>Disable the automatic tagging of jobs with metadata, such as CI or Git information.</td>
@@ -388,11 +383,6 @@ saucectl run --env <key1>=<value1> --env <key2>=<value2> ...
       <td>✅</td>
       <td></td>
     </tr>
-    <tr>
-      <td>Sauce Orchestrate</td>
-      <td>✅</td>
-      <td></td>
-    </tr>
   </tbody>
 </table>
 
@@ -432,19 +422,6 @@ Supported value `fail rate`: Jobs with the highest failure rate are prioritized 
 
 ```bash
 saucectl run --launch-order="fail rate"
-```
-
-</div>
-
-### <span className="cli">--live-logs</span>
-
-<div className="cli-desc">
-<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Sauce Orchestrate Only</span> |</small></p>
-
-Tail the live log output from a running Sauce Orchestrate container.
-
-```bash
-saucectl run --live-logs
 ```
 
 </div>

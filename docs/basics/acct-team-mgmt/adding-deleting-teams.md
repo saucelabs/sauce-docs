@@ -29,6 +29,11 @@ If you are an organization admin, you can create and delete teams and assign con
 
 ## Deleting Teams
 
+:::note
+Teams that contain service accounts cannot be deleted. Remove all service accounts before attempting to delete the team.<br/><br/>
+However, if a team only contains user accounts, you can delete it by selecting a target team to which the users will be reassigned.
+:::
+
 1. On Sauce Labs, click **ACCOUNT** and then click **Organization Management**.
 2. On the **TEAMS** tab, select the checkbox of the team or teams you want to delete.
 3. Next to **TEAMS SELECTED**, in the **Action** dropdown, click **Delete team**.

@@ -118,7 +118,7 @@ It is always possible to build Crashpad from the source. To do this, see the [Ba
 
 #### Download Built Libraries
 
-Backtrace provides builds of Crashpad. We recommend using the stable version. The latest stable releases of Backtrace's Crashpad fork are available at [http://get.backtrace.io/crashpad/builds/](http://get.backtrace.io/crashpad/builds/), and the Backtrace fork nightly builds can be found [on GitHub](https://github.com/backtrace-labs/crashpad/actions).
+Backtrace provides builds of Crashpad. We recommend using the stable version. The latest stable releases of Backtrace's Crashpad fork are available at [https://github.com/backtrace-labs/crashpad/releases/](https://github.com/backtrace-labs/crashpad/releases/), and the Backtrace fork nightly builds can be found [on GitHub](https://github.com/backtrace-labs/crashpad/actions).
 
 ### Integrate Crashpad
 

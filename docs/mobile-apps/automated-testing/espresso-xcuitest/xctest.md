@@ -63,7 +63,7 @@ saucectl init xctest
 saucectl run
 ```
 
-Visit the [XCUITest configuration](/docs/mobile-apps/automated-testing/espresso-xcuitest/xcuitest.md) page for more options and information on `saucectl`.
+Visit the [XCTest configuration](/docs/mobile-apps/automated-testing/espresso-xcuitest/xctest-config.md) page for more options and information on `saucectl`.
 
 ### 2.2. Run XCTests Without Saucectl
 
