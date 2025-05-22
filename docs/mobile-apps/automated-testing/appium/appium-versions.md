@@ -129,18 +129,6 @@ capabilities.AddAdditionalCapability("sauce:options", sauceOptions);
 </TabItem>
 </Tabs>
 
-## Release Strategy
-
-Our Appium 2 release strategy is as follows:
-
-- We offer a `stable` image, which is our LTS (Long-time support) image. We change this image as conservatively as possible. The regular update schedule is 2 years. We will inform you when this image will be updated and offer a migration guide for all breaking changes from one `stable` image to a new `stable` image. The stable image is subject to change, to ensure the latest OS versions and device models are continuously supported with the latest Appium drivers. If OS changes break some of our core device functionality we will update the drivers in our `stable` image.
-- Additionally, we offer a `latest` version, updated bi-weekly on the 2nd and 16th of each month. This version includes all the most recent Appium 2 drivers and server released up to the 1st and 15th of each month. This rapid update cycle enables you to quickly access new features and fixes, so you can continually enhance your testing workflows. The bi-weekly `latest` version does not have a fixed lifespan, allowing you to stay on the cutting edge.
-
-This strategy is designed to ease the complexities you face in mobile app testing.
-
-:::info
-The current release strategy outlined above is specific to Real Devices. We are actively working to extend this to Emulators and Simulators and will announce it shortly.
-:::
 
 ## End-of-Life
 
@@ -153,6 +141,15 @@ The current end-of-life strategy outlined above is specific to Real Devices. We 
 :::
 
 ## Real Devices
+
+### Real Device Appium Images
+
+The release strategy for Appium images in RDC is the following:
+
+- We provide a `stable` image, which is our Long-Term Support (LTS) image. We update this image as conservatively as possible. Our regular update schedule is every 12 months. We will notify you when we update this image and provide a migration guide for any breaking changes from the previous `stable` image to the new one. The stable image is subject to change to ensure continuous support for the latest OS versions and device models with the latest Appium drivers. When we release a new `stable` image, we will first issue a preview, such as `stable-2025`. You can adjust to this new stable image before we officially promote it to the new `stable` image.
+
+- Additionally, we offer the `latest` version. The regular update schedule for this image is every 3 months. However, we may update this image on demand if a device-OS update introduces a widespread breaking change that can only be resolved by updating Appium drivers. This version includes the most recent Appium 2 server and drivers available at the time of release. This image does not have an EOL since it is updated regularly. You can use this image to take advantage of the latest Appium bug fixes and features in your tests, but be aware that your tests may break if you use deprecated Appium functionality.
+
 
 :::info Supported Custom Appium Plugins:
 The following list of custom Appium plugins are supported:
@@ -272,6 +269,44 @@ The following list of custom Appium plugins are supported:
                     <code>appium</code>: 2.15.0
                 </a>
             </li>
+        </ul>
+      </td>
+    </tr>
+       <tr>
+      <td>
+        <code>appium2-20250501</code>
+      </td>
+      <td>
+        <span className="sauceGold">April 30th, 2026</span>
+      </td>
+      <td>
+        This is a collection of drivers that were released in May 1st 2025 <br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.18.0" target="_blank">
+              <code>appium</code>: 2.18.0
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.15.1" target="_blank">
+              <code>appium-flutter-driver</code>: 2.15.1
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v4.2.3" target="_blank">
+              <code>appium-uiautomator2-driver</code>: 4.2.3
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v9.2.3" target="_blank">
+              <code>appium-xcuitest-driver</code>: 9.2.3
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/AppiumTestDistribution/appium-flutter-integration-driver/releases/tag/v1.1.3" target="_blank">
+              <code>appium-flutter-integration-driver</code>: 1.1.3
+            </a>
+          </li>
         </ul>
       </td>
     </tr>
@@ -455,138 +490,6 @@ The following list of custom Appium plugins are supported:
           <li>
             <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.17.5" target="_blank">
               <code>appium-xcuitest-driver</code>: 7.17.5
-            </a>
-          </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>appium2-20240501</code>
-      </td>
-      <td>
-        <span className="sauceGold">April 30th, 2025</span>
-      </td>
-      <td>
-        This is a collection of drivers that were released in May 1st 2024 <br />
-        <ul>
-          <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%402.5.4" target="_blank">
-              <code>appium</code>: 2.5.4
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.6.0" target="_blank">
-              <code>appium-flutter-driver</code>: 2.6.0
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.1.0" target="_blank">
-              <code>appium-uiautomator2-driver</code>: 3.1.0
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.15.1" target="_blank">
-              <code>appium-xcuitest-driver</code>: 7.15.1
-            </a>
-          </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>appium2-20240401</code>
-      </td>
-      <td>
-        <span className="sauceGold">March 31st, 2025</span>
-      </td>
-      <td>
-        This is a collection of drivers that were released in April 1st 2024 <br />
-        <ul>
-          <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%402.5.1" target="_blank">
-              <code>appium</code>: 2.5.1
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.5.1" target="_blank">
-              <code>appium-flutter-driver</code>: 2.5.1
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.0.4" target="_blank">
-              <code>appium-uiautomator2-driver</code>: 3.0.4
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.9.1" target="_blank">
-              <code>appium-xcuitest-driver</code>: 7.9.1
-            </a>
-          </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>appium2-20240301</code>
-      </td>
-      <td>
-        <span className="sauceGold">February 28th, 2025</span>
-      </td>
-      <td>
-        This is a collection of drivers that were released in March 1st 2024 <br />
-        <ul>
-          <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%402.5.1" target="_blank">
-              <code>appium</code>: 2.5.1
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.5.0" target="_blank">
-              <code>appium-flutter-driver</code>: 2.5.0
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.0.1" target="_blank">
-              <code>appium-uiautomator2-driver</code>: 3.0.1
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.2.0" target="_blank">
-              <code>appium-xcuitest-driver</code>: 7.2.0
-            </a>
-          </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>appium2-20240201</code>
-      </td>
-      <td>
-        <span className="sauceGold">January 31st, 2025</span>
-      </td>
-      <td>
-        This is a collection of drivers that were released in February 1st 2024 <br />
-        <ul>
-          <li>
-            <a href="https://github.com/appium/appium/releases/tag/appium%402.4.1" target="_blank">
-              <code>appium</code>: 2.4.1
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.4.1" target="_blank">
-              <code>appium-flutter-driver</code>: 2.4.1
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v2.43.4" target="_blank">
-              <code>appium-uiautomator2-driver</code>: 2.43.4
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v5.15.1" target="_blank">
-              <code>appium-xcuitest-driver</code>: 5.15.1
             </a>
           </li>
         </ul>
@@ -1859,6 +1762,50 @@ The following list of custom Appium plugins are supported:
   </thead>
   <tbody>
     <tr>
+      <td>iOS 18.0</td>
+      <td>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.11.3</code>
+            </a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.11.3</code>
+        </a>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.11.3</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>iOS 17.5</td>
+      <td>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.1.3</code>
+            </a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.1.3</code>
+        </a>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.1.3</code>
+        </a>
+      </td>
+    </tr>
+    <tr>
       <td>iOS 17.0</td>
       <td>
         <ul>
@@ -2445,6 +2392,37 @@ The Appium 2 versions for Virtual Devices are also collections of drivers that a
   <tbody>
     <tr>
       <td>
+        <code>2.11.3</code>
+      </td>
+      <td>-</td>
+      <td>
+        The is a collection of the following drivers <br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.11.3" target="_blank">
+              <code>appium</code>: 2.11.3
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.9.2" target="_blank">
+              <code>appium-flutter-driver</code>: 2.9.2
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/AppiumTestDistribution/appium-flutter-integration-driver/releases/tag/v1.1.3" target="_blank">
+              <code>appium-flutter-integration-driver</code>: 1.1.3
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v7.24.18" target="_blank">
+              <code>appium-xcuitest-driver</code>: 7.24.18
+            </a>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code>2.11.0</code>
       </td>
       <td>-</td>
@@ -2467,6 +2445,28 @@ The Appium 2 versions for Virtual Devices are also collections of drivers that a
             </a>
           </li>
           <li><a href="https://github.com/appium/appium-uiautomator2-driver/releases/tag/v3.7.0" target="_blank"><code>appium-uiautomator2-driver</code>: 3.7.0</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>2.1.3</code>
+      </td>
+      <td>-</td>
+      <td>
+        The is a collection of the following drivers <br />
+        <ul>
+          <li>
+            <a href="https://github.com/appium/appium/releases/tag/appium%402.1.3" target="_blank">
+              <code>appium</code>: 2.1.3
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/appium/appium-flutter-driver/releases/tag/v2.9.2" target="_blank">
+              <code>appium-flutter-driver</code>: 2.9.2
+            </a>
+          </li>
+          <li><a href="https://github.com/appium/appium-xcuitest-driver/releases/tag/v5.4.1" target="_blank"><code>appium-xcuitest-driver</code>: 5.4.1</a></li>
         </ul>
       </td>
     </tr>

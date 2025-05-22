@@ -37,7 +37,7 @@ config:
 #terminationGracePeriodSeconds: 600
 ```
 
-For more information about the `config` values, see the [sc run command reference](https://docs.saucelabs.com/dev/cli/sauce-connect-5/run).
+For more information about the `config` values, see the [sc run command reference](/dev/cli/sauce-connect-5/run).
 
 #### Install the Helm chart
 

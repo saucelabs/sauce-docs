@@ -15,7 +15,7 @@ You maintain full control over the Node.js versions, dependency management, and
 build systems.
 
 Additionally, you may run into limitations with saucectl when accessing internal
-resources that aren't accessible via HTTP(S) or use [unsupported ports](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports).
+resources that aren't accessible via HTTP(S) or use [unsupported ports](/secure-connections/sauce-connect-4/advanced/specifications/#supported-browsers-and-ports).
 
 We recommend that you give both approaches a try and pick the one that suits
 your use case best.
