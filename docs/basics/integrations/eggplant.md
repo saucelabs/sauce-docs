@@ -17,7 +17,7 @@ The communication flow is similar when running a DAI model on a Sauce Labs devic
 
 ## Using Sauce Connect Proxy with Eggplant Gateway​
 
-When using the Eggplant Gateway, the application under test is running on a Sauce Labs device. These devices are located in one of Sauce Labs' data centers. In certain scenarios, these applications may need to connect to corporate systems, such as UAT environments, that are not usually exposed over the public internet. In these scenarios, you can consider using Sauce Connect Proxy to provide your application with access to the corporate systems. For more information, see [Sauce Connect Proxy](/secure-connections/sauce-connect/).
+When using the Eggplant Gateway, the application under test is running on a Sauce Labs device. These devices are located in one of Sauce Labs' data centers. In certain scenarios, these applications may need to connect to corporate systems, such as UAT environments, that are not usually exposed over the public internet. In these scenarios, you can consider using Sauce Connect Proxy to provide your application with access to the corporate systems. For more information, see [Sauce Connect Proxy](/secure-connections/sauce-connect-4/).
 
 You can use the Eggplant Gateway for Sauce Labs Browsers to run Eggplant Functional and Eggplant DAI tests on browsers running in the Sauce Labs cloud.
 
