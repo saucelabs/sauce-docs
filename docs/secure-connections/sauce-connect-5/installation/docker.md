@@ -196,11 +196,11 @@ To access logs:
 
 The docker container has a built-in health check that can be used to determine if the tunnel is ready to accept jobs.
 You should see the container status as `healthy` in `docker ps` when the tunnel is ready.
-See [Sauce Connect Proxy Readiness Checks](/secure-connections/sauce-connect-5/operation/readiness-checks) for more information.
+See [Sauce Connect Proxy Readiness Checks](/secure-connections/sauce-connect-5/guides/readiness-checks) for more information.
 
 ## Additional Resources
 
-- [Sauce Connect Proxy Readiness Checks](/secure-connections/sauce-connect-5/operation/readiness-checks)
+- [Sauce Connect Proxy Readiness Checks](/secure-connections/sauce-connect-5/guides/readiness-checks)
 - [Use host networking in Docker](https://docs.docker.com/network/host/)
 - [Connect from a container to a service on the macOS host](https://docs.docker.com/desktop/mac/networking/#use-cases-and-workarounds)
 - [Docker Compose File](https://docs.docker.com/compose/compose-file/compose-file-v3/)

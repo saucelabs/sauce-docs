@@ -10,12 +10,13 @@ import TabItem from '@theme/TabItem';
 
 As a best practice, we recommend setting your Sauce Labs authentication credentials as environment variables on your local system, that can then be referenced from in your tests. This provides an extra layer of security for your tests, and also enables other members of your development and testing team to write tests that authenticate against a single account.
 
-For a list of Sauce Connect Proxy environment variables, see [Environment Variables](/secure-connections/sauce-connect/setup-configuration/environment-variables).
+For a list of Sauce Connect Proxy environment variables, see [Environment Variables](/secure-connections/sauce-connect-4/setup-configuration/environment-variables).
 
 ## What You’ll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- [Username and access key](https://app.saucelabs.com/user-settings) of your Sauce Labs user account.
+  - Alternatively, you can use the credentials of a [service account](/basics/acct-team-mgmt/managing-service-accounts). The username and access key for a service account are provided during [its creation](/basics/acct-team-mgmt/managing-service-accounts/#creating-a-service-account).
 
 ## Setting Up Environment Variables
 

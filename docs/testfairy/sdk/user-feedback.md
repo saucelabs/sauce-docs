@@ -8,11 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Getting feedback from users and testers is crucial in the app development process. It provides valuable insights and helps improve the overall user experience. TestFairy offers an effortless way to collect feedback through its In-App Feedback feature. By integrating the TestFairy SDK into your app, you can enable users to report bugs, suggest improvements, and share their thoughts directly from within the app.
+Getting feedback from users and testers is crucial in the app development process. It provides valuable insights and helps improve the overall user experience. Sauce Mobile App Distribution offers an effortless way to collect feedback through its In-App Feedback feature. By integrating the Sauce Mobile App Distribution SDK into your app, you can enable users to report bugs, suggest improvements, and share their thoughts directly from within the app.
 
 ## Using In-app Feedback
 
-TestFairy provides an effortless way to collect this feedback. If you [added the TestFairy SDK](https://docs.testfairy.com/SDK/Adding_The_SDK_To_Your_App.html) to your app, then all you need to do is enable the **In-App Bug Reporting** feature in your build settings in the TestFairy dashboard, and you can start collection feedbacks from your users with `"shake to report"`:
+Sauce Mobile App Distribution provides an effortless way to collect this feedback. If you [added the Sauce Mobile App Distribution SDK](https://docs.testfairy.com/SDK/Adding_The_SDK_To_Your_App.html) to your app, then all you need to do is enable the **In-App Bug Reporting** feature in your build settings in the Sauce Mobile App Distribution dashboard, and you can start collection feedbacks from your users with `"shake to report"`:
 
 <img src={useBaseUrl('/img/test-fairy/enable-bug-2.png')} alt="Enable Shake to Feedback"/>
 
@@ -34,7 +34,7 @@ When users provide feedback using the In-App Bug Reporting feature, the followin
 
 ## Customizing In-app Feedback
 
-TestFairy allows you to customize the way In-App Feedback is collected. If you prefer not to use the shake gesture for feedback collection, you can programmatically invoke the feedback form using a button click or any other gesture within your app. This way, users can access the feedback form from a designated area within the app, like the help menu or after encountering unexpected errors.
+Sauce Mobile App Distribution allows you to customize the way In-App Feedback is collected. If you prefer not to use the shake gesture for feedback collection, you can programmatically invoke the feedback form using a button click or any other gesture within your app. This way, users can access the feedback form from a designated area within the app, like the help menu or after encountering unexpected errors.
 
 Note that if you choose to invoke the feedback form programmatically, it will be shown regardless if the in-app feedback is disabled in your build settings.
 
@@ -61,7 +61,7 @@ TestFairy.showFeedbackForm();
 Example
 
 ```java
-// Be sure to import TestFairy
+// Be sure to import Sauce Mobile App Distribution
 import com.testfairy.TestFairy;
 
 // Can be invoked on a button press
@@ -86,7 +86,7 @@ For advanced customization, see [Class FeedbackOptions.Builder](https://docs.tes
 Example
 
 ```js
-// Be sure to import TestFairy
+// Be sure to import Sauce Mobile App Distribution
 #import "TestFairy.h"
 
 // Can be invoked on a button press
@@ -128,7 +128,7 @@ TestFairy.pushFeedbackController();
 Example
 
 ```js
-// Be sure to import TestFairy
+// Be sure to import Sauce Mobile App Distribution
 const TestFairy = require('react-native-testfairy');
 
 // Can be invoked on a button press
@@ -147,7 +147,7 @@ TestFairySDK.pushFeedbackController();
 Example
 
 ```js
-// Be sure to import TestFairy
+// Be sure to import Sauce Mobile App Distribution
 import { TestFairySDK } from 'nativescript-testfairy';
 
 // Can be invoked on a button press
@@ -166,7 +166,7 @@ TestFairy.SetUserId ("<userId>");
 Example
 
 ```js
-// Be sure to import TestFairy
+// Be sure to import Sauce Mobile App Distribution
 using TestFairyLib;
 
 // Can be invoked on a button press
@@ -185,7 +185,7 @@ TestFairy.pushFeedbackController();
 Example
 
 ```js
-// Be sure to import TestFairy
+// Be sure to import Sauce Mobile App Distribution
 using TestFairyUnity;
 
 // Can be invoked on a button press
@@ -204,7 +204,7 @@ AirTestFairy.pushFeedbackController();
 Example
 
 ```js
-// Be sure to import TestFairy
+// Be sure to import Sauce Mobile App Distribution
 import com.testfairy.AirTestFairy;
 
 // Can be invoked on a button press

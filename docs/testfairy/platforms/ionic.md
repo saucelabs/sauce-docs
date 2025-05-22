@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To add the TestFairy plugin to your Ioic 3 project, follow the instructions below.
+To add the Sauce Mobile App Distribution plugin to your Ioic 3 project, follow the instructions below.
 
 ## Installation
 
@@ -34,7 +34,7 @@ ionic cordova plugin update com.testfairy.cordova-plugin
 
 ## Usage
 
-Initialize TestFairy with your [App Token](https://app.testfairy.com/settings/#apptoken) by calling `TestFairy.begin`. Your **APP TOKEN** is available at `https://app.testfairy.com/settings/#apptoken`.
+Initialize Sauce Mobile App Distribution with your [App Token](https://app.testfairy.com/settings/#apptoken) by calling `TestFairy.begin`. Your **APP TOKEN** is available at `https://app.testfairy.com/settings/#apptoken`.
 
 We recommend invoking `TestFairy.begin` from `platform.ready()` in `src/app/app.component.ts`. Also, declare `TestFairy` at the top of the file.
 
@@ -46,7 +46,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 
-// Declare the TestFairy instance
+// Declare the Sauce Mobile App Distribution instance
 declare var TestFairy: any;
 
 @Component({
@@ -93,8 +93,8 @@ See the SDK Documentation /testfairy/sdk/remote-logging#cordova for more informa
 
 ## Where To Go From Here?
 
-Congratulations. You've successfully integrated TestFairy into your Ionic project. Visit your [dashboard](http://app.testfairy.com/), to see your app listed.
+Congratulations. You've successfully integrated Sauce Mobile App Distribution into your Ionic project. Visit your [dashboard](http://app.testfairy.com/), to see your app listed.
 
-- Look at the [API documentation](https://github.com/testfairy/testfairy-cordova-plugin/blob/master/www/testfairy.js) for other calls to the TestFairy plugin.
+- Look at the [API documentation](https://github.com/testfairy/testfairy-cordova-plugin/blob/master/www/testfairy.js) for other calls to the Sauce Mobile App Distribution plugin.
 
 - Follow the project on [GitHub](https://github.com/testfairy/testfairy-cordova-plugin) for updates, bug reports, or to contribute to the project.
