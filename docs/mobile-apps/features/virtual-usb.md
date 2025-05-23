@@ -35,7 +35,7 @@ It integrates into your development and test environment, meaning you can use yo
 - If you're testing an Android app:
   - Android Debug Bridge (ADB) version higher than 1.0.39.
   - Android Studio 4 or higher.
-- If you need to use [Sauce Connect Proxy](/secure-connections/sauce-connect-4/), you'll need to have the client installed first.
+- If you need to use [Sauce Connect](/secure-connections/sauce-connect-5/), you'll need to have the client installed first.
 
 :::note Limitations
 vUSB is currently only supported for test automation. Debugging with any IDE, and attaching debuggers with Xcode and Android Studio, are not advised and won't be supported at this time). 
@@ -94,7 +94,7 @@ java -jar virtual-usb-client.jar -v server --datacenter US
 
 #### **Optional: Set Up a Local Server Proxy**
 
-If you need to use a proxy to get access to external resources, you can launch a proxy tunnel or device proxy tunnel using the [proxy flags compatible with the `server` command](/dev/cli/virtual-usb/start-server). This is not the same as starting a [Sauce Connect Tunnel](/secure-connections/sauce-connect-4/).
+If you need to use a proxy to get access to external resources, you can launch a proxy tunnel or device proxy tunnel using the [proxy flags compatible with the `server` command](/dev/cli/virtual-usb/start-server). This is not the same as starting a [Sauce Connect Tunnel](/secure-connections/sauce-connect-5/).
 
 #### **Optional: Set Environment Variables**
 
@@ -120,7 +120,7 @@ First, launch your test on Sauce Labs (**Live** > **Cross Browser** > **Mobile R
 java -jar virtual-usb-client.jar sessions --username $SAUCE_USERNAME --accessKey $SAUCE_ACCESS_KEY
 ```
 
-If [Sauce Connect Proxy](/secure-connections/sauce-connect-4/) is required to access your corporate network or your local machine for secure test data, you'll need to select a **SAUCE CONNECT PROXY** from the dropdown before launching your device.
+If [Sauce Connect Proxy](/secure-connections/sauce-connect-5/) is required to access your corporate network or your local machine for secure test data, you'll need to select a **SAUCE CONNECT PROXY** from the dropdown before launching your device.
 <img src={useBaseUrl('img/virtual-usb/vusb-sc-ui.jpg')} alt="Sauce Connect tunnel dropdown in UI" width="600" />
 
 This will return a list of your active test sessions.
