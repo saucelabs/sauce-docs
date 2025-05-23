@@ -1,63 +1,70 @@
 ---
 id: sauce-connect-5
-title: Sauce Connect Proxy 5
+title: Sauce Connect 5
 sidebar_label: Overview
 ---
 
-Sauce Connect Proxy 5 is a complete rewrite of Sauce Connect Proxy 4.x.x that aims to improve observability, performance, and user experience and provide a strong foundation for future improvements.
+Sauce Connect 5 is a secure tunneling solution that enables you to safely test applications behind firewalls or on local environments using Sauce Labs infrastructure.
+Built for modern development workflows, this version of Sauce Connect emphasizes **performance**, **observability**, and **ease of use**.
 
-## What You'll Need
+Sauce Connect Client is a lightweight software application that creates a secure connection (a "tunnel") between your environment and Sauce Labs.
+This allows you to test applications that are not publicly accessible, such as:
 
-- If you're new to Sauce Connect, we recommend reviewing the [Sauce Connect Proxy overview](/secure-connections/sauce-connect) documentation.
+- Locally hosted web applications
+- Staging environments behind a firewall
+- Environments protected by IP allowlists
 
-## What's New In Sauce Connect Proxy 5?
+## Key Features
 
-:::caution
-The Sauce Connect Proxy version 5 major release introduces CLI changes. Please refer to [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/) for details.
-An [`sc legacy`](/dev/cli/sauce-connect-5/legacy/) command is introduced to help users transition from version 4.x.x to 5.0.x.
-:::
+### Secure and Standardized Tunneling
 
-1. Improved onboarding and integration due to the secure connection (tunnel) protocol change.
-   The previous generation of Sauce Connect Proxy (version 4) used a custom [KGP](/secure-connections/sauce-connect/advanced/kgp/) protocol. The Sauce Connect Proxy version 5 uses HTTP/2 to establish a secure connection to Sauce Labs.
-   Using a standard well-documented protocol that is widely used in the industry simplifies Sauce Connect Proxy integration in secure CI/CD environments.
-2. Performance improvement.
-   HTTP/2 protocol is optimized for security and performance, it provides significant performance improvements that are especially noticeable when multiple test sessions use the same Sauce Connect Proxy instance.
-3. Significant improvement in CPU and memory utilization.
-   Sauce Connect Proxy 5 utilizes much less memory and CPU resources making it easier to run at scale.
-4. Observability improvement.
-   Sauce Connect Proxy 5 comes with [Prometheus](https://prometheus.io/) metrics and a [Grafana dashboard](https://grafana.com/grafana/dashboards/20232-sauce-connect/).
-5. Easier installation and upgrade process. Sauce Connect Proxy 5 release contains deb and rpm packages for Linux, brew support for macOS, as well as x86_64 and arm64 architectures support for all platforms.
-6. Secure [WebSocket](https://en.wikipedia.org/wiki/WebSocket) support with [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication#ssl-certificate-bumping) enabled.
-7. [SOCKS5](https://datatracker.ietf.org/doc/html/rfc1928) support for upstream proxies.
+Sauce Connect 5 uses the **HTTP/2 protocol** to establish encrypted tunnels.
+Unlike custom protocols, HTTP/2 integrates seamlessly with enterprise firewalls and proxies, simplifying deployment and enhancing security.
 
-### Major changes
+### Performance
 
-Sauce Connect Proxy 5 major changes are listed below.
+Built with speed and scalability in mind, SC5 delivers:
 
-- Tunnels must be named, the [`--tunnel-name`](/dev/cli/sauce-connect-5/run/#tunnel-name)
-flag is no longer optional. It's done to improve security and usability—tests
-that use Sauce Connect must explicitly specify the [tunnel name](/dev/test-configuration-options#tunnelname).
-- There is no default Sauce Labs region value, [`--region`](/dev/cli/sauce-connect-5/run/#region) is required to ensure that the correct region is explicitly specified.
-- Proxy auto-detection is not supported, all proxies must be specified with
-explicit flags — [`--proxy`](/dev/cli/sauce-connect-5/run/#proxy) or [`--pac`](/dev/cli/sauce-connect-5/run/#pac)
-for SUT requests and [`--proxy-sauce`](/dev/cli/sauce-connect-5/run/#proxy-sauce)
-for Sauce Labs REST API and tunnel connections.
-- Domain flags ([`--tunnel-domains`](/dev/cli/sauce-connect-5/run/#tunnel-domains), [`--direct-domains`](/dev/cli/sauce-connect-5/run/#direct-domains), etc.)
-accept regular expressions only.
-- [Subcommands](/dev/cli/sauce-connect-5/) are introduced to support multiple CLI changes and future
-capabilities.
-- The [Selenium Relay](/secure-connections/sauce-connect/proxy-tunnels/#using-the-selenium-relay) feature is not supported.
-- Log administration capabilities (such as log-rotate) are not supported. Log
-management is better left to specialized tools.
+- Faster tunnel startup and test execution
+- Significantly reduced CPU and memory usage
+- Improved performance in high-concurrency environments
 
-## Getting Started With Sauce Connect Proxy 5
+Learn more in [Sauce Connect 5.2.0: Why You Should Migrate](https://saucelabs.com/resources/blog/sauce-connect-5-2-0-migration).
 
-Please refer to [Sauce Connect Quickstart Guide](/secure-connections/sauce-connect-5/quickstart/) if you are new to Sauce Connect.
+### Observability
 
-If you already use Sauce Connect Proxy 4, please refer to [Sauce Connect Proxy 5 Migration Guide](/secure-connections/sauce-connect-5/migrating/).
+Operational transparency is a core part of SC5. It exposes real-time metrics via:
 
-## More Information
+- Prometheus-compatible metrics
+- Pre-built Grafana dashboards
 
-- [Sauce Connect Proxy 5 Quickstart Guide](/secure-connections/sauce-connect-5/quickstart/)
-- [Sauce Connect Proxy 5 Migration Guide](/secure-connections/sauce-connect-5/migrating/)
-- [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/)
+This makes it possible to monitor tunnel usage, uptime, and system health. See the [Monitoring Guide](/secure-connections/sauce-connect-5/guides/monitoring/) for details.
+
+### Easy Installation
+
+SC5 is distributed in multiple formats to accommodate diverse systems and architectures. Available formats include:
+
+- Winget package (Windows)
+- Homebrew tap (macOS)
+- `deb` and `rpm` packages (Linux)
+- x86_64 and arm64 binaries (Linux, macOS, Windows)
+
+See the [Installation Guide](/secure-connections/sauce-connect-5/installation/) for setup instructions.
+
+### Advanced Proxy Capabilities
+
+- Secure [WebSocket](https://en.wikipedia.org/wiki/WebSocket) support with [TLS resigning](/secure-connections/sauce-connect-5/guides/tls-resigning/) enabled.
+- [SOCKS5](https://datatracker.ietf.org/doc/html/rfc1928) support for upstream proxies.
+- [PAC file](/secure-connections/sauce-connect-5/guides/proxies/#--pac) support for selective routing
+
+## Migrating from Sauce Connect 4
+
+Refer to the [Migration Guide](/secure-connections/sauce-connect-5/migrating/) for detailed instructions on transitioning from Sauce Connect 4 to Sauce Connect 5.
+
+## Getting Started
+
+To start using Sauce Connect 5:
+
+- Read the [Quickstart Guide](/secure-connections/sauce-connect-5/quickstart/)
+- Explore the [CLI Reference](/dev/cli/sauce-connect-5/)
+- Review the [Migration Guide](/secure-connections/sauce-connect-5/migrating/) if you're upgrading from Sauce Connect 4

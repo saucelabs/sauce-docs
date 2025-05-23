@@ -109,7 +109,7 @@ Specify a proxy password to be set on the device.
 <div className="cli-desc">
 <p><small>| OPTIONAL | STRING |</small></p>
 
-Specifies the name of an active [Sauce Connect](/secure-connections/sauce-connect/) tunnel to use for secure connectivity to the Sauce Labs platform.   
+Specifies the name of an active [Sauce Connect](/secure-connections/sauce-connect-4/) tunnel to use for secure connectivity to the Sauce Labs platform.   
 Use the `--tunnelIdentifier` option with the tunnel identifier in the format:
 ```java title="tunnel identifier format"
 --tunnelIdentifier tunnel-identifier:<tunnel-name>,<tunnel-owner>
