@@ -166,7 +166,7 @@ No. On iOS, we re-sign with our own certificate. On Android, there are no extra 
 
 #### **If I run a test on the public real device cloud, can I run it over ssh or a VPN?**
 
-No. Private and public cloud accounts have the option to use our Sauce Connect Proxy solution for ensuring a secure connection to your own environment and internal endpoints, [see more here.](/secure-connections/sauce-connect-5/). Using a VPN app in the device is not supported, nor guaranteed to work.
+No. Private and public cloud accounts have the option to use our Sauce Connect Proxy solution for ensuring a secure connection to your own environment and internal endpoints, [see more here.](/secure-connections/sauce-connect-4/). Using a VPN app in the device is not supported, nor guaranteed to work.
 
 Sauce Connect is supported for both private and public clouds.
 
