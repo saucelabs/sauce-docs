@@ -1922,6 +1922,8 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 Specify a [Sauce Connect](/secure-connections/sauce-connect-5/) tunnel to establish connectivity with Sauce Labs for your test. Tunnels allow you to test an app that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
 
+See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect-4/setup-configuration/basic-setup) for more information.
+
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 //...

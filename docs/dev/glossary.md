@@ -526,7 +526,7 @@ A Sauce Connect Proxy network configuration for users with an existing internal 
 
 ### Sauce Connect Proxy Setup, Basic
 
-A Sauce Connect Proxy configuration for users with a network configuration requiring a proxy to open up communication between Sauce Labs and their web or mobile app in testing that is hosted on a local machine or behind a firewall. More information: [Sauce Connect Quickstart](/secure-connections/sauce-connect-5/quickstart/).
+A Sauce Connect Proxy configuration for users with a network configuration requiring a proxy to open up communication between Sauce Labs and their web or mobile app in testing that is hosted on a local machine or behind a firewall. More information: [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect-4/setup-configuration/basic-setup).
 
 ### Sauce Connect Proxy Setup, Tunnel Pool
 
