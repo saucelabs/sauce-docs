@@ -176,7 +176,7 @@ No. If there is, our automated cleaning process didn’t work as intended. If th
 
 #### **My app is only available within our internal network. Can I use real devices for my testing?**
 
-You can add an exception for the Real Device Cloud to your network's allowlist for the appropriate domains as described in [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect-4/system-requirements).
+You can add an exception for the Real Device Cloud to your network's allowlist for the appropriate domains as described in [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect-5/system-requirements/).
 
 #### **I see the error `Not Yet Implemented Exception` when scrolling in an Appium web test on Android. Why?**
 
