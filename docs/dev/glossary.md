@@ -392,7 +392,7 @@ See also: _[team admin](#team-admin)_.
 
 1. The practice of running multiple tests simultaneously.
 
-2. When signing up for a self-service license, this is equivalent to your account's concurrency settings. More information: [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect-5/system-requirements/), [Using Frameworks to Run Tests in Parallel](/web-apps/automated-testing/selenium/#scaling-tests).
+2. When signing up for a self-service license, this is equivalent to your account's concurrency settings. More information: [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect-4/system-requirements), [Using Frameworks to Run Tests in Parallel](/web-apps/automated-testing/selenium/#scaling-tests).
 
    See also: _[concurrency limit](#concurrency-limit)_.
 
