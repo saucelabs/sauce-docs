@@ -19,7 +19,7 @@ We do not support [Allow-listing static IPs](/basics/data-center-endpoints/). We
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - Your Sauce Labs [Username](https://app.saucelabs.com/user-settings) and [Access Key](https://app.saucelabs.com/user-settings).
-- Have the [Sauce Connect Proxy client installed](/secure-connections/sauce-connect-4/installation/) on your local machine. If you're new to the feature, check out the [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect-4/quickstart/).
+- Have the [Sauce Connect Proxy client installed](/secure-connections/sauce-connect-5/installation/) on your local machine. If you're new to the feature, check out the [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect-5/quickstart/).
 - An existing API Testing Project and Test. For details on how to create them, see [API Testing Quickstart](/api-testing/quickstart/).
 
 ## Start API-Specific Tunnel
@@ -177,7 +177,7 @@ sc.exe run -c api-config.yaml
   </TabItem>
   </Tabs>
 
-If the tunnel was launched successfully, you'll see a [CLI response](/secure-connections/sauce-connect-4/proxy-tunnels/#command-line-interface) indicating that you can start your tests.
+If the tunnel was launched successfully, you'll see a [CLI response](/secure-connections/sauce-connect-5/quickstart/#verify-connection) indicating that you can start your tests.
 
 ## Configure Test to Use Tunnel
 
@@ -207,5 +207,4 @@ If you shut down a tunnel that's currently selected in a Sauce Connect dropdown 
 
 ## More Information
 
-- [Using Sauce Connect Proxy](/secure-connections/sauce-connect-4/)
-- [Specialized Sauce Connect Proxy Setups](/secure-connections/sauce-connect-4/setup-configuration/specialized-environments/#api-testing-setup)
+- [Using Sauce Connect](/secure-connections/sauce-connect-5/)
