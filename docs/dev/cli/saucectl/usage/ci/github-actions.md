@@ -57,7 +57,7 @@ env:
 ## Create the Test Job
 
 In the examples below, we illustrate how `saucectl` executes tests on Sauce Cloud (i.e., Sauce Labs infrastructure).
-You will likely require a tunnel back to where your app is running. A tunnel enables the remote browser to access your local network. For this, you'll need to use [Sauce Connect](/secure-connections/sauce-connect-4/).
+You will likely require a tunnel back to where your app is running. A tunnel enables the remote browser to access your local network. For this, you'll need to use [Sauce Connect](/secure-connections/sauce-connect-5/).
 
 :::note
 For more detailed information on setting event-driven actions and jobs, visit the [GitHub Action documentation](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions).
