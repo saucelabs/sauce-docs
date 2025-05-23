@@ -461,7 +461,7 @@ It is a method of creating data algorithmically as opposed to manually, typicall
 ### Proxy Auto-Configuration File (PAC)
 
 An optional file you can use in your Sauce Connect Proxy tests to define how web browsers and other user agents automatically choose the appropriate proxy server for fetching a given URL.
-To use a PAC file, include the `--pac <url>` command-line in your code. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-5/guides/proxies/).
+To use a PAC file, include the `--pac <url>` command-line in your code. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-4/setup-configuration/additional-proxies).
 
 ## **R**
 
@@ -522,7 +522,7 @@ A built-in HTTP proxy server that opens a secure tunnel connection for testing b
 
 ### Sauce Connect Proxy Setup, Additional Proxy
 
-A Sauce Connect Proxy network configuration for users with an existing internal network proxy or proxies through which outbound communication is routed from their network to the public internet. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-5/guides/proxies/).
+A Sauce Connect Proxy network configuration for users with an existing internal network proxy or proxies through which outbound communication is routed from their network to the public internet. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-4/setup-configuration/additional-proxies).
 
 ### Sauce Connect Proxy Setup, Basic
 
@@ -679,7 +679,7 @@ The number of minutes allotted to a Sauce Labs account for its subscription.
 
 ### Transparent Proxy
 
-A server that sits between your computer and the Internet and redirects your requests and responses without modifying them. If your organization has one, please refer to Sauce Connect Proxy Setup with Additional Proxies. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-5/guides/proxies/).
+A server that sits between your computer and the Internet and redirects your requests and responses without modifying them. If your organization has one, please refer to Sauce Connect Proxy Setup with Additional Proxies. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-4/setup-configuration/additional-proxies).
 
 ### Tunnel
 
