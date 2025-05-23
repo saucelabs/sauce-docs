@@ -107,9 +107,9 @@ See: _[Playtest](#playtest)_.
 
 ### Colliding Tunnels
 
-A Sauce Connect Proxy scenario where two or more tunnels are launched with the same tunnel name not in [High Availability Mode](/secure-connections/sauce-connect-4/setup-configuration/high-availability).
+A Sauce Connect Proxy scenario where two or more tunnels are launched with the same tunnel name not in [Tunnel Pool Mode](/secure-connections/sauce-connect-5/guides/tunnel-pool/).
 By default, duplicated (already running) tunnels are halted unless a Sauce Connect Proxy is started with the `--tunnel-pool` option.
-More information: [High Availability Setup](/secure-connections/sauce-connect-4/setup-configuration/high-availability).
+More information: [Tunnel Pool Setup](/secure-connections/sauce-connect-5/guides/tunnel-pool/).
 
 See also: _[sauce connect proxy](#sauce-connect-proxy), [tunnel name](#tunnel-name)_.
 
@@ -528,11 +528,11 @@ A Sauce Connect Proxy network configuration for users with an existing internal 
 
 A Sauce Connect Proxy configuration for users with a network configuration requiring a proxy to open up communication between Sauce Labs and their web or mobile app in testing that is hosted on a local machine or behind a firewall. More information: [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect-4/setup-configuration/basic-setup).
 
-### Sauce Connect Proxy Setup, High Availability (HA)
+### Sauce Connect Proxy Setup, Tunnel Pool
 
-A Sauce Connect Proxy configuration that allows you to run a high number of tunnels individually or collectively as a tunnel pool.
+A Sauce Connect configuration that allows you to run a high number of tunnels individually or collectively as a tunnel pool.
 From an end user or test runner perspective, a pool functions the same as a single Sauce Connect instance.
-More information: [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect-4/setup-configuration/high-availability).
+More information: [Sauce Connect Tunnel Pool Setup](/secure-connections/sauce-connect-5/guides/tunnel-pool/).
 
 See also: _[tunnel pool](#tunnel-pool)_.
 
