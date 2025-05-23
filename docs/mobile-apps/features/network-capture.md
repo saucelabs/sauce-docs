@@ -130,6 +130,7 @@ If you need to localize the capture context with just the browser and omit all n
 - Only HTTP/HTTPS network traffic is captured.
 - Android Emulators are not supported.
 - iOS Simulators are not supported.
+- Apps using self-signed certificate or custom trust managers.
 
 :::
 
