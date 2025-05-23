@@ -514,7 +514,7 @@ It is a phase of a computer program in which the program is run or executed on a
 
 ### Sauce Connect Host
 
-The machine in your network on which the Sauce Connect Proxy client is running, with a direct connection to the internet. More information: [Sauce Connect Proxy Setup and Configuration](/secure-connections/sauce-connect-4/#setup-and-configuration).
+The machine in your network on which the Sauce Connect Proxy client is running, with a direct connection to the internet. More information: [Sauce Connect Architecture](/secure-connections/sauce-connect-5/architecture/).
 
 ### Sauce Connect Proxy
 
@@ -538,11 +538,11 @@ See also: _[tunnel pool](#tunnel-pool)_.
 
 ### Sauce Connect Proxy Startup
 
-The process of configuring and launching a Sauce Connect Proxy tunnel to run your tests. More information: [How to Start and Stop Sauce Connect Tunnels (Startup and Teardown)](/secure-connections/sauce-connect-4/proxy-tunnels).
+The process of configuring and launching a Sauce Connect Proxy tunnel to run your tests. More information: [Sauce Connect Quickstart](/secure-connections/sauce-connect-5/quickstart/).
 
 ### Sauce Connect Proxy Teardown
 
-The process of gracefully shutting down and decommissioning a Sauce Connect Proxy tunnel. More information: [How to Start and Stop Sauce Connect Tunnels (Startup and Teardown)](/secure-connections/sauce-connect-4/proxy-tunnels).
+The process of gracefully shutting down and decommissioning a Sauce Connect Proxy tunnel. More information: [Sauce Connect Quickstart](/secure-connections/sauce-connect-5/quickstart/).
 
 ### saucectl
 
@@ -575,10 +575,6 @@ A part of the Selenium suite that specializes in running multiple tests across d
 ### Selenium IDE
 
 An integrated development environment for Selenium scripts – implemented as an extension for Chrome and Firefox – that allows you to record, playback, and debug tests in the browser. More information: [Selenium Projects](https://www.selenium.dev/projects/).
-
-### Selenium Relay
-
-A listener for Selenium commands built into Sauce Connect Proxy that enables inbound and outbound test traffic to be sent through an encrypted tunnel. More information: [Using the Selenium Relay with Sauce Connect Proxy](/secure-connections/sauce-connect-4/proxy-tunnels), [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
 
 ### Selenium Server
 
@@ -632,7 +628,7 @@ A test method where you purposely put your system under extreme conditions – a
 
 ### systemd
 
-A Linux service management tool that facilitates Sauce Connect Proxy tunnel monitoring, system startup and shutdown. More information: [Monitoring Sauce Connect Proxy with Service Management Tools](/secure-connections/sauce-connect-4/proxy-tunnels#service-management-tools).
+A Linux service management tool that facilitates Sauce Connect Proxy tunnel monitoring, system startup and shutdown. More information: [Sauce Connect Installation](/secure-connections/sauce-connect-5/installation/linux/#install-package).
 
 ### Sharding
 
