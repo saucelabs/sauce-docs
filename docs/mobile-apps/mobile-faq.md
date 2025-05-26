@@ -166,7 +166,7 @@ No. On iOS, we re-sign with our own certificate. On Android, there are no extra 
 
 #### **If I run a test on the public real device cloud, can I run it over ssh or a VPN?**
 
-No. Private and public cloud accounts have the option to use our Sauce Connect Proxy solution for ensuring a secure connection to your own environment and internal endpoints, [see more here.](/secure-connections/sauce-connect-4/). Using a VPN app in the device is not supported, nor guaranteed to work.
+No. Private and public cloud accounts have the option to use our Sauce Connect Proxy solution for ensuring a secure connection to your own environment and internal endpoints, [see more here.](/secure-connections/sauce-connect-5/). Using a VPN app in the device is not supported, nor guaranteed to work.
 
 Sauce Connect is supported for both private and public clouds.
 
@@ -176,7 +176,7 @@ No. If there is, our automated cleaning process didn’t work as intended. If th
 
 #### **My app is only available within our internal network. Can I use real devices for my testing?**
 
-You can add an exception for the Real Device Cloud to your network's allowlist for the appropriate domains as described in [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect-4/system-requirements).
+You can add an exception for the Real Device Cloud to your network's allowlist for the appropriate domains as described in [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect-5/system-requirements/).
 
 #### **I see the error `Not Yet Implemented Exception` when scrolling in an Appium web test on Android. Why?**
 
