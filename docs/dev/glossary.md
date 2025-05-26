@@ -479,7 +479,7 @@ See also: _[rdc on sauce](#rdc-on-sauce)._
 
 ### Real Device Testing
 
-An automated web or mobile app test performed on real, physical devices hosted on the Sauce Labs Real Device Cloud. Real device tests yield accurate results on user interactions and display how your app will appear in real life. More information: [Real Device Testing Admin Guide](/mobile-apps/supported-devices), [Sauce Connect Proxy Setup for Real Device Cloud](/secure-connections/sauce-connect-4/setup-configuration/specialized-environments#real-device-cloud-setup), [Sauce Labs website: Real Device Cloud](https://saucelabs.com/platform/real-device-cloud).
+An automated web or mobile app test performed on real, physical devices hosted on the Sauce Labs Real Device Cloud. Real device tests yield accurate results on user interactions and display how your app will appear in real life. More information: [Real Device Testing Admin Guide](/mobile-apps/supported-devices), [Sauce Connect Overview](/secure-connections/sauce-connect-5/), [Sauce Connect Localhost](/secure-connections/sauce-connect-5/guides/localhost-proxying/#configuring-mobile-devices-for-testing-localhost), [Sauce Labs website: Real Device Cloud](https://saucelabs.com/platform/real-device-cloud).
 
 See also: _[real device cloud](#real-device-cloud-rdc)_.
 
