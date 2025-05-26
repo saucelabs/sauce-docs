@@ -150,7 +150,7 @@ curl https://app.testfairy.com/api/upload \
  -F groups='friends,beta' \
  -F notify='on' \
  -F release_notes='stabilitty fixes, improvement in ui' \
- -F tags='production, english
+ -F tags='production, english'
 ```
 
 </TabItem>

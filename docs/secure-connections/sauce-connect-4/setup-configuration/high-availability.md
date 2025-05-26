@@ -16,7 +16,7 @@ With this setup, we strongly recommend applying a `--tunnel-name`, which will ma
 
 ## What You'll Need
 
-Before getting started with the High Availability setup, we recommend trying the [Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) first to confirm that your network architecture is compatible with Sauce Connect Proxy.
+Before getting started with the High Availability setup, we recommend trying the [Basic Setup](/secure-connections/sauce-connect-4/setup-configuration/basic-setup) first to confirm that your network architecture is compatible with Sauce Connect Proxy.
 
 ## Basic Setup Leveraging High Availability
 
@@ -46,7 +46,7 @@ Exclusive to our HA Sauce Connect Proxy Setup, you can launch multiple tunnels a
 
 #### Launching Tunnel Pools
 
-- In your test script configuration, provide the name of the Sauce Connect Proxy tunnel by using the [`tunnelName`](/secure-connections/sauce-connect/setup-configuration/basic-setup#using-tunnel-names) capability:
+- In your test script configuration, provide the name of the Sauce Connect Proxy tunnel by using the [`tunnelName`](/secure-connections/sauce-connect-4/setup-configuration/basic-setup#using-tunnel-names) capability:
   ```java
   "tunnelName": "tunnel_name_here"
   ```
@@ -66,7 +66,7 @@ When creating a tunnel pool, you need to prevent tunnel name collision by using 
 
 #### Monitoring Tunnel Pools
 
-When running a tunnel pool, we recommend monitoring your activity on the Sauce Labs [**Tunnels**](https://app.saucelabs.com/tunnels) page to ensure your tunnel configuration stability and overall testing efficiency. Here, you can gain insight into all individual tunnels and tunnel pools. See [Monitoring Tunnels](/secure-connections/sauce-connect/proxy-tunnels/#monitoring-tunnels) for more information.
+When running a tunnel pool, we recommend monitoring your activity on the Sauce Labs [**Tunnels**](https://app.saucelabs.com/tunnels) page to ensure your tunnel configuration stability and overall testing efficiency. Here, you can gain insight into all individual tunnels and tunnel pools. See [Monitoring Tunnels](/secure-connections/sauce-connect-4/proxy-tunnels/#monitoring-tunnels) for more information.
 
 ### Launching Sauce Connect Proxy with High Availability
 
@@ -112,8 +112,8 @@ Tunnel pools do not self-heal (see [Self-management](<https://en.wikipedia.org/w
 
 When in High Availability mode, we recommend restarting Sauce Connect Proxy tunnels every 24 hours. The tunnel will stay open until all tests associated with it have completed. At the same time, once the shutdown command has been sent, the tunnel is marked inactive in the eyes of the pool, and no new jobs will use it.
 
-- Windows users: [Running as a Microsoft Windows Service](/secure-connections/sauce-connect/proxy-tunnels/#running-nssm-for-windows)
-- Linux users: [Monitoring with Service Management Tools](/secure-connections/sauce-connect/proxy-tunnels/#service-management-tools)
+- Windows users: [Running as a Microsoft Windows Service](/secure-connections/sauce-connect-4/proxy-tunnels/#running-nssm-for-windows)
+- Linux users: [Monitoring with Service Management Tools](/secure-connections/sauce-connect-4/proxy-tunnels/#service-management-tools)
 
 ### Using Multiple Machines for Failover Functionality
 
@@ -123,4 +123,4 @@ If you're using the same machine for multiple tunnels, you should start Sauce Co
 
 ## More Information
 
-- [Sauce Connect Proxy Performance Metrics](/secure-connections/sauce-connect/proxy-tunnels/#improving-sauce-connect-proxy-performance)
+- [Sauce Connect Proxy Performance Metrics](/secure-connections/sauce-connect-4/proxy-tunnels/#improving-sauce-connect-proxy-performance)

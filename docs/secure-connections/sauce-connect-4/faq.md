@@ -10,7 +10,7 @@ If you're new to Sauce Connect Proxy or troubleshooting, this list of frequently
 
 Sauce Connect Proxy can only communicate with Sauce Labs via `port 443`. This is not configurable.
 
-Sauce Connect Proxy requires outbound access to several Sauce Labs REST API endpoints (over HTTPS) and the Sauce Connect Server (over TLS1.2-encrypted [KGP](/secure-connections/sauce-connect/advanced/kgp)).
+Sauce Connect Proxy requires outbound access to several Sauce Labs REST API endpoints (over HTTPS) and the Sauce Connect Server (over TLS1.2-encrypted [KGP](/secure-connections/sauce-connect-4/advanced/kgp)).
 For more information, see [Data Center Endpoints](/basics/data-center-endpoints).
 
 ## When do I need to use Port 443 and how does it relate to the --proxy flag?
@@ -19,7 +19,7 @@ Port 443 is the typical default port for HTTPS traffic. Sauce Connect will use p
 
 You can use the [`--proxy`](/dev/cli/sauce-connect-proxy/#--proxy) command-line option to specify the `hostname:port` of the proxy for all Sauce Connect Proxy traffic to the site(s) under test.
 Some companies have it setup where you MUST pass traffic through a proxy to reach the internet.
-See also [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
+See also [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-4/setup-configuration/additional-proxies).
 
 ## How can I share a Sauce Connect Proxy tunnel between multiple accounts?
 
@@ -46,19 +46,19 @@ Entering this code -- `(www.)?google-analytics.com,(www.)?googletagmanager.com,(
 
 You can access `localhost` through Sauce Connect on Virtual Desktop Browser tests. However, you cannot proxy `localhost` or 127.0.0.1 connections on any Mobile tests, whether they are Emulators, Simulators, or Real Devices.
 
-When using Sauce Connect Proxy, local websites running on commonly used ports are available to test at `localhost` or 127.0.0.1 URLs. The exception is when testing on Real or Virtual Mobile Devices. Real and Virtual Mobile tests require changes to the `/etc/hosts` file where Sauce Connect Proxy is hosted. For more information, see [Testing Mobile Devices Against localhost](/secure-connections/sauce-connect/setup-configuration/specialized-environments/#testing-mobile-devices-against-localhost).
+When using Sauce Connect Proxy, local websites running on commonly used ports are available to test at `localhost` or 127.0.0.1 URLs. The exception is when testing on Real or Virtual Mobile Devices. Real and Virtual Mobile tests require changes to the `/etc/hosts` file where Sauce Connect Proxy is hosted. For more information, see [Testing Mobile Devices Against localhost](/secure-connections/sauce-connect-4/setup-configuration/specialized-environments/#testing-mobile-devices-against-localhost).
 
 For all platforms, tests may perform better when using a locally defined domain name (which can be set in your [`hosts` file](http://en.wikipedia.org/wiki/Hosts_file)) rather than `localhost`. Using a locally defined domain name also allows access to apps on any port. If you are using a parent proxy with Sauce Connect, you may need the [`--proxy-localhost` flag](/dev/cli/sauce-connect-proxy/#--proxy-localhost).
 
-See also [Supported Browsers and Ports Specification](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports).
+See also [Supported Browsers and Ports Specification](/secure-connections/sauce-connect-4/advanced/specifications/#supported-browsers-and-ports).
 
 ## How can I improve tunnel performance?
 
-See [Improving Sauce Connect Proxy Performance](/secure-connections/sauce-connect/proxy-tunnels/#improving-sauce-connect-proxy-performance).
+See [Improving Sauce Connect Proxy Performance](/secure-connections/sauce-connect-4/proxy-tunnels/#improving-sauce-connect-proxy-performance).
 
 ### Supported Browsers and Ports
 
-See [Supported Browsers and Ports Specification](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports).
+See [Supported Browsers and Ports Specification](/secure-connections/sauce-connect-4/advanced/specifications/#supported-browsers-and-ports).
 
 ## What are the optimal open file settings?
 
@@ -68,11 +68,11 @@ The [open file limit](https://www.tecmint.com/increase-set-open-file-limits-in-l
 
 Feel free to do either, even if you only have one Sauce account.
 
-If you do decide to use five separate instances, you'll need to create unique identifiers for each. More information: [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
+If you do decide to use five separate instances, you'll need to create unique identifiers for each. More information: [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect-4/setup-configuration/high-availability).
 
 ## Can I split testing traffic across multiple Sauce Connect Proxy tunnels?
 
-Sauce Connect Proxy offers some options for high availability that enable multiple Sauce Connect Proxy tunnels to be grouped into a pool, which is treated like a single tunnel. This has several advantages, including the ability to distribute the load of test traffic. More information: [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
+Sauce Connect Proxy offers some options for high availability that enable multiple Sauce Connect Proxy tunnels to be grouped into a pool, which is treated like a single tunnel. This has several advantages, including the ability to distribute the load of test traffic. More information: [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect-4/setup-configuration/high-availability).
 
 ## Does Sauce Connect Proxy support running XCUITest and Espresso tests?
 
@@ -80,11 +80,11 @@ Yes. More information: [Mobile Testing Frameworks](/mobile-apps/automated-testin
 
 ## How many Sauce Connect Proxy tunnels can I keep open simultaneously?
 
-Your options depend on your license type. More information: [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect/system-requirements).
+Your options depend on your license type. More information: [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect-4/system-requirements).
 
 ## How many tests can I run in each Sauce Connect Proxy tunnel?
 
-There are currently no limits on how many tests you can run in each tunnel, though we may eventually implement limitations to maintain service quality. More information: [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect/system-requirements).
+There are currently no limits on how many tests you can run in each tunnel, though we may eventually implement limitations to maintain service quality. More information: [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect-4/system-requirements).
 
 ## Are there restrictions on who can use Sauce Connect Proxy tunnels for real device testing?
 
@@ -104,8 +104,8 @@ Yes.
 
 ## Can you allowlist IP addresses instead of using Sauce Connect Proxy?
 
-To create a secure connection, we strongly recommend using [Sauce Connect Proxy](/secure-connections/sauce-connect) or [Sauce IPSec Proxy](/secure-connections/ipsec-vpn) instead of allowlisting IP ranges.
-For more information, see [Why Sauce Labs Recommends Sauce Connect Proxy Over Allowlisting IP Addresses](/secure-connections/sauce-connect/#why-we-recommend-sauce-connect-proxy-over-allowlisting-ip-addresses).
+To create a secure connection, we strongly recommend using [Sauce Connect Proxy](/secure-connections/sauce-connect-4) or [Sauce IPSec Proxy](/secure-connections/ipsec-vpn) instead of allowlisting IP ranges.
+For more information, see [Why Sauce Labs Recommends Sauce Connect Proxy Over Allowlisting IP Addresses](/secure-connections/sauce-connect-4/#why-we-recommend-sauce-connect-proxy-over-allowlisting-ip-addresses).
 
 ## Where can I get more in-depth information about Sauce Connect Proxy?
 
@@ -113,4 +113,4 @@ For more information, see [Why Sauce Labs Recommends Sauce Connect Proxy Over Al
 
 ## What is KGP in Sauce Connect Proxy logs?
 
-See [Sauce Connect Tunneling Protocol](/secure-connections/sauce-connect/advanced/kgp) documentation.
+See [Sauce Connect Tunneling Protocol](/secure-connections/sauce-connect-4/advanced/kgp) documentation.

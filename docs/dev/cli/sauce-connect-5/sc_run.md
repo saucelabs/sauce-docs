@@ -39,7 +39,7 @@ More details [here](/basics/data-center-endpoints).
 
 Name of the tunnel or tunnel pool.
 You can run tests using this tunnel by specifying the tunnelName value in your test capabilities, see [here](/dev/test-configuration-options/).
-It can also assign a name to a group of tunnels in the same high availability pool, see [here](/secure-connections/sauce-connect/setup-configuration/high-availability/).
+It can also assign a name to a group of tunnels in the same high availability pool, see [here](/secure-connections/sauce-connect-4/setup-configuration/high-availability/).
 
 ### `-u, --username` {#username}
 
@@ -75,7 +75,7 @@ See [here](/secure-connections/sauce-connect-5/guides/sharing-tunnel/).
 * Default value: `false`
 
 Denotes a tunnel as part of a high availability tunnel pool.
-See [here](/secure-connections/sauce-connect/setup-configuration/high-availability/).
+See [here](/secure-connections/sauce-connect-4/setup-configuration/high-availability/).
 
 ## Tunnel traffic
 
