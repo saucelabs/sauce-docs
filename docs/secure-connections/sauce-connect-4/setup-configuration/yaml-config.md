@@ -26,7 +26,7 @@ tunnel-identifier: 'my-macos'
 ```
 
 :::note
-It's possible to pass the same command-line arguments on the command line, through a YAML config file, and as [environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/).
+It's possible to pass the same command-line arguments on the command line, through a YAML config file, and as [environment variables](/secure-connections/sauce-connect-4/setup-configuration/environment-variables/).
 When the same argument is passed through multiple methods, the order of precedence is as follows (from highest to lowest): command-line option, environment variable, YAML config file.
 :::
 
@@ -70,7 +70,7 @@ verbose: 0
 ```
 
 :::note
-You can find a complete configuration file example in the extracted .zip file content in `config_examples` folder (see [the download instructions](/secure-connections/sauce-connect/installation/)).
+You can find a complete configuration file example in the extracted .zip file content in `config_examples` folder (see [the download instructions](/secure-connections/sauce-connect-4/installation/)).
 :::
 
 ## Use Cases
@@ -83,7 +83,7 @@ We recommend using a YAML config file in production environments.
 
 ## What You'll Need
 
-- See [Sauce Connect Proxy Basic Setup requirements](/secure-connections/sauce-connect/setup-configuration/basic-setup/#what-youll-need).
+- See [Sauce Connect Proxy Basic Setup requirements](/secure-connections/sauce-connect-4/setup-configuration/basic-setup/#what-youll-need).
 
 ## Using the YAML Config File
 
@@ -91,7 +91,7 @@ To launch a tunnel using a **config.yml** file option.
 
 1. Create Sauce Connect Proxy config file in any location, for example: `~/sc/config.yml`.
 2. Enter values for the properties you'd like to use.
-3. Navigate to the Sauce Connect Proxy client bin folder as described in [Basic Setup with a Test Script](/secure-connections/sauce-connect/setup-configuration/basic-setup#basic-setup-with-a-test-script).
+3. Navigate to the Sauce Connect Proxy client bin folder as described in [Basic Setup with a Test Script](/secure-connections/sauce-connect-4/setup-configuration/basic-setup#basic-setup-with-a-test-script).
 4. Use the following command line to start Sauce Connect Proxy with the configuration from your YAML file.
 
 <Tabs
@@ -119,5 +119,5 @@ sc -c %HOMEPATH%\sc\config.yml
 
 ## More Information
 
-- [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart)
+- [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect-4/quickstart)
 - [Sauce Connect Proxy CLI](/dev/cli/sauce-connect-proxy)

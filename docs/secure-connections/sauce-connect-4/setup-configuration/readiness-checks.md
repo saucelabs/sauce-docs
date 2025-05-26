@@ -37,7 +37,7 @@ If you're starting ephemeral tunnels from a CI/CD system, there are multiple met
 
 ### Status Server HTTP Endpoint
 
-The SC client (4.8.x or newer) provides an HTTP endpoint for [various health checks](/secure-connections/sauce-connect/proxy-tunnels/#status-server-endpoints). This can be used when the CI/CD system has access to the SC process' network.
+The SC client (4.8.x or newer) provides an HTTP endpoint for [various health checks](/secure-connections/sauce-connect-4/proxy-tunnels/#status-server-endpoints). This can be used when the CI/CD system has access to the SC process' network.
 
 It's enabled with the [`--status-address`](/dev/cli/sauce-connect-proxy/#--status-address) option, and takes a `host:port` parameter.
 

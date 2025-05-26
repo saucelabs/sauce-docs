@@ -10,27 +10,27 @@ import TabItem from '@theme/TabItem';
 
 The basic Sauce Connect Proxy setup is ideal for non-enterprise users with network configurations that require a proxy to open communication between Sauce Labs and their website or mobile app hosted locally or behind a firewall.
 
-It is also a key step for any Sauce Connect Proxy deployment as a way to verify if you need help from network administrators to complete the configuration. For details, see [Validating Your Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/system-requirements).
+It is also a key step for any Sauce Connect Proxy deployment as a way to verify if you need help from network administrators to complete the configuration. For details, see [Validating Your Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect-4/system-requirements).
 
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up)).
 - [Username and access key](https://app.saucelabs.com/user-settings) of you Sauce Labs user.
   - Only user accounts can manage tunnels. [Service accounts](/basics/acct-team-mgmt/managing-service-accounts) are not supported by Sauce Connect Proxy and cannot start or manage tunnels.
-- Have Sauce Connect Proxy [installed on your local machine](/secure-connections/sauce-connect/installation). Make sure it's the latest version - otherwise, you may run into technical issues.
-  - Review [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect/system-requirements) to confirm that your system and network architecture will be compatible with Sauce Connect Proxy.
+- Have Sauce Connect Proxy [installed on your local machine](/secure-connections/sauce-connect-4/installation). Make sure it's the latest version - otherwise, you may run into technical issues.
+  - Review [Sauce Connect Proxy System and Network Requirements](/secure-connections/sauce-connect-4/system-requirements) to confirm that your system and network architecture will be compatible with Sauce Connect Proxy.
 - Know your regional [Sauce Labs Data Center](/dev/cli/sauce-connect-proxy/#--region).
 - Understand what kinds of tests you're running:
   - If you're using virtual machines or devices, see the instructions below.
-  - If you're testing real devices, see [Setting Up for Real Device Cloud](/secure-connections/sauce-connect/setup-configuration/specialized-environments).
+  - If you're testing real devices, see [Setting Up for Real Device Cloud](/secure-connections/sauce-connect-4/setup-configuration/specialized-environments).
 
 :::note Security Recommendation
-We recommend setting your [username and api key values as environment variables](/secure-connections/sauce-connect/setup-configuration/environment-variables/) to protect them from exposure. They'll be reusable (you won't need to type them in every time).
+We recommend setting your [username and api key values as environment variables](/secure-connections/sauce-connect-4/setup-configuration/environment-variables/) to protect them from exposure. They'll be reusable (you won't need to type them in every time).
 :::
 
 ## Basic Setup without a Test Script
 
-See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect/quickstart/) for instructions on how to run a Live (Manual) test on a locally hosted app.
+See [Sauce Connect Proxy Quickstart](/secure-connections/sauce-connect-4/quickstart/) for instructions on how to run a Live (Manual) test on a locally hosted app.
 
 ## Basic Setup with a Test Script
 
@@ -150,22 +150,22 @@ caps.SetCapability("tunnelName", "TUNNEL_NAME");
   </TabItem>
   </Tabs>
 
-5. When you see `connected`, [verify that your tunnel is active](/secure-connections/sauce-connect/quickstart/#verify-connection).
+5. When you see `connected`, [verify that your tunnel is active](/secure-connections/sauce-connect-4/quickstart/#verify-connection).
 
 Once you've confirmed that your network is configured for Sauce Connect Proxy, you can start new tunnels as needed. As a best practice, we recommend creating a new tunnel for each test suite or build and tearing it down at the end of your test.
 
 You can continue using this basic setup or try a more advanced configuration, which is ideal for large scale, enterprise-level testing:
 
-- [Sauce Connect Proxy with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies)
-- [Sauce Connect Proxy High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability)
+- [Sauce Connect Proxy with Additional Proxies](/secure-connections/sauce-connect-4/setup-configuration/additional-proxies)
+- [Sauce Connect Proxy High Availability Setup](/secure-connections/sauce-connect-4/setup-configuration/high-availability)
 
 ### Test Not Working?
 
-If you're unable to connect, check with your network administrator about examining firewall settings for roadblocks. For more information, see [Allowlisting for Restricted Networks](/secure-connections/sauce-connect/system-requirements).
+If you're unable to connect, check with your network administrator about examining firewall settings for roadblocks. For more information, see [Allowlisting for Restricted Networks](/secure-connections/sauce-connect-4/system-requirements).
 
-Another possible issue is certificate authentication. The server hosting Sauce Connect Proxy may need to connect to Online Certificate Status Protocol (OCSP). See [Certificate Handling](/secure-connections/sauce-connect/security-authentication) for more information.
+Another possible issue is certificate authentication. The server hosting Sauce Connect Proxy may need to connect to Online Certificate Status Protocol (OCSP). See [Certificate Handling](/secure-connections/sauce-connect-4/security-authentication) for more information.
 
-For troubleshooting specific errors or common issues, see [Troubleshooting](/secure-connections/sauce-connect/troubleshooting) and [Frequently Asked Questions](/secure-connections/sauce-connect/faq).
+For troubleshooting specific errors or common issues, see [Troubleshooting](/secure-connections/sauce-connect-4/troubleshooting) and [Frequently Asked Questions](/secure-connections/sauce-connect-4/faq).
 
 ## Using Tunnel Names
 
@@ -315,5 +315,5 @@ Throughout the lifetime of a tunnel, Sauce Connect Proxy client will send status
 ## More Information
 
 - [Sauce Connect Proxy Security Settings](/basics/acct-team-mgmt/org-settings/#security-settings): learn about additional security settings, such as requiring organization-wide use of Sauce Connect Proxy
-- [Sauce Connect Proxy Architecture](/secure-connections/sauce-connect/advanced/architecture/)
-- [KGP Sauce Connect Proxy Tunneling Protocol](/secure-connections/sauce-connect/advanced/kgp/)
+- [Sauce Connect Proxy Architecture](/secure-connections/sauce-connect-4/advanced/architecture/)
+- [KGP Sauce Connect Proxy Tunneling Protocol](/secure-connections/sauce-connect-4/advanced/kgp/)

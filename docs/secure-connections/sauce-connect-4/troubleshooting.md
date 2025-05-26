@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Below are some tips to help troubleshoot Sauce Connect Proxy.
 
 :::caution Important
-Make sure you're using the latest version of Sauce Connect Proxy, which you can download [here](/secure-connections/sauce-connect/installation/). Using older versions may cause technical issues. If you run into an error trying to launch a tunnel, this should be your first step.
+Make sure you're using the latest version of Sauce Connect Proxy, which you can download [here](/secure-connections/sauce-connect-4/installation/). Using older versions may cause technical issues. If you run into an error trying to launch a tunnel, this should be your first step.
 
 :::
 
@@ -25,11 +25,11 @@ You can enable verbose logging, which increases the logging level of Sauce Conne
 
 ## Network Configuration with Firewalls and Proxies
 
-Is there a firewall or proxy server in place between your machine running Sauce Connect Proxy and Sauce Labs (`*.saucelabs.com:443`)? You may need to allow access in your firewall rules or configure Sauce Connect Proxy to use an additional proxy. For more information, see [Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
+Is there a firewall or proxy server in place between your machine running Sauce Connect Proxy and Sauce Labs (`*.saucelabs.com:443`)? You may need to allow access in your firewall rules or configure Sauce Connect Proxy to use an additional proxy. For more information, see [Setup with Additional Proxies](/secure-connections/sauce-connect-4/setup-configuration/additional-proxies).
 
 Sauce Connect Proxy needs to establish outbound connections to both \*.saucelabs.com (or a [specific data center](/basics/data-center-endpoints)) on `port 443` and to a tunnel VM with an IP in the [Sauce Labs ranges](/basics/data-center-endpoints).
 
-For information on setting up Sauce Connect Proxy within various network environments, see [Security and Authentication](/secure-connections/sauce-connect/security-authentication).
+For information on setting up Sauce Connect Proxy within various network environments, see [Security and Authentication](/secure-connections/sauce-connect-4/security-authentication).
 
 ## Checking Network Connectivity to Sauce Labs
 
@@ -39,7 +39,7 @@ A typical error message that the Sauce Connect Proxy prints when it fails to con
 
 ```bash
 Sauce Connect failed to start - Failed to reach https://saucelabs.com/rest/v1/USERNAME/tunnels/info/updates.
-Please visit https://docs.saucelabs.com/secure-connections/sauce-connect/troubleshooting
+Please visit https://docs.saucelabs.com/secure-connections/sauce-connect-4/troubleshooting
 ```
 
 The Sauce Labs connectivity can be tested by issuing a telnet, or cURL command to saucelabs.com and/or to a [specific data center](/basics/data-center-endpoints) endpoint from the machine's command line interface.
@@ -88,7 +88,7 @@ This command should return the error message "Failed to reach https://saucelabs.
 
 To combat test failures caused by websites without valid SSL certificates, Sauce Connect Proxy has a security feature called SSL Bumping that automatically re-signs certificates in the course of testing.
 
-SSL Bumping is enabled by default when you download Sauce Connect Proxy. However, depending on your test scenario, SSL Bumping may occasionally cause problems for some sites. You can disable SSL Bumping for some or all domains by adding the `-B all` flag to your Sauce Connect Proxy startup commands. For more information on SSL Bumping and scenarios that would warrant disabling it, see [SSL Certificate Bumping](/secure-connections/sauce-connect/security-authentication).
+SSL Bumping is enabled by default when you download Sauce Connect Proxy. However, depending on your test scenario, SSL Bumping may occasionally cause problems for some sites. You can disable SSL Bumping for some or all domains by adding the `-B all` flag to your Sauce Connect Proxy startup commands. For more information on SSL Bumping and scenarios that would warrant disabling it, see [SSL Certificate Bumping](/secure-connections/sauce-connect-4/security-authentication).
 
 ### Long Common Names in Bumped Certificates
 
