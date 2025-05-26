@@ -1,0 +1,122 @@
+---
+id: multi-site
+title: Multiple Accounts
+sidebar_label: Multiple Accounts
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+A Multi-Site configuration is still a server dedicated to a \*\***single customer,** but it has the added feature of **multiple organizations** configured, each **isolated** from the others.  
+This allows different divisions of the same company, which **should not be aware of each other’s** **apps and testers**, to share the same database and storage while using the same SAML login. A user within one organization cannot belong to another organization, except for the **Site Manager/Site Admin**.  
+A Multi-Site configuration acts as a **layer of organizations**, similar to Sauce Labs’ Level of Business (LoB) feature  
+For example:  
+My Game Company
+
+- US Studio
+- EU Studio
+- Australia Studio
+
+In this scenario, "My Game Company" requires a **single SSO server.**  
+When users access their private cloud instance (e.g., mygamecompany.testfairy.com), they see a "Login with SSO" button that logs them into the instance.  
+They are granted access to the appropriate account based on their organization (US Studio, EU Studio, or Australia Studio).  
+The Multi-Site feature guarantees a singular Single Sign-On (SSO) and a unified domain name for clients, **irrespective** of their organizational hierarchy.
+
+## How to Manage a Multi-Site Instance
+
+As previously mentioned, only **_Site Admins_** can manage the entire instance.
+
+### Create an Account/Site:
+
+To create an organization called “**_Account_**” in our platform, follow these steps:
+
+1. Simply click on the “**Create New Account”** button in the top left corner of the website:  
+   <img src={useBaseUrl('/img/testfairy/using-tf/create-new-account.png')} alt="video disabled"/>
+2. This will open a pop-up window to choose an **Account Name** and define the login option:
+
+   <img src={useBaseUrl('/img/testfairy/using-tf/new-account-creation-form.png')} alt="video disabled"/>
+
+   **Site Owner/ Site Manager**
+
+   That’s it\! Your account is created, and you can log in by clicking on the “Login Account→” button:
+
+<img src={useBaseUrl('/img/testfairy/using-tf/login-to-account-view.png')} alt="video disabled"/>
+
+### Switching between Accounts/Sites:
+
+After creating multiple sites/accounts, the **Site Owner/ Site Manager** can switch between sites, as they can view the site manager layout.  
+**Site admin** can only switch between the sites if it has been added to multiple sites.  
+This can be easily accomplished with the following steps:
+
+1. Hover over the Account option on the top right of the page
+2. Select Switch Accounts
+
+   <img src={useBaseUrl('/img/testfairy/using-tf/switch-accounts.png')} alt="video disabled"/>
+
+3. Choose the new account and click Switch.
+
+   <img src={useBaseUrl('/img/testfairy/using-tf/account-switch-dropdown-list.png')} alt="video disabled"/>
+
+### Deleting an Account/Site:
+
+An account can be deleted by clicking the three dots next to "Login Account," as shown in the image below: <img src={useBaseUrl('/img/testfairy/using-tf/delete-account.jpeg')} alt="Icon" /> Please note that the option to delete an account **is only displayed** once no apps exist. To delete an account, please remove ALL apps from it first. If there are many apps, please submit a Support Request ticket to the Mobile App Distribution team.
+
+Other notes to consider:
+
+- You must have at least two site accounts for these dots to appear.
+- This action also deletes team members`.`
+
+## Some Feature explanations
+
+### View as Tester:
+
+View as Tester feature allows Admins to masquerade through the Testers dashboard easily by clicking the icon<img src={useBaseUrl('/img/testfairy/using-tf/ic_woman.png')} alt="Icon Woman" style={{display: 'inline', width: '0.5in'}}/>in the [beta testers tab](https://mobile.saucelabs.com/testers) for a specific tester if it is enabled, like the image below:  
+<img src={useBaseUrl('/img/testfairy/using-tf/account-switch-dropdown-list.png')} alt="video disabled"/>
+This feature will behave differently based on the Instance Type:
+
+- Public cloud:
+  - This is only enabled in Public Cloud when the Enterprise has the “_View as a tester”_ feature.
+  - When enabled, it will only list the apps for the tester that are related to that Enterprise instance, as a tester can be assigned to multiple Enterprises with the same account.
+- Private Cloud:
+  - This is enabled by default for Private Instances.
+  - Single Instance
+    - When clicked, the icon will list all the tester's apps for the Admin, as the tester only has one organization in single-instance mode.
+  - Multi-Instance
+    - As a tester can have an account associated with multiple organizations, it will only list the tester apps for the current logged-in organization.
+
+## Roles
+
+It is essential first to understand that all accounts are divided into two categories:
+
+- Users
+  - A user is a member who can view all apps in the account, download these apps, upload new versions, and more.
+  - The list of members in Account \> Team includes only Users, never Beta Testers, though a User can also be a Tester (for this organization and other organizations).
+- Testers
+  - Testers are humans who can only download an app. They cannot invite other humans and can only download apps via email invitation, landing page, or tester’s dashboard (logging in through mobile will automatically take them to this dashboard).
+
+| Role                                                                                             | Explanation                                                                                                                    |
+| :----------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------- |
+| “Member” (managed through Sauce IAM) or “Admin” (separated from Sauce IAM)                       | Users who can upload apps, delete apps, and download apps, with an API key, can use                                            |
+| “Organization Admin” (managed through Sauce IAM) Or “Account Manager” (separated from Sauce IAM) | Same as above, but you can invite other users to this account. Usually, there are only a handful of such users.                |
+| “Account Owner”                                                                                  | A single user who owns the entire organization. That user cannot be deleted.                                                   |
+| “Site Manager”                                                                                   | This is only applicable for Private Cloud \+ Multi-Site. A user can create new organizations within the same private instance. |
+
+### How to see the current user roles?
+
+You can find the user roles based on how your team is currently managed:
+
+- **Through Sauce Labs’ IAM**
+
+  - You can see user roles by clicking on Account \-\> Team, which will redirect you to the [Team Management | Sauce Labs](https://app.saucelabs.com/team-management/users) page. User Roles are visible in the picture:
+
+  <img src={useBaseUrl('/img/testfairy/using-tf/account-user-roles.jpeg')} alt="video disabled"/>
+
+- **Separated from Sauce Labs’ IAM**
+
+  - In this case, you can see the current user roles by clicking the **_Account-Teams_** menu, which will redirect you to the [Teams](https://mobile.saucelabs.com/settings/cpanel/) page, and the user roles are listed below:
+  - In Multi-instance **Teams, it** is titled **_Admin Management_**
+
+        <img src={useBaseUrl('/img/testfairy/using-tf/own-account-user-roles.png')} alt="video disabled"/>
+
+    s an “Account Manager” or “Account Owner” must invite all the users acting as developers on the account. They must explicitly provide the email addresses of people uploading apps, etc.
