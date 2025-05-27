@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Use the Sauce Connect API methods to monitor and clean up your active proxy tunnels.
 
-To download Sauce Connect, see [Sauce Connect Installation](secure-connections/sauce-connect-4/installation.md).
+To download Sauce Connect, see [Sauce Connect Installation](/secure-connections/sauce-connect-5/installation/).
 
 Refer to [Getting Started](/dev/api) for Authentication and Server information.
 
