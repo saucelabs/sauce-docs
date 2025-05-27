@@ -62,7 +62,7 @@ With Sauce Labs you can run live tests of your web apps using native browsers fo
 
 ### What You'll Need
 
-Know if your app is designed to run on internal or otherwise restricted networks. If it does and you're testing on real devices, use Sauce Connect Proxy to connect. For more information, see the [Sauce Connect Proxy setup for Real Device Cloud](/secure-connections/sauce-connect-4/setup-configuration/specialized-environments).
+Know if your app is designed to run on internal or otherwise restricted networks. If it does and you're testing on real devices, use Sauce Connect Proxy to connect. For more information, see the [Sauce Connect Overview](/secure-connections/sauce-connect-5/) and [Sauce Connect Localhost](/secure-connections/sauce-connect-5/guides/localhost-proxying/#configuring-mobile-devices-for-testing-localhost).
 
 ### Real Device
 
