@@ -8,20 +8,29 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-A Multi-Site configuration is still a server dedicated to a \*\***single customer,** but it has the added feature of **multiple organizations** configured, each **isolated** from the others.  
-This allows different divisions of the same company, which **should not be aware of each other’s** **apps and testers**, to share the same database and storage while using the same SAML login. A user within one organization cannot belong to another organization, except for the **Site Manager/Site Admin**.  
-A Multi-Site configuration acts as a **layer of organizations**, similar to Sauce Labs’ Level of Business (LoB) feature  
-For example:  
-My Game Company
+# Multiple Accounts (Multi-Site Configuration)
 
-- US Studio
-- EU Studio
-- Australia Studio
+A **Multi-Site configuration** is designed for a single customer requiring separate, isolated environments for different internal organizations or divisions. While sharing the same underlying database and storage, each organization operates independently, ensuring their applications and testers remain distinct and unaware of each other.
 
-In this scenario, "My Game Company" requires a **single SSO server.**  
-When users access their private cloud instance (e.g., mygamecompany.testfairy.com), they see a "Login with SSO" button that logs them into the instance.  
-They are granted access to the appropriate account based on their organization (US Studio, EU Studio, or Australia Studio).  
-The Multi-Site feature guarantees a singular Single Sign-On (SSO) and a unified domain name for clients, **irrespective** of their organizational hierarchy.
+## Key Benefits
+
+- **Data Isolation**: Each organization's data and activity are kept separate.
+- **Shared Resources**: Efficient utilization of a single database and storage backend.
+- **Centralized Authentication**: Leverages a single SAML login for all organizations.
+- **Simplified Access**: Users within a specific organization are automatically directed to their appropriate account upon SSO login  
+  _e.g., `mygamecompany.testfairy.com`_.
+
+## Conceptual Overview
+
+Think of it as a **"layer of organizations"** within your dedicated server, similar to a **"Level of Business (LoB)"** structure. For example:
+
+> **My Game Company** could have:  
+> - US Studio  
+> - EU Studio  
+> - Australia Studio  
+
+All operating under a single SSO server and unified domain, ensuring a seamless and consistent login experience regardless of the user's organizational affiliation.
+
 
 ## How to Manage a Multi-Site Instance
 
