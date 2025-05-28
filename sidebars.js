@@ -1108,6 +1108,7 @@ module.exports = {
                         'testfairy/using-testfairy/builds',
                         'testfairy/using-testfairy/dashboard',
                         'testfairy/using-testfairy/insights',
+                        'testfairy/using-testfairy/multi-site',
                     ],
                 },
                 'testfairy/app-center-alternative',
