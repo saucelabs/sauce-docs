@@ -67,7 +67,7 @@ Other notes to consider:
 - You must have at least two site accounts for these dots to appear.
 - This action also deletes team members`.`
 
-## Some Feature explanations
+## Users and Roles
 
 ### View as Tester:
 
