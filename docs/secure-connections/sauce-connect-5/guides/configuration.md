@@ -65,7 +65,7 @@ and their usage.
 # specifying the tunnelName value in your test capabilities, see here:
 # https://docs.saucelabs.com/dev/test-configuration-options/. It can also assign
 # a name to a group of tunnels in the same high availability pool, see here:
-# https://docs.saucelabs.com/secure-connections/sauce-connect/setup-configuration/high-availability/.
+# https://docs.saucelabs.com/secure-connections/sauce-connect-5/guides/tunnel-pool/.
 #tunnel-name: 
 
 # username <username>
@@ -92,7 +92,7 @@ and their usage.
 # tunnel-pool <value>
 #
 # Denotes a tunnel as part of a high availability tunnel pool. See here:
-# https://docs.saucelabs.com/secure-connections/sauce-connect/setup-configuration/high-availability/.
+# https://docs.saucelabs.com/secure-connections/sauce-connect-5/guides/tunnel-pool/.
 #tunnel-pool: false
 
 # --- Tunnel traffic ---

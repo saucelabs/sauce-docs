@@ -1734,6 +1734,21 @@ driver.executeScript("sauce: network-conditions", ImmutableMap.of(
 
 ---
 
+### `sauce:logFilters`
+
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Set custom filters for Appium server logs. This will allow you to mask sensitive data from your test report.
+
+For more information, please refer to the official Appium documentation on [Filtering the Appium Log](https://appium.io/docs/en/2.18/guides/log-filters/).
+
+```java
+driver.executeScript("sauce:logFilters", List.of(
+	ImmutableMap.of("text","text-to-be-replace")));
+```
+
+---
+
 ### `mobile: shell`
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> | <span className="sauceGreen">Android Only</span> |</small></p>
@@ -1920,9 +1935,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | STRING | </small></p>
 
-Specify a [Sauce Connect](/secure-connections/sauce-connect-4/) tunnel to establish connectivity with Sauce Labs for your test. Tunnels allow you to test an app that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
-
-See [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect-4/setup-configuration/basic-setup) for more information.
+Specify a [Sauce Connect](/secure-connections/sauce-connect-5/) tunnel to establish connectivity with Sauce Labs for your test. Tunnels allow you to test an app that is behind a firewall or on your local machine by providing a secure connection to the Sauce Labs platform.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -1938,7 +1951,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGold">DEPRECATED</span> |</small></p>
 
-Specify a [Sauce Connect tunnel name](/secure-connections/sauce-connect-4/setup-configuration/basic-setup/#using-tunnel-names) to establish connectivity with a Sauce Labs test platform. This is an alias for [tunnelName](#tunnelname).
+Specify a [Sauce Connect tunnel name](/dev/cli/sauce-connect-5/run/#tunnel-name) to establish connectivity with a Sauce Labs test platform. This is an alias for [tunnelName](#tunnelname).
 
 :::caution Deprecation notice
 `tunnelIdentifier` is being deprecated in favor of `tunnelName`.
@@ -1947,8 +1960,6 @@ Specify a [Sauce Connect tunnel name](/secure-connections/sauce-connect-4/setup-
 :::note Choose the Correct Tunnel Identifier
 The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.
 :::
-
-See [Using Tunnel Names](/secure-connections/sauce-connect-4/setup-configuration/basic-setup/#using-tunnel-names) for more information.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
@@ -1971,8 +1982,6 @@ If the [tunnelName](#tunnelname) you've specified to establish connectivity with
 :::note Choose the Correct Tunnel Identifier
 The value expected here is the value shown under the **Tunnel Name** column on the Sauce Labs Tunnels page, _not_ the **Tunnel ID** numerical value.
 :::
-
-See [Using Tunnel Names](/secure-connections/sauce-connect-4/setup-configuration/basic-setup/#using-tunnel-names) for more information.
 
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
