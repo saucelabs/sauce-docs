@@ -34,8 +34,6 @@ All operating under a single SSO server and unified domain, ensuring a seamless 
 
 ## How to Manage a Multi-Site Instance
 
-As previously mentioned, only **_Site Admins_** can manage the entire instance.
-
 ### Create an Account/Site:
 
 To create an organization called “**_Account_**” in our platform, follow these steps:
