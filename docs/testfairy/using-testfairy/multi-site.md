@@ -56,12 +56,11 @@ After creating multiple sites/accounts, the **Site Owner/ Site Manager** can swi
 **Site admin** can only switch between the sites if it has been added to multiple sites.  
 This can be easily accomplished with the following steps:
 
-1. Hover over the Account option on the top right of the page
-2. Select Switch Accounts
+1. Under the Account menu on the top right corner, select Switch Accounts menu
 
    <img src={useBaseUrl('/img/testfairy/using-tf/switch-accounts.png')} alt="video disabled"/>
 
-3. Choose the new account and click Switch.
+2. Choose the new account and click Switch.
 
    <img src={useBaseUrl('/img/testfairy/using-tf/account-switch-dropdown-list.png')} alt="video disabled"/>
 
@@ -72,7 +71,7 @@ An account can be deleted by clicking the three dots next to "Login Account," as
 Other notes to consider:
 
 - You must have at least two site accounts for these dots to appear.
-- This action also deletes team members`.`
+- This action also deletes team members.
 
 ## Users and Roles
 
@@ -87,10 +86,10 @@ This feature will behave differently based on the Instance Type:
   - When enabled, it will only list the apps for the tester that are related to that Enterprise instance, as a tester can be assigned to multiple Enterprises with the same account.
 - Private Cloud:
   - This is enabled by default for Private Instances.
-  - Single Instance
-    - When clicked, the icon will list all the tester's apps for the Admin, as the tester only has one organization in single-instance mode.
-  - Multi-Instance
-    - As a tester can have an account associated with multiple organizations, it will only list the tester apps for the current logged-in organization.
+  - Single-Site
+    - When clicked, the icon will list all the tester's apps for the Admin, as the tester only has one organization in single-site mode.
+  - Multi-Site
+    - As a tester can have an account associated with multiple organizations, it will only list the tester's apps for the current logged-in organization.
 
 ## Roles
 
@@ -122,7 +121,7 @@ You can find the user roles based on how your team is currently managed:
 - **Separated from Sauce Labs’ IAM**
 
   - In this case, you can see the current user roles by clicking the **_Account-Teams_** menu, which will redirect you to the [Teams](https://mobile.saucelabs.com/settings/cpanel/) page, and the user roles are listed below:
-  - In Multi-instance **Teams, it** is titled **_Admin Management_**
+  - In Multi-Site **Teams, it** is titled **_Admin Management_**
 
         <img src={useBaseUrl('/img/testfairy/using-tf/own-account-user-roles.png')} alt="video disabled"/>
 
