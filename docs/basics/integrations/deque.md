@@ -31,7 +31,11 @@ Check out the [Deque Accessibility Guide](https://www.deque.com/web-accessibilit
 
 Sauce Labs will display the accessibility results in our UI as a tab in the job itself:
 
-<img src={useBaseUrl('img/accessibility/example.png')} alt="Accessibility Example in Sauce UI"/>
+<img src={useBaseUrl('img/accessibility/a11ymain.png')} alt="Accessibility Example in Sauce UI"/>
+
+The full page report gives an easy to consume overview of all the acessibility results with stats and extended details:
+
+<img src={useBaseUrl('img/accessibility/a11yfull.png')} alt="Full Page Accessibility Example in Sauce UI"/>
 
 ## Language Specific Examples
 
