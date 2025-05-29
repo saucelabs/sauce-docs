@@ -337,6 +337,6 @@ Number of OS threads created.
 
 ## More Information
 
-- [Sauce Connect Proxy Overview](/secure-connections/sauce-connect/)
+- [Sauce Connect Proxy Overview](/secure-connections/sauce-connect-5/)
 - [Sauce Connect Proxy 5 CLI Reference](/dev/cli/sauce-connect-5/run/)
 - [Sauce Connect Grafana Dashboard](https://grafana.com/grafana/dashboards/20232-sauce-connect/)

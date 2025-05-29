@@ -18,11 +18,11 @@ In-depth understanding of the tunneling protocol used by Sauce Connect Proxy is 
 
 ## What You'll Need
 
-- Have a working understanding of [Sauce Connect Proxy architecture](/secure-connections/sauce-connect/advanced/architecture).
+- Have a working understanding of [Sauce Connect Proxy architecture](/secure-connections/sauce-connect-4/advanced/architecture).
 
 ## About KGP Tunneling Protocol
 
-Sauce Connect Proxy establishes an encrypted TCP connection between the [Sauce Connect Proxy client](/secure-connections/sauce-connect/advanced/architecture/#sauce-connect-proxy-client) and [Sauce Connect Proxy server](/secure-connections/sauce-connect/advanced/architecture/#sauce-connect-proxy-server). This connection is used as a reverse tunnel between the user environment and Sauce Labs data center.
+Sauce Connect Proxy establishes an encrypted TCP connection between the [Sauce Connect Proxy client](/secure-connections/sauce-connect-4/advanced/architecture/#sauce-connect-proxy-client) and [Sauce Connect Proxy server](/secure-connections/sauce-connect-4/advanced/architecture/#sauce-connect-proxy-server). This connection is used as a reverse tunnel between the user environment and Sauce Labs data center.
 
 The protocol used to achieve the reverse tunneling is called _KGP_. It's an application layer protocol that carries all HTTP(s) traffic as its payload. Developed and maintained by Sauce Labs, KGP is used to multiplex established connections for multiple HTTP requests/responses.
 

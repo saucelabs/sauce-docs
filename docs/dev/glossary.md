@@ -107,9 +107,9 @@ See: _[Playtest](#playtest)_.
 
 ### Colliding Tunnels
 
-A Sauce Connect Proxy scenario where two or more tunnels are launched with the same tunnel name not in [High Availability Mode](/secure-connections/sauce-connect/setup-configuration/high-availability).
+A Sauce Connect Proxy scenario where two or more tunnels are launched with the same tunnel name not in [Tunnel Pool Mode](/secure-connections/sauce-connect-5/guides/tunnel-pool/).
 By default, duplicated (already running) tunnels are halted unless a Sauce Connect Proxy is started with the `--tunnel-pool` option.
-More information: [High Availability Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
+More information: [Tunnel Pool Setup](/secure-connections/sauce-connect-5/guides/tunnel-pool/).
 
 See also: _[sauce connect proxy](#sauce-connect-proxy), [tunnel name](#tunnel-name)_.
 
@@ -392,7 +392,7 @@ See also: _[team admin](#team-admin)_.
 
 1. The practice of running multiple tests simultaneously.
 
-2. When signing up for a self-service license, this is equivalent to your account's concurrency settings. More information: [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect/system-requirements), [Using Frameworks to Run Tests in Parallel](/web-apps/automated-testing/selenium/#scaling-tests).
+2. When signing up for a self-service license, this is equivalent to your account's concurrency settings. More information: [System and Network Requirements for Sauce Connect Proxy](/secure-connections/sauce-connect-5/system-requirements/), [Using Frameworks to Run Tests in Parallel](/web-apps/automated-testing/selenium/#scaling-tests).
 
    See also: _[concurrency limit](#concurrency-limit)_.
 
@@ -461,7 +461,7 @@ It is a method of creating data algorithmically as opposed to manually, typicall
 ### Proxy Auto-Configuration File (PAC)
 
 An optional file you can use in your Sauce Connect Proxy tests to define how web browsers and other user agents automatically choose the appropriate proxy server for fetching a given URL.
-To use a PAC file, include the `--pac <url>` command-line in your code. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
+To use a PAC file, include the `--pac <url>` command-line in your code. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-5/guides/proxies/).
 
 ## **R**
 
@@ -479,7 +479,7 @@ See also: _[rdc on sauce](#rdc-on-sauce)._
 
 ### Real Device Testing
 
-An automated web or mobile app test performed on real, physical devices hosted on the Sauce Labs Real Device Cloud. Real device tests yield accurate results on user interactions and display how your app will appear in real life. More information: [Real Device Testing Admin Guide](/mobile-apps/supported-devices), [Sauce Connect Proxy Setup for Real Device Cloud](/secure-connections/sauce-connect/setup-configuration/specialized-environments#real-device-cloud-setup), [Sauce Labs website: Real Device Cloud](https://saucelabs.com/platform/real-device-cloud).
+An automated web or mobile app test performed on real, physical devices hosted on the Sauce Labs Real Device Cloud. Real device tests yield accurate results on user interactions and display how your app will appear in real life. More information: [Real Device Testing Admin Guide](/mobile-apps/supported-devices), [Sauce Connect Overview](/secure-connections/sauce-connect-5/), [Sauce Connect Localhost](/secure-connections/sauce-connect-5/guides/localhost-proxying/#configuring-mobile-devices-for-testing-localhost), [Sauce Labs website: Real Device Cloud](https://saucelabs.com/platform/real-device-cloud).
 
 See also: _[real device cloud](#real-device-cloud-rdc)_.
 
@@ -514,7 +514,7 @@ It is a phase of a computer program in which the program is run or executed on a
 
 ### Sauce Connect Host
 
-The machine in your network on which the Sauce Connect Proxy client is running, with a direct connection to the internet. More information: [Sauce Connect Proxy Setup and Configuration](/secure-connections/sauce-connect/#setup-and-configuration).
+The machine in your network on which the Sauce Connect Proxy client is running, with a direct connection to the internet. More information: [Sauce Connect Architecture](/secure-connections/sauce-connect-5/architecture/).
 
 ### Sauce Connect Proxy
 
@@ -522,27 +522,27 @@ A built-in HTTP proxy server that opens a secure tunnel connection for testing b
 
 ### Sauce Connect Proxy Setup, Additional Proxy
 
-A Sauce Connect Proxy network configuration for users with an existing internal network proxy or proxies through which outbound communication is routed from their network to the public internet. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
+A Sauce Connect Proxy network configuration for users with an existing internal network proxy or proxies through which outbound communication is routed from their network to the public internet. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-5/guides/proxies/).
 
 ### Sauce Connect Proxy Setup, Basic
 
-A Sauce Connect Proxy configuration for users with a network configuration requiring a proxy to open up communication between Sauce Labs and their web or mobile app in testing that is hosted on a local machine or behind a firewall. More information: [Basic Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
+A Sauce Connect Proxy configuration for users with a network configuration requiring a proxy to open up communication between Sauce Labs and their web or mobile app in testing that is hosted on a local machine or behind a firewall. More information: [Sauce Connect Quickstart](/secure-connections/sauce-connect-5/quickstart/).
 
-### Sauce Connect Proxy Setup, High Availability (HA)
+### Sauce Connect Proxy Setup, Tunnel Pool
 
-A Sauce Connect Proxy configuration that allows you to run a high number of tunnels individually or collectively as a tunnel pool.
+A Sauce Connect configuration that allows you to run a high number of tunnels individually or collectively as a tunnel pool.
 From an end user or test runner perspective, a pool functions the same as a single Sauce Connect instance.
-More information: [High Availability Sauce Connect Proxy Setup](/secure-connections/sauce-connect/setup-configuration/high-availability).
+More information: [Sauce Connect Tunnel Pool Setup](/secure-connections/sauce-connect-5/guides/tunnel-pool/).
 
 See also: _[tunnel pool](#tunnel-pool)_.
 
 ### Sauce Connect Proxy Startup
 
-The process of configuring and launching a Sauce Connect Proxy tunnel to run your tests. More information: [How to Start and Stop Sauce Connect Tunnels (Startup and Teardown)](/secure-connections/sauce-connect/proxy-tunnels).
+The process of configuring and launching a Sauce Connect Proxy tunnel to run your tests. More information: [Sauce Connect Quickstart](/secure-connections/sauce-connect-5/quickstart/).
 
 ### Sauce Connect Proxy Teardown
 
-The process of gracefully shutting down and decommissioning a Sauce Connect Proxy tunnel. More information: [How to Start and Stop Sauce Connect Tunnels (Startup and Teardown)](/secure-connections/sauce-connect/proxy-tunnels).
+The process of gracefully shutting down and decommissioning a Sauce Connect Proxy tunnel. More information: [Sauce Connect Quickstart](/secure-connections/sauce-connect-5/quickstart/).
 
 ### saucectl
 
@@ -575,10 +575,6 @@ A part of the Selenium suite that specializes in running multiple tests across d
 ### Selenium IDE
 
 An integrated development environment for Selenium scripts – implemented as an extension for Chrome and Firefox – that allows you to record, playback, and debug tests in the browser. More information: [Selenium Projects](https://www.selenium.dev/projects/).
-
-### Selenium Relay
-
-A listener for Selenium commands built into Sauce Connect Proxy that enables inbound and outbound test traffic to be sent through an encrypted tunnel. More information: [Using the Selenium Relay with Sauce Connect Proxy](/secure-connections/sauce-connect/proxy-tunnels), [Sauce Connect Proxy Command-Line Quick Reference Guide](/dev/cli/sauce-connect-proxy).
 
 ### Selenium Server
 
@@ -632,7 +628,7 @@ A test method where you purposely put your system under extreme conditions – a
 
 ### systemd
 
-A Linux service management tool that facilitates Sauce Connect Proxy tunnel monitoring, system startup and shutdown. More information: [Monitoring Sauce Connect Proxy with Service Management Tools](/secure-connections/sauce-connect/proxy-tunnels#service-management-tools).
+A Linux service management tool that facilitates Sauce Connect Proxy tunnel monitoring, system startup and shutdown. More information: [Sauce Connect Installation](/secure-connections/sauce-connect-5/installation/linux/#install-package).
 
 ### Sharding
 
@@ -679,7 +675,7 @@ The number of minutes allotted to a Sauce Labs account for its subscription.
 
 ### Transparent Proxy
 
-A server that sits between your computer and the Internet and redirects your requests and responses without modifying them. If your organization has one, please refer to Sauce Connect Proxy Setup with Additional Proxies. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
+A server that sits between your computer and the Internet and redirects your requests and responses without modifying them. If your organization has one, please refer to Sauce Connect Proxy Setup with Additional Proxies. More information: [Sauce Connect Proxy Setup with Additional Proxies](/secure-connections/sauce-connect-5/guides/proxies/).
 
 ### Tunnel
 
@@ -693,15 +689,15 @@ See: [Tunnel Name](#tunnel-name)
 
 ### Tunnel Name
 
-The Sauce Connect Proxy test configuration option that allows you to assign a name to your tunnel(s), giving you more control and monitoring capability over the tunnel. If you launch a tunnel without naming it, your test traffic will default to running through that unnamed tunnel. More information: [Using Tunnel Names](/secure-connections/sauce-connect/setup-configuration/basic-setup/#using-tunnel-names).
+The Sauce Connect Proxy test configuration option that allows you to assign a name to your tunnel(s), giving you more control and monitoring capability over the tunnel.
 
 See also: _[colliding tunnels](#colliding-tunnels)_.
 
 ### Tunnel Pool
 
-A set of tunnels that share the same tunnel identifier and function as a single tunnel in high availability mode.
+A set of tunnels that share the same tunnel identifier and function as a single tunnel in a tunnel pool mode.
 
-See also: _[sauce connect proxy setup (high availability)](#sauce-connect-proxy-setup-high-availability-ha)_.
+See also: _[sauce connect proxy setup tunnel pool](#sauce-connect-proxy-setup-tunnel-pool)_.
 
 ### Tunnel Virtual Machine (Tunnel VM)
 

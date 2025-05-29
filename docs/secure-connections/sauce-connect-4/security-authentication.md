@@ -20,7 +20,7 @@ Within your infrastructure, Sauce Connect Proxy must be able to reach the app or
 
 We recommend running Sauce Connect Proxy in a firewalled DMZ on a dedicated machine and setting up firewall rules to restrict access from that DMZ to your internal network. Use caution when locating and configuring Sauce Connect in a DMZ.
 
-For more information, see [DMZ (computing)](<https://en.wikipedia.org/wiki/DMZ_(computing)>) and [Common Mistakes in Network Configurations](/secure-connections/sauce-connect/troubleshooting).
+For more information, see [DMZ (computing)](<https://en.wikipedia.org/wiki/DMZ_(computing)>) and [Common Mistakes in Network Configurations](/secure-connections/sauce-connect-4/troubleshooting).
 
 ## Securing Sauce Connect Proxy
 
@@ -28,7 +28,7 @@ There are several ways to secure Sauce Connect Proxy in your network. With our r
 
 ### Recommended Configuration
 
-The [sc client program](/secure-connections/sauce-connect/installation)
+The [sc client program](/secure-connections/sauce-connect-4/installation)
 establishes a TLS connection (tunnel connection) to a dedicated tunnel endpoint
 server hosted in the Sauce Labs cloud. During test sessions, browsers and mobile
 apps use this tunnel endpoint as an HTTP proxy. HTTP requests are multiplexed
@@ -52,7 +52,7 @@ By using the `--proxy` or `--pac` command line options, `sc` can be configured t
 
 We recommend the use of an HTTP proxy that is familiar to the customer's security team. The proxy should be configured to allow access only to a allowlisted set of URL domains or URL prefixes used for testing. Access should be logged. Note that logs can be inspected by an Intrusion Detection System for malware signatures and other signs of suspicious activity.
 
-For more information, see the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy) and [Setup with Additional Proxies](/secure-connections/sauce-connect/setup-configuration/additional-proxies).
+For more information, see the [Sauce Connect Proxy CLI Reference](/dev/cli/sauce-connect-proxy) and [Setup with Additional Proxies](/secure-connections/sauce-connect-4/setup-configuration/additional-proxies).
 
 ##### **Recommended Sauce Connect Proxy Configuration**
 

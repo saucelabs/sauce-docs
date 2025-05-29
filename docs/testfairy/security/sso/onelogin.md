@@ -19,6 +19,7 @@ When SSO is configured into your account, the login page is replaced with a **Lo
 1. Click **Save**.
 
 1. Enter your Sauce Mobile App Distribution subdomain (for example, acme) under the **Configuration** tab. Then, click **Save**.
+    - [Contact Sauce Labs Support](https://support.saucelabs.com/s/submit-a-request?language=en_US) to provision a custom subdomain 
 
 1. Click on **More Actions** and select **SAML Metadata**.
 

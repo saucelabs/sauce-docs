@@ -19,11 +19,11 @@ To configure Sauce Connect Proxy to use your proxy or proxies, you will need to 
 
 If you use a Man-in-the-Middle proxy to monitor network traffic, it must be configured to allow the TLS connection and proprietary protocol used by Sauce Connect Proxy to communicate with the Sauce Labs virtual machines that are running your tests. If it will allow only HTTP or HTTPS sessions, it will drop the inbound Sauce Connect Proxy connection.
 
-See the [Sauce Connect Proxy Tunnel Startup Diagram](/secure-connections/sauce-connect/setup-configuration/basic-setup) for more information about how Sauce Connect Proxy initiates and maintains the connection with the Sauce Labs browser cloud.
+See the [Sauce Connect Proxy Tunnel Startup Diagram](/secure-connections/sauce-connect-4/setup-configuration/basic-setup) for more information about how Sauce Connect Proxy initiates and maintains the connection with the Sauce Labs browser cloud.
 
 ## What You'll Need
 
-Review the [Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup) to confirm that your system and network architecture are compatible with Sauce Connect Proxy.
+Review the [Basic Setup](/secure-connections/sauce-connect-4/setup-configuration/basic-setup) to confirm that your system and network architecture are compatible with Sauce Connect Proxy.
 
 ## Setting Up Sauce Connect Proxy With Your Proxy
 
@@ -61,7 +61,7 @@ Network traffic between the Sauce Connect Proxy client running on your network a
 
 You can disable automatic proxy detection with the command-line option [--no-autodetect](/dev/cli/sauce-connect-proxy#--no-autodetect).
 
-To set up and run Sauce Connect Proxy for this situation, see [Basic Setup](/secure-connections/sauce-connect/setup-configuration/basic-setup).
+To set up and run Sauce Connect Proxy for this situation, see [Basic Setup](/secure-connections/sauce-connect-4/setup-configuration/basic-setup).
 
 ### Command Line Configuration (Manual)
 
@@ -174,7 +174,7 @@ values={[
 </TabItem>
 </Tabs>
 
-If you are starting a tunnel for Real Device tests, see [Real Device Cloud Setup](/secure-connections/sauce-connect/setup-configuration/specialized-environments#real-device-cloud-setup).
+If you are starting a tunnel for Real Device tests, see [Real Device Cloud Setup](/secure-connections/sauce-connect-4/setup-configuration/specialized-environments#real-device-cloud-setup).
 
 ### Network Traffic Flow Diagrams
 
