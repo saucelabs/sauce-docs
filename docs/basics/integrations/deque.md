@@ -16,7 +16,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 [Deque's axe™](https://www.deque.com/axe/) is one of the world's leading digital accessibility toolkits. The `axe-core` library provided by Deque allows you to inject functionality into your tests in order to scan content and return an `a11y` score.
 
-Below is a guide to set up the Sauce Labs integration. This integration allows you to run your accessibility tests on our platform with axe™. NOTE
+Below is a guide to set up the Sauce Labs integration. This integration allows you to run your accessibility tests on our platform with axe™.
 
 :::info why should you care about accessibility testing?
 Check out the [Deque Accessibility Guide](https://www.deque.com/web-accessibility-beginners-guide/#what-is-a11y) for further information.
@@ -31,7 +31,11 @@ Check out the [Deque Accessibility Guide](https://www.deque.com/web-accessibilit
 
 Sauce Labs will display the accessibility results in our UI as a tab in the job itself:
 
-<img src={useBaseUrl('img/accessibility/example.png')} alt="Accessibility Example in Sauce UI"/>
+<img src={useBaseUrl('img/accessibility/a11ymain.png')} alt="Accessibility Example in Sauce UI"/>
+
+The full page report gives an easy to consume overview of all the acessibility results with stats and extended details:
+
+<img src={useBaseUrl('img/accessibility/a11yfull.png')} alt="Full Page Accessibility Example in Sauce UI"/>
 
 ## Language Specific Examples
 
