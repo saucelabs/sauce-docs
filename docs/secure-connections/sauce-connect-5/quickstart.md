@@ -78,12 +78,11 @@ With your tunnel up and running, try doing a Live <!--or Automated--> local test
 
 <TabItem value="Cross-Browser">
 
-1. From your terminal or IDE, launch a local instance of your website as you normally would.
-2. From Sauce Labs, click **Live** > **Cross Browser** > **Desktop**.
-3. In the **URL** field, enter your website's local URL (e.g., `http://localhost:3000`).
-4. From the **Sauce Connect Proxy** dropdown, select your tunnel name.
-5. Select your desired browser configuration.
-6. Click **Start Test** to launch your live test in Sauce Labs.
+1. From Sauce Labs, click **Live** > **Cross Browser** > **Desktop**.
+2. In the **URL** field, enter your website's local URL (e.g., `http://localhost:3000`).
+3. From the **Sauce Connect Proxy** dropdown, select your tunnel name.
+4. Select your desired browser configuration.
+5. Click **Start Test** to launch your live test in Sauce Labs.
 
 </TabItem>
 <TabItem value="Mobile Browser">
