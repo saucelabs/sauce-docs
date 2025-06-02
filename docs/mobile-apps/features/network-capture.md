@@ -130,7 +130,7 @@ If you need to localize the capture context with just the browser and omit all n
 - Only HTTP/HTTPS network traffic is captured.
 - Android Emulators are not supported.
 - iOS Simulators are not supported.
-- Apps using self-signed certificate, custom trust managers or SSL pinning enforcing specific trust rules or exact certificate matching.
+- SSL pinning, e.g. when using a self-signed certificate, your custom trust manager must not trust only your certificate.
 
 :::
 
