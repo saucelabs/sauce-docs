@@ -5,6 +5,8 @@ sidebar_label: FAQ
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 This list of frequently asked questions covers key information about using Sauce Connect 5 and resolving common issues. You can also refer to the [Troubleshooting guide](/secure-connections/sauce-connect-5/troubleshooting/) for more detailed help.
 
@@ -62,3 +64,47 @@ Entering this code -- `(www.)?google-analytics.com,(www.)?googletagmanager.com,(
 - `google-analytics.com`
 - `google.com` and any subdomain of `google.com`
 - Any subdomain of `facebook.com`, but not `facebook.com`
+
+## Why am I seeing different redirect behavior (e.g. a 200 instead of a 302) when using Sauce Connect 5?
+
+Starting in SC 5.0.0, Sauce Connect acts as a full HTTP proxy and automatically injects standard `X-Forwarded-` headers.
+Many web frameworks and upstream servers inspect `X-Forwarded-` headers to decide whether to issue a redirect (301/302) or serve content (200).
+As a result, when you use SC5, your server sees the original client IP and protocol and may treat the request as if it's already on the correct host.
+
+If you need to disable that behavior, this is to prevent SC5 from sending any `X-Forwarded-` headers, you can do so with the following options:
+
+<Tabs
+defaultValue="flag"
+values={[
+{label: 'flag', value: 'flag'},
+{label: 'config-file', value: 'config-file'},
+{label: 'environment variable', value: 'environment variable'}, ]}>
+
+<TabItem value="flag">
+
+```bash
+sc run ... --header '-X-Forwarded-*'
+```
+
+</TabItem>
+
+<TabItem value="config-file">
+
+```bash
+...
+header: '-X-Forwarded-*'
+...
+```
+</TabItem>
+
+<TabItem value="environment variable">
+
+```bash
+SAUCE_HEADER='-X-Forwarded-*' sc run ...
+```
+
+</TabItem>
+</Tabs>
+
+This tells Sauce Connect to remove all headers beginning with `X-Forwarded-`.
+
