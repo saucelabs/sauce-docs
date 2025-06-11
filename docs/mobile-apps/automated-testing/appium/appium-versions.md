@@ -571,6 +571,33 @@ The following list of custom Appium plugins are supported:
   </thead>
   <tbody>
     <tr>
+      <td>Android 16.0</td>
+      <td>
+        <ul>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.11.0</code>
+            </a>
+          </li>
+          <li>
+            <a href="#appium-2-versions">
+              <code>2.0.0</code>
+            </a>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.11.0</code>
+        </a>
+      </td>
+      <td>
+        <a href="#appium-2-versions">
+          <code>2.11.0</code>
+        </a>
+      </td>
+    </tr>
+      <tr>
       <td>Android 15.0</td>
       <td>
         <ul>
