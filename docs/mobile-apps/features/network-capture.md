@@ -130,6 +130,9 @@ If you need to localize the capture context with just the browser and omit all n
 - Only HTTP/HTTPS network traffic is captured.
 - Android Emulators are not supported.
 - iOS Simulators are not supported.
+- SSL pinning, e.g. when using a self-signed certificate, your custom trust manager must not trust only your certificate.
+- Some common domains are excluded, like those used by system services and analytics providers
+> Excluded domains: `apple.com`, `google.com`, `googleapis.com`, `gstatic.com`, `crashlytics.com`, `doubleclick.net`, `app-measurement.com`, `facebook.com`, `xiaomi.com`, `xiaomi.net`, `miui.com` 
 
 :::
 

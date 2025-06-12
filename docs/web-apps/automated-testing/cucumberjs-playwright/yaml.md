@@ -222,7 +222,7 @@ saucectl run --retries 1
 
 <p><small>| OPTIONAL | OBJECT |</small></p>
 
-`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect/proxy-tunnels/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
+`saucectl` supports using [Sauce Connect](/secure-connections/sauce-connect-5/) to establish a secure connection with Sauce Labs. To do so, launch a tunnel; then provide the name and owner (if applicable) in this property.
 
 ```yaml
 sauce:
@@ -232,7 +232,7 @@ sauce:
 ```
 
 :::caution
-[Only certain HTTP(S) ports](/secure-connections/sauce-connect/advanced/specifications/#supported-browsers-and-ports) are proxied by the tunnel.
+[Only certain HTTP(S) ports](/secure-connections/sauce-connect-5/guides/localhost-proxying/#special-cases) are proxied by the tunnel when accessing localhost.
 :::
 
 ---
