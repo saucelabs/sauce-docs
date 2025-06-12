@@ -50,10 +50,7 @@ values={[
 
 <TabItem value="java">
 
-We highly recommend using the Java [Sauce Bindings](https://opensource.saucelabs.com/sauce_bindings/).
-Check out the description and examples for the new [Accessibility functionality](https://opensource.saucelabs.com/sauce_bindings/accessibility).
-
-The following is information on how to use the Java Deque Axe Selenium library directly:
+The following shows how to use the Java Deque Axe Selenium library directly:
 
 **Requirements**
 
@@ -234,7 +231,6 @@ For more detailed usage, see [Selenium.Axe for .NET](https://troywalshprof.githu
 
 - [Deque Sauce Labs Integration Documentation](https://www.deque.com/saucelabs/get-started/)
 - [Deque axe DevTools Mobile - for Native Mobile App Testing On Real Devices](https://axe.deque.com/axe-devtools-mobile/get-started)
-- [Sauce Bindings Accessibility Feature](https://opensource.saucelabs.com/sauce_bindings/accessibility)
 - [Deque `axe-core` Selenium Integration for Java](https://github.com/dequelabs/axe-core-maven-html)
 - [Sa11y - Selenium Accessibility for Python & Ruby](https://github.com/saucelabs/sa11y)
 - [Deque `axe-core` Example WebdriverIO Project](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/webdriverio)
