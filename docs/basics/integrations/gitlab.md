@@ -67,16 +67,16 @@ job 5:
 
 ### Sauce Connect and GitLab
 
-[Sauce Connect Proxy](/secure-connections/sauce-connect) is an HTTP proxy server that opens a secure "tunnel" connection for testing between a Sauce Labs virtual machine or real device and a website or mobile app hosted in your local environment (e.g. behind a corporate firewall). It gives Sauce Labs secure access to your application or website.
+[Sauce Connect](/secure-connections/sauce-connect-5/) is an HTTP proxy server that opens a secure "tunnel" connection for testing between a Sauce Labs virtual machine or real device and a website or mobile app hosted in your local environment (e.g. behind a corporate firewall). It gives Sauce Labs secure access to your application or website.
 
 Sauce Connect can be downloaded and managed in a few ways, some of which lend themselves better to GitLab, but all are do-able.
 
-#### Continuously Running HA Sauce Connect Tunnel
+#### Continuously Running Sauce Connect Tunnel
 
 :::note
 This first method is recommended for those with a supportive DevOps team who is willing to host and maintain this image.
 :::
-Users download the Sauce Connect Binary and run it as a service on a dedicated machine (VM/server) that is available 24/7. This instance of Sauce Connect is shared by the organization and utilized by the tests running in the CI pipeline. This is the recommended method of running the Sauce Connect Proxy, which we call “[High Availability](/secure-connections/sauce-connect/setup-configuration/high-availability)”.
+Users download the Sauce Connect Binary and run it as a service on a dedicated machine (VM/server) that is available 24/7. This instance of Sauce Connect is shared by the organization and utilized by the tests running in the CI pipeline. This is the recommended method of running the Sauce Connect Proxy, which we call “[Tunnel Pool](/secure-connections/sauce-connect-5/guides/tunnel-pool/)”.
 
 #### Ephemeral Tunnel, Started in Every Build
 

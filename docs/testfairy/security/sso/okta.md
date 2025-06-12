@@ -12,6 +12,7 @@ import TabItem from '@theme/TabItem';
 1. Type "TestFairy" into the search form
 1. Click **Add** on the TestFairy app.
 1. Next, type in the team's name in TestFairy (it is also the subdomain's name).
+    - Please [contact Sauce Labs Support](https://support.saucelabs.com/s/submit-a-request?language=en_US) to provision a custom subdomain 
 1. Next, select authorized users. When done, click **Next**.
 1. OKTA-side configuration is done. Now click **Done**.
 1. In the **Sign On** menu, click on **View Setup Instructions**.
