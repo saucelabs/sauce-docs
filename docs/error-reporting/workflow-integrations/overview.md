@@ -13,14 +13,12 @@ Workflow integrations allows you to have Backtrace automatically notify and aler
 
 To configure a workflow integration, select **Project Settings** from the menu at the top-right, select the **Integrations** tab on the left, then start using the wizard:
 
-<img src={useBaseUrl('img/error-reporting/workflow-integrations/workflow-integrations.webp')} alt="" />
+<img src={useBaseUrl('img/error-reporting/workflow-integrations/workflow-integrations.png')} alt="" />
 
 ## Messaging
 
 - [Slack](/error-reporting/workflow-integrations/messaging/slack/)
-- [IRC](/error-reporting/workflow-integrations/messaging/irc/)
 - [Email](/error-reporting/workflow-integrations/messaging/email/)
-- [Gitter](/error-reporting/workflow-integrations/messaging/gitter/)
 - [Amazon SNS](/error-reporting/workflow-integrations/messaging/amazon-sns/)
 - [Stride](/error-reporting/workflow-integrations/messaging/stride/)
 
@@ -28,9 +26,7 @@ To configure a workflow integration, select **Project Settings** from the menu a
 
 - [GitHub](/error-reporting/workflow-integrations/issue-tracking/github/)
 - [Jira](/error-reporting/workflow-integrations/issue-tracking/jira/)
-- [Phabricator](/error-reporting/workflow-integrations/issue-tracking/phabricator/)
 - [Asana](/error-reporting/workflow-integrations/issue-tracking/asana/)
-- [FogBugz](/error-reporting/workflow-integrations/issue-tracking/fogbugz/)
 
 ## Alerting and Operations
 
@@ -41,7 +37,6 @@ To configure a workflow integration, select **Project Settings** from the menu a
 ## Monitoring
 
 - [Datadog](/error-reporting/workflow-integrations/monitoring/datadog/)
-- [Circonus](/error-reporting/workflow-integrations/monitoring/circonus/)
 
 ## Custom
 
