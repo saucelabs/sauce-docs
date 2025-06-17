@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 Sauce Labs now supports **iOS 17.5 and iOS 18** on Apple Silicon-based Simulators. These environments offer improved performance, modern architecture alignment, and compatibility with Xcode's latest features. This enables you to test apps in the most current Apple environments across iPhone and iPad Simulators.
 
 :::caution Enteprise Only
-iOS 17.5 and iOS 18 Simulators on Apple Silicon are only available to Enterprise customers with the appropriate subscription plan. Contact your account manager to discuss upgrading.
+iOS 17.5 and iOS 18 Simulators on Apple Silicon are only available to Enterprise customers with the appropriate Premium plan. Contact your account manager to discuss upgrading.
 :::
 
 ## Key Benefits
