@@ -540,15 +540,12 @@ module.exports = {
                                             collapsed: true,
                                             items: [
                                                 'error-reporting/workflow-integrations/messaging/slack',
-                                                'error-reporting/workflow-integrations/messaging/irc',
                                                 'error-reporting/workflow-integrations/messaging/email',
-                                                'error-reporting/workflow-integrations/messaging/gitter',
                                                 'error-reporting/workflow-integrations/messaging/amazon-sns',
                                                 'error-reporting/workflow-integrations/messaging/stride',
                                                 'error-reporting/workflow-integrations/messaging/discord',
                                                 'error-reporting/workflow-integrations/messaging/ms-teams',
                                                 'error-reporting/workflow-integrations/messaging/webex-teams',
-                                                'error-reporting/workflow-integrations/messaging/hipchat',
                                             ],
                                         },
                                         {
@@ -558,10 +555,7 @@ module.exports = {
                                             items: [
                                                 'error-reporting/workflow-integrations/issue-tracking/jira',
                                                 'error-reporting/workflow-integrations/issue-tracking/github',
-                                                'error-reporting/workflow-integrations/issue-tracking/phabricator',
                                                 'error-reporting/workflow-integrations/issue-tracking/asana',
-                                                'error-reporting/workflow-integrations/issue-tracking/fogbugz',
-                                                'error-reporting/workflow-integrations/issue-tracking/hack-n-plan',
                                                 'error-reporting/workflow-integrations/issue-tracking/mantis',
                                             ],
                                         },
@@ -572,7 +566,6 @@ module.exports = {
                                             items: [
                                                 'error-reporting/workflow-integrations/alerting-ops/pagerduty',
                                                 'error-reporting/workflow-integrations/alerting-ops/victorops',
-                                                'error-reporting/workflow-integrations/alerting-ops/opsgenie',
                                             ],
                                         },
                                         {
@@ -581,7 +574,6 @@ module.exports = {
                                             collapsed: true,
                                             items: [
                                                 'error-reporting/workflow-integrations/monitoring/datadog',
-                                                'error-reporting/workflow-integrations/monitoring/circonus',
                                             ],
                                         },
                                         'error-reporting/workflow-integrations/webhook',

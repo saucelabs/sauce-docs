@@ -607,34 +607,6 @@ https://github.com/saucelabs-training/demo-csharp/blob/docs-1.1/DotnetCore/Sauce
 </TabItem>
 </Tabs>
 
-### Sauce Bindings
-
-A great way to minimize complexity and reduce boilerplate code for writing Selenium tests with Sauce Labs is to use the [Sauce Bindings](https://opensource.saucelabs.com/sauce_bindings/).
-
-Compare these equivalent Java implementations:
-
-<details>
-  <summary>
-    <strong>Click here</strong> to see the complete Java example of the above steps.
-  </summary>
-
-```java reference title="Complete Selenium Example"
-https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/src/test/java/com/saucedemo/selenium/login/SeleniumLoginTest.java#
-```
-
-</details>
-
-<details>
-  <summary>
-    <strong>Click here</strong> to see the equivalent code using the Sauce Bindings JUnit 5 Test Runner Library.
-  </summary>
-
-```java reference title="Simplify With Sauce Bindings"
-https://github.com/saucelabs-training/demo-java/blob/docs-1.1/selenium-examples/src/test/java/com/saucedemo/selenium/login/SauceBindingsLoginTest.java
-```
-
-</details>
-
 ## Scaling Tests
 
 The example is a simple one, and only creating a number of files just like it one would not be very efficient.
