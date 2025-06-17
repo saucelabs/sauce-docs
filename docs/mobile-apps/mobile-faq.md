@@ -314,14 +314,3 @@ To make sure the availability stays high, we need to password-protect certain fu
 #### **Is there a limit to how many tests I can run with a free-trial account? Can I run tests in parallel?**
 
 You can run as many tests as you wish on your trial account, but you will only be able to run one test at a time. Also, no manual test is allowed to run for more than ten minutes.
-
-## New iOS and Android Release:
-
-#### What is new on iOS17 devices?
-
-You can run automated Appium 2.0 and Live Tests against any of our iOS17 devices! You can find a detailed list of all the changes introduced that might impact[ your application or testing here.](https://saucelabs.com/resources/blog/ios-17-beta-sauce-real-device-cloud)
-The following features are limited or not available for a short period of time on iOS17 devices:
-
-- Accessing and changing Location services
-- Changing locale.
-- Virtual USB
