@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<p><span className="sauceYellow">Available as Beta only</span></p>
+<p><span className="sauceGreen">Enterprise Plans Only</span></p>
 
 ## Overview
 
