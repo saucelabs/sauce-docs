@@ -2655,6 +2655,8 @@ curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY" --location \
 
 ## Service account
 
+<p><span className="sauceGreen">Enterprise Plans Only</span></p>
+
 ### Lookup Service Accounts
 
 <details>
