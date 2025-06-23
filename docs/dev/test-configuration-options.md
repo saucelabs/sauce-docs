@@ -1702,6 +1702,27 @@ Each network condition has a supported value range:
 
 ---
 
+### `logFilters`
+
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Set custom filters for Appium server logs. This will allow you to mask sensitive data from your test report.
+
+For more information, please refer to the official Appium documentation on [Filtering the Appium Log](https://appium.io/docs/en/2.18/guides/log-filters/).
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+
+sauceOptions.setCapability("logFilters", List.of(
+	ImmutableMap.of("text","text-to-be-replaced")));
+
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
 ### `sauce: network-profile`
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> |</small></p>
@@ -1730,21 +1751,6 @@ driver.executeScript("sauce: network-conditions", ImmutableMap.of(
     "latency", 200,
     "loss", 2,
 ));
-```
-
----
-
-### `sauce:logFilters`
-
-<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> |</small></p>
-
-Set custom filters for Appium server logs. This will allow you to mask sensitive data from your test report.
-
-For more information, please refer to the official Appium documentation on [Filtering the Appium Log](https://appium.io/docs/en/2.18/guides/log-filters/).
-
-```java
-driver.executeScript("sauce:logFilters", List.of(
-	ImmutableMap.of("text","text-to-be-replace")));
 ```
 
 ---
