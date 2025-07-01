@@ -28,7 +28,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ### Privacy manifest
 
-The iOS SDK contains a privacy manifest to declare the types of data accessed on the device. Please refer to this [source document](https://github.com/backtrace-labs/backtrace-cocoa/blob/master/Sources/Resources/PrivacyInfo.xcprivacy) for the specific types of data collected by the SDK.
+The iOS SDK contains a privacy manifest to declare the types of data accessed on the device. Refer to this [source document](https://github.com/backtrace-labs/backtrace-cocoa/blob/master/Sources/Resources/PrivacyInfo.xcprivacy) for the specific types of data collected by the SDK.
 
 ## What You'll Need
 
