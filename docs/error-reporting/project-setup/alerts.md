@@ -13,13 +13,34 @@ Backtrace offers an Alert capability that enables teams to be notified at Warnin
 
 ## Issue Based Alerts
 
+:::tip New Feature
+Want to see alerts about your application stability? Check out our new [Error Free User Alerting](https://changelog.saucelabs.com/en/now-available-error_free-user-metrics-alerting-D1ZgYKZg).
+:::
+
 Use issue based alerts to automatically generate notifications or create issues for your third-party integrations when Backtrace detects a new error or fingerprint in the system. You can specify the conditions and frequency for which alerts are triggered.
 
 ### Define Alert Conditions
 
 To get started, you must choose whether to be notified with every new error or every new fingerprint. If you have a high volume of errors or are connecting with an issue-tracking system like Jira, it's generally recommended to set triggers for new fingerprints to reduce noise.
 
-Other options are attribute filtering, errors in a timeframe, and affected users in a timeframe.
+**Alert Triggers**
+- A new error is detected 
+    - Receive a message for each individual error. 
+    - Good for low volumes of unique errors. Suggested only for messaging systems like Slack.
+- A new fingerprint is detected
+    - Receive a message for errors grouped by root cause.
+    - Reduces duplicate messages when using an issue tracker like Jira.
+- Error-free user rate is below a threshold
+    - Set a minimum threshold for application stability (number of unique users who have not experienced an error). 
+    - Filter by `error.type = crash` for crash free rates.
+- Number of errors in a fingerprint is greater than a value 
+    - Notifies you of high frequency errors in a specific timeframe. 
+    - Good for spike detection.
+- Number of users affected by fingerprint is greater than a value 
+    - Notifies you of high user impacting errors.
+    - Only triggers when errors are affecting a large population.
+
+Include attribute filtering to focus the messages specific to your use case.
 
 Alert frequency allows you to control how often an alert will trigger. If you want to send messages for new errors, longer alert frequencies will allow batching of the same error and reduce the overall number of messages.
 
