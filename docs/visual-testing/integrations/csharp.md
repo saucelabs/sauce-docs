@@ -475,7 +475,7 @@ await VisualClient.VisualCheck("Frame capture",
     });
 ```
 
-### Parallel testing
+### Parallel Testing
 
 If you want to run tests in parallel using multiple `WebDriver` instances, create a single `VisualClient` instance for all parallel tests without passing `WebDriver`, and pass `WebDriver` to the `VisualClient.VisualCheck` method directly.
 
@@ -502,8 +502,6 @@ class ConcurrentTests
         Project = "csharp-project",
         Branch = "csharp-branch"
     });
-    // Enable Dom Capture
-    VisualClient.CaptureDom = true;
   }
 
   [OneTimeTearDown]
@@ -584,8 +582,6 @@ class VisualClientFixture : IAsyncLifetime
         Project = "csharp-project",
         Branch = "csharp-branch"
     });
-    // Enable Dom Capture
-    VisualClient.CaptureDom = true;
   }
 
   public async ValueTask DisposeAsync()
