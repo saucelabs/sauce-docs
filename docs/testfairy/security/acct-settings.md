@@ -12,12 +12,6 @@ To access the Settings page, click **Account** and then click **Sauce Mobile App
 
 <img src={useBaseUrl('img/testfairy/acct-settings-nav.png')} alt="Accessing Settings page" width="250"/>
 
-## SDK App Token
-
-<img src={useBaseUrl('img/testfairy/acct-settings-sdk-token.png')} alt="SDK App Token page" width="700"/>
-
-Your app token initializes the Sauce Mobile App Distribution SDK. See [Adding the Sauce Mobile App Distribution SDK to your App](/testfairy/sdk/adding-tf-sdk) for more information.
-
 ## Sauce Mobile App Distribution Access Key
 
 <img src={useBaseUrl('img/testfairy/acct-settings-tf-access-key.png')} alt="Sauce Mobile App Distribution Access Key page" width="700"/>

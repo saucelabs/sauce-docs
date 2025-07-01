@@ -168,6 +168,31 @@ const docusaurusConfig = {
                 },
             },
         ],
+        // Redocusaurus config
+        [
+            'redocusaurus',
+            {
+                openapi: {
+                    // Folder to scan for *.openapi.yaml files
+                    path: 'openapi',
+                    routeBasePath: '/rdc-open-api',
+                },
+                specs: [
+                    // Optionally provide individual files/urls to load
+                    {
+                        // Pass it a path to a local OpenAPI YAML file
+                        spec: 'rdc-open-api/index.openapi.yaml',
+                        id: 'from-manual-file',
+                        route: '/rdc-open-api/docs',
+                    },
+                ],
+                // Theme Options for modifying how redoc renders them
+                theme: {
+                    // Change with your site colors
+                    primaryColor: '#1890ff',
+                },
+            },
+        ],
     ],
     themes: ['docusaurus-theme-github-codeblock'],
 };
