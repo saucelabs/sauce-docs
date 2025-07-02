@@ -1221,6 +1221,7 @@ module.exports = {
                         'mobile-apps/features/camera-image-injection',
                         'mobile-apps/features/gestures',
                         'mobile-apps/features/instant-booted-simulators',
+                        'mobile-apps/features/ios-app-resigning',
                         'mobile-apps/features/ios-version-management',
                         'mobile-apps/features/network-throttling',
                         'mobile-apps/features/video-recording',
