@@ -1,8 +1,8 @@
 ---
-id: ios-app-resigning 
+id: ios-app-resigning
 title: iOS App Resigning
 sidebar_label: iOS App Resigning
-description: Learn why we resign apps and what consequences it has. 
+description: Learn why we resign apps and what consequences it has.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -54,7 +54,7 @@ Sauce Labs applies its own resigning to apps that are installed on our public iO
 
 ## Common Errors
 
-### Unable to Verify App
+### Unable To Verify App
 
 If you are facing the issue where the app crashes with a red screen and an "Unable to Verify App" popup:
 <img src={useBaseUrl('img/mobile-apps/verify-app-error.png')} alt="Mobile app settings navigation" width="350"/>
