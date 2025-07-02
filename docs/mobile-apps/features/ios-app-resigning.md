@@ -49,7 +49,7 @@ Sauce Labs applies its own resigning to apps that are installed on our public iO
 | `inter-app-audio`                                    | `<true/>`                                                                                                                                                                                                                                                                                           |
 | `com.apple.developer.networking.networkextension`    | `<array>`<br/> &nbsp;&nbsp;`<string>app-proxy-provider</string>`<br/>&nbsp;&nbsp;`<string>content-filter-provider</string>`<br/> &nbsp;&nbsp;`<string>packet-tunnel-provider</string>`<br/>&nbsp;&nbsp;`<string>dns-proxy</string>`<br/> &nbsp;&nbsp;`<string>dns-settings</string>`<br/>`</array>` |
 | `com.apple.developer.siri`                           | `<true/>`                                                                                                                                                                                                                                                                                           |
-| `com.apple.developer.pass-type-identifiers`          | `<array>`<br/>&nbsp;&nbsp; `<string>XXXXXXXXXX.*</string>`<br/>`</ |
+| `com.apple.developer.pass-type-identifiers`          | `<array>`<br/>&nbsp;&nbsp; `<string>XXXXXXXXXX.*</string>`<br/>`</array>` |
 
 
 ## Common Errors
