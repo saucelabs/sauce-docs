@@ -206,6 +206,14 @@ Example:
 --proxy myproxy.org:3128 --proxy-sauce https://external.com:443 --auth user1:pass1@myproxy.org:3128,user2:pass2@external.com:*
 ```
 
+### `--debug-address` {#debug-address}
+
+* Environment variable: `SAUCE_DEBUG_ADDRESS`
+* Value Format: `<host:port>`
+
+Address for the built-in HTTP proxy to listen on.
+Allows exposing the proxy port for connectivity debugging.
+
 ### `-H, --header` {#header}
 
 * Environment variable: `SAUCE_HEADER`
@@ -321,6 +329,22 @@ Syntax:
 - File: `/path/to/file.pac`
 - Embed: `data:base64,<base64 encoded data>`
 
+### `--http-dial-attempts` {#http-dial-attempts}
+
+* Environment variable: `SAUCE_HTTP_DIAL_ATTEMPTS`
+* Value Format: `<int>`
+* Default value: `3`
+
+The number of attempts to dial the network address.
+
+### `--http-dial-backoff` {#http-dial-backoff}
+
+* Environment variable: `SAUCE_HTTP_DIAL_BACKOFF`
+* Value Format: `<duration>`
+* Default value: `1s`
+
+The amount of time to wait between dial attempts.
+
 ### `--http-dial-timeout` {#http-dial-timeout}
 
 * Environment variable: `SAUCE_HTTP_DIAL_TIMEOUT`
@@ -392,6 +416,37 @@ Basic authentication credentials to protect the server.
 
 The maximum amount of time to wait for the next request before closing connection.
 
+### `--api-read-limit` {#api-read-limit}
+
+* Environment variable: `SAUCE_API_READ_LIMIT`
+* Value Format: `<bandwidth>`
+* Default value: `0`
+
+Global read rate limit in bytes per second i.e.
+how many bytes per second you can receive from a proxy.
+Accepts binary format (e.g.
+1.5Ki, 1Mi, 3.6Gi).
+
+### `--api-shutdown-timeout` {#api-shutdown-timeout}
+
+* Environment variable: `SAUCE_API_SHUTDOWN_TIMEOUT`
+* Value Format: `<duration>`
+* Default value: `30s`
+
+The maximum amount of time to wait for the server to drain connections before closing.
+Zero means no limit.
+
+### `--api-write-limit` {#api-write-limit}
+
+* Environment variable: `SAUCE_API_WRITE_LIMIT`
+* Value Format: `<bandwidth>`
+* Default value: `0`
+
+Global write rate limit in bytes per second i.e.
+how many bytes per second you can send to proxy.
+Accepts binary format (e.g.
+1.5Ki, 1Mi, 3.6Gi).
+
 ## Logging
 
 ### `--log-file` {#log-file}
@@ -401,6 +456,14 @@ The maximum amount of time to wait for the next request before closing connectio
 
 Path to the log file, if empty, logs to stdout.
 The file is reopened on SIGHUP to allow log rotation using external tools.
+
+### `--log-format` {#log-format}
+
+* Environment variable: `SAUCE_LOG_FORMAT`
+* Value Format: `<text, json>`
+* Default value: `text`
+
+Use json for production workload logs and text for more human-readable output.
 
 ### `--log-http` {#log-http}
 
