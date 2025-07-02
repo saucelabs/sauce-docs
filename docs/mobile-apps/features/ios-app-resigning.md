@@ -30,7 +30,7 @@ This has three consequences for running iOS tests on Sauce Labs real devices:
 
 **For Live Testing:** Change the settings for your app in the [App Management UI](https://app.saucelabs.com/app-management) and enable the 'Instrumentation' flag.
 
-::: note Ambiguous names
+:::note Ambiguous names
 Sometimes, the terms "instrumentation" and "re-signing" are used interchangeably in our documentation. This is because re-signing is required for any instrumentation features on iOS, while Android only uses instrumentation without re-signing.
 :::
 
