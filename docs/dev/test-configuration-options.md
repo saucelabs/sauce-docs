@@ -1723,6 +1723,24 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ---
 
+### `filterSendKeys`
+
+<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Filters the `SendKeys` Appium command from the Appium commands log in the tests report. In case your test sends sensitive information (such as credentials) through a form this will prevent to leak them in the test report, replacing the request of the command by a placeholder.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+
+sauceOptions.setCapability("filterSendKeys", true);
+
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
 ### `sauce: network-profile`
 
 <p><small>| OPTIONAL | STRING | <span className="sauceGreen">Real Devices Only</span> |</small></p>
