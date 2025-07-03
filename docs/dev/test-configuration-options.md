@@ -1725,7 +1725,7 @@ capabilities.setCapability("sauce:options", sauceOptions);
 
 ### `filterSendKeys`
 
-<p><small>| OPTIONAL | OBJECT | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
 
 Filters the `SendKeys` Appium command from the Appium commands log in the tests report. In case your test sends sensitive information (such as credentials) through a form this will prevent to leak them in the test report, replacing the request of the command by a placeholder.
 
