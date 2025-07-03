@@ -49,7 +49,7 @@ Sauce Connect provides `.zip` package with a signed binary that can be used on a
 ### Unpack the zip file
 
 ```bash
-curl -L -o sauce-connect.zip https://saucelabs.com/downloads/sauce-connect/5.2.3/sauce-connect-5.2.3_darwin.all.zip
+curl -L -o sauce-connect.zip https://saucelabs.com/downloads/sauce-connect/5.3.0/sauce-connect-5.3.0_darwin.all.zip
 sudo mkdir -p /opt/sauce-connect
 sudo unzip -d /opt/sauce-connect sauce-connect.zip
 ```
