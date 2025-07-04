@@ -58,3 +58,11 @@ Thus, a Sauce Connect running with 4 CPU cores achieves the maximum capacity:
   limits: GOMAXPROCS=4 GOMEMLIMIT=300MiB
   ```
   This line prints the effective configured values for GOMAXPROCS and GOMEMLIMIT.
+
+## Open Files Limit
+
+To fully unlock the potential of Sauce Connect, we recommend setting the open file limit to at least **16,000**.
+
+On Linux and macOS, you can temporarily increase the open file limit by running `ulimit -n <limit>` in terminal before starting Sauce Connect.
+This change applies only to the current shell session. To make it persistent, system configuration changes are needed.
+On Windows there's no direct `ulimit` equivalent. If Sauce Connect hits OS limits, consider running multiple instances.
