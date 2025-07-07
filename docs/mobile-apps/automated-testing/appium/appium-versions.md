@@ -248,25 +248,25 @@ The following list of custom Appium plugins are supported:
         <span className="sauceGreen">Active</span>
       </td>
       <td>
-          <a href="https://docs.deque.com/devtools-mobile/2024.2.14/en/june-2024-3" target="_blank">
+          <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/intro" target="_blank">
               Deque axe DevTools® Mobile Analyzer Accessibility tools
           </a>
           &nbsp;help you with automated accessibility testing. Contains only the latest version of Appium. The tools help to identify and to resolve accessibility issues. Requires Deque axe DevTools® license. See the <a href="../appium-deque-accessibility-testing">detailed usage documentation</a>, including a [migration guide](../appium-deque-accessibility-testing/#migrating-from-the-deprecated-plugin-to-deque-new-drivers) if you still use the deprecated plugin.
         <br />
         <ul>
             <li>
-                <a href="https://docs.deque.com/devtools-mobile/2024.9.18/en/february-2025-2" target="_blank">
-                    <code>axe-appium-xcuitest-driver </code>: 1.2.0
+                <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/intro" target="_blank">
+                    <code>axe-appium-xcuitest-driver </code>: 1.5.0
                 </a>
             </li>
             <li>
-                <a href="https://docs.deque.com/devtools-mobile/2024.9.18/en/appium-setup" target="_blank">
-                    <code>axe-appium-uiautomator2-driver </code>: 1.3.0
+                <a href="https://docs.deque.com/devtools-mobile/2025.7.2/en/intro" target="_blank">
+                    <code>axe-appium-uiautomator2-driver </code>: 1.4.2
                 </a>
             </li>
             <li>
-                <a href="https://github.com/appium/appium/releases/tag/appium%402.15.0" target="_blank">
-                    <code>appium</code>: 2.15.0
+                <a href="https://github.com/appium/appium/releases/tag/appium%402.19.0" target="_blank">
+                    <code>appium</code>: 2.19.0
                 </a>
             </li>
         </ul>
