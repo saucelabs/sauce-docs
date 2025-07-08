@@ -183,7 +183,7 @@ All uploaded files are shared within the same team, and members can only access 
 For more information about managing access to your organization, see [Managing User Information](/basics/acct-team-mgmt/managing-user-info).
 
 ### Share Apps with another Team
-App groups can be shared across teams within an organization, but only organization admins have the permission to share an app group with other teams.
+App groups can be shared across teams within an organization, but organization admins or team admins have the permission to share an app group with other teams.
 
 <img src={useBaseUrl('img/mobile-apps/app-management-org-admin.png')} alt="Upload an app" width="800"/>
 
