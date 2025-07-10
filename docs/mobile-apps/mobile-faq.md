@@ -12,7 +12,7 @@ Android Emulators have software buttons and a hardware keyboard. In a regular An
 
 #### **Can I run Android Emulator tests using Espresso instead of Appium?**
 
-Yes - see [Espresso and XCUITest Testing for Virtual Devices](/mobile-apps/automated-testing/espresso-xcuitest/).
+Yes, for more information see [Espresso and XCUITest Testing for Virtual Devices](/mobile-apps/automated-testing/espresso-xcuitest/).
 
 #### **What mobile web browsers can I automate in Android Emulators?**
 
