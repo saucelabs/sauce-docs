@@ -1710,6 +1710,10 @@ Set custom filters for Appium server logs. This will allow you to mask sensitive
 
 For more information, please refer to the official Appium documentation on [Filtering the Appium Log](https://appium.io/docs/en/2.18/guides/log-filters/).
 
+:::note
+The `logFilters` capability is supported in Appium version 2.5.2 and later. To use this feature, ensure your test script specifies a compatible Appium version using the Sauce-specific [`appiumVersion`](/dev/test-configuration-options/#appiumversion) capability. You can view the list of [available Appium versions](/docs/mobile-apps/automated-testing/appium/appium-versions.md) here.
+:::
+
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
