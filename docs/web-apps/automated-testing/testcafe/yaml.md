@@ -1730,3 +1730,22 @@ suite:
   - name: My Saucy Test
     esm: true
 ```
+
+---
+
+### `armRequired`
+
+<p><small>| OPTIONAL | BOOLEAN |</small></p>
+
+When set to `true`, this option adds capability requirement for ARM architecture on the machine running the test.
+
+:::note
+ARM is only available for MacOS 14 and for TestCafe >=3.7.2.
+:::
+
+```yaml
+suite:
+  - name: My Saucy Test
+    platform: 'macOS 14'
+    armRequired: true
+```
