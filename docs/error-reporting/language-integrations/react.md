@@ -300,31 +300,6 @@ client.breadcrumbs?.info('This is a manual breadcrumb.', {
     customAttr: 'wow!',
 });
 ```
-
----
-
-### Application Stability Metrics
-
-The Backtrace React SDK has the ability to send usage Metrics to be viewable in the Backtrace UI.
-
-[(Stability Metrics feature documentation)](/error-reporting/project-setup/stability-metrics/)
-
-#### Metrics Configuration
-
-| Option Name            | Type    | Description                                                                                                                                                                                                                                                                                                                                              | Default                       | Required?                                |
-| ---------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ---------------------------------------- |
-| `metricsSubmissionUrl` | String  | Metrics server hostname. By default the value is set to https://events.backtrace.io.                                                                                                                                                                                                                                                                     | `https://events.backtrace.io` | <input type="checkbox" disabled="true"/> |
-| `enable`               | Boolean | Determines if the metrics support is enabled. By default the value is set to true.                                                                                                                                                                                                                                                                       | `true`                        | <input type="checkbox" disabled="true"/> |
-| `autoSendInterval`     | Number  | Indicates how often crash free metrics are sent to Backtrace. The interval is a value in ms. By default, session events are sent on application startup/finish, and every 30 minutes while the application is running. If the value is set to 0. The auto send mode is disabled. In this situation the application needs to maintain send mode manually. | On application startup/finish | <input type="checkbox" disabled="true"/> |
-| `size`                 | Number  | Indicates how many events the metrics storage can store before auto submission.                                                                                                                                                                                                                                                                          | `50`                          | <input type="checkbox" disabled="true"/> |
-
-#### Metrics Usage
-
-```ts
-// metrics will be undefined if not enabled
-client.metrics?.send();
-```
-
 ---
 
 ### Session Replay
@@ -380,6 +355,30 @@ const client = BacktraceClient.builder(options)
 ```
 
 When an error is captured, a link to the session replay will be available on the Debugger page for that specific error in the Backtrace UI.
+
+---
+
+### Application Stability Metrics
+
+The Backtrace React SDK has the ability to send usage Metrics to be viewable in the Backtrace UI.
+
+[(Stability Metrics feature documentation)](/error-reporting/project-setup/stability-metrics/)
+
+#### Metrics Configuration
+
+| Option Name            | Type    | Description                                                                                                                                                                                                                                                                                                                                              | Default                       | Required?                                |
+| ---------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ---------------------------------------- |
+| `metricsSubmissionUrl` | String  | Metrics server hostname. By default the value is set to https://events.backtrace.io.                                                                                                                                                                                                                                                                     | `https://events.backtrace.io` | <input type="checkbox" disabled="true"/> |
+| `enable`               | Boolean | Determines if the metrics support is enabled. By default the value is set to true.                                                                                                                                                                                                                                                                       | `true`                        | <input type="checkbox" disabled="true"/> |
+| `autoSendInterval`     | Number  | Indicates how often crash free metrics are sent to Backtrace. The interval is a value in ms. By default, session events are sent on application startup/finish, and every 30 minutes while the application is running. If the value is set to 0. The auto send mode is disabled. In this situation the application needs to maintain send mode manually. | On application startup/finish | <input type="checkbox" disabled="true"/> |
+| `size`                 | Number  | Indicates how many events the metrics storage can store before auto submission.                                                                                                                                                                                                                                                                          | `50`                          | <input type="checkbox" disabled="true"/> |
+
+#### Metrics Usage
+
+```ts
+// metrics will be undefined if not enabled
+client.metrics?.send();
+```
 
 ---
 
