@@ -1710,6 +1710,10 @@ Set custom filters for Appium server logs. This will allow you to mask sensitive
 
 For more information, please refer to the official Appium documentation on [Filtering the Appium Log](https://appium.io/docs/en/2.18/guides/log-filters/).
 
+:::note
+The `logFilters` capability is supported in Appium version 2.5.2 and later. To use this feature, ensure your test script specifies a compatible Appium version using the Sauce-specific [`appiumVersion`](/dev/test-configuration-options/#appiumversion) capability. You can view the list of [available Appium versions](/docs/mobile-apps/automated-testing/appium/appium-versions.md) here.
+:::
+
 ```java
 MutableCapabilities capabilities = new MutableCapabilities();
 //...
@@ -1717,6 +1721,24 @@ MutableCapabilities sauceOptions = new MutableCapabilities();
 
 sauceOptions.setCapability("logFilters", List.of(
 	ImmutableMap.of("text","text-to-be-replaced")));
+
+capabilities.setCapability("sauce:options", sauceOptions);
+```
+
+---
+
+### `filterSendKeys`
+
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">Real Devices Only</span> |</small></p>
+
+Filters the `SendKeys` Appium command from the Appium commands log in the tests report. In case your test sends sensitive information (such as credentials) through a form this will prevent to leak them in the test report, replacing the request of the command by a placeholder.
+
+```java
+MutableCapabilities capabilities = new MutableCapabilities();
+//...
+MutableCapabilities sauceOptions = new MutableCapabilities();
+
+sauceOptions.setCapability("filterSendKeys", true);
 
 capabilities.setCapability("sauce:options", sauceOptions);
 ```
