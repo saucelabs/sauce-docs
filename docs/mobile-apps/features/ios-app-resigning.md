@@ -24,6 +24,10 @@ This has three consequences for running iOS tests on Sauce Labs real devices:
 
 ## How to Enable and Disable Re-Signing
 
+By default re-signing is always turned on. Sauce Labs allows you to disable resigning on private devices only. To access our private device cloud, contact your Sauce Labs account executive or our support team.
+
+By disabling re-signing you can ensure that all app entitlements stay unchanged, you can install apps using your own provisoning profile, or you can isntall apps that were signed with an Enterprise certificate, which can include any entitlements.
+
 **For Appium:** Use the 'resigningEnabled' flag in the Sauce Options: [disable resigning](/dev/test-configuration-options/#resigningenabled).
 
 **For XCUITest & XCTest:** Use the 'resigningEnabled' flag in the saucectl config: [disable resigning for XCTest](/docs/mobile-apps/automated-testing/espresso-xcuitest/xctest-config.md#resigningenabled).
