@@ -256,6 +256,19 @@ Finding a failing request narrows down the issue to a single HTTP call.
 
 Examine the `<error message>` to determine the root cause, make necessary adjustments, and try again.
 
+### Network calls missing in SC logs (RDC)
+
+On real devices, SC works by configuring the global proxy on the device, which all network calls should go through. If your app somehow bypasses the device proxy, the request will not go through the SC tunnel and likely fail. A telltale sign of this is when the network call does not show up at all in the SC logs. 
+
+For instance, Flutter uses its own self-contained networking stack and makes raw socket connections directly to the destination IP address, completely bypassing any system-level proxy interception that would normally occur. To fix this, you will need to use an HTTP client that follows the system-level proxy setting by default, or configure your existing HTTP client to follow the system-level proxy for requests that need to go through the SC tunnel.
+
+```dart
+  // Initialize HttpProxy to read system proxy settings
+  HttpProxy httpProxy = await HttpProxy.createHttpProxy();
+  // Set the global HTTP override to use the detected proxy settings.
+  HttpOverrides.global = httpProxy;
+```
+
 ### Still Stuck?
 
 If the issue persists, start a fresh Sauce Connect session with:
