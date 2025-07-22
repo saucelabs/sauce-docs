@@ -19,7 +19,7 @@ Supported OS:
 - macOS 11+*
 - Linux
 
-*macOS 14+ requires a Premium subsubscription and `armRequired:"true"` as an additional configuration parameter in your [YAML file](/web-apps/automated-testing/testcafe/yaml#armrequired)
+*macOS 14+ requires a Premium subscription and `armRequired:"true"` as an additional configuration parameter in your [YAML file](/web-apps/automated-testing/testcafe/yaml#armrequired)
 
 ## Supported Languages
 
