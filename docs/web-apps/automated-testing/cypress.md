@@ -44,6 +44,8 @@ Sauce Labs supports the following test configurations for Cypress:
       <td rowspan='2'>Chrome, Firefox, Microsoft Edge, Webkit (Experimental)</td>
       <td rowspan='2'>June 30th, 2026</td>
     </tr>
+  </tbody>
+  <tbody>
     <tr>
       <td rowspan='2'>14.3.2</td>
       <td rowspan='2'>22</td>
