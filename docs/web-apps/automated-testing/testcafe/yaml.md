@@ -1735,7 +1735,7 @@ suite:
 
 ### `armRequired`
 
-<p><small>| OPTIONAL | BOOLEAN |</small></p>
+<p><small>| OPTIONAL | BOOLEAN | <span className="sauceGreen">saucectl 0.196.0+</span></small></p>
 
 When set to `true`, this option adds capability requirement for ARM architecture on the machine running the test.
 
