@@ -494,17 +494,21 @@ Your account is not verified. This means that the email associated with the acco
 
 **Description**
 
-ChromeDriver wrongly assumed that chrome was not installed on one of our Real Devices. 
+ChromeDriver may incorrectly determine that Chrome is not installed on our Android 10 Real Devices.
 
 **Cause(s)**
 
-- This only occurs on Android 10 devices, that have chrome version > 137 installed.
-- When Chrome Driver starts up, it checks if chrome is installed on the device, it does so by running the adb command: `adb shell  pm path --user cur com.android.chrome`. On Android 10 devices, that have chrome > 137 installed, this command returns no packages, so chrome driver wrongly assumes chrome is not installed. The `--user cur` arg was introduced with Chrome Driver 137 and is a regression.
-- We have raised a bug report with Chrome, please follow this bug report for updates https://issues.chromium.org/issues/433885051
+This issue affects Android 10 devices when using ChromeDriver 137 or newer with Chrome browser version 137 or newer.
+
+When ChromeDriver starts, it checks if Chrome is installed by running the `adb shell pm path --user cur com.android.chrome command`. A regression was introduced in ChromeDriver 137 that causes this command to fail on Android 10, making ChromeDriver incorrectly assume the browser isn't installed.
+
+We have filed a bug report with the Chromium team. You can follow its progress here: https://issues.chromium.org/issues/433885051
 
 **How to Resolve**
-- Most Android devices disallow downgrading Chrome, because Chrome is a system app. We therefore can not resolve this issue on our Real Devices, once Google installs the latest Chrome version on the device, we cannot go back.
-- Because we cannot downgrade, we recommend:
-      - Utilize the us-west DC, most devices there are still on older chrome versions.
-      - Run the test in our Virtual Cloud, because our virtual cloud has old snapshots of android 10 & chrome combinations, we won't experince the same issue there.
-      - Waiting until the bug is resolved in an upcoming Chrome Driver release.
+
+Since Chrome is a system app, most Android devices don't allow it to be downgraded. Once a Real Device is updated to an affected Chrome version, we cannot revert it.
+
+We recommend the following temporary solutions:
+- Use the US-West data center, as most devices there still have older, unaffected versions of Chrome.
+- Run tests in our Virtual Cloud, which uses device snapshots with compatible Android 10 and Chrome combinations that don't have this issue.
+- Wait for a fix in an upcoming ChromeDriver release.
