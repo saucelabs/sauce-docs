@@ -490,7 +490,6 @@ Your account is not verified. This means that the email associated with the acco
 - Sign in to [Sauce Labs](https://app.saucelabs.com/), try to re-send the email and check your inbox/spam folder again.
 - Once you've done all of the above, raise a support ticket.
 
-
 ### Session not created from unknown error: com.android.chrome is not installed on device 
 
 **Description**
