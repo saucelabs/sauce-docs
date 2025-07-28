@@ -77,7 +77,7 @@ The following table describes the maximum amount you are allowed to exceed your 
 |501-2000|50%|1000 -> 1500|
 |2001+|10%|2500 -> 2750|
 
-Once your organization attempts to run a test past the maximum amount you can exceed your tests will receive a [You've Exceeding Your Concurrency Limit Error](/dev/error-messages/#youve-exceeded-your-sauce-labs-concurrency-limit)
+Once your organization attempts to run a test past the maximum amount you can exceed your tests will receive a [You've Exceeded Your Concurrency Limit Error](/dev/error-messages/#youve-exceeded-your-sauce-labs-concurrency-limit)
 
 ## Real Device Cloud Concurrency
 
