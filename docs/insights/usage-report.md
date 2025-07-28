@@ -40,7 +40,7 @@ It is possible that this chart shows values above the organization limit even wh
 In these views, VM concurrency is shown per resource type. Concurrency usage is broken down by:
 
 - Android/Linux/Windows VM Concurrency: Shows the concurrent usage for tests executed on Linux, Windows, and Android.
-- Apple x86 VM Concurrency: Shows the concurrent usage for tests executed on Mac OS and iOS Simulators with Intel/x86 based processor.
+- Apple x86 VM Concurrency: Shows the concurrent usage for tests executed on Mac OS and iOS Simulators with Intel/x86 based processors.
 - Apple ARM VM Concurrency: Shows the concurrent usage for tests executed on Mac OS and iOS Simulators with ARM based processors.
 
 ### Real Device Concurrency and Usage
