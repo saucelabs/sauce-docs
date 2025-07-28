@@ -28,19 +28,20 @@ Sauce Labs Usage reporting calculates the maximum concurrency during a given int
 
 <img src={useBaseUrl('img/insights/ccy-org-month-total.png')} alt="Total concurrency usage at organization level"/>
 
-In this view, the chart shows the total concurrency usage at an organization level compared to the subscription concurrency limit for each month. Each bar shows the maximum number of concurrent executions and adds them up to create the total usage.
+In this view, the chart shows the total concurrency usage at an organization level summing all resource types compared to the subscription concurrency limit for each month. Each bar shows the maximum number of concurrent executions and adds them up to create the total usage.
 
 It is possible that this chart shows values above the organization limit even when teams have not gone above their individual limit. To see the usage at team level, select the corresponding team in the dropdown from the filters.
 
 
 ### VM Concurrency Usage
 
-<img src={useBaseUrl('img/insights/ccy-team-month-vms.png')} alt="VM concurrency usage at team level"/>
+<img src={useBaseUrl('/img/insights/VM_breakdown.png')} alt="VM Concurrency breakdown by resource type"/>
 
-Shows the total concurrency, aggregating all devices grouped by team. This information can be broken down by:
+In these views, VM concurrency is shown per resource type. Concurrency usage is broken down by:
 
-- VM Concurrency: Shows the concurrent usage for tests executed on Linux Browsers, Windows Browsers and Android Emulators.
-- Mac VM Concurrency: Shows the concurrent usage for tests executed on Mac OS, Mac OSX and iOS Emulators.
+- Android/Linux/Windows VM Concurrency: Shows the concurrent usage for tests executed on Linux, Windows, and Android.
+- Apple x86 VM Concurrency: Shows the concurrent usage for tests executed on Mac OS and iOS Simulators with Intel/x86 based processor.
+- Apple ARM VM Concurrency: Shows the concurrent usage for tests executed on Mac OS and iOS Simulators with ARM based processors.
 
 ### Real Device Concurrency and Usage
 
@@ -66,30 +67,3 @@ With Sauce Labs Real Device usage analytics your organization can get a view of 
 Visual Usage Analytics helps to maintain a consistent assessment of snapshot usage and uncover trends. Compare monthly data with daily granularity to track usage over time, use filters to identify key trends, or drill down into team-by-team usage. Empower your organization to make more informed decisions with on-demand data, directly available in the Sauce Labs UI.
 
 <img src={useBaseUrl('img/insights/visual_usage.png')} alt="Visual Snapshot Usage"/>
-
-## Usage Reporting Email Notifications
-
-Get clear and consistent updates delivered directly to your inbox when your organization is reaching or approaching different limits of your concurrency subscription. All the benefits of our Usage reporting like visualizing the concurrency usage at an organization level or by team level, comparing concurrency usage between teams, and visualizing the maximum concurrency usage as it approaches the subscription limit are still present in the Usage tab, now with the added benefit of getting better visibility into your subscription usage on a consistent basis via email.
-
-<img src={useBaseUrl('img/insights/usage-email.png')} alt="Usage Email"/>
-
-:::note Org Admins 
-Org admins will be opted into the emails automatically but can choose to disable them via User Settings.
-:::
-
-#### How it Works
-
-There are two emails you may receive once opted into receiving Usage Reports via email. 
-
-- Concurrency limit approaching: This email will be sent when concurrency limit has reached 95 - 99.9%
-- Concurrency limit exceeded: This email will be sent when concurrency limit has exceeded 100%
-
-#### Opting Into Usage Report Emails
-
-- Click Account in the top right of your Sauce Labs account on any page
-- Select User Settings
-- Scroll down to Email Settings and click the toggle to enable Usage Reports
-
-#### How often are emails sent?
-
-Once opted in, Usage Reports will be sent once a week on Monday mornings. 
