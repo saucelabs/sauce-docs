@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::End of Support
+:::warning End of Support
 Beginning July 31, 2025 iPhone and iPad Instant Boot simulators for iOS versions 15 and 16 are no longer supported. Tests configured with these simulators will be executed on default Simulators. For access to the best performing iOS Simulators on the latest versions, we recommend our [virtual devices with Apple Silicon support](/mobile-apps/virtual-apple-silicon).
 
 :::
