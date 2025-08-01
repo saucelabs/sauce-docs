@@ -8,7 +8,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<p><small><span className="sauceGreen">Beta</span></small></p>
+:::warning End of Support
+Beginning July 31, 2025 iPhone and iPad Instant Boot simulators for iOS versions 15 and 16 are no longer supported. Tests configured with these simulators will be executed on default Simulators. For access to the best performing iOS Simulators on the latest versions, we recommend our [virtual devices with Apple Silicon support](/mobile-apps/virtual-apple-silicon).
+
+:::
+
 
 The speed of the Simulator is a crucial factor that impacts the development workflow of iOS app developers. Instant booted iOS Simulators offer significant advantages over our default Simulators, as they reduce the time it takes to launch the Simulator to test apps to almost zero seconds.
 
@@ -56,15 +60,6 @@ Invalid platform version specified for instant Simulators: iPhone Instant Simula
 
 :::
 
-There are two advantages of using the aliases
-
-1. Whenever Apple releases a new major version of iOS, they usually launch a new iPhone or iPad model. Sauce Labs assigns these models to the aliases `iPhone Instant Simulator` or `iPad Instant Simulator`, which means you can access the new device automatically without having to change your capabilities. Consequently, you'll be using the latest device for your tests and will be testing your app on what will most likely be the most popular device used by your users.
-
-2. If Apple releases a new minor or major iOS version and Sauce Labs incorporates it into their cloud, you'll get automatic access to the new version without having to alter your capabilities. This means that you'll be using the latest iOS version for your tests and will be testing your app on what is most likely the most popular iOS version used by your users.
-
-:::info
-The following examples use iOS 16 and 15 as the current and previous major versions of iOS, respectively.
-:::
 
 | Device Name              | Platform Version                                |              Result              |   Instant Booted   | Note                                                                                                                                                                         |
 | :----------------------- | :---------------------------------------------- | :------------------------------: | :----------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -76,8 +71,6 @@ The following examples use iOS 16 and 15 as the current and previous major versi
 | iPad Instant Simulator   | A fixed iOS version, for example, 16.2, or 15.5 |                -                 |        :x:         |                                                                                                                                                                              |
 
 ### Using explicit capabilities
-
-You can use explicit capabilities to access the Instant Booted iOS Simulators. However, this is not recommended because you're more likely to end up on a normally booted simulator when Apple releases a new minor or major version of iOS. As a result, you won't automatically gain access to the latest device or iOS version for your tests, and you'll likely be testing your app on a less popular device or iOS version that is not commonly used by your users.
 
 If you want to use explicit capabilities, then you can use the following combinations:
 
@@ -92,26 +85,6 @@ The following examples use iOS 16 and 15 as the current and previous major versi
 | iPhone 14 Simulator                                                            | 16.1             |            16.2            |        :x:         | The requested device name + OS version **DO NOT** match with an Instant Booted configuration. |
 | iPhone 13 Simulator                                                            | 16.2             |            16.2            |        :x:         | The requested device name + OS version **DO NOT** match with an Instant Booted configuration. |
 
-## Accessing Instant Booted iOS Simulator for Live Testing
-
-To access the Instant Booted iOS Simulator follow the steps below, for this example we will use the iPhone 14 with the latest iOS 16.x version (`current_major`):
-
-1. On Sauce Labs click **Live** > **Cross Browser** > **Mobile Virtual**.
-   <img src={useBaseUrl('img/mobile-apps/instant-sim-1.png')} alt="instant booted menu" width="750"/>
-
-2. Select “Apple” as the Manufacturer.
-3. If you want to use the `current_major` version, then use these values :
-
-- Select **iPhone 14 Simulator** for the Device.
-- Select the latest available version of iOS.
-
-:::note
-If you want to use the `previous_major` version, then use these values:
-
-- Select “iPhone 13 Simulator” for the Device
-- Select the previous major version, at the moment this is “iOS 15.5”, for the OS Version
-
-:::
 
 ## Accessing Instant Booted iOS Simulator for Automated Testing with Appium
 
