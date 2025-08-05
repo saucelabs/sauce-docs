@@ -30,7 +30,7 @@ The sauce AI Homepage has numerous widgets to highlight the results and changes 
 
 ### The Summary Widget
 
-Summarizes key metrics in one place to streamline decision-making with metrics like pass and error rates that highlight when something needs your attention
+Summarizes key metrics in one place to streamline decision-making with metrics like pass and error rates that highlight when something needs your attention.
 
 <img src={useBaseUrl('img/insights/home_summary_widget.png')} alt="Home Summary Widget"/>
 
