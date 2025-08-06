@@ -24,6 +24,12 @@ Sauce AI Home allows you to filter your test data to surface what's most importa
 
 <img src={useBaseUrl('img/insights/home_filter_bar.png')} alt="Home Filter Bar"/>
 
+## Exporting the Homepage for sharing
+
+Sauce AI Home is a great tool to share with your teammates. You can export the full page by clicking the small download arrow in the top right of the page to export to PDF. 
+
+<img src={useBaseUrl('img/insights/home_export_to_pdf.png')} alt="Home Summary Widget"/>
+
 ## Digging Into the Data With Widgets
 
 The sauce AI Homepage has numerous widgets to highlight the results and changes in your testing data that matter most to you. 
