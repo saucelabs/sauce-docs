@@ -1538,6 +1538,7 @@ module.exports = {
             collapsed: true,
             items: [
                 'insights',
+                'insights/home',
                 'insights/scope',
                 'insights/overview',
                 'insights/history',
