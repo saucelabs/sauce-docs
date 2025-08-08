@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-As a best practice, we recommend setting your Sauce Labs authentication credentials as environment variables on your local system, that can then be referenced from in your tests. This provides an extra layer of security for your tests, and also enables other members of your development and testing team to write tests that authenticate against a single account.
+As a best practice, we recommend setting your Sauce Labs authentication credentials as environment variables on your local system, that can then be referenced from in your tests. This provides an extra layer of security for your tests, and also enables other members of your development and testing team to write tests that authenticate against a single account. 
 
 For a list of Sauce Connect environment variables, see [Environment Variables](/dev/cli/sauce-connect-5/run/).
 
