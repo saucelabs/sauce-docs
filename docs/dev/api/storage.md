@@ -67,7 +67,7 @@ Returns the set of files that have been uploaded to Sauce Storage by the request
   <tbody>
     <tr>
      <td><code>tag</code></td>
-     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>One or more tags to only include files having these tags assigned into the resulting JSON. AND condition is applied if more than one tag is provided</p></td>
+     <td><p><small>| QUERY | OPTIONAL | ARRAY of STRINGS |</small></p><p>One or more tags to include only files with these tags assigned into the resulting JSON. AND condition is applied if more than one tag is provided</p></td>
     </tr>
   </tbody>
   <tbody>
