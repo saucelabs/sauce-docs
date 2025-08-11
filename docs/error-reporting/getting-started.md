@@ -9,7 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The following provides the steps and best practices for integrating your project with Backtrace.
 
-## Set Up A Project
+## Set Up a Project
 
 You must first create a project in your Backtrace instance. A project is a container that lets you organize your errors. You have to create at least one project to submit your errors to.
 
@@ -33,7 +33,7 @@ For more information about submitting errors, see our [Integration Guides](/erro
 
 ## Add Attributes
 
-We highly recommend that you add attributes to your project and your errors - the more the better. Attributes are important because they allow you to aggregate and filter on important data in the query builder.
+We highly recommend that you add attributes to your project and your errors - the more, the better. Attributes are important because they allow you to aggregate and filter on important data in the query builder.
 
 Make sure to attach the attributes to your errors, as well as declare those attributes in the Backtrace UI.
 

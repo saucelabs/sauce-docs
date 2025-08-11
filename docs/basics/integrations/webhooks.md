@@ -17,7 +17,7 @@ The Sauce Labs Webhooks integration allows you to specify a URL to which Sauce L
 ## What You'll Need
 
 - A Sauce Labs account (if you don't have one, start a [free trial](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings)
 - A URL able to consume events data pushed from Sauce Labs
 
 ## Configure a Webhook

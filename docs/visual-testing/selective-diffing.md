@@ -14,7 +14,7 @@ We support the following change types:
 - **Dimensions:** When the size of an element changes.
 - **Position:** When the position (top left corner) of an element changes.
 - **Structure:** When an element or attribute was added, deleted or moved.
-- **Style:** When CSS was changed.
+- **Style:** When CSS changes.
 - **Visual:** When something visually changed that cannot be categorized.
 
 > Note: To benefit from selective diffing, you need

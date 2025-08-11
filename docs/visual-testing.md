@@ -38,12 +38,12 @@ Sauce Visual Testing stands for:
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com) or sign up for a [free trial license](https://saucelabs.com/sign-up)) to access Visual Testing.
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings).
+- Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings).
 
 ## Workflows
 
 Sauce Visual testing consists of two main workflows: Test execution and review.
-Both workflows need to implemented, but they may performed by different people or teams.
+Both workflows need to be implemented, but they may be performed by different people or teams.
 Read below to learn more about the workflows.
 
 ### Test Execution
@@ -57,7 +57,7 @@ With Sauce Visual testing existing test suites can be enhanced with a few extra 
 ### Review
 
 This workflow is responsible for approving or rejecting detected changes between a snapshot and a baseline.
-Users will be available to review changes and make the [baseline](#baseline) evolve for accepted changes.
+Users will be able to review changes and make the [baseline](#baseline) evolve for accepted changes.
 
 [Follow me to learn more](./visual-testing/workflows/review.md)
 
@@ -85,7 +85,7 @@ A **build** has a status that represents its current state:
 | `No changes`   | No difference has been detected between snapshots and the matching baselines |
 | `Running`      | Build is still running                                                       |
 | `Queued`       | Snapshots are waiting to be compared against baselines                       |
-| `For review`   | Changes have been detected and and action is needed                          |
+| `For review`   | Changes have been detected and action is needed                          |
 | `Errored`      | An error has occurred                                                        |
 | `Rejected`     | Changes have been detected and they have been rejected                       |
 | `No Snapshots` | There is no snapshot in this build                                           |
@@ -117,14 +117,14 @@ The following snapshot metadata keys are used to determine the appropriate basel
 | Property                 | Type     | Description                                                                                                                                                               |
 | ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `name`                   | `string` | The name of the snapshot which will be set when the `sauceVisualCheck()` is called. See each language binding.                                                            |
-| `testName`               | `string` | The name of the test where the snapshot has been taken (only with Cypress, WebdriverIO, and Storybook BETA). This will automatically determined by the language binding.  |
-| `suiteName`              | `string` | The name of the suite where the snapshot has been taken (only with Cypress, WebdriverIO, and Storybook BETA). This will automatically determined by the language binding. |
+| `testName`               | `string` | The name of the test where the snapshot has been taken (only with Cypress, WebdriverIO, and Storybook BETA). This will automatically be determined by the language binding.  |
+| `suiteName`              | `string` | The name of the suite where the snapshot has been taken (only with Cypress, WebdriverIO, and Storybook BETA). This will automatically be determined by the language binding. |
 | `browser`                | `string` | The browser used to take the snapshot. This will automatically be determined by Sauce Visual.                                                                             |
 | `operatingSystem`        | `string` | The operating system used to take the snapshot. This will automatically be determined by Sauce Visual.                                                                    |
 | `operatingSystemVersion` | `string` | The operating system version used to take the snapshot. This will automatically be determined by Sauce Visual.                                                            |
 | `project`                | `string` | The project name. This can be set during service initiation, for more information see the language bindings.                                                              |
 | `branch`                 | `string` | The branch name. This can be set during service initiation, for more information see the language bindings.                                                               |
-| `device`                 | `string` | The device name. This will automatically be determine by Sauce Visual.                                                                                                    |
+| `device`                 | `string` | The device name. This will automatically be determined by Sauce Visual.                                                                                                    |
 
 If multiple baselines match, the most recent one is selected for diff computation.
 
@@ -138,10 +138,10 @@ This means, that a baseline can only be considered for a diff if it existed befo
 
 ## Integrations
 
-Sauce Visual provides integrations with different kind of frameworks:
+Sauce Visual provides integrations with different kinds of frameworks:
 
-- **E2E Testing** allows to navigate a website and capture snapshots any time this is needed.
-- **Component Testing** allows to test extensively all your components.
+- **E2E Testing** allows you to navigate a website and capture snapshots any time this is needed.
+- **Component Testing** allows you to test extensively all your components.
 
 <div className="box-wrapper" markdown="1">
 <div className="box box1 card">

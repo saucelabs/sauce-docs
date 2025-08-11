@@ -24,7 +24,7 @@ You can check the current accessibility of any Sauce Labs system on the [Sauce L
 
 The Sauce Labs APIs are organized around REST. Each endpoint is structured as a resource-oriented URL that accepts inline query parameters and form-encoded request bodies, then returns JSON-encoded responses.
 
-Each endpoint is constructed from a `{base-url}` prefix that is based on the data center associated with the Sauce Labs account for which the request is relevant, plus the latest version for the given method. The following table provide the base URLs for each data center.
+Each endpoint is constructed from a `{base-url}` prefix that is based on the data center associated with the Sauce Labs account for which the request is relevant, plus the latest version for the given method. The following table provides the base URLs for each data center.
 
 | Data Center | API Base URL                              |
 | :---------- | :---------------------------------------- |
@@ -132,6 +132,6 @@ Requests received after the rate limit is reached return a [429 response code](h
 
 ## JSON Response Formatting
 
-The request examples throughout the API documentation are appended with `| json_pp` as a convenience to return the response in a more readable format that does not require the installation of any additional tools.
+The request examples throughout the API documentation are appended with `| json_pp` as a convenience to return the response in a more readable format, so you don’t need to install additional tools.
 
 You can remove the `| json_pp` reference from your requests to have responses returned as raw JSON, or you can specify a different syntax formatter of your choosing, such as [JQ](https://stedolan.github.io/jq/).
