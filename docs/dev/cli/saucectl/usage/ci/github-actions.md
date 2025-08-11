@@ -13,7 +13,7 @@ These examples can apply to virtually any GitHub deployment, provided that you a
 ## What You'll Need
 
 - A Sauce Labs account ([Log in](https://accounts.saucelabs.com/am/XUI/#login/) or sign up for a [free trial license](https://saucelabs.com/sign-up))
-- Your Sauce Labs [Username and Access Key](https://app.saucelabs.com/user-settings)
+- Your Sauce Labs [username and access key](https://app.saucelabs.com/user-settings)
 - A [GitHub Account](https://github.com/join)
 - The following permissions in GitHub:
   - ability to create and manage workflows
