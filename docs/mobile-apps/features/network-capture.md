@@ -126,6 +126,7 @@ If you need to localize the capture context with just the browser and omit all n
 
 - iOS network capture is supported on iOS/iPadOS 14.0 and above.
 - Android network capture is supported on Android 10 and above.
+- Only native and web applications are supported at the moment (we do not provide network capture for hybrid applications like Flutter).
 - Only HTTP/HTTPS network traffic is captured.
 - Android Emulators are not supported.
 - iOS Simulators are not supported.
