@@ -64,7 +64,6 @@ groupId="lang"
 defaultValue="python"
 values={[
 {"label":"Python","value":"python"},
-{"label":"WebdriverIO","value":"wdio"}
 ]}>
 <TabItem value="python">
 
@@ -119,15 +118,15 @@ Each event sends a POST request containing the job object with the following dat
 
 | Data Field          | Format | Required | Description                                                                                                                                                                           |
 |---------------------|--------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `org_id`            | STRING | TRUE     | Id of build owner's Sauce Labs organization.                                                                                                                                          |
+| `org_id`            | STRING | TRUE     | Build owner's Sauce Labs organization id.                                                                                                                                             |
 | `user_id`           | STRING | TRUE     | Build owner's Sauce Labs user id.                                                                                                                                                     |
 | `team_ids`          | ARRAY  | TRUE     | A list of Sauce Labs team ids which the build owner belongs to.                                                                                                                       |
 | `creator_id`        | STRING | TRUE     | Id of build owner's Sauce Labs organization.                                                                                                                                          |
 | `build_id`          | STRING | TRUE     | Sauce Labs unique identifier of the build.                                                                                                                                            |
 | `build_name`        | STRING | TRUE     | The name that was given to the build.                                                                                                                                                 |
-| `build_url`         | STRING | TRUE     | Url with build details.                                                                                                                                                               |
+| `build_url`         | STRING | TRUE     | Direct link to the build in the Sauce Labs dashboard.                                                                                                                                 |
 | `status`            | ENUM   | TRUE     | Status of the build. Possible values are:<br/><ul><li>`APPROVED`</li><li>`EMPTY`</li><li>`EQUAL`</li><li>`ERRORED`</li><li>`QUEUED`</li><li>`REJECTED`</li><li>`UNAPPROVED`</li></ul> |
 | `branch`            | STRING | FALSE    | The name of the branch.                                                                                                                                                               |
 | `project`           | STRING | FALSE    | The name of the project.                                                                                                                                                              |
 | `summary`           | JSON   | TRUE     | Contains the number of the snapshots of the following statuses: `errored`, `approved`, `equal`,  `rejected`, `unapproved`, `queued`                                                   |
-| `data_center`       | STRING | TRUE     | Data center when the build was executed.  Possible values are:<br/><ul><li>`us-west-1`</li><li>`eu-cental-1`</li><li>`us-east-1`</li></ul>                                            |
+| `data_center`       | STRING | TRUE     | Data center where the build was executed.  Possible values are:<br/><ul><li>`us-west-1`</li><li>`eu-central-1`</li><li>`us-east-1`</li></ul>                                          |
