@@ -21,7 +21,7 @@ Options:
 - `scrollLimit`: Limit the number of screenshots taken for scrolling and stitching. The default value is 10. The value needs to be between 1 and 10.
 
 :::note
-It's recommended to use the ``hideAfterFirstScroll` option for fixed or sticky position elements such as sticky headers or consent banners.
+It's recommended to use the `hideAfterFirstScroll` option for fixed or sticky position elements such as sticky headers or consent banners.
 :::
 
 Example:
