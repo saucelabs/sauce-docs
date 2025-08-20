@@ -37,7 +37,7 @@ await browser.sauceVisualCheck('Long content page', {
   fullPage: {
     delayAfterScrollMs: 500,
     disableCSSAnimation: false,
-    hideElementsAfterFirstScroll: ["#header"],
+    hideAfterFirstScroll: ["#header"],
     hideScrollBars: false,
     scrollLimit: 5
   },
