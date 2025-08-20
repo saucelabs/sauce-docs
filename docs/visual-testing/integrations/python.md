@@ -116,7 +116,7 @@ visual_client.create_snapshot_from_webdriver(
         # disable full page screenshots:
         # ex:
         # scrollLimit=10,
-        # hideElementsAfterFirstScroll=['.fixed-header', '#cookie-banner']
+        # hideAfterFirstScroll=['.fixed-header', '#cookie-banner']
         # delayAfterScrollMs=200,
     ),
 )
