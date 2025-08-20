@@ -407,7 +407,7 @@ By default, only the viewport is captured when `.VisualCheck` is used. You can o
 Additionally, you have the option to configure full page settings using the `FullPageConfig` option.
 
 :::note
-It's recommended to use the `hideElementsAfterFirstScroll` option for fixed or sticky position elements such as sticky headers or consent banners.
+It's recommended to use the `HideAfterFirstScroll` option for fixed or sticky position elements such as sticky headers or consent banners.
 :::
 
 Options:
