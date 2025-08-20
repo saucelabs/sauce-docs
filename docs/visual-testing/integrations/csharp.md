@@ -437,7 +437,7 @@ await VisualClient.VisualCheck("C# full page config",
             {
                 DelayAfterScrollMs = 500,
                 DisableCSSAnimation = false,
-                hideElementsAfterFirstScroll = new List<string> { ".header" },
+                HideAfterFirstScroll = new List<string> { ".header" },
                 ScrollLimit = 5
             }
     });
