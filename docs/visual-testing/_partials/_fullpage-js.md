@@ -16,7 +16,7 @@ Options:
 
 - `delayAfterScrollMs`: Delay in ms after scrolling and before taking screenshots. The default value is 0. We recommend using this option for lazy loading content.
 - `disableCSSAnimation`: Disable CSS animations and the input caret in the app. The default value is true.
-- `hideAfterFirstScroll`: (this method replaced 'hideAfterFirstScroll') One or more CSS selectors that we should remove from the page after the first scroll. Useful for hiding fixed elements such as headers, cookie banners, etc.
+- `hideAfterFirstScroll`: One or more CSS selectors that we should remove from the page after the first scroll. Useful for hiding fixed elements such as headers, cookie banners, etc.
 - `hideScrollBars`: <span className="sauceGold">Deprecated</span> use `hideScrollBars` from `CheckOptions` instead.
 - `scrollLimit`: Limit the number of screenshots taken for scrolling and stitching. The default value is 10. The value needs to be between 1 and 10.
 
